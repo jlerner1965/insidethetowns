@@ -9456,3 +9456,27 @@ here).*
   22-3, beside games of March 2027, and girls' soccer its 4-7-4.
 - An exception to the 90-day test's "no new features", made by the owner;
   the rule itself stands.
+
+## Niwot gap report: the owner's calls, 9 November 2026
+
+*The owner: "Yes to 1 2 4."*
+
+- **More Niwot High teams.** Girls' gymnastics (the 4A team champion of
+  2024 and 2025), boys' golf and boys' tennis join Niwot's list in
+  `src/config/school-sports.ts`, on MaxPreps's own paths for the school.
+  Their cards appear once the Saturday or Wednesday run reads them. The
+  spring teams wait for a spring season in `SportConfig` (TODO.md); cheer
+  is not on MaxPreps.
+- **A /services/ page for Niwot.** Yes. It was put to the owner as a new
+  page type for after 20 January; it is not one. The category page builds
+  itself once three `service` places are listed, so it is content work.
+  Started the same day at the owner's word: Niles Family Dentistry,
+  Blessings Day Spa and Niwot Veterinary Clinic, each from its own site.
+  The clinic is listed although it leaves for Broomfield on March 15 (the
+  owner's yes); Niwot Barber Shop and Niwot Dental are staged.
+- **Thanksgiving on BOLT.** Yes: a line in the Niwot notes for the week of
+  23 November, added once the Wednesday editor has opened that week's
+  notes on 18 November, so the research draft is not lost.
+- **Not taken up:** the manual reads of Boulder Community Health, King
+  Soopers Gunbarrel, the Niwot Post Office and Gunbarrel Library's
+  storytimes, which block automated readers.

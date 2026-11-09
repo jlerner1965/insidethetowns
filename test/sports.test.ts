@@ -710,9 +710,10 @@ test('Golden follows boys tennis in the fall and baseball and both lacrosse team
     ['spring', 'lacrosse/girls'],
   ]);
   // Only Golden asked for lacrosse (Lyons follows baseball and track in spring, not these); boys'
-  // tennis is Golden's and Frederick's, which the owner added the same day (FREDERICK_FALL_EXTRAS).
+  // tennis is Golden's, Frederick's and Niwot's, which the owner added the same day
+  // (FREDERICK_FALL_EXTRAS; NIWOT_BOYS_TENNIS).
   for (const s of SCHOOL_SPORTS.filter((x) => x.town !== 'golden')) assert.equal(s.teams.some((t) => ['boys-lacrosse', 'girls-lacrosse'].includes(t.key)), false, s.school);
-  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['frederick', 'golden']);
+  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['frederick', 'golden', 'niwot']);
 });
 
 test('a spring team before its season is written empty, not with last spring’s games', () => {
@@ -1031,6 +1032,19 @@ test('Berthoud follows girls flag football, a fall team, on MaxPreps’s Colorad
   assert.equal(flag.maxpreps, 'flag-football/girls/fall');
   assert.deepEqual(flag.calendar, { gender: 'Girls', sport: 'Flag Football' });
   assert.equal(schoolSportsFor('niwot')!.teams.some((t) => t.key === 'girls-flag-football'), false);
+});
+
+test('Niwot follows girls gymnastics, boys golf and boys tennis, fall teams, on MaxPreps’s own paths for the school', () => {
+  const teams = schoolSportsFor('niwot')!.teams;
+  const path = (key: string) => teams.find((t) => t.key === key);
+  assert.equal(path('girls-gymnastics')?.maxpreps, 'gymnastics/fall');
+  assert.equal(path('boys-golf')?.maxpreps, 'golf');
+  assert.equal(path('boys-tennis')?.maxpreps, 'tennis/fall');
+  for (const key of ['girls-gymnastics', 'boys-golf', 'boys-tennis']) assert.equal(path(key)?.season, 'fall');
+  // The other schools' lists are untouched.
+  assert.equal(schoolSportsFor('berthoud')!.teams.some((t) => t.key === 'girls-gymnastics'), false);
+  // Keys are unique within the school.
+  assert.equal(new Set(teams.map((t) => t.key)).size, teams.length);
 });
 
 test('the school page’s eyebrow is the school year while it lays out fall and winter teams together, the season otherwise', async () => {
