@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Bill McKay", kind: person }
 source: "https://www.thegoldenmill.com/events/live-music-with-bill-mckay-4"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Bill McKay\" at 5 pm on 19 November in the page's structured data"
 ---
 

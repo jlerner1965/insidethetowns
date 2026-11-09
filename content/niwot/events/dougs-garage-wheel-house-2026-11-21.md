@@ -9,7 +9,7 @@ performers:
 url: "https://www.niwotwheelhouse.com/events/dougs-garage-r8295"
 category: music
 source: "https://www.niwotwheelhouse.com/events/dougs-garage-r8295"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Dougs Garage  — The Wheel House\" at 7 pm on 21 November in the page's structured data"
 ---
 

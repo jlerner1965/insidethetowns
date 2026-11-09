@@ -10,7 +10,7 @@ source: "https://music.colostate.edu/events/virtuoso-series-concert-wesley-ferre
 sourceId: "music-colostate-edu"
 sourceUid: "17-19478@music.colostate.edu"
 sourceHash: "cd32cc2a946b"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Virtuoso Series Concert: Wesley Ferreira, Clarinet and Tim Burns, Piano   -A Century of French Masterworks for Clarinet and Piano\" at 7:30 pm on 16 November on the music.colostate.edu feed"
 ---
 

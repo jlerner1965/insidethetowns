@@ -10,7 +10,7 @@ category: family
 organizer: "Lafayette Public Library"
 organizerUrl: "https://www.lafayetteco.gov/library"
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/Loteria2026"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Lotería Mexicana - Family Bingo\" at 11:30 am on 21 November on the Lafayette Public Library - LibCal calendar feed"
 ---
 

@@ -13,7 +13,7 @@ organizer: "Town of Estes Park"
 organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/tree-lighting/"
 sourceId: "eventsinestes-com"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 3:30 pm on the page"
 ---
 

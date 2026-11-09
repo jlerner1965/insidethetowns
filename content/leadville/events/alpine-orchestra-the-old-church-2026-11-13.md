@@ -11,7 +11,7 @@ performers:
 organizer: "Alpine Orchestra"
 organizerUrl: "https://www.alpineorchestra.org/"
 source: "https://www.alpineorchestra.org/next_concerts.html"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 13 November and 7 pm on the page"
 ---
 

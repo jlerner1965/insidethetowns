@@ -7,7 +7,7 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: family
 recurring: "Third Thursdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Dogs Enjoy Afternoon Reading (D.E.A.R.)\" at 5 pm on 19 November on the lyons.librarycalendar.com feed"
 ---
 

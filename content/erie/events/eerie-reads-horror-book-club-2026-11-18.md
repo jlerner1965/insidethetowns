@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: arts
 recurring: "Monthly, third Wednesdays"
 source: "https://highplains.libcal.com/event/17077351"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Eerie Reads Horror Book Club\" at 6 pm on 18 November in the page's structured data"
 ---
 

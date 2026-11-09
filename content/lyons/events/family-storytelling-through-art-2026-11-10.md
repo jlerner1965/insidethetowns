@@ -12,7 +12,7 @@ url: "https://lyons.librarycalendar.com/event/family-story-telling-through-art-m
 cost: "Register with the library"
 category: family
 source: "https://lyons.librarycalendar.com/event/family-story-telling-through-art-museo-de-las-americas-after-school-program-12842"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Homeschool Community Meetup: Family Story Telling Through Art with Museo de las Americas\" at 2 pm on 10 November on the lyons.librarycalendar.com feed"
 ---
 

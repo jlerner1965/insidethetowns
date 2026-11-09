@@ -11,7 +11,7 @@ organizerUrl: "https://www.fortcollinschildrenstheatre.org/"
 source: "https://www.lctix.com/shows-tickets/willy-wonka/"
 sourceId: "lctix-com"
 sourceUid: "showare:5578"
-verified: "2026-10-23"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 22 November and 2 pm on the page"
 ---
 

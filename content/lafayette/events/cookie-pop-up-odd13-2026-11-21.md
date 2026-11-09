@@ -9,7 +9,7 @@ category: food
 organizer: "Odd13 Brewing"
 organizerUrl: "https://www.odd13brewing.com/"
 source: "https://www.odd13brewing.com/events"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 4 pm on the page"
 ---
 

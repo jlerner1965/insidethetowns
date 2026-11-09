@@ -12,7 +12,7 @@ category: food
 recurring: "Every Thursday, open to close"
 timeNote: "Open to close, 11 am to 9 pm on Thursdays"
 source: "https://peculierales.com/events/weekly-beer-release-day/"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"WEEKLY BEER RELEASE DAY!\" on 12 November on the Peculier Ales (Windsor) feed"
 ---
 

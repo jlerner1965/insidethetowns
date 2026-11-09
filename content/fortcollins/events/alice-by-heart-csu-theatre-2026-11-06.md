@@ -21,7 +21,7 @@ source: "https://theatre.colostate.edu/events/alice-by-heart-music-by-duncan-she
 verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Alice by Heart, Music by Duncan Sheik, Lyrics by Steven Sater, and Book by Steven Sater and Jessie Nelson\" at 7:30 pm on 6 November on the theatre.colostate.edu feed"
 changeFlag: true
-changeNote: "recheck 2026-11-08: not on the theatre.colostate.edu feed on 8 November; it has \"Alice by Heart, Music by Duncan Sheik, Lyrics by Steven Sater, and Book by Steven Sater and Jessie Nelson\" on 6 November"
+changeNote: "recheck 2026-11-09: not on the theatre.colostate.edu feed on 12 November; it has \"Alice by Heart, Music by Duncan Sheik, Lyrics by Steven Sater, and Book by Steven Sater and Jessie Nelson\" on 6 November"
 ---
 
 CSU Theatre's fall musical in the University Theatre: Duncan Sheik and Steven Sater's *Alice by Heart*, in which a girl sheltering in a London Tube station during the Blitz escapes into *Alice's Adventures in Wonderland*. Seven performances over two weekends, evenings at 7:30 and Sunday matinees at 2.

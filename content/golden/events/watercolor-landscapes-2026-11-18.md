@@ -10,7 +10,7 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6ad10c43a85a2c00337fc3c5"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Watercolor Landscapes\" at 6 pm on 18 November in the page's structured data"
 ---
 
