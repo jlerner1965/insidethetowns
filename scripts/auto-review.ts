@@ -168,6 +168,9 @@ for (const town of towns) {
   }
   const sourceById = (id: string | undefined) => (id ? sources.find((s) => s.id === id) : undefined);
   const published = publishedEvents(town.slug);
+  // Slugs a person retired (content/<town>/retired.json); the feed may still carry them.
+  const ledgerFile = join(contentDir, town.slug, 'retired.json');
+  const retiredEvents = new Set<string>(existsSync(ledgerFile) ? Object.keys((JSON.parse(readFileSync(ledgerFile, 'utf8')) as { events?: Record<string, unknown> }).events ?? {}) : []);
   const report: TownReport = { name: town.name, dropped: [], approved: [], applied: [], left: [], places: 0 };
   for (const item of queue) {
     if (item.kind === 'place') {
@@ -214,6 +217,7 @@ for (const town of towns) {
       today,
       by,
       targetExists: existsSync(target),
+      retired: retiredEvents.has(basename(item.file, '.md')),
     });
     if (!verdict.approve) {
       report.left.push({ what: `event · ${what}`, why: verdict.reasons });

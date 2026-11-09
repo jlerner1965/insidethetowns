@@ -81,6 +81,14 @@ export interface EventContext {
   by: string;
   /** The published file that would be written; the decision refuses if it exists. */
   targetExists: boolean;
+  /**
+   * The slug is in the town's retired.json: a person took that listing off
+   * the guide, usually because another listing carries the event. The feed
+   * still has it, and approving it again put a live file behind a retired
+   * slug, which the validator refuses, so the whole weekly run was thrown
+   * away (Lafayette, 9 November 2026). Left for a person instead.
+   */
+  retired?: boolean;
 }
 
 const schema = eventSchema(() => z.string());
@@ -148,6 +156,7 @@ export function decideEvent(text: string, ctx: EventContext): Verdict {
   // Ingest's own duplicate check (same place and time, a looser title): a person merges or rejects.
   if (/^Possible duplicate of /.test(review.reason ?? '')) reasons.push('ingest flagged it as a possible duplicate of a published listing');
   if (ctx.targetExists) reasons.push('a published file with this slug already exists');
+  if (ctx.retired) reasons.push('this slug is in retired.json: the listing was taken off the guide by hand, so reject it or take it out of the ledger');
   if (reasons.length) return { approve: false, reasons };
 
   const src = source!;
