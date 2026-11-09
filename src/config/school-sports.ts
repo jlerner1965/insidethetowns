@@ -246,6 +246,31 @@ const WINTER_WITHOUT = (...keys: string[]): SportConfig[] => WINTER().filter((t)
 const TEAMS = (fall: SportConfig[] = FALL(), winter: SportConfig[] = WINTER()): SportConfig[] => [...fall, ...winter];
 
 /**
+ * Frederick High's other fall and winter teams, followed at the owner's word
+ * (9 November 2026, on the Frederick gap report of 8 November, which counted
+ * about 21 programs to the guide's six on the page). CHSAANow's school page
+ * (chsaanow.com/schools/frederick, read 9 November 2026) lists Boys Golf and
+ * Boys Tennis as 4A fall sports; MaxPreps's school page, read the same day
+ * with WebFetch, links boys' `golf`, `tennis/fall` and girls' `wrestling/girls`
+ * (the girls' page the winter list's note says MaxPreps keeps for Frederick).
+ * The paths have not been read from the runner yet: one that is not there,
+ * or a team MaxPreps carries no games for, stays off the page and is named
+ * in the run's summary, as cross country and wrestling are today. No school
+ * calendar is read for Frederick (calendarNote), so the calendar words are
+ * not matched against anything. Its spring teams (baseball, girls' soccer,
+ * golf and tennis, and both track teams) wait for the spring season, as
+ * every school's do.
+ */
+const FREDERICK_FALL_EXTRAS = (): SportConfig[] => [
+  { key: 'boys-golf', season: 'fall', name: 'Boys golf', maxpreps: 'golf', calendar: { gender: 'Boys', sport: 'Golf' } },
+  { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } },
+];
+const FREDERICK_WINTER_EXTRAS = (): SportConfig[] => [
+  { key: 'girls-wrestling', season: 'winter', name: 'Girls wrestling', maxpreps: 'wrestling/girls', calendar: { gender: 'Girls', sport: 'Wrestling' } },
+];
+
+
+/**
  * Thompson School District's Finalsite sites: `?cal_date=YYYY-MM-01` shows a
  * month, and the varsity games are titled "Boys Varsity Football @ …". Each
  * school's robots.txt has its own say: Berthoud's and Mountain View's allow
@@ -440,7 +465,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // does Niwot's, whose robots.txt disallows every automated reader;
     // Frederick High's own site links no calendar of games.
     calendarNote: 'Frederick’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
+    teams: TEAMS([...FALL(), ...FREDERICK_FALL_EXTRAS()], [...WINTER(), ...FREDERICK_WINTER_EXTRAS()]),
   },
   {
     town: 'erie',

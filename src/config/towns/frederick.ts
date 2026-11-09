@@ -275,14 +275,17 @@ export const frederick: TownConfig = {
       },
       // Added 9 November 2026 from the gap report of 8 November: each item
       // read that day from the provider's own page (CommonSpirit, UCHealth,
-      // Safeway, Walgreens). Frederick's King Soopers Marketplace waits in
-      // staging: kingsoopers.com answered 503 again on 9 November.
+      // Safeway, Walgreens). King Soopers was listed at the owner's word the
+      // same day: kingsoopers.com answered 503 to the reader, so its address
+      // and phone are as the store's pages give them in search, and the rest
+      // is the Town's Silverstone Marketplace page (/places/ has the detail).
       {
         title: 'Health care, groceries and pharmacies',
         verified: '2026-11-09',
         items: [
           { label: 'CommonSpirit Emergency & Urgent Care Indian Peaks, 4943 Hwy 52', url: 'https://mountain.commonspirit.org/node/440356', note: 'A freestanding emergency room open around the clock, with urgent care every day 7 am to 9 pm; CT, ultrasound, lab and X-ray on site; 303-925-4840' },
           { label: 'UCHealth Urgent Care – Firestone, 5965 Firestone Blvd', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-carbon-valley', note: 'In the Carbon Valley Medical Center, Building B; Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 720-652-7055' },
+          { label: 'King Soopers Marketplace, 5801 Silverstone Dr', url: 'https://www.kingsoopers.com/stores/grocery/co/frederick', note: 'Frederick’s own supermarket, at Colorado Blvd and Hwy 52, with a drive-thru pharmacy and a fuel center; 303-327-1090' },
           { label: 'Safeway, 8134 Colorado Blvd, Firestone', url: 'https://local.safeway.com/safeway/co/firestone/8134-colorado-blvd.html', note: 'Store daily 6 am to 11 pm; pharmacy Monday to Friday 9 am to 8 pm, Saturday 9 to 5, Sunday 10 to 5, closed 1:30 to 2 for lunch; 303-833-2844' },
           { label: 'Walgreens, 5962 Firestone Blvd', url: 'https://www.walgreens.com/locator/walgreens-5962+firestone+blvd-firestone-co-80504/id=9315', note: 'Store Monday to Friday 7 am to 11 pm, weekends 7 to 10; pharmacy Monday to Friday 9 am to 9 pm, Saturday 9 to 6, Sunday 10 to 6, closed 1:30 to 2 for lunch; 303-532-8069' },
         ],
