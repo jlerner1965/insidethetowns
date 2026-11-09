@@ -77,4 +77,9 @@ export const POSTSEASON: PostseasonGame[] = [
   // November for the time and the stadium).
   { town: 'timnath', team: 'football', date: '2026-11-13', opponent: 'Eagle Valley', stage: FOOTBALL_STAGE, source: FB('3a'), read: '2026-11-08' },
   { town: 'loveland', slug: 'loveland-high', team: 'football', date: '2026-11-13', time: '19:00', opponent: 'Columbine', venue: 'Ray Patterson Stadium', stage: FOOTBALL_STAGE, source: FB('4a'), read: '2026-11-08' },
+  // Fort Collins High (5A, No. 4) had the first-round bye and plays No. 13
+  // Northfield, who beat Riverdale Ridge 41-10, on 13 November at 7 pm at
+  // French Field (the bracket's game 19, read 9 November). The guide's
+  // first data file comes with the Wednesday run; this row joins it.
+  { town: 'fortcollins', slug: 'fort-collins-high', team: 'football', date: '2026-11-13', time: '19:00', opponent: 'Northfield', venue: 'French Field', stage: FOOTBALL_STAGE, source: FB('5a'), read: '2026-11-09' },
 ];

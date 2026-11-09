@@ -9408,6 +9408,20 @@ template, so every guide with a family hub takes them.*
   settle Treeline Kitchen, Buchi, Golden Burro, Columbine Inn & Suites and
   Rodeway Inn in staging.
 
+## Fort Collins follows its four high schools, 9 November 2026
+
+The gap report of 8 November found no sports on Inside Fort Collins while
+Fort Collins High was 10-0 and seeded fourth in 5A. The owner approved
+adding them the next day, so the quiet guide follows Poudre School
+District's four comprehensive high schools the way Loveland follows its
+four: Fort Collins High (Lambkins), Fossil Ridge (Sabercats), Poudre
+(Impalas) and Rocky Mountain (Lobos), each at /sports/<slug>/ with /sports/
+listing them (`src/config/school-sports.ts`). The pages wait for the first
+Saturday or Wednesday MaxPreps run to write `data/fortcollins/sports-*.json`;
+Fort Collins High's second-round game, 13 November at 7 pm at French Field
+against Northfield, is in `src/config/postseason.ts` from CHSAA's bracket.
+Nothing else about the guide's quiet status changes.
+
 ## Golden follows boys' tennis, baseball and lacrosse, 9 November 2026
 
 *The owner: "Add the sports teams", on the Golden gap report's finding that

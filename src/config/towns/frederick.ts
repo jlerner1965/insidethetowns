@@ -271,7 +271,53 @@ export const frederick: TownConfig = {
           { label: 'Frederick-Firestone Fire District', url: 'https://www.fffd.us/about-us', note: '8426 Kosmerl Place, 303-833-2742 for anything that is not an emergency' },
           { label: 'Oil and gas wells: who to call', url: 'https://www.frederickco.gov/1199/Oil-Gas-Operations-in-Frederick', note: 'Fires or explosions 911; leaks and spills to the fire district, the state’s Energy & Carbon Management Commission (303-894-2100, complaints 888-235-1101) or the operator named on the site sign' },
           { label: 'Street light out', url: 'https://unitedpower.smarthub.coop/Login.html#', note: 'Reported to United Power, the Town’s street-maintenance page says' },
-          { label: 'Weld County emergency alerts', url: 'https://www.fffd.us/weld-county-emergency-notification-system', note: 'Sign up through the fire district’s page for the county’s CodeRED alerts' },
+        ],
+      },
+      // Added 9 November 2026 from the gap report of 8 November: each item
+      // read that day from the provider's own page (CommonSpirit, UCHealth,
+      // Safeway, Walgreens). King Soopers was listed at the owner's word the
+      // same day: kingsoopers.com answered 503 to the reader, so its address
+      // and phone are as the store's pages give them in search, and the rest
+      // is the Town's Silverstone Marketplace page (/places/ has the detail).
+      {
+        title: 'Health care, groceries and pharmacies',
+        verified: '2026-11-09',
+        items: [
+          { label: 'CommonSpirit Emergency & Urgent Care Indian Peaks, 4943 Hwy 52', url: 'https://mountain.commonspirit.org/node/440356', note: 'A freestanding emergency room open around the clock, with urgent care every day 7 am to 9 pm; CT, ultrasound, lab and X-ray on site; 303-925-4840' },
+          { label: 'UCHealth Urgent Care – Firestone, 5965 Firestone Blvd', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-carbon-valley', note: 'In the Carbon Valley Medical Center, Building B; Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 720-652-7055' },
+          { label: 'King Soopers Marketplace, 5801 Silverstone Dr', url: 'https://www.kingsoopers.com/stores/grocery/co/frederick', note: 'Frederick’s own supermarket, at Colorado Blvd and Hwy 52, with a drive-thru pharmacy and a fuel center; 303-327-1090' },
+          { label: 'Safeway, 8134 Colorado Blvd, Firestone', url: 'https://local.safeway.com/safeway/co/firestone/8134-colorado-blvd.html', note: 'Store daily 6 am to 11 pm; pharmacy Monday to Friday 9 am to 8 pm, Saturday 9 to 5, Sunday 10 to 5, closed 1:30 to 2 for lunch; 303-833-2844' },
+          { label: 'Walgreens, 5962 Firestone Blvd', url: 'https://www.walgreens.com/locator/walgreens-5962+firestone+blvd-firestone-co-80504/id=9315', note: 'Store Monday to Friday 7 am to 11 pm, weekends 7 to 10; pharmacy Monday to Friday 9 am to 9 pm, Saturday 9 to 6, Sunday 10 to 6, closed 1:30 to 2 for lunch; 303-532-8069' },
+        ],
+      },
+      // Added 9 November 2026 from the gap report of 8 November, read that
+      // day from Weld County's motor vehicle contact page and CodeRED page
+      // (and its 30 April 2026 news release) and the Town's pet-license
+      // (/218) and animals-at-large (/311) pages. The alerts item moved here
+      // from Reporting a problem, whose other links were read on 2 November.
+      {
+        title: 'Cars, pets and emergency alerts',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Southwest Weld motor vehicle office', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Motor-Vehicle-Department/Contact-Us', note: 'Weld County’s office nearest Frederick, at 4209 County Road 24.5 by Del Camino, in the county’s Southwest Service Complex; Monday to Friday 8 am to 5 pm; 720-652-4201' },
+          { label: 'Pet licenses', url: 'https://www.frederickco.gov/218/Pet-License', note: 'Dogs $5, cats free, with a current rabies vaccination: fill in the Town’s online form, then pay at the Police Department, 333 Fifth St, or by card at 720-382-5700' },
+          { label: 'A dog at large', url: 'https://www.frederickco.gov/311/Animals-at-Large', note: 'Call the Community Service Officer or officer on duty at 720-652-4222. Dogs not claimed within a few hours go to the Humane Society of Boulder Valley; the police’s Community Services Unit does not take in stray cats' },
+          { label: 'Weld County emergency alerts: CodeRED by Crisis24', url: 'https://www.weld.gov/Government/Departments/Public-Information-Office/Emergency-Preparation/CodeRED-by-Crisis24', note: 'Weld County’s alerts now run on CodeRED by Crisis24, and the county asks residents to make a new account even though earlier sign-ups were carried over; help at 1-866-939-0911' },
+        ],
+      },
+      // Added 9 November 2026 at the owner's word (the gap report's M6), read
+      // that day from the Town's Home Improvement (/242), Building Department
+      // (/416), Permits (/1064), inspection (/105) and Fireworks (/955) pages.
+      // Burn and fire-pit rules are left out: the fire district's site has no
+      // current page on them (its burn-permit sheet is dated 2011), and the
+      // Town's site has no short-term rental page.
+      {
+        title: 'Permits and home projects',
+        verified: '2026-11-09',
+        items: [
+          { label: 'What needs a permit', url: 'https://www.frederickco.gov/242/Home-Improvement', note: 'Decks and porches, additions, accessory dwelling units, basement finishes and detached garages need one; a one-story shed of 200 square feet or less, a fence up to 6 feet (chain link is not allowed), a retaining wall up to 4 feet and finish work such as painting and tiling do not. Call Colorado 811 before you dig' },
+          { label: 'Building permits and inspections', url: 'https://www.frederickco.gov/416/Building-Department', note: 'Apply through the Town’s Accela portal; request inspections with the Town’s online form. No inspections on Town holidays, Veterans Day and the two Thanksgiving days among them' },
+          { label: 'Fireworks', url: 'https://www.frederickco.gov/955/Fireworks', note: 'If it goes up or blows up, it is illegal in Frederick: anything that leaves the ground or explodes, outside a permitted public display' },
         ],
       },
       {

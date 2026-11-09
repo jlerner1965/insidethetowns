@@ -440,8 +440,9 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   );
   assert.ok(berthoudRoutes.some(([p]) => p === '/sports/football'), 'football has a page');
   assert.deepEqual(sportsRoutes('berthoud', '/nowhere'), [['/sports', 'sports.astro'], ['/sports/share/[image].png', 'sports-share.png.ts']], 'no data file, no team pages');
-  assert.deepEqual(sportsRoutes('fortcollins'), [], 'a town without a school has no page');
+  assert.deepEqual(sportsRoutes('black-hawk'), [], 'a town without a school has no page');
   assert.deepEqual(schoolsFor('longmont').map((s) => s.slug), ['longmont-high', 'skyline', 'silver-creek'], 'Longmont follows its three high schools (9 November 2026)');
+  assert.deepEqual(schoolsFor('fortcollins').map((s) => s.slug), ['fort-collins-high', 'fossil-ridge', 'poudre', 'rocky-mountain'], 'Fort Collins follows its four high schools (9 November 2026)');
   assert.equal(sportsRoutes('erie')[0]![0], '/sports', 'Erie follows Erie High (25 October 2026)');
   assert.equal(teamPath(berthoud, 'football'), '/sports/football/');
 
@@ -706,8 +707,10 @@ test('Golden follows boys tennis in the fall and baseball and both lacrosse team
     ['spring', 'lacrosse'],
     ['spring', 'lacrosse/girls'],
   ]);
-  // Only Golden asked for them (Lyons follows baseball and track in spring, not these).
-  for (const s of SCHOOL_SPORTS.filter((x) => x.town !== 'golden')) assert.equal(s.teams.some((t) => ['boys-tennis', 'boys-lacrosse', 'girls-lacrosse'].includes(t.key)), false, s.school);
+  // Only Golden asked for lacrosse (Lyons follows baseball and track in spring, not these); boys'
+  // tennis is Golden's and Frederick's, which the owner added the same day (FREDERICK_FALL_EXTRAS).
+  for (const s of SCHOOL_SPORTS.filter((x) => x.town !== 'golden')) assert.equal(s.teams.some((t) => ['boys-lacrosse', 'girls-lacrosse'].includes(t.key)), false, s.school);
+  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['frederick', 'golden']);
 });
 
 test('a spring team before its season is written empty, not with last spring’s games', () => {

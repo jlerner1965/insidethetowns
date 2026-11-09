@@ -168,7 +168,10 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "The City of Fort Collins' performing arts centre, 417 W. Magnolia St. Its own site (WordPress) has no events feed; its box office, tickets.lctix.com, is ShoWare, like the Rialto's, and the ticket site's event list is drawn by script from /include/widgets/events/performancelist.asp?action=perf&page=N, twenty performances a page (132 on 20 October 2026, to July 2027), read by scripts/lib/feeds/showare.ts; robots.txt allows it. Every row names the hall (Performance Hall, Magnolia Theatre) and the address. A few rows are untitled placeholders with no price, which the reader skips. Presenters' shows (the Fort Collins Symphony, OpenStage, Debut Theatre) are sold by the Center's own box office, which the standard counts as the organizer's ticket page. Confirmed 20 October 2026 on the owner's delegation; 18 published events already cite the box office."
+      "excludeTitles": [
+        "^TEST MAPS$"
+      ],
+      "notes": "The City of Fort Collins' performing arts centre, 417 W. Magnolia St. Its own site (WordPress) has no events feed; its box office, tickets.lctix.com, is ShoWare, like the Rialto's, and the ticket site's event list is drawn by script from /include/widgets/events/performancelist.asp?action=perf&page=N, twenty performances a page (132 on 20 October 2026, to July 2027), read by scripts/lib/feeds/showare.ts; robots.txt allows it. Every row names the hall (Performance Hall, Magnolia Theatre) and the address. A few rows are untitled placeholders with no price, which the reader skips. Presenters' shows (the Fort Collins Symphony, OpenStage, Debut Theatre) are sold by the Center's own box office, which the standard counts as the organizer's ticket page. Confirmed 20 October 2026 on the owner's delegation; 18 published events already cite the box office. \"TEST MAPS\" excluded 9 November 2026: a seating-map test on the ticket site, with no date, time or description of its own, that the rules published for 20 November at midnight (gap report of 8 November)."
     },
     {
       "id": "bathgardencenter-com",
