@@ -7,7 +7,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/maxpreps.ts';
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
-import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, offSeason, sameSchool, schoolYear } from '../scripts/lib/sports-crosscheck.ts';
+import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
 import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, schoolTeamName, shareImageName, shareImagePath, sportsDataFile, sportsPath, teamPath, type SportsData } from '../src/config/school-sports.ts';
 import { readFileSync } from 'node:fs';
 import { sportsRoutes } from '../src/integrations/town-routes.ts';
@@ -440,7 +440,8 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   );
   assert.ok(berthoudRoutes.some(([p]) => p === '/sports/football'), 'football has a page');
   assert.deepEqual(sportsRoutes('berthoud', '/nowhere'), [['/sports', 'sports.astro'], ['/sports/share/[image].png', 'sports-share.png.ts']], 'no data file, no team pages');
-  assert.deepEqual(sportsRoutes('longmont'), [], 'a town without a school has no page');
+  assert.deepEqual(sportsRoutes('fortcollins'), [], 'a town without a school has no page');
+  assert.deepEqual(schoolsFor('longmont').map((s) => s.slug), ['longmont-high', 'skyline', 'silver-creek'], 'Longmont follows its three high schools (9 November 2026)');
   assert.equal(sportsRoutes('erie')[0]![0], '/sports', 'Erie follows Erie High (25 October 2026)');
   assert.equal(teamPath(berthoud, 'football'), '/sports/football/');
 
@@ -645,9 +646,10 @@ test('every school carries the winter list after its fall list, ice hockey only 
     const fall = school.teams.findIndex((t) => t.season === 'fall');
     const winter = school.teams.findIndex((t) => t.season === 'winter');
     assert.ok(fall < winter, `${school.school}: fall before winter`);
-    const lastWinter = school.teams.map((t) => t.season).lastIndexOf('winter');
     const spring = school.teams.findIndex((t) => t.season === 'spring');
-    assert.ok(spring === -1 || spring > lastWinter, `${school.school}: spring after winter`);
+    assert.ok(spring === -1 || spring > winter, `${school.school}: spring after winter`);
+    // Spring teams only where a guide has asked: Lyons's baseball and track, Roosevelt's baseball and girls' soccer (the owner, 9 November 2026).
+    assert.equal(spring !== -1, ['lyons', 'johnstown'].includes(school.town), `${school.school}: spring teams only at Lyons and Roosevelt`);
     assert.equal(keys.includes('ice-hockey'), school.school === 'Resurrection Christian School', `${school.school}: ice hockey only where CHSAA lists the school`);
     // MaxPreps has no girls' swimming page for Elizabeth or Lyons (25 October 2026).
     assert.equal(keys.includes('girls-swimming'), !['Elizabeth High School', 'Lyons Middle/Senior High School'].includes(school.school), `${school.school}: girls swimming`);
@@ -666,6 +668,33 @@ test('every school carries the winter list after its fall list, ice hockey only 
   const done: SportsData = { generated: '', sports: [team('football', [{ ...game('2026-10-30', 'Severance'), result: 'W' as const, score: { us: 1, them: 0 } }], [])] };
   assert.equal(seasonOf(done, teams, new Date('2026-11-20T15:00:00Z')).label, 'Fall 2026');
   assert.equal(seasonOf({ generated: '', sports: [] }, teams, now).label, 'Fall 2026');
+  // A spring game: the spring of its own calendar year, and the school page's eyebrow is the school year while winter is on it too.
+  const { pageSeasonLabel } = await import('../src/lib/school-sports.ts');
+  const lyons = schoolSportsFor('lyons')!.teams;
+  assert.deepEqual(lyons.filter((t) => t.season === 'spring').map((t) => t.key), ['baseball', 'boys-track', 'girls-track']);
+  const roosevelt = schoolSportsFor('johnstown')!.teams.filter((t) => t.season === 'spring');
+  assert.deepEqual(roosevelt.map((t) => [t.key, t.maxpreps]), [['baseball', 'baseball'], ['girls-soccer', 'soccer/girls/spring']]);
+  const spring: SportsData = { generated: '', sports: [team('boys-basketball', [{ ...game('2027-02-20', 'Estes Park'), result: 'W' as const, score: { us: 50, them: 40 } }], []), team('baseball', [], [game('2027-03-10', 'Estes Park')])].map((t) => ({ ...t, fetched: '2027-03-01' })) };
+  const march = new Date('2027-03-01T15:00:00Z');
+  assert.equal(seasonOf(spring, lyons, march).label, 'Spring 2027');
+  assert.equal(pageSeasonLabel(spring, lyons, march), '2026–27');
+  assert.equal(pageSeasonLabel({ generated: '', sports: [spring.sports[1]!] }, lyons, march), 'Spring 2027');
+});
+
+test('a MaxPreps page still on last school year’s season is not this season’s: a spring team read in November', async () => {
+  const { schoolYear, staleSeason } = await import('../scripts/lib/maxpreps.ts');
+  assert.equal(schoolYear('2026-11-09'), '26-27');
+  assert.equal(schoolYear('2027-04-10'), '26-27', 'a spring belongs to the school year that began in August');
+  assert.equal(schoolYear('2026-08-01'), '26-27');
+  assert.equal(schoolYear('2026-07-31'), '25-26');
+  assert.equal(staleSeason({ season: '25-26' }, '2026-11-09'), '25-26', 'last spring’s baseball page in November');
+  assert.equal(staleSeason({ season: '26-27' }, '2026-11-09'), undefined);
+  assert.equal(staleSeason({ season: '26-27' }, '2026-07-20'), undefined, 'a fall page already on the next year is not held back');
+  assert.equal(staleSeason({}, '2026-11-09'), undefined, 'no season named: taken as current');
+  // The parser records the season the page names.
+  const us = { url: 'https://www.maxpreps.com/co/lyons/lyons-lions/baseball/', schoolName: 'Lyons' };
+  const html = page({ teamContext: { data: { year: '25-26' }, standingsData: { overallStanding: { overallWinLossTies: '9-11' } } }, wallCards: { schedule: { data: [] } } }, 'Lyons Lions Baseball Overall 9-11 Schedule at a Glance');
+  assert.equal(parseTeamPage(html, us).season, '25-26');
 });
 
 test('a result from last season on the wall of a team that is 0-0 is not this season’s: Erie basketball', () => {
@@ -957,29 +986,6 @@ test('what CHSAA settles is applied over MaxPreps: the volleyball state openers 
   assert.equal(correctedGame({ ...g, date: '2026-11-15' }, state, []).site, 'home');
 });
 
-test('Roosevelt follows baseball and girls soccer, spring teams, on MaxPreps’s paths; no other school does yet', async () => {
-  const { seasonOf, pageSeasonLabel } = await import('../src/lib/school-sports.ts');
-  const teams = schoolSportsFor('johnstown')!.teams;
-  const baseball = teams.find((t) => t.key === 'baseball')!;
-  const soccer = teams.find((t) => t.key === 'girls-soccer')!;
-  assert.equal(baseball.season, 'spring');
-  assert.equal(baseball.maxpreps, 'baseball');
-  assert.equal(soccer.season, 'spring');
-  assert.equal(soccer.maxpreps, 'soccer/girls/spring');
-  for (const school of SCHOOL_SPORTS.filter((s) => s.town !== 'johnstown')) {
-    assert.equal(school.teams.some((t) => t.season === 'spring'), false, `${school.school}: no spring teams`);
-  }
-  // A spring game is "Spring 2027"; laid out beside the winter it is the school year 2026–27.
-  const game = (date: string, opponent: string) => ({ date, opponent, site: 'home' as const, url: `u-${date}` });
-  const team = (key: string, upcoming: ReturnType<typeof game>[]) => ({ key, name: key, maxprepsUrl: '', fetched: '2027-03-01T12:00:00Z', results: [], upcoming, held: [], notes: [] });
-  const now = new Date('2027-03-01T15:00:00Z');
-  const springOnly: SportsData = { generated: '', sports: [team('baseball', [game('2027-03-10', 'Windsor')])] };
-  assert.deepEqual(seasonOf(springOnly, teams, now), { season: 'Spring', year: 2027, years: '2027', label: 'Spring 2027' });
-  assert.equal(pageSeasonLabel(springOnly, teams, now), 'Spring 2027');
-  const both: SportsData = { generated: '', sports: [team('baseball', [game('2027-03-10', 'Windsor')]), team('boys-basketball', [game('2027-03-12', 'Mead')])] };
-  assert.equal(pageSeasonLabel(both, teams, now), '2026–27');
-});
-
 test('Berthoud follows girls flag football, a fall team, on MaxPreps’s Colorado path', () => {
   const flag = schoolSportsFor('berthoud')!.teams.find((t) => t.key === 'girls-flag-football')!;
   assert.equal(flag.season, 'fall');
@@ -1000,22 +1006,4 @@ test('the school page’s eyebrow is the school year while it lays out fall and 
   assert.equal(pageSeasonLabel(fallOnly, teams, now), 'Fall 2026');
   const winterOnly = { ...data, sports: data.sports.filter((t) => teams.find((c) => c.key === t.key)?.season === 'winter') };
   assert.equal(pageSeasonLabel(winterOnly, teams, now), 'Winter 2026–27');
-});
-
-test('a spring team is left off while MaxPreps still shows last season, and read once its page names this school year', () => {
-  assert.equal(schoolYear('2026-11-09'), '26-27');
-  assert.equal(schoolYear('2027-03-15'), '26-27');
-  assert.equal(schoolYear('2026-07-31'), '25-26');
-  assert.equal(schoolYear('2026-08-01'), '26-27');
-  const spring = { season: 'spring' as const };
-  // Baseball on 9 November 2026: the 25-26 record (22-3) beside games of March 2027.
-  assert.match(offSeason(spring, { year: '25-26' }, '2026-11-09')!, /still shows the 25-26 season, not 26-27/);
-  assert.match(offSeason(spring, {}, '2026-11-09')!, /names no season/);
-  assert.equal(offSeason(spring, { year: '26-27' }, '2027-03-01'), undefined);
-  // Fall and winter teams are untouched, whatever the page says.
-  assert.equal(offSeason({ season: 'winter' }, { year: '25-26' }, '2026-11-09'), undefined);
-  assert.equal(offSeason({ season: 'fall' }, {}, '2026-11-09'), undefined);
-  // The reader keeps the year the page names.
-  const named = parseTeamPage(realPage.replace('"teamContext":{', '"teamContext":{"data":{"year":"25-26"},'), TEAM);
-  assert.equal(named.year, '25-26');
 });

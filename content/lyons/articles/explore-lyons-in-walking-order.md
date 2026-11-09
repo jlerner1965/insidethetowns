@@ -1,6 +1,7 @@
 ---
 title: "Explore Lyons: five places in walking order"
 date: "2026-10-07"
+updated: "2026-11-09"
 excerpt: "Park once beside Sandstone Park, walk the six sandstone blocks of Main Street, eat, then follow the river path to LaVern M. Johnson Park. Hall Ranch is the add-on for a longer day, a mile west by car and without the dog."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
@@ -33,7 +34,7 @@ The green in the middle of town, beside the Town lot. The visitor center at [San
 
 [Main Street](/places/main-street/) is US 36 for six blocks, with the hogback closing the view at the west end. Fifteen buildings of locally quarried Lyons sandstone, put up between the 1870s and 1917, are listed together on the National Register of Historic Places, and most are still shops, kitchens and offices. End to end takes about twenty minutes. High Street, a block north, has [Moxie Mercantile](/places/moxie-mercantile/) for coffee and bread (daily 7 am–4 pm), the [Lyons Locale](/places/lyons-locale/) wine bar (Thursday to Sunday) and the [Lyons Redstone Museum](/places/lyons-redstone-museum/) in the 1881 schoolhouse, which is free and opens for the summer season only; in 2026 it closed at the end of September.
 
-This is where the meal goes. [St. Vrain Market](/places/st-vrain-market/) at the west end has a deli counter for sandwiches (closed Monday; Tuesday from 11 am). [Smokin Dave's](/places/smokin-daves-bbq-taphouse/) mid-block is open daily 11 am–8 pm. [Mojo Taqueria](/places/mojo-taqueria/) is closed Monday and serves dinner only from Tuesday to Thursday, with lunch at weekends. [MainStage Brewing](/places/mainstage-brewing-company/) opens at 11 am every day with pizza and a stage. [Oskar Blues Grill & Brew](/places/oskar-blues-grill-brew/) has been on the street since 1997, a Cajun-leaning kitchen with live music most weeks; its hours are being checked, so confirm them before counting on it for dinner.
+This is where the meal goes. [St. Vrain Market](/places/st-vrain-market/) at the west end has a deli counter for sandwiches (closed Monday; Tuesday from 11 am). [Smokin Dave's](/places/smokin-daves-bbq-taphouse/) mid-block opens at 11 am every day and closes at 7 pm Monday to Thursday, 8 pm Friday to Sunday. [Mojo Taqueria](/places/mojo-taqueria/) is closed Monday and serves dinner only from Tuesday to Thursday, with lunch at weekends. [MainStage Brewing](/places/mainstage-brewing-company/) opens at 11 am every day with pizza and a stage. [Oskar Blues Grill & Brew](/places/oskar-blues-grill-brew/) has been on the street since 1997, a Cajun-leaning kitchen with live music most weeks; its hours are being checked, so confirm them before counting on it for dinner.
 
 *Getting there:* on foot from Sandstone Park. *Best for:* the building fronts, the meal, and High Street on the way back. [Who is on the street](/eat-drink/).
 

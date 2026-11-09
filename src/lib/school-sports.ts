@@ -451,9 +451,10 @@ export function pageSeasonLabel(data: SportsData, teams: Array<Pick<SportConfig,
   const s = seasonOf(data, teams, now);
   const seasons = new Set(teamsWithData(data).map((t) => teams.find((c) => c.key === t.key)?.season ?? 'fall'));
   if (seasons.size < 2) return s.label;
-  // A spring belongs to the school year that began the fall before: Spring 2027 is 2026–27.
-  if (s.season === 'Spring') return `${s.year - 1}–${String(s.year).slice(-2)}`;
-  return s.season === 'Winter' ? s.years : `${s.year}–${String(s.year + 1).slice(-2)}`;
+  if (s.season === 'Winter') return s.years;
+  // A spring belongs to the school year that began the August before it.
+  const start = s.season === 'Spring' ? s.year - 1 : s.year;
+  return `${start}–${String(start + 1).slice(-2)}`;
 }
 
 /** "Boys soccer" as a title writes it: "Boys Soccer". */

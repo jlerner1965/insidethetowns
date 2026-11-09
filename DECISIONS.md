@@ -9382,26 +9382,45 @@ template, so every guide with a family hub takes them.*
   it back: confirm it is open, re-source it, and take the slug out of the
   ledger.
 
+## Leadville: the 8 November gap report, three calls, 9 November 2026
+
+*The owner's answers on the gap-fix pull request (#337): "Yes to 1 2 12".*
+
+- **The Delaware Hotel publishes without the call** its 10 October
+  staging note asked for. Its rewritten site dates itself ("Welcoming
+  travelers for 140 years", since 1886) and Visit Leadville Twin Lakes
+  lists it under Where To Stay: the README's dated-page and
+  second-source routes, both met.
+- **Inside Leadville keeps /updates/.** CDOT's seasonal closure of
+  Independence Pass is the guide's first local change, and the route is
+  built for any guide with an updates folder, as on Elizabeth and Castle
+  Rock: no code or flag changed. Worth knowing shows on its home with it.
+- **Mineral 1886 is open, and publishes.** It was staged on 10 October
+  for two sets of hours on its own page. Re-read on 9 November, the page
+  gives one: coffee cafe 7 am to noon daily, bar 5:30 to 10 pm nightly,
+  kitchen until 9; Visit Leadville's listing gives the same. The
+  Delaware's "former restaurant" is its private dining room, not the
+  bar. Same owner as the hotel (700 Harrison Ave LLC), so the hotel's
+  site is not the second source; Visit Leadville is.
+- **Still waiting on the owner:** the Lake County High sports page, the
+  resident items for Moving here, the This Week template items and
+  Nearby guides (all held by the 90-day test), and the calls that would
+  settle Treeline Kitchen, Buchi, Golden Burro, Columbine Inn & Suites and
+  Rodeway Inn in staging.
+
 ## Roosevelt's spring teams followed, 9 November 2026
 
 *The owner: "yes to spring sports", on the Johnstown gap report of 8
 November (H2: Roosevelt baseball and girls soccer on MaxPreps, no page
 here).*
 
-- A team's season can now be spring as well as fall or winter
-  (`SportConfig.season`). A spring game's season reads "Spring 2027", and a
-  page laying it out beside the winter reads the school year, "2026–27".
-- Roosevelt alone follows baseball and girls' soccer (`SPRING` in
-  `src/config/school-sports.ts`); no other school's list changed. Like the
-  winter list, each team stays off the page until MaxPreps has its
-  schedule, which the Wednesday run picks up.
+- Roosevelt follows baseball and girls' soccer (`SPRING_BASEBALL` and
+  `SPRING_GIRLS_SOCCER` in `src/config/school-sports.ts`), on the spring
+  season Lyons's teams brought in the same day; no code changed for it.
+  Girls' soccer is on MaxPreps's `soccer/girls/spring` path, which
+  answered with Roosevelt's 2026–27 team page on 9 November.
+- Last season's record stays off the page by the run's `staleSeason` rule:
+  on 9 November Roosevelt's baseball page still carried its 25-26 record,
+  22-3, beside games of March 2027, and girls' soccer its 4-7-4.
 - An exception to the 90-day test's "no new features", made by the owner;
   the rule itself stands.
-- Last season's record is never shown as this season's. Out of season,
-  MaxPreps shows a spring team's last season: on 9 November Roosevelt's
-  baseball page carried its 25-26 record, 22-3, beside games of March
-  2027, and girls' soccer its 4-7-4 beside one of May 2027, so "until
-  MaxPreps has its schedule" would not keep them off. The run writes a
-  spring team as `empty` until its page names the current school year
-  (`offSeason`, scripts/lib/sports-crosscheck.ts); fall and winter teams
-  are untouched.

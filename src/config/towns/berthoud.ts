@@ -72,7 +72,8 @@ export const berthoud: TownConfig = {
         district: 'Thompson School District R2-J',
         label: 'Thompson School District: school locator',
         url: 'https://www.tsd.org/family/school-locator',
-        note: 'Berthoud Elementary, Ivy Stockwell, Turner Middle and Berthoud High; most of town',
+        // Choice window from Thompson's School of Choice page (tsd.org/enroll/choice), read 9 November 2026.
+        note: 'Berthoud Elementary, Ivy Stockwell, Turner Middle and Berthoud High; most of town; choice enrollment for 2027–28, by lottery, is open November 3, 2026 to January 29, 2027',
       },
       {
         district: 'Weld RE-5J',
@@ -147,6 +148,8 @@ export const berthoud: TownConfig = {
           { label: 'Thompson School District: school locator', url: 'https://www.tsd.org/family/school-locator' },
           { label: 'Thompson: attendance boundaries', url: 'https://www.tsd.org/departments/operations/planning/attendance-boundaries' },
           { label: 'Thompson: 2026–27 calendar highlights', url: 'https://www.tsd.org/fs/pages/9769', note: 'Breaks and no-school days' },
+          // Read 9 November 2026 (gap report of the same day).
+          { label: 'Thompson: School of Choice', url: 'https://www.tsd.org/enroll/choice', note: 'Choice enrollment for 2027–28, to ask for a school other than the assigned one, is open November 3, 2026 to January 29, 2027; eligible applications go into a lottery. Families outside the district apply through open enrollment, November 3, 2026 to August 18, 2027', track: 'registration' },
           { label: 'Weld RE-5J', url: 'https://www.weldre5j.org/', note: 'For addresses on the Weld side; 970-587-6050' },
         ],
       },
@@ -159,6 +162,58 @@ export const berthoud: TownConfig = {
           { label: 'Larimer County Sheriff, Berthoud squad', url: 'https://www.larimer.gov/sheriff/patrol/berthoud-squad', note: 'The squad that polices the town, based at Town Hall; its sergeant’s email is on the page' },
           { label: 'Berthoud Fire Protection District', url: 'https://www.berthoudfire.org/', note: 'Main number 970-532-2264; in an emergency call 911' },
           { label: 'Town eNotifications', url: 'https://berthoud.org/list.aspx', note: 'Alerts and news by email' },
+        ],
+      },
+      // The sections below fill the gaps in the gap report of 9 November 2026
+      // (M1, M3, M4, M5); every link was read that day.
+      {
+        title: 'Health care',
+        note: 'In an emergency call 911.',
+        verified: '2026-11-09',
+        items: [
+          { label: 'UCHealth Medical Center of the Rockies', url: 'https://www.uchealth.org/locations/uchealth-medical-center-of-the-rockies/', note: 'Emergency department and a Level I trauma center, 2500 Rocky Mountain Ave, Loveland; 970-624-2500' },
+          { label: 'UCHealth Longs Peak Hospital', url: 'https://www.uchealth.org/locations/uchealth-longs-peak-hospital/', note: 'Emergency department, 1750 E. Ken Pratt Blvd, Longmont; 720-718-7000' },
+          { label: 'UCHealth Urgent Care – Johnstown', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-johnstown/', note: '4846 Larimer Parkway, Johnstown; Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 970-624-2834' },
+          { label: 'UCHealth Urgent Care – Main Street, Longmont', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-longmont/', note: '2101 Main St, Longmont; Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 720-745-8030' },
+        ],
+      },
+      {
+        title: 'Cars and property tax',
+        note: 'These are Larimer County’s; an address on the Weld County side goes to Weld County instead.',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Larimer County vehicle licensing', url: 'https://www.larimer.gov/clerk/vehiclelicensing', note: 'Registration and titles. Offices in Loveland, 200 Peridot Ave, first floor (970-619-4521), and Fort Collins, 200 W. Oak St (970-498-7878), Monday to Friday 8 am to 5 pm except holidays; renew online, by phone, in person or at a self-service kiosk' },
+          { label: 'Larimer County Treasurer: property tax', url: 'https://www.larimer.gov/treasurer', note: 'Paid in two halves, by February 28 and June 15, or in full by April 30, moving to the next business day when a date falls on a weekend or holiday; online, or monthly through EquaPay where a mortgage does not pay it; 200 W. Oak St, Suite 2100, Fort Collins, 970-498-7020' },
+        ],
+      },
+      {
+        title: 'Streets, snow and leaves',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Town streets and drainage', url: 'https://berthoud.org/241/Streets-Drainage', note: 'The Town plows its streets by priority, by how much snow has fallen and how much traffic a street carries; property and business owners clear their own snow and ice. Sweepers run the second week of each month from April through November, weekdays 7 am to 3 pm, so move cars, trash cans and basketball hoops off the street that week. Leaves are the owner’s to clear: sweepers leave piles of leaves, and blowing leaves or grass into the street is illegal. Streets Department, for road and sidewalk work, 970-532-2210' },
+        ],
+      },
+      {
+        title: 'Pets and animals',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Pet licenses', url: 'https://berthoud.org/1398/Pet-License', note: 'Every dog and cat in town needs a Town license, from Town Hall with a rabies certificate: $10 spayed or neutered, $20 intact, no fee for seniors; each is good for the calendar year' },
+          { label: 'Animal control: NOCO Humane', url: 'https://www.nocohumane.org/animal-control/berthoud/', note: 'The Town’s animal protection and control partner, with full field service Thursday to Monday; dispatch 970-226-3647, ext. 7' },
+        ],
+      },
+      {
+        title: 'Food help',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Larimer County’s list of food pantries', url: 'https://larimer.gov/extension/larimer-county-farmers-market/marketdays/foodpantries', note: 'In Berthoud: House of Neighborly Service, 375 Meadowlark Drive, Tuesday and Thursday 9 am to 5 pm, and Grace Place’s mobile pantry at the same address on the second and fourth Saturdays, 10:30 to 11:30 am; both 970-532-0161' },
+        ],
+      },
+      {
+        title: 'Child care and preschool',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Thompson Early Childhood: preschool registration', url: 'https://preschool.tsd.org/register', note: 'The district’s preschool, with sites in Berthoud. New families fill in the interest form and register online, and the team then schedules a screening; returning families re-register from February. tsdearlychildhood@tsd.org, 970-613-5052', track: 'registration' },
+          { label: 'The Learning Experience, 1144 Lake Ave', url: '/places/the-learning-experience-berthoud/', note: 'Child care and preschool for ages six weeks to five years, weekdays 6:30 am to 6 pm' },
         ],
       },
       {

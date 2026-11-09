@@ -150,30 +150,6 @@ export function emptyEntry(sport: SportConfig, page: TeamPage, now: string): Spo
   };
 }
 
-/** The school year a Denver day falls in, as MaxPreps names it: "26-27" from 1 August 2026 to 31 July 2027. */
-export function schoolYear(day: string): string {
-  const [y, m] = day.split('-').map(Number) as [number, number];
-  const start = m >= 8 ? y : y - 1;
-  return `${String(start).slice(-2)}-${String(start + 1).slice(-2)}`;
-}
-
-/**
- * Why a spring team stays off the page this run, or nothing. Out of season
- * MaxPreps shows a spring team's last season: on 9 November 2026,
- * Roosevelt's baseball page carried its 25-26 record (22-3) beside games of
- * March 2027, and girls' soccer its 4-7-4 beside one of May 2027. Read as
- * they stand, the page would give last year's record as this season's. A
- * spring team is read only once its page names the current school year; a
- * page that names none is not trusted either. Fall and winter teams are
- * untouched.
- */
-export function offSeason(sport: Pick<SportConfig, 'season'>, page: Pick<TeamPage, 'year'>, today: string): string | undefined {
-  if (sport.season !== 'spring') return undefined;
-  const now = schoolYear(today);
-  if (page.year === now) return undefined;
-  return page.year ? `MaxPreps still shows the ${page.year} season, not ${now}` : `MaxPreps names no season for the team, so ${now} cannot be told from last year`;
-}
-
 /** The previous run's entry, kept as it was, when this run could not replace it. */
 export function keepPrevious(sport: SportConfig, previous: SportsData | undefined, maxprepsRoot: string): SportData {
   const old = previous?.sports.find((s) => s.key === sport.key);

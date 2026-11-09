@@ -11,7 +11,7 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "719-293-2200"
 tags: [dinner, family-owned, rooftop-bar, reservations]
 summary: "Family-run dinner restaurant on Harrison Avenue, opened in 2017, with Above Treeline, a seasonal rooftop bar open May to September, noon to sunset, weather permitting."
-review: { reason: "The restaurant's own pages disagree on its days: the home page banner says open Wednesday to Sunday 3:30–9 pm, while the hours block on every page lists Monday to Sunday 3:30–9 pm. Call or text 719-293-2200 to settle the days, then publish.", since: "2026-10-10", from: manual }
+review: { reason: "The restaurant's own pages disagree on its days: the home page banner says open Wednesday to Sunday 3:30–9 pm, while the hours block on every page lists Monday to Sunday 3:30–9 pm. Re-read 9 November 2026 for the gap report of 8 November: the two still disagree. Call or text 719-293-2200 to settle the days, then publish.", since: "2026-10-10", from: manual }
 ---
 
 Treeline Kitchen at 615 Harrison Avenue is a family business opened in 2017 by Eric and Christine, who also opened Before & After, the coffee and cocktail bar across the street, in 2020, and added a coffee shop at the CMC campus in 2025 and the Mtn View Coffee Shop in 2026. Its rooftop, Above Treeline, which it calls America's highest-elevation rooftop bar, serves food and drink seasonally, May to September from noon to sunset, weather permitting. Reservations are taken through Resy up to 30 days ahead and guarantee the inside dining room; outdoor tables can be requested but not reserved, and parties of seven or more, events and catering are by phone. Happy hour is 3:30 to 5:30 pm.

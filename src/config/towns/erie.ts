@@ -130,10 +130,10 @@ export const erie: TownConfig = {
       {
         title: 'Trash and recycling',
         note: 'The Town runs no household trash service: each household, or its HOA, contracts with a private hauler. Check the HOA’s rules before signing up.',
-        verified: '2026-10-22',
+        verified: '2026-11-09',
         items: [
           { label: 'Haulers the Town lists', url: 'https://www.erieco.gov/1284/Utility-Providers', note: 'One Way, Republic Services, Waste Connections, Waste Management and Western Disposal; curbside compost from Waste Connections, Western Disposal and Wompost' },
-          { label: 'Erie Recycling Center, 1000 Briggs St', url: 'https://www.erieco.gov/282/Recycling-Center', note: 'Free for Erie residents (a Town water bill is proof): single-stream, cardboard, yard waste and food scraps; 8 am to 4 pm daily, holidays and weather permitting; 303-926-2734' },
+          { label: 'Erie Recycling Center, 1000 Briggs St', url: 'https://www.erieco.gov/282/Recycling-Center', note: 'Free for Erie residents (a Town water bill is proof): single-stream, cardboard, yard waste, food scraps and mixed metal, and gently used clothing and shoes in tied bags; 8 am to 4 pm daily, holidays and weather permitting; 303-926-2734. Leaves go here in paper yard-waste bags, never into the street or the storm drains' },
           { label: 'Household hazardous waste', url: 'https://www.erieco.gov/980/Household-Hazardous-Waste', note: 'Boulder County’s facility at 1901 63rd St takes Erie residents from either county, Wednesday to Saturday 8:30 to 4; Weld County’s are in Greeley and Dacono' },
           { label: 'Eco-Cycle CHaRM: hard-to-recycle items', url: 'https://ecocycle.org/services-and-facilities/charm/', note: 'In Boulder; takes plastic bags, which the Erie center does not' },
         ],
@@ -141,17 +141,18 @@ export const erie: TownConfig = {
       {
         title: 'Getting around',
         note: 'Erie is split between two counties at County Line Road. The Town plows its own streets; county roads are Boulder County’s to maintain on the west side and Weld County’s on the east.',
-        verified: '2026-10-22',
+        verified: '2026-11-09',
         items: [
           { label: 'The Erie Bee: free rides around town', url: 'https://www.erieco.gov/2626/The-Erie-Bee', note: 'On-demand shared rides within Erie, weekdays 6 am to 8 pm; book in the app or at 720-303-9511; riders 13 and up may ride alone' },
           { label: 'RTD buses from Erie', url: 'https://www.erieco.gov/2513/Transit-Services', note: 'The JUMP to Boulder from the Community Center, which keeps 15 stalls for riders, about 40 minutes; the LD1 and LD3 from the Lafayette Park-n-Ride; the 120X to downtown Denver from Wagon Road' },
+          { label: 'Cone Zones: road work and lane closures', url: 'https://www.erieco.gov/1604/Cone-Zones', note: 'The Town’s current construction alerts; its street work runs weekdays 9 am to 4 pm unless the Town approves longer hours' },
           { label: 'Snow removal', url: 'https://www.erieco.gov/546/Snow-Removal-Procedures', note: 'Primary routes and school access first, neighborhood streets after heavier storms; property owners clear their sidewalks within 24 hours' },
           { label: 'CDOT road conditions', url: 'https://www.cotrip.org/', note: 'Colorado 7 and I-25' },
         ],
       },
       {
         title: 'Parks and recreation',
-        verified: '2026-10-22',
+        verified: '2026-11-09',
         items: [
           { label: 'Register for recreation programs', url: 'https://app.amilia.com/store/en/erierec/shop/programs', note: 'An Amilia account is required; registration for winter and spring (January to April) typically opens in mid-December', track: 'registration' },
           { label: 'Erie Community Center, 450 Powers St', url: 'https://www.erieco.gov/172/Erie-Community-Center', note: 'Open to everyone: Mon–Thu 5 am–9 pm, Fri 5–7, Sat 7–7, Sun 8–5; 303-926-2550' },
@@ -159,12 +160,14 @@ export const erie: TownConfig = {
           { label: 'Pool schedule', url: 'https://www.erieco.gov/2139/Pool-Schedule', note: 'Open swim and lap swim through December 19' },
           { label: 'Parks', url: 'https://www.erieco.gov/2271/Parks', note: 'Open sunrise to sunset, Erie Community Park 6 am to 10 pm; shelter permits through Amilia' },
           { label: 'Trail maps', url: 'https://www.erieco.gov/205/Trail-Maps' },
+          { label: 'Adult sports leagues', url: 'https://www.erieco.gov/1435/Adult-Sports', note: 'Ages 18 and up: basketball and racquetball January to March, coed indoor volleyball February to April, softball, coed soccer and flag football March to May; drop-in pickleball and tennis; 303-926-2794' },
+          { label: 'Columbine Lounge, for adults 60 and over', url: 'https://www.erieco.gov/172/Erie-Community-Center', note: 'In the Erie Community Center; for senior softball and volleyball the Town’s adult sports page points to outside leagues' },
         ],
       },
       {
         title: 'Schools',
         note: 'Most of Erie is in St. Vrain Valley Schools and part is in Boulder Valley. The district goes by the address, not the town.',
-        verified: '2026-10-22',
+        verified: '2026-11-09',
         items: [
           { label: 'St. Vrain Valley Schools: maps and boundaries', url: 'https://www.svvsd.org/schools/maps-boundaries/' },
           { label: 'St. Vrain: open enrollment', url: 'https://www.svvsd.org/schools/enrollment/open-enrollment/', note: 'December 1–15 for 2027–28, online', track: 'registration' },
@@ -173,17 +176,44 @@ export const erie: TownConfig = {
           { label: 'Boulder Valley: K-12 School Finder', url: 'https://www.bvsd.org/departments/enrollment/k-12-school-finder', note: 'Meadowlark PK-8, 2300 Meadow Sweet Lane, 720-561-5403' },
           { label: 'Boulder Valley: choice enrollment', url: 'https://www.bvsd.org/departments/enrollment', note: 'The lottery for 2027–28 takes applications November 1 to December 18', track: 'registration' },
           { label: 'Boulder Valley: 2026–27 calendar', url: 'https://www.bvsd.org/calendar' },
+          { label: 'Childcare and preschool: Colorado Shines', url: 'https://cdec.colorado.gov/for-families/find-child-care', note: 'The state’s free search of licensed child care and preschool programs, by address, ZIP code or provider, with each one’s quality rating' },
         ],
       },
       {
         title: 'Reporting a problem',
-        verified: '2026-10-22',
+        verified: '2026-11-09',
         items: [
           { label: 'ErieSubmit: report it to the Town', url: 'https://www.erieco.gov/1249/Erie-Submit', note: 'Potholes, traffic signals, sprinkler leaks, streetlights, park damage; on the web or in the app' },
           { label: 'Erie Police Department', url: 'https://www.erieco.gov/2350/Police', note: '1000 Telleen Ave; non-emergency 303-441-4444, the Boulder County dispatch center that answers for Erie; emergency 911' },
           { label: 'Mountain View Fire Rescue', url: 'https://www.mvfpd.org/contact-us', note: 'Fire and emergency medical service for Erie; non-emergency calls through Boulder County, 303-441-4444, or Weld County, 970-350-9600; office 303-772-0710' },
+          { label: 'Animal control and dog licences', url: 'https://www.erieco.gov/255/Animal-Services', note: 'Erie Police take animal calls through 303-441-4444; a dog over six months old needs a Town licence within 30 days of moving in; the Boneyard at Reliance Park is the only public place a dog may be off the leash; wildlife goes to Colorado Parks and Wildlife, 303-291-7227' },
           { label: 'Emergency alerts', url: 'https://www.erieco.gov/370/Emergency-Alerts', note: 'Every Erie resident, on either side of County Line Road, should sign up for Boulder County’s alerts; Weld County’s CodeRED as well' },
           { label: 'Notify Me', url: 'https://www.erieco.gov/list.aspx', note: 'Town news, police advisories, and road, trail and recycling-center closures by email or text' },
+        ],
+      },
+      {
+        title: 'Health care, groceries and pharmacies',
+        verified: '2026-11-09',
+        items: [
+          { label: 'BCH Urgent Care, 101 Erie Pkwy, Suite 101', url: 'https://www.bch.org/our-services/urgent-care/', note: 'Seven days, 8 am to 8 pm; 303-415-5810. Boulder Community Health’s emergency rooms, open around the clock, are at Community Medical Center in Lafayette and Foothills Hospital in Boulder' },
+          { label: 'UCHealth Urgent Care – Erie, 2970 Arapahoe Rd', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-erie', note: 'On the north side of Lafayette near US 287 and Arapahoe Road; Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 303-460-6020' },
+          { label: 'Walgreens, 490 Erie Pkwy', url: 'https://www.walgreens.com/locator/walgreens-490+erie+pkwy-erie-co-80516/id=12864', note: 'On the southeast corner of County Line Road and Leon Wurl Parkway; pharmacy Monday to Friday 8 am to 8 pm, Saturday 9 to 6, Sunday 10 to 6, closed 1:30 to 2 for lunch; store from 7 am daily; 303-586-8276' },
+          { label: 'Safeway, 3333 Arapahoe Rd N', url: 'https://local.safeway.com/safeway/co/erie.html', note: 'Daily 6 am to 11 pm; 720-890-0959' },
+        ],
+      },
+      {
+        title: 'Motor vehicles',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Boulder County Motor Vehicle', url: 'https://bouldercounty.gov/MV', note: 'Offices in Boulder (1750 33rd St), Lafayette (1755 S. Public Rd) and Longmont (529 Coffman St), Monday to Thursday 7:30 am to 5 pm, closed Fridays, by appointment only; renewals online, by mail, at a 24-hour drop box or at a kiosk, not in person; 303-413-7710' },
+        ],
+      },
+      {
+        title: 'Permits and the post office',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Building permits: the Town’s Building Division', url: 'https://www.erieco.gov/110/Building-Division', note: 'Plan review, permits, inspections and contractor licences, applied for online through the Town’s eTRAKiT portal; 303-926-2780. Call 811 at least three days before you dig' },
+          { label: 'Erie Post Office, 150 Wells St', url: 'https://tools.usps.com/locations/details/1362695', note: '303-828-0781; passport applications and photos. The carrier annex at 621 Mitchell Way offers no mailing, passport or pickup services' },
         ],
       },
       {
@@ -207,7 +237,7 @@ export const erie: TownConfig = {
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Erie_CO' },
     ],
     schoolDistrict:
-      'Mostly St. Vrain Valley Schools (Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle, Erie High); part of Erie is Boulder Valley (Meadowlark PK-8). The district goes by the address, not the county: check it with each district’s finder.',
+      'Mostly St. Vrain Valley Schools (Erie, Highlands, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle, Erie High); part of Erie is Boulder Valley (Meadowlark PK-8). The district goes by the address, not the county: check it with each district’s finder.',
     commuteNotes:
       'About 20 minutes to Boulder on Arapahoe Road or Colorado 7, 35 to Denver and 35 to Denver International Airport by I-25 and E-470. Most commutes are by car.',
   },
