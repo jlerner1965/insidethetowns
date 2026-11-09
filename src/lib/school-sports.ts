@@ -425,12 +425,15 @@ export function seasonComplete(data: SportsData, now = new Date()): boolean {
  * result, and that game's year. "Fall 2026" while football has a game left;
  * "Winter 2026–27" once the next game listed is basketball's. Nothing to go
  * on (no games at all): the fall of the build's year, which is what the
- * eyebrow said before the winter list existed.
+ * eyebrow said before the winter list existed. A spring team's season is
+ * "Spring 2027", named for the year its games are in.
  */
-export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' | 'season'>>, now = new Date()): { season: 'Fall' | 'Winter'; year: number; years: string; label: string } {
+const SEASON_NAMES = { fall: 'Fall', winter: 'Winter', spring: 'Spring' } as const;
+
+export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' | 'season'>>, now = new Date()): { season: 'Fall' | 'Winter' | 'Spring'; year: number; years: string; label: string } {
   const seasonOfTeam = (key: string) => teams.find((t) => t.key === key)?.season ?? 'fall';
   const game = bigGame(data, now) ?? latestResult(data);
-  const season = game && seasonOfTeam(game.team.key) === 'winter' ? 'Winter' : 'Fall';
+  const season = game ? SEASON_NAMES[seasonOfTeam(game.team.key)] : 'Fall';
   const [y, m] = (game ? game.game.date : dayKey(now)).split('-').map(Number) as [number, number];
   // A winter season runs across the new year and is named for the school
   // year it belongs to: a January game is "Winter 2026–27", not 2027's.
@@ -450,7 +453,9 @@ export function pageSeasonLabel(data: SportsData, teams: Array<Pick<SportConfig,
   const s = seasonOf(data, teams, now);
   const seasons = new Set(teamsWithData(data).map((t) => teams.find((c) => c.key === t.key)?.season ?? 'fall'));
   if (seasons.size < 2) return s.label;
-  return s.season === 'Winter' ? s.years : `${s.year}–${String(s.year + 1).slice(-2)}`;
+  if (s.season === 'Winter') return s.years;
+  // A spring belongs to the school year that began the summer before.
+  return s.season === 'Spring' ? `${s.year - 1}–${String(s.year).slice(-2)}` : `${s.year}–${String(s.year + 1).slice(-2)}`;
 }
 
 /** "Boys soccer" as a title writes it: "Boys Soccer". */

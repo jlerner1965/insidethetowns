@@ -24,8 +24,12 @@
  * calendar titles the varsity team's events ("Boys Varsity Football vs …").
  * The winter list is configured (25 October 2026) and its teams take
  * their place on the pages as MaxPreps fills their schedules in: a team
- * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
- * teams wait until their season.
+ * with nothing on MaxPreps is an `empty` entry the page leaves off. A
+ * spring team is followed where a guide asks for it (Golden's baseball and
+ * lacrosse, 9 November 2026); out of season, while MaxPreps still shows
+ * only last spring's games, the run writes it as `empty` too
+ * (scripts/lib/sports-crosscheck.ts, beforeSpringSeason), so it joins the
+ * page with its first game.
  *
  * The school, its mascot, its classification and its league are checked
  * against CHSAANow's member-school profiles and its 2026–28 classification
@@ -38,7 +42,7 @@ export interface SportConfig {
   /** The key in the data file and the card's anchor: "football". */
   key: string;
   /** The CHSAA season the team plays in; the page's eyebrow says which season its next game is in. */
-  season: 'fall' | 'winter';
+  season: 'fall' | 'winter' | 'spring';
   /** As the card names it: "Football", "Boys soccer". */
   name: string;
   /** The team's path under the school's MaxPreps URL: "football", "soccer", "cross-country/girls". */
@@ -238,12 +242,30 @@ const ICE_HOCKEY: SportConfig = { key: 'ice-hockey', season: 'winter', name: 'Ic
  */
 const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: 'fall', name: 'Girls flag football', maxpreps: 'flag-football/girls/fall', calendar: { gender: 'Girls', sport: 'Flag Football' } };
 
+/**
+ * Golden High's other teams, at the owner's word (9 November 2026), after
+ * the Golden gap report of 8 November found baseball, boys' tennis and
+ * lacrosse on MaxPreps with no page on the guide. In Colorado boys' tennis
+ * is a fall sport, and MaxPreps files it under the season ("tennis/fall",
+ * as Golden's 2023–24 schedule page is); baseball and both lacrosse teams
+ * play in spring. The paths are MaxPreps's own for Golden ("baseball",
+ * "lacrosse", "lacrosse/girls"), as search results list them on 9
+ * November 2026; MaxPreps refuses the cloud address this was written from,
+ * so the first run from the GitHub runner is the first read, and a path
+ * that is not there keeps the team off the page and says so in the run's
+ * summary.
+ */
+const BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } };
+const BASEBALL: SportConfig = { key: 'baseball', season: 'spring', name: 'Baseball', maxpreps: 'baseball', calendar: { gender: 'Boys', sport: 'Baseball' } };
+const BOYS_LACROSSE: SportConfig = { key: 'boys-lacrosse', season: 'spring', name: 'Boys lacrosse', maxpreps: 'lacrosse', calendar: { gender: 'Boys', sport: 'Lacrosse' } };
+const GIRLS_LACROSSE: SportConfig = { key: 'girls-lacrosse', season: 'spring', name: 'Girls lacrosse', maxpreps: 'lacrosse/girls', calendar: { gender: 'Girls', sport: 'Lacrosse' } };
+
 /** The fall list without one team, for a school that does not field it. */
 const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
 /** The winter list without one team, for a school whose MaxPreps page for it does not exist. */
 const WINTER_WITHOUT = (...keys: string[]): SportConfig[] => WINTER().filter((t) => !keys.includes(t.key));
-/** Every school's teams: the fall list, or a variant of it, then the winter list. */
-const TEAMS = (fall: SportConfig[] = FALL(), winter: SportConfig[] = WINTER()): SportConfig[] => [...fall, ...winter];
+/** Every school's teams: the fall list, or a variant of it, then the winter list, then any spring teams the guide follows. */
+const TEAMS = (fall: SportConfig[] = FALL(), winter: SportConfig[] = WINTER(), spring: SportConfig[] = []): SportConfig[] => [...fall, ...winter, ...spring];
 
 /**
  * Thompson School District's Finalsite sites: `?cal_date=YYYY-MM-01` shows a
@@ -503,8 +525,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // CHSAANow lists every fall and winter team the default lists follow
     // (football, boys soccer, volleyball, softball, both cross country;
     // both basketball, wrestling, girls' swimming). A team MaxPreps has
-    // nothing for is left off the page by the run.
-    teams: TEAMS(),
+    // nothing for is left off the page by the run. Boys' tennis, baseball
+    // and both lacrosse teams from 9 November 2026 (BOYS_TENNIS above).
+    teams: TEAMS([...FALL(), BOYS_TENNIS], WINTER(), [BASEBALL, BOYS_LACROSSE, GIRLS_LACROSSE]),
   },
   {
     town: 'lafayette',
