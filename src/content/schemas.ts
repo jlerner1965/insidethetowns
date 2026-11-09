@@ -855,7 +855,7 @@ export const CHANGE_TAG_LABELS: Record<ChangeTag, string> = {
 export const SOURCED_CHANGE_TAGS: readonly ChangeTag[] = ['opening', 'closed', 'new-hours', 'moved'];
 
 /** The template's empty strings read as "not set", so a copied file validates as it is. */
-const blank = <T extends z.ZodTypeAny>(schema: T) =>
+const blank = <T extends z.ZodType>(schema: T) =>
   z.preprocess((v) => (v === '' || v === null ? undefined : v), schema.optional());
 
 export const weeklyChangeSchema = z.object({
@@ -1153,17 +1153,6 @@ export type Change = z.infer<typeof changeSchema>;
  */
 export const PROGRAM_AUDIENCES = ['babies', 'preschool', 'elementary', 'teens', 'adults', 'seniors', 'families', 'everyone'] as const;
 export type ProgramAudience = (typeof PROGRAM_AUDIENCES)[number];
-export const PROGRAM_AUDIENCE_LABELS: Record<ProgramAudience, string> = {
-  babies: 'Babies and toddlers',
-  preschool: 'Preschoolers',
-  elementary: 'Elementary age',
-  teens: 'Teens',
-  adults: 'Adults',
-  seniors: '50 and over',
-  families: 'Families together',
-  everyone: 'Everyone',
-};
-
 export const PROGRAM_KINDS = ['program', 'league', 'class', 'club', 'organization', 'volunteer', 'meeting', 'social', 'service'] as const;
 export type ProgramKind = (typeof PROGRAM_KINDS)[number];
 export const PROGRAM_KIND_LABELS: Record<ProgramKind, string> = {
@@ -1592,12 +1581,15 @@ export function isExcluded(data: unknown): data is ExcludedData {
 }
 
 /** `schema`, with failures turned into an ExcludedData marker instead of an error. */
-export function lenient<T extends z.ZodTypeAny>(schema: T) {
+export function lenient<T extends z.ZodType>(schema: T) {
   return schema.catch((ctx) => {
-    const input = (ctx.input ?? {}) as { title?: unknown };
+    const input = (ctx.value ?? {}) as { title?: unknown };
     const marker: ExcludedData = {
       excluded: true,
       title: typeof input.title === 'string' ? input.title : '(untitled)',
+      // `ctx.error` is marked deprecated for `ctx.issues`, but those are the
+      // raw issues, before zod writes their messages; the messages are the
+      // point here, so this stays until zod offers them another way.
       issues: ctx.error.issues.map((i) => `${i.path.length ? i.path.join('.') : '(root)'}: ${i.message}`),
     };
     return marker as unknown as z.output<T>;
