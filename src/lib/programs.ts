@@ -8,7 +8,6 @@
  * the page was built at.
  */
 import {
-  PROGRAM_AUDIENCES,
   PROGRAM_STATUS_LABELS,
   PROGRAM_TOPICS,
   type ProgramAudience,
@@ -26,9 +25,6 @@ export const JOIN_KINDS: readonly ProgramKind[] = ['club', 'organization', 'volu
 
 /** The audiences a family hub is for, in the order its sections run. */
 export const FAMILY_AUDIENCES: readonly ProgramAudience[] = ['babies', 'preschool', 'elementary', 'teens', 'families'];
-
-/** The audiences that are children: what decides whether a program is something a child joins. */
-export const CHILD_AUDIENCES: readonly ProgramAudience[] = ['babies', 'preschool', 'elementary', 'teens'];
 
 /**
  * "Soon" on every page that says it: a deadline or an opening within the
@@ -75,28 +71,6 @@ export function familySection(p: ProgramLike): FamilySection {
 /** By name, picks first. */
 export function byName<T extends ProgramLike>(list: readonly T[]): T[] {
   return [...list].sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title));
-}
-
-/**
- * Programs grouped by audience, in the order given; empty audiences left
- * out. With `once` (the default) a program appears under the first of its
- * audiences in that order and nowhere else: swim lessons for six months
- * and up are listed under babies, not five times down the page. The
- * by-subject index is where the same program is found again.
- */
-export function byAudience<T extends ProgramLike>(
-  list: readonly T[],
-  audiences: readonly ProgramAudience[] = PROGRAM_AUDIENCES,
-  { once = true } = {},
-): Array<{ audience: ProgramAudience; programs: T[] }> {
-  const placed = new Set<T>();
-  return audiences
-    .map((audience) => {
-      const programs = byName(list.filter((p) => p.data.audience.includes(audience) && !(once && placed.has(p))));
-      for (const p of programs) placed.add(p);
-      return { audience, programs };
-    })
-    .filter((g) => g.programs.length > 0);
 }
 
 /**
@@ -201,27 +175,9 @@ export function ageText(p: ProgramLike): string | undefined {
   return undefined;
 }
 
-/**
- * A deadline as one line with the action in it: "Holiday Card Art Contest:
- * entries due Sat Nov 7", "Berthoud Recreation youth sports: registration
- * opens Sun Nov 1". The organizer's own words on how to register decide
- * between entries and registration; a listing's title stands in for the
- * program's where the deadline has its own listing.
- */
-export function deadlineTitle(d: Deadline, day: string, eventTitle?: string): string {
-  const title = (eventTitle ?? d.program.data.title).replace(/\s*(?:[:·-]\s*)?(?:deadline|(?:\w+\s+)?due|registration (?:opens|closes))\s*$/i, '');
-  const action = d.what === 'opens' ? 'registration opens' : deadlineAction(d.program).toLowerCase();
-  return `${title}: ${action} ${day}`;
-}
-
 /** "Entries due" where the organizer's words on how to register are about entries, else "Register by". */
 export function deadlineAction(p: ProgramLike): string {
   return /\bentr(?:y|ies)\b/i.test(p.data.registration?.how ?? '') ? 'Entries due' : 'Register by';
-}
-
-/** The audience a program is filed under on a page that lists it once: the first of its audiences in the page's order. */
-export function filedUnder(p: ProgramLike, audiences: readonly ProgramAudience[] = PROGRAM_AUDIENCES): ProgramAudience {
-  return audiences.find((a) => p.data.audience.includes(a)) ?? p.data.audience[0]!;
 }
 
 /** Programs grouped by topic, in schema order; empty topics left out. */
@@ -338,11 +294,6 @@ export function splitDeadlines<T extends ProgramLike>(
 export function deadlinePassed(p: ProgramLike, now = new Date()): boolean {
   const d = p.data.registration?.deadline;
   return !!d && dayKey(d) < dayKey(now);
-}
-
-/** "Free", "$30 a year", as the row prints it, or undefined. */
-export function priceLine(p: ProgramLike): string | undefined {
-  return p.data.price;
 }
 
 /**

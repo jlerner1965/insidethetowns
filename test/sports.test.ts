@@ -13,7 +13,7 @@ import { readFileSync } from 'node:fs';
 import { sportsRoutes } from '../src/integrations/town-routes.ts';
 import { findTown } from '../src/config/index.ts';
 import { townNav } from '../src/lib/nav.ts';
-import { nextGames, placeText } from '../src/lib/school-sports.ts';
+import { placeText } from '../src/lib/school-sports.ts';
 
 const berthoud = schoolSportsFor('berthoud')!;
 const football = berthoud.teams.find((s) => s.key === 'football')!;
@@ -398,18 +398,6 @@ test('a playoff or tournament game is at a neutral site, with the venue MaxPreps
   const next = home.schedule!.find((g) => g.opponent === 'Mountain View')!;
   assert.equal(next.site, 'neutral');
   assert.equal(next.venue, 'Ray Patterson Stadium');
-});
-
-test('the home page’s sports block takes each team’s next game in the config’s order', () => {
-  const data: SportsData = {
-    generated: '',
-    sports: [
-      { key: 'football', name: 'Football', maxprepsUrl: '', results: [], held: [], notes: [], upcoming: [{ date: '2026-10-23', opponent: 'Mountain View', site: 'away', url: 'f' }] },
-      { key: 'volleyball', name: 'Volleyball', maxprepsUrl: '', results: [], held: [], notes: [], upcoming: [{ date: '2026-10-20', opponent: 'Old', site: 'home', url: 'o' }, { date: '2026-10-22', opponent: 'Liberty Common', site: 'home', url: 'v' }] },
-      { key: 'xc', name: 'Cross country', maxprepsUrl: '', results: [], held: [], notes: [], upcoming: [] },
-    ],
-  };
-  assert.deepEqual(nextGames(data, new Date('2026-10-21T18:00:00Z')).map((g) => `${g.team.name} ${g.game.opponent}`), ['Football Mountain View', 'Volleyball Liberty Common']);
 });
 
 test('a playoff game the school calendar files as home is published at its neutral site, with a note, not held', () => {

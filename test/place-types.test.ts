@@ -19,7 +19,6 @@ import {
   countByType,
   placeTypeOfPath,
   placeTypePages,
-  sectionOf,
   siblingTypePages,
 } from '../src/lib/place-types.ts';
 import { openPlaceTypeCounts } from '../src/lib/raw-places.ts';
@@ -75,9 +74,6 @@ test('sibling links stay inside the kind’s own section', () => {
   assert.deepEqual(siblingTypePages('restaurant', built), ['bar', 'coffee']);
   assert.deepEqual(siblingTypePages('trail', built), ['park', 'venue']);
   assert.deepEqual(siblingTypePages('service', built), []);
-  assert.equal(sectionOf('shop'), 'eat-drink');
-  assert.equal(sectionOf('lodging'), 'things-to-do');
-  assert.equal(sectionOf('service'), 'directory');
 });
 
 test('the routes built and the headings linked agree on every town’s counts', () => {

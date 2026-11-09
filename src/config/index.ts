@@ -116,10 +116,6 @@ export function getHub(): HubConfig {
   return site;
 }
 
-export function isHub(site: SiteConfig = getSite()): site is HubConfig {
-  return site.kind === 'hub';
-}
-
 /** The hub config, from any build. */
 export function getNetworkHub(): HubConfig {
   return hub;

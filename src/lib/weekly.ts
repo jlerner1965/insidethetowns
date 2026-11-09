@@ -230,21 +230,6 @@ export function isWeekend(now = new Date()): boolean {
   return startOfDay(now).getTime() >= start.getTime();
 }
 
-/**
- * This weekend's listings: anything starting Friday to Sunday, and a run
- * that began earlier and is still on over the weekend. Pass the calendar
- * through `occurrences` first so a weekly regular lands on its day.
- */
-export function weekendEvents<T extends EventLike>(events: readonly T[], now = new Date()): T[] {
-  const { start, end } = weekendWindow(now);
-  const friday = dayKey(start);
-  return stillOn(events, now).filter((e) => {
-    const t = e.data.start.getTime();
-    if (t >= start.getTime() && t < end.getTime()) return true;
-    return t < start.getTime() && isMultiDay(e) && lastDay(e) >= friday;
-  });
-}
-
 /** The next few listings that have not ended, for the strip under an article. */
 export function upcomingEvents<T extends EventLike>(events: readonly T[], { now = new Date(), limit = 3 } = {}): T[] {
   return stillOn(events, now).slice(0, limit);

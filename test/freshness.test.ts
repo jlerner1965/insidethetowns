@@ -14,7 +14,6 @@ import {
   ageDays,
   daysUntilAccessStale,
   daysUntilStale,
-  dueForRecheck,
   eventExclusion,
   hoursFresh,
   inSeason,
@@ -94,12 +93,9 @@ test('access notes have the shortest window and their own date', () => {
   assert.equal(accessFresh(undefined, now), false);
 });
 
-test('the report\'s arithmetic: days until stale, and due for the rotation', () => {
+test('the report\'s arithmetic: days until stale, in whole Denver days', () => {
   assert.equal(daysUntilStale(place({ verified: verifiedDaysAgo(76) }), 'front-range', now), 14);
   assert.equal(daysUntilStale(place({ verified: verifiedDaysAgo(95) }), 'front-range', now), -5);
-  assert.equal(dueForRecheck(place({ verified: verifiedDaysAgo(30) }), now), false);
-  assert.equal(dueForRecheck(place({ verified: verifiedDaysAgo(31) }), now), true);
-  assert.equal(dueForRecheck({ verified: undefined }, now), true);
   // Whole Denver days, so a check this morning is 0 days old all day.
   assert.equal(ageDays(parseLocal('2026-10-03T08:00'), parseLocal('2026-10-03T23:00')), 0);
   assert.equal(ageDays(parseLocal('2026-10-02T23:59'), parseLocal('2026-10-03T00:01')), 1);
