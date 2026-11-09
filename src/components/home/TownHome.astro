@@ -134,10 +134,12 @@ const familyRows = town.families?.onHome
 const places = (await getTownEntries('places')).filter(isOpen);
 
 // 3c. The quick answers under the tabs never repeat a link the page has
-// (src/components/home/QuickAnswers.astro): the pages linked from the rec
-// line, the families block and Worth knowing, where each is on the page.
+// (src/components/home/QuickAnswers.astro): the pages linked from the
+// families block and Worth knowing, where each is on the page. Not the rec
+// line's "Schedule & passes": it is inside the Today tab, which is closed
+// from Friday to Sunday, so on the weekend the quick answers' rec center
+// link was the page's only one (the owner, 9 November 2026).
 const linked = new Set<string>([
-  ...(rec ? [`/places/${rec.place}/`] : []),
   ...(familyRows.length > 0 ? ['/families/'] : []),
   ...(know.length > 0 ? ['/updates/'] : []),
 ]);

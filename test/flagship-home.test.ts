@@ -310,7 +310,15 @@ test('quick answers never repeat a link the home page has; the guides, then the 
   const berthoud = towns.find((t) => t.slug === 'berthoud')!;
   const base = { town: berthoud, recPlace: 'berthoud-recreation-center', hasUpdates: true, hasGuides: true, hasPlaces: true };
   const show = (links: ReturnType<typeof quickAnswerLinks>) => links.map((l) => `${l.label} ${l.href}`);
-  // Berthoud's home: the rec line links the rec center and Worth knowing the updates page (the owner, 9 November 2026).
+  // Berthoud's home: Worth knowing links the updates page. The rec line's
+  // link is in the Today tab, closed at the weekend, so TownHome does not
+  // count it and the rec center link stays (the owner, 9 November 2026).
+  assert.deepEqual(show(quickAnswerLinks({ ...base, linked: new Set(['/updates/']) })), [
+    'Kids & family plans /families/',
+    'Rec center hours & swim /places/berthoud-recreation-center/',
+    'Berthoud guides /guides/',
+  ]);
+  // Two repeated: the guides take the first's place, the directory the second's.
   assert.deepEqual(show(quickAnswerLinks({ ...base, linked: new Set(['/places/berthoud-recreation-center/', '/updates/']) })), [
     'Kids & family plans /families/',
     'Berthoud guides /guides/',

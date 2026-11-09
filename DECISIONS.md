@@ -9518,12 +9518,19 @@ here).*
 - **No link twice.** A quick answer under the tabs that goes where the page
   already links gives its place to "<Town> guides" (/guides/), then "Every
   place, A to Z" (/directory/), each only where the guide has an article or
-  a place to list (`src/lib/quick-answers.ts`). Berthoud's "Rec center
-  hours & swim" repeated the rec line's "Schedule & passes" and became
-  "Berthoud guides"; "What changed in town" repeated Worth knowing's
-  "Every local change" and became "Every place, A to Z". "On the page"
-  means the page's own content: the menu and the footer link /guides/ and
-  /directory/ on every page, and the brief's own replacements are those.
+  a place to list (`src/lib/quick-answers.ts`). Berthoud's "What changed
+  in town" repeated Worth knowing's "Every local change" and became
+  "Berthoud guides". "On the page" means the page's own content: the menu
+  and the footer link /guides/ and /directory/ on every page, and the
+  brief's own replacements are those.
+- **The rec center link stays.** The brief had Berthoud's "Rec center
+  hours & swim" give way to the rec line's "Schedule & passes", but that
+  line is inside the Today tab, and from Friday to Sunday the page opens
+  on This weekend: on the live site's review the same day, a weekend
+  visitor had no rec center link left on the page, the guide's
+  most-asked query among them. The owner's call: keep it, and replace only
+  "What changed in town". The rec line is not counted as a link the page
+  has.
 - **Titles read as links.** The listings' titles on the tabs (and under
   "Next in <Town>") and Worth knowing's headlines are in the primary, the
   guide's link colour, without an underline. The brief called it "the town

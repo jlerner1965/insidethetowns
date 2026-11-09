@@ -4,10 +4,12 @@
  * families hub, the rec center's listing and the local changes page, each
  * one tap from the home page where the guide has them.
  *
- * No link repeats one the page already has (the owner, 9 November 2026).
- * Berthoud's "Rec center hours & swim" went where the Today tab's rec line
- * says "Schedule & passes", and "What changed in town" where Worth knowing
- * says "Every local change". A link the page carries already gives its
+ * No link repeats one the page already has (the owner, 9 November 2026):
+ * Berthoud's "What changed in town" went where Worth knowing says "Every
+ * local change". (Its "Rec center hours & swim" stays: the Today tab's rec
+ * line links the same listing, but that tab is closed from Friday to
+ * Sunday, so the home page does not count it; TownHome.astro.) A link the
+ * page carries already gives its
  * place to the town's guides, then to the directory, each only where the
  * guide has an article or a place for that page to list, and neither where
  * the page links it already. The links are derived, never typed, so none
