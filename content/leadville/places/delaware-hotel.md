@@ -16,7 +16,7 @@ summary: "The 1886 hotel on Harrison Avenue: 36 rooms on the second and third fl
 
 The Delaware Hotel has stood at 700 Harrison Avenue since 1886. Its 36 rooms, queens, kings, doubles and two-bedroom suites, are all on the second and third floors, up the staircase: there is no elevator and no accessible room, and the hotel points guests who need one to its sister property in town, the Old Tale Inn, which is on one level with a step-free room. Each room has its own bathroom, except that the two bedrooms of a suite share one.
 
-Check-in is from 4 pm and check-out by 11 am, and the desk is staffed around the clock; anyone arriving after 10 pm is asked to call ahead with the confirmation number. The hotel's lot is a block away, at $10 a night. Skis, snowboards and bikes are stored downstairs for $15 a night. There are no pets, apart from trained service animals, no smoking and no breakfast; the lobby bar is open in the evenings. The hotel says it sells rooms only on its own site and on Expedia.
+Check-in is from 4 pm and check-out by 11 am, and the desk is staffed around the clock; anyone arriving after 10 pm is asked to call ahead with the confirmation number. The hotel's lot is a block away, at $10 a night. Skis, snowboards and bikes are stored downstairs for $15 a night. There are no pets, apart from trained service animals, no smoking and no breakfast; the lobby bar, [Mineral 1886](/places/mineral-1886/), is open in the evenings, and its coffee cafe in the mornings. The hotel says it sells rooms only on its own site and on Expedia.
 
 The ground floor, with the lobby, the old restaurant (now a private dining room) and a mezzanine for about thirty, is booked for weddings, dinners and other events.
 
