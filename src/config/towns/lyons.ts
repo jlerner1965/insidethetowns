@@ -57,6 +57,14 @@ export const lyons: TownConfig = {
    * second colour is white. MaxPreps's navy (#022C66) stays on /sports/.
    */
   school: { name: 'Lyons Middle/Senior High School', mascot: 'Lions', teamName: 'Lyons Lions', primary: '#0054A6', secondary: '#FFFFFF' },
+  // /get-involved/, on the owner's word (9 November 2026), once the adult
+  // ways in were read from their own pages: LEAF, the Community Foundation,
+  // Lyons Fire, the Town's boards and the Board of Trustees, the Friends of
+  // the Library, beside the library's and Creative Grounds' youth groups.
+  participation: {
+    label: 'Get involved',
+    intro: 'Boards, volunteering, clubs and groups in Lyons, and how to join each.',
+  },
   families: {
     label: 'Lyons Families',
     intro: 'What Lyons kids can join, what closes soon, and the school days off.',

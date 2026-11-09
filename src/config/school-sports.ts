@@ -25,7 +25,10 @@
  * The winter list is configured (25 October 2026) and its teams take
  * their place on the pages as MaxPreps fills their schedules in: a team
  * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
- * teams wait until their season.
+ * teams are followed where the owner has asked (Lyons, 9 November 2026);
+ * until MaxPreps opens the school year's spring season the run writes them
+ * as having nothing yet (scripts/lib/maxpreps.ts, staleSeason), so last
+ * spring's record never shows as this one's.
  *
  * The school, its mascot, its classification and its league are checked
  * against CHSAANow's member-school profiles and its 2026–28 classification
@@ -38,7 +41,7 @@ export interface SportConfig {
   /** The key in the data file and the card's anchor: "football". */
   key: string;
   /** The CHSAA season the team plays in; the page's eyebrow says which season its next game is in. */
-  season: 'fall' | 'winter';
+  season: 'fall' | 'winter' | 'spring';
   /** As the card names it: "Football", "Boys soccer". */
   name: string;
   /** The team's path under the school's MaxPreps URL: "football", "soccer", "cross-country/girls". */
@@ -238,12 +241,29 @@ const ICE_HOCKEY: SportConfig = { key: 'ice-hockey', season: 'winter', name: 'Ic
  */
 const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: 'fall', name: 'Girls flag football', maxpreps: 'flag-football/girls/fall', calendar: { gender: 'Girls', sport: 'Flag Football' } };
 
+/**
+ * Spring teams, followed where a guide has asked: Lyons, on the owner's word
+ * of 9 November 2026 (baseball and track, both on the school's athletics
+ * list). The paths are MaxPreps's spring defaults ("baseball",
+ * "track-field", "track-field/girls"); MaxPreps refuses the cloud address
+ * this was written from, so the first Saturday or Wednesday run from the
+ * runner is the check, and a path that is not there keeps the team off the
+ * page and says so in the run's summary. Track is meets, not games: the
+ * reader finds nothing on the cross-country pages, which are meets too, so
+ * track may show nothing until the reader learns to read a meet.
+ */
+const SPRING_BASEBALL: SportConfig = { key: 'baseball', season: 'spring', name: 'Baseball', maxpreps: 'baseball', calendar: { gender: 'Boys', sport: 'Baseball' } };
+const SPRING_TRACK: SportConfig[] = [
+  { key: 'boys-track', season: 'spring', name: 'Boys track and field', maxpreps: 'track-field', calendar: { gender: 'Boys', sport: 'Track & Field' } },
+  { key: 'girls-track', season: 'spring', name: 'Girls track and field', maxpreps: 'track-field/girls', calendar: { gender: 'Girls', sport: 'Track & Field' } },
+];
+
 /** The fall list without one team, for a school that does not field it. */
 const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
 /** The winter list without one team, for a school whose MaxPreps page for it does not exist. */
 const WINTER_WITHOUT = (...keys: string[]): SportConfig[] => WINTER().filter((t) => !keys.includes(t.key));
-/** Every school's teams: the fall list, or a variant of it, then the winter list. */
-const TEAMS = (fall: SportConfig[] = FALL(), winter: SportConfig[] = WINTER()): SportConfig[] => [...fall, ...winter];
+/** Every school's teams: the fall list, or a variant of it, then the winter list, then any spring teams the guide follows. */
+const TEAMS = (fall: SportConfig[] = FALL(), winter: SportConfig[] = WINTER(), spring: SportConfig[] = []): SportConfig[] => [...fall, ...winter, ...spring];
 
 /**
  * Thompson School District's Finalsite sites: `?cal_date=YYYY-MM-01` shows a
@@ -481,8 +501,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     calendarNote: 'Lyons posts its schedules as spreadsheets on the school site, which the cross-check does not read, so games to come are published on MaxPreps’s word alone.',
     // The fall list at the school site, 22 October 2026: cross country,
     // football, softball, volleyball (and cheer). No boys soccer. No girls'
-    // swimming page on MaxPreps (HTTP 404, 25 October 2026).
-    teams: TEAMS(FALL_WITHOUT('boys-soccer'), WINTER_WITHOUT('girls-swimming')),
+    // swimming page on MaxPreps (HTTP 404, 25 October 2026). Baseball and
+    // track in the spring, on the owner's word (9 November 2026).
+    teams: TEAMS(FALL_WITHOUT('boys-soccer'), WINTER_WITHOUT('girls-swimming'), [SPRING_BASEBALL, ...SPRING_TRACK]),
   },
   {
     town: 'golden',

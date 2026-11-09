@@ -43,6 +43,8 @@ export interface TeamPage {
   warnings: string[];
   /** The page says "No Schedule": MaxPreps has the team and nothing for it. */
   noSchedule?: boolean;
+  /** The school year the page is for, as MaxPreps names it: "26-27". */
+  season?: string;
 }
 
 export type Fetched = { ok: true; html: string } | { ok: false; reason: string; html?: string };
@@ -245,6 +247,7 @@ export function parseTeamPage(html: string, us: Team): TeamPage {
   // results from February. A post from another year is not this season's
   // and is left out; with nothing to name the season, nothing is filtered.
   const seasonYear: string | undefined = (typeof ctx?.data?.year === 'string' && ctx.data.year) || glance.find((c) => c.year)?.year;
+  if (seasonYear) page.season = seasonYear;
   const posts: MpPost[] = pp?.wallPosts ?? [];
   const seen = new Set<string>();
   for (const p of posts) {
@@ -276,6 +279,28 @@ export function parseTeamPage(html: string, us: Team): TeamPage {
   if (!/Schedule at a Glance/i.test(text)) page.warnings.push('no "Schedule at a Glance" heading in the visible text');
 
   return page;
+}
+
+/** The school year a Denver day belongs to, as MaxPreps writes it: 2026-11-09 is "26-27", 2027-04-10 is "26-27" too. */
+export function schoolYear(today: string): string {
+  const [y, m] = today.split('-').map(Number) as [number, number];
+  const start = m >= 8 ? y : y - 1;
+  return `${String(start).slice(-2)}-${String(start + 1).slice(-2)}`;
+}
+
+/**
+ * The page's season where it is an earlier school year's than today's, else
+ * nothing. A spring team's page in the autumn can still be last spring's,
+ * with May's record and results, and writing it would show last season as
+ * this one; the run writes the team as having nothing yet. A page already
+ * on the next school year (a fall schedule posted in July) is not held back,
+ * and a page that names no season is taken as current, as before.
+ */
+export function staleSeason(page: Pick<TeamPage, 'season'>, today: string): string | undefined {
+  const start = (season: string) => Number(season.slice(0, 2));
+  const m = page.season?.match(/^\d{2}-\d{2}$/);
+  if (!m) return undefined;
+  return start(page.season!) < start(schoolYear(today)) ? page.season : undefined;
 }
 
 /** A page is usable when it has a record and the glance card; the warnings say what else is off. */
