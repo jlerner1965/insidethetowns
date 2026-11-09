@@ -53,6 +53,9 @@ export const windsor: TownConfig = {
     accent: '#C2A16D',
     paper: 'cool',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Restaurants, breweries, shops', thingsToDo: 'Parks, trails, Windsor Lake', living: 'Utilities, schools, who to call' },
   hero: {
     image: 'windsor-lake-aerial.jpg',
     // A June aerial, in place of the frozen lake that fronted the site in

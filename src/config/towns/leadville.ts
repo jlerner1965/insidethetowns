@@ -93,6 +93,9 @@ export const leadville: TownConfig = {
     accent: '#A3ADBC',
     paper: 'cool',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Coffee, bars, restaurants', thingsToDo: 'Museums, trails, Turquoise Lake', living: 'Housing, schools, winter' },
   hero: {
     // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
     // place of the town among aspens seen from afar: Harrison Avenue itself.

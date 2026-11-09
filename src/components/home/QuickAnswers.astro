@@ -14,24 +14,16 @@
  * Erie first; the search audit of 7 November 2026 found Berthoud's local
  * changes page its second-biggest click earner, and the rec center among
  * its most-asked queries).
+ *
+ * No link here repeats one the page already has (the owner, 9 November
+ * 2026): one the page carries gives its place to the town's guides, then
+ * to the directory (src/lib/quick-answers.ts).
  */
-import type { TownConfig } from '@/config';
+import { quickAnswerLinks, type QuickAnswerInputs } from '@/lib/quick-answers';
 
-interface Props {
-  town: TownConfig;
-  /** The rec center listing's slug from the schedule file, where the town has one. */
-  recPlace?: string;
-  /** The guide has at least one local change filed. */
-  hasUpdates: boolean;
-}
+type Props = QuickAnswerInputs;
 
-const { town, recPlace, hasUpdates } = Astro.props;
-const config = town.quickAnswers;
-const rec = config?.recCenter ?? (recPlace ? { label: 'Rec center hours & swim', place: recPlace } : undefined);
-const links: Array<{ label: string; href: string; track: string }> = [];
-if (config && town.families) links.push({ label: 'Kids & family plans', href: '/families/', track: 'families' });
-if (config && rec) links.push({ label: rec.label, href: `/places/${rec.place}/`, track: 'rec-center' });
-if (config && hasUpdates) links.push({ label: 'What changed in town', href: '/updates/', track: 'updates' });
+const links = quickAnswerLinks(Astro.props);
 ---
 {/* On the page, not in a band of its own: a stacked list on white, in the
     guide's colour, the width of What's happening above it, as the owner's

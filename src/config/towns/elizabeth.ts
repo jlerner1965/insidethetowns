@@ -59,6 +59,9 @@ export const elizabeth = {
     accent: "#C7A36A",
     paper: "warm",
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Restaurants, antiques, a brewery', thingsToDo: 'Parks, Main Street, disc golf', living: 'Housing, schools, getting around' },
   hero: {
     image: "hero.jpg",
     alt: "Main Street in Elizabeth, Colorado: the 1907 First National Bank building with its arched openings and the white false-front store beyond, under a clear winter sky",

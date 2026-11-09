@@ -71,6 +71,9 @@ export const castleRock: TownConfig = {
     accent: '#A0546A',
     paper: 'warm',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Restaurants, breweries, coffee', thingsToDo: 'Parks, trails, Castlewood Canyon', living: 'Housing, schools, getting around' },
   hero: {
     image: 'hero.jpg',
     alt: 'Wilcox Street in downtown Castle Rock in winter: brick storefronts, parked cars and strings of lights crossing the street',

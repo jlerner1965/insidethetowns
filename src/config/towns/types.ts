@@ -394,13 +394,25 @@ export interface TownConfig {
   /**
    * Quick answers under What's happening (8 November 2026): the families
    * hub, the rec center's listing and the local changes page, each one tap
-   * from the home page, where the guide has them
-   * (src/components/home/QuickAnswers.astro). `recCenter` names the
+   * from the home page, where the guide has them; one the page links
+   * already gives its place to the guides, then the directory (9 November
+   * 2026; src/components/home/QuickAnswers.astro). `recCenter` names the
    * listing and its line for a town whose rec center has no schedule file
    * (Erie's community center); a town with data/<town>/rec-center.json
    * needs nothing more.
    */
   quickAnswers?: { recCenter?: { label: string; place: string } };
+  /**
+   * The short line under each of the home page's three photo tiles, Find
+   * your next stop (src/components/home/NextStop.astro; the owner, 9
+   * November 2026): "Coffee, restaurants, breweries". Written from what
+   * the town's own page lists (/eat-drink/, /things-to-do/, and
+   * /living-here/ or /moving-here/), never from what it might; a place is
+   * named only where its listing is on that page. `living` is the third
+   * tile's, whichever of the two it is. Unset, the tile carries a generic
+   * line that names no place.
+   */
+  nextStop?: { eatDrink: string; thingsToDo: string; living: string };
   /** The high school the home page's scoreboard and the sports pages lead with: see SchoolConfig. */
   school?: SchoolConfig;
   livingHere?: LivingHereConfig;

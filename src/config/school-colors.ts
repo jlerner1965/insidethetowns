@@ -58,7 +58,7 @@ export function contrast(a: string, b: string): number {
 export interface SchoolTheme {
   /** The masthead and closing band, the Home pill: white on it. */
   band: string;
-  /** The other colour: the dot, and the eyebrows and pills where legible. */
+  /** The other colour: the eyebrows and pills where legible. (The home strip's dot is the sports config's colour, SchoolSports.colors.) */
   mark: string;
   /** The school's colour for words and pills on the paper and on white: the primary where it reads there, else the band. */
   ink: string;
