@@ -118,6 +118,8 @@ test('what stays for a person: the editor’s own holds, sources that are not th
   // Same title on another day is another date, not a duplicate.
   assert.equal(decideEvent(staged(), ctx({ published: [{ file: 'x.md', title: 'Toddler Storytime', start: new Date('2026-11-14T16:00:00Z') }] })).approve, true);
   refused(staged(), ctx({ targetExists: true }), /already exists/);
+  // A slug a person retired is not published again from the feed (Lafayette, 9 November 2026).
+  refused(staged(), ctx({ retired: true }), /retired\.json/);
 });
 
 test('ingest’s one guess the rules can see through: a board game is not a board that meets', () => {
