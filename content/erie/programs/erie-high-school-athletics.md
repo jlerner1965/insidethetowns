@@ -12,7 +12,9 @@ location: "Erie High School, 3180 County Road 5"
 registration: { required: true, how: "Register on the district's RevTrak site and upload a current physical through the school's form; both links are on the athletics page", url: "https://stvrain.revtrak.net/High-Schools-1143/erie-hs/Athletic-Registration-1077/" }
 contact: "Athletic director Chad Cooper, cooper_chad@svvsd.org; athletic secretary Courtney Stanesa, stanesa_courtney@svvsd.org; 303-828-4213"
 source: "https://ehs.svvsd.org/activities-arts-athletics/athletics/"
-verified: "2026-10-22"
+verified: "2026-11-09"
 ---
 
 The athletics page lists the teams: baseball, boys' and girls' basketball, cheerleading, cross country, dance and poms, football, boys' and girls' golf, boys' lacrosse, boys' and girls' soccer, softball, girls' swim and dive, boys' and girls' tennis, track and field, Unified bowling, girls' volleyball and wrestling. The page links the team schedules, ticket sales and the head coaches' contacts. To play, a student registers on the district's RevTrak site and uploads a physical. The school follows CHSAA's eligibility plan, with the athletic secretary running grade reports every Friday; eligibility for fall and winter sports is set by the previous spring semester's grades. The [Booster Club](https://ehs.svvsd.org/activities-arts-athletics/athletics/ehs-booster-club/) supports the teams.
+
+The winter teams start in November. [Wrestling](https://ehs.svvsd.org/activities-arts-athletics/athletics/athletics-team-pages/wrestling-boys/) begins on November 16, 2026, practising Monday to Friday from 3 to 5 pm under head coach Joe Ferrera; [girls' swim and dive](https://ehs.svvsd.org/activities-arts-athletics/athletics/athletics-team-pages/swimming-girls/), coached by Marie Chamberlain, practises at the SVVSD Aquatic Center. Both teams' schedules are on ArbiterLive, linked from their pages.

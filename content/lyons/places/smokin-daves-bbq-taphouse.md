@@ -9,7 +9,7 @@ hours: "Mon–Thu 11 am–7 pm, Fri–Sun 11 am–8 pm"
 tags: [barbecue, beer, families]
 summary: "Slow-smoked barbecue and a long tap list, mid-block on Main."
 source: "https://lyons.smokindavesbbq.com/"
-verified: "2026-11-03"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 
