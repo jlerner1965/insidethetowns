@@ -647,8 +647,8 @@ test('every school carries the winter list after its fall list, any spring teams
     const order = { fall: 0, winter: 1, spring: 2 } as const;
     const seasons = school.teams.map((t) => order[t.season]);
     assert.deepEqual(seasons, [...seasons].sort((a, b) => a - b), `${school.school}: fall, then winter, then spring`);
-    // Spring teams only where a guide has asked: Lyons's baseball and track, Golden's baseball and lacrosse (the owner, 9 November 2026).
-    assert.equal(school.teams.some((t) => t.season === 'spring'), ['lyons', 'golden'].includes(school.town), `${school.school}: spring teams only at Lyons and Golden`);
+    // Spring teams only where a guide has asked: Lyons's baseball and track, Golden's baseball and lacrosse, Roosevelt's baseball and girls' soccer (the owner, 9 November 2026).
+    assert.equal(school.teams.some((t) => t.season === 'spring'), ['lyons', 'golden', 'johnstown'].includes(school.town), `${school.school}: spring teams only at Lyons, Golden and Roosevelt`);
     assert.equal(keys.includes('ice-hockey'), school.school === 'Resurrection Christian School', `${school.school}: ice hockey only where CHSAA lists the school`);
     // MaxPreps has no girls' swimming page for Elizabeth or Lyons (25 October 2026).
     assert.equal(keys.includes('girls-swimming'), !['Elizabeth High School', 'Lyons Middle/Senior High School'].includes(school.school), `${school.school}: girls swimming`);
@@ -675,6 +675,8 @@ test('every school carries the winter list after its fall list, any spring teams
   const { pageSeasonLabel } = await import('../src/lib/school-sports.ts');
   const lyons = schoolSportsFor('lyons')!.teams;
   assert.deepEqual(lyons.filter((t) => t.season === 'spring').map((t) => t.key), ['baseball', 'boys-track', 'girls-track']);
+  const roosevelt = schoolSportsFor('johnstown')!.teams.filter((t) => t.season === 'spring');
+  assert.deepEqual(roosevelt.map((t) => [t.key, t.maxpreps]), [['baseball', 'baseball'], ['girls-soccer', 'soccer/girls/spring']]);
   const spring: SportsData = { generated: '', sports: [team('boys-basketball', [{ ...game('2027-02-20', 'Estes Park'), result: 'W' as const, score: { us: 50, them: 40 } }], []), team('baseball', [], [game('2027-03-10', 'Estes Park')])].map((t) => ({ ...t, fetched: '2027-03-01' })) };
   const march = new Date('2027-03-01T15:00:00Z');
   assert.equal(seasonOf(spring, lyons, march).label, 'Spring 2027');
