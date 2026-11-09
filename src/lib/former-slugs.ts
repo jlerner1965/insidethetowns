@@ -165,3 +165,28 @@ export function formerSlugRedirects(town: string, contentRoot = 'content'): Reco
   }
   return out;
 }
+
+/**
+ * A program points at its next event by slug (`nextEvent`), and the row
+ * prints that event's date and link. When the event is re-filed under a new
+ * slug the pointer finds nothing, and nothing says so: the row just loses
+ * its line (Niwot's Business Association pointed at great-pumpkin-party-2026
+ * for a week after the listing became great-pumpkin-party, 9 November
+ * 2026). One issue per pointer that names no live event, with the slug the
+ * event moved to when a listing declares the old one.
+ */
+export function nextEventIssues(town: string, contentRoot = 'content'): string[] {
+  const dir = join(contentRoot, town, 'programs');
+  if (!existsSync(dir)) return [];
+  const live = liveListings(town, 'events', contentRoot);
+  const issues: string[] = [];
+  for (const file of readdirSync(dir)) {
+    if (!file.endsWith('.md') || file.startsWith('_')) continue;
+    const fm = readFileSync(join(dir, file), 'utf8').match(/^---\n([\s\S]*?)\n---/)?.[1];
+    const slug = fm?.match(/^nextEvent:\s*["']?([a-z0-9-]+)["']?\s*$/m)?.[1];
+    if (!slug || live.has(slug)) continue;
+    const now = [...live].find(([, formers]) => formers.includes(slug))?.[0];
+    issues.push(`${town}/programs/${file}: nextEvent "${slug}" is not an event on this guide${now ? `; the listing is now "${now}"` : ''}`);
+  }
+  return issues;
+}

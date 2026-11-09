@@ -9,7 +9,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { formerSlugRedirects, formerSlugs, parseFormerSlugs } from '../src/lib/former-slugs.ts';
+import { formerSlugRedirects, formerSlugs, nextEventIssues, parseFormerSlugs } from '../src/lib/former-slugs.ts';
 
 test('formerSlugs reads as an inline list or a block list, quoted or not, and nothing when absent', () => {
   assert.deepEqual(parseFormerSlugs('title: "x"\nformerSlugs: [old-one, "old-two"]\nstart: "2026-11-06"'), ['old-one', 'old-two']);
@@ -53,4 +53,27 @@ test('each former slug becomes a redirect to the listing that holds it; a slug a
     console.warn = warn;
   }
   assert.deepEqual(formerSlugs('nowhere', root), [], 'a town with no content has no redirects');
+});
+
+test('a program whose nextEvent names no live event is reported, with the slug the event moved to', () => {
+  const root = mkdtempSync(join(tmpdir(), 'next-event-'));
+  const events = join(root, 'niwot', 'events');
+  const programs = join(root, 'niwot', 'programs');
+  mkdirSync(events, { recursive: true });
+  mkdirSync(programs, { recursive: true });
+  writeFileSync(join(events, 'great-pumpkin-party.md'), '---\ntitle: "x"\nformerSlugs: [great-pumpkin-party-2026]\n---\n');
+  writeFileSync(join(programs, 'a.md'), '---\ntitle: "a"\nnextEvent: great-pumpkin-party\n---\n');
+  writeFileSync(join(programs, 'b.md'), '---\ntitle: "b"\nnextEvent: "great-pumpkin-party-2026"\n---\n');
+  writeFileSync(join(programs, 'c.md'), '---\ntitle: "c"\nnextEvent: never-was\n---\n');
+  writeFileSync(join(programs, 'd.md'), '---\ntitle: "d"\n---\n');
+  assert.deepEqual(nextEventIssues('niwot', root), [
+    'niwot/programs/b.md: nextEvent "great-pumpkin-party-2026" is not an event on this guide; the listing is now "great-pumpkin-party"',
+    'niwot/programs/c.md: nextEvent "never-was" is not an event on this guide',
+  ]);
+  assert.deepEqual(nextEventIssues('lyons', root), [], 'a guide with no programs folder');
+});
+
+test('no live guide has a program pointing at an event that is not there', async () => {
+  const { LIVE_TOWNS } = await import('../src/config/index.ts');
+  assert.deepEqual(LIVE_TOWNS.flatMap((town) => nextEventIssues(town)), []);
 });

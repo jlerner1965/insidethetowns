@@ -41,7 +41,7 @@ import { parseFrontmatter } from './lib/frontmatter.ts';
 import { hoursTextByDesign, parseHoursText } from '../src/lib/hours.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
-import { retiredLedgerIssues } from '../src/lib/former-slugs.ts';
+import { nextEventIssues, retiredLedgerIssues } from '../src/lib/former-slugs.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -577,6 +577,7 @@ if (!existsSync(contentDir)) {
 // src/lib/former-slugs.ts): a slug still live, a target that is not, or a
 // file the build could not read would each make a redirect wrong or missing.
 for (const town of liveTowns()) for (const issue of retiredLedgerIssues(town.slug, contentDir)) errors.push(issue);
+for (const town of liveTowns()) for (const issue of nextEventIssues(town.slug, contentDir)) errors.push(`content/${issue}`);
 
 for (const w of warnings) console.warn(`warn  ${w}`);
 /**
