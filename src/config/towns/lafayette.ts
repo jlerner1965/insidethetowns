@@ -224,7 +224,8 @@ export const lafayette: TownConfig = {
           // November 2026.
           { label: 'Bulky items and old appliances', url: 'https://www.lafayetteco.gov/2420/Three-Cart-Program', note: 'One free curbside bulky item a quarter, scheduled with Republic Services at 303-286-2400, and up to five items at the annual fall cleanup; extra items in 2026 are $38.80 for a mattress, box spring or large appliance and $27.71 for a sofa, chair or other furniture; refrigerators, freezers and air conditioners go to Eco-Cycle’s CHaRM, 6400 Arapahoe Rd, Boulder, 303-444-6634' },
           { label: 'Household hazardous waste: Boulder County’s HMMF', url: 'https://bouldercounty.gov/environment/hazardous-waste/management-facility/', note: '1901 63rd St, Boulder, Wednesday to Saturday 8:30 am–4 pm, no appointment needed; no charge to Boulder County residents; 720-564-2251' },
-          { label: 'Fall leaf and branch cleanups', url: 'https://www.lafayetteco.gov/CivicAlerts.aspx?AID=10279', note: 'Republic’s curbside pickups for Three Cart households: November 7 south of South Boulder Road, November 14 north of it and east of US 287, November 21 north of it and west of 287' },
+          // The November 7 pickup, south of South Boulder Road, has passed; the City's notice re-read 9 November 2026.
+          { label: 'Fall leaf and branch cleanups', url: 'https://www.lafayetteco.gov/CivicAlerts.aspx?AID=10279', note: 'Republic’s curbside pickups for Three Cart households: November 14 north of South Boulder Road and east of US 287, November 21 north of it and west of 287' },
         ],
       },
       {
@@ -240,7 +241,7 @@ export const lafayette: TownConfig = {
         ],
       },
       {
-        title: 'Recreation',
+        title: 'Parks and recreation',
         note: 'The City runs the recreation center, the parks, the open space, the water park, the lake boathouse and the Senior Center; Boulder County runs the Coal Creek and Rock Creek regional trails.',
         verified: '2026-11-02',
         items: [

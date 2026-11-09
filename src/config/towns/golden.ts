@@ -94,8 +94,9 @@ export const golden: TownConfig = {
   // A resident guide (TownConfig.home), since 28 October 2026.
   home: true,
   // Quick answers under What's happening (parity with Berthoud, 9 November 2026).
-  // No rec center link: the guide has no listing for the Golden Community Center to point at.
-  quickAnswers: {},
+  // The City's pool schedule is labelled "Fall 2026" with no dates, so there is no schedule
+  // file and the link names the listing, as Erie's does.
+  quickAnswers: { recCenter: { label: 'Community center hours & swim', place: 'golden-community-center' } },
   /**
    * Golden High's colours as MaxPreps carries them (schoolColor1 8F0018,
    * schoolColor2 FFFFFF), read by the sports probe from the GitHub runner
@@ -227,7 +228,7 @@ export const golden: TownConfig = {
         ],
       },
       {
-        title: 'Recreation',
+        title: 'Parks and recreation',
         note: 'The City runs the Community Center, the parks and the classes; Jefferson County Parks & Open Space runs the mountain parks around the town.',
         verified: '2026-10-28',
         items: [

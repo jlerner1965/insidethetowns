@@ -245,7 +245,7 @@ export const frederick: TownConfig = {
         ],
       },
       {
-        title: 'Recreation',
+        title: 'Parks and recreation',
         note: 'The Carbon Valley Parks and Recreation District runs the rec center, the gymnastics center, the leagues and the classes for the three towns; the Town runs the parks, the trails and Bella Rosa Golf Course.',
         verified: '2026-11-02',
         items: [

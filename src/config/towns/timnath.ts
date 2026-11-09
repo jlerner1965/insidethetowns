@@ -127,7 +127,7 @@ export const timnath: TownConfig = {
         ],
       },
       {
-        title: 'Recreation',
+        title: 'Parks and recreation',
         verified: '2026-11-09',
         items: [
           { label: 'Timnath Recreation: registration', url: 'https://timnath.recdesk.com/Community/Home', note: 'Leagues, classes, facility rentals and reservoir permits, on the Town’s RecDesk site', track: 'registration' },

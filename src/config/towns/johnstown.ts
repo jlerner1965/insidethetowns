@@ -62,7 +62,7 @@ export const johnstown: TownConfig = {
   // The participation hub, as on Berthoud (9 November 2026); its entries are the ways-in in content/<town>/programs/.
   participation: {
     label: 'Get involved',
-    intro: 'Clubs, groups and family services in Johnstown, and how to join each.',
+    intro: 'Boards, volunteering, clubs and groups in Johnstown, and how to join each.',
   },
   /**
    * Roosevelt High's colours, read from its own site 25 October 2026
