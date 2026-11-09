@@ -1,7 +1,7 @@
 ---
 title: "Moving to Fort Collins"
 description: "Moving to Colorado's fourth-largest city: the neighborhoods, the housing market, Poudre schools, Transfort and MAX, who sends which bill, and City Hall."
-updated: "2026-10-02"
+updated: "2026-11-09"
 ---
 
 ## What you are moving to
@@ -25,7 +25,7 @@ The City's [Housing Strategic Plan](https://www.fortcollins.gov/Government/City-
 
 ## Schools
 
-Fort Collins is in the [Poudre School District](https://psdschools.org/your-district), based at 2407 LaPorte Avenue, which teaches about 28,000 students across more than 1,800 square miles, from the city to Laporte, Timnath, Wellington, Red Feather, Livermore, Stove Prairie and parts of Windsor and Loveland: 31 elementary schools, 8 middle schools, 2 middle-high schools, 4 comprehensive high schools, 2 alternative high schools, 2 K-12 schools and 5 charter schools. The four comprehensive high schools are [Fort Collins, Poudre, Rocky Mountain and Fossil Ridge](https://www.psdschools.org/schools), each fed by its own middle and elementary schools. Every address has a neighborhood school, and a student enrolled there rolls over each year without paperwork; to attend any other school, or a choice-only school, you file a [School Choice](https://www.psdschools.org/our-schools/school-options-choice) application. First-round applications for 2027–28 open in early November 2026 and are decided by lottery with priority rankings; a second round opens in mid-January 2027 and runs to early May, decided by priority and the time the application was submitted. The district's choice office is at 970-490-3203.
+Fort Collins is in the [Poudre School District](https://psdschools.org/your-district), based at 2407 LaPorte Avenue, which teaches about 28,000 students across more than 1,800 square miles, from the city to Laporte, Timnath, Wellington, Red Feather, Livermore, Stove Prairie and parts of Windsor and Loveland: 31 elementary schools, 8 middle schools, 2 middle-high schools, 4 comprehensive high schools, 2 alternative high schools, 2 K-12 schools and 5 charter schools. The four comprehensive high schools are [Fort Collins, Poudre, Rocky Mountain and Fossil Ridge](https://www.psdschools.org/schools), each fed by its own middle and elementary schools. Every address has a neighborhood school, and a student enrolled there rolls over each year without paperwork; to attend any other school, or a choice-only school, you file a [School Choice](https://www.psdschools.org/our-schools/school-options-choice) application. First-round applications for 2027–28 open at 8 am on Monday, November 30, and close at 4 pm on Wednesday, December 16, after the district delayed the opening; a lottery sets the order within each priority ranking, and seat offers start the week of January 3, 2027. A second round opens in mid-January 2027. The district's choice office is at 970-490-3203.
 
 ## Getting around
 
@@ -39,6 +39,17 @@ Fort Collins is in the [Poudre School District](https://psdschools.org/your-dist
 - **Police** is [Fort Collins Police Services](https://fortcollins.gov/Services/Police-and-Public-Safety/Police-Services), 236 sworn officers and 145 civilian staff under Chief Jeff Swoboda, at 2221 South Timberline Road; non-emergency 970-419-3273.
 - **Fire and emergency medical** response is the [Poudre Fire Authority](https://www.poudre-fire.org/), a separate authority with, the City says, [almost 200 firefighters and 13 stations](https://www.fcgov.com/citygive/pfa-campaign) covering 230 square miles in and around the city.
 - **Library** is the [Poudre River Public Library District](https://www.poudrelibraries.org/locations/), with three branches: Old Town at 201 Peterson Street, Harmony at 4616 South Shields Street and Council Tree at 2733 Council Tree Avenue; 970-221-6740.
+
+## Hospital, cars, pets and snow
+
+- **Hospital and emergency care**: [UCHealth Poudre Valley Hospital](https://www.uchealth.org/locations/uchealth-poudre-valley-hospital/), 1024 South Lemay Avenue, has emergency care and is open around the clock; the main line is 970-495-7000.
+- **Registering a car** is Larimer County's job, at its [Fort Collins vehicle licensing office](https://www.larimer.gov/clerk/contact), 200 West Oak Street, first floor, Monday to Friday 8 am to 5 pm except holidays; 970-498-7878. Book an in-person visit at [larimer.gov/bookatime](https://www.larimer.gov/bookatime).
+- **Pet licenses**: every dog and cat four months and older in Fort Collins needs one, renewed each year, from [NOCO Humane](https://www.nocohumane.org/requirements/): $17 a year for a spayed or neutered animal and $60 for one that is not; 970-226-3647 ext. 2010. NOCO Humane is also the City's [Animal Protection & Control](https://www.nocohumane.org/animal-control/fort-collins/), out from 8 am to 8 pm on weekdays and 8 am to 6 pm on weekends; 970-226-3647 ext. 7.
+- **Snow**: you clear the sidewalk beside your property within 24 hours after a snowfall, the City's [snow removal](https://www.fortcollins.gov/Services/Transportation-and-Roads/Snow-Removal) rule. Plows take the major roads first, then the collector streets, then school zones and bus routes; residential streets are plowed only if they are blocked or in an emergency, and the same page has the City's live plow map. Report an unshoveled sidewalk to Neighborhood Services at 970-224-6046 or online through [Access Fort Collins](https://fortcollinsco.citysourced.com/), which takes the City's other service requests too.
+
+## Pools, ice and rec centers
+
+The City's indoor centers are open all year. [EPIC](https://www.fortcollins.gov/Venues/Edora-Pool-Ice-Center-EPIC), the Edora Pool Ice Center at 1801 Riverside Avenue, has a 25-yard lap pool, diving boards and ice for public skating, open 5:30 am to 8 pm on weekdays and 8 am to 5 pm on weekends; public skating is $10 for adults and $8 for youth and seniors who live in the city ($12 and $10 for everyone else), skate rental $3; 970-221-6683. [Mulberry Pool](https://www.fortcollins.gov/Venues/Mulberry-Pool), 424 West Mulberry Street, opens at 5:30 am on weekdays, closing at 8 pm on Mondays, Wednesdays and Fridays and at 4:30 pm on Tuesdays and Thursdays, with afternoon swims on the weekend. [Northside Aztlan Community Center](https://www.fortcollins.gov/Venues/Northside-Aztlan-Community-Center), 112 East Willow Street, has a gym, an indoor track and fitness rooms, 6 am to 9 pm on weekdays and 8 am to 5 pm on weekends; 970-221-6256. The [Fort Collins Senior Center](https://www.fortcollins.gov/Venues/Fort-Collins-Senior-Center), 1200 Raintree Drive, has a lap pool and hot tub, a gym, an indoor track, a woodworking shop and a library, open 6 am to 9 pm on weekdays and 8 am to 5 pm on weekends; it serves adults 50 and older and opens to every age on January 1, 2027; 970-221-6644.
 
 ## Government
 

@@ -537,6 +537,81 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // data/lafayette/sports.json, and the page waits for it.
     teams: TEAMS(),
   },
+  // Fort Collins, on the owner's word of 9 November 2026 (the gap report of
+  // 8 November: Fort Collins High 10-0 and seeded fourth in 5A, and the guide
+  // had no sports). The four comprehensive high schools of Poudre School
+  // District, as Loveland follows its four: /sports/ lists them. Each school
+  // is CHSAANow's member profile (chsaanow.com/schools/<school>, read 9
+  // November 2026: district Poudre R-1, and every fall and winter team the
+  // default lists follow); ice hockey is the district's co-op, under another
+  // MaxPreps school, and is not followed. MaxPreps refuses the cloud
+  // address, so each path is the one MaxPreps's own team pages carry in a
+  // search of 9 November 2026 (/co/fort-collins/<school>-<mascot>/); the
+  // first Saturday or Wednesday run reads them and writes the files. Each
+  // colour is the header band of the school's own site (fch, frh, phs and
+  // rmh.psdschools.org, the theme stylesheets), read 9 November 2026.
+  {
+    town: 'fortcollins',
+    slug: 'fort-collins-high',
+    // CHSAANow: Fort Collins, Poudre R-1; football 5A, basketball 6A (2026–28).
+    school: 'Fort Collins High School',
+    mascot: 'Lambkins',
+    maxpreps: 'https://www.maxpreps.com/co/fort-collins/fort-collins-lambkins/',
+    maxprepsName: 'Fort Collins',
+    // Lambkin purple, the header band of fch.psdschools.org (#5e408e, a
+    // gradient to #301b51, gold #d4c17e beside it). 8.1:1 under white.
+    colors: { primary: '#5E408E' },
+    // The school's athletics pages send schedules to ArbiterLive
+    // (arbiterlive.com/Teams?entityId=7755, linked from
+    // fch.psdschools.org/athletics/fall-sports), whose robots.txt disallows
+    // every automated reader, as Timnath's.
+    calendarNote: 'Fort Collins High’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
+    teams: TEAMS(),
+  },
+  {
+    town: 'fortcollins',
+    slug: 'fossil-ridge',
+    // CHSAANow: Fossil Ridge, Poudre R-1; football 5A, basketball 6A (2026–28).
+    school: 'Fossil Ridge High School',
+    // "Sabercat", one word, as the school writes it ("Once a Sabercat,
+    // Always a Sabercat"); MaxPreps's path is fossil-ridge-sabercats.
+    mascot: 'Sabercats',
+    maxpreps: 'https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/',
+    maxprepsName: 'Fossil Ridge',
+    // Sabercat green, the header band of frh.psdschools.org (#005336). 9.2:1 under white.
+    colors: { primary: '#005336' },
+    calendarNote: 'Fossil Ridge’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
+    teams: TEAMS(),
+  },
+  {
+    town: 'fortcollins',
+    slug: 'poudre',
+    // CHSAANow: Poudre, Poudre R-1; football 4A, basketball 5A (2026–28).
+    school: 'Poudre High School',
+    mascot: 'Impalas',
+    maxpreps: 'https://www.maxpreps.com/co/fort-collins/poudre-impalas/',
+    maxprepsName: 'Poudre',
+    // Impala blue, the header band of phs.psdschools.org (#002c73). 13:1 under white.
+    colors: { primary: '#002C73' },
+    calendarNote: 'Poudre’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
+    teams: TEAMS(),
+  },
+  {
+    town: 'fortcollins',
+    slug: 'rocky-mountain',
+    // CHSAANow: Rocky Mountain, Poudre R-1; football 5A, basketball 6A (2026–28).
+    school: 'Rocky Mountain High School',
+    mascot: 'Lobos',
+    maxpreps: 'https://www.maxpreps.com/co/fort-collins/rocky-mountain-lobos/',
+    maxprepsName: 'Rocky Mountain',
+    // Lobo maroon, the header band of rmh.psdschools.org (#9d2235, a
+    // gradient to #671e2b, gold #eba900 beside it). 7.7:1 under white.
+    colors: { primary: '#9D2235' },
+    // The school's site sends athletics to rockyathletics.org, an
+    // rSchoolToday site, which this reader does not read.
+    calendarNote: 'Rocky Mountain posts its schedules on rockyathletics.org, which this site does not read yet, so games to come are published on MaxPreps’s word alone.',
+    teams: TEAMS(),
+  },
 ];
 
 /** Every school a town follows, in the config's order. */
