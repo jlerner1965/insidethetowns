@@ -62,7 +62,7 @@ const when = [
   { value: 'week', label: 'Next 7 days' },
 ];
 const pill =
-  'rounded-full border border-primary-line bg-raised px-4 py-2 text-sm sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white';
+  'min-h-11 rounded-full border border-primary-line bg-raised px-4 py-2 text-sm sm:min-h-0 sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white';
 // The "when" row is always out, it being what a reader asks first. The
 // category and town rows, the weekly-regulars switch and the day strip (the
 // page passes it in the slot) sit behind one "Filter / Jump to date"
@@ -124,7 +124,7 @@ const pill =
       with a shared "free music this weekend" link had to find the pressed
       pills to undo it. */}
   <p class="text-[0.9375rem] text-ink-muted" data-filter-active hidden aria-live="polite">
-    Showing <span data-filter-active-words></span>. <button type="button" class="inline-block -my-2 py-2 font-semibold text-primary underline" data-filter-reset>Clear filters</button>
+    Showing <span data-filter-active-words></span>. <button type="button" class="inline-block -my-3 py-3 font-semibold text-primary underline" data-filter-reset>Clear filters</button>
   </p>
   <p class="sr-only" role="status" data-filter-status></p>
 </div>

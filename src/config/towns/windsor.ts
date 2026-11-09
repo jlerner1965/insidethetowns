@@ -250,8 +250,10 @@ export const windsor: TownConfig = {
           { label: 'Severance Town Council', url: 'https://www.townofseverance.org/161/Mayor-Town-Council', note: 'Second and fourth Tuesdays: work session at 5 pm, regular meeting by 6 pm, Town Hall, 3 S Timber Ridge Pkwy', track: 'participation' },
           { label: 'Severance agendas and minutes', url: 'https://www.townofseverance.org/129/Agendas-Minutes' },
           { label: 'Severance Youth Council', url: 'https://www.townofseverance.org/413/Youth-Council', note: 'Teens advising the Town Council; first Mondays at 5 pm at Town Hall', track: 'participation' },
-          { label: 'Weld County elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'The November 3 general election; voting centers and drop boxes on the county’s map; 970-304-6525' },
-          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'For Windsor addresses in Larimer County; ballot boxes open until 7 pm on November 3' },
+          // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
+          { label: 'Weld County elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'The page links the unofficial results of the November 3 general election; 970-304-6525' },
+          // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
+          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'For Windsor addresses in Larimer County; after the November 3 election, signature cures are due November 12 and final results are posted by November 25' },
         ],
       },
     ],

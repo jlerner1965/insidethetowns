@@ -287,7 +287,7 @@ export const golden: TownConfig = {
         ],
       },
       {
-        title: 'Pets',
+        title: 'Pets and animals',
         verified: '2026-11-09',
         items: [
           { label: 'Dog licences: Foothills Animal Shelter', url: 'https://foothillsanimalshelter.org/pet-license/', note: 'Golden requires a licence for every dog; cats and other pets can be licensed voluntarily. The shelter, 580 McIntyre St, is open daily 10 to 5; 303-278-7575' },
@@ -305,7 +305,8 @@ export const golden: TownConfig = {
           { label: 'Serve on a board or commission', url: 'https://www.cityofgolden.gov/government/city_leadership/boards_commissions/vacancies.php', note: 'Applications open early February to mid-March, interviews the last Tuesday of March; most seats are for city residents; City Clerk 303-384-8014', track: 'participation' },
           { label: 'Guiding Golden: City projects open for comment', url: 'https://www.guidinggolden.com/', note: 'The City’s engagement site; register to follow projects and give feedback', track: 'participation' },
           { label: 'Volunteer with the City', url: 'https://www.cityofgolden.gov/community/get_involved/volunteer.php', note: 'Habitat Helpers at DeLong Park, Adopt-A-Street, the History Museum & Park, and a list of local groups that take volunteers', track: 'participation' },
-          { label: 'Jefferson County Elections', url: 'https://www.jeffco.us/4947/Elections', note: 'General election November 3, 2026, last day to vote by 7 pm; drop boxes, vote centers and what is on the ballot; 3500 Illinois St, Suite 1100, 303-271-8111' },
+          // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
+          { label: 'Jefferson County Elections', url: 'https://www.jeffco.us/4947/Elections', note: 'After the November 3, 2026 general election the county lists a post-election audit and the canvass board’s certification for November; 3500 Illinois St, Suite 1100, 303-271-8111' },
         ],
       },
     ],

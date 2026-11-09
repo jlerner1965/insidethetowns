@@ -182,7 +182,7 @@ export const timnath: TownConfig = {
         verified: '2026-11-09',
         items: [
           { label: 'Snow removal', url: 'https://timnath.org/snow-removal/', note: 'The Town plows by priority: Harmony Road and Main Street first, then the other arterials and select collector streets. It does not typically plow local residential streets' },
-          { label: 'Street maintenance and sweeping', url: 'https://timnath.org/street-maintenance/', note: 'The Town sweeps each neighborhood quarterly, weather permitting, on a posted schedule; the fall 2026 round ends with Harmony Club on November 11' },
+          { label: 'Street maintenance and sweeping', url: 'https://timnath.org/street-maintenance/', note: 'The Town sweeps each neighborhood quarterly, weather permitting, neighborhood by neighborhood; the page posts each season’s dates' },
         ],
       },
       {

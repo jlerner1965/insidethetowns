@@ -186,7 +186,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
             <dd class="mt-1 text-[0.9375rem] leading-snug">
               <a href="#breaks" class="font-semibold text-primary underline"><time datetime={nextBreak.from}>{nextBreak.from === nextBreak.to ? formatDayShort(nextBreak.fromDate) : formatDayRange(nextBreak.fromDate, nextBreak.toDate)}</time></a>
               <span class="block text-ink-muted">{nextBreak.label}{breakSources.length > 1 && !nextBreak.label.includes(nextBreak.district) ? ` (${nextBreak.district})` : ''}</span>
-              {nextBreak.open && <a href={`#program-${nextBreak.open.program.slug}`} class="mt-1 inline-block font-semibold text-primary underline">{nextBreak.open.note} →</a>}
+              {nextBreak.open && <a href={`#program-${nextBreak.open.program.slug}`} class="-mt-2 -mb-3 inline-block py-3 font-semibold text-primary underline">{nextBreak.open.note} →</a>}
             </dd>
           </div>
         )}
@@ -245,10 +245,12 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
           <Fragment>{i > 0 && ' and '}<a href={b.source} rel="noopener" class="underline">{b.district}</a> (read <time datetime={b.verified}>{formatShortDate(parseLocal(b.verified))}</time>)</Fragment>
         ))} district calendar{breakSources.length > 1 ? 's' : ''}.
       </p>
+      {/* Each row wraps: a long note ("Extended swim, closed Thanksgiving") sat on top of
+          the dates on a 390px phone (cleanup pass, 9 November 2026). */}
       <ul class="mt-4 divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft">
         {breaks.map((b) => (
-          <li class="flex items-center justify-between gap-4 py-3.5 text-[0.9375rem]">
-            <span class="min-w-0">
+          <li class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-3.5 text-[0.9375rem]">
+            <span class="min-w-[9rem] flex-1">
               <span class="block font-semibold text-title"><time datetime={b.from}>{b.from === b.to ? formatDayShort(b.fromDate) : formatDayRange(b.fromDate, b.toDate)}</time></span>
               <span class="block text-ink-muted">{b.label}{breakSources.length > 1 && !b.label.includes(b.district) ? ` · ${b.district}` : ''}</span>
             </span>
@@ -256,9 +258,9 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
                 link says what it is: the family listings, not an answer
                 to what is open that week. */}
             {b.open ? (
-              <a href={`#program-${b.open.program.slug}`} class="shrink-0 rounded-full bg-accent-soft px-3 py-2 text-[0.875rem] font-semibold text-ink no-underline ring-1 ring-primary-line hover:bg-raised">{b.open.note}</a>
+              <a href={`#program-${b.open.program.slug}`} class="inline-flex min-h-11 shrink-0 items-center rounded-full bg-accent-soft px-3 py-2 text-[0.875rem] font-semibold text-ink no-underline ring-1 ring-primary-line hover:bg-raised">{b.open.note}</a>
             ) : (
-              <a href="/events/?category=family" class="inline-block -my-2 shrink-0 py-2 text-[0.875rem] font-semibold text-primary underline">Browse family events →</a>
+              <a href="/events/?category=family" class="inline-block -my-3 shrink-0 py-3 text-[0.875rem] font-semibold text-primary underline">Browse family events →</a>
             )}
           </li>
         ))}
@@ -432,9 +434,9 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
   )}
 
   <p class="mt-10 flex flex-wrap gap-x-4 gap-y-1 text-[0.9375rem]">
-    <a href="/correct/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Something wrong? Send a correction</a>
-    <a href="/submit-event/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Suggest a program</a>
-    <a href="/events/?category=family" class="inline-block -my-1 py-1 font-semibold text-primary underline">Family listings on the calendar</a>
+    <a href="/correct/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Something wrong? Send a correction</a>
+    <a href="/submit-event/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Suggest a program</a>
+    <a href="/events/?category=family" class="inline-block -my-3 py-3 font-semibold text-primary underline">Family listings on the calendar</a>
   </p>
     </div>
   </div>

@@ -82,7 +82,7 @@ const phoneNext = !!next && (nextSoon || !!next.game.stage);
         {next && (
           <span class:list={[!phoneNext && 'hidden sm:inline']}><span class="text-white/80">{next.team.name}</span> {where(next.game)} {next.game.opponent}{next.game.stage && <span class="text-white/80"> · {next.game.stage}</span>} · <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>{nextWhen}</time></span>
         )}
-        <a href={sportsPath(school)} class="ml-auto inline-block -my-1 py-1 font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Scores &amp; schedules →</a>
+        <a href={sportsPath(school)} class="ml-auto inline-block -my-3 py-3 font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Scores &amp; schedules →</a>
       </div>
     </div>
   </section>

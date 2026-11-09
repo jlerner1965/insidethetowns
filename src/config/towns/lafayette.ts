@@ -291,7 +291,7 @@ export const lafayette: TownConfig = {
         ],
       },
       {
-        title: 'Hospitals',
+        title: 'Health care',
         note: 'Two emergency departments in town, both open around the clock.',
         verified: '2026-11-09',
         items: [

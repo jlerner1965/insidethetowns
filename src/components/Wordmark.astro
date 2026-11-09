@@ -28,7 +28,7 @@ const second = tone === 'light' ? 'text-white' : 'text-primary';
 const after = tone === 'light' ? 'text-white' : 'text-ink';
 const parts = wordmarkParts(site.siteTitle);
 ---
-<a href="/" class:list={['font-heading tracking-tight no-underline', className]} aria-label={`${site.siteTitle} home`}>
+<a href="/" class:list={['-my-2 py-2 font-heading tracking-tight no-underline', className]} aria-label={`${site.siteTitle} home`}>
   {parts.before && (
     <Fragment>
       <span class:list={['font-light italic', first]}>{parts.before}</span>{' '}

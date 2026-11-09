@@ -227,7 +227,8 @@ export const johnstown: TownConfig = {
           { label: 'Council meeting livestream', url: 'https://johnstownco.gov/600/Council-Meeting-Livestream' },
           { label: 'Boards and commissions', url: 'https://johnstownco.gov/200/Boards-Commissions', note: 'Apply online for the Cemetery Committee, the Housing Authority or the Planning and Zoning Commission', track: 'participation' },
           { label: 'Town elections', url: 'https://johnstownco.gov/352/Elections', note: 'The first Tuesday in April of even years; the next is April 4, 2028. The Town Clerk, 970-587-4664' },
-          { label: 'Weld County elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'For Weld County addresses: ballots mailed from October 2, election day November 3' },
+          // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
+          { label: 'Weld County elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'For Weld County addresses; the page links the unofficial results of the November 3 general election; 970-304-6525' },
           { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections', note: 'For Larimer County addresses: vote centers, ballot boxes and the mail ballot process' },
         ],
       },
