@@ -166,12 +166,20 @@ access notes fall out of their 30-day window in November (the network
 audit of 27 October); one monthly pass over the land managers' pages, or a
 longer winter window, keeps them.
 
+Loveland's resident pages, on the owner's yes of 9 November 2026 (the
+Loveland gap report of 8 November, M1 and M15): Living here, Families and
+Services, as Berthoud has them, with a home for the Chilson Senior Center,
+House of Neighborly Service and the Food Bank's Loveland site. On a
+resident guide those pages come with `home: true`, so this follows the
+verdict and Loveland being kept at its decide-by (29 November). Owner
+decides, assistant builds.
+
 Agreed for the three towns, to be done after the test or when the owner says:
 
 - **Niwot High's spring teams on the sports pages.** The owner said yes on
   9 November 2026 (finding 5): baseball, boys' volleyball, girls' golf,
-  girls' soccer, girls' tennis and track. `SportConfig.season` has no
-  spring yet, so it comes before the spring season, with each team's
-  MaxPreps path read from MaxPreps. Cheer is not on MaxPreps and is not
-  followed. Gymnastics, boys' golf and boys' tennis were added on 9
-  November. Assistant.
+  girls' soccer, girls' tennis and track. `SportConfig.season` has had
+  spring since 9 November (Lyons's baseball and track), so what is left
+  comes before the spring season: each team's MaxPreps path, read from
+  MaxPreps. Cheer is not on MaxPreps and is not followed. Gymnastics,
+  boys' golf and boys' tennis were added on 9 November. Assistant.

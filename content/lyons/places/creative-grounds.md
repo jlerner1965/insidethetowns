@@ -11,7 +11,7 @@ imageAlt: "Creative Grounds at 160 E Main St on a sunny day: its sign above a bl
 imageCredit: "Creative Grounds"
 summary: "A nonprofit café, pottery studio and hangout for young people at the east end of Main: Ozo coffee, house-made syrups, pastries and sandwiches, and pottery classes through December."
 source: "https://creativegroundslyons.com/"
-verified: "2026-10-28"
+verified: "2026-11-09"
 added: "2026-10-28"
 ---
 

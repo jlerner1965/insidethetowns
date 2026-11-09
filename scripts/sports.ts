@@ -34,7 +34,7 @@ import { setTimeout as sleep } from 'node:timers/promises';
 import { SCHOOL_SPORTS, schoolsFor, sportsDataFile, type SchoolSports, type SportsData } from '../src/config/school-sports.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { CRAWL_DELAY_MS, fetchMonth, parseMonth, type CalendarEvent } from './lib/finalsite-calendar.ts';
-import { applySchedule, fetchPage, parseSchedulePage, parseTeamPage, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
+import { applySchedule, fetchPage, parseSchedulePage, parseTeamPage, staleSeason, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
 import { crossCheck, emptyEntry, entryFrom, gamesToCome, keepPrevious } from './lib/sports-crosscheck.ts';
 import { correctedTeam } from '../src/lib/school-sports.ts';
 
@@ -210,6 +210,14 @@ async function runTown(school: SchoolSports): Promise<string> {
     }
     const page = parseTeamPage(res.html, { url, schoolName: school.maxprepsName });
     const team = { url, schoolName: school.maxprepsName, playoffVenue: sport.playoffVenue };
+    const stale = staleSeason(page, today);
+    if (stale) {
+      data.sports.push(emptyEntry(sport, page, now.toISOString()));
+      summary.push(`| ${sport.name} | — | — | — | — | — |`);
+      flags.push(`${sport.name}: MaxPreps's page is still the ${stale} season's; nothing is written until this season's is up.`);
+      console.log(`${sport.name}: MaxPreps still shows ${stale}; written as nothing yet.`);
+      continue;
+    }
     if (page.noSchedule) {
       data.sports.push(emptyEntry(sport, page, now.toISOString()));
       summary.push(`| ${sport.name} | — | — | — | — | — |`);
