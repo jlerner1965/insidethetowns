@@ -68,6 +68,15 @@ export const windsor: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
+  // Quick answers (parity with Berthoud, 9 November 2026). The Town's recreation site
+  // refused this session's reader, so there is no schedule file and the link names the
+  // listing, as Erie's does.
+  quickAnswers: { recCenter: { label: 'Rec center hours & swim', place: 'community-recreation-center' } },
+  // The participation hub, as on Berthoud (9 November 2026); its entries are the ways-in in content/<town>/programs/.
+  participation: {
+    label: 'Get involved',
+    intro: 'Clubs, groups and family services in Windsor and Severance, and how to join each.',
+  },
   /**
    * Windsor High's colours, read from its own site 25 October 2026
    * (whs.weldre4.org), which names them "Maroon and Gold": the page's

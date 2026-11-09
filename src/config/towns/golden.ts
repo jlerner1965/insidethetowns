@@ -93,6 +93,9 @@ export const golden: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 28 October 2026.
   home: true,
+  // Quick answers under What's happening (parity with Berthoud, 9 November 2026).
+  // No rec center link: the guide has no listing for the Golden Community Center to point at.
+  quickAnswers: {},
   /**
    * Golden High's colours as MaxPreps carries them (schoolColor1 8F0018,
    * schoolColor2 FFFFFF), read by the sports probe from the GitHub runner

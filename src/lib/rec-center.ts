@@ -45,6 +45,8 @@ export interface RecCenterException {
 
 export interface RecCenterPrices {
   source: string;
+  /** What the operator calls the page the prices are on: "memberships page" unless set. */
+  sourceLabel?: string;
   checked: string;
   dayPass: Array<{ label: string; price: string }>;
   memberships: Array<{ label: string; price: string }>;
@@ -57,6 +59,16 @@ export interface RecCenterData {
   name: string;
   /** "Rec center": the first word of the today line. */
   shortName: string;
+  /**
+   * Who runs it and posts the schedule, as the pages say it mid-sentence:
+   * "the Town" unless set ("the district" for Carbon Valley's, which a
+   * parks and recreation district runs).
+   */
+  operator?: string;
+  /** What else the operator's page lists that this table leaves out: "Family swim, water walking, the spa and open gym". */
+  alsoListed?: string;
+  /** What the operator calls its schedule page: "facility schedules page" unless set. */
+  scheduleLabel?: string;
   /** The Town's live schedule page, the link under every line. */
   scheduleUrl: string;
   /** The day the schedule was last read against its sources, "2026-11-06". */
@@ -74,6 +86,13 @@ export interface RecCenterData {
   monthly?: Array<{ weekday: Weekday; week: number; poolCloses: string; note: string }>;
   exceptions: RecCenterException[];
   prices?: RecCenterPrices;
+}
+
+/** "the Town", or whoever the file says runs the place; `possessive` adds the ’s. */
+export function operatorName(data: Pick<RecCenterData, 'operator'>, opts: { possessive?: boolean; capital?: boolean } = {}): string {
+  const name = data.operator ?? 'the Town';
+  const cased = opts.capital ? name[0]!.toUpperCase() + name.slice(1) : name;
+  return opts.possessive ? `${cased}’s` : cased;
 }
 
 /** The town's file from an `import.meta.glob` over data/*\/rec-center.json, or nothing. */

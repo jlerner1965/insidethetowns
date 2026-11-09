@@ -68,6 +68,11 @@ export const erie: TownConfig = {
   home: true,
   // Quick answers under What's happening (the owner, 8 November 2026).
   quickAnswers: { recCenter: { label: 'Community center hours & swim', place: 'erie-community-center' } },
+  // The participation hub, as on Berthoud (9 November 2026); its entries are the ways-in in content/<town>/programs/.
+  participation: {
+    label: 'Get involved',
+    intro: 'Clubs, groups and family services in Erie, and how to join each.',
+  },
   /**
    * Erie High's colours, read from its own site 25 October 2026
    * (ehs.svvsd.org): the theme's `--color-primary` is #F26B21, the Tiger

@@ -82,6 +82,9 @@ export const lafayette: TownConfig = {
   },
   // A resident guide (TownConfig.home), from the start.
   home: true,
+  // Quick answers (parity with Berthoud, 9 November 2026). The City's site refused this
+  // session's reader, so there is no schedule file and the link names the listing, as Erie's does.
+  quickAnswers: { recCenter: { label: 'Rec center hours & swim', place: 'bob-l-burger-recreation-center' } },
   /**
    * Centaurus High's colours as the school's own Finalsite theme stylesheet
    * carries them (ceh.bvsd.org/uploaded/themes/madison/css/centaurus-high-school.css,

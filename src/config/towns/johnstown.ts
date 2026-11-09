@@ -55,6 +55,15 @@ export const johnstown: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
+  // Quick answers (parity with Berthoud, 9 November 2026). The Y's pool schedule is a
+  // week-by-week calendar with no season stated, so there is no schedule file and the
+  // link names the listing, as Erie's does.
+  quickAnswers: { recCenter: { label: 'YMCA hours & swim', place: 'johnstown-ymca' } },
+  // The participation hub, as on Berthoud (9 November 2026); its entries are the ways-in in content/<town>/programs/.
+  participation: {
+    label: 'Get involved',
+    intro: 'Clubs, groups and family services in Johnstown, and how to join each.',
+  },
   /**
    * Roosevelt High's colours, read from its own site 25 October 2026
    * (rhs.weldre5j.org): the theme's `--primary-color` is #C41230, the

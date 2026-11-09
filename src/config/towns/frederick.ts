@@ -91,6 +91,9 @@ export const frederick: TownConfig = {
   },
   // A resident guide (TownConfig.home), from the start.
   home: true,
+  // Quick answers under What's happening (parity with Berthoud, 9 November 2026).
+  // The rec center link comes from data/frederick/rec-center.json (Carbon Valley Recreation Center).
+  quickAnswers: {},
   /**
    * Frederick High School's colours as the school's own site sets them
    * (fhs.svvsd.org stylesheet, read 2 November 2026 from this container with

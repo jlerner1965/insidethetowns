@@ -52,6 +52,9 @@ export const lyons: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
+  // Quick answers under What's happening (parity with Berthoud, 9 November 2026).
+  // Lyons has no recreation center, so no rec center link.
+  quickAnswers: {},
   /**
    * Lyons Middle/Senior High's colours, read from its own site 25 October
    * 2026 (lmshs.svvsd.org): the theme's `--color-primary` is #0054A6, the
