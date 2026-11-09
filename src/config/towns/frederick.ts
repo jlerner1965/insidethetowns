@@ -305,6 +305,21 @@ export const frederick: TownConfig = {
           { label: 'Weld County emergency alerts: CodeRED by Crisis24', url: 'https://www.weld.gov/Government/Departments/Public-Information-Office/Emergency-Preparation/CodeRED-by-Crisis24', note: 'Weld County’s alerts now run on CodeRED by Crisis24, and the county asks residents to make a new account even though earlier sign-ups were carried over; help at 1-866-939-0911' },
         ],
       },
+      // Added 9 November 2026 at the owner's word (the gap report's M6), read
+      // that day from the Town's Home Improvement (/242), Building Department
+      // (/416), Permits (/1064), inspection (/105) and Fireworks (/955) pages.
+      // Burn and fire-pit rules are left out: the fire district's site has no
+      // current page on them (its burn-permit sheet is dated 2011), and the
+      // Town's site has no short-term rental page.
+      {
+        title: 'Permits and home projects',
+        verified: '2026-11-09',
+        items: [
+          { label: 'What needs a permit', url: 'https://www.frederickco.gov/242/Home-Improvement', note: 'Decks and porches, additions, accessory dwelling units, basement finishes and detached garages need one; a one-story shed of 200 square feet or less, a fence up to 6 feet (chain link is not allowed), a retaining wall up to 4 feet and finish work such as painting and tiling do not. Call Colorado 811 before you dig' },
+          { label: 'Building permits and inspections', url: 'https://www.frederickco.gov/416/Building-Department', note: 'Apply through the Town’s Accela portal; request inspections with the Town’s online form. No inspections on Town holidays, Veterans Day and the two Thanksgiving days among them' },
+          { label: 'Fireworks', url: 'https://www.frederickco.gov/955/Fireworks', note: 'If it goes up or blows up, it is illegal in Frederick: anything that leaves the ground or explodes, outside a permitted public display' },
+        ],
+      },
       {
         title: 'City meetings and participation',
         note: 'The Town holds its own elections in November of even-numbered years (the next is November 7, 2028); Weld County runs the rest, by mail ballot.',
