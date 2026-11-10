@@ -2,17 +2,18 @@
 title: "Moving to Severance"
 seoTitle: "Moving to Severance, Colorado: a local living guide"
 date: "2026-10-06"
-excerpt: "Severance, Colorado: a Weld County home-rule town of 7,683 at the 2020 census and 11,570 by the state's 2024 estimate. Water, schools, fire, library, HOAs."
+updated: "2026-11-10"
+excerpt: "Severance, Colorado: a Weld County home-rule town of 7,683 at the 2020 census and 11,267 by the state's 2024 estimate. Water, schools, fire, library, HOAs."
 category: "Moving here"
 tags: [living-here, schools]
-verified: "2026-10-06"
+verified: "2026-11-10"
 ---
 
 Severance has been part of Inside Windsor since October 2026, and [the Severance page](/severance/) lists what's on there and its places. This is the Moving Here guide written for it; [Moving to Windsor](/moving-here/) covers its larger neighbor, which shares its school district, library district and fire district.
 
 ## Who lives here
 
-Severance is a home-rule town in Weld County, northeast of Windsor. The 2020 Census counted 7,683 people ([2020 Census, in the State Demography Office's census file](https://storage.googleapis.com/co-publicdata/historical-census.csv)), and its July 1, 2024 estimate is 11,570 ([DOLA lookup](https://gis.dola.colorado.gov/lookups/countymuni?countyfips=123&placefips=69150&year=2010,2020,2024&compressed=no)). The Town's own economic development page counts "approximately 4,000 residential rooftops" ([Town](https://www.townofseverance.org/185/Economic-Development)), and its Planning Department describes "substantial growth over the past decade" ([Town](https://www.townofseverance.org/172/Planning)).
+Severance is a home-rule town in Weld County, northeast of Windsor. The 2020 Census counted 7,683 people ([2020 Census, in the State Demography Office's census file](https://storage.googleapis.com/co-publicdata/historical-census.csv)), and its July 1, 2024 estimate is 11,267 ([DOLA lookup](https://gis.dola.colorado.gov/lookups/countymuni?countyfips=123&placefips=69150&year=2010,2020,2024&compressed=no)). The Town's own economic development page counts "approximately 4,000 residential rooftops" ([Town](https://www.townofseverance.org/185/Economic-Development)), and its Planning Department describes "substantial growth over the past decade" ([Town](https://www.townofseverance.org/172/Planning)).
 
 The town was founded in 1906 and incorporated in 1920, by a vote of 40 to 0; before that it was a sugar-beet receiving station on the Great Western Railway, which operated until 1985 ([Town history](https://www.townofseverance.org/244/History-of-the-Town-of-Severance)). It runs under a council-manager government with a Home Rule Charter: a mayor elected for four years and six council members for overlapping four-year terms, meeting on the second and fourth Tuesdays at Town Hall, 3 S. Timber Ridge Parkway, with a work session at 5 pm and the regular meeting at 6 ([Town](https://www.townofseverance.org/162/About-Severance-Government)). The Mayor's welcome letter calls it the "Best, Big, Little Town in the Heart of Northern Colorado" and says the Town is "still very much in our 'infancy' regarding commercial development and the availability of in-town business services" ([Mayor & Town Council](https://www.townofseverance.org/161/Mayor-Town-Council)).
 
@@ -44,7 +45,7 @@ On foot or by bike, the Great Western Trail runs 10.5 miles on the old railroad 
 
 **Police.** The Severance Police Department is at 209 1st Street, open weekdays 8 to 5, 970-685-9708; after hours, non-emergency dispatch is 970-350-9600 ([Town](https://www.townofseverance.org/200/Police)).
 
-**Fire.** The Windsor Severance Fire Protection District, a Title 32 special district doing business as Windsor Severance Fire Rescue, covers about 100 square miles including both towns from four stations staffed around the clock; Station 2 is at 9 Timber Ridge Parkway in Severance ([WSFR FAQ](https://wsfr.specialdistrict.org/faqs-about-wsfr), [stations](https://wsfr.specialdistrict.org/stations-museum)). The district's home page says it is facing a budget deficit ([WSFR](https://wsfr.specialdistrict.org/)).
+**Fire.** The Windsor Severance Fire Protection District, a Title 32 special district doing business as Windsor Severance Fire Rescue, covers about 100 square miles including both towns from four stations staffed around the clock; Station 2 is at 9 Timber Ridge Parkway in Severance ([WSFR FAQ](https://wsfr.specialdistrict.org/faqs-about-wsfr), [stations](https://wsfr.specialdistrict.org/stations-museum)).
 
 **Library.** The Clearview Library District serves Windsor, Severance and west Greeley, the same boundaries as the school district. The Severance Library is at 5 Timber Ridge Parkway, open Monday to Thursday 10 to 6 and Friday and Saturday 10 to 5, closed Sunday ([hours](https://clearviewlibrary.org/about-us/learn-more/hours-locations), [about](https://clearviewlibrary.org/about-us)). Any Colorado resident can get a card with a photo ID and proof of address ([card](https://clearviewlibrary.org/card)).
 

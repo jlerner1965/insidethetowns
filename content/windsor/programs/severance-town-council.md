@@ -14,8 +14,8 @@ registration: { required: false, how: "To comment, sign in with the Town Clerk a
 nextEvent: town-council-public-meetings-oct-dec-2026
 contact: "Town Hall, 970-686-1218; towncouncil@townofseverance.org"
 source: "https://www.townofseverance.org/161/Mayor-Town-Council"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Mayor & Town Council page, its Public Input Rule & Guidelines for Open Meetings PDF and its Town Council Meetings calendar for November and December 2026, read November 9, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 **Go to a meeting.** The Town's page says the Council "meets in the Severance Town Hall's Council meeting room at 5:00 p.m. on the second and fourth Tuesday of each month for a Work Session and Regular Council meeting", and the regular meeting follows the work session or starts by 6 pm. The Town's calendar lists meetings on November 10 and December 8, and marks November 24 and December 22 as canceled. Agendas and minutes are on the Town's [Agendas & Minutes page](https://www.townofseverance.org/129/Agendas-Minutes).

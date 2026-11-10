@@ -16,8 +16,8 @@ newcomers: true
 nextEvent: optimist-club-of-windsor-weekly-meeting
 contact: "970-795-2301, windsoroptimistclub@gmail.com"
 source: "https://windsoroptimistclub.org/page/meeting-info"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the club's home, Meeting Info and Become a Member pages, read November 9, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The club calls itself "a group of people who care about kids" and says it has been "working with kids in Windsor, Colorado since 1973". Its project pages cover Kindness Week, the Easter Egg Hunt, an essay contest, an oratorical contest, Kids Speak Out, Bike Night, the Duck Race, Safe Halloween, Santa's Toy Shop and scholarships.
