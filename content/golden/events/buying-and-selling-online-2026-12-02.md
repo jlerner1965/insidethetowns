@@ -10,8 +10,8 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6acd4f2111bbf300684bcef8"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 A class for adults on buying, selling and shipping safely on eBay and other online marketplaces. No device is needed. Registration, for 10, opens at noon on November 18.

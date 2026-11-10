@@ -9,8 +9,8 @@ category: "music"
 performers:
   - { name: "Flock of Hummingbirds", kind: group }
 source: "https://www.theelizabethcolorado.com/the-hotel/events-calendar/"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 7 pm on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Flock of Hummingbirds plays Magic Rat, the live music room inside The Elizabeth Hotel on Firehouse Alley, 7 to 9 p.m. Enter through the hotel lobby or the side entrance; no cover was listed.

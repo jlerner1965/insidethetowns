@@ -5,7 +5,8 @@ date: "2026-10-07"
 excerpt: "Erie has two trail systems that suit different days: ten miles of concrete and crusher fines along Coal Creek, open whenever it is light, and 3.15 miles of purpose-built mountain-bike singletrack at Sunset Open Space that the Town closes whenever it is wet. Which to pick, where to park, and where to check."
 category: "Outdoors"
 tags: [outdoors, trails, cycling, mountain-biking, dogs, guide]
-verified: "2026-10-07"
+verified: "2026-11-10"
+updated: "2026-11-10"
 sources:
   - { label: "Town of Erie: Coal Creek Open Space", url: "https://www.erieco.gov/2368/Coal-Creek-Open-Space" }
   - { label: "Town of Erie: Erie Singletrack Trails at Sunset Open Space", url: "https://www.erieco.gov/1672/Erie-Singletrack-Trails-at-Sunset-Open-S" }
@@ -58,7 +59,7 @@ The site sits on clay soils that drain slowly and puddle, and parts of the netwo
 
 There is also a scheduled maintenance closure in the second week of each month, on a Tuesday, Wednesday or Thursday chosen at least a week ahead, from 6:30 am to 3 pm.
 
-The Alert Center's 2026 log shows wet-weather closures on June 25 and 26, July 8, August 14 and 15 and September 20, each reopened the next dry morning, plus the monthly maintenance days. As of September 21, 2026, the trails are open.
+The Alert Center's 2026 log shows wet-weather closures through the summer and fall, most recently on November 2 and 3 with the trails reopened on November 4, plus the monthly maintenance days, the latest on Tuesday, November 10.
 
 ### Where to check
 
@@ -74,5 +75,3 @@ The trails are multi-use in principle, with hikers yielding to bikes, but the To
 - **A road or hybrid bike, or a Class 1 or 2 e-bike:** the corridor, which also connects south into Lafayette's trail system.
 - **A mountain bike and a dry week:** the singletrack. Check the status first, every time, and leave the dog at home or take it to Sunset West instead.
 - **Fresh snow or a day after rain:** the corridor, because the singletrack will be closed and the Town plows the paved trail near its lots.
-
-One October 2026 note for the north end: the Boneyard dog park at Reliance Park is closed from October 13 to 16 for fence staining as part of a redesign running to November 4, and its water spigot is out until mid-October. The trailhead lot and the trail itself are not affected.

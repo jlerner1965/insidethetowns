@@ -9,8 +9,8 @@ category: "music"
 performers:
   - { name: "Paul Chet and the Henrys", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-12-19, 15:00-21:00, no price posted"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Two shows from Paul Chet and the Henrys: a matinee 3 to 5 p.m. and an evening show 7 to 9 p.m. Admission was not posted. At Avogadro's Number, 605 South Mason Street.

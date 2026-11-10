@@ -9,7 +9,8 @@ hours: "Mon–Thu 5:30 am–8 pm, Fri 5:30 am–7 pm, Sat 7 am–6 pm, Sun 8 am�
 tags: [pool, gym, track, fitness, classes]
 summary: "The City's recreation center: an indoor leisure pool and a six-lane lap pool, a gymnasium, an indoor running track, and cardio and weight equipment. Day passes, punch cards and annual passes at the desk."
 source: "https://www.cityofgolden.gov/community/golden_community_center/visit_us.php"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

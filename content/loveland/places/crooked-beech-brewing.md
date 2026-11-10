@@ -4,10 +4,11 @@ type: bar
 address: "3121 N Garfield Ave, Loveland, CO 80538"
 url: "https://www.crookedbeech.com/"
 source: "https://www.crookedbeech.com/"
-verified: "2026-10-04"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-04"
 phone: "970-305-0397"
-hours: "Mon–Thu 2 pm–9 pm; Fri–Sat 12 pm–9 pm; Sun 12 pm–8 pm"
+hours: "Mon & Wed 2 pm–8 pm; Tue & Thu 2 pm–9 pm; Fri–Sat 12 pm–9 pm; Sun 12 pm–7 pm"
 tags: [brewery, kid-friendly, dog-friendly, food-truck, beer-garden]
 summary: "North Garfield Avenue brewery that bills itself as Loveland's front porch, with play areas for kids, dogs welcome inside and out, and food trucks Thursday through Sunday."
 ---

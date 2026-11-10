@@ -8,8 +8,8 @@ cost: "Free"
 category: civic
 recurring: "Second Wednesdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5332"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Tree Advisory Board Meeting - In Person\" at 6:30 pm on 11 November on the erieco.gov feed"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Regular in-person meeting of the Town of Erie Tree Advisory Board. Open to the public.

@@ -5,6 +5,7 @@ date: "2026-09-27"
 excerpt: "The covered one, the heated one, the one under umbrellas, the one with a band, and the one that takes the dog. Niwot's outdoor tables, in order of season."
 category: "Food & drink"
 tags: [patio, outdoors, guide]
+updated: "2026-11-10"
 verified: "2026-09-27"
 sources:
   - { label: "Niwot Tavern", url: "https://www.niwottavern.com/location/niwot-tavern/" }
@@ -34,7 +35,7 @@ Next door on the square, [Raza Fresa](/places/raza-fresa/) puts its tables under
 
 ## For a band: The Wheel House
 
-The [Wheel House](/places/the-wheel-house/), at the west end of Second Avenue, is a taproom with a back patio, musicians on stage most nights of the week and trivia on Tuesdays. It opened in September 2020 and added its own kitchen in February 2026. Closed Mondays; from 11 Tuesday to Saturday, 3 on Sundays.
+The [Wheel House](/places/the-wheel-house/), at the west end of Second Avenue, is a taproom with a back patio, a band most Friday and Saturday nights and trivia on Tuesdays. It opened in September 2020 and added its own kitchen in February 2026. Closed Mondays; from 11 Tuesday to Friday, noon on Saturdays, 3 on Sundays.
 
 ## For the dog: Fritz Family Brewers
 

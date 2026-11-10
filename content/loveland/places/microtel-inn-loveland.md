@@ -8,7 +8,8 @@ phone: "(970) 663-6004"
 tags: [hotel, pet-friendly, breakfast]
 summary: "A non-smoking hotel off I-25 at Crossroads Boulevard, with free breakfast, WiFi and parking and a 24-hour front desk; dogs and cats for a fee."
 source: "https://www.wyndhamhotels.com/microtel/loveland-colorado/microtel-inn-and-suites-loveland/overview"
-verified: "2026-11-06"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

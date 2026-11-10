@@ -12,8 +12,8 @@ organizer: "Golden Beer Talks"
 organizerUrl: "https://goldenbeertalks.org/"
 source: "https://goldenbeertalks.org/"
 sourceId: "goldenbeertalks-org"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Golden Beer Talks, the third-Tuesday talk night at the Buffalo Rose, has Dr. Janani Ravi of CU Anschutz and members of her lab on antibiotic resistance and the AI models they build to predict, from a bacterium's genome and within hours, which antibiotics it will shrug off. Food and drink service starts at 6, the talk around 6:30, with a Q&A after and a wrap-up around 7:45; the featured brewery is Green Mountain Beer Company.

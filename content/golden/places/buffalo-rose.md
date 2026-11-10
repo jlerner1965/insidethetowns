@@ -9,8 +9,8 @@ phone: "720-638-5597"
 hours: "Mon–Thu 11 am–10 pm; Fri 11 am–12 am; Sat 9 am–12 am; Sun 9 am–10 pm"
 tags: [bar, live-music, brunch, patio, history]
 summary: "Bar, restaurant and concert venue at Washington Avenue and 12th Street, under the Welcome to Golden arch, on a site in use since 1859. Weekend brunch, a Sky Bar under a retractable glass roof, and shows in its event center."
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-28"
 ---
 

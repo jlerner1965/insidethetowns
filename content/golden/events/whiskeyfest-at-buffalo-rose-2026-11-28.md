@@ -11,8 +11,8 @@ url: "https://buffalorosegolden.com/events/whiskeyfest-2026/"
 category: food
 source: "https://buffalorosegolden.com/events/whiskeyfest-2026/"
 sourceId: "buffalorose-net"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 A whiskey tasting night with food pairings and brand ambassadors pouring Teeling, Suntory, Weller, Widow Jane and Still Austin, while Coors Whiskey Co. takes over the State Room. Ryan Chrys opens with an acoustic set and Denver's Sugar Britches headline. 21 and over.

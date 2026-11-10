@@ -7,7 +7,8 @@ tags: [outdoors, walking, visiting]
 image: ../images/washington-avenue-arch.jpg
 imageAlt: "Washington Avenue at 12th Street in downtown Golden, June 2021: the Welcome to Golden arch over the street and a bronze bison on the corner"
 imageCredit: "Dough4872, Wikimedia Commons, CC BY-SA 4.0"
-verified: "2026-10-07"
+updated: "2026-11-10"
+verified: "2026-11-10"
 glance:
   start: "North Garage at 702 12th Street; two hours free, $2.50 an hour after"
   by: "On foot between Washington Avenue and the creek"
@@ -20,6 +21,8 @@ sources:
   - { label: "City of Golden: Ride", url: "https://www.cityofgolden.gov/community/getting_around/ride.php" }
   - { label: "City of Golden: Walk", url: "https://www.cityofgolden.gov/community/getting_around/walk.php" }
   - { label: "Golden History Museum & Park: History Museum", url: "https://www.goldenhistory.org/visit/history-museum/" }
+  - { label: "Old Capitol Grill & Smokehouse", url: "https://oldcapitolgrill-smokehouse.com/" }
+  - { label: "Foothills Art Center", url: "https://foothillsartcenter.org/" }
 related:
   - { label: "A mesa hike or a canyon walk: choosing a Golden trail", href: "/articles/mesa-hike-or-canyon-walk/", note: "North Table Mountain, the Clear Creek Trail into the canyon and the creek through town, for the hiking day this page leaves out." }
   - { label: "Colorado Railroad Museum", href: "/places/colorado-railroad-museum/", note: "The family substitute for the creek parks: a drive, closed Monday." }
@@ -32,7 +35,7 @@ Park once. The City's parking site lists the North Garage at 702 12th Street, th
 
 ## 01 · A meal on Washington Avenue
 
-[Old Capitol Grill & Smokehouse](/places/old-capitol-grill-and-smokehouse/), at the corner of 12th Street and Washington Avenue, smokes its own meats and is open seven days, from 11 am on weekdays and 10:30 am at weekends; walk-ins are welcome, the patios take dogs, and card payments carry a 3% surcharge. For the morning, [Humble House Cafe](/places/humble-house-cafe/) at 1208 Washington pours coffee daily 7 am–4 pm, with the kitchen open to 2 pm. [Woody's](/places/woodys-wood-fired-pizza/) at 1305 has made wood-fired pizza here for more than 30 years, daily 11 am–11 pm.
+[Old Capitol Grill & Smokehouse](/places/old-capitol-grill-and-smokehouse/), at the corner of 12th Street and Washington Avenue, smokes its own meats and is open seven days from 11 am, to 8 pm Sunday to Thursday and 9 pm on Friday and Saturday; walk-ins are welcome, the patios take dogs, and card payments carry a 3% surcharge. For the morning, [Humble House Cafe](/places/humble-house-cafe/) at 1208 Washington pours coffee daily 7 am–4 pm, with the kitchen open to 2 pm. [Woody's](/places/woodys-wood-fired-pizza/) at 1305 has made wood-fired pizza here for more than 30 years, daily 11 am–11 pm.
 
 *Getting there:* the North Garage is on 12th Street, by the avenue. *Best for:* the meal, and the storefronts either side of it.
 
@@ -50,7 +53,7 @@ The [Golden History Museum](/places/golden-history-museum/) at 923 10th Street i
 
 ## 04 · Two free museums
 
-[Foothills Art Center](/places/foothills-art-center/) at 1133 Arapahoe Street has shown art since 1968, free, Monday to Saturday 10 am–5 pm and Sunday noon–5 pm. On the Colorado School of Mines campus south-west of downtown, the [Mines Museum of Earth Science](/places/mines-museum-of-earth-science/) at 1310 Maple Street is free and open daily 10 am–4 pm: Colorado minerals, one of the state's two Apollo 17 moon rocks and more than 3,000 items on display, with a family scavenger hunt that earns a free rock.
+[Foothills Art Center](/places/foothills-art-center/) at 1133 Arapahoe Street has shown art since 1968, free, Monday to Saturday 10 am–5 pm and Sunday noon–5 pm. Its galleries are closed for the installation of the Holiday Art Market, which opens to the public on November 21 after a members' preview on the 20th and runs to December 29. On the Colorado School of Mines campus south-west of downtown, the [Mines Museum of Earth Science](/places/mines-museum-of-earth-science/) at 1310 Maple Street is free and open daily 10 am–4 pm: Colorado minerals, one of the state's two Apollo 17 moon rocks and more than 3,000 items on display, with a family scavenger hunt that earns a free rock.
 
 *Getting there:* Arapahoe Street is the street the history park sits on; the campus is a longer walk. *Best for:* the moon rock, and galleries that cost nothing.
 

@@ -5,10 +5,11 @@ end: "2026-12-02T20:00"
 venue: "New Terrain Brewing"
 address: "16401 Table Mountain Parkway, Golden, CO 80403"
 url: "https://newterrainbrewing.com/event/sunset-campfires-w-caramelized-beers-smores/2026-12-02/"
+cost: "Free entry; caramelizing and s'mores are free with a beer bought at its normal price"
 category: food
 source: "https://newterrainbrewing.com/event/sunset-campfires-w-caramelized-beers-smores/2026-12-02/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against New Terrain Brewing's event calendar, 1 November 2026: first Wednesdays in November, December, January and February, 5 to 8 pm, this one on 2026-12-02; no price stated"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
-On the first Wednesday of each month from November to February, New Terrain Brewing lights wood fires in its beer garden on Table Mountain Parkway and heats metal beer caramelizers that are dipped into your beer for a few seconds, with s'mores to make at the fire pits, from 5 to 8 pm. The brewery's calendar lists no price.
+On the first Wednesday of each month from November to February, New Terrain Brewing lights wood fires in its beer garden on Table Mountain Parkway and heats metal beer caramelizers that are dipped into your beer for a few seconds, with s'mores to make at the fire pits, from 5 to 8 pm. Entry, the caramelizing and the s'mores are free: you buy a beer at its normal price, and the brewery recommends its malty and roasty beers for it, though any beer on tap can be caramelized.

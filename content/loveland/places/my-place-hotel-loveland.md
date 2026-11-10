@@ -8,7 +8,8 @@ phone: "(970) 685-4357"
 tags: [hotel, extended-stay, pet-friendly]
 summary: "An extended-stay, pet-friendly hotel on Peralta Drive, off I-25 at Crossroads Boulevard."
 source: "https://www.myplacehotels.com/locations/my-place-hotel-loveland-co"
-verified: "2026-11-06"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

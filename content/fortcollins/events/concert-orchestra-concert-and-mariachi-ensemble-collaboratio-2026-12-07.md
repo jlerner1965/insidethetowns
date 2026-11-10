@@ -10,8 +10,8 @@ source: "https://music.colostate.edu/events/concert-orchestra-concert-and-mariac
 sourceId: "music-colostate-edu"
 sourceUid: "17-19513@music.colostate.edu"
 sourceHash: "adc7e018d96b"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the music.colostate.edu feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the organizer's own events feed (colostate.edu) on 10 November 2026: date, start and end time, hall"
 ---
 
 Concert Orchestra Concert and Mariachi Ensemble Collaboration/ FREE at Griffin Concert Hall, Monday, December 7, 7:30 pm – 9:30 pm. Listed by music.colostate.edu; the organizer's page has the details and any registration.

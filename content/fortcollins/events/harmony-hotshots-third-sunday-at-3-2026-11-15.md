@@ -10,8 +10,8 @@ category: "music"
 performers:
   - { name: "Harmony Hotshots", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): 15 November and 3 pm on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Harmony Hotshots' monthly third-Sunday traditional jazz matinee at 3 p.m. Cash or check only at the door. At Avogadro's Number, 605 South Mason Street.

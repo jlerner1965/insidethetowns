@@ -11,8 +11,8 @@ performers:
   - { name: "Nothing But Nineties", kind: group }
   - { name: "Ninety2K", kind: group }
 source: "https://buffalorosegolden.com/events/nothing-but-nineties-ninety2k/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against the Buffalo Rose shows calendar and event page, 1 November 2026: Friday, January 8, 2027, 7 to 10:30 pm, doors 6 pm; no price on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Two Colorado tribute bands face off at the Buffalo Rose on Friday, January 8: Nothing But Nineties plays the 1990s at 7 pm and Ninety2K plays the 2000s at 8:30, and the crowd votes for the winning decade at the end of the night. Era dress is encouraged. Doors open at 6 pm; ticket prices were not posted on the event page.

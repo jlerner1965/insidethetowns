@@ -14,7 +14,8 @@ price: "No cost to volunteer"
 registration: { required: true, how: "Apply through the APPLY NOW button on the volunteer page during recruitment; sign up for one-day projects on the Offero calendar", url: "https://www.jeffco.us/1567/Volunteer" }
 contact: "303-271-5925, or the email link on the volunteer page"
 source: "https://www.jeffco.us/1567/Volunteer"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Jefferson County Parks & Open Space has its headquarters in Golden and manages the parks that ring the town, [North Table Mountain](/places/north-table-mountain-park/) and the [Lookout Mountain Nature Center and Preserve](/places/lookout-mountain-nature-center-and-preserve/) among them. Its ongoing volunteer programs are grouped by place and kind: Park Host and Park Patroller (on foot, bike, skis or horseback), trail work, nature education for school groups and the public, raptor and frog monitoring, information desks at headquarters, the Lookout Mountain Nature Center and Boettcher Mansion, and docents and stewards at Hiwan Heritage Park & Museum. Recruitment fairs and applications for all of them run from February to March; some stay open longer. One-day projects are posted separately on the county's [Offero calendar](https://offero.jeffco.us/Calendar), which is also where current volunteers log in.

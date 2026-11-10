@@ -2,7 +2,7 @@
 title: "Berthoud with kids: the inclusive playground, the bike park, three storytimes a week"
 seoTitle: "Berthoud with kids: playground, bike park, storytimes"
 date: "2026-09-27"
-updated: "2026-11-09"
+updated: "2026-11-10"
 excerpt: "Where to take children in Berthoud, by the kind of day it is: a hot one, a rainy one, a winter one, and a Saturday downtown."
 category: "Families"
 image: ../images/berthoud-town-park-water-play.webp
@@ -24,7 +24,7 @@ Berthoud has rebuilt Town Park and added a bike park and a recreation center sin
 
 ## A warm day: Town Park and the water feature
 
-[Berthoud Town Park](/places/berthoud-town-park/), at 200 N. 7th Street, is the oldest park in town with a rebuilt playground: 12,000 square feet, fully inclusive, beside a 6,000-square-foot natural-stone water-play feature that runs in the warm months. Two pavilions for the picnic, and on Saturdays the market is on the lawn.
+[Berthoud Town Park](/places/berthoud-town-park/), at 200 N. 7th Street, is the oldest park in town with a rebuilt playground: 12,000 square feet, fully inclusive, beside a 6,000-square-foot natural-stone water-play feature that runs in the warm months. Two pavilions for the picnic, and on summer Saturdays the market is on the lawn.
 
 On the north side, [Waggener Farm Park](/places/waggener-farm-park/) has a farm-themed playground with a tractor and a playhouse, a wavy scooter path, a full basketball court, a skate park and fields. [Pioneer Park](/places/pioneer-park/) on Indiana Avenue has a playground, a roller-hockey rink and bocce courts. [Bein Park](/places/bein-park/), beside the high school, has a log-cabin-themed playground, a fitness trail, and the fenced town dog park, with small-dog and large-dog sections, if the dog came too.
 

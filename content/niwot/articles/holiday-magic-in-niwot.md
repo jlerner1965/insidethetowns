@@ -5,7 +5,8 @@ date: "2026-11-07"
 excerpt: "Niwot's holiday season in Old Town: the tree lighting the night after Thanksgiving, Santa's parade down Second Avenue the next morning, and the market at Niwot Hall in December. This year's dates, and what happens at each."
 category: "Community"
 tags: [holidays, events, guide]
-verified: "2026-11-07"
+updated: "2026-11-10"
+verified: "2026-11-10"
 supersededAfter: "2026-12-22"
 supersededNote: "These were the 2026 dates. Enchanted Evening is the evening after Thanksgiving every year and the parade is the next morning; the Niwot Business Association posts the year's market dates in the fall."
 supersededSource: "https://niwot.com/niwot-holiday-magic/"
@@ -18,6 +19,8 @@ sources:
   - { label: "Niwot Business Association: events calendar", url: "https://niwot.com/upcoming-events/" }
   - { label: "Niwot Business Association: Holiday Magic Market Fayre", url: "https://niwot.com/events/holiday-magic-market-fayre/?occurrence=2026-12-05" }
   - { label: "Niwot Hall: Holiday Magic Concert with Rebecca Folsom", url: "https://niwothall.org/events/holiday-magic-concert-with-rebecca-folsom-932-146-171/" }
+  - { label: "Niwot Hall: Niwot's Holiday Market, December 5 and 12", url: "https://niwothall.org/events/nba-winc-holiday-fayre-2-2-812-702-768/" }
+  - { label: "Sunshine Productions on Eventbrite: Niwot Holiday Magic Concert tickets", url: "https://www.eventbrite.com/e/niwot-holiday-magic-concert-tickets-2002898206452" }
 related:
   - { label: "Niwot Hall", href: "/places/niwot-hall/", note: "The old Grange hall on Second Avenue, where Santa sits and the market is held." }
   - { label: "This week in Niwot", href: "/this-week/", note: "Everything else on in town between the holiday weekends." }
@@ -38,11 +41,13 @@ The next morning at 11, the parade comes down Second Avenue from Murray Street t
 
 Shops on Second Avenue and Cottonwood Square stay open until 8 pm for holiday shopping, on the same evening as the First Friday Art Walk. 5 to 8 pm, free. [The listing](/events/niwot-stroll-2026-12-04/). The Stroll comes back on [Thursday, December 10](/events/niwot-stroll-2026-12-10/), [Thursday, December 17](/events/niwot-stroll-2026-12-17/) and [Monday, December 21](/events/niwot-stroll-2026-12-21/), 5 to 8 pm each evening.
 
-## Saturday, December 5: the Market Fayre, and a concert
+## Saturdays, December 5 and 12: the Market Fayre, and a concert on the 5th
 
 From 10 to 4, holiday pop-up vendors fill Niwot Hall and businesses around town, and the hall becomes a food hall: mulled wine, hot chocolate and cider, Christmas cookies, roast chestnuts and glögg. Santa and Mrs. Claus are there from 1 to 3, with horse and carriage rides, carolers, harpists and a brass band around Old Town. The Business Association and the Local Improvement District sponsor it. [The listing](/events/holiday-magic-market-fayre/).
 
-That evening, the Rebecca Folsom Trio plays a holiday concert at Niwot Hall, 7 to 9 pm. [The listing](/events/holiday-magic-concert-rebecca-folsom-2026-12-05/).
+The market is back at Niwot Hall the next Saturday, December 12, from 10 to 4: the Business Association's page gives the 5th and the 12th, and the hall's calendar lists both.
+
+On the evening of the 5th, the Rebecca Folsom Trio plays a holiday concert at Niwot Hall, 7 to 9 pm. It is ticketed: the organizer prices tickets at $45 on Eventbrite, with a welcome drink included. [The listing](/events/holiday-magic-concert-rebecca-folsom-2026-12-05/).
 
 ## Every year
 

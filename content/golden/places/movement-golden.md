@@ -4,9 +4,9 @@ type: venue
 address: "700 Golden Ridge Rd, Golden, CO 80401"
 url: "https://movementgyms.com/golden/"
 source: "https://movementgyms.com/golden/"
-verified: "2026-11-06"
+verified: "2026-11-10"
 added: "2026-11-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 phone: "(303) 222-9564"
 hours: "Mon–Fri 6 am–11 pm, Sat 8 am–8 pm, Sun 8 am–6 pm"
 tags: [climbing, gym, yoga]

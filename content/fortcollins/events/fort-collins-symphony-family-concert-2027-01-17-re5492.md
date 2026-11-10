@@ -11,8 +11,8 @@ source: "https://tickets.lctix.com/eventperformances.asp?evt=2257"
 sourceId: "lctix-com"
 sourceUid: "showare:5492"
 sourceHash: "7b0b07f41a55"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the The Lincoln Center (lctix.com) feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Fort Collins Symphony | Family Concert at The Lincoln Center Performance Hall, Sunday, January 17, 3 pm – 4 pm. Listed by The Lincoln Center (lctix.com); the organizer's page has the details and any registration.

@@ -10,8 +10,8 @@ source: "https://dance.colostate.edu/events/fall-dance-capstone-reclamation-2026
 sourceId: "dance-colostate-edu"
 sourceUid: "18-19705@dance.colostate.edu"
 sourceHash: "22d559e72c54"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the dance.colostate.edu feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the organizer's own events feed (colostate.edu) on 10 November 2026: date, start and end time, hall"
 ---
 
 Fall Dance Capstone: Reclamation at University Dance Theatre, Friday, December 11, 7:30 pm – 9:30 pm. Listed by dance.colostate.edu; the organizer's page has the details and any registration.

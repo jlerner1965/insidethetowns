@@ -9,8 +9,8 @@ cost: "Free"
 category: civic
 recurring: "Second and fourth Thursdays"
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning Commission Meeting\" at 6 pm on 12 November on the berthoud.org feed"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town calendar and the same meeting on the Town's CivicClerk portal)"
 ---
 
 Regular meeting of the Berthoud Planning Commission at Town Hall, second and fourth Thursdays, on subdivision, annexation and development applications before they reach the Board. Agendas post to the Town's CivicClerk portal.

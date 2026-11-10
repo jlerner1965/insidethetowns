@@ -10,8 +10,8 @@ source: "https://music.colostate.edu/events/university-symphony-orchestra-concer
 sourceId: "music-colostate-edu"
 sourceUid: "17-19485@music.colostate.edu"
 sourceHash: "b0c22ff6a7e7"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the music.colostate.edu feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the organizer's own events feed (colostate.edu) on 10 November 2026: date, start and end time, hall"
 ---
 
 University Symphony Orchestra Concert:  Somewhere at Griffin Concert Hall, Thursday, December 3, 7:30 pm – 9:30 pm. Listed by music.colostate.edu; the organizer's page has the details and any registration.

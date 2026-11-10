@@ -11,8 +11,8 @@ organizer: "The Golden Mill"
 organizerUrl: "https://www.thegoldenmill.com/"
 source: "https://www.thegoldenmill.com/events/together-at-the-community-table-3rd-annual-thanksgiving-celebration"
 sourceId: "thegoldenmill-com"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Golden Mill's third Thanksgiving Day lunch, a Thanksgiving meal with a Mexican twist that is open to anyone: people in need, people away from family, people looking for company. Lunch is free or pay what you can, and donations and all of the beverage wall's takings that day go to BGOLDN for local families.

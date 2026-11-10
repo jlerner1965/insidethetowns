@@ -4,9 +4,9 @@ type: venue
 address: "1310 Maple St., Golden, CO 80401"
 url: "https://museum.mines.edu/"
 source: "https://museum.mines.edu/"
-verified: "2026-10-27"
+verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 image: ../images/mines-museum-of-earth-science.jpg
 imageAlt: "The entrance of the General Research Lab building on the Colorado School of Mines campus, home of the Mines Museum, with boulder specimens on the plaza in front"
 imageCredit: "Clyde Charles Brown, Wikimedia Commons, CC BY-SA 4.0"

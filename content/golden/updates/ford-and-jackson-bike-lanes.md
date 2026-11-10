@@ -8,7 +8,7 @@ action: "Watch for the new 25 mph signs between 14th and 24th; where trash is pi
 effective: "2026-10-20"
 effectiveNote: "The City's update of October 20: construction largely complete, with the speed limit signs and punch-list items to finish"
 published: "2026-11-09"
-verified: "2026-11-09"
+verified: "2026-11-10"
 source: "https://www.guidinggolden.com/central-bike-ped"
 sourceLabel: "City of Golden, Guiding Golden: Central Golden Bicycle & Pedestrian Safety Projects"
 item: "/living-here/"

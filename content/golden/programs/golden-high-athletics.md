@@ -12,7 +12,8 @@ price: "$185 Jeffco athletic fee, posted to Infinite Campus the week after pract
 registration: { required: true, how: "Create one family account on ArbiterSports from the athletics site's Registration tab, then register and upload the student's CHSAA athletic physical; no other physical form is accepted", url: "https://students.arbitersports.com/golden-high-school" }
 contact: "Athletic director Josh Stephenson, 303-982-7398, josh.stephenson@jeffco.k12.co.us; athletics secretary Amber Hayes, 303-982-4225, amber.hayes@jeffco.k12.co.us"
 source: "https://golden.jeffcopublicschools.org/student-life/athletics"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The school's athletics page lists the teams by season. **Fall**: coed cross country, football, boys' golf, boys' soccer, girls' softball, boys' tennis, girls' volleyball and flag football. **Winter**: boys' and girls' basketball, girls' swim and dive, boys' wrestling, and alpine and Nordic skiing, offered at Evergreen High. **Spring**: baseball, girls' golf, boys' and girls' lacrosse, girls' soccer, boys' swim and dive, girls' tennis and coed track and field. Cheer and dance run all year.
