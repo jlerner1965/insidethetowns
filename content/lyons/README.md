@@ -64,6 +64,7 @@ source: "https://organizer.example/calendar"  # where the listing was read; with
 verified: "2026-09-17"            # the day it was checked; same
 confirmed: { how: phone, with: "Oskar Blues", on: "2026-10-17" }  # optional: a call or email to the organizer (npm run confirm)
 featured: false                   # optional
+topOfDay: false                   # optional: first among its own day's listings, nothing more
 ---
 Description in Markdown.
 ```

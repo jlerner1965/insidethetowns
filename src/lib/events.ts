@@ -326,8 +326,9 @@ export function splitOngoing<T extends EventLike>(events: T[], now = new Date())
  * here: a football game never comes before an earlier talk for being a game.
  */
 export function sortByStart<T extends EventLike>(events: T[]): T[] {
-  const keyed = events.map((e) => ({ e, day: dayKey(e.data.start), tier: timeTier(e) }));
-  keyed.sort((a, b) => (a.day < b.day ? -1 : a.day > b.day ? 1 : a.tier - b.tier || a.e.data.start.getTime() - b.e.data.start.getTime()));
+  // Within a day, a listing the editor put at the top of its day (`topOfDay`) first.
+  const keyed = events.map((e) => ({ e, day: dayKey(e.data.start), top: e.data.topOfDay ? 0 : 1, tier: timeTier(e) }));
+  keyed.sort((a, b) => (a.day < b.day ? -1 : a.day > b.day ? 1 : a.top - b.top || a.tier - b.tier || a.e.data.start.getTime() - b.e.data.start.getTime()));
   return keyed.map((k) => k.e);
 }
 

@@ -81,8 +81,8 @@ const SHORT_DAY = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekda
  * and a civic meeting, which are worth their line and are never why someone
  * opened the page.
  */
-export function tabRank(row: Pick<TabRow, 'pick' | 'category' | 'program' | 'kind'>): number {
-  if (row.pick || row.kind === 'game') return 0;
+export function tabRank(row: Pick<TabRow, 'pick' | 'top' | 'category' | 'program' | 'kind'>): number {
+  if (row.pick || row.top || row.kind === 'game') return 0;
   if (row.program || row.category === 'civic') return 2;
   return row.category && (row.category === 'sports' || LEAD_CATEGORIES.includes(row.category) || OUTING_CATEGORIES.includes(row.category)) ? 0 : 1;
 }
@@ -105,7 +105,8 @@ export function tabRank(row: Pick<TabRow, 'pick' | 'category' | 'program' | 'kin
  * more today" leads to them on the events page.
  */
 export function pickRows(items: TabRow[], limit = TAB_LIMIT): { rows: TabRow[]; more: number } {
-  const byClock = (a: TabRow, b: TabRow) => a.dayKey.localeCompare(b.dayKey) || a.time.localeCompare(b.time);
+  // A listing at the top of its day (`topOfDay`) leads that day, never an earlier one.
+  const byClock = (a: TabRow, b: TabRow) => a.dayKey.localeCompare(b.dayKey) || Number(!a.top) - Number(!b.top) || a.time.localeCompare(b.time);
   const byRank = (a: TabRow, b: TabRow) => tabRank(a) - tabRank(b) || byClock(a, b);
   const sorted = [...items].sort(byClock);
   const chosen = sorted.filter((r) => !r.status && !r.series).sort(byRank).slice(0, limit);

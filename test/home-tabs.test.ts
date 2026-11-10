@@ -316,3 +316,23 @@ test('a game the guide also lists as an event is one row, the listing, until it 
   assert.deepEqual(friday(sports(game()), [playoff, band]).map((i) => i.kind), ['event', 'event'], 'the listing and the band; the game row is not repeated');
   assert.deepEqual(friday(sports(game()), [band]).map((i) => i.kind), ['game', 'event'], 'with no listing of its own, the game row is the game');
 });
+
+test('a listing at the top of its day leads that day on the weekend tab, after the earlier days', () => {
+  // Move & Meet NoCo asked for top billing on its Saturday (the owner, 10 November 2026).
+  const now = at('2026-11-17T09:00'); // a Tuesday
+  const events = [
+    ev('friday-show', '2026-11-20T19:00', { category: 'music' }),
+    ev('early-market', '2026-11-21T09:00', { category: 'market' }),
+    ev('wellness-social', '2026-11-21T11:00', { category: 'other', topOfDay: true }),
+    ev('sunday-brunch', '2026-11-22T10:00', { category: 'food' }),
+  ];
+  const days = weekDays({ events, now, start: 'today', limit: 99 });
+  const saturday = days.find((d) => d.key === '2026-11-21')!;
+  assert.deepEqual(saturday.items.map((r) => r.fullTitle), ['wellness-social', 'early-market'], 'first on its day, ahead of an earlier start');
+  const [, , weekend] = homeTabs(days, now);
+  assert.deepEqual(
+    weekend!.rows.map((r) => `${r.dayWord} ${r.fullTitle}`),
+    ['Fri friday-show', 'Sat wellness-social', 'Sat early-market', 'Sun sunday-brunch'],
+    'the days stay in order; only Saturday changes',
+  );
+});

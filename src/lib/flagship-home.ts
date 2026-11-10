@@ -84,6 +84,8 @@ export interface DayItem {
   status?: 'canceled' | 'postponed';
   /** The editor's pick for the week: one word beside the title. */
   pick?: boolean;
+  /** First among its day's rows: the listing's `topOfDay`. */
+  top?: boolean;
   /** One line, both: "6:30 pm · Home", "7 pm · City Star Brewing · Free". */
   meta: string;
   /** A game's Home, Away or Neutral site pill. */
@@ -224,6 +226,7 @@ export function eventItem(e: EventLike, picked?: ReadonlySet<string>): DayItem {
     end: toIsoLocal(listedUntil(e)),
     ...(status === 'canceled' || status === 'postponed' ? { status } : {}),
     ...(picked?.has(slug) ? { pick: true } : {}),
+    ...(e.data.topOfDay ? { top: true } : {}),
     ...(isLibraryProgram(e) ? { program: true } : {}),
   };
 }
@@ -319,7 +322,7 @@ export function weekDays<E extends EventLike>({ events, sports, teamHref = () =>
     // One row per listing a day: a series with two sittings on one day is one thing on.
     const seen = new Set<string>();
     const unique = items.filter((it) => (seen.has(it.href + it.fullTitle) ? false : (seen.add(it.href + it.fullTitle), true)));
-    const byClock = (a: DayItem, b: DayItem) => a.time.localeCompare(b.time);
+    const byClock = (a: DayItem, b: DayItem) => Number(!a.top) - Number(!b.top) || a.time.localeCompare(b.time);
     const chosen = [...unique].sort((a, b) => Number(!!a.series) - Number(!!b.series) || byClock(a, b)).slice(0, limitFor(i));
     const kept = chosen.sort(byClock);
     return {
