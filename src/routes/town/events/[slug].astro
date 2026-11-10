@@ -408,14 +408,14 @@ const facts: Fact[] = [
         <figure class="mb-10">
           <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
           {data.imageCredit && (
-            <figcaption class="mt-1 text-[0.6875rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>
+            <figcaption class="mt-1 text-[0.75rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>
           )}
         </figure>
       )}
       {venuePhoto && (
         <figure class="mb-10">
           <Image src={venuePhoto.image!} alt={venuePhoto.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
-          <figcaption class="mt-1 text-[0.6875rem] leading-tight tracking-wide text-ink-muted">
+          <figcaption class="mt-1 text-[0.75rem] leading-tight tracking-wide text-ink-muted">
             The venue, {venuePhoto.title}{venuePhoto.imageCredit && <>. Photo: {venuePhoto.imageCredit}</>}
           </figcaption>
         </figure>

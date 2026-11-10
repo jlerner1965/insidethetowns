@@ -56,7 +56,8 @@ export interface Feature {
   where: string;
   /** The listing's first sentence, shown where the card has room. */
   blurb?: string;
-  image: ImageMetadata;
+  /** The listing's photograph or its venue's; none where neither has one (never the hero again). */
+  image?: ImageMetadata;
   alt: string;
   eventDay: string;
   end?: string;
@@ -89,9 +90,9 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
     <div class:list={['mt-5', feature ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start lg:gap-x-12 xl:grid-cols-[minmax(0,1fr)_23rem]' : 'max-w-3xl']}>
     {feature && (
       <aside aria-labelledby="dont-miss" data-hide-when-empty class="mb-6 lg:col-start-2 lg:row-start-1 lg:mb-0">
-        <a href={feature.href} data-event-day={feature.eventDay} data-end={feature.end} class="group grid grid-cols-[6.5rem_minmax(0,1fr)] items-stretch gap-x-4 overflow-hidden rounded-lg bg-raised no-underline ring-1 ring-line-soft hover:ring-primary-line sm:grid-cols-[10rem_minmax(0,1fr)] lg:block" data-track="dont-miss">
-          <Image src={feature.image} alt={feature.alt} width={720} height={405} loading="eager" class="h-full min-h-28 w-full object-cover lg:aspect-[16/9] lg:h-auto lg:min-h-0" />
-          <div class="py-3 pr-3 lg:px-5 lg:py-4">
+        <a href={feature.href} data-event-day={feature.eventDay} data-end={feature.end} class:list={['group overflow-hidden rounded-lg bg-raised no-underline ring-1 ring-line-soft hover:ring-primary-line lg:block', feature.image ? 'grid grid-cols-[6.5rem_minmax(0,1fr)] items-stretch gap-x-4 sm:grid-cols-[10rem_minmax(0,1fr)]' : 'block']} data-track="dont-miss">
+          {feature.image && <Image src={feature.image} alt={feature.alt} width={720} height={405} loading="eager" class="h-full min-h-28 w-full object-cover lg:aspect-[16/9] lg:h-auto lg:min-h-0" />}
+          <div class:list={['py-3 pr-3 lg:px-5 lg:py-4', !feature.image && 'pl-4']}>
             <p id="dont-miss" class="eyebrow text-primary">Don’t miss</p>
             <p class="mt-1 text-[0.875rem] font-semibold leading-snug text-ink">{feature.when}</p>
             <h3 class="display-md mt-1 text-[1.25rem] leading-tight text-ink group-hover:text-primary lg:text-[1.5rem]">{feature.title}</h3>

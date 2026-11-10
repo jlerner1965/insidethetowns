@@ -44,7 +44,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
 <article class:list={['rounded-lg p-5 ring-1 sm:p-6', what === 'closes' ? 'bg-highlight-soft ring-highlight' : 'bg-raised ring-line-soft']} id={`deadline-${program.slug}`}>
   <div class="flex items-start gap-4">
     <time datetime={toIsoLocal(on)} class:list={['flex size-12 shrink-0 flex-col items-center justify-center rounded-full text-center leading-none', what === 'closes' ? 'bg-highlight text-ink' : 'bg-paper text-ink ring-1 ring-line-soft']}>
-      <span class="text-[0.625rem] font-bold uppercase tracking-[0.08em]">{badge.month}</span>
+      <span class="text-[0.75rem] font-bold uppercase tracking-[0.08em]">{badge.month}</span>
       <span class="mt-0.5 text-[0.9375rem] font-bold">{badge.day}</span>
     </time>
     <div class="min-w-0">

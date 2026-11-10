@@ -1,5 +1,19 @@
 # Inside the Towns — design audit, 10 November 2026
 
+> **Applied the same day, on branch `claude/lucid-edison-f4uwol`,** on the owner's word ("fix the fix now and fix soon") and the five decisions he then gave.
+>
+> - N1: every label on the sports band is full white (`NextUp.astro`). N2: the schools panel on /families/ is a white card. N4: both article asides are labelled. N5: nothing on the checked pages is under 12 px now, except the hero's stock credit, which stays at the size the owner set on 28 October.
+> - N3 and the owner's decision on Castle Rock, Lafayette and Frederick: a Find your next stop tile with no listing photograph is the guide's colour, and the Don't miss card with no photograph is a card of words. The hero is never shown a second time on a home page.
+> - Castle Rock's palette is settled: scrub-oak olive #55601F with rhyolite rose #B5876B, 58 steps from the nearest other primary; the favicon follows.
+> - Golden wears its copper on the athletics band and the sports pages (a darker step, #765118, where white needs 7:1); the Demons' crimson is no longer used.
+> - Timnath's hero is Old Town Main Street. The same photograph stays on the listing, the one exception the validator allows (`SHARED_WITH_HERO`). It is a 717 px snapshot and is soft on a wide screen.
+> - The multi-school sports card sits under the events on Windsor, Fort Collins, Longmont and Loveland.
+> - Nederland's hero is cropped to the porch, clear of the painted sign; Longmont's wordmark has no stray dot; Berthoud's `seoTagline` is a phrase.
+>
+> **Not changed:** the near-twin primaries other than Castle Rock's (N7: Fort Collins and Lafayette, Johnstown and Loveland), which are the owner's to pick; N6 and the phone's first screen, which were for his eye.
+>
+> Checked: `npm test` 722 pass, `npm run validate` 0 errors, `npm run check-colors` passes; eight guides rebuilt and fifteen changed pages rendered with no axe violation.
+
 The 18 live guides, design only. Each was built from `main` at 336d266 and rendered in Chromium at 375 px and 1280 px: every section page plus one place, one event, one article and one team page per guide (about 25 pages each, some 860 page loads), with axe-core's WCAG 2.2 AA rules run on each. Every built page (3,400 across the 18) was also read for its head tags, headings and alt text, and the live home and four section pages of each guide were fetched (90 pages, all 200, none slower than 1.5 s, palettes as in the repo). One report per guide sits beside this file. Nothing under `content/` or `src/` was changed.
 
 **Verdict:** the chassis is sound. Nothing overflows, no image is broken, no page lacks a title, description, canonical, viewport or single h1, no heading level is skipped and every image has alt text, on all 18. The problems are two contrast failures the colour checker does not test, three guides with one photograph each, and a handful of per-town items.

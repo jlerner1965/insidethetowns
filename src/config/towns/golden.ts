@@ -104,7 +104,12 @@ export const golden: TownConfig = {
    * answer the cloud address, so the school's own hex is not yet checked;
    * src/config/school-sports.ts gives the sports pages the same crimson.
    */
-  school: { name: 'Golden High School', mascot: 'Demons', teamName: 'Golden Demons', primary: '#8F0018', secondary: '#FFFFFF' },
+  // The guide's own copper on the band and the sports pages, not the
+  // Demons' crimson (the owner, 10 November 2026: the copper fits the town
+  // better; the design audit found the two meeting on the home page and on
+  // /sports/). The band is the copper darkened until white clears 7:1 on it
+  // (#94651E is 5.07:1), as Niwot's band is a darker step of its green.
+  school: { name: 'Golden High School', mascot: 'Demons', teamName: 'Golden Demons', primary: '#765118', secondary: '#FFFFFF' },
   // Read from the City's, the county's, RTD's and Jeffco Public Schools' own
   // pages on 28 October 2026. Rooney Road Recycling Center's robots.txt and
   // the City's Granicus portal ask automated readers to stay out, and the
