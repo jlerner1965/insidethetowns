@@ -1002,10 +1002,15 @@ test('what CHSAA settles is applied over MaxPreps: the volleyball state openers 
   // The volleyball league reads as softball's and basketball's do.
   assert.equal(berthoud.league?.name, '4A/3A Patriot Peaks');
 
-  // Twice is once; the file read as-is is untouched.
-  const once = correctedData(read('berthoud'), schoolSportsFor('berthoud')!);
+  // Twice is once; the file read as-is is untouched. Checked against the file's own
+  // text, not a value in it: the nightly run rewrites data/berthoud/sports.json, and
+  // the day MaxPreps itself filed the state opener as neutral this failed on main
+  // (9 November 2026) with nothing wrong.
+  const raw = read('berthoud');
+  const asRead = JSON.stringify(raw);
+  const once = correctedData(raw, schoolSportsFor('berthoud')!);
   assert.deepEqual(correctedData(once, schoolSportsFor('berthoud')!), once);
-  assert.equal(read('berthoud').sports.find((t) => t.key === 'volleyball')!.upcoming[0]!.site, 'away');
+  assert.equal(JSON.stringify(raw), asRead);
 
   // A stage MaxPreps names for the state game is kept; its generic word is not.
   const { correctedGame } = await import('../src/lib/school-sports.ts');

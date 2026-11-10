@@ -12,4 +12,4 @@ verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
-A fine-art gallery on the main block: original paintings, prints, photography, sculpture and glass art from regional artists, with openings that coincide with downtown events.
+A fine-art gallery on the main block: original paintings, prints, photography, sculpture and glass art from regional artists. Open until 7 pm on first Fridays, April through October.

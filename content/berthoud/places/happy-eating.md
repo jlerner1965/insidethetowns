@@ -1,7 +1,7 @@
 ---
 title: "Happy Eating Asian Cafe"
 type: restaurant
-address: "506 Welch Ave"
+address: "506 Welch Ave, Unit A"
 area: "Welch Avenue"
 phone: "(970) 532-9821"
 menuUrl: "https://happyeatingasiancafe.fronteats.com/"
@@ -14,4 +14,4 @@ verified: "2026-11-06"
 added: "2026-09-17"
 ---
 
-The town's Chinese restaurant, on Welch Avenue: the familiar menu of lo mein, General Tso's, fried rice and combination plates, mostly to go, with a few tables inside. Its ordering page carries the menu and shows it closed on Tuesdays and open into the evening, to 9:30 or 10:30 pm depending on the day; the page is the record.
+A Chinese restaurant on Welch Avenue: the familiar menu of lo mein, General Tso's, fried rice and combination plates, mostly to go, with a few tables inside. Closed Tuesdays; open to 9:30 pm on Monday and Wednesday and to 10:30 pm Thursday to Sunday. Its ordering page carries the menu.

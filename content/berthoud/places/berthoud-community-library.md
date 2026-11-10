@@ -9,6 +9,7 @@ hours: "Mon, Tue, Fri 10–6; Wed, Thu 10–8; Sat 10–4; Sun closed"
 image: ../images/berthoud-community-library.jpg
 imageAlt: "The library's sign, gold letters on a brown board shaped like an open book and set on two stacks of sculpted books, in front of the brick library building on Welch Avenue"
 imageCredit: "Berthoud Community Library District"
+imageListingOnly: true
 tags: [library, kids, classes]
 summary: "The library district on Welch Avenue: storytimes three mornings a week, a writers group, classes, tech help, and the September literary festival."
 source: "https://www.berthoudcommunitylibrary.org/hours"

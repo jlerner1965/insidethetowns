@@ -18,28 +18,28 @@ sources:
 related:
   - { label: "Explore Berthoud in walking order", href: "/articles/explore-berthoud-in-walking-order/", note: "Breakfast on Mountain Avenue is the first stop; the walk goes on to the museum and the reservoir." }
   - { label: "This weekend in Berthoud", href: "/this-weekend/", note: "What is on after breakfast on Saturday and Sunday, every listing checked against its source." }
-  - { label: "Berthoud Bike Park", href: "/places/berthoud-bike-park/", note: "On Meadowlark Drive, the same street as Joyful Brews and the Trailhead Cafe." }
+  - { label: "Berthoud Bike Park", href: "/places/berthoud-bike-park/", note: "On Meadowlark Drive, the same street as Joyful Brews and the Trailhead Cafe, about a mile north of both." }
 ---
 
-Berthoud does breakfast better than dinner, which is not a complaint. Seven places, from the earliest to the most leisurely. Hours are as each business posts them, read on November 3, 2026; where a business posts none, the table says so.
+Seven places for breakfast or a coffee, from the earliest to the most leisurely. Hours are as each business posts them, read between November 3 and 9, 2026; where a business posts none, the table says so.
 
 | Place | Weekdays | Weekends | How | Where |
 | --- | --- | --- | --- | --- |
 | [Cocina & Cantina](/places/cocina-and-cantina/) | Mon–Fri 6 am–9 pm | Sat 7 am–9 pm, Sun 7 am–8:30 pm | Sit-down, Mexican and American plates | 400 Mountain Ave, downtown |
-| [Ziggi's](/places/ziggis-coffee/) | 6 am–6 pm as last posted (October 3); call (303) 802-4663 to confirm | 6 am–6 pm as last posted | Drive-through coffee and breakfast items | 1011 Mountain Ave, near US 287 |
+| [Ziggi's](/places/ziggis-coffee/) | 6 am–6 pm | 6 am–6 pm | Drive-through coffee and breakfast items | 1011 Mountain Ave, near US 287 |
 | [Joyful Brews](/places/joyful-brews/) | Not posted; call (970) 532-9963 | Not posted | Drive-through coffee and tea | 429 Meadowlark Dr, by the Kwik Korner |
 | [Cornerstone Cafe](/places/cornerstone-cafe/) | Tue–Fri 7 am–2 pm; closed Monday | Sat 7 am–2 pm; closed Sunday | Sit-down diner, breakfast all day | 250 Mountain Ave, downtown |
 | [Grandpa's Cafe](/places/grandpas-cafe/) | Mon, Wed–Fri 7 am–8 pm; Tue 7 am–2 pm | Sat and Sun 7 am–8 pm | Sit-down, breakfast all day | 903 Mountain Ave, west end |
 | [Kofe House](/places/kofe-house/) | 7:30 am–2:30 pm; Thursday Italian dinner 5–8 pm | Open; weekend hours not posted by day | Coffee house, breakfast and lunch; call for pickup | 434 Mountain Ave, downtown |
-| [Trailhead Cafe](/places/trailhead-cafe/) | Not confirmed | Not confirmed | Cafe | 375 Meadowlark Dr, by the bike park |
+| [Trailhead Cafe](/places/trailhead-cafe/) | 7 am–2 pm | 7 am–2 pm | Sit-down cafe, breakfast and lunch | 375 Meadowlark Dr |
 
 ## From 6: Cocina & Cantina
 
-[Cocina & Cantina](/places/cocina-and-cantina/) on the main block opens at 6 on weekdays and 7 at the weekend, serving Mexican and American plates from breakfast onward, breakfast burritos among them, and it is the one downtown kitchen that goes on to dinner. [The menu](https://berthoud.cocinaandcantina.com/berthoud-cocina-and-cantina-berthoud-food-menu) is on its site.
+[Cocina & Cantina](/places/cocina-and-cantina/) on the main block opens at 6 on weekdays and 7 on weekends, serving Mexican and American plates from breakfast onward, breakfast burritos among them, and it serves dinner as well. [The menu](https://berthoud.cocinaandcantina.com/berthoud-cocina-and-cantina-berthoud-food-menu) is on its site.
 
 ## The drive-throughs
 
-[Ziggi's](/places/ziggis-coffee/) at the west end of Mountain Avenue near US 287 is the commuter's coffee: espresso, blended drinks and breakfast items through a drive-through window. Its location page no longer shows hours; it said 6 am to 6 pm every day when we read it on October 3, so call before an early start; [the menu](https://ziggiscoffee.com/menu/) is the chain's. [Joyful Brews](/places/joyful-brews/) on Meadowlark Drive beside the Kwik Korner is the local answer, a woman-owned, family-run drive-through for espresso and tea without leaving the car. It does not post its hours online either, so ring ahead if you are cutting it fine; [its menu](https://www.joyfulbrews.com/menu) is online.
+[Ziggi's](/places/ziggis-coffee/) at the west end of Mountain Avenue near US 287 is the commuter's coffee: espresso, blended drinks and breakfast items through a drive-through window. Its location page gives 6 am to 6 pm every day, read on November 8. [The menu](https://ziggiscoffee.com/menu/) is the chain's. [Joyful Brews](/places/joyful-brews/) on Meadowlark Drive beside the Kwik Korner is the local answer, a woman-owned, family-run drive-through for espresso and tea without leaving the car. It does not post its hours online either, so call ahead if you are cutting it close; [its menu](https://www.joyfulbrews.com/menu) is online.
 
 ## The diner: Cornerstone Cafe
 
@@ -53,9 +53,9 @@ Berthoud does breakfast better than dinner, which is not a complaint. Seven plac
 
 [Kofe House](/places/kofe-house/) is the family-owned coffee house on the main block: coffee, and breakfast and lunch seven days a week, with seats outside in warmer weather. Its page shows 7:30 to 2:30 for the day and does not list the weekend separately. On Thursday evenings it serves an Italian dinner from 5 to 8. To order ahead for pickup, call (970) 344-5391; [the October menu](https://img1.wsimg.com/blobby/go/359b4c4d-3bcd-49da-92b0-d6043a54dece/kofe%20menu%20Oct%206%202026.pdf) is a PDF.
 
-## After the bike park: Trailhead Cafe
+## On Meadowlark Drive: Trailhead Cafe
 
-The [Trailhead Cafe](/places/trailhead-cafe/) on Meadowlark Drive has been the casual cafe by the bike park and the rec center, for breakfast, sandwiches, salads and coffee after a ride. We could not reconfirm it in November: the Main Street page we listed it from no longer names it, and we have no hours from the cafe itself. That is not evidence it has closed. Call or walk past before you plan around it.
+The [Trailhead Cafe](/places/trailhead-cafe/) at 375 Meadowlark Drive is open every day from 7 am to 2 pm, by its own site, read on November 3: pancakes and eggs, burgers, salads and espresso. It is about a mile down Meadowlark Drive from the bike park, not beside it.
 
 ## Open right now
 

@@ -74,11 +74,11 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
                   whole list after them. */}
               <ul class="mt-1 flex flex-wrap gap-x-6 gap-y-1 pb-1 sm:mt-3">
                 {sisters.map((t) => (
-                  <li class="break-inside-avoid pb-3 leading-snug">
-                    <a href={`https://${t.domain}/`} class="inline-block py-1 text-[0.875rem] font-medium text-white no-underline hover:underline sm:py-0">{t.name}</a>
+                  <li class="break-inside-avoid leading-snug sm:pb-3">
+                    <a href={`https://${t.domain}/`} class="inline-block py-3 text-[0.875rem] font-medium text-white no-underline hover:underline sm:py-0">{t.name}</a>
                   </li>
                 ))}
-                <li class="pb-3 leading-snug"><a href={`https://${hub.domain}/#towns`} class="inline-block py-1 text-[0.875rem] font-medium text-white underline sm:py-0">All {liveTowns().length} guides →</a></li>
+                <li class="leading-snug sm:pb-3"><a href={`https://${hub.domain}/#towns`} class="inline-block py-3 text-[0.875rem] font-medium text-white underline sm:py-0">All {liveTowns().length} guides →</a></li>
               </ul>
             </details>
           </nav>

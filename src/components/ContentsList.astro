@@ -42,7 +42,7 @@ const items = headings.map((h, i) => {
         {items.map((h) => (
           <li class="flex gap-3">
             <span class="min-w-[2ch] shrink-0 tabular-nums text-ink-muted">{h.number}</span>
-            <a href={`#${h.slug}`} class="py-0.5 no-underline hover:text-primary hover:underline">{h.text}</a>
+            <a href={`#${h.slug}`} class="py-2.5 no-underline hover:text-primary hover:underline lg:py-0.5">{h.text}</a>
           </li>
         ))}
       </ol>

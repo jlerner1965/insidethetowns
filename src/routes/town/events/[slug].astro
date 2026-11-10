@@ -136,6 +136,17 @@ const listedOrganizerUrl = data.organizer
 const venueListing = places.find((p) => p.data.title.toLowerCase() === data.venue.toLowerCase() && isOpen(p));
 // The structured data’s picture: the listing’s own, else its venue’s where the venue is a building, else none; never the town’s scenery (eventImage, src/lib/seo.ts).
 const pictured = eventImage(data.image, venueListing?.data);
+/**
+ * The picture on the page: the listing's own, else its venue's where the
+ * venue is a building with a photograph the guide may use beyond the
+ * venue's own listing (audit of 9 November 2026: 84 of Berthoud's 85 event
+ * pages had none). The caption says it is the venue, so nobody takes a
+ * photograph of the room for one of the night.
+ */
+const venuePhoto =
+  !data.image && venueListing?.data.image && !venueListing.data.imageListingOnly && pictured === venueListing.data.image
+    ? venueListing.data
+    : undefined;
 const structuredImage = pictured ? (await getImage({ src: pictured, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 // The next sitting's own: a production's show carries its time and its note.
 const timeText = next.data.timeNote ?? formatTimeRange(when.start, when.end, data.allDay);
@@ -397,8 +408,16 @@ const facts: Fact[] = [
         <figure class="mb-10">
           <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
           {data.imageCredit && (
-            <figcaption class="mt-1 text-[0.5rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>
+            <figcaption class="mt-1 text-[0.6875rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>
           )}
+        </figure>
+      )}
+      {venuePhoto && (
+        <figure class="mb-10">
+          <Image src={venuePhoto.image!} alt={venuePhoto.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
+          <figcaption class="mt-1 text-[0.6875rem] leading-tight tracking-wide text-ink-muted">
+            The venue, {venuePhoto.title}{venuePhoto.imageCredit && <>. Photo: {venuePhoto.imageCredit}</>}
+          </figcaption>
         </figure>
       )}
       <div class="prose">

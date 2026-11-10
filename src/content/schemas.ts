@@ -658,6 +658,12 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       imageAlt: z.string().optional(),
       /** Shown under the image. Required when the license asks for attribution. */
       imageCredit: z.string().optional(),
+      /**
+       * The photograph's permission covers this listing and nothing else
+       * (PERMISSIONS.md gives the scope), so an event held here does not
+       * borrow it for its own page.
+       */
+      imageListingOnly: z.boolean().optional(),
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
       /** One or two sentences, shown on cards. */

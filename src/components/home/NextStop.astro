@@ -62,7 +62,7 @@ const tiles = [
       {tiles.map((t) => (
         <li>
           <a href={t.href} class="group relative isolate flex min-h-[44px] flex-col justify-center overflow-hidden rounded-lg bg-primary px-3 py-0.5 no-underline sm:block sm:aspect-[4/3] sm:min-h-0 sm:p-0">
-            <Image src={t.src} alt={t.alt} width={720} height={720} class="absolute inset-0 -z-20 h-full! w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+            <Image src={t.src} alt={t.alt} width={720} height={720} sizes="(min-width: 640px) 400px, 45vw" class="absolute inset-0 -z-20 h-full! w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
             <span class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.6)_65%,rgba(0,0,0,0.35)_100%)] sm:bg-[linear-gradient(to_top,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.35)_45%,transparent_100%)]" aria-hidden="true"></span>
             <span class="block sm:absolute sm:inset-x-0 sm:bottom-0 sm:p-4 md:p-5">
               <span class="block whitespace-nowrap text-[0.9375rem] font-semibold leading-tight text-white sm:whitespace-normal sm:text-xl md:text-2xl">{t.label} <span aria-hidden="true">→</span></span>

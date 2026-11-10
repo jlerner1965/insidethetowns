@@ -14,4 +14,4 @@ source: "https://www.berthoudcommunitylibrary.org/events-classes"
 verified: "2026-11-03"
 ---
 
-Fifteen- to twenty-minute one-on-one help with phones, laptops, email and online forms, Tuesday through Thursday at the library, no appointment needed. Longer in-person appointments at 2 and 3 pm the same days.
+Fifteen-minute one-on-one help with phones, laptops, email and online forms, Tuesday through Thursday at the library, no appointment needed. Longer in-person appointments at 2 and 3 pm the same days.

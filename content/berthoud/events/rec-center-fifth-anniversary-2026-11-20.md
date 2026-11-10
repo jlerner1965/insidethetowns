@@ -6,6 +6,7 @@ venue: "Berthoud Recreation Center"
 address: "1000 N Berthoud Pkwy, Berthoud, CO 80513"
 url: "https://www.berthoud.org/1530/Upcoming-Events"
 cost: "Free"
+featured: true
 category: family
 image: ../images/berthoud-recreation-center.webp
 imageAlt: "The Berthoud Recreation Center at sunset: the red barn-style building and its blue outdoor waterslides, with people sitting on the low walls and the covered patio out front"

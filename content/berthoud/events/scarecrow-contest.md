@@ -15,4 +15,4 @@ verified: "2026-10-17"
 verifiedBy: "recheck-events (the nightly re-check workflow): 17 October on the page"
 ---
 
-Businesses and organizations around Berthoud put up scarecrows and visitors follow the Scarecrow Map to find them. Online voting runs October 17 to 30 and the People's Choice winner is announced October 31.
+Each October, businesses and organizations around Berthoud put up scarecrows and visitors follow the Scarecrow Map to find them. In 2026 online voting ran October 17 to 30 and the People's Choice winner was announced October 31.

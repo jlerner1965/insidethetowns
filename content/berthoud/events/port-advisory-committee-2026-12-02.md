@@ -11,4 +11,4 @@ source: "https://www.berthoud.org/Calendar.aspx"
 verified: "2026-10-27"
 ---
 
-Meeting of the Town's PORT Advisory Committee at Town Hall, 6 to 8 pm, as listed on the Town's calendar.
+Meeting of the Town's PORT (Parks, Open Space, Recreation and Trails) Advisory Committee at Town Hall, 6 to 8 pm, as listed on the Town's calendar.

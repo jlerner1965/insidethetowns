@@ -21,6 +21,8 @@ import Provenance from '@/components/Provenance.astro';
 import RecCenterSchedule from '@/components/RecCenterSchedule.astro';
 import RecCenterToday from '@/components/RecCenterToday.astro';
 import { recCenterFor, type RecCenterData } from '@/lib/rec-center';
+import { placeMap, placeMapFor, type PlaceMapData } from '@/lib/place-map';
+import PlaceMap from '@/components/PlaceMap.astro';
 import { accessFresh, ageDays, openMonthsLabel, seasonLabel, seasonalHoursApply } from '@/lib/freshness';
 
 export async function getStaticPaths() {
@@ -77,6 +79,12 @@ const here = uniqueByEvent(upcoming(occurrences(await getTownEntries('events')))
   .slice(0, 3);
 // Directions without a map (src/lib/places.ts, directionsUrl); the event page gives the same.
 const directions = directionsUrl(data.address, town.name);
+// The streets around a listing with no photograph, from the guide's own file
+// (scripts/place-maps.ts); a closed place gets none, and neither does one the
+// file does not place.
+const mapFiles = import.meta.glob<PlaceMapData>('../../../../data/*/place-map.json', { eager: true, import: 'default' });
+const mapData = placeMapFor(mapFiles, town.slug);
+const streetMap = !data.image && data.status !== 'closed' && mapData ? placeMap(mapData, place.slug) : undefined;
 // A park, a trail or a trailhead has no one to write in as its owner; everything else does.
 const hasOperator = !LAND_TYPES.includes(data.type);
 // The schedule and the days it leaves unsettled, for the open-now badge (OpenStatus.astro).
@@ -270,13 +278,14 @@ const description = placeDescription(
           <figure class:list={['mb-10', data.image.width < 800 && 'max-w-xl']}>
             <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
             {data.imageCredit && (
-              <figcaption class="mt-1 text-[0.5rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>
+              <figcaption class="mt-1 text-[0.6875rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>
             )}
           </figure>
         )}
         <div class="prose">
           <Content />
         </div>
+        {streetMap && <PlaceMap map={streetMap} title={data.title} directions={directions} class="mt-10 max-w-lg" />}
         {rec && <RecCenterSchedule data={rec} class="mt-10" />}
         {/* Read as words, not as the bordered pills they were, which looked
             like filter buttons and showed the raw slugs ("no-dogs"). */}

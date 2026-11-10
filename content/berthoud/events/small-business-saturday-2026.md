@@ -11,4 +11,4 @@ verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November on the page"
 ---
 
-The Saturday after Thanksgiving, the downtown merchants open with promotions, specials and events under the association's "Buy it in Berthoud" banner. Check the association's page for the participating shops and hours.
+The Saturday after Thanksgiving, downtown merchants open with promotions, specials and events under Berthoud Main Street's "Buy it in Berthoud" banner. Main Street had not posted the 2026 list of shops and specials on November 9; its Small Business Saturday page still showed 2025's.

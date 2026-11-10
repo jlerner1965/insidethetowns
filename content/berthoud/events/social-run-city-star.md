@@ -6,7 +6,7 @@ repeat: weekly
 until: "2026-12-31"
 venue: "City Star Brewing"
 address: "321 Mountain Ave"
-url: "https://www.citystarbrewing.com/events"
+url: "https://citystarbrewing.com/events/"
 cost: "Free; $3 post-run beer"
 category: sports
 recurring: "Thursdays at 6"
