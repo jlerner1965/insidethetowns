@@ -13,7 +13,10 @@
  * (src/components/PlaceMap.astro). Nothing is fetched when a page is read.
  *
  * The geocoder places an address along its block by house number, so a pin
- * is within the block, not on the door: the map says "approximate". A
+ * is within the block, not on the door: the map says "approximate". Where
+ * its range spans two blocks the pin can land in the wrong one (Fickel Park,
+ * 9 November 2026): check a new pin against its cross streets, and set it
+ * by hand under "fixed" in the file when it is off. A
  * listing whose address it cannot match (an intersection, a rural route, a
  * place out of the frame) gets no pin and no map; nothing is guessed. A
  * listing already placed is kept unless --refresh is given. Run it again
@@ -80,6 +83,11 @@ for (const name of readdirSync(dir).filter((f) => f.endsWith('.md') && !f.starts
   const text = readFileSync(join(dir, name), 'utf8');
   const address = /^address: "?(.+?)"?$/m.exec(text)?.[1];
   if (!address) continue;
+  // A pin set by hand ("fixed" in the file) stands: the geocoder spreads a house number along a range that can span two blocks.
+  if (before.fixed?.[id]) {
+    places[id] = before.fixed[id];
+    continue;
+  }
   if (!refresh && before.places?.[id] && before.addresses?.[id] === address) {
     places[id] = before.places[id];
     continue;
@@ -116,6 +124,8 @@ writeFileSync(
       read: new Date().toISOString().slice(0, 10),
       // What the town calls a road the Census names by its number; kept by hand, and kept across runs.
       aliases: before.aliases ?? {},
+      // Pins corrected by hand, with the reason in docs or the commit; these win over the geocoder on every run.
+      fixed: before.fixed ?? {},
       box,
       places,
       addresses,
