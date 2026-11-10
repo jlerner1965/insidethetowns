@@ -13,7 +13,7 @@
  * The rules, in the order they bite:
  *
  * 1. Only a source with `status: confirmed` and a feed type (ical, rss,
- *    json) with a `feedUrl` is read. Proposed, retired, html and manual
+ *    json, squarespace, eventbrite) with a `feedUrl` is read. Proposed, retired, html and manual
  *    sources are never fetched.
  * 2. The site's robots.txt is read first, and a feed it disallows for our
  *    user agent is not fetched, with a line saying so, unless the editor has
@@ -43,7 +43,7 @@ import { promisify } from 'node:util';
 import { z } from 'astro/zod';
 import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
 import { INGEST } from '../src/config/ingest.ts';
-import { changeSchema, eventSchema, type Change, type Source } from '../src/content/schemas.ts';
+import { FEED_TYPES, changeSchema, eventSchema, type Change, type Source } from '../src/content/schemas.ts';
 import { addDays, dayKey, startOfDay, toWallClock } from '../src/lib/dates.ts';
 import { readRegistry } from '../src/lib/sources.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -52,6 +52,9 @@ import { readIcal } from './lib/feeds/ical.ts';
 import { readRss } from './lib/feeds/rss.ts';
 import { isShowareFeed, readShowarePage, showareHasMore, showarePage, type ShowarePage } from './lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage, type TribePage } from './lib/feeds/tribe.ts';
+import { readSquarespaceEvents, squarespaceView } from './lib/feeds/squarespace.ts';
+import { eventbritePageData, eventbritePageKind, eventbritePlacePage, readEventbriteEvents, type EventbriteEvent } from './lib/feeds/eventbrite.ts';
+import { isSociableKitFeed, readSociableKit } from './lib/feeds/sociablekit.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
 import { ambiguousNote, detectChanges, elsewhereNote, excludedTitle, excludingEntry, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, sameSite, sameVenue, siblingCounts, toStaged, venueFrom, type ExistingEvent, type Match, passesCategoryFilter } from './lib/ingest.ts';
 import { normalizeUrl, sessionLinks } from '../src/lib/session-links.ts';
@@ -171,6 +174,9 @@ function existingEvents(town: string): ExistingEvent[] {
   return out;
 }
 
+/** How many pages of an Eventbrite place search are read: a hundred events, the top of its ranking. */
+const EVENTBRITE_PLACE_PAGES = 5;
+
 async function readFeed(source: Source): Promise<{ items: FeedEvent[]; note: string } | { error: string }> {
   const feedUrl = source.feedUrl!;
   const { origin, pathname, search } = new URL(feedUrl);
@@ -181,6 +187,47 @@ async function readFeed(source: Source): Promise<{ items: FeedEvent[]; note: str
     }
   }
   const robotsNote = !isAllowed(rules, pathname + search) ? ' (robots.txt disallows; read under the editor\'s robots: subscribe)' : '';
+  if (source.type === 'eventbrite') {
+    const kind = eventbritePageKind(feedUrl);
+    if (!kind) return { error: `${feedUrl} is not an Eventbrite organizer page (/o/…) or place page (/d/…/all-events/)` };
+    // An organizer's page is one read. A place's page is a search of the
+    // region, twenty a page: the first few pages, which is what a visitor
+    // browsing it sees, and the source's locationFilter keeps the town's.
+    const events: EventbriteEvent[] = [];
+    const limit = kind === 'place' ? EVENTBRITE_PLACE_PAGES : 1;
+    let pages = 0;
+    let more = false;
+    for (let n = 1; n <= limit; n++) {
+      const url = kind === 'place' ? eventbritePlacePage(feedUrl, n) : feedUrl;
+      // One page every two seconds: a reader's pace, not a crawler's.
+      if (n > 1) await new Promise((resolve) => setTimeout(resolve, 2000));
+      const { code, body } = await fetchText(url);
+      if (!/^2/.test(code)) {
+        if (pages === 0) return { error: `${url} answered ${code}` };
+        break;
+      }
+      const page = eventbritePageData(body);
+      if (!page) {
+        if (pages === 0) return { error: `${url} carries no Eventbrite event data` };
+        break;
+      }
+      pages++;
+      events.push(...page.events);
+      more = !!page.more;
+      if (kind === 'place' && (page.events.length === 0 || n >= (page.pageCount ?? 1))) break;
+    }
+    const note = kind === 'place' ? `${pages} page${pages === 1 ? '' : 's'} of the place's search` : more ? 'the organizer has more events than the page shows' : '';
+    return { items: readEventbriteEvents(events, horizon), note: `${note}${robotsNote}`.trim() };
+  }
+  if (source.type === 'json' && isSociableKitFeed(feedUrl)) {
+    const { code, body } = await fetchText(feedUrl);
+    if (!/^2/.test(code)) return { error: `${feedUrl} answered ${code}` };
+    try {
+      return { items: readSociableKit(JSON.parse(body) as Parameters<typeof readSociableKit>[0], horizon), note: robotsNote.trim() };
+    } catch {
+      return { error: `${feedUrl} did not return JSON` };
+    }
+  }
   if (source.type === 'json' && isShowareFeed(feedUrl)) {
     // A ShoWare box office's performance list, fifteen a page.
     const items: FeedEvent[] = [];
@@ -228,6 +275,15 @@ async function readFeed(source: Source): Promise<{ items: FeedEvent[]; note: str
   if (source.type === 'ical') {
     if (!/BEGIN:VCALENDAR/.test(body)) return { error: `${feedUrl} is not an iCalendar feed` };
     return { items: readIcal(body, horizon), note: robotsNote.trim() };
+  }
+  if (source.type === 'squarespace') {
+    // A Squarespace events page in its list view: the events are in the HTML.
+    const view = squarespaceView(body);
+    if (view === 'calendar') {
+      return { error: `${feedUrl} shows a calendar grid its script fills in, so the page holds no events; the site's list view (?view=list) and its /api/ are what robots.txt disallows. Read by hand, or ask the site to switch the page to its list view.` };
+    }
+    if (view === 'none') return { error: `${feedUrl} is not a Squarespace events list` };
+    return { items: readSquarespaceEvents(body, feedUrl, horizon), note: robotsNote.trim() };
   }
   if (source.type === 'rss') {
     if (!/<rss|<feed/i.test(body)) return { error: `${feedUrl} is not an RSS feed` };
@@ -277,7 +333,7 @@ const totals = { sources: 0, items: 0, staged: 0, updated: 0, unchanged: 0, chan
 
 for (const town of towns) {
   const registry = readRegistry(town.slug, contentDir);
-  const feedSources = registry.sources.filter((s) => s.status === 'confirmed' && ['ical', 'rss', 'json'].includes(s.type) && s.feedUrl);
+  const feedSources = registry.sources.filter((s) => s.status === 'confirmed' && FEED_TYPES.includes(s.type) && s.feedUrl);
   const sources = feedSources.filter((s) => !onlySource || s.id === onlySource);
   if (sources.length === 0) continue;
   console.log(`\n${town.name.toUpperCase()}`);

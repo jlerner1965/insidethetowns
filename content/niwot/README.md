@@ -191,7 +191,7 @@ in one is ever generated.
 `sources.json` lists the places checked each week for this town: the town
 calendar, the chamber, the library, the parks department, the venues the
 calendar leans on, and the rest. Each entry has an `id`, a `url`, a `type`
-(`ical`, `rss` or `json` with a `feedUrl`; `html` or `manual` otherwise), a
+(`ical`, `rss`, `json`, `squarespace` or `eventbrite` with a `feedUrl`; `html` or `manual` otherwise), a
 `category` and a `status`. `npm run sources -- --town=niwot` lists what is
 still `proposed`, core entries first; `npm run sources -- confirm niwot <id>`
 confirms one. Only a confirmed feed is ever read by ingest. The status has no

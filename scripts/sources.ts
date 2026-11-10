@@ -122,7 +122,7 @@ function list(all: boolean) {
     const row = (s: Source) => {
       const cites = s.cites ? `  cited by ${s.cites.events} events, ${s.cites.places} places` : '';
       const checked = s.lastChecked ? `  last check ${dayKey(s.lastChecked)}: ${s.lastStatus}${s.lastNote ? ` (${s.lastNote})` : ''}` : '';
-      console.log(`  ${s.status.padEnd(9)} ${s.id.padEnd(34)} ${s.category.padEnd(13)} ${s.type.padEnd(6)}${cites}${checked}`);
+      console.log(`  ${s.status.padEnd(9)} ${s.id.padEnd(34)} ${s.category.padEnd(13)} ${s.type.padEnd(11)}${cites}${checked}`);
       if (s.sampleUrl && s.status === 'proposed') console.log(`            ${s.sampleUrl}`);
     };
     if (core.length) {

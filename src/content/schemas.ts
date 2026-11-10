@@ -1010,8 +1010,18 @@ export function pageSchema<I extends z.ZodType>(image: () => I) {
  * by URL publishes regardless, because publishing turns on an item's own
  * `source` and `verified`, never on the registry.
  */
-export const SOURCE_TYPES = ['ical', 'rss', 'json', 'html', 'manual'] as const;
+export const SOURCE_TYPES = ['ical', 'rss', 'json', 'squarespace', 'eventbrite', 'html', 'manual'] as const;
 export type SourceType = (typeof SOURCE_TYPES)[number];
+/**
+ * The types ingest reads, each from its `feedUrl`. `squarespace` is a
+ * Squarespace site's events page in its list view, read as HTML
+ * (scripts/lib/feeds/squarespace.ts): the one address such a site's
+ * robots.txt leaves open, so its `feedUrl` is the page itself.
+ * `eventbrite` is an Eventbrite organizer's page (eventbrite.com/o/…) or a
+ * place's page (eventbrite.com/d/co--niwot/all-events/), read for the
+ * event data the page carries (scripts/lib/feeds/eventbrite.ts).
+ */
+export const FEED_TYPES: readonly SourceType[] = ['ical', 'rss', 'json', 'squarespace', 'eventbrite'];
 export const SOURCE_CATEGORIES = ['city-calendar', 'county', 'chamber', 'library', 'parks', 'venue', 'news', 'other'] as const;
 export type SourceCategory = (typeof SOURCE_CATEGORIES)[number];
 /** The order the editor confirms them in: the civic and institutional calendars first. */
@@ -1030,7 +1040,7 @@ export const sourceSchema = z
     name: z.string().min(1),
     /** The page a person opens to check it. */
     url: httpUrl,
-    /** The machine-readable feed ingest reads, where there is one. Required for ical, rss and json. */
+    /** The machine-readable feed ingest reads, where there is one. Required for ical, rss, json, squarespace and eventbrite (the last two read a page). */
     feedUrl: httpUrl.optional(),
     /** One page the content actually cited, for whoever confirms the source. */
     sampleUrl: httpUrl.optional(),
@@ -1116,7 +1126,7 @@ export const sourceSchema = z
     defaultVenue: z.string().min(1).optional(),
     notes: z.string().optional(),
   })
-  .refine((s) => !['ical', 'rss', 'json'].includes(s.type) || !!s.feedUrl, {
+  .refine((s) => !FEED_TYPES.includes(s.type) || !!s.feedUrl, {
     message: 'a feed source needs its feedUrl',
     path: ['feedUrl'],
   });

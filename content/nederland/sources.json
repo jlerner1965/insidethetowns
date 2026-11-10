@@ -187,7 +187,7 @@
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Eldora Mountain Resort",
-      "notes": "Read 6 October 2026. Home page (200, 540 KB, JS-rendered nav) titled 'Eldora Mountain | Colorado Ski Resort'; nav sections include Events, Nordic Center, Uphill Access, Alerts and Current Conditions. Hrefs seen in the HTML but not fetched: /the-mountain/current-conditions/snow-report-weather/, /the-mountain/current-conditions/trail-lift-status/, /the-mountain/current-conditions/webcams/; no events href could be extracted from the markup. Treat as a seasonal venue (ski season plus summer events) with a conditions link; no feed found. Note the Town home page carries 'Eldora FAQ' news items about an Eldora transaction involving the Town (Mayor Nichole Sterling and the Board of Trustees), which the owner may want to track. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Read 6 October 2026. Home page (200, 540 KB, JS-rendered nav) titled 'Eldora Mountain | Colorado Ski Resort'; nav sections include Events, Nordic Center, Uphill Access, Alerts and Current Conditions. Hrefs seen in the HTML but not fetched: /the-mountain/current-conditions/snow-report-weather/, /the-mountain/current-conditions/trail-lift-status/, /the-mountain/current-conditions/webcams/; no events href could be extracted from the markup. Treat as a seasonal venue (ski season plus summer events) with a conditions link; no feed found. Note the Town home page carries 'Eldora FAQ' news items about an Eldora transaction involving the Town (Mayor Nichole Sterling and the Board of Trustees), which the owner may want to track. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Looked at again 10 November 2026: the resort's events page is https://www.eldora.com/activities-amenities/events/ (the older /things-to-do/events redirects there). It is a Gatsby page whose data sits in /page-data/activities-amenities/events/page-data.json; read once, its eventContent list was empty, so the resort has posted no events yet for the season. The site's snow report banner says opening day is 13 November. robots.txt allows everything. No feed; look at the events page again once the lifts are turning."
     },
     {
       "id": "bouldercounty-gov-mining-museum",
@@ -207,6 +207,7 @@
       "id": "thecaribouroom-com",
       "name": "The Caribou Room",
       "url": "https://www.thecaribouroom.com/calendar",
+      "feedUrl": "https://www.thecaribouroom.com/calendar",
       "sampleUrl": "https://www.thecaribouroom.com/live-music",
       "type": "html",
       "category": "venue",
@@ -216,7 +217,7 @@
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "The Caribou Room",
-      "notes": "Read 6 October 2026. Squarespace site; the /calendar page (200, 330 KB) lists upcoming shows with structured dates and per-event 'Google Calendar' and 'ICS' links for readers: Ladies Night feat. Matt Flaherty Band Sat 10 Oct 7 pm (doors and dinner 7, show 8, gents GA $10), Since JulEYE & MIDIcinal w/ Revital Sat 17 Oct ($20, balcony $28, VIP $500), Masquerade Ball feat. Banshee Tree Sat 31 Oct. The Caribou Kitchen is open 7-10 pm on show nights. The Squarespace collection feed /calendar?format=ical is disallowed by the site's robots.txt for our agent, so the page stays html. The home page has a stray Squarespace template block ('Aviator, 332 W 29th Street New York') that is not venue information. Street address not shown in the fetched text. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Read 6 October 2026. Squarespace site; the /calendar page (200, 330 KB) lists upcoming shows with structured dates and per-event 'Google Calendar' and 'ICS' links for readers: Ladies Night feat. Matt Flaherty Band Sat 10 Oct 7 pm (doors and dinner 7, show 8, gents GA $10), Since JulEYE & MIDIcinal w/ Revital Sat 17 Oct ($20, balcony $28, VIP $500), Masquerade Ball feat. Banshee Tree Sat 31 Oct. The Caribou Kitchen is open 7-10 pm on show nights. The Squarespace collection feed /calendar?format=ical is disallowed by the site's robots.txt for our agent, so the page stays html. The home page has a stray Squarespace template block ('Aviator, 332 W 29th Street New York') that is not venue information. Street address not shown in the fetched text. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). The Squarespace reader, 10 November 2026: /calendar is a list-view events page and the reader read 2 items from a plain fetch of it (Spafford 12 Dec, A Very Caribou Xmas 19 Dec), with the times the guide already has. The page is in feedUrl; the type is left html because this source is confirmed, and typing it squarespace is what would start ingest reading it. The owner's call."
     },
     {
       "id": "verynicebrewing-com",
@@ -255,18 +256,23 @@
       "status": "proposed",
       "robots": "honor",
       "defaultVenue": "Pioneer Inn, 15 East First Street",
-      "notes": "Unreachable from here on 6 October 2026: two fetches of https://www.pioneerinnnederland.com/ failed with a connection error before any HTTP status. The domain comes from a Boulder Magazine directory listing found by web search, which gives 15 E. 1st St, Nederland CO 80466, 303-258-7736, American and Mexican-American fare, open lunch through late night daily; Westword and Boulder Weekly pieces describe its live-music history (40th anniversary coverage). Non-core until the site is reachable and shows a current music calendar."
+      "notes": "Unreachable from here on 6 October 2026: two fetches of https://www.pioneerinnnederland.com/ failed with a connection error before any HTTP status. The domain comes from a Boulder Magazine directory listing found by web search, which gives 15 E. 1st St, Nederland CO 80466, 303-258-7736, American and Mexican-American fare, open lunch through late night daily; Westword and Boulder Weekly pieces describe its live-music history (40th anniversary coverage). Non-core until the site is reachable and shows a current music calendar. Looked at again 10 November 2026: the domain still does not answer (the proxy got a 502 from the gateway, on both the www and bare host). The guide's staged place file and the venue's own site put Covered Wagon Restaurant & Saloon at the same address, 15 East 1st Street, so the Pioneer Inn name looks retired; see the entry coveredwagonrestaurant-com. Nothing to read here."
     },
     {
       "id": "wildbear-org",
       "name": "Wild Bear Nature Center",
       "url": "https://wildbear.org/",
+      "feedUrl": "https://wildbear.org/events",
       "sampleUrl": "https://wildbear.org/children",
-      "type": "manual",
+      "type": "squarespace",
       "category": "venue",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Proposed 7 October 2026 from the launch review: the nature center in Nederland lists dated public programs (Owl Moon night hikes on 24 October and 21 November 2026, school-day-off programs) that the with-kids guide mentions but no confirmed source carries. Confirm to have its dated programs read by hand each week."
+      "excludeTitles": [
+        "Storytime",
+        "PEAK Days off"
+      ],
+      "notes": "Proposed 7 October 2026 from the launch review: the nature center in Nederland lists dated public programs (Owl Moon night hikes on 24 October and 21 November 2026, school-day-off programs) that the with-kids guide mentions but no confirmed source carries. Confirm to have its dated programs read by hand each week. Read 10 November 2026: the dated programs are on https://wildbear.org/events, a Squarespace events collection (the page is allowed; ?format=ical and ?format=json are disallowed for every agent, so no feed, and each event has its own ICS link for readers only). 30 upcoming items, 9 of them dated 10 November to 10 December: one worth a row, Owl Moon on Saturday 21 November at 6 pm at Mud Lake; four school-day-off camps (PEAK Days off on 11, 23, 24 and 25 November, 9 am, Mud Lake Open Space), which are registered classes; and Storytime! on Tuesdays at 10:30 am, the same one the library feed carries as Wild Bear Storytime, at the Nederland Community Library through 24 November and at 'Wild Bear Nature Center' from 1 December, which suggests the new building takes over programs that day. Kept manual, since the url here is the home page: if it is confirmed, point it at /events and read by hand, one or two listings a month in winter and more in summer (guided hikes, birding, the Enchanted Forest). The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 30 items to March (18 storytimes, 11 day-off camps, Owl Moon on 21 Nov) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it. Confirmed 10 November 2026 on the owner's word (\"Go 1 to 3\", DECISIONS.md, \"Twenty-four sources turned on\"): the feed is one robots.txt allows, so it is read under honor."
     },
     {
       "id": "themtnear-com",
@@ -276,7 +282,7 @@
       "category": "news",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Read 6 October 2026. Weekly Peak to Peak newspaper ('Peak to Peak news since 1977'), a TownNews/BLOX site; home page 200 with sections for Nederland, Eldora, Ward, Gold Hill, Jamestown, Allenspark, Coal Creek Canyon, Lyons, Gilpin County, Black Hawk and Central City, plus Meetings, Police Reports, Music of the Mountains and a Visitor's Guide. The BLOX RSS search endpoint (/search/?f=rss&t=article...) returned 403 from the Varnish cache, and a guessed section URL /news/nederland/ returned 404, so no feed is recorded. Subscription paper; use for leads and attribution only, not core."
+      "notes": "Read 6 October 2026. Weekly Peak to Peak newspaper ('Peak to Peak news since 1977'), a TownNews/BLOX site; home page 200 with sections for Nederland, Eldora, Ward, Gold Hill, Jamestown, Allenspark, Coal Creek Canyon, Lyons, Gilpin County, Black Hawk and Central City, plus Meetings, Police Reports, Music of the Mountains and a Visitor's Guide. The BLOX RSS search endpoint (/search/?f=rss&t=article...) returned 403 from the Varnish cache, and a guessed section URL /news/nederland/ returned 404, so no feed is recorded. Subscription paper; use for leads and attribution only, not core. Looked at again 10 November 2026 for event leads. The paper keeps two weekly roundups, each a story list: https://www.themtnear.com/music-listing/ (Music Listing, 76 in two years, every Thursday) and https://www.themtnear.com/cracker-barrel/ (community events). The stories carry a notice that they are for subscribers, though the 5 November Music Listing came back in full to a plain request; it was read once for leads and is not something to copy. Its Nederland section named Very Nice Brewing (Spork 6 Nov, Ben Melius 7 Nov, David Williams 13 Nov at 5 pm, Concrete Feedback 14 Nov at 5 pm, all already in the guide), Knotted Root (Jazz Jam every Sunday at 5 pm, Whumpf Jam 5 Nov), Covered Wagon (karaoke every Thursday at 8 pm) and Nederland General Store (The Foggy Tops, Sunday 15 November at noon). It also lists Gold Hill Inn, Gold Hill Store, Jamestown Mercantile, Oskar Blues in Lyons and the Gilpin and Black Hawk rooms, which are other towns. The paper's own /calendar/ (Creative Circle Media, with an event-posting form) showed two sponsored Boulder events and 'No events were found'; no iCal or RSS link on it. robots.txt allows these pages (it disallows /calendar/post/ and account paths). A subscription would make the Thursday Music Listing the best single lead sheet for Nederland's bars, which do not keep calendars of their own."
     },
     {
       "id": "mountainpeaklife-org",
@@ -296,13 +302,14 @@
       "id": "teensinc-org",
       "name": "TEENS, Inc.",
       "url": "https://www.teensinc.org/events",
+      "feedUrl": "https://www.teensinc.org/events",
       "sampleUrl": "https://www.teensinc.org/events/write-night-26",
-      "type": "html",
+      "type": "squarespace",
       "category": "other",
       "priority": "other",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Proposed 10 November 2026. The Nederland youth and family nonprofit (151 East Street, from its event pages) lists its public events on a Squarespace events page: fundraisers, family sessions and the town-wide ones it runs or joins (Halloween Ned 2026, Ned Ned Trailfest '26, Winter Party 2026). Read 10 November: one upcoming event, 'Write Night for TEENS, Inc. at Hub Ned' on 11 November; everything else on the page is past. Squarespace's robots.txt disallows ?format=ical and ?format=json for every agent, so there is no feed to take; the page itself is allowed. Read by hand, one or two listings a month."
+      "notes": "Proposed 10 November 2026. The Nederland youth and family nonprofit (151 East Street, from its event pages) lists its public events on a Squarespace events page: fundraisers, family sessions and the town-wide ones it runs or joins (Halloween Ned 2026, Ned Ned Trailfest '26, Winter Party 2026). Read 10 November: one upcoming event, 'Write Night for TEENS, Inc. at Hub Ned' on 11 November; everything else on the page is past. Squarespace's robots.txt disallows ?format=ical and ?format=json for every agent, so there is no feed to take; the page itself is allowed. Read by hand, one or two listings a month. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 1 item (Write Night at Hub Ned, 11 Nov) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "buseybrews-com",
@@ -328,7 +335,7 @@
       "status": "proposed",
       "robots": "honor",
       "defaultVenue": "Knotted Root Brewing Company",
-      "notes": "Proposed 10 November 2026, low value as it stands. Nederland brewery on Squarespace with an events collection. The sitemap shows it was once kept daily (open mic Wednesdays, open jam Thursdays, Jazz Sundays, comedy and DJ nights, food trucks, through April 2025); the only 2026 entry is a Halloween party on 31 October, and on 10 November the /events page listed no upcoming events at all. Whether the address in Nederland is current was not checked. Squarespace's robots.txt disallows ?format=ical, so no feed. Worth a look each month in case the calendar is taken up again; nothing to list now."
+      "notes": "Proposed 10 November 2026, low value as it stands. Nederland brewery on Squarespace with an events collection. The sitemap shows it was once kept daily (open mic Wednesdays, open jam Thursdays, Jazz Sundays, comedy and DJ nights, food trucks, through April 2025); the only 2026 entry is a Halloween party on 31 October, and on 10 November the /events page listed no upcoming events at all. Whether the address in Nederland is current was not checked. Squarespace's robots.txt disallows ?format=ical, so no feed. Worth a look each month in case the calendar is taken up again; nothing to list now. Looked at again 10 November 2026: /events still lists nothing upcoming, but The Mountain-Ear's Music Listing of 5 November names Knotted Root for a Jazz Jam every Sunday at 5 pm and a Whumpf Jam on 5 November, so the room has music again and simply does not post it here. Jams are regulars; nothing to list from this page. The Squarespace reader, 10 November 2026: this page is set to the calendar grid, which the page's script fills from /api/, so its HTML holds no events and the reader cannot read it; the list is at ?view=list, which the site's robots.txt disallows, as it does /api/ and ?format=json. Not typed squarespace. Two ways on: the venue switches the page to its list view, or the owner sets robots: subscribe and the feedUrl to the page with ?view=list (untested, since that address was not fetched)."
     },
     {
       "id": "nederlandfarmersmarket-org",
@@ -374,6 +381,130 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Proposed 10 November 2026. nedfest.org now redirects here, to a page of NedFest performer history headed '2023 NedFest Family Reunion Line-up'; no 2026 or 2027 NedFest date was found. The home page's one dated event is the association's 4th of July Celebration 2026, which it says was moved to Very Nice Brewing Company's Gilpin taproom at 180 Jankowski Drive, Black Hawk, so not in Nederland. WordPress without The Events Calendar (/events/feed/ is an empty comments feed; the other feed paths reset the connection). Nothing in the next 30 days. Check in spring for whether NedFest returns and where."
+    },
+    {
+      "id": "thebackdoortheatre-org",
+      "name": "The Backdoor Theatre (movies at the Community Center)",
+      "url": "https://thebackdoortheatre.org/",
+      "feedUrl": "https://thebackdoortheatre.org/wp-json/tribe/events/v1/events",
+      "sampleUrl": "https://thebackdoortheatre.org/event/sense-and-sensibility/",
+      "type": "json",
+      "category": "venue",
+      "priority": "other",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "Backdoor Theatre, Nederland Community Center, 750 Highway 72 North",
+      "notes": "Found and read 10 November 2026. Nederland's volunteer cinema ('First run movies and more!'), in the Nederland Community Center; its own venue record gives only 'Nederland Community Center, Nederland CO 80466', and the Town's calendar puts the center at 750 Highway 72 North. The old address backdoortheater.org has a broken certificate over https and redirects over http to thebackdoortheatre.org, which is the live site. WordPress with The Events Calendar: the home page is the schedule, /wp-json/tribe/events/v1/events answered 200 with 10 events on one page, time zone America/Denver, and /events/list/?ical=1 answered text/calendar with the same 10. Nine are dated 10 November to 10 December 2026 and all are worth a row, three films each shown Friday 7 pm, Saturday 2 pm and Saturday 7 pm: Sense and Sensibility (13 and 14 November; the Saturday matinee is open caption), Wicker (20 and 21 November) and The Cat in the Hat (27 and 28 November). The tenth is a live show, Circus of Bubbles LIVE! on 2 October 2027. Nothing is posted yet for December, so the theatre enters films about three weeks ahead; expect 9 to 12 screenings a month, or 3 or 4 films if each title is one listing with its showtimes. No regulars, no meetings, no cost or category fields, so no exclusions are needed. Every item is at the theatre, hence the defaultVenue. robots.txt allows the feed paths (it disallows only wp-admin and cart links). Confirmed 10 November 2026 on the owner's word (\"Go 1 to 3\", DECISIONS.md, \"Twenty-four sources turned on\"): the feed is one robots.txt allows, so it is read under honor."
+    },
+    {
+      "id": "bristleconebookshop-com",
+      "name": "Bristlecone Bookshop (author events)",
+      "url": "https://www.bristleconebookshop.com/events",
+      "feedUrl": "https://www.bristleconebookshop.com/events",
+      "type": "squarespace",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Bristlecone Bookshop, 114 E Second Street",
+      "notes": "Found and read 10 November 2026. The bookshop at 114 E Second Street, Nederland (the page's own address), already a place in the guide. Its Events page is a Squarespace collection: 1 upcoming and 30 past. In 10 November to 10 December there is one item, Poetry Open Mic on Saturday 21 November, 5 to 7 pm ('the last poetry night of the year'), a monthly regular. The weeks before show what it adds when busy: Author Talk with Devon O'Neil on 29 October (with the library), an author event with local author Brenna Jeanneret on 7 November, a book club on 8 November, Story Hour on 25 October. So about two author events a month worth a row, plus the open mic, book club and story hour as regulars. Squarespace's robots.txt allows the page and disallows ?format=ical and ?format=json for every agent, so there is no feed; each event has an ICS link for readers. Read by hand. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 1 item (Poetry Open Mic, 21 Nov, 5 to 7 pm) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
+    },
+    {
+      "id": "nederlandfoodpantry-org",
+      "name": "Nederland Food Pantry (events, Holiday Mountain Market)",
+      "url": "https://www.nederlandfoodpantry.org/events",
+      "feedUrl": "https://www.nederlandfoodpantry.org/events",
+      "type": "squarespace",
+      "category": "other",
+      "priority": "other",
+      "status": "confirmed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Distribution",
+        "Clothing Drive",
+        "Colorado Gives Day"
+      ],
+      "notes": "Found and read 10 November 2026. The food pantry at 196 W 1st St, Nederland (the page's own address); two events in the guide already cite this page but the registry did not have it. A Squarespace events collection with 5 upcoming items and 4 past. Dated 10 November to 10 December: Holiday Mountain Market, Saturday 5 December, 10 am to 5 pm at the Nederland Community Center, which is worth a row and is the only page found that dates this year's market (the seniors' own market page still describes 2022, and whether it also runs on Sunday 6 December was not found); Thanksgiving Distribution on 21 November, 10 am to 1 pm, a service rather than an outing; and Colorado Gives Day on 8 December, a fundraising day that should never be listed. After the window: Holiday Box Distribution on 19 December. One item on the page has an end before its start (Winter Clothing Drive, 30 September). Squarespace's robots.txt allows the page and disallows ?format=ical and ?format=json, so no feed. Read by hand, about one listing a month; if it is ever fed, exclude 'COLORADO GIVES DAY' and 'Clothing Drive'. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 5 items (Holiday Mountain Market 5 and 6 Dec; two distributions, a clothing drive and Colorado Gives Day, which the exclusions drop) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it. Confirmed 10 November 2026 on the owner's word (\"Go 1 to 3\", DECISIONS.md, \"Twenty-four sources turned on\"): the feed is one robots.txt allows, so it is read under honor."
+    },
+    {
+      "id": "coveredwagonrestaurant-com",
+      "name": "Covered Wagon Restaurant & Saloon",
+      "url": "https://www.coveredwagonrestaurant.com/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Covered Wagon Restaurant & Saloon, 15 East 1st Street",
+      "notes": "Found and read 10 November 2026. The saloon at 15 East 1st Street, Nederland (its own site; the address the registry has for the Pioneer Inn, whose domain no longer answers). A Squarespace site with a menu and a 'Find Us' page and no events page: the home page says 'regular music events posted on our Facebook page', which was not read. The Mountain-Ear's Music Listing of 5 November gives it karaoke every Thursday at 8 pm, a regular, and no named acts that week. Open daily 10 am to 11 pm per the site. Nothing to poll; manual, for the day someone checks its Facebook page or the paper's listing. No count for 10 November to 10 December could be made."
+    },
+    {
+      "id": "members-hubned-com",
+      "name": "Hub Ned (coworking space event calendar)",
+      "url": "https://members.hubned.com/events",
+      "feedUrl": "https://members.hubned.com/events/ics",
+      "type": "ical",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Hub Ned",
+      "notes": "Found and read 10 November 2026, empty as it stands. Hub Ned is the coworking space in downtown Nederland (www.hubned.com; street address not read) whose community room is let for events after hours; TEENS, Inc. held its Write Night there on 11 November. Its member portal (Proximity) has a public Events page that offers an ICS subscription, the feedUrl here, and an Atom feed at /events/rss. Both answered 200 and both were empty: 0 VEVENT, and the page says 'No upcoming events found', so the Write Night was never entered here. robots.txt allows everything. Zero events dated 10 November to 10 December. Recorded because the feed is real and costs nothing to read, but it adds nothing unless the space starts using it; if it does, expect private bookings to need excluding."
+    },
+    {
+      "id": "nedgravel-com",
+      "name": "Ned Gravel (bike race and training rides)",
+      "url": "https://www.nedgravel.com/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The gravel race the Town's Community Events page names, with its own WordPress site: the 2026 race was 12 July and registration for the next opens 5 January (its first week reserved for women, BIPOC, non-binary and para athletes). The home page's Events list is this year's monthly training rides from Ned General (10 January, 21 February, 14 March, 11 April, 16 May, a course recon ride 13 June), all past; no 2027 race date is posted yet. Nothing dated 10 November to 10 December. No events plugin or feed seen; robots.txt allows the page with a ten-second crawl delay. Open in January for the 2027 date and the winter training rides, about one listing a month from January to July."
+    },
+    {
+      "id": "eventbrite-com-nederland",
+      "name": "Eventbrite, events in Nederland",
+      "url": "https://www.eventbrite.com/d/co--nederland/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--nederland/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "confirmed",
+      "robots": "honor",
+      "locationFilter": [
+        "Nederland, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education",
+        "Training",
+        "Tactical",
+        "Republican",
+        "Democrat",
+        "Conservatives",
+        "Entrepreneurs",
+        "CEO Retreat",
+        "Boss Babes",
+        "Foodies + New Friends",
+        "Scavenger Hunt",
+        "Random Acts of Kindness Spree",
+        "Neck Pain",
+        "Pelvic",
+        "Menopause",
+        "Acupuncture",
+        "Color Analysis",
+        "Workout Class",
+        "Espresso Machine Demo",
+        "Home Studio",
+        "ISSA",
+        "WTS ",
+        "Reignite Live",
+        "^HELD$"
+      ],
+      "autoApprove": true,
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Nederland, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Nederland. Read that day: 99 events in five pages, 0 of them in town. Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home."
     }
   ]
 }

@@ -9793,3 +9793,317 @@ the school was filed `other` and its feed names no room.
   on one day, and a Posada with no venue.
 - The trivia and bingo the board lists are regulars under the rule above
   this one: on the guide, but only filling a quiet day.
+
+## Event sources searched for every live guide, 10 November 2026
+
+Given the brief for one guide's event sources and asked which guide, the
+owner said all of them. Each of the eighteen live guides was searched for
+venues whose calendar changes every time (music rooms, stages, cinemas,
+galleries, bookshops, farms, festivals, ticketed dinners, museums), and
+what was found is on each registry's `notes` and in
+`docs/event-sources-2026-11-10/`, one file a guide: the sources, the five
+to turn on first, what was ruled out, and every fetch made despite a
+robots rule.
+
+- **Nothing was switched on.** Every new entry is `proposed` with `robots:
+  honor`; no status changed and no confirmed source changed type. Where a
+  confirmed source turned out to have a feed (Erie's library, Loveland's
+  downtown calendar, two in Estes Park) it is in `feedUrl` with the type
+  left alone. Ingest was not run.
+- **School calendars are the commonest unread feed**, on Google Calendar
+  or Finalsite's `/fs/` path, each behind a robots rule and each needing
+  long title exclusions: one decision for the owner covers them all.
+- **Most rooms that book bands publish a page, not a feed.** Readers for
+  Squarespace event collections, Modern Events Calendar RSS and
+  ChamberMaster RSS would unlock the most.
+- **Aggregators found** (Golden Today, Live Well Douglas County, AllEvents,
+  Loveland's downtown Tockify) list other organizers' events and want a
+  person's review, as a chamber source does.
+- **Leadville and Timnath have no new feed**; what was found there is read
+  by hand.
+- The same folder's README proposes, and does not build, five changes to
+  the events area and five to the email signup.
+
+## A reader for Squarespace events pages, 10 November 2026
+
+Told what readers for Squarespace, Modern Events Calendar and ChamberMaster
+would each unlock, the owner said to build Squarespace first.
+
+- **It reads the page, not a feed.** Squarespace's robots.txt, the same on
+  every site, disallows `?format=json`, `?format=ical`, `?view=` and
+  `/api/`. The plain events page is allowed, and in its list view it holds
+  every upcoming event in its HTML. That page is what
+  `scripts/lib/feeds/squarespace.ts` reads, so no source needs `robots:
+  subscribe` for it. A new source type, `squarespace`, with the page as its
+  `feedUrl`; `FEED_TYPES` in the schema now names the types ingest reads.
+- **The clock the page shows is the clock listed.** The start and end come
+  from the page's "Google Calendar" link, as instants in the site's own
+  time zone setting, which Mountain Toad leaves on New York, the Caribou
+  Room too, and Timnath Beerwerks on Kentucky. The instant is turned back
+  into the site's clock and that clock read as Denver's. Checked against
+  listings entered by hand: Drag Bingo 7:30 pm, Chrispy 6 pm, Spafford 7 pm.
+- **A page set to the calendar grid cannot be read** and ingest says so:
+  the grid is filled by script from `/api/`. That is Timnath Beerwerks,
+  MeadKrieger, Knotted Root, Liquid Mechanics, and The Wheel House's
+  calendar block. For those the venue switches the page to its list view,
+  or the owner sets `robots: subscribe` with the page's `?view=list` as the
+  feed, which was not fetched and is untested.
+- **Eleven proposed sources are typed `squarespace`**, each read once from
+  a plain fetch and counted on its notes: Wild Bear, Bristlecone Bookshop,
+  the Nederland Food Pantry and TEENS, Inc.; St. Vrain Cidery; Mountain
+  Toad; the Lyons Farmette; Artworks Loveland; Cloud City Conservation
+  Center; Homestead Fine Art Gallery; the Elizabeth Stampede. All stay
+  `proposed`. The Caribou Room, confirmed, has the page in `feedUrl` and
+  keeps its `html` type.
+- **Dry runs on a scratch copy, nothing written to the repository**: St.
+  Vrain Cidery, 15 items, 3 yoga classes kept out, 12 new. Mountain Toad,
+  31 items, 21 kept out, 7 matched to listings already published, and 3
+  Chrispy nights in December where the brewery's page now gives a
+  different time from the guide's. Timnath Beerwerks, not read, with the
+  reason.
+
+## Twenty-four sources turned on, 10 November 2026
+
+Asked what would move the guides furthest, rules aside, and given three
+steps (confirm the feeds with no robots question; subscribe to the venue
+and downtown calendars; read Timnath Beerwerks and The Wheel House), the
+owner said: go, one to three. Each was confirmed and dry-run; nothing was
+ingested, and the owner is shown what would be staged first.
+
+- **Read under `honor`, sixteen**: Center for Musical Arts (Lafayette);
+  Kuper Wine Bar and St. Vrain Cidery (Longmont); New Terrain and Mountain
+  Toad (Golden); The Backdoor Theatre, Wild Bear and the Food Pantry
+  (Nederland); Wolverine Farm, CSU Rams, Maxline and Ginger and Baker (Fort
+  Collins); Listening at the Legion and the school district (Estes Park);
+  Live Well Douglas County (Castle Rock); The Wheel House (Niwot). Erie's
+  library, already confirmed, is typed `rss`, so its LibCal feed is read.
+- **`robots: subscribe`, on the owner's word, seven**: Firehouse Art
+  Center (Longmont), Goosetown Station and Golden Today's Live Music
+  calendar (Golden), The Old Mine (Erie), Crooked Beech and the Downtown
+  Partnership's Tockify calendar (Loveland; already confirmed, now typed
+  `ical`), and Timnath Beerwerks.
+- **Beerwerks is the wider case.** Its feed is `/new-events?view=list`,
+  another view of the brewery's own page that Squarespace's robots.txt
+  disallows, not a calendar published for subscribing. Food trucks, poker,
+  bingo and the run club are left in as regulars, which the home tabs show
+  only on a quiet day; the owner may prefer them excluded, as Mighty
+  River's are.
+- **The Wheel House needed no exception.** Its calendar block's collection
+  has a page of its own, `/events`, in the list view, which robots.txt
+  allows. The address was learned from one call to the site's `/api/`,
+  made on the owner's go for this calendar. Trivia and euchre, which the
+  guide lists as weekly, are excluded; the bands come through.
+- **Poudre Libraries went back to proposed.** It was among the feeds "with
+  no robots question" in error: its robots.txt disallows the feed, the dry
+  run was refused, and subscribing to it has not been asked.
+- **Exclusions after the dry runs**: Erie's library (storytimes, baby and
+  music sessions, closures), Loveland's downtown calendar (bingo, trivia,
+  book clubs, the weekly jazz and barbecue), Ginger and Baker (its "Class"
+  category, 99 of 107 items), Estes Park's schools (board sessions,
+  auditions, meetings).
+- **What the dry runs would stage, in 120 days**: about 260 items, among
+  them 28 at Timnath Beerwerks, 27 from Loveland's downtown calendar, 26
+  CSU home games, 24 at Wolverine Farm, 16 at The Old Mine, 15 from Estes
+  Park's schools, 13 from Golden Today, 12 each at St. Vrain Cidery and
+  Crooked Beech. They would also flag ten published listings whose facts
+  differ from the source: three Chrispy nights at Mountain Toad, two
+  lobster-truck days at Beerwerks (10 to 6 on the guide, 12 to 8 on the
+  page), the Holiday Mountain Market's second day, and four Erie library
+  listings whose venue names a room.
+- **Left as they were**: categories. Estes Park's schools and Live Well
+  Douglas County are filed as other, and Golden Today as news, so their
+  items wait for a person. `autoApprove` is set nowhere new.
+
+## The twenty-four ingested, and four answers, 10 November 2026
+
+Shown what the dry runs would stage and asked four things, the owner said
+yes to all four: run the ingest now; exclude the food trucks at Timnath
+Beerwerks, as Mighty River's are; file Estes Park's school calendar as
+venue; bring Ginger and Baker's cooking classes back.
+
+- **Ingest** was run for the twenty-four sources only (`--source`), then
+  the unattended review for their eleven guides, as the Monday workflow
+  does. Firehouse Art Center answered 429 twice (Google's rate limit after
+  the day's reads) and was read on the third try.
+- **Published under the standing rules: 221.** Fort Collins 122 (about 70
+  cooking classes, 26 CSU home games, Wolverine Farm, Maxline), Erie 24,
+  Longmont 22, Golden 14, Loveland 12, Lafayette 7, Nederland 7, Estes
+  Park 6, Timnath 6, Niwot 1. Four changes written in, all Erie library
+  listings whose venue named the library's living room and now names the
+  library, as its feed does.
+- **Left for a person: about 80.** Loveland's 27 from the downtown
+  calendar and Castle Rock's 8 from Live Well Douglas County, each a board
+  listing other organizers' events; Golden's from Golden Today, a news
+  source, some flagged as possible doubles of published listings; Estes
+  Park's school plays and concerts, because that feed gives no venue;
+  two music bingo nights at Beerwerks that may double the weekly listing;
+  and the three Chrispy nights at Mountain Toad and the Holiday Mountain
+  Market's second day, where the source and the guide differ.
+- **Kept out after the first read**, by title, and their staged files
+  removed: at the Firehouse the monthly poetry night (one fell on Christmas
+  Day) and two placeholder openings whose dates did not match their
+  titles; "Closing at 3pm for Christmas Eve" at Ginger and Baker; "Merry
+  Christmas!" at Wolverine Farm.
+- **A written title drops a venue's picture characters**
+  (`writtenTitle`, scripts/lib/ingest.ts): Goosetown Station's calendar
+  reads "🎶🎉💃🏼🎸Sweat & Reed" and the guide lists "Sweat & Reed". The
+  item keeps its own title, so a source's exclusions can still name one.
+- Fort Collins, Castle Rock and Estes Park have no weekly email, so what
+  was added there fills the site only.
+
+## Gunbarrel counts for Niwot, 10 November 2026
+
+Asked whether Gunbarrel venues belong on the Niwot guide, the owner said
+yes.
+
+- **MainStage Brewing's Gunbarrel room is read.** Its page's widget is
+  SociableKIT's copy of its Facebook events, one JSON file on a host with
+  no robots.txt; `scripts/lib/feeds/sociablekit.ts` reads it (a `json`
+  source at data.accentapi.com). Trivia, the Tuesday specials, the run
+  club, the open pick and the game nights are excluded; the file reaches
+  about three weeks ahead. Eight published: MainGrass on Fridays, MainJazz
+  on Sundays, Boulder Dead Night, a DJ night. The date the venue files in
+  a title ("MainGrass - 11/27/26") comes off it. The Lyons room's file is
+  recorded on its entry and left proposed.
+- **The Gunbarrel library is read**, for that branch only, with the
+  storytimes, baby times, book clubs and standing groups excluded (69 of
+  87 items). Eighteen published: the classic movies, the Active Minds
+  talks, a concert, the one-off programs.
+- **Avery's taproom** stays a page a person reads.
+- The Wheel House and MainStage use the guide's plain venue names as their
+  default venue, so their listings read like the ones entered by hand.
+
+## Eventbrite, 10 November 2026
+
+The owner asked for a way to use Eventbrite, which has the ticketed events
+people search for.
+
+- **What Eventbrite allows.** The public event search API was shut in
+  2020; the API that remains lists only the events of the account whose
+  token asks. The site's robots.txt leaves its pages open to ordinary
+  agents and disallows its internal search API. Its terms of service
+  restrict automated collection of its pages, which is the thing to weigh
+  before a source of this kind is confirmed.
+- **What the reader reads** (`scripts/lib/feeds/eventbrite.ts`, source
+  type `eventbrite`): an organizer's page, their own upcoming events with
+  price and whether it has sold out; or a place's page, with times, venue
+  and address. A place's page is a search of the region, not the town
+  (49 pages of twenty around every guide), and a search by town name runs
+  only through the disallowed API. So the reader takes the first five
+  pages, one every two seconds, and the source's location filter keeps the
+  town's.
+- **What five pages hold, in town, read that day**: Fort Collins 49,
+  Loveland 26, Longmont 12, Castle Rock 10, Windsor 9, Estes Park 6,
+  Lafayette 5, Berthoud 3, Frederick and its neighbours 3, Lyons 2, and 0
+  or 1 in Niwot, Erie, Johnstown, Timnath, Elizabeth, Golden, Nederland
+  and Leadville. The good ones are there (the Estes Park Holiday Wine
+  Festival, dueling pianos in Castle Rock, the brewery 5K and a Soundpost
+  Session in Longmont, a staged reading in Windsor) among classes,
+  workshops and networking mornings.
+- **Nineteen sources proposed, none confirmed**: one place page a guide,
+  two for Windsor and Severance. Filed as other, so their items wait for a
+  person, since Eventbrite lists every organizer's events. Networking,
+  coworking and broker-education titles are excluded.
+- **For the small towns the organizer's page is the better source**: one
+  organizer, their own events, publishable like a venue's feed. None is
+  registered yet; each is found by reading the place pages by hand.
+
+## Eventbrite turned on for every guide, 10 November 2026
+
+Told what the Eventbrite reader found and that Eventbrite's terms restrict
+automated collection while its robots.txt allows the pages, the owner said
+to use Eventbrite for all towns as well.
+
+- **Nineteen place sources confirmed and read**, five pages each, one page
+  every two seconds. **126 events staged**: Fort Collins 53, Loveland 23,
+  Longmont 12, Windsor 10, Castle Rock 9, Estes Park 5, Lafayette 5,
+  Frederick 2, Lyons 2, and one each in Berthoud, Elizabeth, Golden,
+  Johnstown and Timnath; none in Erie, Leadville, Nederland, Niwot or
+  Severance.
+- **Nothing published.** Each source is filed as other, a board that
+  lists others' events, so every item waits for `npm run review`. The
+  unattended review was not run for these guides. `autoApprove` is not set
+  on any of them; that is the owner's word, source by source.
+- **The small towns get little from a place page**, because it is the
+  region's search and their events are spread through its 49 pages. An
+  organizer's page for each local organizer is the next step there.
+
+## Eventbrite publishes without a person, 10 November 2026
+
+Asked whether the 126 staged Eventbrite events should be reviewed by hand
+or allowed to publish, the owner said: auto publish all; having to do it
+by hand would defeat the purpose of the town network.
+
+- **`autoApprove` on all nineteen Eventbrite sources.** Their items
+  publish under the standing rules; the guard for a board still holds one
+  that may be an event already on the guide at that hour (Next Stop Comedy
+  at St. Vrain Cidery, which the cidery's own page had listed; Motus
+  Theater in Lafayette), and one whose venue Eventbrite does not give.
+- **What the guide never lists is kept out by title** on every Eventbrite
+  source, and 27 staged files were removed: professional trainings and
+  association socials, partisan events, sales demonstrations, clinics' own
+  workshops, app-run scavenger hunts, events in a private home.
+- **Published: 80.** Fort Collins 35, Loveland 10, Longmont 9, Windsor 8,
+  Castle Rock 5, Estes Park 4, Lafayette 2, Frederick 2, and one each in
+  Berthoud, Elizabeth, Golden, Johnstown and Lyons.
+- `autoApprove` was not set on the other boards that wait for a person
+  (Loveland's downtown calendar, Live Well Douglas County, Golden Today):
+  the owner was asked about Eventbrite, and each of those is its own word.
+
+## The other three boards publish too, 10 November 2026
+
+Asked whether Loveland's downtown calendar, Live Well Douglas County and
+Golden Today's Live Music calendar should publish as Eventbrite now does,
+the owner said yes.
+
+- **`autoApprove` on all three.** Published: 15 from Loveland's downtown
+  calendar (the music at Loveland Aleworks, Flip the Switch, Small
+  Business Saturday, the holiday show) and 4 from Live Well Douglas County
+  (the Festival Park Starlight Market, Reindeer Games, Storytellers and
+  S'mores).
+- **Golden Today published nothing, and that is the guard working.** Its
+  fifteen items are each at the hour of a listing already on the guide:
+  the Buffalo Rose shows the guide has from the venue, and the named
+  Wednesday players at Miners Saloon, which the guide carries as one
+  standing listing. One event or two is a person's call.
+- **Still waiting in Loveland**: items with no venue in the feed, four
+  expos that Eventbrite and the downtown calendar both list, and two
+  concerts that may be on the guide already. In Castle Rock: the
+  fireworks, the tree lighting and the Turkey ROCK Trot, each already on
+  the guide under another title.
+
+## The waiting items ruled on, 10 November 2026
+
+With the pull request open the owner asked for the items that wait for a
+person to be done. Ninety-one staged events and two changes waited across
+sixteen guides; each was read with the listing it was held against.
+
+- **Rejected, 44: true doubles and what is not an event.** A board's copy
+  of a show the guide has from the venue (the Buffalo Rose's five in
+  Golden, Next Stop Comedy at St. Vrain Cidery and Crooked Beech, Motus
+  Theater, the Festival of Lights, the Turkey ROCK Trot, the tree
+  lighting, the bookshop's three in Castle Rock); four of one expo's five
+  titles in Loveland; Leadville's six, which the other session had named;
+  exhibitions that opened months ago; Eventbrite classes at an address
+  with no name; a house concert; a concert that arrived canceled; the
+  music bingo and pet-painting nights Timnath already lists.
+- **Published, 38.** Held as doubles and not: the named Wednesday players
+  at Miners Saloon (eight), which the guide had only as a standing
+  listing; the card expo, two workshops and the mini golf showdown in Fort
+  Collins; a mobile bookstore and Dueling Pianos in Loveland. Second
+  showings on one day: the Backdoor Theatre's Saturday films, Les
+  Misérables at Severance High, the Leadville school play, the 7 pm jazz
+  combo in Lafayette. With the venue added: CSU volleyball at Moby Arena,
+  the Historical Society's talks at the Loveland Museum, and seventeen
+  from Estes Park's schools.
+- **Estes Park's schools now name their buildings** (`venueAliases`: 1600
+  Manford Avenue is the high school, 1505 Brodie Avenue the elementary),
+  so the next read publishes without a person. The feed is the district's
+  facility schedule: an end time is the booking's, and the choirs concert
+  on 9 December reads 8 am. Both want a look.
+- **Left, 11, each for a reason a person owns**: six drafts another
+  session holds by hand; the Castle Rock Veterans Day fireworks, whose
+  source says "rescheduled" without saying to when; the Posada in
+  Leadville, with no venue anywhere read; a Zoom-only committee meeting;
+  and two changes to published listings (a Chrispy night's end time at
+  Mountain Toad, the Holiday Mountain Market's second day).

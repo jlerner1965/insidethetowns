@@ -56,12 +56,23 @@
       "type": "ical",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "locationFilter": [
         "Gunbarrel Library"
       ],
-      "notes": "Proposed 10 November 2026. Not a Niwot venue: Niwot has no library of its own, and no item in the district's feed names Niwot. This is the district branch nearest Niwot, in Gunbarrel (a search result for the calendar's event pages gives 6500 Lookout Rd.; the address was not on the event page read); whether Niwot addresses are inside the Boulder Public Library District was not checked, and whether a Gunbarrel branch belongs on the Niwot guide is the owner's call. The calendar at calendar.boulderlibrary.org is Communico; its feeds are served from boulderlibrary.libnet.info/feeds?data=<base64 JSON of {feedType, filters}> (the same shape Castle Rock's dcl-org uses; the calendar.boulderlibrary.org host answers 404 for /feeds). The all-branches iCal read 200 text/calendar with 500 VEVENT (capped), reaching only to 16 December, 403 of them in the next 30 days across Main, NoBo, Meadows, Reynolds, Gunbarrel and Virtual. The feedUrl here is the same feed limited to location 4559, Gunbarrel Library (the id comes from the calendar's own event data): 161 VEVENT, 2 RRULE, through December 2027, every LOCATION beginning 'Gunbarrel Library - ' with a room or nothing. 35 items in 10 November to 9 December, parsed with the ingest's own iCal reader: about 20 are storytimes (Baby Time, Toddler Storytime, Preschool Storytime, Storytime, Storytime at Gunbarrel), the rest one-offs and monthly groups such as Active Minds: Native Americans of Colorado (16 Nov), Gunbarrel Classic Movies (22 Nov), Shelf Talkers Book Club, Short Story Book Club, Social Stitchers, Tinker Art Studio (30 Nov), Bad Art Night (3 Dec), Winter Baby Rave (5 Dec), Community Chats (7 Dec). Items carry no URL; an event's page is calendar.boulderlibrary.org/event/<UID>. robots.txt on both hosts disallows only /results* and site search, so /feeds is allowed. If confirmed, the storytimes want an excludeTitles list ('Storytime', 'Baby Time') or the guide gets five a week, and defaultVenue 'Gunbarrel Library'. The Longmont Public Library was not added: it is in Longmont and has no Niwot branch."
+      "excludeTitles": [
+        "Storytime",
+        "Baby Time",
+        "Book Club",
+        "Social Stitchers",
+        "Magic the Gathering",
+        "Writing Group",
+        "Digital Literacy Class",
+        "Level Up",
+        "LTAB"
+      ],
+      "notes": "Proposed 10 November 2026. Not a Niwot venue: Niwot has no library of its own, and no item in the district's feed names Niwot. This is the district branch nearest Niwot, in Gunbarrel (a search result for the calendar's event pages gives 6500 Lookout Rd.; the address was not on the event page read); whether Niwot addresses are inside the Boulder Public Library District was not checked, and whether a Gunbarrel branch belongs on the Niwot guide is the owner's call. The calendar at calendar.boulderlibrary.org is Communico; its feeds are served from boulderlibrary.libnet.info/feeds?data=<base64 JSON of {feedType, filters}> (the same shape Castle Rock's dcl-org uses; the calendar.boulderlibrary.org host answers 404 for /feeds). The all-branches iCal read 200 text/calendar with 500 VEVENT (capped), reaching only to 16 December, 403 of them in the next 30 days across Main, NoBo, Meadows, Reynolds, Gunbarrel and Virtual. The feedUrl here is the same feed limited to location 4559, Gunbarrel Library (the id comes from the calendar's own event data): 161 VEVENT, 2 RRULE, through December 2027, every LOCATION beginning 'Gunbarrel Library - ' with a room or nothing. 35 items in 10 November to 9 December, parsed with the ingest's own iCal reader: about 20 are storytimes (Baby Time, Toddler Storytime, Preschool Storytime, Storytime, Storytime at Gunbarrel), the rest one-offs and monthly groups such as Active Minds: Native Americans of Colorado (16 Nov), Gunbarrel Classic Movies (22 Nov), Shelf Talkers Book Club, Short Story Book Club, Social Stitchers, Tinker Art Studio (30 Nov), Bad Art Night (3 Dec), Winter Baby Rave (5 Dec), Community Chats (7 Dec). Items carry no URL; an event's page is calendar.boulderlibrary.org/event/<UID>. robots.txt on both hosts disallows only /results* and site search, so /feeds is allowed. If confirmed, the storytimes want an excludeTitles list ('Storytime', 'Baby Time') or the guide gets five a week, and defaultVenue 'Gunbarrel Library'. The Longmont Public Library was not added: it is in Longmont and has no Niwot branch. Gunbarrel counts for Niwot from 10 November 2026: asked whether Gunbarrel venues belong on the Niwot guide, the owner said yes. Confirmed the same day, for the Gunbarrel branch only (the location filter). The weekly storytimes and baby times (about 70 of 87 items in 120 days), the book clubs, the stitching, writing and game groups and the computer class are excluded by title, as on the other library feeds; what is left is the concert, the classic movies, the Active Minds talks and the one-off programs."
     },
     {
       "id": "niwothall-org",
@@ -95,13 +106,19 @@
       "id": "niwotwheelhouse-com",
       "name": "The Wheel House",
       "url": "https://www.niwotwheelhouse.com/",
+      "feedUrl": "https://www.niwotwheelhouse.com/events",
       "sampleUrl": "https://www.niwotwheelhouse.com/events1",
-      "type": "html",
+      "type": "squarespace",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Added 31 October 2026, when a check for missed Niwot events found the bar's calendar carried a band every Friday and Saturday, a Halloween party and a weekly euchre night, none of them on the guide, which had only its Tuesday trivia (from niwot.com). The calendar is a Squarespace calendar block (collection 67cc8d31ad15874647ad995d) that the page fills by script; the page's own data call, /api/open/GetItemsByMonth?month=MM-YYYY&collectionId=67cc8d31ad15874647ad995d, returns each month's items with start and end, and each item's page answers ?format=json with its description. Ingest has no Squarespace reader, so this is read by hand until one is written. The calendar entries' times are sometimes an hour where the description gives longer (trivia shows 6:30 to 7:30; niwot.com gives 6:30 to 8:30)."
+      "excludeTitles": [
+        "Trivia",
+        "Euchre"
+      ],
+      "defaultVenue": "The Wheel House",
+      "notes": "Added 31 October 2026, when a check for missed Niwot events found the bar's calendar carried a band every Friday and Saturday, a Halloween party and a weekly euchre night, none of them on the guide, which had only its Tuesday trivia (from niwot.com). The calendar is a Squarespace calendar block (collection 67cc8d31ad15874647ad995d) that the page fills by script; the page's own data call, /api/open/GetItemsByMonth?month=MM-YYYY&collectionId=67cc8d31ad15874647ad995d, returns each month's items with start and end, and each item's page answers ?format=json with its description. Ingest has no Squarespace reader, so this is read by hand until one is written. The calendar entries' times are sometimes an hour where the description gives longer (trivia shows 6:30 to 7:30; niwot.com gives 6:30 to 8:30). The Squarespace reader, 10 November 2026: it reads an events page in its list view. This calendar is a calendar block filled by script from /api/open/GetItemsByMonth, which the site's robots.txt disallows, so the reader does not help here unless the bar adds an events page in list view. Not fetched again today. Turned on 10 November 2026 on the owner's word (\"Go 1 to 3\"). The calendar block's collection has a page of its own, /events, in the list view, which the site's robots.txt allows; typed squarespace with that page as its feedUrl and read under honor, so no subscribe is needed. The address was learned from one call to /api/open/GetItemsByMonth (disallowed by robots.txt), made that day on the owner's go for reading this calendar; ingest does not use it. Read by the reader: 23 items to January, 9 trivia nights and 8 euchre nights, which the guide already lists as weekly and the exclusions keep out, and 6 others: Strange Byrds (13 Nov), Starlight and Pine (14 Nov), Red Sax Jazz Band, Dougs Garage, Buzz Brothers and a Branch & Barrel whiskey tasting. Items carry no location, so the default venue is the bar."
     },
     {
       "id": "fritzfamilybrewers-com",
@@ -177,7 +194,7 @@
         "places": 2
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Checked for a feed 10 November 2026: WordPress with no calendar plugin (/wp-json/tribe/events/v1/events is 404, and /events/?ical=1 returns an ordinary page). The News & Events page's 'Past Events' list of Now & Then lectures stops at October 2024, so it is not kept up. The site's post feed, /feed/, answered 200 and is current (Niwot Gazette, October 2026, posted 4 Oct; The Niwot Cemetery, 16 Sep, the lecture given on 21 October; The Road of Remembrance, 17 Aug; The Switzerland Trail of America, Wednesday May 20th, 24 Apr), so each lecture is announced as a post a month or so ahead, with the date in the title or the text, not as feed data; it is not recorded as a feedUrl because ingest would find no event dates. No post announces a lecture for 10 November to 10 December. robots.txt blocks only Googlebot-Image. Read the posts by hand; a lecture most months from spring to autumn, at Niwot Hall."
     },
     {
       "id": "niwotmarket-com",
@@ -284,6 +301,179 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Proposed 10 November 2026. The festival's own one-page site, still showing the 2026 edition: 'Summer Soul-stice Party', Saturday 27 June 2026, 3 to 9:30 pm, with a set-by-set schedule (Amelie Quartet 3 pm, Damani Phillips 4:45, Robert Johnson and the Keith Waters Trio 6:15, Quemando 8). One event a year, nothing in the next 30 days, no feed, no robots.txt. Check each spring for the date and line-up; niwot.com also carries it."
+    },
+    {
+      "id": "mainstagebrewing-com-gunbarrel",
+      "name": "MainStage Brewing, Gunbarrel taproom (music and events)",
+      "url": "https://www.mainstagebrewing.com/music",
+      "feedUrl": "https://data.accentapi.com/feed/25613355.json",
+      "sampleUrl": "https://www.mainstagebrewing.com/gunbarrel",
+      "type": "json",
+      "category": "venue",
+      "priority": "other",
+      "status": "confirmed",
+      "robots": "honor",
+      "excludeTitles": [
+        "TRIVIA",
+        "All Access Tuesday",
+        "Temaki Tuesday",
+        "Run Club",
+        "Open Bluegrass Pick",
+        "Dice & Drafts",
+        "MAGIC: The Gathering"
+      ],
+      "defaultVenue": "MainStage Brewing Gunbarrel",
+      "notes": "Found and read 10 November 2026. Not in Niwot: the Lyons brewery's second taproom and music room is at 6035 Longbow Drive, Unit 9, Boulder 80301 (Gunbarrel, about four miles south of Old Town Niwot; the address is from the events' own location field), in the space that was Beyond the Mountain Brewing, whose own site no longer answers. Whether a Gunbarrel room belongs on the Niwot guide is the owner's call, as for the Gunbarrel library. The /gunbarrel page promises free music every Friday and Sunday, a weekly bluegrass pick, trivia and Magic the Gathering. The site is Squarespace, but the calendar on /music is not a Squarespace collection: it is a SociableKIT widget that mirrors each taproom's Facebook events, and the page loads its data from https://data.accentapi.com/feed/25613355.json (Gunbarrel; 25613350 is Lyons), found by loading the page in a browser. That JSON was read once: 28 events, 8 to 30 November only (about three weeks ahead), each with name, start date and time, location and its facebook.com/events link. From 10 to 30 November, 8 are worth a row: Boulder Dead Night (Thu 12 Nov, 6 pm), MainGrass (Fri 13, 20 and 27 Nov, 6 pm; a different hand-picked bluegrass line-up each week, named in each event's description), MainJazz (Sun 15, 22 and 29 Nov, 5:30 pm) and DJ Night with DJ Gourmet and Asano (Sat 21 Nov, 7 pm); nothing is posted yet for 1 to 10 December, so expect about 11 a month. 18 are regulars, excluded by title: TRIVIA Night (Mondays), All Access Tuesday and Temaki Tuesday, Gunbarrel Run Club (Tuesdays), Open Bluegrass Pick'n (Wednesdays), $5 Dice & Drafts and MAGIC: The Gathering (Thursdays). End times in the feed equal the start times, so no end time is known. robots.txt on www.mainstagebrewing.com is Squarespace's standard one (the page is allowed; /api/ and ?format=json are not, and were not fetched); data.accentapi.com has no robots.txt (404). Typed manual: ingest has no reader for this widget's JSON, and the feed is a third party's copy of Facebook, so it is read by hand from the /music page until the owner decides otherwise. Gunbarrel counts for Niwot from 10 November 2026: asked whether Gunbarrel venues belong on the Niwot guide, the owner said yes. Typed json and confirmed the same day: the widget's events file is read by the new SociableKIT reader (scripts/lib/feeds/sociablekit.ts); data.accentapi.com has no robots.txt, so it is read under honor. The file reaches about three weeks ahead."
+    },
+    {
+      "id": "averybrewing-com",
+      "name": "Avery Brewing Co. (taproom events)",
+      "url": "https://www.averybrewing.com/taproom-events",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Avery Brewing Co., 4910 Nautilus Court, Boulder",
+      "notes": "Found and read 10 November 2026. Not in Niwot: the brewery and its taproom are at 4910 Nautilus Ct., Boulder 80301 (Gunbarrel, about four miles south of Niwot; the address is in the page footer), so whether it belongs on the Niwot guide is the owner's call. The Taproom Events page is a hand-kept list on a Next.js site: no feed, no calendar plugin, and no robots.txt (404), so nothing is disallowed. Read once: nine entries, four of them dated in 10 November to 10 December and worth a row: Gear Up & Beer Up, a community ski swap with Crystal's Ski Shop in the beer garden (Sat 14 Nov, noon to 4 pm, free), Community Book Swap (Thu 19 Nov, 5:30 to 7:30 pm), Next Stop Comedy Night (Wed 25 Nov; the next is 23 Dec; time not on the list) and the Krampusnacht Christmas Market (Sat 5 Dec, 5 to 9 pm). Three are regulars and not for the calendar: Trivia with Trevonious Monk (Tuesdays 6:30 to 8:30 pm), Full Throttle Yoga (first, third and fifth Sundays, 10:30 am) and Beer & Board Game Days (Sundays). The Halloween party of 31 October was still listed. Each entry has a Details panel that was not opened. Read by hand; three or four listings a month. Gunbarrel counts for Niwot from 10 November 2026: asked whether Gunbarrel venues belong on the Niwot guide, the owner said yes. Still a page a person reads: no feed. Its comedy nights are also on Eventbrite (Next Stop Comedy at Avery, 25 Nov)."
+    },
+    {
+      "id": "nhsorchestra-squarespace-com",
+      "name": "Niwot High School Orchestra and Mariachi (upcoming concerts)",
+      "url": "https://nhsorchestra.squarespace.com/upcoming-concerts",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Niwot High School Auditorium, 8989 Niwot Road",
+      "notes": "Found and read 10 November 2026. Niwot High School is at 8989 East Niwot Road (the address on the band boosters' site); the school's Performing Arts page (nhs.svvsd.org/activities-arts-athletics/performing-arts/) links this site for orchestra, niwotchoir.weebly.com for choir and niwothstheater.weebly.com for theatre. One hand-written page lists the year's concerts, 17 lines for 2026 to 27, not in date order. Three at the school fall in 10 November to 10 December: NHS Open House Performance (Symphony Orchestra and Mariachi Ensembles, Tue 17 Nov, 5:30 pm, NHS Auditorium), the Orchestra's 'Symphony of the Solstice' concert (Wed 9 Dec, 6 pm, NHS Auditorium) and the Mariachi Winter Concert (Thu 10 Dec, 6 pm, NHS Auditorium). Also listed in the window but not in Niwot: the SVVSD Honor Orchestra and Honor Mariachi, Thu 19 Nov at Erie High School. Later: Chinese New Year Performance 30 Jan 2027 at Silver Creek High, 'The Senses Awaken' 10 Mar, Mariachi Entre Las Flores 11 Mar and 11 May (the page gives both), Music Award Night 30 Apr, 'A Night of Nostalgia' 12 May. No ticket price is given. Squarespace, but a plain text page, not an events collection, so there is no feed; robots.txt is Squarespace's standard one and allows the page. None of these concerts is on the school's Google calendar (the nhs-svvsd-org entry), which holds only club meetings. Read by hand each term; two or three listings a month in concert season."
+    },
+    {
+      "id": "niwotbands-org",
+      "name": "Niwot High School Bands (calendar)",
+      "url": "https://www.niwotbands.org/calendar-all-bands",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Niwot High School, 8989 Niwot Road",
+      "notes": "Found and read 10 November 2026. The band boosters' site for Niwot High School, 8989 East Niwot Road (page footer). The calendar page carries a Squarespace calendar block that the page fills by script, as The Wheel House's does; its data call is under /api/, which robots.txt disallows, so the block was not read and the marching and concert bands' dates were not counted. What was read is the jazz bands' printable list the page links, 'Important Dates for NHS Jazz Bands 2026-27' (a Google Doc; docs.google.com's robots.txt allows /document). One date in 10 November to 10 December is a public concert at the school: Winter Jazz in the Rockies, the NHS Jazz Bands in the NHS Commons, Wed 2 Dec, 7 pm. Others in the window are not listings: a jazz combo at the school's open house (10 Nov, select performers), an audition deadline (16 Nov) and the Combined League Honor Jazz Band at 'FHS' (17 Nov, concert 6 pm, not in Niwot). Later: Combo-rama at Bricks on Main, Longmont, 26 Jan 2027. The page says the Google docs were current as of May 2026 and the online calendar is the one kept up to date. The winter band concert is likely on the calendar block; a person reading the page in a browser will see it. Read by hand; one or two listings a month."
+    },
+    {
+      "id": "niwothstheater-weebly-com",
+      "name": "Niwot High School Theater",
+      "url": "https://niwothstheater.weebly.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Niwot High School Auditorium, 8989 Niwot Road",
+      "notes": "Found and read 10 November 2026. The school theatre department's own site (Weebly), linked from the school's Performing Arts page. The home page's Upcoming Events table had one row: Frankenstein by Rona Munro, November 5th, 6th and 7th, Niwot High School Auditorium, with tickets on GoFan (gofan.co/app/school/CO16354), and 'Coming Spring 2027' with no title yet. So the fall play was three days before this was read and the guide did not carry it; nothing falls in 10 November to 10 December. Two productions a year, a play in November and a musical in spring (past years on /productions.html: Footloose, Shrek the Musical, Puffs, Beauty and the Beast), each three or four performances. No feed; robots.txt allows everything for unnamed agents. Check in February for the spring musical and in September for the fall play. The choir's site, niwotchoir.weebly.com, was also read: its 'Calendar of Events' is a file on Google Drive that was not opened, so the choir's winter concert date is not known from here."
+    },
+    {
+      "id": "fortezzaristorante-com",
+      "name": "Fortezza Ristorante (wine dinners)",
+      "url": "https://fortezzaristorante.com/events",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Fortezza Ristorante, 7916 Niwot Road",
+      "notes": "Found and read 10 November 2026. The restaurant at 7916 Niwot Road (page footer), already a place on the guide, keeps an Events page (a Webflow site; no feed; robots.txt is empty, so nothing is disallowed). Read once: one event, already past, the Crosstown Progressive Wine Dinner with Kuper Wine Bar of Longmont on Wednesday 4 November, 5:30 to 8:30 pm, five courses and five Tuscan wines across the two restaurants, $150 with an optional $30 bus. Nothing dated 10 November to 10 December. A ticketed dinner of this kind is what the guide wants and it was not on the calendar; the page is worth a look each month. Read by hand; perhaps one listing every month or two."
+    },
+    {
+      "id": "osmosisartgallery-com",
+      "name": "Osmosis Gallery (shows and openings)",
+      "url": "https://www.osmosisartgallery.com/events",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Osmosis Gallery, 290 Second Avenue",
+      "notes": "Found and read 10 November 2026. The gallery at 290 Second Avenue (page footer), already a place on the guide. Its Events page is a Wix blog: quarterly shows, each opening at a First Friday Art Walk, written up as posts. The current show is 'Peaks, Pines, and a Raven' with Diane Pike, September to November 2026, which opened at the art walk held on 11 September; the two other recent posts are about the Why Not Niwot? juried show at Niwot Hall. No post yet names the winter show or its opening, so nothing dated 10 November to 10 December could be counted (the First Friday of 4 December is the likely opening and is already on the guide from niwot.com). The site's one feed, /blog-feed.xml, answered 200 with posts dated to 23 September, but they are articles with no event dates, so it is not recorded as a feedUrl. robots.txt allows the page. Read by hand; about four openings a year."
+    },
+    {
+      "id": "emoryjanescoffeeco-com",
+      "name": "Emory Jane's Coffee Co. (coffee truck stops)",
+      "url": "https://www.emoryjanescoffeeco.com/events",
+      "feedUrl": "https://calendar.google.com/calendar/ical/6b1d56b8974d1b0603fc4e4bdeab26950232d75aeadd511e4997d0371017dccd%40group.calendar.google.com/public/basic.ics",
+      "type": "ical",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Lupine Longmont",
+        "Highlands Elementary",
+        "Flatirons Elementary",
+        "Westerly",
+        "Roosevelt Park",
+        "Off for the Holiday",
+        "Shining Mountain",
+        "Tumbleweed",
+        "Jarrow"
+      ],
+      "notes": "Found and read 10 November 2026. A coffee truck, not a room: the guide's place file has it in Niwot, and the Google Sites page says only 'Niwot, CO'. Its Events page embeds a public Google calendar ('Events Calendar', America/Denver), found by loading the page in a browser; the public iCal address is the feedUrl. Read once: 168 VEVENT, 20 with an RRULE, and each title is where the truck will be, with no LOCATION on most. 17 fall in 10 November to 10 December, and three of those are in Niwot: 'Niwot Liquor Parking Lot' on Sunday 15 November and Sunday 6 December at 8 am, and 'Niwot Elementary' on Friday 20 November at 8 am. The rest are stops elsewhere (Lupine Longmont on Tuesdays, Highlands and Flatirons elementary schools, Westerly's Holiday Market 21 Nov, tree lighting 30 Nov and Photos with Santa 5 Dec in Erie, Roosevelt Park Ice Rink Opening 21 Nov in Longmont, Tumbleweed Art Studio 5 Dec) and a day off. None of it is an event by the guide's standard; it is a food truck's whereabouts, which the owner chose to list for Fritz Family Brewers on 10 November, so it is recorded for the same decision here. Since there is no location to filter on, the out-of-town stops seen are excluded by title and a new stop would slip through. calendar.google.com's robots.txt disallows every agent, so under robots: honor ingest will not read this; robots: subscribe is the owner's call. Two or three Niwot stops a month."
+    },
+    {
+      "id": "ollinfarms-com",
+      "name": "Ollin Farms (farm dinners)",
+      "url": "https://ollinfarms.com/dinners",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. Not in Niwot: the farm is at 8627 North 95th Street, Longmont 80504 (from its dinners page), a few miles north-east of Niwot, so whether it belongs on the Niwot guide is the owner's call. It runs a farm stand and a season of ticketed farm dinners. The dinners page has no dates at present: it says the 2027 Farm Dinner Schedule will be announced in spring. Nothing dated 10 November to 10 December. The page was read through the fetch tool; two direct requests for it were reset by the connection, though the home page and robots.txt (which disallows only /404) answered. Squarespace, with no events collection found from the home page's links (/dinners and /farmstand only). Check in April for the season's dates."
+    },
+    {
+      "id": "eventbrite-com-niwot",
+      "name": "Eventbrite, events in Niwot",
+      "url": "https://www.eventbrite.com/d/co--niwot/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--niwot/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "confirmed",
+      "robots": "honor",
+      "locationFilter": [
+        "Niwot, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education",
+        "Training",
+        "Tactical",
+        "Republican",
+        "Democrat",
+        "Conservatives",
+        "Entrepreneurs",
+        "CEO Retreat",
+        "Boss Babes",
+        "Foodies + New Friends",
+        "Scavenger Hunt",
+        "Random Acts of Kindness Spree",
+        "Neck Pain",
+        "Pelvic",
+        "Menopause",
+        "Acupuncture",
+        "Color Analysis",
+        "Workout Class",
+        "Espresso Machine Demo",
+        "Home Studio",
+        "ISSA",
+        "WTS ",
+        "Reignite Live",
+        "^HELD$"
+      ],
+      "autoApprove": true,
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Niwot, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Niwot. Read that day: 99 events in five pages, 1 of them in town: Toys In The Attic (2026-11-14, Niwot High School Auditorium). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home."
     }
   ]
 }

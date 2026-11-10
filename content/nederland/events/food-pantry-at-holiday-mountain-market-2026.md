@@ -14,6 +14,8 @@ performances:
   - "2026-12-05T10:00"
   - "2026-12-06T10:00"
 organizer: "Nederland Food Pantry"
+changeFlag: true
+changeNote: "Nederland Food Pantry (events, Holiday Mountain Market) now says: end 2026-12-05T17:00 → 2026-12-06T17:00 (read 2026-11-10; see staging/changes/food-pantry-at-holiday-mountain-market-2026.json)"
 ---
 
 The Nederland Food Pantry has a booth at the Holiday Mountain Market at the Community Center, Saturday and Sunday, December 5 and 6, 10 am to 5 pm each day. The pantry team will be on hand to talk about its garden expansion, its programs and ways to support local families.

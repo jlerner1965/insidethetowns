@@ -38,7 +38,7 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026 by the sources agent. The Johnstown Downtown Development Authority's site (PO Box 127, Johnstown) is built on Wix. No feed: the Wix events sitemap holds only old business workshops (2024 and 2025), and /events is a hand-written list of four annual downtown events: Cinco De Mayo Fiesta (2 May 2026), Fall Fest (12 September 2026), Trick or Treat Street (31 October 2026) and Johnstown Jingle. In 10 November to 10 December 2026 one is worth a row and the guide already has it: Johnstown Jingle, Sunday 6 December, 2 to 5 pm, tree lighting at 5:30 pm. No regulars. robots.txt allows everything but ?lightbox= URLs. Stays html; four dates a year, read by hand each season. The members page (/jddamembers) names downtown organizers worth knowing: J-Town Jog, Eleve Dance Academy, Healthy Harvest Productions, the Johnstown Breeze."
     },
     {
       "id": "johnstownmillikenpubliclibraries-us",
@@ -78,7 +78,7 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026 by the sources agent. Candlelight Dinner Playhouse, 4747 Marketplace Dr, Johnstown. WordPress with Elementor and a custom 'show' post type; no events plugin (the Tribe REST path is 404, /feed/ returns the home page) and no iCal or RSS. /all-shows/ lists the season by run: Les Miserables (10 September to 15 November 2026), Irving Berlin's Holiday Inn (27 November 2026 to 17 January 2027), Herman's Hermits starring Peter Noone (22 to 24 January 2027), Seven Brides for Seven Brothers (4 February to 11 April), GARTH LIVE! tribute to Garth Brooks (15 to 17 March) and Finding Neverland (22 April to 13 June). Tickets are on an AudienceView site (tickets.coloradocandlelight.com, which has no robots.txt); its Holiday Inn calendar page (/online/article/hicalendar) carries each performance day in the page script, no feed. In 10 November to 10 December 2026: two runs worth a row (the last Les Miserables weekend to 15 November, and Holiday Inn opening 27 November), with 12 Holiday Inn performance days (27, 28, 29 November; 1 to 6 and 8 to 10 December). No regulars. robots.txt on the main site allows everything. Stays html: read /all-shows/ monthly for new concerts, which are the dates that change (GARTH LIVE! is not yet in the guide)."
     },
     {
       "id": "jhsco-org",
@@ -93,7 +93,7 @@
         "places": 2
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026 by the sources agent. The Johnstown Historical Society (Parish House and Museum). WordPress on Wired Impact with the Sugar Calendar plugin; no feed (the Tribe REST path is 404, /events/ itself is 404, and no iCal link is on /upcoming-events/). /upcoming-events/ lists three events: Holiday Open House 2026 (5 December 2026), Johnstown's BBQ Day 2027 (Saturday 5 June 2027, 9 am to 4 pm) and Cemetery Crawl 2027 (Saturday 30 October 2027, Johnstown Cemetery, 23101 County Road 13). In 10 November to 10 December 2026 one is worth a row and the guide already has it (the Holiday Open House). No regulars. robots.txt disallows only /wp-admin/ and asks a 5 second crawl delay. Stays html, read by hand a few times a year."
     },
     {
       "id": "broadwayworld-com",
@@ -109,6 +109,96 @@
       },
       "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "rhs-weldre5j-org",
+      "name": "Roosevelt High School (athletics calendar)",
+      "url": "https://rhs.weldre5j.org/calendar",
+      "feedUrl": "https://rhs.weldre5j.org/fs/calendar-manager/events.ics?calendar_ids[]=26",
+      "type": "ical",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Johnstown"
+      ],
+      "excludeTitles": [
+        " @ ",
+        "JV ",
+        "Freshman",
+        "C-Team",
+        "Photos",
+        "Practice"
+      ],
+      "notes": "Found and read 10 November 2026. Roosevelt High School, 3349 Roosevelt Pkwy, Johnstown (Weld RE-5J). The school's site is Finalsite; /calendar is a month grid (readable a month at a time with ?cal_date=YYYY-MM-01, which robots.txt allows) showing one calendar, id 26, named 'Roosevelt High School Sports'. Finalsite's iCal export for that calendar answered 200 with 188 items from 10 October 2026 to 13 May 2027, each with a start time and a street address. It carries games only: no concerts, plays or school days. Dated 10 November to 10 December 2026: 23 items, of which 6 are home varsity dates worth a row: Boys Varsity Football vs Montbello (13 November, 7 pm, the playoff game the guide already lists), Boys Varsity Basketball vs Fort Morgan (1 December, 6 pm), Boys Varsity Wrestling vs Greeley Central (2 December, 6:30 pm), Girls Varsity Wrestling vs Holy Family (3 December, 7 pm), Girls Varsity Basketball vs Mead (8 December, 6 pm) and Boys Varsity Wrestling vs Windsor (9 December, 6:30 pm). The other 17 are away games (titled with ' @ ') and JV, freshman and C-team games. No regulars. robots.txt disallows /fs/ (with a crawl delay of 5 seconds), so the feed path is behind a robots rule: it was fetched once to count it, and reading it weekly needs the editor's robots: subscribe. Suggested filters: keep only items located in Johnstown, and exclude ' @ ', 'JV ', 'Freshman' and 'C-Team'; some swim meets are at 616 N 2nd St (the middle school), so no default venue is set. The choir (three ensembles, quarterly concerts) and Theodore's Theatre Company (ITS Troupe 3145) are named on the activities page but have no dates on any calendar read; ask the school or watch its social pages for the winter concert and the play."
+    },
+    {
+      "id": "weldre5j-org",
+      "name": "Weld RE-5J School District (district calendar)",
+      "url": "https://www.weldre5j.org/calendar",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The Johnstown and Milliken school district; Finalsite. /calendar is a month grid combining eight calendars (ids 26, 11, 16, 21, 14, 15, 23, 17: the high school's sports, the middle school, the elementaries and the Board of Education), readable with ?cal_date=YYYY-MM-01 (November and December both answered 200; robots.txt allows the path). Nearly all of it is never-list or regulars: no-school days, testing windows, PTO and board meetings, library check-out, chess, Lego and book clubs, middle school basketball. Dated 10 November to 10 December 2026, worth a row in Johnstown: 2, both at Roosevelt High School, 3349 Roosevelt Pkwy: RMS Combined Band Concert (8 December, 6 pm) and RMS Combined Orchestra Concert (9 December, 6 pm). Just after the window: RMS Combined Choir Concert at RHS (15 December, 6 pm) and Elwell Elementary's grade concerts (14 and 16 December). Family nights seen but school-community only: Turkey Bingo at Milliken Intermediate (20 November, in Milliken), Pioneer Ridge PTO Holiday BINGO Night (3 December). Finalsite can export each calendar as iCal under /fs/calendar-manager/, which robots.txt disallows; only the high school's was fetched (see rhs-weldre5j-org), the district's were not. Read by hand monthly for concerts; if it is ever typed ical it would need title exclusions for 'No School', 'Break', 'PTO', 'Board of Education', 'Window', 'Club', 'Practice', 'Check Out', 'Picture', 'Spirit Week', 'Field Trip' and a location filter for Johnstown."
+    },
+    {
+      "id": "runsignup-com-fitnessavenueturkeytrot",
+      "name": "Fitness Avenue Turkey Trot 5K (RunSignup)",
+      "url": "https://runsignup.com/Race/CO/Johnstown/FitnessAvenueTurkeyTrot",
+      "type": "manual",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "checkFrequency": "monthly",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The Thanksgiving morning race downtown, at 21 South Parish Avenue, Johnstown, organized by Fitness Avenue (the page points to facebook.com/fitnessavenuecolorado for more). RunSignup race page, no feed. In 10 November to 10 December 2026: 1 worth a row, Thursday 26 November 2026: the 1K Kids Turkey Trot (ages 12 and under) at 7:45 am and the 5K at 8:00 am; $43.40 and $22.20 with fees, rising after 13 November. A search listing calls the 2025 race the 13th annual and says runners can nominate a Johnstown or Milliken family for a holiday grocery gift card; that was not on the page read. No regulars. robots.txt allows /Race/ pages. Other Johnstown races on RunSignup, both past for this year: Roughrider Rumble (6 June 2026, BBQ Day morning) and the Spooktacular 5K Race/Walk. Checked by hand once a year in October."
+    },
+    {
+      "id": "eventbrite-com-johnstown",
+      "name": "Eventbrite, events in Johnstown",
+      "url": "https://www.eventbrite.com/d/co--johnstown/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--johnstown/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "confirmed",
+      "robots": "honor",
+      "locationFilter": [
+        "Johnstown, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education",
+        "Training",
+        "Tactical",
+        "Republican",
+        "Democrat",
+        "Conservatives",
+        "Entrepreneurs",
+        "CEO Retreat",
+        "Boss Babes",
+        "Foodies + New Friends",
+        "Scavenger Hunt",
+        "Random Acts of Kindness Spree",
+        "Neck Pain",
+        "Pelvic",
+        "Menopause",
+        "Acupuncture",
+        "Color Analysis",
+        "Workout Class",
+        "Espresso Machine Demo",
+        "Home Studio",
+        "ISSA",
+        "WTS ",
+        "Reignite Live",
+        "^HELD$"
+      ],
+      "autoApprove": true,
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Johnstown, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Johnstown. Read that day: 100 events in five pages, 1 of them in town: Daddy Daughter Doll-Up 2027 (Third Annual): Benefiting ChildSafe Colorado (2027-02-19, The Arabella). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home."
     }
   ]
 }

@@ -261,8 +261,8 @@ ingest; it has no effect on what publishes.
 
 ## Ingest
 
-`npm run ingest` reads every confirmed feed source (`ical`, `rss` or `json` with
-a `feedUrl` in `content/<town>/sources.json`), honouring each site's robots.txt
+`npm run ingest` reads every confirmed feed source (`ical`, `rss`, `json`,
+`squarespace` or `eventbrite` with a `feedUrl` in `content/<town>/sources.json`), honouring each site's robots.txt
 unless the editor has set `robots: subscribe` on the source, and writes what it
 finds into `content/<town>/staging/events/`, one file per occurrence, with a
 `review` line naming the source and every guess (venue, category). An item the
@@ -274,6 +274,14 @@ Cancellations sort first in the weekly report. `--town=erie`, `--source=<id>` an
 `--dry-run` narrow it or hold it. iCalendar is read with ical.js (recurrence,
 exceptions and time zones are where a hand-written parser gets dates wrong);
 RSS (CivicPlus calendars) and The Events Calendar's REST format are read here.
+A `squarespace` source is a Squarespace site's events page in its list view,
+read as the HTML a visitor gets, since that is the one address such a site's
+robots.txt leaves open; its `feedUrl` is the page. A page set to the calendar
+grid holds no events and is reported, not read.
+An `eventbrite` source is an organizer's page on Eventbrite (their own events)
+or a place's page (the region's, five pages of twenty, kept to the town by the
+source's `locationFilter`), read for the event data the page carries. A `json`
+source at data.accentapi.com is SociableKIT's copy of a venue's Facebook events.
 Nothing ingest writes is published: approval is the review's.
 
 ## Review

@@ -139,7 +139,7 @@
       "category": "parks",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Read 10 October 2026. Home page reads 200 but gives no manager, length, surface, trailheads, parking or contact; links a Grooming Updates page and the Leadville Loppet (its fundraiser) with no date. /the-trail and /location answered 404. Staged until the City's or county's page can be read."
+      "notes": "Read 10 October 2026. Home page reads 200 but gives no manager, length, surface, trailheads, parking or contact; links a Grooming Updates page and the Leadville Loppet (its fundraiser) with no date. /the-trail and /location answered 404. Staged until the City's or county's page can be read. Looked at again 10 November 2026: the site is Squarespace at www.mineralbelttrail.com; the home page describes the Leadville Loppet as its main fundraiser and links registration at leadvilleloppet.itsyourrace.com, with no date for 2027 on the page; /leadville-loppet is now a 404. The registration host's robots.txt names ClaudeBot, anthropic-ai and Claude-Web with 'Disallow: /' and answered one request with a Cloudflare block page, so the date was not read. Search results describe the race as a Saturday in February starting at Colorado Mountain College; not confirmed for 2027. No events page, no feed."
     },
     {
       "id": "historycolorado-org-healy-house",
@@ -169,7 +169,7 @@
       "category": "venue",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Read 10 October 2026. leadville-train.com redirects (302) here. Home page: 326 E 7th St, 866-386-3936; 'Daily trips from Memorial Day weekend through September. October-April we run weekly rides.' Oktoberfest rides all October, Holiday Express 2026-27 tickets on sale with rides from November 2026, summer 2027 tickets late October 2026. Departure times and fares only on the booking calendar; no dated events."
+      "notes": "Read 10 October 2026. leadville-train.com redirects (302) here. Home page: 326 E 7th St, 866-386-3936; 'Daily trips from Memorial Day weekend through September. October-April we run weekly rides.' Oktoberfest rides all October, Holiday Express 2026-27 tickets on sale with rides from November 2026, summer 2027 tickets late October 2026. Departure times and fares only on the booking calendar; no dated events. Looked at again 10 November 2026 for a feed: none. /special-events-on-the-leadville-railroad/ (200) is the page that changes: Sweetheart Train Ride (13 to 15 February, 1:30 and 4:30 pm), St Patrick's Day Train Ride (17 March, 1:30 pm), Easter Express (28 March, 1:30 pm), Wildflower Special and Devils Tail BBQ Special dates in July to September, all without a year under a '2026 - 2027 season' banner. /train-rides/holidayexpress/ says only 'Starting November 14th 2026', from $80; the departure days are in the FareHarbor booking calendar (fareharbor.com/embeds/book/leadvillerailroad), which was not fetched. /wp-json/tribe/events/v1/events is 404. robots.txt disallows only /wp-admin/. Nothing new in 10 November to 10 December beyond the Holiday Express the guide has."
     },
     {
       "id": "mininghalloffame-org",
@@ -217,7 +217,7 @@
       "category": "venue",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Read 10 October 2026. taboroperahouse.net redirects (301) to www.taboroperahouse.org, which answered 503 to WebFetch and whose TLS certificate does not match the www name for curl; the bare https://taboroperahouse.org/ reads fine. Home page: 308 Harrison Ave, PO Box 1004, (719) 486-8409, no hours or tour times. /events/calendar listed, without years (2026 inferred from the site's 2026 copyright and matching weekdays): October Historic Tours Oct 2-18 (no times or price, not published); Actually It Is Rocket Science Sat Oct 10, 7 pm (today, not published); The Addams Family Musical Oct 22-24 (date range only, published as whole days); Beetlejuice Fri Oct 30, 7 pm and The Nightmare Before Christmas Sun Nov 1, 3:30 pm (published). Tickets via a getcuebox.com box office; no prices on the calendar. Checked 10 November 2026 for a feed: none. /events/calendar is a calendar built into the page from the CueBox box office (taboroperahouse.app.getcuebox.com/o/99P7SYB1); the only feed the page advertises is the site's blog RSS (/feed). Stays a page to read."
+      "notes": "Read 10 October 2026. taboroperahouse.net redirects (301) to www.taboroperahouse.org, which answered 503 to WebFetch and whose TLS certificate does not match the www name for curl; the bare https://taboroperahouse.org/ reads fine. Home page: 308 Harrison Ave, PO Box 1004, (719) 486-8409, no hours or tour times. /events/calendar listed, without years (2026 inferred from the site's 2026 copyright and matching weekdays): October Historic Tours Oct 2-18 (no times or price, not published); Actually It Is Rocket Science Sat Oct 10, 7 pm (today, not published); The Addams Family Musical Oct 22-24 (date range only, published as whole days); Beetlejuice Fri Oct 30, 7 pm and The Nightmare Before Christmas Sun Nov 1, 3:30 pm (published). Tickets via a getcuebox.com box office; no prices on the calendar. Checked 10 November 2026 for a feed: none. /events/calendar is a calendar built into the page from the CueBox box office (taboroperahouse.app.getcuebox.com/o/99P7SYB1); the only feed the page advertises is the site's blog RSS (/feed). Stays a page to read. Second look 10 November 2026: the site now carries The Events Calendar plugin (the home page advertises /all-events/?ical=1 and /wp-json/tribe/events/v1/), but it is empty: the REST address answered 200 with 0 events and the iCal address an empty body, so the shows are still only in the CueBox list on /events/calendar. That list held one event on 10 November, Toddies for the Tabor (Thursday 3 December 2026, 5 pm, a fundraiser), which the guide already has; 1 worth a row in 10 November to 10 December and no regulars. robots.txt answered 200 with an empty body, so nothing is disallowed. If the opera house starts entering shows in the plugin, the REST address becomes its feed."
     },
     {
       "id": "leadvilleherald-com",
@@ -327,7 +327,115 @@
       "category": "other",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Read 10 October 2026. Answers 200 but the page renders in the browser: WebFetch saw only the title and the raw HTML's visible text was empty apart from a placeholder phone (555) 555-5555. No address, hours or phone read; nothing published or staged. Needs a browser or a call."
+      "notes": "Read 10 October 2026. Answers 200 but the page renders in the browser: WebFetch saw only the title and the raw HTML's visible text was empty apart from a placeholder phone (555) 555-5555. No address, hours or phone read; nothing published or staged. Needs a browser or a call. Read in a browser 10 November 2026 (robots.txt allows the site, Crawl-delay 5): a Square Online site that fills in after load. It gives 101 Harrison Ave, Leadville, (719) 293-2766, and hours Thursday 3 to 9 pm, Friday to Sunday 11 am to 9 pm, closed Monday to Wednesday. Its only pages are Home, Menus and Gift Cards: no events or music page, no calendar embed, no feed. Nothing to count; if the brewery books anything it is not on this site."
+    },
+    {
+      "id": "c4leadville-org",
+      "name": "Cloud City Conservation Center (C4 events)",
+      "url": "https://www.c4leadville.org/c4events",
+      "feedUrl": "https://www.c4leadville.org/c4events",
+      "type": "squarespace",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Office Hours"
+      ],
+      "notes": "Found and read 10 November 2026. The Leadville conservation nonprofit that runs Cloud City Farm (its own posts give 440 McWethy Drive, Leadville, for the farm's plant sale) and the winter farm markets the tourism calendar lists. The site is Squarespace; /c4events is an events collection whose page (200) listed 8 upcoming items: 'Energy Assistance Office Hours at Full Circle' every Wednesday at 1 pm (115 East 7th Street; 11, 18 and 25 November, 2, 9 and 16 December), Climate & Coffee: Mountain Energy Project (Thursday 19 November 2026, 8 am, Leadville/Lake County Visitor Center, 460 Harrison Avenue) and the Lideres Latinx Annual Posada (Saturday 12 December 2026, 5:30 pm, no street address given). In 10 November to 10 December: 1 worth a row (Climate & Coffee), 5 office-hours sessions that are a service, not an event; the Posada falls two days after. /events and /farm-events are empty collections now; the farm markets and plant sales appear there in season. robots.txt names ClaudeBot and anthropic-ai only in the general group (no 'Disallow: /') and disallows ?format=json and ?format=ical for every agent, so there is no feed ingest may read; the JSON view was fetched before that line was noticed (see the report) and showed the same 8 items. Suggested exclusion: 'Office Hours'. A page to read, about 1 to 3 public items a month, more in the growing season. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 8 items (Climate & Coffee 19 Nov, the Posada 12 Dec; 6 office-hours sessions the exclusion drops) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
+    },
+    {
+      "id": "tennesseepass-com",
+      "name": "Tennessee Pass Nordic Center and Cookhouse (public events)",
+      "url": "https://www.tennesseepass.com/public-events/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The Nordic center, Cookhouse and sleep yurts at the foot of Ski Cooper; the site gives 'E. Tennessee Rd., Leadville, CO 80461', Nordic Center 719-486-1750, Cookhouse 719-486-8114. /public-events/ (200) still shows last winter's list: Full Moon Ski nights with a 6 pm group ski (3 January, 31 January and 28 February 2026, each with its own theme: Apres '26, Acoustic Night, Ramen & Sauna Night, free and open to the public) and a Wild West Carnival & Paintball Biathlon (8 March 2026). It names three annual events without dates: the Pedal Power Snowshoe Race (early December), the Tennessee Pass Night Jam fat bike race (January; Cloud City Wheelers' calendar has it on 6 February 2027) and the Bill Koch biathlon and Nordic race (first weekend of March). Nothing dated 10 November to 10 December 2026; this winter's dates had not been posted. The site is WordPress with The Events Calendar, but /wp-json/tribe/events/v1/events answered 200 with 0 events, so the list is hand-written on the page. robots.txt disallows '/*?' for every agent (which covers /events/?ical=1; not fetched) and sets Crawl-delay 3. A page to read from December; expect 4 or 5 one-off evenings a season."
+    },
+    {
+      "id": "cloudcitywheelers-com",
+      "name": "Cloud City Wheelers (events calendar and Winter Bike Series)",
+      "url": "https://www.cloudcitywheelers.com/events-calendar",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Tuesday Night Adult Ride",
+        "Thursday Night Ladies Ride",
+        "Board meeting"
+      ],
+      "notes": "Found and read 10 November 2026. Leadville's mountain bike club ('Leadville, Colorado' in its header; its rides meet at Cycles of Life, 309 Harrison Avenue). /events-calendar (200) is a list built into the page with upcoming and past events. Upcoming, all the 2027 Winter Bike Series: Colorado Cup (16 January 2027, 10 am, Leadville, start to be announced), Tennessee Pass Night Jam (6 February, 6:15 pm, Tennessee Pass), Mineral Belt Mayhem (6 March, 6:15 pm, Harrison Avenue at Cycles of Life), Fatty Patty 50K (20 March, 8 and 9 am, Colorado Mountain College) and East Side Epic (3 April, 9 am, East 7th and Ash). Nothing dated 10 November to 10 December 2026. The past list shows what summer holds: weekly Tuesday and Thursday group rides (regulars), Treads for Trails (3 October 2026), Bike Your Park (4 October), a Ritual Film Tour night at the Tabor Opera House (13 August). No feed: no iCal or RSS link on the page, and ?format=json returns the same HTML. robots.txt: 'Allow: /'. A page to read; 5 races from January to April, then a few one-offs a month in summer."
+    },
+    {
+      "id": "alpineorchestra-org",
+      "name": "Alpine Orchestra (concert dates)",
+      "url": "https://alpineorchestra.org/next_concerts.html",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The community orchestra 'for the Upper Arkansas Valley, serving Leadville, Salida and Buena Vista'; it plays each program once in each town, and the tourism calendar puts the Leadville night at The Old Church. /next_concerts.html (200), a hand-written page: Fall 2026 series, Leadville Friday 13 November 2026, 7 pm; Salida Saturday 14 November, 7 pm; Buena Vista Sunday 15 November, 3 pm; Spring 2027 on 16, 17 and 18 April 2027 (towns not yet assigned). 1 worth a row in 10 November to 10 December (13 November, which the guide already has from the tourism feed); the Salida and Buena Vista nights are not Leadville's. Venues are on /concert_locations.html, not read. No feed; no robots.txt (404). Two Leadville dates a year: the page to confirm them on."
+    },
+    {
+      "id": "leadvilleskijoring-com",
+      "name": "Leadville Ski Joring",
+      "url": "https://www.leadvilleskijoring.com/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The organizers' own site (Wix) for the ski joring weekend on Harrison Avenue. The home page title and banner give 'March 6th & 7th, 2027, 79th Annual'. Nothing in 10 November to 10 December 2026; one weekend a year, and the Crystal Carnival events around it come through the tourism calendar. No feed, no events list. robots.txt: 'Allow: /' (disallows only ?lightbox=). leadvilleskijoring.us is not this site: it redirects to an unrelated domain."
+    },
+    {
+      "id": "eventbrite-com-leadville",
+      "name": "Eventbrite, events in Leadville",
+      "url": "https://www.eventbrite.com/d/co--leadville/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--leadville/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "confirmed",
+      "robots": "honor",
+      "locationFilter": [
+        "Leadville, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education",
+        "Training",
+        "Tactical",
+        "Republican",
+        "Democrat",
+        "Conservatives",
+        "Entrepreneurs",
+        "CEO Retreat",
+        "Boss Babes",
+        "Foodies + New Friends",
+        "Scavenger Hunt",
+        "Random Acts of Kindness Spree",
+        "Neck Pain",
+        "Pelvic",
+        "Menopause",
+        "Acupuncture",
+        "Color Analysis",
+        "Workout Class",
+        "Espresso Machine Demo",
+        "Home Studio",
+        "ISSA",
+        "WTS ",
+        "Reignite Live",
+        "^HELD$"
+      ],
+      "autoApprove": true,
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Leadville, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Leadville. Read that day: 98 events in five pages, 0 of them in town. Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home."
     }
   ]
 }
