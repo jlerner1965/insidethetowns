@@ -9606,3 +9606,34 @@ before. Without script the build's day shows. Two days ahead covers a
 night's rebuild that starts late or is dropped. A quiet day still says
 "Nothing listed for today": that line is a fact about the guide when it is
 true, and it was not.
+
+## More event sources for the thin guides, 10 November 2026
+
+The owner asked for more event sources: some guides, Niwot among them,
+are thin. Over the next fourteen days Leadville had 4 listings, Frederick
+and Timnath 5, Nederland 6, Elizabeth 8, Castle Rock and Niwot 11, Windsor
+13. The common cause is that ingest reads only feeds (ical, rss, json) and
+most of these guides' sources are pages a person reads; Leadville had 19
+sources and none confirmed.
+
+Every source in those eight registries was checked for a feed, and each
+town was searched for sources it lacked. What was found is on the entries'
+`notes`, with the count of the next thirty days and the exclusions each
+would need.
+
+- **Nothing was switched on.** Every new entry is `proposed`, and no
+  status changed. Four sources that were already confirmed turned out to
+  have a feed (the Nederland library, the Clearview library's Severance
+  branch, Severance High, the Town of Castle Rock); each keeps its `manual`
+  or `html` type with the feed in `feedUrl`, because typing a confirmed
+  entry `ical` or `rss` starts ingest reading it. The owner turns each on.
+- **Feeds behind a robots rule** (Google Calendar, Tockify, CivicPlus's
+  calendar paths, one site's `Disallow: /*?`) need the editor's
+  `robots: subscribe`, as Windsor's recreation feed did on 29 October.
+- **What ingest cannot read yet**: Squarespace event collections (Timnath
+  Beerwerks, about 13 a month; The Wheel House in Niwot), ChamberMaster's
+  RSS (the Windsor chamber), and an Events Calendar site whose time zone is
+  "UTC+0" (the Nederland seniors).
+- **Niwot has little left to find**: Inkberry Books by hand, one Rotary
+  item a month. The Gunbarrel library's feed is recorded but is not in
+  Niwot.
