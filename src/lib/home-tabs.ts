@@ -180,6 +180,35 @@ export function homeTabs(days: readonly WeekDay[], now = new Date(), limit = TAB
   ];
 }
 
+/**
+ * How many days after the build's the home page carries its tabs for. The
+ * page is built at about 4 am and read until the next build, so from
+ * midnight "Today" held yesterday's rows, every one already taken off by the
+ * browser, and every guide read "Nothing listed for today" with today's
+ * listings sitting under Tomorrow (the owner's screenshot of Leadville, 10
+ * November 2026, 1:39 am, on a page built on the 9th). So the tabs are built
+ * once for the build's day and once for each of the next TAB_DAYS_AHEAD, and
+ * the browser shows the set made for the reader's own Denver date
+ * (`asOfFor` in src/lib/relative-days.ts). Two days ahead covers a night's
+ * rebuild that GitHub starts late or drops.
+ */
+export const TAB_DAYS_AHEAD = 2;
+
+/** The three tabs as they read on one Denver day. */
+export interface TabEdition {
+  /** "2026-11-10": the day this set's Today is. */
+  asOf: string;
+  tabs: HomeTab[];
+}
+
+/** The tabs for the build's day and each of the next `ahead`: `build` is given the moment to read from (now, then each following midnight). */
+export function tabEditions(build: (asOf: Date) => HomeTab[], now = new Date(), ahead = TAB_DAYS_AHEAD): TabEdition[] {
+  return Array.from({ length: ahead + 1 }, (_, i) => {
+    const asOf = i === 0 ? now : addDays(startOfDay(now), i);
+    return { asOf: dayKey(asOf), tabs: build(asOf) };
+  });
+}
+
 /** How far ahead, in days, the "Don't miss" card looks for a featured listing. */
 export const DONT_MISS_DAYS = 21;
 

@@ -5,7 +5,8 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, NEXT_LIMIT, nextAfter, nextRank, pickRows, TAB_LIMIT } from '../src/lib/home-tabs.ts';
+import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, NEXT_LIMIT, nextAfter, nextRank, pickRows, TAB_DAYS_AHEAD, TAB_LIMIT, tabEditions } from '../src/lib/home-tabs.ts';
+import { asOfFor } from '../src/lib/relative-days.ts';
 import { weekDays } from '../src/lib/flagship-home.ts';
 import { parseLocal } from '../src/lib/dates.ts';
 
@@ -205,4 +206,21 @@ test('a game on the tabs names the school and says home or away where no venue d
   assert.equal(game.where, 'Home');
   // The week the email and the events page read is not changed.
   assert.equal(days.flatMap((d) => d.items).find((i) => i.kind === 'game')!.title, 'Volleyball vs Fruita Monument');
+});
+
+test('the tabs are built for the build’s day and the two after, and the reader’s day picks the set: Leadville at 1:39 am on a page built the day before', () => {
+  // Built on Monday 9 November; read early on Tuesday the 10th. "Today" was
+  // Monday's rows, all pruned, and Tuesday's listing sat under Tomorrow.
+  const now = at('2026-11-09T04:10');
+  const events = [ev('monday-talk', '2026-11-09T18:00'), ev('tuesday-council', '2026-11-10T18:00'), ev('wednesday-parade', '2026-11-11T10:00')];
+  const editions = tabEditions((asOf) => homeTabs(weekDays({ events, now: asOf, start: 'today', limit: 99 }), asOf), now);
+  assert.deepEqual(editions.map((e) => e.asOf), ['2026-11-09', '2026-11-10', '2026-11-11']);
+  assert.equal(editions.length, TAB_DAYS_AHEAD + 1);
+  const today = (asOf: string) => editions.find((e) => e.asOf === asOf)!.tabs[0]!.rows.map((r) => r.fullTitle);
+  const keys = editions.map((e) => e.asOf);
+  assert.deepEqual(today(asOfFor(keys, '2026-11-09')!), ['monday-talk']);
+  assert.deepEqual(today(asOfFor(keys, '2026-11-10')!), ['tuesday-council'], 'after midnight, Today is Tuesday');
+  assert.deepEqual(editions[1]!.tabs[1]!.rows.map((r) => r.fullTitle), ['wednesday-parade'], 'and Tomorrow is Wednesday');
+  assert.equal(asOfFor(keys, '2026-11-14'), '2026-11-11', 'a build older than its sets shows the last, which the pruning empties');
+  assert.equal(asOfFor(keys, '2026-11-08'), '2026-11-09', 'a clock behind the build shows the build’s day');
 });

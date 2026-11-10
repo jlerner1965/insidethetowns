@@ -43,3 +43,15 @@ export function relabelDays(nodes: Iterable<RelabelNode>, today: string): void {
     if (word) node.textContent = word;
   }
 }
+
+/**
+ * Which build of the home page's tabs to show (src/components/home/
+ * WhatsHappening.astro): the one made for the reader's Denver date, else the
+ * latest one made for an earlier day (a build older than its editions: the
+ * pruning empties it and "Next in <Town>" stands in), else the first.
+ */
+export function asOfFor(keys: readonly string[], today: string): string | undefined {
+  if (keys.includes(today)) return today;
+  const earlier = keys.filter((k) => k < today).sort();
+  return earlier[earlier.length - 1] ?? keys[0];
+}
