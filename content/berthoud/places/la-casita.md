@@ -8,7 +8,7 @@ tags: [mexican, tacos, family]
 summary: "The family-run Mexican restaurant on 5th Street, listed as closed while its status is confirmed: Main Street’s directory now lists Osito’s at the address."
 status: closed
 closed: "2026-10-07"
-statusNote: "Listed as closed pending confirmation. Berthoud Main Street’s dining directory no longer lists La Casita and gives 405 5th St as the address of Osito’s, “Berthoud’s newest restaurant”, and the only page carrying La Casita’s menu says online ordering is unavailable (checked October 7, 2026). The phone number La Casita used is now the one Main Street lists for Osito’s (checked November 9, 2026). If La Casita is open elsewhere, tell us."
+statusNote: "Listed as closed pending confirmation. Berthoud Main Street’s dining directory no longer lists La Casita and gives 405 5th St as the address of Osito’s, “Berthoud’s newest restaurant”, and the only page carrying La Casita’s menu says online ordering is unavailable (checked October 7, 2026). The phone number La Casita used is now the one Main Street lists for Osito’s (checked November 9, 2026). [Osito’s](/places/ositos/) has its own listing. If La Casita is open elsewhere, tell us."
 statusSource: "https://berthoudmainstreet.org/dine-drink-berthoud/"
 source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
 verified: "2026-11-09"

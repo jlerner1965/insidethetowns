@@ -1,5 +1,6 @@
 ---
 title: "Holiday Card Art Contest: artwork due"
+formerSlugs: [holiday-card-art-contest-deadline-2026-11-07]
 start: "2026-11-14"
 allDay: true
 venue: "Berthoud Historical Society"
