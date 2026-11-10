@@ -6,7 +6,7 @@ venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
 category: family
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tween Book-to-Movie Club! (Fall Session)\" at 3 pm on 17 November on the lyons.librarycalendar.com feed"
 ---
 

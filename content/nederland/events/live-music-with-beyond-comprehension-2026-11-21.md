@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Beyond Comprehension", kind: group }
 source: "https://www.verynicebrewing.com/event-details/live-music-with-beyond-comprehension-7"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Beyond Comprehension\" at 5 pm on 21 November in the page's structured data"
 ---
 

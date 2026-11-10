@@ -14,8 +14,8 @@ category: market
 organizer: "Applewood Arts Festivals"
 organizerUrl: "https://www.applewoodfestivals.com/"
 source: "https://www.treventscomplex.com/events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against The Ranch Events Complex's events list, 1 November 2026: Applewood Arts Festivals - Holiday, Nov 20-22, 2026, Pedersen Toyota Center; hours and admission not shown on the list"
+verified: "2026-11-10"
+verifiedBy: "recheck-events (the nightly re-check workflow): 20 November on the page"
 ---
 
 The holiday edition of the Applewood Arts Festival, a juried indoor show of artists and craftspeople, at the Pedersen Toyota Center at The Ranch, Friday to Sunday, November 20 to 22. Daily hours and admission were not on The Ranch's listing on November 1; see the organizer's ticket page.

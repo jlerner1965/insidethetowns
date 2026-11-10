@@ -12,7 +12,7 @@ organizerUrl: "https://castlerock.org/"
 source: "https://castlerock.org/castle-rock-starlighting/"
 sourceId: "castlerock-org"
 timeNote: "2 to 6 pm; ceremony 5 pm, star lit about 5:30 pm, then fireworks"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 2 pm on the page"
 ---
 

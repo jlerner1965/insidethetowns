@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/astronomy-inside-the-asteroid-belt/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004402-1794587400-1794596400@bouldercounty.gov"
 sourceHash: "4a103ae94d74"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Astronomy: Inside the Asteroid Belt\" at 4:30 pm on 13 November on the Boulder County feed"
 ---
 

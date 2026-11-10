@@ -12,7 +12,7 @@ category: market
 organizer: "Vintage Market Days of Northern Colorado"
 organizerUrl: "https://events.humanitix.com/vintage-market-days-r-northern-colorado-rocking-around-the-christmas-tree/tickets"
 source: "https://www.treventscomplex.com/events"
-verified: "2026-11-04"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): 13 November on the page"
 ---
 

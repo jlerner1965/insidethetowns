@@ -7,7 +7,7 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Second Wednesdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Economic Vitality Commission - Town of Lyons\" at 8:30 am on 11 November on the lyons.librarycalendar.com feed"
 ---
 

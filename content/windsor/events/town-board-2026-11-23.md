@@ -11,7 +11,8 @@ recurring: "Second and fourth Mondays at 7 pm"
 organizer: "Town of Windsor"
 organizerUrl: "https://www.windsorco.gov/"
 source: "https://www.windsorco.gov/81/Town-Board"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Town Board Regular Meeting\" at 7 pm on 23 November on the Town of Windsor: town events feed"
 ---
 
 Regular meeting of the Windsor Town Board, the mayor and six district board members, in the board chambers at Town Hall on Walnut Street, second and fourth Mondays at 7 pm. To speak during Public Invited to be Heard or a public hearing, sign the form in the chambers foyer before the meeting starts; written comments go to the Town Clerk beforehand. Packets are posted on the agendas page the Friday before, and the meeting streams live on WindsorTV. Written from the Town's stated schedule.

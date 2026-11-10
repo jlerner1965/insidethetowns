@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17872968"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17872968"
 sourceHash: "b393caf1919a"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tween/Teen: Hydro Dip Tumbler\" at 10:30 am on 21 November on the Estes Valley Library feed"
 ---
 
