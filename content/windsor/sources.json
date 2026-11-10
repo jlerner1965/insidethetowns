@@ -83,7 +83,7 @@
     {
       "id": "business-windsorchamber-net",
       "subTown": "windsor",
-      "name": "Windsor Area Chamber of Commerce: Events Calendar",
+      "name": "business.windsorchamber.net",
       "url": "https://business.windsorchamber.net/events",
       "feedUrl": "https://business.windsorchamber.net/feed/rss/UpcomingEvents.rss",
       "sampleUrl": "https://business.windsorchamber.net/events/details/fall-craft-fair-by-eagle-s-peak-16898",
@@ -149,7 +149,7 @@
     {
       "id": "clearview-libnet-info",
       "subTown": "windsor",
-      "name": "Clearview Library District: Events (Windsor Library)",
+      "name": "clearview.libnet.info",
       "url": "https://clearview.libnet.info/events",
       "feedUrl": "https://clearview.libnet.info/feeds?data=eyJmZWVkVHlwZSI6ImljYWwiLCJmaWx0ZXJzIjp7ImxvY2F0aW9uIjpbImFsbCJdLCJhZ2VzIjpbImFsbCJdLCJ0eXBlcyI6WyJhbGwiXSwidGFncyI6W10sInRlcm0iOiIiLCJkYXlzIjoxfX0=",
       "sampleUrl": "https://clearview.libnet.info/event/17686732",
@@ -328,7 +328,7 @@
     {
       "id": "highhopsbrewery-com",
       "subTown": "windsor",
-      "name": "High Hops Brewery: Events",
+      "name": "highhopsbrewery.com",
       "url": "https://www.highhopsbrewery.com/events-2",
       "sampleUrl": "https://www.highhopsbrewery.com/events-2",
       "type": "html",
@@ -362,7 +362,7 @@
     {
       "id": "tockify-com",
       "subTown": "windsor",
-      "name": "Mighty River Brewing: events calendar (Tockify)",
+      "name": "tockify.com",
       "url": "https://tockify.com/mighty.river.brewing",
       "feedUrl": "https://tockify.com/api/feeds/ics/mighty.river.brewing",
       "sampleUrl": "https://tockify.com/mighty.river.brewing/detail/1870/1791680400000",
