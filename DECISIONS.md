@@ -10208,3 +10208,15 @@ week's picks.
   with the outings, so it is never the row a full tab leaves out).
 - **The days stay in date order.** A Saturday listing leads Saturday, after
   Friday's; a weekend list out of date order reads as a mistake.
+
+## Move & Meet NoCo made a "Don't miss", 10 November 2026
+
+The same day, the owner went further: make the wellness social "a don't
+miss event; it is what the towns are about: social, community, meet
+people". The listing is now `featured` as well as `topOfDay`, so it has
+the Loveland home page's "Don't miss" card until the day and joins the
+week's picks. This replaces "first on the weekend, and nothing more"
+above; `topOfDay` stays, so it still leads its Saturday. The listing's
+first sentence, which the card shows, now leads with meeting people. The
+card has no photograph (neither the listing nor The Love Shack's place
+has one); a photograph from the organizer has been asked for.
