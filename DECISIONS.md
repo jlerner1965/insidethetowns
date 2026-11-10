@@ -10007,3 +10007,23 @@ people search for.
 - **For the small towns the organizer's page is the better source**: one
   organizer, their own events, publishable like a venue's feed. None is
   registered yet; each is found by reading the place pages by hand.
+
+## Eventbrite turned on for every guide, 10 November 2026
+
+Told what the Eventbrite reader found and that Eventbrite's terms restrict
+automated collection while its robots.txt allows the pages, the owner said
+to use Eventbrite for all towns as well.
+
+- **Nineteen place sources confirmed and read**, five pages each, one page
+  every two seconds. **126 events staged**: Fort Collins 53, Loveland 23,
+  Longmont 12, Windsor 10, Castle Rock 9, Estes Park 5, Lafayette 5,
+  Frederick 2, Lyons 2, and one each in Berthoud, Elizabeth, Golden,
+  Johnstown and Timnath; none in Erie, Leadville, Nederland, Niwot or
+  Severance.
+- **Nothing published.** Each source is filed as other, a board that
+  lists others' events, so every item waits for `npm run review`. The
+  unattended review was not run for these guides. `autoApprove` is not set
+  on any of them; that is the owner's word, source by source.
+- **The small towns get little from a place page**, because it is the
+  region's search and their events are spread through its 49 pages. An
+  organizer's page for each local organizer is the next step there.
