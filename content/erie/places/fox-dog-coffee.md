@@ -7,6 +7,8 @@ url: "https://www.foxdogcoffee.com/"
 phone: "(720) 378-8628"
 hours: "Daily 7 am–4 pm"
 priceRange: "$"
+image: ../images/fox-dog-coffee-patio.jpg
+imageAlt: "The FOX•DOG Coffee sign over its patio on Briggs Street, umbrellas over wooden benches and blue planters topped with pumpkins"
 tags: [coffee]
 featured: true
 summary: "Family-owned independent coffee shop at Briggs and Moffat, with espresso drinks."

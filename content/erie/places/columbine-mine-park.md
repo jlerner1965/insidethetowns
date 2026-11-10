@@ -5,6 +5,8 @@ address: "1936 Skyline Dr"
 area: "Skyline Drive"
 url: "https://www.erieco.gov/2311/Columbine-Mine-Park"
 hours: "Open daily, sunrise to sunset"
+image: ../images/columbine-mine-park-sign.jpg
+imageAlt: "The Town of Erie sign for Columbine Mine Park on Skyline Drive, in a bed of river rock with the park's lawn and bare trees behind it"
 tags: [pickleball, ballfield, no playground]
 summary: "A 9.2-acre park on Skyline Drive with four outdoor pickleball courts for drop-in play or reservations, a ballfield, a multi-purpose field and a shelter. No playground."
 source: "https://www.erieco.gov/2311/Columbine-Mine-Park"
