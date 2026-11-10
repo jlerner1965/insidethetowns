@@ -142,6 +142,7 @@ const GRANTS: Array<[RegExp, string]> = [
   [/^Courtesy of CyclErie/, 'CyclErie'],
   [/^Courtesy of Creative Grounds/, 'Creative Grounds'],
   [/^Courtesy of Golden Hour Pilates/, 'Golden Hour Pilates'],
+  [/^Courtesy of Move & Meet NoCo/, 'Move & Meet NoCo'],
 ];
 
 export function publicCredit(row: LedgerRow): PublicCredit {

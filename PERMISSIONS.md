@@ -429,6 +429,38 @@ enlarged. All three are re-saved with the EXIF dropped.
 
 ---
 
+## Move & Meet NoCo — the Wellness Social flyer
+
+**Granted** to the owner by **Move & Meet NoCo**, the organizer of the
+Wellness Social at The Love Shack, Loveland, 21 November 2026, in answer
+to the owner's email of 10 November 2026 asking for a picture for the
+listing's "Don't miss" card. The request named the use (the event page,
+the home page card and the weekly email) and the credit ("Photo: Move &
+Meet NoCo"), and asked the organizer to confirm the picture was theirs to
+share. The owner passed the flyer on the same day with the words:
+
+> permision given
+
+**The organizer's own wording is not recorded here yet.** This entry rests
+on the owner's report; their reply belongs in this section verbatim when
+the owner forwards it.
+
+| | |
+|---|---|
+| **Scope** | The flyer, for this listing on Inside Loveland: the event page, the home page's "Don't miss" card and the weekly email |
+| **Not covered** | Other guides in the network, and any later event of theirs |
+| **Credit** | "Move & Meet NoCo", as the request offered |
+| **Standing** | For this event; the listing comes off the site after 21 November and the picture with it |
+| **Contact** | Through the owner's email thread with the organizer; their ticket page is sweatpals.com/event/wellness-social-party/2026-11-21 |
+
+The picture is the organizer's own flyer: lettering over an out-of-focus
+photograph of The Love Shack's bar room, with no people in it. It carries
+The Love Shack's and SPENGA's marks as the event's venue and workout
+partner. It is used as sent, 1333 × 2000 WebP, with no EXIF to drop; the
+cards crop it to fit, the image itself is not edited.
+
+---
+
 ## Stock licences — bought photographs
 
 `docs/HERO-PHOTOS.md` is the list of heroes worth buying.

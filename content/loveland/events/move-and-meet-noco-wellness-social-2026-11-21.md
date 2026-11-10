@@ -7,6 +7,9 @@ address: "120 E 4th St, Loveland, CO 80537"
 url: "https://sweatpals.com/event/wellness-social-party/2026-11-21"
 cost: "$25 social only; $30 with the workout. Each ticket includes one mocktail or coffee"
 category: other
+image: ../images/move-and-meet-noco-wellness-social.webp
+imageAlt: "The organizer's flyer for The Wellness Social: Move & Meet NoCo at The Love Shack, Loveland; strength workout, coffee, mocktails, wellness experiences and a DJ; featuring SPENGA; November 21, 11 am to 1 pm. Behind the lettering, the Love Shack's bar room, out of focus, with yellow stools and purple light"
+imageCredit: "Move & Meet NoCo"
 featured: true
 topOfDay: true
 source: "https://sweatpals.com/event/wellness-social-party/2026-11-21"
