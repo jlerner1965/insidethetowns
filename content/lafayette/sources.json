@@ -337,7 +337,7 @@
       "type": "json",
       "category": "venue",
       "priority": "other",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "excludeTitles": [
         "Master Class"
@@ -345,7 +345,7 @@
       "locationFilter": [
         "Lafayette"
       ],
-      "notes": "Found and read 10 November 2026. 200 E Baseline Rd, Lafayette, CO 80026 (the venue record in the feed). A nonprofit community music school; comusic.org is an older Squarespace front that links here. WordPress with The Events Calendar; the REST route answered 200 with 12 upcoming items, time zone America/Denver, each with a venue. 2 are dated 10 November to 10 December 2026: Bade Dastan, violin, and Mark Livshits, piano, in the 2026-27 Concert Series (Fri Nov 13, 7:30 pm), worth a row, and the CMA Student Open Recital (Sun Nov 15, 5 pm), which the editor may or may not want. No regulars. Just after the window the feed has five concerts in one week (Rocky Mountain Concert Band, Dec 13, at Atonement Lutheran Church in Boulder, which the location filter keeps out; two Monday Jazz Combo concerts Dec 14; the Advanced Jazz Ensemble Dec 16; the Rocky Mountain Big Band Dec 17), then the concert series monthly to April 2027. robots.txt has an empty Disallow and a 10 second crawl delay, so the feed is allowed; two requests were made ten seconds apart. Exclusion suggested: Master Class."
+      "notes": "Found and read 10 November 2026. 200 E Baseline Rd, Lafayette, CO 80026 (the venue record in the feed). A nonprofit community music school; comusic.org is an older Squarespace front that links here. WordPress with The Events Calendar; the REST route answered 200 with 12 upcoming items, time zone America/Denver, each with a venue. 2 are dated 10 November to 10 December 2026: Bade Dastan, violin, and Mark Livshits, piano, in the 2026-27 Concert Series (Fri Nov 13, 7:30 pm), worth a row, and the CMA Student Open Recital (Sun Nov 15, 5 pm), which the editor may or may not want. No regulars. Just after the window the feed has five concerts in one week (Rocky Mountain Concert Band, Dec 13, at Atonement Lutheran Church in Boulder, which the location filter keeps out; two Monday Jazz Combo concerts Dec 14; the Advanced Jazz Ensemble Dec 16; the Rocky Mountain Big Band Dec 17), then the concert series monthly to April 2027. robots.txt has an empty Disallow and a 10 second crawl delay, so the feed is allowed; two requests were made ten seconds apart. Exclusion suggested: Master Class. Confirmed 10 November 2026 on the owner's word (\"Go 1 to 3\", DECISIONS.md, \"Twenty-four sources turned on\"): the feed is one robots.txt allows, so it is read under honor."
     },
     {
       "id": "particularsart-com",

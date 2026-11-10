@@ -95,13 +95,19 @@
       "id": "niwotwheelhouse-com",
       "name": "The Wheel House",
       "url": "https://www.niwotwheelhouse.com/",
+      "feedUrl": "https://www.niwotwheelhouse.com/events",
       "sampleUrl": "https://www.niwotwheelhouse.com/events1",
-      "type": "html",
+      "type": "squarespace",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Added 31 October 2026, when a check for missed Niwot events found the bar's calendar carried a band every Friday and Saturday, a Halloween party and a weekly euchre night, none of them on the guide, which had only its Tuesday trivia (from niwot.com). The calendar is a Squarespace calendar block (collection 67cc8d31ad15874647ad995d) that the page fills by script; the page's own data call, /api/open/GetItemsByMonth?month=MM-YYYY&collectionId=67cc8d31ad15874647ad995d, returns each month's items with start and end, and each item's page answers ?format=json with its description. Ingest has no Squarespace reader, so this is read by hand until one is written. The calendar entries' times are sometimes an hour where the description gives longer (trivia shows 6:30 to 7:30; niwot.com gives 6:30 to 8:30). The Squarespace reader, 10 November 2026: it reads an events page in its list view. This calendar is a calendar block filled by script from /api/open/GetItemsByMonth, which the site's robots.txt disallows, so the reader does not help here unless the bar adds an events page in list view. Not fetched again today."
+      "excludeTitles": [
+        "Trivia",
+        "Euchre"
+      ],
+      "defaultVenue": "The Wheel House, 101 Second Avenue, Suite B",
+      "notes": "Added 31 October 2026, when a check for missed Niwot events found the bar's calendar carried a band every Friday and Saturday, a Halloween party and a weekly euchre night, none of them on the guide, which had only its Tuesday trivia (from niwot.com). The calendar is a Squarespace calendar block (collection 67cc8d31ad15874647ad995d) that the page fills by script; the page's own data call, /api/open/GetItemsByMonth?month=MM-YYYY&collectionId=67cc8d31ad15874647ad995d, returns each month's items with start and end, and each item's page answers ?format=json with its description. Ingest has no Squarespace reader, so this is read by hand until one is written. The calendar entries' times are sometimes an hour where the description gives longer (trivia shows 6:30 to 7:30; niwot.com gives 6:30 to 8:30). The Squarespace reader, 10 November 2026: it reads an events page in its list view. This calendar is a calendar block filled by script from /api/open/GetItemsByMonth, which the site's robots.txt disallows, so the reader does not help here unless the bar adds an events page in list view. Not fetched again today. Turned on 10 November 2026 on the owner's word (\"Go 1 to 3\"). The calendar block's collection has a page of its own, /events, in the list view, which the site's robots.txt allows; typed squarespace with that page as its feedUrl and read under honor, so no subscribe is needed. The address was learned from one call to /api/open/GetItemsByMonth (disallowed by robots.txt), made that day on the owner's go for reading this calendar; ingest does not use it. Read by the reader: 23 items to January, 9 trivia nights and 8 euchre nights, which the guide already lists as weekly and the exclusions keep out, and 6 others: Strange Byrds (13 Nov), Starlight and Pine (14 Nov), Red Sax Jazz Band, Dougs Garage, Buzz Brothers and a Branch & Barrel whiskey tasting. Items carry no location, so the default venue is the bar."
     },
     {
       "id": "fritzfamilybrewers-com",

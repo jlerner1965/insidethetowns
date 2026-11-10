@@ -285,10 +285,10 @@
       "type": "json",
       "category": "venue",
       "priority": "other",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Listening at the Legion, 850 North St Vrain Ave",
-      "notes": "Found and read 10 November 2026. The feed's venue is 'Listening at the Legion', 850 North St Vrain Ave, which is American Legion Post 119 in Estes Park (esteslegion.org links to this site as 'Listening at the Legion'). WordPress with The Events Calendar and Event Tickets Plus. The REST feed /wp-json/tribe/events/v1/events?start_date=2026-11-10 answered 200 with 7 events, all ticketed concerts by named acts at 6:30 pm, time zone America/Denver. Two are dated 10 November to 10 December 2026 and both are worth a row: Grace Morrison (14 November, free to $20) and Rebecca Folsom Trio Holiday Show (3 December, $20). Then Mark Powell (9 January 2027), Jimmy Buffett Tribute Show (23 January), KALOS Celtic Trio (1 February), Tyller Gummersall (11 February), Luke Winslow-King (3 April). No regulars and nothing to exclude. The iCal /events/?ical=1 also answered 200 with the same 7 VEVENT and is an alternative. robots.txt on legionlisten.com answered 200 with an empty body, so nothing is disallowed. Not fetched: the Legion's own site esteslegion.org (GoDaddy builder) has 'Tavern Live Music' and 'Upcoming Events' pages in its menu, but after the home page every request, robots.txt included, was reset three times, so its tavern music nights were not read."
+      "notes": "Found and read 10 November 2026. The feed's venue is 'Listening at the Legion', 850 North St Vrain Ave, which is American Legion Post 119 in Estes Park (esteslegion.org links to this site as 'Listening at the Legion'). WordPress with The Events Calendar and Event Tickets Plus. The REST feed /wp-json/tribe/events/v1/events?start_date=2026-11-10 answered 200 with 7 events, all ticketed concerts by named acts at 6:30 pm, time zone America/Denver. Two are dated 10 November to 10 December 2026 and both are worth a row: Grace Morrison (14 November, free to $20) and Rebecca Folsom Trio Holiday Show (3 December, $20). Then Mark Powell (9 January 2027), Jimmy Buffett Tribute Show (23 January), KALOS Celtic Trio (1 February), Tyller Gummersall (11 February), Luke Winslow-King (3 April). No regulars and nothing to exclude. The iCal /events/?ical=1 also answered 200 with the same 7 VEVENT and is an alternative. robots.txt on legionlisten.com answered 200 with an empty body, so nothing is disallowed. Not fetched: the Legion's own site esteslegion.org (GoDaddy builder) has 'Tavern Live Music' and 'Upcoming Events' pages in its menu, but after the home page every request, robots.txt included, was reset three times, so its tavern music nights were not read. Confirmed 10 November 2026 on the owner's word (\"Go 1 to 3\", DECISIONS.md, \"Twenty-four sources turned on\"): the feed is one robots.txt allows, so it is read under honor."
     },
     {
       "id": "rockinnestes-com",
@@ -310,7 +310,7 @@
       "type": "ical",
       "category": "other",
       "priority": "other",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "excludeTitles": [
         "After School Club",
@@ -330,9 +330,15 @@
         "SET-UP",
         "Milk, Cookies",
         "Testing",
-        "Conferences"
+        "Conferences",
+        "Board Work Session",
+        "Auditions",
+        "Meeting",
+        "Picture Day",
+        "Meet the Superintendent",
+        "Internet Safety"
       ],
-      "notes": "Found and read 10 November 2026. Every item's LOCATION is a district building in Estes Park (1600 Manford Avenue, the high school; 1500 Manford Avenue; 1505 Brodie Avenue, the elementary). Finalsite site; the calendar page shows calendar id 424 ('Events (publicly viewable)') and the classic Finalsite iCal path /calendar/calendar_424.ics answered 200, text/calendar, 284 VEVENT, no RRULE, 10 June 2026 to 8 May 2027, floating local times with no TZID (check on a first dry run that ingest reads them as Mountain time). 59 items are dated 10 November to 10 December 2026. Worth a row, 6: High School Musical Performance (12, 13 and 14 November, 7 pm, 1600 Manford Avenue), HOSA Vitalant Blood Drive (19 November, 2:30 pm), District Choirs Holiday Concert (9 December; the feed says 8 am, which looks like a school-day performance and wants checking), 5th Grade Music Program (10 December, 5:45 pm). Also an Internet Safety Presentation for parents (17 November). The other 50 or so are regulars or never-list items: Boys & Girls Club After School Club (every school day), Robotics Club, Bobcats on the Run, Young Chautauqua Club, Bobcat GO Day and MAP testing, Board of Education and Sister Cities board meetings, No School/Break, HOPE sessions, and 'Canceled: December Band Concert' (2 December), hence excludeTitles. robots.txt disallows /fs/ and a few named pages; /calendar/calendar_424.ics is not under any disallowed path. Not read: the athletics calendars (ids 426 and 351, mostly away games) and the menus (406, 366), which should stay out. No defaultVenue because the items sit at three schools and carry their own addresses."
+      "notes": "Found and read 10 November 2026. Every item's LOCATION is a district building in Estes Park (1600 Manford Avenue, the high school; 1500 Manford Avenue; 1505 Brodie Avenue, the elementary). Finalsite site; the calendar page shows calendar id 424 ('Events (publicly viewable)') and the classic Finalsite iCal path /calendar/calendar_424.ics answered 200, text/calendar, 284 VEVENT, no RRULE, 10 June 2026 to 8 May 2027, floating local times with no TZID (check on a first dry run that ingest reads them as Mountain time). 59 items are dated 10 November to 10 December 2026. Worth a row, 6: High School Musical Performance (12, 13 and 14 November, 7 pm, 1600 Manford Avenue), HOSA Vitalant Blood Drive (19 November, 2:30 pm), District Choirs Holiday Concert (9 December; the feed says 8 am, which looks like a school-day performance and wants checking), 5th Grade Music Program (10 December, 5:45 pm). Also an Internet Safety Presentation for parents (17 November). The other 50 or so are regulars or never-list items: Boys & Girls Club After School Club (every school day), Robotics Club, Bobcats on the Run, Young Chautauqua Club, Bobcat GO Day and MAP testing, Board of Education and Sister Cities board meetings, No School/Break, HOPE sessions, and 'Canceled: December Band Concert' (2 December), hence excludeTitles. robots.txt disallows /fs/ and a few named pages; /calendar/calendar_424.ics is not under any disallowed path. Not read: the athletics calendars (ids 426 and 351, mostly away games) and the menus (406, 366), which should stay out. No defaultVenue because the items sit at three schools and carry their own addresses. Confirmed 10 November 2026 on the owner's word (\"Go 1 to 3\", DECISIONS.md, \"Twenty-four sources turned on\"): the feed is one robots.txt allows, so it is read under honor. After the dry run of 10 November 2026: 191 items, 26 staged; board sessions, auditions, parent meetings and picture day are now excluded too, leaving the musical and play performances, the concerts and music programs, a puppet show and the blood drives. Filed as other, so its items wait for a person; main's rule files school calendars as venue so they publish, which is the owner's to set here."
     },
     {
       "id": "avantgardealeworks-com",

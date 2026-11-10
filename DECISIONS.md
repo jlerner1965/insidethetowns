@@ -9861,3 +9861,55 @@ would each unlock, the owner said to build Squarespace first.
   Chrispy nights in December where the brewery's page now gives a
   different time from the guide's. Timnath Beerwerks, not read, with the
   reason.
+
+## Twenty-four sources turned on, 10 November 2026
+
+Asked what would move the guides furthest, rules aside, and given three
+steps (confirm the feeds with no robots question; subscribe to the venue
+and downtown calendars; read Timnath Beerwerks and The Wheel House), the
+owner said: go, one to three. Each was confirmed and dry-run; nothing was
+ingested, and the owner is shown what would be staged first.
+
+- **Read under `honor`, sixteen**: Center for Musical Arts (Lafayette);
+  Kuper Wine Bar and St. Vrain Cidery (Longmont); New Terrain and Mountain
+  Toad (Golden); The Backdoor Theatre, Wild Bear and the Food Pantry
+  (Nederland); Wolverine Farm, CSU Rams, Maxline and Ginger and Baker (Fort
+  Collins); Listening at the Legion and the school district (Estes Park);
+  Live Well Douglas County (Castle Rock); The Wheel House (Niwot). Erie's
+  library, already confirmed, is typed `rss`, so its LibCal feed is read.
+- **`robots: subscribe`, on the owner's word, seven**: Firehouse Art
+  Center (Longmont), Goosetown Station and Golden Today's Live Music
+  calendar (Golden), The Old Mine (Erie), Crooked Beech and the Downtown
+  Partnership's Tockify calendar (Loveland; already confirmed, now typed
+  `ical`), and Timnath Beerwerks.
+- **Beerwerks is the wider case.** Its feed is `/new-events?view=list`,
+  another view of the brewery's own page that Squarespace's robots.txt
+  disallows, not a calendar published for subscribing. Food trucks, poker,
+  bingo and the run club are left in as regulars, which the home tabs show
+  only on a quiet day; the owner may prefer them excluded, as Mighty
+  River's are.
+- **The Wheel House needed no exception.** Its calendar block's collection
+  has a page of its own, `/events`, in the list view, which robots.txt
+  allows. The address was learned from one call to the site's `/api/`,
+  made on the owner's go for this calendar. Trivia and euchre, which the
+  guide lists as weekly, are excluded; the bands come through.
+- **Poudre Libraries went back to proposed.** It was among the feeds "with
+  no robots question" in error: its robots.txt disallows the feed, the dry
+  run was refused, and subscribing to it has not been asked.
+- **Exclusions after the dry runs**: Erie's library (storytimes, baby and
+  music sessions, closures), Loveland's downtown calendar (bingo, trivia,
+  book clubs, the weekly jazz and barbecue), Ginger and Baker (its "Class"
+  category, 99 of 107 items), Estes Park's schools (board sessions,
+  auditions, meetings).
+- **What the dry runs would stage, in 120 days**: about 260 items, among
+  them 28 at Timnath Beerwerks, 27 from Loveland's downtown calendar, 26
+  CSU home games, 24 at Wolverine Farm, 16 at The Old Mine, 15 from Estes
+  Park's schools, 13 from Golden Today, 12 each at St. Vrain Cidery and
+  Crooked Beech. They would also flag ten published listings whose facts
+  differ from the source: three Chrispy nights at Mountain Toad, two
+  lobster-truck days at Beerwerks (10 to 6 on the guide, 12 to 8 on the
+  page), the Holiday Mountain Market's second day, and four Erie library
+  listings whose venue names a room.
+- **Left as they were**: categories. Estes Park's schools and Live Well
+  Douglas County are filed as other, and Golden Today as news, so their
+  items wait for a person. `autoApprove` is set nowhere new.
