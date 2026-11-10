@@ -10137,3 +10137,30 @@ town, and that Eventbrite publishes without a person.
   every Eventbrite source.
 - Most of these organizers have one event at a time, so the gain each
   week is small; the pages cost one read apiece.
+
+## Outings before library programs and meetings, 10 November 2026
+
+With the library feeds on, the owner asked that the events under "This
+weekend" be put right: a library's events should not be on top unless
+they have to be, and the social ones should.
+
+- **On the home page's tabs** (`tabRank`, `pickRows` in
+  src/lib/home-tabs.ts): the outings take the slots first (the week's
+  pick, a game, music, a market, a festival, the arts, food, the outdoors,
+  something for families, sport), then any other one-off, and last a
+  library's own programs and the civic meetings, which are shown only
+  where the outings leave room. The rows shown are the outings in clock
+  order, then the programs and meetings in clock order. A day with nothing
+  but a library program still has it, at the top.
+- **On the events page, This weekend and the Thursday email**
+  (`groupByDay` with `outingsFirst`): the days stay in date order, and
+  within a day the library programs and meetings come after everything
+  else, each part in clock order. This sets aside, for those two kinds
+  only, the rule that a day's list is the clock's and nothing else ranks.
+- **A library program is a listing whose venue is a library**
+  (`isLibraryProgram`): the feed's category for one is a guess, and the
+  venue is not. A concert held at a library is under the bands too.
+- **Not changed**: the regulars rule (trivia, clubs and food trucks fill a
+  quiet list and step back on a full one), the hub's lists, and what
+  publishes. Niwot's home page, built that day: this weekend opens with
+  Strangebyrds, Toys In The Attic and Starlight and Pine.

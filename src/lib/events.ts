@@ -354,8 +354,29 @@ export function upcoming<T extends EventLike>(
 
 export type DayGroup<T> = { key: string; date: Date; events: T[] };
 
-/** Group events by Denver calendar day, each day in clock order (`sortByStart`). */
-export function groupByDay<T extends EventLike>(events: T[]): DayGroup<T>[] {
+/** A library's own program: the venue is a library. */
+export function isLibraryProgram(event: { data: { venue?: string } }): boolean {
+  return /\blibrary\b/i.test(event.data.venue ?? '');
+}
+
+/**
+ * What a day's list puts under its outings: a library's programs and the
+ * civic meetings. Worth their lines, and never why a reader opened the page
+ * (the owner, 10 November 2026: "library events shouldn't be on top unless
+ * they have to; social ones should").
+ */
+export function isBackground(event: { data: { venue?: string; category?: string } }): boolean {
+  return event.data.category === 'civic' || isLibraryProgram(event);
+}
+
+/**
+ * Group events by Denver calendar day, each day in clock order
+ * (`sortByStart`). With `outingsFirst`, a day's library programs and civic
+ * meetings come after everything else on that day, each part still in clock
+ * order: the lists a reader plans a weekend from (the events page, This
+ * weekend, the Thursday email). The days themselves stay in date order.
+ */
+export function groupByDay<T extends EventLike>(events: T[], { outingsFirst = false }: { outingsFirst?: boolean } = {}): DayGroup<T>[] {
   const groups = new Map<string, DayGroup<T>>();
   for (const event of sortByStart(events)) {
     const key = dayKey(event.data.start);
@@ -363,7 +384,9 @@ export function groupByDay<T extends EventLike>(events: T[]): DayGroup<T>[] {
     group.events.push(event);
     groups.set(key, group);
   }
-  return [...groups.values()];
+  const days = [...groups.values()];
+  if (outingsFirst) for (const day of days) day.events = [...day.events.filter((e) => !isBackground(e)), ...day.events.filter((e) => isBackground(e))];
+  return days;
 }
 
 /** Categories present in a list, in schema order. */
