@@ -459,6 +459,12 @@ The Love Shack's and SPENGA's marks as the event's venue and workout
 partner. It is used as sent, 1333 × 2000 WebP, with no EXIF to drop; the
 cards crop it to fit, the image itself is not edited.
 
+**Taken off the listing** the same day, at the owner's word, after seeing
+it live: a flyer is lettering edge to edge, and every crop the cards make
+cut it ("LOVELAND" sliced at the top on a wide screen, unreadable on a
+phone). The grant stands if a better crop or a photograph from the
+organizer comes.
+
 ---
 
 ## Stock licences — bought photographs
