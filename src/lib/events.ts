@@ -571,6 +571,37 @@ export function regularTest<T extends EventLike>(all: readonly T[]): (event: T) 
 }
 
 /**
+ * How many listings a day must have before its regulars step back: with
+ * fewer one-offs than this, the day's regulars fill the list up to it.
+ */
+export const FILL_BELOW = 3;
+
+/**
+ * A listing that is the same every time it is on: the venue's trivia on the
+ * first and third Mondays, the library's monthly craft table, a weekly open
+ * mic (`regularTest`), and the day's food truck at a taproom. The owner's
+ * rule of 10 November 2026, when new feeds brought eight trivia nights and a
+ * craft club into the guides as dated events: what makes a date worth a row
+ * is that it differs from the last one (a band with a name, a play's night,
+ * a market day), not that it is on the calendar. A fill is listed once
+ * where a reader looks for regulars, and on a day's own list only while the
+ * day is quiet (`FILL_BELOW`; src/lib/home-tabs.ts, pickRows), so Niwot's
+ * Tuesday has its trivia and Fort Collins's Friday is not led by one.
+ *
+ * Not civic: a council meeting twice a month is listed by date, and was
+ * hidden behind two regulars once already (26 October 2026).
+ */
+const FOOD_TRUCK_RE = /\bfood truck\b/i;
+export function fillTest<T extends EventLike>(all: readonly T[]): (event: T) => boolean {
+  const isRegular = regularTest(all);
+  const isRun = (e: T) => isMultiDay(e) || !!e.data.schedule?.length || !!e.data.performances?.length;
+  return (e) => e.data.category !== 'civic' && !isRun(e) && (isRegular(e) || FOOD_TRUCK_RE.test(e.data.title));
+}
+
+/** One key for every date of a regular kept as a file per date: its title at its venue. */
+export const seriesKey = (e: EventLike) => `${e.data.title}|${e.data.venue}`;
+
+/**
  * A single dated file whose note says it recurs ("Every Friday", "Third
  * Thursdays"): one verified date of something regular. Shown on its date,
  * since nothing else is verified (`weeklyTest`), but no more a pick to cross
@@ -701,7 +732,18 @@ export function agenda<T extends EventLike>(
     return { event, regular, repeat };
   });
   const inFortnight = new Set(nextDays);
-  const later = uniqueByEvent(upcoming(all, { now }).filter((e) => !inFortnight.has(e) && !isWeekly(e)));
+  // Beyond the fortnight a regular kept as a file per date (trivia on the
+  // first and third Mondays, a monthly craft table) is listed once, at its
+  // next date: eight Mondays of one trivia night filled "Further out"
+  // (Niwot, 10 November 2026). Its dates inside the fortnight stay.
+  const isFill = fillTest(entries);
+  const fills = new Set<string>();
+  const later = uniqueByEvent(upcoming(all, { now }).filter((e) => !inFortnight.has(e) && !isWeekly(e))).filter((e) => {
+    if (!isFill(e)) return true;
+    if (fills.has(seriesKey(e))) return false;
+    fills.add(seriesKey(e));
+    return true;
+  });
   return { fortnight, later, weekly: weeklyRegulars(entries, now) };
 }
 

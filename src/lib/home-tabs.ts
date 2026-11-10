@@ -34,7 +34,7 @@
  * no longer stops there.
  */
 import { addDays, dayKey, formatDayShort, formatWeekday, startOfDay, TIME_ZONE } from './dates.ts';
-import { isPast, sortByStart, weekendWindow } from './events.ts';
+import { FILL_BELOW, isPast, sortByStart, weekendWindow } from './events.ts';
 import { eventItem, type DayItem, type EventLike, type WeekDay } from './flagship-home.ts';
 import type { EventCategory } from '../content/schemas.ts';
 
@@ -73,17 +73,27 @@ export interface HomeTab {
 const SHORT_DAY = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' });
 
 /**
- * Up to `limit` of a list: one-off and civic listings before the weekly
- * series, a listing called off or postponed after both, then back in day and
- * clock order. A cancellation is worth its line while the tab has room; on
- * a full tab it gives up its slot first, and the count of the rest is of
- * listings still on (Erie, 3 November 2026: a canceled workshop held one of
- * the weekend's five slots).
+ * Up to `limit` of a list. The one-offs and the civic listings take the
+ * slots, in day and clock order. The regulars (`series`: trivia, a monthly
+ * club, the day's food truck; events.ts, fillTest) are shown only on a quiet
+ * list, one with fewer than FILL_BELOW one-offs, and only up to that many
+ * rows in all: they keep a thin guide's Tuesday from reading "Nothing
+ * listed" and never lead a full one (the owner, 10 November 2026). Until
+ * then a regular took any slot a one-off left free, so a tab with two events
+ * showed them among three storytimes. A listing called off or postponed
+ * comes last: a cancellation is worth its line while the tab has room, and
+ * on a full tab it gives up its slot first (Erie, 3 November 2026: a
+ * canceled workshop held one of the weekend's five slots). The count of the
+ * rest is of listings still on, the regulars not shown among them, so "3
+ * more today" leads to them on the events page.
  */
 export function pickRows(items: TabRow[], limit = TAB_LIMIT): { rows: TabRow[]; more: number } {
   const byClock = (a: TabRow, b: TabRow) => a.dayKey.localeCompare(b.dayKey) || a.time.localeCompare(b.time);
-  const rank = (r: TabRow) => (r.status ? 2 : r.series ? 1 : 0);
-  const chosen = [...items].sort((a, b) => rank(a) - rank(b) || byClock(a, b)).slice(0, limit);
+  const sorted = [...items].sort(byClock);
+  const chosen = sorted.filter((r) => !r.status && !r.series).slice(0, limit);
+  const fill = Math.min(limit, FILL_BELOW) - chosen.length;
+  if (fill > 0) chosen.push(...sorted.filter((r) => !r.status && r.series).slice(0, fill));
+  chosen.push(...sorted.filter((r) => r.status).slice(0, Math.max(0, limit - chosen.length)));
   const on = (list: TabRow[]) => list.filter((r) => !r.status).length;
   return { rows: chosen.sort(byClock), more: on(items) - on(chosen) };
 }
@@ -122,8 +132,10 @@ export function nextAfter(rows: readonly TabRow[], afterKey: string, limit = NEX
   const seen = new Set<string>();
   const after: TabRow[] = [];
   for (const row of rows) {
-    if (row.dayKey <= afterKey || row.status || seen.has(row.href)) continue;
-    seen.add(row.href);
+    // A regular kept as a file per date has a page per date: once, by its title at its venue.
+    const key = row.series ? `${row.fullTitle}|${row.where}` : row.href;
+    if (row.dayKey <= afterKey || row.status || seen.has(key)) continue;
+    seen.add(key);
     after.push(row);
   }
   // By rank, then as given (the order of the days and the clock): a stable sort.

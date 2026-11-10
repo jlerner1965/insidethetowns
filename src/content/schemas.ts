@@ -1103,6 +1103,20 @@ export const sourceSchema = z
      */
     includeCategories: z.array(z.string().min(1)).optional(),
     excludeCategories: z.array(z.string().min(1)).optional(),
+    /**
+     * The owner's word that this source's new listings publish under the
+     * standing rules although it is not the organizer: a tourism board's or
+     * a chamber's community calendar that lists other groups' events. Set by
+     * the owner only, one source at a time (Visit Leadville Twin Lakes, 10
+     * November 2026: the town's parade and its tasting night sat in staging
+     * every week behind a rule written for a board that copies listings
+     * wrong). Such an item still waits when another listing is already on
+     * the guide at that hour on that day, since the board's wording of an
+     * event is not the organizer's and the title match will not see it; and
+     * a change it makes to a published listing is still a person's call
+     * (scripts/lib/auto-review.ts).
+     */
+    autoApprove: z.boolean().optional(),
     /** Feed venue text -> the name the guide uses: { "Johnstown Location": "Glenn A. Jones, M.D. Memorial Library" }. */
     venueAliases: z.record(z.string(), z.string().min(1)).optional(),
     /** The venue when the feed names a room or an address but not the place: a library's own calendar. */

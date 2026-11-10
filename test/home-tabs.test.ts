@@ -8,6 +8,7 @@ import assert from 'node:assert/strict';
 import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, NEXT_LIMIT, nextAfter, nextRank, pickRows, TAB_DAYS_AHEAD, TAB_LIMIT, tabEditions } from '../src/lib/home-tabs.ts';
 import { asOfFor } from '../src/lib/relative-days.ts';
 import { weekDays } from '../src/lib/flagship-home.ts';
+import { agenda, FILL_BELOW, fillTest } from '../src/lib/events.ts';
 import { parseLocal } from '../src/lib/dates.ts';
 
 const at = (s: string) => parseLocal(s);
@@ -223,4 +224,45 @@ test('the tabs are built for the build’s day and the two after, and the reader
   assert.deepEqual(editions[1]!.tabs[1]!.rows.map((r) => r.fullTitle), ['wednesday-parade'], 'and Tomorrow is Wednesday');
   assert.equal(asOfFor(keys, '2026-11-14'), '2026-11-11', 'a build older than its sets shows the last, which the pruning empties');
   assert.equal(asOfFor(keys, '2026-11-08'), '2026-11-09', 'a clock behind the build shows the build’s day');
+});
+
+test('regulars fill a quiet day and step back on a full one', () => {
+  const now = at('2026-11-16T09:00');
+  const row = (slug: string, time: string, series = false) => ({ ...weekDays({ events: [ev(slug, `2026-11-16T${time}`)], now, start: 'today', limit: 99 })[0]!.items[0]!, series, dayWord: '', dayKey: '2026-11-16' });
+  const titles = (items: ReturnType<typeof row>[]) => pickRows(items).rows.map((r) => r.fullTitle);
+  // Niwot on a Monday: nothing but the brewery's trivia and a food truck.
+  assert.deepEqual(titles([row('trivia', '18:30', true), row('food-truck', '16:00', true)]), ['food-truck', 'trivia'], 'a day with no events shows its regulars');
+  // One event: the regulars fill the list up to FILL_BELOW rows, no further.
+  const quiet = [row('concert', '19:00'), row('trivia', '18:30', true), row('bingo', '17:00', true), row('open-mic', '20:00', true)];
+  assert.deepEqual(titles(quiet), ['bingo', 'trivia', 'concert']);
+  assert.equal(pickRows(quiet).rows.length, FILL_BELOW);
+  assert.equal(pickRows(quiet).more, 1, 'the regular not shown is counted, and the link leads to it');
+  // Three events: the regulars step back, though two slots of five are free.
+  const full = [row('a', '09:00'), row('b', '10:00'), row('c', '11:00'), row('trivia', '18:30', true), row('bingo', '17:00', true)];
+  assert.deepEqual(titles(full), ['a', 'b', 'c']);
+  assert.equal(pickRows(full).more, 2);
+});
+
+test('what is a regular: the same thing every time, and the day’s food truck; not a meeting, a run or a one-off', () => {
+  const mondays = ['2026-11-16', '2026-12-07', '2026-12-21'].map((d) => ev(`trivia-${d}`, `${d}T18:30`, { title: 'Trivia', venue: 'Fritz Family Brewers', category: 'other' }));
+  const truck = ev('cruagh', '2026-11-14T12:00', { title: 'Cruagh Irish Food Truck', venue: 'Fritz Family Brewers', category: 'food' });
+  const council = ['2026-11-17', '2026-12-01'].map((d) => ev(`council-${d}`, `${d}T19:00`, { title: 'Town Board', category: 'civic' }));
+  const play = ['2026-11-12', '2026-11-13', '2026-11-14'].map((d) => ev(`play-${d}`, `${d}T19:00`, { title: 'Fall Play', category: 'arts' }));
+  const concert = ev('concert', '2026-11-20T19:00', { title: 'Josh Blackburn Live', category: 'music' });
+  const all = [...mondays, truck, ...council, ...play, concert];
+  const isFill = fillTest(all);
+  assert.ok(mondays.every(isFill), 'trivia on the first and third Mondays');
+  assert.ok(isFill(truck), 'a food truck, though it is listed once');
+  assert.ok(!council.some(isFill), 'a meeting twice a month is listed by date');
+  assert.ok(!play.some(isFill), 'a play on three nights is a run');
+  assert.ok(!isFill(concert), 'a band with a name');
+  // "Further out" on the events page: the trivia once, at its next date.
+  const later = agenda(all, { now: at('2026-11-01T09:00') }).later.map((e) => e.slug);
+  assert.deepEqual(later.filter((s) => s.startsWith('trivia')), ['trivia-2026-11-16'], 'one row for the regular beyond the fortnight');
+  assert.equal(later.filter((s) => s.startsWith('council')).length, 2, 'both meetings');
+});
+
+test('"Next in <Town>" names a regular once though it has a page per date', () => {
+  const rows = laterRows(['2026-11-16', '2026-12-07', '2026-12-21'].map((d) => ev(`trivia-${d}`, `${d}T18:30`, { title: 'Trivia', category: 'other' })), undefined, () => true);
+  assert.deepEqual(nextAfter(rows, '2026-11-10').map((r) => r.dayKey), ['2026-11-16']);
 });

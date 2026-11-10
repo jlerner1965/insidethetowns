@@ -122,7 +122,9 @@ test('4. a second-Monday monthly event is not on every Monday', () => {
   assert.deepEqual(weeklyRegulars(monthly, MONDAY), [], 'so it is not under "Every week: Mondays"');
   const { fortnight, later } = agenda(monthly, { now: MONDAY });
   assert.deepEqual(fortnight.map((r) => dayKey(r.event.data.start)), [], 'no session in the next fourteen days');
-  assert.deepEqual(later.map((e) => dayKey(e.data.start)), ['2026-11-09', '2026-12-14'], 'each session on its own date');
+  // Beyond the fortnight a regular is listed once, at its next session (the
+  // owner, 10 November 2026: eight Mondays of one trivia night filled "Further out").
+  assert.deepEqual(later.map((e) => dayKey(e.data.start)), ['2026-11-09'], 'on its own date, once: the next session, not every one');
   // Four Mondays in a row is a weekly series, filed a date at a time.
   const weekly = ['2026-10-05', '2026-10-12', '2026-10-19', '2026-10-26'].map((d) =>
     listing(`knit-${d}`, { title: 'Knit night', start: `${d}T18:00`, venue: 'Library' }),

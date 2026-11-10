@@ -9724,6 +9724,76 @@ subscribe` on the owner's word.
   so they arrive with each Monday's read, not months out. Kölsch Service,
   Wednesdays in summer, will come when the brewery enters next year's.
 
+## Regulars fill a quiet day and step back on a full one, 10 November 2026
+
+The event standard dates from the audit of 2 October, when the guides
+were new: storytimes, clubs, trivia, bingo and food trucks belong on the
+venue's listing, not the calendar. It was never applied in full, and the
+feeds confirmed on 10 November brought eight trivia nights, a monthly
+craft table and a brewery's food trucks in as dated events, while Niwot
+and Nederland still read "Nothing listed" on a weekday. The owner asked
+for the best way to have more events without endless recurring ones that
+have no appeal, and agreed to this.
+
+**The test is whether a date differs from the last one**, not whether the
+thing recurs. A band with a name, a play's night, a market day, a home
+game: every date is listed. Trivia, bingo, a club, a class, an open mic,
+the day's food truck: the same every time, so a regular (`fillTest` in
+src/lib/events.ts: `regularTest`, or "food truck" in the title; never a
+civic meeting or a run of shows).
+
+- **On the home page's tabs** a regular is shown only on a quiet list,
+  one with fewer than three one-offs, and only up to three rows in all
+  (`FILL_BELOW`, `pickRows`). A day with nothing has its trivia; a day
+  with three events is not led by one. The regulars not shown are in the
+  "N more" count, which leads to them. Until now the tabs were never told
+  which rows were series at all (the home passed no `isSeries`), so a
+  regular took any free slot.
+- **On the events page**, beyond the fortnight, a regular kept as a file
+  per date is listed once, at its next date, where each session had a row:
+  Fritz's trivia had eight under "Further out". Inside the fortnight its
+  dates stay, and the weekly ones are under "Every week" as before. This
+  reverses "each session on its own date" from the calendar audit of 26
+  October for the months ahead only; the test that pinned it says so.
+- **"Next in <Town>"** names a regular once, though it has a page per date.
+- **Not changed**: what ingest stages or the standing rules publish, the
+  Thursday email, the hub, the Families page. School performances and the
+  tourism boards' listings publishing without a person, and a reader for
+  Squarespace calendars, are the next two steps the owner was given.
+
+## School stages and one tourism board publish without a person, 10 November 2026
+
+The second step of the owner's plan for more events ("yes, step 2").
+Leadville's best listings sat in staging each week: the tourism board's
+calendar is a chamber-kind source, and the unattended review approves
+only the organizer's own feed. Timnath's school concerts waited because
+the school was filed `other` and its feed names no room.
+
+- **`autoApprove` on a source** (src/content/schemas.ts): the owner's
+  word, one source at a time, that a board's new listings publish under
+  the standing rules though it lists others' events. Set on Visit
+  Leadville Twin Lakes only. niwot.com and every other chamber stay as
+  they were: nothing from them is approved without a person.
+- **The guard that goes with it** (scripts/lib/auto-review.ts): a board
+  words an event its own way, so the title match misses the organizer's
+  listing already up ("Warren Miller Film Night at Ski Cooper!" beside
+  the lodge's own). A board's item waits when a listing is on the guide
+  that day within half an hour of it and the two titles share a word that
+  names something. In Leadville that held exactly the six that were the
+  library's, the museum's, the orchestra's and Ski Cooper's own listings
+  again, and let through the Parade of Lights, Taste of Leadville, Ski
+  Joring and the Elks' bingo. A board's change to a published listing is
+  still a person's call.
+- **A school's calendar is filed `venue`**, as Frederick's, Windsor's and
+  Severance's were: Lake County High and Timnath Middle-High speak for
+  their own plays and concerts. Timnath's has the school as its default
+  venue; Leadville's middle school games are excluded by title.
+- **Published the same day**: Leadville 19, Timnath 8. Left for a
+  person in Leadville: the six duplicates, a second showing of the play
+  on one day, and a Posada with no venue.
+- The trivia and bingo the board lists are regulars under the rule above
+  this one: on the guide, but only filling a quiet day.
+
 ## Event sources searched for every live guide, 10 November 2026
 
 Given the brief for one guide's event sources and asked which guide, the
