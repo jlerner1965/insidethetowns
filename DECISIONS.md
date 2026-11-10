@@ -10049,3 +10049,25 @@ by hand would defeat the purpose of the town network.
 - `autoApprove` was not set on the other boards that wait for a person
   (Loveland's downtown calendar, Live Well Douglas County, Golden Today):
   the owner was asked about Eventbrite, and each of those is its own word.
+
+## The other three boards publish too, 10 November 2026
+
+Asked whether Loveland's downtown calendar, Live Well Douglas County and
+Golden Today's Live Music calendar should publish as Eventbrite now does,
+the owner said yes.
+
+- **`autoApprove` on all three.** Published: 15 from Loveland's downtown
+  calendar (the music at Loveland Aleworks, Flip the Switch, Small
+  Business Saturday, the holiday show) and 4 from Live Well Douglas County
+  (the Festival Park Starlight Market, Reindeer Games, Storytellers and
+  S'mores).
+- **Golden Today published nothing, and that is the guard working.** Its
+  fifteen items are each at the hour of a listing already on the guide:
+  the Buffalo Rose shows the guide has from the venue, and the named
+  Wednesday players at Miners Saloon, which the guide carries as one
+  standing listing. One event or two is a person's call.
+- **Still waiting in Loveland**: items with no venue in the feed, four
+  expos that Eventbrite and the downtown calendar both list, and two
+  concerts that may be on the guide already. In Castle Rock: the
+  fireworks, the tree lighting and the Turkey ROCK Trot, each already on
+  the guide under another title.
