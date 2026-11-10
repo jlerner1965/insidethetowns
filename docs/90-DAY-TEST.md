@@ -49,6 +49,9 @@ Sent = the edition went out that Thursday (merge of the drafts pull request).
 | 2026-10-26 | Niwot | sent 29 Oct, 2 delivered | 2 | 0 | unknown | unknown | 0 | none reported | no new subscriber; search not read (see below) |
 | 2026-10-26 | Lyons | sent 29 Oct, 1 delivered | 1 | 0 | unknown | unknown | 0 | none reported | first Lyons subscriber and first Lyons send |
 | 2026-10-26 | Berthoud | sent 29 Oct, 3 delivered | 3 | 0 | unknown | unknown | 0 | none reported | two new subscribers since 25 Oct |
+| 2026-11-02 | Niwot | sent 5 Nov, 2 delivered | 2 | 0 | unknown | unknown | 0 | none reported | no new confirmed subscriber; one signup waiting to confirm |
+| 2026-11-02 | Lyons | sent 5 Nov, 1 delivered | 1 | 0 | unknown | unknown | 0 | none reported | no change |
+| 2026-11-02 | Berthoud | sent 5 Nov, 3 delivered | 3 | 0 | unknown | unknown | 0 | none reported | no new confirmed subscriber; one signup waiting to confirm |
 
 Week of 19 October, read 27 October 2026. Search: GSC Wizard, web search,
 19 to 25 October, settled. Sends and opens: Buttondown's API and the log of
@@ -70,6 +73,14 @@ since 22 October, including the 22 October issues read twelve days on;
 whether open tracking is on is the owner's to check in Buttondown before
 opens go in a sponsor report. Subscribers: as before, confirmed by the end
 of 1 November, Denver time.
+
+Week of 2 November, read 10 November 2026. Search columns unknown again:
+GSC Wizard is renewed on its Starter plan, which reads 10 properties, and
+the 10 it reads are older ones (the aragonite sites and townofniwot.com),
+so it refuses all three guides. Sends: the 5 November issues went out at
+1:36 pm Denver time, again not at 7 am. Opens: still none counted, now on
+24 deliveries since 22 October. Subscribers: confirmed by the end of 8
+November; a signup still waiting to confirm is not counted.
 
 ## Outreach and sponsor log
 
