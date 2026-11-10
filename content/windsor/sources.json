@@ -376,7 +376,7 @@
         "events": 7,
         "places": 0
       },
-      "robots": "honor",
+      "robots": "subscribe",
       "excludeTitles": [
         "Clock Out Hour",
         "Happy Hour",
@@ -388,7 +388,7 @@
         "Big Dub Sliders"
       ],
       "defaultVenue": "Mighty River Brewing",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. The sample is Mighty River Brewing's own Tockify calendar, an iCal feed (553 entries, 500 to come, read 1 November 2026): type ical and category venue from that day, still proposed. Its trivia and poker nights are weekly regulars; exclude them by title before confirming (npm run sources -- confirm windsor tockify-com). Read again on 10 November 2026 by the sources agent: 200 text/calendar, calendar name \"Mighty River Brewing's events\", 551 VEVENTs to January 2028, 48 in the next 30 days: 14 Clock Out Hour and 4 Monday Happy Hour entries, 5 Trivia Nights, 5 Bingo nights, 4 Poker Nights, 4 NFL Sunday Ticket days, 6 food trucks, and 6 live-music nights (Josh Blackburn, Reminisce, Mountain Duo, Aubrey Dale, Gii Astorga, Colorado Beach Bums). The regulars, the drink specials and the food trucks are now excluded by title, a first pass for the editor to prune, which leaves the music. tockify.com/robots.txt names a list of bots to keep out and no rule for others, so the feed path is allowed. The url and sample now point at the brewery's own Tockify calendar rather than tockify.com."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. The sample is Mighty River Brewing's own Tockify calendar, an iCal feed (553 entries, 500 to come, read 1 November 2026): type ical and category venue from that day, still proposed. Its trivia and poker nights are weekly regulars; exclude them by title before confirming (npm run sources -- confirm windsor tockify-com). Read again on 10 November 2026 by the sources agent: 200 text/calendar, calendar name \"Mighty River Brewing's events\", 551 VEVENTs to January 2028, 48 in the next 30 days: 14 Clock Out Hour and 4 Monday Happy Hour entries, 5 Trivia Nights, 5 Bingo nights, 4 Poker Nights, 4 NFL Sunday Ticket days, 6 food trucks, and 6 live-music nights (Josh Blackburn, Reminisce, Mountain Duo, Aubrey Dale, Gii Astorga, Colorado Beach Bums). The regulars, the drink specials and the food trucks are now excluded by title, a first pass for the editor to prune, which leaves the music. tockify.com/robots.txt names a list of bots to keep out and no rule for others, so the feed path is allowed. The url and sample now point at the brewery's own Tockify calendar rather than tockify.com. robots: subscribe from 10 November 2026, the owner's call (\"yes to brewing\"): tockify.com's robots.txt disallows /api/ for every agent, as on the Leadville library's feed, and this is the brewery's own subscribe feed."
     },
     {
       "id": "peculierales-com",

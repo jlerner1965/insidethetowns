@@ -9668,3 +9668,15 @@ organization first), the owner said: subscribe to all of them and confirm.
   Park Pavilion, so its five published days are not flagged as moved.
 - Nothing was ingested here: the Monday run stages what these feeds hold
   and its pull request shows what the standing rules would publish.
+
+## Mighty River and the Nederland library turned on, 10 November 2026
+
+Told that Mighty River Brewing's Tockify feed was behind the same robots
+rule as the Leadville library's and that the Nederland library's feed was
+recorded but off, the owner said yes to both. Mighty River is read under
+`robots: subscribe`; with its drink specials, trivia, bingo, poker and food
+trucks excluded, a dry run staged 4 music nights new to the guide. The
+Nederland library is typed `ical`; its robots.txt allows the feed. A dry
+run staged 52 items in 120 days, 55 of the feed's entries being one weekly
+writers' group, so the standing clubs, storytimes, committee meetings and
+closures are excluded by title as on the other library feeds.
