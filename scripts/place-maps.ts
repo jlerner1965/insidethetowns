@@ -90,6 +90,7 @@ const streetKey = (v: string) =>
     .replace(/\bavenue\b/g, 'ave')
     .replace(/\bstreet\b/g, 'st')
     .replace(/\bdrive\b/g, 'dr')
+    .replace(/\broad\b/g, 'rd')
     .replace(/\bparkway\b/g, 'pkwy')
     .replace(/\bfirst\b/g, '1st')
     .replace(/\bsecond\b/g, '2nd')
@@ -142,8 +143,13 @@ function osmPlace(title: string, address: string): [number, number] | undefined 
   const parts = /^(\d+)\s+([^,#]+?)(?:,|\s+(?:Ste|Suite|Unit|#)|$)/i.exec(address);
   const byAddress = parts ? osm.pois.filter((p) => p.number === parts[1] && streetKey(p.street) === streetKey(parts[2]!)) : [];
   const key = nameKey(title);
-  const named = [...byAddress, ...osm.pois].find((p) => p.name && nameKey(p.name) === key);
+  // By name, unless the extract has that name at another address: then one of the two is out of date, and the
+  // listing's own address decides (Niwot Wheel Works, 10 November 2026: the extract had it on Second Avenue).
+  const agrees = (p: Poi) => !p.number || !parts || (p.number === parts[1] && streetKey(p.street) === streetKey(parts[2]!));
+  const sameName = [...byAddress, ...osm.pois].filter((p) => p.name && nameKey(p.name) === key);
+  const named = sameName.find(agrees);
   if (named) return named.at;
+  for (const p of sameName) console.log(`  the extract has "${p.name}" at ${p.number} ${p.street}, the guide at "${address}"`);
   // The address alone: every entry at it in the extract (the building, a business in it), averaged, when they agree to within a building.
   if (byAddress.length) {
     const lat = byAddress.reduce((a, p) => a + p.at[0], 0) / byAddress.length;
@@ -206,6 +212,23 @@ for (const name of readdirSync(dir).filter((f) => f.endsWith('.md') && !f.starts
     }
   } catch (error) {
     unplaced.push(`${id}: ${(error as Error).message.split('\n')[0]}`);
+  }
+}
+
+// A listing the geocoder placed that shares its house number and street with one the extract placed stands where
+// that one does: the deli inside the market, the shop in the brewery's building.
+const addressOf = (id: string) => /^address: "?(.+?)"?$/m.exec(readFileSync(join(dir, `${id}.md`), 'utf8'))?.[1] ?? '';
+const doorOf = (address: string) => {
+  const parts = /^(\d+)\s+([^,#]+?)(?:,|\s+(?:Ste|Suite|Unit|#)|$)/i.exec(address);
+  return parts ? `${parts[1]} ${streetKey(parts[2]!)}` : undefined;
+};
+for (const id of Object.keys(places)) {
+  if (from[id] !== 'geocoder' || before.fixed?.[id]) continue;
+  const door = doorOf(addressOf(id));
+  const twin = door && Object.keys(places).find((other) => from[other] === 'osm' && doorOf(addressOf(other)) === door);
+  if (twin) {
+    places[id] = places[twin]!;
+    from[id] = 'osm';
   }
 }
 
