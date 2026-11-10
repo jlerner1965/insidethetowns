@@ -337,10 +337,6 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       <SectionHeader id="parents-h" title={parents.length > 0 ? 'For parents: schools, passes and volunteering' : 'For parents: schools'} />
       {/* Which school, first: the heading promised schools and the section
           had none; they were a box at the foot of the page. */}
-      {/* White under a hairline, as every other panel on the page: on the
-          accent wash the outline buttons' primary fell under 4.5:1 on two
-          guides (Golden 3.96:1, Niwot 4.31:1; design audit, 10 November
-          2026), and the accent is never a wash (global.css). */}
       <div id="schools" class="scroll-mt-20 rounded-lg bg-raised p-5 ring-1 ring-line-soft sm:p-6">
         <h3 class="text-lg font-semibold leading-snug">Which school? It depends on the address.</h3>
         {families.schools.some((s) => s.note) && (

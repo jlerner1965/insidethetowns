@@ -645,8 +645,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // Demon crimson, MaxPreps's first school colour (schoolColor1 8F0018,
     // then FFFFFF and 222222), read by the sports probe from the runner on
     // 28 October 2026 (run 40789110242): MaxPreps refuses the cloud address
-    // and Jeffco's school sites did not answer it. 9.6:1 under white.
-    colors: { primary: '#8F0018' },
+    // and Jeffco's school sites did not answer it. Not used from 10 November
+    // 2026: the owner's word is that Golden's sports pages wear the guide's
+    // own copper, so no `colors` here and the pages take the primary.
     calendarNote: 'Golden High’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
     // CHSAANow lists every fall and winter team the default lists follow
     // (football, boys soccer, volleyball, softball, both cross country;

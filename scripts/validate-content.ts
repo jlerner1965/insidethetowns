@@ -420,6 +420,15 @@ checkImageCredits();
  * file saved under two names, so a repeat is caught by the register's
  * source as well as by the path.
  */
+/**
+ * The exceptions, as "<town> <photograph>": a hero that is also its
+ * listing's picture. Timnath's Old Town Main Street (the owner, 10 November
+ * 2026): the only photograph of Old Town there is, so it fronts the guide and
+ * stays on the listing. The home page never shows it a second time
+ * (NextStop.astro, TownHome.astro).
+ */
+const SHARED_WITH_HERO = new Set(['timnath old-town.jpg']);
+
 function checkRepeatedPhotos() {
   const csvPath = join(root, 'IMAGE_LICENSES.csv');
   const photoOf = new Map<string, string>();
@@ -443,7 +452,11 @@ function checkRepeatedPhotos() {
     const image = /^image:\s*\.\.\/images\/(\S+)\s*$/m.exec(readFileSync(file, 'utf8'));
     if (image) use(town!, relative(root, file), image[1]!);
   }
-  for (const where of users.values()) {
+  for (const [key, where] of users) {
+    const town = key.split(' ')[0];
+    const file = /\((\S+)\)$/.exec(where[0]!)?.[1];
+    const shared = where.length === 2 && where.some((w) => w.includes('(hero)')) && where.every((w) => w.endsWith(`(${file})`));
+    if (shared && SHARED_WITH_HERO.has(`${town} ${file}`)) continue;
     if (where.length > 1) errors.push(`the same photograph is on ${where.join(' and ')}; give it to one of them`);
   }
 }

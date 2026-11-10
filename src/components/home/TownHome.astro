@@ -59,6 +59,7 @@ import { familyLines } from '@/lib/family-home';
 import { eventItem, weekDays } from '@/lib/flagship-home';
 import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, TAB_LIMIT } from '@/lib/home-tabs';
 import { dayKey, formatDayShort, formatTimeRange } from '@/lib/dates';
+import { resolveSiteImage } from '@/lib/images';
 import { firstSentence } from '@/lib/plain-text';
 import { eventDescription } from '@/lib/seo';
 import { isOpen } from '@/lib/places';
@@ -147,14 +148,16 @@ const hasGuides = (await getTownEntries('articles')).length > 0;
 // 3b. Don't miss, beside the tabs: the next featured listing within three
 // weeks (src/lib/home-tabs.ts), with a photograph: its own, else its venue's
 // where the venue is a listed place with one ("Niwot Hall and Downtown
-// Niwot" finds Niwot Hall), else the town's own.
+// Niwot" finds Niwot Hall), else none: the town's hero is already at the top
+// of the page (the design audit, 10 November 2026).
+const heroSrc = resolveSiteImage(town.slug, town.hero.image).src;
 const featured = dontMiss(general(DONT_MISS_DAYS + 1), now);
 let feature: Feature | undefined;
 if (featured) {
   const row = eventItem(featured);
   const { title, start, end, allDay, timeNote, venue, cost, image, imageAlt } = featured.data;
   const spot = places
-    .filter((p) => p.data.image && venue.toLowerCase().includes(p.data.title.toLowerCase()))
+    .filter((p) => p.data.image && p.data.image.src !== heroSrc && venue.toLowerCase().includes(p.data.title.toLowerCase()))
     .sort((a, b) => b.data.title.length - a.data.title.length)[0];
   feature = {
     title,
@@ -162,9 +165,6 @@ if (featured) {
     when: `${formatDayShort(start)} · ${timeNote ?? formatTimeRange(start, end && dayKey(end) === dayKey(start) ? end : undefined, allDay)}`,
     where: [venue, cost].filter(Boolean).join(' · '),
     blurb: firstSentence(eventDescription(featured.body) ?? '') || undefined,
-    // Its own photograph or its venue's; with neither the card is its words.
-    // It used to fall back to the hero, the same picture twice on one screen
-    // (Johnstown; design audit, 10 November 2026).
     image: image ?? spot?.data.image,
     alt: image ? (imageAlt ?? '') : (spot?.data.imageAlt ?? ''),
     eventDay: row.eventDay,
@@ -174,17 +174,22 @@ if (featured) {
 ---
 <Hero compact pick={!!pick} changes={know.length > 0} />
 
-{school ? <SportsBar town={town} /> : schools.length > 1 && (
-  <section class="band-compact band-paper">
-    <div class="container-page"><SportsStrip town={town.slug} class="max-w-3xl" limit={2} /></div>
-  </section>
-)}
+{school && <SportsBar town={town} />}
 
 <WhatsHappening town={town} tabs={tabs} open={open} feature={feature}>
   {rec && <RecCenterToday slot="today" data={rec} fallback href={`/places/${rec.place}/`} />}
 </WhatsHappening>
 
 <QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} />
+
+{/* A guide that follows several schools: the week's games, under the
+    events (the owner, 10 November 2026). Above them, Loveland's four
+    schools filled the first screen and no event was on it. */}
+{!school && schools.length > 1 && (
+  <section class="band-compact band-paper">
+    <div class="container-page"><SportsStrip town={town.slug} class="max-w-3xl" limit={2} /></div>
+  </section>
+)}
 
 {emailOn && !thin && (
   <section class="band-paper py-4 md:py-6">

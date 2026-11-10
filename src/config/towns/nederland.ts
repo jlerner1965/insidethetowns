@@ -99,6 +99,10 @@ export const nederland: TownConfig = {
     alt: 'Mountain People’s Co-op and the Rustic Moose on East First Street in Nederland, under a grey mountain sky',
     // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
     credit: 'Tony Webster, Wikimedia Commons, CC BY-SA 2.0',
+    // Wide screen: the porch and the shop windows. At the middle crop the
+    // Co-op's painted sign ran behind the town's name, lettering on
+    // lettering (the design audit, 10 November 2026).
+    position: '50% 80%',
   },
   social: {
     email: 'hello@insidenederland.com',

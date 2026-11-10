@@ -37,9 +37,17 @@ export const timnath: TownConfig = {
   // the three pages list, 9 November 2026.
   nextStop: { eatDrink: 'Coffee, restaurants, a brewery', thingsToDo: 'Parks, the Poudre River Trail', living: 'Housing, schools, getting around' },
   hero: {
-    image: 'sunrise.jpg',
-    alt: 'Sunrise through bare cottonwoods over a frozen pond in Timnath',
-    credit: 'USFWS Mountain-Prairie, Wikimedia Commons, CC BY 2.0',
+    // Old Town Main Street, the owner's call of 10 November 2026, in place
+    // of the frozen pond at sunrise, which showed no town (the rule the
+    // other guides' heroes were changed by on 1 November). A 717 px
+    // snapshot, the only photograph of Old Town there is to use
+    // (docs/HERO-PHOTOS.md): an own shot north from the Beerwerks block is
+    // still the plan. The sunrise stays on Moving here. The Old Town listing
+    // keeps this photograph too, the one exception to "one photograph, one
+    // place" (scripts/validate-content.ts, SHARED_WITH_HERO).
+    image: 'old-town.jpg',
+    alt: 'Main Street in Old Town Timnath on a summer day: a one-storey tan brick storefront on the corner, tall shade trees along the sidewalk, and the street running on past a red-brick building',
+    credit: 'Wikimedia Commons, public domain',
   },
   social: {
     email: 'hello@insidetimnath.com',

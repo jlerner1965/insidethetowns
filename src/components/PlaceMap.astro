@@ -41,7 +41,7 @@ const stroke = { highway: 8, road: 4.5, rail: 1.5 } as const;
       <circle cx="0" cy="-25" r="4.5" fill="var(--color-raised)" />
     </g>
   </svg>
-  <figcaption class="mt-1 text-[0.6875rem] leading-tight tracking-wide text-ink-muted">
+  <figcaption class="mt-1 text-[0.75rem] leading-tight tracking-wide text-ink-muted">
     {map.exact ? `Where ${title} is, north up.` : `About where ${title} is, north up; the pin is placed from the address and is approximate.`}
     {directions && <Fragment>{' '}<a href={directions} rel="noopener" class="underline">Directions in Google Maps</a>.</Fragment>}
     {' '}{map.credit === 'osm' ? <Fragment>Map data © <a href="https://www.openstreetmap.org/copyright" rel="noopener" class="underline">OpenStreetMap</a> contributors.</Fragment> : 'Roads: U.S. Census Bureau.'}

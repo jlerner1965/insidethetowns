@@ -12,7 +12,9 @@ export const berthoud: TownConfig = {
   siteTitle: 'Inside Berthoud',
   tagline: 'An independent guide to Berthoud, Colorado: the Garden Spot, its Main Street, the lakes, and what it’s like to move here.',
   shortTagline: 'The Garden Spot: a real Main Street and the lakes',
-  seoTagline: 'Main Street, the lakes, Berthoud, Colorado',
+  // A phrase, as every other guide's is; it was a list ("Main Street, the
+  // lakes, Berthoud, Colorado") until the design audit of 10 November 2026.
+  seoTagline: 'Main Street and the lakes in Berthoud, Colorado',
   // 2020 census: about 97 per cent of the town's population in Larimer, 3 per cent in Weld.
   counties: ['Larimer', 'Weld'],
   countySplit: {
