@@ -1,8 +1,9 @@
 ---
 /**
  * The streets around a listing with a pin on it, drawn at build as an
- * inline SVG from the guide's own file (src/lib/place-map.ts): no map
- * service is loaded when the page is read, which the site's security
+ * inline SVG from the guide's own file (src/lib/place-map.ts), with the
+ * buildings, parks and water where the file was made from an OpenStreetMap
+ * extract and OpenStreetMap's credit under it: no map service is loaded when the page is read, which the site's security
  * policy would refuse anyway. For a listing with no photograph, so the
  * page is not text alone (audit of 9 November 2026), and it links to the
  * directions the facts column already gives. The pin is the geocoder's
@@ -22,6 +23,11 @@ const stroke = { highway: 8, road: 4.5, rail: 1.5 } as const;
 ---
 <figure class:list={['place-map', className]}>
   <svg viewBox={`0 0 ${map.width} ${map.height}`} role="img" aria-label={`Street map: about where ${title} is`} class="block h-auto w-full rounded-lg bg-accent-soft ring-1 ring-line-soft">
+    <g stroke="none">
+      {map.areas.filter((a) => a.kind === 'park').map((a) => <path d={a.d} fill="#dbe7cf" />)}
+      {map.areas.filter((a) => a.kind === 'water').map((a) => <path d={a.d} fill="#cddfea" />)}
+      {map.areas.filter((a) => a.kind === 'building').map((a) => <path d={a.d} fill="var(--color-line)" opacity="0.75" />)}
+    </g>
     <g fill="none" stroke-linecap="round" stroke-linejoin="round">
       {map.roads.filter((r) => r.kind === 'rail').map((r) => <path d={r.d} stroke="var(--color-ink-muted)" stroke-width={stroke.rail} stroke-dasharray="6 5" opacity="0.6" />)}
       {map.roads.filter((r) => r.kind !== 'rail').map((r) => <path d={r.d} stroke="var(--color-line)" stroke-width={stroke[r.kind] + 2} />)}
@@ -36,8 +42,8 @@ const stroke = { highway: 8, road: 4.5, rail: 1.5 } as const;
     </g>
   </svg>
   <figcaption class="mt-1 text-[0.6875rem] leading-tight tracking-wide text-ink-muted">
-    About where {title} is, north up; the pin is placed from the address and is approximate.
-    {directions && <a href={directions} rel="noopener" class="underline">Directions in Google Maps</a>}
-    {' '}Roads: U.S. Census Bureau.
+    {map.exact ? `Where ${title} is, north up.` : `About where ${title} is, north up; the pin is placed from the address and is approximate.`}
+    {directions && <Fragment>{' '}<a href={directions} rel="noopener" class="underline">Directions in Google Maps</a>.</Fragment>}
+    {' '}{map.credit === 'osm' ? <Fragment>Map data © <a href="https://www.openstreetmap.org/copyright" rel="noopener" class="underline">OpenStreetMap</a> contributors.</Fragment> : 'Roads: U.S. Census Bureau.'}
   </figcaption>
 </figure>

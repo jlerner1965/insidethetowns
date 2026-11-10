@@ -13,12 +13,22 @@ export interface PlaceMapData {
   /** What the town calls a road the Census names by its number ("State Hwy 56": "Mountain Ave"). */
   aliases?: Record<string, string>;
   lines: Array<{ n: string; k: 'highway' | 'road' | 'rail'; p: number[][] }>;
+  /** Building outlines, parks and water, from an OpenStreetMap extract where the town has one. */
+  areas?: Array<{ k: 'building' | 'park' | 'water'; p: number[][] }>;
+  /** Whose data the map is drawn from, for the credit under it. */
+  credit?: 'osm' | 'census';
+  /** Where each pin came from: the building in the extract, or the geocoder's place on the block. */
+  from?: Record<string, 'osm' | 'geocoder'>;
 }
 
 export interface PlaceMapView {
   width: number;
   height: number;
   roads: Array<{ d: string; kind: 'highway' | 'road' | 'rail' }>;
+  areas: Array<{ d: string; kind: 'building' | 'park' | 'water' }>;
+  credit: 'osm' | 'census';
+  /** The pin is the building itself, not a place on its block. */
+  exact: boolean;
   labels: Array<{ text: string; x: number; y: number; angle: number }>;
   pin: { x: number; y: number };
 }
@@ -55,7 +65,15 @@ function clip(ax: number, ay: number, bx: number, by: number, x0: number, y0: nu
 
 /** "N 4th St" as a street sign has it; the Census's "State Hwy 56" and "US Hwy 287" as people say them. */
 function label(name: string): string {
-  return name.replace(/^State Hwy /, 'CO ').replace(/^US Hwy /, 'US ').replace(/^Co Rd /, 'County Road ');
+  return name
+    .replace(/^State Hwy /, 'CO ')
+    .replace(/^US Hwy /, 'US ')
+    .replace(/^Co Rd /, 'County Road ')
+    .replace(/^(North|South|East|West) (?=\S+ (Street|Avenue|Drive|Parkway)$)/, (_, d: string) => `${d[0]} `)
+    .replace(/ Street$/, ' St')
+    .replace(/ Avenue$/, ' Ave')
+    .replace(/ Drive$/, ' Dr')
+    .replace(/ Parkway$/, ' Pkwy');
 }
 
 /**
@@ -79,6 +97,14 @@ export function placeMap(
   const margin = 40;
   const inside = (px: number, py: number) => px >= -margin && px <= width + margin && py >= -margin && py <= height + margin;
 
+  // An area is drawn when any corner of it is in the frame: a building is small, and a park or a lake that only crosses the frame has corners near it.
+  const areas: PlaceMapView['areas'] = [];
+  for (const area of data.areas ?? []) {
+    const points = area.p.map(([lon, la]) => [x(lon!), y(la!)] as [number, number]);
+    const reach = area.k === 'building' ? margin : 400;
+    if (!points.some(([px, py]) => px >= -reach && px <= width + reach && py >= -reach && py <= height + reach)) continue;
+    areas.push({ kind: area.k, d: `${points.map(([px, py], i) => `${i ? 'L' : 'M'}${px.toFixed(1)} ${py.toFixed(1)}`).join('')}Z` });
+  }
   const roads: PlaceMapView['roads'] = [];
   // Per name, the line with the longest stretch in view, and the middle of that stretch.
   const longest = new Map<string, { length: number; x: number; y: number; angle: number }>();
@@ -147,5 +173,5 @@ export function placeMap(
     labels.push({ text, x: Math.round(lx), y: Math.round(ly), angle: Math.round(spot.angle) });
   }
   if (roads.filter((r) => r.kind !== 'rail').length < 2) return undefined;
-  return { width, height, roads, labels, pin: { x: width / 2, y: height / 2 } };
+  return { width, height, roads, areas, labels, pin: { x: width / 2, y: height / 2 }, credit: data.credit ?? 'census', exact: data.from?.[slug] === 'osm' };
 }

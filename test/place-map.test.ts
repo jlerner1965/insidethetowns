@@ -35,6 +35,25 @@ test('a road is labelled by what the town calls it, inside the frame, and a stre
   assert.equal(map.labels.find((l) => l.text === 'N 4th St')!.angle, -90);
 });
 
+test('an extract brings buildings and its credit, and a pin from it is exact', () => {
+  const osm: PlaceMapData = {
+    ...data,
+    credit: 'osm',
+    from: { cafe: 'osm' },
+    areas: [
+      { k: 'building', p: [[-105.0804, 40.3053], [-105.0802, 40.3053], [-105.0802, 40.3051]] },
+      { k: 'building', p: [[-105.2, 40.4], [-105.2, 40.41], [-105.19, 40.4]] },
+    ],
+    lines: [...data.lines, { n: 'North 5th Street', k: 'road', p: [[-105.0815, 40.30], [-105.0815, 40.31]] }],
+  };
+  const map = placeMap(osm, 'cafe')!;
+  assert.equal(map.areas.length, 1);
+  assert.equal(map.credit, 'osm');
+  assert.equal(map.exact, true);
+  assert.ok(map.labels.some((l) => l.text === 'N 5th St'));
+  assert.equal(placeMap(data, 'cafe')!.exact, false);
+});
+
 test('a frame with fewer than two roads is no map', () => {
   assert.equal(placeMap({ ...data, lines: data.lines.slice(0, 1) }, 'cafe'), undefined);
 });
