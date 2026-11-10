@@ -36,8 +36,9 @@ const parts = wordmarkParts(site.siteTitle);
   )}
   <span class:list={['font-semibold', second]}>{parts.name}</span>
   {/* On a second line, smaller: on one line Longmont's title pushed the
-      desktop nav off the side of the page. */}
+      desktop nav off the side of the page. Without the dot that joins the
+      two on one line: it opened the second line on its own. */}
   {parts.after && (
-    <span class:list={['mt-[0.3em] block font-light italic', after]} style={`font-size:${WORDMARK_AFTER_SCALE}em`}>{parts.after}</span>
+    <span class:list={['mt-[0.3em] block font-light italic', after]} style={`font-size:${WORDMARK_AFTER_SCALE}em`}>{parts.after.replace(/^·\s*/, '')}</span>
   )}
 </a>

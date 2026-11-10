@@ -61,14 +61,15 @@ export const castleRock: TownConfig = {
   // the Town's own site refuses automated reads, so none is claimed here.
   character: 'The Douglas County seat, 73,158 at the 2020 census, downtown under the rhyolite butte that named it, between Denver and Colorado Springs on I-25.',
   colors: {
-    // Not in Color System 2.0 (9 October 2026), which covers the guides
-    // then live or launching. A placeholder in its roles until the owner
-    // gives Castle Rock a palette: the rhyolite rose it had, its dark shade
-    // as the primary, on warm paper. It launched with it on 31 October 2026;
-    // choosing one is the owner's, by the 29 November decision (it sits
-    // close to Johnstown and Loveland).
-    primary: '#6E3647',
-    accent: '#A0546A',
+    // Scrub-oak olive + rhyolite rose, on warm paper: the owner's word of
+    // 10 November 2026 to settle the palette, which had been a placeholder
+    // since the launch (a dark rose, #6E3647, 34 steps from Berthoud's and
+    // Windsor's maroons). The Gambel oak on the buttes and the pink
+    // rhyolite the Rock is capped with and downtown was built from. The
+    // olive is a hue no other guide has: its nearest primary is Berthoud's,
+    // 58 steps off. `npm run check-colors` proves it.
+    primary: '#55601F',
+    accent: '#B5876B',
     paper: 'warm',
   },
   // The line under each Find your next stop tile (TownConfig.nextStop), from what

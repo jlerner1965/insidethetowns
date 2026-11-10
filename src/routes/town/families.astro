@@ -337,7 +337,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       <SectionHeader id="parents-h" title={parents.length > 0 ? 'For parents: schools, passes and volunteering' : 'For parents: schools'} />
       {/* Which school, first: the heading promised schools and the section
           had none; they were a box at the foot of the page. */}
-      <div id="schools" class="scroll-mt-20 rounded-lg bg-accent-soft p-5 sm:p-6">
+      <div id="schools" class="scroll-mt-20 rounded-lg bg-raised p-5 ring-1 ring-line-soft sm:p-6">
         <h3 class="text-lg font-semibold leading-snug">Which school? It depends on the address.</h3>
         {families.schools.some((s) => s.note) && (
           <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">

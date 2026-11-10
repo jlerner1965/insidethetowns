@@ -55,7 +55,7 @@ const scoreline = (g: SportGame) => (g.score ? `${g.score.us}–${g.score.them}`
             <a href={g.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">
               <span class="font-normal text-ink-muted">{where(g)}</span> {g.opponent}
             </a>
-            {isNext && <span class="ml-2 rounded-full bg-primary px-2 py-0.5 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-white">Next</span>}
+            {isNext && <span class="ml-2 rounded-full bg-primary px-2 py-0.5 text-[0.75rem] font-bold uppercase tracking-eyebrow text-white">Next</span>}
             {/* A playoff or tournament game says so under the opponent, as MaxPreps labels it. */}
             {g.stage && <span class="block text-[0.875rem] leading-snug text-ink-muted">{g.stage}</span>}
           </td>
