@@ -1124,6 +1124,13 @@ export const sourceSchema = z
     venueAliases: z.record(z.string(), z.string().min(1)).optional(),
     /** The venue when the feed names a room or an address but not the place: a library's own calendar. */
     defaultVenue: z.string().min(1).optional(),
+    /**
+     * The venue for items whose title holds a given piece, where the feed
+     * names no place for them: { "Volleyball": "Moby Arena" } on a
+     * university's calendar that lists every sport and gives no venue for
+     * one of them. Case-insensitive; a venue the feed gives always stands.
+     */
+    titleVenues: z.record(z.string(), z.string().min(1)).optional(),
     notes: z.string().optional(),
   })
   .refine((s) => !FEED_TYPES.includes(s.type) || !!s.feedUrl, {

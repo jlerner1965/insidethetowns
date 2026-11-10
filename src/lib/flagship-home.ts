@@ -265,6 +265,21 @@ function deadlineItem(d: WeekDeadline): DayItem {
 }
 
 /**
+ * A game the guide also has as a listing of its own that day: a sports
+ * listing whose title names the opponent ("Roosevelt football vs Montbello:
+ * 4A playoffs, second round", written for the playoff game the scores feed
+ * also carries). Until 10 November 2026 both were shown, the same game
+ * twice at the top of Johnstown's weekend (the owner's screenshot). The
+ * listing is the one kept while the game is ahead: it has the page with the
+ * story. Once the game is played its row carries the result, and stays.
+ */
+export function listedAsEvent(game: { opponent?: string; result?: unknown }, onDay: readonly EventLike[]): boolean {
+  const opponent = (game.opponent ?? '').trim().toLowerCase();
+  if (game.result || opponent.length < 3) return false;
+  return onDay.some((e) => e.data.category === 'sports' && e.data.title.toLowerCase().includes(opponent));
+}
+
+/**
  * Seven days (the calendar week Monday to Sunday, or from today, Denver),
  * one entry a day: the events that start that day, a called-off one kept
  * and marked, the school's games that day (the result once it is played,
@@ -291,9 +306,10 @@ export function weekDays<E extends EventLike>({ events, sports, teamHref = () =>
   return Array.from({ length: 7 }, (_, i) => {
     const date = addDays(first, i);
     const key = dayKey(date);
+    const onDay = listed.filter((e) => dayKey(e.data.start) === key);
     const items: DayItem[] = [
-      ...games.filter((g) => g.game.date === key).map((g) => gameItem(g, teamHref(g.team.key))),
-      ...listed.filter((e) => dayKey(e.data.start) === key).map((e) => ({ ...eventItem(e, picked), series: isSeries(e) })),
+      ...games.filter((g) => g.game.date === key && !listedAsEvent(g.game, onDay)).map((g) => gameItem(g, teamHref(g.team.key))),
+      ...onDay.map((e) => ({ ...eventItem(e, picked), series: isSeries(e) })),
       ...deadlines.filter((d) => dayKey(d.on) === key).map(deadlineItem),
     ];
     if (email && WEEKDAY.format(date) === email.day && key >= today) {

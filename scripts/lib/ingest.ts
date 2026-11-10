@@ -246,6 +246,21 @@ export function fingerprint(item: FeedEvent, venue: string | undefined): string 
 }
 
 /**
+ * An item's venue: the feed's location read by `venueFrom`, and where that
+ * names no place, the source's word for items of that title (`titleVenues`:
+ * CSU's calendar gives no venue for home volleyball, and every home match is
+ * at Moby Arena, the owner, 10 November 2026). A venue the feed does name
+ * always stands: the title's is only for the item with none.
+ */
+export function venueOf(item: Pick<FeedEvent, 'title' | 'location'>, source: Pick<Source, 'venueAliases' | 'defaultVenue' | 'titleVenues'>): ReturnType<typeof venueFrom> {
+  const read = venueFrom(item.location, source);
+  if (read.venue) return read;
+  const title = item.title.toLowerCase();
+  const hit = Object.entries(source.titleVenues ?? {}).find(([part]) => title.includes(part.toLowerCase()));
+  return hit ? { ...read, venue: hit[1], guessed: false } : read;
+}
+
+/**
  * A feed title as the guide writes it: without the picture characters a bar
  * decorates its calendar with ("🎶🎉💃🏼🎸Sweat & Reed" at Goosetown Station,
  * 10 November 2026). Only the written title: the item keeps its own, so a
@@ -267,7 +282,7 @@ export function writtenTitle(title: string): string {
  */
 export function toStaged(item: FeedEvent, source: Source, _town: string, today: string, dupes: PossibleDuplicate[] = [], elsewhere?: string): StagedEvent {
   const guesses: string[] = [];
-  const { venue, address, guessed: venueGuessed } = venueFrom(item.location, source);
+  const { venue, address, guessed: venueGuessed } = venueOf(item, source);
   const { category, guessed: categoryGuessed } = guessCategory(item);
   const finalVenue = venue ?? 'Venue not given in the feed';
   if (!venue) guesses.push('the feed gives no venue');

@@ -10164,3 +10164,31 @@ they have to be, and the social ones should.
   quiet list and step back on a full one), the hub's lists, and what
   publishes. Niwot's home page, built that day: this weekend opens with
   Strangebyrds, Toys In The Attic and Starlight and Pine.
+
+## Moby Arena for CSU volleyball, 10 November 2026
+
+The CSU feed gives no venue for home volleyball, and the review of that
+day listed the two matches (Fresno State on 12 November, Texas State on
+17 November) at Moby Arena from the reviewer's own knowledge, flagged for
+a look. The owner confirmed it: yes to Moby, and then that every home
+volleyball match is at Moby Arena.
+
+- **`titleVenues` on a source** (src/content/schemas.ts; `venueOf`,
+  scripts/lib/ingest.ts): the venue for items whose title holds a given
+  piece, used only where the feed names no place. CSU's source has
+  `{ "Volleyball": "Moby Arena" }`, so later home matches publish without
+  a person. A venue the feed does give always stands.
+- **Not checked against the live feed.** After the day's reads
+  csurams.com answered 403 and then a redirect loop; the rule is pinned by
+  a test, and Monday's run will show whether the feed still answers.
+
+## A game the guide lists as an event is shown once, 10 November 2026
+
+The owner sent Johnstown's weekend tab with "Roosevelt football vs
+Montbello" on it twice at Friday, 7 pm: once from the scores feed ("Home ·
+State Football Playoffs") and once from the listing written for the
+playoff game. While a game is ahead and a sports listing on its day names
+the opponent, the day shows the listing and not the game's row
+(`listedAsEvent`, src/lib/flagship-home.ts): the listing has the page
+with the story. Once the game is played its row carries the result and is
+shown. The team page and the sports strip are unchanged.

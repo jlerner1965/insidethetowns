@@ -56,7 +56,8 @@ import { readSquarespaceEvents, squarespaceView } from './lib/feeds/squarespace.
 import { eventbritePageData, eventbritePageKind, eventbritePlacePage, readEventbriteEvents, type EventbriteEvent } from './lib/feeds/eventbrite.ts';
 import { isSociableKitFeed, readSociableKit } from './lib/feeds/sociablekit.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
-import { ambiguousNote, detectChanges, elsewhereNote, excludedTitle, excludingEntry, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, sameSite, sameVenue, siblingCounts, toStaged, venueFrom, type ExistingEvent, type Match, passesCategoryFilter } from './lib/ingest.ts';
+import { ambiguousNote, detectChanges, elsewhereNote, excludedTitle, excludingEntry, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, sameSite, sameVenue, siblingCounts, toStaged, venueFrom,
+  venueOf, type ExistingEvent, type Match, passesCategoryFilter } from './lib/ingest.ts';
 import { normalizeUrl, sessionLinks } from '../src/lib/session-links.ts';
 import { isAllowed } from './lib/robots.ts';
 import { robotsFor, TIMEOUT, UA } from './lib/probe.ts';
@@ -408,7 +409,7 @@ for (const town of towns) {
       // with the question, for a person; the listing is not flagged.
       let elsewhere: string | undefined;
       if (match.kind === 'published' && match.how === 'title' && match.existing.sourceHost && itemHost && !sameSite(match.existing.sourceHost, itemHost)) {
-        const read = venueFrom(item.location, source);
+        const read = venueOf(item, source);
         if (read.venue && !read.guessed && !read.silent && !sameVenue({ venue: read.venue, address: read.address }, match.existing)) {
           elsewhere = elsewhereNote(match.existing, read.venue, source.name);
           match = { kind: 'none' };
@@ -430,7 +431,7 @@ for (const town of towns) {
       // A new item, or one already staged, that may repeat a published
       // listing it did not match: the review line names the listing, and
       // nothing approves it by rule.
-      const place = venueFrom(item.location, source);
+      const place = venueOf(item, source);
       const dupes = match.kind === 'published' ? [] : possibleDuplicates(item, place, existing, claimed);
       if (dupes.length) console.log(`    possible duplicate, staged for review: "${item.title}" ${toWallClock(item.start)} and ${dupes.map((d) => relative(root, d.existing.file)).join(', ')} (${dupes[0]!.why})`);
       if (elsewhere) console.log(`    same name, another place, staged for review: "${item.title}" ${toWallClock(item.start)} at ${place.venue}`);
@@ -498,7 +499,7 @@ for (const town of towns) {
         continue;
       }
       // Published. Compare, and file the difference for the review.
-      const { venue, guessed, silent } = venueFrom(item.location, source);
+      const { venue, guessed, silent } = venueOf(item, source);
       // A part merged into a listing keeps its own hour, so only its
       // cancellation or a new venue says anything about the listing.
       const changes = detectChanges(item, match.existing, venue, !guessed && !silent).filter((c) => match.how !== 'merged' || (c.field !== 'start' && c.field !== 'end'));
