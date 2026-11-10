@@ -14,8 +14,8 @@ source: "https://tickets.lctix.com/eventperformances.asp?evt=2330"
 sourceId: "lctix-com"
 sourceUid: "showare:5676"
 sourceHash: "e1be33d0c5dc"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, from the Lincoln Center's performance list, read 1 November 2026: two shows in the hall on 12 December, 2 pm (5676) and 7 pm (5677), $35; the 7 pm had waited in staging as a possible duplicate of the 2 pm"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Contemporary Dance Academy | The Nutcracker 2026 at The Lincoln Center Performance Hall, Saturday, December 12, at 2 pm and 7 pm, two hours each. Listed by The Lincoln Center (lctix.com); the organizer's page has the details and any registration.

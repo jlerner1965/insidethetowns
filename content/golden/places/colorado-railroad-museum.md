@@ -4,9 +4,9 @@ type: venue
 address: "17155 W. 44th Avenue, Golden, CO 80403"
 url: "https://coloradorailroadmuseum.org/"
 source: "https://coloradorailroadmuseum.org/plan-your-visit/"
-verified: "2026-10-20"
+verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 image: ../images/colorado-railroad-museum.jpg
 imageAlt: "Colorado & Southern rotary snowplow 99201, black with a red cutting wheel, standing on a track in the Colorado Railroad Museum yard"
 imageCredit: "D&RG Railfan, Wikimedia Commons, CC BY 3.0"

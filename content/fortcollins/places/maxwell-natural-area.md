@@ -12,7 +12,8 @@ hours: "Daily 5 am–11 pm"
 tags: [hiking, mountain-biking, horses, dogs-on-leash]
 summary: "The middle link of the Foothills Trail: a 1.5-mile stretch of the 9.6-mile trail that joins Pineridge to Reservoir Ridge along the hogback, on a City natural area where the rare Bell's twinpod grows. Free; open 5 am to 11 pm."
 source: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Maxwell-Natural-Area"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

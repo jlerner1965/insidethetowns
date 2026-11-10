@@ -1,22 +1,24 @@
 ---
 title: "Explore Erie: four places in walking order"
 date: "2026-10-07"
-excerpt: "Park once at Coal Creek Park, walk a stretch of the creek trail, then Town Hall, the Briggs Street shops and a meal on the block. On a Monday, three of the dinner places are closed; the alternatives are here."
+excerpt: "Park once at Coal Creek Park, walk a stretch of the creek trail, then Town Hall, the Briggs Street shops and a meal on the block. 24 Carrot Bistro and the Old Mine are closed on Mondays and Birdhouse on Tuesdays; the alternatives are here."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 image: ../images/town-hall-lincoln-school.jpg
 imageAlt: "Erie Town Hall, the former Lincoln School, in October 2019: a red-brick schoolhouse with a hipped roof and a newer wing"
 imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
-verified: "2026-10-07"
+verified: "2026-11-10"
+updated: "2026-11-10"
 glance:
   start: "Coal Creek Park lot on Kattell Street, with EV charging and limited street parking; everything is a few blocks from it"
   by: "On foot"
-  bestDay: "Tuesday to Sunday; on a Monday, Piripi, Lucile's and Echo are the ones open on the block"
-  caveat: "24 Carrot Bistro, Birdhouse and the Old Mine are all closed on Mondays"
+  bestDay: "Wednesday to Sunday; 24 Carrot Bistro and the Old Mine are closed on Mondays, Birdhouse on Tuesdays"
+  caveat: "24 Carrot Bistro and the Old Mine are closed on Mondays; Birdhouse is closed on Tuesdays"
 sources:
   - { label: "Town of Erie: Coal Creek Park", url: "https://www.erieco.gov/2274/Coal-Creek-Park" }
   - { label: "Town of Erie: Coal Creek Open Space", url: "https://www.erieco.gov/2368/Coal-Creek-Open-Space" }
   - { label: "Downtown Erie: Historic Downtown Erie and the self-guided tour", url: "https://www.downtownerie.biz/" }
+  - { label: "Town of Erie: ice rink at Coal Creek Park", url: "https://www.erieco.gov/icerink" }
 related:
   - { label: "Erie trails: the paved Coal Creek corridor or the singletrack", href: "/articles/erie-trails-paved-or-singletrack/", note: "The trailheads, the rules and the wet-trail closures, for a day that is more trail than town." }
   - { label: "Historic downtown walking tour", href: "/places/downtown-walking-tour/", note: "The self-guided tour of more than a dozen historic sites that this walk passes through." }
@@ -27,7 +29,7 @@ Erie sits on the Weld–Boulder county line north-east of Boulder, about twenty 
 
 ## 01 · Coal Creek Park and the creek trail
 
-The 6.5-acre park at 575 Kattell Street is where downtown Erie keeps its playground (the butterfly-shaped Maddie's Playground), a splash pad from Memorial Day weekend to mid-September, 9 am–7 pm, and an ice rink from early December to late February. Brewfest and the Parade of Lights happen here. The [Coal Creek Trail](/places/coal-creek-trail/) passes the park on its way north to south: 4.73 miles of concrete with crusher-fines beside it, plus soft-surface sections, through the Town's 400 acres of open space, open daily from sunrise to sunset with dogs on leash. Walk a stretch north toward Reliance Park or south toward Erie Parkway and come back; the full corridor, the trailheads and the singletrack at Sunset Open Space are in [the trails guide](/articles/erie-trails-paved-or-singletrack/), and are a separate day.
+The 6.5-acre park at 575 Kattell Street is where downtown Erie keeps its playground (the butterfly-shaped Maddie's Playground), a splash pad from Memorial Day weekend to mid-September, 9 am–7 pm, and an ice rink in winter, open this season from November 27 to February 15. Brewfest and the Parade of Lights happen here. The [Coal Creek Trail](/places/coal-creek-trail/) passes the park on its way north to south: 4.73 miles of concrete with crusher-fines beside it, plus soft-surface sections, through the Town's 400 acres of open space, open daily from sunrise to sunset with dogs on leash. Walk a stretch north toward Reliance Park or south toward Erie Parkway and come back; the full corridor, the trailheads and the singletrack at Sunset Open Space are in [the trails guide](/articles/erie-trails-paved-or-singletrack/), and are a separate day.
 
 *Getting there:* the park lot on Kattell Street. *Best for:* a flat half hour on concrete before the shops open; children, strollers and dogs.
 
@@ -45,9 +47,9 @@ Back on Briggs, the block runs from Cellar West's century-old house at the south
 
 ## 04 · Lunch or dinner on the block
 
-Three Briggs Street kitchens are the ones people name, and all three are closed on Mondays. [24 Carrot Bistro](/places/24-carrot-bistro/) at 578 Briggs does lunch Tuesday to Friday from 11, brunch at weekends from 9, and dinner from 4:30 pm. [Birdhouse](/places/birdhouse/) at 526 Briggs serves tacos and ramen from 4 pm on weekdays and from 11:30 am Friday to Sunday. [The Old Mine](/places/the-old-mine/) in the 1889 Davis building opens at 4 pm Tuesday to Thursday and at 11 am Friday to Sunday, with cider, pizza and trivia on Tuesday evenings.
+Three Briggs Street kitchens are the ones people name, and each takes a day off early in the week: 24 Carrot Bistro and the Old Mine are closed on Mondays, Birdhouse on Tuesdays. [24 Carrot Bistro](/places/24-carrot-bistro/) at 578 Briggs does lunch Tuesday to Friday from 11, brunch at weekends from 9, and dinner from 4:30 pm. [Birdhouse](/places/birdhouse/) at 526 Briggs serves tacos and ramen from 4 pm on Monday, Wednesday and Thursday and from 11:30 am Friday to Sunday. [The Old Mine](/places/the-old-mine/) in the 1889 Davis building opens at 4 pm Tuesday to Thursday and at 11 am Friday to Sunday, with cider, pizza and trivia on Tuesday evenings.
 
-On a Monday, use the others. [Piripi](/places/piripi/) at 615 Briggs serves tapas Monday to Saturday from 11 am (Sunday from 4 pm). [Lucile's Creole Cafe](/places/luciles-creole-cafe/) at 544 Briggs is breakfast and lunch only, weekdays 7 am–2 pm, weekends 8 am–2 pm, with a weekend line that the weekday avoids. [Echo Brewing & Pizzeria](/places/echo-brewing/) at the north end opens at 4 pm Monday to Thursday and from 11 am at weekends, with a biergarten out back. [Cellar West Brewery](/places/cellar-west-brewery/) at the south end is closed Monday and Tuesday; Wednesday to Friday it opens in the afternoon, and at weekends from noon. A block off Briggs on Wells Street, [Erie Social Club](/places/erie-social-club/) pours wine and whiskey from 4 pm Tuesday to Saturday and 1–5 pm on Sunday, closed Monday.
+On a Monday or a Tuesday, use the others. [Piripi](/places/piripi/) at 615 Briggs serves tapas Monday to Saturday from 11 am (Sunday from 4 pm). [Lucile's Creole Cafe](/places/luciles-creole-cafe/) at 544 Briggs is breakfast and lunch only, weekdays 7 am–2 pm, weekends 8 am–2 pm, with a weekend line that the weekday avoids. [Echo Brewing & Pizzeria](/places/echo-brewing/) at the north end opens at 4 pm Monday to Thursday and from 11 am at weekends. [Cellar West Brewery](/places/cellar-west-brewery/) at the south end is closed Monday and Tuesday; Wednesday to Friday it opens in the afternoon, and at weekends from noon. A block off Briggs on Wells Street, [Erie Social Club](/places/erie-social-club/) pours wine and whiskey from 4 pm Tuesday to Saturday, closed Sunday and Monday.
 
 *Getting there:* on foot; every one of these is on or a block off Briggs. *Best for:* a meal that ends the walk where the car is.
 

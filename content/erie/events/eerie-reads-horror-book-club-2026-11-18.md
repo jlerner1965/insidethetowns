@@ -9,8 +9,8 @@ cost: "Free; registration required"
 category: arts
 recurring: "Monthly, third Wednesdays"
 source: "https://highplains.libcal.com/event/17077351"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Eerie Reads Horror Book Club\" at 6 pm on 18 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Adult book club discussing horror fiction, meeting in person in the library living room. Registration required; books are collected from the front desk.

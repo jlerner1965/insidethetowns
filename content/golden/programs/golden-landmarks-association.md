@@ -12,7 +12,8 @@ registration: { required: true, how: "Call 303-279-1236 or email gold@goldenland
 volunteerNeed: "Serving as a board member, staffing special events, restoration project assistance, working in the GLA main office, and many more, in the association's words"
 contact: "William Litz, President, 303-279-1236, gold@goldenlandmarks.com"
 source: "https://goldenlandmarks.com/join-us/"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Citizens organized the Golden Landmarks Association on February 14, 1972, to save the Astor House at 822 12th Street from becoming a parking lot; that June, 69 percent of Golden's voters chose to keep it, and the association ran it as a museum for 25 years. It has since helped save the Burgess House, the Pearce and Reynolds cabins and the Guy Hill School at the [History Park](/places/golden-history-park/), and helped create the 12th Street, 8th & 9th Street and East Street historic districts. Its current work is the Brickyard House at 1225 Catamount Drive and the Pete Morrison photographic collection. To join or volunteer, call or email; the site lists no meeting schedule.

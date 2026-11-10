@@ -9,7 +9,8 @@ hours: "7 am–10 pm"
 tags: [grocery]
 summary: "Sprouts on North Lincoln Avenue, open 7 am to 10 pm."
 source: "https://www.sprouts.com/store/co/loveland/loveland/"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

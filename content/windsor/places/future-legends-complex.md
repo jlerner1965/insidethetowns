@@ -5,7 +5,8 @@ type: venue
 address: "950 Owlz Way"
 area: "Diamond Valley"
 source: "https://www.kunc.org/news/2026-08-17/future-legends-lender-alleges-delay-tactics-with-bankruptcy-filing"
-verified: "2026-10-07"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source and BizWest's report of 1 September 2026 on 10 November 2026"
 added: "2026-10-01"
 tags: [sports, stadium, tournaments]
 summary: "The 118-acre sports complex on Windsor's east side, closed to the public since the spring of 2025 and under a court-appointed receiver; its owners' bankruptcy cases were dismissed in September 2026."

@@ -4,9 +4,9 @@ type: bar
 address: "801 Brickyard Circle, Unit B, Golden, CO 80403"
 url: "https://holidailybrewing.com/"
 source: "https://holidailybrewing.com/"
-verified: "2026-10-20"
+verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 phone: "303-278-2337"
 hours: "Mon–Thu 2–9 pm; Fri 12–10 pm; Sat 11 am–10 pm; Sun 11 am–8 pm"
 tags: [brewery, gluten-free, food-trucks]

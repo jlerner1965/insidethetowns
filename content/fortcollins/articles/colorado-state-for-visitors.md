@@ -2,6 +2,7 @@
 title: "Colorado State for visitors: tours, game day, the museums and the dates that fill the city"
 seoTitle: "Visiting Colorado State University: a Fort Collins guide"
 date: "2026-10-03"
+updated: "2026-11-10"
 excerpt: "How to see the campus that is the biggest thing in Fort Collins: the tour from the Oval, where to park, what a game day at Canvas Stadium or Moby asks of you, the two free museums, and the weekends to book a hotel early."
 category: "Campus"
 tags: [campus, csu, guide]
@@ -17,6 +18,11 @@ sources:
   - { label: "Colorado State Athletics: football game day", url: "https://csurams.com/sports/2021/7/1/football-gameday.aspx" }
   - { label: "Colorado State Athletics: women's basketball game day", url: "https://csurams.com/sports/2021/8/16/wbb-gameday" }
   - { label: "Colorado State Athletics: football schedule", url: "https://csurams.com/sports/football/schedule/2026" }
+  - { label: "Pac-12 Conference: 2026 Colorado State football schedule", url: "https://pac-12.com/schedule.aspx?schedule=9206" }
+  - { label: "Pac-12 Conference: the 2026 football schedule and its flex week", url: "https://pac-12.com/news/2026/2/9/general-the-new-pac-12-announces-its-2026-football-schedule.aspx" }
+  - { label: "Pac-12 Conference: 2026-27 Colorado State men's basketball schedule", url: "https://pac-12.com/schedule.aspx?schedule=9252" }
+  - { label: "Gregory Allicar Museum of Art: visit", url: "https://artmuseum.colostate.edu/visit/" }
+  - { label: "Avenir Museum of Design and Merchandising", url: "https://www.chhs.colostate.edu/avenir/" }
   - { label: "CSU Homecoming and Family Weekend", url: "https://homecoming.colostate.edu/" }
   - { label: "CSU Commencement", url: "https://commencement.colostate.edu/" }
   - { label: "CSU: campus attractions", url: "https://visit.colostate.edu/campus-attractions/" }
@@ -32,13 +38,13 @@ The [Lory Student Center](/places/lory-student-center/) is the place to aim for 
 
 ## Game day
 
-Football is at [Canvas Stadium](/places/canvas-stadium/) on the south edge of campus. The lots and tailgating open six hours before kickoff, the free Ram Walk tailgate concert off Meridian Avenue starts four hours before, will call at the ticket office on the stadium's north-west side opens four hours before, and the gates have metal detectors and a clear-bag rule. The 2026 home games left are San Diego State on October 24 at 4:30 pm and Boise State on November 7 at 4 pm, with a final home date on November 28 whose opponent and time are not yet set.
+Football is at [Canvas Stadium](/places/canvas-stadium/) on the south edge of campus. The lots and tailgating open six hours before kickoff, the free Ram Walk tailgate concert off Meridian Avenue starts four hours before, will call at the ticket office on the stadium's north-west side opens four hours before, and the gates have metal detectors and a clear-bag rule. One 2026 home game is left, on Saturday, November 28, the Pac-12's flex week: the conference confirms the opponent no later than six days before, and the kickoff time is still to be announced.
 
-Basketball and volleyball are at [Moby Arena](/places/moby-arena/) on Plum Street, where the lots open two hours before tip-off and will call one hour before. The women's home schedule has published times from late October; the men open at home against Montana State on November 2, with tip-off times still to be announced. Tickets for everything: (800) 491-RAMS.
+Basketball and volleyball are at [Moby Arena](/places/moby-arena/) on Plum Street, where the lots open two hours before tip-off and will call one hour before. Both seasons are under way: the men's home schedule runs to the Gonzaga game on March 6, 2027, and the women's home games are on the [events page](/events/?category=sports) with their times. Tickets for everything: (800) 491-RAMS.
 
 ## The arts, and two free museums
 
-The [University Center for the Arts](/places/university-center-for-the-arts/) on Remington Street, the old high school, holds the concert hall, the organ hall, the theatres and more than 250 performances a year, most of them free or $15 or less. Inside it, the [Gregory Allicar Museum of Art](/places/gregory-allicar-museum-of-art/) is free Wednesday to Sunday; a block east, the [Avenir Museum](/places/avenir-museum-of-design-and-merchandising/) of dress and textiles is free Tuesday to Saturday. The one campus event the rest of the city plans around is the [Halloween Organ Extravaganza](/events/halloween-organ-extravaganza-2026-10-31/), three sold-out shows on October 31.
+The [University Center for the Arts](/places/university-center-for-the-arts/) on Remington Street, the old high school, holds the concert hall, the organ hall, the theatres and more than 250 performances a year, most of them free or $15 or less. Inside it, the [Gregory Allicar Museum of Art](/places/gregory-allicar-museum-of-art/) is free Wednesday to Sunday; in the University Center for the Arts East at 216 East Lake Street, the [Avenir Museum](/places/avenir-museum-of-design-and-merchandising/) of dress and textiles is free Tuesday to Saturday. Both close for university breaks: the Allicar from November 21 to 29, 2026, and from December 14, 2026 to January 19, 2027. The one campus event the rest of the city plans around is the [Halloween Organ Extravaganza](/events/halloween-organ-extravaganza-2026-10-31/), whose three shows on October 31, 2026 sold out.
 
 ## The dates that change the city
 

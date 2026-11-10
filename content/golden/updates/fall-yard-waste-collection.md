@@ -7,7 +7,7 @@ affects: "Golden households on the City's Pay-As-You-Throw trash program with 52
 effective: "2026-11-02"
 effectiveEnd: "2026-11-06"
 published: "2026-11-04"
-verified: "2026-11-09"
+verified: "2026-11-10"
 source: "https://www.cityofgolden.gov/services/trash_recycling_compost/yard_waste_collection_days.php"
 sourceLabel: "City of Golden: Yard Waste Collection Days"
 item: "/living-here/"

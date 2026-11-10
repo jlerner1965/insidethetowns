@@ -8,8 +8,8 @@ url: "https://dance.colostate.edu/events/2026-fall-dance-concert-2026-11-14/"
 cost: "$20; seniors $15; under 18 $10; CSU students free"
 category: arts
 source: "https://dance.colostate.edu/events/2026-fall-dance-concert-2026-11-14/"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"2026 Fall Dance Concert\" at 7:30 pm on 14 November on the dance.colostate.edu feed"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from CSU Dance's events feed and its page for the 13 November show (which lists all three performances and the prices) on 10 November 2026"
 ---
 
 The dance program's fall concert at the University Center for the Arts: original works by faculty, guest artists and selected student choreographers, three performances over the weekend.

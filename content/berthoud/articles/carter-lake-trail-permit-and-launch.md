@@ -9,7 +9,7 @@ imageAlt: "Carter Lake seen across scrub and ponderosa pines from its shore, a b
 imageCredit: "KimonBerlin, Wikimedia Commons, CC BY-SA 2.0"
 tags: [outdoors, lake, boating, camping, guide]
 verified: "2026-11-09"
-updated: "2026-11-09"
+updated: "2026-11-10"
 sources:
   - { label: "Larimer County: Carter Lake", url: "https://www.larimer.gov/naturalresources/parks/carter-lake" }
   - { label: "Larimer County: entrance permits", url: "https://www.larimer.gov/naturalresources/parks/permits" }
@@ -52,7 +52,7 @@ Ramp hours in 2026, from the boating page:
 | North Pines | April 1–May 22 | 7 am–7 pm |
 | | May 23–September 30 | 6 am–10 pm |
 | | October 1–31 | 7 am–7 pm |
-| | November 1 to end of season | 8 am–4 pm |
+| | November 1 to end of season | 8 am–4 pm, as budget and water allow |
 | North Ramp (marina) | May 1–22 | 7 am–7 pm |
 | | May 23–September 7 | 6 am–10 pm |
 | | September 8–30 | 6 am–8 pm |

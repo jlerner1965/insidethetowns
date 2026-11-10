@@ -12,7 +12,8 @@ hours: "Mon–Fri 8 am–5 pm"
 tags: [bus, transit, max]
 summary: "Transfort's northern hub on North Mason, where the MAX bus rapid transit line and the city routes meet: customer service counter, printed schedules, restrooms, an indoor waiting room and bike racks. Riding Transfort is currently fare-free."
 source: "https://ridetransfort.com/hours-and-locations/"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

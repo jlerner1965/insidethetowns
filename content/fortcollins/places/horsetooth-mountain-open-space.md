@@ -14,7 +14,8 @@ tags: [hiking, mountain-biking, horses, views, dogs-on-leash]
 featured: true
 summary: "The hike to Horsetooth Rock, the landmark visible from the plains: 29 miles of trail on 2,711 county acres above the reservoir, with Horsetooth Falls running in spring. $10 vehicle permit; the lot fills early on weekends."
 source: "https://www.larimer.gov/naturalresources/parks/horsetooth-mountain"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

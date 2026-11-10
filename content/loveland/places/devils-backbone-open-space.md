@@ -5,15 +5,15 @@ address: "Hidden Valley Drive off US 34, just past mile marker 88, 2 miles west 
 area: "West of town, US 34"
 url: "https://www.larimer.gov/naturalresources/parks/devils-backbone"
 source: "https://www.larimer.gov/naturalresources/parks/devils-backbone"
-verified: "2026-10-07"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the County's Devil's Backbone and entrance-permits pages)"
 added: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/devils-backbone.jpg
 imageAlt: "The Devil's Backbone west of Loveland in April 2010: a long fin of tilted sandstone along the hogback, the Keyhole visible near its right end, above a fenced meadow"
 imageCredit: "Maarten Heerlien, Wikimedia Commons, CC BY 2.0"
 hours: "Daily sunrise to sunset; the trailhead gate typically opens by 6 am and closes at sunset"
 tags: [hiking, mountain-biking, horses, hogback, open-space, permit]
-access: { parking: "The lot fills on weekends and holidays; the County says a full lot means the trails are at capacity, to come before 10 am or after 4 pm, and to check its parking-lot webcam before setting out.", permit: "A Larimer County entrance permit is required.", conditionsUrl: "https://www.larimer.gov/naturalresources/parks/devils-backbone", conditionsLabel: "Larimer County's Devil's Backbone page, with alerts and the parking webcam", source: "https://www.larimer.gov/naturalresources/parks/devils-backbone", verified: "2026-10-07" }
+access: { parking: "The lot fills on weekends and holidays; the County says a full lot means the trails are at capacity, to come before 10 am or after 4 pm, and to check its parking-lot webcam before setting out.", permit: "A Larimer County entrance permit is required.", conditionsUrl: "https://www.larimer.gov/naturalresources/parks/devils-backbone", conditionsLabel: "Larimer County's Devil's Backbone page, with alerts and the parking webcam", source: "https://www.larimer.gov/naturalresources/parks/devils-backbone", verified: "2026-11-10" }
 summary: "Larimer County's 3,007-acre open space along the sandstone hogback west of Loveland: 17.25 miles of shared trail for hikers, riders and horses that connect north to Rimrock and Horsetooth Mountain. Entrance permit required; the lot fills early at weekends."
 ---
 
@@ -21,4 +21,4 @@ The Devil's Backbone is the ridge of upturned sandstone that stands west of Love
 
 Day use only, sunrise to sunset; the gate at the trailhead typically opens by 6 am and closes at sunset. A Larimer County [entrance permit](https://www.larimer.gov/naturalresources/parks/permits) is required. The trails are shared by hikers, mountain bikers and horses: bikers yield to everyone, and e-bikes are prohibited on the natural-surface trails. Dogs on a leash at all times, and the County asks that they stay home in hot weather. Parking is the hard part. On weekends and holidays the lot fills, a full lot means the trails are at capacity, and the County's advice is to arrive before 10 am or after 4 pm, or to look at its parking-lot webcam (refreshed every twenty minutes) before leaving home and choose another open space if it is full.
 
-The County's page names no individual trail distances, so pick a route from its map rather than planning on a single loop figure. Everything here is from [Larimer County Natural Resources](https://www.larimer.gov/naturalresources/parks/devils-backbone), read 7 October 2026.
+The County's page names no individual trail distances, so pick a route from its map rather than planning on a single loop figure. Everything here is from [Larimer County Natural Resources](https://www.larimer.gov/naturalresources/parks/devils-backbone), read 10 November 2026.

@@ -8,7 +8,7 @@ action: "Apply for a standard STR permit through the Town's eTRAKiT portal with 
 effective: "2026-11-02"
 effectiveNote: "Applications opened November 2, 2026, under Ordinance No. 035-2026"
 published: "2026-11-04"
-verified: "2026-11-04"
+verified: "2026-11-10"
 source: "https://www.erieco.gov/2687/40920/Short-Term-Rentals"
 sourceLabel: "Town of Erie: Short-Term Rentals"
 alsoSource: "https://www.erieco.gov/m/newsflash/Home/Detail/3159"

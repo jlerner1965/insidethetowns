@@ -9,7 +9,8 @@ hours: "Daily 9 am–8 pm"
 tags: [grocery, pharmacy, membership]
 summary: "The members' warehouse club on East Eisenhower Boulevard, open every day 9 am to 8 pm, with a pharmacy, a fuel station, tires, optical and a café."
 source: "https://www.samsclub.com/club/loveland-co-sams-club/8147"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

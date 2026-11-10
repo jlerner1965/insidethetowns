@@ -8,7 +8,8 @@ tags: [historic, walk, architecture]
 featured: true
 summary: "Several of the buildings on Main Street date back to the late 1800s."
 source: "https://www.lyonscolorado.com/771/History-and-Heritage"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

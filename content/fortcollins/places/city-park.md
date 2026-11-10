@@ -8,7 +8,8 @@ hours: "Daily 5 am–11 pm"
 tags: [pool, lake, golf, pickleball, playground]
 summary: "The big park around Sheldon Lake on West Mulberry, with the outdoor City Park Pool and its 30-foot waterslide, the nine-hole City Park Nine, four lighted pickleball courts, ball fields and the city's Independence Day celebration."
 source: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Parks/City-Park"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

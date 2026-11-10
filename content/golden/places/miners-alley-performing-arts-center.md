@@ -8,8 +8,8 @@ source: "https://minersalley.com/plan-your-visit/directions-parking/"
 phone: "303-935-3044"
 tags: [theater, plays, family]
 summary: "Professional theater in the old Meyer Hardware building near 11th and Washington: mainstage plays, a young audiences season and a lobby bar, with no seat more than six rows from the stage."
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-28"
 ---
 

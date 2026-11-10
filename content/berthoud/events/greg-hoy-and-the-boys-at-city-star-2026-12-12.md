@@ -9,7 +9,8 @@ performers:
 url: "https://citystarbrewing.com/event/greg-hoy-and-the-boys/"
 category: music
 source: "https://citystarbrewing.com/event/greg-hoy-and-the-boys/"
-verified: "2026-10-27"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: title, date, times and description)"
 ---
 
 Colorado's Greg Hoy and the Boys, Americana and bluegrass-leaning jam music with stand-up bass and drums, play the City Star taproom from 6 to 8:30 pm on their tour behind the LP "Hit Music".

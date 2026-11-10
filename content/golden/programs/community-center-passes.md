@@ -14,9 +14,10 @@ price: "Day pass, resident / non-resident: child 0–5 $4.75 / $6.50, youth 6–
 registration: { required: false, how: "Pay at the front desk, or buy passes and punch cards online; residents show proof of residency for resident rates" }
 contact: "303-384-8100, GoldenParksAndRecReg@cityofgolden.gov"
 source: "https://www.cityofgolden.gov/community/golden_community_center/visit_us.php"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The City's recreation center on 10th Street, just north of [Lions Park](/places/lions-park/) and across from the Clear Creek Trail. The **leisure pool** is kept at 91 degrees, slopes from zero depth to 3 feet 6, and has a 130-foot spiral water slide, floating logs to climb across, fountains and a small slide for the youngest swimmers; on weekdays from 10 to 11:30 it is a sensory swim with the features off. The six-lane lap pool is 83 degrees. Daily passes cover the day of purchase; 10-visit punch cards and annual passes, paid in full or monthly, are on the [visit page](https://www.cityofgolden.gov/community/golden_community_center/visit_us.php).
 
-**Child Watch** gives up to two hours of care a visit for children 1 to 7, on Tuesday and Wednesday mornings and Tuesday afternoons. Weekend **pool parties** are $200 for the party room and 20 guests, booked at least a week ahead, with dates open through December 13. The center is closed on Thanksgiving, Christmas and New Year's Day and closes at 2 pm on December 24 and 31. Residents who need help paying for programs can apply to the City's [Equity & Access program](https://co.accessgov.com/community-center/Forms/Page/community-center/equity-and-access-application); applications are due at least a month before a program's enrollment opens.
+**Child Watch** gives up to two hours of care a visit for children 1 to 7, on Tuesday and Wednesday mornings and Tuesday afternoons. Weekend **pool parties** are $200 for the party room and 20 guests, booked at least a week ahead, with dates open through January 31, 2027. The center is closed on Thanksgiving, Christmas and New Year's Day and closes at 2 pm on December 24 and 31. Residents who need help paying for programs can apply to the City's [Equity & Access program](https://co.accessgov.com/community-center/Forms/Page/community-center/equity-and-access-application); applications are due at least a month before a program's enrollment opens.

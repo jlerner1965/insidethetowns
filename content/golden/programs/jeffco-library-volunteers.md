@@ -14,7 +14,8 @@ price: "No cost to volunteer"
 registration: { required: true, how: "Fill in the Foundation's online volunteer application; library applications for new adult volunteers are closed until JCPL posts new openings", url: "https://jeffclf.org/how-you-can-help/volunteers/" }
 contact: "Foundation warehouse, book sorting and office: Renee Bergstrom, 303-403-5079, renee@jeffclf.org; bookstore and special events: Megan Fessenden, 303-403-5073, megan@jeffclf.org"
 source: "https://jeffcolibrary.org/volunteer/volunteer-adult/"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Golden's library is one branch of Jefferson County Public Library, whose adult volunteers shelve, prepare program crafts, greet patrons at storytime, stock the book-sale rooms and do early-literacy outreach to preschools. "Applications for new adult volunteers are currently closed," the library's page says; adult volunteers must be 18 or older and consent to a background check, and only staff read at library storytimes. The [Jefferson County Library Foundation](https://jeffclf.org/how-you-can-help/volunteers/), which raises money for the library, takes volunteers now: its volunteers logged more than 10,000 hours last year at its office, the donation warehouse, the Friends Gift & Book Shop at Belmar Library and the book sales.

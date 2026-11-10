@@ -7,8 +7,8 @@ affects: "Residents of the Town of Johnstown, and the Town Council, where Berg h
 effective: "2026-10-31"
 effectiveNote: "The date of the Town's statement, posted to the Town's News Flash on November 2, 2026"
 published: "2026-11-04"
-verified: "2026-11-03"
-verifiedBy: "Flagship audit, from the Town of Johnstown's News Flash, read 3 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 source: "https://www.johnstownco.gov/CivicAlerts.aspx?aid=38"
 sourceLabel: "Town of Johnstown News Flash: Town of Johnstown Mourns the Passing of Councilmember Damien Berg"
 ---

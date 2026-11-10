@@ -16,12 +16,12 @@ schedule: "First Monday of each month, 5 pm"
 registration: { required: true, how: "By application to the Town, on its Youth Council Application page", url: "https://www.townofseverance.org/438/Youth-Council-Application" }
 contact: "Town Hall, 970-686-1218"
 source: "https://www.townofseverance.org/413/Youth-Council"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Youth Council, Youth Council Application and Boards & Commissions pages, read November 9, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Town describes the Youth Council as "an advisory body to the Town Council" that represents "the interests and perspectives of the community's youth". It recommends policies, programs and initiatives that affect young residents and promotes community service. The Town lists four goals, among them "Giving Teens a Voice in Local Government".
 
 The council has a chair, a vice-chair, a secretary, a vice-secretary, members and alternates. It meets at 5 pm on the first Monday of each month in the Town Hall meeting room, and its agendas and minutes are on the Town's [Agendas & Minutes page](https://www.townofseverance.org/129/Agendas-Minutes).
 
-**Who can apply.** In the Town's words, "Youth Ages 13- 17 who live in Severance." The Town takes applications on its [application page](https://www.townofseverance.org/438/Youth-Council-Application). For questions, call Town Hall at 970-686-1218.
+**Who can apply.** In the Town's words, "Youth Ages 13- 17 who live in Severance." The Town takes applications on its [application page](https://www.townofseverance.org/438/Youth-Council-Application), which gives an application deadline of August 27. For questions, call Town Hall at 970-686-1218.

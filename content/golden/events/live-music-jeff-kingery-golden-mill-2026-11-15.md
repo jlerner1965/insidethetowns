@@ -9,8 +9,8 @@ category: music
 performers:
   - { name: "Jeff Kingery", kind: person }
 source: "https://www.thegoldenmill.com/events/live-music-with-jeff-kingery-2"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Jeff Kingery\" at 3 pm on 15 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Jeff Kingery brings a classic rock set to the Golden Mill on Sunday, November 15 from 3 to 6 pm. The Golden Mill is the food hall and self-pour taproom on Ford Street; the event page gives no cover charge. The Mill adds an 18 percent service fee to food and drink instead of tips.

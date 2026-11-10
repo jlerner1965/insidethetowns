@@ -2,12 +2,13 @@
 title: "Heron Lakes Marina: 105 homes north of Lonetree Reservoir approved"
 kind: decision
 stage: approved
-summary: "On October 27 the Board of Trustees approved, 4–2, the neighborhood master plan for Heron Lakes Marina (Heron Lakes 22nd Filing): 49 single-family and 56 paired-home lots on about 38.7 acres south of County Road 14 and north of Lonetree Reservoir. The next step is a preliminary plat."
+summary: "On October 27 the Board of Trustees approved, 4–2, the neighborhood master plan for Heron Lakes Marina (Heron Lakes 22nd Filing): 49 single-family and 56 paired-home lots on about 37.8 acres south of County Road 14 and north of Lonetree Reservoir. The next step is a preliminary plat."
 affects: "Neighbors in Heron Lakes and along County Road 14; anyone following growth around Lonetree Reservoir"
 action: "Nothing to do now; the preliminary plat, with the engineering and the water provider, is the next application and goes to a public hearing."
 effective: "2026-10-27"
 published: "2026-11-04"
-verified: "2026-11-03"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the October 27 minutes in the November 10, 2026 Board packet and the staff report in the October 27 packet, both on the Town's CivicClerk portal; the staff report gives the size as 37.79 acres)"
 source: "https://berthoudco.portal.civicclerk.com/event/727/files"
 sourceLabel: "Town of Berthoud: Board of Trustees packet, November 10, 2026, with the October 27 minutes"
 alsoSource: "https://berthoudco.portal.civicclerk.com/event/739/files"

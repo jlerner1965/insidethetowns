@@ -8,7 +8,8 @@ mapUrl: "https://www.fortcollins.gov/files/sharedassets/city/v/3/community-servi
 tags: [river, picnic, hiking, paddling, fishing, dogs-on-leash]
 summary: "The City's natural area in the lower Poudre Canyon where the North Fork joins the main river: picnic tables with grills, a canoe and kayak launch, fishing, two short trails and a natural playground. Open dawn to dusk; the only City natural area with a fee, $8 a vehicle."
 source: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Gateway-Natural-Area"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

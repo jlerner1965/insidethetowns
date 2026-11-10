@@ -10,8 +10,8 @@ category: family
 organizer: "Lafayette Public Library"
 organizerUrl: "https://www.lafayetteco.gov/library"
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/SensoryStorytimeAugNov2026"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Lafayette Public Library LibCal calendar feed, read 9 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: the library’s LibCal calendar feed and the City’s Storytimes page, read 10 November 2026; neither states a price"
 ---
 
 A storytime for kids ages 2 to 8 who are neurodiverse or have sensory needs, with their caregivers, on Saturday, November 28, from 10:30 to 11 am in the library’s lower-level Meeting Room. It is structured, with softer lighting, singing, books and sensory toys, and led by a board-certified behavior analyst. The next one is a holiday edition with [photos with Santa on December 5](/events/sensory-storytime-and-photos-with-santa-2026-12-05/).

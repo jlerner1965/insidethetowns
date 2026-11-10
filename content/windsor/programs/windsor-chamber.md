@@ -15,8 +15,8 @@ access: members
 registration: { required: true, how: "Join through the Chamber's online membership application; Strength of Windsor and Women of Windsor need registration for each event", url: "https://business.windsorchamber.net/member/newmemberapp/" }
 contact: "970-686-7189, information@WindsorChamber.net"
 source: "https://www.windsorchamber.net/"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Chamber's home, Get Involved, Ambassadors and membership levels pages, read November 9, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Chamber's home page lists its regular gatherings under "Get Involved":

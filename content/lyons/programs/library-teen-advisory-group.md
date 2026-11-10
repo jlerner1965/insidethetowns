@@ -10,7 +10,7 @@ summary: "Grades 6 to 12 help plan the library’s programs, collections and eve
 ages: "Grades 6–12"
 location: "Lyons Regional Library, 451 4th Ave"
 schedule: "Thu 6–7:15 pm, about monthly"
-season: "October 22, November 12 and December 10 on the calendar"
+season: "November 12 and December 10 on the calendar"
 price: "Free"
 registration: { required: false }
 newcomers: true

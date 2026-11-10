@@ -13,8 +13,8 @@ performers:
   - { name: "Njioma Grevious", kind: person }
   - { name: "Josh Halpern", kind: person }
 source: "https://www.culturalcaravan.org/events-1/behind-the-music-njioma-grevious"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: Cultural Caravan’s ticket page and the City calendar (EID 12269), read 9 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: Cultural Caravan’s ticket page and the City calendar (EID 12269), read 10 November 2026"
 ---
 
 Cultural Caravan’s concert-and-conversation series comes to The Collective on Wednesday, November 18, from 7 to 9 pm. Artistic director Josh Halpern talks with violinist Njioma Grevious about her creative process and the collaboration behind her residency program, “Can’t Take My Soul,” with music between, and the audience brings questions. General admission is pay what you choose, from $0, on Cultural Caravan’s ticket page, with a service fee at checkout.

@@ -11,8 +11,8 @@ source: "https://tickets.lctix.com/eventperformances.asp?evt=2296"
 sourceId: "lctix-com"
 sourceUid: "showare:5549"
 sourceHash: "c7c112958252"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the The Lincoln Center (lctix.com) feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 NATIONAL GEOGRAPHIC LIVE: COSMIC ADVENTURES at The Lincoln Center Performance Hall, Saturday, January 9, 7:30 pm – 9 pm. Listed by The Lincoln Center (lctix.com); the organizer's page has the details and any registration.

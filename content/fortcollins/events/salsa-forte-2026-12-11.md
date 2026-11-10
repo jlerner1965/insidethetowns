@@ -10,8 +10,8 @@ category: "music"
 performers:
   - { name: "Salsa Forte", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-12-11, 19:30-23:00, $20"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Salsa night with Salsa Forte: a lesson at 7:30, then the band at 8:30. At Avogadro's Number, 605 South Mason Street.

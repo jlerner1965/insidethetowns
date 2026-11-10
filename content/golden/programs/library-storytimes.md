@@ -15,9 +15,10 @@ registration: { required: true, how: "On the library's events calendar, at the l
 contact: "303-235-5275"
 featured: true
 source: "https://jeffcolibrary.org/wp-content/uploads/sites/46/2026/06/16526_Story-Time-Schedule_Jun-May-27.pdf"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the storytime schedule and the library's events calendar)"
 ---
 
 Jefferson County Public Library's Golden branch, next to the Golden History Museum, runs a storytime most mornings, each about half an hour. **Baby Time** (bounce, sing, rhyme and read with your baby) is Tuesdays and Thursdays at 9:15. **Toddler Time** is Fridays at 10:15 and Wednesdays at 10:15 except the second Wednesday of the month. **Preschool Time** is Tuesdays at 10:15, **Let's Dance** Mondays at 10:15 and **Family Time** Saturdays at 10:15. The library's [storytime schedule](https://jeffcolibrary.org/wp-content/uploads/sites/46/2026/06/16526_Story-Time-Schedule_Jun-May-27.pdf) marks every one of these at Golden as needing registration: on the events calendar, at the desk or by phone. Each session opens for sign-up two weeks before, at 12:15 pm.
 
-Two Wednesday sessions are drop-in. **Baby Play Time**, 30 minutes of open play for babies up to 2 and the adults with them, is at 9:15 on the first, third and fourth Wednesdays (next November 4, 18 and 25). **Discovery Play**, hands-on science, art and building activities at your own pace, is at 10:15 on the second Wednesday (December 9 and January 13; the library is closed for Veterans Day on November 11). The calendar also has no sessions on Thanksgiving and the day after, on December 24 and 25, or on January 1 and January 18.
+Two Wednesday sessions are drop-in. **Baby Play Time**, 30 minutes of open play for babies up to 2 and the adults with them, is at 9:15 on the first, third and fourth Wednesdays (next November 18 and 25, then December 2, 16 and 23). **Discovery Play**, hands-on science, art and building activities at your own pace, is at 10:15 on the second Wednesday (December 9 and January 13; the library is closed for Veterans Day on November 11). The calendar also has no sessions on Thanksgiving and the day after, on December 24 and 25, or on January 1 and January 18.

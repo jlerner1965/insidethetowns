@@ -9,7 +9,7 @@ verified: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"
 added: "2026-10-01"
 phone: "970-498-0483"
-hours: "Sun–Wed 11–9, Thu–Sat 11–10"
+hours: "Sun–Thu 11–9, Fri–Sat 11–10"
 tags: [brewpub, pub-food, billiards]
 summary: "Old Town Square's brewpub since 1989: ales, lagers, stouts and seasonals brewed on site, an English-pub-meets-American menu with vegetarian options, and a billiards hall across the square with pool tables, board games and pizza."
 ---

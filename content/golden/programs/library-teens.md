@@ -14,7 +14,8 @@ season: "On the library's calendar through January"
 registration: { required: true, how: "Teen After Hours registers on the library's events calendar; join the Teen Advisory Board with the volunteer application on the library's home page or by asking at the Golden Library", url: "https://jeffcolibrary.bibliocommons.com/v2/events?locations=GN&audiences=5982266b3006ded52b409391", opens: "2026-10-30", note: "Registration for the November 13 Teen After Hours opened October 30, for 20 places, with a wait list once they fill" }
 contact: "303-235-5275"
 source: "https://jeffcolibrary.bibliocommons.com/v2/events?locations=GN&audiences=5982266b3006ded52b409391"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 **Teen After Hours** is a monthly evening at the library for teens in 6th to 12th grade only; the library asks families to keep to the age limit. On November 13, from 6 to 8, it is "Go Nuts for Donuts!": learn basic crochet stitches and make an amigurumi donut buddy while eating donuts, then take home the buddy, a hook and extra yarn. No crochet experience is needed; registration is on the library's calendar, for 20 places, with a wait list once they fill.

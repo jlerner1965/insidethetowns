@@ -9,9 +9,9 @@ category: "family"
 organizer: "Fort Collins Downtown Development Authority"
 organizerUrl: "https://downtownfortcollins.org/"
 source: "https://downtownfortcollins.org/winter-in-downtown/"
-verified: "2026-11-01"
+verified: "2026-11-10"
 featured: true
-verifiedBy: "Claude Code for James Lerner, against the Downtown Development Authority's Winter in Downtown page and its Santa's Workshop hours PDF, 1 November 2026: Nov 27 at 11:30 a.m. by firetruck with Comet the reindeer; workshop opens noon-6 p.m. that day; free"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026, with the DDA's Santa's Workshop hours PDF"
 ---
 
 Santa arrives in Old Town Square by firetruck at 11:30 a.m. the day after Thanksgiving, with Comet the reindeer from Jessen Reindeer Ranch. Santa's Workshop and the free skate rink open for the season right after; the workshop runs noon to 6 that day. Come early for a view.

@@ -9,8 +9,8 @@ category: family
 organizer: "Centaurus High School"
 organizerUrl: "https://ceh.bvsd.org/"
 source: "https://ceh.bvsd.org/"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Centaurus home page, read 9 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: the Centaurus home page, read 10 November 2026"
 ---
 
 For families weighing Centaurus in Boulder Valley’s choice enrollment: a tour of the engineering wing and an introduction to the school’s International Baccalaureate program from its students and staff, on Tuesday, December 1, from 5 to 6 pm. Morning [choice-enrollment tours](/events/centaurus-choice-enrollment-tour-2026-11-20/) run on November 20, December 4 and December 11.

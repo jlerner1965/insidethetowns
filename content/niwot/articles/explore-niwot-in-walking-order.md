@@ -1,6 +1,7 @@
 ---
 title: "Explore Niwot: four places in walking order"
 date: "2026-09-17"
+updated: "2026-11-10"
 excerpt: "Old Town first, then Cottonwood Square, then whatever the weather allows. The whole loop is under two miles, and you only park once."
 category: "Outdoors"
 glance:
@@ -41,7 +42,7 @@ The [Niwot Sculpture Park](/places/niwot-sculpture-park/), run by the Niwot Cult
 
 [Whistle Stop Park](/places/whistle-stop-park/) sits at the south-west corner of Murray Street and First Avenue, at the edge of Old Town, and keeps the restored caboose. The [Longmont-to-Boulder (LoBo) Regional Trail](/places/lobo-regional-trail/), twelve miles between the two cities through Gunbarrel and Niwot, runs through the community and joins the [local loop](/places/niwot-loop-trail/), and Left Hand Creek crosses the fields east of the built-up blocks.
 
-Trail surfaces, closures and dog rules are set by [Boulder County Parks & Open Space](https://bouldercounty.gov/open-space/parks-and-trails/trail-closures/) rather than by a town, since Niwot is unincorporated. *Best for:* walking and cycling; the eastern fields at sunset.
+Trail surfaces, closures and dog rules are set by [Boulder County Parks & Open Space](https://bouldercounty.gov/open-space/parks-and-trails/trail-closures/) rather than by a town, since Niwot is unincorporated. The county plans to close the Niwot Loop Trailhead and trail later this winter to repair two bridges, and has not set the dates ([the notice](/updates/#niwot-loop-trail-winter-closure)). *Best for:* walking and cycling; the eastern fields at sunset.
 
 ## A simple first visit
 

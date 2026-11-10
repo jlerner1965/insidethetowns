@@ -9,7 +9,8 @@ hours: "Daily 6 am–11 pm"
 tags: [grocery, pharmacy]
 summary: "The Safeway at 1451 W. Eisenhower Boulevard, open every day from 6 am to 11 pm, with a pharmacy and pickup or delivery orders."
 source: "https://local.safeway.com/safeway/co/loveland/1451-w-eisenhower-blvd.html"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

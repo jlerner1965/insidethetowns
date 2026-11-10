@@ -8,7 +8,8 @@ cost: "Free"
 category: civic
 recurring: "Third Thursdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5344"
-verified: "2026-09-18"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Regular in-person meeting of the advisory board for Erie Municipal Airport economic development. Open to the public.

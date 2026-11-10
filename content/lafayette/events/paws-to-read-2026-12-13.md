@@ -10,8 +10,8 @@ category: family
 organizer: "Lafayette Public Library"
 organizerUrl: "https://www.lafayetteco.gov/library"
 source: "https://lafayettepubliclibrary.libcal.com/event/15600045"
-verified: "2026-11-02"
-verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: the library’s LibCal calendar feed, read 10 November 2026; the listing states no price"
 ---
 
 Fifteen minutes reading to a therapy dog from the Alliance of Therapy Dogs, for kids ages 5 to 10, in the library’s Kid Zone on Sunday, December 13, between 1:30 and 2:30 pm. Drop in. The January dates are the 10th and the 24th.

@@ -8,7 +8,8 @@ phone: "970-482-8300"
 tags: [live-music, concerts, comedy]
 summary: "The Old Town concert hall for touring bands on College Avenue, booked by Z2 Entertainment: indie, rock, electronic, country, hip-hop, reggae and comedy. Box office Mon–Fri 10–5 and on show nights."
 source: "https://www.z2ent.com/venues-we-book/aggie-theatre"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

@@ -10,8 +10,8 @@ organizer: "City of Golden"
 organizerUrl: "https://www.cityofgolden.gov/"
 source: "https://www.cityofgolden.gov/calendar.php"
 sourceId: "cityofgolden-gov"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The year's last Cookies with Councilors turns into a bake-off: City councilors bring their own baked goods, residents sample them all and vote for a winner. Drop in to the Bear Creek Room at the Golden Community Center between 10 and 11 am.

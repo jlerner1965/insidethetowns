@@ -8,8 +8,8 @@ url: "https://www.lafayetteco.gov/Calendar.aspx?EID=12272"
 cost: "Free; register with Anamaria at 321-624-1840"
 category: family
 source: "https://www.lafayetteco.gov/Calendar.aspx?EID=12272"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 9 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 A family workshop in Spanish on Saturday, November 14, from noon to 2 pm at The Collective: decorate a candle for the Thanksgiving table with parchment-paper designs in autumn colors and seasonal patterns, lit by a safe LED light, and take it home. Free and for all ages; register with Anamaria at 321-624-1840.

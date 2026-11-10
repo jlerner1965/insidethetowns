@@ -1,11 +1,11 @@
 ---
 title: "Severance with kids"
 date: "2026-10-07"
-updated: "2026-10-10"
+updated: "2026-11-10"
 excerpt: "Where to take children in Severance: neighborhood playgrounds and a skate park, the stocked pond at Blue Spruce Park, the Severance Library's storytimes and after-school programs, the Great Western Trail to Eaton, the pools in Windsor and the Town's year from the trick-or-treat parade to the fishing derby."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
-verified: "2026-10-07"
+verified: "2026-11-10"
 sources:
   - { label: "Town of Severance: Parks & Recreation", url: "https://www.townofseverance.org/209/Parks-Recreation" }
   - { label: "Town of Severance: Parks & Trails map (April 2026)", url: "https://www.townofseverance.org/DocumentCenter/View/267/Parks-Map-PDF" }
@@ -41,6 +41,9 @@ sources:
   - { label: "Clearview Library District: PAWS for Reading", url: "https://clearview.libnet.info/event/17564903" }
   - { label: "Clearview Library District: Lego Explorers", url: "https://clearview.libnet.info/event/17224215" }
   - { label: "Clearview Library District: Chess Club", url: "https://clearview.libnet.info/event/17223939" }
+  - { label: "Clearview Library District: StoryWalk Storytime at Lakeview Park", url: "https://clearview.libnet.info/event/17286773" }
+  - { label: "Clearview Library District: events calendar", url: "https://clearview.libnet.info/events" }
+  - { label: "Severance High School: upcoming events", url: "https://shs.weldre4.org/" }
   - { label: "Great Western Trail Authority: the trail", url: "https://www.gwtrail.com/" }
   - { label: "Great Western Trail Authority: history", url: "https://www.gwtrail.com/history/" }
   - { label: "Windsor Parks, Recreation & Culture: Community Recreation Center", url: "https://www.recreationliveshere.com/167/Community-Recreation-Center" }
@@ -57,13 +60,13 @@ The Town of Severance's [Parks & Recreation page](https://www.townofseverance.or
 
 The Town's [Parks & Trails map](https://www.townofseverance.org/DocumentCenter/View/267/Parks-Map-PDF), dated April 2026, counts 18 parks over 105.1 acres. The Town's own pages describe what is in five of them.
 
-- **[Lakeview Park](/places/lakeview-park/)**, at 513½ Broadview Drive off South 1st Street, has the longest list of the five: a playground, a skateboard park, basketball courts, covered picnic shelters, barbecue pits and restrooms, with four parking areas ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4)). It is also one of the library district's two StoryWalk sites, where the pages of a children's book are set out along a path; the story changes every other month ([library](https://clearviewlibrary.org/programs-events/just-for-kids/little-ones)). The park has been closed since August 17, 2026 while new playground equipment is installed; the Town says it will post the reopening date, and none had been posted on 10 October ([Town notice](https://www.townofseverance.org/m/newsflash/home/detail/79)).
+- **[Lakeview Park](/places/lakeview-park/)**, at 513½ Broadview Drive off South 1st Street, has the longest list of the five: a playground, a skateboard park, basketball courts, covered picnic shelters, barbecue pits and restrooms, with four parking areas ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4)). It is also one of the library district's two StoryWalk sites, where the pages of a children's book are set out along a path; the story changes every other month ([library](https://clearviewlibrary.org/programs-events/just-for-kids/little-ones)). The Town closed the park on August 17, 2026 to install new playground equipment and says it will post the reopening date on its website ([Town notice](https://www.townofseverance.org/m/newsflash/home/detail/79)). The library lists its next StoryWalk Storytime at the park for Thursday, November 19, at 10 am, with no registration ([event page](https://clearview.libnet.info/event/17286773)).
 - **[Karen Suman Park](/places/karen-suman-park/)** in the Timber Ridge subdivision has a Play-On! playground built, in the Town's words, for sliding, swinging, spinning, climbing, brachiating and balancing, plus picnic shelters and tables. Its facility page puts it at 1108 Pinon Pine Drive and the Parks & Recreation page at 400 S Timber Ridge Parkway ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Karen-Suman-Park-3)).
 - **[Summit View Park](/places/summit-view-park/)**, in the middle of the Summit View subdivision off Audubon Boulevard, has a playground and picnic shelters ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Summit-View-Park-5)).
 - **[Brownell Park](/places/brownell-park/)** at the Old Town Hall on 1st Street is small and shady, with picnic tables and no playground listed ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Brownell-Park-2)).
 - **[Overlook Park](/places/overlook-park/)** on Audubon Boulevard, 6.9 acres on the map, is where the Town holds its teen field day.
 
-The largest, the 37.3-acre Community Park on Waterfowl Way, was [under construction](https://www.townofseverance.org/Facilities/Facility/Details/Community-Park-7) in early October, with opening expected in late fall, weather permitting. None of the Town park pages read for this guide lists a splash pad.
+The largest, the 37.3-acre Community Park on Waterfowl Way, is [under construction](https://www.townofseverance.org/Facilities/Facility/Details/Community-Park-7), with the Town estimating an opening in late fall, weather pending. None of the Town park pages read for this guide lists a splash pad.
 
 For a birthday party, the Town asks for a pavilion or park reservation at least 14 business days ahead and takes up to 10 business days to review it; a reservation counts only once the Town confirms it ([Special Events](https://www.townofseverance.org/210/Special-Events)).
 
@@ -77,14 +80,14 @@ The Town's **Kids Fishing Derby** at Blue Spruce Park ran on May 16 this year, i
 
 The [Severance Library](/places/severance-library/) at 5 Timber Ridge Parkway is open Monday to Thursday 10 to 6 and Friday and Saturday 10 to 5, and is closed Sunday ([hours](https://clearviewlibrary.org/about-us/learn-more/hours-locations)). A parent or guardian must sign for a card for a child under 14 ([cards](https://clearviewlibrary.org/card)). Staff will not leave a child under 10 waiting outside for a ride ([policy](https://clearviewlibrary.org/about-us/learn-more/policies-faqs/unattended-children-and-behavior-policy)).
 
-For the youngest, the October calendar has programs that need no registration, in the Cottonwood room:
+For the youngest, the library's calendar through mid-December has programs that need no registration, in the Cottonwood room:
 
 - **Babies and Books**, a lapsit storytime for birth to 2, Wednesdays at 10 ([event page](https://clearview.libnet.info/event/17227558)).
 - **Read, Rhyme, and Romp**, an active storytime for ages 0 to 5, Mondays at 10 ([event page](https://clearview.libnet.info/event/17227922)).
 - **Stay and Play**, open-ended play for ages 0 to 2, after the Monday and Wednesday storytimes at 10:30 ([event page](https://clearview.libnet.info/event/17227648)).
-- **Thursdays at the Library**, an open house on select Thursdays from 10 to 11:30; October 8 is a Baby Rave for ages 0 to 2 ([event page](https://clearview.libnet.info/event/17240662)).
+- **Thursdays at the Library**, a themed morning for ages 0 to 5 on select Thursdays. The two on the calendar through December, a gourd party on November 12 and pajama storytimes on December 10, are at the Windsor Library, and the December ones need registration ([calendar](https://clearview.libnet.info/events)).
 
-For school-age children, **Lego Explorers** is open Lego building on Tuesday afternoons for elementary children and tweens up to 12, with registration ([event page](https://clearview.libnet.info/event/17224215)); October's sessions, like Kids in the Kitchen and the Teen Cookbook Club, were already full. **Chess Club** takes ages 6 to 18 on Wednesday afternoons with no registration ([event page](https://clearview.libnet.info/event/17223939)). At **PAWS for Reading**, children read to a trained therapy dog and get a small prize afterward; the page says Severance sessions are on Tuesday mornings, though the October calendar also lists one on Wednesday, October 14, at 3:30. Slots open 14 days ahead ([event page](https://clearview.libnet.info/event/17564903)).
+For school-age children, **Lego Explorers** is open Lego building on Tuesday afternoons at 3:15 for elementary children and tweens up to 12, with registration ([event page](https://clearview.libnet.info/event/17224215)). Kids in the Kitchen and the Teen Cookbook Club also take registration, and their November sessions are full, with waitlists. **Chess Club** takes ages 6 to 18 with no registration ([event page](https://clearview.libnet.info/event/17223939)); the next sessions on the calendar are Wednesday, November 11 and Wednesday, December 9, 4:30 to 5:30. At **PAWS for Reading**, children read to a trained therapy dog and get a small prize afterward; the page says Severance sessions are on Tuesday mornings, and the November calendar also lists Tuesday and Wednesday afternoons at 3:30. Slots open 14 days ahead ([event page](https://clearview.libnet.info/event/17564903)).
 
 Beyond the programs, the district runs **1000 Books Before Kindergarten**, ten levels of 100 books with a prize at each ([library](https://clearviewlibrary.org/programs-events/just-for-kids/1k-books-before-kindergarten)), and the **Adventure Pass**, which a cardholder can use to reserve free or discounted admission to places such as the Fort Collins Museum of Discovery, the Butterfly Pavilion and the Colorado Model Railroad Museum in Greeley ([Adventure Pass](https://clearviewlibrary.org/borrow-research/adventure-pass)). The Summer Adventure Program ran from June 1 to July 31 this year and returns in summer 2027 ([library](https://clearviewlibrary.org/sap)).
 
@@ -100,7 +103,9 @@ The [Great Western Trail](https://www.gwtrail.com/) follows the old sugar-beet r
 
 ## The calendar
 
-- **October:** the library's [Teen Movie Night](/events/teen-movie-night-2026-10-24/) on the 24th is for ages 12 to 18 only. The Town's [Trick or Treat Parade](/events/trick-or-treat-parade/) on the 30th runs from 3 to 5 pm at Town Hall and the library, with trunk-or-treating and a haunted Town Hall. Bring a nonperishable food item as the "entrance fee," and trick-or-treaters must come with an adult ([Town](https://www.townofseverance.org/290/Trick-or-Treat-Parade)). Severance High's [home football games](/events/severance-knights-football-vs-berthoud-2026-10-30/) are $5 for K–12 students and free for pre-K and under ([school](https://docs.google.com/document/d/1HKtkK1NuMIie17vR9uapOv0LBI4JJjtplf2ugX8Mx2k/edit?usp=sharing)).
+- **November 28:** the Severance High School Key Club's first [Winter Market](/events/severance-high-school-winter-market-2026-11-28/), 9 am to 3 pm at the school, with more than 50 vendors, face painting, food trucks and Santa from 11 to 3 ([school](https://shs.weldre4.org/)).
 - **December 12:** [Town Christmas](/events/town-christmas-2026-12-12/) at Community Park, 2 to 5 pm, with Santa and Ms. Claus, horse-drawn carriage rides, the Grinch, reindeer, crafts, caroling and fireworks to close ([Town](https://www.townofseverance.org/376/Town-Christmas)).
 - **Winter:** snowball fights have been legal since December 2018, when a nine-year-old persuaded the Town board to repeal an old ban on throwing missiles ([BBC](https://www.bbc.com/news/world-us-canada-46439279)). Around Valentine's Day, the Hearts around Severance scavenger hunt sends families to parks and businesses to find lettered hearts, with a small prize at Town Hall for a finished sheet ([Town](https://www.townofseverance.org/283/Hearts-around-Severance-Scavenger-Hunt)).
 - **Spring and summer**, with the dates the Town's pages give for this year's events (check for next year's): Teen Field Day at Overlook Park on May 9, for ages 13 to 18 with a guardian's waiver ([Town](https://www.townofseverance.org/418/Teen-Field-Day)); the fishing derby on May 16; Touch a Truck at the Public Works Shop, 145 3rd Avenue, on May 22, with snowplows, a backhoe, police cars and a fire truck, and a free snow cone for the first 50 ([Town](https://www.townofseverance.org/389/Touch-a-Truck)); Movies in the Park on June 26 at Lakeview Park and July 24 at Karen Suman Park ([Town](https://www.townofseverance.org/288/Movies-in-the-Park)); and the Safety Fair at Town Hall on July 11, with first responders, demonstrations and a free weather radio for the first 100 ([Town](https://www.townofseverance.org/427/Severance-Safety-Fair)). Severance Days, the Town's yearly festival, was [canceled for 2026](https://www.townofseverance.org/CivicAlerts.aspx?AID=80) while Community Park is rebuilt.
+- **October:** the Town's [Trick or Treat Parade](/events/trick-or-treat-parade/) ran on the 30th this year, from 3 to 5 pm at Town Hall and the library, with trunk-or-treating and a haunted Town Hall; a nonperishable food item for the Weld Food Bank was the "entrance fee," and trick-or-treaters had to come with an adult ([Town](https://www.townofseverance.org/290/Trick-or-Treat-Parade)).
+- **School sports:** Severance High charges $5 for K–12 students at its home games, and pre-K and under get in free ([school](https://docs.google.com/document/d/1HKtkK1NuMIie17vR9uapOv0LBI4JJjtplf2ugX8Mx2k/edit?usp=sharing)).

@@ -10,8 +10,8 @@ source: "https://citystarbrewing.com/event/chicken-coop-willaye/"
 sourceId: "citystarbrewing-com"
 sourceUid: "14891"
 sourceHash: "4d3ee3b9b557"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the City Star Brewing feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: title, date, times and description)"
 ---
 
 Chicken Coop Willaye at City Star Brewing, Friday, November 27, 6 pm – 8:30 pm. Listed by City Star Brewing; the organizer's page has the details and any registration.

@@ -10,7 +10,8 @@ source: "https://bohemianlivemusic.org/event/s-g-goodman-with-a-j-fullerton/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "54455"
 sourceHash: "faa988d5b52e"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 S.G. Goodman with A.J. Fullerton at The Armory, Tuesday, November 10. Doors at 6, show at 7, all ages. Sold out.

@@ -11,8 +11,8 @@ category: civic
 organizer: "Town of Windsor Parks, Recreation & Culture"
 organizerUrl: "https://www.recreationliveshere.com/"
 source: "https://www.recreationliveshere.com/313/Wreaths-Across-America"
-verified: "2026-11-04"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Wreaths Across America\" at 10 am on 19 December on the Windsor Parks, Recreation & Culture (recreationliveshere.com) feed"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026; the Town's Wreaths Across America page ('December 19, 10 - 11 a.m.', Lakeview Cemetery) and the Parks, Recreation & Culture calendar feed, which carries the entry on 19 December 2026 at 32815 Highway 257"
 ---
 
-Volunteers lay wreaths on the graves of veterans in the Town's cemetery at Highways 392 and 257; wreaths and instructions are provided on site. The Town's page gives December 19, 10 to 11 am, without a year; that is the Saturday of the national Wreaths Across America day in 2026.
+Volunteers lay wreaths on the graves of veterans in the Town's cemetery at Highways 392 and 257; wreaths and instructions are provided on site. It runs 10 to 11 am on Saturday, December 19; the Town asks volunteers to dress for the weather and wear comfortable shoes.

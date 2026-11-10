@@ -8,8 +8,8 @@ url: "https://buffalorosegolden.com/events/2025-fly-fishing-film-tour/"
 category: arts
 source: "https://buffalorosegolden.com/events/2025-fly-fishing-film-tour/"
 sourceId: "buffalorose-net"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): 10 November and 7 pm on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The 20th annual Fly Fishing Film Tour, a touring program of new fly-fishing films from around the world, stops at the Buffalo Rose. All ages.

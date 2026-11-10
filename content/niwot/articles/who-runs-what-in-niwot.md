@@ -2,11 +2,12 @@
 title: "Who runs what in Niwot"
 seoTitle: "Niwot government and local services: who handles what"
 date: "2026-09-17"
+updated: "2026-11-10"
 excerpt: "Without a town hall, local groups organize the gatherings, the arts and the business district, and county offices and special districts handle most public services. Which one to approach for what."
 category: "Community"
 tags: [community, living-here]
 related:
-  - { label: "The 2026 Niwot incorporation election, plainly", href: "/articles/2026-incorporation-election/", note: "What the November 2026 ballot asks, and what would change if it creates a town." }
+  - { label: "The 2026 Niwot incorporation election, plainly", href: "/articles/2026-incorporation-election/", note: "What the November 2026 ballot asked, and how the count stands." }
   - { label: "Niwot Hall", href: "/places/niwot-hall/", note: "The Left Hand Grange hall on Second Avenue, where community meetings are held." }
   - { label: "Events in Niwot", href: "/events/", note: "Meetings and civic dates are listed under Civic, with the rest of the calendar." }
 ---
@@ -49,7 +50,7 @@ Each row names the body responsible and links to the page of its site that handl
 
 - Drinking water, rates and meters: [Left Hand Water District](https://lefthandwater.gov/)
 - Sewer, where the district’s lines run: [Niwot Sanitation District](https://niwotsd.colorado.gov/), a special district with its own elected board covering about seven square miles around Niwot. Elsewhere, septic. Check your address with the district.
-- Trash and recycling: arranged household by household with a private hauler. There is no municipal service.
+- Trash and recycling: arranged household by household with a private hauler. There is no municipal service, and Boulder County licenses the haulers rather than collecting anything itself. [Living here](/living-here/) lists the licensed haulers and the recycling and hazardous-waste drop-offs.
 
 **Schools, parks and elections**
 

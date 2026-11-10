@@ -9,7 +9,8 @@ hours: "Mon–Thu 9–8, Fri 9–6, Sat 9–5, Sun noon–5"
 tags: [library, meeting-rooms, families, free]
 summary: "The Poudre River Public Library District's downtown branch in Library Park: two floors of books, computers, meeting and study rooms, 3D printing, an outdoor story stroll and the Friends of the Library's Old Town Nook. Open seven days."
 source: "https://poudrelibraries.org/old-town-library/"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

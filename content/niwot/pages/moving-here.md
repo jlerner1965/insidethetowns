@@ -4,7 +4,7 @@ description: "What it is like to live in an unincorporated town of about 4,300 a
 image: ../images/second-avenue-street.jpg
 imageAlt: "Second Avenue in old-town Niwot on an August morning in 2017: the Niwot Tribune building with its shingled awning and hanging flowers, and a row of brick and painted storefronts down the block"
 imageCredit: "Jeffrey Beall, Flickr, CC BY-SA 2.0"
-updated: "2026-11-09"
+updated: "2026-11-10"
 ---
 
 ## What you are moving to
@@ -13,7 +13,7 @@ Niwot is a census-designated place of about 4,300 people at the 2020 census, in 
 
 ## Housing
 
-Most of Niwot is detached single-family homes on lots larger than you will find in Boulder, with a few townhome and condominium clusters near the commercial blocks. Inventory is small in a place this size, so what is for sale at any moment is a handful of listings. The links in the sidebar go to the major listing sites; we do not publish prices here because they would be out of date within a month. Property tax and any future municipal taxes are covered in the election guide.
+Most of Niwot is detached single-family homes on lots larger than you will find in Boulder, with a few townhome and condominium clusters near the commercial blocks. Inventory is small in a place this size, so what is for sale at any moment is a handful of listings. The links in the sidebar go to the major listing sites; we do not publish prices here because they would be out of date within a month. The property and sales taxes that were on the November 2026 ballot are covered in [the election guide](/articles/2026-incorporation-election/).
 
 ## Schools
 
@@ -29,7 +29,7 @@ Because there is no town, each of these comes from a different body, and it pays
 
 - **Drinking water** is from the [Left Hand Water District](https://lefthandwater.gov/).
 - **Sewer** is from the [Niwot Sanitation District](https://niwotsd.colorado.gov/) where its lines run, roughly seven square miles around town; elsewhere, homes are on septic. Check the address with the district.
-- **Trash and recycling** are arranged household by household with a private hauler. There is no municipal service.
+- **Trash and recycling** are arranged household by household with a private hauler. There is no municipal service; Boulder County licenses the haulers, and there is a recycling drop-off on North 79th Street, north of Highway 52. [Living here](/living-here/) lists the haulers and the drop-offs.
 - **Fire and emergency medical** response is [Mountain View Fire Rescue](https://www.mvfpd.org/); law enforcement is the [Boulder County Sheriff](https://bouldercounty.gov/safety/sheriff/).
 - **Roads, snow, building permits and land use** are Boulder County departments. [Who runs what in Niwot](/articles/who-runs-what-in-niwot/) links to the right page for each.
 

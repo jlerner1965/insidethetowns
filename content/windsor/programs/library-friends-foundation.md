@@ -13,8 +13,8 @@ newcomers: true
 volunteerNeed: "No matter your experience or availability, we welcome individuals who are passionate about libraries, literacy, and community connection."
 contact: "friends@cldfriends.org; 1194 W Ash Street, Windsor"
 source: "https://cldfriends.org/support/"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Friends & Foundation's Support Us page and the library district's Volunteer page, read November 9, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Friends & Foundation is a 501(c)(3) that supports the [Clearview Library District](/places/clearview-library/). Its Support Us page says donations pay for "library programs, events, resources, and initiatives that go beyond the district's operating budget", and names author talks, summer reading and staff support programs among them.

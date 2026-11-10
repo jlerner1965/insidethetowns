@@ -14,8 +14,8 @@ category: market
 organizer: "Friends of the Lafayette Library Foundation"
 organizerUrl: "https://www.lafayetteco.gov/1046"
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/DecSale2026"
-verified: "2026-11-04"
-verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: the library’s LibCal listing and the Friends’ page on the City site, read 10 November 2026; the listing gives the Sunday  bag and no other prices"
 ---
 
 The Friends’ holiday sale fills the library lobby from Friday, December 4, to Sunday, December 6, during library hours; on Sunday, from 1 to 3:30 pm, $5 fills a bag. Donations of holiday-themed books in good condition, DVDs, gift items and complete puzzles are welcome. Proceeds pay for literacy and learning programs at the library, the makerspace and the summer reading program among them.

@@ -10,8 +10,8 @@ source: "https://johnstownmillikenpubliclibraries.us/event/christmas-strum-along
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10651"
 sourceHash: "2ae899e1833c"
-verified: "2026-11-06"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Christmas Strum-Along\" at 6:30 pm on 30 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the library's own events feed (johnstownmillikenpubliclibraries.us/wp-json/tribe/events/v1/events), the record behind this page, on 10 November 2026: title, date, start and end time and the Johnstown location match"
 ---
 
 Christmas Strum-Along at Glenn A. Jones, M.D. Memorial Library, Monday, November 30, 6:30 pm – 7:30 pm. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration.

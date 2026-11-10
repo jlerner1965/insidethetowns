@@ -1,10 +1,11 @@
 ---
 title: "How Severance grew from Tailholt to today"
 date: "2026-10-07"
+updated: "2026-11-10"
 excerpt: "A post office meant to be called Tailholt, a governor's son, a beet dump on the Great Western Railway, a town of about a hundred people for half a century, Bruce's Bar and its Rocky Mountain oysters, a snowball law repealed by a nine-year-old, and growth from 106 people in 1990 to 7,683 in 2020. With sources."
 category: "History"
 tags: [history]
-verified: "2026-10-07"
+verified: "2026-11-10"
 sources:
   - { label: "Town of Severance: History of the Town of Severance", url: "https://www.townofseverance.org/244/History-of-the-Town-of-Severance" }
   - { label: "Severance, Colorado on Wikipedia", url: "https://en.wikipedia.org/wiki/Severance,_Colorado" }
@@ -65,7 +66,7 @@ The rail bed found a second use. In 2004 its owner, OmniTRAX, railbanked the Eat
 
 ## The boom
 
-Then the subdivisions came. The census counted 597 people in 2000, 3,165 in 2010 and 7,683 in 2020, and the Department of Local Affairs [estimates](https://gis.dola.colorado.gov/lookups/countymuni?countyfips=123&placefips=69150&year=2010,2020,2024&compressed=no) 11,570 for 2024. The Town's [planning page](https://www.townofseverance.org/172/Planning) speaks of "substantial growth over the past decade," and its [economic development page](https://www.townofseverance.org/185/Economic-Development) counts about 4,000 residential rooftops. Since 2016, the Town says, many new neighborhoods have been [built with two water systems](https://www.townofseverance.org/433/Why-Severance-Uses-Two-Water-Systems), treated water for the house and untreated water for the lawn. The Town's [list of active applications](https://www.townofseverance.org/184/Development-Projects) still runs to hundreds of lots, among them about 569 on a 168-acre site north of Highway 392 and 412 at The Family Farm on Weld County Road 19.
+Then the subdivisions came. The census counted 597 people in 2000, 3,165 in 2010 and 7,683 in 2020, and the Department of Local Affairs [estimates](https://gis.dola.colorado.gov/lookups/countymuni?countyfips=123&placefips=69150&year=2010,2020,2024&compressed=no) 11,267 for 2024. The Town's [planning page](https://www.townofseverance.org/172/Planning) speaks of "substantial growth over the past decade," and its [economic development page](https://www.townofseverance.org/185/Economic-Development) counts about 4,000 residential rooftops. Since 2016, the Town says, many new neighborhoods have been [built with two water systems](https://www.townofseverance.org/433/Why-Severance-Uses-Two-Water-Systems), treated water for the house and untreated water for the lawn. The Town's [list of active applications](https://www.townofseverance.org/184/Development-Projects) still runs to hundreds of lots, among them about 569 on a 168-acre site north of Highway 392 and 412 at The Family Farm on Weld County Road 19.
 
 Karen Suman Park in the Timber Ridge subdivision is named for Karen Suman, mayor from 1998 to 2000, the [Town's page](https://www.townofseverance.org/Facilities/Facility/Details/Karen-Suman-Park-3) says.
 
@@ -73,4 +74,4 @@ One old rule went in the boom years. The ban on throwing missiles at people or p
 
 ## Severance today
 
-The Town's map now counts 18 parks over 105.1 acres. The largest, the 37.3-acre Community Park on Waterfowl Way, was [still under construction](https://www.townofseverance.org/Facilities/Facility/Details/Community-Park-7) in October 2026, with opening expected in late fall. The work cost the town its yearly festival: the Town [canceled Severance Days for 2026](https://www.townofseverance.org/CivicAlerts.aspx?AID=80) because of construction delays and held a Neighborhood Concert at [Overlook Park](/places/overlook-park/) on October 3 instead. A [Comprehensive Plan update](https://www.townofseverance.org/420/Comprehensive-Plan-Update), which the Town says is due to the significant growth of the past five years, is collecting residents' views through December 2026. The old beet line runs through the middle of it all as the Great Western Trail.
+The Town's map now counts 18 parks over 105.1 acres. The largest, the 37.3-acre Community Park on Waterfowl Way, was [still under construction](https://www.townofseverance.org/Facilities/Facility/Details/Community-Park-7) in November 2026, with the Town estimating an opening in late fall. The work cost the town its yearly festival: the Town [canceled Severance Days for 2026](https://www.townofseverance.org/CivicAlerts.aspx?AID=80) because of construction delays and held a Neighborhood Concert at [Overlook Park](/places/overlook-park/) on October 3 instead. A [Comprehensive Plan update](https://www.townofseverance.org/420/Comprehensive-Plan-Update), which the Town says is due to the significant growth of the past five years, is collecting residents' views through December 2026. The old beet line runs through the middle of it all as the Great Western Trail.

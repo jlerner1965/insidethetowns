@@ -14,8 +14,8 @@ source: "https://tickets.lctix.com/eventperformances.asp?evt=2325"
 sourceId: "lctix-com"
 sourceUid: "showare:5667"
 sourceHash: "64f3f8ae1ec8"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, from the Lincoln Center's performance list, read 1 November 2026: two shows on 16 December, 1 pm (5667, $22) and 7 pm (5666, $29); the 7 pm had waited in staging as a possible duplicate"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Dance Express | December Daze at The Lincoln Center Magnolia Theatre, Wednesday, December 16, at 1 pm and 7 pm, two hours each. Listed by The Lincoln Center (lctix.com); the organizer's page has the details and any registration.

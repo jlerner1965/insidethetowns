@@ -17,8 +17,8 @@ schedule:
   - { days: [mon, tue, wed, thu, fri, sat], start: "10:00", end: "17:00" }
   - { days: [sun], start: "12:00", end: "17:00" }
 except: ["2026-11-26", "2026-12-25"]
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the market's page and the member preview's ticket page)"
 ---
 
 Foothills Art Center's 51st Holiday Art Market, known as HART, runs at the Astor House on Arapahoe Street through December 29, after a member preview on Friday, November 20. Admission is free. The art center's holiday workshops run alongside it at its Creative Campus on 15th Street.

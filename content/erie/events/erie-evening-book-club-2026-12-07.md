@@ -9,8 +9,8 @@ cost: "Free; registration required"
 category: arts
 recurring: "Monthly, first Mondays"
 source: "https://highplains.libcal.com/event/15852477"
-verified: "2026-11-08"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Erie Evening Book Club\" at 6:30 pm on 7 December in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 In-person evening book group discussing fiction and non-fiction titles.

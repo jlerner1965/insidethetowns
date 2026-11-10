@@ -1,66 +1,76 @@
 ---
 title: "The 2026 Niwot incorporation election, plainly"
-seoTitle: "The 2026 Niwot incorporation election: a local guide"
+seoTitle: "The 2026 Niwot incorporation election: the ballot and the count"
 date: "2026-09-17"
-updated: "2026-10-26"
-verified: "2026-10-26"
-excerpt: "The November 3, 2026 ballot inside the proposed boundary: whether Niwot becomes a town, whether to form a nine-member charter commission and who would sit on it, and five fiscal measures that would fund it. What each question does, without an argument for or against."
+updated: "2026-11-10"
+verified: "2026-11-10"
+excerpt: "Voters inside the proposed boundary turned incorporation down on November 3, 2026: 697 for and 2,047 against in Boulder County's unofficial count. What each of the three questions and five fiscal issues asked, how each stands in that count, and what happens next."
 category: "Civic"
 tags: [civic, election]
-# Ballots are due by 7pm on the 3rd, so the guidance below is live through
-# election day and stale the morning after. From the 4th the page says so at
-# the top, whether or not a rebuild happened that night.
-supersededAfter: "2026-11-04"
-supersededNote: "The vote it describes was held on November 3, 2026. Everything below is the ballot as it stood beforehand, and none of it is a result."
-supersededSource: "https://bouldercounty.gov/elections/"
-supersededSourceLabel: "Boulder County Elections publishes the official count"
+# The figures below are the county's unofficial count of November 6. The county
+# posts its next count by mid-day on the 13th and certifies on the 24th, so from
+# the 13th the page says at the top which count it carries, whether or not a
+# rebuild happened that day.
+supersededAfter: "2026-11-13"
+supersededNote: "The figures below are Boulder County's unofficial count as last updated on November 6, 2026. The county scheduled a further count for November 13 and certification for November 24; its results page carries the current figures."
+supersededSource: "https://electionresults.bouldercounty.gov/"
+supersededSourceLabel: "Boulder County Elections: current results"
+sources:
+  - { label: "Boulder County Elections: unofficial results, last updated November 6, 2026 at 11:05 pm", url: "https://electionresults.bouldercounty.gov/" }
+  - { label: "Boulder County Elections: results posting schedule, audit and certification", url: "https://bouldercounty.gov/elections/election-night-and-beyond/" }
+  - { label: "Niwot Election Commission: what is on the ballot", url: "https://niwotelection.org/ballot" }
+  - { label: "Niwot Election Commission: frequently asked questions", url: "https://niwotelection.org/faq" }
 related:
-  - { label: "Who runs what in Niwot", href: "/articles/who-runs-what-in-niwot/", note: "The county offices, special districts and volunteer groups that provide each service today, before any vote changes it." }
+  - { label: "Who runs what in Niwot", href: "/articles/who-runs-what-in-niwot/", note: "The county offices, special districts and volunteer groups that provide each service in an unincorporated Niwot." }
   - { label: "How Niwot got here: a railroad and no town hall", href: "/articles/how-niwot-got-here/", note: "A century and a half without a municipal government, and how that came about." }
-  - { label: "Moving to Niwot", href: "/moving-here/", note: "Water, sewer, fire and schools as they stand, for anyone deciding whether to buy here before the result." }
+  - { label: "Moving to Niwot", href: "/moving-here/", note: "Water, sewer, fire and schools as they stand, for anyone deciding whether to buy here." }
 ---
 
-**Checked again October 26, 2026,** against the commission's ballot, candidates and FAQ pages and Boulder County Elections: the questions, figures and dates below still match them, and the county's mail deadline is added. Niwot is still unincorporated, and the commission's pages still speak of a proposed municipality; nothing here is a result.
+**Updated November 10, 2026:** the election was held on November 3. In [Boulder County's unofficial results](https://electionresults.bouldercounty.gov/), last updated at 11:05 pm on November 6, the incorporation question has 697 votes for and 2,047 against, and the charter commission question and all five fiscal issues are also behind. The count is unofficial until the county's canvass board certifies it on November 24. Niwot is unincorporated today, as it was before the vote.
 
-**Updated October 10, 2026:** the commission certified the ballot titles on September 11, 2026, by Resolution 2026-07. This summary now matches the certified text, and the descriptions of Questions 1 to 3 and Issues 1 to 5 have been corrected to it.
+This guide describes the measures as they were certified, without commentary on whether they were advisable. The [Niwot Election Commission](https://niwotelection.org/ballot) certified the ballot titles on September 11, 2026 (Resolution 2026-07), and the certified ballot language controls; everything here is a plain-language summary of it. Campaign material is labeled as advocacy wherever it appears, and the commission is never presented as an advocate.
 
-This guide describes the measures as filed, without commentary on whether they are advisable. The [Niwot Election Commission](https://niwotelection.org/ballot) certified the ballot titles on September 11, 2026 (Resolution 2026-07), and the certified ballot language controls; everything here is a plain-language summary of it, checked against the certified text on October 10, 2026 and again on October 26. Campaign material is labeled as advocacy wherever it appears, and the commission is never presented as an advocate.
+## The count
 
-## What you can do now
+Boulder County's unofficial results, last updated November 6, 2026 at 11:05 pm. The county numbers the measures 300 to 306; the commission's ballot page calls the same measures Questions 1 and 2 and Issues 1 to 5.
 
-- **Check the proposed boundary.** The commission’s [FAQ](https://niwotelection.org/faq) says the boundary is the one described in the petition’s Exhibits A and B. An address-lookup tool run by a campaign is not official material.
-- **Read the ballot.** The [certified ballot content](https://niwotelection.org/ballot), on the commission’s own site.
-- **Register, or check your registration.** [Boulder County Elections](https://bouldercounty.gov/elections/) handles registration, address changes, drop-off and voting locations.
+| Measure | For | Against |
+|---|---|---|
+| Question 300 · Incorporation (the commission's Question 1) | 697 | 2,047 |
+| Question 301 · Forming a home rule charter commission (Question 2) | 872 | 1,750 |
+| Issue 302 · Sales and use tax (Issue 1) | 706 | 1,968 |
+| Issue 303 · Property tax (Issue 2) | 675 | 2,006 |
+| Issue 304 · Marijuana special sales tax (Issue 3) | 990 | 1,710 |
+| Issue 305 · Retain and spend all revenues (Issue 4) | 863 | 1,795 |
+| Issue 306 · Debt authorization (Issue 5) | 772 | 1,908 |
 
-## Key dates
+The county's page also carries the votes for each of the 28 charter commission candidates, the commission's Question 3.
 
-| | |
-|---|---|
-| Ballots mailed, 24-hour drop boxes open | October 2, 2026 |
-| Vote centers open | October 19, 2026 |
-| Last recommended day to return a ballot by mail, and to ask for a replacement by mail | October 26, 2026 |
-| From then on: a 24-hour drop box or a vote center | October 27 to November 3, 2026 |
-| Election Day; ballots must be received by 7 pm | November 3, 2026 |
+## What happens next
 
-Colorado has no registration deadline: an eligible voter can register and vote through Election Day. Dates are from [Boulder County Elections](https://bouldercounty.gov/elections/information/), checked October 26, 2026; the [Secretary of State's office](https://www.coloradosos.gov/pubs/newsRoom/pressReleases/2026/PR20261023VoteEarly.html) gives the same advice statewide, that from October 27 a ballot should go to a drop box or a voter center rather than the mail.
+1. Boulder County updates the unofficial results by mid-day on Friday, November 13, after the deadline for curing ballots and for military and overseas ballots. Its [posting schedule](https://bouldercounty.gov/elections/election-night-and-beyond/) says results typically do not change after that date.
+2. The county runs its risk-limiting audit on Tuesday, November 17.
+3. The canvass board certifies the results at its meeting on Tuesday, November 24.
+4. The commission then certifies the canvassed results to the Boulder County District Court, as its [FAQ](https://niwotelection.org/faq) describes. If incorporation is not approved, the FAQ says, the process ends and no municipality is created; the fiscal authorizations then have nothing to apply to, and the charter commission has no charter to write.
+5. No charter was on the November 3 ballot. Only where incorporation and the charter commission are both approved do the nine elected commissioners draft a home rule charter, which then returns to voters at a later election.
 
-## Who decides what
+## Who decided what
 
-Two bodies, two roles. The **Niwot Election Commission**, appointed by the Boulder County District Court, decides ballot content and procedure for this question. The **Boulder County Clerk and Recorder** conducts the coordinated mail-ballot election it appears in, alongside other county contests. Those who may vote are registered electors residing within the proposed boundary.
+Two bodies, two roles. The **Niwot Election Commission**, appointed by the Boulder County District Court, decided ballot content and procedure for this question. The **Boulder County Clerk and Recorder** conducted the coordinated election it appeared in, alongside other county contests, and publishes the count. Those who could vote on these measures were registered electors residing within the proposed boundary.
 
 ## What incorporation means
 
-Incorporation would create a town: a municipal government for the area inside the boundary described in the petition, with its own elected officials and the powers Colorado law gives a municipality. That is why the same ballot carries the taxes and the debt that would fund it. Niwot is unincorporated today, so those functions sit with Boulder County and the special districts.
+Incorporation would create a town: a municipal government for the area inside the boundary described in the petition, with its own elected officials and the powers Colorado law gives a municipality. That is why the same ballot carried the taxes and the debt that would fund it. Niwot is unincorporated, so those functions sit with Boulder County and the special districts.
 
-The proposed boundary is not the same as the Niwot census designated place. The 4,306 people counted there in 2020 are not the electorate for this vote, and not necessarily the population of the proposed town.
+The proposed boundary is not the same as the Niwot census designated place. The 4,306 people counted there in 2020 were not the electorate for this vote, and not necessarily the population of the proposed town.
 
 ## The questions
 
-**Question 1 · Whether Niwot should incorporate as a municipality.** The ballot asks, “Shall Niwot be incorporated as a municipality?”: whether the territory described in the incorporation petition should be organized as a Colorado municipality. If it is approved, the Boulder County District Court enters an order of incorporation. If it is not, no municipality is created, the process ends, and the area stays unincorporated and administered by Boulder County.
+**Question 1 · Whether Niwot should incorporate as a municipality.** The ballot asked, “Shall Niwot be incorporated as a municipality?”: whether the territory described in the incorporation petition should be organized as a Colorado municipality. If it is approved, the Boulder County District Court enters an order of incorporation. If it is not, no municipality is created, the process ends, and the area stays unincorporated and administered by Boulder County.
 
 **Question 2 · Whether to form a nine-member home rule charter commission.** Whether a home rule charter commission should be formed under C.R.S. Title 31, Article 2, Part 2 for the proposed municipality. If incorporation is also approved, the commission drafts a proposed home rule charter, which returns to voters at a later election. The commission drafts a charter; it does not adopt one.
 
-**Question 3 · Which nine charter commission candidates should be elected.** Which of the 28 candidates on the ballot would serve on that charter commission: voters may vote for not more than nine, and a ballot marked for more than nine is not counted in this contest. The contest is decided whether or not incorporation passes, but the commission has a charter to write only if it does.
+**Question 3 · Which nine charter commission candidates should be elected.** Which of the 28 candidates on the ballot would serve on that charter commission: voters could vote for not more than nine, and a ballot marked for more than nine was not counted in this contest. The contest is decided whether or not incorporation passes, but the commission has a charter to write only if it does.
 
 ## The fiscal issues
 
@@ -74,23 +84,15 @@ The proposed boundary is not the same as the Niwot census designated place. The 
 
 **Issue 5 · Authorization for up to $15 million in debt for transportation infrastructure.** With a maximum total repayment cost of up to $28 million, for the repair, reconstruction, improvement and maintenance of streets, roads, bridges, drainage, sidewalks and related transportation infrastructure. The ballot text makes the debt payable from sales and use tax revenues if those taxes are approved by a separate ballot measure; the commission’s summary names that measure as Issue 1.
 
-## What happens after the vote
-
-1. The commission certifies the canvassed results to the Boulder County District Court, as its [FAQ](https://niwotelection.org/faq) describes. Boulder County's calendar has the canvass board's sign-off on November 24.
-2. If incorporation is rejected, no municipality is created and the fiscal authorizations have nothing to apply to. The charter commission contest is still decided, but the commission has no charter to write. The process ends.
-3. If incorporation is approved, the court enters an order of incorporation, and the fiscal measures that also passed take effect on the dates in the ballot text.
-4. If the charter commission question is also approved, the nine elected commissioners draft a proposed home rule charter. The commission has a charter to write only if incorporation is approved.
-5. The proposed charter returns to voters at a later election.
-6. No charter is being approved in the November 3, 2026 election.
-
 ## Official sources
 
+- [Boulder County Elections: results](https://electionresults.bouldercounty.gov/) — the count, unofficial until the canvass board certifies it on November 24.
+- [Boulder County Elections: results posting schedule](https://bouldercounty.gov/elections/election-night-and-beyond/) — when the count is updated, audited and certified.
 - [Niwot Election Commission](https://niwotelection.org/) — ballot content and procedure; notices, [meeting records](https://niwotelection.org/meetings) and the timetable.
 - [Official ballot content](https://niwotelection.org/ballot) — the certified questions and fiscal issues.
 - [Resolution 2026-07](https://niwotelection.org/assets/resolutions/resolution-2026-07.pdf) — the commission’s certification of the ballot titles, adopted September 11, 2026. It and the earlier resolutions are on the commission’s [minutes and resolutions page](https://niwotelection.org/records).
 - [The ballot content in full](https://niwotelection.org/assets/resolutions/resolution-2026-05-amended-attachment.pdf) — the amended attachment to Resolution 2026-05: the three questions, the 28 candidates and the five fiscal issues.
-- [Election FAQ and the proposed boundary](https://niwotelection.org/faq) — including how to check an address against the petition exhibits.
-- [Boulder County Elections](https://bouldercounty.gov/elections/) — registration, address updates, drop-off and voting locations, results.
+- [Election FAQ and the proposed boundary](https://niwotelection.org/faq) — including what happens after the election.
 
 ## Campaign material
 
@@ -102,4 +104,4 @@ Every registered campaign committee, listed together and labeled identically. No
 
 ## Standards for this page
 
-Nothing here argues for or against incorporation. Anything that cannot be supported by a filed document or an official publication is removed rather than softened. The summaries follow the certified ballot text on the commission’s ballot page and in the amended attachment to Resolution 2026-05, checked on October 10, 2026 and against the ballot page again on October 26; where a summary and the ballot language differ, the ballot language governs. Corrections are published with their date. [Report one](/contact/).
+Nothing here argues for or against incorporation. Anything that cannot be supported by a filed document or an official publication is removed rather than softened. The summaries follow the certified ballot text on the commission’s ballot page and in the amended attachment to Resolution 2026-05; where a summary and the ballot language differ, the ballot language governs. The count is Boulder County's, with the date and time of the county's own last update. Corrections are published with their date. [Report one](/contact/).

@@ -4,9 +4,9 @@ type: bar
 address: "16401 Table Mountain Parkway, Golden, CO 80403"
 url: "https://newterrainbrewing.com/golden/"
 source: "https://newterrainbrewing.com/golden/"
-verified: "2026-10-27"
+verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 phone: "720-697-7848"
 hours: "Mon–Wed 12–9 pm; Thu–Fri 12–10 pm; Sat 11 am–10 pm; Sun 11 am–9 pm"
 tags: [brewery, beer-garden, food-trucks, live-music, non-alcoholic]

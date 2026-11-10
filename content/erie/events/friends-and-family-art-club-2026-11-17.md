@@ -9,8 +9,8 @@ cost: "Free"
 category: arts
 recurring: "Third Tuesdays"
 source: "https://highplains.libcal.com/event/16672965"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Friends And Family Art Club\" at 6 pm on 17 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Drop-in evening art session with a different project each month. Younger children should attend with an adult; space and supplies may be limited.

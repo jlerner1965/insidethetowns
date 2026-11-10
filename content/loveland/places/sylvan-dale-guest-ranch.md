@@ -8,7 +8,8 @@ phone: "(970) 667-3915"
 tags: [guest-ranch, horseback-riding, fishing, weddings, family]
 summary: "A family-run working horse and cattle ranch in the foothills west of Loveland, with dude-ranch vacations, bunk-and-breakfast stays, retreats and weddings."
 source: "https://www.sylvandale.com/"
-verified: "2026-11-06"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

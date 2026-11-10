@@ -12,7 +12,8 @@ hours: "Open daily, sunrise to sunset"
 tags: [mountain-biking, hiking, no-dogs]
 summary: "Open space trails south of town; the Picture Rock trail runs from the Lyons side into the ranch and links to Wild Turkey and Wapiti for a long loop."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/heil-valley-ranch/"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (Boulder County's park page and its PDF trail map)"
 added: "2026-09-17"
 ---
 

@@ -9,7 +9,8 @@ hours: "Mon–Sat 6 am–8 pm; closed Sun"
 tags: [mexican, breakfast]
 summary: "The Loveland branch of the Colorado Mexican restaurant chain, on East Eisenhower, open from 6 am to 8 pm Monday to Saturday."
 source: "https://eatatsantiagos.com/Loveland"
-verified: "2026-11-06"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

@@ -10,8 +10,8 @@ source: "https://tickets.lctix.com/eventperformances.asp?evt=2328"
 sourceId: "lctix-com"
 sourceUid: "showare:5673"
 sourceHash: "a44473132bc4"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the The Lincoln Center (lctix.com) feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Fort Collins Utilities, Boxelder Sanitation District & The Colorado Water Center | Unless Something Goes Terribly Wrong at The Lincoln Center Magnolia Theatre, Wednesday, December 2, 6:30 pm – 8:15 pm. Listed by The Lincoln Center (lctix.com); the organizer's page has the details and any registration.

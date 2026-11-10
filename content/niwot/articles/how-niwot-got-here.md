@@ -1,7 +1,7 @@
 ---
 title: "How Niwot got here: a railroad and no town hall"
 date: "2026-09-17"
-updated: "2026-11-04"
+updated: "2026-11-10"
 excerpt: "A rail line, an 1875 plat, a preserved main street, and a century and a half without a municipal government. The short history, with its sources."
 category: "History"
 tags: [history]
@@ -11,7 +11,7 @@ imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
 related:
   - { label: "Old Fire House Museum", href: "/places/old-fire-house-museum/", note: "The 1910 fire shed and chemical fire cart the Historical Society keeps on the Grange lot." }
   - { label: "Old Town, Second Avenue", href: "/places/old-town-second-avenue/", note: "The brick and false-front block from the railroad period, still where the community gathers." }
-  - { label: "The 2026 Niwot incorporation election, plainly", href: "/articles/2026-incorporation-election/", note: "The November 2026 vote on whether the unincorporated town becomes one." }
+  - { label: "The 2026 Niwot incorporation election, plainly", href: "/articles/2026-incorporation-election/", note: "The November 2026 vote on whether the unincorporated town would become one, and the count." }
 ---
 
 Niwot exists because a rail line was built through the Left Hand valley in the 1870s. The town plat was recorded in 1875, and the street grid still follows the tracks rather than the county roads that came later. The brick block on Second Avenue is what remains of that decision.
@@ -22,9 +22,9 @@ It has never been an incorporated municipality. There is no mayor and no town ha
 
 A rail line built through the valley set the location of the town site. The plat was recorded in 1875 by Porter T. Hinman and Ambrose S. Murray, laid out on a diagonal grid straddling the tracks. That survey is why the street grid runs as it does, at an angle to the later county road pattern. *Source: [Niwot Historical Society, history timeline](https://niwothistoricalsociety.org/history/).*
 
-## Late 1800s onward: the commercial district takes shape
+## 1905 to 1915: the commercial district takes shape
 
-Brick and false-front commercial buildings went up along Second Avenue to serve the surrounding farms and the trains that carried their crops. The Niwot Tribune building is among the survivors of that period and still anchors the block. *Source: [Niwot Historical Society](https://niwothistoricalsociety.org/history/).*
+The first business district stood on the west side of town, behind the railroad depot. After the turn of the century it moved to Second Avenue: John Nelson, a local carpenter, is credited with the first commercial building there in 1905, and most of the other shops in the first block were finished by 1915. Boulder County designated the block the Niwot Historic District in 1993. The Niwot Tribune building is among the survivors of that period and still anchors the block. *Source: [Niwot Business Association, Birth of a Railroad Town](https://niwot.com/niwot-history/); [Niwot Historical Society](https://niwothistoricalsociety.org/history/).*
 
 ## 1907, arriving later: the caboose
 
@@ -46,4 +46,4 @@ The census designated place recorded a population of 4,306 in 2020. Niwot remain
 
 ## Standards
 
-Population is the 2020 census figure for the Niwot census designated place. Historical dates come from the Niwot Historical Society’s timeline and the recorded town plat; the caboose’s identity and date from the Niwot Cultural Arts Association’s Whistle Stop Park page. If something here is wrong, it is corrected with the date and a note describing what changed; a claim that cannot be supported is removed rather than softened. [Report a correction](/contact/).
+Population is the 2020 census figure for the Niwot census designated place. Historical dates come from the Niwot Historical Society’s timeline, the Niwot Business Association’s history page and the recorded town plat; the caboose’s identity and date from the Niwot Cultural Arts Association’s Whistle Stop Park page. If something here is wrong, it is corrected with the date and a note describing what changed; a claim that cannot be supported is removed rather than softened. [Report a correction](/contact/).

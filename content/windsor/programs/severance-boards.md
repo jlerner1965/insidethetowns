@@ -11,8 +11,8 @@ location: "Severance Town Hall meeting room, 3 S. Timber Ridge Parkway"
 schedule: "Citizen Advisory Board first Wednesday, 6 pm; Planning Commission third Wednesday, 6 pm"
 contact: "Town Hall, 970-686-1218"
 source: "https://www.townofseverance.org/158/Boards-Commissions"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Boards & Commissions, Citizen Advisory Board and Planning Commission pages and its Public Input Rule & Guidelines for Open Meetings PDF, read November 9, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 **[Citizen Advisory Board](https://www.townofseverance.org/159/Citizen-Advisory-Board).** Seven citizens of the Town and one alternate, serving two-year terms. The Town says the board is there "to advocate for and inform the community by providing research and recommendations on local issues to the Town Council". It meets at 6 pm on the first Wednesday of each month. The Town's page lists one member seat as vacant, with a term that ends in December 2026. The page does not give an application form; call Town Hall at 970-686-1218 to ask about the seat.

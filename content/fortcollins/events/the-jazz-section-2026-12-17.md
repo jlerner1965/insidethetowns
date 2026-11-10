@@ -10,8 +10,8 @@ category: "music"
 performers:
   - { name: "The Jazz Section", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-12-17, 18:00-21:00, $15"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Jazz Section, 6 to 9 p.m. At Avogadro's Number, 605 South Mason Street.

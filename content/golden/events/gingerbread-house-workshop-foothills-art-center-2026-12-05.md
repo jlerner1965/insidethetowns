@@ -11,8 +11,8 @@ organizer: "Foothills Art Center"
 organizerUrl: "https://foothillsartcenter.org/"
 source: "https://foothillsartcenter.org/event/gingerbread-house-workshop-26/"
 sourceId: "foothillsartcenter-org"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 A no-bake gingerbread house morning led by Amanda Pfister: sturdy cardboard houses decorated with candy, paint, hot glue and craft supplies. Children 7 and up can be dropped off while their parents shop the Holiday Art Market at the Astor House, or families can build together. Register on the art center's page.

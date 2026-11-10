@@ -9,8 +9,8 @@ phone: "303-271-9382"
 hours: "Mon–Thu 10 am–8 pm; Fri 10 am–5 pm; Sun 10 am–6 pm; closed Sat"
 tags: [outdoor-gear, climbing, skiing, bikes, rentals]
 summary: "Climbing, backcountry ski and bike shop on Washington Avenue since 1994, with rentals and demos, bootfitting, a ski tune shop and bike service. Closed Saturdays."
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-28"
 ---
 

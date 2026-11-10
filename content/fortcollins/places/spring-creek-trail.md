@@ -8,7 +8,8 @@ hours: "Daily 5 am–11 pm"
 tags: [paved, cycling, walking]
 summary: "The 6.6-mile paved trail across the middle of the city, from Spring Canyon Park at the foothills to the Poudre River east of Timberline Road, through Cottonwood Glen, Rolland Moore, Spring and Edora parks."
 source: "https://www.fortcollins.gov/Activities/Parks-Natural-Areas-and-Trails/Trails/Paved-Trails"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

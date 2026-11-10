@@ -15,7 +15,8 @@ registration: { required: false, how: "Come to a monthly meeting first, as the g
 newcomers: true
 contact: "cindy@goldenchamber.org for membership and leadership roles; the Chamber, 303-279-3113"
 source: "https://goldenchamber.org/young-professionals/"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Golden Young Professionals is part of the [Golden Chamber of Commerce](https://goldenchamber.org/) and says it organizes more than fifty educational, social and volunteer events a year. Its monthly meeting is on the third Thursday at 7:30 am at the Golden Welcome Center, and the group says "we welcome anyone eager to engage and grow"; its page suggests a meeting to see whether it is a good fit. Each month brings a different volunteer event, and there is a V.I.B.E. at Five networking evening at a member business, quarterly talks, a summer softball team ("no experience necessary"), Mines athletics outings and a book club. The group is also looking for members to take its membership, communications and social leads. Meeting dates are on the [Chamber calendar](https://business.goldenchamber.org/events/calendar).

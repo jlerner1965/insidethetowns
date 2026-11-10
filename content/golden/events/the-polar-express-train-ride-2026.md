@@ -15,8 +15,8 @@ source: "https://coloradorailroadmuseum.org/polar-express/"
 sourceId: "coloradorailroadmuseum-org"
 sourceUid: "10001580-1793984400-1793995200@coloradorailroadmuseum.org"
 sourceHash: "b28c5cc7650e"
-verified: "2026-11-06"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"THE POLAR EXPRESS™ Train Ride\" on 6 November on the Colorado Railroad Museum feed"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The museum's holiday production of The Polar Express, three shows an evening from November 6 to December 23: carols, the Hot Chocolate song with cocoa and a cookie, and a staged reading of the story in a heated pavilion, then a ride to the North Pole in vintage coaches behind a coal-fired steam locomotive, a silver bell from Santa on the way back and a visit with him afterward. Shows begin at 5, 6:30 and 8 pm, and the museum asks guests to arrive half an hour early for the pre-show. It says the event has sold out quickly in past years; lap riders under 2 ride free.

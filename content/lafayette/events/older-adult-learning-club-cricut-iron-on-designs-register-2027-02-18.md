@@ -11,8 +11,8 @@ source: "https://lafayettepubliclibrary.libcal.com/calendar/main/SLCJan-Dec2027"
 sourceId: "lafayettepubliclibrary-libcal"
 sourceUid: "LibCal-10144-17741490"
 sourceHash: "79594ac4886d"
-verified: "2026-11-02"
-verifiedBy: "auto-review from the Lafayette Public Library - LibCal calendar feed read 2026-11-02, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: the library’s LibCal calendar feed, read 10 November 2026"
 ---
 
 A monthly workshop for adults 50 and older in the library’s makerspace: on Thursday, February 18, from 12:30 to 2:30 pm, custom iron-on designs for bags or t-shirts on the Cricut cutter. Listed by Lafayette Public Library - LibCal calendar; the organizer's page has the details and any registration.

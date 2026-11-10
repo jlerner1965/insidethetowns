@@ -10,8 +10,8 @@ category: music
 performers:
   - { name: "Jason Eady", kind: person }
 source: "https://buffalorosegolden.com/events/jason-eady/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against the Buffalo Rose shows calendar and event page, 1 November 2026: Sunday, January 3, 2027, 7 to 11 pm, doors 6 pm; no price on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Texas country and roots songwriter Jason Eady plays the Buffalo Rose on Sunday, January 3 with a set built around his new album Tulsa Turnaround, moving between slow blues numbers and classic country arrangements with his band. Doors open at 6 pm and the show starts at 7; 18 and over, or under 18 with a parent or guardian. Ticket prices were not posted on the event page.

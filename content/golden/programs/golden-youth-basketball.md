@@ -19,7 +19,8 @@ statusNote: "Registration closed October 31; the season runs November 2 to Febru
 volunteerNeed: "The league says it is run entirely by volunteers: coaches, team managers and league coordinators"
 contact: "Through the contact link on the league's site; P.O. Box 774, Golden, CO 80401"
 source: "https://www.goldenyouthbasketball.com/current-programs"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Golden Youth Basketball Association has fielded Golden-area teams for more than three decades, coached by volunteers. Teams register as a group through their head coach, who then emails each player an invitation; a child who is not on a team uses the **Need a Team** registration, and the league places as many as it can as coaches, roster space and grade levels allow. Both registrations for 2026–27 closed on October 31, and the season runs from November 2 to February 28.

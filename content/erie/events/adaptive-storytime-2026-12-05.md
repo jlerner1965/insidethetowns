@@ -9,8 +9,8 @@ cost: "Free; registration required"
 category: family
 recurring: "Monthly, first Saturdays"
 source: "https://highplains.libcal.com/event/15672137"
-verified: "2026-11-08"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Adaptive Storytime\" at 9:30 am on 5 December in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 A small-group storytime for neurodivergent children and others who benefit from a multisensory approach, using movement, music, stories and sensory play at a preschool level.

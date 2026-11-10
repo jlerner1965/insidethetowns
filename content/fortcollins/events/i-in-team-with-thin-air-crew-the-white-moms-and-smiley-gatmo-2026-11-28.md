@@ -11,8 +11,8 @@ performers:
   - { name: "The White Moms", kind: group }
   - { name: "Smiley Gatmouth", kind: person }
 source: "https://www.z2ent.com/events/detail/i-in-team-2026-agg"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Z2 Entertainment's Aggie Theatre page (z2ent.com), 1 November 2026: 2026-11-28, doors 7:00 pm, show 8:00 pm, all ages; no price shown on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 A local hip-hop and funk bill headlined by I in Team. Doors at 7 pm, show at 8 pm. All ages. Presented by KRFC 88.9 FM and Natural Alternatives. Ticket prices are on the Aggie's page; none was posted in the listing text when checked.

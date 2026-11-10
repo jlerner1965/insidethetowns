@@ -9,7 +9,8 @@ hours: "Tue–Wed 11 am–5 pm, Thu–Fri 11 am–7 pm, Sat 10 am–4 pm; closed
 tags: [museum, history, art, family]
 summary: "The city's art and history museum on North Lincoln Avenue, founded in 1937: history exhibits, art exhibitions, classes and lectures; $7 for Loveland residents, $10 for visitors, free for children 12 and under."
 source: "https://www.thelovelandmuseum.org/"
-verified: "2026-11-06"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

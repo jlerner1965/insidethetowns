@@ -10,8 +10,8 @@ category: food
 organizer: "Golden Masonic Lodge"
 source: "https://www.visitgolden.com/event/pancake-waffle-breakfast-fundraiser/2026-11-22/"
 sourceId: "visitgolden-com"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Pancake &#038; Waffle Breakfast Fundraiser\" at 8 am on 22 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Golden Masonic Lodge's public breakfast: pancakes and waffles with toppings, cheese, sausage and hash browns, and coffee, tea, cocoa, milk or orange juice. No reservations are needed, tours of the building are free, and the proceeds go to Eastern Star projects and local youth groups.

@@ -4,9 +4,9 @@ type: lodging
 address: "1640 8th St, Golden, CO 80401"
 url: "https://www.theeddygolden.com/"
 source: "https://www.theeddygolden.com/"
-verified: "2026-11-06"
+verified: "2026-11-10"
 added: "2026-11-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 phone: "(720) 442-8150"
 tags: [hotel, taproom, craft-beer]
 summary: "A 49-room hotel on 8th Street with its own taproom pouring a rotating list of craft beer."

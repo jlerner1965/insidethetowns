@@ -6,9 +6,9 @@ address: "103-105 Blue Spruce Dr, Severance, CO 80546"
 area: "Timber Ridge, off 4th Avenue"
 url: "https://www.townofseverance.org/Facilities/Facility/Details/Blue-Spruce-Park-1"
 source: "https://www.townofseverance.org/Facilities/Facility/Details/Blue-Spruce-Park-1"
-verified: "2026-11-09"
+verified: "2026-11-10"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 tags: [fishing, pond, picnic tables, accessible]
 summary: "A quiet park in the Timber Ridge subdivision built around a stocked pond with a fountain, where licensed anglers may fish; picnic tables, benches, shade trees and lawn."
 ---
