@@ -16,7 +16,8 @@ statusNote: "Lyons Fire: recruitment for all-hazard volunteers is currently clos
 registration: { required: true, how: "The district's volunteer application process, once a recruitment round opens" }
 contact: "hiring@lyonsfire.org or 303-823-6611"
 source: "https://www.lyonsfire.org/volunteers"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Lyons Fire takes volunteers in three kinds of role: wildland only, all-hazard, or auxiliary, and no experience is needed. Volunteers are eligible for the district's pension, and every volunteer hour counts towards it. Training runs in house and out: swiftwater and ice-water rescue, extrication, low-angle rescue, driver operator, wildland firefighting, forcible entry and firefighter rescue. Recruitment for all-hazard volunteers is closed for now; email hiring@lyonsfire.org to hear when the next round opens, or call 303-823-6611 with questions.

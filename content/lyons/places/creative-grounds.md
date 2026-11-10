@@ -11,7 +11,8 @@ imageAlt: "Creative Grounds at 160 E Main St on a sunny day: its sign above a bl
 imageCredit: "Creative Grounds"
 summary: "A nonprofit café, pottery studio and hangout for young people at the east end of Main: Ozo coffee, house-made syrups, pastries and sandwiches, and pottery classes through December."
 source: "https://creativegroundslyons.com/"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the home page and the class pages)"
 added: "2026-10-28"
 ---
 
@@ -21,7 +22,7 @@ Creative Grounds calls itself a nonprofit café, art studio and third space for 
 
 *Photo: Creative Grounds*
 
-The pottery studio runs classes through mid-December: five-week wheel-throwing and handbuilding courses for adults and teens, and one-time Fun Friday classes for teens and young adults, $30 each. Every class is on [the events page](/events/) with its dates, and you sign up on [Creative Grounds's class page](https://creativegroundslyons.com/classes).
+The pottery studio runs classes through mid-December: five-week wheel-throwing and handbuilding courses for adults and teens, and one-time Fun Friday classes, from age 12 or 14 depending on the class, $30 each. Every class is on [the events page](/events/) with its dates, and you sign up on [Creative Grounds's class page](https://creativegroundslyons.com/classes).
 
 ![The Creative Grounds patio on a sunny day: orange and navy umbrellas over wooden tables and Adirondack chairs, blue metal bar stools, and the blue building with its counter behind.](../images/creative-grounds-patio.jpg)
 

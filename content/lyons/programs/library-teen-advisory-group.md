@@ -10,14 +10,15 @@ summary: "Grades 6 to 12 help plan the library’s programs, collections and eve
 ages: "Grades 6–12"
 location: "Lyons Regional Library, 451 4th Ave"
 schedule: "Thu 6–7:15 pm, about monthly"
-season: "October 22, November 12 and December 10 on the calendar"
+season: "November 12 and December 10 on the calendar"
 price: "Free"
 registration: { required: false }
 newcomers: true
 nextEvent: teen-advisory-group-2026-11-12
 contact: "info@lyonsregionallibrary.com"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-10-22"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
 ---
 
 The library’s teens decide some of what the library does: programs, the collection, events. Volunteer hours count. The group meets on Thursday evenings, [November 12](/events/teen-advisory-group-2026-11-12/) and [December 10](/events/teen-advisory-group-2026-12-10/) next; questions to info@lyonsregionallibrary.com.
