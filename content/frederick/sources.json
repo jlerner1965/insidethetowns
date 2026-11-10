@@ -68,7 +68,7 @@
       "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026: not readable. Every path on carbonvalleychamber.com, robots.txt included, answers automated requests with HTTP 202 and a SiteGround captcha page, so neither the site's robots rules nor its calendar could be read, and its CMS is unknown; the old GrowthZone calendar at business.carbonvalleychamber.com answers 410 Gone. The chamber is real (Firestone's History page and the Carbon Valley Parks and Recreation District both name it; CVPRD lists its Chamber Open golf tournament on 17 August). The host name is the obvious one and was not confirmed from an official page. Read by a person in a browser, or ask the chamber for its calendar. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. A manual source: confirming it puts it on the weekly check, where it will report blocked until the chamber's site admits readers. Read 2 November 2026 by the Frederick build agent: the home page now answers 200 and lists three events without venues (Business After Hours 5 November 5 pm, a Panda Express ribbon cutting 6 November 9 am, Business Connectors 10 November 8:30 am), phone 303-833-5933 and info@carbonvalleychamber.com; /about-us/ came back empty; the calendar and member directory on cca.carbonvalleychamber.com (EvtListingMainSearch.aspx, businesssearch.aspx) answer 403. Still read by a person."
+      "notes": "Found and read once on 5 October 2026: not readable. Every path on carbonvalleychamber.com, robots.txt included, answers automated requests with HTTP 202 and a SiteGround captcha page, so neither the site's robots rules nor its calendar could be read, and its CMS is unknown; the old GrowthZone calendar at business.carbonvalleychamber.com answers 410 Gone. The chamber is real (Firestone's History page and the Carbon Valley Parks and Recreation District both name it; CVPRD lists its Chamber Open golf tournament on 17 August). The host name is the obvious one and was not confirmed from an official page. Read by a person in a browser, or ask the chamber for its calendar. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. A manual source: confirming it puts it on the weekly check, where it will report blocked until the chamber's site admits readers. Read 2 November 2026 by the Frederick build agent: the home page now answers 200 and lists three events without venues (Business After Hours 5 November 5 pm, a Panda Express ribbon cutting 6 November 9 am, Business Connectors 10 November 8:30 am), phone 303-833-5933 and info@carbonvalleychamber.com; /about-us/ came back empty; the calendar and member directory on cca.carbonvalleychamber.com (EvtListingMainSearch.aspx, businesssearch.aspx) answer 403. Still read by a person. Checked for a feed on 10 November 2026 by the sources agent: carbonvalleychamber.com (WordPress, Divi) answers 200 and its robots.txt allows everything; the home page listed Business Connectors (10 November, 8:30 am), a Marketing and Events Committee meeting (10 November, 11 am) and the Monthly Business Luncheon (12 November, 11:30 am). There is no calendar on the WordPress site (/events/ and the Tribe REST path are 404); every Events link goes to cca.carbonvalleychamber.com/EvtListingMainSearch.aspx, which still answers 403 with a Cloudflare challenge, and business.carbonvalleychamber.com now fails on an expired certificate. No feed; still read by a person."
     },
     {
       "id": "highplains-libcal-com",
@@ -222,10 +222,14 @@
       "category": "venue",
       "status": "proposed",
       "checkFrequency": "monthly",
-      "lastChecked": "2026-11-02",
+      "lastChecked": "2026-11-10",
       "lastStatus": "ok",
+      "lastNote": "10 November 2026: iCal and Tribe REST both answer; 3 items, all holidays, none in the next 30 days.",
       "robots": "honor",
-      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The Town-owned course's site (foreUP) runs The Events Calendar plugin, which exposes an iCal export (the feedUrl, offered on the page as a webcal: link; not fetched). The list view showed only holiday closures from November to February (Christmas, New Year's Day, St. Patrick's Day) though the page claims 42 events; the course's scrambles, glow-ball nights and the Santa Cops golf tournament are summer and fall. Rates page read for the place listing. Proposed; confirm before next spring."
+      "excludeCategories": [
+        "Holidays"
+      ],
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The Town-owned course's site (foreUP) runs The Events Calendar plugin, which exposes an iCal export (the feedUrl, offered on the page as a webcal: link; not fetched). The list view showed only holiday closures from November to February (Christmas, New Year's Day, St. Patrick's Day) though the page claims 42 events; the course's scrambles, glow-ball nights and the Santa Cops golf tournament are summer and fall. Rates page read for the place listing. Proposed; confirm before next spring. Feed fetched on 10 November 2026 by the sources agent: the feedUrl answered 200 text/calendar with 3 VEVENTs, each CATEGORIES:Holidays (Christmas 25 December, New Year's Eve entered on 1 January 2027, Saint Patrick's Day 17 March 2027), none in the next 30 days. The Events Calendar's REST endpoint also answers (https://bellarosagolf.com/wp-json/tribe/events/v1/events: total 3, the same three, no venue), should the editor prefer type json; /events/?ical=1 returned an empty body, so the feedUrl as written is the working iCal. robots.txt allows both paths (it disallows /wp-admin/ and asks a 10-second crawl delay). The Holidays category is excluded here so that only tournaments and course events would stage. Nothing to gain before spring."
     },
     {
       "id": "mirrorimagebrewco-com",
@@ -235,10 +239,11 @@
       "category": "venue",
       "status": "proposed",
       "checkFrequency": "monthly",
-      "lastChecked": "2026-11-02",
+      "lastChecked": "2026-11-10",
       "lastStatus": "ok",
+      "lastNote": "10 November 2026: the Squarespace events collection has no upcoming items; the newest is 4 July 2024.",
       "robots": "honor",
-      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The brewery at 5969 Iris Parkway, Unit C (the former Echo Brewing taproom; Echo's own site now gives an Erie address), hours Mon-Thu 3-9, Fri 12-10, Sat 12-9, Sun 11-8. The site lists no regular events; its one dated event is the Patchwork Project music festival (26 September 2026, $20). Place listed; proposed as a venue source for next September."
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The brewery at 5969 Iris Parkway, Unit C (the former Echo Brewing taproom; Echo's own site now gives an Erie address), hours Mon-Thu 3-9, Fri 12-10, Sat 12-9, Sun 11-8. The site lists no regular events; its one dated event is the Patchwork Project music festival (26 September 2026, $20). Place listed; proposed as a venue source for next September. Checked for a feed on 10 November 2026 by the sources agent. The site is Squarespace and has an events collection at /events: read as JSON it holds 0 upcoming and 30 past items, the newest the Fourth of July BBQ & Music of 4 July 2024, so the brewery has stopped using it. Squarespace offers iCal only one event at a time, and the site's robots.txt disallows ?format=json and ?format=ical, so there would be no feed for ingest even if it were kept up. A search result showed a Workshop Wednesdays class at the taproom sold on Eventbrite by its organizer; not read. Stays html."
     },
     {
       "id": "longmontleader-com",
@@ -276,7 +281,7 @@
       "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The valley's food pantry and assistance nonprofit, 150 Buchanan Ave, Firestone, 303-833-6626; its site lists Tuesday and Thursday office hours as events and the 12th Empty Bowls fundraiser (14 November 2026, 11-2, Frederick High School, $15/$20 adults), which was listed. It partners in the Town's Thanksgiving Dinner in a Box. WordPress events plugin; no feed URL found on the pages read. Proposed: one or two public events a year."
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The valley's food pantry and assistance nonprofit, 150 Buchanan Ave, Firestone, 303-833-6626; its site lists Tuesday and Thursday office hours as events and the 12th Empty Bowls fundraiser (14 November 2026, 11-2, Frederick High School, $15/$20 adults), which was listed. It partners in the Town's Thanksgiving Dinner in a Box. WordPress events plugin; no feed URL found on the pages read. Proposed: one or two public events a year. Checked for a feed on 10 November 2026 by the sources agent: none. /events/?ical=1 returns the page, the Tribe REST path is 404 (the calendar is not The Events Calendar) and /events/feed/ is an empty comments feed; robots.txt asks a 10-second crawl delay and allows /events/. The month grid for 10 November to 10 December showed, beside the Tuesday and Thursday office hours: Empty Bowls (14 November), the Weld Food Bank Food Truck (19 November), the Holiday Food Drive (21 November) and Thanksgiving Dinner in a Box (23 November). Stays html."
     },
     {
       "id": "carbonvalleyrotary-org",
@@ -289,7 +294,110 @@
       "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Found and read on 2 November 2026 by the Frederick build agent (linked from the Town's What Matters page). ClubRunner site: meetings Tuesdays 7-8 am at the Carbon Valley Recreation Center, a last-Tuesday breakfast at a restaurant named on the club calendar (events/calendar, not read), an Easter egg hunt at Hart Park in April and a peach sale. Listed as a Get involved program. Manual: the calendar is a ClubRunner page with no feed."
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent (linked from the Town's What Matters page). ClubRunner site: meetings Tuesdays 7-8 am at the Carbon Valley Recreation Center, a last-Tuesday breakfast at a restaurant named on the club calendar (events/calendar, not read), an Easter egg hunt at Hart Park in April and a peach sale. Listed as a Get involved program. Manual: the calendar is a ClubRunner page with no feed. The ClubRunner calendar page (/events/calendar) was fetched on 10 November 2026 by the sources agent: it answers 200 and links no iCal, RSS or webcal address. Stays manual."
+    },
+    {
+      "id": "firestoneco-gov",
+      "name": "Town of Firestone: Special Events calendar",
+      "url": "https://www.firestoneco.gov/events",
+      "feedUrl": "https://www.firestoneco.gov/common/modules/iCalendar/iCalendar.aspx?catID=26&feed=calendar",
+      "sampleUrl": "https://www.firestoneco.gov/calendar.aspx?EID=2691",
+      "type": "ical",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: 1 VEVENT, the Carbon Valley Holiday Festival on 5 December.",
+      "robots": "honor",
+      "notes": "Found and read on 10 November 2026 by the sources agent. Firestone is one of the three towns this guide covers; its CivicPlus site offers two calendars on /iCalendar.aspx: \"Town of Firestone Special Events\" (catID 26, this feed) and \"Town of Firestone\" (catID 33). The Special Events iCal answered 200 with 1 VEVENT: the Carbon Valley Holiday Festival, 5 December 2026, 12 pm, Miners Park, 170 Grant Avenue, so 1 event in the next 30 days. The Town's Programs & Events page lists fourteen 2026 event dates from 18 April to 5 December (4 July, the August and September Fridays), each with its own page, and they reach this calendar as the date nears, as Frederick's do; expect one to three a month from April to October. The catID 33 calendar had 34 VEVENTs to August 2027, 13 in the next 30 days, of which only the same festival and a Chat with a Trustee (2 December) are not meetings, Municipal Court, office closures or Leaf Drop-Off days; it is not proposed. The site's robots.txt (CivicPlus's standard file, read 10 November 2026) disallows /common/modules/icalendar/, /calendar.aspx and /RSSFeed.aspx for every agent, as it has on every CivicPlus site since 20-21 October, so under robots: honor ingest will not read this; it is the feed the site offers residents as a calendar subscription, and robots: subscribe is the editor's call, as it was for frederickco-gov. Staged items should carry subTown firestone. America/Denver times; LOCATION is \"<place> - <address>\"."
+    },
+    {
+      "id": "daconoco-gov",
+      "name": "City of Dacono: Main City Calendar",
+      "url": "https://www.daconoco.gov/calendar.aspx",
+      "feedUrl": "https://www.daconoco.gov/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar",
+      "sampleUrl": "https://www.daconoco.gov/calendar.aspx?EID=2224",
+      "type": "ical",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: 124 VEVENTs, 9 in the next 30 days, 1 of them a public event.",
+      "robots": "honor",
+      "excludeTitles": [
+        "City Council",
+        "Planning and Zoning",
+        "Planning & Zoning",
+        "Urban Renewal Authority",
+        "City offices closed"
+      ],
+      "notes": "Found and read on 10 November 2026 by the sources agent. Dacono is one of the three towns this guide covers; cityofdacono.com now redirects to www.daconoco.gov, a CivicPlus site whose /iCalendar.aspx offers three calendars: Main City Calendar (catID 14, this feed), Music and Spirits Festival (catID 32) and Police Department (catID 29). The Main City Calendar answered 200 with 124 VEVENTs from 11 November 2026 to December 2030, 9 in the next 30 days: six council, planning and urban-renewal meetings (one cancelled), two office closures and one public event, the Carbon Valley Holiday Festival (5 December, 4 to 6 pm; the feed gives only \"Dacono CO 80514\" for the place, and Firestone's calendar lists the same festival at Miners Park from noon, so the venue needs checking). Meetings and closures are excluded by title, a first pass for the editor. The Music and Spirits Festival calendar was empty (the festival is in August; a search result gave 1 August 2026 at Centennial Field) and the Police calendar held 3 items for 2027 (National Law Enforcement Day, two Drug Take Back Days). The site's robots.txt (CivicPlus's standard file, read 10 November 2026) disallows /common/modules/icalendar/, /calendar.aspx and /RSSFeed.aspx for every agent, as it has on every CivicPlus site since 20-21 October, so under robots: honor ingest will not read this; it is the feed the site offers residents as a calendar subscription, and robots: subscribe is the editor's call, as it was for frederickco-gov. Staged items should carry subTown dacono. Expect one or two public events a month at most; the value is that the City's own festivals and take-back days arrive without a hand read."
+    },
+    {
+      "id": "fhs-svvsd-org",
+      "name": "Frederick High School (St. Vrain Valley Schools): Calendar",
+      "url": "https://fhs.svvsd.org/",
+      "feedUrl": "https://calendar.google.com/calendar/ical/svvsd.org_sihhjnurp82he1pbg6dllgdmv4%40group.calendar.google.com/public/basic.ics",
+      "type": "ical",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: 2,102 VEVENTs, 48 in the next 30 days, about 9 of them public performances or tournaments.",
+      "robots": "honor",
+      "excludeTitles": [
+        "^\"[AB]\" Day$",
+        "Practice",
+        "Rehearsal",
+        "Rehersal",
+        "Study Hall",
+        "Club",
+        "Camp",
+        "No School",
+        "Front Office Closed",
+        "Late Start",
+        "Meeting",
+        "Choreography",
+        "Cafecito",
+        "Honor Jazz",
+        "Share Choir Festival",
+        "Veterans Day Parade"
+      ],
+      "defaultVenue": "Frederick High School, 5690 Tipple Parkway, Frederick",
+      "notes": "Found and read on 10 November 2026 by the sources agent. Frederick High School, 5690 Tipple Parkway; its home page embeds a public Google Calendar (\"FHS Website\", id svvsd.org_sihhjnurp82he1pbg6dllgdmv4@group.calendar.google.com), and the public iCal for that id answered 200 text/calendar, read once with a browser user agent: 2,102 VEVENTs (10 recurring) from September 2011 to 29 May 2027, America/Denver, 48 in the next 30 days. Most are the school's own running (\"A\" Day and \"B\" Day markers, practices and rehearsals, study hall, clubs, office closures), excluded by title here as a first pass for the editor; what is left for 10 November to 10 December is about 9 public items: the FHS/TVK8/CRMS Orchestra Concert (10 November, 6 pm), the Legacy Elementary Choir Concert (16 November), the Unified Play & Band Performance (3 December, 6 pm), an Advanced Drama Performance (4 December), the Girls Basketball Tournament (3, 4 and 5 December), the FHS/TVK8/CRMS Concert (8 December, 6 pm) and the Mariachi Concert (9 December, 6 pm). Many items have no LOCATION, so the school is the default venue; a concert at a feeder school would need its venue checked. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this; it is a public calendar the school embeds on its own site, and robots: subscribe is the editor's call. The school site itself answered 429 to several quick requests in a row, so it is read gently. The district's own calendar (svvsd-org) stays the source for no-school days."
+    },
+    {
+      "id": "wildcider-com",
+      "name": "Wild Cider: Events & Live Music",
+      "url": "https://www.wildcider.com/events",
+      "sampleUrl": "https://www.wildcider.com/events/harvest-fest",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: no feed; 1 upcoming event, Harvest Fest on 14 November.",
+      "robots": "honor",
+      "notes": "Found and read on 10 November 2026 by the sources agent. The cidery and Cider Garden at 11455 County Road 17, Firestone (address from the site), open May to October, Friday 4 to 9 pm, Saturday 12 to 9 pm, Sunday 12 to 7 pm. Its Events & Live Music page is a custom site with each event on its own page (/events/<slug>) and no iCal, RSS or JSON: /events?ical=1 and ?format=json return the page, /events/feed is 404. robots.txt allows /events (it disallows /admin, /api/ and /next/). On 10 November one event was upcoming, Harvest Fest, the end-of-season party (Saturday 14 November, 12 to 9 pm, free), so 1 in the next 30 days; recent ones were Hallo-Wing and a Fall Vendor Market (24 October), Friday trivia and Saturday bands. In season the page says trivia is every Friday at 7 pm and live music most Saturdays from 5 pm, free: four to eight listings a month from May to October, read by hand. Items would carry subTown firestone."
+    },
+    {
+      "id": "coloradospeedway-com",
+      "name": "Colorado National Speedway: Racing Schedule",
+      "url": "https://www.coloradospeedway.com/racing-schedule",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "checkFrequency": "monthly",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: no feed; the schedule page answers but its contents were not read (script-drawn).",
+      "robots": "honor",
+      "notes": "Found on 10 November 2026 by the sources agent. The oval at 4281 Speedway Boulevard, Dacono (main office 303-828-0116, from the site's footer), a Wix site: /schedule redirects to /racing-schedule, which answers 200, but the schedule is drawn by script and no dates could be read from the HTML, so nothing was counted; the racing season runs spring to autumn and the footer on 10 November said the beer garden was closed. No feed: /events is a 404 page, /events/feed and ?ical=1 return the same page, there is no Tribe REST path. robots.txt allows everything. Proposed for the 2027 season, read by hand once the schedule is posted; items would carry subTown dacono."
     }
   ]
 }

@@ -88,14 +88,22 @@
       "id": "nederlandlibrary-org",
       "name": "Nederland Community Library",
       "url": "https://nederland.colibraries.org/",
-      "type": "manual",
+      "feedUrl": "https://nederland.libcal.com/ical_subscribe.php?src=p&cid=4818",
+      "sampleUrl": "https://nederland.libcal.com/event/17620368",
+      "type": "ical",
       "category": "library",
       "priority": "core",
       "status": "confirmed",
       "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Unreachable from here on 6 October 2026: two attempts to fetch https://nederlandlibrary.org/ both failed with a curl connection error before any HTTP status (likely the proxy or the host refusing the connection), so robots.txt and the calendar vendor (LibCal, LibraryCalendar, Communico or other) could not be checked. Web search snippets (townofnederland.colorado.gov press releases) place the library at 200 CO-72 (Highway 72 North), Nederland CO 80466, next to the Community Center, and mention a Summer Reading Program kickoff and a Reading Garden ribbon cutting in 2024. Keep manual until the site can be reached and a feed confirmed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Corrected 6 October 2026: nederlandlibrary.org does not answer; the library’s live site is https://nederland.colibraries.org/, which the Town’s directory links. The id is kept so nothing that names it breaks."
+      "excludeTitles": [
+        "^Reserved$",
+        "^Closed for ",
+        "NCL District Board Meeting"
+      ],
+      "defaultVenue": "Nederland Community Library",
+      "notes": "Unreachable from here on 6 October 2026: two attempts to fetch https://nederlandlibrary.org/ both failed with a curl connection error before any HTTP status (likely the proxy or the host refusing the connection), so robots.txt and the calendar vendor (LibCal, LibraryCalendar, Communico or other) could not be checked. Web search snippets (townofnederland.colorado.gov press releases) place the library at 200 CO-72 (Highway 72 North), Nederland CO 80466, next to the Community Center, and mention a Summer Reading Program kickoff and a Reading Garden ribbon cutting in 2024. Keep manual until the site can be reached and a feed confirmed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Corrected 6 October 2026: nederlandlibrary.org does not answer; the library’s live site is https://nederland.colibraries.org/, which the Town’s directory links. The id is kept so nothing that names it breaks. Feed found 10 November 2026: the library's site links its calendar at nederland.libcal.com (Springshare LibCal, one public calendar, id 4818, named 'Nederland Library Community Room'). Its iCal subscription, the feedUrl here, answered 200 text/calendar with 203 VEVENT from October 2026 to September 2027 and parsed with the ingest's own reader: 33 items in 10 November to 9 December and 153 from today onward. The LibCal RSS for the same calendar (https://nederland.libcal.com/rss.php?iid=3657&m=month&cid=4818, 35 items with libcal:date, start, end and location) reads too but covers only the coming month; the page's own RSS link uses cid=-1 and comes back empty. Of the 33, 7 are room bookings titled 'Reserved', 2 are closures (Thanksgiving Day, Black Friday) and 2 are NCL District Board meetings, which is what the excludeTitles added today drop; that leaves 22: Wild Bear Storytime (Tuesdays 10:30), STORYTIME! (Fridays 10:15), Monday Nederland Writers, Sci Fi Book Club (10 Nov and 8 Dec, 7 pm), After-school Makers Club, Parents Night Out (14 Nov), Philosophy Club (17 Nov), Front Range Mycological Society (18 Nov), Adult Makers Club (19 Nov), a women's support circle (1 Dec) and Peak Harmony Holiday music (3 Dec, 6:30 pm). Locations are a room ('Community Room', 'Library Open Areas') or nothing, hence the defaultVenue. Some are other groups' meetings in the library's room, not library programmes. robots.txt allows both feeds for our agent (it disallows only /process_ and asks for a ten-second crawl delay). This entry was already confirmed when the feed was found, so the next ingest will read it; the weekly storytimes and writers' group may want excluding too if the guide lists them as regulars."
     },
     {
       "id": "bouldercounty-gov-open-space",
@@ -256,6 +264,103 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Read 6 October 2026. Weekly Peak to Peak newspaper ('Peak to Peak news since 1977'), a TownNews/BLOX site; home page 200 with sections for Nederland, Eldora, Ward, Gold Hill, Jamestown, Allenspark, Coal Creek Canyon, Lyons, Gilpin County, Black Hawk and Central City, plus Meetings, Police Reports, Music of the Mountains and a Visitor's Guide. The BLOX RSS search endpoint (/search/?f=rss&t=article...) returned 403 from the Varnish cache, and a guessed section URL /news/nederland/ returned 404, so no feed is recorded. Subscription paper; use for leads and attribution only, not core."
+    },
+    {
+      "id": "mountainpeaklife-org",
+      "name": "Nederland Area Seniors (Mountain Peak Life)",
+      "url": "https://mountainpeaklife.org/events/",
+      "feedUrl": "https://mountainpeaklife.org/wp-json/tribe/events/v1/events",
+      "sampleUrl": "https://mountainpeaklife.org/events/all-ages-international-folk-dancing-2/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "lastNote": "The Events Calendar feed answers, but the site clock is set to UTC+0, so its times are mislabelled; the JSON reader throws on it and the iCal reads seven hours early",
+      "robots": "honor",
+      "notes": "Proposed 10 November 2026. Nederland Area Seniors, the organization for older adults in the Peak to Peak region, now at mountainpeaklife.org (The Mountain-Ear's column gives the address, 303-258-0799 and info@mountainpeaklife.org); it runs lunches and events in the Senior Lounge at the Nederland Community Center, 750 Highway 72 North. WordPress with The Events Calendar: /wp-json/tribe/events/v1/events answered 200 with 5 events from 10 November (total 5, one page) and /events/?ical=1 answered text/calendar with the same 5: Saturday Brown Bag Lunch and Matinee (14, 21 and 28 Nov, noon), All Ages International Folk Dancing (16 Nov, 6 pm) and 'NAS CLOSED: Happy Thanksgiving!' (23 Nov, all day). No venue, category or cost on any of them. robots.txt allows everything. Not recorded as a json source because it cannot be read correctly yet: the site's WordPress time zone is 'UTC+0', so the API labels Denver wall-clock times as UTC. The ingest's reader for this format threw 'Invalid time zone specified: UTC+0' on the page, and its iCal reader took the noon lunch for 5 am. Two ways on: the organization sets its site time zone to Denver, or the reader learns to treat 'UTC+0' on this source as local time. Until then read by hand, four or five listings a month; if it is ever switched on, exclude '^NAS CLOSED' and set defaultVenue to the Senior Lounge at the Community Center."
+    },
+    {
+      "id": "teensinc-org",
+      "name": "TEENS, Inc.",
+      "url": "https://www.teensinc.org/events",
+      "sampleUrl": "https://www.teensinc.org/events/write-night-26",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Proposed 10 November 2026. The Nederland youth and family nonprofit (151 East Street, from its event pages) lists its public events on a Squarespace events page: fundraisers, family sessions and the town-wide ones it runs or joins (Halloween Ned 2026, Ned Ned Trailfest '26, Winter Party 2026). Read 10 November: one upcoming event, 'Write Night for TEENS, Inc. at Hub Ned' on 11 November; everything else on the page is past. Squarespace's robots.txt disallows ?format=ical and ?format=json for every agent, so there is no feed to take; the page itself is allowed. Read by hand, one or two listings a month."
+    },
+    {
+      "id": "buseybrews-com",
+      "name": "Busey Brews Smokehouse and Brewery",
+      "url": "https://buseybrews.com/events/",
+      "sampleUrl": "https://buseybrews.com/events/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Busey Brews",
+      "notes": "Proposed 10 November 2026. Nederland brewpub ('Nederland's Premier Smokehouse and Brewery'; street address not read). Its Events page (200) is plain text, not a calendar: Live Trivia every Thursday at 6:30 pm, 'Dub on the Deck' with Conquering Lion Soundsystem every Thursday 4 to 8 pm (weather-dependent in winter), and one dated special, Third Thursday fundraising trivia for the Nederland Fire Protection District on 19 November at 6:30 pm. WordPress with no events plugin in the page markup; the feed paths (/wp-json/tribe/events/v1/events, /events/?ical=1, /events/feed/) all answered 429 Too Many Requests on two tries, so their absence is likely but not proven. robots.txt allows the page. Two weekly regulars and about one dated special a month, read by hand."
+    },
+    {
+      "id": "knottedrootbrewing-com",
+      "name": "Knotted Root Brewing Company",
+      "url": "https://www.knottedrootbrewing.com/events",
+      "sampleUrl": "https://www.knottedrootbrewing.com/events/2026/10/31/halloween-party",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Knotted Root Brewing Company",
+      "notes": "Proposed 10 November 2026, low value as it stands. Nederland brewery on Squarespace with an events collection. The sitemap shows it was once kept daily (open mic Wednesdays, open jam Thursdays, Jazz Sundays, comedy and DJ nights, food trucks, through April 2025); the only 2026 entry is a Halloween party on 31 October, and on 10 November the /events page listed no upcoming events at all. Whether the address in Nederland is current was not checked. Squarespace's robots.txt disallows ?format=ical, so no feed. Worth a look each month in case the calendar is taken up again; nothing to list now."
+    },
+    {
+      "id": "nederlandfarmersmarket-org",
+      "name": "Nederland Farmers Market",
+      "url": "https://www.nederlandfarmersmarket.org/events-1",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Proposed 10 November 2026. The market's own site ('Farmers Market | Artists | Nederland CO'), a Wix site with an events page (200, described in its own metadata as market dates, partners, vendors and volunteers). The dates are drawn by script and could not be read from the fetched HTML, so nothing was counted; the Town's Community Events page says every other Sunday, May to October, so nothing is expected in the next 30 days. No feed; robots.txt allows the page. Open in a browser each spring for the season's dates."
+    },
+    {
+      "id": "nedicerink-wixsite-com",
+      "name": "NedRINK",
+      "url": "https://nedicerink.wixsite.com/nedrink/schedule",
+      "type": "html",
+      "category": "parks",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "NedRINK, 500 Indian Peaks Drive",
+      "notes": "Proposed 10 November 2026. The volunteer-run natural outdoor ice rink ('Established 2005 - Nederland, CO'; the Town's parks page puts it at 500 Indian Peaks Dr). Its Wix site has a Schedule page whose sessions are drawn by Wix's Google Event Calendar app, so the fetched HTML has no session times; on 10 November the site still said 'Closed for the Season' and that all sessions are weather dependent. No Google calendar id in the page source, so no .ics could be found (contact on the site: nedicerink@gmail.com). The old Town URLs for the rink (www.nederlandco.gov/nedrink) are 404. Filed under parks as the town's rink. Once the ice is in, usually December to February, public skate, stick and puck and curling sessions would be several listings a week, read in a browser; ask the rink for its calendar address if that is wanted as a feed."
+    },
+    {
+      "id": "neh-bvsd-org",
+      "name": "Nederland Middle-Senior High School (BVSD)",
+      "url": "https://neh.bvsd.org/about/calendar",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Proposed 10 November 2026. The school's calendar on Boulder Valley School District's Finalsite site (linked from www.bvsd.org as Nederland Middle-Senior; Nederland Elementary is nee.bvsd.org, not read). The month grid at /about/calendar?cal_date=2026-11-01 answered 200 with 165 event links, most of them the district's day markers repeated per category ('Blue Day', 'No School - Thanksgiving Break', 'Fall conference exchange days - no school') plus a few team dates (HS mountain bike State Championship 31 October to 1 November, HS Basketball optional practice begins 2 November); no public performance or community night was seen for November. robots.txt disallows /fs/, where Finalsite keeps its iCal export, and asks for five seconds between requests, so there is no feed to take; scripts/lib/finalsite-calendar.ts already reads this kind of grid for school sports. Of use for home games and school concerts only, read by hand."
+    },
+    {
+      "id": "peakmusic-org",
+      "name": "Peak to Peak Music Education Association (NedFest)",
+      "url": "https://peakmusic.org/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Proposed 10 November 2026. nedfest.org now redirects here, to a page of NedFest performer history headed '2023 NedFest Family Reunion Line-up'; no 2026 or 2027 NedFest date was found. The home page's one dated event is the association's 4th of July Celebration 2026, which it says was moved to Very Nice Brewing Company's Gilpin taproom at 180 Jankowski Drive, Black Hawk, so not in Nederland. WordPress without The Events Calendar (/events/feed/ is an empty comments feed; the other feed paths reset the connection). Nothing in the next 30 days. Check in spring for whether NedFest returns and where."
     }
   ]
 }

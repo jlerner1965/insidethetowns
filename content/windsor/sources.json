@@ -41,41 +41,51 @@
       "subTown": "windsor",
       "name": "Town of Windsor: town events",
       "url": "https://www.windsorco.gov/Calendar.aspx",
-      "feedUrl": "https://www.windsorco.gov/common/modules/iCalendar/iCalendar.aspx?catID=32&feed=calendar",
+      "feedUrl": "https://www.windsorco.gov/RSSFeed.aspx?ModID=58&CID=32",
       "sampleUrl": "https://www.windsorco.gov/Calendar.aspx?EID=7632",
-      "type": "ical",
+      "type": "rss",
       "category": "city-calendar",
       "priority": "core",
       "status": "proposed",
-      "lastChecked": "2026-10-11",
-      "lastStatus": "blocked",
-      "lastNote": "Cloudflare answered 403 to the feed and the calendar page on 11 October 2026. The content handoff of the same day reported reading this feed; confirm it once it answers.",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: the iCal feed (catID=32), Calendar.aspx and robots.txt still answer 403 from Cloudflare; the calendar RSS (RSSFeed.aspx?ModID=58&CID=32) answers 200 and is now the feedUrl.",
       "cites": {
         "events": 8,
         "places": 1
       },
       "robots": "honor",
       "excludeTitles": [
-        "^(?:.*office.*clos(?:ed|ure)|.*city hall.*closed|.*holiday closure|.*town hall.*closed).*$"
+        "^(?:.*office.*clos(?:ed|ure)|.*city hall.*closed|.*holiday closure|.*town hall.*closed).*$",
+        "Board",
+        "Commission",
+        "Authority",
+        "Work Session",
+        "Leaf & Branch Drop",
+        "Leaf and Branch Drop"
       ],
-      "notes": "Official iCalendar feed read and parsed on 11 October 2026. New records enter staging for editorial review; verify venue where the feed leaves LOCATION blank. Office closures and ordinary facility hours are not public events."
+      "notes": "Official iCalendar feed read and parsed on 11 October 2026. New records enter staging for editorial review; verify venue where the feed leaves LOCATION blank. Office closures and ordinary facility hours are not public events. Checked again on 10 November 2026 by the sources agent, with a browser user agent: the iCal feed (https://www.windsorco.gov/common/modules/iCalendar/iCalendar.aspx?catID=32&feed=calendar), Calendar.aspx, iCalendar.aspx and robots.txt all still answer 403 with Cloudflare's \"Attention Required\" page, a month after the first refusal. The CivicPlus calendar RSS on the same host is not behind the block: RSSFeed.aspx?ModID=58&CID=32 (\"Town of Windsor - Calendar - Town Events\") answered 200 with 16 items, 11 to 24 November, carrying the calendarEvent:EventDates, EventTimes and Location elements the repo's RSS reader already reads; CID=All-calendar.xml carries the same 16. Type changed from ical to rss and the feedUrl to the RSS on that evidence; the iCal URL above is the one to go back to if Cloudflare ever admits it, because the RSS reaches only about a fortnight ahead. Of the 16 items, 12 are board and commission meetings (Water and Sewer Board, Historic Preservation Commission, Liquor Licensing Authority, Town Board work sessions and meetings, Windsor Arts Commission, Planning Commission, Tree Board), 3 are Leaf & Branch Drop days (a service schedule, already excluded on recreationliveshere-com) and 1 is a public event (Veterans Day Flag Placement, 11 November, 10 to 11 am, Lakeview Cemetery, 32815 Highway 257). Meetings and the leaf drop are excluded by title here (Board, Commission, Authority, Work Session, Leaf & Branch Drop); remove any to have it staged. Every other calendar on the site was asked for by CID 14 to 42: all empty in RSS (Main Town Calendar, Police, Planning Commission, Historic Preservation Commission, Tree Board, Water Sewer Board, Municipal Court, Work Sessions, Town Holiday Hours, Kern Board, Downtown Development Authority, Liquor Licensing Authority and several test calendars), so CID 32 is the one calendar the Town fills. robots.txt could not be read (403); CivicPlus's standard file, as recreationliveshere.com serves it, disallows /RSSFeed.aspx and /common/modules/icalendar/ for every agent, so expect the same rule here and the same robots: subscribe decision from the editor. Expect one to three public events a month from this feed; the Town's events mostly reach the guide through recreationliveshere-com."
     },
     {
       "id": "business-windsorchamber-net",
       "subTown": "windsor",
-      "name": "business.windsorchamber.net",
-      "url": "https://business.windsorchamber.net/",
+      "name": "Windsor Area Chamber of Commerce: Events Calendar",
+      "url": "https://business.windsorchamber.net/events",
+      "feedUrl": "https://business.windsorchamber.net/feed/rss/UpcomingEvents.rss",
       "sampleUrl": "https://business.windsorchamber.net/events/details/fall-craft-fair-by-eagle-s-peak-16898",
       "type": "html",
       "category": "chamber",
       "priority": "core",
       "status": "proposed",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: the events pages and the ChamberMaster RSS answer 200; the RSS is not in a form ingest reads, so type stays html.",
       "cites": {
         "events": 7,
         "places": 1
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read on 10 November 2026 by the sources agent. The chamber (421 Main Street, Windsor) runs its calendar on ChamberMaster/GrowthZone at business.windsorchamber.net/events. It has one machine-readable feed, /feed/rss/UpcomingEvents.rss (the feedUrl, recorded so nobody looks for it again): 200, application/rss+xml, the next 10 events only (10 to 13 November), each item a link, a title with the date in front (\"11/12/2026 - Business After Hours\") and an HTML description, with no pubDate, no time, no venue element and none of the calendarEvent, libcal or mec elements scripts/lib/feeds/rss.ts reads, so ingest would skip all 10 as undated. Type therefore stays html: reading it would be a new reader (date from the title, time and venue from each event page), which is a feature to ask about. Tried and absent: /events/rss, /events/ical, /events/icalendar, /events.ics, /events/feed (404); each event page has its own Add to Calendar link (/events/addtocalendar/<slug>?format=ICal), one event at a time. robots.txt allows /events, /events/calendar/ and /feed/; it disallows /events/search and /events/searchscroll (the list page's own paging), so the month grid is the page to read: /events/calendar/2026-11-01 listed 34 entries for November and /events/calendar/2026-12-01 28 for December. Most are member networking and club meetings (Optimist Club weekly, Kiwanis, leads groups, SBDC advising, ribbon cuttings, Business After Hours); the public ones seen for 10 November to 10 December were the Stepping Stones Soup Luncheon, the Ugly Sweater Wine Walk, the Windsor Turkey Trot 5k, cooking classes at The Bottled Olive, Night Lights (Realities for Children), Jingle & Jammies, Wonderland After Hours, with the Santa Catch 5k & 10k and two New Year's Eve events at the end of December: roughly 8 public listings a month, read by hand. Categories on the page (Windsor Area Chamber Event, Business Community, Retail Event, Networking Event, Ribbon Cuttings) would let a reader drop the networking."
     },
     {
       "id": "severancechamber-com",
@@ -89,15 +99,16 @@
       "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Attempted on 6 October 2026: https://severancechamber.com/ failed twice at the connection (curl error, not a robots refusal) and is unreachable from here; not read. The URL comes from two pages that were read: the Colorado Sun article of 29 August 2026 (https://coloradosun.com/2026/08/29/rural-chamber-of-commerce-timnath-severence/), which links https://severancechamber.com/severance-chamber and says Dustin Peyser is president of both the Timnath and Severance chambers, and the Clearview Library District event page https://clearview.libnet.info/event/16880333 (Business Spotlight, Vecinos Mexican Grill and Cantina, 15 July), which links https://severancechamber.com/ and describes monthly Business Spotlight evenings run with the library. A 'Towns Connecting Over Coffee' quarterly event for Timnath, Severance, Eaton and Evans is listed on timnathchamber.com. Platform and feed unknown until the site can be reached; there is no downtown association. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Attempted on 6 October 2026: https://severancechamber.com/ failed twice at the connection (curl error, not a robots refusal) and is unreachable from here; not read. The URL comes from two pages that were read: the Colorado Sun article of 29 August 2026 (https://coloradosun.com/2026/08/29/rural-chamber-of-commerce-timnath-severence/), which links https://severancechamber.com/severance-chamber and says Dustin Peyser is president of both the Timnath and Severance chambers, and the Clearview Library District event page https://clearview.libnet.info/event/16880333 (Business Spotlight, Vecinos Mexican Grill and Cantina, 15 July), which links https://severancechamber.com/ and describes monthly Business Spotlight evenings run with the library. A 'Towns Connecting Over Coffee' quarterly event for Timnath, Severance, Eaton and Evans is listed on timnathchamber.com. Platform and feed unknown until the site can be reached; there is no downtown association. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Checked on 10 November 2026 by the sources agent: https://severancechamber.com/ now answers 200 (a GoDaddy Website Builder site; robots.txt disallows only /404). Its menu has an Event Details page (/event-details) whose calendar is drawn by script and gave no events to a plain read, and the site has no iCal, RSS or JSON (/events/?ical=1, /events/feed/, /calendar all 404). Stays manual, read in a browser."
     },
     {
       "id": "clearviewlibrary-org",
       "subTown": "severance",
       "name": "Clearview Library District: Events (Severance Library)",
       "url": "https://clearview.libnet.info/events",
+      "feedUrl": "https://clearview.libnet.info/feeds?data=eyJmZWVkVHlwZSI6ImljYWwiLCJmaWx0ZXJzIjp7ImxvY2F0aW9uIjpbImFsbCJdLCJhZ2VzIjpbImFsbCJdLCJ0eXBlcyI6WyJhbGwiXSwidGFncyI6W10sInRlcm0iOiIiLCJkYXlzIjoxfX0=",
       "sampleUrl": "https://clearview.libnet.info/event/16880333",
-      "type": "html",
+      "type": "ical",
       "category": "library",
       "priority": "core",
       "status": "confirmed",
@@ -108,25 +119,81 @@
       "locationFilter": [
         "Severance Library"
       ],
+      "excludeTitles": [
+        "PAWS for Reading",
+        "Stay and Play",
+        "Read, Rhyme",
+        "Babies and Books",
+        "Lego",
+        "Bookmobile",
+        "Yoga Stories",
+        "After-School Collective",
+        "Club",
+        "Storytime",
+        "The Scene",
+        "Reading Bugs",
+        "Homeschooler",
+        "Messy Monster",
+        "Once Upon a Story",
+        "Dungeons & Dragons",
+        "Common Ground",
+        "Lil'",
+        "Young Scientists",
+        "Kids in the Kitchen",
+        "Tween RPG",
+        "Teen Video Gaming"
+      ],
       "defaultVenue": "Severance Library, 5 Timber Ridge Parkway, Severance",
-      "notes": "Found and read once on 6 October 2026. Severance is served by the Clearview Library District (not High Plains): branches are Windsor Library (720 3rd Street, Windsor), Severance Library (5 Timber Ridge Parkway, Severance, CO 80550, 970-686-5603, Mon-Thu 10-6, Fri-Sat 10-5, closed Sun), a Bookmobile, and an outpost at Windsor Community Recreation Center (from https://clearviewlibrary.org/about-us/learn-more/hours-locations). The events page is a Communico embed (page config: apiServer https://api.communico.co, showRSS/showICAL true, locations []); events render client-side, and individual events live at clearview.libnet.info/event/<id>. Public feed attempts all redirected to the HTML events page: https://clearview.libnet.info/events/feed/ical, .../events/feed/rss, .../events/upcoming/feed/ical. The home page's upcoming list showed Windsor and Severance programs side by side (Babies and Books, Stay and Play, PAWS for Reading, Teen Dungeons & Dragons, 'Read, Rhyme, and Romp — Severance Library'), so a location filter on 'Severance Library' is needed. No feed read; check the page by hand or revisit for a Communico feed URL. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Found and read once on 6 October 2026. Severance is served by the Clearview Library District (not High Plains): branches are Windsor Library (720 3rd Street, Windsor), Severance Library (5 Timber Ridge Parkway, Severance, CO 80550, 970-686-5603, Mon-Thu 10-6, Fri-Sat 10-5, closed Sun), a Bookmobile, and an outpost at Windsor Community Recreation Center (from https://clearviewlibrary.org/about-us/learn-more/hours-locations). The events page is a Communico embed (page config: apiServer https://api.communico.co, showRSS/showICAL true, locations []); events render client-side, and individual events live at clearview.libnet.info/event/<id>. Public feed attempts all redirected to the HTML events page: https://clearview.libnet.info/events/feed/ical, .../events/feed/rss, .../events/upcoming/feed/ical. The home page's upcoming list showed Windsor and Severance programs side by side (Babies and Books, Stay and Play, PAWS for Reading, Teen Dungeons & Dragons, 'Read, Rhyme, and Romp — Severance Library'), so a location filter on 'Severance Library' is needed. No feed read; check the page by hand or revisit for a Communico feed URL. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Feed found and read on 10 November 2026 by the sources agent. The Communico events page builds its iCal link in script (js/am-events-listings.js, _getFeed): /feeds?data= followed by the base64 of {\"feedType\":\"ical\",\"filters\":{\"location\":[\"all\"],\"ages\":[\"all\"],\"types\":[\"all\"],\"tags\":[],\"term\":\"\",\"days\":1}}; that is the feedUrl, the same link the page's iCal button hands a reader (feedType rss gives the same items as RSS, without elements the repo's RSS reader knows). It answered 200 text/calendar: 319 VEVENTs, none recurring, 10 November 2026 to 29 January 2027, America/Denver, UID the event number (clearview.libnet.info/event/<UID>), LOCATION \"<branch> - <room>\". In the next 30 days (to 10 December) 184 items: 62 Bookmobile stops (LOCATION \"Bookmobile - \"), 69 at Windsor Library, 53 at Severance Library. clearview.libnet.info/robots.txt disallows only /results* and /sitesearch*, so the feed path is allowed. One feed serves both towns; each entry keeps its branch with locationFilter, and the bookmobile stops match neither. This entry is the Severance branch: 53 items in the next 30 days, 5 once the regulars are excluded by title (the same first-pass list as the Windsor entry, clearview-libnet-info: storytimes, Stay and Play, PAWS for Reading, Lego sessions, clubs, the homeschool academy, Dungeons & Dragons): Paper Roses (12 November), Gratitude Yoga (18 November), Teen DIY (1 December), Be Red Cross Ready (2 December), Holiday Concert & Cookie Exchange (9 December). Type changed from html to ical on 10 November 2026 as the source-finding task directed for an existing entry whose site turns out to offer a feed; status left as it was. Because this entry was already confirmed, the next ingest run will read the feed and stage the Severance Library's one-offs for review: set type back to html to stop that."
     },
     {
       "id": "clearview-libnet-info",
       "subTown": "windsor",
-      "name": "clearview.libnet.info",
+      "name": "Clearview Library District: Events (Windsor Library)",
       "url": "https://clearview.libnet.info/events",
-      "sampleUrl": "https://clearview.libnet.info/event/17227086",
-      "type": "html",
+      "feedUrl": "https://clearview.libnet.info/feeds?data=eyJmZWVkVHlwZSI6ImljYWwiLCJmaWx0ZXJzIjp7ImxvY2F0aW9uIjpbImFsbCJdLCJhZ2VzIjpbImFsbCJdLCJ0eXBlcyI6WyJhbGwiXSwidGFncyI6W10sInRlcm0iOiIiLCJkYXlzIjoxfX0=",
+      "sampleUrl": "https://clearview.libnet.info/event/17686732",
+      "type": "ical",
       "category": "library",
       "priority": "core",
       "status": "proposed",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: the Communico iCal feed answers 200 with 319 events.",
       "cites": {
         "events": 4,
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "locationFilter": [
+        "Windsor Library"
+      ],
+      "excludeTitles": [
+        "PAWS for Reading",
+        "Stay and Play",
+        "Read, Rhyme",
+        "Babies and Books",
+        "Lego",
+        "Bookmobile",
+        "Yoga Stories",
+        "After-School Collective",
+        "Club",
+        "Storytime",
+        "The Scene",
+        "Reading Bugs",
+        "Homeschooler",
+        "Messy Monster",
+        "Once Upon a Story",
+        "Dungeons & Dragons",
+        "Common Ground",
+        "Lil'",
+        "Young Scientists",
+        "Kids in the Kitchen",
+        "Tween RPG",
+        "Teen Video Gaming"
+      ],
+      "defaultVenue": "Windsor Library, 720 3rd Street, Windsor",
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Feed found and read on 10 November 2026 by the sources agent. The Communico events page builds its iCal link in script (js/am-events-listings.js, _getFeed): /feeds?data= followed by the base64 of {\"feedType\":\"ical\",\"filters\":{\"location\":[\"all\"],\"ages\":[\"all\"],\"types\":[\"all\"],\"tags\":[],\"term\":\"\",\"days\":1}}; that is the feedUrl, the same link the page's iCal button hands a reader (feedType rss gives the same items as RSS, without elements the repo's RSS reader knows). It answered 200 text/calendar: 319 VEVENTs, none recurring, 10 November 2026 to 29 January 2027, America/Denver, UID the event number (clearview.libnet.info/event/<UID>), LOCATION \"<branch> - <room>\". In the next 30 days (to 10 December) 184 items: 62 Bookmobile stops (LOCATION \"Bookmobile - \"), 69 at Windsor Library, 53 at Severance Library. clearview.libnet.info/robots.txt disallows only /results* and /sitesearch*, so the feed path is allowed. One feed serves both towns; each entry keeps its branch with locationFilter, and the bookmobile stops match neither. This entry is the Windsor branch (720 3rd Street): 69 items in the next 30 days, 11 once the regulars are excluded by title (storytimes, Stay and Play, PAWS for Reading, Lego sessions, book and chess clubs, the homeschool academy, Dungeons & Dragons, the weekly teen and tween sessions), under the event standard in docs/archive/AUDIT-2026-10-02.md: Chickening 101 (10 November), Thursdays at the Library, Adulting 101 (12 November), Lunch and Learn (13 November), Teen Book Box, Family Art Challenge and Pub Trivia Night (1 December), Family Bingo (2 December), Bedazzled Baubles (3 December), Clearview Frostival (4 December), Teens Cook (7 December). The exclusions are this agent's first pass from one month's titles; the editor should prune them. Type changed from html to ical on that reading; still proposed."
     },
     {
       "id": "townofseverance-org-parks",
@@ -189,16 +256,23 @@
       "subTown": "severance",
       "name": "Severance High School (Weld RE-4): Calendar",
       "url": "https://shs.weldre4.org/en-us/calendar/ac728423-c4fd-427c-bd58-f8263465c637",
+      "feedUrl": "https://calendar.google.com/calendar/ical/c_2bgupdhihf5a6577kh8sl31hm4%40group.calendar.google.com/public/basic.ics",
       "sampleUrl": "https://shs.weldre4.org/en-US",
-      "type": "manual",
+      "type": "ical",
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
       "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
+      "excludeTitles": [
+        "Break",
+        "No School",
+        "Assembly",
+        "Coffee with Counselors"
+      ],
       "defaultVenue": "Severance High School, 1200 Hidden Valley Parkway, Severance",
-      "notes": "Found and read once on 6 October 2026. Severance High School, 1200 Hidden Valley Pkwy, Severance, CO 80550, in the Weld RE-4 School District (Windsor-Severance). The school calendar page is a client-rendered month grid whose page config points at a public Google Calendar iCal: calendar id c_2bgupdhihf5a6577kh8sl31hm4@group.calendar.google.com (https://calendar.google.com/calendar/ical/c_2bgupdhihf5a6577kh8sl31hm4%40group.calendar.google.com/public/basic.ics). calendar.google.com's robots.txt disallows our agent on /calendar/ical/ paths (confirmed on the district's calendar; the same rule applies to this one), so the feed was not read. The page also links an Athletics section. Severance Middle School is at sms.weldre4.org (seen in the district's school list, not fetched). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Found and read once on 6 October 2026. Severance High School, 1200 Hidden Valley Pkwy, Severance, CO 80550, in the Weld RE-4 School District (Windsor-Severance). The school calendar page is a client-rendered month grid whose page config points at a public Google Calendar iCal: calendar id c_2bgupdhihf5a6577kh8sl31hm4@group.calendar.google.com (https://calendar.google.com/calendar/ical/c_2bgupdhihf5a6577kh8sl31hm4%40group.calendar.google.com/public/basic.ics). calendar.google.com's robots.txt disallows our agent on /calendar/ical/ paths (confirmed on the district's calendar; the same rule applies to this one), so the feed was not read. The page also links an Athletics section. Severance Middle School is at sms.weldre4.org (seen in the district's school list, not fetched). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Feed read on 10 November 2026 by the sources agent, once, with a browser user agent, to see what it holds: 200 text/calendar, calendar name \"Severance High School_Normal\", 477 VEVENTs (14 recurring) from April 2022 to May 2027, 10 in the next 30 days: the SHS Musical, Les Misérables (19 and 20 November at 7 pm, 21 November at 2 and 7 pm, three of the showtimes entered twice), the Key Club's 1st Annual Winter Market (28 November, 9 am), a Veterans Day Assembly, Coffee with Counselors and Thanksgiving Break. Type changed from manual to ical with that feedUrl, as the source-finding task directed; status left as it was. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this; it is a public calendar the school embeds on its own site, and robots: subscribe is the editor's call. Until then ingest will report this confirmed source as refused by robots; set type back to manual if that is noise. Breaks, no-school days, assemblies and the counsellors' coffee are excluded by title; most LOCATION fields are empty, so the default venue stands in."
     },
     {
       "id": "townofseverance-org-all",
@@ -254,18 +328,21 @@
     {
       "id": "highhopsbrewery-com",
       "subTown": "windsor",
-      "name": "highhopsbrewery.com",
-      "url": "https://highhopsbrewery.com/",
+      "name": "High Hops Brewery: Events",
+      "url": "https://www.highhopsbrewery.com/events-2",
       "sampleUrl": "https://www.highhopsbrewery.com/events-2",
       "type": "html",
       "category": "venue",
       "status": "proposed",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: no feed; the events page is a hand-written list of 4 classes.",
       "cites": {
         "events": 2,
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read on 10 November 2026 by the sources agent. The brewery at The Windsor Gardener (6461 Highway 392) shares its events with The Heart Distillery (theheartdistillery.com/events, same site builder). No feed: /events redirects to /events-2, a hand-written page; /events/?ical=1, /events/feed/ and the Tribe REST path are 404 or the same page; no calendar widget, Google calendar or Tockify on it. robots.txt allows everything. On 10 November the page listed 4 ticketed Saturday classes at 10:30 am: Gettin' Knotty Macrame (14 November), Thanksgiving Bouquets & Brews (21 November), Boughs and Brews (5 December), Gnome for the Holidays (12 December, $65); 3 fall in the next 30 days. No live-music schedule on the site. Stays html, read by hand monthly."
     },
     {
       "id": "peculierales-com",
@@ -298,20 +375,33 @@
     {
       "id": "tockify-com",
       "subTown": "windsor",
-      "name": "tockify.com",
-      "url": "https://tockify.com/",
+      "name": "Mighty River Brewing: events calendar (Tockify)",
+      "url": "https://tockify.com/mighty.river.brewing",
       "feedUrl": "https://tockify.com/api/feeds/ics/mighty.river.brewing",
-      "sampleUrl": "https://tockify.com/api/feeds/ics/mighty.river.brewing",
+      "sampleUrl": "https://tockify.com/mighty.river.brewing/detail/1870/1791680400000",
       "type": "ical",
       "category": "venue",
       "status": "proposed",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: 551 VEVENTs, 48 in the next 30 days, 6 of them live music.",
       "cites": {
         "events": 7,
         "places": 0
       },
       "robots": "honor",
+      "excludeTitles": [
+        "Clock Out Hour",
+        "Happy Hour",
+        "Trivia Night",
+        "Bingo night",
+        "Poker Night",
+        "NFL Sunday Ticket",
+        "Food Truck",
+        "Big Dub Sliders"
+      ],
       "defaultVenue": "Mighty River Brewing",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. The sample is Mighty River Brewing's own Tockify calendar, an iCal feed (553 entries, 500 to come, read 1 November 2026): type ical and category venue from that day, still proposed. Its trivia and poker nights are weekly regulars; exclude them by title before confirming (npm run sources -- confirm windsor tockify-com)."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. The sample is Mighty River Brewing's own Tockify calendar, an iCal feed (553 entries, 500 to come, read 1 November 2026): type ical and category venue from that day, still proposed. Its trivia and poker nights are weekly regulars; exclude them by title before confirming (npm run sources -- confirm windsor tockify-com). Read again on 10 November 2026 by the sources agent: 200 text/calendar, calendar name \"Mighty River Brewing's events\", 551 VEVENTs to January 2028, 48 in the next 30 days: 14 Clock Out Hour and 4 Monday Happy Hour entries, 5 Trivia Nights, 5 Bingo nights, 4 Poker Nights, 4 NFL Sunday Ticket days, 6 food trucks, and 6 live-music nights (Josh Blackburn, Reminisce, Mountain Duo, Aubrey Dale, Gii Astorga, Colorado Beach Bums). The regulars, the drink specials and the food trucks are now excluded by title, a first pass for the editor to prune, which leaves the music. tockify.com/robots.txt names a list of bots to keep out and no rule for others, so the feed path is allowed. The url and sample now point at the brewery's own Tockify calendar rather than tockify.com."
     },
     {
       "id": "northfortynews-com",
@@ -359,12 +449,89 @@
       "subTown": "severance",
       "name": "Weld RE-4 School District: Calendar",
       "url": "https://weldre4.org/calendar",
+      "feedUrl": "https://calendar.google.com/calendar/ical/c_6rfdkemp84b7jsjvqjb5uk6q8c%40group.calendar.google.com/public/basic.ics",
       "sampleUrl": "https://weldre4.org/en-US/calendar-for-print",
-      "type": "manual",
+      "type": "ical",
       "category": "other",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Found and read once on 6 October 2026. Weld RE-4 School District, 1020 Main St, Windsor, CO 80550, 970-686-8000 (page footer). The district calendar is a client-rendered grid backed by a public Google Calendar: id c_6rfdkemp84b7jsjvqjb5uk6q8c@group.calendar.google.com. Our robots-aware fetch reported that calendar.google.com/robots.txt disallows /calendar/ical/... for our agent, so the iCal was not read. The district site lists school sites gv, hl, mv, oh, rv, shs, sms, sv, tz (.weldre4.org) and a bond site. District-level calendar is mostly school-year dates; keep as a reference, not a weekly source."
+      "excludeTitles": [
+        "No School",
+        "Board of Education",
+        "End of",
+        "Teachers Report",
+        "Break"
+      ],
+      "notes": "Found and read once on 6 October 2026. Weld RE-4 School District, 1020 Main St, Windsor, CO 80550, 970-686-8000 (page footer). The district calendar is a client-rendered grid backed by a public Google Calendar: id c_6rfdkemp84b7jsjvqjb5uk6q8c@group.calendar.google.com. Our robots-aware fetch reported that calendar.google.com/robots.txt disallows /calendar/ical/... for our agent, so the iCal was not read. The district site lists school sites gv, hl, mv, oh, rv, shs, sms, sv, tz (.weldre4.org) and a bond site. District-level calendar is mostly school-year dates; keep as a reference, not a weekly source. Feed read on 10 November 2026 by the sources agent, once, with a browser user agent: 200 text/calendar, calendar name \"Weld RE-4 School District\", 401 VEVENTs (13 recurring) from June 2022 to May 2028, 8 in the next 30 days, none of them an event (End of First Trimester, a Board of Education meeting, No School / Fall Break 23 to 27 November). Type changed from manual to ical so the feed is on record; still proposed, and still a reference for school-year dates rather than a source of listings. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this; it is a public calendar the school embeds on its own site, and robots: subscribe is the editor's call. The two high schools keep their own calendars (shs-weldre4-org, whs-weldre4-org), which is where the plays and concerts are."
+    },
+    {
+      "id": "whs-weldre4-org",
+      "subTown": "windsor",
+      "name": "Windsor High School (Weld RE-4): Calendar",
+      "url": "https://whs.weldre4.org/en-US/calendar/ccc76fb3-b06a-4512-8f20-a867223700dd",
+      "feedUrl": "https://calendar.google.com/calendar/ical/c_svh4etca2e78dpd4dpfj094gdg%40group.calendar.google.com/public/basic.ics",
+      "sampleUrl": "https://whs.weldre4.org/en-US",
+      "type": "ical",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Break",
+        "No School",
+        "Family Partnership Council"
+      ],
+      "defaultVenue": "Windsor High School, 1100 West Main Street, Windsor",
+      "notes": "Found and read on 10 November 2026 by the sources agent. Windsor High School, 1100 West Main Street, in the Weld RE-4 district; its site (the same platform as Severance High's) names a public Google Calendar in the home page's config, c_svh4etca2e78dpd4dpfj094gdg@group.calendar.google.com, shown on the school's calendar page. The public iCal answered 200 text/calendar, calendar name \"Windsor High School_Normal\": 354 VEVENTs (12 recurring) from July 2022 to May 2027, 6 in the next 30 days: the WHS Fall Play, Make 'Em Laugh (12, 13 and 14 November, 7 pm), the Veterans Day Program (11 November), Fall Break and a Family Partnership Council meeting. LOCATION is usually empty, so the school is the default venue. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this; it is a public calendar the school embeds on its own site, and robots: subscribe is the editor's call. Expect two to four public listings a month in term (plays, concerts, graduation); athletics are not on this calendar."
+    },
+    {
+      "id": "windsordda-com",
+      "subTown": "windsor",
+      "name": "Windsor Downtown Alliance (Downtown Development Authority): Events",
+      "url": "https://www.windsordda.com/calendar",
+      "sampleUrl": "https://www.windsordda.com/events",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: no feed; the calendar is drawn by script and gave no events to a plain read.",
+      "robots": "honor",
+      "notes": "Found on 10 November 2026 by the sources agent. The Windsor Downtown Alliance, a Downtown Development Authority (400 Main Street, Suite A, 970-451-6995, info@WindsorDDA.com), on a Munibit / MembershipWare site with Events and Calendar pages. Both are drawn in the browser by a script module (mwjsCalendar); the HTML carries no events and the module's code no iCal or RSS address, and /events/?ical=1, /events/feed/ and the Tribe REST path are the same page or 404. robots.txt is 404 (no rules). So nothing was counted: read it in a browser. The downtown events it promotes with the Windsor Main Street Partnership (the Blues & Brews Crawl in July, the Front Range Wine Festival in August, per search results, not read here) are the reason to keep it. The Town's own calendar has a Downtown Development Authority category (CID 41), empty on 10 November."
+    },
+    {
+      "id": "windsorplayhouse-org",
+      "subTown": "windsor",
+      "name": "Windsor Community Playhouse",
+      "url": "https://windsorplayhouse.org/current-season/",
+      "sampleUrl": "https://windsorplayhouse.org/show/the-games-afoot/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "checkFrequency": "monthly",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: no feed; the season is a hand-written list of four productions.",
+      "robots": "honor",
+      "notes": "Found and read on 10 November 2026 by the sources agent. The community theatre (\"pulling back the curtains since 1981\"), a WordPress site with no events plugin: /events/?ical=1, /events/feed/ and the Tribe REST path are 404; tickets are sold through Ticketleap (ticketleap.events/events/windsor-community-playhouse-1981), which has no feed ingest reads. robots.txt allows everything. The home page lists the season by hand: The Tin Woman (24 September to 11 October), The Game's Afoot, or Holmes for the Holidays (20, 21, 22 and 29 November, 4, 5, 6, 11, 12 and 13 December; Fridays and Saturdays at 6 pm, Sundays at 1 pm), Half Baked (January and February) and Living with Lois (April). In the next 30 days: 7 performances of one production. The theatre's street address was not on the pages read; take it from the show page before listing. Monthly, by hand: four productions a year."
+    },
+    {
+      "id": "hoedownhill-com",
+      "subTown": "windsor",
+      "name": "Hoedown Hill",
+      "url": "https://hoedownhill.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "checkFrequency": "monthly",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "10 November 2026: no dated events and no feed.",
+      "robots": "honor",
+      "notes": "Found and read on 10 November 2026 by the sources agent. The outdoor venue and winter tubing hill at 1781 RainDance National Drive, Windsor (970-833-1720), a Water Valley Company property; WordPress with Elementor and no events plugin (/events/feed/ is an empty comments feed, the Tribe REST path is 404, /calendar is 404). robots.txt disallows only HubSpot paths. On 10 November the site was a single page with no dated events: it announces a 2027 Hoedown Hill Music Festival without a date (press release dated 5 November 2026) and a sign-up list. Nothing to list now; proposed so the festival date and the tubing season are picked up when they are posted. Monthly, by hand."
     }
   ]
 }
