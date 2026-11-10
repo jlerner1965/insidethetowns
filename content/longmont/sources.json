@@ -178,7 +178,7 @@
       "lastStatus": "blocked",
       "lastNote": "refused an automated request",
       "robots": "honor",
-      "notes": "Checked 4 October 2026: robots.txt allows us, but the site answers automated requests with 403, so nothing could be read. Downtown's main music room; check its calendar in a browser."
+      "notes": "Checked 4 October 2026: robots.txt allows us, but the site answers automated requests with 403, so nothing could be read. Downtown's main music room; check its calendar in a browser. Looked at again 10 November 2026: dickensoperahouse.com still answers 403, robots.txt included. A second site, dickensoperahouse.co (WordPress with The Events Calendar, 302 Main St, robots.txt allows the calendar and /wp-json/), presents the room as a hire venue with a shows and concerts page; its Events Calendar REST feed (https://dickensoperahouse.co/wp-json/tribe/events/v1/events) answered with 0 events for all of 2026, so no feed is recorded. Check the .co calendar by hand as well."
     },
     {
       "id": "longmontcolorado-gov-museum",
@@ -222,11 +222,36 @@
       "id": "firehouseart-org",
       "name": "Firehouse Art Center",
       "url": "https://www.firehouseart.org/",
-      "type": "manual",
+      "type": "ical",
       "category": "venue",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Checked 4 October 2026: SiteGround's bot challenge (sgcaptcha) answers every automated request, so nothing could be read. Check in a browser."
+      "notes": "Checked 4 October 2026: SiteGround's bot challenge (sgcaptcha) answers every automated request, so nothing could be read. Check in a browser. Read again 10 November 2026: the site (firehouseart.org, WordPress, robots.txt disallows only /wp-admin/) answered a plain request this time, with no bot challenge. Its home page embeds a public Google Calendar (r5a1ofr4s6d7mvuicgvq36l6tc@group.calendar.google.com), whose iCal feed is recorded as feedUrl and the entry typed ical. calendar.google.com's robots.txt disallows everything but its front page, so reading this feed weekly needs the editor's robots: subscribe; it was fetched once today to count it. The calendar is the art centre's working diary at 667 4th Ave: 1,219 items since 2013, 20 dated from today on plus about 25 live repeating rules. Worth a row from 10 November to 10 December 2026: the 2nd Friday Exhibit Opening on 13 November (a monthly rule), the Holiday Market on 28 November (entered as \"GALLERY HOURS- 12PM- 8PM- Holiday Market\", so the GALLERY HOURS exclusion hides it and it wants adding by hand), the 1st Friday Exhibit Opening- FRCC on 4 December and Color Curious on 5 December; 4 in all. Regulars: Poetry Night on the last Friday (27 November) and a Filmmakers Meetup on 1 December. The rest is gallery hours, closures for install, weekly classes (life drawing, clay, tango, watercolor), guild meetings, camps and rentals, which the suggested exclusions cover. A stale monthly rule titled \"1st Friday Exhibit Opening- Hangtime\" still repeats on second Fridays beside the current \"2nd Friday Exhibit Opening-\" rule, so two items land on the same night.",
+      "feedUrl": "https://calendar.google.com/calendar/ical/r5a1ofr4s6d7mvuicgvq36l6tc%40group.calendar.google.com/public/basic.ics",
+      "excludeTitles": [
+        "GALLERY HOURS",
+        "Gallery open",
+        "Life Drawing",
+        "Play with Clay",
+        "Crochet",
+        "Writer's Workshop",
+        "Mend and Sew",
+        "Watercolor and Origami",
+        "Tween Night",
+        "Craft Club",
+        "Tango Class",
+        "Artist's Circle",
+        "Farmers Market",
+        "Drop and Shop",
+        "Filmmakers Meetup",
+        "Private Rental",
+        "RENTAL",
+        "Camp",
+        "Class",
+        "Meeting",
+        "Saturday Art Experience"
+      ],
+      "defaultVenue": "Firehouse Art Center, 667 4th Ave, Longmont"
     },
     {
       "id": "longmonttheatre-org",
@@ -236,7 +261,7 @@
       "category": "venue",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Checked 4 October 2026: a script-only page (a React app with an empty body) that renders only in a browser. No feed."
+      "notes": "Checked 4 October 2026: a script-only page (a React app with an empty body) that renders only in a browser. No feed. Read again 10 November 2026 in a browser (Playwright), since the page is script-only: Longmont Performing Arts Center, 513 Main Street. The 2026-27 season on the home page is The Best Christmas Pageant Ever, 4 to 13 December 2026, then Agatha Christie's The Unexpected Guest 5 to 20 February 2027, Calendar Girls 2 to 11 April and SpongeBob the Musical 7 to 22 May; one run falls in 10 November to 10 December and its performance nights are not on the site. Tickets are sold at longmonttheatre.ludus.com, which refused the request with 403 (it blocks cloud hosts), so the individual nights could not be counted. robots.txt allows everything. Still no feed; stays manual."
     },
     {
       "id": "longmontleader-com",
@@ -277,7 +302,7 @@
       "category": "other",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Checked 4 October 2026: the home page read once, then robots.txt answered with a \"temporarily unavailable\" error page, which under the robots standard means stay out, so its events pages were not read. Try again before relying on it."
+      "notes": "Checked 4 October 2026: the home page read once, then robots.txt answered with a \"temporarily unavailable\" error page, which under the robots standard means stay out, so its events pages were not read. Try again before relying on it. Read again 10 November 2026: robots.txt now answers, and it disallows the pages an events reader needs (/our-properties/old-mill-park/old-mill-park-events-tours/, the Hoverhome tours and events page, /resources/things-to-do/), so those were not read. The home page, which is allowed, links tickets for a Hoverhome Holiday Tea and carries a calendar widget that draws in the browser only. Stays manual."
     },
     {
       "id": "visitlongmont-org",
@@ -288,6 +313,239 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Checked 4 October 2026: the visitor bureau's Simpleview calendar, an aggregator of other organizers' events, so never the source of an item: anything seen here is confirmed on the organizer's own page. Its RSS (/event/rss/) carries 30 items each stamped with the day it was read rather than the event's date, so it is not proposed as a feed."
+    },
+    {
+      "id": "bricksretail-com",
+      "name": "Bricks on Main (music calendar)",
+      "url": "https://www.bricksretail.com/events-calendar",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. Bricks on Main, 471 Main St, Longmont, a bar and shop with a stage and a named act most nights. Wix with the Wix Events widget; robots.txt allows the page. No feed (Wix Events offers none), but the plain HTML carries the first 18 events as JSON (appsWarmupData, with UTC start times), so it reads without a browser; later dates sit behind Load More. The 18 ran from 10 November to 1 December 2026. Worth a row, 12: Teresa Storch Band 12 November, Nine Wide Sky with The Tortesians and Mercy Club 13 November, The Foundry 14 November, Asteria Jazz Collective 15 November, Cuerdas y Canciones Student Showcase 17 November, Crash: The Dave Matthews Experience 19 November, Ansel and the Brain Tattoos 20 November, TEN (Pearl Jam tribute) 21 November, The Responders Oldies Band 22 November, Tony Luke Band 27 November, The B Sides 28 November, Onnika and the Obsession 29 November; most at 6 pm. Regulars, 6: Open Mic Night on alternate Tuesdays and Blues Jam on Wednesdays. At that rate about 17 named acts in a full month; 2 to 10 December was not yet loaded. Typed html because ingest has no Wix reader; a person reads it."
+    },
+    {
+      "id": "lefthandbrewing-com",
+      "name": "Left Hand Brewing (Longmont Tasting Room events)",
+      "url": "https://www.lefthandbrewing.com/events/longmont-tasting-room",
+      "sampleUrl": "https://www.lefthandbrewing.com/events/longmont-beer-garden",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. Left Hand Tasting Room, 1265 Boston Ave, Longmont. The brewery's own CMS; robots.txt disallows nothing. The Longmont Tasting Room list reads as plain HTML over three pages (?page=2, ?page=3); no iCal, RSS or JSON was found in the page source. Worth a row from 10 November to 10 December 2026, 11: St Vrain Anglers Trout Unlimited Fly Tying Social 12 November, Pour Hard Day 13 November, Denny Driscoll 14 November, Ales 4 FemAles with Kate Johnson 16 November, Atom Collective (jazz) 20 November, The Tangents 21 November, Left Hand Laughs stand-up 23 November, Derek Dames Ohl 28 November, Longmont Book Swap 3 December, the Ugly Sweater 5K Run and the Moors and McCumber concert both 5 December, Adult Drag Bingo with Miss Jessica 6 December. Free music is 5:30 to 8:30 pm on Fridays and Saturdays. Regulars, 4 kinds: trivia on Wednesdays, vinyl nights on Thursdays, Nerd Night on Mondays, Craft Yoga. Not events: the food drive (1 to 23 November), the veterans fundraiser (11 to 30 November) and the Black Friday offer. The Longmont Beer Garden page (sampleUrl) listed nothing dated in the window; it is the summer stage. The page also lists the Denver (RiNo) room under its own filter, so read only the Longmont lists."
+    },
+    {
+      "id": "kuperwinebar-com",
+      "name": "Kuper Wine Bar (events calendar)",
+      "url": "https://www.kuperwinebar.com/events/",
+      "feedUrl": "https://www.kuperwinebar.com/wp-json/tribe/events/v1/events",
+      "type": "json",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "RC Tasting",
+        "RC Saturday",
+        "RC Sunday",
+        "Half Price Bottle",
+        "Happy Hour",
+        "CLOSED",
+        "Trivia Night",
+        "Pilates",
+        "Private Events"
+      ],
+      "defaultVenue": "Kuper Wine Bar, 704 Main St, Unit 4, Longmont",
+      "notes": "Found and read 10 November 2026. Kuper Wine Bar, 704 Main St, Unit 4, Longmont, already a place in the guide. WordPress with The Events Calendar; robots.txt holds only a crawl delay for PetalBot, so /wp-json/ is allowed. The REST feed returned 26 items dated 10 November to 11 December 2026, times in America/Denver. Worth a row, 5: A Tour of Italy for the Holidays with Urban Field Pizza 12 November (held at Urban Field Pizza, so the default venue is wrong for that one), Women + Wine: Best Day Ever 16 November, Fondue Date Night 18 November, Women + Wine Quarterly Social 2 December, Kuper Cellar Sessions: Holiday Swing 4 December. Regulars: Trivia Night on alternate Wednesdays (3) and Mat Pilates (1). Never: the wine club's RC tasting nights (7), Half Price Bottle Night (4), Happy Hour (5), the Thanksgiving closure. The suggested exclusions leave the 5."
+    },
+    {
+      "id": "stvraincidery-com",
+      "name": "St. Vrain Cidery (events)",
+      "url": "https://www.stvraincidery.com/events",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. St. Vrain Cidery, 350 Terry Street, Longmont (the address in the page's own event data). Squarespace events collection, which ingest cannot read yet, and Squarespace's robots.txt disallows ?format=json and ?format=ical, so neither was fetched; the /events page itself is allowed and reads as plain HTML, 45 items back to 6 October. Titles carry their kind as a prefix (MUSIC |, SHOW |, WORKSHOP |, CLASS |). Dated 10 November to 10 December 2026: 12. Worth a row, 4: MUSIC | Planet Bluegrass finalist Ingrid Avison 13 November, SHOW | Next Stop Comedy 14 November (ticketed on Eventbrite), DISCUSSION | Think & Drink 19 November, COSTUME CRAWL | Ugly Sweater 28 November (the downtown crawl, also at Dry Land). Regulars, 8: Flow & Restorative Yoga on Sundays (3), workshops (calligraphy 12 November, Open Door Art Club 14 November, Painter's Choice Party 15 November, gift wrapping 10 December) and the Visible Government League on 23 November. October had eight named music nights and two open mics, so the room is busier than this window shows. If Squarespace becomes readable, exclude by the CLASS |, WORKSHOP |, BOOK CLUB | and COMMUNITY EVENT | prefixes and SPECIAL HOURS."
+    },
+    {
+      "id": "jesterstheatre-com",
+      "name": "Jesters Dinner Theatre",
+      "url": "https://jesterstheatre.com/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. Jesters Dinner Theatre, 224 Main St., Longmont, a dinner theatre open since 1987. A script-only site (every path, robots.txt included, returns the same app shell, so there is no robots rule); read in a browser (Playwright). No feed and no calendar of nights, only runs: The Producers, 4 September to 29 November, Friday and Saturday evenings and Sunday afternoons; Deathtrap, 1 October to 21 November, Thursday nights, Saturday afternoons and Sunday nights; Scrooge, 4 to 27 December, Friday and Saturday evenings and Sunday afternoons; then Amahl and the Night Visitors and Forever Plaid from 2 January 2027. Front deRanged Improv Comedy Troupe plays Saturday 14 November at 7:30 pm. From 10 November to 10 December 2026 that is 4 productions and, counted from the stated weekdays, about 18 performances (The Producers 9, Deathtrap 5, Scrooge 3, the improv night 1); the per-night dates were worked out from the weekdays, not read from a ticket page. Manual because nothing reads without a browser."
+    },
+    {
+      "id": "drylanddistillers-com",
+      "name": "Dry Land Distillers (calendar)",
+      "url": "https://www.drylanddistillers.com/pages/calendar",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. Dry Land Distillers, 519 Main Street, Longmont. Shopify; robots.txt allows the page. The calendar is a The Shop Calendar widget (theshopcalendar.com) drawn by script, so the plain HTML is empty and it was read in a browser (Playwright); no iCal or RSS was found in the widget. November 2026 as shown, worth a row, 5: Distilling Dames: Indigenous Spirits History 12 November, Tread Lightly Blended Whiskey Release 13 November, Music Series: Adam Bodine (piano) 19 November, Fade to Black Whiskey Release Party 21 November, Dress Up Downtown Costume Crawl: Ugly Sweater 28 November. Regulars: Silent Book Club 15 November, and Cocktail Development with Vinyl Night with Doug G of Absolute Vinyl on the first Thursday (3 December). A ticketed Cocktail Class Series ran 8 November. December beyond the 3rd was not paged to. Manual because the page needs a browser."
+    },
+    {
+      "id": "oskarblues-com",
+      "name": "Oskar Blues Brewery (Longmont events)",
+      "url": "https://oskarblues.com/events/?fwp_event_location=longmont",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The Tasty Weasel taproom, 1640 S Sunset St, Longmont, already a place in the guide, which carries several of these dates read by hand. WordPress with a FacetWP location filter; robots.txt allows everything (Allow: /, with content-signal comments). The filtered list reads as plain HTML. There is an RSS at /events/feed/, but it mixes the Brevard, North Carolina brewery in and stamps each item with the day it was posted, not the event's date, so it is not proposed as a feed; no Events Calendar REST route exists. Listed for Longmont on 10 November 2026: 8. Dated 10 November to 10 December, worth a row, 4: Fly Fishing Film Tour free screening 14 November, Longmont Live Music: Desert Furs 21 November, Movie Night 28 November, YO! OB Wraps Holiday Market 7 December. Regular: Doodles & Brews class 16 November. Never: the month-long food truck listing. After the window: Vegan Market 19 December, Movie Night 21 December."
+    },
+    {
+      "id": "300sunsbrewing-com",
+      "name": "300 Suns Brewing (events)",
+      "url": "https://300sunsbrewing.com/events/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. 300 Suns Brewing, 335 1st Avenue, Unit C, Longmont, already a place in the guide, which carries its music nights read by hand. WordPress; robots.txt disallows only /wp-admin/. The events are ordinary posts reused from year to year, so the RSS (/feed/) dates them by when they were first posted (a 2024 date on a current item) and there is no Events Calendar route; the page is the source and reads as plain HTML, with the date in the text (\"Thur • Nov 12 • 6-8pm\"). 8 items on 10 November 2026. Worth a row from 10 November to 10 December, 3: Denny Driscoll 12 November, Tim & Jenny Ostdiek 14 November, Broadway Karaoke 1 December. After the window: DC Collective 12 December and Johanna Marianna with an ugly sweater contest 19 December. Not events: Taps & Apps Happy Hour on Tuesdays and the pumpkin beer flight. Music is Thursday or Saturday, 6 to 8 pm, two to four nights a month."
+    },
+    {
+      "id": "longmontpublicmedia-org",
+      "name": "Longmont Public Media (calendar)",
+      "url": "https://longmontpublicmedia.org/calendar/",
+      "feedUrl": "https://longmontpublicmedia.org/?mec-ical-feed=1",
+      "type": "ical",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Tour Longmont Public Media",
+        "Orientation",
+        "Davinci Resolve",
+        "Livestreaming Workshop",
+        "Member Meeting",
+        "Canva 101"
+      ],
+      "defaultVenue": "Longmont Public Media, 457 4th Avenue, Longmont",
+      "notes": "Found and read 10 November 2026. Longmont Public Media, 457 4th Avenue, Longmont, the community media makerspace. WordPress with Modern Events Calendar; robots.txt disallows only /wp-admin/, so the plugin's iCal feed (?mec-ical-feed=1) is allowed. 49 items, most of them repeating rules. Worth a row from 10 November to 10 December 2026, 2: The Outlaw Folk Album-Release Party and Community Potluck 15 November (no location on the item) and Goddess Gala 5 December. Regular: Comfy Couch Performance Circle on the fourth Thursday (falls on Thanksgiving, 26 November). The rest is members' business, which the exclusions cover: weekly tours, orientations, DaVinci Resolve and livestreaming classes, the member meeting. Small, but the one-offs are things no other source lists."
+    },
+    {
+      "id": "longspeakchorus-org",
+      "name": "Longs Peak Chorus (events)",
+      "url": "https://www.longspeakchorus.org/dbpage.php?pg=calendar",
+      "feedUrl": "https://www.longspeakchorus.org/dbaction.php?action=rss&dbase=events",
+      "type": "rss",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Rehearsal",
+        "Loveland Show"
+      ],
+      "notes": "Found and read 10 November 2026. Longs Peak Chorus, a barbershop chorus that rehearses Mondays at Faith Community Lutheran, 9775 Ute Hwy, Longmont. HarmonySite; robots.txt disallows only /db_uploads/ and /commonfiles/. The site offers an events RSS whose pubDate is the event's own date: 9 items on 10 November 2026, 6 of them rehearsals. Worth a row, 2: Tune In To The Season, matinee and evening shows on Saturday 5 December (evening at 7 pm at Longmont Church of Christ, 1351 Collyer St, Longmont, per the event's page). A third show on 6 December is in Loveland and is excluded by title. The feed carries no time or venue, only a date and a link, so each item needs its page opened; no default venue is set because the shows move."
+    },
+    {
+      "id": "calendar-google-com-longmont-high",
+      "name": "Longmont High School (school calendar)",
+      "url": "https://lhs.svvsd.org/",
+      "feedUrl": "https://calendar.google.com/calendar/ical/cajg17r506kt1nhv94p6nh7ivbc84kjf%40import.calendar.google.com/public/basic.ics",
+      "type": "ical",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "^[AB] Day",
+        "Meeting",
+        "SMART Team",
+        "Auditions",
+        "Break",
+        "Late Start",
+        "Junior Varsity",
+        "Sophomore",
+        "Freshman",
+        "Practice",
+        "Testing",
+        "Finals",
+        " @ "
+      ],
+      "locationFilter": [
+        "1040 Sunset",
+        "Longmont High School"
+      ],
+      "notes": "Found and read 10 November 2026. Longmont High School, 1040 Sunset Street, Longmont. The school's site (WordPress, robots.txt disallows only /wp-admin/ and a forms folder) embeds a public Google Calendar, cajg17r506kt1nhv94p6nh7ivbc84kjf@import.calendar.google.com. calendar.google.com's robots.txt disallows everything but its front page, so reading this feed weekly needs the editor's robots: subscribe; it was fetched once today to count it. 637 items, 375 from today on, to May 2027; times are in UTC, so an evening event shows on the next day's date. Worth a row from 10 November to 10 December 2026, 3 on the stage: Musical Theater Showcase Fundraiser Friday 13 November 6 pm, Performing Arts Winter Gala Friday 4 December 7 pm, Choir Concert Tuesday 8 December 7 pm; plus 2 home varsity games if the guide lists them (girls basketball against Prairie View 2 December, boys against Legacy 4 December). Everything else is A Day and B Day markers, booster and class meetings, auditions, breaks, and away or sub-varsity games; the exclusions and the location filter are a first cut and want a dry run, since away games name Longmont High School in their location too (the \" @ \" title exclusion drops those). The Longmont Chorale (6 December) and the Longmont Youth Symphony (15 November) also perform here. Skyline High's calendar was read the same day and held nothing for the public in the window."
+    },
+    {
+      "id": "longmontchorale-org",
+      "name": "Longmont Chorale (concerts)",
+      "url": "https://longmontchorale.org/concerts/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The Longmont Chorale, a community choir in its 90th season, rehearsing at Bethlehem Lutheran Church in Longmont. robots.txt disallows only admin and config folders; the concerts page reads as plain HTML. No feed. Four concerts a season: Sure On This Shining Night with the NoCo Singers, Sunday 6 December 2026 at 3 pm at Longmont High School (tickets on Eventbrite); Crazy Little Thing Called Love, 13 February 2027 at 3 pm at the Elks Lodge, Longmont; Mr. Blue Sky: Classic Hits, 7 March 2027; Can We Sing the Darkness to Light?, 2 May 2027 (the last two with location to be announced). One in the window. Check monthly."
+    },
+    {
+      "id": "grossenbart-com",
+      "name": "Grossen Bart Brewery (events calendar)",
+      "url": "https://grossenbart.com/events/",
+      "feedUrl": "https://grossenbart.com/wp-json/tribe/events/v1/events",
+      "type": "json",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Happy Hour",
+        "Football",
+        "NFL",
+        "Mug Club",
+        "Trivia",
+        "Open Mic",
+        "BBQ",
+        "Lobster",
+        "Hours"
+      ],
+      "defaultVenue": "Grossen Bart Brewery, 1025 Delaware Ave, Longmont",
+      "notes": "Found and read 10 November 2026. Grossen Bart Brewery, 1025 Delaware Ave., Longmont, already a place in the guide. WordPress with The Events Calendar; robots.txt disallows only /wp-admin/. The REST feed returned 47 items dated 10 November to 10 December 2026 and the iCal export (/events/?ical=1) the first 30. Almost all of it repeats: Open Mic Night on Tuesdays (5), two trivia nights a week (10), Mug Club Night, happy hour, three football listings a week, a Thanksgiving hours note, and food trucks (Old 7 BBQ, Cousins Maine Lobster). Worth a row: 1, \"Brunson Drew Bull Buckshot\" on 14 November, which reads like a music bill but is entered at 7:30 am, so check it. Regulars a reader might want: open mic and trivia, 15. The Wednesday Trivia Night items carry the time zone \"UTC+0\", which ingest could not read on the Nederland seniors' site. Low yield; turn on only if the guide wants the regulars, and drop Trivia and Open Mic from the exclusions then."
+    },
+    {
+      "id": "parkwayfoodhall-com",
+      "name": "Parkway Food Hall (events calendar)",
+      "url": "https://parkwayfoodhall.com/#calendar",
+      "feedUrl": "https://parkwayfoodhall.com/wp-json/tribe/events/v1/events",
+      "type": "json",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Geeks Who Drink",
+        "Karaoke"
+      ],
+      "defaultVenue": "Parkway Food Hall, 700 Ken Pratt Blvd., Ste. 200, Longmont",
+      "notes": "Found and read 10 November 2026. Parkway Food Hall, 700 Ken Pratt Blvd., Ste. 200, Longmont. WordPress with The Events Calendar; robots.txt disallows one uploads file only. The REST feed returned 18 items dated 10 November to 10 December 2026, none with a venue, hence the default. Worth a row, 2: Veterans Day Trivia with VCP Longmont 11 November and the Fall Festival and Chili Cook-off 21 November at 11 am. Regulars, 16: Boombox Bingo on Tuesdays, Pub Quiz on Wednesdays and a Jeopardy! Bar League night, all with Geeks Who Drink, and karaoke on Thursdays. Low yield outside its one-off festivals."
+    },
+    {
+      "id": "longmontyouthsymphony-org",
+      "name": "Longmont Youth Symphony (calendar)",
+      "url": "https://www.longmontyouthsymphony.org/calendar",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. Longmont Youth Symphony, which rehearses at Westview Middle School and performs at Longmont High School. Squarespace (ingest cannot read it yet, and robots.txt disallows ?format=json and ?format=ical, so neither was fetched); the calendar page is allowed and reads as plain HTML. Three concerts a season: the Fall Concert on Sunday 15 November 2026 at Longmont High School (the page gives the day as 10 am to 4 pm, dress rehearsal and concert together, without the concert's own hour), a Spring Concert on 7 March 2027 and a Season Finale on 23 May 2027. One in the window. Check monthly."
     }
   ]
 }
