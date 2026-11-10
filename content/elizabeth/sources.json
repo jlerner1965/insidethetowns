@@ -169,6 +169,116 @@
       "robots": "honor",
       "defaultVenue": "Casey Jones Park Pavilion",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Feed found 10 November 2026: the market's MarketSpread page carries a webcal link, and the same URL over https answered 200, text/calendar, calendar name 'Elbert County Marketplace', 99 VEVENTs back to 2022, each one market day with LOCATION '4189 CO-86, Elizabeth, CO 80107, USA' (Casey Jones Park) and no RRULE. Four fall in the next 30 days, the Saturdays 14, 21 and 28 November and 5 December, 9 am to 2 pm Mountain (times are UTC in the feed), all titled '2026 Season - Elbert County Marketplace'; the next after that is 19 December. marketspread.com's robots.txt is an empty Disallow, so the feed path is allowed. Type changed from html to ical; a weekly market, so the editor may prefer one recurring listing to four staged files. The market's own site, elbertcountymarketplace.com, answered 503 'Maintenance mode'. defaultVenue is the guide's own name for the place, Casey Jones Park Pavilion (10 November 2026): with the market's name there a dry run flagged a venue change on all five published market days."
+    },
+    {
+      "id": "elizabethkbar-com",
+      "name": "Elizabeth Kitchen + Bar (events calendar)",
+      "url": "https://elizabethkbar.com/events",
+      "feedUrl": "https://calendar.apps.secureserver.net/v1/events/8a31c26c-8ecc-4141-bbe9-6bc438540d9b/a37b22c7-69e4-484f-bfd0-50c3f19c2193/d85741cf-c852-406d-8a29-455d0d88b4fa",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Burger Special",
+        "Half off All Wines",
+        "Family Night",
+        "Brunch with bottomless",
+        "Karaoke",
+        "Open Mic",
+        "Bingo",
+        "Broncos",
+        "LIMITED HOURS",
+        "LATE OPENING",
+        "Closed"
+      ],
+      "defaultVenue": "Elizabeth Kitchen + Bar, 240 S Elizabeth St, Unit 110",
+      "notes": "Found and read 10 November 2026. The restaurant and bar at 240 S Elizabeth St, Unit 110, (720) 761-5000, already a place in the guide. Its site is GoDaddy Website Builder; /events is drawn by script, so the page source holds no events, and loaded in a browser it calls GoDaddy's calendar service, which answers the feedUrl as JSON ({events: [{title, desc, location, start, end, allDay}], timeZone: America/Denver}). Read once with curl: 200, 100 items from 9 November 2026 to 10 February 2027. Ingest cannot read this format yet (its json type is The Events Calendar only), so the type is manual and the feed is recorded for whoever writes a reader; until then the page is read by hand in a browser. Worth a row, 10 November to 10 December: 4. Snowman Porch Sign Painting with Sherry (Thursday 12 November, 6 to 8 pm), Live Music by Mike Maurer (Wednesday 25 November, 7 pm), Comedy Show (Saturday 5 December, 7:30 pm), Christmas Cow Painting with Sherry (Thursday 10 December, 6 pm). Just outside: New Year's Eve with live music by Raven-Wolf (31 December, 8 pm). Regulars in the window: 10 (Karaoke on Fridays 8 to 11 pm, four; Atom's Open Mic on alternate Sundays at 6 pm, two; Music VIDEO Bingo on the third Wednesday, one; Broncos games on the big screen, three). The rest of the feed is never-list: daily specials (Monday burger, half-off wine Wednesday, Thursday family night, weekend brunch, 65 of the 100 items), limited hours and closures. Items carry no location, so defaultVenue is needed. A disagreement to settle by hand: allevents.in (from the bar's Facebook events) lists 'Austin Allen Live' on Saturday 14 November, 7 to 10 pm, and 'Comedy Night Returns' on Saturday 12 December at 7 pm, neither of which is in this calendar, which has the comedy show on 5 December. robots.txt: elizabethkbar.com disallows only /404 (curl to the host was reset three times, so the site and its robots.txt were read with the fetch tool and Playwright); calendar.apps.secureserver.net has no robots.txt (404). No ics, rss or Google Calendar id is exposed, though one item's description carries Google Meet boilerplate, so the calendar is probably a Google calendar behind GoDaddy's widget."
+    },
+    {
+      "id": "legacyk8-org",
+      "name": "Legacy Academy (school public calendar)",
+      "url": "https://www.legacyk8.org/about/news-events",
+      "feedUrl": "https://calendar.google.com/calendar/ical/legacyk8.org_3rrge904rvsra8n4f3l33fa6vg%40group.calendar.google.com/public/basic.ics",
+      "type": "ical",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "ATHLETICS:",
+        "CLUB:",
+        "^FT",
+        "Dress of Choice",
+        "No School",
+        "Assembly",
+        "Governing Board",
+        "Food Drive",
+        "Practice",
+        "Private",
+        "Meeting",
+        "Conference",
+        "Testing",
+        "Picture"
+      ],
+      "defaultVenue": "Legacy Academy, 1975 Legacy Circle",
+      "notes": "Found and read 10 November 2026. Legacy Academy is the K-8 charter school at 1975 Legacy Circle, Elizabeth (the address is on the feed's own items); the district calendar already in this registry does not carry its events. Its Finalsite home page links a public Google calendar, 'LA PUBLIC', and the feedUrl is that calendar's iCal address. Read once to count: 200, text/calendar, 5,394 VEVENTs back to 2017, 630 with a recurrence rule, times in UTC. Worth a row, 10 November to 10 December: 4. EVENT: PTCO Craft Fair (Saturday 14 November, 9 am), EVENT: Kinder-2nd Music + Piano & Guitar Concert (Tuesday 1 December, 6 pm), EVENT: 3rd-5th Grade Music & Choir Concert (Wednesday 2 December, 6 pm), EVENT: Fall Theater Performance (Thursday 3 December, 6 pm). The school prefixes its titles, and only 'EVENT:' items are candidates: about 45 other occurrences in the window are 'ATHLETICS:' (middle school basketball and cheer, mostly practices), 'CLUB:' (after-school clubs), 'FT' field trips, dress days, assemblies, the food drive, board meetings and no-school days, all never-list. The four EVENT items carry no LOCATION, so defaultVenue is needed. An editor may judge the two grade-level concerts to be parents' evenings and keep only the craft fair and the play. The excludeTitles here are fragments; a single regex entry '^(?!EVENT:)' would do the same job more tightly. robots.txt: legacyk8.org allows its pages (Crawl-delay 5, /fs/ disallowed); calendar.google.com is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent and this needs the editor's robots: subscribe, as the other guides' school calendars did. The craft fair is on the same Saturday as the EHS Craft Fair on the district calendar; they are two fairs at two schools."
+    },
+    {
+      "id": "elbertcountychamber-org",
+      "name": "Elbert County Chamber of Commerce (events calendar)",
+      "url": "https://elbertcountychamber.org/events",
+      "feedUrl": "https://calendar.google.com/calendar/ical/c_b42d639c9fb5436ac519d6e4e418048656a1437384d115a91c5e677b75c14ccc%40group.calendar.google.com/public/basic.ics",
+      "type": "ical",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Elizabeth"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Meet & Mingle",
+        "Meet and Mingle",
+        "PERK UP",
+        "BOBIE",
+        "Book Club",
+        "Member",
+        "Orientation",
+        "Meet & Greet",
+        "Ribbon Cutting",
+        "Business Education",
+        "Economic Development",
+        "Workshop",
+        "SEO",
+        "Food Drive"
+      ],
+      "notes": "Found and read 10 November 2026. The Elbert County Chamber of Commerce has its office at 338 S Main Street, Elizabeth (the address on its own orientation events) and most of what it lists is in Elizabeth. The elizabethchamber.org and elizabethkiwanis.org domains are parked and are not this. /events embeds a public Google calendar, 'ECCC Events Calendar (Website Only)'; the feedUrl is its iCal address. Read once to count: 200, text/calendar, 44 VEVENTs, 8 recurring. Worth a row, 10 November to 10 December: 0. The window holds only the chamber's own business: 1st Annual Member Appreciation Night (12 November, Spring Valley Golf Club, members), the monthly Business Over Beverages, Meet & Mingle and book club (third Tuesday and Wednesday), and Perk Up! networking (10 December, Catalina's Diner). It is recorded because through the year it does carry public days nobody else publishes as a feed: The Carriage Shoppes Christmas Open House (7 November 2026, 392 Main St), the 4th Annual Fall Fest & Movie in the Park (17 October, Evans Park), the ECCC Business Expo (25 April, Elizabeth High School), Town of Elizabeth Meet the Candidates (21 September), and, outside Elizabeth, Kiowa Fall Fest and Apples & Asses at Burro Base Camp (both 10 October); perhaps one or two a month in season. Some items are in Kiowa or Parker, so locationFilter keeps Elizabeth's. robots.txt: elbertcountychamber.org's is empty (200, no rules); calendar.google.com is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent and reading it weekly needs the editor's robots: subscribe. Low yield; turn on only if the networking exclusions hold."
+    },
+    {
+      "id": "allevents-in-elizabeth-co",
+      "name": "AllEvents, Elizabeth CO (aggregator of Facebook events)",
+      "url": "https://allevents.in/elizabeth-co",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. Not an organizer: an aggregator page that republishes public Facebook events located in Elizabeth, which is where this town's venues actually post (the brewery's own page says its dated events are on Facebook, and The Nest at the 1897 House has no website). Read once through the fetch tool; no feed was found or looked for beyond the page. It is a lead sheet for a person, never a source to publish from: every item needs checking with its organizer, and the page mixes in events from other states. In Elizabeth, 10 November to 10 December 2026, it listed about 10 worth a row: Veteran's Spaghetti Dinner (Friday 13 November, 5:30 to 7 pm, 155 W Kiowa Ave, Elizabeth Firefighters Community Foundation), Star Party with CSASTRO (14 November, the library, already known), EHS Craft Event (14 November, already known), Austin Allen Live at Elizabeth Kitchen + Bar (14 November, 7 to 10 pm), Watercolor Folk Christmas Cards (Sunday 15 November, 1 pm) and German Glitter Village (Sunday 22 November) at The Nest at the 1897 House, 286 S Main St, reservations (720) 643-5124, Connect, Create, & Grow: A Holiday Gathering (4 December, 39411 Congress Ln), Christmas at the Ranch (Saturday 5 December, 11 am to 3 pm, 36998 Timber Dr, organizer not named), and, just past the window, Comedy Night Returns at Elizabeth Kitchen + Bar (12 December), the High Plains Schutzhund Club Winter Trial (12 and 13 December, 34560 Cimarron Trl), Christmas Worship in the Barn (18 December, 36998 Timber Dr) and Santa plus gifts at American Legion Auxiliary Unit 82 (19 December). Regulars: Thursday Night Magic card nights at 210 S Elizabeth St Unit 104 (shop not identified) and the Elbert County Marketplace. Not on the page: the Mayor's Tree Lighting, Saturday 5 December 2026, 3 to 6 pm on Main Street with the lighting at 5, which a search result quotes from the Town's own page (townofelizabeth.org answers automated requests 403, so that page was not read). robots.txt allows the path for every agent and asks ClaudeBot for a crawl delay of 10 seconds."
+    },
+    {
+      "id": "elizabethcelticfest-org",
+      "name": "Elizabeth Celtic Festival",
+      "url": "https://www.elizabethcelticfest.org/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Casey Jones Park",
+      "notes": "Found and read 10 November 2026. The festival's own WordPress site; the home page answered 200 and still shows this year's dates, Saturday 18 July 2026, 9 am to 5 pm, and Sunday 19 July, 9 am to 4 pm (Casey Jones Park, by the press coverage; the home page text read here did not give the address): Scottish heavy athletics, pipe band and solo piping competitions, Highland dance, clans, living history, music, vendors, children 10 and under free. One event a year, so nothing dated 10 November to 10 December and no regulars; no calendar feed (the /feed/ is the blog's post RSS, not read). Seasonal: a look in spring for the 2027 dates is enough. robots.txt (read at www after the home page, because the bare host redirects) disallows only /wp-admin/. Beware elizabethcelticfestival.com, which is a different, hijacked domain showing unrelated content."
     }
   ]
 }
