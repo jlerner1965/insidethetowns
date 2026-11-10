@@ -64,6 +64,11 @@ used on those terms. All six listings now have a photograph: one from each
 park page, and for the Singletrack the shelter, a summer trail shot and the
 trailhead kiosk from the folder. Nothing of the Town's remains unphotographed.
 
+**Update, 10 November 2026.** Four parks listed since then (Clayton, Coal
+Miner, Country Fields and Crescent) took the photograph from their own
+erieco.gov page, under the grant as written. Ironstone Park's page has no
+photograph yet; it is one to ask her for.
+
 ---
 
 ## Boulder County Parks & Open Space — trail photographs
