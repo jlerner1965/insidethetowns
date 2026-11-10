@@ -9583,3 +9583,26 @@ here).*
   Community Center listing, and Lyons has no recreation center.
 - **The schedule component names who runs the place** (`operator` in the
   data file, "the Town" unless set), since Carbon Valley's is a district's.
+
+## The home tabs follow the reader's day, not the build's, 10 November 2026
+
+The owner sent a screenshot of Leadville's home at 1:39: "Nothing listed
+for today" under a page "refreshed November 9", and said every guide read
+the same. Every guide did. The three tabs were built for the build's day,
+the browser took each row off as it ended, and the script chose which tab
+opened by the reader's weekday but not what was in it. So from midnight
+until the morning rebuild (4:10 am in winter, and GitHub often starts it
+hours late), "Today" was yesterday with every row gone, and today's
+listings sat under "Tomorrow". Lyons had four listings that Tuesday and
+read "Nothing listed for today" like the rest.
+
+Each panel now carries its rows three times: for the build's day and for
+each of the next two (`tabEditions` and `TAB_DAYS_AHEAD` in
+src/lib/home-tabs.ts), the empty line, the "more" link and "Next in
+<Town>" with them. The browser shows the set made for the reader's Denver
+date (`asOfFor` in src/lib/relative-days.ts); a build older than all three
+shows the last, which the pruning empties, so "Next in <Town>" stands in as
+before. Without script the build's day shows. Two days ahead covers a
+night's rebuild that starts late or is dropped. A quiet day still says
+"Nothing listed for today": that line is a fact about the guide when it is
+true, and it was not.

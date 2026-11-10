@@ -57,7 +57,7 @@ import { getTownEntries } from '@/lib/content';
 import { forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
 import { familyLines } from '@/lib/family-home';
 import { eventItem, weekDays } from '@/lib/flagship-home';
-import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, TAB_LIMIT } from '@/lib/home-tabs';
+import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, TAB_DAYS_AHEAD, TAB_LIMIT, tabEditions } from '@/lib/home-tabs';
 import { dayKey, formatDayShort, formatTimeRange } from '@/lib/dates';
 import { resolveSiteImage } from '@/lib/images';
 import { firstSentence } from '@/lib/plain-text';
@@ -96,12 +96,19 @@ const picked = new Set(pick ? [pick.event.slug] : []);
 // stay on the Families page and the events page, and off the tabs, "Next in
 // <Town>" and the Families block here.
 const general = (horizonDays: number) => forGeneralReaders(occurrences(allEvents, { now, horizonDays }), allEvents);
-const days = weekDays({ events: general(8), sports: data, teamHref, now, start: 'today', limit: 99, picked });
 // What an empty tab offers next: the listings of the next two months, so a
 // quiet guide's next date three weeks out is still found.
 const later = laterRows(general(60), picked, weeklyTest(allEvents));
-// The school's games on the tabs say whose they are: "Niwot volleyball vs …".
-const tabs = homeTabs(school ? labelGames(days, school.maxprepsName) : days, now, TAB_LIMIT, later);
+// The tabs for today and for each of the next two days, so a page read
+// after midnight shows that day's Today, not the build's (src/lib/
+// home-tabs.ts, tabEditions). The school's games say whose they are:
+// "Niwot volleyball vs …".
+const week = general(8 + TAB_DAYS_AHEAD);
+const editions = tabEditions((asOf) => {
+  const days = weekDays({ events: week, sports: data, teamHref, now: asOf, start: 'today', limit: 99, picked });
+  return homeTabs(school ? labelGames(days, school.maxprepsName) : days, asOf, TAB_LIMIT, later);
+}, now);
+const tabs = editions[0]!.tabs;
 const open = defaultTab(now);
 
 // 3a. "Today at the rec center" at the top of the Today tab, for a town with
@@ -176,7 +183,7 @@ if (featured) {
 
 {school && <SportsBar town={town} />}
 
-<WhatsHappening town={town} tabs={tabs} open={open} feature={feature}>
+<WhatsHappening town={town} editions={editions} open={open} feature={feature}>
   {rec && <RecCenterToday slot="today" data={rec} fallback href={`/places/${rec.place}/`} />}
 </WhatsHappening>
 

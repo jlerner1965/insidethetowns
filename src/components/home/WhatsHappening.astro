@@ -22,6 +22,12 @@
  * blank). Its rows carry the same marks and come off the same way; the
  * block goes once none are left.
  *
+ * Each panel holds its rows for the build's day and for the two days after
+ * (`editions`; src/lib/home-tabs.ts, TAB_DAYS_AHEAD), and the script shows
+ * the set made for the reader's Denver date. Built at 4 am and read at 1 am
+ * the next night, "Today" was yesterday, pruned to nothing, on every guide
+ * (the owner's screenshot of Leadville, 10 November 2026).
+ *
  * Native buttons with the tab roles, so the keyboard and a screen reader
  * get the three as one control; with no script the opening tab is shown
  * and the other two are reached from the links under the list.
@@ -43,7 +49,7 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import type { TownConfig } from '@/config';
-import type { HomeTab, TabKey } from '@/lib/home-tabs';
+import type { TabEdition, TabKey } from '@/lib/home-tabs';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 
 /** The "Don't miss" card's facts, from the listing (src/components/home/TownHome.astro). */
@@ -65,12 +71,14 @@ export interface Feature {
 
 interface Props {
   town: TownConfig;
-  tabs: HomeTab[];
+  /** The tabs for the build's day and the days after it; the browser shows the reader's day. */
+  editions: TabEdition[];
   open: TabKey;
   feature?: Feature;
 }
 
-const { town, tabs, open, feature } = Astro.props;
+const { town, editions, open, feature } = Astro.props;
+const tabs = editions[0]!.tabs;
 // One line of trust on the first screen (the reader pass, 1 November 2026:
 // "independent", "free" and "checked" were all in the footer): the build's
 // date, since the page is rebuilt nightly and on every push.
@@ -124,44 +132,51 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
         {t.key === 'today' && Astro.slots.has('today') && (
           <div class="mt-4 border-b border-line-soft pb-3"><slot name="today" /></div>
         )}
-        <div data-events-scope>
-        {t.rows.length > 0 && (
-          <ol class="divide-y divide-line-soft">
-            {t.rows.map((row) => (
-              <li class="grid grid-cols-[5.75rem_minmax(0,1fr)] gap-x-3 py-3 sm:grid-cols-[7rem_minmax(0,1fr)] sm:items-baseline sm:gap-x-4" data-event-day={row.eventDay} data-end={row.end}>
-                <span class="text-[0.875rem] font-semibold leading-snug tabular-nums text-ink">{row.dayWord && `${row.dayWord} `}{row.when}</span>
-                <p class="min-w-0 text-[1.0625rem] leading-snug">
-                  <a href={row.href} class:list={['font-medium no-underline hover:underline', row.status ? 'text-ink-muted hover:text-primary' : 'text-primary']}>{row.title}</a>
-                  {row.status && <span class="ml-2 inline-block rounded-sm border border-line px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink">{label(row.status)}</span>}
-                  {row.pick && !row.status && <span class="ml-2 inline-block rounded-sm bg-highlight-soft px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>}
-                  {row.where && <span class={where}>{row.where}</span>}
-                </p>
-              </li>
-            ))}
-          </ol>
-        )}
-        <p data-events-empty hidden={t.rows.length > 0} class="py-3 text-[1.0625rem] text-ink-muted">{t.empty}</p>
-        {t.more > 0 && (
-          <p class="mt-1 text-[0.9375rem]"><a href={t.href} class="inline-block -my-3 py-3 font-semibold text-primary underline">{t.more} more {t.key === 'weekend' ? 'this weekend' : t.key === 'today' ? 'today' : 'tomorrow'} →</a></p>
-        )}
-        </div>
-        {t.next.length > 0 && (
-          <div data-next-up data-hide-when-empty class="pb-1">
-            <h3 class="text-[0.9375rem] font-semibold text-ink">Next in {town.name}</h3>
+        {editions.map(({ asOf, tabs: set }, i) => {
+          const e = set.find((x) => x.key === t.key)!;
+          return (
+          <div data-asof={asOf} hidden={i > 0}>
+          <div data-events-scope>
+          {e.rows.length > 0 && (
             <ol class="divide-y divide-line-soft">
-              {t.next.map((row) => (
+              {e.rows.map((row) => (
                 <li class="grid grid-cols-[5.75rem_minmax(0,1fr)] gap-x-3 py-3 sm:grid-cols-[7rem_minmax(0,1fr)] sm:items-baseline sm:gap-x-4" data-event-day={row.eventDay} data-end={row.end}>
-                  <span class="text-[0.875rem] font-semibold leading-snug tabular-nums text-ink"><span class="block">{row.dayWord}</span>{row.when}</span>
+                  <span class="text-[0.875rem] font-semibold leading-snug tabular-nums text-ink">{row.dayWord && `${row.dayWord} `}{row.when}</span>
                   <p class="min-w-0 text-[1.0625rem] leading-snug">
-                    <a href={row.href} class="font-medium text-primary no-underline hover:underline">{row.title}</a>
-                    {row.pick && <span class="ml-2 inline-block rounded-sm bg-highlight-soft px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>}
+                    <a href={row.href} class:list={['font-medium no-underline hover:underline', row.status ? 'text-ink-muted hover:text-primary' : 'text-primary']}>{row.title}</a>
+                    {row.status && <span class="ml-2 inline-block rounded-sm border border-line px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink">{label(row.status)}</span>}
+                    {row.pick && !row.status && <span class="ml-2 inline-block rounded-sm bg-highlight-soft px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>}
                     {row.where && <span class={where}>{row.where}</span>}
                   </p>
                 </li>
               ))}
             </ol>
+          )}
+          <p data-events-empty hidden={e.rows.length > 0} class="py-3 text-[1.0625rem] text-ink-muted">{e.empty}</p>
+          {e.more > 0 && (
+            <p class="mt-1 text-[0.9375rem]"><a href={e.href} class="inline-block -my-3 py-3 font-semibold text-primary underline">{e.more} more {t.key === 'weekend' ? 'this weekend' : t.key === 'today' ? 'today' : 'tomorrow'} →</a></p>
+          )}
           </div>
-        )}
+          {e.next.length > 0 && (
+            <div data-next-up data-hide-when-empty class="pb-1">
+              <h3 class="text-[0.9375rem] font-semibold text-ink">Next in {town.name}</h3>
+              <ol class="divide-y divide-line-soft">
+                {e.next.map((row) => (
+                  <li class="grid grid-cols-[5.75rem_minmax(0,1fr)] gap-x-3 py-3 sm:grid-cols-[7rem_minmax(0,1fr)] sm:items-baseline sm:gap-x-4" data-event-day={row.eventDay} data-end={row.end}>
+                    <span class="text-[0.875rem] font-semibold leading-snug tabular-nums text-ink"><span class="block">{row.dayWord}</span>{row.when}</span>
+                    <p class="min-w-0 text-[1.0625rem] leading-snug">
+                      <a href={row.href} class="font-medium text-primary no-underline hover:underline">{row.title}</a>
+                      {row.pick && <span class="ml-2 inline-block rounded-sm bg-highlight-soft px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>}
+                      {row.where && <span class={where}>{row.where}</span>}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+          </div>
+          );
+        })}
       </div>
     ))}
     <p class="mt-5 flex flex-wrap items-baseline gap-x-6 gap-y-1 border-t border-line-soft pt-4 text-[1.0625rem]">
@@ -182,6 +197,17 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
 </style>
 
 <script>
+  import { asOfFor } from '@/lib/relative-days';
+
+  // The rows for the reader's own Denver day, not the build's: each panel
+  // carries a set for the build's day and each of the next two.
+  {
+    const sets = [...document.querySelectorAll<HTMLElement>('[data-asof]')];
+    const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
+    const asOf = asOfFor([...new Set(sets.map((s) => s.dataset.asof!))], today);
+    for (const s of sets) s.hidden = s.dataset.asof !== asOf;
+  }
+
   // The three tabs, and the one that opens: Today, or This weekend on a
   // Friday, Saturday or Sunday in Denver, or Tomorrow from five on the
   // Sunday afternoon, by the reader's own clock rather than the build's
