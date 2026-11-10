@@ -9637,3 +9637,34 @@ would need.
 - **Niwot has little left to find**: Inkberry Books by hand, one Rotary
   item a month. The Gunbarrel library's feed is recorded but is not in
   Niwot.
+
+## The owner subscribes to the calendar feeds, 10 November 2026
+
+Asked what the robots rule was and told the choice (read a published
+subscription feed weekly although the host's robots.txt disallows the
+path, as decided for Windsor's recreation feed on 29 October, or ask each
+organization first), the owner said: subscribe to all of them and confirm.
+
+- **`robots: subscribe` and confirmed**: the Lake County Public Library
+  (Tockify), the high school calendars of Leadville, Timnath, Frederick,
+  Windsor and Severance (Google Calendar), the Town of Firestone and the
+  City of Dacono (CivicPlus), and the Town of Windsor's calendar RSS.
+  Severance High, already confirmed, is typed `ical` on the same word.
+- **Confirmed, no robots question**: Visit Leadville Twin Lakes, Ski
+  Cooper, Honnibrook Craft Meadery, the Elbert County Marketplace, the
+  Clearview library's Windsor branch.
+- **Confirmed but still not read**: Mighty River Brewing. Its Tockify feed
+  is behind the same rule as the Leadville library's, which the research
+  had read as allowed; it was not on the list the owner was given, so it
+  stays `honor` until asked.
+- **Not turned on**: Ecclesia Market (the rule is the site's own, so ask
+  them), and the Nederland library, the Clearview Severance branch and the
+  Town of Castle Rock, which have feeds recorded and wait for the owner.
+- **Filters before the first read.** A dry run staged 112 items from the
+  Leadville library and 53 from Timnath's school in 120 days, nearly all
+  standing clubs, storytimes, practices and testing days; with the title
+  exclusions the other guides' library and school feeds carry, 13 and 8.
+  The market's default venue is the guide's own name for it, Casey Jones
+  Park Pavilion, so its five published days are not flagged as moved.
+- Nothing was ingested here: the Monday run stages what these feeds hold
+  and its pull request shows what the standing rules would publish.

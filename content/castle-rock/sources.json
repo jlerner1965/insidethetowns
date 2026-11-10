@@ -174,6 +174,20 @@
       "notes": "Checked 6 October 2026: the fairgrounds (500 Fairgrounds Drive, Castle Rock) are a county facility; both the Fairground Events page and the Tribe venue page were read but their text body is mostly site navigation, and only one upcoming fairgrounds item (Douglas County Fair Board meeting, Oct 15) sat in the county feed. In the county Tribe JSON the venue id is 60152 and the category slug is 'fairgrounds' (5 all-time), so this venue can be served from the douglasco-gov feed filtered by venue rather than scraped. The Fair & Rodeo (August) has its own site, not fetched. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Rechecked 10 November 2026: the county Tribe feed asked for venue 60152 from today onward returned total 0, so nothing is scheduled at the fairgrounds in the county calendar. The Fair & Rodeo's own site is proposed separately as douglascountyfairandrodeo-com."
     },
     {
+      "id": "ecclesiamarket-com",
+      "name": "Ecclesia Market / Sinners & Saints: Music + Events",
+      "url": "https://ecclesiamarket.com/music-events/",
+      "feedUrl": "https://ecclesiamarket.com/wp-json/tribe/events/v1/events",
+      "sampleUrl": "https://ecclesiamarket.com/music-events/live-music-at-the-altar-derek-hall-4/",
+      "type": "json",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Sinners & Saints, Ecclesia Market",
+      "notes": "Found 10 November 2026: Ecclesia is the downtown market hall at 221 Perry Street (Sinners & Saints bar, Sudden Fiction Books, Wild & Blume, Apres Coffee and others); its site is WordPress with The Events Calendar at /music-events/. The Tribe REST feed read from today onward: 18 upcoming events, 16 in the next 30 days under 12 titles, every venue 'Sinners & Saints, 221 Perry St, Castle Rock', with the feed's own categories. Live Music (5): Western Night with Brandon Helder (12 November), Live Music at the Altar on Fridays at 8 pm (Guy and Norm 13 November, Derek Hall 20, Chance Gallagher 27, André LaMotte 4 December). One-offs (3): Book Bingo Night (11 November), Fall Floral Workshop with Wild & Blume (15), Bonsai and Cocktails (17). Weekly regulars (8): Make & Mingle on Tuesdays (category Arts & Crafts), Live DJ in the Lounge on Saturdays (category Nightlife), Bingo every Wednesday (Bingo & Games). So about 8 listable; for the editor, excludeTitles 'Make & Mingle', 'Live DJ in the Lounge', 'Bingo at Sinners & Saints', or includeCategories 'Live Music' plus the one-offs by hand. The iCal export /music-events/?ical=1 also answered, with the same 18 VEVENTs. Blocker: robots.txt has 'Disallow: /*?' (and Crawl-delay 3), which catches every URL with a query string, so both the iCal export and the REST call ingest builds (it adds per_page and start_date) are disallowed under robots: honor; the bare REST path is allowed. Reading it needs the owner's decision on robots: subscribe, or a word with Ecclesia."
+    },
+    {
       "id": "outletsatcastlerock-com",
       "name": "Outlets at Castle Rock events",
       "url": "https://www.outletsatcastlerock.com/events",
@@ -206,10 +220,22 @@
       "feedUrl": "https://www.honnibrook.com/wp-json/tribe/events/v1/events",
       "type": "json",
       "category": "venue",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Honnibrook Craft Meadery",
       "notes": "Found by the sweep of the sources no feed reads, 1 November 2026 (docs/sweep-2026-11-01-report.md), when every show listed here was published by hand. Proposed, so ingest does not read it until the owner confirms it (npm run sources -- confirm castle-rock honnibrook-com). The Events Calendar (WordPress) at /events/; ?ical=1 read 1 November 2026. The Tribe REST API (/wp-json/tribe/events/v1/events) is there too, if json reads it better. Counted 10 November 2026 and switched from ical to json: /events/?ical=1 answered with 2 VEVENTs (the list-view window, as on douglasco.gov), while the Tribe REST feed from today onward returned 6 events in the next 30 days: Trivia Night: The Muppets (17 November), Gamer's Choice RPG: Torchbearer (21 November), Josh Blackburn: Live In Castle Rock (4 December), Anne's Birthday Bash! (5 December), Wives of DoCR Christmas Party (6 December), Castle Rock Brewery Book Club Christmas Party (8 December). Every venue is 'Honnibrook Craft Meadery, 2276 Manatt Court, Unit B9'. Two read as private parties, so about 4 listable. robots.txt is 'Allow: /'. The ical URL was https://www.honnibrook.com/events/?ical=1."
+    },
+    {
+      "id": "ironmulebrewery-com",
+      "name": "Iron Mule Brewery",
+      "url": "https://www.ironmulebrewery.com/events/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "lastNote": "its Google calendar holds food-truck bookings only",
+      "robots": "honor",
+      "defaultVenue": "Iron Mule Brewery",
+      "notes": "Found 10 November 2026: Iron Mule Public House and Brewery, 514 Perry Street, 720-328-9008 (WordPress). Its /events/ page ('Food Trucks, Live Music, and Events') embeds one public Google calendar, 'IMB - Events' (ursdjbdildhsbk4fmr694g3970@group.calendar.google.com). The .ics answered 200 with 865 VEVENTs and 30 occurrences in the next 30 days, and every one is the day's food truck (La Chaparrita most days, Colorado Chili Co, Cousins Maine Lobster, Wing Daddy's, Bailey's Bites), none with a location: no music or events in it. So not a feed worth reading, and calendar.google.com's robots.txt is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent besides. No Tribe API. Recorded so the calendar is not mistaken for an event feed again; check the page by hand if the brewery starts posting shows."
     },
     {
       "id": "rockyard-com",
@@ -247,31 +273,15 @@
       "notes": "Checked 6 October 2026: BLOX CMS weekly, found from coloradocommunitymedia.com (sister title douglascountynewspress.com). The article RSS read successfully: 50 items, newest 4 Oct 2026, titles such as 'Get to know the candidates running for Castle Rock Town Council', 'Castle Rock Water seeks customer input on resource plan', 'Meet the three candidates running for Castle Rock mayor'. News, not events; /local-events/ is an Evvnt-powered aggregator calendar ('Place Your Event With Evvnt') and should not be used as an event source."
     },
     {
-      "id": "ecclesiamarket-com",
-      "name": "Ecclesia Market / Sinners & Saints: Music + Events",
-      "url": "https://ecclesiamarket.com/music-events/",
-      "feedUrl": "https://ecclesiamarket.com/wp-json/tribe/events/v1/events",
-      "sampleUrl": "https://ecclesiamarket.com/music-events/live-music-at-the-altar-derek-hall-4/",
-      "type": "json",
-      "category": "venue",
-      "priority": "core",
-      "status": "proposed",
-      "robots": "honor",
-      "defaultVenue": "Sinners & Saints, Ecclesia Market",
-      "notes": "Found 10 November 2026: Ecclesia is the downtown market hall at 221 Perry Street (Sinners & Saints bar, Sudden Fiction Books, Wild & Blume, Apres Coffee and others); its site is WordPress with The Events Calendar at /music-events/. The Tribe REST feed read from today onward: 18 upcoming events, 16 in the next 30 days under 12 titles, every venue 'Sinners & Saints, 221 Perry St, Castle Rock', with the feed's own categories. Live Music (5): Western Night with Brandon Helder (12 November), Live Music at the Altar on Fridays at 8 pm (Guy and Norm 13 November, Derek Hall 20, Chance Gallagher 27, André LaMotte 4 December). One-offs (3): Book Bingo Night (11 November), Fall Floral Workshop with Wild & Blume (15), Bonsai and Cocktails (17). Weekly regulars (8): Make & Mingle on Tuesdays (category Arts & Crafts), Live DJ in the Lounge on Saturdays (category Nightlife), Bingo every Wednesday (Bingo & Games). So about 8 listable; for the editor, excludeTitles 'Make & Mingle', 'Live DJ in the Lounge', 'Bingo at Sinners & Saints', or includeCategories 'Live Music' plus the one-offs by hand. The iCal export /music-events/?ical=1 also answered, with the same 18 VEVENTs. Blocker: robots.txt has 'Disallow: /*?' (and Crawl-delay 3), which catches every URL with a query string, so both the iCal export and the REST call ingest builds (it adds per_page and start_date) are disallowed under robots: honor; the bare REST path is allowed. Reading it needs the owner's decision on robots: subscribe, or a word with Ecclesia."
-    },
-    {
-      "id": "ironmulebrewery-com",
-      "name": "Iron Mule Brewery",
-      "url": "https://www.ironmulebrewery.com/events/",
+      "id": "douglascountyfairandrodeo-com",
+      "name": "Douglas County Fair & Rodeo",
+      "url": "https://douglascountyfairandrodeo.com/schedule/",
       "type": "html",
-      "category": "venue",
-      "priority": "other",
+      "category": "other",
       "status": "proposed",
-      "lastNote": "its Google calendar holds food-truck bookings only",
       "robots": "honor",
-      "defaultVenue": "Iron Mule Brewery",
-      "notes": "Found 10 November 2026: Iron Mule Public House and Brewery, 514 Perry Street, 720-328-9008 (WordPress). Its /events/ page ('Food Trucks, Live Music, and Events') embeds one public Google calendar, 'IMB - Events' (ursdjbdildhsbk4fmr694g3970@group.calendar.google.com). The .ics answered 200 with 865 VEVENTs and 30 occurrences in the next 30 days, and every one is the day's food truck (La Chaparrita most days, Colorado Chili Co, Cousins Maine Lobster, Wing Daddy's, Bailey's Bites), none with a location: no music or events in it. So not a feed worth reading, and calendar.google.com's robots.txt is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent besides. No Tribe API. Recorded so the calendar is not mistaken for an event feed again; check the page by hand if the brewery starts posting shows."
+      "defaultVenue": "Douglas County Fairgrounds & Events Center",
+      "notes": "Found 10 November 2026: the fair's own WordPress site, titled 'Douglas County Fair & Rodeo in Castle Rock, CO July 24 - Aug. 2'; /schedule/ answered 200. No Tribe API (404) and no calendar feed, only the posts feed. robots.txt allows everything, Crawl-delay 10. Seasonal: nothing in the next 30 days; read by hand in June for the schedule (carnival, PRCA rodeo, Hometown Rodeo, Mutton Bustin, Farm-to-Table Brunch)."
     },
     {
       "id": "douglaslandconservancy-org",
@@ -280,22 +290,9 @@
       "sampleUrl": "https://douglaslandconservancy.org/2026/11/dlc-watercolor-class-grasses-fall-landscapes/",
       "type": "html",
       "category": "other",
-      "priority": "other",
       "status": "proposed",
       "robots": "honor",
       "notes": "Found 10 November 2026: the land trust's Events page (WordPress, Divi) is a list of blog posts, one per event, newest first: guided hikes, plein air gatherings, lectures, watercolor classes, the Under a Wild Sky fundraiser. County-wide, so each needs its place checked: the two newest are watercolor classes at Louviers Village Club (not Castle Rock), and earlier 2026 posts include Raptors Over the Rock, a hike with Honnibrook Craft Meadery, Sandstone Ranch Geology Tours (Larkspur) and a lecture with Douglas County Libraries. The dates are in the post text, not in markup; /events/?ical=1 returns the HTML page and there is no Tribe API, so no feed. Nothing confirmed in Castle Rock in the next 30 days. A monthly look."
-    },
-    {
-      "id": "douglascountyfairandrodeo-com",
-      "name": "Douglas County Fair & Rodeo",
-      "url": "https://douglascountyfairandrodeo.com/schedule/",
-      "type": "html",
-      "category": "other",
-      "priority": "other",
-      "status": "proposed",
-      "robots": "honor",
-      "defaultVenue": "Douglas County Fairgrounds & Events Center",
-      "notes": "Found 10 November 2026: the fair's own WordPress site, titled 'Douglas County Fair & Rodeo in Castle Rock, CO July 24 - Aug. 2'; /schedule/ answered 200. No Tribe API (404) and no calendar feed, only the posts feed. robots.txt allows everything, Crawl-delay 10. Seasonal: nothing in the next 30 days; read by hand in June for the schedule (carnival, PRCA rodeo, Hometown Rodeo, Mutton Bustin, Farm-to-Table Brunch)."
     }
   ]
 }
