@@ -8,7 +8,8 @@ phone: "970-484-3883"
 tags: [historic, boutique, pet-friendly, cocktail-bar]
 summary: "The 1923 hotel on College Avenue in Old Town, with Ace Gillett's cocktail lounge underneath and the Ace Café. Check-in 4 pm, check-out 11 am; dogs welcome for $75 a stay; parking $20 a night."
 source: "https://thearmstronghotel.com/overview/"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

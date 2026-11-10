@@ -11,8 +11,8 @@ tags: [walking, cycling, regional]
 featured: true
 summary: "The twelve-mile Longmont-to-Boulder regional trail, through Gunbarrel and Niwot."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/lobo-trail/"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: Boulder County Parks & Open Space's LoBo Trail page and its trail map brochure (PDF), read 9 November 2026: a 12-mile trail system through Gunbarrel, Niwot and open space between Boulder and Longmont; regional trails open to commuters 24 hours a day, trailheads closed at sunset with no parking from sunset to sunrise"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

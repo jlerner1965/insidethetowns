@@ -8,7 +8,7 @@ tags: [history]
 image: ../images/downtown-aerial-1929.jpg
 imageAlt: "Archival aerial photograph of downtown Fort Collins in June 1929, looking east: the angled Old Town blocks, the trolley-line streets and the railway yards"
 imageCredit: "Archival photograph, June 1929. CSU University Historic Photograph Collection, Wikimedia Commons, public domain"
-verified: "2026-10-01"
+verified: "2026-11-10"
 sources:
   - { label: "City of Fort Collins: Fort Collins Area Histories", url: "https://history.fcgov.com/explore/city-history" }
   - { label: "Fort Collins History Connection: time line", url: "https://history.fcgov.com/timeline/" }
@@ -29,7 +29,7 @@ sources:
   - { label: "Colorado State University: fall 2025 enrollment", url: "https://newsmediarelations.colostate.edu/2025/10/09/all-csu-system-universities-grew-enrollment-in-fall-2025/" }
 ---
 
-Fort Collins begins with a flood. In 1862 soldiers were sent from Fort Laramie to what is now Laporte to guard the Overland Trail and the stage line, and the post was named Camp Collins after Lt. Col. William O. Collins, the commander at Fort Laramie. A flood in June 1864 destroyed the camp, and on August 20, 1864, Collins signed the order setting aside the present site, on higher ground beside the Cache la Poudre, as the new military reservation; the Fort Collins Historical Society keeps August 20 as the [city's birthday](https://history.fcgov.com/explore/city-history). The last soldiers left in September 1866. The settlers stayed.
+Fort Collins begins with a flood. In 1862 soldiers were sent from Fort Laramie to what is now Laporte to protect the Cherokee Trail and guard the Overland Stage Line, and the post was named Camp Collins after Lt. Col. William O. Collins, the commander at Fort Laramie. A flood in June 1864 destroyed the camp, and on August 20, 1864, Collins signed the order setting aside the present site, on higher ground beside the Cache la Poudre, as the new military reservation; the Fort Collins Historical Society keeps August 20 as the [city's birthday](https://history.fcgov.com/explore/city-history). The last soldiers left in September 1866. The settlers stayed.
 
 ## The town and the college
 

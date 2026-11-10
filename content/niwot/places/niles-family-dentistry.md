@@ -9,8 +9,8 @@ hours: "Mon 7 am–4 pm, Tue 7 am–3 pm, Wed 9 am–3 pm, Thu 7 am–4 pm; clos
 tags: [dentist, health, families]
 summary: "Dr. Ashley Niles's family dental practice at 364 Second Avenue, open Monday to Thursday; new patients call (303) 518-7243."
 source: "https://www.nilesfamilydentistry.com/"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the practice's own site, read November 9, 2026 (address, phones, hours, cancellation rule)"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

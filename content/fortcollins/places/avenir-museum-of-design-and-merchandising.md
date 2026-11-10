@@ -9,7 +9,8 @@ hours: "Tue–Fri 11–5, Sat 10–4; closed Sun–Mon"
 tags: [museum, textiles, free, campus]
 summary: "CSU's museum of dress and textiles, in the east wing of the University Center for the Arts: a collection of about 20,000 garments and textiles from many cultures and centuries. Free."
 source: "https://www.chhs.colostate.edu/avenir/"
-verified: "2026-10-03"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-02"
 ---
 

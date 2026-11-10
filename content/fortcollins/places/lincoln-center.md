@@ -8,7 +8,8 @@ phone: "970-221-6730"
 tags: [theater, concerts, gallery, broadway]
 summary: "The City's performing arts center at Mulberry and Meldrum: a Performance Hall and the smaller Magnolia Theatre, an art gallery and sculpture garden, and the LC LIVE season of touring Broadway and concerts. Box office Tue–Sat 1–6 pm."
 source: "https://www.lctix.com/directions-hours/"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

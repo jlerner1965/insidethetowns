@@ -11,7 +11,8 @@ tags: [historic, shops, walk]
 featured: true
 summary: "Niwot’s business district since the early 1900s: the shops of Second Avenue, from Murray Street to Niwot Road."
 source: "https://niwot.com/niwot-history/"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

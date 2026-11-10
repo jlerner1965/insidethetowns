@@ -8,7 +8,8 @@ imageAlt: "The timber-and-glass front entrance of New Belgium Brewing's taproom 
 imageCredit: "M. Doxtad, Wikimedia Commons, CC BY 2.5"
 url: "https://www.newbelgium.com/"
 source: "https://www.newbelgium.com/visit/fort-collins/"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source and the brewery's story page on 10 November 2026"
 added: "2026-10-01"
 phone: "970-221-0524"
 hours: "Daily 12–8"
@@ -17,6 +18,6 @@ featured: true
 summary: "The Fat Tire brewery's home taproom on Linden Street, open daily noon to 8: Fat Tire, IPAs, sours and non-alcoholic beers on tap, a different food truck every day, brewery tours by booking and a lawn for the big events."
 ---
 
-Founded in 1991 by Jeff Lebesch, who came home from a bicycle tour of Belgian breweries and made Fat Tire, this is the brewery that put Fort Collins on the beer map; it is a certified B Corporation and still says it was "born on a bike." The taproom at 500 Linden pours Fat Tire beside IPAs, sours and non-alcoholic options, and a food truck is parked outside every day, anything from barbecue to sushi to tacos.
+Founded in 1991 by Kim Jordan and Jeff Lebesch, who came home from a 1988 bike trip through Belgium and began brewing Fat Tire in the basement of their Fort Collins home, this is the brewery that put Fort Collins on the beer map; it is a certified B Corporation and still says it was "born on a bike." The taproom at 500 Linden pours Fat Tire beside IPAs, sours and non-alcoholic options, and a food truck is parked outside every day, anything from barbecue to sushi to tacos.
 
-Tours are booked ahead on the website, and the grounds take private events. The hours page lists date-by-date changes and holiday closures, so check it before a special trip.
+Tours are booked ahead on the website, and the grounds take private events. The hours page lists date-by-date changes and holiday closures: the taproom is closed on November 10, 11 and 26 and December 24 and 25, 2026, and open noon to 6 on December 31.

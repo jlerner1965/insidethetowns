@@ -18,7 +18,8 @@ registration: { required: false, how: "No registration: drop in" }
 contact: "Longmont Public Library, 303-651-8470"
 tags: [nearby, longmont]
 source: "https://longmontcolorado.gov/library/children-services/childrens-storytimes/"
-verified: "2026-10-26"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the storytimes page and the library card page)"
 ---
 
 This is in Longmont, a drive from Niwot, not in Niwot itself. The City of Longmont's library holds its weekly storytimes Monday to Saturday in its meeting rooms by the west entrance on Kimbark Street, and says no registration is required. Each session is for an age group, and the library asks families to come to the one for their child's age:
@@ -30,4 +31,4 @@ This is in Longmont, a drive from Niwot, not in Niwot itself. The City of Longmo
 - **Craft Storytime**, every other Thursday 10–11 am, ages 3 to 5.
 - **All Ages Storytime**, Fridays 10–10:30 am and Saturdays 11–11:30 am, birth to 5.
 
-Which Thursdays are yoga and which are craft is on the library's [kids' programs list](https://longmontcolorado.gov/library/library-programs-events/children-programs/), which also has the week's specials. A grown-up has to stay in the room for every session. The library's [card page](https://longmontcolorado.gov/library/library-cards/) says any Colorado resident 16 or older can get a free Longmont library card, and that cards from Boulder, Gunbarrel and several other nearby libraries work there for most materials. Read October 26, 2026.
+Which Thursdays are yoga and which are craft is on the library's [kids' programs list](https://longmontcolorado.gov/library/library-programs-events/children-programs/), which also has the week's specials. A grown-up has to stay in the room for every session. The library's [card page](https://longmontcolorado.gov/library/library-cards/) says any Colorado resident 16 or older can get a free Longmont library card, and that cards from Boulder, Gunbarrel and several other nearby libraries work there for most materials. Read November 10, 2026.

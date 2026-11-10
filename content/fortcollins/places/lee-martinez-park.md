@@ -8,7 +8,8 @@ hours: "Daily 5 am–11 pm"
 tags: [farm, playground, river-trail, families]
 summary: "The community park on the Poudre just north of Old Town, with The Farm, the City's working farm of 40 to 60 animals open Wednesday to Sunday, an accessible nature playground with a chair zipline, sport courts and a direct link to the Poudre River Trail."
 source: "https://www.fortcollins.gov/Venues/The-Farm-at-Lee-Martinez-Park"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

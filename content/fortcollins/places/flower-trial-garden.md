@@ -9,7 +9,8 @@ hours: "Daily, daylight hours; annuals late May–October"
 tags: [garden, flowers, free, campus]
 summary: "The university's test garden across from the University Center for the Arts: more than a thousand varieties of annuals in bloom from late May through October, free and open every day in daylight."
 source: "https://flowertrials.colostate.edu/visit/"
-verified: "2026-10-03"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-02"
 ---
 

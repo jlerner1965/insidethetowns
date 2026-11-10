@@ -12,7 +12,8 @@ hours: "Daily 5 am–11 pm"
 tags: [birding, fishing, ponds, river, dogs-on-leash]
 summary: "Seven old gravel-pit ponds and a stretch of the Poudre on East Prospect Road: three miles of natural-surface trail and a boardwalk, bass, crappie and catfish fishing, and more than 200 bird species including white pelicans. Free; open 5 am to 11 pm."
 source: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Riverbend-Ponds-Natural-Area"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

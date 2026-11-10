@@ -1,10 +1,11 @@
 ---
 title: "Explore Old Town Fort Collins: four places in walking order"
 date: "2026-10-07"
+updated: "2026-11-10"
 excerpt: "Breakfast on Walnut Street, the square, the museum at the top of Mason and the brewery at the end of Linden, all on foot from one City garage. Horsetooth is a separate morning."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-07"
+verified: "2026-11-10"
 glance:
   start: "One of the three City garages: 100 Remington Street, 165 Chestnut Street or Laporte and Mason; first hour free, free on Sunday"
   duration: "A day; Horsetooth is a separate morning"
@@ -17,9 +18,10 @@ sources:
   - { label: "Fort Collins Museum of Discovery: Accessibility", url: "https://fcmod.org/accessibility/" }
   - { label: "New Belgium Brewing: Fort Collins taproom", url: "https://www.newbelgium.com/visit/fort-collins/" }
   - { label: "Transfort", url: "https://ridetransfort.com/" }
+  - { label: "CooperSmith's Brewpub & Billiards", url: "https://coopersmithspub.com/" }
 related:
   - { label: "Horsetooth: which trailhead, which route, and the permit", href: "/articles/horsetooth-route-chooser/", note: "The hike this page leaves for another morning, with the County's permit, trailheads and distances." }
-  - { label: "Old Town Square", href: "/places/old-town-square/", note: "The plaza the walk is arranged around, with this fall's festivals." }
+  - { label: "Old Town Square", href: "/places/old-town-square/", note: "The plaza the walk is arranged around, with the festivals it holds." }
   - { label: "Fort Collins Museum of Discovery", href: "/places/fort-collins-museum-of-discovery/", note: "The listing, with hours and admission in one place." }
 ---
 
@@ -35,7 +37,7 @@ The [Silver Grill Cafe](/places/silver-grill-cafe/) at 218 Walnut Street has ser
 
 ## 02 · Old Town Square
 
-[Old Town Square](/places/old-town-square/), off College Avenue, is the pedestrian plaza the rest of downtown is arranged around, built in 1983–84 and rebuilt in 2015 by the Downtown Development Authority: a stage, a splash pad whose jets run from May through September, a communal fireplace and patios on every side. This fall it holds FoCo Fall Fest (October 9 to 11) and the Chili Cook Off (October 24). [CooperSmith's Pub & Brewing](/places/coopersmiths-pub-and-brewing/) at 5 Old Town Square has brewed on site since 1989 and opens at 11 am every day, to 9 pm Sunday to Wednesday and 10 pm Thursday to Saturday; its billiards room at number 7 opens Wednesday to Sunday from 3 pm. On College Avenue itself are [Harbinger Coffee](/places/harbinger-coffee-old-town/) at 236 S College, daily 7 am–4 pm, and [The Cupboard](/places/the-cupboard/), the kitchen store at 152 S College, family-owned since 1972.
+[Old Town Square](/places/old-town-square/), off College Avenue, is the pedestrian plaza the rest of downtown is arranged around, built in 1983–84 and rebuilt in 2015 by the Downtown Development Authority: a stage, a splash pad whose jets run from May through September, a communal fireplace and patios on every side. What is on in the square is on the [events page](/events/). [CooperSmith's Pub & Brewing](/places/coopersmiths-pub-and-brewing/) at 5 Old Town Square has brewed on site since 1989 and opens at 11 am every day, to 9 pm Sunday to Thursday and 10 pm Friday and Saturday; its billiards hall at number 7 opens Wednesday and Thursday at 5 pm, Friday at 4 pm and Saturday and Sunday at 11 am. On College Avenue itself are [Harbinger Coffee](/places/harbinger-coffee-old-town/) at 236 S College, daily 7 am–4 pm, and [The Cupboard](/places/the-cupboard/), the kitchen store at 152 S College, family-owned since 1972.
 
 *Getting there:* the square opens off College Avenue. *Best for:* lunch, a seat by the fireplace, the shops along College.
 
@@ -47,7 +49,7 @@ Mason Street runs a block west of College, and at its north end, at the corner o
 
 ## 04 · Linden Street: pie and the brewery
 
-Linden Street leaves the square to the north-east and runs into the River District. [Ginger and Baker](/places/ginger-and-baker/) at 359 Linden is a pie shop, bakery, market, cafe and steakhouse in one building, Tuesday to Sunday 7 am–9 pm and closed Monday. At 500 Linden, [New Belgium Brewing](/places/new-belgium-brewing/), the brewery that made Fat Tire, opens its taproom daily noon–8 pm with a different food truck each day and a lawn for the big events; tours are booked ahead on its site. Check its adjusted hours before a special trip: in 2026 it closes at 6 pm on October 17 and December 31, and is closed on November 10, 11 and 26 and December 24 and 25.
+Linden Street leaves the square to the north-east and runs into the River District. [Ginger and Baker](/places/ginger-and-baker/) at 359 Linden is a pie shop, bakery, market, cafe and steakhouse in one building, Tuesday to Sunday 7 am–9 pm and closed Monday. At 500 Linden, [New Belgium Brewing](/places/new-belgium-brewing/), the brewery that made Fat Tire, opens its taproom daily noon–8 pm with a different food truck each day and a lawn for the big events; tours are booked ahead on its site. Check its adjusted hours before a special trip: for the rest of 2026 it is closed on November 10, 11 and 26 and December 24 and 25, and closes at 6 pm on December 31.
 
 *Getting there:* on foot along Linden from the square. *Best for:* an afternoon beer, pie to take home, the lawn when there is music.
 
@@ -69,4 +71,4 @@ Drive times are estimates for normal conditions and vary with traffic, weather a
 
 The Museum of Discovery states the most: push-button main doors, a drop-off area in front, four accessible parking spaces outside the cafe entrance, an elevator to the second and third levels, a wheelchair to borrow at the welcome desk, an accessible stall and a baby-changing station in every restroom, companion restrooms in the Music and Sound Lab, three wheelchair spaces in the dome theater and sensory kits to check out free. Transit Center restrooms and an indoor waiting room are listed by Transfort.
 
-The City's parking page says nothing about accessible spaces in the garages, and the restaurants, the square and the brewery have not published step-free details, so none is claimed here. Contact a business directly before relying on it. Corrections and additions to this section are welcome and [published with their date](/contact/).
+The City says accessible parking is available at all its downtown parking locations, marked with the accessibility symbol and reserved for vehicles with a valid accessible placard or plate; a paid session is still required with a placard, and the time limits do not apply to those vehicles. The restaurants, the square and the brewery have not published step-free details, so none is claimed here. Contact a business directly before relying on it. Corrections and additions to this section are welcome and [published with their date](/contact/).

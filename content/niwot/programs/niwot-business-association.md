@@ -12,7 +12,7 @@ schedule: "Monthly meeting, 2nd Tuesday, 8:30–10 am"
 price: "Dues not stated on its site"
 registration: { required: true, how: "'Your business must be within the boundaries of Niwot in order to be a member'; a Join Now button on its business page", url: "https://niwot.com/business-in-niwot/" }
 access: members
-nextEvent: great-pumpkin-party
+nextEvent: enchanted-evening
 contact: "https://niwot.com/contact/"
 source: "https://niwot.com/business-in-niwot/"
 verified: "2026-10-21"

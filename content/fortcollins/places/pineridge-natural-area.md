@@ -9,7 +9,8 @@ hours: "Daily 5 am–11 pm"
 tags: [hiking, mountain-biking, fishing, horses, dogs-on-leash]
 summary: "City natural area on the first ridge west of town: seven miles of soft-surface trail including the 1.8-mile loop around Dixon Reservoir, and the southern end of the 9.6-mile Foothills Trail. Free; open 5 am to 11 pm."
 source: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Pineridge-Natural-Area"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

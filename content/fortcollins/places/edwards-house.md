@@ -8,7 +8,8 @@ phone: "970-493-9191"
 tags: [bed-and-breakfast, historic]
 summary: "A bed and breakfast in a 1904 neoclassical foursquare on West Mountain Avenue, designed by Montezuma Fuller for Alfred Edwards and an inn since 1993. Gourmet breakfast included."
 source: "https://edwardshouse.com/information/history"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

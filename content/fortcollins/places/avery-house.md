@@ -12,7 +12,8 @@ hours: "Sat 11–2, Sun 1–4"
 tags: [historic-house, museum, tours]
 summary: "The 1879 home of Franklin and Sara Avery on West Mountain Avenue, kept as a house museum by the Poudre Landmarks Foundation and open for tours Saturdays 11–2 and Sundays 1–4. $6 adults, $5 seniors, $4 children."
 source: "https://www.poudrelandmarks.org/avery-house-tours"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 
