@@ -254,13 +254,29 @@
       "id": "fritzfamilybrewers-com",
       "name": "Fritz Family Brewers",
       "url": "https://www.fritzfamilybrewers.com/calendar",
-      "type": "html",
+      "type": "ical",
       "category": "venue",
       "priority": "other",
       "status": "proposed",
       "robots": "honor",
       "defaultVenue": "Fritz Family Brewers",
-      "notes": "Proposed 10 November 2026. Niwot's brewery (the site's title is 'Brewery | Fritz Family Brewers | Niwot, Colorado'; street address not read) has a /calendar page (200). It is a Wix site and the calendar is drawn by script from Wix's Google Calendar and Events apps, so the fetched HTML carries no event text and no events could be counted. No Google calendar id appears in the page source, so the public .ics behind it could not be found without a browser; if the brewery will share its calendar's address, that would be an iCal feed, subject to calendar.google.com's robots.txt, which disallows unlisted agents. robots.txt allows the page. Read by hand in a browser until then."
+      "notes": "Proposed 10 November 2026. Niwot's brewery (the site's title is 'Brewery | Fritz Family Brewers | Niwot, Colorado'; street address not read) has a /calendar page (200). It is a Wix site and the calendar is drawn by script from Wix's Google Calendar and Events apps, so the fetched HTML carries no event text and no events could be counted. No Google calendar id appears in the page source, so the public .ics behind it could not be found without a browser; if the brewery will share its calendar's address, that would be an iCal feed, subject to calendar.google.com's robots.txt, which disallows unlisted agents. robots.txt allows the page. Read by hand in a browser until then. The calendar's address found 10 November 2026, after the owner sent screenshots of it: the Wix page's embed loads calendar.google.com/calendar/embed?src=info@fritzfamilybrewers.com, whose public iCal address is the feedUrl. Read once that day: calendar name 'Fritz Family Brewers', America/Denver, 346 VEVENTs, nearly all the day's food truck (Pong Thai 56, The Maine Event 35, Cruagh Irish 34 and so on), six CLOSED days and the 'National Lager Day' kind of marker. What is an event: Trivia, the first and third Mondays, 6:30 to 7:30 pm (two monthly recurrences, no end date), and in summer Kölsch Service, Wednesdays 5 to 7 pm (this year's ran 20 May to 30 September). No LOCATION on most items, so the brewery is the default venue. The food trucks, closures and beer-day markers are excluded by title; a new truck's name will slip through until it is added. calendar.google.com's robots.txt disallows every agent, so under robots: honor ingest will not read this; it is the calendar the brewery embeds on its own site, and robots: subscribe is the owner's call, as for the school calendars. Expect two listings a month, and a weekly one from May to September.",
+      "feedUrl": "https://calendar.google.com/calendar/ical/info%40fritzfamilybrewers.com/public/basic.ics",
+      "excludeTitles": [
+        "Food Truck",
+        "CLOSED",
+        "^National .* Day$",
+        "Thai",
+        "Mexican",
+        "Taste of Poland",
+        "Hot Dogs",
+        "Georgia Boys",
+        "Whistling Boar",
+        "Abundance Delivered",
+        "Magic Food Bus",
+        "Mobile Diner",
+        "Ting's Things"
+      ]
     },
     {
       "id": "niwotjazz-org",
