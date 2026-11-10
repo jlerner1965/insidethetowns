@@ -11,8 +11,8 @@ imageCredit: "Town of Berthoud"
 featured: true
 summary: "The town's oldest park, redeveloped with a 12,000 sq ft inclusive playground, a stone water-play feature, two pavilions, and the summer Saturday market and Oktoberfest on its lawn."
 source: "https://www.berthoud.org/1458/Berthoud-Town-Park"
-verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Berthoud Town Park and Parks pages, and Berthoud Main Street's Mural & Public Art Tour page for the market's day and hours, read 8 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

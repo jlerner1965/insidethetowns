@@ -8,7 +8,8 @@ phone: "(970) 308-8815"
 tags: [barber, haircuts]
 summary: "A barber on Mountain Avenue that books online: haircuts, skin fades, beard trims, straight-razor shaves, kids' cuts and women's cuts."
 source: "https://www.forbicibarberwerx.com/"
-verified: "2026-11-06"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

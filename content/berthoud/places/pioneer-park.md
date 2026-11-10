@@ -10,7 +10,8 @@ image: ../images/pioneer-park-pond.webp
 imageAlt: "The fishing pond at Pioneer Park in spring: a fountain in the middle of the water, cattails along the near bank, a picnic pavilion on the lawn to the left, houses beyond, and snow on the peaks on the horizon"
 imageCredit: "Town of Berthoud"
 source: "https://www.berthoud.org/Facilities/Facility/Details/Pioneer-Park-9"
-verified: "2026-11-02"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

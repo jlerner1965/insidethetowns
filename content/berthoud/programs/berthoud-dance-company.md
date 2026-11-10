@@ -15,7 +15,8 @@ price: "$60 a month for a 30-minute class, $65 for an hour, $90 for an hour and 
 registration: { required: true, how: "Enroll any time: register on the day of your first class. The first class can be tried free." }
 contact: "970-532-4902 (calls), bdco@lpbroadband.net"
 source: "https://berthouddancecompany.com/schedule.html"
-verified: "2026-11-06"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 A studio that has been teaching in Berthoud for 23 years and calls itself non-competitive: dance as an art, not a sport. The fall 2026 schedule runs from Creative Movement for 3½ to 5-year-olds and Beginning Ballet for 5 to 7 through ballet, jazz, hip-hop, tap, contemporary, musical-theatre tap, pointe and choreography for older students, with a Sunday dance and exercise class. Students perform in Berthoud, Longmont and Loveland, including two shows a year at the Historic Rialto Theatre in Loveland. It also teaches ballroom and private lessons, for couples and wedding dances too. The full timetable is on the [schedule page](https://berthouddancecompany.com/schedule.html).

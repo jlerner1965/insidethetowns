@@ -16,8 +16,8 @@ registration: { required: true, how: "Join online through Scouting America's reg
 newcomers: true
 contact: "Kevin Clopper, berthoudtroop6@awbsa.org"
 source: "https://sites.google.com/awbsa.org/berthoudtroop6"
-verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the troop's Google Site (home, About Us, Our Adventures, What You Learn and Contact Us pages), read November 8, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Troop 6, chartered by the Berthoud Lions Club, is scout-led: the Scouts plan and run the meetings, outings and merit-badge work through their patrols, with trained adult leaders for guidance and safety. A typical month has one or two outings on top of the Monday meetings. The troop's own list of recent trips runs from summer camp at Ben Delatour Scout Ranch near Red Feather Lakes in 2026 and a spring-break week at Sea Base in the Florida Keys to weekend campouts at Carter Lake and Vedauwoo; its biggest fundraiser is a pancake breakfast with Berthoud Day. Email is the troop's main way of keeping in touch. Its site gives no cost. Boys in kindergarten to 5th grade go to [Cub Scout Pack 6](/families/#program-cub-scouts-pack-6).

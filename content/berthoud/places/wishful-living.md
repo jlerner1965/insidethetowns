@@ -6,7 +6,8 @@ area: "Downtown, Mountain Avenue"
 tags: [gifts, home]
 summary: "Eclectic gift shop on the main block: wall art, jewelry, textiles and unusual presents."
 source: "https://berthoudmainstreet.org/shop-antiques-berthoud/"
-verified: "2026-11-03"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

@@ -9,7 +9,8 @@ hours: "Mon–Fri 8 am–6 pm, Sat 8 am–2 pm; closed Sun"
 tags: [vet, pets, urgent-care]
 summary: "A vet clinic on Grand Market Avenue that takes new clients, keeps same-day appointments open and sees sick and urgent cases; open Saturday mornings."
 source: "https://www.coyoteridgevetclinic.com/locations/berthoud"
-verified: "2026-11-06"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 
