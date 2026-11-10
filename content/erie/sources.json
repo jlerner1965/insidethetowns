@@ -319,10 +319,56 @@
         "ISSA",
         "WTS ",
         "Reignite Live",
-        "^HELD$"
+        "^HELD$",
+        "Reservations"
       ],
       "autoApprove": true,
       "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Erie, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Erie. Read that day: 99 events in five pages, 1 of them in town: Nov 23 Broker Education - \"Metro Districts In Colorado\" (2026-11-23, McStain Neighborhoods at Westerly). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home."
+    },
+    {
+      "id": "eventbrite-com-o-18284345715",
+      "name": "Zikr Dance Ensemble (its Eventbrite page)",
+      "url": "https://www.eventbrite.com/o/18284345715",
+      "feedUrl": "https://www.eventbrite.com/o/18284345715",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "confirmed",
+      "robots": "honor",
+      "locationFilter": [
+        "Erie, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education",
+        "Training",
+        "Tactical",
+        "Republican",
+        "Democrat",
+        "Conservatives",
+        "Entrepreneurs",
+        "CEO Retreat",
+        "Boss Babes",
+        "Foodies + New Friends",
+        "Scavenger Hunt",
+        "Random Acts of Kindness Spree",
+        "Neck Pain",
+        "Pelvic",
+        "Menopause",
+        "Acupuncture",
+        "Color Analysis",
+        "Workout Class",
+        "Espresso Machine Demo",
+        "Home Studio",
+        "ISSA",
+        "WTS ",
+        "Reignite Live",
+        "^HELD$",
+        "Reservations"
+      ],
+      "autoApprove": true,
+      "notes": "Found 10 November 2026 by reading all of the region's Eventbrite search (up to 49 pages), which the weekly read of five pages does not reach: this organizer had an event in Erie. Its own page was read that day: 1 upcoming, 1 in town: Zikr Dance Ensemble presents \"The Nutcracker In A Nutshell\" (2026-12-06). Confirmed with autoApprove on the owner's word that Eventbrite is used for every town and publishes without a person (\"yes to 2 and auto publish all\"); filed as other, kept to the town by the location filter, with the title exclusions every Eventbrite source carries. One page, read once a week. Eventbrite's terms of service restrict automated collection; see eventbrite-com-erie."
     }
   ]
 }

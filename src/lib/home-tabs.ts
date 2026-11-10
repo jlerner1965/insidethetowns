@@ -73,8 +73,25 @@ export interface HomeTab {
 const SHORT_DAY = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' });
 
 /**
- * Up to `limit` of a list. The one-offs and the civic listings take the
- * slots, in day and clock order. The regulars (`series`: trivia, a monthly
+ * What a reader opens the tab for comes first (the owner, 10 November 2026,
+ * the day the library feeds were turned on and a weekend opened with a
+ * library's programs above the bands): 0 the week's pick, a game, and the
+ * outings (music, a market, a festival, the arts, food, the outdoors,
+ * something for families); 1 any other one-off; 2 a library's own program
+ * and a civic meeting, which are worth their line and are never why someone
+ * opened the page.
+ */
+export function tabRank(row: Pick<TabRow, 'pick' | 'category' | 'program' | 'kind'>): number {
+  if (row.pick || row.kind === 'game') return 0;
+  if (row.program || row.category === 'civic') return 2;
+  return row.category && (row.category === 'sports' || LEAD_CATEGORIES.includes(row.category) || OUTING_CATEGORIES.includes(row.category)) ? 0 : 1;
+}
+
+/**
+ * Up to `limit` of a list. The one-offs take the slots, the outings before
+ * a library's programs and the meetings (`tabRank`), so a library program
+ * is shown only where the outings leave room, and under them; within a rank
+ * the order is the day's and the clock's. The regulars (`series`: trivia, a monthly
  * club, the day's food truck; events.ts, fillTest) are shown only on a quiet
  * list, one with fewer than FILL_BELOW one-offs, and only up to that many
  * rows in all: they keep a thin guide's Tuesday from reading "Nothing
@@ -89,13 +106,16 @@ const SHORT_DAY = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekda
  */
 export function pickRows(items: TabRow[], limit = TAB_LIMIT): { rows: TabRow[]; more: number } {
   const byClock = (a: TabRow, b: TabRow) => a.dayKey.localeCompare(b.dayKey) || a.time.localeCompare(b.time);
+  const byRank = (a: TabRow, b: TabRow) => tabRank(a) - tabRank(b) || byClock(a, b);
   const sorted = [...items].sort(byClock);
-  const chosen = sorted.filter((r) => !r.status && !r.series).slice(0, limit);
+  const chosen = sorted.filter((r) => !r.status && !r.series).sort(byRank).slice(0, limit);
   const fill = Math.min(limit, FILL_BELOW) - chosen.length;
   if (fill > 0) chosen.push(...sorted.filter((r) => !r.status && r.series).slice(0, fill));
   chosen.push(...sorted.filter((r) => r.status).slice(0, Math.max(0, limit - chosen.length)));
   const on = (list: TabRow[]) => list.filter((r) => !r.status).length;
-  return { rows: chosen.sort(byClock), more: on(items) - on(chosen) };
+  // The outings first, then the programs and meetings: each in clock order.
+  const lower = (r: TabRow) => (tabRank(r) === 2 ? 1 : 0);
+  return { rows: chosen.sort((a, b) => lower(a) - lower(b) || byClock(a, b)), more: on(items) - on(chosen) };
 }
 
 /**

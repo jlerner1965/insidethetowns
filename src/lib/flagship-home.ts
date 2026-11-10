@@ -11,7 +11,7 @@ import { HIGHLIGHT } from '../config/palette.ts';
 import type { SportGame, SportsData } from '../config/school-sports.ts';
 import type { EventCategory } from '../content/schemas.ts';
 import { addDays, dayKey, formatTime, formatTimeRange, startOfDay, toIsoLocal } from './dates.ts';
-import { displayTitle as titleLessVenue, lastDay, listedUntil, sortByStart } from './events.ts';
+import { displayTitle as titleLessVenue, isLibraryProgram, lastDay, listedUntil, sortByStart } from './events.ts';
 import { FLAGSHIP_TEAM, RESULT_WORD, dedupeResults, gameDay, where, type TeamGame } from './school-sports.ts';
 import { weekWindow } from './weekly.ts';
 
@@ -100,6 +100,8 @@ export interface DayItem {
   series?: boolean;
   /** The listing's category, for the rank of what is next on a thin day (src/lib/home-tabs.ts, nextRank). */
   category?: EventCategory;
+  /** A library's own program (the venue is a library): listed after the day's outings, and only where the list has room (src/lib/home-tabs.ts, tabRank). */
+  program?: boolean;
 }
 
 /** A registration opening or closing on a day, from the programs (src/lib/programs.ts, upcomingDeadlines). */
@@ -222,6 +224,7 @@ export function eventItem(e: EventLike, picked?: ReadonlySet<string>): DayItem {
     end: toIsoLocal(listedUntil(e)),
     ...(status === 'canceled' || status === 'postponed' ? { status } : {}),
     ...(picked?.has(slug) ? { pick: true } : {}),
+    ...(isLibraryProgram(e) ? { program: true } : {}),
   };
 }
 

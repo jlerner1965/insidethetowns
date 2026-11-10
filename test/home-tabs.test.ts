@@ -5,7 +5,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, NEXT_LIMIT, nextAfter, nextRank, pickRows, TAB_DAYS_AHEAD, TAB_LIMIT, tabEditions } from '../src/lib/home-tabs.ts';
+import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, NEXT_LIMIT, nextAfter, nextRank, pickRows, TAB_DAYS_AHEAD, TAB_LIMIT, tabEditions, tabRank } from '../src/lib/home-tabs.ts';
 import { asOfFor } from '../src/lib/relative-days.ts';
 import { weekDays } from '../src/lib/flagship-home.ts';
 import { agenda, FILL_BELOW, fillTest } from '../src/lib/events.ts';
@@ -265,4 +265,39 @@ test('what is a regular: the same thing every time, and the day’s food truck; 
 test('"Next in <Town>" names a regular once though it has a page per date', () => {
   const rows = laterRows(['2026-11-16', '2026-12-07', '2026-12-21'].map((d) => ev(`trivia-${d}`, `${d}T18:30`, { title: 'Trivia', category: 'other' })), undefined, () => true);
   assert.deepEqual(nextAfter(rows, '2026-11-10').map((r) => r.dayKey), ['2026-11-16']);
+});
+
+test('outings lead a tab; a library program and a meeting are shown only where they leave room, and under them', () => {
+  const now = at('2026-11-13T05:00'); // a Friday
+  const row = (slug: string, start: string, extra: Record<string, unknown> = {}) => {
+    const day = weekDays({ events: [ev(slug, start, extra)], now, start: 'today', limit: 99 }).find((d) => d.items.length)!;
+    return { ...day.items[0]!, dayWord: '', dayKey: day.key };
+  };
+  const library = { venue: 'Gunbarrel Library', category: 'other' };
+  const music = { venue: 'The Wheel House', category: 'music' };
+  const talk = row('great-decisions', '2026-11-13T10:00', library);
+  const movie = row('classic-movies', '2026-11-15T14:00', library);
+  const council = row('board-meeting', '2026-11-13T16:30');
+  const bands = [row('maingrass', '2026-11-13T18:00', music), row('strangebyrds', '2026-11-13T19:00', music), row('starlight', '2026-11-14T19:00', music), row('mainjazz', '2026-11-15T17:30', music)];
+  assert.equal(talk.program, true, 'a listing at a library is a program');
+  assert.equal(bands[0]!.program, undefined);
+  assert.equal(tabRank(talk), 2);
+  assert.equal(tabRank(council), 2);
+  assert.equal(tabRank(bands[0]!), 0);
+
+  // Room for all: the four bands in clock order, then the programs and the meeting in clock order.
+  const roomy = pickRows([talk, movie, council, ...bands], 7);
+  assert.deepEqual(roomy.rows.map((r) => r.fullTitle), ['maingrass', 'strangebyrds', 'starlight', 'mainjazz', 'great-decisions', 'board-meeting', 'classic-movies']);
+
+  // Five slots: the Friday morning talk is in, under the bands; the rest wait behind "more".
+  const five = pickRows([talk, movie, council, ...bands]);
+  assert.deepEqual(five.rows.map((r) => r.fullTitle), ['maingrass', 'strangebyrds', 'starlight', 'mainjazz', 'great-decisions']);
+  assert.equal(five.more, 2);
+
+  // A full weekend of outings: no program takes a slot from one.
+  const full = pickRows([talk, movie, ...bands, row('market', '2026-11-14T09:00', { venue: 'Cottonwood Square', category: 'market' }), row('craft-fair', '2026-11-14T12:00', { venue: 'Niwot Hall', category: 'arts' })]);
+  assert.deepEqual(full.rows.map((r) => r.fullTitle), ['maingrass', 'strangebyrds', 'market', 'craft-fair', 'starlight']);
+
+  // Nothing else on: the library's program is the day, and leads it.
+  assert.deepEqual(pickRows([talk]).rows.map((r) => r.fullTitle), ['great-decisions']);
 });

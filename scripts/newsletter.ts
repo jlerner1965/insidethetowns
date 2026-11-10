@@ -118,7 +118,7 @@ function line(e: Listing, town: TownConfig): string {
 
 function byDay(list: Listing[], town: TownConfig): string[] {
   const out: string[] = [];
-  for (const day of groupByDay(list)) out.push(`**${formatDayLong(day.date)}**`, '', ...day.events.map((e) => line(e, town)), '');
+  for (const day of groupByDay(list, { outingsFirst: true })) out.push(`**${formatDayLong(day.date)}**`, '', ...day.events.map((e) => line(e, town)), '');
   return out;
 }
 

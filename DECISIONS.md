@@ -10107,3 +10107,60 @@ sixteen guides; each was read with the listing it was held against.
   Leadville, with no venue anywhere read; a Zoom-only committee meeting;
   and two changes to published listings (a Chrispy night's end time at
   Mountain Toad, the Holiday Mountain Market's second day).
+
+## Eventbrite organizers for the small towns, 10 November 2026
+
+The owner said yes to finding the organizers who run events in each small
+town, and that Eventbrite publishes without a person.
+
+- **The whole of each region's search was read once** (up to 49 pages,
+  nine regions, one page every two seconds) to see what the weekly five
+  pages miss. The small towns simply have little on Eventbrite: Erie 27
+  (twenty of them one watercolour class at a house), Golden 22, Johnstown
+  7, Niwot 6, Lyons 5, Berthoud 4, Elizabeth 3, Frederick 3, Timnath 2,
+  Severance 2, Nederland 1, Leadville none.
+- **Sixteen organizer pages are sources now**, confirmed with
+  `autoApprove`, each kept to its town by the location filter: in Niwot
+  Streetside Dance, Sunshine Productions, BalletConnect and Niwot
+  Wellness; in Golden State 38 Distilling, Deep Roots Winery and
+  UllrGrass; Zikr Dance Ensemble in Erie; Bohemian Boys Comedy in
+  Elizabeth; two in Johnstown, two in Berthoud, one each in Timnath, Lyons
+  and Severance. Organizers whose only events are classes, trainings or
+  sales were left out. Two found for Frederick were not kept: the town's
+  place page already supplies their events.
+- **Published, 12**: Toys In The Attic and A dance for Wildlife in Niwot;
+  three at State 38 Distilling, Dead Red Night and UllrGrass 2027 in
+  Golden; The Nutcracker In A Nutshell in Erie; Santa at Mtn + Mane in
+  Timnath; one each in Johnstown, Lyons and Severance.
+- **"Turkey Reservations 2026" was published and taken down**: an order
+  window at a farm, not an event. "Reservations" is excluded by title on
+  every Eventbrite source.
+- Most of these organizers have one event at a time, so the gain each
+  week is small; the pages cost one read apiece.
+
+## Outings before library programs and meetings, 10 November 2026
+
+With the library feeds on, the owner asked that the events under "This
+weekend" be put right: a library's events should not be on top unless
+they have to be, and the social ones should.
+
+- **On the home page's tabs** (`tabRank`, `pickRows` in
+  src/lib/home-tabs.ts): the outings take the slots first (the week's
+  pick, a game, music, a market, a festival, the arts, food, the outdoors,
+  something for families, sport), then any other one-off, and last a
+  library's own programs and the civic meetings, which are shown only
+  where the outings leave room. The rows shown are the outings in clock
+  order, then the programs and meetings in clock order. A day with nothing
+  but a library program still has it, at the top.
+- **On the events page, This weekend and the Thursday email**
+  (`groupByDay` with `outingsFirst`): the days stay in date order, and
+  within a day the library programs and meetings come after everything
+  else, each part in clock order. This sets aside, for those two kinds
+  only, the rule that a day's list is the clock's and nothing else ranks.
+- **A library program is a listing whose venue is a library**
+  (`isLibraryProgram`): the feed's category for one is a guess, and the
+  venue is not. A concert held at a library is under the bands too.
+- **Not changed**: the regulars rule (trivia, clubs and food trucks fill a
+  quiet list and step back on a full one), the hub's lists, and what
+  publishes. Niwot's home page, built that day: this weekend opens with
+  Strangebyrds, Toys In The Attic and Starlight and Pine.

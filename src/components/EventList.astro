@@ -30,7 +30,8 @@ interface Props {
 
 const { events, emptyMessage = 'No events listed yet. Check back soon.', compact = false, held, picks } = Astro.props;
 const { ongoing, dated } = splitOngoing(events);
-const days = groupByDay(dated);
+// A day's outings before its library programs and meetings (src/lib/events.ts, groupByDay).
+const days = groupByDay(dated, { outingsFirst: true });
 const mark = (e: TownEntry<'events'>) => held?.get(e) ?? { regular: false, repeat: false };
 const heldBack = (e: TownEntry<'events'>) => mark(e).regular || mark(e).repeat;
 const allHeld = (list: TownEntry<'events'>[]) => list.length > 0 && list.every(heldBack);
