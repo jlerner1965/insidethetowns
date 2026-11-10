@@ -165,32 +165,53 @@ export function namesTown(name: string, town: string): boolean {
   return new RegExp(`\\b${town.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(name);
 }
 
-export function placeTitle(name: string, kind: string, town: { name: string; state: string }, facts?: PlacePageFacts): string {
+export function placeTitle(name: string, kind: string, town: { name: string; state: string; siteTitle?: string }, facts?: PlacePageFacts): string {
   const named = namesTown(name, town.name);
   const plain = named ? `${name} — ${kind}` : `${name} — ${kind} in ${town.name}, ${town.state}`;
   if (!facts) return plain;
   const fits = (t: string) => t.length <= TITLE_LIMIT;
+  /*
+   * A title names its town somewhere: in the place's own name, or in the
+   * guide's name after it. A fact title too long for " | Inside [Town]"
+   * stood alone with neither, on 56 of 781 live place pages (the sweep of
+   * 10 November 2026: "Rolland Moore Park: Tennis, Racquetball & Ball
+   * Fields", "Penelope's World Famous Burgers & Fries: Hours & Location",
+   * and the Smokin' Dave's of three towns told apart by nothing). Where
+   * the guide's name will not fit after it (fitTitle, with `siteTitle`
+   * given), the town goes after the name instead: "Rolland Moore Park,
+   * Fort Collins: Tennis, Racquetball & Ball Fields". Without `siteTitle`
+   * the title is as it was.
+   */
+  // The guide's name stands for the town only where it carries it: a
+  // Severance listing on Inside Windsor is not placed by "| Inside Windsor".
+  const standsAlone = (t: string) => !named && !!town.siteTitle && !(namesTown(town.siteTitle, town.name) && fitTitle(t, town.siteTitle) !== t);
+  const placed = (t: string, withTown: string): string | undefined => {
+    if (!fits(t)) return undefined;
+    if (!standsAlone(t)) return t;
+    return fits(withTown) ? withTown : undefined;
+  };
   if (facts.type === 'venue' && facts.hours) {
     const parts = ['Hours', ...(facts.poolSchedule ? ['Pool Schedule'] : []), ...(facts.dayPassPrices ? ['Day Pass Prices'] : [])];
     // Over the limit, the last claim gives way first: the hours are the title's point.
     for (let n = parts.length; n >= 1; n--) {
-      const title = `${name} ${ampersandList(parts.slice(0, n))}`;
-      if (fits(title)) return title;
+      const list = ampersandList(parts.slice(0, n));
+      const title = placed(`${name} ${list}`, `${name}, ${town.name}: ${list}`);
+      if (title) return title;
     }
     return plain;
   }
   if (facts.type === 'restaurant' || facts.type === 'coffee') {
     const tail = facts.menu && facts.hours ? 'Menu & Hours' : facts.hours ? 'Hours & Location' : facts.menu ? 'Menu & Location' : undefined;
     if (!tail) return plain;
-    const title = `${name}: ${tail}`;
-    return fits(title) ? title : plain;
+    return placed(`${name}: ${tail}`, `${name}, ${town.name}: ${tail}`) ?? plain;
   }
   if (facts.type === 'park') {
     const labels = facts.amenities.map(amenityLabel).filter(Boolean);
     for (const n of [3, 2]) {
       if (labels.length < n) continue;
-      const title = `${name}: ${ampersandList(labels.slice(0, n))}`;
-      if (fits(title)) return title;
+      const list = ampersandList(labels.slice(0, n));
+      const title = placed(`${name}: ${list}`, `${name}, ${town.name}: ${list}`);
+      if (title) return title;
     }
     return plain;
   }

@@ -178,6 +178,18 @@ test('a place page is one sentence that leads with the hours and promises only w
   assert.equal(closed, 'B-Rad’s Arcade in Berthoud, CO is temporarily closed; this page keeps the address and what is known about it.');
 });
 
+test('a shortened place description never joins across the town-and-state comma', () => {
+  // "Old Town Square in Fort Collins and CO is the pedestrian plaza": sixteen live pages (10 November 2026).
+  const fc = { name: 'Fort Collins', state: 'CO' };
+  const out = placeDescription(
+    { title: 'Old Town Square', summary: 'The pedestrian plaza at the heart of Old Town, a stage, fountains, patios, shops, restaurants on three sides, a summer concert series on Friday nights and the holiday lights from November to February.', address: 'x', url: 'x', hoursShown: false },
+    fc,
+  );
+  assert.match(out, /^Old Town Square in Fort Collins, CO is the pedestrian plaza/);
+  assert.doesNotMatch(out, / and CO /);
+  assert.ok(out.length <= META_DESCRIPTION_LIMIT);
+});
+
 test('a place with no hours says what is there, from the summary’s own "with" clause or its opening article', () => {
   const town = { name: 'Berthoud', state: 'CO' };
   const park = placeDescription({ title: 'Pioneer Park', summary: 'Neighborhood park on Indiana Avenue with a playground, a basketball court, a roller hockey rink, a fishing pond and three large picnic pavilions.', address: 'x', url: 'x', hoursShown: false }, town);
