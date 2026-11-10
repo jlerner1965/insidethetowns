@@ -95,6 +95,8 @@ const streetKey = (v: string) =>
     .replace(/\bdrive\b/g, 'dr')
     .replace(/\broad\b/g, 'rd')
     .replace(/\bhighway\b/g, 'hwy')
+    .replace(/\b(?:state|colorado)\s+hwy\b/g, 'hwy')
+    .replace(/\bco[- ](\d+)\b/g, 'hwy $1')
     .replace(/\bplace\b/g, 'pl')
     .replace(/\bcourt\b/g, 'ct')
     .replace(/\blane\b/g, 'ln')
@@ -242,7 +244,7 @@ for (const name of readdirSync(dir).filter((f) => f.endsWith('.md') && !f.starts
     const lng = match?.coordinates?.x;
     const lat = match?.coordinates?.y;
     if (typeof lat !== 'number' || typeof lng !== 'number') unplaced.push(`${id}: no match for "${oneLine}"`);
-    else if (lng < box.w || lng > box.e || lat < box.s || lat > box.n) unplaced.push(`${id}: "${oneLine}" is outside the map`);
+    else if (!osm && (lng < box.w || lng > box.e || lat < box.s || lat > box.n)) unplaced.push(`${id}: "${oneLine}" is outside the map`);
     else {
       places[id] = [round(lat), round(lng)];
       from[id] = 'geocoder';
