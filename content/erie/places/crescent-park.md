@@ -5,6 +5,9 @@ address: "1300 Lombardi St"
 area: "Lombardi Street"
 url: "https://www.erieco.gov/2313/Crescent-Park"
 hours: "Open daily, sunrise to sunset"
+image: ../images/crescent-park.jpg
+imageAlt: "The purple and yellow challenge-course playground at Crescent Park, with tube slides and a blue shade roof, houses and trees behind"
+imageCredit: "Town of Erie"
 tags: [playground, challenge course, field]
 summary: "An 8-acre park on Lombardi Street whose playground has a challenge course, with a multi-purpose field, a shelter, walking trails and a permanent restroom in season."
 source: "https://www.erieco.gov/2313/Crescent-Park"

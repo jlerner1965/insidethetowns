@@ -5,6 +5,9 @@ address: "495 Highlands Circle"
 area: "Highlands Circle"
 url: "https://www.erieco.gov/2273/Clayton-Park"
 hours: "Open daily, sunrise to sunset"
+image: ../images/clayton-park.jpg
+imageAlt: "The ballfields at Clayton Park behind tall chain-link backstops, with aluminum bleachers, a young tree and a paved path under a clear blue sky"
+imageCredit: "Town of Erie"
 tags: [playground, ballfields, pickleball, tennis]
 summary: "An 8.7-acre park on Highlands Circle with a big playground (a hill slide and a zipline), two ballfields, a pickleball and tennis court, a shelter and walking trails."
 source: "https://www.erieco.gov/2273/Clayton-Park"

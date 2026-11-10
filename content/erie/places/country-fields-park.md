@@ -5,6 +5,9 @@ address: "1801 Tynan Dr"
 area: "Tynan Drive"
 url: "https://www.erieco.gov/2312/Country-Fields-Park"
 hours: "Open daily, sunrise to sunset"
+image: ../images/country-fields-park.jpg
+imageAlt: "The playground at Country Fields Park under green shade canopies, with orange slides, a welcome sign and a white picnic shelter behind"
+imageCredit: "Town of Erie"
 tags: [cricket, ballfields, playground]
 summary: "A 22.2-acre park on Tynan Drive with two ballfields, a cricket pitch in the native grass, a playground, a shelter and walking trails."
 source: "https://www.erieco.gov/2312/Country-Fields-Park"

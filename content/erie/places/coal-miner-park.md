@@ -5,6 +5,9 @@ address: "480 Cheesman St"
 area: "Downtown, Cheesman Street"
 url: "https://www.erieco.gov/2292/Coal-Miner-Park"
 hours: "Open daily, sunrise to sunset"
+image: ../images/coal-miner-park.jpg
+imageAlt: "Coal Miner Park's red, green and orange playground before its 2026 replacement, on wood chips among shade trees beside a curving path"
+imageCredit: "Town of Erie"
 tags: [shelter, sand volleyball, playground]
 summary: "A small park near downtown on Cheesman Street with a large picnic shelter and a sand volleyball court; its playground is being replaced until late November 2026."
 source: "https://www.erieco.gov/2292/Coal-Miner-Park"
