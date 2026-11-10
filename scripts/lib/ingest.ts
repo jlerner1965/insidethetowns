@@ -246,6 +246,22 @@ export function fingerprint(item: FeedEvent, venue: string | undefined): string 
 }
 
 /**
+ * A feed title as the guide writes it: without the picture characters a bar
+ * decorates its calendar with ("🎶🎉💃🏼🎸Sweat & Reed" at Goosetown Station,
+ * 10 November 2026). Only the written title: the item keeps its own, so a
+ * source's title exclusions can still name one ("🚛" for the food trucks)
+ * and the fingerprint does not move. A title that is nothing but pictures
+ * is left as it came.
+ */
+export function writtenTitle(title: string): string {
+  const plain = title
+    .replace(/[\p{Extended_Pictographic}\u{1F3FB}-\u{1F3FF}\u{FE0F}\u{200D}\u{20E3}]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return plain || title;
+}
+
+/**
  * Feed item -> the file it would become in staging. `dupes`, the published
  * listings it may repeat (`possibleDuplicates`), lead the review line.
  */
@@ -266,7 +282,7 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
   const dupe = elsewhere ?? duplicateNote(dupes);
   const reason = [...(dupe ? [dupe] : []), `Ingested from ${source.name}; check against the organizer's page`, ...guesses, 'description is the feed\'s text: rewrite'].join('. ');
   const frontmatter: Record<string, unknown> = {
-    title: item.title,
+    title: writtenTitle(item.title),
     // On a multi-town guide the feed's registry entry says which town it is
     // for; a shared feed (the chamber's) leaves it for the review to set.
     subTown: source.subTown,

@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readSquarespaceEvents, squarespaceTimeZone, squarespaceView } from '../scripts/lib/feeds/squarespace.ts';
-import { toStaged, venueFrom } from '../scripts/lib/ingest.ts';
+import { toStaged, venueFrom, writtenTitle } from '../scripts/lib/ingest.ts';
 import { FEED_TYPES, sourceSchema } from '../src/content/schemas.ts';
 import { parseLocal, toWallClock } from '../src/lib/dates.ts';
 
@@ -112,4 +112,13 @@ test('squarespace is a feed type: it needs its feedUrl, and a staged item valida
   assert.equal(staged.frontmatter.venue, 'St. Vrain Cidery');
   assert.equal(toWallClock(staged.frontmatter.start as Date), '2026-11-13T18:30');
   assert.equal(staged.frontmatter.sourceUid, '/events/music-ingrid-avison');
+});
+
+test('a title is written without the pictures a venue decorates it with', () => {
+  assert.equal(writtenTitle('🎶🎉💃🏼🎸Sweat & Reed'), 'Sweat & Reed');
+  assert.equal(writtenTitle('♠️🍻 TUESDAY NIGHT POKER 🍻♠️'), 'TUESDAY NIGHT POKER');
+  assert.equal(writtenTitle('Lulu\'s Taters 🥔'), "Lulu's Taters");
+  assert.equal(writtenTitle('Strange Byrds'), 'Strange Byrds');
+  // Nothing but pictures: left as it came rather than emptied.
+  assert.equal(writtenTitle('🎄🎅'), '🎄🎅');
 });

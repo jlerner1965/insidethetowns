@@ -1,0 +1,15 @@
+{
+  "slug": "food-pantry-at-holiday-mountain-market-2026",
+  "sourceId": "nederlandfoodpantry-org",
+  "sourceUid": "/events/holidaymountainmarket",
+  "sourceUrl": "https://www.nederlandfoodpantry.org/events/holidaymountainmarket",
+  "detected": "2026-11-10",
+  "cancel": false,
+  "changes": [
+    {
+      "field": "end",
+      "was": "2026-12-05T17:00",
+      "now": "2026-12-06T17:00"
+    }
+  ]
+}

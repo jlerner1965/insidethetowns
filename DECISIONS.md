@@ -9913,3 +9913,40 @@ ingested, and the owner is shown what would be staged first.
 - **Left as they were**: categories. Estes Park's schools and Live Well
   Douglas County are filed as other, and Golden Today as news, so their
   items wait for a person. `autoApprove` is set nowhere new.
+
+## The twenty-four ingested, and four answers, 10 November 2026
+
+Shown what the dry runs would stage and asked four things, the owner said
+yes to all four: run the ingest now; exclude the food trucks at Timnath
+Beerwerks, as Mighty River's are; file Estes Park's school calendar as
+venue; bring Ginger and Baker's cooking classes back.
+
+- **Ingest** was run for the twenty-four sources only (`--source`), then
+  the unattended review for their eleven guides, as the Monday workflow
+  does. Firehouse Art Center answered 429 twice (Google's rate limit after
+  the day's reads) and was read on the third try.
+- **Published under the standing rules: 221.** Fort Collins 122 (about 70
+  cooking classes, 26 CSU home games, Wolverine Farm, Maxline), Erie 24,
+  Longmont 22, Golden 14, Loveland 12, Lafayette 7, Nederland 7, Estes
+  Park 6, Timnath 6, Niwot 1. Four changes written in, all Erie library
+  listings whose venue named the library's living room and now names the
+  library, as its feed does.
+- **Left for a person: about 80.** Loveland's 27 from the downtown
+  calendar and Castle Rock's 8 from Live Well Douglas County, each a board
+  listing other organizers' events; Golden's from Golden Today, a news
+  source, some flagged as possible doubles of published listings; Estes
+  Park's school plays and concerts, because that feed gives no venue;
+  two music bingo nights at Beerwerks that may double the weekly listing;
+  and the three Chrispy nights at Mountain Toad and the Holiday Mountain
+  Market's second day, where the source and the guide differ.
+- **Kept out after the first read**, by title, and their staged files
+  removed: at the Firehouse the monthly poetry night (one fell on Christmas
+  Day) and two placeholder openings whose dates did not match their
+  titles; "Closing at 3pm for Christmas Eve" at Ginger and Baker; "Merry
+  Christmas!" at Wolverine Farm.
+- **A written title drops a venue's picture characters**
+  (`writtenTitle`, scripts/lib/ingest.ts): Goosetown Station's calendar
+  reads "🎶🎉💃🏼🎸Sweat & Reed" and the guide lists "Sweat & Reed". The
+  item keeps its own title, so a source's exclusions can still name one.
+- Fort Collins, Castle Rock and Estes Park have no weekly email, so what
+  was added there fills the site only.
