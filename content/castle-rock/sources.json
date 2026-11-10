@@ -215,7 +215,7 @@
     },
     {
       "id": "honnibrook-com",
-      "name": "Honnibrook Craft Meadery: events",
+      "name": "Honnibrook Craft Meadery",
       "url": "https://www.honnibrook.com/events/",
       "feedUrl": "https://www.honnibrook.com/wp-json/tribe/events/v1/events",
       "type": "json",
@@ -223,7 +223,12 @@
       "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Honnibrook Craft Meadery",
-      "notes": "Found by the sweep of the sources no feed reads, 1 November 2026 (docs/sweep-2026-11-01-report.md), when every show listed here was published by hand. Proposed, so ingest does not read it until the owner confirms it (npm run sources -- confirm castle-rock honnibrook-com). The Events Calendar (WordPress) at /events/; ?ical=1 read 1 November 2026. The Tribe REST API (/wp-json/tribe/events/v1/events) is there too, if json reads it better. Counted 10 November 2026 and switched from ical to json: /events/?ical=1 answered with 2 VEVENTs (the list-view window, as on douglasco.gov), while the Tribe REST feed from today onward returned 6 events in the next 30 days: Trivia Night: The Muppets (17 November), Gamer's Choice RPG: Torchbearer (21 November), Josh Blackburn: Live In Castle Rock (4 December), Anne's Birthday Bash! (5 December), Wives of DoCR Christmas Party (6 December), Castle Rock Brewery Book Club Christmas Party (8 December). Every venue is 'Honnibrook Craft Meadery, 2276 Manatt Court, Unit B9'. Two read as private parties, so about 4 listable. robots.txt is 'Allow: /'. The ical URL was https://www.honnibrook.com/events/?ical=1."
+      "notes": "Found by the sweep of the sources no feed reads, 1 November 2026 (docs/sweep-2026-11-01-report.md), when every show listed here was published by hand. Proposed, so ingest does not read it until the owner confirms it (npm run sources -- confirm castle-rock honnibrook-com). The Events Calendar (WordPress) at /events/; ?ical=1 read 1 November 2026. The Tribe REST API (/wp-json/tribe/events/v1/events) is there too, if json reads it better. Counted 10 November 2026 and switched from ical to json: /events/?ical=1 answered with 2 VEVENTs (the list-view window, as on douglasco.gov), while the Tribe REST feed from today onward returned 6 events in the next 30 days: Trivia Night: The Muppets (17 November), Gamer's Choice RPG: Torchbearer (21 November), Josh Blackburn: Live In Castle Rock (4 December), Anne's Birthday Bash! (5 December), Wives of DoCR Christmas Party (6 December), Castle Rock Brewery Book Club Christmas Party (8 December). Every venue is 'Honnibrook Craft Meadery, 2276 Manatt Court, Unit B9'. Two read as private parties, so about 4 listable. robots.txt is 'Allow: /'. The ical URL was https://www.honnibrook.com/events/?ical=1. Excluded by title from 10 November 2026, after the first ingest staged them: a birthday party, a private group's party and the book club, which read as private or standing bookings.",
+      "excludeTitles": [
+        "Birthday Bash",
+        "Wives of DoCR",
+        "Book Club"
+      ]
     },
     {
       "id": "ironmulebrewery-com",

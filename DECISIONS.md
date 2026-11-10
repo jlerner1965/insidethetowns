@@ -9680,3 +9680,27 @@ Nederland library is typed `ical`; its robots.txt allows the feed. A dry
 run staged 52 items in 120 days, 55 of the feed's entries being one weekly
 writers' group, so the standing clubs, storytimes, committee meetings and
 closures are excluded by title as on the other library feeds.
+
+## The new feeds ingested the same day, 10 November 2026
+
+The owner asked for the ingest now rather than on Monday. It was run for
+the sixteen newly confirmed feeds only (`--source`), then the unattended
+review for their seven guides, as the Monday workflow does.
+
+- **Staged**: about 115 items. **Published under the standing rules**: 61
+  (Windsor 27, Frederick 15, Leadville 14, Nederland 3, Castle Rock 2).
+- **Left for a person**: Leadville's 30, nearly all from Visit Leadville
+  Twin Lakes, which is a chamber-kind source that lists others' events
+  (Taste of Leadville, the Parade of Lights, the Elks' bingo), and the high
+  school's plays and games; Timnath's 8 from the school calendar, for the
+  same reason and for want of a venue.
+- **Kept out after the first read**, by title, and their staged files
+  removed: at Frederick High the screenings, the PSAT, pep band and the
+  feeder elementary's performances (not at the high school, which is the
+  default venue); at Severance High the quarter's end, testing and
+  conferences; at Honnibrook a birthday party, a private group's party and
+  the book club.
+- **Two Windsor sources named for their organizations** (Mighty River
+  Brewing, Clearview Library District), since a listing says who listed
+  it and "Listed by tockify.com" is not who. Mighty River's music nights
+  are filed as music.

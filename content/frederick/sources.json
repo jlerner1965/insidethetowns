@@ -26,7 +26,7 @@
     },
     {
       "id": "firestoneco-gov",
-      "name": "Town of Firestone: Special Events calendar",
+      "name": "Town of Firestone",
       "url": "https://www.firestoneco.gov/events",
       "feedUrl": "https://www.firestoneco.gov/common/modules/iCalendar/iCalendar.aspx?catID=26&feed=calendar",
       "sampleUrl": "https://www.firestoneco.gov/calendar.aspx?EID=2691",
@@ -286,7 +286,7 @@
     },
     {
       "id": "fhs-svvsd-org",
-      "name": "Frederick High School (St. Vrain Valley Schools): Calendar",
+      "name": "Frederick High School",
       "url": "https://fhs.svvsd.org/",
       "feedUrl": "https://calendar.google.com/calendar/ical/svvsd.org_sihhjnurp82he1pbg6dllgdmv4%40group.calendar.google.com/public/basic.ics",
       "type": "ical",
@@ -312,10 +312,14 @@
         "Cafecito",
         "Honor Jazz",
         "Share Choir Festival",
-        "Veterans Day Parade"
+        "Veterans Day Parade",
+        "Hearing & Vision",
+        "PSAT",
+        "Pep Band",
+        "Legacy Elementary"
       ],
       "defaultVenue": "Frederick High School, 5690 Tipple Parkway, Frederick",
-      "notes": "Found and read on 10 November 2026 by the sources agent. Frederick High School, 5690 Tipple Parkway; its home page embeds a public Google Calendar (\"FHS Website\", id svvsd.org_sihhjnurp82he1pbg6dllgdmv4@group.calendar.google.com), and the public iCal for that id answered 200 text/calendar, read once with a browser user agent: 2,102 VEVENTs (10 recurring) from September 2011 to 29 May 2027, America/Denver, 48 in the next 30 days. Most are the school's own running (\"A\" Day and \"B\" Day markers, practices and rehearsals, study hall, clubs, office closures), excluded by title here as a first pass for the editor; what is left for 10 November to 10 December is about 9 public items: the FHS/TVK8/CRMS Orchestra Concert (10 November, 6 pm), the Legacy Elementary Choir Concert (16 November), the Unified Play & Band Performance (3 December, 6 pm), an Advanced Drama Performance (4 December), the Girls Basketball Tournament (3, 4 and 5 December), the FHS/TVK8/CRMS Concert (8 December, 6 pm) and the Mariachi Concert (9 December, 6 pm). Many items have no LOCATION, so the school is the default venue; a concert at a feeder school would need its venue checked. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this; it is a public calendar the school embeds on its own site, and robots: subscribe is the editor's call. The school site itself answered 429 to several quick requests in a row, so it is read gently. The district's own calendar (svvsd-org) stays the source for no-school days. robots: subscribe from 10 November 2026, the owner's call: the host's robots.txt disallows the path, and this is the calendar the organization publishes for subscription; one weekly read is what a subscribed calendar does (DECISIONS.md, \"The owner subscribes to the calendar feeds\")."
+      "notes": "Found and read on 10 November 2026 by the sources agent. Frederick High School, 5690 Tipple Parkway; its home page embeds a public Google Calendar (\"FHS Website\", id svvsd.org_sihhjnurp82he1pbg6dllgdmv4@group.calendar.google.com), and the public iCal for that id answered 200 text/calendar, read once with a browser user agent: 2,102 VEVENTs (10 recurring) from September 2011 to 29 May 2027, America/Denver, 48 in the next 30 days. Most are the school's own running (\"A\" Day and \"B\" Day markers, practices and rehearsals, study hall, clubs, office closures), excluded by title here as a first pass for the editor; what is left for 10 November to 10 December is about 9 public items: the FHS/TVK8/CRMS Orchestra Concert (10 November, 6 pm), the Legacy Elementary Choir Concert (16 November), the Unified Play & Band Performance (3 December, 6 pm), an Advanced Drama Performance (4 December), the Girls Basketball Tournament (3, 4 and 5 December), the FHS/TVK8/CRMS Concert (8 December, 6 pm) and the Mariachi Concert (9 December, 6 pm). Many items have no LOCATION, so the school is the default venue; a concert at a feeder school would need its venue checked. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this; it is a public calendar the school embeds on its own site, and robots: subscribe is the editor's call. The school site itself answered 429 to several quick requests in a row, so it is read gently. The district's own calendar (svvsd-org) stays the source for no-school days. robots: subscribe from 10 November 2026, the owner's call: the host's robots.txt disallows the path, and this is the calendar the organization publishes for subscription; one weekly read is what a subscribed calendar does (DECISIONS.md, \"The owner subscribes to the calendar feeds\"). Excluded by title from 10 November 2026, after the first ingest staged them: screenings, the PSAT, pep band at games and the feeder elementary's own performances (not at the high school, which is the default venue)."
     },
     {
       "id": "mirrorimagebrewco-com",
