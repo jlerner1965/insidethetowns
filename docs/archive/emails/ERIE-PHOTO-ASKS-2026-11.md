@@ -1,7 +1,8 @@
 # Erie photo asks, 10 November 2026
 
 Six asks for the Erie listings a walk down Briggs Street will not cover.
-Drafted 10 November 2026; none sent yet. Copy each into your mail, check
+Drafted 10 November 2026; the six below were sent the same day. Three
+more (7–9) were drafted after. Copy each into your mail, check
 it, send it. When one says yes, keep the email: the permission goes into
 `PERMISSIONS.md` and the row into `IMAGE_LICENSES.csv` as
 `Used with permission of the owner (<name>; <date>)` (see `docs/PHOTOS.md`).
@@ -175,3 +176,86 @@ through the site's contact form, or ask in person)
 > Thank you,
 > James
 > Inside Erie — insideerie.com
+
+---
+
+## 7. Boulder Valley Velodrome
+
+**To:** info@bouldervalleyvelodrome.org
+
+**Subject:** A photograph of the track for Inside Erie
+
+> Hello,
+>
+> I run Inside Erie, a free local guide at insideerie.com. The velodrome
+> already has a listing on it:
+> insideerie.com/places/boulder-valley-velodrome/. Nobody pays to be listed
+> or to be placed higher, and any sponsorship is labeled and kept apart from
+> the listings.
+>
+> The listing has no photograph, and the wooden track is something a
+> photograph from the street cannot show. Could you send one? If it is
+> yours, or you hold the rights to it, please say we may publish it on the
+> guide and how you would like it credited. We will credit it that way and
+> take it down the moment you ask.
+>
+> Either way the listing stays, photograph or not.
+>
+> Thank you,
+> James
+> Inside Erie — insideerie.com
+
+---
+
+## 8. Erie Social Club
+
+**To:** info@eriesocialclub.com
+
+**Subject:** A photograph for your listing on Inside Erie
+
+> Hello,
+>
+> I run Inside Erie, a free local guide at insideerie.com. Erie Social Club
+> already has a listing on it, with your address and hours:
+> insideerie.com/places/erie-social-club/. Nobody pays to be listed or to be
+> placed higher, and any sponsorship is labeled and kept apart from the
+> listings.
+>
+> The listing has no photograph. Could you send one of the bar, or let me
+> take one of the front? If you send one that is yours, or you hold the
+> rights to it, please say we may publish it on the guide and how you would
+> like it credited. We will credit it that way and take it down the moment
+> you ask.
+>
+> Either way the listing stays, photograph or not.
+>
+> Thank you,
+> James
+> Inside Erie — insideerie.com
+
+---
+
+## 9. Niwot Inn & Spa (Inside Niwot)
+
+**Phone:** 303-652-8452 (no email address on their website; use the
+contact form at niwotinn.com/contact, or ask at the front desk)
+
+**Subject:** A photograph for your listing on Inside Niwot
+
+> Hello,
+>
+> I run Inside Niwot, a free local guide at insideniwot.com. The Niwot Inn
+> already has a listing on it: insideniwot.com/places/niwot-inn/. Nobody
+> pays to be listed or to be placed higher, and any sponsorship is labeled
+> and kept apart from the listings.
+>
+> The listing has no photograph. Could you send one of the inn, at least
+> 1600 pixels wide if you have it? If it is yours, or you hold the rights
+> to it, please say we may publish it on the guide and how you would like it
+> credited. We will credit it that way and take it down the moment you ask.
+>
+> Either way the listing stays, photograph or not.
+>
+> Thank you,
+> James
+> Inside Niwot — insideniwot.com
