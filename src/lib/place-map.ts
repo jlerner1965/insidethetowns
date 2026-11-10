@@ -173,5 +173,8 @@ export function placeMap(
     labels.push({ text, x: Math.round(lx), y: Math.round(ly), angle: Math.round(spot.angle) });
   }
   if (roads.filter((r) => r.kind !== 'rail').length < 2) return undefined;
+  // A map with no street named on it tells a reader nothing about where the place is (a hotel up its own drive,
+  // a park drawn as a green shape): none is drawn.
+  if (labels.length === 0) return undefined;
   return { width, height, roads, areas, labels, pin: { x: width / 2, y: height / 2 }, credit: data.credit ?? 'census', exact: data.from?.[slug] === 'osm' };
 }
