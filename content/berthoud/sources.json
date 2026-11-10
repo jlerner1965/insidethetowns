@@ -46,7 +46,7 @@
         "places": 9
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026: WordPress with Elementor, no events plugin (the Events Calendar REST route answers 404) and no iCal, RSS or embedded calendar on the home page or on https://berthoudmainstreet.org/downtown-berthoud-events/, which is a hand-written list of the year's downtown events with one date each. Dated 10 November to 10 December 2026: 2 (Small Business Saturday, 28 November; A Very Merry Berthoud, 5 December), both already in the guide. Next on the page: Chocolate Walk 6 February 2027, St. Paddy's Day Run 13 March 2027, Berthoud Day and its 5K 6 June 2027, Town fireworks 3 July 2027, Flapjack Day 6 September 2027; the art walk, StreetFest, car show and homecoming parade say 2027 to be decided. robots.txt allows everything. Stays html: worth reading by hand a few times a year for the next date of each annual event. berthoudsnowfest.com now redirects to a missing page on this site."
     },
     {
       "id": "downtownberthoud-org",
@@ -62,7 +62,7 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026: the same WordPress site and the same hand-written annual list as berthoudmainstreet.org (https://downtownberthoud.org/downtown-berthoud-events/ answers 200 with that page); no events plugin, no feed. robots.txt allows everything. Nothing here that the berthoudmainstreet-org entry does not have."
     },
     {
       "id": "berthoudcommunitylibrary-org",
@@ -124,7 +124,7 @@
         "places": 2
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Its iCal feed (The Events Calendar, the \"event\" category) found by the sources probe of 1 November 2026 (docs/sources-probe-2026-11-01.md): 4 events to come, among them the Holiday Card Art Contest due 14 November. Type ical from that day, still proposed: npm run sources -- confirm berthoud berthoudhistoricalsociety-org."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Its iCal feed (The Events Calendar, the \"event\" category) found by the sources probe of 1 November 2026 (docs/sources-probe-2026-11-01.md): 4 events to come, among them the Holiday Card Art Contest due 14 November. Type ical from that day, still proposed: npm run sources -- confirm berthoud berthoudhistoricalsociety-org. Read again 10 November 2026: the feed URL now answers with a 301 to https://berthoudhistoricalsociety.org/events/category/event/?post_type=tribe_events&ical=1&eventDisplay=list, which returns 4 items, all dated 10 November to 10 December 2026 and worth a row (Holiday Card Art Contest artwork due 14 November; Fall Speaker Series on historic preservation, 17 November, 7 pm, at the recreation centre; Small Business Saturday museum open, 28 November; A Very Merry Berthoud, 5 December). The same list feed without the category (https://berthoudhistoricalsociety.org/?post_type=tribe_events&ical=1&eventDisplay=list) returns 7: those 4 plus The Bells of Berthoud Ring at Fickel Park on 13, 20 and 24 December at 5:30 pm, which carry no category and so are missed by this feed. No regulars or meetings in either today; the summer Concerts in the Pioneer Courtyard and the Bunyan Observatory stargazing nights have their own categories and will also be missed by the \"event\" filter. The feedUrl is left as it was; the owner may prefer the unfiltered list feed with an exclusion for \"Board Meeting\". robots.txt disallows only cart, admin and upload paths, so both feeds are allowed. Events here are held at several places (the museum at 224 Mountain Ave, the recreation centre, Fickel Park), so no defaultVenue."
     },
     {
       "id": "berthoudparadeoflights-com",
@@ -139,7 +139,7 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026: a one-page site for one night, the Parade of Lights and tree lighting, Saturday 5 December 2026 at 5 pm downtown, already in the guide. No feed and none needed; robots.txt answers 404. Read by hand each November for the date."
     },
     {
       "id": "bhs-tsd-org",
@@ -154,7 +154,7 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026: Berthoud High School, 850 Spartan Ave, a Finalsite site. The calendar page shows calendars 38 and 20; their published iCal files (https://bhs.tsd.org/calendar/calendar_38.ics and calendar_20.ics, allowed by robots.txt, which disallows /fs/, /page.cfm and const_page queries and asks for a 5 second crawl delay) both answer 200 with an empty calendar, no events. The page itself lists only bell schedules and the Thanksgiving break for November, so 0 worth a row from 10 November to 10 December 2026. The Musical and Play page and the Music page give a sponsor's name and no dates; athletics schedules are on arbiterlive.com (school 1698), not read. Stays html: plays and concerts would have to be asked for or found by hand."
     },
     {
       "id": "festivalnet-com",
@@ -175,8 +175,9 @@
       "id": "tockify-com",
       "name": "tockify.com",
       "url": "https://tockify.com/",
+      "feedUrl": "https://tockify.com/api/feeds/ics/wildfire",
       "sampleUrl": "https://tockify.com/wildfire/detail/658/1791937800000",
-      "type": "html",
+      "type": "ical",
       "category": "other",
       "status": "proposed",
       "cites": {
@@ -184,7 +185,49 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "excludeTitles": [
+        "Brush & Banter",
+        "Line Dancing",
+        "Homeschool",
+        "After School Art Club",
+        "Grace + Power",
+        "Hula Ladies",
+        "Watercolor Series",
+        "Vintage Ballet",
+        "Beginning Tap",
+        "U-Create Open Studio",
+        "Preschool Art Explorers",
+        "Beginning Ukulele",
+        "Collage Journals",
+        "Private",
+        "Board of Directors"
+      ],
+      "defaultVenue": "Wildfire Community Arts Center, 425 Massachusetts Ave",
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Found and read 10 November 2026. This entry is the Wildfire Community Arts Center's calendar (\"Classes, events, and happenings\"), 425 Massachusetts Ave, Berthoud, which the centre's own Squarespace page https://www.wildfirearts.org/calendar shows; the six events cited are all Wildfire's. Its Tockify ICS feed was fetched once: 588 items, no recurrence rules (each class date is its own item), dated 10 October 2026 to February 2028, 501 of them from 10 November on under 25 titles. Dated 10 November to 10 December 2026: 71 items, of which 2 are worth a row (Resounding Wellness Soundbath, Friday 20 November, 6:30 pm; Monthly Community Drum Circle, Friday 4 December, 6:45 pm), both already entered by hand. 66 are regulars: weekly classes and open studios (Brush & Banter, country line dancing, the homeschool art programme, four After School Art Clubs, Grace + Power barre and ballet, Hula Ladies, vintage ballet, two tap classes, U-Create Open Studio, Preschool Art Explorers, a watercolour series). 3 are never-list: two private birthday parties and the board meeting. Later in the feed: six more soundbaths, a Hand Drumming beginner workshop on 22 January 2027, and ukulele and collage-journal class series from January. The exclusions leave the soundbath, the drum circle and one-off workshops, about 2 or 3 a month; the StreetFest and exhibits should arrive when the centre enters them. Location is the centre on nearly every item and empty on Brush & Banter, so defaultVenue. Robots: tockify.com's robots.txt disallows /api/ for every agent, so the feed needs the editor's robots: subscribe, as the Leadville library's and Mighty River's Tockify feeds did; it was read once today under the research exception. Type ical from today, still proposed. Suggested for the owner: name it \"Wildfire Community Arts Center\" and point url at https://www.wildfirearts.org/calendar, since a listing says who listed it. wildfirearts.org's robots.txt disallows ?format=json and ?format=ical, which were not fetched."
+    },
+    {
+      "id": "starkids-org",
+      "name": "Little Thompson Observatory (public star nights)",
+      "url": "https://www.starkids.org/special-events/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Little Thompson Observatory, 850 Spartan Ave",
+      "notes": "Found and read 10 November 2026. A volunteer observatory on the east grounds of Berthoud High School, by the running track; the site says to map it as 850 Spartan Avenue, Berthoud. WordPress with the All-in-One Event Calendar. The Special Events page announces each public night with its speaker; the calendar page is a reservation calendar. Its subscription feed (https://www.starkids.org/?plugin=all-in-one-event-calendar&controller=ai1ec_exporter_controller&action=export_events&no_html=true&ai1ec_cat_ids=12,16,15,23,18) was fetched once: 592 items back to November 2023, of which 416 are private group visits named for the family, troop or school that booked (category Event Scheduled), 170 are closed days and 5 are Public Night. So the feed is not one to ingest, and the type is manual. Dated 10 November to 10 December 2026 and worth a row: 1, the Special Public Star Night on Friday 20 November, doors 7 pm, a talk at 7:30 pm by Jeff Bennett, Ph.D., \"The Scale of the Universe\", then observing to 10 pm, weather permitting. The feed carries Public Star Night as a rule, the third Friday of every month at 7 pm, with July skipped each year, so the next is 18 December 2026; about 1 a month, each with a different speaker. Never-list in the feed: private group bookings, Observatory Closed, Observatory Reserved for LTO Volunteers, LTO Board Meeting. Robots: robots.txt disallows the calendar's action views and any URL with controller=ai1ec_exporter_controller, so the feed is behind a robots rule and was read once under the research exception; /special-events/, /calendar/ and /visit/ are allowed. Not fetched: the feed narrowed to the Public Night category alone (its category id was not found in the page)."
+    },
+    {
+      "id": "berthoudart-com",
+      "name": "Homestead Fine Art Gallery (events)",
+      "url": "https://berthoudart.com/events",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Homestead Fine Art Gallery, 344 Mountain Ave",
+      "notes": "Found and read 10 November 2026. The gallery at 344 Mountain Ave, already a place in the guide. A Squarespace site whose events page (also reached at /whats-happening) is a Squarespace events collection, each item with its own ICS link; ingest cannot read Squarespace yet, so the type is manual. The page was read as HTML: 1 upcoming item, A Very Merry Berthoud on Saturday 5 December 2026, 8 am to 5 pm at the gallery, which the guide already has as the town's event, so 0 new rows from 10 November to 10 December 2026. Past items on the page are the Berthoud Art Walk (5 and 6 September 2026, with the Wildfire Street Fest that evening) and Sidewalk Sunday (6 September 2026), so this is a handful of dates a year, mostly the gallery's part in downtown events. No regulars. Robots: robots.txt disallows ?format=json and ?format=ical for every agent, so the collection's JSON was not fetched; the events page itself is allowed."
     }
   ]
 }
