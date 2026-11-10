@@ -155,6 +155,26 @@
       "checkFrequency": "monthly",
       "robots": "honor",
       "notes": "Found and read 10 November 2026. The Thanksgiving morning race downtown, at 21 South Parish Avenue, Johnstown, organized by Fitness Avenue (the page points to facebook.com/fitnessavenuecolorado for more). RunSignup race page, no feed. In 10 November to 10 December 2026: 1 worth a row, Thursday 26 November 2026: the 1K Kids Turkey Trot (ages 12 and under) at 7:45 am and the 5K at 8:00 am; $43.40 and $22.20 with fees, rising after 13 November. A search listing calls the 2025 race the 13th annual and says runners can nominate a Johnstown or Milliken family for a holiday grocery gift card; that was not on the page read. No regulars. robots.txt allows /Race/ pages. Other Johnstown races on RunSignup, both past for this year: Roughrider Rumble (6 June 2026, BBQ Day morning) and the Spooktacular 5K Race/Walk. Checked by hand once a year in October."
+    },
+    {
+      "id": "eventbrite-com-johnstown",
+      "name": "Eventbrite, events in Johnstown",
+      "url": "https://www.eventbrite.com/d/co--johnstown/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--johnstown/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Johnstown, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education"
+      ],
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Johnstown, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Johnstown. Read that day: 100 events in five pages, 1 of them in town: Daddy Daughter Doll-Up 2027 (Third Annual): Benefiting ChildSafe Colorado (2027-02-19, The Arabella). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events."
     }
   ]
 }

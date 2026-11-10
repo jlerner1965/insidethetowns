@@ -295,6 +295,26 @@
         "Timnath"
       ],
       "notes": "Found and read 10 November 2026. North Forty News is the northern Larimer County paper that covers Timnath; its calendar (and NoCo Style magazine's, nocostyle.com/calendar) is a CitySpark portal that organizers and CitySpark's own collectors fill, so it is a place to find what others list, not an organizer. No iCal or RSS: the page is drawn by script from a POST to https://portal.cityspark.com/api/events/GetEvents/NorthForty (JSON in CitySpark's own shape, with a search word, a centre and a radius), which ingest cannot read, so the type is manual. That endpoint was read twice for 10 November to 10 December 2026. Searching 'Timnath' gave 11 items; within 3 miles of Old Town Timnath, 25. Worth a row: Santa at Mtn + Mane (15 Nov, 1 pm, Mtn + Mane Salon, 5451 E Harmony Rd Suite 109, Timnath, tickets on Eventbrite), new to the guide; the Holiday Home Tour at Harmony Club (12 to 14 Nov), which the guide has; and NoCo Winter Wonderland at Colorado Youth Outdoors (nightly from 27 Nov, 14 nights, proposed as its own source). Regulars: Timnath Beerwerks' Tuesday poker (5) and a coworking meetup at Pedro's Coffee (2). So about 1 to 3 new listings a month, read by hand: open the calendar, enter 'Timnath, CO' and a small radius. Exclusions if it is ever read by script: 'Poker', 'Coworking'. robots.txt: northfortynews.com disallows only /wp-admin/; portal.cityspark.com disallows only /test/ and /v2/."
+    },
+    {
+      "id": "eventbrite-com-timnath",
+      "name": "Eventbrite, events in Timnath",
+      "url": "https://www.eventbrite.com/d/co--timnath/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--timnath/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Timnath, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education"
+      ],
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Timnath, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Timnath. Read that day: 100 events in five pages, 1 of them in town: PET PAINT BY NUMBER @Timnath Beerwerks w Love You Buddy SAT. DEC. 5 (2026-12-05, Timnath Beerwerks). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events."
     }
   ]
 }

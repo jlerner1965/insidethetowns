@@ -9950,3 +9950,60 @@ venue; bring Ginger and Baker's cooking classes back.
   item keeps its own title, so a source's exclusions can still name one.
 - Fort Collins, Castle Rock and Estes Park have no weekly email, so what
   was added there fills the site only.
+
+## Gunbarrel counts for Niwot, 10 November 2026
+
+Asked whether Gunbarrel venues belong on the Niwot guide, the owner said
+yes.
+
+- **MainStage Brewing's Gunbarrel room is read.** Its page's widget is
+  SociableKIT's copy of its Facebook events, one JSON file on a host with
+  no robots.txt; `scripts/lib/feeds/sociablekit.ts` reads it (a `json`
+  source at data.accentapi.com). Trivia, the Tuesday specials, the run
+  club, the open pick and the game nights are excluded; the file reaches
+  about three weeks ahead. Eight published: MainGrass on Fridays, MainJazz
+  on Sundays, Boulder Dead Night, a DJ night. The date the venue files in
+  a title ("MainGrass - 11/27/26") comes off it. The Lyons room's file is
+  recorded on its entry and left proposed.
+- **The Gunbarrel library is read**, for that branch only, with the
+  storytimes, baby times, book clubs and standing groups excluded (69 of
+  87 items). Eighteen published: the classic movies, the Active Minds
+  talks, a concert, the one-off programs.
+- **Avery's taproom** stays a page a person reads.
+- The Wheel House and MainStage use the guide's plain venue names as their
+  default venue, so their listings read like the ones entered by hand.
+
+## Eventbrite, 10 November 2026
+
+The owner asked for a way to use Eventbrite, which has the ticketed events
+people search for.
+
+- **What Eventbrite allows.** The public event search API was shut in
+  2020; the API that remains lists only the events of the account whose
+  token asks. The site's robots.txt leaves its pages open to ordinary
+  agents and disallows its internal search API. Its terms of service
+  restrict automated collection of its pages, which is the thing to weigh
+  before a source of this kind is confirmed.
+- **What the reader reads** (`scripts/lib/feeds/eventbrite.ts`, source
+  type `eventbrite`): an organizer's page, their own upcoming events with
+  price and whether it has sold out; or a place's page, with times, venue
+  and address. A place's page is a search of the region, not the town
+  (49 pages of twenty around every guide), and a search by town name runs
+  only through the disallowed API. So the reader takes the first five
+  pages, one every two seconds, and the source's location filter keeps the
+  town's.
+- **What five pages hold, in town, read that day**: Fort Collins 49,
+  Loveland 26, Longmont 12, Castle Rock 10, Windsor 9, Estes Park 6,
+  Lafayette 5, Berthoud 3, Frederick and its neighbours 3, Lyons 2, and 0
+  or 1 in Niwot, Erie, Johnstown, Timnath, Elizabeth, Golden, Nederland
+  and Leadville. The good ones are there (the Estes Park Holiday Wine
+  Festival, dueling pianos in Castle Rock, the brewery 5K and a Soundpost
+  Session in Longmont, a staged reading in Windsor) among classes,
+  workshops and networking mornings.
+- **Nineteen sources proposed, none confirmed**: one place page a guide,
+  two for Windsor and Severance. Filed as other, so their items wait for a
+  person, since Eventbrite lists every organizer's events. Networking,
+  coworking and broker-education titles are excluded.
+- **For the small towns the organizer's page is the better source**: one
+  organizer, their own events, publishable like a venue's feed. None is
+  registered yet; each is found by reading the place pages by hand.

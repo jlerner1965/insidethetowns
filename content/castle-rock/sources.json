@@ -398,6 +398,26 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Found and read 10 November 2026. CALF runs Lowell Ranch, a working education ranch at Castle Rock (the site gives P.O. Box 581, Castle Rock 80104 and 303-688-1026; the ranch's street address was not on the pages read and should be checked before a listing). The Events and Tours page (a Weebly-style static site) is a short hand-kept list, each marked 'Past' once done: Farm and Ranch Day (9 May 2026), Harvest Day (26 September 2026) and the Legend of Agriculture Dinner fundraiser (18 September 2026), plus birthday parties, which are private. Nothing between 10 November and 10 December 2026; two public farm days and one dinner a year. No feed and no calendar markup. robots.txt (served gzip-compressed) disallows a handful of old pages (board documents, a camp page, forms), not this one. Read by hand in spring and late summer for the next year's dates."
+    },
+    {
+      "id": "eventbrite-com-castle-rock",
+      "name": "Eventbrite, events in Castle Rock",
+      "url": "https://www.eventbrite.com/d/co--castle-rock/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--castle-rock/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Castle Rock, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education"
+      ],
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Castle Rock, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Castle Rock. Read that day: 100 events in five pages, 10 of them in town: Book Bingo Night! (2026-11-11, Sinners & Saints); Dinner and Dueling Pianos (2026-11-13, Wide Awake Eatery); HYROX Workout Class (2026-11-17, Rock Solid Fitness & Wellness Club); Castle Rock Networking with Women's Networking Alliance (2026-11-18, Craft Coworking Castle Rock). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events."
     }
   ]
 }

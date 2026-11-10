@@ -553,6 +553,26 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Found and read 10 November 2026. Longmont Youth Symphony, which rehearses at Westview Middle School and performs at Longmont High School. Squarespace (ingest cannot read it yet, and robots.txt disallows ?format=json and ?format=ical, so neither was fetched); the calendar page is allowed and reads as plain HTML. Three concerts a season: the Fall Concert on Sunday 15 November 2026 at Longmont High School (the page gives the day as 10 am to 4 pm, dress rehearsal and concert together, without the concert's own hour), a Spring Concert on 7 March 2027 and a Season Finale on 23 May 2027. One in the window. Check monthly."
+    },
+    {
+      "id": "eventbrite-com-longmont",
+      "name": "Eventbrite, events in Longmont",
+      "url": "https://www.eventbrite.com/d/co--longmont/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--longmont/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Longmont, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education"
+      ],
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Longmont, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Longmont. Read that day: 99 events in five pages, 12 of them in town: Cone Flower – 2.5 Hr Watercolor Lesson (Ages 12+) (2026-11-13, The Tilted Brick); Craft & Sip - Glass Suncatcher Workshop - at Wibby Brewing! (2026-11-14, Wibby Brewing); Next Stop Comedy at St. Vrain Cidery! - Longmont, CO (2026-11-14, St. Vrain Cidery); 4 Rings Tactical CQB (Close Quarters Battle) Workshop (2026-11-15, 10916 County Rd 5). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events."
     }
   ]
 }

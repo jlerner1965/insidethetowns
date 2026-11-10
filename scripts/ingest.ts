@@ -13,7 +13,7 @@
  * The rules, in the order they bite:
  *
  * 1. Only a source with `status: confirmed` and a feed type (ical, rss,
- *    json, squarespace) with a `feedUrl` is read. Proposed, retired, html and manual
+ *    json, squarespace, eventbrite) with a `feedUrl` is read. Proposed, retired, html and manual
  *    sources are never fetched.
  * 2. The site's robots.txt is read first, and a feed it disallows for our
  *    user agent is not fetched, with a line saying so, unless the editor has
@@ -53,6 +53,8 @@ import { readRss } from './lib/feeds/rss.ts';
 import { isShowareFeed, readShowarePage, showareHasMore, showarePage, type ShowarePage } from './lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage, type TribePage } from './lib/feeds/tribe.ts';
 import { readSquarespaceEvents, squarespaceView } from './lib/feeds/squarespace.ts';
+import { eventbritePageData, eventbritePageKind, eventbritePlacePage, readEventbriteEvents, type EventbriteEvent } from './lib/feeds/eventbrite.ts';
+import { isSociableKitFeed, readSociableKit } from './lib/feeds/sociablekit.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
 import { ambiguousNote, detectChanges, elsewhereNote, excludedTitle, excludingEntry, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, sameSite, sameVenue, siblingCounts, toStaged, venueFrom, type ExistingEvent, type Match, passesCategoryFilter } from './lib/ingest.ts';
 import { normalizeUrl, sessionLinks } from '../src/lib/session-links.ts';
@@ -172,6 +174,9 @@ function existingEvents(town: string): ExistingEvent[] {
   return out;
 }
 
+/** How many pages of an Eventbrite place search are read: a hundred events, the top of its ranking. */
+const EVENTBRITE_PLACE_PAGES = 5;
+
 async function readFeed(source: Source): Promise<{ items: FeedEvent[]; note: string } | { error: string }> {
   const feedUrl = source.feedUrl!;
   const { origin, pathname, search } = new URL(feedUrl);
@@ -182,6 +187,47 @@ async function readFeed(source: Source): Promise<{ items: FeedEvent[]; note: str
     }
   }
   const robotsNote = !isAllowed(rules, pathname + search) ? ' (robots.txt disallows; read under the editor\'s robots: subscribe)' : '';
+  if (source.type === 'eventbrite') {
+    const kind = eventbritePageKind(feedUrl);
+    if (!kind) return { error: `${feedUrl} is not an Eventbrite organizer page (/o/…) or place page (/d/…/all-events/)` };
+    // An organizer's page is one read. A place's page is a search of the
+    // region, twenty a page: the first few pages, which is what a visitor
+    // browsing it sees, and the source's locationFilter keeps the town's.
+    const events: EventbriteEvent[] = [];
+    const limit = kind === 'place' ? EVENTBRITE_PLACE_PAGES : 1;
+    let pages = 0;
+    let more = false;
+    for (let n = 1; n <= limit; n++) {
+      const url = kind === 'place' ? eventbritePlacePage(feedUrl, n) : feedUrl;
+      // One page every two seconds: a reader's pace, not a crawler's.
+      if (n > 1) await new Promise((resolve) => setTimeout(resolve, 2000));
+      const { code, body } = await fetchText(url);
+      if (!/^2/.test(code)) {
+        if (pages === 0) return { error: `${url} answered ${code}` };
+        break;
+      }
+      const page = eventbritePageData(body);
+      if (!page) {
+        if (pages === 0) return { error: `${url} carries no Eventbrite event data` };
+        break;
+      }
+      pages++;
+      events.push(...page.events);
+      more = !!page.more;
+      if (kind === 'place' && (page.events.length === 0 || n >= (page.pageCount ?? 1))) break;
+    }
+    const note = kind === 'place' ? `${pages} page${pages === 1 ? '' : 's'} of the place's search` : more ? 'the organizer has more events than the page shows' : '';
+    return { items: readEventbriteEvents(events, horizon), note: `${note}${robotsNote}`.trim() };
+  }
+  if (source.type === 'json' && isSociableKitFeed(feedUrl)) {
+    const { code, body } = await fetchText(feedUrl);
+    if (!/^2/.test(code)) return { error: `${feedUrl} answered ${code}` };
+    try {
+      return { items: readSociableKit(JSON.parse(body) as Parameters<typeof readSociableKit>[0], horizon), note: robotsNote.trim() };
+    } catch {
+      return { error: `${feedUrl} did not return JSON` };
+    }
+  }
   if (source.type === 'json' && isShowareFeed(feedUrl)) {
     // A ShoWare box office's performance list, fifteen a page.
     const items: FeedEvent[] = [];

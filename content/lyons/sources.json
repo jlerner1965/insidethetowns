@@ -193,7 +193,8 @@
       "id": "mainstagebrewing-com",
       "name": "MainStage Brewing Company (music and events)",
       "url": "https://www.mainstagebrewing.com/music",
-      "type": "manual",
+      "feedUrl": "https://data.accentapi.com/feed/25613350.json",
+      "type": "json",
       "category": "venue",
       "priority": "other",
       "status": "proposed",
@@ -207,7 +208,7 @@
         "Open Bluegrass Pick",
         "Pints and Pages"
       ],
-      "notes": "Found and read 10 November 2026. 450 Main St, Lyons (its own home page; a second taproom is in Gunbarrel). A Squarespace site; its robots.txt allows the pages and disallows ?format=json and ?format=ical. /music has no Squarespace calendar: it shows the brewery's Facebook events through a SociableKit widget, one for Lyons and one for Gunbarrel, found by loading the page in a browser. The Lyons widget's data file (https://data.accentapi.com/feed/25613350.json, a host with no robots.txt) was fetched once: 19 items, 9 November to 1 December. Worth a row, 3: Pottery with a Purpose workshop on 14 November, noon to 2 pm; Lucky's Vegan Night on 22 November; the Christmas Tree Sale, Trees with Purpose, 27 to 29 November, 1 to 7 pm. Regulars, 16 dates: Trivia Night on Tuesdays at 6:30, Open Bluegrass Pick on Thursdays at 6, $5 Dice and Drafts on Wednesdays, Teacher Appreciation Mondays, the Lyons Health and Wellness Running Club on alternate Tuesdays at 5:30, Pints and Pages Book Club on 11 November (the library's, already on the guide). No named bands are booked in the widget for this window; the first Friday art opening the guide lists is not in it either. Type manual: the widget file is a third party's format ingest cannot read, and it only looks about three weeks ahead. In the summer the patio books named acts and the MainGrass festival (/maingrass, not fetched)."
+      "notes": "Found and read 10 November 2026. 450 Main St, Lyons (its own home page; a second taproom is in Gunbarrel). A Squarespace site; its robots.txt allows the pages and disallows ?format=json and ?format=ical. /music has no Squarespace calendar: it shows the brewery's Facebook events through a SociableKit widget, one for Lyons and one for Gunbarrel, found by loading the page in a browser. The Lyons widget's data file (https://data.accentapi.com/feed/25613350.json, a host with no robots.txt) was fetched once: 19 items, 9 November to 1 December. Worth a row, 3: Pottery with a Purpose workshop on 14 November, noon to 2 pm; Lucky's Vegan Night on 22 November; the Christmas Tree Sale, Trees with Purpose, 27 to 29 November, 1 to 7 pm. Regulars, 16 dates: Trivia Night on Tuesdays at 6:30, Open Bluegrass Pick on Thursdays at 6, $5 Dice and Drafts on Wednesdays, Teacher Appreciation Mondays, the Lyons Health and Wellness Running Club on alternate Tuesdays at 5:30, Pints and Pages Book Club on 11 November (the library's, already on the guide). No named bands are booked in the widget for this window; the first Friday art opening the guide lists is not in it either. Type manual: the widget file is a third party's format ingest cannot read, and it only looks about three weeks ahead. In the summer the patio books named acts and the MainGrass festival (/maingrass, not fetched). 10 November 2026: typed json with the widget's events file as its feedUrl, which the new SociableKIT reader (scripts/lib/feeds/sociablekit.ts) reads; data.accentapi.com has no robots.txt. Still proposed: the owner turned on the Gunbarrel room for Niwot, and has not been asked about this one."
     },
     {
       "id": "lyonsfarmette-com",
@@ -282,6 +283,26 @@
       "robots": "honor",
       "checkFrequency": "monthly",
       "notes": "Found and read 10 November 2026. The event's own site says February 7, 2027, Lyons, Colorado (a gravel bike rally and mixed terrain run that starts and finishes in town; the Town's events page names it among its signature events). Its robots.txt allows the home page (it disallows /admin, /api and /unsubscribe); the home page was fetched once and only the date was read. One date a year, so 0 dated 10 November to 10 December 2026. No feed. Type html, checked by hand once the date nears for start times and road closures."
+    },
+    {
+      "id": "eventbrite-com-lyons",
+      "name": "Eventbrite, events in Lyons",
+      "url": "https://www.eventbrite.com/d/co--lyons/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--lyons/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Lyons, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education"
+      ],
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Lyons, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Lyons. Read that day: 99 events in five pages, 2 of them in town: Intro to Branch Weaving (2026-11-15, Lyons Farmette); HELD (2026-12-10, Lyons Farmette). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events."
     }
   ]
 }

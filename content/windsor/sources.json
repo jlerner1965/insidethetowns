@@ -619,6 +619,48 @@
       "robots": "honor",
       "defaultVenue": "The Lodge, 1600-A Pelican Lakes Point, Windsor",
       "notes": "Found and read 10 November 2026. The Lodge, a Water Valley Company restaurant; the guide's place file gives 1600-A Pelican Lakes Point, Windsor (the address was not on the pages read here). WordPress with Elementor and no events plugin: /events/ redirects to the home page, and there is no iCal, RSS or calendar widget. The menu's \"The Orin Swift Series\" link leads to /wine-pairing-dinner/ (\"Wine Pairing Menu 2026\"), a hand-written page of ticketed dinners. On 10 November it listed 3 dates: Sunday 29 November 2026, 6 to 9 pm, $127 a person, the November Wine Pairing Series with live music by Mackenzie London; and 12 December and 23 January 2027, both marked Private Party. So 1 item dated 10 November to 10 December is worth a row, and no regulars. robots.txt disallows /calendar/action*, /events/action* and any URL with a query string (`Disallow: /*?`), with a crawl delay of 3 seconds; the dinner page has no query string and is allowed. About one public dinner a month in the series; read by hand monthly. Not checked: /weekly-specials/ (specials are not events)."
+    },
+    {
+      "id": "eventbrite-com-windsor",
+      "subTown": "windsor",
+      "name": "Eventbrite, events in Windsor",
+      "url": "https://www.eventbrite.com/d/co--windsor/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--windsor/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Windsor, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education"
+      ],
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Windsor, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Windsor. Read that day: 91 events in five pages, 9 of them in town: Coffee & Coworking at Coffeehouse 29 Windsor (2026-11-10, Coffee House 29); Coffee & Coworking at Pedro's Coffee in Severance/Timnath! (2026-11-11, Pedro's Coffee Shop); Neck Pain Workshop with Dr. Josh (2026-11-14, Refuge Physiotherapy); Craft & Sip - Glass Suncatcher Workshop - at Peculier Ales! (2026-11-16, Peculier Ales). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events."
+    },
+    {
+      "id": "eventbrite-com-severance",
+      "subTown": "severance",
+      "name": "Eventbrite, events in Severance",
+      "url": "https://www.eventbrite.com/d/co--severance/all-events/",
+      "feedUrl": "https://www.eventbrite.com/d/co--severance/all-events/",
+      "type": "eventbrite",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Severance, CO"
+      ],
+      "excludeTitles": [
+        "Networking",
+        "Coworking",
+        "Broker Education"
+      ],
+      "notes": "Proposed 10 November 2026 with the Windsor entry (eventbrite-com-windsor), whose notes say how it is read and what to weigh before confirming. Not read separately: the Windsor read found one Severance event in five pages (a coworking morning at Pedro's Coffee)."
     }
   ]
 }
