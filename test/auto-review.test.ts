@@ -252,3 +252,24 @@ test('the next date of a weekly series whose until has passed is left for a pers
   const v2 = decideEvent(later, ctx({ published, today: '2027-01-20' }));
   assert.ok(v2.approve || !v2.reasons.some((r) => /continues the weekly series/.test(r)), `reasons were: ${v2.approve ? 'approved' : v2.reasons.join(' | ')}`);
 });
+
+test('a board the owner lets through publishes its listings, but not on top of one already on the guide at that hour, and its changes still wait', () => {
+  const board = { ...library, id: 'visit', name: 'Visit Leadville Twin Lakes', category: 'chamber', autoApprove: true } as Source;
+  const parade = staged({ title: '"Parade of Lights"', sourceId: '"visit"', start: '"2026-12-04T18:00"', end: '"2026-12-04T19:00"', venue: '"Harrison Avenue"' });
+  refused(parade, ctx({ source: { ...board, autoApprove: undefined } as Source }), /a chamber, which lists others' events/);
+  const v = decideEvent(parade, ctx({ source: board }));
+  assert.equal(v.approve, true, v.approve ? '' : v.reasons.join(' | '));
+  if (v.approve) assert.match(parseFrontmatter(v.text).body, /Listed by Visit Leadville Twin Lakes/);
+  // The lodge's own listing is up under another title: the board's wording of it waits.
+  const film = staged({ title: '"Warren Miller Film Night at Ski Cooper!"', sourceId: '"visit"', start: '"2026-11-20T19:00"', end: '"2026-11-20T21:00"' });
+  const lodge = { file: 'content/leadville/events/warren-miller-movie.md', title: 'Warren Miller Movie at the Cooper Lodge', start: new Date('2026-11-21T02:00:00Z') };
+  refused(film, ctx({ source: board, published: [lodge] }), /on the guide at that hour/);
+  // Another thing at the same hour, sharing no word that names anything, is another event: the Elks' bingo on a cribbage night.
+  const bingo = staged({ title: '"Thursday Night Family Bingo at the Elks Lodge"', sourceId: '"visit"', start: '"2026-11-20T19:00"', end: '"2026-11-20T21:00"', venue: '"Elks Lodge"' });
+  assert.equal(decideEvent(bingo, ctx({ source: board, published: [{ ...lodge, title: 'Cribbage Night at FREIGHT' }] })).approve, true);
+  // Something else that evening, two hours on, is another event.
+  const later = { ...lodge, title: 'Open mic', start: new Date('2026-11-21T04:00:00Z') };
+  assert.equal(decideEvent(film, ctx({ source: board, published: [later] })).approve, true);
+  // An organizer's own feed is not held to the hour: a library runs two rooms at ten.
+  assert.equal(decideEvent(staged(), ctx({ published: [{ file: 'x.md', title: 'Seed swap', start: new Date('2026-11-07T17:00:00Z') }] })).approve, true);
+});

@@ -14,7 +14,8 @@
  * What is never approved here: a staged place (its reasons are the editor's
  * and need a site read), an item the editor held back by hand, anything
  * from a source that is not the organizer (a chamber's or a paper's listing
- * of someone else's event), an item whose venue the feed did not name, a
+ * of someone else's event) unless the owner has let that one source through
+ * (`autoApprove`), an item whose venue the feed did not name, a
  * change that moves an event to another day or touches one date of a weekly
  * series.
  */
@@ -34,6 +35,19 @@ import { applyChangeText, approveText, setField } from './review.ts';
  * people's events, which it may have copied wrong, so those wait.
  */
 export const ORGANIZER_CATEGORIES: readonly SourceCategory[] = ['city-calendar', 'county', 'library', 'parks', 'venue'];
+
+/** How close in time a board's item and a published listing must start, on one day, to be taken for one event. */
+export const BOARD_SAME_HOUR_MS = 30 * 60_000;
+
+/** Words two titles can share without being about one thing. */
+const COMMON_TITLE_WORDS = new Set(['night', 'nights', 'live', 'with', 'from', 'annual', 'family', 'free', 'open', 'show', 'series', 'event', 'party', 'club', 'class', 'special', 'holiday', 'winter', 'summer', 'spring', 'fall', 'town', 'community', 'presents', 'presentation', 'celebration']);
+const titleWords = (title: string) => new Set((title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').match(/[a-z0-9]{4,}/g) ?? []).filter((w) => !COMMON_TITLE_WORDS.has(w)));
+
+/** Whether two titles share a word that names something: "Warren Miller Film Night" and "Warren Miller Movie at the Cooper Lodge" do. */
+export function sharesAWord(a: string, b: string): boolean {
+  const other = titleWords(b);
+  return [...titleWords(a)].some((w) => other.has(w));
+}
 
 /** Further out than this and the feed is usually a placeholder (a "save the date" with last year's time). */
 export const MAX_DAYS_AHEAD = 400;
@@ -110,7 +124,7 @@ export function decideEvent(text: string, ctx: EventContext): Verdict {
   else if (!source) reasons.push(`sourceId "${data.sourceId}" is not in the registry`);
   else {
     if (source.status !== 'confirmed') reasons.push(`source ${source.id} is ${source.status}, not confirmed`);
-    if (!ORGANIZER_CATEGORIES.includes(source.category)) reasons.push(`source ${source.id} is a ${source.category}, which lists others' events`);
+    if (!ORGANIZER_CATEGORIES.includes(source.category) && !source.autoApprove) reasons.push(`source ${source.id} is a ${source.category}, which lists others' events`);
   }
   const parsed = schema.safeParse(data);
   if (!parsed.success) {
@@ -153,6 +167,18 @@ export function decideEvent(text: string, ctx: EventContext): Verdict {
       titleSimilarity(p.title, d.title) >= INGEST.titleMatch,
   );
   if (goesOn) reasons.push(`continues the weekly series ${goesOn.file} ("${goesOn.title}", through ${dayKey(goesOn.seriesUntil!)}): extend its until rather than list the date alone`);
+  // A board the owner lets through (`autoApprove`) words an event its own
+  // way ("Warren Miller Film Night at Ski Cooper!" for the lodge's "Warren
+  // Miller Movie at the Cooper Lodge"), so the title match above does not
+  // see the organizer's listing already on the guide. A listing on the guide
+  // that day within half an hour of it, sharing a word of its title, is
+  // taken for the same event until a person says otherwise. The word is what
+  // lets the Elks' bingo through on the night of a cribbage game elsewhere,
+  // and Taste of Leadville at the hour of the library's craft table.
+  if (source && source.autoApprove && !ORGANIZER_CATEGORIES.includes(source.category)) {
+    const near = ctx.published.find((p) => dayKey(p.start) === startDay && Math.abs(p.start.getTime() - d.start.getTime()) <= BOARD_SAME_HOUR_MS && sharesAWord(p.title, d.title));
+    if (near && !dup) reasons.push(`${source.id} lists others' events, and ${near.file} ("${near.title}") is on the guide at that hour: one event or two is a person's call`);
+  }
   // Ingest's own duplicate check (same place and time, a looser title): a person merges or rejects.
   if (/^Possible duplicate of /.test(review.reason ?? '')) reasons.push('ingest flagged it as a possible duplicate of a published listing');
   if (ctx.targetExists) reasons.push('a published file with this slug already exists');

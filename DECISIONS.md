@@ -9760,3 +9760,36 @@ civic meeting or a run of shows).
   Thursday email, the hub, the Families page. School performances and the
   tourism boards' listings publishing without a person, and a reader for
   Squarespace calendars, are the next two steps the owner was given.
+
+## School stages and one tourism board publish without a person, 10 November 2026
+
+The second step of the owner's plan for more events ("yes, step 2").
+Leadville's best listings sat in staging each week: the tourism board's
+calendar is a chamber-kind source, and the unattended review approves
+only the organizer's own feed. Timnath's school concerts waited because
+the school was filed `other` and its feed names no room.
+
+- **`autoApprove` on a source** (src/content/schemas.ts): the owner's
+  word, one source at a time, that a board's new listings publish under
+  the standing rules though it lists others' events. Set on Visit
+  Leadville Twin Lakes only. niwot.com and every other chamber stay as
+  they were: nothing from them is approved without a person.
+- **The guard that goes with it** (scripts/lib/auto-review.ts): a board
+  words an event its own way, so the title match misses the organizer's
+  listing already up ("Warren Miller Film Night at Ski Cooper!" beside
+  the lodge's own). A board's item waits when a listing is on the guide
+  that day within half an hour of it and the two titles share a word that
+  names something. In Leadville that held exactly the six that were the
+  library's, the museum's, the orchestra's and Ski Cooper's own listings
+  again, and let through the Parade of Lights, Taste of Leadville, Ski
+  Joring and the Elks' bingo. A board's change to a published listing is
+  still a person's call.
+- **A school's calendar is filed `venue`**, as Frederick's, Windsor's and
+  Severance's were: Lake County High and Timnath Middle-High speak for
+  their own plays and concerts. Timnath's has the school as its default
+  venue; Leadville's middle school games are excluded by title.
+- **Published the same day**: Leadville 19, Timnath 8. Left for a
+  person in Leadville: the six duplicates, a second showing of the play
+  on one day, and a Posada with no venue.
+- The trivia and bingo the board lists are regulars under the rule above
+  this one: on the guide, but only filling a quiet day.
