@@ -59,7 +59,6 @@ import { familyLines } from '@/lib/family-home';
 import { eventItem, weekDays } from '@/lib/flagship-home';
 import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, TAB_LIMIT } from '@/lib/home-tabs';
 import { dayKey, formatDayShort, formatTimeRange } from '@/lib/dates';
-import { resolveSiteImage } from '@/lib/images';
 import { firstSentence } from '@/lib/plain-text';
 import { eventDescription } from '@/lib/seo';
 import { isOpen } from '@/lib/places';
@@ -163,8 +162,11 @@ if (featured) {
     when: `${formatDayShort(start)} · ${timeNote ?? formatTimeRange(start, end && dayKey(end) === dayKey(start) ? end : undefined, allDay)}`,
     where: [venue, cost].filter(Boolean).join(' · '),
     blurb: firstSentence(eventDescription(featured.body) ?? '') || undefined,
-    image: image ?? spot?.data.image ?? resolveSiteImage(town.slug, town.hero.image),
-    alt: image ? (imageAlt ?? '') : spot ? (spot.data.imageAlt ?? '') : town.hero.alt,
+    // Its own photograph or its venue's; with neither the card is its words.
+    // It used to fall back to the hero, the same picture twice on one screen
+    // (Johnstown; design audit, 10 November 2026).
+    image: image ?? spot?.data.image,
+    alt: image ? (imageAlt ?? '') : (spot?.data.imageAlt ?? ''),
     eventDay: row.eventDay,
     end: row.end,
   };
