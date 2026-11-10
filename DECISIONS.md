@@ -9704,3 +9704,22 @@ review for their seven guides, as the Monday workflow does.
   Brewing, Clearview Library District), since a listing says who listed
   it and "Listed by tockify.com" is not who. Mighty River's music nights
   are filed as music.
+
+## Fritz Family Brewers' calendar, food trucks and all, 10 November 2026
+
+The owner sent screenshots of the brewery's Google calendar and its page.
+The page's embed names the calendar (info@fritzfamilybrewers.com), whose
+public iCal feed is now Niwot's fourth feed, read under `robots:
+subscribe` on the owner's word.
+
+- **Food trucks are listed here.** Asked whether they should be, since
+  they are most of what the brewery posts and the other guides exclude
+  them (Mighty River's are), the owner said yes: Niwot is thin, and a
+  truck at the brewery is something on that day. Only the CLOSED days and
+  the "National Lager Day" markers are excluded. The exception is this
+  source's, not a change to the event standard.
+- **First read**: 10 items in 120 days, all published under the standing
+  rules: trivia on the first and third Mondays, 6:30 to 7:30 pm, to March,
+  and two food trucks. The brewery enters its trucks a week or two ahead,
+  so they arrive with each Monday's read, not months out. Kölsch Service,
+  Wednesdays in summer, will come when the brewery enters next year's.

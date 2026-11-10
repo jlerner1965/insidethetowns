@@ -48,6 +48,22 @@
       "notes": "The Niwot Business Association's site, added as a source on the owner's word, 20 October 2026. Its calendar (Modern Events Calendar) publishes /events/feed/: one item per event at its next date, with mec:startDate, mec:startHour, mec:endDate, mec:endHour, mec:location and mec:category; the plugin's site-wide iCal feed is switched off. The feed holds ten items, the next ten events in date order, which on 20 October reached July 2027. Filed as chamber, not venue: the board also carries other groups' events, so nothing from it is approved without a person, and another group's event is confirmed on that group's own page. Excluded: the Tree Carving Fundraiser, a donation appeal the calendar repeats every Tuesday with no time or place; Trivia Night, The Wheel House's weekly regular, which the guide lists from the venue; and the Hormone Health Small Group Medical Program, an enrollment clinic program at a day spa, which is a promotion, not an event."
     },
     {
+      "id": "boulderlibrary-libnet-info",
+      "name": "Boulder Public Library District - Gunbarrel Library events",
+      "url": "https://calendar.boulderlibrary.org/events",
+      "feedUrl": "https://boulderlibrary.libnet.info/feeds?data=eyJmZWVkVHlwZSI6ImljYWwiLCJmaWx0ZXJzIjp7ImxvY2F0aW9uIjpbIjQ1NTkiXSwiYWdlcyI6WyJhbGwiXSwidHlwZXMiOlsiYWxsIl0sInRhZ3MiOltdLCJ0ZXJtIjoiIiwiZGF5cyI6MzB9fQ==",
+      "sampleUrl": "https://calendar.boulderlibrary.org/event/17494917",
+      "type": "ical",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Gunbarrel Library"
+      ],
+      "notes": "Proposed 10 November 2026. Not a Niwot venue: Niwot has no library of its own, and no item in the district's feed names Niwot. This is the district branch nearest Niwot, in Gunbarrel (a search result for the calendar's event pages gives 6500 Lookout Rd.; the address was not on the event page read); whether Niwot addresses are inside the Boulder Public Library District was not checked, and whether a Gunbarrel branch belongs on the Niwot guide is the owner's call. The calendar at calendar.boulderlibrary.org is Communico; its feeds are served from boulderlibrary.libnet.info/feeds?data=<base64 JSON of {feedType, filters}> (the same shape Castle Rock's dcl-org uses; the calendar.boulderlibrary.org host answers 404 for /feeds). The all-branches iCal read 200 text/calendar with 500 VEVENT (capped), reaching only to 16 December, 403 of them in the next 30 days across Main, NoBo, Meadows, Reynolds, Gunbarrel and Virtual. The feedUrl here is the same feed limited to location 4559, Gunbarrel Library (the id comes from the calendar's own event data): 161 VEVENT, 2 RRULE, through December 2027, every LOCATION beginning 'Gunbarrel Library - ' with a room or nothing. 35 items in 10 November to 9 December, parsed with the ingest's own iCal reader: about 20 are storytimes (Baby Time, Toddler Storytime, Preschool Storytime, Storytime, Storytime at Gunbarrel), the rest one-offs and monthly groups such as Active Minds: Native Americans of Colorado (16 Nov), Gunbarrel Classic Movies (22 Nov), Shelf Talkers Book Club, Short Story Book Club, Social Stitchers, Tinker Art Studio (30 Nov), Bad Art Night (3 Dec), Winter Baby Rave (5 Dec), Community Chats (7 Dec). Items carry no URL; an event's page is calendar.boulderlibrary.org/event/<UID>. robots.txt on both hosts disallows only /results* and site search, so /feeds is allowed. If confirmed, the storytimes want an excludeTitles list ('Storytime', 'Baby Time') or the guide gets five a week, and defaultVenue 'Gunbarrel Library'. The Longmont Public Library was not added: it is in Longmont and has no Niwot branch."
+    },
+    {
       "id": "niwothall-org",
       "name": "Niwot Hall (Left Hand Grange)",
       "url": "https://niwothall.org/",
@@ -86,6 +102,34 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Added 31 October 2026, when a check for missed Niwot events found the bar's calendar carried a band every Friday and Saturday, a Halloween party and a weekly euchre night, none of them on the guide, which had only its Tuesday trivia (from niwot.com). The calendar is a Squarespace calendar block (collection 67cc8d31ad15874647ad995d) that the page fills by script; the page's own data call, /api/open/GetItemsByMonth?month=MM-YYYY&collectionId=67cc8d31ad15874647ad995d, returns each month's items with start and end, and each item's page answers ?format=json with its description. Ingest has no Squarespace reader, so this is read by hand until one is written. The calendar entries' times are sometimes an hour where the description gives longer (trivia shows 6:30 to 7:30; niwot.com gives 6:30 to 8:30)."
+    },
+    {
+      "id": "fritzfamilybrewers-com",
+      "name": "Fritz Family Brewers",
+      "url": "https://www.fritzfamilybrewers.com/calendar",
+      "feedUrl": "https://calendar.google.com/calendar/ical/info%40fritzfamilybrewers.com/public/basic.ics",
+      "type": "ical",
+      "category": "venue",
+      "status": "confirmed",
+      "robots": "subscribe",
+      "excludeTitles": [
+        "CLOSED",
+        "^National .* Day$"
+      ],
+      "defaultVenue": "Fritz Family Brewers",
+      "notes": "Proposed 10 November 2026. Niwot's brewery (the site's title is 'Brewery | Fritz Family Brewers | Niwot, Colorado'; street address not read) has a /calendar page (200). It is a Wix site and the calendar is drawn by script from Wix's Google Calendar and Events apps, so the fetched HTML carries no event text and no events could be counted. No Google calendar id appears in the page source, so the public .ics behind it could not be found without a browser; if the brewery will share its calendar's address, that would be an iCal feed, subject to calendar.google.com's robots.txt, which disallows unlisted agents. robots.txt allows the page. Read by hand in a browser until then. The calendar's address found 10 November 2026, after the owner sent screenshots of it: the Wix page's embed loads calendar.google.com/calendar/embed?src=info@fritzfamilybrewers.com, whose public iCal address is the feedUrl. Read once that day: calendar name 'Fritz Family Brewers', America/Denver, 346 VEVENTs, nearly all the day's food truck (Pong Thai 56, The Maine Event 35, Cruagh Irish 34 and so on), six CLOSED days and the 'National Lager Day' kind of marker. What is an event: Trivia, the first and third Mondays, 6:30 to 7:30 pm (two monthly recurrences, no end date), and in summer Kölsch Service, Wednesdays 5 to 7 pm (this year's ran 20 May to 30 September). No LOCATION on most items, so the brewery is the default venue. The food trucks, closures and beer-day markers are excluded by title; a new truck's name will slip through until it is added. calendar.google.com's robots.txt disallows every agent, so under robots: honor ingest will not read this; it is the calendar the brewery embeds on its own site, and robots: subscribe is the owner's call, as for the school calendars. Expect two listings a month, and a weekly one from May to September. 10 November 2026, the owner's word: the food trucks are listed (a thin guide, and they are most of what the brewery posts), so only the closures and the beer-day markers are excluded; and the feed is read under robots: subscribe, the calendar being the one the brewery embeds on its own page."
+    },
+    {
+      "id": "inkberrybooks-com",
+      "name": "Inkberry Books",
+      "url": "https://www.inkberrybooks.com/calendar/This_Month_at_Inkberry_Books.htm",
+      "sampleUrl": "https://www.inkberrybooks.com/rsvp1113.htm",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Inkberry Books",
+      "notes": "Proposed 10 November 2026. The bookshop in Cottonwood Shopping Center (7960 Niwot Road, Suite B-3, (720) 412-1548, from the site's header) holds author evenings and posts them on a hand-written page, 'Events at Inkberry Books'. Read 10 November: two dated events in the next 30 days, 13 November 7 pm (author Mike King, Rocky Mountain Heist) and 21 November 7 pm (not read further), each with an RSVP page. A hand-coded static site with no feed of any kind and no robots.txt. Read by hand; two or three listings a month."
     },
     {
       "id": "niwotarts-org",
@@ -197,82 +241,15 @@
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
-      "id": "boulderlibrary-libnet-info",
-      "name": "Boulder Public Library District - Gunbarrel Library events",
-      "url": "https://calendar.boulderlibrary.org/events",
-      "feedUrl": "https://boulderlibrary.libnet.info/feeds?data=eyJmZWVkVHlwZSI6ImljYWwiLCJmaWx0ZXJzIjp7ImxvY2F0aW9uIjpbIjQ1NTkiXSwiYWdlcyI6WyJhbGwiXSwidHlwZXMiOlsiYWxsIl0sInRhZ3MiOltdLCJ0ZXJtIjoiIiwiZGF5cyI6MzB9fQ==",
-      "sampleUrl": "https://calendar.boulderlibrary.org/event/17494917",
-      "type": "ical",
-      "category": "library",
-      "priority": "core",
-      "status": "proposed",
-      "robots": "honor",
-      "locationFilter": [
-        "Gunbarrel Library"
-      ],
-      "notes": "Proposed 10 November 2026. Not a Niwot venue: Niwot has no library of its own, and no item in the district's feed names Niwot. This is the district branch nearest Niwot, in Gunbarrel (a search result for the calendar's event pages gives 6500 Lookout Rd.; the address was not on the event page read); whether Niwot addresses are inside the Boulder Public Library District was not checked, and whether a Gunbarrel branch belongs on the Niwot guide is the owner's call. The calendar at calendar.boulderlibrary.org is Communico; its feeds are served from boulderlibrary.libnet.info/feeds?data=<base64 JSON of {feedType, filters}> (the same shape Castle Rock's dcl-org uses; the calendar.boulderlibrary.org host answers 404 for /feeds). The all-branches iCal read 200 text/calendar with 500 VEVENT (capped), reaching only to 16 December, 403 of them in the next 30 days across Main, NoBo, Meadows, Reynolds, Gunbarrel and Virtual. The feedUrl here is the same feed limited to location 4559, Gunbarrel Library (the id comes from the calendar's own event data): 161 VEVENT, 2 RRULE, through December 2027, every LOCATION beginning 'Gunbarrel Library - ' with a room or nothing. 35 items in 10 November to 9 December, parsed with the ingest's own iCal reader: about 20 are storytimes (Baby Time, Toddler Storytime, Preschool Storytime, Storytime, Storytime at Gunbarrel), the rest one-offs and monthly groups such as Active Minds: Native Americans of Colorado (16 Nov), Gunbarrel Classic Movies (22 Nov), Shelf Talkers Book Club, Short Story Book Club, Social Stitchers, Tinker Art Studio (30 Nov), Bad Art Night (3 Dec), Winter Baby Rave (5 Dec), Community Chats (7 Dec). Items carry no URL; an event's page is calendar.boulderlibrary.org/event/<UID>. robots.txt on both hosts disallows only /results* and site search, so /feeds is allowed. If confirmed, the storytimes want an excludeTitles list ('Storytime', 'Baby Time') or the guide gets five a week, and defaultVenue 'Gunbarrel Library'. The Longmont Public Library was not added: it is in Longmont and has no Niwot branch."
-    },
-    {
-      "id": "nhs-svvsd-org",
-      "name": "Niwot High School - Niwot Activities & Events calendar",
-      "url": "https://nhs.svvsd.org/",
-      "feedUrl": "https://calendar.google.com/calendar/ical/svvsd.org_2iseneltdfah8uip6cbfbbafq8%40group.calendar.google.com/public/basic.ics",
-      "type": "manual",
-      "category": "other",
-      "priority": "other",
-      "status": "proposed",
-      "lastNote": "feed answers but calendar.google.com robots.txt disallows our agent, and the next 30 days are all student club meetings",
-      "robots": "honor",
-      "notes": "Proposed 10 November 2026 so nobody looks twice. The school's home page embeds one public Google calendar, 'Niwot Activities & Events' (svvsd.org_2iseneltdfah8uip6cbfbbafq8@group.calendar.google.com). Its public .ics answered 200 (185 KB, 535 VEVENT, heavily recurring) and parsed with the ingest's own reader: 196 occurrences in 10 November to 9 December, none with a location, and every one a student club meeting (Cyber Patriots, Key Club, Mock Trial, Art Club and so on), a military recruiter visit or a 'Late Start' marker. No concert, play, game or community night is on it in that window. Kept manual for two reasons: calendar.google.com's robots.txt disallows unlisted agents (as recorded for Elizabeth's library), and the content is not what the guide lists. The school's concerts, theatre and athletics must be on another calendar; www.svvsd.org answered 429 Too Many Requests to every calendar path tried on 10 November, including /st-vrain-athletic-events-calendar/, so the district's calendars (the existing svvsd-org entry) could not be checked for a feed."
-    },
-    {
       "id": "lhvc-com",
       "name": "Left Hand Valley Courier",
       "url": "https://www.lhvc.com/section/events",
       "sampleUrl": "https://www.lhvc.com/story/2026/10/14/events/the-great-pumpkin-party-returns-on-halloween/12649.html",
       "type": "html",
       "category": "news",
-      "priority": "other",
       "status": "proposed",
       "robots": "honor",
       "notes": "Proposed 10 November 2026. Niwot's weekly paper. Its Events section (/section/events, 200; 'Results 1 - 50 of 244') is news stories about events, newest first, with sub-sections for First Friday Art Walk, Enchanted Evening, Holiday Market, Rock & Rails, Niwot Jazz Festival, Lobsterfest, Honey Bee Harvest Festival, House Blend Band concerts, lectures and others; the top stories on 10 November were the Great Pumpkin Party (31 Oct) and the Historical Society's 21 October Now & Then lecture on the Niwot Cemetery. There is no calendar with dated entries. The site's one feed, https://www.lhvc.com/rss, answered 200 with 30 items, but it is the general news feed with no event dates, so ingest would skip every item; it is not recorded as a feedUrl. robots.txt allows the section for our agent (it blocks named AI crawlers and carries a content signal of search=yes, ai-train=no). For leads and attribution: an event found here is confirmed on the organizer's own page."
-    },
-    {
-      "id": "inkberrybooks-com",
-      "name": "Inkberry Books",
-      "url": "https://www.inkberrybooks.com/calendar/This_Month_at_Inkberry_Books.htm",
-      "sampleUrl": "https://www.inkberrybooks.com/rsvp1113.htm",
-      "type": "html",
-      "category": "venue",
-      "priority": "other",
-      "status": "proposed",
-      "robots": "honor",
-      "defaultVenue": "Inkberry Books",
-      "notes": "Proposed 10 November 2026. The bookshop in Cottonwood Shopping Center (7960 Niwot Road, Suite B-3, (720) 412-1548, from the site's header) holds author evenings and posts them on a hand-written page, 'Events at Inkberry Books'. Read 10 November: two dated events in the next 30 days, 13 November 7 pm (author Mike King, Rocky Mountain Heist) and 21 November 7 pm (not read further), each with an RSVP page. A hand-coded static site with no feed of any kind and no robots.txt. Read by hand; two or three listings a month."
-    },
-    {
-      "id": "fritzfamilybrewers-com",
-      "name": "Fritz Family Brewers",
-      "url": "https://www.fritzfamilybrewers.com/calendar",
-      "type": "html",
-      "category": "venue",
-      "priority": "other",
-      "status": "proposed",
-      "robots": "honor",
-      "defaultVenue": "Fritz Family Brewers",
-      "notes": "Proposed 10 November 2026. Niwot's brewery (the site's title is 'Brewery | Fritz Family Brewers | Niwot, Colorado'; street address not read) has a /calendar page (200). It is a Wix site and the calendar is drawn by script from Wix's Google Calendar and Events apps, so the fetched HTML carries no event text and no events could be counted. No Google calendar id appears in the page source, so the public .ics behind it could not be found without a browser; if the brewery will share its calendar's address, that would be an iCal feed, subject to calendar.google.com's robots.txt, which disallows unlisted agents. robots.txt allows the page. Read by hand in a browser until then."
-    },
-    {
-      "id": "niwotjazz-org",
-      "name": "Niwot Jazz Festival",
-      "url": "https://niwotjazz.org/",
-      "sampleUrl": "https://niwotjazz.org/",
-      "type": "html",
-      "category": "other",
-      "priority": "other",
-      "status": "proposed",
-      "robots": "honor",
-      "notes": "Proposed 10 November 2026. The festival's own one-page site, still showing the 2026 edition: 'Summer Soul-stice Party', Saturday 27 June 2026, 3 to 9:30 pm, with a set-by-set schedule (Amelie Quartet 3 pm, Damani Phillips 4:45, Robert Johnson and the Keith Waters Trio 6:15, Quemando 8). One event a year, nothing in the next 30 days, no feed, no robots.txt. Check each spring for the date and line-up; niwot.com also carries it."
     },
     {
       "id": "niwot-org",
@@ -281,10 +258,32 @@
       "sampleUrl": "https://niwot.org/events/",
       "type": "html",
       "category": "other",
-      "priority": "other",
       "status": "proposed",
       "robots": "honor",
       "notes": "Proposed 10 November 2026. The residents' association ('Niwot Neighbors Promoting The Needs Of Our Community') keeps one page of the year's events: for 2026 the NCA Annual Meeting (21 April, Niwot Hall, members only), Niwot's Neal Anderson Clean-up & Recycling Day (16 May, Niwot High School parking lot), the Slepicka Tractor Show (13 June), the 4th of July Celebration, National Night Out in Niwot and Veterans Banners, with links to each past year back to 2011. All but the banners are past; nothing dated in the next 30 days. WordPress with no calendar plugin: /wp-json/tribe/events/v1/events is 404 and /events/feed/ is an empty comments feed. robots.txt allows everything. A once-a-year checklist of half a dozen dates, read by hand."
+    },
+    {
+      "id": "nhs-svvsd-org",
+      "name": "Niwot High School - Niwot Activities & Events calendar",
+      "url": "https://nhs.svvsd.org/",
+      "feedUrl": "https://calendar.google.com/calendar/ical/svvsd.org_2iseneltdfah8uip6cbfbbafq8%40group.calendar.google.com/public/basic.ics",
+      "type": "manual",
+      "category": "other",
+      "status": "proposed",
+      "lastNote": "feed answers but calendar.google.com robots.txt disallows our agent, and the next 30 days are all student club meetings",
+      "robots": "honor",
+      "notes": "Proposed 10 November 2026 so nobody looks twice. The school's home page embeds one public Google calendar, 'Niwot Activities & Events' (svvsd.org_2iseneltdfah8uip6cbfbbafq8@group.calendar.google.com). Its public .ics answered 200 (185 KB, 535 VEVENT, heavily recurring) and parsed with the ingest's own reader: 196 occurrences in 10 November to 9 December, none with a location, and every one a student club meeting (Cyber Patriots, Key Club, Mock Trial, Art Club and so on), a military recruiter visit or a 'Late Start' marker. No concert, play, game or community night is on it in that window. Kept manual for two reasons: calendar.google.com's robots.txt disallows unlisted agents (as recorded for Elizabeth's library), and the content is not what the guide lists. The school's concerts, theatre and athletics must be on another calendar; www.svvsd.org answered 429 Too Many Requests to every calendar path tried on 10 November, including /st-vrain-athletic-events-calendar/, so the district's calendars (the existing svvsd-org entry) could not be checked for a feed."
+    },
+    {
+      "id": "niwotjazz-org",
+      "name": "Niwot Jazz Festival",
+      "url": "https://niwotjazz.org/",
+      "sampleUrl": "https://niwotjazz.org/",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Proposed 10 November 2026. The festival's own one-page site, still showing the 2026 edition: 'Summer Soul-stice Party', Saturday 27 June 2026, 3 to 9:30 pm, with a set-by-set schedule (Amelie Quartet 3 pm, Damani Phillips 4:45, Robert Johnson and the Keith Waters Trio 6:15, Quemando 8). One event a year, nothing in the next 30 days, no feed, no robots.txt. Check each spring for the date and line-up; niwot.com also carries it."
     }
   ]
 }
