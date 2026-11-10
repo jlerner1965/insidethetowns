@@ -15,7 +15,8 @@ price: "Monthly, resident / non-resident: half day Tue/Thu $297 / $315, Mon/Wed/
 registration: { required: true, how: "Online through the City's WebTrac registration site, linked from the enrollment page; for five days, register for both the Tue/Thu and the Mon/Wed/Fri classes", url: "https://www.cityofgolden.gov/community/preschool/enrollment.php", note: "The enrollment page says registration is open; withdrawals need 30 days' written notice" }
 contact: "Preschool director Jessica Long, 303-384-8124, jlong@cityofgolden.net"
 source: "https://www.cityofgolden.gov/community/preschool/enrollment.php"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The City runs four preschool classrooms for children from 2½ to 5 in a wing of the Community Center, built around learning through play. Half-day sessions, 8:15 to 12:30, take children who are 2½ by September 1; full days, 8:15 to 3:30, take children who are 3 by then. The program holds a Level 5 Colorado Shines quality rating, and its enrollment page points families to Colorado's [Universal Preschool program](https://cdec.colorado.gov/universal-preschool-colorado) for 2026–27.

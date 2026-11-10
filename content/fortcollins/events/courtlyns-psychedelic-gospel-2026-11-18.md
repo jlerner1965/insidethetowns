@@ -13,8 +13,8 @@ performers:
   - { name: "Andy Reiner", kind: person }
   - { name: "Matt Thomas", kind: person }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): 18 November and 8 pm on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 A Mishawaka Presents show: Courtlyn's Psychedelic Gospel, featuring Courtlyn Bills with Magoo, Tyler Grant (Grant Farm), Andy Reiner (Rapidgrass) and Matt Thomas, 8 p.m. Tickets through etix; price not shown on Avo's page. At Avogadro's Number, 605 South Mason Street.

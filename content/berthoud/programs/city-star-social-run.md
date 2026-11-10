@@ -18,8 +18,8 @@ beginners: true
 newcomers: true
 nextEvent: social-run-city-star
 source: "https://citystarbrewing.com/series/social-run/"
-verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: City Star's events list and its Social Run series page (dates listed through March 18, 2027), read November 8, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The easiest thing in Berthoud to join: the brewery's own calendar lists the [Social Run](/events/social-run-city-star/) every Thursday at 6, two distance options, strollers, dogs, speed walkers and marathon runners all welcome, and a $3 beer waiting. Bring a headlamp. The same taproom runs [Humdinger Trivia](/events/humdinger-trivia-city-star/) on Tuesdays at 6, free to play, and cribbage on the second and fourth Wednesdays at 6, free to enter.

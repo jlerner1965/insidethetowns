@@ -11,8 +11,8 @@ url: "https://buffalorosegolden.com/events/lies-or-lullabies-rebel-souls/"
 category: music
 source: "https://buffalorosegolden.com/events/lies-or-lullabies-rebel-souls/"
 sourceId: "buffalorose-net"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Two Colorado tribute bands the night after Thanksgiving: Lies or Lullabies plays Bryan Adams, John Mellencamp and Bruce Springsteen at 7 pm, and Rebel Souls plays Bad Company at 8:50. 18 and over, or under 18 with a parent or guardian.

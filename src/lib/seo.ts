@@ -227,12 +227,17 @@ export function placeDescription(place: PlaceDescriptionFacts, town: { name: str
   ].filter((f): f is string => !!f);
   // A lead that runs long loses the last of its list, at a comma, and the
   // one before it takes "and": a whole sentence, not a cut one.
+  // Only the words after the subject are a list: "Old Town Square in Fort
+  // Collins, CO" has a comma of its own, and a shortened lead used to join
+  // across it ("in Fort Collins and CO is the pedestrian plaza", on sixteen
+  // live pages; the sweep of 10 November 2026).
   const shorten = (lead: string): string | undefined => {
-    const items = lead.split(/,\s+/);
+    const head = lead.startsWith(subject) ? subject : '';
+    const items = lead.slice(head.length).split(/,\s+/);
     while (lead.length + 1 > limit && items.length > 2) {
       items.pop();
       const last = items[items.length - 1]!;
-      lead = `${items.slice(0, -1).join(', ')}${/^and\s/.test(last) ? ', ' : ' and '}${last}`;
+      lead = `${head}${items.slice(0, -1).join(', ')}${/^and\s/.test(last) ? ', ' : ' and '}${last}`;
     }
     return lead.length + 1 <= limit ? lead : undefined;
   };
@@ -458,6 +463,20 @@ export function offerPrice(
  * street or directions ("Colorado Highway 7, 5.8 miles south of Estes Park"),
  * is the street line as written, in the guide's own town.
  */
+/**
+ * The town a place is in, for its title and its description: its section's
+ * on a guide that covers several (`subTown`), else the town its own address
+ * names ("2989 S State Highway 83, Franktown, CO 80116"), else the guide's.
+ * The structured data already read the address this way; the title and the
+ * description said "in Windsor, CO" of every Severance listing, "in
+ * Frederick, CO" of seven in Firestone and "in Castle Rock, CO" of
+ * Castlewood Canyon, 27 pages in all (the sweep of 10 November 2026).
+ */
+export function placeLocality(place: { address?: string; subTown?: string }, town: { name: string; state: string }, subTownName?: (slug: string) => string): string {
+  if (place.subTown && subTownName) return subTownName(place.subTown);
+  return postalAddress(place.address, town).addressLocality;
+}
+
 export function postalAddress(address: string | undefined, town: { name: string; state: string }) {
   const parts = address?.match(/^(.+),\s*([A-Za-z][A-Za-z .'-]*),\s*(?:CO|Colorado),?(?:\s+(\d{5}(?:-\d{4})?))?\s*$/);
   if (parts) {

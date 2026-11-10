@@ -4,9 +4,9 @@ type: venue
 address: "987 1/2 Lookout Mountain Road, Golden, CO 80401"
 url: "https://buffalobill.org/"
 source: "https://buffalobill.org/visit-us/hours-and-admission/"
-verified: "2026-11-03"
+verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 image: ../images/buffalo-bill-museum-and-grave.jpg
 imageAlt: "Buffalo Bill's grave on Lookout Mountain: a white stone cairn with a bronze plaque and a small flag, inside a black iron fence under pines"
 imageCredit: "Jibi44, Wikimedia Commons, CC BY-SA 4.0"

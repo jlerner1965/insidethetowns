@@ -8,7 +8,8 @@ hours: "Tue 1–6, Wed–Sat 10–6, Sun 1–6; closed Mon"
 tags: [clothing, boutique]
 summary: "Women's clothing boutique on Mountain Avenue for everyday fashion and accessories."
 source: "https://www.houseofrossiboutique.com/pages/about-us"
-verified: "2026-11-02"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

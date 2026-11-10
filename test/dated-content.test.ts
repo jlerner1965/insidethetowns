@@ -50,14 +50,17 @@ test('an article that declares a shelf life says what changes, and where the ans
   }
 });
 
-test('the Niwot election guide turns over the morning after the vote', () => {
+test('the Niwot election guide says which count it carries, and when that count goes stale', () => {
   const fm = frontmatter('content/niwot/articles/2026-incorporation-election.md');
-  // Ballots are due 7pm on the 3rd, so the guidance is live through election
-  // day itself. The 4th is the first day it is behind the facts.
-  assert.equal(fm.supersededAfter, '2026-11-04');
-  assert.match(fm.supersededNote ?? '', /November 3, 2026/);
-  assert.match(fm.supersededNote ?? '', /not a result|none of it is a result/i,
-    'the note must not be mistaken for reporting the outcome');
+  // Until 10 November 2026 the page carried no result and turned over on the
+  // 4th, the morning after the vote. It now carries Boulder County's
+  // unofficial count of 6 November (read from the county's results page on
+  // the 10th: 697 for incorporation, 2,047 against), and the county posts
+  // its next count on the 13th: from then the page says the figures may be
+  // behind, whether or not a rebuild happened.
+  assert.equal(fm.supersededAfter, '2026-11-13');
+  assert.match(fm.supersededNote ?? '', /unofficial count/i, 'the count is named as unofficial');
+  assert.match(fm.supersededNote ?? '', /November 24/, 'and the day it is certified');
   assert.match(fm.supersededSource ?? '', /bouldercounty\.gov/,
     'the official count belongs to the county, not to us');
 });

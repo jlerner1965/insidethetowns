@@ -3,12 +3,12 @@ title: "Moving to Berthoud"
 description: "What it is like to live in a farm town of ten thousand at the 2020 census that doubled in a decade: housing, Thompson schools, the US 287 and I-25 commutes, a Town that runs its own water, and the lakes ten minutes up the road."
 image: ../images/welcome-sign.jpg
 imageAlt: "The Town of Berthoud welcome sign, 'The Garden Spot of Colorado', on a gray winter day"
-updated: "2026-11-09"
+updated: "2026-11-10"
 ---
 
 ## What you are moving to
 
-Berthoud is a statutory town of about 10,300 people at the 2020 census, and about 13,100 by the [State Demography Office's 2025 estimate](https://gis.dola.colorado.gov/lookups/countymuni?countyfips=69&placefips=6255&year=2025), on the Larimer–Weld county line, 21 miles south of Fort Collins and 43 north of Denver, on the bluff above the Little Thompson River. It calls itself the Garden Spot of Colorado, a name earned by the irrigated farms around it, and as recently as the 2010 census it was a farm town of about five thousand with a five-block Main Street. It has roughly doubled since 2010: new subdivisions on every side, a reservoir park opened in 2020, a $32 million recreation center in 2021, a bike park in 2023, and the [downtown](/places/downtown-mural-walk/) filling up with breweries, galleries and antique malls. The old grid of brick storefronts and converted houses along Mountain Avenue is still the center of it.
+Berthoud is a statutory town of about 10,300 people at the 2020 census, and about 13,100 by the [State Demography Office's 2025 estimate](https://gis.dola.colorado.gov/lookups/countymuni?placefips=6255&year=2025&compressed=no), on the Larimer–Weld county line, 21 miles south of Fort Collins and 43 north of Denver, on the bluff above the Little Thompson River. It calls itself the Garden Spot of Colorado, a name earned by the irrigated farms around it, and as recently as the 2010 census it was a farm town of about five thousand with a five-block Main Street. It has roughly doubled since 2010: new subdivisions on every side, a reservoir park opened in 2020, a $32 million recreation center in 2021, a bike park in 2023, and the [downtown](/places/downtown-mural-walk/) filling up with breweries, galleries and antique malls. The old grid of brick storefronts and converted houses along Mountain Avenue is still the center of it.
 
 ## Housing
 

@@ -5,8 +5,8 @@ date: "2026-09-27"
 excerpt: "Five places for breakfast or brunch in Erie that this guide has checked, from the Creole cafe with the famous weekend line to the two that open at six."
 category: "Food & drink"
 tags: [breakfast, brunch, coffee, guide]
-verified: "2026-10-02"
-updated: "2026-10-26"
+verified: "2026-11-10"
+updated: "2026-11-10"
 sources:
   - { label: "Lucile's Creole Cafe, Erie", url: "https://www.luciles.com/erie-location-menu/" }
   - { label: "FOX•DOG Coffee", url: "https://www.foxdogcoffee.com/" }
@@ -32,7 +32,7 @@ Downtown Erie is a breakfast town, and the line outside Lucile's on a Saturday i
 
 [Ziggi's](/places/ziggis-coffee/) on Milan Place off Erie Parkway is the drive-through: espresso, blended drinks, breakfast burritos and paninis, open at 6 every day.
 
-[Cristos Coffee](/places/cristos-coffee/) at 149 South Briggs, the sit-down option at the south end of downtown, opens at 6 on weekdays and 7:30 on weekends, with espresso, pastries and beans roasted with a Boulder roaster (its own page, read October 26).
+[Cristos Coffee](/places/cristos-coffee/) at 149 South Briggs, the sit-down option at the south end of downtown, opens at 6 on weekdays and 7:30 on weekends, with espresso, pastries and beans roasted with a Boulder roaster.
 
 ## Open right now
 

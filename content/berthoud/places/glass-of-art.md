@@ -11,7 +11,8 @@ closed: "2026-10-07"
 statusNote: "Listed as closed pending confirmation. The studio’s website (glassofart.com) now redirects to an unrelated site, the Berthoud Main Street directory no longer names it, and the same directory lists Jessie’s Pub and Sports Bar at 316 Mountain Ave (checked October 7, 2026). If it has moved or reopened, tell us."
 statusSource: "https://berthoudmainstreet.org/dine-drink-berthoud/"
 source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
-verified: "2026-10-07"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

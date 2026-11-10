@@ -9,7 +9,8 @@ hours: "Mon–Thu 10:30–7, Fri 10:30–8, Sat–Sun 11–7"
 tags: [pizza, by-the-slice, families]
 summary: "New York-style pizza by the slice or the pie, from the Boulder original that started in 1977."
 source: "https://abospizza.com/locations/niwot/"
-verified: "2026-10-03"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

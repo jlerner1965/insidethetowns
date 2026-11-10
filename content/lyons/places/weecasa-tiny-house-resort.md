@@ -12,7 +12,8 @@ closed: "2026-11-03"
 statusNote: "Closed for good on October 31, 2026, as its own website announces: \"WeeCasa is closing for good on October 31, 2026. Thank you to all our guests!\""
 statusSource: "https://www.weecasa.com/"
 source: "https://www.weecasa.com/"
-verified: "2026-11-03"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

@@ -13,7 +13,8 @@ tags: [museum, history, kids]
 featured: true
 summary: "The Berthoud Historical Society's museum on Mountain Avenue, in and around the 1893 Bimson Blacksmith Shop: farm, railroad and family history. Wed–Sat 1–4, $5."
 source: "https://berthoudhistoricalsociety.org/ltv-pioneer-museum/"
-verified: "2026-11-03"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

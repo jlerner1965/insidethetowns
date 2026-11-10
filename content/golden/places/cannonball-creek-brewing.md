@@ -4,9 +4,9 @@ type: bar
 address: "393 Washington Ave, Golden, CO 80403"
 url: "https://www.cannonballcreekbrewing.com/"
 source: "https://www.cannonballcreekbrewing.com/"
-verified: "2026-11-03"
+verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 phone: "303-278-0111"
 hours: "Mon–Thu 2–9 pm; Fri 12–10 pm; Sat–Sun 12–9 pm"
 tags: [brewery, food-trucks, dog-friendly-patio]

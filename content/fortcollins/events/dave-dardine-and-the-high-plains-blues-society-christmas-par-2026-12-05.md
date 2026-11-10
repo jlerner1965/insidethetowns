@@ -9,8 +9,8 @@ category: "music"
 performers:
   - { name: "Dave Dardine", kind: person }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-12-05, 14:00-17:00, no price posted"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The High Plains Blues Society's Christmas party with Dave Dardine, 2 to 5 p.m., a benefit for the Poudre Valley Volunteer Fire Department. Admission was not posted. At Avogadro's Number, 605 South Mason Street.

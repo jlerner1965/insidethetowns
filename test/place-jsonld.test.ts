@@ -54,3 +54,17 @@ test('the venue subtypes, and hours the parser will not read make no specificati
   const closed = roundTrip(localBusinessJsonLd(town, place({ title: 'X', type: 'bar', status: 'closed', address: '1 St', hours: 'Daily 11–8', summary: 'x' }), page));
   assert.equal('openingHoursSpecification' in closed, false);
 });
+
+test('a place is placed in its own town: its section, else its address, else the guide’s', async () => {
+  // 27 live pages said "in Windsor, CO" of a Severance listing, "in Frederick, CO" of one in
+  // Firestone, "in Castle Rock, CO" of Castlewood Canyon (10 November 2026).
+  const { placeLocality } = await import('../src/lib/seo.ts');
+  const label = (slug: string) => slug.charAt(0).toUpperCase() + slug.slice(1);
+  const windsor = { name: 'Windsor', state: 'CO' };
+  assert.equal(placeLocality({ address: '123 1st Street, Severance, CO 80550', subTown: 'severance' }, windsor, label), 'Severance');
+  assert.equal(placeLocality({ address: 'Lake Vista Way at the reservoir shore', subTown: 'severance' }, windsor, label), 'Severance');
+  assert.equal(placeLocality({ address: '301 Walnut St', subTown: 'windsor' }, windsor, label), 'Windsor');
+  assert.equal(placeLocality({ address: '2989 S State Highway 83, Franktown, CO 80116' }, { name: 'Castle Rock', state: 'CO' }), 'Franktown');
+  assert.equal(placeLocality({ address: '802 Mountain Ave' }, { name: 'Berthoud', state: 'CO' }), 'Berthoud');
+  assert.equal(placeLocality({}, { name: 'Berthoud', state: 'CO' }), 'Berthoud');
+});

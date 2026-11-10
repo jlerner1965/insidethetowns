@@ -6,8 +6,9 @@
  */
 import Page from '@/layouts/Page.astro';
 import ThisWeek from '@/components/ThisWeek.astro';
-import { getTown } from '@/config';
-import { formatDayRange } from '@/lib/dates';
+import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
+import { dayKey, formatDayLong, formatDayRange } from '@/lib/dates';
+import { nextSendDay } from '@/lib/newsletter';
 import { weekWindow } from '@/lib/weekly';
 import { breadcrumbJsonLd, collectionPageJsonLd, fillDescription } from '@/lib/seo';
 
@@ -15,6 +16,17 @@ const town = getTown();
 const { monday, sunday } = weekWindow();
 const range = formatDayRange(monday, sunday);
 // The trust line goes on when the week's dates leave room for it ("December 28 – January 3" may not).
+// When to come back, said once under the title (the sweep of 10 November
+// 2026): the page is rebuilt every morning, and on a guide the weekly email
+// covers, the day and hour the weekend's list goes out, with the way to the
+// form on this page. A quiet or visitor guide has no email and says only
+// the first.
+const hub = getNetworkHub();
+const emailOn = !!hub.newsletter && !!editionFor(town.slug, emailEditions());
+const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
+const today = new Date();
+const send = nextSendDay(today, sendDay);
+const sendWhen = dayKey(send) === dayKey(today) ? 'today' : `on ${formatDayLong(send)}${hub.newsletter?.sendTime ? ` at ${hub.newsletter.sendTime}` : ''}`;
 const description = fillDescription(`This week in ${town.name}, Colorado, ${range}: our pick, this weekend’s events, and what is new or closed.`, ['Every listing checked against its source.']);
 ---
 <Page
@@ -34,6 +46,9 @@ const description = fillDescription(`This week in ${town.name}, Colorado, ${rang
   <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
     <a href="/this-weekend/" class="font-semibold text-primary underline">The weekend in full</a> ·
     <a href="/events/" class="font-semibold text-primary underline">All events</a>
+  </p>
+  <p slot="after-header" class="mt-2 text-[0.9375rem] text-ink-muted">
+    Rebuilt every morning from the listings.{emailOn && <Fragment> The weekend’s full list goes out by email {sendWhen}: <a href="#signup" class="font-semibold text-primary underline">get it</a>.</Fragment>}
   </p>
   <ThisWeek town={town} />
 </Page>

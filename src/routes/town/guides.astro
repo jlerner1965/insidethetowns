@@ -8,6 +8,7 @@
  * more in its third year than its first week, and this is where it lives.
  */
 import Page from '@/layouts/Page.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
@@ -81,4 +82,8 @@ const structured = [
       );
     })
   )}
+  {/* The Thursday email, once, under the list: this page type had no form
+      at all (the sweep of 10 November 2026). Nothing on a guide the email
+      does not cover (NewsletterSignup). */}
+  <NewsletterSignup town={town} id="guides" variant="home" class="mt-14" />
 </Page>

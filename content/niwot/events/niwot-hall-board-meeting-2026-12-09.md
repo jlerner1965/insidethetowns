@@ -8,7 +8,8 @@ url: "https://niwothall.org/events/niwot-hall-meeting/"
 category: civic
 recurring: "second Wednesday of the month"
 source: "https://niwothall.org/events/niwot-hall-meeting/"
-verified: "2026-09-18"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the hall's page at its 9 December date: 4:30 to 6 pm)"
 ---
 
-Monthly business meeting for Niwot Hall. Date generated from the hall's stated second-Wednesday schedule.
+Monthly business meeting for Niwot Hall. The December 9 date is on the hall's calendar, 4:30 to 6 pm.

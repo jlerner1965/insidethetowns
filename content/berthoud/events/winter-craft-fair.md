@@ -10,8 +10,8 @@ url: "https://www.berthoud.org/1649/Winter-Craft-Fair"
 cost: "Free"
 category: market
 source: "https://www.berthoud.org/1649/Winter-Craft-Fair"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Winter Craft Fair page, read 9 November 2026 (Saturday, December 5, 2026, 9:00 AM–3:00 PM, Berthoud Recreation Center, the three food trucks)"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town's Winter Craft Fair page: Saturday, December 5, 2026, 9 am to 3 pm, Berthoud Recreation Center, the three food trucks; the page gives no admission price)"
 ---
 
 The Winter Craft Fair brings local vendors to the Recreation Center with handmade crafts, gifts and seasonal items, 9 am to 3 pm. Travelin' Tom's Coffee, Southern Twist Food and Crepes On Wheels are the food trucks. Free to browse, indoors, and the same day as A Very Merry Berthoud downtown.

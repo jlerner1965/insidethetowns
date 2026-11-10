@@ -9,6 +9,7 @@
  * its sister teams. A team with no data has no page and nothing links to it.
  */
 import Base from '@/layouts/Base.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import NextUp from '@/components/NextUp.astro';
 import TeamSeason from '@/components/TeamSeason.astro';
@@ -113,6 +114,8 @@ const jsonLd = [
   <section class="band band-paper" id="season">
     <div class="container-page">
       <TeamSeason {team} {today} heading={{ level: 'h2', text: `The ${team.name.toLowerCase()} season` }} {stale} />
+      {/* The email with the week's scores, under the team's season (see sports.astro). */}
+      <NewsletterSignup town={town} id="team" variant="home" class="mt-10" />
       <p class="mt-10 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
         {calendar ? 'A game MaxPreps and the school calendar disagree on waits until a person has checked it.' : cfg.calendarNote ?? 'Scores and dates are MaxPreps’s, as coaches report them.'} <a href="/editorial/" class="underline">How this guide checks its facts</a>.
       </p>

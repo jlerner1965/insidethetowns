@@ -9,7 +9,8 @@ import PlaceIndex from '@/components/PlaceIndex.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
-import { breadcrumbJsonLd, localBusinessJsonLd, placeDescription } from '@/lib/seo';
+import { breadcrumbJsonLd, localBusinessJsonLd, placeDescription, placeLocality } from '@/lib/seo';
+import { subTownLabel } from '@/lib/sub-towns';
 import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
 import { hoursDataAttr, hoursLines, hoursWithMeridiem } from '@/lib/hours';
@@ -175,7 +176,10 @@ const hoursShown = !!data.hours && hoursValue === data.hours;
  * (src/lib/titles.ts; the Berthoud owner's brief, 6 November 2026). Other
  * kinds keep "Hall Ranch — Trail in Lyons, CO". The h1 stays the name.
  */
-const seoTitle = placeTitle(data.title, PLACE_TYPE_LABELS[data.type], town, {
+// Where the place is, for the title and the description: its own town,
+// which on a few listings is not the guide's (src/lib/seo.ts, placeLocality).
+const placeTown = { name: placeLocality(data, town, subTownLabel), state: town.state, siteTitle: town.siteTitle };
+const seoTitle = placeTitle(data.title, PLACE_TYPE_LABELS[data.type], placeTown, {
   type: data.type,
   hours: hoursShown,
   menu: !!data.menuUrl,
@@ -211,7 +215,7 @@ const description = placeDescription(
     dayPassPrices: !!rec?.prices,
     trailMap: !!data.mapUrl,
   },
-  town,
+  placeTown,
 );
 ---
 <Page

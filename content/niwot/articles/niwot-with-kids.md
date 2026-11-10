@@ -4,11 +4,13 @@ date: "2026-09-27"
 excerpt: "Everything in Niwot a family can do on foot from Second Avenue, and the two places a short drive away, with what each is actually like."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
+updated: "2026-11-10"
 verified: "2026-09-27"
 sources:
   - { label: "Niwot Cultural Arts Association: Whistle Stop Park", url: "https://niwotarts.org/whistle-stop-park/" }
   - { label: "Niwot Cultural Arts Association", url: "https://niwotarts.org/" }
   - { label: "Boulder County Parks & Open Space: parks and trails", url: "https://bouldercounty.gov/open-space/parks-and-trails/" }
+  - { label: "Boulder County Parks & Open Space: Niwot Trails", url: "https://bouldercounty.gov/open-space/parks-and-trails/niwot-trails/" }
   - { label: "Love Ice Cream", url: "https://www.loveicecream.co/" }
   - { label: "Fritz Family Brewers", url: "https://www.fritzfamilybrewers.com/" }
 related:
@@ -21,7 +23,7 @@ Niwot is small enough that a day with children needs no car once you have parked
 
 ## Start at the playground
 
-[Niwot Children's Park](/places/niwot-childrens-park/) is the playground on First Avenue, across from Whistle Stop Park. The Cultural Arts Association built it and keeps it up, and it turns ten in October 2026. The flower cart on the Murray Street corner is a summer fixture beside it.
+[Niwot Children's Park](/places/niwot-childrens-park/) is the playground on First Avenue, across from Whistle Stop Park. The Cultural Arts Association built it and keeps it up, and it turned ten in October 2026. The flower cart on the Murray Street corner is a summer fixture beside it.
 
 Directly across the street is [Whistle Stop Park](/places/whistle-stop-park/), the lawn beside the 1907 Burlington Route caboose at the corner of Murray Street and First Avenue. The caboose is the thing every child wants to climb, and the lawn is where the Rock & Rails concerts happen on summer Thursday evenings, which are as family-friendly as an outdoor concert gets. Daylight hours.
 
@@ -33,7 +35,7 @@ The [Niwot Sculpture Park](/places/niwot-sculpture-park/) is at the south-west c
 
 [Abo's Pizza](/places/abos-pizza/) in Cottonwood Square sells New York-style pizza by the slice, which is the right unit for a child, from 10:30 most days. The [Niwot Tavern](/places/niwot-tavern/) on the corner of the square has a covered patio beside the bronze bears and is the default for a long family lunch, open daily from 11.
 
-[Love Ice Cream](/places/love-ice-cream/) on the 200 block of Second Avenue makes small-batch ice cream with a dozen or so flavours, including dairy-free ones, from noon every day.
+[Love Ice Cream](/places/love-ice-cream/) on the 200 block of Second Avenue serves more than a dozen flavours of ice cream from High Point Creamery, dairy-free ones among them, from noon every day.
 
 ## The taproom that takes children
 
@@ -41,7 +43,9 @@ The [Niwot Sculpture Park](/places/niwot-sculpture-park/) is at the south-west c
 
 ## A flat loop with a stroller
 
-The [Niwot Loop Trail](/places/niwot-loop-trail/) is the flat, easy Boulder County loop around the edge of town from the trailhead on 79th Street. It links to the [LoBo Regional Trail](/places/lobo-regional-trail/), the twelve-mile crushed-gravel path between Longmont and Boulder, whose eastern fields at sunset are the reason to go a little further. Both are sunrise to sunset; dogs on leash.
+The [Niwot Loop Trail](/places/niwot-loop-trail/) is the flat, easy Boulder County loop around the edge of town from the trailhead on 79th Street. It links to the [LoBo Regional Trail](/places/lobo-regional-trail/), the twelve-mile crushed-gravel path between Longmont and Boulder, whose eastern fields at sunset are the reason to go a little further. The trailheads close at sunset, and dogs stay on a leash.
+
+Boulder County plans to close the Niwot Loop Trailhead and trail later this winter while crews repair two bridges near the trailhead; it has not set the dates ([the notice](/updates/#niwot-loop-trail-winter-closure)).
 
 ## What's on for families
 

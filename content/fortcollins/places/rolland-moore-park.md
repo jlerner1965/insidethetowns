@@ -8,7 +8,8 @@ hours: "Daily 5 am–11 pm"
 tags: [tennis, racquetball, ball-fields, playground]
 summary: "The City's racquet-sports park on South Shields: eight lighted tennis courts, three outdoor racquetball courts and a platform tennis court, plus a fourplex ball field, five basketball courts, sand volleyball and a playground, next to Spring Creek and two natural areas."
 source: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Parks/Rolland-Moore-Park"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

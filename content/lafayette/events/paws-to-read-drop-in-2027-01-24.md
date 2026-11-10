@@ -11,8 +11,8 @@ source: "https://lafayettepubliclibrary.libcal.com/calendar/main/PawsJan-Dec2027
 sourceId: "lafayettepubliclibrary-libcal"
 sourceUid: "LibCal-10144-17370869"
 sourceHash: "944b51d7f546"
-verified: "2026-11-02"
-verifiedBy: "auto-review from the Lafayette Public Library - LibCal calendar feed read 2026-11-02, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: the library’s LibCal calendar feed, read 10 November 2026; the listing states no price"
 ---
 
 Kids ages 5 to 10 spend 15 minutes reading to a therapy dog from the Alliance of Therapy Dogs, in the library’s Kid Zone on Sunday, January 24, between 1:30 and 2:30 pm. Drop in; no sign-up. Listed by Lafayette Public Library - LibCal calendar; the organizer's page has the details and any registration.

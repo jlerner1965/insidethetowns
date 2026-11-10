@@ -11,8 +11,8 @@ cost: "Free"
 category: family
 recurring: "Fridays at 10:30; no storytime November 27 (library closed)"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-11-06"
-verifiedBy: "Claude Code, delegated by James Lerner: Fridays at 10:30 on the library's events page, and Thursday and Friday, November 26 and 27 (Thanksgiving) on its 2026 closures page, https://www.berthoudcommunitylibrary.org/closures, both read November 6, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's Events and Classes page and its November 2026 newsletter: Fridays at 10:30, the library closed and no storytime Friday, November 27)"
 ---
 
 A fast-paced storytime with books, songs and dancing for toddlers, every Friday morning at the library. No registration.

@@ -11,7 +11,8 @@ phone: "970-493-1623"
 tags: [hiking, mountain-biking, horses, camping, dogs-on-leash]
 summary: "Colorado Parks and Wildlife's 2,574-acre park beside Horsetooth Reservoir, open daily 5 am to sunset: 28.1 miles of trail for hikers, riders and mountain bikers, five picnic areas and six campsites. $10–$12 a vehicle with Colorado plates."
 source: "https://cpw.state.co.us/placestogo/parks/Lory"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

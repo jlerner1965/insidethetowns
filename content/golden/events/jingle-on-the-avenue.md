@@ -11,8 +11,8 @@ category: family
 organizer: "Olde Golden Holiday Committee"
 source: "https://www.visitgolden.com/events/holiday-events/olde-golden-holidays/jingle-on-the-avenue/"
 sourceId: "visitgolden-com"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Visit Golden page and the City calendar)"
 ---
 
 A free late-morning holiday gathering on Washington Avenue between 11th and 13th streets, with classic and newer holiday characters to meet, holiday music and crafts, Santa and his costumed reindeer, and photos with Santa and Mrs. Claus. The City's calendar also lists Newfoundland dog cart rides. Aimed at families with young children.

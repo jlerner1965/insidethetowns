@@ -5,7 +5,7 @@ date: "2026-10-07"
 excerpt: "Eastman Park is Windsor's trailhead on the paved Poudre River Trail: 4.5 miles west to Larimer County's River Bluffs Open Space, 2.7 miles east to the Kodak trailhead, 17 to Greeley. The distances from the trail's own brochure, with the hours, the e-bike rule, the restrooms and where to park."
 category: "Outdoors"
 tags: [outdoors, trails, cycling, walking, river, guide]
-verified: "2026-10-07"
+verified: "2026-11-10"
 sources:
   - { label: "Poudre River Trail Corridor: Maps", url: "https://poudretrail.org/maps/" }
   - { label: "Poudre River Trail Corridor: brochure map (PDF)", url: "https://poudretrail.org/wp-content/uploads/PoudreRiverTrailBrochureMap.pdf" }

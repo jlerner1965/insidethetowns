@@ -9,7 +9,8 @@ hours: "Daily 5 am–11 pm"
 tags: [hiking, mountain-biking, horses, dogs-on-leash]
 summary: "The northern end of the Foothills Trail: about five miles of soft-surface trail on the ridge, with an easy 1.4-mile flat trail from the Overland Trail lot. Free; open 5 am to 11 pm, gated lots dawn to dusk."
 source: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Reservoir-Ridge-Natural-Area"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

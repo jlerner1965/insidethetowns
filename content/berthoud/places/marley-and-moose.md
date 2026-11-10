@@ -8,7 +8,8 @@ hours: "Tue–Fri 12–6, Sat 9–4, Sun 12–4; closed Mon"
 tags: [kids, toys]
 summary: "Children's store on Mountain Avenue with eco-friendly toys, books and clothes."
 source: "https://www.marleyandmoose.com/pages/contact"
-verified: "2026-11-02"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

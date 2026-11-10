@@ -20,7 +20,8 @@ statusUntil: "2026-11-15"
 statusNote: "November's sessions are under way and open for registration; December's open to residents November 16 and to everyone November 17"
 contact: "aquatics@cityofgolden.gov; Golden Community Center, 303-384-8100"
 source: "https://www.cityofgolden.gov/community/golden_community_center/pool_area.php"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The City teaches lessons in the Community Center's pools, "depending on instructor availability," in sessions by the month. **Group lessons** run on Tuesday and Thursday evenings (November 3 to December 3, then a short December session, December 8 to 17) and Saturday mornings (November 7 to December 5). **Private and semi-private lessons** run on Monday and Wednesday evenings in two-week sessions, and on Tuesday evenings, Thursday evenings and Saturday mornings in the same month-long blocks as the group classes. Residents can register for each month's sessions a day before non-residents: for December, November 16 and 17.

@@ -10,8 +10,8 @@ category: family
 organizer: "Centaurus High School"
 organizerUrl: "https://ceh.bvsd.org/"
 source: "https://ceh.bvsd.org/"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): 10 November and 6 pm on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: the date, times and place on the Centaurus home page and the enrollment window on Boulder Valley’s Choice Enrollment page, read 10 November 2026; neither page states a price"
 ---
 
 Centaurus opens its doors to prospective families on Tuesday, November 10, from 6 to 8:05 pm, during Boulder Valley’s on-time choice-enrollment window (November 1 to December 18, 2026, with seat offers about December 23). The school also runs morning tours on November 20, December 4 and December 11, 8:45 to 10:15 am, with no reservation needed, and an IB and Engineering Night on December 1 from 5 to 6 pm, all per the school’s home page. Centaurus is at 10300 South Boulder Road; 720-561-7500.

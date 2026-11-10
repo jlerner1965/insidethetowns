@@ -10,8 +10,8 @@ performers:
 url: "https://citystarbrewing.com/event/dylan-mccarthy-and-eric-wiggs/"
 category: music
 source: "https://citystarbrewing.com/event/dylan-mccarthy-and-eric-wiggs/"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Eric Wiggs and Dylan McCarthy\" at 6 pm on 13 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: title, date, times and description)"
 ---
 
 Front Range bluegrass instrumentalists Eric Wiggs and Dylan McCarthy play a duet set, traditional bluegrass to acoustic Americana, from 6 to 8:30 pm. It is the same evening City Star releases Dead or Alive, its imperial IPA.

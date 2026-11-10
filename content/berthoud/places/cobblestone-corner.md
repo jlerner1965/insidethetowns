@@ -9,8 +9,8 @@ hours: "Mon 12–5, Tue–Sat 10–5; closed Sun"
 tags: [antiques, vintage]
 summary: "Vendor-booth antique and vintage market on Massachusetts Avenue, a block south of the main drag: handmade items, antiques, collectibles and jewelry."
 source: "https://www.cobblestonecorner.org/about"
-verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the shop's own site (home and About pages, Location & Hours block) read 8 November 2026, and Berthoud Main Street's Shop & Antiques page the same day"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: "Explore Severance: four places in driving order"
 date: "2026-10-07"
-updated: "2026-10-10"
+updated: "2026-11-10"
 excerpt: "Brownell Park and Bruce's Bar share 1st Street in Old Town; the library and Lakeview Park are a drive away. Four stops, with hours and rules as posted."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-07"
+verified: "2026-11-10"
 glance:
   start: "Brownell Park at 336 1st Street, in Old Town"
   by: "By car; Brownell Park and Bruce's Bar share 1st Street, and the library and Lakeview Park are a drive away"
@@ -42,13 +42,13 @@ Severance is a Weld County town on the plains north-east of Windsor, with its pa
 
 ## 03 · Severance Library
 
-The [Severance Library](/places/severance-library/) at 5 Timber Ridge Parkway is the Clearview Library District's branch in town, open Monday to Thursday 10 am–6 pm and Friday and Saturday 10 am–5 pm, closed Sunday; the district's closure list for the rest of 2026 includes an early 2 pm close on November 25, Thanksgiving Day, Christmas Eve and Christmas Day, and a 2 pm close on New Year's Eve. Go in open hours or for a program listed on the [events calendar](/events/?where=severance&category=family). [Town Hall](/places/severance-town-hall/) is beside it at 3 South Timber Ridge Parkway, at the corner with Weld County Road 74, open weekdays 8 am–5 pm with a lunch closure from noon to 1 pm. On October 30, 3–5 pm, the Town's Trick or Treat Parade runs through both buildings; a nonperishable food item for the Weld Food Bank is the entry fee.
+The [Severance Library](/places/severance-library/) at 5 Timber Ridge Parkway is the Clearview Library District's branch in town, open Monday to Thursday 10 am–6 pm and Friday and Saturday 10 am–5 pm, closed Sunday; the district's closure list for the rest of 2026 has an early 2 pm close on November 25, Thanksgiving Day, an early 1:30 pm close on December 18, Christmas Eve and Christmas Day, and a 2 pm close on New Year's Eve. Go in open hours or for a program listed on the [events calendar](/events/?where=severance&category=family). [Town Hall](/places/severance-town-hall/) is beside it at 3 South Timber Ridge Parkway, at the corner with Weld County Road 74, open weekdays 8 am–5 pm with a lunch closure from noon to 1 pm.
 
 *Getting there:* by car, to Timber Ridge Parkway at County Road 74. *Best for:* an hour out of the weather, or a storytime from the calendar.
 
 ## 04 · Lakeview Park
 
-[Lakeview Park](/places/lakeview-park/) at 513½ Broadview Drive is the Town's large park at the south end of the Lakeview subdivision: open grass and trees, covered picnic shelters, restrooms, barbecue pits, a playground, a skateboard park and basketball courts. The Town's page lists four parking areas, at the entrance from South 1st Street at Broadview Drive, at the south ends of Mallard Drive and Lakeview Drive, and an asphalt lot at the park's south end. The Town's Parks & Recreation page says its parks are open to the public; a group of more than fifty needs a reservation, filed at least ten business days ahead. **The park is closed for now:** the Town's notice of August 19, 2026 closed it from Monday, August 17, while new playground equipment is installed, and no reopening date had been posted when its pages were read on 10 October 2026. Check the [Town's news page](https://www.townofseverance.org/m/newsflash) before you drive there.
+[Lakeview Park](/places/lakeview-park/) at 513½ Broadview Drive is the Town's large park at the south end of the Lakeview subdivision: open grass and trees, covered picnic shelters, restrooms, barbecue pits, a playground, a skateboard park and basketball courts. The Town's page lists four parking areas, at the entrance from South 1st Street at Broadview Drive, at the south ends of Mallard Drive and Lakeview Drive, and an asphalt lot at the park's south end. The Town's Parks & Recreation page says its parks are open to the public; a group of more than fifty needs a reservation, filed at least ten business days ahead. **The Town closed the park on Monday, August 17, 2026** while new playground equipment is installed, and its notice of August 19 says the reopening date will be posted on its website. Check the [Town's news page](https://www.townofseverance.org/m/newsflash) before you drive there.
 
 *Getting there:* back on South 1st Street (Weld County Road 23), the same road as Old Town, turning at Broadview Drive. *Best for:* the playground and the skate park, and the only restrooms any page read for this guide lists.
 

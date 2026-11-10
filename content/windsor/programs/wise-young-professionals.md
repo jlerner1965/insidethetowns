@@ -15,8 +15,8 @@ access: members
 registration: { required: true, how: "Join through the link on the Chamber's WISE page, or email katie@windsorchamber.net", url: "https://www.windsorchamber.net/get-involved-windsor-area-chamber-of-commerce/wise-ypn/" }
 contact: "katie@windsorchamber.net; Chamber office 970-686-7189"
 source: "https://www.windsorchamber.net/get-involved-windsor-area-chamber-of-commerce/wise-ypn/"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Chamber's WISE YPN page and home page, read November 9, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 WISE stands for Windsor Inspiring Successful & Engaged Professionals. The Chamber calls it "a collaborative network designed to elevate young professionals in Northern Colorado through meaningful connection, growth, and community impact". It is "open to both Windsor Chamber Members and non-members".

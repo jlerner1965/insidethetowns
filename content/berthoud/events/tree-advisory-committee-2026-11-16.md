@@ -9,8 +9,8 @@ cost: "Free"
 category: civic
 recurring: "Third Mondays"
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Tree Advisory Committee Meeting\" at 5:30 pm on 16 November on the berthoud.org feed"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town calendar and the same meeting on the Town's CivicClerk portal)"
 ---
 
 Monthly meeting of the Tree Advisory Committee at Town Hall, which advises the Town on street trees, the urban forest and the planned arboretum at Waggener Farm Park.

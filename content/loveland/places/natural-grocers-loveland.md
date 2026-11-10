@@ -9,7 +9,8 @@ hours: "Mon–Sat 8:27 am–8:36 pm; Sun 8:57 am–7:36 pm"
 tags: [grocery, organic]
 summary: "The natural and organic grocery just off East 8th Street and North Lincoln Avenue: all-organic produce, bulk foods, supplements and body care."
 source: "https://www.naturalgrocers.com/store/loveland"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

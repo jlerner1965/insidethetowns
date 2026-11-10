@@ -77,10 +77,10 @@ const phoneNext = !!next && (nextSoon || !!next.game.stage);
           <span class="eyebrow text-[var(--board-eyebrow)]">{label}</span>
         </span>
         {resultLine && result && (
-          <span class:list={[phoneNext && 'hidden sm:inline']}><span class="text-white/80">{result.team.name}</span> · <span class="font-semibold">{resultLine}</span><span class="hidden sm:inline text-white/80"> {where(result.game)} {result.game.opponent}</span></span>
+          <span class:list={[phoneNext && 'hidden sm:inline']}><span class="text-white">{result.team.name}</span> · <span class="font-semibold">{resultLine}</span><span class="hidden sm:inline text-white"> {where(result.game)} {result.game.opponent}</span></span>
         )}
         {next && (
-          <span class:list={[!phoneNext && 'hidden sm:inline']}><span class="text-white/80">{next.team.name}</span> {where(next.game)} {next.game.opponent}{next.game.stage && <span class="text-white/80"> · {next.game.stage}</span>} · <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>{nextWhen}</time></span>
+          <span class:list={[!phoneNext && 'hidden sm:inline']}><span class="text-white">{next.team.name}</span> {where(next.game)} {next.game.opponent}{next.game.stage && <span class="text-white"> · {next.game.stage}</span>} · <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>{nextWhen}</time></span>
         )}
         <a href={sportsPath(school)} class="ml-auto inline-block -my-3 py-3 font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Scores &amp; schedules →</a>
       </div>

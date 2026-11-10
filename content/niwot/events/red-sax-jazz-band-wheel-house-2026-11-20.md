@@ -9,8 +9,8 @@ performers:
 url: "https://www.niwotwheelhouse.com/events/red-sax-jazz-trio-7kann-s32mt"
 category: music
 source: "https://www.niwotwheelhouse.com/events/red-sax-jazz-trio-7kann-s32mt"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Red Sax Jazz Band — The Wheel House\" at 7 pm on 20 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Wheel House's own events list, https://www.niwotwheelhouse.com/events: Friday 20 November, 7 to 9 pm; no price on the page)"
 ---
 
 Traditional jazz, Cole Porter, Rodgers and Hart, Jobim and Coltrane, from Craig Allegrezza on tenor sax, Mike Fitzmaurice on upright bass and Ron LeGault on keyboard. 7 to 9 pm at the taproom on Second Avenue.

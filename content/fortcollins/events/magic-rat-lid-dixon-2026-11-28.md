@@ -9,8 +9,8 @@ category: "music"
 performers:
   - { name: "Lid Dixon", kind: person }
 source: "https://www.theelizabethcolorado.com/the-hotel/events-calendar/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against The Elizabeth Hotel's events calendar, 1 November 2026: 2026-11-28, 20:00-22:00; no cover listed"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Lid Dixon plays Magic Rat, the live music room inside The Elizabeth Hotel on Firehouse Alley, 8 to 10 p.m. Enter through the hotel lobby or the side entrance; no cover was listed.

@@ -9,7 +9,8 @@ tags: [paved, cycling, walking, river]
 featured: true
 summary: "The City's 12.3-mile paved trail along the Cache la Poudre from North Overland Trail to East Drake Road, part of the regional trail that runs from Bellvue to Timnath. Restrooms and water at Lee Martinez, Heritage and Buckingham parks."
 source: "https://www.fortcollins.gov/Activities/Parks-Natural-Areas-and-Trails/Trails/Paved-Trails"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

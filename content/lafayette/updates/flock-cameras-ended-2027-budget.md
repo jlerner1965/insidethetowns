@@ -8,7 +8,8 @@ action: "Not every camera near Lafayette is the City’s: some are traffic senso
 effective: "2026-10-20"
 effectiveNote: "Budget passed October 20, 2026; camera removal under way"
 published: "2026-11-04"
-verified: "2026-11-04"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 source: "https://www.lafayetteco.gov/CivicAlerts.aspx?AID=10277"
 sourceLabel: "City of Lafayette statement regarding the 2027 budget and Flock Safety, October 22, 2026"
 ---

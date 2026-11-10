@@ -11,8 +11,8 @@ category: family
 organizer: "NoCo Tutoring & Enrichment"
 organizerUrl: "https://noco-tutoringandenrichment.com/"
 source: "https://noco-tutoringandenrichment.com/"
-verified: "2026-11-06"
-verifiedBy: "Claude Code for James Lerner, against the Make-and-Take Holiday Art flyer on NoCo Tutoring & Enrichment's home page, 6 November 2026: Monday, Nov. 23rd, 9–11:30a, Windsor Vineyard Church, open to K–5th graders; the address from the church's own site, windsorvineyard.church"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026; the Make-and-Take Holiday Art flyer on NoCo Tutoring & Enrichment's site (Monday, Nov. 23rd, 9–11:30a, Windsor Vineyard Church, open to K–5th graders), its registration form, and the church's address from windsorvineyard.church"
 ---
 
 A holiday art morning for kindergarten through fifth graders, run by NoCo Tutoring & Enrichment at Windsor Vineyard Church on Westwood Drive. Each child makes a holiday candy bowl filled with treats, homemade wrapping and a card, ready to give by the time they leave. Register ahead through NoCo Tutoring & Enrichment's online form, which asks for the student's grade, a parent's contact details, an emergency contact and agreement to its liability waiver.

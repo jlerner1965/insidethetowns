@@ -10,8 +10,8 @@ priceRange: "$"
 tags: [pizza, takeout, delivery]
 summary: "Neighborhood pizza and wings on North 4th Street, for carry-out and delivery."
 source: "https://www.berthoudpizzacompany.com/"
-verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the restaurant's own site read 8 November 2026 (open daily at 11 am, orders taken till 8 pm; breakfast sandwiches every day 9 to 11 am; closed Easter, Memorial Day, 4th of July, Labor Day, Thanksgiving and Christmas; 527 North 4th Street; (970) 344-5292), and Berthoud Main Street's Dine & Drink page the same day"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

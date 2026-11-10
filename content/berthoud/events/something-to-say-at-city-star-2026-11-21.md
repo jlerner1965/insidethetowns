@@ -9,8 +9,8 @@ performers:
 url: "https://citystarbrewing.com/event/something-to-say/"
 category: music
 source: "https://citystarbrewing.com/event/something-to-say/"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Something to Say\" at 6 pm on 21 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: title, date, times and description)"
 ---
 
 Something to Say, a progressive acoustic string band, plays the City Star taproom from 6 to 8:30 pm.

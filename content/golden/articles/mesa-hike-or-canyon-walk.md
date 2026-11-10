@@ -8,13 +8,15 @@ tags: [outdoors, hiking, biking, trails, guide]
 image: ../images/table-mountains-and-the-canyon.jpg
 imageAlt: "Looking west from the southern slopes of North Table Mountain: South Table Mountain on the left, the Coors brewery and Golden in the valley, and the foothills where Clear Creek Canyon opens"
 imageCredit: "Joshuahicks, Wikimedia Commons, CC BY-SA 3.0"
-verified: "2026-10-07"
+updated: "2026-11-10"
+verified: "2026-11-10"
 sources:
   - { label: "Jefferson County Parks & Open Space: North Table Mountain Park", url: "https://www.jeffco.us/1427/North-Table-Mountain-Park" }
   - { label: "Jefferson County Parks & Open Space: North Table Mountain Park map (PDF, published January 7, 2026)", url: "https://www.jeffco.us/DocumentCenter/View/9380/North-Table-Mountain-Park-Map" }
   - { label: "Jefferson County Parks & Open Space: Clear Creek Trail", url: "https://www.jeffco.us/3792/Clear-Creek-Trail" }
   - { label: "Jefferson County Parks & Open Space: Clear Creek Canyon Park", url: "https://www.jeffco.us/1196/Clear-Creek-Canyon-Park" }
   - { label: "Jefferson County Parks & Open Space: Clear Creek Canyon Park map, Gateway to CCR (PDF, published December 4, 2025)", url: "https://www.jeffco.us/DocumentCenter/View/54229/Clear-Creek-Canyon-Park-Map---Gateway-to-CCR" }
+  - { label: "Jefferson County news release, November 5, 2026: New Huntsman Trailhead Opens in Clear Creek Canyon Park", url: "https://www.jeffco.us/CivicAlerts.aspx?AID=2680" }
   - { label: "Jefferson County Parks & Open Space: Alerts & Closures", url: "https://www.jeffco.us/1531/Alerts-Closures" }
   - { label: "Jefferson County Parks & Open Space: Regulations", url: "https://www.jeffco.us/1583/Regulations" }
   - { label: "City of Golden: Park Rules", url: "https://www.cityofgolden.gov/community/parks_trails/park_rules/index.php" }
@@ -31,7 +33,7 @@ related:
   - { label: "Clear Creek Whitewater Park", href: "/places/clear-creek-whitewater-park/", note: "The City's seven-block kayak course across from Lions Park, free and unsupervised." }
 ---
 
-Three trails leave from within a mile or two of downtown Golden, run by two governments. Jefferson County Parks & Open Space has the mesa north of town, [North Table Mountain Park](/places/north-table-mountain-park/), and the paved [Clear Creek Trail](/places/clear-creek-trail/) that runs west into Clear Creek Canyon. The City of Golden has the creek through downtown, with the kayak course and the parks along it. Which you want depends on how much climbing you want, whether you are bringing a dog, a bike or a stroller, and whether it is nesting season. Hours, distances and rules are as the County and the City posted them, read on October 7, 2026.
+Three trails leave from within a mile or two of downtown Golden, run by two governments. Jefferson County Parks & Open Space has the mesa north of town, [North Table Mountain Park](/places/north-table-mountain-park/), and the paved [Clear Creek Trail](/places/clear-creek-trail/) that runs west into Clear Creek Canyon. The City of Golden has the creek through downtown, with the kayak course and the parks along it. Which you want depends on how much climbing you want, whether you are bringing a dog, a bike or a stroller, and whether it is nesting season. Hours, distances and rules are as the County and the City posted them, read on November 10, 2026.
 
 | | North Table Mountain | Clear Creek Trail, canyon | Clear Creek through town |
 |---|---|---|---|
@@ -53,7 +55,7 @@ The West Trailhead at 4788 Highway 93 has parking, a restroom, a bike repair sta
 
 The County's [Clear Creek Trail](https://www.jeffco.us/3792/Clear-Creek-Trail) is planned one day to run 65 miles from Denver to Loveland Pass. The 1.75-mile Gateway Segment, opened in August 2021, connects with downtown Golden along the creek and runs west beside US 6 to Tunnel 1; the CCR Trailhead segment, opened in November 2025, added 1.5 miles of fully ADA-accessible trail and five bridges. The trail is 10 feet wide and paved, and the [park page](https://www.jeffco.us/1196/Clear-Creek-Canyon-Park) says it let bicycles into the canyon for the first time. The map of [Clear Creek Canyon Park](/places/clear-creek-canyon-park/) labels a 3.2-mile stretch of trail and a 0.4-mile Welch Ditch Trail across the pedestrian-only suspension bridge near Tunnel 1 to the restored wooden flume.
 
-This is the trail for strollers, wheelchairs, road bikes and anyone who wants the creek without the climb. The Gateway Trailhead at 21100 US 6 and the Tunnel 1 Trailhead at 22122 US 6 have more than 170 spaces between them, permanent restrooms and shade structures, and the Gateway lot has a bike repair station and a drinking fountain with a ground-level bowl for dogs. The CCR Trailhead at 23801 US 6 holds 42 cars. Electronic gates close the lots outside open-space hours. Construction on the Huntsman Segment west of Tunnel 1 continues through 2026, with weekday single-lane closures on US 6. Anglers need a Colorado fishing license with a habitat stamp, and climbing crags near Mile Marker 270 and Tunnel 2 are closed February 1 through July 31 for nesting eagles.
+This is the trail for strollers, wheelchairs, road bikes and anyone who wants the creek without the climb. The Gateway Trailhead at 21100 US 6 and the Tunnel 1 Trailhead at 22122 US 6 have more than 170 spaces between them, permanent restrooms and shade structures, and the Gateway lot has a bike repair station and a drinking fountain with a ground-level bowl for dogs. The CCR Trailhead at 23801 US 6 holds 42 cars. Electronic gates close the lots outside open-space hours. West of Tunnel 1, the Huntsman Trailhead at 25651 US 6 opened on November 6, 2026, with parking, restrooms and a shaded gathering area; a bridge over the highway leads to four new creek bridges, 1.5 miles of 10-foot-wide ADA-accessible trail and five creek access points. Anglers need a Colorado fishing license with a habitat stamp, and climbing crags near Mile Marker 270 and Tunnel 2 are closed February 1 through July 31 for nesting eagles.
 
 ## Clear Creek through town
 

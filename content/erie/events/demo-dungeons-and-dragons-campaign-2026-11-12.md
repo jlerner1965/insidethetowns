@@ -8,8 +8,8 @@ url: "https://highplains.libcal.com/event/17002119"
 cost: "Free; registration required"
 category: family
 source: "https://highplains.libcal.com/event/17002119"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Demo Dungeons & Dragons: Campaign\" at 5:30 pm on 12 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 A taster campaign for ages 12 to 15, playing through the Lost Mine of Phandelver. Bring a character or use a premade one; light snacks provided.

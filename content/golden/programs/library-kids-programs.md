@@ -16,7 +16,8 @@ openOn:
   - { from: "2026-11-24", to: "2026-11-24", note: "Family movie at the library, 2–4 pm" }
 contact: "303-235-5275"
 source: "https://jeffcolibrary.bibliocommons.com/v2/events?locations=GN&audiences=5982266b3006ded52b40938f%2C5982266b3006ded52b409390"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Golden Library's calendar for school-age children and tweens. **Paws for Reading** pairs a child with a dog, cat or rabbit from the Denver Pet Partners therapy program for a 15-minute read-aloud; children must be able to read on their own, and registration is recommended. **Pokémon Club** meets in the meeting room once a month for an hour of play: beginners can borrow the library's starter decks, experienced trainers bring their own 60-card deck, and trades happen only with a parent present. **LEGO Builders** on November 19 puts out all the library's LEGO plus one extra building activity, such as KEVA planks or Snap Circuits.

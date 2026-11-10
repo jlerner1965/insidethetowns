@@ -10,8 +10,8 @@ category: family
 organizer: "Lafayette Public Library with Clinica Family Health & Wellness"
 organizerUrl: "https://www.lafayetteco.gov/library"
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/WellnessAugDec2026"
-verified: "2026-11-02"
-verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: the library’s LibCal calendar feed, read 10 November 2026; the listing states no price"
 ---
 
 December’s drop-in wellness craft for kids and teens: decorate a gingerbread-themed craft while writing affirmations about your own strengths, with Clinica Family Health & Wellness, any time between 3:30 and 4:30 pm on Wednesday, December 2, at the table on the library’s upper level.

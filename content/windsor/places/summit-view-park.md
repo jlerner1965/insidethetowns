@@ -6,9 +6,9 @@ address: "270 Audubon Boulevard, Severance, CO"
 area: "Audubon Boulevard"
 url: "https://www.townofseverance.org/209/Parks-Recreation"
 source: "https://www.townofseverance.org/209/Parks-Recreation"
-verified: "2026-10-06"
+verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 tags: [neighborhood park]
 summary: "Neighborhood park at 270 Audubon Boulevard, one of the public parks the Town of Severance maintains in its subdivisions."
 ---

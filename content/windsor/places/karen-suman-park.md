@@ -6,9 +6,9 @@ address: "1108 Pinon Pine Drive, Severance, CO 80546"
 area: "Timber Ridge"
 url: "https://www.townofseverance.org/Facilities/Facility/Details/Karen-Suman-Park-3"
 source: "https://www.townofseverance.org/Facilities/Facility/Details/Karen-Suman-Park-3"
-verified: "2026-11-09"
+verified: "2026-11-10"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 tags: [playground, picnic shelters, picnic tables]
 summary: "Neighborhood park in the Timber Ridge subdivision, at Timber Ridge Parkway and Pinon Pine Drive, named for Karen Suman, mayor from 1998 to 2000; picnic shelters and tables and a Play-On! playground."
 ---

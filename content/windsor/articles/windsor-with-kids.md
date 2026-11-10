@@ -2,13 +2,14 @@
 title: "Windsor with kids: the lake, two pools, the library and the river trail"
 seoTitle: "Windsor with kids: lake, pools, library, river trail"
 date: "2026-10-01"
+updated: "2026-11-10"
 excerpt: "Where to take children in Windsor, Colorado: Boardwalk Park and the swim beach on Windsor Lake, the rec center's lazy river and the summer pool at Chimney Park, the library's storytimes, Eastman Park and the Poudre River Trail, and the free museums on the lake shore."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
 image: ../images/poudre-river.jpg
 imageAlt: "The Cache la Poudre River at Windsor in early summer, slow brown water between cottonwood banks with a green-roofed park shelter beyond"
 imageCredit: "Ssullivan1564, Wikimedia Commons, CC BY-SA 4.0"
-verified: "2026-10-01"
+verified: "2026-11-10"
 sources:
   - { label: "Windsor Parks, Recreation & Culture: Windsor Lake", url: "https://www.recreationliveshere.com/206/Windsor-Lake" }
   - { label: "Windsor Parks, Recreation & Culture: Swim Beach", url: "https://www.recreationliveshere.com/210/Swim-Beach" }
@@ -27,6 +28,7 @@ sources:
   - { label: "Clearview Library District: events calendar", url: "https://clearview.libnet.info/events" }
   - { label: "Poudre River Trail Corridor: Eastman Park", url: "https://poudretrail.org/eastman-park/" }
   - { label: "Poudre River Trail Corridor", url: "https://poudretrail.org/" }
+  - { label: "Poudre River Trail Corridor: brochure map (PDF)", url: "https://poudretrail.org/wp-content/uploads/PoudreRiverTrailBrochureMap.pdf" }
   - { label: "Larimer County: Poudre River Trail", url: "https://www.larimer.gov/naturalresources/parks/regional-paved-trails/poudre-river-trail" }
 ---
 
@@ -38,7 +40,7 @@ Boardwalk Park at 100 N 5th Street is the town's front yard, on the south shore 
 
 ## Two pools
 
-The [Community Recreation Center](https://www.recreationliveshere.com/167/Community-Recreation-Center) at 250 N 11th Street is the year-round answer: an indoor pool with a lazy river, an enclosed water slide, a zero-depth pool with play features, three lap lanes and a 23-person hot tub, all included in daily admission, a punch pass or a membership. The pool opens at 5 am on weekdays, 8 on Saturday and noon on Sunday, and closes at 8, 6 and 5 respectively; the slide and the play features switch on at 10 each morning, and the activity pool is given over to swim lessons 5 to 7 on weekday evenings and 8 to 10 on Saturday mornings. The building also has two gyms and an indoor walking track for strollers in January. It turns ten on October 9, 2026, with free admission for the day.
+The [Community Recreation Center](https://www.recreationliveshere.com/167/Community-Recreation-Center) at 250 N 11th Street is the year-round answer: an indoor pool with a lazy river, an enclosed water slide, a zero-depth pool with play features, three lap lanes and a 23-person hot tub, all included in daily admission, a punch pass or a membership. The pool opens at 5 am on weekdays, 8 on Saturday and noon on Sunday, and closes at 8, 6 and 5 respectively; the slide and the play features switch on at 10 each morning, and the activity pool is given over to swim lessons 5 to 7 on Monday to Thursday evenings and 8 to 10 on Saturday mornings. The building also has two gyms and an indoor walking track for strollers in January. It turned ten on October 9, 2026.
 
 [Chimney Park Pool](https://www.recreationliveshere.com/166/Chimney-Park-Pool) at 421 Chimney Park Drive is the outdoor pool: lap lanes, a separate kiddie pool half a foot to a foot deep, three shelters and picnic tables, life jackets on request, and a water slide promised for 2027. It is closed for the season now. In 2026 admission was $4 for under-fives and seniors, $5 for youth, $6 for adults, $18 for a family of four and $4 for a twilight swim after 6.
 
@@ -48,7 +50,7 @@ The [Windsor Library](https://www.clearviewlibrary.org/about-us/learn-more/hours
 
 ## The river: Eastman Park and the trail
 
-Eastman Park, 25 acres at Eastman Park Drive and 7th Street in the south-east corner of town, has a big playground, a picnic shelter, a skate park built in 2003, benches along the river and the pond with the StoryWalk, and it is where Windsor gets onto the [Poudre River Trail](https://poudretrail.org/), the paved path along the Cache la Poudre. From here the Weld County section runs 21 miles east to Island Grove Park in Greeley; west, it joins Larimer County's River Bluffs Open Space and continues to Fort Collins and Bellvue, 45 continuous miles since the last gap was bridged in June 2026. Just east of the park is Treasure Island Garden, a flower-and-vegetable garden the Town keeps with the Weld County master gardeners. The Town counts more than 40 miles of trail altogether, paved and unpaved.
+Eastman Park, 25 acres at Eastman Park Drive and 7th Street in the south-east corner of town, has a big playground, a picnic shelter, a skate park built in 2003, benches along the river and the pond with the StoryWalk, and it is where Windsor gets onto the [Poudre River Trail](https://poudretrail.org/), the paved path along the Cache la Poudre. The Weld County section is 21 miles long, from Colorado 392 at the west edge of Windsor to Island Grove Park in Greeley, a little over 17 of them east of Eastman Park; at its west end it joins Larimer County's River Bluffs Open Space and continues to Fort Collins and Bellvue, 45 continuous miles since the last gap was bridged in June 2026. Just east of the park is Treasure Island Garden, a flower-and-vegetable garden the Town keeps with the Weld County master gardeners. The Town counts more than 40 miles of trail altogether, paved and unpaved.
 
 ## Free museums on the shore
 
@@ -56,4 +58,4 @@ The [Windsor History Museum](https://www.recreationliveshere.com/188/Windsor-His
 
 ## The Town's family calendar
 
-The Town's special-events list runs through the year: the Easter Eggstravaganza, Kids to Park Day and Bike Everywhere Day in spring, a Family Campout, Movies in the Park, the summer concerts and the Fourth of July, the Halloween Carnival at Boardwalk Park and the Pumpkin Plunge in the rec center pool in October, and Windsor Wonderland with Santa's train and the tree lighting in December, plus a Daddy Daughter Dance and a Mother Son Dance. The ones with published dates are on the [events page](/events/?category=family); if you know of one that is missing, [send it in](/submit-event/).
+The Town's special-events list runs through the year: the Easter Eggstravaganza, Kids to Park Day and Bike Everywhere Day in spring, a Family Campout, Movies in the Park, the summer concerts and the Fourth of July, the Halloween Carnival at Boardwalk Park in October, and Windsor Wonderland with Santa's train and the tree lighting in December, plus a Daddy Daughter Dance and a Mother Son Dance. The ones with published dates are on the [events page](/events/?category=family); if you know of one that is missing, [send it in](/submit-event/).

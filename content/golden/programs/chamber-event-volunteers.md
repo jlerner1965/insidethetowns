@@ -14,7 +14,8 @@ registration: { required: true, how: "Fill in the sign-up form on the Chamber's 
 volunteerNeed: "If you enjoy being around people and working special events please fill out the form, in the Chamber's words"
 contact: "303-279-3113, info@goldenchamber.org"
 source: "https://goldenchamber.org/volunteer/"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Golden Chamber of Commerce takes volunteer sign-ups for three events on its [volunteer page](https://goldenchamber.org/volunteer/): the Golden Farmers Market, the Golden Fine Arts Festival and Olde Golden Holidays. The form asks which you want, or any of them, and the Chamber sends volunteer information from there. Chamber membership is sold to businesses on tiered dues; professionals under 40 can join its [Golden Young Professionals](https://goldenchamber.org/young-professionals/), which has its own monthly volunteer outing.

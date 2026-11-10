@@ -8,7 +8,8 @@ hours: "Mon 7–2, Tue–Fri 7–4, Sat–Sun 7–2"
 tags: [espresso, family-owned]
 summary: "Independent, family-owned coffeehouse on the square, established 2007."
 source: "https://niwot.com/listing/winot-coffee-company/"
-verified: "2026-10-12"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

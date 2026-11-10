@@ -8,7 +8,8 @@ phone: "303-277-8750"
 tags: [golf, restaurant, fossils]
 summary: "The City of Golden's 18-hole public golf course, opened in 2003 below Table Mountain, with triceratops tracks beside the 12th green and old clay-mining machinery around the course. Footprints restaurant is open year round."
 source: "https://fossiltrace.com/denver-golf/"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

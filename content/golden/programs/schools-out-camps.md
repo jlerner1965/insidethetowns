@@ -25,7 +25,8 @@ openOn:
 contact: "recprograms@cityofgolden.gov; Golden Community Center, 303-384-8100"
 featured: true
 source: "https://www.cityofgolden.gov/community/golden_community_center/programs.php"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Golden Community Center runs a day camp on the weekdays of Jeffco Public Schools' breaks, for children 5 to 12: gym games, outdoor play, walking field trips, swimming when the pool is available, arts and crafts, reading, puzzles and board games. The rest of this school year's dates are **November 23 and 24** (the page lists no camp on the Wednesday of Thanksgiving week), **December 21 to 23 and 28 to 30**, **January 4 and 5**, and spring break, **March 22 to 26**, whose registration opens in January. The page lists no camp on Jeffco's single days off (January 18, February 12 and 15, March 29, April 30).

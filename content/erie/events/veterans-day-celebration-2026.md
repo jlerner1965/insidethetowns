@@ -9,8 +9,8 @@ cost: "Free; pre-registration closed November 4"
 category: civic
 featured: true
 source: "https://www.erieco.gov/2042/Veterans-Day-Celebration"
-verified: "2026-11-04"
-verifiedBy: "Claude Code, flagship audit: Wednesday, Nov. 11, 11 a.m.–12:15 p.m., Erie Community Center, doors 10:30, registration deadline Nov. 4, on the Town's page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 The Town's Veterans Day program at the Community Center: doors and refreshments at 10:30, a flag ceremony, a speaker and the unveiling of this year's Hometown Hero banners at 11, and the Erie High School chorale with military songs and recognition of service members at 11:30. Past and current service members are welcome in uniform. Free; the Town took pre-registration through its Amilia system until November 4.

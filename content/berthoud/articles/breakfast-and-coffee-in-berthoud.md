@@ -30,7 +30,7 @@ Seven places for breakfast or a coffee, from the earliest to the most leisurely.
 | [Joyful Brews](/places/joyful-brews/) | Not posted; call (970) 532-9963 | Not posted | Drive-through coffee and tea | 429 Meadowlark Dr, by the Kwik Korner |
 | [Cornerstone Cafe](/places/cornerstone-cafe/) | Tue–Fri 7 am–2 pm; closed Monday | Sat 7 am–2 pm; closed Sunday | Sit-down diner, breakfast all day | 250 Mountain Ave, downtown |
 | [Grandpa's Cafe](/places/grandpas-cafe/) | Mon, Wed–Fri 7 am–8 pm; Tue 7 am–2 pm | Sat and Sun 7 am–8 pm | Sit-down, breakfast all day | 903 Mountain Ave, west end |
-| [Kofe House](/places/kofe-house/) | 7:30 am–2:30 pm; Thursday Italian dinner 5–8 pm | Open; weekend hours not posted by day | Coffee house, breakfast and lunch; call for pickup | 434 Mountain Ave, downtown |
+| [Kofe House](/places/kofe-house/) | 7:30 am–2:30 pm; Thursday Italian dinner 5–8 pm | Open 7:30 am–2:30 pm Saturday, 8 am–2:30 pm Sunday | Coffee house, breakfast and lunch; call for pickup | 434 Mountain Ave, downtown |
 | [Trailhead Cafe](/places/trailhead-cafe/) | 7 am–2 pm | 7 am–2 pm | Sit-down cafe, breakfast and lunch | 375 Meadowlark Dr |
 
 ## From 6: Cocina & Cantina
@@ -51,7 +51,7 @@ Seven places for breakfast or a coffee, from the earliest to the most leisurely.
 
 ## The room to sit in: Kofe House
 
-[Kofe House](/places/kofe-house/) is the family-owned coffee house on the main block: coffee, and breakfast and lunch seven days a week, with seats outside in warmer weather. Its page shows 7:30 to 2:30 for the day and does not list the weekend separately. On Thursday evenings it serves an Italian dinner from 5 to 8. To order ahead for pickup, call (970) 344-5391; [the October menu](https://img1.wsimg.com/blobby/go/359b4c4d-3bcd-49da-92b0-d6043a54dece/kofe%20menu%20Oct%206%202026.pdf) is a PDF.
+[Kofe House](/places/kofe-house/) is the family-owned coffee house on the main block: coffee, and breakfast and lunch seven days a week, with seats outside in warmer weather. It opens at 7:30 Monday to Saturday and at 8 on Sunday, and closes at 2:30 every day. On Thursday evenings it serves an Italian dinner from 5 to 8. To order ahead for pickup, call (970) 344-5391; [the October menu](https://img1.wsimg.com/blobby/go/359b4c4d-3bcd-49da-92b0-d6043a54dece/kofe%20menu%20Oct%206%202026.pdf) is a PDF.
 
 ## On Meadowlark Drive: Trailhead Cafe
 

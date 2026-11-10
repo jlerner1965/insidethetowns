@@ -9,7 +9,8 @@ hours: "Mon–Thu 9 am–8 pm; Fri–Sat 9 am–5 pm; Sun 12–5 pm"
 tags: [library, kids, programs, meeting-room]
 summary: "Jefferson County Public Library's Golden branch on 10th Street, next to the Golden History Museum and the Clear Creek Trail: open seven days, late Monday to Thursday, with storytimes, kids' and teen programs and a free meeting room."
 source: "https://jeffcolibrary.org/locations/gn/"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

@@ -6,7 +6,7 @@ excerpt: "Every sizable project on the Town's development map, from the 439-lot 
 category: "Civic"
 tags: [civic, growth, housing, guide]
 verified: "2026-11-03"
-updated: "2026-11-04"
+updated: "2026-11-10"
 sources:
   - { label: "Town of Berthoud: Current Development Review Projects", url: "https://berthoud.org/180/Current-Development-Review-Projects" }
   - { label: "Town of Berthoud: Development Activity Map (ArcGIS story map)", url: "https://storymaps.arcgis.com/stories/61d88749b58a490b8926dabc1465d363" }
@@ -66,7 +66,7 @@ Smaller items under review: an expansion of the BioChar Now plant at 19500 Count
 
 | Project | Where | What was approved | When |
 |---|---|---|---|
-| **Heron Lakes Marina (22nd Filing)** | South of County Road 14 and north of Lonetree Reservoir, between Rabbit Run Lane and Heron Lakes Parkway | Neighborhood master plan for 105 lots, 49 single-family and 56 paired homes, on about 38.7 acres (Resolution 2026-25, 4–2, Trustees Olbricht and Wing against), on condition that the water provider is named with the preliminary plat. The hearing opened on September 22 and was continued over questions about the metropolitan district | October 27, 2026 |
+| **Heron Lakes Marina (22nd Filing)** | South of County Road 14 and north of Lonetree Reservoir, between Rabbit Run Lane and Heron Lakes Parkway | Neighborhood master plan for 105 lots, 49 single-family and 56 paired homes, on about 37.8 acres (Resolution 2026-25, 4–2, Trustees Olbricht and Wing against), on condition that the water provider is named with the preliminary plat. The hearing opened on September 22 and was continued over questions about the metropolitan district | October 27, 2026 |
 | **Legacy Park, Filing 1** | South of Mountain Avenue, between Meadowlark Drive and South Berthoud Parkway | Final plat for 439 residential lots, with tracts for later filings and outlots for parks and open space. BizWest described the whole former Ludlow tract in 2024 as 1,500 homes and 40 commercial acres | August 2026 |
 | **Fickel Farm 5th Filing** | South of Mountain Avenue at Pyramid Peak Street | Final plat for 154 residential lots | August 2026. The Board approved the preliminary plat 5–1 on February 10, reduced from 165 attached units |
 | **River Trails** | Southeast corner of South 1st Street and East County Road 6C, north of the Little Thompson | Annexation of about 106 acres (Ordinance 1360, 6–0), a neighborhood master plan (Resolution 2025-18, 5–1, Mayor Karspeck against) and zoning (Ordinance 1361, 6–0). The plan heard in June 2025 was 344 homes of mixed types on 94 acres, with homes set back at least 300 feet from the river; the Board's conditions include native planting in that buffer and a pedestrian link along 1st Street. An earlier 416-lot version was denied in 2024 | August 26, 2025 |

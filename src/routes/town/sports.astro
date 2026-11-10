@@ -32,6 +32,7 @@
  * a closing paragraph) to the one source line and a sentence at the foot.
  */
 import Base from '@/layouts/Base.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import NextUp from '@/components/NextUp.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
@@ -254,6 +255,12 @@ const jsonLd = [
       (TeamSeason, the article each team's own page draws too). */}
   <section class="band band-paper">
     <div class="container-page">
+      {/* The Thursday email carries the week's scores and the games to
+          come, and the page parents and students come back to most had no
+          way to ask for it (the sweep of 10 November 2026). Under the
+          scoreboard, before the long season tables; nothing on a guide the
+          email does not cover. */}
+      <NewsletterSignup town={town} id="sports" variant="home" class="mb-12" />
       <SectionHeader eyebrow="Every team" title={`The ${mascot} this season`} />
       {sports.length === 0 ? (
         <p class="text-ink-muted">No scores yet: the first read has not run.</p>

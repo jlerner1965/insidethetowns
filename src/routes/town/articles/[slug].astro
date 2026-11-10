@@ -5,6 +5,7 @@ import Page from '@/layouts/Page.astro';
 import DatedNotice from '@/components/DatedNotice.astro';
 import ContentsList from '@/components/ContentsList.astro';
 import ArticleStrip from '@/components/ArticleStrip.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey, formatDate, toIsoLocal } from '@/lib/dates';
 import { checkedBy } from '@/lib/editor';
@@ -100,6 +101,11 @@ const glance: Array<[string, string]> = data.glance
   <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
     <div class="prose">
       <Content />
+      {/* The email where the reading ends, not under the sources, the next
+          listings and the related links, which on a phone put it seven
+          screens down (the sweep of 10 November 2026). Out of the prose
+          styles; nothing on a guide the email does not cover. */}
+      <NewsletterSignup town={town} id="article" variant="home" class="not-prose mt-12" />
       {(data.sources ?? []).length > 0 && (
         <aside aria-label="Sources" class="mt-12 border-t border-line-soft pt-6 text-[0.875rem] leading-relaxed text-ink-muted not-prose">
           <p class="eyebrow mb-2">Sources</p>

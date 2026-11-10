@@ -10,8 +10,8 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6ad10c43a85a2c00337fc3c5"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Watercolor Landscapes\" at 6 pm on 18 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
-A beginner-friendly class at the Golden Library with Kathy Betz of Foothills Art Center: paint a Colorado landscape in watercolor and pen, learning basic washes, simple shapes and expressive linework. Registration, for 20, opens at noon on November 4; arrive five minutes early, as open spots go to those waiting after a 15-minute grace period.
+A beginner-friendly class at the Golden Library with Kathy Betz of Foothills Art Center: paint a Colorado landscape in watercolor and pen, learning basic washes, simple shapes and expressive linework. Registration is full and the library is taking a waitlist; arrive five minutes early, as open spots go to those waiting after a 15-minute grace period.

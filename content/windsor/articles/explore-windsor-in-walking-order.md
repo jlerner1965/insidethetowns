@@ -4,7 +4,7 @@ date: "2026-10-07"
 excerpt: "The lake and Boardwalk Park first, then the 1909 town hall and the Main Street blocks, with Main Park at the end. Four stops from one parking spot. The river trail is a drive away, if there is time."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-07"
+verified: "2026-11-10"
 glance:
   start: "The Boardwalk Park lot at 100 N 5th Street, a block north of Main Street"
   by: "On foot from one parking spot; only the river trail at the end needs the car again"
@@ -55,7 +55,7 @@ Two blocks south of Main on Locust Street, past [Town Hall](/places/windsor-town
 
 ## 05 · The river option: Eastman Park
 
-The separate half-day is the Poudre. [Eastman Park](/places/eastman-park/), at 7th Street and the river south of downtown, is Windsor's trailhead on the paved [Poudre River Trail](/places/poudre-river-trail/), with a big lot, indoor restrooms, a playground, a skate park, an 18-hole disc golf course and a fenced dog park. Distances in each direction, the e-bike rule and the other trailheads are in [the trail guide from Eastman Park](/articles/poudre-trail-from-eastman-park/) rather than repeated here.
+The separate half-day is the Poudre. [Eastman Park](/places/eastman-park/), at 7th Street and the river south of downtown, is Windsor's trailhead on the paved [Poudre River Trail](/places/poudre-river-trail/), with a big lot, indoor restrooms, a playground, a skate park, a disc golf course and a fenced dog park. Distances in each direction, the e-bike rule and the other trailheads are in [the trail guide from Eastman Park](/articles/poudre-trail-from-eastman-park/) rather than repeated here.
 
 *Getting there:* a drive, 7025 Eastman Park Drive. *Best for:* a longer walk or a ride along the river; the park's own river mile for tubing in summer.
 

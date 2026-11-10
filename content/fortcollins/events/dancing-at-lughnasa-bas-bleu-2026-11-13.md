@@ -1,10 +1,19 @@
 ---
 title: "Dancing at Lughnasa"
-start: "2026-11-13"
-end: "2026-12-13"
-allDay: true
-timeTbd: true
-timeNote: "Performances Fridays, Saturdays and Sundays through Dec 13, plus Thu Dec 10; curtain times from the box office, 970-498-8949"
+start: "2026-11-14T19:30"
+# Each show from Bas Bleu's events page and its reservation forms, read 10 November 2026.
+performances:
+  - "2026-11-14T19:30"
+  - "2026-11-15T14:30"
+  - "2026-11-20T19:30"
+  - "2026-11-21T19:30"
+  - "2026-11-22T14:30"
+  - "2026-11-27T19:30"
+  - "2026-11-28T19:30"
+  - "2026-11-29T14:30"
+  - "2026-12-04T19:30"
+  - "2026-12-05T19:30"
+  - "2026-12-06T14:30"
 venue: "Bas Bleu Theatre"
 address: "401 Pine Street, Fort Collins, CO 80524"
 url: "https://www.basbleu.org/bbtc-events"
@@ -12,8 +21,8 @@ category: "arts"
 organizer: "Bas Bleu Theatre Company"
 organizerUrl: "https://www.basbleu.org/"
 source: "https://www.basbleu.org/bbtc-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Bas Bleu's home page and its ticketing page, 1 November 2026: run listed as 11/13-12/6 on the home page; ticket page lists Nov 14, 15, 20, 21, 22, 27, 28, 29, Dec 4, 5, 6, 10, 11, 12 (two shows) and 13; the ticket page's clock times are inconsistent, so none is listed here; prices not shown"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source, Bas Bleu's home page and its reservation forms for 14, 15 and 20 November and 6 December on 10 November 2026: eleven performances from Nov 14 to Dec 6, Fridays and Saturdays 7:30 pm, Sundays 2:30 pm; the Dec 10-13 dates the guide had are It's A Wonderful Life: A Live Radio Play"
 ---
 
-Bas Bleu opens its 34th season with Brian Friel's Dancing at Lughnasa, directed by Steve Keim: Michael Mundy looks back at the summer of 1936 and the lives of his mother and four aunts in County Donegal. Bas Bleu's home page gives the run as November 13 to December 6; its ticketing page lists performances on Fridays, Saturdays and Sundays through December 13 plus Thursday, December 10. Curtain times and prices were not readable from the ticket page, so check with the box office at 970-498-8949 or boxoffice@basbleu.org.
+Bas Bleu opens its 34th season with Brian Friel's Dancing at Lughnasa, directed by Steve Keim: Michael Evans looks back at the summer of 1936 and the lives of his mother and four aunts in County Donegal. Bas Bleu's home page gives the run as November 13 to December 6; its events page lists eleven performances from Saturday, November 14, on Fridays and Saturdays at 7:30 p.m. and Sundays at 2:30 p.m. For prices, check with the box office at 970-498-8949 or boxoffice@basbleu.org.

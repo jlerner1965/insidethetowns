@@ -9,8 +9,8 @@ cost: "Free"
 category: family
 recurring: "Monthly, first Saturdays"
 source: "https://highplains.libcal.com/event/15672194"
-verified: "2026-11-08"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Erie Saturday Family Storytime\" at 10:30 am on 5 December in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Weekend storytime with songs and stories for children aged 5 and under and their families. First come, first seated.

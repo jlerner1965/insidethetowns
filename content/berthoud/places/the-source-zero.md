@@ -9,7 +9,8 @@ hours: "Mon 11–3, Tue–Sat 10–5, Sun 12–4"
 tags: [refill, zero waste]
 summary: "Refill shop on Mountain Avenue for household, beauty and body products; bring your own containers."
 source: "https://thesourcezeronoco.com/pages/contact"
-verified: "2026-11-03"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

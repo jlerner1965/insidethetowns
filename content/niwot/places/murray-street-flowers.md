@@ -8,7 +8,8 @@ hours: "Seasonal: the cart is out April to early October; closed for regular hou
 tags: [flowers, seasonal]
 summary: "A small flower grower with a seasonal cart at First Avenue and Murray Street, across from the Children’s Park; closed for regular hours until spring."
 source: "https://www.murraystreetflowers.com/get-in-touch"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

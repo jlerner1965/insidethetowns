@@ -17,7 +17,8 @@ registration: { required: false, note: "Yoga Stories and the Lil' Bites cooking 
 beginners: true
 contact: "970-686-5603"
 source: "https://clearview.libnet.info/events"
-verified: "2026-10-22"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
-The Severance branch's week for the youngest, all free. **Mondays**: Read, Rhyme, and Romp at 10, an active storytime for ages 0 to 5, then Stay and Play from 10:30. **Wednesdays**: Babies and Books at 10, a lap-sit storytime for birth to 2 with older siblings welcome, then Stay and Play for babies and toddlers at 10:30. **Tuesdays at 10:30** alternate between **Yoga Stories** (ages 3 to 5, with grown-ups joining the poses; November 10 and 24, December 8; register each child) and **Once Upon a Story** (ages 3 to 5, books then activity stations; November 3 and 17, December 1 and 15). **Lil' Bites**, a cooking class for 3-to-5-year-olds, is on Fridays November 13 and December 11 at 10:30, with registration. Thursdays at the Library comes to Severance on November 5, 10 to 11:30, for ages 2 to 5, and the StoryWalk at Lakeview Park has a storytime on November 19 at 10.
+The Severance branch's week for the youngest, all free. **Mondays**: Read, Rhyme, and Romp at 10, an active storytime for ages 0 to 5, then Stay and Play from 10:30. **Wednesdays**: Babies and Books at 10, a lap-sit storytime for birth to 2 with older siblings welcome, then Stay and Play for babies and toddlers at 10:30. **Tuesdays at 10:30** alternate between **Yoga Stories** (ages 3 to 5, with grown-ups joining the poses; November 10 and 24, December 8; register each child) and **Once Upon a Story** (ages 3 to 5, books then activity stations; November 17, December 1 and 15). **Lil' Bites**, a cooking class for 3-to-5-year-olds, is on Fridays November 13 and December 11 at 10:30, with registration. The StoryWalk at Lakeview Park has a storytime on November 19 at 10.

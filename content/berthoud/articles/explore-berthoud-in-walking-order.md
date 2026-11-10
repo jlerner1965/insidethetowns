@@ -2,7 +2,7 @@
 title: "Explore Berthoud: six places in walking order"
 date: "2026-10-07"
 excerpt: "Mountain Avenue end to end, from a 7 am breakfast to the museum's afternoon hours, with a flat reservoir loop in between and the brewery to finish. You park once downtown and move the car only for the water."
-updated: "2026-10-08"
+updated: "2026-11-10"
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 image: ../images/bimson-blacksmith-shop-front.jpg
@@ -41,7 +41,7 @@ Breakfast first, at the west end of Mountain Avenue a block from Town Hall. [Gra
 
 ## 02 · Fickel Park and Town Park
 
-Walk east. [Fickel Park](/places/fickel-park/) at 620 Mountain Avenue is the shaded block with the sculptures: the bear is the landmark, and the Town's page lists picnic tables, a lighted tennis court and portable restrooms. Some of the sculptures rotate, so the set changes between visits. On 7th Street, at 200 N. 7th, [Berthoud Town Park](/places/berthoud-town-park/) is the town's oldest park, rebuilt around a 12,000-square-foot fully inclusive playground and a 6,000-square-foot natural-stone water feature with fifteen waterspouts and a button-activated waterfall. The Town shuts the water for the season at Oktoberfest, the first Saturday of October, so in 2026 it is a playground and lawn until spring. The Saturday market sets up on the lawn.
+Walk east. [Fickel Park](/places/fickel-park/) at 620 Mountain Avenue is the shaded block with the sculptures: the bear is the landmark, and the Town's page lists picnic tables, a lighted tennis court and portable restrooms. Some of the sculptures rotate, so the set changes between visits. On 7th Street, at 200 N. 7th, [Berthoud Town Park](/places/berthoud-town-park/) is the town's oldest park, rebuilt around a 12,000-square-foot fully inclusive playground and a 6,000-square-foot natural-stone water feature with fifteen waterspouts and a button-activated waterfall. The Town shuts the water for the season at Oktoberfest, the first Saturday of October, so in 2026 it is a playground and lawn until spring. In summer the Saturday market sets up on the lawn.
 
 *Getting there:* on foot along Mountain Avenue. *Best for:* a picnic, children, and the sculptures.
 

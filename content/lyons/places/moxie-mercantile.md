@@ -1,5 +1,5 @@
 ---
-title: "Moxie Mercantile"
+title: "Moxie Bread Co."
 type: coffee
 address: "442 High St"
 area: "High Street"
@@ -10,7 +10,8 @@ tags: [bakery, coffee, bread]
 featured: true
 summary: "Moxie Bread Co.’s Lyons outpost: coffee, pastries and loaves from the Louisville bakery."
 source: "https://moxiebreadco.com/"
-verified: "2026-11-02"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the home page and the Lyons location page, moxiebreadco.com/moxie-bread-co-lyons)"
 added: "2026-09-17"
 ---
 

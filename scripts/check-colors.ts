@@ -85,6 +85,10 @@ for (const site of allSites) {
   // The footer wordmark's light "Inside", white at 70% at 30px: display
   // size, so 3:1.
   want(`${site.slug} white/70 display text on primary`, ratio(mix(WHITE, 0.7, primary), primary), 3);
+  // The primary as a button's outline and words on a panel: panels are white
+  // or the paper, never the accent wash, where it fell under 4.5:1 on two
+  // guides (design audit, 10 November 2026). The wash keeps the ink only.
+  want(`${site.slug} ink on the accent wash`, ratio(INK, mix(site.colors.accent, 0.16, WHITE)), 4.5);
   // The school's colour stands in for the primary on /sports/ and the home
   // page's game strip (src/config/school-sports.ts), so it clears the same
   // bars as the primary: records and links on white and the paper, white on

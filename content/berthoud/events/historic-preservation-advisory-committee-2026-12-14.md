@@ -8,7 +8,8 @@ url: "https://www.berthoud.org/Calendar.aspx"
 cost: "Free"
 category: civic
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-10-27"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town calendar and the same meeting on the Town's CivicClerk portal)"
 ---
 
 Meeting of the Town's Historic Preservation Advisory Committee at Town Hall, 5:30 to 7:30 pm, as listed on the Town's calendar.

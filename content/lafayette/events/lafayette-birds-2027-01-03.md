@@ -10,8 +10,8 @@ source: "https://www.lafayetteco.gov/calendar.aspx?EID=12102"
 sourceId: "lafayetteco-gov"
 sourceUid: "12102"
 sourceHash: "e52e1fa81785"
-verified: "2026-11-02"
-verifiedBy: "auto-review from the City of Lafayette - City Calendar feed read 2026-11-02, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Lafayette Birds! at Greenlee Wildlife Preserve, Sunday, January 3, 1 pm – 3 pm. Listed by City of Lafayette - City Calendar; the organizer's page has the details and any registration.

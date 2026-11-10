@@ -9,7 +9,8 @@ hours: "Tue–Sat 10–5; closed Sun–Mon"
 tags: [thrift, furniture, nonprofit]
 summary: "Thrift store for furniture, home goods, clothing and tools at the east end of Mountain Avenue; proceeds build homes."
 source: "https://www.berthoudhabitat.org/restore/restore.html"
-verified: "2026-11-02"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

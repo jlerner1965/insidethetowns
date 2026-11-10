@@ -15,7 +15,8 @@ registration: { required: true, how: "Email or call the staff contact for each p
 volunteerNeed: "Opportunities vary throughout the year, in the City's words; Habitat Helpers asks for people who enjoy working outdoors and can work on their own"
 contact: "Habitat Helpers: Cynthia Mattson, cmattson@cityofgolden.net; Adopt-A-Street: Joseph Dolance, 303-384-8108, jdolance@cityofgolden.gov"
 source: "https://www.cityofgolden.gov/community/get_involved/volunteer.php"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 **Habitat Helpers.** [DeLong Park](https://www.cityofgolden.gov/community/get_involved/delong_park_weedbusters.php) is the City's first organic park, kept without synthetic fertilizers, herbicides or pesticides, and volunteers pull its weeds by hand once a week under the Parks staff, usually on a weekday morning. The City trains you; gardening experience helps. Volunteers 16 and over can be assigned on their own, and younger ones come with a parent or guardian.

@@ -10,8 +10,8 @@ source: "https://johnstownmillikenpubliclibraries.us/event/cozy-board-game-night
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10620"
 sourceHash: "b66af309d8ec"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Cozy Board Game Night\" at 4:30 pm on 18 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the library's own events feed (johnstownmillikenpubliclibraries.us/wp-json/tribe/events/v1/events), the record behind this page, on 10 November 2026: title, date, start and end time and the Johnstown location match"
 ---
 
 Cozy Board Game Night at Glenn A. Jones, M.D. Memorial Library, Wednesday, November 18, 4:30 pm – 6:30 pm. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration.

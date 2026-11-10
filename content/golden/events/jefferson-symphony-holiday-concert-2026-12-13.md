@@ -13,8 +13,8 @@ organizer: "Jefferson Symphony Orchestra"
 organizerUrl: "https://www.jeffsymphony.org/"
 source: "https://www.jeffsymphony.org/"
 sourceId: "jeffsymphony-org"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the orchestra's home page and its Green Center page)"
 ---
 
 Golden's community orchestra, now in its 74th season, plays its holiday concert in the Green Center's concert hall with soprano Melody Gallagher as soloist and the Denver Children's Choir. JSO musicians sell their own baking at a holiday bake sale during an extended intermission. Tickets are on the orchestra's site, and parking around the Green Center is free for the orchestra's concerts.

@@ -51,3 +51,37 @@ test('a place title claims only what its page has: hours, a menu, a pool schedul
   assert.equal(amenityLabel('ball fields'), 'Ball Fields');
   assert.equal(amenityLabel('no-dogs'), 'No Dogs');
 });
+
+test('a place title that will stand without the guide’s name carries the town itself', async () => {
+  // 56 of 781 live place titles named no town (10 November 2026): the fact
+  // title ran too long for " | Inside [Town]" and the name did not say where.
+  const { placeTitle, fitTitle } = await import('../src/lib/titles.ts');
+  const facts = (o: object) => ({ type: 'park', hours: false, menu: false, poolSchedule: false, dayPassPrices: false, amenities: [], ...o });
+  const fc = { name: 'Fort Collins', state: 'CO', siteTitle: 'Inside Fort Collins' };
+  const park = placeTitle('Rolland Moore Park', 'Park', fc, facts({ amenities: ['tennis', 'racquetball', 'ball fields'] }));
+  assert.equal(park, 'Rolland Moore Park, Fort Collins: Tennis, Racquetball & Ball Fields');
+  assert.equal(fitTitle(park, fc.siteTitle), park, 'and stands alone, under the limit');
+  const estes = { name: 'Estes Park', state: 'CO', siteTitle: 'Inside Estes Park' };
+  assert.equal(
+    placeTitle('Penelope’s World Famous Burgers & Fries', 'Restaurant', estes, facts({ type: 'restaurant', hours: true })),
+    'Penelope’s World Famous Burgers & Fries, Estes Park: Hours & Location',
+  );
+  const frederick = { name: 'Frederick', state: 'CO', siteTitle: 'Inside Frederick' };
+  assert.equal(
+    placeTitle('Carbon Valley Recreation Center', 'Venue', frederick, facts({ type: 'venue', hours: true, poolSchedule: true, dayPassPrices: true })),
+    'Carbon Valley Recreation Center, Frederick: Hours & Pool Schedule',
+    'a claim gives way before the town does',
+  );
+  // Where the guide's name fits after it, or the name says where, nothing changes.
+  const berthoud = { name: 'Berthoud', state: 'CO', siteTitle: 'Inside Berthoud' };
+  assert.equal(placeTitle('Cornerstone Cafe', 'Restaurant', berthoud, facts({ type: 'restaurant', hours: true })), 'Cornerstone Cafe: Hours & Location');
+  assert.equal(placeTitle('Berthoud Recreation Center', 'Venue', berthoud, facts({ type: 'venue', hours: true, poolSchedule: true, dayPassPrices: true })), 'Berthoud Recreation Center Hours, Pool Schedule & Day Pass Prices');
+  // A Severance listing on Inside Windsor: the guide's name does not place it, so the title does.
+  const severance = { name: 'Severance', state: 'CO', siteTitle: 'Inside Windsor' };
+  assert.equal(placeTitle('Domino’s Pizza', 'Restaurant', severance, facts({ type: 'restaurant', hours: true })), 'Domino’s Pizza, Severance: Hours & Location');
+  assert.equal(placeTitle('Bruce’s Bar', 'Bar', severance, facts({ type: 'bar' })), 'Bruce’s Bar — Bar in Severance, CO');
+  assert.equal(placeTitle('Severance Library', 'Venue', severance, facts({ type: 'venue', hours: true })), 'Severance Library Hours');
+  // Too long even so: the kind-and-town form, which always names the town.
+  const long = 'A Restaurant With a Name That Runs On Past Fifty Characters Here';
+  assert.equal(placeTitle(long, 'Restaurant', fc, facts({ type: 'restaurant', hours: true })), `${long} — Restaurant in Fort Collins, CO`);
+});

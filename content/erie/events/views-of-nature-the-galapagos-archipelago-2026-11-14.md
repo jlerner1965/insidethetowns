@@ -8,8 +8,8 @@ url: "https://highplains.libcal.com/event/17448299"
 cost: "Free; registration required"
 category: other
 source: "https://highplains.libcal.com/event/17448299"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Views of Nature The Galapagos Archipelago\" at 1 pm on 14 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 An illustrated talk on the wildlife of the Galapagos Islands and the surrounding marine reserve.

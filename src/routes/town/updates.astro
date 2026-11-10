@@ -10,6 +10,7 @@
  * call" pages.
  */
 import Page from '@/layouts/Page.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import UpdateRow from '@/components/UpdateRow.astro';
 import CheckedLine from '@/components/CheckedLine.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
@@ -82,4 +83,8 @@ const structured = [
     </div>
   </aside>
   </div>
+  {/* The Thursday email, once, under the list: this page type had no form
+      at all (the sweep of 10 November 2026). Nothing on a guide the email
+      does not cover (NewsletterSignup). */}
+  <NewsletterSignup town={town} id="updates" variant="home" class="mt-14" />
 </Page>

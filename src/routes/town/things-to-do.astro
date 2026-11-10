@@ -1,5 +1,6 @@
 ---
 import Page from '@/layouts/Page.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import SubTownLinks from '@/components/SubTownLinks.astro';
@@ -74,4 +75,8 @@ const structured = [
       )}
     </section>
   )}
+  {/* The Thursday email, once, under the list: this page type had no form
+      at all (the sweep of 10 November 2026). Nothing on a guide the email
+      does not cover (NewsletterSignup). */}
+  <NewsletterSignup town={town} id="things-to-do" variant="home" class="mt-14" />
 </Page>

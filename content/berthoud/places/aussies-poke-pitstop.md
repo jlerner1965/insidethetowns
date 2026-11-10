@@ -10,8 +10,8 @@ priceRange: "$$"
 tags: [poke, bowls, lunch]
 summary: "Poke bowls, Australian meat pies and desserts on Mountain Avenue, with online ordering and curbside pickup."
 source: "https://www.aussiespokepitstop.com/"
-verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the shop's own site (aussiespokepitstop.com) read 8 November 2026, its Location & Hours block giving 441 Mountain Ave Ste B, (970) 344-5215, Monday to Saturday 11 am to 7 pm, closed Sunday; Berthoud Main Street's Dine & Drink page the same day for the address and phone"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

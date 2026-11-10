@@ -7,7 +7,7 @@ affects: "Anyone in Golden with a permit, inspection, application or invoice ope
 action: "Don't reply, click or pay; check any payment request with the City using a phone number or address from cityofgolden.gov, not one in the message."
 effective: "2026-10-09"
 published: "2026-10-28"
-verified: "2026-10-28"
+verified: "2026-11-10"
 source: "https://www.cityofgolden.gov/news_detail_T18_R201.php"
 sourceLabel: "City of Golden: Scam Alert, October 9, 2026"
 ---

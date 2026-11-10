@@ -76,10 +76,32 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
 <div class="h-1.5 bg-gradient-to-r from-primary to-accent"></div>
 <header class="relative bg-paper" data-pagefind-ignore>
   <div class="container-page">
-    <div class="flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-6" style={`--wordmark-em:${wordmarkEm}`}>
+    <div class="flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-6" style={`--wordmark-em:${wordmarkEm}${emailOn ? ';--masthead-reserve:11.5rem' : ''}`}>
       <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" tone="ink" />
 
       <div class="flex items-center gap-1 xl:order-last xl:gap-2">
+        {/* The email, one tap from every page on a phone or a tablet (the
+            sweep of 10 November 2026): below the row's breakpoint the only
+            way to it was the last line of a closed menu, and a third of
+            the page types carried no form. An envelope in the primary, with
+            its words from 40rem; the script below sends it to the page's
+            own form where there is one, and without the script it goes
+            where the row's link goes, the hub's signup with this town
+            ticked. The row's own link takes over at 80rem. */}
+        {emailOn && (
+          <a
+            href={emailHref}
+            data-email-link
+            aria-label={`${sendDay} email: sign up`}
+            class="site-email-link flex h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 rounded-full px-2.5 text-primary no-underline hover:bg-raised xl:hidden"
+          >
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3.5 7 8.5 6 8.5-6"></path>
+            </svg>
+            <span class="hidden text-[0.875rem] font-semibold sm:inline" aria-hidden="true">{sendDay} email</span>
+          </a>
+        )}
         <a
           href="/search/"
           aria-label="Search"
@@ -137,8 +159,8 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
             </li>
           )}
           {emailOn && (
-            <li class="site-nav-email">
-              <a href={emailHref} class="site-nav-link site-nav-email-link block whitespace-nowrap no-underline xl:inline-flex xl:min-h-10 xl:items-center xl:rounded-full xl:border xl:border-primary-line xl:px-3.5 xl:text-[0.875rem] xl:font-semibold xl:text-primary xl:hover:border-primary">
+            <li class="site-nav-email max-xl:hidden">
+              <a href={emailHref} data-email-link class="site-nav-link site-nav-email-link block whitespace-nowrap no-underline xl:inline-flex xl:min-h-10 xl:items-center xl:rounded-full xl:border xl:border-primary-line xl:px-3.5 xl:text-[0.875rem] xl:font-semibold xl:text-primary xl:hover:border-primary">
                 {sendDay} email
               </a>
             </li>
@@ -151,6 +173,21 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
 </header>
 
 <script>
+  // The masthead's email link goes to the form on this page where the page
+  // has one that can be seen (NewsletterSignup marks its section), and puts
+  // the cursor in its field; otherwise it keeps its href, the hub's signup.
+  const signup = [...document.querySelectorAll<HTMLElement>('[data-signup-section]')].find((el) => el.offsetParent !== null);
+  if (signup) {
+    if (!signup.id) signup.id = 'signup';
+    for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-email-link]')) {
+      link.href = `#${signup.id}`;
+      link.addEventListener('click', () => {
+        // After the jump, so the browser's own scroll to the anchor wins.
+        setTimeout(() => signup.querySelector<HTMLInputElement>('input[type="email"]')?.focus({ preventScroll: true }), 0);
+      });
+    }
+  }
+
   const button = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
   const nav = document.getElementById('site-nav');
   if (button && nav) {

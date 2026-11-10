@@ -18,8 +18,8 @@ beginners: true
 contact: "Isabelle, ipedraza@berthoud.org, for a free swim evaluation"
 featured: true
 source: "https://www.berthoud.org/DocumentCenter/View/7956/Berthoud-Recreation-Winter-Activity-Guide-2026-27"
-verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Winter Activity Guide 2026–27 (PDF, aquatics, certifications and swim lesson pages 12–15) and its Activity Guide page, read November 8, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Berthoud's Learn to Swim program runs in nine levels: **Parent/Baby and Parent/Tot** (six months to three years, with an adult 16 or older in the water), the preschool levels **Dolphin, Stingray and Octopus** (3 to 5), and **Levels 1 to 4** for swimmers six and up. New this winter are **teen lessons** for 12 and up, on Saturdays at 8:10 am. Classes are 30 minutes, in monthly blocks: Tuesday/Thursday mornings and evenings, Monday/Wednesday mornings (Dolphin and Stingray only) and Saturday mornings. The Tuesday/Thursday blocks run December 1 to 17, January 5 to 28, February 2 to 25 and March 2 to April 1, with Monday/Wednesday and Saturday blocks alongside and no lessons March 15 to 20. Private lessons are $192 resident for December's three weeks ($96 on Saturdays) and $208 for March on weekday evenings. Unsure of the level, ask Isabelle, ipedraza@berthoud.org, for a free swim evaluation.

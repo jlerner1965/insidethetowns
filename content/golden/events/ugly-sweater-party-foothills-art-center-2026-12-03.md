@@ -11,8 +11,8 @@ organizer: "Foothills Art Center"
 organizerUrl: "https://foothillsartcenter.org/"
 source: "https://foothillsartcenter.org/event/ugly-sweater-party-buy-one-give-one/"
 sourceId: "foothillsartcenter-org"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Bring a plain sweater and decorate it into an ugly holiday one, with supplies, drinks and glitter provided. Space is limited, so RSVP on the art center's page. It is a buy-one-give-one event: each ticket sold pays for a Colorado School of Mines student to take part.

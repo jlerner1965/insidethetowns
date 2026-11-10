@@ -11,7 +11,8 @@ ages: "Preschool to grade 12"
 registration: { required: true, how: "EnrollJeffco, online: choose schools, upload a birth certificate or other proof of age, immunization records and proof of address, then complete household registration", url: "https://enrolljeffco.my.site.com/Apply/sitelogin", opens: "2026-12-01", deadline: "2027-01-15", note: "Round 1 for 2027–28; families new to Jeffco can still enroll for 2026–27 at their neighborhood school" }
 contact: "Each school's contacts are on its School Finder profile"
 source: "https://www.jeffcopublicschools.org/enroll"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Jeffco Public Schools divides the county into 17 articulation areas. The Golden area has five elementaries, Kyffin, Mitchell, Ralston, Shelton and Welchester, with Bell Middle and Golden High; the district's [articulation areas page](https://www.jeffcopublicschools.org/about/articulation-areas) has a boundary map for each, and [School Finder](https://enrolljeffco.my.site.com/Find/s/) looks schools up by name, by distance or by program. Jeffco also takes choice enrollment: any student in the county can attend any Jeffco school with space.

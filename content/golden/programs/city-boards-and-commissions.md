@@ -14,7 +14,8 @@ price: "Free"
 registration: { required: true, how: "Apply in the annual window, early February to mid-March; interviews are the last Tuesday of March and the Mayor appoints with a majority vote of Council", url: "https://www.cityofgolden.gov/government/city_leadership/boards_commissions/vacancies.php" }
 contact: "City Clerk's office, 303-384-8014 or 303-384-8015, clerks@cityofgolden.gov"
 source: "https://www.cityofgolden.gov/government/city_leadership/boards_commissions/vacancies.php"
-verified: "2026-10-28"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 **Serve on one.** The City fills its boards once a year: applications open near the beginning of February and close in mid-March, interviews are on the last Tuesday of March, and the Mayor appoints with a majority vote of Council. Every term ends in April. Most boards require members to live in the city, and a Golden mailing address is not proof; the City points to Jefferson County's address lookup, under "Municipal Status". The full list and each board's members are on the [Boards & Commissions page](https://www.cityofgolden.gov/government/city_leadership/boards_and_commissions.php).

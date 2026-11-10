@@ -9,7 +9,8 @@ hours: "Mon–Thu 7 am–5:30 pm; closed Fri–Sun"
 tags: [government, meetings]
 summary: "Town Hall at the west end of Mountain Avenue: Board meetings, Planning Commission, utility billing and permits."
 source: "https://www.berthoud.org/facilities/facility/details/Berthoud-Town-Hall-15"
-verified: "2026-11-02"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

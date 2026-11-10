@@ -11,8 +11,8 @@ organizer: "City of Golden"
 organizerUrl: "https://www.cityofgolden.gov/"
 source: "https://www.cityofgolden.gov/calendar.php"
 sourceId: "cityofgolden-gov"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the City calendar, the agenda list on the public meetings page and the 10 November agenda)"
 ---
 
-The Council's last business meeting of 2026, held on the third Tuesday: the City's calendar skips the fourth-Tuesday date, December 22, and lists this meeting at 6:30 pm in Council Chambers at City Hall. Agendas are posted to the City's meetings page, generally by 5 pm the Thursday before; written comments on agenda items go to publiccomments@cityofgolden.net by 3 pm on the day of the meeting, and residents can also sign up at the meeting to speak.
+The Council's last business meeting of 2026, held on the third Tuesday: the City's calendar skips the fourth-Tuesday date, December 22, and lists this meeting at 6:30 pm in Council Chambers at City Hall. Agendas are posted to the City's meetings page, generally by 5 pm the Thursday before; written comments on agenda items go to publiccomments@cityofgolden.gov by 3 pm on the day of the meeting, and residents can also sign up at the meeting to speak.

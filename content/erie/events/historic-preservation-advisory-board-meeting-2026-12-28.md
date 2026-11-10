@@ -8,7 +8,8 @@ cost: "Free"
 category: civic
 recurring: "Fourth Mondays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5358"
-verified: "2026-09-18"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Regular in-person meeting of the Town of Erie Historic Preservation Advisory Board. Open to the public.

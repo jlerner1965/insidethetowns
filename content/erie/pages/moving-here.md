@@ -4,7 +4,7 @@ description: "What it is like to move to a coal town of about 30,000 at the 2020
 image: ../images/community-center.jpg
 imageAlt: "The west entrance of the Erie Community Center on Powers Street"
 imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
-updated: "2026-11-09"
+updated: "2026-11-10"
 ---
 
 ## What you are moving to
@@ -28,15 +28,15 @@ By car. Arapahoe Road and Colorado 7 (Baseline Road) run west to Boulder in abou
 - **Water and sewer** are Town of Erie utilities; start service through [Utility Billing](https://www.erieco.gov/581/Utility-Billing) at Town Hall, 303-926-2700.
 - **Electricity** is Xcel Energy or United Power, depending on the address.
 - **Natural gas** is Xcel Energy or Black Hills Energy, again by address.
-- **Trash, recycling and compost** are private. The Town does not run collection; pick from its [list of licensed haulers](https://www.erieco.gov/1284/Utility-Providers) (Republic, Waste Connections, Waste Management, Western Disposal, One Way, Wompost for compost), and check your HOA first, since many neighborhoods contract one hauler.
+- **Trash, recycling and compost** are private. The Town does not run collection; pick from its [list of haulers](https://www.erieco.gov/1284/Utility-Providers) (Republic, Waste Connections, Waste Management, Western Disposal, One Way, Wompost for compost), and check your HOA first, since many neighborhoods contract one hauler.
 - **Police** is the [Erie Police Department](https://www.erieco.gov/246/Police-Department) at 1000 Telleen Avenue; non-emergency 303-441-4444.
 - **Fire and emergency medical** response is [Mountain View Fire Rescue](https://www.mvfpd.org/), a separate district that also serves Niwot, Mead and Dacono.
 - **Building permits, planning and zoning** are Town departments; the [Planning Commission](/events/) meets on the first and third Wednesdays.
 
 ## Government
 
-Erie is a home-rule town with a Town Council of a mayor and six members and an appointed Town Manager. Council meets on the [second and fourth Tuesdays](/events/) at 6:30 pm at Town Hall in the old Lincoln School, streamed live. An interim Town Manager has run the Town since February 2026 while a national search for a permanent one goes on. Boards for planning, parks and trails, historic preservation, sustainability, trees and the airport are filled by application.
+Erie is a home-rule town with a Town Council of a mayor and six members and an appointed Town Manager. Council meets on the [second and fourth Tuesdays](/events/) at 6:30 pm at Town Hall in the old Lincoln School, streamed live. An interim Town Manager has run the Town since February 2026; Council approved a contract with Kelli Johnson as Town Manager on October 20, 2026, and her first day is January 4, 2027. Boards for planning, parks and trails, historic preservation, sustainability, trees and the airport are filled by application.
 
 ## Living here
 
-Summer is the Thursday farmers market on Briggs Street from May to mid-September, the splash pads at Coal Creek and Lehigh parks, the lazy river at the [Community Center](/places/erie-community-center/), Town Fair and the fireworks. Fall is Tails & Ales at the dog park, Brewfest and Boo! on Briggs Street downtown, and the corn maze at [Anderson Farms](/places/anderson-farms/). Winter is the Parade of Lights on the first Friday of December, the rink at Coal Creek Park, and the sledding hill at Community Park. Year-round there is trivia and music at the [Old Mine](/places/the-old-mine/), the [singletrack](/places/erie-singletrack/) on the north side, and a walk around [Thomas Reservoir](/places/thomas-reservoir-loop/) at sunset.
+Summer is the Thursday farmers market on Briggs Street from May to mid-September, the splash pad at Coal Creek Park, the lazy river at the [Community Center](/places/erie-community-center/), Town Fair and the fireworks. Fall is Tails & Ales at the dog park, Brewfest and Boo! on Briggs Street downtown, and the corn maze at [Anderson Farms](/places/anderson-farms/). Winter is the Parade of Lights on the first Friday of December, the rink at Coal Creek Park, and the sledding hill at Community Park. Year-round there is trivia and music at the [Old Mine](/places/the-old-mine/), the [singletrack](/places/erie-singletrack/) on the north side, and a walk around [Thomas Reservoir](/places/thomas-reservoir-loop/) at sunset.

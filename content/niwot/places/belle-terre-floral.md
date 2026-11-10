@@ -9,7 +9,8 @@ hours: "Mon–Sat 10–5; closed Sun"
 tags: [florist]
 summary: "The florist, with a second counter inside the market."
 source: "https://niwot.com/listing/belle-terre-floral/"
-verified: "2026-09-18"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

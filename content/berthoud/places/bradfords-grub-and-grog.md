@@ -11,7 +11,8 @@ closed: "2026-02-21"
 statusNote: "Closed February 21, 2026, ahead of the sale of the building; Bradford's announced it on February 19, by Retro 102.5's report. Its own website is gone and Berthoud Main Street no longer lists it (checked November 9, 2026)."
 statusSource: "https://retro1025.com/bradfords-grub-grog-berthoud/"
 source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
-verified: "2026-11-09"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

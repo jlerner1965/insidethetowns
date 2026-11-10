@@ -7,17 +7,17 @@ affects: "Registered voters in the Town of Berthoud; anyone who uses the Town's 
 effective: "2026-11-03"
 effectiveNote: "Election Day; the count is unofficial until the county clerks certify it"
 published: "2026-11-03"
-verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: Larimer County's seventh posting of unofficial results, November 6, 2026, 3:33 pm (Yes 3,053, No 4,473, read from the County's PDF), and Weld County's results page (Yes 39, No 65), both read November 9, 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (Larimer County's results page, still on its seventh posting of unofficial results, November 6, 3:33 pm, Yes 3,053 and No 4,473 in the County's PDF, final unofficial results expected November 13; Weld County's results page, Yes 39 and No 65; Engage Berthoud for the park)"
 source: "https://www.larimer.gov/clerk/elections/results"
 sourceLabel: "Larimer County election results, November 3, 2026 (unofficial), seventh posting, November 6, 3:33 pm"
 alsoSource: "https://apps.weld.gov/clerkrecorder/elections/results/"
-alsoSourceLabel: "Weld County election results, November 3, 2026 (unofficial), read November 9"
+alsoSourceLabel: "Weld County election results, November 3, 2026 (unofficial), read November 10"
 expires: "2026-12-03"
 featured: true
 ---
 
-The question lost in both counties. Larimer County, where most of the town votes, had 4,473 against and 3,053 for in its seventh posting of unofficial results, at 3:33 pm on November 6. Weld County had 65 against and 39 for on its results page on November 9. Together that is 4,538 to 3,092. These counts are unofficial: ballots still being cured are counted until the cure period ends, and Larimer County expects to post final unofficial results on November 13. This guide will give the certified count when it is published.
+The question lost in both counties. Larimer County, where most of the town votes, had 4,473 against and 3,053 for in its seventh posting of unofficial results, at 3:33 pm on November 6. Weld County had 65 against and 39 for on its results page on November 10. Together that is 4,538 to 3,092. These counts are unofficial: ballots still being cured are counted until the cure period ends, and Larimer County expects to post final unofficial results on November 13. This guide will give the certified count when it is published.
 
 The certified question, as the Larimer County sample ballot prints it: "Shall the Town of Berthoud debt be increased $28,000,000, with a maximum repayment cost of up to $60,000,000, such debt to consist of sales and use tax revenue bonds to be payable from all or a portion of the Town's sales and use tax (without increasing taxes) and issued solely for parks and recreation purposes, including but not limited to the design, construction, and equipment of a community park site known as Mountain Vista Park and consisting of a combination of ballfields, aquatic recreation features, and related improvements…" The full text runs to the TABOR clause on the sample ballot.
 

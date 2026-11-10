@@ -8,7 +8,8 @@ hours: "Daily 5 am–11 pm"
 tags: [disc-golf, skate-park, ice-rink, pool, trail]
 summary: "The park on Spring Creek beside EPIC, the City's pool and ice center: an 18-hole disc golf course, a skate park, tennis, ball fields, fishing, a community garden and the Spring Creek Trail running through."
 source: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Parks/Edora-Park"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

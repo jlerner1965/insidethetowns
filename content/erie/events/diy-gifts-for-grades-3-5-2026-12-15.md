@@ -8,8 +8,8 @@ url: "https://highplains.libcal.com/event/16141701"
 cost: "Free; registration required"
 category: family
 source: "https://highplains.libcal.com/event/16141701"
-verified: "2026-11-08"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"DIY Gifts 3rd-5th Grades\" at 4 pm on 15 December in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
 Children in grades 3 to 5 make homemade gifts for family, friends and teachers. Registration required.

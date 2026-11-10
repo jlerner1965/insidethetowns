@@ -8,8 +8,9 @@ phone: "(970) 690-9448"
 hours: "Wed–Thu 9 am–2 pm, Fri–Sun 8 am–2 pm"
 tags: [breakfast, lunch, brunch, local, catering]
 summary: "A locally owned breakfast and lunch spot on Cleveland Avenue, open since 2008 and cooking with Colorado purveyors, with a First Friday supper club and catering."
-source: "https://business.loveland.org/list/member/taste-local-14306"
-verified: "2026-11-06"
+source: "https://eattastelocal.com/"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the restaurant's own site, which carries the hours; the chamber listing agrees)"
 added: "2026-11-06"
 ---
 

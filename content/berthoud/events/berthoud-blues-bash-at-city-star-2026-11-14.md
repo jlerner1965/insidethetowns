@@ -15,8 +15,8 @@ cost: "Free"
 category: music
 timeNote: "Noon to 8 pm; music from 12:30 pm"
 source: "https://citystarbrewing.com/event/berthoud-blues-bash/"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Berthoud Blues Bash\" at 12 pm on 14 November in the page's structured data"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: Saturday, November 14, noon to 8 pm, the five set times, free admission, rain or shine)"
 ---
 
 The first Berthoud Blues Bash puts five Colorado blues acts on one stage at City Star, rain or shine: Mad Dog Blues Duo at 12:30, 100LB Housecat at 2, Delta Sonics at 3:30, The Johnny O. Band at 5 and The Jack Hadley Band to close from 6:30 to 8 pm. No tickets or cover; Bayou Smokehouse, which presents the day with City Star, serves Southern food, and Louisiana Glynn fries catfish.

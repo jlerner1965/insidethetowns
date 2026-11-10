@@ -10,8 +10,8 @@ category: other
 organizer: "Colorado School of Mines"
 source: "https://calendar.mines.edu/event/23147-book-talk-with-professor-joe-horan-forces-of"
 sourceId: "calendar-mines-edu"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Mines calendar's event record)"
 ---
 
-Mines professor Joe Horan on his environmental history of the Napoleonic Wars: how armies on the march made "militarized landscapes" along their roads, leaving soldiers and civilians exposed to cold, hunger and epidemic disease, and how the movement of people, animals, plants and microbes shaped the rise and fall of Napoleon's empire.
+Mines professor Joe Horan, in room 126 of Marquez Hall, on his environmental history of the Napoleonic Wars: how armies on the march made "militarized landscapes" along their roads, leaving soldiers and civilians exposed to cold, hunger and epidemic disease, and how the movement of people, animals, plants and microbes shaped the rise and fall of Napoleon's empire.

@@ -9,8 +9,8 @@ category: arts
 organizer: "Flow State Crew"
 source: "https://calendar.mines.edu/event/23104-a-colorado-snowboard-movie-escape-ii"
 sourceId: "calendar-mines-edu"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Mines calendar's event record)"
 ---
 
 A screening of ESC II, a local film about Colorado snowboarders: in what the makers call the state's worst season on record, the Flow State Crew still filmed for more than 40 days, with riders from the Front Range to Summit.

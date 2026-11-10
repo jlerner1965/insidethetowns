@@ -12,8 +12,8 @@ cost: "$5 drop-in"
 category: arts
 recurring: "Saturdays through 15 May 2027; no session 28 November, 26 December or 2 January"
 source: "https://tockify.com/wildfire/detail/623/1791043200000"
-verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: Wildfire Arts Center's calendar feed, https://tockify.com/api/feeds/ics/wildfire, read November 8, 2026: Saturday sessions at 10 am through May 15, 2027, none on November 28, December 26 or January 2"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (Wildfire's Tockify calendar: Saturdays 10 am to noon through May 15, 2027, none on November 28, December 26 or January 2; $5)"
 ---
 
 A drop-in open studio where Wildfire supplies the materials and an instructor suggests an art activity, or you can bring your own project. Open to all ages with an adult, and to ages 11 and up on their own.

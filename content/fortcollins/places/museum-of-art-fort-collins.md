@@ -12,7 +12,8 @@ hours: "Wed–Thu 10–5, Fri 10–7, Sat 10–5, Sun 12–5; closed Mon–Tue"
 tags: [museum, art, exhibitions]
 summary: "The art museum on College Avenue, with rotating exhibitions, late hours on Fridays and free admission for anyone 18 and under. Adults $10, or $8 for Fort Collins residents."
 source: "https://moafc.org/visit/"
-verified: "2026-10-01"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 ---
 

@@ -4,7 +4,7 @@ kind: decision
 stage: approved
 summary: "The Niwot Local Improvement District Advisory Committee approved $5,885 toward the October 31 Great Pumpkin Party and $9,201 for downtown holiday lighting at its October 6 meeting, and moved its November meeting off Election Day to November 17."
 affects: "Anyone who goes to the Halloween party or the holiday events in Old Town; businesses in the district, whose 1% sales tax pays for it"
-action: "Nothing to do. The committee's meetings are open to the public; the county's page lists December 1 at 7 pm at the Niwot Inn and says each meeting is confirmed on the Commissioners' two-week advance agenda, which for November 2 to 13 lists none."
+action: "Nothing to do. The committee's meetings are open to the public: the Commissioners' advance agenda for November 9 to 20 lists the November meeting for Tuesday, November 17 at 7 pm at the Niwot Inn, 342 Second Avenue, and the county's calendar lists December 1 at 7 pm, to be confirmed on the advance agenda."
 effective: "2026-10-06"
 published: "2026-10-21"
 verified: "2026-11-03"
