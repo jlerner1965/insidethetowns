@@ -128,9 +128,15 @@ const subtitleLong = week?.long ?? shorten(subtitle, 88);
       the words and a faint shadow keep it legible on a light patch, the
       way a magazine credits a photograph. 8px, the owner's call (28
       October): far under the 14px floor for supporting text, and as small
-      as it goes while it still reads as the credit the licence needs. */}
+      as it goes while it still reads as the credit the licence needs.
+      Really 8px from 10 November 2026 (it had been 0.625rem, 10.6px at
+      this root size), tight in the corner, with no glow behind it and
+      at 75% white: the owner asked for it as small and quiet as it can
+      be. Not smaller and not hidden: the licence wants the credit
+      "adjacent to the content", and one nobody can read is not one
+      (PERMISSIONS.md, Berthoud hero). */}
   {creditOnImage && (
-    <p class:list={['absolute right-2 z-10 text-[0.625rem] leading-tight tracking-wide text-white/90 [text-shadow:0_1px_2px_rgb(0_0_0/0.7)] before:pointer-events-none before:absolute before:-inset-x-1.5 before:-inset-y-0.5 before:-z-10 before:rounded-full before:bg-black/35 before:blur-[6px] max-sm:before:bg-black/70 sm:right-3', compact ? 'top-52 -translate-y-[calc(100%+0.5rem)] sm:top-auto sm:bottom-3 sm:translate-y-0' : 'bottom-2 sm:bottom-3']}>{creditOnImage}</p>
+    <p class:list={['absolute right-1.5 z-10 text-[8px] leading-none text-white/75 [text-shadow:0_1px_1px_rgb(0_0_0/0.6)] sm:right-1.5', compact ? 'top-52 -translate-y-[calc(100%+0.25rem)] sm:top-auto sm:bottom-1 sm:translate-y-0' : 'bottom-1']}>{creditOnImage}</p>
   )}
   {/* No minimum height: the padding and the type set it. In the compact
       band the type sits under the photograph on a phone, on the town's
