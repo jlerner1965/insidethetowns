@@ -63,6 +63,7 @@ timeNote: "Time to be confirmed"  # optional, shown instead of the time range
 source: "https://organizer.example/calendar"  # where the listing was read; without it the build holds the event back
 verified: "2026-09-17"            # the day it was checked; same
 featured: false                   # optional
+topOfDay: false                   # optional: first among its own day's listings, nothing more
 ---
 Description in Markdown.
 ```

@@ -10192,3 +10192,19 @@ the opponent, the day shows the listing and not the game's row
 (`listedAsEvent`, src/lib/flagship-home.ts): the listing has the page
 with the story. Once the game is played its row carries the result and is
 shown. The team page and the sports strip are unchanged.
+
+## First on its day: `topOfDay`, 10 November 2026
+
+Move & Meet NoCo submitted its Saturday wellness social at The Love Shack
+(Loveland, 21 November) and asked for it to be listed first. The owner's
+word: first on the weekend, and nothing more. `featured` was too much: it
+also puts a listing in the "Don't miss" card for three weeks and in the
+week's picks.
+
+- **`topOfDay: true` on an event** (src/content/schemas.ts) puts it first
+  among its own day's listings: `sortByStart` (so the events page,
+  /this-weekend/ and every day list built on it), the home page's days
+  (`weekDays`) and its This weekend tab (`pickRows`, where it also ranks
+  with the outings, so it is never the row a full tab leaves out).
+- **The days stay in date order.** A Saturday listing leads Saturday, after
+  Friday's; a weekend list out of date order reads as a mistake.

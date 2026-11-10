@@ -291,3 +291,13 @@ test('a day lists its outings before its library programs and meetings, when ask
   const ordered = groupByDay(list as never[], { outingsFirst: true }).map((d) => d.events.map((x) => (x as { slug: string }).slug));
   assert.deepEqual(ordered, [['movie'], ['market', 'band', 'board', 'storytime-special']]);
 });
+
+test('a listing marked topOfDay comes first on its own day and nowhere else', () => {
+  const top = { ...ev('Wellness social', '2026-11-21T11:00'), data: { ...ev('Wellness social', '2026-11-21T11:00').data, topOfDay: true } };
+  const list = [ev('Sunday brunch', '2026-11-22T10:00'), ev('Early market', '2026-11-21T09:00'), top, ev('Friday show', '2026-11-20T19:00')];
+  const days = groupByDay(list as Fixture[]);
+  assert.deepEqual(
+    days.map((d) => titles(d.events)),
+    [['Friday show'], ['Wellness social', 'Early market'], ['Sunday brunch']],
+  );
+});

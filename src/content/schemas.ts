@@ -401,6 +401,16 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
         .strict()
         .optional(),
       featured: z.boolean().default(false),
+      /**
+       * First among its own day's listings, wherever a day's listings are in
+       * time order: the events page, /this-weekend/, the home page's days and
+       * its This weekend tab. Only the order within the day changes; the days
+       * stay in date order, and nothing else follows from it (no "Don't miss"
+       * card, no weekly pick, which are `featured`'s). For an organizer who
+       * asked for top billing on the day (the owner, 10 November 2026: Move &
+       * Meet NoCo's Saturday wellness social in Loveland).
+       */
+      topOfDay: z.boolean().optional(),
       /** Still on as listed, or not. See EVENT_STATUSES. */
       status: z.enum(EVENT_STATUSES).default('scheduled'),
       /**

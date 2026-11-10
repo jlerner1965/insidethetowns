@@ -7,7 +7,7 @@ address: "120 E 4th St, Loveland, CO 80537"
 url: "https://sweatpals.com/event/wellness-social-party/2026-11-21"
 cost: "$25 social only; $30 with the workout. Each ticket includes one mocktail or coffee"
 category: other
-featured: true
+topOfDay: true
 source: "https://sweatpals.com/event/wellness-social-party/2026-11-21"
 verified: "2026-11-10"
 verifiedBy: "Claude Code, delegated by James Lerner: submitted by the organizer (Move & Meet NoCo) on 10 November 2026, and read from the organizer's ticket page on SweatPals the same day: Saturday, November 21, 11 am to 1 pm, 120 E 4th St, the workout at 11:15, the social 11:45 to 1, $25 and $30 tickets, sales close November 20"
