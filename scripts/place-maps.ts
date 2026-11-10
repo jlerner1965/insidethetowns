@@ -86,11 +86,17 @@ type Poi = { name: string; number: string; street: string; at: [number, number] 
 const streetKey = (v: string) =>
   v
     .toLowerCase()
+    .replace(/\([^)]*\)/g, ' ')
     .replace(/\b(north|south|east|west|n|s|e|w)\b\.?/g, ' ')
     .replace(/\bavenue\b/g, 'ave')
     .replace(/\bstreet\b/g, 'st')
     .replace(/\bdrive\b/g, 'dr')
     .replace(/\broad\b/g, 'rd')
+    .replace(/\bhighway\b/g, 'hwy')
+    .replace(/\bplace\b/g, 'pl')
+    .replace(/\bcourt\b/g, 'ct')
+    .replace(/\blane\b/g, 'ln')
+    .replace(/\bboulevard\b/g, 'blvd')
     .replace(/\bparkway\b/g, 'pkwy')
     .replace(/\bfirst\b/g, '1st')
     .replace(/\bsecond\b/g, '2nd')
@@ -101,8 +107,12 @@ const nameKey = (v: string) => v.toLowerCase().replace(/&/g, 'and').replace(/\b(
 const unescape = (v: string) => v.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&apos;|&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
 /** An .osm extract read as text: its nodes, then each way with its tags. The format is one element a line. */
-function readOsm(path: string): { lines: Line[]; areas: Area[]; pois: Poi[]; newest: string } {
+function readOsm(path: string): { lines: Line[]; areas: Area[]; pois: Poi[]; newest: string; covers: (lat: number, lng: number) => boolean } {
   const text = readFileSync(path, 'utf8');
+  // What the extract covers, less the half-frame a map shows around its pin: a listing nearer the edge than that
+  // would be drawn with a blank side, so it gets no map.
+  const b = /<bounds minlat="([-\d.]+)" minlon="([-\d.]+)" maxlat="([-\d.]+)" maxlon="([-\d.]+)"/.exec(text)?.slice(1).map(Number);
+  const covers = (lat: number, lng: number) => !b || (lat > b[0]! + 0.0015 && lat < b[2]! - 0.0015 && lng > b[1]! + 0.0028 && lng < b[3]! - 0.0028);
   const nodes = new Map<string, [number, number]>();
   const lines: Line[] = [];
   const areas: Area[] = [];
@@ -133,7 +143,7 @@ function readOsm(path: string): { lines: Line[]; areas: Area[]; pois: Poi[]; new
     else if (tags.natural === 'water') areas.push({ k: 'water', p: lngLat });
     if (!tags.highway) poi(tags, middle);
   }
-  return { lines, areas, pois, newest: newest.slice(0, 10) };
+  return { lines, areas, pois, newest: newest.slice(0, 10), covers };
 }
 const osmPath = arg('osm');
 const osm = osmPath ? readOsm(resolve(osmPath)) : undefined;
@@ -229,6 +239,15 @@ for (const id of Object.keys(places)) {
   if (twin) {
     places[id] = places[twin]!;
     from[id] = 'osm';
+  }
+}
+
+if (osm) {
+  for (const id of Object.keys(places)) {
+    if (osm.covers(places[id]![0], places[id]![1])) continue;
+    unplaced.push(`${id}: outside the extract, or too near its edge for a whole map`);
+    delete places[id];
+    delete from[id];
   }
 }
 
