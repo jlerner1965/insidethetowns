@@ -9,8 +9,8 @@ category: sports
 organizer: "Centaurus High School Athletics"
 organizerUrl: "https://ceh.bvsd.org/athletics"
 source: "https://ceh.bvsd.org/about/calendar?cal_date=2026-12-01"
-verified: "2026-11-02"
-verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: the Centaurus calendar for December and the school’s athletics page, read 10 November 2026"
 ---
 
 The Warriors’ varsity wrestlers host Fairview High School at Centaurus on Thursday, December 3, from 6 to 8 pm, the first home event on the school calendar’s winter list; the team’s season begins November 16. The calendar lists no ticket price. Scores and the rest of the schedule are on [this guide’s sports page](/sports/).

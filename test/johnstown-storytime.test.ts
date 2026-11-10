@@ -36,8 +36,9 @@ test('each Monday session of Music & Movement is listed once: one at 10, one at 
   // written, 7 December from 1 November 2026, when the feed carried it and
   // both series were extended rather than a one-off file published beside
   // them (auto-review's series rule came from that morning's run).
-  const LAST_LISTED = '2026-12-07';
-  const mondays = ['2026-10-26', '2026-11-02', '2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30', LAST_LISTED];
+  // 14 December from 10 November 2026, read on the library's own listing in the accuracy sweep.
+  const LAST_LISTED = '2026-12-14';
+  const mondays = ['2026-10-26', '2026-11-02', '2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30', '2026-12-07', LAST_LISTED];
   for (const day of mondays) {
     assert.ok(byStart.has(`${day}T10:00`), `${day} 10 am`);
     assert.ok(byStart.has(`${day}T13:00`), `${day} 1 pm`);

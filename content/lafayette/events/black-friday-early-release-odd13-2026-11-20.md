@@ -9,8 +9,8 @@ category: food
 organizer: "Odd13 Brewing"
 organizerUrl: "https://www.odd13brewing.com/"
 source: "https://www.odd13brewing.com/events"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 6:30 pm on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 ---
 
-A preview of Odd13’s Black Friday releases on Friday, November 20, from 6:30 to 8 pm: a barrel-aged stout tied to a Magic: The Gathering card release, a double dry-hopped Codename IPA and the regular Codename, the return of the Mango Guardian hazy IPA, and merch drops and case releases. The brewery also runs a can food drive through November 24: bring five non-perishable items to the taproom for a free draft beer.
+A preview of Odd13’s Black Friday releases on Friday, November 20, from 6:30 to 8 pm: a barrel-aged stout tied to a Magic: The Gathering card release, the double dry-hopped Codename in cans and the regular Codename on tap, the return of the Mango Guardian hazy IPA, and merch drops and case releases. The brewery also runs a can food drive through November 24: bring five non-perishable items to the taproom for a free draft beer.

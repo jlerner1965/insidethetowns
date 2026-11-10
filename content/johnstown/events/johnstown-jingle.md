@@ -12,8 +12,8 @@ category: festival
 timeNote: "2 to 5 pm; tree lighting 5:30"
 featured: true
 source: "https://www.visitdowntownjohnstown.com/johnstownjingle"
-verified: "2026-11-08"
-verifiedBy: "recheck-events (the nightly re-check workflow): 6 December and 2 pm on the page"
+verified: "2026-11-10"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the DDA's Johnstown Jingle page: Sunday, December 6, 2026, 2pm - 5pm, tree lighting at 5:30pm; its vendor page: snow or shine, Downtown Johnstown)"
 ---
 
-The Town and the Downtown Development Authority's holiday afternoon in Old Town: festive activities, seasonal entertainment, curated vendors, visits with Santa and his reindeer and a community toy drive from 2 to 5, then the community tree lighting at 5:30.
+The Johnstown Downtown Development Authority's holiday afternoon in Old Town, held snow or shine: festive activities, seasonal entertainment, curated vendors, visits with Santa and his reindeer and a community toy drive from 2 to 5, then the community tree lighting at 5:30.
