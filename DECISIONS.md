@@ -10071,3 +10071,39 @@ the owner said yes.
   concerts that may be on the guide already. In Castle Rock: the
   fireworks, the tree lighting and the Turkey ROCK Trot, each already on
   the guide under another title.
+
+## The waiting items ruled on, 10 November 2026
+
+With the pull request open the owner asked for the items that wait for a
+person to be done. Ninety-one staged events and two changes waited across
+sixteen guides; each was read with the listing it was held against.
+
+- **Rejected, 44: true doubles and what is not an event.** A board's copy
+  of a show the guide has from the venue (the Buffalo Rose's five in
+  Golden, Next Stop Comedy at St. Vrain Cidery and Crooked Beech, Motus
+  Theater, the Festival of Lights, the Turkey ROCK Trot, the tree
+  lighting, the bookshop's three in Castle Rock); four of one expo's five
+  titles in Loveland; Leadville's six, which the other session had named;
+  exhibitions that opened months ago; Eventbrite classes at an address
+  with no name; a house concert; a concert that arrived canceled; the
+  music bingo and pet-painting nights Timnath already lists.
+- **Published, 38.** Held as doubles and not: the named Wednesday players
+  at Miners Saloon (eight), which the guide had only as a standing
+  listing; the card expo, two workshops and the mini golf showdown in Fort
+  Collins; a mobile bookstore and Dueling Pianos in Loveland. Second
+  showings on one day: the Backdoor Theatre's Saturday films, Les
+  Misérables at Severance High, the Leadville school play, the 7 pm jazz
+  combo in Lafayette. With the venue added: CSU volleyball at Moby Arena,
+  the Historical Society's talks at the Loveland Museum, and seventeen
+  from Estes Park's schools.
+- **Estes Park's schools now name their buildings** (`venueAliases`: 1600
+  Manford Avenue is the high school, 1505 Brodie Avenue the elementary),
+  so the next read publishes without a person. The feed is the district's
+  facility schedule: an end time is the booking's, and the choirs concert
+  on 9 December reads 8 am. Both want a look.
+- **Left, 11, each for a reason a person owns**: six drafts another
+  session holds by hand; the Castle Rock Veterans Day fireworks, whose
+  source says "rescheduled" without saying to when; the Posada in
+  Leadville, with no venue anywhere read; a Zoom-only committee meeting;
+  and two changes to published listings (a Chrispy night's end time at
+  Mountain Toad, the Holiday Mountain Market's second day).
