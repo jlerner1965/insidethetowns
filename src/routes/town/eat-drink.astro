@@ -1,5 +1,6 @@
 ---
 import Page from '@/layouts/Page.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import SubTownLinks from '@/components/SubTownLinks.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
@@ -52,6 +53,10 @@ const structured = [
      count and filter button. As a separate section under a small label they
      were a third style of header, and the filters above left them alone. */}
   <PlaceDirectory places={[...places, ...shops]} heading="Places to eat, drink and shop" filterable emptyMessage="No places listed yet." />
+  {/* The Thursday email, once, under the list: this page type had no form
+      at all (the sweep of 10 November 2026). Nothing on a guide the email
+      does not cover (NewsletterSignup). */}
+  <NewsletterSignup town={town} id="eat-drink" variant="home" class="mt-14" />
   {articles.length > 0 && (
     <section class="mt-20">
       <SectionHeader eyebrow="From the guide" title="Eating out, in depth" href="/guides/" linkLabel="All guides" />

@@ -327,7 +327,9 @@
  */
 @media (width < 40rem) {
   .site-wordmark {
-    font-size: min(1.75rem, calc((100vw - 8.75rem) / var(--wordmark-em, 10)));
+    /* --masthead-reserve: the room the buttons take, three of them where
+       the guide has the weekly email (Header.astro), two otherwise. */
+    font-size: min(1.75rem, calc((100vw - var(--masthead-reserve, 8.75rem)) / var(--wordmark-em, 10)));
   }
 }
 

@@ -396,7 +396,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
      brief, 6 November 2026); the foot keeps the full form with the picker. */}
   {signup && (
     <div class={block}>
-      <NewsletterSignup town={town} id="this-week-mid" variant="home" />
+      <NewsletterSignup town={town} id="this-week-mid" variant="home" anchor="signup" />
     </div>
   )}
   {schoolWeeks.length > 0 && (

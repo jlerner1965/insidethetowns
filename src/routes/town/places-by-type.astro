@@ -15,6 +15,7 @@
  * indexed rather than offering a search engine an empty list.
  */
 import Page from '@/layouts/Page.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import SubTownLinks from '@/components/SubTownLinks.astro';
 import { getTown } from '@/config';
@@ -78,4 +79,8 @@ const structured = [
   </p>
   <SubTownLinks slot="after-header" class="mt-5" />
   <PlaceDirectory places={places} heading={`${page.heading} in ${coverage}`} emptyMessage={`No ${page.heading.toLowerCase()} listed yet.`} />
+  {/* The Thursday email, once, under the list: this page type had no form
+      at all (the sweep of 10 November 2026). Nothing on a guide the email
+      does not cover (NewsletterSignup). */}
+  <NewsletterSignup town={town} id="places-by-type" variant="home" class="mt-14" />
 </Page>

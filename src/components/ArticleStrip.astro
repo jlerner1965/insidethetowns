@@ -1,7 +1,8 @@
 ---
 /**
  * The strip under every guide article: the next few listings, a link to
- * this week, three related links, and the signup.
+ * this week and three related links. The signup is the article page's own,
+ * right under the body (10 November 2026).
  *
  * An article is the page a search lands on, and the one page on the site
  * that said nothing about what is on. The related links are the editor's,
@@ -9,7 +10,6 @@
  * without any, the newest articles in the same section stand in, with no
  * sentence, because a sentence nobody wrote is worse than none.
  */
-import NewsletterSignup from './NewsletterSignup.astro';
 import WeekEventRow from './WeekEventRow.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
@@ -84,8 +84,5 @@ const link = 'inline-block -my-3 py-3 font-medium text-primary underline';
         </ul>
       </div>
     )}
-  </div>
-  <div class="mt-12">
-    <NewsletterSignup town={town} compact id="article" />
   </div>
 </section>
