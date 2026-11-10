@@ -298,6 +298,106 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Found 10 November 2026: the land trust's Events page (WordPress, Divi) is a list of blog posts, one per event, newest first: guided hikes, plein air gatherings, lectures, watercolor classes, the Under a Wild Sky fundraiser. County-wide, so each needs its place checked: the two newest are watercolor classes at Louviers Village Club (not Castle Rock), and earlier 2026 posts include Raptors Over the Rock, a hike with Honnibrook Craft Meadery, Sandstone Ranch Geology Tours (Larkspur) and a lecture with Douglas County Libraries. The dates are in the post text, not in markup; /events/?ical=1 returns the HTML page and there is no Tribe API, so no feed. Nothing confirmed in Castle Rock in the next 30 days. A monthly look."
+    },
+    {
+      "id": "livewelldougco-com",
+      "name": "Live Well Douglas County (county-wide events listing)",
+      "url": "https://livewelldougco.com/douglas-county-events/",
+      "feedUrl": "https://livewelldougco.com/wp-json/tribe/events/v1/events",
+      "sampleUrl": "https://livewelldougco.com/event/castle-rock-starlighting/",
+      "type": "json",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Castle Rock"
+      ],
+      "notes": "Found and read 10 November 2026. A county lifestyle site (WordPress, The Events Calendar, with a 'Submit an Event' page) that lists other organizers' events across Douglas County; who publishes it was not stated on the pages read, so treat it as a listing site, not an organizer. The Tribe REST feed read for 10 November to 10 December 2026: 56 events on two pages, each with a structured venue (name, street address, city) and the organizer's own link in 'website'. Most are in Parker, Lone Tree and Highlands Ranch (PACE Center, Lone Tree Arts Center, Highlands Ranch Library), so the Castle Rock location filter is needed. 8 items are Castle Rock's: Book Bingo Night at Sinners and Saints, 221 Perry St (11 November), Veterans Day Fireworks Show at Philip S. Miller Park, 1375 W Plum Creek Parkway (11 November, 7 pm), Annual Tree Lighting, Free Concert and Holiday Drone Show at the Outlets (14 November, 4 pm), Castle Rock Starlighting (21 November, 2 pm; its venue is 'Downtown Castle Rock' with no city, so the filter must match the venue name or title), the 22nd Turkey ROCK Trot at the Douglas County Fairgrounds (26 November, 7:30 am), Festival Park Starlight Market at 300 2nd St (4 December 3 pm and 5 December 11 am) and Reindeer Games at Philip S. Miller Park (5 December, 1 pm). All 8 are worth a row and none is a regular; 4 of them the guide already lists from other sources (Book Bingo, Tree Lighting, Starlighting, Turkey ROCK Trot), so about 4 are new: the fireworks, the two Starlight Market days and Reindeer Games, which are Town events whose own pages on crgov.com (Season of the Star, Fireworks in Castle Rock) answer 403 from here. One more item, a Veterans Day Tour at Cherokee Ranch and Castle, is in Sedalia and the filter drops it. robots.txt disallows only /wp-admin/, so the REST path and the query string ingest adds are allowed. No title exclusions needed with the location filter on. The iCal export /events/?ical=1 is linked from the page and was not fetched. Because this is a third party's listing, each item should be checked against the organizer's link before it is published."
+    },
+    {
+      "id": "cvhs-dcsdk12-org",
+      "name": "Castle View High School calendar (concerts and Crimson Players theatre)",
+      "url": "https://cvhs.dcsdk12.org/our-school/calendar",
+      "feedUrl": "https://cvhs.dcsdk12.org/fs/calendar-manager/events.ics?calendar_ids[]=8",
+      "type": "ical",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Advisement",
+        "Shelter in Place",
+        "Fire Drill",
+        "Meeting",
+        "^(BLT|ALT|ILT)$",
+        "PTO",
+        "No School",
+        "Hosted SAT",
+        "Signing Day",
+        "Thescon",
+        "CV Showcase",
+        " vs. ",
+        " @ "
+      ],
+      "defaultVenue": "Castle View High School, 5254 N Meadows Dr, Castle Rock",
+      "notes": "Found and read 10 November 2026. Castle View High School, 5254 N Meadows Dr, Castle Rock (Douglas County School District; address from the page footer). The calendar page is Finalsite; its calendar element carries data-calendar-ids=\"8\", and Finalsite's subscription feed for that id answered 200 text/calendar: 'CVHS Academic Calendar', 303 VEVENTs, 8 with RRULE, times in America/Denver. 40 fall between 10 November and 10 December 2026. About 11 are worth a row: Musical Performance (10 November 7 pm and 14 November 1 pm; the feed does not name the show), Crimson Players Performance #2 (3 December 6:30 and 7 pm entries, 4 December 7 pm, 5 December 1 pm; the school's theatre company, play not named in the feed), Band Feeder Festival Concert and Orchestra Feeder Festival Concert (5 December), Orchestra Concert (8 December 6:30 pm), CV Thespian Showcase (9 December 5 pm), Band Concert (10 December 7 pm). No regulars. The other 29 are school business: Advisement, Shelter in Place and Fire Drills, PTO, SAC, Faculty, Department and Academy Meetings, BLT, ALT, ILT, Signing Day, a hosted SAT, Thanksgiving Break, Thescon, CV Showcase (an 8th grade open night) and one away volleyball game; the exclusions here cover them. Most items have no LOCATION, hence the default venue; titles are bare, so an editor would want the show's name from the school before publishing. The Nutcracker of Castle Rock (Castle Rock Dance Academy, 17 to 20 December) uses this stage but is not in this calendar. Blocker: robots.txt disallows /fs/ (it allows /fs/pages/calendar and a few others, Crawl-delay 5), so the feed path is disallowed under robots: honor; it was fetched once to count it, as a calendar the school publishes for subscription. Reading it weekly needs the owner's robots: subscribe, as for the other guides' high school calendars. Athletics are on a separate rSchoolToday calendar, not read."
+    },
+    {
+      "id": "dchs-dcsdk12-org",
+      "name": "Douglas County High School event calendar (concerts and home games)",
+      "url": "https://dchs.dcsdk12.org/about-dchsddsa/dchs-event-calendar",
+      "feedUrl": "https://dchs.dcsdk12.org/fs/calendar-manager/events.ics?calendar_ids[]=113&calendar_ids[]=114",
+      "type": "ical",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Practice",
+        "Open Gym",
+        "Facilities Rentals",
+        "Rental",
+        "General School Info",
+        "(AG)",
+        "Unified Cheer",
+        " JV ",
+        "Freshman",
+        "Sophomore",
+        " @ ",
+        "Competitive Cheer",
+        "Assembly",
+        "Fundraiser",
+        "Banquet",
+        "8th Grade Showcase",
+        "Middle School",
+        "Pickleball"
+      ],
+      "defaultVenue": "Douglas County High School, 2842 Front St, Castle Rock",
+      "notes": "Found and read 10 November 2026. Douglas County High School, 2842 Front St, Castle Rock (the address the feed gives for home games). The DCHS Event Calendar page is Finalsite with data-calendar-ids=\"113,114\"; the subscription feed for those two ids answered 200 text/calendar with 1,210 VEVENTs and no RRULE: the building's whole room schedule, each title prefixed by its owner ('DCHS Activities:', 'DCHS Cheer:', 'DCHS Facilities Rentals:', 'DCHS General School Info:'), plus the athletics schedule with street addresses. 244 fall between 10 November and 10 December 2026, and about 230 of them are practices, open gyms, feeder and club rentals, the day's bell schedule ('White Day', 'Purple Day', 'Lavender Day'), Thanksgiving Break and sub-varsity or away games. Worth a row, about 10: IB Recital (11 November 7 pm, Auditorium), Band Concert (1 December 7 pm), Choir Concert (8 December 7 pm), Orchestra Concert (10 December 7 pm), and the varsity home games: girls basketball vs Lewis-Palmer (1 December 7 pm) and vs Skyline (8 December 7 pm), boys and girls wrestling vs ThunderRidge (3 December 7 pm), boys wrestling vs Highlands Ranch (9 December 7 pm), boys basketball vs Falcon (10 December 7 pm). Whether varsity games are listed is the editor's call; add 'Varsity' to the exclusions to keep only the concerts. A La Roche Dance Recital (4 to 6 December, Auditorium) sits under Facilities Rentals and is excluded with the rest of the rentals. The exclusions were written from this window and will need a second look after a first dry run. Blocker: robots.txt disallows /fs/ (Crawl-delay 5), so the feed path is disallowed under robots: honor; it was fetched once to count it, as a calendar the school publishes for subscription. Reading it needs the owner's robots: subscribe."
+    },
+    {
+      "id": "castlerockdanceacademy-com",
+      "name": "Castle Rock Dance Academy (The Nutcracker of Castle Rock and season shows)",
+      "url": "https://www.castlerockdanceacademy.com/season-calendar",
+      "sampleUrl": "https://www.castlerockdanceacademy.com/the-nutcracker-of-castle-rock-2026",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. A Castle Rock dance studio whose public shows are staged at Castle View High School (5254 N Meadows Dr, Castle Rock); the studio's own street address was not on the pages read. /season-calendar is a hand-kept list for 2026-2027 and /the-nutcracker-of-castle-rock-2026 gives the show: the 12th annual Nutcracker of Castle Rock at Castle View High School on 17 December at 6 pm, 18 December at 6 pm, 19 December at 1 and 6 pm and 20 December at 1 and 6 pm, tickets on sale about six weeks ahead through 27168.danceticketing.com (not fetched). Also listed: Making Spirits Bright on 12 December (a performance by the 3 to 6 year old classes, for families), a Spring Showcase 'Peter Pan' in April 2027 (dates to be announced) and the End of Season Recital 'From the Page to the Stage' on 9 to 12 June 2027. Nothing between 10 November and 10 December 2026; the six Nutcracker performances fall a week after. No feed: a plain page, no calendar markup. robots.txt is 'Disallow:' with nothing after it, so everything is allowed. Two or three productions a year; read by hand each autumn and spring. The rest of the list is studio closures, auditions and fee dates, which are never listed."
+    },
+    {
+      "id": "thecalf-org",
+      "name": "Colorado Agricultural Leadership Foundation (CALF), events at Lowell Ranch",
+      "url": "https://www.thecalf.org/events-and-tours.html",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. CALF runs Lowell Ranch, a working education ranch at Castle Rock (the site gives P.O. Box 581, Castle Rock 80104 and 303-688-1026; the ranch's street address was not on the pages read and should be checked before a listing). The Events and Tours page (a Weebly-style static site) is a short hand-kept list, each marked 'Past' once done: Farm and Ranch Day (9 May 2026), Harvest Day (26 September 2026) and the Legend of Agriculture Dinner fundraiser (18 September 2026), plus birthday parties, which are private. Nothing between 10 November and 10 December 2026; two public farm days and one dinner a year. No feed and no calendar markup. robots.txt (served gzip-compressed) disallows a handful of old pages (board documents, a camp page, forms), not this one. Read by hand in spring and late summer for the next year's dates."
     }
   ]
 }
