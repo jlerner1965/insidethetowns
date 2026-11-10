@@ -18,7 +18,7 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "Checked 4 October 2026: the site answers automated requests with 403, so there is nothing to read; checked by hand in a browser."
+      "notes": "Checked 4 October 2026: the site answers automated requests with 403, so there is nothing to read; checked by hand in a browser. Rechecked 10 November 2026 with a browser User-Agent: /, /events, /calendar, /rss.xml and the CivicPlus path /RSSFeed.aspx?ModID=58&CID=All-calendar.xml all answered 403 (Cloudflare challenge). Only /robots.txt answered, and it is Drupal's stock file, so the site is Drupal, not CivicPlus, and the CivicPlus feed paths do not exist here. No feed could be found or read; still by hand."
     },
     {
       "id": "elizabethmainstreet-org",
@@ -34,7 +34,7 @@
         "places": 4
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Checked 10 November 2026: the Elizabeth Main Street Program's site (151 S Banner Street, 303-646-4166) is built on Locable. /events/ answered 200 and listed 'all 4 events', every one the monthly Elizabeth WIC Clinic at 651 Beverly Street (11 Nov, 9 Dec, 13 Jan, 10 Feb), so nothing listable in the next 30 days. No feed: /events/?ical=1 returns the same HTML page, /events.ics, /events.rss and /events/feed are 404, there is no Tribe API, and the page links no ics or rss. robots.txt allows everything but /carts/, /password/ and the like. locable.com's own copy of the listing answers 403 (Cloudflare). Stays html."
     },
     {
       "id": "pplibraries-org",
@@ -55,7 +55,7 @@
       },
       "robots": "honor",
       "defaultVenue": "Elizabeth Library",
-      "notes": "Manual until the library answers: the activities page embeds five public Google calendars and this feedUrl is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver), but calendar.google.com's robots.txt disallows unlisted agents, and the editor is asking the library for permission before ingest reads it (docs/archive/emails/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026."
+      "notes": "Manual until the library answers: the activities page embeds five public Google calendars and this feedUrl is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver), but calendar.google.com's robots.txt disallows unlisted agents, and the editor is asking the library for permission before ingest reads it (docs/archive/emails/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026. Read once on 10 November 2026 to count: the feed answered 200 (text/calendar, 646 VEVENTs, calendar name 'Elizabeth Events'). 28 occurrences fall in the next 30 days under 13 titles; 19 of them are the standing regulars (Story Time 9, Yarning for All 4, Book Club 2, WIC Clinic 2, Community Coffee & Chat 2), leaving 9 occurrences of 8 one-off or monthly programs: Star Party with CSASTRO (14 Nov), Just a Note - Paper Arts, Curiosity Club, LEGO Construction Masters, Free Virtual Legal Clinic, Joy Seekers with Courtney, Heritage Crew, Piecemaker's quilting group. Two items carry no LOCATION, so defaultVenue is needed. robots.txt position unchanged: calendar.google.com's robots.txt is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent; type left manual until the library answers."
     },
     {
       "id": "pplibraries-org-district",
@@ -71,7 +71,7 @@
         "Elizabeth"
       ],
       "defaultVenue": "Elizabeth Library",
-      "notes": "The second of the library's embedded Google calendars, 'District Happenings' (182 events across the branches); only items at Elizabeth would be taken. Same robots.txt position as pplibraries-org. Proposed 4 October 2026."
+      "notes": "The second of the library's embedded Google calendars, 'District Happenings' (182 events across the branches); only items at Elizabeth would be taken. Same robots.txt position as pplibraries-org. Proposed 4 October 2026. Read 10 November 2026: 200, 182 VEVENTs, but only one occurrence in the next 30 days and it is at Elizabeth: Pines & Plains Board Meeting, 25 November, a routine meeting. So this feed would add next to nothing; the 'Elizabeth Events' calendar on pplibraries-org is the one that matters. The page's other three embedded calendars were read too and are other branches: 'Kiowa Events' (209 VEVENTs), 'Simla Events' (405), 'Elbert Events' (150); none has an Elizabeth location. Calendar.google.com's robots.txt is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent."
     },
     {
       "id": "elizabethpr-com",
@@ -86,7 +86,7 @@
         "places": 3
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Checked 10 November 2026: Elizabeth Park & Recreation District (34201 County Road 17, (303) 646-3599; Casey Jones Park, Evans Park, the rodeo arena) on a Streamline site. /calendar answered 200 with an empty November 2026 grid; /calendar.ics redirects to the HTML calendar, /events.ics is 404; no ics, rss or Google calendar link in the page. The events are hand-written on /epr-hosted-events (Easter Egg-stravaganza, Halloween Haven, and 'An Elizabeth Christmas', 12 December 2026, 1 to 3 pm at Casey Jones Pavilion); nothing dated in the next 30 days. robots.txt allows all but a few named crawlers. No feed; stays html. This is the parks district, so category parks and priority core would fit better than the seeded guess."
     },
     {
       "id": "historicelizabethco-org",
@@ -101,14 +101,15 @@
         "places": 2
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Checked 10 November 2026: the Town's Historic Advisory Board site, on Munibit. /calendar answered 200 but the calendar is drawn by script and the page carries no events, no ics and no rss link; /robots.txt is 404 (no rules). No feed; nothing dated could be read. Stays html."
     },
     {
       "id": "marketspread-com",
       "name": "marketspread.com",
-      "url": "https://marketspread.com/",
+      "url": "https://marketspread.com/market/21488/elbert-county-marketplace/",
+      "feedUrl": "https://marketspread.com/market/21488/elbert-county-marketplace/events/feed/",
       "sampleUrl": "https://marketspread.com/market/21488/elbert-county-marketplace/",
-      "type": "html",
+      "type": "ical",
       "category": "other",
       "status": "proposed",
       "cites": {
@@ -116,7 +117,61 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "defaultVenue": "Elbert County Marketplace",
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Feed found 10 November 2026: the market's MarketSpread page carries a webcal link, and the same URL over https answered 200, text/calendar, calendar name 'Elbert County Marketplace', 99 VEVENTs back to 2022, each one market day with LOCATION '4189 CO-86, Elizabeth, CO 80107, USA' (Casey Jones Park) and no RRULE. Four fall in the next 30 days, the Saturdays 14, 21 and 28 November and 5 December, 9 am to 2 pm Mountain (times are UTC in the feed), all titled '2026 Season - Elbert County Marketplace'; the next after that is 19 December. marketspread.com's robots.txt is an empty Disallow, so the feed path is allowed. Type changed from html to ical; a weekly market, so the editor may prefer one recurring listing to four staged files. The market's own site, elbertcountymarketplace.com, answered 503 'Maintenance mode'."
+    },
+    {
+      "id": "elbertcounty-co-gov",
+      "name": "Elbert County calendar (elbertcounty-co.gov)",
+      "url": "https://elbertcounty-co.gov/Calendar.aspx",
+      "feedUrl": "https://elbertcounty-co.gov/common/modules/iCalendar/iCalendar.aspx?catID=23&feed=calendar",
+      "sampleUrl": "https://elbertcounty-co.gov/iCalendar.aspx",
+      "type": "manual",
+      "category": "county",
+      "priority": "other",
+      "status": "proposed",
+      "lastNote": "feed answers, but robots.txt disallows it and it holds no Elizabeth event",
+      "robots": "honor",
+      "locationFilter": [
+        "Elizabeth"
+      ],
+      "notes": "Found 10 November 2026: the county's site is CivicPlus and /iCalendar.aspx lists three feeds, 'Events' (catID=23), 'Community and Development' (26) and 'Meetings' (14). All three answered 200 as text/calendar: Events has 4 VEVENTs, 2 in the next 30 days, both office closures in Kiowa (Veterans Day, Thanksgiving); Community and Development has 1 (DP Ranch Rezone Community Meeting, 9 December, Kiowa); Meetings has 6, 3 in the window (County Commission, Planning Commission). Nothing in Elizabeth. The CivicPlus RSS (/RSSFeed.aspx?ModID=58&CID=All-calendar.xml) answered 200 with no items. robots.txt disallows both /common/modules/icalendar/ and /RSSFeed.aspx for every agent, so ingest would not read it under robots: honor. Recorded as manual with the feed URL kept for whoever asks the county; of no use to the Elizabeth calendar as it stands. The Elbert County Fair (elbertcountyfair.com, late July) is at the fairgrounds in Kiowa, not Elizabeth."
+    },
+    {
+      "id": "elizabethschooldistrict-org",
+      "name": "Elizabeth School District calendar",
+      "url": "https://www.elizabethschooldistrict.org/all-events",
+      "sampleUrl": "https://www.elizabethschooldistrict.org/all-events?cal_date=2026-12-01",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found 10 November 2026: the district's site is Finalsite; /all-events is a month grid, readable a month at a time with ?cal_date=YYYY-MM-01 (both months answered 200). Public events in the next 30 days: EHS Craft Fair (Saturday 14 November, 9 am to 3 pm, Elizabeth High School, 34500 County Road 13), EMS Fall Musical (4 and 5 December), EMS/EHS Band Concert (7 December, at EHS), Combined Choir (8 December, at EHS), Combined Orchestra Concert (9 December, at EMS); six, beside board meetings, a parent night and school breaks. No feed ingest may read: robots.txt allows the page (Crawl-delay 5) and disallows /fs/, where Finalsite keeps its iCal export, the same position scripts/lib/finalsite-calendar.ts records for Berthoud. Read by hand."
+    },
+    {
+      "id": "elizabethstampede-com",
+      "name": "Elizabeth Stampede Rodeo",
+      "url": "https://www.elizabethstampede.com/upcoming-events",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Casey Jones Park",
+      "notes": "Found 10 November 2026: the Stampede's own site (Squarespace). /upcoming-events is a Squarespace events list with a per-event ICS link; /upcoming-events?format=ical returns the HTML page, not a calendar, and robots.txt disallows ?format=json, so there is no collection feed. Nothing public in the next 30 days: the list holds a board meeting (12 November, virtual), the volunteers' Holiday Party (14 November) and a budget session (10 December). Earlier entries show what it carries in season: Community Rodeo (25 September 2026, Casey Jones Park), Royalty Competition. The rodeo itself is the first weekend of June. Seasonal; a look in spring is enough."
+    },
+    {
+      "id": "brewelizabeth-com",
+      "name": "The Elizabeth Brewing Company",
+      "url": "https://brewelizabeth.com/upcoming-events",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "The Elizabeth Brewing Company",
+      "notes": "Found 10 November 2026: the brewery at 239 S Main Street, (720) 335-6011, on a GoDaddy Website Builder site. /upcoming-events answered 200 and describes regulars rather than dated events: Tuesday Night Trivia, the Wednesday 6 pm 'Tiny Tap' small-batch release, and the Friday Night Market in Running Creek Park, Fridays 5 to 9 pm June to August with live music, food trucks and vendors (/market-schedule holds the dates, not read). The page says dated events are on the brewery's Facebook page. No ics, rss or Google calendar in the page; no feed. Core because it is the one venue in town with a standing weekly programme and it runs the summer market; nothing dated in the next 30 days."
     }
   ]
 }
