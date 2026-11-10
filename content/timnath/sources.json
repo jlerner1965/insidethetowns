@@ -33,7 +33,7 @@
         "places": 6
       },
       "robots": "honor",
-      "notes": "Checked 4 October 2026: a WordPress site whose events page redirects to sponsorships; the news RSS carries no events. Meetings and festivals are read from its pages by hand."
+      "notes": "Checked 4 October 2026: a WordPress site whose events page redirects to sponsorships; the news RSS carries no events. Meetings and festivals are read from its pages by hand. Checked again 10 November 2026 for a feed: still none. /events/?ical=1 answers 410, /wp-json/tribe/events/v1/events and /events/feed/ 404. /community-events/ (200) names the Town's events (Holiday Festival, Town Clean Up Days, 4th of July Celebration, Council Chats, Touch a Truck, Movie Night, Project Fair, Ice Cream Social, Fall Festival) and links the year's schedule, without a calendar. Meetings are published through CivicWeb (timnath.civicweb.net, embedded on /agendas-minutes/) and recreation programs through RecDesk (timnath.recdesk.com); both are proposed as their own entries. robots.txt asks for a 30-second crawl delay and disallows nothing."
     },
     {
       "id": "timnathbeerwerks-com",
@@ -49,7 +49,7 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Checked 10 November 2026 for a feed. A Squarespace site: its events collection is /new-events, and /new-events?format=json&view=list answered 200 with 35 upcoming events, 33 of them in the next 30 days: 20 food-truck days and 13 others (Tuesday Night Poker, Wednesday Music Bingo, Thursday Timnath Pub Runners, Art on Tap with Painting with a Twist on 20 Nov, Thanksgiving special hours, Live Music: Christine Alice on 3 Dec, an adoption event and a paint-your-pet class on 5 Dec), every one located 'Timnath Beerwerks'. That JSON is Squarespace's own format, not The Events Calendar's REST format ingest reads, and Squarespace gives iCal only per event (?format=ical on the collection returns the HTML page), so there is no feed ingest can take today and the type stays html. A Squarespace-events reader in ingest would turn this into about 13 listings a month after excluding 'Food Truck' and 'Special Hours'. robots.txt allows /new-events (it disallows /api/, /config, /search)."
     },
     {
       "id": "hoppeningsco-com",
@@ -64,7 +64,7 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Checked 10 November 2026 for a feed: none found on the home page (a Colorado brewery guide and events aggregator), and its robots.txt disallows /breweries-events for every agent. Not a source to ingest; Timnath Beerwerks' own calendar is the origin of what it lists."
     },
     {
       "id": "timnathfarmersmarket-org",
@@ -79,7 +79,7 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Checked 10 November 2026 for a feed: none. WordPress without an events plugin: /events/?ical=1 and /wp-json/tribe/events/v1/events answer 404 and /events/feed/ is an empty feed. Market dates also appear on downtowntimnath.com (proposed separately), whose calendar has nothing after December 2025."
     },
     {
       "id": "maxpreps-com",
@@ -95,6 +95,91 @@
       },
       "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "timnathchamber-com",
+      "name": "Timnath Chamber of Commerce",
+      "url": "https://timnathchamber.com/events",
+      "sampleUrl": "https://timnathchamber.com/events/towns-connecting-over-coffee-timnath-feb-2027",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "No feed found: /rss.xml, /feed.xml, /events.ics and /calendar.ics answer 404; the events page is drawn in the browser. 10 November 2026.",
+      "notes": "Found and read 10 November 2026. The chamber's site is a single-page app: every path returns the same shell and the events list is drawn by script, so nothing could be counted from here. Its sitemap (303 URLs) carries 56 under /events, among them Timnath Connect (monthly), Taste of Timnath 2026, Towns Connecting Over Coffee - Timnath (February 2027), Caffeinate & Collaborate, and a number of Severance and Fort Collins events (Severance Small Business Meetup, Fritzler Farm Park), so it needs reading for which are in Timnath. Each event page offers a single-event .ics download made in the browser; there is no calendar-wide feed (the app's bundle names none), and /rss is a page, not a feed. The chamber also has an Eventbrite organizer page (eventbrite.com/o/109326387961, from search results, not fetched). robots.txt: 'Allow: /' for unnamed agents with a content signal of search=yes, ai-train=no; named AI crawlers are disallowed. A page for a person, in a browser."
+    },
+    {
+      "id": "downtowntimnath-com",
+      "name": "Downtown Timnath",
+      "url": "https://downtowntimnath.com/events/",
+      "sampleUrl": "https://downtowntimnath.com/2nd-sundays-on-main/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "The iCal feed answers (200, text/calendar) but its newest event is 13 December 2025: nothing in 2026, nothing upcoming. 10 November 2026.",
+      "notes": "Found and read 10 November 2026. The Main Street merchants' site ('Where community happens'), WordPress with an events plugin (Events Manager, by its markup); organizer of 2nd Sundays on Main. https://downtowntimnath.com/events/?ical=1 is a working iCalendar feed with LOCATION and CATEGORIES on every item, but it holds only the 2025 season: 2nd Sundays on Main, Timnath Farmers Market (2nd and 4th Sundays at CF&G Public Market, 4138 Main Street), Bloem Artisan Market (4109 Main), The District Market (4117 Main), and Photos with Santa Claus and the Holiday Tree Lighting at Timnath Presbyterian Church (4020 Main) on 13 December 2025. 0 events in the next 30 days. If the 2027 season is entered, the same URL becomes an ical source with no location filter needed (every item is on Main Street); until then it is recorded as a page. /events/feed/ is an empty feed and /wp-json/tribe/events/v1/events is 404. robots.txt disallows only /wp-admin/."
+    },
+    {
+      "id": "timnath-recdesk-com",
+      "name": "Town of Timnath Parks and Recreation (RecDesk)",
+      "url": "https://timnath.recdesk.com/Community/Calendar",
+      "sampleUrl": "https://timnath.org/recreation/",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "ok",
+      "lastNote": "No feed: the RecDesk calendar page links no iCal or RSS export. 10 November 2026.",
+      "notes": "Found 10 November 2026. timnath.org/recreation/ links the Town's program registration at timnath.recdesk.com; /Community/Calendar answered 200 but links no iCal, RSS or export, and its listings were not parsed, so no programs were counted. The host has no robots.txt (404). Search results also show seasonal Activity Guides (PDF on timnath.org, and on issuu.com/townoftimnath), not fetched. The Timnath Recreation Center is still in design (yourtimnath.org/recreationcenter is linked from the Town's site); there is no facility calendar yet. A page for a person: leagues and classes are registrations rather than events, so expect few listings."
+    },
+    {
+      "id": "timnath-civicweb-net",
+      "name": "Town of Timnath meetings (CivicWeb)",
+      "url": "https://timnath.org/agendas-minutes/",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "blocked",
+      "lastNote": "timnath.civicweb.net's robots.txt is 'User-agent: * / Disallow: /': the meeting portal is closed to scripts. 10 November 2026.",
+      "notes": "Found 10 November 2026. The Town publishes council and board meetings through a CivicWeb portal, timnath.civicweb.net, embedded as a meeting list on timnath.org/agendas-minutes/ (200, allowed). The portal's robots.txt disallows everything for every agent. Its /Portal/MeetingSchedule.aspx was fetched once before the robots file was read (200; it links no iCal or RSS) and was not used. Meeting dates stay a hand read of the Town's own agendas page."
+    },
+    {
+      "id": "tmh-psdschools-org",
+      "name": "Timnath Middle-High School calendar (Poudre School District)",
+      "url": "https://tmh.psdschools.org/about-us/calendarsschedule",
+      "feedUrl": "https://calendar.google.com/calendar/ical/c_vgb2jusciglbk9a6o7s1585flc%40group.calendar.google.com/public/basic.ics",
+      "type": "ical",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The school's site (tmh.psdschools.org, Drupal) embeds a public Google Calendar, 'Timnath Middle-High'; its iCal address was fetched once: 2,492 VEVENTs back to December 2021, 68 with RRULE, 35 single items in the next 30 days. Nearly all of those are the school's own business: 'Even Day' / 'Odd Day' markers (18), college and military rep visits, scholarship nights in Fort Collins, incoming-grade nights. What a town guide would list is thin: TMHS Band Concerts (9 Dec, 6 pm), a Boys' Soccer Dine & Give at GQue BBQ (18 Nov) and a Girls' Golf fundraiser at Fuzzy's (19 Nov, in Fort Collins); about 1 to 3 a month. Most items carry no LOCATION, so a location filter would drop the concert; filter by title instead. Suggested title exclusions: '^(Even|Odd) Day$', 'Rep Visit', 'College', 'Scholarship', 'Fall Break', 'School not in session'. Games are not on this calendar (the district keeps schedules on ArbiterLive; the guide's sports come from MaxPreps). Timnath Elementary (tim.psdschools.org) and Bethke Elementary (bet.psdschools.org) embed Google Calendars of their own (psdschools.org_u2dd4ujbhv1hg6ja8esaffenlo@ and psdschools.org_j9skmsrat51kn5t2gmsq1sus10@group.calendar.google.com), not fetched. robots.txt: calendar.google.com disallows everything but its home page for every agent, so under 'honor' ingest will not read this; whether a school's public calendar link is a subscription is the editor's call."
+    },
+    {
+      "id": "poudrelibraries-librarycalendar-com",
+      "name": "Poudre Libraries events (Poudre River Public Library District)",
+      "url": "https://poudrelibraries.librarycalendar.com/events/list",
+      "type": "manual",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "lastChecked": "2026-11-10",
+      "lastStatus": "blocked",
+      "lastNote": "robots.txt gives named search engines the site and every other agent 'Disallow: /'; and a keyword search for Timnath showed no events. 10 November 2026.",
+      "notes": "Found 10 November 2026. Timnath has no library branch; it is in the Poudre River Public Library District (Fort Collins branches), whose events run on LibraryCalendar at poudrelibraries.librarycalendar.com. Its robots.txt lists rules for named search crawlers and ends with 'User-agent: * / Disallow: /', so no feed was sought. One page, /events/list?keywords=Timnath, was fetched before that last rule was noticed: it listed no events. Search results explain why: the district's Storytime Express at Timnath Town Center ended when the Town did not renew the contract for 2025 (timnath.org notice of January 2025), and the newest Timnath items found were mobile-library ('Evie') visits in 2023. Nothing here for the guide unless the district resumes programs in town; check by hand a few times a year. Clearview Library District (Windsor, Severance) is the neighbouring district and is already in Windsor's registry; no Timnath program of theirs was found."
     }
   ]
 }
