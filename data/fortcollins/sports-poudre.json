@@ -1,0 +1,1269 @@
+{
+  "generated": "2026-11-09T23:42:31.811Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/football/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T23:42:31",
+      "overall": "3-7",
+      "league": {
+        "record": "1-6",
+        "name": "4A Northern",
+        "place": "6th"
+      },
+      "results": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/greeley-west-vs-poudre-fort-collins/10-29-2026/?c=d5b8125f-0181-4fc0-b901-fc9f87ae2889",
+          "result": "W",
+          "score": {
+            "us": 42,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Grand Junction",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/grand-junction-vs-poudre-fort-collins/10-22-2026/?c=8a713ae6-217b-4b3a-aaa8-92ff03c79fb4",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 39
+          }
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/northridge-greeley-vs-poudre-fort-collins/10-16-2026/?c=e661b242-f0ba-427b-8f79-74233f36b8c8",
+          "result": "L",
+          "score": {
+            "us": 16,
+            "them": 20
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/loveland-vs-poudre-fort-collins/10-9-2026/?c=7d59ea47-5615-466b-9cc6-33644f1d192b",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 40
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/poudre-fort-collins-vs-roosevelt-johnstown/10-2-2026/?c=465cefb7-8ef5-4a55-a30b-6238cc9981d0",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 35
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-poudre-fort-collins/9-25-2026/?c=7a5e5ee1-3c7e-4650-8b85-eda5f7a680ca",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 43
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Longmont",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-poudre-fort-collins/9-18-2026/?c=ab8f2907-e805-42cf-bd07-7e73d5fc7c4e",
+          "result": "L",
+          "score": {
+            "us": 17,
+            "them": 20
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Boulder",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/boulder-vs-poudre-fort-collins/9-10-2026/?c=7d988e8c-c1d7-47dd-8ea1-89cc63959e56",
+          "result": "W",
+          "score": {
+            "us": 52,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-poudre-fort-collins/8-29-2026/?c=9be8401f-7b29-4d98-b330-72b628933a09",
+          "result": "W",
+          "score": {
+            "us": 35,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-21",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/poudre-fort-collins-vs-severance/8-21-2026/?c=ac23b5d2-4529-4dec-8d75-e00d6cc7b87b",
+          "result": "L",
+          "score": {
+            "us": 13,
+            "them": 15
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-soccer",
+      "name": "Boys soccer",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/soccer/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T23:42:40",
+      "overall": "8-6-1",
+      "league": {
+        "record": "7-2-1",
+        "name": "5A/4A/3A Northern",
+        "place": "3rd"
+      },
+      "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/poudre-fort-collins-vs-timnath/10-22-2026/?c=bf8284f0-9e4a-41d4-9111-5cb6fbab7b28",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/northridge-greeley-vs-poudre-fort-collins/10-20-2026/?c=a4c1be0e-3f07-4a9f-a529-e2e652600bdc",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/poudre-fort-collins-vs-severance/10-15-2026/?c=babbcb85-3380-4fb4-a231-6710a4c535c9",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/poudre-fort-collins-vs-thompson-valley-loveland/10-13-2026/?c=b2285797-62ba-4cb7-9fc5-4dfcf9ba12d5",
+          "result": "W",
+          "score": {
+            "us": 6,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/poudre-fort-collins-vs-roosevelt-johnstown/10-8-2026/?c=f1ec4d5b-8656-42e8-88b4-36719efa9311",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/loveland-vs-poudre-fort-collins/10-6-2026/?c=60df177c-d4f4-451c-91f6-d6b77a703911",
+          "result": "W",
+          "score": {
+            "us": 1,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-poudre-fort-collins/10-2-2026/?c=82127ff7-cbc5-4ec9-b961-db316dd88dae",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/greeley-west-vs-poudre-fort-collins/9-29-2026/?c=840ad9d2-d21f-48c6-8e4d-845871859cef",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/poudre-fort-collins-vs-windsor/9-24-2026/?c=ebfb06e6-ebc1-4ceb-92a2-debd3ae2eba5",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Longmont",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-poudre-fort-collins/9-22-2026/?c=58afd2f7-1d2a-4b30-adbb-dce0570b9976",
+          "result": "W",
+          "score": {
+            "us": 1,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/greeley-central-vs-poudre-fort-collins/9-17-2026/?c=7ebe52b7-f2fd-4afa-a3c7-fcab88444ca2",
+          "result": "T",
+          "score": {
+            "us": 3,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Prairie View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/poudre-fort-collins-vs-prairie-view-henderson/9-15-2026/?c=f4e3b12a-2842-4a0b-8e3f-45e99491f5ee",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Northglenn",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/northglenn-vs-poudre-fort-collins/9-3-2026/?c=746304d0-9796-451f-acc0-eef163eef771",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-31",
+          "opponent": "Rocky Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/poudre-fort-collins-vs-rocky-mountain-fort-collins/8-31-2026/?c=4b369d92-6c61-4de7-8be9-6ba0d39d35ec",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/niwot-vs-poudre-fort-collins/8-25-2026/?c=3f6bdf29-38f9-44ab-b4b1-d3f9991b2d5d",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/volleyball/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T21:43:57",
+      "overall": "14-11",
+      "league": {
+        "record": "8-2",
+        "name": "4A/3A Northern",
+        "place": "3rd"
+      },
+      "results": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Liberty",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/liberty-colorado-springs-vs-poudre-fort-collins/11-7-2026/?c=edf4f1fe-4faa-4d0a-8206-51a513baa638",
+          "stage": "Playoffs",
+          "neutral": true,
+          "venue": "4A Regional Tournament (Region 5)",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Golden",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-poudre-fort-collins/11-7-2026/?c=66a5a702-9ccd-4b3b-8247-53561f3f0252",
+          "stage": "Playoffs",
+          "neutral": true,
+          "venue": "Regional Tournament",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/greeley-west-vs-poudre-fort-collins/10-22-2026/?c=5e72b673-66e8-44d5-8322-b103616876de",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-poudre-fort-collins/10-20-2026/?c=19ecea9d-318f-43c0-bd64-ab19cfa64d25",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-windsor/10-15-2026/?c=97081161-6ae0-4cf1-81cc-9ee1ca889471",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-timnath/10-13-2026/?c=3757943a-9cb4-4569-adb7-de7e3176467a",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/northridge-greeley-vs-poudre-fort-collins/10-8-2026/?c=cf336df1-25ad-49db-a157-0a26932c174f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/greeley-central-vs-poudre-fort-collins/10-6-2026/?c=c3a7aea7-eccc-4712-bce0-960c63392d9f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-thompson-valley-loveland/10-1-2026/?c=81c102d8-6f10-4b45-810f-f1e862d5c2b1",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-poudre-fort-collins/9-29-2026/?c=ff696814-3ffb-40c7-aac7-9f7c47fc92ed",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Vista PEAK Prep",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-vista-peak-prep-aurora/9-26-2026/?c=ccb03775-3b3a-44d0-befb-4564ca49140e",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Green Mountain",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/green-mountain-lakewood-vs-poudre-fort-collins/9-26-2026/?c=f2187147-6880-4200-8d05-b311ac5dacfb",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Northfield Tourney",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Bear Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/bear-creek-lakewood-vs-poudre-fort-collins/9-26-2026/?c=f0a1cd75-2b72-464a-b888-aba30c54276f",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "George Washington",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/george-washington-denver-vs-poudre-fort-collins/9-26-2026/?c=bd112daa-659c-4f77-81b0-dfa401464051",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Camera fell over, no stats",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-roosevelt-johnstown/9-24-2026/?c=20ccbd72-014c-4a74-8d8f-cb5db7fb8959",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-severance/9-22-2026/?c=2cf59587-7470-40ed-b769-7d0c2d04c8d1",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Wellington",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-wellington/9-16-2026/?c=0f33933d-df1d-4f10-8908-4d61b8463b63",
+          "neutral": true,
+          "venue": "Match to be played at Moby Arena at CSU.",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Golden",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-poudre-fort-collins/9-3-2026/?c=8e8c21ec-468b-4700-98c4-8a45900f8f84",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Rocky Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-rocky-mountain-fort-collins/9-1-2026/?c=853a732a-2173-4533-abab-4e23f7283659",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "The Classical Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-the-classical-academy-colorado-springs/8-29-2026/?c=cf8a67f7-8f6a-44df-9b83-d6b0be5ce0d5",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Alamosa",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/alamosa-vs-poudre-fort-collins/8-29-2026/?c=9ff34ae3-6dff-45e8-b247-d8d06f4b4424",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Eaton Tournament",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Eaton",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/eaton-fightin-reds-vs-poudre-fort-collins/8-28-2026/?c=ef3d7756-1c48-4af4-af60-f84d2b5d2863",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Longmont",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-poudre-fort-collins/8-28-2026/?c=26974173-a763-42d3-b006-09ac6793cfc7",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Fort Collins",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fort-collins-vs-poudre-fort-collins/8-25-2026/?c=c4814dcf-34be-4f3c-95fa-694e4282a7a8",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-poudre-fort-collins/8-20-2026/?c=a7174d10-8ec3-4de6-84a7-f39aba619fff",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/softball/fall/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T20:22:24",
+      "overall": "5-18",
+      "league": {
+        "record": "2-8",
+        "name": "5A/4A/3A Northern",
+        "place": "10th"
+      },
+      "results": [
+        {
+          "date": "2026-10-09",
+          "opponent": "Mountain Range",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-range-westminster-vs-poudre-fort-collins/10-9-2026/?c=cb2c723b-e66a-483a-bec9-c58662a09c0e",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-poudre-fort-collins/10-8-2026/?c=b2c0c7ba-1238-49d8-a6f3-3ea731d11e4a",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 21
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-thompson-valley-loveland/10-6-2026/?c=e3991aef-ccd0-4777-b38e-5cd01f608688",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 15
+          }
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-windsor/10-3-2026/?c=d118ad4a-81ea-4721-8b79-fcf9a0745ae9",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-central-vs-poudre-fort-collins/9-29-2026/?c=882c4a72-bdd8-46f1-86a6-ad2e152b7257",
+          "result": "W",
+          "score": {
+            "us": 14,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-timnath/9-24-2026/?c=cae9d4e5-334c-4ff1-866d-51cf764f5b31",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-severance/9-22-2026/?c=ebf4f883-44b1-40f6-a37e-3a11ba7a5a2a",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 19
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-west-vs-poudre-fort-collins/9-17-2026/?c=b1e9f757-2a62-41ef-8f9e-2177d3a47847",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Denver North",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/denver-north-vs-poudre-fort-collins/9-16-2026/?c=8d369a6f-3913-400f-ad71-00600b84ec5a",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-roosevelt-johnstown/9-15-2026/?c=57dbdc96-1a52-486b-9004-290b0bfb0cb1",
+          "result": "L",
+          "score": {
+            "us": 8,
+            "them": 23
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-poudre-fort-collins/9-8-2026/?c=0c63e324-1b88-4f48-b06c-d19e72f9f2b6",
+          "result": "L",
+          "score": {
+            "us": 9,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Palisade",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/palisade-vs-poudre-fort-collins/9-5-2026/?c=3ba899fd-737d-4b46-9b42-d7b4f3b8c825",
+          "neutral": true,
+          "venue": "Spartan Invitational (Barnes Softball Fields)",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 17
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Longmont",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-poudre-fort-collins/9-5-2026/?c=d46f79a8-8733-4bda-84e1-740efbaaae4a",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 5,
+            "them": 17
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Mead",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/mead-longmont-vs-poudre-fort-collins/9-4-2026/?c=d942bcbb-abc0-4f8b-8c75-baa3cafc61f9",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 21
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Silver Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-silver-creek-longmont/9-4-2026/?c=309eccbe-37e8-4348-9548-b154170b0a92",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 18
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/northridge-greeley-vs-poudre-fort-collins/9-3-2026/?c=7b30a795-1033-4fb0-bff2-5d9a13b753d4",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Thornton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-thornton/9-1-2026/?c=83b2be50-fed6-4a5d-8be6-cae567c93003",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Frederick",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-poudre-fort-collins/8-29-2026/?c=5ee76590-abe1-4b0f-bc1b-45ca8dc64563",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Loveland Tournament Barnes Complex",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 21
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Rangeview",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-rangeview-aurora/8-29-2026/?c=79854e60-38e6-4f89-8413-54583ac57048",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "field 2",
+          "result": "W",
+          "score": {
+            "us": 14,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Adams City",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/adams-city-commerce-city-vs-poudre-fort-collins/8-28-2026/?c=9771256c-6755-48f7-b5dc-071e1580d870",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 18,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Dakota Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/dakota-ridge-littleton-vs-poudre-fort-collins/8-28-2026/?c=45190ec9-a105-4d7c-9342-f73c3df3bdbe",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Barnes Softball Complex Field #1",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-08-26",
+          "opponent": "Wheat Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-wheat-ridge/8-26-2026/?c=f2e530a3-74a5-4d67-9f2e-55a8ae7b10b3",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-08-22",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/monarch-louisville-vs-poudre-fort-collins/8-22-2026/?c=c38e7da3-50db-40c3-961f-2add9abdf8bc",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 12
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/cross-country/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T23:43:08",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/cross-country/girls/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T20:21:41",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/basketball/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T23:21:32",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "Erie",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-poudre-fort-collins/12-1-2026/?c=26d75cb8-1dd5-4b83-8d04-55ab569e7706",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-05",
+          "opponent": "Fossil Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/fossil-ridge-fort-collins-vs-poudre-fort-collins/12-5-2026/?c=7b84ba06-72b2-4e4c-af79-19c976bcf4f4",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "REMAX tipoff classic",
+          "time": "12:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Grand Junction",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/grand-junction-vs-poudre-fort-collins/12-10-2026/?c=f0b94847-683d-474e-b1e5-a972ef169055",
+          "stage": "Tournament",
+          "neutral": true,
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-12",
+          "opponent": "Prospect Ridge Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-prospect-ridge-academy-broomfield/12-12-2026/?c=a95000c0-21cb-47d4-a2a6-11d051639c80",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Timnath Winter Classic Tournament",
+          "time": "13:00"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "Rocky Mountain",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-rocky-mountain-fort-collins/12-19-2026/?c=da55d469-1e3d-410c-a90d-c23a688dbe60",
+          "neutral": true
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-thompson-valley-loveland/1-19-2027/?c=3c60d0e6-155a-498e-8c57-4862029a9ce6",
+          "time": "18:30"
+        },
+        {
+          "date": "2027-01-20",
+          "opponent": "Resurrection Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-resurrection-christian-loveland/1-20-2027/?c=e5f4b315-b304-402e-aa76-c2708965242e",
+          "time": "18:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-severance/1-22-2027/?c=489cef8a-0c52-4b47-8c7f-c9b6740671a0",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-poudre-fort-collins/1-26-2027/?c=706011e4-cc70-49b1-9e6e-c81cf6b87b65",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-central-vs-poudre-fort-collins/1-29-2027/?c=d9dec164-795e-4626-ac4d-f6b873e9d9ab",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-roosevelt-johnstown/2-5-2027/?c=5b66a775-af37-4d80-9892-4b2121765212",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-windsor/2-9-2027/?c=2e7d058c-0c55-49ab-9981-640ae34d7183",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-timnath/2-11-2027/?c=24bcdaa4-3b0a-459a-bd66-27a464bfa7fc",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-12",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-west-vs-poudre-fort-collins/2-12-2027/?c=d02e3144-674e-4661-a4b4-40d9dc9e7d3b",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/mountain-view-loveland-vs-poudre-fort-collins/2-19-2027/?c=cf809553-26c7-4b7d-b9cb-88068d662c8f",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/basketball/girls/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T23:43:25",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-03",
+          "opponent": "Regis Jesuit",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-regis-jesuit-aurora/12-3-2026/?c=706bcd8d-610b-4626-b58e-9a3f209a007b",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Rocky Mountain Tournament",
+          "time": "16:00"
+        },
+        {
+          "date": "2026-12-04",
+          "opponent": "Northfield",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/northfield-denver-vs-poudre-fort-collins/12-4-2026/?c=ac1ce72b-a2c3-498b-93c5-5f4270a17a89",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Rocky Mountain Tourney. @Rocky Mountain HS",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-05",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/holy-family-broomfield-vs-poudre-fort-collins/12-5-2026/?c=c60e1ee1-b12b-46bb-92be-a26ea4aa1d95",
+          "time": "10:00"
+        },
+        {
+          "date": "2026-12-15",
+          "opponent": "Erie",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-poudre-fort-collins/12-15-2026/?c=1648bbc7-9cca-456c-95a1-00b768766207",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-17",
+          "opponent": "Fort Collins",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/fort-collins-vs-poudre-fort-collins/12-17-2026/?c=77690012-f00e-4e40-8a4c-3afb2cc4fc25",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "Rocky Mountain",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-rocky-mountain-fort-collins/12-19-2026/?c=69537880-8617-4045-84f0-525b961f6138",
+          "neutral": true,
+          "venue": "Moby Arena"
+        },
+        {
+          "date": "2027-01-02",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-poudre-fort-collins/1-2-2027/?c=8c06d367-f5cf-43ea-9222-bb3c9583a861",
+          "time": "13:30"
+        },
+        {
+          "date": "2027-01-04",
+          "opponent": "Brighton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/brighton-vs-poudre-fort-collins/1-4-2027/?c=51cb8429-cd23-4a56-89ba-f3e334dcbc69",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-07",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/fossil-ridge-fort-collins-vs-poudre-fort-collins/1-7-2027/?c=b7e74364-e024-47aa-b246-b0d95ae38c0d",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-thompson-valley-loveland/1-19-2027/?c=843236b0-5f45-47cd-969b-4c9e67380353",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-poudre-fort-collins/1-26-2027/?c=f05d8e04-a010-4009-b828-f13764252bc4",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-central-vs-poudre-fort-collins/1-29-2027/?c=fd89f689-1e21-4dc2-9453-d89b1b8077ca",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-roosevelt-johnstown/2-5-2027/?c=7b700c8c-faf7-48c9-96fc-bc76c1ae0baa",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-timnath/2-11-2027/?c=a238ef86-b5c2-4fa3-ba80-b06d9d84fa98",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-12",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-west-vs-poudre-fort-collins/2-12-2027/?c=7a0c98a4-dd36-4980-b4b9-ee706e8f6e9d",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/northridge-greeley-vs-poudre-fort-collins/2-16-2027/?c=21c27cd5-ce90-4875-a7a9-44081a6234f8",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-20",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/frederick-vs-poudre-fort-collins/2-20-2027/?c=2764b13f-21ee-4dab-9c5a-0848b0aa48d4",
+          "time": "17:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/wrestling/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T23:43:34",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-swimming",
+      "name": "Girls swimming",
+      "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/swimming/girls/",
+      "fetched": "2026-11-09T23:42:31.811Z",
+      "maxprepsUpdated": "2026-11-09T23:43:39",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    }
+  ]
+}

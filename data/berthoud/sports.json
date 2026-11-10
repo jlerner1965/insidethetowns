@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-08T18:37:56.469Z",
+  "generated": "2026-11-09T23:14:58.982Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T16:24:03",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T19:15:32",
       "overall": "7-4",
       "league": {
         "record": "4-2",
@@ -147,8 +147,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T18:08:16",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T20:24:05",
       "overall": "8-7",
       "league": {
         "record": "6-2",
@@ -330,12 +330,12 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T16:24:02",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T19:19:32",
       "overall": "19-6",
       "league": {
         "record": "4-2",
-        "name": "4A/3A Patriots Peak",
+        "name": "4A/3A Patriot Peaks",
         "place": "3rd"
       },
       "results": [
@@ -348,15 +348,15 @@
           "score": {
             "us": 3,
             "them": 0
-          }
+          },
+          "stage": "Regionals"
         },
         {
           "date": "2026-11-07",
           "opponent": "Prospect Ridge Academy",
-          "site": "neutral",
+          "site": "home",
           "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-prospect-ridge-academy-broomfield/11-7-2026/?c=7f9976a6-a165-4018-ae5a-06f1468f9db3",
-          "stage": "Playoffs",
-          "neutral": true,
+          "stage": "Regionals",
           "result": "W",
           "score": {
             "us": 3,
@@ -626,20 +626,25 @@
         {
           "date": "2026-11-12",
           "opponent": "Eaton",
-          "site": "away",
+          "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-eaton-fightin-reds/11-12-2026/?c=8e201a18-71e3-4732-8889-9f52db6a4f61",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "venue": "Denver Coliseum",
           "time": "08:00"
         }
       ],
       "held": [],
-      "notes": []
+      "notes": [
+        "2026-11-12 at Eaton: a game at Denver Coliseum, which the school calendar files as away (\"Girls Varsity Volleyball @ Eaton High School\")"
+      ]
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T17:08:38",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T21:55:57",
       "overall": "17-10",
       "league": {
         "record": "2-7",
@@ -974,8 +979,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T18:38:50",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T20:48:18",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -988,8 +993,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T18:38:54",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T23:15:54",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -999,11 +1004,194 @@
       "empty": "MaxPreps has no schedule or results for this team yet."
     },
     {
+      "key": "girls-flag-football",
+      "name": "Girls flag football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/flag-football/girls/fall/",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T23:15:58",
+      "overall": "6-9",
+      "league": {
+        "record": "4-6",
+        "name": "4A Northern B",
+        "place": "4th"
+      },
+      "results": [
+        {
+          "date": "2026-10-10",
+          "opponent": "Overland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-overland-aurora/10-10-2026/?c=6daea37d-30b2-4a66-ab7b-18b258348cff",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 39
+          }
+        },
+        {
+          "date": "2026-10-07",
+          "opponent": "Standley Lake",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-standley-lake-westminster/10-7-2026/?c=48d0587b-b9d9-4a7d-a224-8042dcf6457c",
+          "result": "W",
+          "score": {
+            "us": 34,
+            "them": 19
+          }
+        },
+        {
+          "date": "2026-10-05",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-northridge-greeley/10-5-2026/?c=7967e5de-85de-4912-84f1-674d57c719b7",
+          "result": "L",
+          "score": {
+            "us": 14,
+            "them": 25
+          }
+        },
+        {
+          "date": "2026-09-28",
+          "opponent": "Fort Lupton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-fort-lupton/9-28-2026/?c=8540ba43-57e9-4084-9e4c-600bc6698e78",
+          "result": "W",
+          "score": {
+            "us": 33,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-23",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-monarch-louisville/9-23-2026/?c=fdb65b00-d5ae-4654-8eb5-64ea50c1788e",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 34
+          }
+        },
+        {
+          "date": "2026-09-21",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-holy-family-broomfield/9-21-2026/?c=31a81b16-9607-4cb4-a8fd-85088394838e",
+          "result": "W",
+          "score": {
+            "us": 45,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-mountain-view-loveland/9-16-2026/?c=cf571b98-cc49-417a-9ff5-3282d757da4b",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 35
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Conifer",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-conifer/9-12-2026/?c=48eb59e7-44aa-4608-bf40-c82d3f9ee2d6",
+          "result": "L",
+          "score": {
+            "us": 30,
+            "them": 31
+          }
+        },
+        {
+          "date": "2026-09-02",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-northridge-greeley/9-2-2026/?c=466b19e6-de8a-4b6c-ad9c-b2ed4913535b",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-08-31",
+          "opponent": "The Vanguard School",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-the-vanguard-school-colorado-springs/8-31-2026/?c=88d8470f-ef6f-4c0f-8f2f-26864c3b66db",
+          "result": "L",
+          "score": {
+            "us": 18,
+            "them": 21
+          }
+        },
+        {
+          "date": "2026-08-26",
+          "opponent": "Fort Lupton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-fort-lupton/8-26-2026/?c=a4097b09-6f5d-4381-81f2-402b371a0ee2",
+          "result": "W",
+          "score": {
+            "us": 52,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-24",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-monarch-louisville/8-24-2026/?c=f05bd673-7b4e-4625-bff7-be01215c8b7d",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-08-19",
+          "opponent": "Holy Family",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-holy-family-broomfield/8-19-2026/?c=327d2f9a-15bc-4a6c-a194-17621f4213e9",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-17",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-mountain-view-loveland/8-17-2026/?c=39dfe637-5643-4a14-b608-f795dcd563f0",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 39
+          }
+        },
+        {
+          "date": "2026-08-15",
+          "opponent": "Eagle Ridge Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/flag-football/girls/game/berthoud-vs-eagle-ridge-academy-brighton/8-15-2026/?c=29fc6e7b-3568-4e5d-83e2-9afe37c224b9",
+          "result": "W",
+          "score": {
+            "us": 21,
+            "them": 6
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": []
+    },
+    {
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T16:39:33",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T21:35:21",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1136,8 +1324,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/girls/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T16:38:38",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T22:19:36",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1295,8 +1483,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/wrestling/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T18:39:18",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T23:16:24",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1309,8 +1497,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/swimming/girls/",
-      "fetched": "2026-11-08T18:37:56.469Z",
-      "maxprepsUpdated": "2026-11-08T18:39:23",
+      "fetched": "2026-11-09T23:14:58.982Z",
+      "maxprepsUpdated": "2026-11-09T23:15:21",
       "results": [],
       "upcoming": [],
       "held": [],

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-08T18:53:21.844Z",
+  "generated": "2026-11-09T23:32:15.479Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/football/",
-      "fetched": "2026-11-08T18:53:21.844Z",
-      "maxprepsUpdated": "2026-11-08T16:19:07",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T21:20:33",
       "overall": "6-3",
       "league": {
         "record": "3-2",
@@ -124,8 +124,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/volleyball/",
-      "fetched": "2026-11-08T18:53:21.844Z",
-      "maxprepsUpdated": "2026-11-08T17:06:25",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T23:22:31",
       "overall": "19-5",
       "league": {
         "record": "11-0",
@@ -411,7 +411,18 @@
           }
         }
       ],
-      "upcoming": [],
+      "upcoming": [
+        {
+          "date": "2026-11-12",
+          "opponent": "Holyoke",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/holyoke-vs-lyons/11-12-2026/?c=a9307c3a-4e8b-4b69-bb66-9f754c636b0a",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "time": "11:00",
+          "venue": "Denver Coliseum"
+        }
+      ],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -421,8 +432,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/softball/fall/",
-      "fetched": "2026-11-08T18:53:21.844Z",
-      "maxprepsUpdated": "2026-11-08T17:07:03",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T20:24:20",
       "overall": "22-6",
       "league": {
         "record": "4-5",
@@ -765,8 +776,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/",
-      "fetched": "2026-11-08T18:53:21.844Z",
-      "maxprepsUpdated": "2026-11-08T18:53:48",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T21:55:47",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -779,8 +790,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/girls/",
-      "fetched": "2026-11-08T18:53:21.844Z",
-      "maxprepsUpdated": "2026-11-08T18:53:53",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T23:32:47",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -793,8 +804,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/",
-      "fetched": "2026-11-08T18:53:21.844Z",
-      "maxprepsUpdated": "2026-11-08T16:54:09",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T21:25:58",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -948,8 +959,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/girls/",
-      "fetched": "2026-11-08T18:53:21.844Z",
-      "maxprepsUpdated": "2026-11-08T17:04:05",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T23:33:02",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1013,8 +1024,45 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/wrestling/",
-      "fetched": "2026-11-08T18:53:21.844Z",
-      "maxprepsUpdated": "2026-11-08T18:54:15",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T23:33:12",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "baseball",
+      "name": "Baseball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/baseball/",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "boys-track",
+      "name": "Boys track and field",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/track-field/",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T23:33:21",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-track",
+      "name": "Girls track and field",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/track-field/girls/",
+      "fetched": "2026-11-09T23:32:15.479Z",
+      "maxprepsUpdated": "2026-11-09T23:33:25",
       "results": [],
       "upcoming": [],
       "held": [],

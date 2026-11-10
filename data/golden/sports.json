@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-08T18:54:19.888Z",
+  "generated": "2026-11-09T23:33:29.967Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/football/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T16:28:24",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T23:21:46",
       "overall": "9-2",
       "league": {
         "record": "6-1",
@@ -160,8 +160,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/soccer/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T17:32:06",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T23:14:08",
       "overall": "15-1-2",
       "league": {
         "record": "9-0-1",
@@ -396,8 +396,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/volleyball/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T18:27:02",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T19:43:05",
       "overall": "21-1",
       "league": {
         "record": "10-0",
@@ -408,11 +408,8 @@
         {
           "date": "2026-11-07",
           "opponent": "Liberty",
-          "site": "neutral",
+          "site": "home",
           "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-liberty-colorado-springs/11-7-2026/?c=5751fd74-e627-473b-aad6-d9124370288f",
-          "stage": "Playoffs",
-          "neutral": true,
-          "venue": "4A Regional Tournament (Region 5)",
           "result": "W",
           "score": {
             "us": 3,
@@ -668,8 +665,11 @@
         {
           "date": "2026-11-12",
           "opponent": "Mullen",
-          "site": "home",
+          "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-mullen-denver/11-12-2026/?c=4cdaddb4-c21b-41b8-86a1-6d48dcd771e2",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "venue": "Denver Coliseum",
           "time": "09:30"
         }
       ],
@@ -682,8 +682,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/softball/fall/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T17:18:56",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T19:43:32",
       "overall": "9-12",
       "league": {
         "record": "5-9",
@@ -943,8 +943,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/cross-country/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T18:54:56",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T23:34:05",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -957,8 +957,22 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/cross-country/girls/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T18:55:01",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T23:34:09",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-tennis",
+      "name": "Boys tennis",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/tennis/fall/",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T23:34:14",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -971,8 +985,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/basketball/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T16:22:22",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T20:52:05",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1015,7 +1029,8 @@
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/basketball/game/discovery-canyon-colorado-springs-vs-golden/12-12-2026/?c=4203e919-8d93-4ce8-aedf-931499d39969",
           "neutral": true,
-          "venue": "At Green Mountain High School"
+          "venue": "At Green Mountain High School",
+          "time": "12:00"
         },
         {
           "date": "2027-01-07",
@@ -1104,8 +1119,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/basketball/girls/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T17:43:15",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T21:40:28",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1238,8 +1253,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/wrestling/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T18:55:24",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T23:34:36",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1252,8 +1267,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/swimming/girls/",
-      "fetched": "2026-11-08T18:54:19.888Z",
-      "maxprepsUpdated": "2026-11-08T18:55:28",
+      "fetched": "2026-11-09T23:33:29.967Z",
+      "maxprepsUpdated": "2026-11-09T23:34:40",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1261,6 +1276,33 @@
         "MaxPreps lists no schedule or results for this team"
       ],
       "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "baseball",
+      "name": "Baseball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/baseball/",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "boys-lacrosse",
+      "name": "Boys lacrosse",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/lacrosse/",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "girls-lacrosse",
+      "name": "Girls lacrosse",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/lacrosse/girls/",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": []
     }
   ]
 }

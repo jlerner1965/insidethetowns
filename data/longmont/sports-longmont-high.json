@@ -1,0 +1,1348 @@
+{
+  "generated": "2026-11-09T23:36:30.474Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/football/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T19:41:38",
+      "overall": "6-5",
+      "league": {
+        "record": "3-4",
+        "name": "4A Northern",
+        "place": "5th"
+      },
+      "results": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Vista Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-vista-ridge-colorado-springs/11-6-2026/?c=5cd41f82-bbe2-4f3c-ad83-e8bfc773dd07",
+          "stage": "State Football Playoffs",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 31,
+            "them": 34
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-northridge-greeley/10-30-2026/?c=48a0e7d1-5639-4e63-94af-13f300e7e336",
+          "result": "W",
+          "score": {
+            "us": 46,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-loveland/10-24-2026/?c=90487db8-541b-4b55-bc70-60e3b4b92e9b",
+          "result": "L",
+          "score": {
+            "us": 10,
+            "them": 61
+          }
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Grand Junction",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/grand-junction-vs-longmont/10-16-2026/?c=220d9fc2-fd0b-4544-aa4f-8ba675b3382d",
+          "result": "L",
+          "score": {
+            "us": 31,
+            "them": 37
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-roosevelt-johnstown/10-9-2026/?c=1d20e9b8-4a69-48d8-bd1d-858874776619",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 56
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-longmont/10-2-2026/?c=c0dc8e9e-9769-4e33-8b47-8f1f82526830",
+          "result": "L",
+          "score": {
+            "us": 19,
+            "them": 22
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/greeley-west-vs-longmont/9-25-2026/?c=cdcb8d0b-a670-407e-8edb-68b5efebf713",
+          "result": "W",
+          "score": {
+            "us": 29,
+            "them": 22
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-poudre-fort-collins/9-18-2026/?c=ab8f2907-e805-42cf-bd07-7e73d5fc7c4e",
+          "result": "W",
+          "score": {
+            "us": 20,
+            "them": 17
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Sand Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-sand-creek-colorado-springs/9-11-2026/?c=70edc170-627e-4c71-90da-2a80ec82ce0c",
+          "result": "W",
+          "forfeit": true
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Skyline",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-skyline-longmont/9-4-2026/?c=30bc6750-ea44-48e2-ab5d-45332b227ecf",
+          "result": "W",
+          "score": {
+            "us": 41,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-silver-creek-longmont/8-28-2026/?c=e449b90d-238f-4109-91e2-9484851569fe",
+          "result": "W",
+          "score": {
+            "us": 39,
+            "them": 22
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-soccer",
+      "name": "Boys soccer",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/soccer/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T22:55:02",
+      "overall": "2-9-4",
+      "league": {
+        "record": "1-4-2",
+        "name": "5A/4A Granite Peaks",
+        "place": "6th"
+      },
+      "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-niwot/10-22-2026/?c=90caa978-ba3b-4aea-a260-b01d807572a4",
+          "result": "T",
+          "score": {
+            "us": 2,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-longmont/10-20-2026/?c=1e19537b-5b71-446d-83a3-88d33c282292",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-silver-creek-longmont/10-15-2026/?c=3ef0cabc-c55c-4f03-8dba-ee2c1720f8af",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-monarch-louisville/10-13-2026/?c=86bd17ff-9dba-45ed-95ce-1a1c1b3aca54",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Northglenn",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-northglenn/10-8-2026/?c=4a89fae1-ffe2-4926-a5f4-a5a86bc10176",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/centaurus-lafayette-vs-longmont/10-6-2026/?c=af153b67-3760-478e-9035-61edf80a0baf",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/holy-family-broomfield-vs-longmont/9-29-2026/?c=e9437dfd-8ad0-4a69-8832-7a1734bb8eb1",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-mead-longmont/9-24-2026/?c=a7a3aeb1-3cf1-4a5c-a491-6c20445223bc",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-poudre-fort-collins/9-22-2026/?c=58afd2f7-1d2a-4b30-adbb-dce0570b9976",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/greeley-central-vs-longmont/9-10-2026/?c=389827e6-3980-4b01-b9f3-9c3e96adbbb0",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-northridge-greeley/9-8-2026/?c=9ce0d927-696d-44c1-88a9-90808042046c",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Skyline",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-skyline-longmont/9-3-2026/?c=168d1be3-9c15-437c-b04b-cf7f5498b451",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-windsor/9-1-2026/?c=283d66eb-2f71-45b2-b1ec-6ed0bc9e5d8e",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Jefferson Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/jefferson-academy-broomfield-vs-longmont/8-27-2026/?c=c91ffe91-d9ce-440a-8a1c-71bf0a41da8d",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-08-21",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/greeley-west-vs-longmont/8-21-2026/?c=40ae363a-f4e0-4c96-afe1-c26c0f3d7e25",
+          "result": "W",
+          "score": {
+            "us": 1,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/volleyball/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T20:12:22",
+      "overall": "6-17",
+      "league": {
+        "record": "4-10",
+        "name": "5A/4A/3A Granite Peaks",
+        "place": "6th"
+      },
+      "results": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Thompson Valley",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-thompson-valley-loveland/10-31-2026/?c=3f6d9ef8-8c79-4166-a631-f9b8cac6541e",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Mullen",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-mullen-denver/10-31-2026/?c=c03dcef9-28d1-4c7a-8716-e56e68f19cbd",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Alamosa",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/alamosa-vs-longmont/10-30-2026/?c=589f963f-d9bf-40ae-999a-b3c9e54d4e14",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Cheyenne Mountain Colorado Invite",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Air Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/air-academy-us-air-force-academy-vs-longmont/10-30-2026/?c=95053493-b9c2-48a6-a234-4ff6de6bcffe",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-silver-creek-longmont/10-27-2026/?c=07399fc1-f7fd-4f44-b610-02945804f531",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-longmont/10-22-2026/?c=a7ff7563-fc7e-4019-abfb-5a1b4ee6d2b5",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-monarch-louisville/10-20-2026/?c=0c543603-c513-4909-a603-798106f6ffe6",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-mead-longmont/10-15-2026/?c=f2513efb-1a6b-4773-b029-f6cd75bfc01e",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-longmont/10-13-2026/?c=7ae4ac60-ce2f-483f-9f03-7f2e61baafe2",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-niwot/10-8-2026/?c=88d1eefa-d6fe-405c-943e-c30109700dfa",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Holy Family",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/holy-family-broomfield-vs-longmont/10-6-2026/?c=a38a5b66-b0f2-42f5-baf7-bf87ad5964a4",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-silver-creek-longmont/10-1-2026/?c=3c702d3c-3218-47f5-b13a-b0b33c55bd1f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-longmont/9-29-2026/?c=bdecac70-3589-4504-aca2-77661b83e3b2",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-monarch-louisville/9-24-2026/?c=a1b802ae-3664-468e-9907-12900890cde2",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-mead-longmont/9-22-2026/?c=4c4d776d-9e34-4b7c-b87f-e487c62a31fb",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-longmont/9-17-2026/?c=3bd35d46-0fb8-4af8-8c60-cde4f8738428",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Niwot",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-niwot/9-15-2026/?c=f6f26da3-6a8c-4c37-97a4-fe77c8d1a2b1",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/holy-family-broomfield-vs-longmont/9-10-2026/?c=85c986ef-b3b2-4700-ace5-ccb61dbdd690",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "The Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-the-academy-westminster/8-29-2026/?c=21c44025-45d9-484e-b183-b5645c46ded4",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Berthoud",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-longmont/8-29-2026/?c=d97b6676-bf9d-4c0c-96d6-709050a41e00",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Poudre",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-poudre-fort-collins/8-28-2026/?c=26974173-a763-42d3-b006-09ac6793cfc7",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Eaton",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/eaton-fightin-reds-vs-longmont/8-28-2026/?c=bb50e9fe-599b-4d86-9ef1-655db2878c1f",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-longmont/8-25-2026/?c=ec27bc45-fe81-4607-95ed-42e3a6af5ccb",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/softball/fall/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T23:36:58",
+      "overall": "10-13",
+      "league": {
+        "record": "2-12",
+        "name": "5A/4A/3A Granite Peaks",
+        "place": "7th"
+      },
+      "results": [
+        {
+          "date": "2026-10-03",
+          "opponent": "Niwot",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-niwot/10-3-2026/?c=9039e1a2-93d6-451e-96bf-64e6b7c6a318",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-longmont/10-1-2026/?c=92420660-94ab-4f09-adc0-d267464c3cac",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-silver-creek-longmont/9-29-2026/?c=45a01928-a58c-433b-bef0-a821dfa7226f",
+          "result": "L",
+          "score": {
+            "us": 5,
+            "them": 11
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-monarch-louisville/9-24-2026/?c=aeab72f6-3359-41ca-86b9-e2aa4e47999f",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/centaurus-lafayette-vs-longmont/9-22-2026/?c=a023e6a7-d07b-4c6a-95d8-c48382ad4afc",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Holy Family",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/holy-family-broomfield-vs-longmont/9-17-2026/?c=3b76706c-bff6-4728-b625-a189cef00893",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-mead-longmont/9-15-2026/?c=edcfc2fe-8e2b-4858-9389-6c83a23497cf",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-niwot/9-11-2026/?c=ba9e6df5-f243-40c2-a35c-7fa3406733b7",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-longmont/9-8-2026/?c=d9d30062-d816-4fc0-91e2-563c735769a8",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Poudre",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-poudre-fort-collins/9-5-2026/?c=d46f79a8-8733-4bda-84e1-740efbaaae4a",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Prairie View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-prairie-view-henderson/9-5-2026/?c=2f3067ba-1b07-4614-8fc0-691289637d9b",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Rifle",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-rifle/9-4-2026/?c=6563df1f-8c95-4e95-902c-2176bf5d7d1d",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Palisade",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-palisade/9-4-2026/?c=5697d8c8-1ac3-453b-b5a1-33b578963802",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "L",
+          "score": {
+            "us": 9,
+            "them": 15
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-silver-creek-longmont/9-3-2026/?c=5ed3bb0f-0a2a-4c0a-94f9-525a4306ef0d",
+          "result": "L",
+          "score": {
+            "us": 8,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-monarch-louisville/9-1-2026/?c=daadb04f-74e2-4d35-969d-37873dd4eba9",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Rangeview",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-rangeview-aurora/8-29-2026/?c=54f51fa2-70a3-4255-bb22-c313b2edfe9a",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Timnath",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-timnath/8-29-2026/?c=c283fd6f-4ef0-49a7-b488-120ef716e368",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Pomona",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-pomona-arvada/8-28-2026/?c=041404a2-bbf2-4ee0-96ac-144d9d703fd1",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 18,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Prairie View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-prairie-view-henderson/8-28-2026/?c=0992aeac-f38a-4096-b403-e85eb036ba78",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/centaurus-lafayette-vs-longmont/8-27-2026/?c=587d32ed-4c7d-409a-86c7-d409b65de13e",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 11
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/holy-family-broomfield-vs-longmont/8-25-2026/?c=05c74aab-aa83-4812-aeab-627b255a2e00",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "George Washington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/george-washington-denver-vs-longmont/8-20-2026/?c=090fc36a-109c-4654-b49d-7616dfde28d0",
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-18",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-mead-longmont/8-18-2026/?c=444a9781-880e-4abb-9f94-ef0fe68ed2e0",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 13
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/cross-country/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T23:37:07",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/cross-country/girls/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T23:37:12",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/basketball/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T20:28:08",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A Granite Peaks",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "Thomas Jefferson",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-thomas-jefferson-denver/12-1-2026/?c=3379d20e-71e1-4746-a36c-d33709f9ec78",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-02",
+          "opponent": "Prairie View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-prairie-view-henderson/12-2-2026/?c=70fe312a-3917-4fe4-a62b-2b930c35f386",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-04",
+          "opponent": "Legacy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/legacy-broomfield-vs-longmont/12-4-2026/?c=160a2a8c-3b12-46e8-8f4e-90ca27227afb",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-07",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-roosevelt-johnstown/12-7-2026/?c=c0659e8f-d1b5-4a85-aed2-325396a0ee00",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Northglenn",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-northglenn/12-8-2026/?c=3626b0ed-a24e-44c8-b7ba-072ef34e001a",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-16",
+          "opponent": "Bear Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/bear-creek-lakewood-vs-longmont/12-16-2026/?c=0b8bac2c-368c-4fde-aa08-18864772e02c",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Longmont High School",
+          "time": "20:00"
+        },
+        {
+          "date": "2026-12-18",
+          "opponent": "Mountain View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-mountain-view-loveland/12-18-2026/?c=e0e212db-2c86-4682-885f-0e3ccf7749af",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Trojan Classic Tournament",
+          "time": "20:00"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "George Washington",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/george-washington-denver-vs-longmont/12-19-2026/?c=d1d811ee-8706-43bc-bd5e-3b3481c808a7",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Trojan Classic Tournament",
+          "time": "14:30"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-mead-longmont/1-5-2027/?c=62b199a6-7a8b-49b6-91a9-77dbbdbbfc0c",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/holy-family-broomfield-vs-longmont/1-8-2027/?c=55e80328-09da-4c7f-9660-48e02b6517d2",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/centaurus-lafayette-vs-longmont/1-12-2027/?c=1588b181-7842-499a-abc7-14b6d0ce55fe",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-monarch-louisville/1-15-2027/?c=8ab4dc8e-3146-400a-887d-89f2acf90088",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-silver-creek-longmont/1-19-2027/?c=b6a159dd-6447-4fd1-b382-371fa4be28ca",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/frederick-vs-longmont/1-22-2027/?c=66086fc0-e241-4519-87bc-abe41d888d23",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-niwot/1-26-2027/?c=9a0cc78b-5d59-45aa-b7a9-553588a81824",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-mead-longmont/1-29-2027/?c=2896383d-abf3-4a9e-929e-a4d5cafe564d",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-03",
+          "opponent": "Holy Family",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/holy-family-broomfield-vs-longmont/2-3-2027/?c=4f14dbde-3cbb-43df-8442-88c02a2214f1",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/centaurus-lafayette-vs-longmont/2-5-2027/?c=2a4cb2bc-3990-4108-a96d-0bfcb6595584",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-monarch-louisville/2-9-2027/?c=fa39ec8d-1c12-4bf8-9ee0-10cbc925b962",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-silver-creek-longmont/2-11-2027/?c=5c0fc224-4115-42ff-8d06-b56cfcedf521",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/frederick-vs-longmont/2-16-2027/?c=dc3f4440-01b4-4684-b0bc-5d8c2b6af3be",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-18",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-west-vs-longmont/2-18-2027/?c=4496c481-9e9a-49c3-a2ed-3c0a911bdd45",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Niwot",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-niwot/2-19-2027/?c=4c7f0081-8d9f-4e32-b521-c57997f5571d",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/basketball/girls/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T21:27:58",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A Granite Peaks",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "Thomas Jefferson",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-thomas-jefferson-denver/12-1-2026/?c=47dba8a9-aeae-4df6-8d55-463853fa1a2a",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-02",
+          "opponent": "Prairie View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-prairie-view-henderson/12-2-2026/?c=dc414c49-29d6-4c06-8383-389ad17c4117",
+          "time": "17:00"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Mountain Range",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-mountain-range-westminster/12-8-2026/?c=8bafaf7a-6523-4a60-bcfc-49f74ff7e704",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-central-vs-longmont/12-10-2026/?c=11abebbf-3036-4c54-861d-619b8114eac4",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "Littleton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/littleton-vs-longmont/12-11-2026/?c=b9267ce4-1044-4923-ace5-a57d32b414ad",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-16",
+          "opponent": "Bear Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/bear-creek-lakewood-vs-longmont/12-16-2026/?c=bb7134d5-9eda-4f43-91a5-01709dfb5799",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Longmont High School",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-18",
+          "opponent": "Mountain View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-mountain-view-loveland/12-18-2026/?c=74a8c4e1-134d-4ed6-9082-fe08fa8fbb3e",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Longmont High School",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "Montbello",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-montbello-denver/12-19-2026/?c=de47e1b0-da8e-4334-a7e1-6502169cdbd9",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Trojan Classic Invitational",
+          "time": "13:00"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-mead-longmont/1-5-2027/?c=9254eebc-996d-4da8-bce4-df9612901f46",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/holy-family-broomfield-vs-longmont/1-8-2027/?c=563cf738-79c4-4d4f-bcae-2357c5d6b2aa",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/centaurus-lafayette-vs-longmont/1-12-2027/?c=2b4bd6e5-5f23-443b-80ed-f989d98d3093",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-monarch-louisville/1-15-2027/?c=a579041f-6a20-4aa8-9c22-74bd470c81f5",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-silver-creek-longmont/1-19-2027/?c=969c7b2d-9a78-4ce2-b00f-6b9e84f6ed6e",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/frederick-vs-longmont/1-22-2027/?c=79205a14-f957-4bad-9b56-783162260140",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-niwot/1-26-2027/?c=38fc2046-acd6-4961-8a30-eaf158cdd12b",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-mead-longmont/1-29-2027/?c=b4fb4140-0a42-414e-a29f-9b7dcfbc90d4",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-03",
+          "opponent": "Holy Family",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/holy-family-broomfield-vs-longmont/2-3-2027/?c=2e108f41-d1e7-4125-9363-c58e6734760b",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/centaurus-lafayette-vs-longmont/2-5-2027/?c=97a87185-317d-4987-b29e-546e48163fc2",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-monarch-louisville/2-9-2027/?c=ff763f15-0eab-4ada-9168-c25d1df24539",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-silver-creek-longmont/2-11-2027/?c=2363b8d0-72ed-4403-be76-b56d6b8e7011",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/frederick-vs-longmont/2-16-2027/?c=cfe49764-28b9-4576-9b21-de20e4c6b261",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-18",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-west-vs-longmont/2-18-2027/?c=10ccccef-2a40-44d8-aea0-bcbb1c11aecd",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Niwot",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-niwot/2-19-2027/?c=99ad0cce-f8d7-44bd-bd3f-4cc848be4333",
+          "time": "17:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/wrestling/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T23:37:34",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-swimming",
+      "name": "Girls swimming",
+      "maxprepsUrl": "https://www.maxpreps.com/co/longmont/longmont-trojans/swimming/girls/",
+      "fetched": "2026-11-09T23:36:30.474Z",
+      "maxprepsUpdated": "2026-11-09T23:37:39",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    }
+  ]
+}

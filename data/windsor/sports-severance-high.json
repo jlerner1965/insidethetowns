@@ -1,0 +1,1291 @@
+{
+  "generated": "2026-11-09T23:23:20.648Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/football/",
+      "fetched": "2026-11-09T23:23:20.648Z",
+      "maxprepsUpdated": "2026-11-09T23:21:26",
+      "overall": "8-3",
+      "league": {
+        "record": "6-0",
+        "name": "3A Cache la Poudre",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Lewis-Palmer",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/football/game/lewis-palmer-monument-vs-severance/11-6-2026/?c=603bf737-f32c-48dc-99ab-700c307e7177",
+          "stage": "State Football Playoffs",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 47,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-severance/10-30-2026/?c=44ee4e4d-38a3-4422-89a5-a346fd2f328c",
+          "result": "W",
+          "score": {
+            "us": 32,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Skyline",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-skyline-longmont/10-23-2026/?c=68091a01-16b3-4b20-9ba9-88b20f65bc22",
+          "result": "W",
+          "score": {
+            "us": 47,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-thompson-valley-loveland/10-16-2026/?c=c26afbbd-a3cf-4081-a6a0-4043762721b1",
+          "result": "W",
+          "score": {
+            "us": 51,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-severance/10-9-2026/?c=b4b917a2-22f5-4e50-831b-d07ca59dfbe9",
+          "result": "W",
+          "score": {
+            "us": 53,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/greeley-central-vs-severance/10-1-2026/?c=830f62d0-16a6-4e32-b4bd-4470aebce485",
+          "result": "W",
+          "score": {
+            "us": 40,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-windsor/9-25-2026/?c=cd54dcc4-3095-4cb4-9b1a-0eb8b978a336",
+          "result": "W",
+          "score": {
+            "us": 34,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/mead-longmont-vs-severance/9-18-2026/?c=666a6b1d-b0b9-4a67-b72f-f370ec7ddfbf",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-timnath/9-4-2026/?c=c6f4cd19-6925-4818-b0fb-25e9deee7443",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 19
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Wellington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-wellington/8-28-2026/?c=c2bfe183-24f4-40fb-8977-5532fdd0b77c",
+          "result": "L",
+          "score": {
+            "us": 13,
+            "them": 20
+          }
+        },
+        {
+          "date": "2026-08-21",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/poudre-fort-collins-vs-severance/8-21-2026/?c=ac23b5d2-4529-4dec-8d75-e00d6cc7b87b",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 13
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-11-13",
+          "opponent": "Pueblo East",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/football/game/pueblo-east-vs-severance/11-13-2026/?c=fd75e3bc-5732-4c30-a391-0aade7b068f1",
+          "stage": "State Football Playoffs",
+          "neutral": true,
+          "venue": "Dutch Clark",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-soccer",
+      "name": "Boys soccer",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/soccer/",
+      "fetched": "2026-11-09T23:23:20.648Z",
+      "maxprepsUpdated": "2026-11-09T20:33:34",
+      "overall": "7-3-5",
+      "league": {
+        "record": "6-2-2",
+        "name": "5A/4A/3A Northern",
+        "place": "4th"
+      },
+      "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/greeley-west-vs-severance/10-22-2026/?c=910cda49-056e-400c-9232-d9f175767fbe",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/poudre-fort-collins-vs-severance/10-15-2026/?c=babbcb85-3380-4fb4-a231-6710a4c535c9",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/greeley-central-vs-severance/10-13-2026/?c=18dafd02-81bb-4376-bd9b-33110ecbe476",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/severance-vs-timnath/10-8-2026/?c=ef3257bd-46af-4f7c-8617-8f4d3378b0ba",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/northridge-greeley-vs-severance/10-6-2026/?c=9f184438-73a8-4d42-b701-49f74447d8df",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Niwot",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/niwot-vs-severance/10-1-2026/?c=258b1c22-d732-4d6d-8dca-7ef94d78e076",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/severance-vs-thompson-valley-loveland/9-29-2026/?c=0ef16272-dfe5-4c1b-a6eb-e18af6983303",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/roosevelt-johnstown-vs-severance/9-24-2026/?c=dff1a4db-9711-4b4d-a219-ea0a6de8f4e0",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-21",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/loveland-vs-severance/9-21-2026/?c=bf8ffb60-634d-4eb8-acbe-213442fcc810",
+          "result": "T",
+          "score": {
+            "us": 2,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-severance/9-17-2026/?c=9c7c6caa-7fd1-46f6-b1ca-2fb160db48a3",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/mead-longmont-vs-severance/9-15-2026/?c=d75d8ce4-d533-4307-85fb-c2d4154ad757",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/severance-vs-windsor/9-10-2026/?c=480bfd95-d163-4d41-8cb6-5380b6015c86",
+          "result": "T",
+          "score": {
+            "us": 0,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-severance/9-8-2026/?c=1a431aac-f57b-40a0-b439-2dc76ceb3a1c",
+          "result": "T",
+          "score": {
+            "us": 4,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Fort Morgan",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/fort-morgan-vs-severance/9-3-2026/?c=93e0eb74-2fb8-4d21-beff-aaee9dd01015",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Sterling",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/severance-vs-sterling/8-27-2026/?c=75f545e1-f5bb-4473-8419-ac3811aa0f1a",
+          "result": "W",
+          "score": {
+            "us": 11,
+            "them": 1
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/volleyball/",
+      "fetched": "2026-11-09T23:23:20.648Z",
+      "maxprepsUpdated": "2026-11-09T21:27:00",
+      "overall": "9-14",
+      "league": {
+        "record": "6-4",
+        "name": "4A/3A Northern",
+        "place": "5th"
+      },
+      "results": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/greeley-west-vs-severance/10-27-2026/?c=eec9e2b8-ddcf-4474-82bf-689e2da36312",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-severance/10-22-2026/?c=50ace766-0343-4787-b8ee-93cac54cee39",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-windsor/10-20-2026/?c=030d434d-4efd-483b-ac4b-5ccf22e73f09",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Sidney",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/inter-state/volleyball/match/severance-co-vs-sidney-ne/10-17-2026/?c=5ed71cfd-9699-4e13-97b4-ec1b207c9ecb",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Merino",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/merino-vs-severance/10-17-2026/?c=e5102bf4-5a41-4f25-a18d-2633736b751c",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Sterling",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-sterling/10-17-2026/?c=6c9d1c40-fc53-42ca-bc6c-aea9c3cbee78",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Wiggins",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-wiggins/10-17-2026/?c=4e1e2270-afcb-4996-be00-f69f62da34fd",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Sterling High School",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Holyoke",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/holyoke-vs-severance/10-16-2026/?c=a7bee343-05de-4212-81dd-15d06d69e518",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-timnath/10-15-2026/?c=37baa512-f5e7-46c9-9fd9-0a3eaabab671",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/northridge-greeley-vs-severance/10-13-2026/?c=41813066-9ff4-4ef7-82f3-7dd84b06e96d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/greeley-central-vs-severance/10-8-2026/?c=fcdefcca-8103-4cfc-bc3d-c751ffca2971",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-thompson-valley-loveland/10-6-2026/?c=32e9a754-b65c-438b-b932-30238d7b1805",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-severance/10-1-2026/?c=6234d36d-60ef-4490-9123-c7ffe4c4f074",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/roosevelt-johnstown-vs-severance/9-29-2026/?c=70e7de4a-cc0a-4dcc-8bd8-bf0a5bf3b54c",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Wellington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-wellington/9-24-2026/?c=6bd3825f-44cb-43b8-a694-fc2d00f15d1f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-severance/9-22-2026/?c=2cf59587-7470-40ed-b769-7d0c2d04c8d1",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Platte Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/platte-valley-kersey-vs-severance/9-17-2026/?c=2df3dc03-0239-4eff-a0f2-3dfed11fe636",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-severance/9-10-2026/?c=c7ea9524-e1ad-44c0-aecc-6191e909647e",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-silver-creek-longmont/9-8-2026/?c=807e9883-ec00-49a4-9d10-924bb24138c5",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Windsor Charter Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-windsor-charter-academy/9-3-2026/?c=6716eed0-27ed-415d-bc66-f0cd4b007aef",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Fort Morgan",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fort-morgan-vs-severance/9-1-2026/?c=27690072-a5db-4b7a-b40d-e4cac0935678",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-26",
+          "opponent": "Fort Lupton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fort-lupton-vs-severance/8-26-2026/?c=fa4917c1-12c8-4ff6-bac7-b85c69d7b2cc",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Frontier Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frontier-academy-greeley-vs-severance/8-25-2026/?c=e7e8f01b-261e-4c47-bfaa-243187fe5d3f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/softball/fall/",
+      "fetched": "2026-11-09T23:23:20.648Z",
+      "maxprepsUpdated": "2026-11-09T19:57:41",
+      "overall": "19-8",
+      "league": {
+        "record": "9-1",
+        "name": "5A/4A/3A Northern",
+        "place": "2nd"
+      },
+      "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Ponderosa",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/ponderosa-jaguars-parker-vs-severance/10-23-2026/?c=4079ab96-ab1b-4d63-be8a-14c0aee44325",
+          "stage": "State Softball Tournaments",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Palmer Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/palmer-ridge-monument-vs-severance/10-17-2026/?c=d08b4d46-faa9-450d-bf95-66633c841104",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Rifle",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/rifle-vs-severance/10-17-2026/?c=0ed4596a-f8d3-4995-844d-ce959e1aac96",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Rifle",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/rifle-vs-severance/10-16-2026/?c=6767ff2d-a577-4c7e-abef-bf0da9b006c1",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 7,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/severance-vs-windsor/10-8-2026/?c=47a179bf-13e4-454f-85ca-f3e9a9c07dd5",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-severance/10-6-2026/?c=07a6d4bc-4e15-4aa6-b145-b644df3bf40a",
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/northridge-greeley-vs-severance/10-1-2026/?c=dd20dbf7-f78a-4c64-b6f3-4ed93c645af5",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-severance/9-29-2026/?c=8aa6c72f-2c33-4e10-bded-a9f74740f079",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/severance-vs-thompson-valley-loveland/9-24-2026/?c=edc65f0a-db56-40b1-99b5-3d9a8d990cae",
+          "result": "W",
+          "score": {
+            "us": 7,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-09-23",
+          "opponent": "Lyons",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-severance/9-23-2026/?c=24a2c01b-773a-4116-abdd-ebf0cfeca6d3",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-severance/9-22-2026/?c=ebf4f883-44b1-40f6-a37e-3a11ba7a5a2a",
+          "result": "W",
+          "score": {
+            "us": 19,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-central-vs-severance/9-17-2026/?c=037c36f2-ac4b-463f-bc75-3235d0257cde",
+          "result": "W",
+          "score": {
+            "us": 25,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/severance-vs-timnath/9-15-2026/?c=f40e9cfa-a36a-4962-8683-ac5f5a7a736c",
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Platte Valley",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/platte-valley-kersey-vs-severance/9-12-2026/?c=c7e5e332-89ae-472a-b376-3d0a470cebc8",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Brush Tournament",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Golden",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-severance/9-11-2026/?c=bdf00817-500f-4d10-b848-c19bfbf21028",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Brush Tournament",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Brush",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/brush-vs-severance/9-11-2026/?c=43585858-89ff-4394-a7a1-4e9436faa482",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Brush Tournament",
+          "result": "L",
+          "score": {
+            "us": 5,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-west-vs-severance/9-8-2026/?c=30dbdb9a-014d-49c6-84de-f7f248e33bcc",
+          "result": "W",
+          "score": {
+            "us": 11,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Pueblo South",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/pueblo-south-vs-severance/9-5-2026/?c=0e94179e-6ebd-4c49-8d0d-677c63a595c4",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Strasburg",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/severance-vs-strasburg/9-4-2026/?c=3adb1bf8-e149-4b7b-81da-9769740422fb",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "NC Classic",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Southeast Colorado",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/severance-vs-southeast-colorado-wiley/9-4-2026/?c=a591feea-b649-4859-96ba-bb8bb1373f56",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "SECO",
+          "result": "W",
+          "score": {
+            "us": 22,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/roosevelt-johnstown-vs-severance/9-3-2026/?c=4724b89e-99e7-406b-a309-d873271003cd",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Eaton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/eaton-fightin-reds-vs-severance/9-1-2026/?c=ac1ebf65-e751-49fc-98ce-d30d4643ae0a",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Erie",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-severance/8-28-2026/?c=ad5a179a-eef0-4c07-9260-be8132c427f4",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-26",
+          "opponent": "Wellington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/severance-vs-wellington/8-26-2026/?c=ac77b4c8-04a6-412b-8aaf-f2e7dcae63cf",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Palmer Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/palmer-ridge-monument-vs-severance/8-25-2026/?c=9a7091e1-d459-49b9-a8e2-82b9f5343873",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Elizabeth",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-severance/8-20-2026/?c=88fe41de-6a86-494d-8493-a555fcba59e1",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 11
+          }
+        },
+        {
+          "date": "2026-08-18",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/severance-vs-university-greeley/8-18-2026/?c=bc05c18a-d3fe-47b4-834a-e6ebe8df303c",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 4
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/cross-country/",
+      "fetched": "2026-11-09T23:23:20.648Z",
+      "maxprepsUpdated": "2026-11-09T23:23:56",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/cross-country/girls/",
+      "fetched": "2026-11-09T23:23:20.648Z",
+      "maxprepsUpdated": "2026-11-09T23:24:01",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/basketball/",
+      "fetched": "2026-11-09T23:23:20.648Z",
+      "maxprepsUpdated": "2026-11-09T20:30:18",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/severance-vs-university-greeley/12-1-2026/?c=17f2b378-d81c-45b5-b8ec-c4ebd762be55",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-03",
+          "opponent": "Highlands Ranch",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/highlands-ranch-vs-severance/12-3-2026/?c=9c8916fd-6c8c-4b59-8330-5d1925b62d5b",
+          "neutral": true,
+          "venue": "Paul Davis Classic at Green Mountain HS",
+          "time": "17:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Eagle Valley",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/eagle-valley-gypsum-vs-severance/12-10-2026/?c=2e8bf54a-c2ef-40ea-b183-7f5653c07d59",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Steamboat Springs Tournament",
+          "time": "15:00"
+        },
+        {
+          "date": "2026-12-15",
+          "opponent": "Eaton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/eaton-fightin-reds-vs-severance/12-15-2026/?c=28680f5f-a4ff-43c1-ac3b-dd0a99458e99",
+          "time": "19:30"
+        },
+        {
+          "date": "2026-12-17",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/frederick-vs-severance/12-17-2026/?c=e0946a5b-4976-4322-b74d-89c273666aed",
+          "time": "19:30"
+        },
+        {
+          "date": "2026-12-18",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/mead-longmont-vs-severance/12-18-2026/?c=bae55b89-7a19-40d8-9b1f-979ed9d0d5a8",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-02",
+          "opponent": "Rocky Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/rocky-mountain-fort-collins-vs-severance/1-2-2027/?c=24ef052f-0397-4675-ac0b-9572f3b46410",
+          "time": "13:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-severance/1-15-2027/?c=fb3c1187-cb53-4992-8eb6-a5da28436af0",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-central-vs-severance/1-19-2027/?c=c41a0fe2-8d93-4a5f-b2be-fa93596f330e",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-severance/1-22-2027/?c=489cef8a-0c52-4b47-8c7f-c9b6740671a0",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/roosevelt-johnstown-vs-severance/1-26-2027/?c=823647c8-1d98-4024-a169-655ef4adae4d",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/severance-vs-windsor/1-29-2027/?c=d08d3db2-0d7f-4b25-baf2-fd717e56294b",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-west-vs-severance/2-2-2027/?c=9f0f28ff-8bd9-4120-8b52-ef91fd91747e",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/northridge-greeley-vs-severance/2-5-2027/?c=df0c27b9-3d0c-44a2-8b52-a7d3531ba1f1",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-06",
+          "opponent": "Fort Collins",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/fort-collins-vs-severance/2-6-2027/?c=dec64826-ec68-493a-87b2-f6bb99122f5d",
+          "time": "14:30"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/mountain-view-loveland-vs-severance/2-9-2027/?c=04a3f555-e19d-4e1b-9ae7-8aea8a65688a",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-13",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/fossil-ridge-fort-collins-vs-severance/2-13-2027/?c=5d23d9c8-6656-404b-bf3e-176e5a33c30d",
+          "time": "13:00"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/severance-vs-thompson-valley-loveland/2-16-2027/?c=46464efe-8854-4c67-926c-67a1ccbe3768",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-23",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/severance-vs-timnath/2-23-2027/?c=6bd3de26-063a-40cd-9ce4-c556fc85f740",
+          "time": "19:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against",
+        "MaxPreps page: a game in the glance card could not be read (a3d4d0e7-4b14-4b74-8c8a-ee400faacb98)"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/basketball/girls/",
+      "fetched": "2026-11-09T23:23:20.648Z",
+      "maxprepsUpdated": "2026-11-09T23:24:14",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/severance-vs-university-greeley/12-1-2026/?c=40c80022-75fd-4335-aec8-8a1ee38d94fe",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-02",
+          "opponent": "Discovery Canyon",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/discovery-canyon-colorado-springs-vs-severance/12-2-2026/?c=121fd342-f157-4300-b037-0d4aff4a8c2e",
+          "stage": "Tournament",
+          "neutral": true,
+          "time": "16:30"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-severance/12-8-2026/?c=f8a7e236-4d04-4ca4-831b-60d046ec2098",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Colorado Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/colorado-academy-denver-vs-severance/12-10-2026/?c=6745e7cb-858c-4416-b6ab-16aa1f0a26a6",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Steamboat Springs High School Auxiliary Gym",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-17",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/frederick-vs-severance/12-17-2026/?c=5d93c38c-3f9e-4615-8863-a8aa8d09b7f7",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "Resurrection Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/resurrection-christian-loveland-vs-severance/1-5-2027/?c=5da51d64-984d-4a99-bf50-366c64f6df30",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-severance/1-15-2027/?c=c940dde1-8a61-46e5-aedd-3d85b92c08c0",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-central-vs-severance/1-19-2027/?c=f71a2fdf-381b-4d94-bfe7-f7d8a98119de",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/roosevelt-johnstown-vs-severance/1-26-2027/?c=d38bda53-ad00-4bf5-bc05-b940a103d0da",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-west-vs-severance/2-2-2027/?c=17811220-a1b4-4353-928c-e9bf991bdae7",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-04",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/northridge-greeley-vs-severance/2-4-2027/?c=b246a833-b2d0-4039-b1f5-103b111b0531",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/severance-vs-thompson-valley-loveland/2-16-2027/?c=a21f9df2-d7a1-4918-a0b4-fe70c741fd18",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-17",
+          "opponent": "Wellington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/severance-vs-wellington/2-17-2027/?c=3d221940-a8b8-4cde-b450-b4909f279310",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-23",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/severance-vs-timnath/2-23-2027/?c=60580e8e-11a1-491e-aa43-7a84f4531476",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/wrestling/",
+      "fetched": "2026-11-09T23:23:20.648Z",
+      "maxprepsUpdated": "2026-11-09T20:26:52",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    }
+  ]
+}

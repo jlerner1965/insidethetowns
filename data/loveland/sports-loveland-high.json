@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-08T18:45:44.290Z",
+  "generated": "2026-11-09T23:24:27.923Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/football/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T16:18:07",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T23:12:03",
       "overall": "9-1",
       "league": {
         "record": "6-1",
@@ -125,7 +125,18 @@
           }
         }
       ],
-      "upcoming": [],
+      "upcoming": [
+        {
+          "date": "2026-11-13",
+          "opponent": "Columbine",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/football/game/columbine-littleton-vs-loveland/11-13-2026/?c=b9c20156-cff5-4515-8863-528ca715c548",
+          "stage": "State Football Playoffs",
+          "neutral": true,
+          "venue": "Ray Patterson Stadium",
+          "time": "19:00"
+        }
+      ],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -135,8 +146,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/soccer/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T16:55:47",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T22:48:54",
       "overall": "9-5-2",
       "league": {
         "record": "6-3-1",
@@ -333,8 +344,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/volleyball/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T16:25:27",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T20:31:31",
       "overall": "6-17",
       "league": {
         "record": "2-8",
@@ -626,8 +637,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/softball/fall/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T17:37:45",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T22:17:46",
       "overall": "7-16",
       "league": {
         "record": "4-6",
@@ -914,8 +925,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/cross-country/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T18:46:19",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T23:25:04",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -928,8 +939,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/cross-country/girls/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T18:46:25",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T23:25:08",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -942,8 +953,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/basketball/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T17:12:10",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T21:53:30",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1107,8 +1118,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/basketball/girls/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T18:04:59",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T20:05:45",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1167,16 +1178,6 @@
           "stage": "Tournament",
           "neutral": true,
           "venue": "Florida"
-        },
-        {
-          "date": "2026-12-19",
-          "opponent": "Fort LeBoeuf",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/inter-state/basketball/girls/game/fort-leboeuf-waterford-pa-vs-loveland-co/12-19-2026/?c=36d97cb5-f116-4f6b-85a0-2f853e4bbbc2",
-          "stage": "Tournament",
-          "neutral": true,
-          "venue": "Florida",
-          "time": "19:00"
         },
         {
           "date": "2027-01-05",
@@ -1293,8 +1294,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/wrestling/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T18:46:48",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T23:25:31",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1307,8 +1308,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/swimming/girls/",
-      "fetched": "2026-11-08T18:45:44.290Z",
-      "maxprepsUpdated": "2026-11-08T18:46:53",
+      "fetched": "2026-11-09T23:24:27.923Z",
+      "maxprepsUpdated": "2026-11-09T23:25:37",
       "results": [],
       "upcoming": [],
       "held": [],
