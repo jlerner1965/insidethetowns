@@ -15,6 +15,14 @@
  * "Register →" under its "Registration closed" pill (Berthoud analysis,
  * 8 November 2026). The link is a button since 9 November 2026, and the
  * row's labels are bold black, so a row reads as parts, not a paragraph.
+ *
+ * On a phone the facts (who, when, where, cost, how to register) fold
+ * under "Who, when and cost": Berthoud's family page ran to thirty screens
+ * with every row open (audit of 9 November 2026; the owner, 10 November).
+ * The title, the status, the summary, the deadline and the button stay in
+ * view. From the small breakpoint up the script below opens every row and
+ * the stylesheet hides the toggle, so a wide screen reads as it did; with
+ * no script the toggle stays and works at every width.
  */
 import type { TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayShort, formatShortDate, toIsoLocal } from '@/lib/dates';
@@ -96,6 +104,8 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     <p class="mt-2 rounded-md bg-highlight-soft px-3 py-1.5 text-[0.9375rem] ring-1 ring-highlight">{pause}</p>
   )}
   <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
+  <details class="program-more group/more mt-3" data-program-more>
+  <summary class="-my-1 inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-[0.9375rem] font-semibold text-primary underline decoration-primary-line underline-offset-4 [&::-webkit-details-marker]:hidden list-none"><span class="group-open/more:hidden">Who, when and cost</span><span class="hidden group-open/more:inline">Hide the details</span></summary>
   {shown.length > 0 && (
     <dl class="mt-4 grid gap-x-6 gap-y-1 text-[0.9375rem] leading-snug sm:grid-cols-[6rem_1fr] sm:gap-y-2.5">
       {shown.map(([k, v]) => (
@@ -109,20 +119,25 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
       ))}
     </dl>
   )}
+  {(reg?.how || reg?.note) && (
+    <p class="mt-4 text-[0.9375rem] text-ink-muted">
+      {reg.how && <span class="block">{reg.how}</span>}
+      {reg.note && <span class="block">{reg.note}</span>}
+    </p>
+  )}
+  {data.volunteerNeed && <p class="mt-4 text-[0.9375rem]"><span class={label}>Volunteer need</span> <span class="block">{data.volunteerNeed}</span></p>}
+  </details>
   <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
     {reg && (
       <li class:list={[passed && 'text-ink-muted']}>
         <span class:list={[!passed && 'font-semibold text-title']}>{reg.required ? 'Registration required' : 'No registration'}</span>{reg.deadline && (
           <Fragment>{' · '}<time datetime={toIsoLocal(reg.deadline)} class:list={[!passed && 'font-semibold text-title']}>{passed ? `deadline was ${formatDate(reg.deadline)}` : `by ${formatDate(reg.deadline)}`}</time></Fragment>
         )}{reg.opens && !reg.deadline && <Fragment>{opened ? ' · open since ' : ' · opens '}<time datetime={toIsoLocal(reg.opens)}>{formatDate(reg.opens)}</time></Fragment>}
-        {reg.how && <span class="block text-ink-muted">{reg.how}</span>}
-        {reg.note && <span class="block text-ink-muted">{reg.note}</span>}
       </li>
     )}
     {data.beginners && <li class="text-ink-muted">Beginners welcome, the organizer says</li>}
     {data.newcomers && <li class="text-ink-muted">Newcomers welcome, the organizer says</li>}
   </ul>
-  {data.volunteerNeed && <p class="mt-4 text-[0.9375rem]"><span class={label}>Volunteer need</span> <span class="block">{data.volunteerNeed}</span></p>}
   {nextWhen && (
     <p class="mt-4 text-[0.9375rem]">
       <span class={label}>Next</span>{' '}
@@ -149,3 +164,25 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     )}
   </p>
 </article>
+
+<script>
+  // Open every row's details from the small breakpoint up, where the page
+  // has the room; the stylesheet hides the toggle once a row is marked.
+  const wide = window.matchMedia('(min-width: 40rem)');
+  const openRows = () => {
+    if (!wide.matches) return;
+    document.querySelectorAll<HTMLDetailsElement>('[data-program-more]').forEach((d) => {
+      d.open = true;
+      d.dataset.wide = '';
+    });
+  };
+  openRows();
+  wide.addEventListener('change', openRows);
+  // A link to a row (#program-…) opens it on a phone too.
+  const openTarget = () => {
+    const row = location.hash.startsWith('#program-') ? document.getElementById(location.hash.slice(1)) : null;
+    row?.querySelector<HTMLDetailsElement>('[data-program-more]')?.setAttribute('open', '');
+  };
+  openTarget();
+  window.addEventListener('hashchange', openTarget);
+</script>

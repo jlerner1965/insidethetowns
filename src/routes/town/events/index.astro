@@ -131,8 +131,10 @@ const structured = [
         list, in the home page's short form (the heading, one line, the
         field, the button, "Free. Unsubscribe anytime."; the town pre-ticked,
         no town picker: the owner, 6 November 2026); the foot keeps the full
-        form with the picker. Left out of the filtering. */}
-    <div class="mb-12 md:mb-16" data-filter-ignore>
+        form with the picker. Not on a phone, where it stood between the
+        picks and the calendar (audit of 9 November 2026; the owner, 10
+        November): the form at the foot is the phone's. Left out of the filtering. */}
+    <div class="mb-12 hidden md:mb-16 md:block" data-filter-ignore>
       <NewsletterSignup town={town} id="events-mid" variant="home" />
     </div>
     {/* An empty fortnight is not a module: with later dates or regulars to

@@ -239,6 +239,9 @@
     padding-inline: 6px 1.25rem;
   }
   .filter-pills::-webkit-scrollbar { display: none; }
+  /* A program row's details: the toggle goes once the script has opened the row on a wide screen (src/components/ProgramRow.astro). */
+  .program-more[data-wide] > summary { display: none !important; }
+  @media print { .program-more > summary { display: none; } }
   .filter-pills > * { flex-shrink: 0; white-space: nowrap; }
   /*
    * An edge with more beyond it fades out instead of cutting a button in

@@ -1,0 +1,43 @@
+---
+/**
+ * The streets around a listing with a pin on it, drawn at build as an
+ * inline SVG from the guide's own file (src/lib/place-map.ts): no map
+ * service is loaded when the page is read, which the site's security
+ * policy would refuse anyway. For a listing with no photograph, so the
+ * page is not text alone (audit of 9 November 2026), and it links to the
+ * directions the facts column already gives. The pin is the geocoder's
+ * reading of the address, within the block, and the caption says so.
+ */
+import type { PlaceMapView } from '@/lib/place-map';
+
+interface Props {
+  map: PlaceMapView;
+  title: string;
+  /** The Google Maps link the page already carries. */
+  directions?: string;
+  class?: string;
+}
+const { map, title, directions, class: className } = Astro.props;
+const stroke = { highway: 8, road: 4.5, rail: 1.5 } as const;
+---
+<figure class:list={['place-map', className]}>
+  <svg viewBox={`0 0 ${map.width} ${map.height}`} role="img" aria-label={`Street map: about where ${title} is`} class="block h-auto w-full rounded-lg bg-accent-soft ring-1 ring-line-soft">
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      {map.roads.filter((r) => r.kind === 'rail').map((r) => <path d={r.d} stroke="var(--color-ink-muted)" stroke-width={stroke.rail} stroke-dasharray="6 5" opacity="0.6" />)}
+      {map.roads.filter((r) => r.kind !== 'rail').map((r) => <path d={r.d} stroke="var(--color-line)" stroke-width={stroke[r.kind] + 2} />)}
+      {map.roads.filter((r) => r.kind !== 'rail').map((r) => <path d={r.d} stroke="var(--color-raised)" stroke-width={stroke[r.kind]} />)}
+    </g>
+    <g font-size="12.5" font-weight="600" fill="var(--color-ink)" text-anchor="middle" paint-order="stroke" stroke="var(--color-raised)" stroke-width="3.5" stroke-linejoin="round" aria-hidden="true">
+      {map.labels.map((l) => <text x={l.x} y={l.y} dy="4" transform={`rotate(${l.angle} ${l.x} ${l.y})`}>{l.text}</text>)}
+    </g>
+    <g transform={`translate(${map.pin.x} ${map.pin.y})`}>
+      <path d="M0 0C-9 -13 -13 -19 -13 -25a13 13 0 1 1 26 0c0 6 -4 12 -13 25z" fill="var(--color-primary)" stroke="var(--color-raised)" stroke-width="2" />
+      <circle cx="0" cy="-25" r="4.5" fill="var(--color-raised)" />
+    </g>
+  </svg>
+  <figcaption class="mt-1 text-[0.6875rem] leading-tight tracking-wide text-ink-muted">
+    About where {title} is, north up; the pin is placed from the address and is approximate.
+    {directions && <a href={directions} rel="noopener" class="underline">Directions in Google Maps</a>}
+    {' '}Roads: U.S. Census Bureau.
+  </figcaption>
+</figure>

@@ -2,9 +2,16 @@
 >
 > **Withdrawn, on reading the code:** the long lines on This week and Events (the text already sits in a reading-width column; the measurement read the card, not the text), the cut filter chips (the row already fades at a scrolled edge), and the 41 long titles (`src/lib/titles.ts` fits them to its own limit by design).
 >
-> **Left as the owner set them:** the Families row layout (9 November), where the signup box sits on Events and the home (6 November), and "See organizer" on the cost row. The audit's notes on them stand as opinion, not as changes.
+> **Second pass, the same evening, on the owner's word ("you can take care of all that"):**
 >
-> **Still open:** the rec-center pool hours for 31 December, 2 and 3 January and 21–23 and 28–30 December (call 970-532-1600); the Development Code outcome after 10 November; early-bird prices after 14 November; the library's three unlisted programs and the blood drive, whose times were not confirmed on a second read; a map on place pages (the site's security policy allows no embedded maps); and every item under Decisions for James.
+> - Families and Get involved: on a phone a program's facts fold under "Who, when and cost"; the page went from about 25,100 px to 17,500. A wide screen reads as before.
+> - Events: the mid-page signup is off the phone; the form at the foot stays.
+> - Place pages with no photograph draw their own street map with a pin: the Census Bureau's public road lines and geocoder, kept in `data/berthoud/place-map.json` by `scripts/place-maps.ts`, no map service loaded. 50 of 60 listings are placed; parks at an intersection and three addresses the geocoder does not match are not, and get no map.
+> - Decisions taken: the State's 2025 estimate (13,137) beside the census figure; both price tiers on youth sports; Osito's and Jessie's published on Berthoud Main Street's listing, without hours; the futsal clinic removed; the holiday card slug carries the 14th; past events kept, as on 4 November.
+> - Events added: the fire district's open house (10 November), Meditation in Everyday Life and Craft & Concoct (12 November), Senior Yoga (28 November).
+> - Rec center: 2 and 3 January follow the Town's winter guide; 21–23 and 28–30 December, which the guide lists without hours, send the reader to the Town's schedule rather than show the ordinary day.
+>
+> **Not done, and why:** Trailhead Cafe's and Brick Oven Pizza's own sites refuse automated reads and were not read around the refusal; the four listings that rest on Main Street's directory alone and Wishful Living need a phone call; the home page's signup stays where the owner's numbered layout of 7 November puts it; Eat & drink gets its photo cards from the listings' own photographs, so it waits for the shoot; City Star's feed text on its cribbage and music listings is quoted as City Star wrote it; the Development Code outcome is not published until after the 10 November meeting.
 
 # Inside Berthoud — full audit, 9 November 2026
 
