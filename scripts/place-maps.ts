@@ -4,6 +4,7 @@
  *
  *   node scripts/place-maps.ts --town=berthoud
  *   node scripts/place-maps.ts --town=berthoud --osm=/path/to/map.osm
+ *   node scripts/place-maps.ts --town=golden --osm=south.osm,middle.osm,north.osm
  *
  * A place page with no photograph was a page of text (audit of 9 November
  * 2026), and the site's security policy allows no embedded map. So the map
@@ -87,6 +88,7 @@ const streetKey = (v: string) =>
   v
     .toLowerCase()
     .replace(/\([^)]*\)/g, ' ')
+    .replace(/['’]/g, '')
     .replace(/\b(north|south|east|west|n|s|e|w)\b\.?/g, ' ')
     .replace(/\bavenue\b/g, 'ave')
     .replace(/\bstreet\b/g, 'st')
@@ -101,6 +103,17 @@ const streetKey = (v: string) =>
     .replace(/\bfirst\b/g, '1st')
     .replace(/\bsecond\b/g, '2nd')
     .replace(/\bthird\b/g, '3rd')
+    .replace(/\bfourth\b/g, '4th')
+    .replace(/\bfifth\b/g, '5th')
+    .replace(/\bsixth\b/g, '6th')
+    .replace(/\bseventh\b/g, '7th')
+    .replace(/\beighth\b/g, '8th')
+    .replace(/\bninth\b/g, '9th')
+    .replace(/\btenth\b/g, '10th')
+    .replace(/\beleventh\b/g, '11th')
+    .replace(/\btwelfth\b/g, '12th')
+    .replace(/\bthirteenth\b/g, '13th')
+    .replace(/\bfourteenth\b/g, '14th')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
 const nameKey = (v: string) => v.toLowerCase().replace(/&/g, 'and').replace(/\b(the|co|company|restaurant|park|brewing|brewery)\b/g, ' ').replace(/[^a-z0-9]+/g, '');
@@ -146,7 +159,21 @@ function readOsm(path: string): { lines: Line[]; areas: Area[]; pois: Poi[]; new
   return { lines, areas, pois, newest: newest.slice(0, 10), covers };
 }
 const osmPath = arg('osm');
-const osm = osmPath ? readOsm(resolve(osmPath)) : undefined;
+// Several extracts, comma-separated, are read as one map: the site's export box is small, and a town can need two
+// or three overlapping ones. What two of them both carry is kept once.
+function readAll(paths: string[]): ReturnType<typeof readOsm> {
+  const parts = paths.map((path) => readOsm(resolve(path)));
+  const once = <T,>(items: T[], key: (item: T) => string) => [...new Map(items.map((item) => [key(item), item])).values()];
+  const shape = (p: number[][]) => `${p.length}:${p[0]}:${p[p.length - 1]}`;
+  return {
+    lines: once(parts.flatMap((part) => part.lines), (l) => `${l.k}|${l.n}|${shape(l.p)}`),
+    areas: once(parts.flatMap((part) => part.areas), (a) => `${a.k}|${shape(a.p)}`),
+    pois: once(parts.flatMap((part) => part.pois), (p) => `${p.name}|${p.number}|${p.street}|${p.at}`),
+    newest: parts.map((part) => part.newest).sort().at(-1) ?? '',
+    covers: (lat, lng) => parts.some((part) => part.covers(lat, lng)),
+  };
+}
+const osm = osmPath ? readAll(osmPath.split(',')) : undefined;
 /** A listing in the extract: by its house number and street first, then by its name. Nothing loose: a near miss is no match. */
 function osmPlace(title: string, address: string): [number, number] | undefined {
   if (!osm) return undefined;
