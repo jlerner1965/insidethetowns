@@ -12,7 +12,7 @@ performers:
 organizer: "Longmont Symphony Orchestra"
 organizerUrl: "https://longmontsymphony.org/"
 source: "https://longmontsymphony.org/season-concerts"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 7 pm on the page"
 ---
 

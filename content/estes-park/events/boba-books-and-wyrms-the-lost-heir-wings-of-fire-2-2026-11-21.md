@@ -10,7 +10,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17674973"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17674973"
 sourceHash: "581dc18265c0"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Boba, Books & Wyrms: The Lost Heir (Wings of Fire #2)\" at 1 pm on 21 November on the Estes Valley Library feed"
 ---
 

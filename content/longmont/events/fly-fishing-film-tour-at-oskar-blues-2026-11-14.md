@@ -8,7 +8,7 @@ url: "https://oskarblues.com/event/2026-fly-fishing-film-tour-free-screening-202
 cost: "Free"
 category: outdoors
 source: "https://oskarblues.com/event/2026-fly-fishing-film-tour-free-screening-2026-11-14/"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 6 pm on the page"
 ---
 

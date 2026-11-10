@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/nature-fun-at-sandstone-ranch/"
 sourceId: "longmontcolorado-gov-recreation"
 sourceUid: "10009805-1795424400-1795435200@longmontcolorado.gov"
 sourceHash: "c2ba12a35bff"
-verified: "2026-11-02"
-verifiedBy: "auto-review from the Longmont Recreation Services (City of Longmont calendar) feed read 2026-11-02, the weekly ingest workflow"
+verified: "2026-11-10"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Nature Fun at Sandstone Ranch\" at 9 am on 23 November on the Longmont Recreation Services (City of Longmont calendar) feed"
 ---
 
 Nature Fun at Sandstone Ranch at Sandstone Ranch Visitors Center, Monday, November 23, 9 am – 12 pm. Listed by Longmont Recreation Services (City of Longmont calendar); the organizer's page has the details and any registration.

@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Desert Furs", kind: group }
 source: "https://oskarblues.com/event/longmont-live-music-desert-furs-2026-11-21/"
-verified: "2026-11-09"
+verified: "2026-11-10"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 5:30 pm on the page"
 ---
 

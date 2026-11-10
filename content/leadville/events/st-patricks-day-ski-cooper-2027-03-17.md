@@ -8,8 +8,8 @@ url: "https://www.skicooper.com/events/"
 category: festival
 organizer: "Ski Cooper"
 source: "https://www.skicooper.com/events/"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-10"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"St. Patrick's Day\" at 9 am on 17 March on the Ski Cooper feed"
 ---
 
 Irish music, corned beef and cabbage, and a leprechaun search on Leprechaun Lane, Wednesday, March 17, 2027, 9 am to 4 pm. Ski Cooper calls Katie O'Rourke's the highest-altitude Irish pub in the country.

@@ -13,8 +13,8 @@ performers:
   - { name: "Pop Evil", kind: group }
   - { name: "Wings of Steel", kind: group }
 source: "https://www.treventscomplex.com/events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against The Ranch Events Complex's events list, 1 November 2026: Sabaton: Legends On Tour with Pop Evil and Wings of Steel, Nov 18, 2026, Blue Arena, tickets via AXS; time and price not shown on the list"
+verified: "2026-11-10"
+verifiedBy: "recheck-events (the nightly re-check workflow): 18 November on the page"
 ---
 
 Swedish metal band Sabaton bring the Legends on Tour to Blue Arena at The Ranch on Wednesday, November 18, with Pop Evil and Wings of Steel opening. The Ranch's listing gives the date and venue; the start time and ticket prices are on the AXS ticket page linked from it.
