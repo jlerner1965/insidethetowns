@@ -10172,3 +10172,14 @@ day listed the two matches (Fresno State on 12 November, Texas State on
 17 November) at Moby Arena from the reviewer's own knowledge, flagged for
 a look. The owner confirmed it: yes to Moby. A later home match will
 still wait for a person until the feed names the arena.
+
+## A game the guide lists as an event is shown once, 10 November 2026
+
+The owner sent Johnstown's weekend tab with "Roosevelt football vs
+Montbello" on it twice at Friday, 7 pm: once from the scores feed ("Home ·
+State Football Playoffs") and once from the listing written for the
+playoff game. While a game is ahead and a sports listing on its day names
+the opponent, the day shows the listing and not the game's row
+(`listedAsEvent`, src/lib/flagship-home.ts): the listing has the page
+with the story. Once the game is played its row carries the result and is
+shown. The team page and the sports strip are unchanged.

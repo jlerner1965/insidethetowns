@@ -7,7 +7,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, NEXT_LIMIT, nextAfter, nextRank, pickRows, TAB_DAYS_AHEAD, TAB_LIMIT, tabEditions, tabRank } from '../src/lib/home-tabs.ts';
 import { asOfFor } from '../src/lib/relative-days.ts';
-import { weekDays } from '../src/lib/flagship-home.ts';
+import { listedAsEvent, weekDays } from '../src/lib/flagship-home.ts';
 import { agenda, FILL_BELOW, fillTest } from '../src/lib/events.ts';
 import { parseLocal } from '../src/lib/dates.ts';
 
@@ -300,4 +300,19 @@ test('outings lead a tab; a library program and a meeting are shown only where t
 
   // Nothing else on: the library's program is the day, and leads it.
   assert.deepEqual(pickRows([talk]).rows.map((r) => r.fullTitle), ['great-decisions']);
+});
+
+test('a game the guide also lists as an event is one row, the listing, until it is played', () => {
+  const now = at('2026-11-10T09:00');
+  const playoff = ev('roosevelt-football-4a-playoffs-second-round-2026-11-13', '2026-11-13T19:00', { title: 'Roosevelt football vs Montbello: 4A playoffs, second round', venue: 'Roosevelt High School', category: 'sports' });
+  const band = ev('band', '2026-11-13T20:00', { title: 'A band', venue: 'A bar', category: 'music' });
+  const game = (extra: Record<string, unknown> = {}) => ({ id: 'g1', date: '2026-11-13', time: '19:00', opponent: 'Montbello', site: 'home', stage: 'State Football Playoffs', ...extra });
+  const sports = (g: Record<string, unknown>, upcoming = true) => ({ sports: [{ key: 'football', name: 'Football', results: upcoming ? [] : [g], upcoming: upcoming ? [g] : [] }] }) as never;
+  assert.equal(listedAsEvent(game(), [playoff]), true);
+  assert.equal(listedAsEvent(game(), [band]), false, 'another listing that day is not the game');
+  assert.equal(listedAsEvent(game({ opponent: 'Mead' }), [playoff]), false, 'another opponent');
+  assert.equal(listedAsEvent(game({ result: 'W' }), [playoff]), false, 'played: the row has the result');
+  const friday = (s: never, events: unknown[]) => weekDays({ events: events as never[], sports: s, now, start: 'today', limit: 99 }).find((d) => d.key === '2026-11-13')!.items;
+  assert.deepEqual(friday(sports(game()), [playoff, band]).map((i) => i.kind), ['event', 'event'], 'the listing and the band; the game row is not repeated');
+  assert.deepEqual(friday(sports(game()), [band]).map((i) => i.kind), ['game', 'event'], 'with no listing of its own, the game row is the game');
 });
