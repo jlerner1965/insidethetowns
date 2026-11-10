@@ -14,7 +14,7 @@ import { parseClock, parseLongDate, readRss } from '../scripts/lib/feeds/rss.ts'
 import { isLivestream, isShowareFeed, readShowarePage, showareHasMore, showarePage, showareTitle } from '../scripts/lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage } from '../scripts/lib/feeds/tribe.ts';
 import { plainText, titleStatus } from '../scripts/lib/feeds/types.ts';
-import { detectChanges, excludedTitle, fingerprint, guessCategory, hostOf, matchExisting, passesCategoryFilter, passesLocationFilter, sameSite, siblingCounts, titleSimilarity, toStaged, venueFrom } from '../scripts/lib/ingest.ts';
+import { venueOf, detectChanges, excludedTitle, fingerprint, guessCategory, hostOf, matchExisting, passesCategoryFilter, passesLocationFilter, sameSite, siblingCounts, titleSimilarity, toStaged, venueFrom } from '../scripts/lib/ingest.ts';
 import { eventFile, slugify } from '../scripts/lib/event-files.ts';
 import { parseFrontmatter } from '../scripts/lib/frontmatter.ts';
 import { eventSchema, sourceSchema } from '../src/content/schemas.ts';
@@ -693,4 +693,16 @@ END:VCALENDAR`;
   const show = events.find((e) => e.uid === 'midnightshow@example')!;
   assert.equal(show.allDay, false, 'a timed event that happens to start at midnight keeps its time');
   assert.equal(toWallClock(show.end!), '2026-11-14T02:00');
+});
+
+test('a source can name the venue for a title the feed gives no place', () => {
+  const source = { titleVenues: { Volleyball: 'Moby Arena' } };
+  const noPlace = venueOf({ title: 'Colorado State University Volleyball vs Wyoming', location: 'Fort Collins, CO' }, source);
+  assert.equal(noPlace.venue, 'Moby Arena');
+  assert.equal(noPlace.guessed, false);
+  // A venue the feed names stands, whatever the title.
+  assert.equal(venueOf({ title: 'Colorado State University Volleyball vs Wyoming', location: 'Canvas Stadium, Fort Collins, CO' }, source).venue, 'Canvas Stadium');
+  // Another sport with no venue still has none.
+  assert.equal(venueOf({ title: "Colorado State University Men's Basketball vs Wyoming", location: 'Fort Collins, CO' }, source).venue, undefined);
+  assert.equal(venueOf({ title: 'Volleyball', location: undefined }, {}).venue, undefined);
 });

@@ -10170,8 +10170,17 @@ they have to be, and the social ones should.
 The CSU feed gives no venue for home volleyball, and the review of that
 day listed the two matches (Fresno State on 12 November, Texas State on
 17 November) at Moby Arena from the reviewer's own knowledge, flagged for
-a look. The owner confirmed it: yes to Moby. A later home match will
-still wait for a person until the feed names the arena.
+a look. The owner confirmed it: yes to Moby, and then that every home
+volleyball match is at Moby Arena.
+
+- **`titleVenues` on a source** (src/content/schemas.ts; `venueOf`,
+  scripts/lib/ingest.ts): the venue for items whose title holds a given
+  piece, used only where the feed names no place. CSU's source has
+  `{ "Volleyball": "Moby Arena" }`, so later home matches publish without
+  a person. A venue the feed does give always stands.
+- **Not checked against the live feed.** After the day's reads
+  csurams.com answered 403 and then a redirect loop; the rule is pinned by
+  a test, and Monday's run will show whether the feed still answers.
 
 ## A game the guide lists as an event is shown once, 10 November 2026
 
