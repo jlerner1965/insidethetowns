@@ -10027,3 +10027,25 @@ to use Eventbrite for all towns as well.
 - **The small towns get little from a place page**, because it is the
   region's search and their events are spread through its 49 pages. An
   organizer's page for each local organizer is the next step there.
+
+## Eventbrite publishes without a person, 10 November 2026
+
+Asked whether the 126 staged Eventbrite events should be reviewed by hand
+or allowed to publish, the owner said: auto publish all; having to do it
+by hand would defeat the purpose of the town network.
+
+- **`autoApprove` on all nineteen Eventbrite sources.** Their items
+  publish under the standing rules; the guard for a board still holds one
+  that may be an event already on the guide at that hour (Next Stop Comedy
+  at St. Vrain Cidery, which the cidery's own page had listed; Motus
+  Theater in Lafayette), and one whose venue Eventbrite does not give.
+- **What the guide never lists is kept out by title** on every Eventbrite
+  source, and 27 staged files were removed: professional trainings and
+  association socials, partisan events, sales demonstrations, clinics' own
+  workshops, app-run scavenger hunts, events in a private home.
+- **Published: 80.** Fort Collins 35, Loveland 10, Longmont 9, Windsor 8,
+  Castle Rock 5, Estes Park 4, Lafayette 2, Frederick 2, and one each in
+  Berthoud, Elizabeth, Golden, Johnstown and Lyons.
+- `autoApprove` was not set on the other boards that wait for a person
+  (Loveland's downtown calendar, Live Well Douglas County, Golden Today):
+  the owner was asked about Eventbrite, and each of those is its own word.
