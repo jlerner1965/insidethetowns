@@ -54,7 +54,7 @@ import { recCenterFor, type RecCenterData } from '@/lib/rec-center';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
-import { forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
+import { fillTest, forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
 import { familyLines } from '@/lib/family-home';
 import { eventItem, weekDays } from '@/lib/flagship-home';
 import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, TAB_DAYS_AHEAD, TAB_LIMIT, tabEditions } from '@/lib/home-tabs';
@@ -98,14 +98,17 @@ const picked = new Set(pick ? [pick.event.slug] : []);
 const general = (horizonDays: number) => forGeneralReaders(occurrences(allEvents, { now, horizonDays }), allEvents);
 // What an empty tab offers next: the listings of the next two months, so a
 // quiet guide's next date three weeks out is still found.
-const later = laterRows(general(60), picked, weeklyTest(allEvents));
+// The regulars (trivia, a monthly club, a food truck) are marked, so a tab
+// shows them only on a quiet day and "Next in <Town>" ranks them last, once.
+const isFill = fillTest(allEvents);
+const later = laterRows(general(60), picked, isFill);
 // The tabs for today and for each of the next two days, so a page read
 // after midnight shows that day's Today, not the build's (src/lib/
 // home-tabs.ts, tabEditions). The school's games say whose they are:
 // "Niwot volleyball vs …".
 const week = general(8 + TAB_DAYS_AHEAD);
 const editions = tabEditions((asOf) => {
-  const days = weekDays({ events: week, sports: data, teamHref, now: asOf, start: 'today', limit: 99, picked });
+  const days = weekDays({ events: week, sports: data, teamHref, now: asOf, start: 'today', limit: 99, picked, isSeries: isFill });
   return homeTabs(school ? labelGames(days, school.maxprepsName) : days, asOf, TAB_LIMIT, later);
 }, now);
 const tabs = editions[0]!.tabs;

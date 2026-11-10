@@ -9723,3 +9723,40 @@ subscribe` on the owner's word.
   and two food trucks. The brewery enters its trucks a week or two ahead,
   so they arrive with each Monday's read, not months out. Kölsch Service,
   Wednesdays in summer, will come when the brewery enters next year's.
+
+## Regulars fill a quiet day and step back on a full one, 10 November 2026
+
+The event standard dates from the audit of 2 October, when the guides
+were new: storytimes, clubs, trivia, bingo and food trucks belong on the
+venue's listing, not the calendar. It was never applied in full, and the
+feeds confirmed on 10 November brought eight trivia nights, a monthly
+craft table and a brewery's food trucks in as dated events, while Niwot
+and Nederland still read "Nothing listed" on a weekday. The owner asked
+for the best way to have more events without endless recurring ones that
+have no appeal, and agreed to this.
+
+**The test is whether a date differs from the last one**, not whether the
+thing recurs. A band with a name, a play's night, a market day, a home
+game: every date is listed. Trivia, bingo, a club, a class, an open mic,
+the day's food truck: the same every time, so a regular (`fillTest` in
+src/lib/events.ts: `regularTest`, or "food truck" in the title; never a
+civic meeting or a run of shows).
+
+- **On the home page's tabs** a regular is shown only on a quiet list,
+  one with fewer than three one-offs, and only up to three rows in all
+  (`FILL_BELOW`, `pickRows`). A day with nothing has its trivia; a day
+  with three events is not led by one. The regulars not shown are in the
+  "N more" count, which leads to them. Until now the tabs were never told
+  which rows were series at all (the home passed no `isSeries`), so a
+  regular took any free slot.
+- **On the events page**, beyond the fortnight, a regular kept as a file
+  per date is listed once, at its next date, where each session had a row:
+  Fritz's trivia had eight under "Further out". Inside the fortnight its
+  dates stay, and the weekly ones are under "Every week" as before. This
+  reverses "each session on its own date" from the calendar audit of 26
+  October for the months ahead only; the test that pinned it says so.
+- **"Next in <Town>"** names a regular once, though it has a page per date.
+- **Not changed**: what ingest stages or the standing rules publish, the
+  Thursday email, the hub, the Families page. School performances and the
+  tourism boards' listings publishing without a person, and a reader for
+  Squarespace calendars, are the next two steps the owner was given.
