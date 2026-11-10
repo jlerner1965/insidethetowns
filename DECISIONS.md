@@ -9606,3 +9606,101 @@ before. Without script the build's day shows. Two days ahead covers a
 night's rebuild that starts late or is dropped. A quiet day still says
 "Nothing listed for today": that line is a fact about the guide when it is
 true, and it was not.
+
+## More event sources for the thin guides, 10 November 2026
+
+The owner asked for more event sources: some guides, Niwot among them,
+are thin. Over the next fourteen days Leadville had 4 listings, Frederick
+and Timnath 5, Nederland 6, Elizabeth 8, Castle Rock and Niwot 11, Windsor
+13. The common cause is that ingest reads only feeds (ical, rss, json) and
+most of these guides' sources are pages a person reads; Leadville had 19
+sources and none confirmed.
+
+Every source in those eight registries was checked for a feed, and each
+town was searched for sources it lacked. What was found is on the entries'
+`notes`, with the count of the next thirty days and the exclusions each
+would need.
+
+- **Nothing was switched on.** Every new entry is `proposed`, and no
+  status changed. Four sources that were already confirmed turned out to
+  have a feed (the Nederland library, the Clearview library's Severance
+  branch, Severance High, the Town of Castle Rock); each keeps its `manual`
+  or `html` type with the feed in `feedUrl`, because typing a confirmed
+  entry `ical` or `rss` starts ingest reading it. The owner turns each on.
+- **Feeds behind a robots rule** (Google Calendar, Tockify, CivicPlus's
+  calendar paths, one site's `Disallow: /*?`) need the editor's
+  `robots: subscribe`, as Windsor's recreation feed did on 29 October.
+- **What ingest cannot read yet**: Squarespace event collections (Timnath
+  Beerwerks, about 13 a month; The Wheel House in Niwot), ChamberMaster's
+  RSS (the Windsor chamber), and an Events Calendar site whose time zone is
+  "UTC+0" (the Nederland seniors).
+- **Niwot has little left to find**: Inkberry Books by hand, one Rotary
+  item a month. The Gunbarrel library's feed is recorded but is not in
+  Niwot.
+
+## The owner subscribes to the calendar feeds, 10 November 2026
+
+Asked what the robots rule was and told the choice (read a published
+subscription feed weekly although the host's robots.txt disallows the
+path, as decided for Windsor's recreation feed on 29 October, or ask each
+organization first), the owner said: subscribe to all of them and confirm.
+
+- **`robots: subscribe` and confirmed**: the Lake County Public Library
+  (Tockify), the high school calendars of Leadville, Timnath, Frederick,
+  Windsor and Severance (Google Calendar), the Town of Firestone and the
+  City of Dacono (CivicPlus), and the Town of Windsor's calendar RSS.
+  Severance High, already confirmed, is typed `ical` on the same word.
+- **Confirmed, no robots question**: Visit Leadville Twin Lakes, Ski
+  Cooper, Honnibrook Craft Meadery, the Elbert County Marketplace, the
+  Clearview library's Windsor branch.
+- **Confirmed but still not read**: Mighty River Brewing. Its Tockify feed
+  is behind the same rule as the Leadville library's, which the research
+  had read as allowed; it was not on the list the owner was given, so it
+  stays `honor` until asked.
+- **Not turned on**: Ecclesia Market (the rule is the site's own, so ask
+  them), and the Nederland library, the Clearview Severance branch and the
+  Town of Castle Rock, which have feeds recorded and wait for the owner.
+- **Filters before the first read.** A dry run staged 112 items from the
+  Leadville library and 53 from Timnath's school in 120 days, nearly all
+  standing clubs, storytimes, practices and testing days; with the title
+  exclusions the other guides' library and school feeds carry, 13 and 8.
+  The market's default venue is the guide's own name for it, Casey Jones
+  Park Pavilion, so its five published days are not flagged as moved.
+- Nothing was ingested here: the Monday run stages what these feeds hold
+  and its pull request shows what the standing rules would publish.
+
+## Mighty River and the Nederland library turned on, 10 November 2026
+
+Told that Mighty River Brewing's Tockify feed was behind the same robots
+rule as the Leadville library's and that the Nederland library's feed was
+recorded but off, the owner said yes to both. Mighty River is read under
+`robots: subscribe`; with its drink specials, trivia, bingo, poker and food
+trucks excluded, a dry run staged 4 music nights new to the guide. The
+Nederland library is typed `ical`; its robots.txt allows the feed. A dry
+run staged 52 items in 120 days, 55 of the feed's entries being one weekly
+writers' group, so the standing clubs, storytimes, committee meetings and
+closures are excluded by title as on the other library feeds.
+
+## The new feeds ingested the same day, 10 November 2026
+
+The owner asked for the ingest now rather than on Monday. It was run for
+the sixteen newly confirmed feeds only (`--source`), then the unattended
+review for their seven guides, as the Monday workflow does.
+
+- **Staged**: about 115 items. **Published under the standing rules**: 61
+  (Windsor 27, Frederick 15, Leadville 14, Nederland 3, Castle Rock 2).
+- **Left for a person**: Leadville's 30, nearly all from Visit Leadville
+  Twin Lakes, which is a chamber-kind source that lists others' events
+  (Taste of Leadville, the Parade of Lights, the Elks' bingo), and the high
+  school's plays and games; Timnath's 8 from the school calendar, for the
+  same reason and for want of a venue.
+- **Kept out after the first read**, by title, and their staged files
+  removed: at Frederick High the screenings, the PSAT, pep band and the
+  feeder elementary's performances (not at the high school, which is the
+  default venue); at Severance High the quarter's end, testing and
+  conferences; at Honnibrook a birthday party, a private group's party and
+  the book club.
+- **Two Windsor sources named for their organizations** (Mighty River
+  Brewing, Clearview Library District), since a listing says who listed
+  it and "Listed by tockify.com" is not who. Mighty River's music nights
+  are filed as music.
