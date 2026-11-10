@@ -9753,3 +9753,41 @@ robots rule.
   by hand.
 - The same folder's README proposes, and does not build, five changes to
   the events area and five to the email signup.
+
+## A reader for Squarespace events pages, 10 November 2026
+
+Told what readers for Squarespace, Modern Events Calendar and ChamberMaster
+would each unlock, the owner said to build Squarespace first.
+
+- **It reads the page, not a feed.** Squarespace's robots.txt, the same on
+  every site, disallows `?format=json`, `?format=ical`, `?view=` and
+  `/api/`. The plain events page is allowed, and in its list view it holds
+  every upcoming event in its HTML. That page is what
+  `scripts/lib/feeds/squarespace.ts` reads, so no source needs `robots:
+  subscribe` for it. A new source type, `squarespace`, with the page as its
+  `feedUrl`; `FEED_TYPES` in the schema now names the types ingest reads.
+- **The clock the page shows is the clock listed.** The start and end come
+  from the page's "Google Calendar" link, as instants in the site's own
+  time zone setting, which Mountain Toad leaves on New York, the Caribou
+  Room too, and Timnath Beerwerks on Kentucky. The instant is turned back
+  into the site's clock and that clock read as Denver's. Checked against
+  listings entered by hand: Drag Bingo 7:30 pm, Chrispy 6 pm, Spafford 7 pm.
+- **A page set to the calendar grid cannot be read** and ingest says so:
+  the grid is filled by script from `/api/`. That is Timnath Beerwerks,
+  MeadKrieger, Knotted Root, Liquid Mechanics, and The Wheel House's
+  calendar block. For those the venue switches the page to its list view,
+  or the owner sets `robots: subscribe` with the page's `?view=list` as the
+  feed, which was not fetched and is untested.
+- **Eleven proposed sources are typed `squarespace`**, each read once from
+  a plain fetch and counted on its notes: Wild Bear, Bristlecone Bookshop,
+  the Nederland Food Pantry and TEENS, Inc.; St. Vrain Cidery; Mountain
+  Toad; the Lyons Farmette; Artworks Loveland; Cloud City Conservation
+  Center; Homestead Fine Art Gallery; the Elizabeth Stampede. All stay
+  `proposed`. The Caribou Room, confirmed, has the page in `feedUrl` and
+  keeps its `html` type.
+- **Dry runs on a scratch copy, nothing written to the repository**: St.
+  Vrain Cidery, 15 items, 3 yoga classes kept out, 12 new. Mountain Toad,
+  31 items, 21 kept out, 7 matched to listings already published, and 3
+  Chrispy nights in December where the brewery's page now gives a
+  different time from the guide's. Timnath Beerwerks, not read, with the
+  reason.

@@ -146,12 +146,17 @@
       "id": "elizabethstampede-com",
       "name": "Elizabeth Stampede Rodeo",
       "url": "https://www.elizabethstampede.com/upcoming-events",
-      "type": "html",
+      "feedUrl": "https://www.elizabethstampede.com/upcoming-events",
+      "type": "squarespace",
       "category": "other",
       "status": "proposed",
       "robots": "honor",
       "defaultVenue": "Casey Jones Park",
-      "notes": "Found 10 November 2026: the Stampede's own site (Squarespace). /upcoming-events is a Squarespace events list with a per-event ICS link; /upcoming-events?format=ical returns the HTML page, not a calendar, and robots.txt disallows ?format=json, so there is no collection feed. Nothing public in the next 30 days: the list holds a board meeting (12 November, virtual), the volunteers' Holiday Party (14 November) and a budget session (10 December). Earlier entries show what it carries in season: Community Rodeo (25 September 2026, Casey Jones Park), Royalty Competition. The rodeo itself is the first weekend of June. Seasonal; a look in spring is enough."
+      "excludeTitles": [
+        "Board ",
+        "Recognition"
+      ],
+      "notes": "Found 10 November 2026: the Stampede's own site (Squarespace). /upcoming-events is a Squarespace events list with a per-event ICS link; /upcoming-events?format=ical returns the HTML page, not a calendar, and robots.txt disallows ?format=json, so there is no collection feed. Nothing public in the next 30 days: the list holds a board meeting (12 November, virtual), the volunteers' Holiday Party (14 November) and a budget session (10 December). Earlier entries show what it carries in season: Community Rodeo (25 September 2026, Casey Jones Park), Royalty Competition. The rodeo itself is the first weekend of June. Seasonal; a look in spring is enough. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 3 items, none public (two board sessions and a members' party in Kiowa, all excluded); the rodeo and its events are posted here in spring from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "marketspread-com",

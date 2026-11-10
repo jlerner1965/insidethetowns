@@ -185,7 +185,7 @@ file without one.
 `sources.json` lists the places checked each week for this town: the town
 calendar, the chamber, the library, the parks department, the venues the
 calendar leans on, and the rest. Each entry has an `id`, a `url`, a `type`
-(`ical`, `rss` or `json` with a `feedUrl`; `html` or `manual` otherwise), a
+(`ical`, `rss`, `json` or `squarespace` with a `feedUrl`; `html` or `manual` otherwise), a
 `category` and a `status`. `npm run sources -- --town=golden` lists what is
 still `proposed`, core entries first; `npm run sources -- confirm golden <id>`
 confirms one. Only a confirmed feed is ever read by ingest. The status has no

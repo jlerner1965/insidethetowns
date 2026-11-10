@@ -365,12 +365,16 @@
       "id": "stvraincidery-com",
       "name": "St. Vrain Cidery (events)",
       "url": "https://www.stvraincidery.com/events",
-      "type": "html",
+      "feedUrl": "https://www.stvraincidery.com/events",
+      "type": "squarespace",
       "category": "venue",
       "priority": "other",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Found and read 10 November 2026. St. Vrain Cidery, 350 Terry Street, Longmont (the address in the page's own event data). Squarespace events collection, which ingest cannot read yet, and Squarespace's robots.txt disallows ?format=json and ?format=ical, so neither was fetched; the /events page itself is allowed and reads as plain HTML, 45 items back to 6 October. Titles carry their kind as a prefix (MUSIC |, SHOW |, WORKSHOP |, CLASS |). Dated 10 November to 10 December 2026: 12. Worth a row, 4: MUSIC | Planet Bluegrass finalist Ingrid Avison 13 November, SHOW | Next Stop Comedy 14 November (ticketed on Eventbrite), DISCUSSION | Think & Drink 19 November, COSTUME CRAWL | Ugly Sweater 28 November (the downtown crawl, also at Dry Land). Regulars, 8: Flow & Restorative Yoga on Sundays (3), workshops (calligraphy 12 November, Open Door Art Club 14 November, Painter's Choice Party 15 November, gift wrapping 10 December) and the Visible Government League on 23 November. October had eight named music nights and two open mics, so the room is busier than this window shows. If Squarespace becomes readable, exclude by the CLASS |, WORKSHOP |, BOOK CLUB | and COMMUNITY EVENT | prefixes and SPECIAL HOURS."
+      "excludeTitles": [
+        "CLASS |"
+      ],
+      "notes": "Found and read 10 November 2026. St. Vrain Cidery, 350 Terry Street, Longmont (the address in the page's own event data). Squarespace events collection, which ingest cannot read yet, and Squarespace's robots.txt disallows ?format=json and ?format=ical, so neither was fetched; the /events page itself is allowed and reads as plain HTML, 45 items back to 6 October. Titles carry their kind as a prefix (MUSIC |, SHOW |, WORKSHOP |, CLASS |). Dated 10 November to 10 December 2026: 12. Worth a row, 4: MUSIC | Planet Bluegrass finalist Ingrid Avison 13 November, SHOW | Next Stop Comedy 14 November (ticketed on Eventbrite), DISCUSSION | Think & Drink 19 November, COSTUME CRAWL | Ugly Sweater 28 November (the downtown crawl, also at Dry Land). Regulars, 8: Flow & Restorative Yoga on Sundays (3), workshops (calligraphy 12 November, Open Door Art Club 14 November, Painter's Choice Party 15 November, gift wrapping 10 December) and the Visible Government League on 23 November. October had eight named music nights and two open mics, so the room is busier than this window shows. If Squarespace becomes readable, exclude by the CLASS |, WORKSHOP |, BOOK CLUB | and COMMUNITY EVENT | prefixes and SPECIAL HOURS. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 15 items (music, comedy, workshops, two costume crawls, an art show to 3 Jan; 3 yoga classes, which the exclusion drops) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "jesterstheatre-com",

@@ -29,7 +29,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
-import { COLLECTIONS, STAGED_COLLECTIONS, changeSchema, schemaFor, type CollectionName } from '../src/content/schemas.ts';
+import { COLLECTIONS, FEED_TYPES, STAGED_COLLECTIONS, changeSchema, schemaFor, type CollectionName } from '../src/content/schemas.ts';
 import { allSites, findTown, liveTowns } from '../src/config/index.ts';
 import { describeExclusion, eventExclusion, placeExclusion } from '../src/lib/freshness.ts';
 import { describeCounts, launchCounts } from './lib/launch.ts';
@@ -547,7 +547,7 @@ if (!existsSync(contentDir)) {
           // A feed ingest reads on a multi-town guide must say which town its
           // items are in, or every file it stages fails this validator and the
           // run is lost (1 November 2026, the Idaho Springs library).
-          if (config?.subTowns && !source.subTown && source.status === 'confirmed' && ['ical', 'rss', 'json'].includes(source.type) && source.feedUrl) {
+          if (config?.subTowns && !source.subTown && source.status === 'confirmed' && FEED_TYPES.includes(source.type) && source.feedUrl) {
             errors.push(`content/${town}/sources.json: ${source.id}: a confirmed feed on a multi-town guide needs a subTown (${config.subTowns.join(', ')}), or ingest cannot stage its items`);
           }
         }

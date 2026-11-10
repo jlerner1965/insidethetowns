@@ -213,14 +213,15 @@
       "id": "lyonsfarmette-com",
       "name": "The Lyons Farmette (workshops and farm dinners)",
       "url": "https://www.lyonsfarmette.com/workshops-and-events",
+      "feedUrl": "https://www.lyonsfarmette.com/workshops-and-events",
       "sampleUrl": "https://www.lyonsfarmette.com/dinners",
-      "type": "html",
+      "type": "squarespace",
       "category": "venue",
       "priority": "other",
       "status": "proposed",
       "robots": "honor",
       "defaultVenue": "The Lyons Farmette, 4121 Ute Highway",
-      "notes": "Found and read 10 November 2026. 4121 Ute Highway, Lyons (the address on its own event pages). A Squarespace site with two event collections: /workshops-and-events and /dinners (ticketed farm dinners with named restaurants, summer only; the 2026 ones were Blackbelly on 15 July and 9 September, Butcher and the Blonde on 12 August, Corrida on 26 August). Both pages and /calendar (a wedding availability page, no events) were fetched once. Workshops listed: 4 items; dated 10 November to 10 December and worth a row, 2: Intro to Branch Weaving on Sunday 15 November, 1 to 5 pm, and the Winter Attunement Yin Workshop on Sunday 6 December, 2 to 3:30 pm. After that, Two-Day Workshop: Pack Baskets on 20 February 2027. An aggregator also shows a class called HELD at the Farmette on 10 December that is not on the Farmette's own page; not verified. No regulars and nothing to exclude. The robots.txt allows the pages and disallows ?format=json and ?format=ical for every agent, and ingest cannot read Squarespace yet, so type html, read by hand: about 2 workshops a month in winter, plus 4 or 5 farm dinners from July to September."
+      "notes": "Found and read 10 November 2026. 4121 Ute Highway, Lyons (the address on its own event pages). A Squarespace site with two event collections: /workshops-and-events and /dinners (ticketed farm dinners with named restaurants, summer only; the 2026 ones were Blackbelly on 15 July and 9 September, Butcher and the Blonde on 12 August, Corrida on 26 August). Both pages and /calendar (a wedding availability page, no events) were fetched once. Workshops listed: 4 items; dated 10 November to 10 December and worth a row, 2: Intro to Branch Weaving on Sunday 15 November, 1 to 5 pm, and the Winter Attunement Yin Workshop on Sunday 6 December, 2 to 3:30 pm. After that, Two-Day Workshop: Pack Baskets on 20 February 2027. An aggregator also shows a class called HELD at the Farmette on 10 December that is not on the Farmette's own page; not verified. No regulars and nothing to exclude. The robots.txt allows the pages and disallows ?format=json and ?format=ical for every agent, and ingest cannot read Squarespace yet, so type html, read by hand: about 2 workshops a month in winter, plus 4 or 5 farm dinners from July to September. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 3 items (Branch Weaving 15 Nov, Yin Workshop 6 Dec, Pack Baskets 20 Feb) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "spirithounds-com",

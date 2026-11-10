@@ -221,13 +221,14 @@
       "id": "berthoudart-com",
       "name": "Homestead Fine Art Gallery (events)",
       "url": "https://berthoudart.com/events",
-      "type": "manual",
+      "feedUrl": "https://berthoudart.com/events",
+      "type": "squarespace",
       "category": "venue",
       "priority": "other",
       "status": "proposed",
       "robots": "honor",
       "defaultVenue": "Homestead Fine Art Gallery, 344 Mountain Ave",
-      "notes": "Found and read 10 November 2026. The gallery at 344 Mountain Ave, already a place in the guide. A Squarespace site whose events page (also reached at /whats-happening) is a Squarespace events collection, each item with its own ICS link; ingest cannot read Squarespace yet, so the type is manual. The page was read as HTML: 1 upcoming item, A Very Merry Berthoud on Saturday 5 December 2026, 8 am to 5 pm at the gallery, which the guide already has as the town's event, so 0 new rows from 10 November to 10 December 2026. Past items on the page are the Berthoud Art Walk (5 and 6 September 2026, with the Wildfire Street Fest that evening) and Sidewalk Sunday (6 September 2026), so this is a handful of dates a year, mostly the gallery's part in downtown events. No regulars. Robots: robots.txt disallows ?format=json and ?format=ical for every agent, so the collection's JSON was not fetched; the events page itself is allowed."
+      "notes": "Found and read 10 November 2026. The gallery at 344 Mountain Ave, already a place in the guide. A Squarespace site whose events page (also reached at /whats-happening) is a Squarespace events collection, each item with its own ICS link; ingest cannot read Squarespace yet, so the type is manual. The page was read as HTML: 1 upcoming item, A Very Merry Berthoud on Saturday 5 December 2026, 8 am to 5 pm at the gallery, which the guide already has as the town's event, so 0 new rows from 10 November to 10 December 2026. Past items on the page are the Berthoud Art Walk (5 and 6 September 2026, with the Wildfire Street Fest that evening) and Sidewalk Sunday (6 September 2026), so this is a handful of dates a year, mostly the gallery's part in downtown events. No regulars. Robots: robots.txt disallows ?format=json and ?format=ical for every agent, so the collection's JSON was not fetched; the events page itself is allowed. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 1 item (A Very Merry Berthoud, 5 Dec) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     }
   ]
 }

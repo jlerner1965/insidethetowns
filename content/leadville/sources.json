@@ -331,7 +331,8 @@
       "id": "c4leadville-org",
       "name": "Cloud City Conservation Center (C4 events)",
       "url": "https://www.c4leadville.org/c4events",
-      "type": "html",
+      "feedUrl": "https://www.c4leadville.org/c4events",
+      "type": "squarespace",
       "category": "other",
       "priority": "other",
       "status": "proposed",
@@ -339,7 +340,7 @@
       "excludeTitles": [
         "Office Hours"
       ],
-      "notes": "Found and read 10 November 2026. The Leadville conservation nonprofit that runs Cloud City Farm (its own posts give 440 McWethy Drive, Leadville, for the farm's plant sale) and the winter farm markets the tourism calendar lists. The site is Squarespace; /c4events is an events collection whose page (200) listed 8 upcoming items: 'Energy Assistance Office Hours at Full Circle' every Wednesday at 1 pm (115 East 7th Street; 11, 18 and 25 November, 2, 9 and 16 December), Climate & Coffee: Mountain Energy Project (Thursday 19 November 2026, 8 am, Leadville/Lake County Visitor Center, 460 Harrison Avenue) and the Lideres Latinx Annual Posada (Saturday 12 December 2026, 5:30 pm, no street address given). In 10 November to 10 December: 1 worth a row (Climate & Coffee), 5 office-hours sessions that are a service, not an event; the Posada falls two days after. /events and /farm-events are empty collections now; the farm markets and plant sales appear there in season. robots.txt names ClaudeBot and anthropic-ai only in the general group (no 'Disallow: /') and disallows ?format=json and ?format=ical for every agent, so there is no feed ingest may read; the JSON view was fetched before that line was noticed (see the report) and showed the same 8 items. Suggested exclusion: 'Office Hours'. A page to read, about 1 to 3 public items a month, more in the growing season."
+      "notes": "Found and read 10 November 2026. The Leadville conservation nonprofit that runs Cloud City Farm (its own posts give 440 McWethy Drive, Leadville, for the farm's plant sale) and the winter farm markets the tourism calendar lists. The site is Squarespace; /c4events is an events collection whose page (200) listed 8 upcoming items: 'Energy Assistance Office Hours at Full Circle' every Wednesday at 1 pm (115 East 7th Street; 11, 18 and 25 November, 2, 9 and 16 December), Climate & Coffee: Mountain Energy Project (Thursday 19 November 2026, 8 am, Leadville/Lake County Visitor Center, 460 Harrison Avenue) and the Lideres Latinx Annual Posada (Saturday 12 December 2026, 5:30 pm, no street address given). In 10 November to 10 December: 1 worth a row (Climate & Coffee), 5 office-hours sessions that are a service, not an event; the Posada falls two days after. /events and /farm-events are empty collections now; the farm markets and plant sales appear there in season. robots.txt names ClaudeBot and anthropic-ai only in the general group (no 'Disallow: /') and disallows ?format=json and ?format=ical for every agent, so there is no feed ingest may read; the JSON view was fetched before that line was noticed (see the report) and showed the same 8 items. Suggested exclusion: 'Office Hours'. A page to read, about 1 to 3 public items a month, more in the growing season. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 8 items (Climate & Coffee 19 Nov, the Posada 12 Dec; 6 office-hours sessions the exclusion drops) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "tennesseepass-com",

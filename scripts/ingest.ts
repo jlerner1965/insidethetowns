@@ -13,7 +13,7 @@
  * The rules, in the order they bite:
  *
  * 1. Only a source with `status: confirmed` and a feed type (ical, rss,
- *    json) with a `feedUrl` is read. Proposed, retired, html and manual
+ *    json, squarespace) with a `feedUrl` is read. Proposed, retired, html and manual
  *    sources are never fetched.
  * 2. The site's robots.txt is read first, and a feed it disallows for our
  *    user agent is not fetched, with a line saying so, unless the editor has
@@ -43,7 +43,7 @@ import { promisify } from 'node:util';
 import { z } from 'astro/zod';
 import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
 import { INGEST } from '../src/config/ingest.ts';
-import { changeSchema, eventSchema, type Change, type Source } from '../src/content/schemas.ts';
+import { FEED_TYPES, changeSchema, eventSchema, type Change, type Source } from '../src/content/schemas.ts';
 import { addDays, dayKey, startOfDay, toWallClock } from '../src/lib/dates.ts';
 import { readRegistry } from '../src/lib/sources.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -52,6 +52,7 @@ import { readIcal } from './lib/feeds/ical.ts';
 import { readRss } from './lib/feeds/rss.ts';
 import { isShowareFeed, readShowarePage, showareHasMore, showarePage, type ShowarePage } from './lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage, type TribePage } from './lib/feeds/tribe.ts';
+import { readSquarespaceEvents, squarespaceView } from './lib/feeds/squarespace.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
 import { ambiguousNote, detectChanges, elsewhereNote, excludedTitle, excludingEntry, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, sameSite, sameVenue, siblingCounts, toStaged, venueFrom, type ExistingEvent, type Match, passesCategoryFilter } from './lib/ingest.ts';
 import { normalizeUrl, sessionLinks } from '../src/lib/session-links.ts';
@@ -229,6 +230,15 @@ async function readFeed(source: Source): Promise<{ items: FeedEvent[]; note: str
     if (!/BEGIN:VCALENDAR/.test(body)) return { error: `${feedUrl} is not an iCalendar feed` };
     return { items: readIcal(body, horizon), note: robotsNote.trim() };
   }
+  if (source.type === 'squarespace') {
+    // A Squarespace events page in its list view: the events are in the HTML.
+    const view = squarespaceView(body);
+    if (view === 'calendar') {
+      return { error: `${feedUrl} shows a calendar grid its script fills in, so the page holds no events; the site's list view (?view=list) and its /api/ are what robots.txt disallows. Read by hand, or ask the site to switch the page to its list view.` };
+    }
+    if (view === 'none') return { error: `${feedUrl} is not a Squarespace events list` };
+    return { items: readSquarespaceEvents(body, feedUrl, horizon), note: robotsNote.trim() };
+  }
   if (source.type === 'rss') {
     if (!/<rss|<feed/i.test(body)) return { error: `${feedUrl} is not an RSS feed` };
     const { events, skipped } = readRss(body, horizon);
@@ -277,7 +287,7 @@ const totals = { sources: 0, items: 0, staged: 0, updated: 0, unchanged: 0, chan
 
 for (const town of towns) {
   const registry = readRegistry(town.slug, contentDir);
-  const feedSources = registry.sources.filter((s) => s.status === 'confirmed' && ['ical', 'rss', 'json'].includes(s.type) && s.feedUrl);
+  const feedSources = registry.sources.filter((s) => s.status === 'confirmed' && FEED_TYPES.includes(s.type) && s.feedUrl);
   const sources = feedSources.filter((s) => !onlySource || s.id === onlySource);
   if (sources.length === 0) continue;
   console.log(`\n${town.name.toUpperCase()}`);

@@ -575,7 +575,8 @@
       "id": "mountaintoadbrewing-com",
       "name": "Mountain Toad Brewing (events)",
       "url": "https://www.mountaintoadbrewing.com/events",
-      "type": "manual",
+      "feedUrl": "https://www.mountaintoadbrewing.com/events",
+      "type": "squarespace",
       "category": "venue",
       "priority": "other",
       "status": "proposed",
@@ -588,7 +589,7 @@
         "^Closed"
       ],
       "defaultVenue": "Mountain Toad Brewing, 900 Washington Avenue, Golden",
-      "notes": "Found and read 10 November 2026. Brewery at 900 Washington Avenue, Golden (the address on every item). Squarespace events collection; the JSON at https://www.mountaintoadbrewing.com/events?format=json answered with 31 upcoming items to 30 December. Ingest cannot read Squarespace yet, so the type is manual. Dated 10 November to 10 December 2026: 19 items, 1 worth a row on its own, the 8th Annual Mountain Toad Brewing Holiday Market (Sunday 6 December, from 10 am, already in the guide), plus Drag Bingo on 14 November (already in the guide). The rest are regulars: Live Music with Chrispy every Wednesday (5, the guide has it as one standing item), Board Game Night on Sundays (3), Mines Mondays (4), Toad Trivia on alternate Tuesdays (2), Cheese Night with Cheese Ranch on alternate Thursdays (2), and a Thanksgiving closure. robots.txt is Squarespace's standard file: it names ClaudeBot and anthropic-ai in the same group as *, and that group disallows only /config, /search, /account, /api/ and /static/, so /events is allowed. Low yield; worth a look by hand once a month for the one-off markets."
+      "notes": "Found and read 10 November 2026. Brewery at 900 Washington Avenue, Golden (the address on every item). Squarespace events collection; the JSON at https://www.mountaintoadbrewing.com/events?format=json answered with 31 upcoming items to 30 December. Ingest cannot read Squarespace yet, so the type is manual. Dated 10 November to 10 December 2026: 19 items, 1 worth a row on its own, the 8th Annual Mountain Toad Brewing Holiday Market (Sunday 6 December, from 10 am, already in the guide), plus Drag Bingo on 14 November (already in the guide). The rest are regulars: Live Music with Chrispy every Wednesday (5, the guide has it as one standing item), Board Game Night on Sundays (3), Mines Mondays (4), Toad Trivia on alternate Tuesdays (2), Cheese Night with Cheese Ranch on alternate Thursdays (2), and a Thanksgiving closure. robots.txt is Squarespace's standard file: it names ClaudeBot and anthropic-ai in the same group as *, and that group disallows only /config, /search, /account, /api/ and /static/, so /events is allowed. Low yield; worth a look by hand once a month for the one-off markets. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 31 items (8 Live Music with Chrispy nights, Drag Bingo, the Holiday Market on 6 Dec; the rest regulars and closures the exclusions drop). The site's time zone setting is America/New_York; the reader lists the clock the page shows (Drag Bingo 7:30 pm, Chrispy 6 pm), which matches the listings already entered by hand from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "holidailybrewing-com",

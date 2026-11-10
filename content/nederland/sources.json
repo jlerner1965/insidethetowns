@@ -207,6 +207,7 @@
       "id": "thecaribouroom-com",
       "name": "The Caribou Room",
       "url": "https://www.thecaribouroom.com/calendar",
+      "feedUrl": "https://www.thecaribouroom.com/calendar",
       "sampleUrl": "https://www.thecaribouroom.com/live-music",
       "type": "html",
       "category": "venue",
@@ -216,7 +217,7 @@
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "The Caribou Room",
-      "notes": "Read 6 October 2026. Squarespace site; the /calendar page (200, 330 KB) lists upcoming shows with structured dates and per-event 'Google Calendar' and 'ICS' links for readers: Ladies Night feat. Matt Flaherty Band Sat 10 Oct 7 pm (doors and dinner 7, show 8, gents GA $10), Since JulEYE & MIDIcinal w/ Revital Sat 17 Oct ($20, balcony $28, VIP $500), Masquerade Ball feat. Banshee Tree Sat 31 Oct. The Caribou Kitchen is open 7-10 pm on show nights. The Squarespace collection feed /calendar?format=ical is disallowed by the site's robots.txt for our agent, so the page stays html. The home page has a stray Squarespace template block ('Aviator, 332 W 29th Street New York') that is not venue information. Street address not shown in the fetched text. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Read 6 October 2026. Squarespace site; the /calendar page (200, 330 KB) lists upcoming shows with structured dates and per-event 'Google Calendar' and 'ICS' links for readers: Ladies Night feat. Matt Flaherty Band Sat 10 Oct 7 pm (doors and dinner 7, show 8, gents GA $10), Since JulEYE & MIDIcinal w/ Revital Sat 17 Oct ($20, balcony $28, VIP $500), Masquerade Ball feat. Banshee Tree Sat 31 Oct. The Caribou Kitchen is open 7-10 pm on show nights. The Squarespace collection feed /calendar?format=ical is disallowed by the site's robots.txt for our agent, so the page stays html. The home page has a stray Squarespace template block ('Aviator, 332 W 29th Street New York') that is not venue information. Street address not shown in the fetched text. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). The Squarespace reader, 10 November 2026: /calendar is a list-view events page and the reader read 2 items from a plain fetch of it (Spafford 12 Dec, A Very Caribou Xmas 19 Dec), with the times the guide already has. The page is in feedUrl; the type is left html because this source is confirmed, and typing it squarespace is what would start ingest reading it. The owner's call."
     },
     {
       "id": "verynicebrewing-com",
@@ -261,12 +262,17 @@
       "id": "wildbear-org",
       "name": "Wild Bear Nature Center",
       "url": "https://wildbear.org/",
+      "feedUrl": "https://wildbear.org/events",
       "sampleUrl": "https://wildbear.org/children",
-      "type": "manual",
+      "type": "squarespace",
       "category": "venue",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Proposed 7 October 2026 from the launch review: the nature center in Nederland lists dated public programs (Owl Moon night hikes on 24 October and 21 November 2026, school-day-off programs) that the with-kids guide mentions but no confirmed source carries. Confirm to have its dated programs read by hand each week. Read 10 November 2026: the dated programs are on https://wildbear.org/events, a Squarespace events collection (the page is allowed; ?format=ical and ?format=json are disallowed for every agent, so no feed, and each event has its own ICS link for readers only). 30 upcoming items, 9 of them dated 10 November to 10 December: one worth a row, Owl Moon on Saturday 21 November at 6 pm at Mud Lake; four school-day-off camps (PEAK Days off on 11, 23, 24 and 25 November, 9 am, Mud Lake Open Space), which are registered classes; and Storytime! on Tuesdays at 10:30 am, the same one the library feed carries as Wild Bear Storytime, at the Nederland Community Library through 24 November and at 'Wild Bear Nature Center' from 1 December, which suggests the new building takes over programs that day. Kept manual, since the url here is the home page: if it is confirmed, point it at /events and read by hand, one or two listings a month in winter and more in summer (guided hikes, birding, the Enchanted Forest)."
+      "excludeTitles": [
+        "Storytime",
+        "PEAK Days off"
+      ],
+      "notes": "Proposed 7 October 2026 from the launch review: the nature center in Nederland lists dated public programs (Owl Moon night hikes on 24 October and 21 November 2026, school-day-off programs) that the with-kids guide mentions but no confirmed source carries. Confirm to have its dated programs read by hand each week. Read 10 November 2026: the dated programs are on https://wildbear.org/events, a Squarespace events collection (the page is allowed; ?format=ical and ?format=json are disallowed for every agent, so no feed, and each event has its own ICS link for readers only). 30 upcoming items, 9 of them dated 10 November to 10 December: one worth a row, Owl Moon on Saturday 21 November at 6 pm at Mud Lake; four school-day-off camps (PEAK Days off on 11, 23, 24 and 25 November, 9 am, Mud Lake Open Space), which are registered classes; and Storytime! on Tuesdays at 10:30 am, the same one the library feed carries as Wild Bear Storytime, at the Nederland Community Library through 24 November and at 'Wild Bear Nature Center' from 1 December, which suggests the new building takes over programs that day. Kept manual, since the url here is the home page: if it is confirmed, point it at /events and read by hand, one or two listings a month in winter and more in summer (guided hikes, birding, the Enchanted Forest). The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 30 items to March (18 storytimes, 11 day-off camps, Owl Moon on 21 Nov) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "themtnear-com",
@@ -296,13 +302,14 @@
       "id": "teensinc-org",
       "name": "TEENS, Inc.",
       "url": "https://www.teensinc.org/events",
+      "feedUrl": "https://www.teensinc.org/events",
       "sampleUrl": "https://www.teensinc.org/events/write-night-26",
-      "type": "html",
+      "type": "squarespace",
       "category": "other",
       "priority": "other",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Proposed 10 November 2026. The Nederland youth and family nonprofit (151 East Street, from its event pages) lists its public events on a Squarespace events page: fundraisers, family sessions and the town-wide ones it runs or joins (Halloween Ned 2026, Ned Ned Trailfest '26, Winter Party 2026). Read 10 November: one upcoming event, 'Write Night for TEENS, Inc. at Hub Ned' on 11 November; everything else on the page is past. Squarespace's robots.txt disallows ?format=ical and ?format=json for every agent, so there is no feed to take; the page itself is allowed. Read by hand, one or two listings a month."
+      "notes": "Proposed 10 November 2026. The Nederland youth and family nonprofit (151 East Street, from its event pages) lists its public events on a Squarespace events page: fundraisers, family sessions and the town-wide ones it runs or joins (Halloween Ned 2026, Ned Ned Trailfest '26, Winter Party 2026). Read 10 November: one upcoming event, 'Write Night for TEENS, Inc. at Hub Ned' on 11 November; everything else on the page is past. Squarespace's robots.txt disallows ?format=ical and ?format=json for every agent, so there is no feed to take; the page itself is allowed. Read by hand, one or two listings a month. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 1 item (Write Night at Hub Ned, 11 Nov) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "buseybrews-com",
@@ -328,7 +335,7 @@
       "status": "proposed",
       "robots": "honor",
       "defaultVenue": "Knotted Root Brewing Company",
-      "notes": "Proposed 10 November 2026, low value as it stands. Nederland brewery on Squarespace with an events collection. The sitemap shows it was once kept daily (open mic Wednesdays, open jam Thursdays, Jazz Sundays, comedy and DJ nights, food trucks, through April 2025); the only 2026 entry is a Halloween party on 31 October, and on 10 November the /events page listed no upcoming events at all. Whether the address in Nederland is current was not checked. Squarespace's robots.txt disallows ?format=ical, so no feed. Worth a look each month in case the calendar is taken up again; nothing to list now. Looked at again 10 November 2026: /events still lists nothing upcoming, but The Mountain-Ear's Music Listing of 5 November names Knotted Root for a Jazz Jam every Sunday at 5 pm and a Whumpf Jam on 5 November, so the room has music again and simply does not post it here. Jams are regulars; nothing to list from this page."
+      "notes": "Proposed 10 November 2026, low value as it stands. Nederland brewery on Squarespace with an events collection. The sitemap shows it was once kept daily (open mic Wednesdays, open jam Thursdays, Jazz Sundays, comedy and DJ nights, food trucks, through April 2025); the only 2026 entry is a Halloween party on 31 October, and on 10 November the /events page listed no upcoming events at all. Whether the address in Nederland is current was not checked. Squarespace's robots.txt disallows ?format=ical, so no feed. Worth a look each month in case the calendar is taken up again; nothing to list now. Looked at again 10 November 2026: /events still lists nothing upcoming, but The Mountain-Ear's Music Listing of 5 November names Knotted Root for a Jazz Jam every Sunday at 5 pm and a Whumpf Jam on 5 November, so the room has music again and simply does not post it here. Jams are regulars; nothing to list from this page. The Squarespace reader, 10 November 2026: this page is set to the calendar grid, which the page's script fills from /api/, so its HTML holds no events and the reader cannot read it; the list is at ?view=list, which the site's robots.txt disallows, as it does /api/ and ?format=json. Not typed squarespace. Two ways on: the venue switches the page to its list view, or the owner sets robots: subscribe and the feedUrl to the page with ?view=list (untested, since that address was not fetched)."
     },
     {
       "id": "nederlandfarmersmarket-org",
@@ -393,24 +400,31 @@
       "id": "bristleconebookshop-com",
       "name": "Bristlecone Bookshop (author events)",
       "url": "https://www.bristleconebookshop.com/events",
-      "type": "html",
+      "feedUrl": "https://www.bristleconebookshop.com/events",
+      "type": "squarespace",
       "category": "venue",
       "priority": "other",
       "status": "proposed",
       "robots": "honor",
       "defaultVenue": "Bristlecone Bookshop, 114 E Second Street",
-      "notes": "Found and read 10 November 2026. The bookshop at 114 E Second Street, Nederland (the page's own address), already a place in the guide. Its Events page is a Squarespace collection: 1 upcoming and 30 past. In 10 November to 10 December there is one item, Poetry Open Mic on Saturday 21 November, 5 to 7 pm ('the last poetry night of the year'), a monthly regular. The weeks before show what it adds when busy: Author Talk with Devon O'Neil on 29 October (with the library), an author event with local author Brenna Jeanneret on 7 November, a book club on 8 November, Story Hour on 25 October. So about two author events a month worth a row, plus the open mic, book club and story hour as regulars. Squarespace's robots.txt allows the page and disallows ?format=ical and ?format=json for every agent, so there is no feed; each event has an ICS link for readers. Read by hand."
+      "notes": "Found and read 10 November 2026. The bookshop at 114 E Second Street, Nederland (the page's own address), already a place in the guide. Its Events page is a Squarespace collection: 1 upcoming and 30 past. In 10 November to 10 December there is one item, Poetry Open Mic on Saturday 21 November, 5 to 7 pm ('the last poetry night of the year'), a monthly regular. The weeks before show what it adds when busy: Author Talk with Devon O'Neil on 29 October (with the library), an author event with local author Brenna Jeanneret on 7 November, a book club on 8 November, Story Hour on 25 October. So about two author events a month worth a row, plus the open mic, book club and story hour as regulars. Squarespace's robots.txt allows the page and disallows ?format=ical and ?format=json for every agent, so there is no feed; each event has an ICS link for readers. Read by hand. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 1 item (Poetry Open Mic, 21 Nov, 5 to 7 pm) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "nederlandfoodpantry-org",
       "name": "Nederland Food Pantry (events, Holiday Mountain Market)",
       "url": "https://www.nederlandfoodpantry.org/events",
-      "type": "html",
+      "feedUrl": "https://www.nederlandfoodpantry.org/events",
+      "type": "squarespace",
       "category": "other",
       "priority": "other",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Found and read 10 November 2026. The food pantry at 196 W 1st St, Nederland (the page's own address); two events in the guide already cite this page but the registry did not have it. A Squarespace events collection with 5 upcoming items and 4 past. Dated 10 November to 10 December: Holiday Mountain Market, Saturday 5 December, 10 am to 5 pm at the Nederland Community Center, which is worth a row and is the only page found that dates this year's market (the seniors' own market page still describes 2022, and whether it also runs on Sunday 6 December was not found); Thanksgiving Distribution on 21 November, 10 am to 1 pm, a service rather than an outing; and Colorado Gives Day on 8 December, a fundraising day that should never be listed. After the window: Holiday Box Distribution on 19 December. One item on the page has an end before its start (Winter Clothing Drive, 30 September). Squarespace's robots.txt allows the page and disallows ?format=ical and ?format=json, so no feed. Read by hand, about one listing a month; if it is ever fed, exclude 'COLORADO GIVES DAY' and 'Clothing Drive'."
+      "excludeTitles": [
+        "Distribution",
+        "Clothing Drive",
+        "Colorado Gives Day"
+      ],
+      "notes": "Found and read 10 November 2026. The food pantry at 196 W 1st St, Nederland (the page's own address); two events in the guide already cite this page but the registry did not have it. A Squarespace events collection with 5 upcoming items and 4 past. Dated 10 November to 10 December: Holiday Mountain Market, Saturday 5 December, 10 am to 5 pm at the Nederland Community Center, which is worth a row and is the only page found that dates this year's market (the seniors' own market page still describes 2022, and whether it also runs on Sunday 6 December was not found); Thanksgiving Distribution on 21 November, 10 am to 1 pm, a service rather than an outing; and Colorado Gives Day on 8 December, a fundraising day that should never be listed. After the window: Holiday Box Distribution on 19 December. One item on the page has an end before its start (Winter Clothing Drive, 30 September). Squarespace's robots.txt allows the page and disallows ?format=ical and ?format=json, so no feed. Read by hand, about one listing a month; if it is ever fed, exclude 'COLORADO GIVES DAY' and 'Clothing Drive'. The Squarespace reader, 10 November 2026: this page is in the list view, and scripts/lib/feeds/squarespace.ts read 5 items (Holiday Mountain Market 5 and 6 Dec; two distributions, a clothing drive and Colorado Gives Day, which the exclusions drop) from a plain fetch of it, which the site's robots.txt allows (it disallows ?format=json, ?view= and /api/, none of which the reader uses). Typed squarespace with the page as its feedUrl; still proposed, so ingest does not read it until the owner confirms it."
     },
     {
       "id": "coveredwagonrestaurant-com",
