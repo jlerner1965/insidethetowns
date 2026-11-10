@@ -8,6 +8,7 @@ venue: "Roosevelt Park"
 address: "700 Longs Peak Ave., Longmont, CO, 80501"
 url: "https://longmontcolorado.gov/event/longmont-lights-holiday-parade-2/"
 category: festival
+featured: true
 source: "https://longmontcolorado.gov/event/longmont-lights-holiday-parade-2/"
 sourceId: "longmontcolorado-gov-recreation"
 sourceUid: "10009016-1797094800-1797102000@longmontcolorado.gov"

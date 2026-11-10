@@ -7,6 +7,7 @@ address: "1012 Ford St, Golden, CO 80401"
 url: "https://www.thegoldenmill.com/events/together-at-the-community-table-3rd-annual-thanksgiving-celebration"
 cost: "Free, or pay what you can"
 category: food
+featured: true
 organizer: "The Golden Mill"
 organizerUrl: "https://www.thegoldenmill.com/"
 source: "https://www.thegoldenmill.com/events/together-at-the-community-table-3rd-annual-thanksgiving-celebration"

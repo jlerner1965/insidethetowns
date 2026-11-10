@@ -10220,3 +10220,34 @@ above; `topOfDay` stays, so it still leads its Saturday. The listing's
 first sentence, which the card shows, now leads with meeting people. The
 card has no photograph (neither the listing nor The Love Shack's place
 has one); a photograph from the organizer has been asked for.
+
+## A "Don't miss" for every town that has one to give, 10 November 2026
+
+Twelve live towns had no featured listing in the next three weeks. The
+owner had them reviewed and approved a pick for eleven: a community
+event each, the kind the card exists for (tree lightings, parades, a
+town festival, Golden Mill's open Thanksgiving table). Nederland has
+nothing bigger than a regular gig or play before December, so it has
+no card rather than a filler.
+
+Flagged `featured` here: Castle Rock Starlighting; Estes Park's Tree
+Lighting and Catch the Glow Parade; Light Up Longmont and the Longmont
+Lights Holiday Parade; Golden's Community Table and Candlelight Walk;
+Lyons' Parade of Lights; Elizabeth's tree lighting; Leadville's Parade
+of Lights. Windsor Wonderland, Timnath's Holiday Festival, Frederick's
+Festival of Lights and Lafayette's Holiday on the Plaza were already
+featured, beyond the three weeks; they take the card from 14 November.
+
+- **Leadville's parade listing was rewritten before it was featured.**
+  The calendar import had given it an end time equal to its start
+  ("6 pm – 6 pm") and a body that was the importer's boilerplate, the
+  card's text. It now says what the tourism office's page says and no
+  more: Harrison Avenue, 6 pm, free, Leadville Main Street, details to
+  come. The venue keeps the feed's wording so the next import sees no
+  change.
+- **Lafayette's link was not wrong, only odd.** The Chamber serves the
+  Holiday on the Plaza vendor page at `/peach-festival` as well as at
+  `/holidayontheplaza`; the listing now uses the second.
+- **Light Up Longmont moved.** Re-read before featuring, Downtown
+  Longmont's page now gives 5 to 7 pm (it had 5 to 6:30, with the fire
+  pit from 4); the listing follows it, with a correction.

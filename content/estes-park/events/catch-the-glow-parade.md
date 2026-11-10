@@ -7,6 +7,7 @@ venue: "Elkhorn Avenue, downtown Estes Park"
 url: "https://eventsinestes.com/catch-the-glow-parade/"
 cost: "Free"
 category: festival
+featured: true
 organizer: "Town of Estes Park"
 organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/catch-the-glow-parade/"

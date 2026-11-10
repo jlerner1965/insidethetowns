@@ -6,6 +6,7 @@ start: "2026-12-05T15:00"
 venue: "Historic Main Street"
 url: "https://www.townofelizabeth.org/community/page/mayors-tree-lighting-saturday-december-5-2026"
 category: "family"
+featured: true
 source: "https://www.townofelizabeth.org/community/page/mayors-tree-lighting-saturday-december-5-2026"
 verified: "2026-10-11"
 verifiedBy: "Codex, for James Lerner"

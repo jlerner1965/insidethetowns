@@ -7,6 +7,7 @@ venue: "Washington Avenue to Parfet Park"
 url: "https://www.visitgolden.com/events/holiday-events/olde-golden-holidays/candlelight-walk/"
 cost: "Free"
 category: festival
+featured: true
 organizer: "Olde Golden Holiday Committee"
 source: "https://www.visitgolden.com/events/holiday-events/olde-golden-holidays/candlelight-walk/"
 sourceId: "visitgolden-com"

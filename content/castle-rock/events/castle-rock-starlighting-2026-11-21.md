@@ -7,6 +7,7 @@ address: "4th Street & Wilcox Street, Castle Rock, CO 80104"
 url: "https://castlerock.org/castle-rock-starlighting/"
 cost: "Free"
 category: festival
+featured: true
 organizer: "Castle Rock Chamber of Commerce"
 organizerUrl: "https://castlerock.org/"
 source: "https://castlerock.org/castle-rock-starlighting/"

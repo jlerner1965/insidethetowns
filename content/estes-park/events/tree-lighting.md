@@ -9,6 +9,7 @@ address: "170 MacGregor Avenue, Estes Park, CO 80517"
 url: "https://eventsinestes.com/tree-lighting/"
 cost: "Free"
 category: festival
+featured: true
 organizer: "Town of Estes Park"
 organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/tree-lighting/"

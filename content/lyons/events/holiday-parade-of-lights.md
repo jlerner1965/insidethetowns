@@ -6,6 +6,7 @@ start: "2026-12-05T18:30"
 venue: "Main Street, downtown Lyons"
 url: "https://www.townoflyons.com/354/Lyons-Holiday-Parade-of-Lights"
 category: "family"
+featured: true
 source: "https://www.townoflyons.com/354/Lyons-Holiday-Parade-of-Lights"
 verified: "2026-11-09"
 verifiedBy: "Claude Code, delegated by James Lerner"
