@@ -50,14 +50,15 @@
         "places": 2
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Tried 10 November 2026: https://downtownfortcollins.com/robots.txt, the home page and /events/ all answered 403 Forbidden to a plain request, so nothing was read and no feed could be looked for. A blocker, not routed around. Search results show the Downtown Development Authority lists others' events under /do/ (Comedy Fort shows, for one), so it is a chamber-kind source that would need a person in any case."
     },
     {
       "id": "poudrelibraries-librarycalendar-com",
       "name": "poudrelibraries.librarycalendar.com",
       "url": "https://poudrelibraries.librarycalendar.com/",
+      "feedUrl": "https://poudrelibraries.librarycalendar.com/events/feed/ical",
       "sampleUrl": "https://poudrelibraries.librarycalendar.com/event/harmony-all-ages-storytime-24119",
-      "type": "html",
+      "type": "ical",
       "category": "library",
       "priority": "core",
       "status": "proposed",
@@ -66,7 +67,56 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "locationFilter": [
+        "Fort Collins"
+      ],
+      "excludeTitles": [
+        "Storytime",
+        "Meeting Room Open Hours",
+        "Outreach Fort Collins",
+        "Homeward Alliance",
+        "Larimer Health Connect",
+        "Larimer County",
+        "Book Club",
+        "Evie @",
+        "Yoga",
+        "Tai Chi",
+        "Board Meeting",
+        "Teen Council",
+        "Closed",
+        "Close at",
+        "CANCELLED",
+        "101",
+        "Drop-in",
+        "Lectores",
+        "Genealogical Assistance",
+        "Tinker Tots",
+        "Messy Me",
+        "NoCo Nautilus",
+        "BYOD",
+        "Makerspace Mini",
+        "Snack and Craft",
+        "Social Hour",
+        "Support Group",
+        "Guitar Circle",
+        "Scrabble",
+        "LEGO",
+        "Ukulele Play-Along",
+        "Let's Talk",
+        "Teen Writers",
+        "Information Session",
+        "Safe Zone Training",
+        "Legal Housing Clinic",
+        "TAC212",
+        "Brain HQ",
+        "Brain Health",
+        "Art Harvest: Pastel",
+        "Advance Care Planning",
+        "Open Art Studio",
+        "Rekindle the Classics",
+        "Story Lab"
+      ],
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Found and read 10 November 2026. Poudre River Public Library District: Old Town Library (201 Peterson St), Council Tree Library (2733 Council Tree Ave) and Harmony Library (4616 S Shields St), all in Fort Collins. The platform is LibraryCalendar (Drupal) and it publishes one iCal feed for everything, https://poudrelibraries.librarycalendar.com/events/feed/ical (an RSS twin is at /events/feed/rss). robots.txt disallows /core/, /admin/, /search and the like but not /events/feed/, so the feed is allowed. It is large: 1.8 MB, 2,602 VEVENTs with each repeat written out (no RRULEs), reaching to 2029; every one has a street address in LOCATION and a ROOM. 287 are dated 10 November to 10 December 2026. About 20 are worth a row: Kevin Cook: Colorado Creatures (two dates), Election Debrief, A Day Away: Celebrating the Voyager 1 Space Probe, the Africa Lecture Series (Dr. Cynthia Brown on the Peace Corps in Botswana), Fort Collins Historical Society Talks: Women's History in Fort Collins, International Night Lecture Series: Pakistan, Friends of the Library Holiday Book Sale, Movie Matinee: Hoppers, Colorado Nutcracker Dreams (Front Range Classical Ballet Academy), Larimer Chorale: Candlelight Christmas, the reception for Art Harvest: Pastels by Julie Maas (3 December), From Planet to Person, Cycling in Winter, Fiesta familiar de Loteria. The other 265 or so are regulars or never-list: 143 storytimes, 27 'Meeting Room Open Hours', outreach desks (Outreach Fort Collins, Homeward Alliance, Larimer Health Connect), book clubs, yoga and tai chi, the Evie bookmobile's stops (some in Livermore and Bellvue), board meetings and closures. The exclusions suggested are on excludeTitles and locationFilter keeps Fort Collins addresses; expect to add more after a first dry run. Not fetched: the RSS twin beyond its headers."
     },
     {
       "id": "gardens-fortcollins-gov",
@@ -82,7 +132,7 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026. The Gardens on Spring Creek, 2145 Centre Ave. The site is OpenCities; /Events-and-Classes is a plain HTML listing ('14 Result(s) Found') with no RSS or iCal link in the page. robots.txt disallows a handful of named pages (drafts, Garden of Lights Preview Night, Chromatecture Opening Receptions) but not the listing. The ten dated items on the first page are all classes (Tai Chi, Natural Lip Balm, Forest Bathing, Multicolor Lino Block Printmaking on 14 November; Lotion Bars, Bioactive Terrarium, Mindfulness on 21 November; Watercolor on 22 November; wreath making on 2 and 5 December), so 0 worth a row beyond what the guide already has (Garden of Lights, from 10 and 11 December) and about 10 regulars. Stays html."
     },
     {
       "id": "aggietheatre-com",
@@ -98,14 +148,15 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026. The Aggie Theatre, 204 S College Ave. aggietheatre.com redirects to its promoter's page, https://www.z2ent.com/venues-we-book/aggie-theatre (Webflow, Z2 Entertainment); tickets are on Tixr. No feed found: /events/rss.xml and /rss.xml answer 404 and the page links no iCal. The page itself is plain HTML and lists every show with date, time and venue: 43 shows to 26 April 2027 on the first page (a second page exists and was not read), 14 dated 10 November to 10 December 2026, all worth a row, among them Cat Clyde and Dean Johnson (12 Nov), The Brothers Comatose (13 Nov), Space Wizard (14 Nov), Vansire (19 Nov), Krooked Kings (20 Nov), I in Team (28 Nov), HARBOUR (1 Dec), Horsetooth Honky Tonk (3 Dec), Wookiefoot (4 Dec) and Katya Grasso's album release (10 Dec); Latin Night, Emo Nite, the 2000's Rave and GIRL$ CLUB are dance nights in the same list. Two 'Private Event' rows in 2027 would need holding back. Robots: aggietheatre.com's own robots.txt (Cloudflare managed) names ClaudeBot, anthropic-ai and Claude-Web with Disallow: /, while z2ent.com's robots.txt holds only a sitemap line and disallows nothing; the listing lives on z2ent.com. Stays html: a person reads it."
     },
     {
       "id": "csurams-com",
       "name": "csurams.com",
       "url": "https://csurams.com/",
+      "feedUrl": "https://csurams.com/calendar.ashx/calendar.ics",
       "sampleUrl": "https://csurams.com/sports/football/schedule/2026",
-      "type": "html",
+      "type": "ical",
       "category": "venue",
       "priority": "core",
       "status": "proposed",
@@ -114,7 +165,13 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "locationFilter": [
+        "Fort Collins"
+      ],
+      "excludeTitles": [
+        "Flex Week"
+      ],
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Found and read 10 November 2026. Colorado State University Athletics (Moby Arena, 951 W Plum St; Canvas Stadium). The site is SIDEARM Sports, which publishes one iCal for all teams at https://csurams.com/calendar.ashx/calendar.ics; robots.txt's rules for all agents disallow /common/, /images/, /documents/, /admin/, /services/, /site/, /hidden/ and /tags/, not this path. 198 VEVENTs to April 2027, no RRULEs; 38 dated 10 November to 10 December 2026, of which 13 have a Fort Collins LOCATION, and 12 of those are games worth a row: men's basketball v Portland State (11 Nov), Loyola Chicago (14 Nov), North Dakota State (18 Nov), UT Arlington (1 Dec) and Queens (8 Dec); women's basketball v Wyoming (13 Nov), Harvard (20 Nov), Weber State (22 Nov), Southern (5 Dec) and South Carolina State (9 Dec); volleyball v Fresno State (12 Nov) and Texas State (17 Nov) (dates in Mountain time; the feed is in UTC). The thirteenth is a placeholder, 'Football vs Flex Week' on 28 November with no time. locationFilter keeps home games; LOCATION reads 'Fort Collins, CO, Moby Arena' for basketball and only 'Fort Collins, CO' for volleyball and football, so the venue has to come from the sport. Summaries are long ('Colorado State University Men's Basketball vs Portland State')."
     },
     {
       "id": "music-colostate-edu",
@@ -186,7 +243,7 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026. Bath Garden Center, 2000 E Prospect Rd. The site is Wix with Wix Events; https://www.bathgardencenter.com/events is readable HTML, no feed. robots.txt allows everything but lightbox URLs. 11 events listed; 7 dated 10 November to 10 December 2026: 3 worth a row, which the guide already has (Holiday Open House, 14 November; Holiday Makers Market, 21 November; Visit Santa's Reindeer, 5 December), and 4 classes (Cinnamon Citrus Suncatcher, Thanksgiving Centerpiece, Christmas Wreath Making, Origami Star Garland). Stays html."
     },
     {
       "id": "bohemianlivemusic-org",
@@ -249,8 +306,9 @@
       "id": "fortcollinsnursery-com",
       "name": "fortcollinsnursery.com",
       "url": "https://fortcollinsnursery.com/",
+      "feedUrl": "https://fortcollinsnursery.com/wp-json/tribe/events/v1/events?per_page=50",
       "sampleUrl": "https://fortcollinsnursery.com/event/fort-collins-nurserys-giant-pumpkin-weigh-off-fall-jamboree-3/",
-      "type": "html",
+      "type": "json",
       "category": "venue",
       "status": "proposed",
       "cites": {
@@ -258,7 +316,8 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "defaultVenue": "Fort Collins Nursery, 2121 E. Mulberry St.",
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Found and read 10 November 2026. Fort Collins Nursery, 2121 E. Mulberry St. WordPress with The Events Calendar; the REST feed https://fortcollinsnursery.com/wp-json/tribe/events/v1/events answers with 4 events, all dated 10 November to 10 December 2026: 50/30 Houseplant and Pottery Sale (13 November), Black Friday and Small Business Saturday specials (27 November), Store Visit from Santa Claus (28 November, already in the guide) and Holiday Blues Market (3 December). Two worth a row (Santa, the Holiday Blues Market), two are sales. Two of the four carry no venue, so defaultVenue is set. robots.txt blocks SemrushBot and BLP_bbot only. A small seasonal source."
     },
     {
       "id": "harbingercoffee-com",
@@ -288,7 +347,7 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026. New Belgium Brewing, 500 Linden St. https://www.newbelgium.com/visit/fort-collins/ is plain HTML with an 'Upcoming Events in Fort Collins' strip of 10 items, each linking to a Humanitix page, and a food truck strip of 23. No feed in the page, and Humanitix offers none. robots.txt disallows /episerver/, /utils/ and /fat-tire-home/ only. Dated 10 November to 10 December 2026: 2 worth a row (Sustainable Swap Series: Games, 29 November, noon to 5; All Abilities Karaoke Night, 3 December, 5 to 7) and 3 regulars (trivia on 18 November and 2 December, the ASL Social on 19 November). Just after the window: The Assembly: Queer Comedy Show, 12 December. The taproom is closed 10, 11 and 26 November. Stays html; a small source."
     },
     {
       "id": "theatre-colostate-edu",
@@ -342,7 +401,7 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026. Wildcraft Farmers Market, inside Foothills at the south entrance, 215 E Foothills Pkwy. The site is Wix, no events feed; robots.txt allows everything but lightbox URLs. The home page says the Fort Collins winter market runs every Saturday from November to April, 10 am to 2 pm, its 20th season having opened on 7 November 2026. That is 4 market days dated 10 November to 10 December 2026 (14, 21 and 28 November, 5 December), each the same market; whether the Saturday after Thanksgiving runs was not stated on the page. Stays html; one standing entry or a row a week, as the owner prefers."
     },
     {
       "id": "z2ent-com",
@@ -357,7 +416,7 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Read 10 November 2026. Z2 Entertainment's page for the Aggie Theatre is where aggietheatre.com redirects; see the aggietheatre-com entry for the count (14 shows 10 November to 10 December 2026) and the robots note. z2ent.com is Webflow with no feed; its robots.txt disallows nothing. Z2's other rooms (Boulder, Denver) are not in Fort Collins, so only the /venues-we-book/aggie-theatre page matters here."
     },
     {
       "id": "eventbrite-com",
@@ -403,6 +462,149 @@
       },
       "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "wolverinefarm-org",
+      "name": "Wolverine Farm Publick House (events calendar)",
+      "url": "https://www.wolverinefarm.org/events/",
+      "feedUrl": "https://www.wolverinefarm.org/wp-json/tribe/events/v1/events?per_page=50",
+      "type": "json",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Happy Hour",
+        "Closed",
+        "Residency Concert Series",
+        "Happy Thanksgiving",
+        "Meet up",
+        "Drawing Club",
+        "Queer Writes",
+        "Community Discussion",
+        "CSU ATMOS",
+        "Writing Workshop"
+      ],
+      "defaultVenue": "Wolverine Farm Publick House, 316 Willow St.",
+      "notes": "Found and read 10 November 2026. Wolverine Farm Publishing's Letterpress and Publick House, 316 Willow St. in the River District: a nonprofit bookshop, bar and event hall. WordPress with The Events Calendar; the REST feed /wp-json/tribe/events/v1/events answers (101 upcoming events, three pages of 50) and no event carries a venue, so defaultVenue is set. robots.txt disallows /wp-admin/ and /wp-includes/ only. 47 items dated 10 November to 10 December 2026. About 14 are worth a row: The Work Beneath: Artist Talk Series (10 November, 8 December), Residency Concert w/ Salome + Friends (11 November, 9 December), Special Concert w/ Brendan Nichols + Friends (13 November), A Mouthful of Blood: Writing the History of the American West, a poetry reading (14 November), Gulo Gulo Poetry Open Mic (17 November), Residency Concert w/ Stray Harbor + Friends (18 November), Nerd Nite (19 November), Music/Words/Film/Dance with Nick Jaina (21 November), Science On Tap (24 November), YART Sale (29 November), Residency Concert w/ DVNEHPPY + Friends (2 December), First Friday at the Publick House (4 December). About 13 are regulars (poetry collective and comedy writing meet-ups, Dead Pen Drawing Club, Queer Writes, Tight Knit, writing workshops) and about 20 are never-list: the twice-weekly happy hour, an umbrella 'Residency Concert Series (every Wednesday)' that doubles each named concert, 'Upstairs Closed' and 'Whole Space Closed for a Private Event' notices, a CSU department's hall booking and 'Happy Thanksgiving!'. Exclusions suggested are on excludeTitles. Only the first page of 50 was fetched."
+    },
+    {
+      "id": "maxlinebrewing-com",
+      "name": "Maxline Brewing (events calendar)",
+      "url": "https://maxlinebrewing.com/events/",
+      "feedUrl": "https://maxlinebrewing.com/events/ical/",
+      "type": "ical",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Trivia",
+        "Bingo",
+        "Stitch and Bitch",
+        "Food Truck",
+        "Food Cart",
+        "El Torito Loko",
+        "Pig Pickin",
+        "Double Wide Burgers",
+        "Huka Sushi",
+        "Mi Colombia",
+        "La Piadina",
+        "Scrooge Maki",
+        "Schnitzel Wagon",
+        "Board Game"
+      ],
+      "defaultVenue": "Maxline Brewing, 2724 McClelland Dr #190",
+      "notes": "Found and read 10 November 2026. Maxline Brewing, 2724 McClelland Dr #190, on the Mason Trail in midtown. WordPress with the Events Manager plugin, the same stack as the CSU department feeds: /events/ical/ is iCalendar, capped at the next 50 items, which is about a month here (50 VEVENTs, 10 November to 8 December 2026, no RRULEs). robots.txt disallows WooCommerce upload folders, add-to-cart URLs and /wp-admin/ only. Each VEVENT has a CATEGORIES line: 32 Food Trucks, 17 Community Events, 1 Live Music. Of the 41 dated 10 November to 10 December, 5 are worth a row: A.J. Fullerton and Jake Friel (19 November, 6:30 pm, indoors), Chili Cook-Off hosted by Sprague Roofing (20 November), Tea and Tendrils: Holiday Pop-Up (21 November), 970 Free Comedy Night (28 November; the feed gives midnight, the brewery's past comedy nights were at 8 pm) and Flingin' Pots: Create a Clay RAM or Sheep (29 November, a class). 10 are regulars (Trivia Tuesdays, Bingo Mondays, Stitch and Bitch, Board Game Connect) and 26 are food trucks or a 'No Food Truck' notice. The summer has more: the brewery books a named act most Thursdays and Sundays (the live-music category feed lists about 50 for January to July 2026). The category feeds (/events/categories/live-music/ical/) return the oldest 50, not the next 50, so they are no use; the main feed needs the food trucks held back by name, and the list on excludeTitles covers the trucks seen today but will need topping up as new trucks appear. Several one-off items have no LOCATION, so defaultVenue is set."
+    },
+    {
+      "id": "gingerandbaker-com",
+      "name": "Ginger and Baker (classes and events)",
+      "url": "https://gingerandbaker.com/events/",
+      "feedUrl": "https://gingerandbaker.com/wp-json/tribe/events/v1/events?per_page=50",
+      "type": "json",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Private Event",
+        "Closed",
+        "Last Day to Order",
+        "Pick Up Day",
+        "Book Club",
+        "Bingo",
+        "Masterclass",
+        "Camp"
+      ],
+      "defaultVenue": "Ginger and Baker, 359 Linden St",
+      "notes": "Found and read 10 November 2026. Ginger and Baker, 359 Linden St (the guide has the place): a restaurant, pie shop and teaching kitchen in the old Northern Colorado Feeder's Supply mill. WordPress with The Events Calendar; the REST feed /wp-json/tribe/events/v1/events answers with 107 upcoming events (three pages of 50; the first was fetched). robots.txt disallows WooCommerce upload folders and /wp-admin/ and asks for a crawl delay of 10. Venues are rooms ('The Teaching Kitchen', 'The Rooftop at Ginger and Baker') with no street address, so defaultVenue is set. 44 items dated 10 November to 10 December 2026. 3 are worth a row as events: Thanksgiving Makers Market (15 November, 9 am), Chef's Table November (29 November, 6 pm, $120, a ticketed dinner) and Santa and Pups and Kids Photo Event (6 December, 10 am, free); just after the window, Handmade Market NoCo on the rooftop (13 December). About 28 are ticketed cooking classes, each a different menu at $74 to $109 (Beef Wellington, 13 November; Fall in Tuscany, 20 November; Tamales, 28 November; A Night in Morocco, 9 December), plus a monthly book club and November Pie Bingo: regulars by the standard, though no two classes are the same, so the owner may want them. 13 are never-list: 9 'Booked for a Private Event', 'Closed for Thanksgiving', 'Last Day to Order for Thanksgiving!' and 'Thanksgiving Pie Pick Up Day'. excludeTitles holds the never-list and the plainest regulars only; the classes are left in for the owner to decide."
+    },
+    {
+      "id": "avogadros-com",
+      "name": "Avogadro's Number (shows)",
+      "url": "https://avogadros.com/fort-collins-avogadro-s-number-events",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. Avogadro's Number, 605 South Mason Street: a restaurant and music room that has booked bands since the 1970s. The site is SpotHopper; the Shows page is plain HTML with every show's title, start and end time and price written out, but no iCal, RSS or JSON feed was found. robots.txt disallows nothing. 29 shows listed to 31 December 2026; 22 dated 10 November to 10 December, about 19 worth a row: Elise Wunder Mighty EP Release Party (12 November), Salsa Forte (13 November), Sumatra Earthly Garden Belly Dance (14 November), Harmony Hotshots (15 November), Courtlyn's Psychedelic Gospel (18 November, Mishawaka Presents, on Etix), John Magnie's Grocery Story (19 November), Just Jazz Quintet and Groove Avenue (20 November), Tumbledown Shack (21 November), Defunkl (27 November), Luck of the Draw (28 November), Soul Shaker and Friends Holiday Show (1 December), Songwriter in the Round (3 December), Poudre River Irregulars and Wendy Woo (4 December), Dave Dardine and High Plains Blues Society and Clark Street Station (5 December), We Be Three and Dance Night (10 December), and a CSU School of Sustainable Futures panel (11 November). Regulars: the Tuesday Open Mic (one listed). Never: 'Closed for Thanksgiving'. The guide already has a few of these by hand. Type html because there is no feed; the page is regular enough for a person to read in a minute."
+    },
+    {
+      "id": "theelizabethcolorado-com",
+      "name": "Magic Rat at The Elizabeth Hotel (events calendar)",
+      "url": "https://www.theelizabethcolorado.com/the-hotel/events-calendar/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The Elizabeth Hotel, 111 Chestnut Street in Old Town, whose Magic Rat is a free live music room open Wednesday to Saturday; the calendar also carries the hotel's Sunset Lounge and Emporium nights. WordPress with its own calendar, no feed found (no iCal link, no Events Calendar REST route); robots.txt disallows /wp/wp-admin/ only. The page's HTML holds the current month in full. For 10 to 30 November 2026 it lists 10 Magic Rat nights, all worth a row: Behind the Scene of Kung Fu Panda, a film talk (11 November, 6 pm), Nadalands with Logan Farmer (12 November), Crescent City Connection (13 November), Ingrid Avison (14 November), Graham Good (18 November), Flock of Hummingbirds (19 November), StreatBeets (20 November), Delta Sonics (21 November), Barn Ghost (27 November) and Lid Dixon (28 November). December is loaded by script and was not read, except a featured Sunset Lounge Vinyl Listening Party on 2 December (monthly, a regular); at this pace expect about 15 music nights in a 30 day window. The calendar also repeats others' downtown events (the Downtown Lighting Ceremony, First Friday Art Walk), which should come from their organizers. The guide already lists some Magic Rat nights from this page by hand."
+    },
+    {
+      "id": "comedyfortcollins-com",
+      "name": "The Comedy Fort (shows)",
+      "url": "https://www.comedyfortcollins.com/events",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The Comedy Fort, 167 N College Ave in Old Town, a full-time comedy club; all shows 21 and over. The site is SeatEngine; /events is plain HTML, and /events.ics, /events.rss and /events.json answer 404, so no feed. robots.txt is the stock file with nothing disallowed. (www.comedyfort.com, an older address, resets the connection.) 20 titles listed to 30 January 2027. Dated 10 November to 10 December 2026 there are 12 titles on about 18 nights, all worth a row: The Gateway Show (11 November and 9 December), Ryan O'Flanagan (12 November), Alvin Williams (13 and 14 November, 6 and 8:30 pm), Mom's Unhinged (15 November), Fort's Funniest semifinals (17 and 18 November) and finals (28 November), Eeland Stribling: Special Recording (19 November), Ben Roy (20 and 21 November), Rosalie and Friends (25 November), Jokechella! (27 and 28 November), Taylor Tomlinson (4 and 5 December, as the page lists it) and Quantum Arts (6 December). Regulars: New Material Night every Monday (4 in the window); the club also lists an open mic and classes on other pages, not read. A headliner's weekend is two nights with two shows each, so list it as a run or a row a night, not a row a show."
+    },
+    {
+      "id": "basbleu-org",
+      "name": "Bas Bleu Theatre (upcoming performances)",
+      "url": "https://www.basbleu.org/bbtc-events",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. Bas Bleu Theatre Company, 401 Pine Street, an 'intimate salon' playhouse in its 34th season. The site is Wix; /bbtc-events ('Upcoming') lists every performance, no feed, tickets through a 'Reserve Tickets' button. robots.txt allows everything but lightbox URLs. 56 performances listed to 1 August 2027. Dated 10 November to 10 December 2026: 12 performances of two productions, Dancing at Lughnasa by Brian Friel (the home page gives the run as 13 November to 6 December; 11 performances) and It's A Wonderful Life: A Live Radio Play (from 10 December, 5 performances to 13 December); then The Listening Room, a songwriters' night (17 December) and Comedy Brewers, a family improv show, every other month (10 January). Warning for whoever reads it: fetched without a browser, the page prints each performance in the server's time zone, not Denver's ('Saturday, November 14, 12:30 PM' and 'Sunday, November 15, 7:30 AM' for what the run dates suggest are Friday evening and a weekend matinee), so dates and times must be read in a browser. The guide already lists Dancing at Lughnasa as a run. Best kept as a run per production, checked by a person."
+    },
+    {
+      "id": "lyriccinema-com",
+      "name": "The Lyric (cinema, music and events)",
+      "url": "https://www.lyriccinema.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read 10 November 2026. The Lyric, 1209 N College Ave: an independent three-screen cinema (The Mothership, Space Theater, Tiki Lounge) with a bar, a music calendar, outdoor movies in summer and community events. The site is an INDY Cinema Group application: the HTML is an empty shell and everything is drawn from POST requests to /graphql, so there is no feed and a plain fetch reads nothing; it was read with a browser (Playwright). robots.txt disallows /ahoy and checkout paths only. What the pages showed: four films on daily showtimes (Wild Horse Nine, La Bola Negra, Godzilla Minus Zero, Wicker) and recurring nights, Karaoke Club every Tuesday at 7 pm in the lobby, an Open Bluegrass Jam on Monday at 6 pm, There Will Be Gore (a horror series), Wild Card Wednesdays, Weekend Toons and Geeks Who Drink trivia. The /music and /upcoming pages did not list dated one-off concerts in the text a browser returned, so the number of one-off shows 10 November to 10 December 2026 could not be counted: not counted, not zero. Type html; a person has to open it. Film runs change weekly, which fits a 'now showing' note better than a row a screening."
+    },
+    {
+      "id": "oldfirehousebooks-com",
+      "name": "Old Firehouse Books (author events)",
+      "url": "https://oldfirehousebooks.com/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found 10 November 2026; not read. Old Firehouse Books, 232 Walnut St (the guide has the place), is Old Town's independent bookshop and hosts author talks and book clubs. Its robots.txt names ClaudeBot, Claude-Web and Claude (with GPTBot, CCBot and others) under Disallow: /, so its events pages were not crawled and nothing was counted. One request for the home page was made by a probe script before the robots.txt had been read; nothing from it is used here. Type manual: a person checks it by hand, or the shop is asked."
     }
   ]
 }

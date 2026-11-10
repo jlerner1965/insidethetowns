@@ -9723,3 +9723,33 @@ subscribe` on the owner's word.
   and two food trucks. The brewery enters its trucks a week or two ahead,
   so they arrive with each Monday's read, not months out. Kölsch Service,
   Wednesdays in summer, will come when the brewery enters next year's.
+
+## Event sources searched for every live guide, 10 November 2026
+
+Given the brief for one guide's event sources and asked which guide, the
+owner said all of them. Each of the eighteen live guides was searched for
+venues whose calendar changes every time (music rooms, stages, cinemas,
+galleries, bookshops, farms, festivals, ticketed dinners, museums), and
+what was found is on each registry's `notes` and in
+`docs/event-sources-2026-11-10/`, one file a guide: the sources, the five
+to turn on first, what was ruled out, and every fetch made despite a
+robots rule.
+
+- **Nothing was switched on.** Every new entry is `proposed` with `robots:
+  honor`; no status changed and no confirmed source changed type. Where a
+  confirmed source turned out to have a feed (Erie's library, Loveland's
+  downtown calendar, two in Estes Park) it is in `feedUrl` with the type
+  left alone. Ingest was not run.
+- **School calendars are the commonest unread feed**, on Google Calendar
+  or Finalsite's `/fs/` path, each behind a robots rule and each needing
+  long title exclusions: one decision for the owner covers them all.
+- **Most rooms that book bands publish a page, not a feed.** Readers for
+  Squarespace event collections, Modern Events Calendar RSS and
+  ChamberMaster RSS would unlock the most.
+- **Aggregators found** (Golden Today, Live Well Douglas County, AllEvents,
+  Loveland's downtown Tockify) list other organizers' events and want a
+  person's review, as a chamber source does.
+- **Leadville and Timnath have no new feed**; what was found there is read
+  by hand.
+- The same folder's README proposes, and does not build, five changes to
+  the events area and five to the email signup.
