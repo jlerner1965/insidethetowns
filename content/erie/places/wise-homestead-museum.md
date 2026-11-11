@@ -4,6 +4,9 @@ type: venue
 address: "11611 Jasper Rd"
 area: "Jasper Road, southwest of town"
 url: "https://www.eriehistoricalsociety.org/"
+image: ../images/wise-homestead-museum.jpg
+imageAlt: "The Wise farmhouse in spring: white clapboard with a cedar-shingle roof and three red-brick chimneys, an American flag on the front porch, under bare cottonwoods and a blue sky"
+imageCredit: "Erie Historical Society"
 phone: "(303) 828-4568"
 hours: "Sat 10 am–2 pm, May–Sep; by appointment"
 tags: [museum, history]
