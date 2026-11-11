@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-09T23:38:47.837Z",
+  "generated": "2026-11-11T20:05:57.183Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/football/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T23:29:58",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T19:29:07",
       "overall": "5-6",
       "league": {
         "record": "2-4",
@@ -159,8 +159,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/soccer/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T23:38:56",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T20:06:06",
       "overall": "11-5-2",
       "league": {
         "record": "6-0-1",
@@ -384,8 +384,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/volleyball/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T23:39:07",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T17:51:43",
       "overall": "7-16",
       "league": {
         "record": "2-12",
@@ -665,8 +665,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/softball/fall/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T23:20:35",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T16:06:42",
       "overall": "10-15",
       "league": {
         "record": "6-8",
@@ -972,8 +972,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/cross-country/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T23:36:37",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T20:06:32",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -986,8 +986,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/cross-country/girls/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T23:39:30",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T20:06:37",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1000,8 +1000,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/basketball/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T20:30:48",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T17:37:31",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1018,10 +1018,33 @@
           "time": "18:00"
         },
         {
+          "date": "2026-12-03",
+          "opponent": "Pueblo East",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/pueblo-east-vs-silver-creek-longmont/12-3-2026/?c=137cfb0a-8ce5-429b-b83b-612361b260c7",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Pueblo County Winter Classic",
+          "time": "16:30"
+        },
+        {
+          "date": "2026-12-04",
+          "opponent": "Pueblo Central",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/pueblo-central-vs-silver-creek-longmont/12-4-2026/?c=c74968ef-caaa-4880-99c4-cd53d587ea94",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Pueblo County Winter Classic",
+          "time": "18:00"
+        },
+        {
           "date": "2026-12-05",
           "opponent": "Pueblo County",
-          "site": "away",
+          "site": "neutral",
           "url": "https://www.maxpreps.com/co/basketball/game/pueblo-county-vs-silver-creek-longmont/12-5-2026/?c=6350bbdd-c749-4bf3-9550-73764499cb44",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Pueblo County High School",
           "time": "13:00"
         },
         {
@@ -1030,6 +1053,16 @@
           "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/game/silver-creek-longmont-vs-standley-lake-westminster/12-8-2026/?c=13a216ae-c462-4e84-a941-44a00f3bccd6",
           "time": "19:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "The Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/silver-creek-longmont-vs-the-academy-westminster/12-10-2026/?c=abe47847-fa69-45ef-8127-b1f25439a3c3",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "1st Round Fort Lupton Santiago Shootout",
+          "time": "15:00"
         },
         {
           "date": "2026-12-17",
@@ -1146,8 +1179,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/basketball/girls/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T22:55:19",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T17:00:25",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1312,8 +1345,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/wrestling/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T23:39:52",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T19:45:13",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1326,8 +1359,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/longmont/silver-creek-raptors/swimming/girls/",
-      "fetched": "2026-11-09T23:38:47.837Z",
-      "maxprepsUpdated": "2026-11-09T23:39:57",
+      "fetched": "2026-11-11T20:05:57.183Z",
+      "maxprepsUpdated": "2026-11-11T17:51:26",
       "results": [],
       "upcoming": [],
       "held": [],

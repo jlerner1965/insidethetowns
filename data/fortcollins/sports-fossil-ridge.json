@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-09T23:41:17.218Z",
+  "generated": "2026-11-11T20:08:18.609Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/football/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T23:21:07",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T19:54:30",
       "overall": "5-6",
       "league": {
         "record": "3-3",
@@ -149,8 +149,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/soccer/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T19:56:40",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T18:31:00",
       "overall": "5-8-3",
       "league": {
         "record": "2-3-2",
@@ -347,8 +347,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/volleyball/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T20:05:16",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T19:44:49",
       "overall": "21-4",
       "league": {
         "record": "12-2",
@@ -373,8 +373,11 @@
         {
           "date": "2026-11-06",
           "opponent": "Chatfield",
-          "site": "home",
+          "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/chatfield-littleton-vs-fossil-ridge-fort-collins/11-6-2026/?c=3ebd8ce7-1c95-4b4c-afff-d5154833654b",
+          "stage": "Playoffs",
+          "neutral": true,
+          "venue": "Fossil Ridge High School",
           "result": "W",
           "score": {
             "us": 3,
@@ -670,8 +673,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/softball/fall/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T22:33:00",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T19:29:30",
       "overall": "15-11",
       "league": {
         "record": "9-5",
@@ -1003,8 +1006,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/cross-country/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T23:41:55",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T20:08:54",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1017,8 +1020,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/cross-country/girls/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T23:42:00",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T19:31:58",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1031,8 +1034,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/basketball/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T20:55:06",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T16:43:06",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1221,8 +1224,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/basketball/girls/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T21:26:51",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T19:56:54",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1293,10 +1296,8 @@
         {
           "date": "2026-12-19",
           "opponent": "Fort Collins",
-          "site": "neutral",
+          "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/fort-collins-vs-fossil-ridge-fort-collins/12-19-2026/?c=5a17b9b0-8500-453d-a429-6b28144e81c0",
-          "neutral": true,
-          "venue": "Moby Arena",
           "time": "18:30"
         },
         {
@@ -1377,6 +1378,13 @@
           "time": "17:30"
         },
         {
+          "date": "2027-02-03",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/fossil-ridge-fort-collins-vs-poudre-fort-collins/2-3-2027/?c=6ca0c758-f9d8-40ff-a9e1-e38fec857c94",
+          "time": "16:30"
+        },
+        {
           "date": "2027-02-05",
           "opponent": "Horizon",
           "site": "away",
@@ -1421,8 +1429,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/wrestling/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T23:42:22",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T20:09:20",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1435,8 +1443,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/swimming/girls/",
-      "fetched": "2026-11-09T23:41:17.218Z",
-      "maxprepsUpdated": "2026-11-09T23:42:27",
+      "fetched": "2026-11-11T20:08:18.609Z",
+      "maxprepsUpdated": "2026-11-11T19:32:18",
       "results": [],
       "upcoming": [],
       "held": [],

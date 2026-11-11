@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-09T23:26:56.096Z",
+  "generated": "2026-11-11T19:54:02.355Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/football/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T19:34:10",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T16:15:24",
       "overall": "0-10",
       "league": {
         "record": "0-6",
@@ -133,8 +133,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/soccer/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T23:03:08",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T19:26:59",
       "overall": "6-7-2",
       "league": {
         "record": "2-6-2",
@@ -316,8 +316,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/volleyball/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T23:27:30",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T16:57:20",
       "overall": "15-10",
       "league": {
         "record": "5-5",
@@ -635,8 +635,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/softball/fall/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T20:54:41",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T18:29:32",
       "overall": "8-15-1",
       "league": {
         "record": "2-8",
@@ -939,8 +939,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T23:27:47",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T19:54:57",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -953,8 +953,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/girls/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T23:27:52",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T19:55:01",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -967,8 +967,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/basketball/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T22:19:19",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T19:05:41",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1186,8 +1186,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/basketball/girls/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T21:11:17",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T18:28:32",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1322,6 +1322,13 @@
           "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-central-vs-mountain-view-loveland/2-16-2027/?c=6e5a232e-de03-45dd-b0ae-c14743cb24c8",
           "time": "17:30"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mountain-view-loveland-vs-poudre-fort-collins/2-19-2027/?c=d2dd0bd6-51d0-4587-9d50-d11b8d0ceda4",
+          "time": "16:00"
         }
       ],
       "held": [],
@@ -1342,15 +1349,16 @@
         "2027-02-02 at Timnath is not on the school calendar (published on MaxPreps's word alone)",
         "2027-02-05 vs Thompson Valley is not on the school calendar (published on MaxPreps's word alone)",
         "2027-02-11 vs Loveland is not on the school calendar (published on MaxPreps's word alone)",
-        "2027-02-16 at Greeley Central is not on the school calendar (published on MaxPreps's word alone)"
+        "2027-02-16 at Greeley Central is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-19 at Poudre is not on the school calendar (published on MaxPreps's word alone)"
       ]
     },
     {
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/wrestling/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T23:28:14",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T19:55:24",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1363,8 +1371,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/swimming/girls/",
-      "fetched": "2026-11-09T23:26:56.096Z",
-      "maxprepsUpdated": "2026-11-09T23:28:19",
+      "fetched": "2026-11-11T19:54:02.355Z",
+      "maxprepsUpdated": "2026-11-11T16:56:59",
       "results": [],
       "upcoming": [],
       "held": [],

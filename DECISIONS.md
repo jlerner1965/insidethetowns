@@ -10323,3 +10323,44 @@ the owner's word puts it beside Berthoud for search work.*
   Wizard, the owner's yes): 58 clicks and 3,887 impressions in the 28
   days to 8 November. Boo! on Briggs Street drew 1,256 impressions at
   position 6 and six clicks; the Town's own page takes the rest.
+
+## Picks guides above the directories, 11 November 2026
+
+*From the search audit of 7 November (P3): /things-to-do/ and /eat-drink/
+were filterable directories with no picks, no date and no criteria, on
+page three for "things to do in <town>" and "restaurants in <town>";
+Johnstown's eat-drink page ranked tenth on 1,005 impressions with the list
+alone.*
+
+- **The format** (`content/<town>/pages/eat-drink.md`, `things-to-do.md`;
+  `pickSchema` in src/content/schemas.ts; src/components/PicksGuide.astro):
+  a heading, "Checked <date>" from `verified` (the editor's name once the
+  hub config carries one), then 8 to 10 numbered picks, each a place
+  already on the guide with two to four words on who or when it suits and
+  a sentence or two on why. The directory stays under it, whole, behind an
+  "Every place we list" jump link. The page's body, which says how the
+  picks were chosen and what is left out, comes after the picks and the
+  jump link, not before: above them it was 150 to 200 words to scroll past
+  on a phone before the first pick (James, the same day). The guide can carry the page's `seoTitle`
+  and `description`; the CollectionPage list leads with the picks.
+- **What a pick may say**: what a place is, what it serves or holds, when
+  it is open, what it suits, every fact from its own site or its manager's
+  page read the day the guide was checked. No taste rankings and no
+  superlatives a named outlet or award does not supply (the guides name
+  Slow Food, the Reporter-Herald's Readers' Choice, the Governor's Cup,
+  James Beard, GABF where the place's own site does). No dates that go
+  stale in days: a season or a range, not "the next show is".
+- **The validator** fails a pick that is not a published place on the same
+  guide, or one marked closed; the page drops a pick whose place has gone
+  rather than draw a dead link.
+- **First eleven**: eat-drink on Johnstown, Berthoud, Erie, Loveland,
+  Longmont and Lyons; things-to-do on Berthoud, Erie, Loveland, Longmont and
+  Lyons. Johnstown's is titled "9 places to start", not "local picks": most
+  of what could be confirmed there is a chain. Places whose own sites
+  refused automated reads or post no hours were left out and named in the
+  hand-off, not guessed.
+- **Estes Park keeps Events in its menu.** The audit suggested a /families/
+  hub there; on a non-flagship guide the hub takes the menu slot Events has
+  (src/lib/nav.ts), and events earn 88 of the guide's 106 clicks. The
+  existing "Estes Park with kids" article is re-checked and gains a winter
+  section instead.
