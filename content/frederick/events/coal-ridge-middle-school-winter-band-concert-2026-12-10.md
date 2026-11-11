@@ -1,0 +1,16 @@
+---
+title: "Coal Ridge Middle School Winter Band Concert"
+start: "2026-12-10T18:00"
+end: "2026-12-10T20:00"
+venue: "Coal Ridge Middle School"
+address: "6201 Booth Drive, Firestone, CO 80504"
+url: "https://crms.svvsd.org/"
+category: music
+timeNote: "6th grade at 6 pm; 7th and 8th grade at 7 pm"
+organizer: "Coal Ridge Middle School (St. Vrain Valley Schools)"
+source: "https://crms.svvsd.org/"
+verified: "2026-11-11"
+verifiedBy: "Claude Code, delegated by James Lerner: the school's CRMS Building Calendar, the public Google calendar its home page embeds, read 11 November 2026 (\"Winter Band Concert 6th Grade\" 6 to 7 pm and \"Winter Band Concert 7th/8th Grade\" 7 to 8 pm, Thursday, December 10), and the home page for the address"
+---
+
+Coal Ridge Middle School's bands play their winter concert in two parts on Thursday, December 10: the sixth grade at 6 pm and the seventh and eighth grades at 7. The school's calendar lists no ticket price.
