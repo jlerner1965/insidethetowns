@@ -10,6 +10,7 @@ imageAlt: "Pints of Oskar Blues beer on a table"
 imageCredit: "Shannon McGee, Flickr, CC BY-SA 2.0"
 tags: [cajun, live-music, beer, families]
 featured: true
+alwaysListed: true
 summary: "The original Oskar Blues, open since 1997: a Cajun-leaning kitchen, the beers that launched the craft-can movement, and live music most weeks."
 source: "https://oskarbluesfooderies.com/lyons"
 verified: "2026-09-17"

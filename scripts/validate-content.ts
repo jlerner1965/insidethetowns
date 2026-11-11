@@ -162,6 +162,10 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     } else {
       const variant = findTown(town)?.variant ?? 'front-range';
       const why = collection === 'places' ? placeExclusion(data, variant) : eventExclusion(data);
+      // Kept by the owner past the window: still worth a person's look.
+      if (collection === 'places' && data.alwaysListed === true && !why && placeExclusion({ ...data, alwaysListed: false }, variant)) {
+        warnings.push(`${rel}: kept by alwaysListed, but past its re-check window; confirm it by phone or in a browser`);
+      }
       if (why?.reason === 'unconfirmed' && /shown from/.test(why.detail)) {
         // A listed event three months out waits its turn; that is the rule working.
         tally.held++;

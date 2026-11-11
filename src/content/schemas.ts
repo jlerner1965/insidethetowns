@@ -676,6 +676,17 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       imageListingOnly: z.boolean().optional(),
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
+      /**
+       * The owner's word that this place stays on the guide whatever the
+       * age of its last check (src/lib/freshness.ts, placeExclusion): a
+       * landmark whose own site refuses automated reads, so the re-check can
+       * never confirm it and it would lapse after the listing window. Oskar
+       * Blues Grill & Brew in Lyons, 11 November 2026 ("should never be
+       * dropped off the guide"). It still needs its source and its check
+       * date, a closed status still shows as closed, and the validator
+       * warns once it is past the window so a person looks.
+       */
+      alwaysListed: z.boolean().optional(),
       /** One or two sentences, shown on cards. */
       summary: z.string().min(1).max(280),
       /** Whether it can be visited. See PLACE_STATUSES. */

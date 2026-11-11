@@ -69,6 +69,12 @@ test('a mountain listing is hidden on day 61', () => {
   assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(61) }), 'mountain', now)?.reason, 'stale');
 });
 
+test('a listing the owner marks alwaysListed stays past the window, but still needs its source and date', () => {
+  assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(400), alwaysListed: true }), 'front-range', now), null);
+  assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(400) }), 'front-range', now)?.reason, 'stale');
+  assert.equal(placeExclusion(place({ verified: undefined, alwaysListed: true }), 'front-range', now)?.reason, 'no-verified');
+});
+
 test('a closed listing does not go stale: its claim is that the place is shut', () => {
   assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(400), status: 'closed' }), 'front-range', now), null);
   assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(400), status: 'temporarily-closed' }), 'mountain', now), null);

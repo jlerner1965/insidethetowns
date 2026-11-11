@@ -10364,3 +10364,23 @@ alone.*
   (src/lib/nav.ts), and events earn 88 of the guide's 106 clicks. The
   existing "Estes Park with kids" article is re-checked and gains a winter
   section instead.
+
+## Three owner's calls from the picks-guide PR, 11 November 2026
+
+- **Public Google Calendar feeds are a source** where a school, a library
+  or a chamber publishes its calendar that way and it yields listings the
+  guide would not otherwise have ("I'm good with Google Calendar if the
+  system works and provides more events"). The six read on 11 November
+  (Frederick High, Coal Ridge Middle, Thunder Valley K-8, Legacy Academy,
+  the Elizabeth library, the Elbert County Chamber) stand, and their
+  listings stay.
+- **NoCo Winter Wonderland stays on Inside Timnath**, with its Fort
+  Collins address said on the listing.
+- **Oskar Blues Grill & Brew never drops off Inside Lyons.** Its site
+  refuses automated reads, so the re-check could never confirm it and the
+  listing window would have hidden it in mid-December. A place can now
+  carry `alwaysListed: true` (placeSchema; src/lib/freshness.ts): it is
+  not held to the window, still needs its source and check date, still
+  shows a closed status, and the validator warns once it is past the
+  window so a person confirms it by phone or in a browser. Only the
+  owner sets it.
