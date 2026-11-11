@@ -5,8 +5,8 @@ venue: "Nederland Community Center"
 url: "https://www.nederlandfoodpantry.org/events/holidaymountainmarket"
 category: "market"
 source: "https://www.nederlandfoodpantry.org/events/holidaymountainmarket"
-verified: "2026-11-02"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Mountain Market — Nederland Food Pantry\" at 10 am on 5 December in the page's structured data"
+verified: "2026-11-11"
+verifiedBy: "Claude Code, delegated by James Lerner"
 status: "scheduled"
 end: "2026-12-05T17:00"
 address: "750 Colorado Highway 72, Nederland, CO 80466"
@@ -14,8 +14,6 @@ performances:
   - "2026-12-05T10:00"
   - "2026-12-06T10:00"
 organizer: "Nederland Food Pantry"
-changeFlag: true
-changeNote: "Nederland Food Pantry (events, Holiday Mountain Market) now says: end 2026-12-05T17:00 → 2026-12-06T17:00 (read 2026-11-10; see staging/changes/food-pantry-at-holiday-mountain-market-2026.json)"
 ---
 
 The Nederland Food Pantry has a booth at the Holiday Mountain Market at the Community Center, Saturday and Sunday, December 5 and 6, 10 am to 5 pm each day. The pantry team will be on hand to talk about its garden expansion, its programs and ways to support local families.

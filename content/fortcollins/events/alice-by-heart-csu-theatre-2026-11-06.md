@@ -18,10 +18,8 @@ url: "https://theatre.colostate.edu/events/alice-by-heart-music-by-duncan-sheik-
 cost: "$20 adults, $15 seniors 62+, $10 under 18; free for CSU students. UCA ticket office, (970) 491-2787"
 category: arts
 source: "https://theatre.colostate.edu/events/alice-by-heart-music-by-duncan-sheik-lyrics-by-steven-sater-and-book-by-steven-sater-and-jessie-nelson-2026-11-12/"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from CSU Theatre's page for the 12 November show and its events feed on 10 November 2026: 7:30 pm on 12, 13 and 14 November and 2 pm on 15 November, prices as listed; the 9 November flag was a feed-matching miss, the 12 November show is on the feed; ticket office number from uca.colostate.edu/contact"
-changeFlag: true
-changeNote: "recheck 2026-11-10: not on the theatre.colostate.edu feed on 12 November; it has \"Alice by Heart, Music by Duncan Sheik, Lyrics by Steven Sater, and Book by Steven Sater and Jessie Nelson\" on 6 November"
+verified: "2026-11-11"
+verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
 CSU Theatre's fall musical in the University Theatre: Duncan Sheik and Steven Sater's *Alice by Heart*, in which a girl sheltering in a London Tube station during the Blitz escapes into *Alice's Adventures in Wonderland*. Seven performances over two weekends, evenings at 7:30 and Sunday matinees at 2.
