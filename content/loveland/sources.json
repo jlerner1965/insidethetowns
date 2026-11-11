@@ -437,8 +437,8 @@
       "type": "ical",
       "category": "other",
       "priority": "other",
-      "status": "proposed",
-      "robots": "honor",
+      "status": "confirmed",
+      "robots": "subscribe",
       "excludeTitles": [
         "CANCELLED",
         "NO BIRD BANDING",
@@ -448,7 +448,7 @@
         "Native Plant Sales Open"
       ],
       "defaultVenue": "High Plains Environmental Center, 2698 Bluestem Willow Dr, Loveland",
-      "notes": "Found and read 10 November 2026. High Plains Environmental Center, 2698 Bluestem Willow Dr., Loveland (in each item's location). Its events page embeds two public Google Calendars: \"Events (Public)\", 165 VEVENTs running to November 2027, proposed here, and \"Volunteer Events (Public)\", 17 VEVENTs, the Saturday garden club, not proposed. Late autumn is the center's quiet season: between 10 November and 10 December 2026 the events calendar holds a cancelled guided walk (14 November), Nature Journaling with Loveland Open Space on wild turkeys (19 November, 2 to 4 pm, and 20 November, 9 to 11 am), a weekly children's series and a notice that December's bird banding is off. Worth a row: 0, or 2 if the journaling sessions count. Regulars the rest of the year: the monthly bird banding and bird walk (first Saturdays, back in January), the guided interpretive walk with restoration ecologists (second Saturdays) and the spring native plant sale, which are what the feed would add from February on. Robots: suburbitat.org allows its page; calendar.google.com disallows the feed path, so each calendar was fetched once to count it under the published-subscription-feed exception and would need robots: subscribe."
+      "notes": "Found and read 10 November 2026. High Plains Environmental Center, 2698 Bluestem Willow Dr., Loveland (in each item's location). Its events page embeds two public Google Calendars: \"Events (Public)\", 165 VEVENTs running to November 2027, proposed here, and \"Volunteer Events (Public)\", 17 VEVENTs, the Saturday garden club, not proposed. Late autumn is the center's quiet season: between 10 November and 10 December 2026 the events calendar holds a cancelled guided walk (14 November), Nature Journaling with Loveland Open Space on wild turkeys (19 November, 2 to 4 pm, and 20 November, 9 to 11 am), a weekly children's series and a notice that December's bird banding is off. Worth a row: 0, or 2 if the journaling sessions count. Regulars the rest of the year: the monthly bird banding and bird walk (first Saturdays, back in January), the guided interpretive walk with restoration ecologists (second Saturdays) and the spring native plant sale, which are what the feed would add from February on. Robots: suburbitat.org allows its page; calendar.google.com disallows the feed path, so each calendar was fetched once to count it under the published-subscription-feed exception and would need robots: subscribe. 11 November 2026: the owner accepted public Google Calendar feeds as a source and asked for the remaining ones to be switched on; confirmed with robots: subscribe so ingest reads it."
     },
     {
       "id": "skybearbrewery-com",

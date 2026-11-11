@@ -169,8 +169,8 @@
       "type": "ical",
       "category": "other",
       "priority": "other",
-      "status": "proposed",
-      "robots": "honor",
+      "status": "confirmed",
+      "robots": "subscribe",
       "defaultVenue": "Lyons Middle Senior High School, 100 McConnell Drive",
       "excludeTitles": [
         "AWAY",
@@ -187,7 +187,7 @@
         "Testing",
         "PSAT"
       ],
-      "notes": "Found and read 10 November 2026. The school is at 100 McConnell Drive, Lyons (its own home page). The home page embeds a public Google Calendar named Lyons Middle Senior Community Calendar (id c_2a55ijpsj3lakhj6u9p82cr5ns@group.calendar.google.com, time zone America/Denver); its iCal feed was fetched once and holds 1156 events going back years. Dated 10 November to 10 December 2026: 11 items, 3 worth a row: HS Boys and Girls Basketball home against Brush on 1 December at 4 pm, home against Wiggins on 8 December at 5 pm, and the MS/HS Band Concerts in the auditorium on 10 December at 7 pm. The rest are never-list or another town's: away games, middle school games and a dance, Thanksgiving break, the band at Longmont's Veterans Day parade, an open house. After the window it carries seven more home basketball dates to 20 February and the MS/HS Choir Concert on 10 March 2027. Times are in UTC in the feed (an evening event shows the next day's date in UTC). The feed also repeats the Town's Parade of Lights (5 December, 6:30 pm), which the guide already lists from the Town. calendar.google.com's robots.txt disallows /calendar, so reading it needs the editor's robots: subscribe, as the other guides' school calendars did on 10 November. The guide's school sports config (src/config/school-sports.ts) may already cover the games; if so only the concerts and plays are new. Suggested exclusions are in excludeTitles; add any test days and conferences seen on the first read."
+      "notes": "Found and read 10 November 2026. The school is at 100 McConnell Drive, Lyons (its own home page). The home page embeds a public Google Calendar named Lyons Middle Senior Community Calendar (id c_2a55ijpsj3lakhj6u9p82cr5ns@group.calendar.google.com, time zone America/Denver); its iCal feed was fetched once and holds 1156 events going back years. Dated 10 November to 10 December 2026: 11 items, 3 worth a row: HS Boys and Girls Basketball home against Brush on 1 December at 4 pm, home against Wiggins on 8 December at 5 pm, and the MS/HS Band Concerts in the auditorium on 10 December at 7 pm. The rest are never-list or another town's: away games, middle school games and a dance, Thanksgiving break, the band at Longmont's Veterans Day parade, an open house. After the window it carries seven more home basketball dates to 20 February and the MS/HS Choir Concert on 10 March 2027. Times are in UTC in the feed (an evening event shows the next day's date in UTC). The feed also repeats the Town's Parade of Lights (5 December, 6:30 pm), which the guide already lists from the Town. calendar.google.com's robots.txt disallows /calendar, so reading it needs the editor's robots: subscribe, as the other guides' school calendars did on 10 November. The guide's school sports config (src/config/school-sports.ts) may already cover the games; if so only the concerts and plays are new. Suggested exclusions are in excludeTitles; add any test days and conferences seen on the first read. 11 November 2026: the owner accepted public Google Calendar feeds as a source and asked for the remaining ones to be switched on; confirmed with robots: subscribe so ingest reads it."
     },
     {
       "id": "mainstagebrewing-com",

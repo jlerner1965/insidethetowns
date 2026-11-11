@@ -6,16 +6,22 @@
       "name": "Estes Park Events Complex (Town of Estes Park Events Division)",
       "url": "https://eventsinestes.com/calendar/",
       "sampleUrl": "https://www.estesparkeventscomplex.com/",
-      "type": "manual",
+      "type": "ical",
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
       "lastChecked": "2026-11-02",
       "lastStatus": "ok",
-      "robots": "honor",
+      "robots": "subscribe",
       "defaultVenue": "Estes Park Events Complex, 1125 Rooftop Way",
-      "notes": "Fetched 6 October 2026. estesparkeventscomplex.com is the Town's events site (footer: 'Town of Estes Park Events Division', 1125 Rooftop Way, 970-577-3900, events@estes.org); its canonical host is eventsinestes.com (WordPress/Elementor, Jetpack). The home page lists the Town's signature events by month (First Peoples Festival in January, Wine & Chocolate Festival in February, Whiskey Warm Up in March, and so on). The /calendar/ page is an embedded Google Calendar, id estes.org_crkjvme9sv81j4b73v1ctelmfs@group.calendar.google.com, time zone America/Denver; calendar.google.com's robots.txt disallows agents, so the id is recorded and not read. Dead ends: /events/?ical=1 returned the HTML events page, not iCal (The Events Calendar is not installed); /wp-json/tribe/events/v1/events returned 404. The site's WordPress post feed https://eventsinestes.com/feed/ was read once: RSS, 10 items, all posts dated 3 February 2026 describing fiber-arts classes (Scandinavian Skinnfells, Botanical Printing, Spin the Yarn You Need), so it is a stale class listing, not an events feed. Manual until the Town shares an iCal of the Google calendar or the owner approves a Google Calendar read. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Feed read once, 10 November 2026: the Google calendar's public iCal address (now in feedUrl; the type stays manual so ingest does not read it) answered 200, text/calendar, 1,442 VEVENT going back to 2016, 137 with RRULE, time zone America/Denver, last item 27 November 2027. Six items are dated 10 November to 10 December 2026 and all six are worth a row: Veterans Memorial Event (11 November, 11 am, Estes Park Visitor Center), Tree Lighting (21 November, 3:30 pm, Bond Park), Chase the Glow 5k (21 November), Catch the Glow Parade (27 November, 5:30 pm), Holiday Wine and Craft Festival (28 November), Thumbs Up Vertical Challenge (5 December). No regulars in the window. Titles carry suffixes such as ' - Permit Pending', ' - Free Event' and ' - Ticketed Event', and older years hold 'Private Event', 'Private Meeting', 'Pickleball' and 'Walking', which would be the title exclusions. calendar.google.com's robots.txt disallows the path, so a weekly read needs the editor's robots: subscribe; this one fetch was made under the subscription-feed precedent.",
-      "feedUrl": "https://calendar.google.com/calendar/ical/estes.org_crkjvme9sv81j4b73v1ctelmfs%40group.calendar.google.com/public/basic.ics"
+      "notes": "Fetched 6 October 2026. estesparkeventscomplex.com is the Town's events site (footer: 'Town of Estes Park Events Division', 1125 Rooftop Way, 970-577-3900, events@estes.org); its canonical host is eventsinestes.com (WordPress/Elementor, Jetpack). The home page lists the Town's signature events by month (First Peoples Festival in January, Wine & Chocolate Festival in February, Whiskey Warm Up in March, and so on). The /calendar/ page is an embedded Google Calendar, id estes.org_crkjvme9sv81j4b73v1ctelmfs@group.calendar.google.com, time zone America/Denver; calendar.google.com's robots.txt disallows agents, so the id is recorded and not read. Dead ends: /events/?ical=1 returned the HTML events page, not iCal (The Events Calendar is not installed); /wp-json/tribe/events/v1/events returned 404. The site's WordPress post feed https://eventsinestes.com/feed/ was read once: RSS, 10 items, all posts dated 3 February 2026 describing fiber-arts classes (Scandinavian Skinnfells, Botanical Printing, Spin the Yarn You Need), so it is a stale class listing, not an events feed. Manual until the Town shares an iCal of the Google calendar or the owner approves a Google Calendar read. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Feed read once, 10 November 2026: the Google calendar's public iCal address (now in feedUrl; the type stays manual so ingest does not read it) answered 200, text/calendar, 1,442 VEVENT going back to 2016, 137 with RRULE, time zone America/Denver, last item 27 November 2027. Six items are dated 10 November to 10 December 2026 and all six are worth a row: Veterans Memorial Event (11 November, 11 am, Estes Park Visitor Center), Tree Lighting (21 November, 3:30 pm, Bond Park), Chase the Glow 5k (21 November), Catch the Glow Parade (27 November, 5:30 pm), Holiday Wine and Craft Festival (28 November), Thumbs Up Vertical Challenge (5 December). No regulars in the window. Titles carry suffixes such as ' - Permit Pending', ' - Free Event' and ' - Ticketed Event', and older years hold 'Private Event', 'Private Meeting', 'Pickleball' and 'Walking', which would be the title exclusions. calendar.google.com's robots.txt disallows the path, so a weekly read needs the editor's robots: subscribe; this one fetch was made under the subscription-feed precedent. 11 November 2026: the owner accepted public Google Calendar feeds as a source and asked for the remaining ones to be switched on; confirmed with robots: subscribe so ingest reads it.",
+      "feedUrl": "https://calendar.google.com/calendar/ical/estes.org_crkjvme9sv81j4b73v1ctelmfs%40group.calendar.google.com/public/basic.ics",
+      "excludeTitles": [
+        "Private Event",
+        "Private Meeting",
+        "Pickleball",
+        "Walking"
+      ]
     },
     {
       "id": "estespark-colorado-gov",
@@ -192,16 +198,23 @@
       "name": "Rock Cut Brewing Company",
       "url": "https://www.rockcutbrewing.com/events-2/",
       "sampleUrl": "https://rockcutbrewing.com/",
-      "type": "manual",
+      "type": "ical",
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
       "lastChecked": "2026-11-02",
       "lastStatus": "ok",
-      "robots": "honor",
+      "robots": "subscribe",
       "defaultVenue": "Rock Cut Brewing Company",
-      "notes": "Fetched 6 October 2026. WordPress (Twenty Seventeen theme, WooCommerce). The 'Events Calendar' page /events-2/ says 'Trivia Every Tuesday 7-9pm' and embeds a Google Calendar in week view, id 9obsj06n1e1vtcbm6ccjikhrg0@group.calendar.google.com, time zone America/Denver; calendar.google.com's robots.txt disallows agents, so the id is recorded and not read. Manual until the brewery shares the iCal address. Alternative brewery venue seen in the chamber calendar: Avant Garde Aleworks hosts an open mic (not fetched). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Feed read once, 10 November 2026: the Google calendar's public iCal address (now in feedUrl; the type stays manual so ingest does not read it) answered 200, text/calendar, 652 VEVENT going back to 2016, 183 with RRULE, time zone America/Denver. Nothing dated 10 November to 10 December 2026 is worth a row: the window holds only regulars, 'Bingo!' on 15 November and 6 December (6 pm), weekly 'Trivia' on Tuesdays (RRULE to 25 May 2027) and weekly food trucks ('Food Truck: Akido Sushi', 'Food Truck: Johnny's Good Eatin''). Named music nights appear in summer ('Music: Snowbelt', 'Music: Justin DuBois', 'Music: Moon Rock C', fortnightly June to September 2024 and 2025), and one-offs such as 'Warren Miller ticket- BOGO' (6 November 2026) and a yearly 'Anniversary Party!' on 29 August, so the feed earns its place from June. Exclusions it would need: 'Food Truck', 'Trivia', 'Bingo', 'Local Appreciation', 'Growler Fill'. calendar.google.com's robots.txt disallows the path, so a weekly read needs the editor's robots: subscribe; this one fetch was made under the subscription-feed precedent.",
-      "feedUrl": "https://calendar.google.com/calendar/ical/9obsj06n1e1vtcbm6ccjikhrg0%40group.calendar.google.com/public/basic.ics"
+      "notes": "Fetched 6 October 2026. WordPress (Twenty Seventeen theme, WooCommerce). The 'Events Calendar' page /events-2/ says 'Trivia Every Tuesday 7-9pm' and embeds a Google Calendar in week view, id 9obsj06n1e1vtcbm6ccjikhrg0@group.calendar.google.com, time zone America/Denver; calendar.google.com's robots.txt disallows agents, so the id is recorded and not read. Manual until the brewery shares the iCal address. Alternative brewery venue seen in the chamber calendar: Avant Garde Aleworks hosts an open mic (not fetched). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Feed read once, 10 November 2026: the Google calendar's public iCal address (now in feedUrl; the type stays manual so ingest does not read it) answered 200, text/calendar, 652 VEVENT going back to 2016, 183 with RRULE, time zone America/Denver. Nothing dated 10 November to 10 December 2026 is worth a row: the window holds only regulars, 'Bingo!' on 15 November and 6 December (6 pm), weekly 'Trivia' on Tuesdays (RRULE to 25 May 2027) and weekly food trucks ('Food Truck: Akido Sushi', 'Food Truck: Johnny's Good Eatin''). Named music nights appear in summer ('Music: Snowbelt', 'Music: Justin DuBois', 'Music: Moon Rock C', fortnightly June to September 2024 and 2025), and one-offs such as 'Warren Miller ticket- BOGO' (6 November 2026) and a yearly 'Anniversary Party!' on 29 August, so the feed earns its place from June. Exclusions it would need: 'Food Truck', 'Trivia', 'Bingo', 'Local Appreciation', 'Growler Fill'. calendar.google.com's robots.txt disallows the path, so a weekly read needs the editor's robots: subscribe; this one fetch was made under the subscription-feed precedent. 11 November 2026: the owner accepted public Google Calendar feeds as a source and asked for the remaining ones to be switched on; confirmed with robots: subscribe so ingest reads it.",
+      "feedUrl": "https://calendar.google.com/calendar/ical/9obsj06n1e1vtcbm6ccjikhrg0%40group.calendar.google.com/public/basic.ics",
+      "excludeTitles": [
+        "Food Truck",
+        "Trivia",
+        "Bingo",
+        "Local Appreciation",
+        "Growler Fill"
+      ]
     },
     {
       "id": "stanleyhotel-com",
