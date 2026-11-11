@@ -549,7 +549,7 @@
           "value": "insideberthoud.com"
         }
       ],
-      "destination": "/events/",
+      "destination": "/events/trick-or-treat-street/",
       "permanent": true
     },
     {
@@ -593,7 +593,7 @@
           "value": "insideberthoud.com"
         }
       ],
-      "destination": "/events/",
+      "destination": "/events/zombie-fun-run/",
       "permanent": true
     },
     {
@@ -604,7 +604,7 @@
           "value": "insideberthoud.com"
         }
       ],
-      "destination": "/events/",
+      "destination": "/events/berthoud-oktoberfest/",
       "permanent": true
     },
     {
@@ -692,7 +692,7 @@
           "value": "insideberthoud.com"
         }
       ],
-      "destination": "/events/",
+      "destination": "/events/berthoud-literary-festival/",
       "permanent": true
     },
     {

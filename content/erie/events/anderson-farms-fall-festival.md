@@ -1,5 +1,7 @@
 ---
 title: "Anderson Farms Fall Festival"
+annual: true
+formerSlugs: [anderson-farms-fall-festival-2026]
 start: "2026-09-23"
 end: "2026-10-31"
 allDay: true
