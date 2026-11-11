@@ -9,8 +9,8 @@ category: music
 performers:
   - { name: "Bill McKay", kind: person }
 source: "https://www.thegoldenmill.com/events/live-music-with-bill-mckay-4"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Bill McKay\" at 5 pm on 19 November in the page's structured data"
 ---
 
 Keyboardist, vocalist and songwriter Bill McKay, with roots in rock, blues and jam band music, plays the Golden Mill on Thursday, November 19 from 5 to 8 pm. The Golden Mill is the food hall and self-pour taproom on Ford Street; the event page gives no cover charge. The Mill adds an 18 percent service fee to food and drink instead of tips.

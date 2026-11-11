@@ -11,7 +11,7 @@ category: festival
 organizer: "Loveland Downtown Partnership"
 organizerUrl: "https://www.downtownloveland.org/"
 source: "https://www.downtownloveland.org/festivaloflights"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Festival of Lights\" at 5 pm on 20 November on the Loveland Downtown Partnership feed"
 ---
 

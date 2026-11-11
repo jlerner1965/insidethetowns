@@ -10,8 +10,8 @@ source: "https://estesschools.gofmx.com/scheduling/requests/3905737/occurrences/
 sourceId: "estesschools-org"
 sourceUid: "4293291@www.estesschools.org"
 sourceHash: "90fae871030b"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Estes Park School District R-3 (public events calendar) feed read 2026-11-10, the review of 10 November 2026, ruled item by item for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"High School Musical Performance\" at 7 pm on 12 November on the Estes Park School District R-3 (public events calendar) feed"
 ---
 
 High School Musical Performance at Estes Park High School, Thursday, November 12, 7 pm – 11 pm. Listed by Estes Park School District R-3 (public events calendar); the organizer's page has the details and any registration.

@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/introduction-to-dot-painting-class-tickets
 sourceId: "eventbrite-com-loveland"
 sourceUid: "1998389565987"
 sourceHash: "869251383af5"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Loveland feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Introduction to Dot Painting Class\" at 2 pm on 14 November in the page's structured data"
 ---
 
 Introduction to Dot Painting Class at Pinspiration Loveland, Saturday, November 14, 2 pm – 4 pm. Listed by Eventbrite, events in Loveland; the organizer's page has the details and any registration.

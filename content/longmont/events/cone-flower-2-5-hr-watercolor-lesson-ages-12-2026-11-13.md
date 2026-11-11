@@ -9,8 +9,8 @@ source: "https://www.eventbrite.com/e/cone-flower-25-hr-watercolor-lesson-ages-1
 sourceId: "eventbrite-com-longmont"
 sourceUid: "1986375274919"
 sourceHash: "83ae1d0e4b7b"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Longmont feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Cone Flower – 2.5 Hr Watercolor Lesson (Ages 12+)\" at 11:30 am on 13 November in the page's structured data"
 ---
 
 Cone Flower – 2.5 Hr Watercolor Lesson (Ages 12+) at The Tilted Brick, Friday, November 13, 11:30 am – 2 pm. Listed by Eventbrite, events in Longmont; the organizer's page has the details and any registration.

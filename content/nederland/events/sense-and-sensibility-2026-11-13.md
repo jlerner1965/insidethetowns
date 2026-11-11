@@ -9,8 +9,8 @@ source: "https://thebackdoortheatre.org/event/sense-and-sensibility/"
 sourceId: "thebackdoortheatre-org"
 sourceUid: "7878"
 sourceHash: "463ba98cc9fc"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the The Backdoor Theatre (movies at the Community Center) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Sense and Sensibility\" at 7 pm on 13 November in the page's structured data"
 ---
 
 Sense and Sensibility at Backdoor Theatre, Friday, November 13, 7 pm – 7 pm. Listed by The Backdoor Theatre (movies at the Community Center); the organizer's page has the details and any registration.

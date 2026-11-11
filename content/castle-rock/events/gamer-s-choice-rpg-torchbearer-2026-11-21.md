@@ -10,8 +10,8 @@ source: "https://www.honnibrook.com/event/gamers-choice-rpg-torchbearer/"
 sourceId: "honnibrook-com"
 sourceUid: "6414"
 sourceHash: "994962f88e25"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Honnibrook Craft Meadery: events feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Gamer&#8217;s Choice RPG: Torchbearer\" at 5 pm on 21 November in the page's structured data"
 ---
 
 Gamer’s Choice RPG: Torchbearer at Honnibrook Craft Meadery, Saturday, November 21, 5 pm – 10 pm. Listed by Honnibrook Craft Meadery; the organizer's page has the details and any registration.

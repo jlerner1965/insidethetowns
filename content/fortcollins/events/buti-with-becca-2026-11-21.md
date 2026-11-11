@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/buti-with-becca-tickets-2003015967679"
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003015967679"
 sourceHash: "8c252e2bf376"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Buti with Becca\" at 7:30 am on 21 November in the page's structured data"
 ---
 
 Buti with Becca at Cafe Vino, Saturday, November 21, 7:30 am – 8:30 am. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

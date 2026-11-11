@@ -11,8 +11,8 @@ source: "https://www.eventbrite.com/e/thanksgiving-bouquets-and-brews-candle-bou
 sourceId: "eventbrite-com-windsor"
 sourceUid: "2003425980037"
 sourceHash: "6c116363f0ab"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Windsor feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Thanksgiving Bouquets and Brews - Candle Bouquets\" at 10:30 am on 21 November in the page's structured data"
 ---
 
 Thanksgiving Bouquets and Brews - Candle Bouquets at High Hops Brewery, Saturday, November 21, 10:30 am – 12 pm. Listed by Eventbrite, events in Windsor; the organizer's page has the details and any registration.

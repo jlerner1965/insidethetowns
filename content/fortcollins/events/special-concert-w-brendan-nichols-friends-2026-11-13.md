@@ -9,8 +9,8 @@ source: "https://www.wolverinefarm.org/event/special-concert-w-brendan-nichols-f
 sourceId: "wolverinefarm-org"
 sourceUid: "197894"
 sourceHash: "61ce14ab006c"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Wolverine Farm Publick House (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Special Concert w/ Brendan Nichols + Friends\" at 6:30 pm on 13 November in the page's structured data"
 ---
 
 Special Concert w/ Brendan Nichols + Friends at Wolverine Farm Publick House, 316 Willow St., Friday, November 13, 6:30 pm – 8:30 pm. Listed by Wolverine Farm Publick House (events calendar); the organizer's page has the details and any registration.

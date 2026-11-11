@@ -9,8 +9,8 @@ source: "https://highplains.libcal.com/event/17698158"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17698158"
 sourceHash: "95eae7ea272b"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the highplains.libcal.com feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Luggage Tag 3D Design\" at 12 pm on 18 November on the highplains.libcal.com feed"
 ---
 
 Luggage Tag 3D Design at Erie Community Library, Wednesday, November 18, 12 pm – 2 pm. Listed by highplains.libcal.com; the organizer's page has the details and any registration.

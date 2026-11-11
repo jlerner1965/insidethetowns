@@ -11,8 +11,8 @@ source: "https://www.eventbrite.com/e/wl-wellers-tasting-tickets-2003322133429"
 sourceId: "eventbrite-com-windsor"
 sourceUid: "2003322133429"
 sourceHash: "8159b2023fcf"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Windsor feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"W.L. Wellers Tasting\" at 6 pm on 23 November in the page's structured data"
 ---
 
 W.L. Wellers Tasting at William Oliver's Publick House, Monday, November 23, 6 pm – 7 pm. Listed by Eventbrite, events in Windsor; the organizer's page has the details and any registration.

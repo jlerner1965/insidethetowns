@@ -9,7 +9,7 @@ category: food
 organizer: "Downtown Longmont (Longmont Downtown Development Authority)"
 organizerUrl: "https://www.downtownlongmont.com/"
 source: "https://www.downtownlongmont.com/do/harvest-flavors"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 11 am on the page"
 ---
 

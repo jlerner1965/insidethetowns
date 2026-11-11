@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/front-range-agility-club-cpe-dog-agilit
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004351-1795334400-1795366800@bouldercounty.gov"
 sourceHash: "22cdf883f5fc"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Front Range Agility Club CPE Dog Agility\" at 8 am on 22 November on the Boulder County Fairgrounds feed"
 ---
 

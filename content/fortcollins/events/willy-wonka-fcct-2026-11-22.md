@@ -11,8 +11,8 @@ organizerUrl: "https://www.fortcollinschildrenstheatre.org/"
 source: "https://www.lctix.com/shows-tickets/willy-wonka/"
 sourceId: "lctix-com"
 sourceUid: "showare:5578"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 22 November and 2 pm on the page"
 ---
 
 Fort Collins Children's Theatre's musical of Charlie Bucket and the chocolate factory, four performances in the Performance Hall over the weekend of November 20–22.

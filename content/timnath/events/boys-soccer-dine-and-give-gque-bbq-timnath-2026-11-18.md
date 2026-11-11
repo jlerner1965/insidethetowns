@@ -10,8 +10,8 @@ source: "https://tmh.psdschools.org/about-us/calendarsschedule"
 sourceId: "tmh-psdschools-org"
 sourceUid: "6u43dboq9ad61pdrtl7b8sgfoc@google.com"
 sourceHash: "77d232e75103"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Timnath Middle-High School calendar (Poudre School District) feed read 2026-11-10, the standing rules of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Boys' Soccer Dine & Give (GQue BBQ Timnath)\" on 18 November on the Timnath Middle-High School calendar (Poudre School District) feed"
 ---
 
 Boys' Soccer Dine & Give (GQue BBQ Timnath) at GQue BBQ Timnath - Fort Collins, Wednesday, November 18, All day. Listed by Timnath Middle-High School calendar (Poudre School District); the organizer's page has the details and any registration.

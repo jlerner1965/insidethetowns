@@ -9,8 +9,8 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17459231"
 sourceHash: "73e9945e3ff1"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the clearview.libnet.info feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Lunch and Learn\" at 12 pm on 13 November on the Clearview Library District feed"
 ---
 
 Lunch and Learn at Windsor Library - Pikes Peak, Friday, November 13, 12 pm – 1:30 pm. Listed by Clearview Library District; the organizer's page has the details and any registration.

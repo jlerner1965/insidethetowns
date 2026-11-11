@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/mountain-glow-candle-bar-experience-ticket
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "1985416921458"
 sourceHash: "a0ec2b1c20c1"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mountain Glow Candle Bar Experience\" at 12 pm on 13 November in the page's structured data"
 ---
 
 Mountain Glow Candle Bar Experience at Mountain Glow Candle Co., Friday, November 13, 12 pm – 1 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

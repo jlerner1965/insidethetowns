@@ -9,8 +9,8 @@ source: "https://tockify.com/lcplcalevents/detail/1564/1794438000000"
 sourceId: "lakecountypubliclibrary-org"
 sourceUid: "TKF/5adf950edf82fe0c6b9ec210/1564/29907300/0/0"
 sourceHash: "834501144ffd"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Lake County Public Library feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Make & Take Club--- Club de Crear y Llevar/ 🎨 Make It Yours: Tray Painting\" at 4 pm on 18 November on the Lake County Public Library feed"
 ---
 
 Make & Take Club--- Club de Crear y Llevar/ 🎨 Make It Yours: Tray Painting at Lake County Public Library, Wednesday, November 18, 4 pm – 5 pm. Listed by Lake County Public Library; the organizer's page has the details and any registration.

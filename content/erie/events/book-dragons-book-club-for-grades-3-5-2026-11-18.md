@@ -9,8 +9,8 @@ cost: "Free; registration required"
 category: family
 recurring: "Monthly, usually second Wednesdays; November’s is the third"
 source: "https://highplains.libcal.com/event/17380772"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Book Dragons - 3rd-5th Book Club\" at 4:15 pm on 18 November on the highplains.libcal.com feed"
 ---
 
 Book club for children in grades 3 to 5, with discussion and activities. Copies of the month’s book can be collected at the library. Registration required.

@@ -9,7 +9,7 @@ cost: "$30 adults over 21 and ages 13 to 20, $10 children under 13; members half
 category: family
 organizer: "National Mining Hall of Fame and Museum"
 source: "https://mininghalloffame.org/events/"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 5 pm on the page"
 ---
 

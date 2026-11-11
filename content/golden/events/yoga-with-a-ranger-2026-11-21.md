@@ -13,8 +13,8 @@ source: "https://www.jeffco.us/calendar.aspx?EID=16883"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16883"
 sourceHash: "89d0ce32deb6"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Yoga With a Ranger\" at 8:30 am on 21 November on the Jeffco Open Space - Programs, Alerts & Closures feed"
 ---
 
 A gentle hour of outdoor yoga, breathwork and mindfulness with a Jeffco Open Space ranger, held near the Lookout Mountain Nature Center building and open to all experience levels. Ages 12 and up, with young people accompanied by an adult; bring a mat and water. Free, with registration required through the county's CivicRec sign-up.

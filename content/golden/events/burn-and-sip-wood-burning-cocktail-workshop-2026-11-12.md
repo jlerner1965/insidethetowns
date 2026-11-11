@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/burn-sip-wood-burning-cocktail-workshop-ti
 sourceId: "eventbrite-com-o-32376638039"
 sourceUid: "2003432281886"
 sourceHash: "9c56e3ce0cb3"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the State 38 Distilling (its Eventbrite page) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Burn & Sip: Wood Burning + Cocktail Workshop\" at 6 pm on 12 November in the page's structured data"
 ---
 
 Burn & Sip: Wood Burning + Cocktail Workshop at State 38 Distilling, Thursday, November 12, 6 pm. Listed by State 38 Distilling (its Eventbrite page); the organizer's page has the details and any registration.

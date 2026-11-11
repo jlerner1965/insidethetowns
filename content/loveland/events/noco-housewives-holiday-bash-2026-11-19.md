@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/noco-housewives-holiday-bash-tickets-20028
 sourceId: "eventbrite-com-loveland"
 sourceUid: "2002804646612"
 sourceHash: "35b604e3cabc"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Loveland feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Noco Housewives Holiday Bash\" at 5 pm on 19 November in the page's structured data"
 ---
 
 Noco Housewives Holiday Bash at Sweet Heart Winery, Thursday, November 19, 5 pm – 8 pm. Listed by Eventbrite, events in Loveland; the organizer's page has the details and any registration.

@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/holiday-bazar-craft-fair-and-bake-sale/
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004509-1794740400-1794754800@bouldercounty.gov"
 sourceHash: "2be397ce8db2"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Bazar - Craft Fair and Bake Sale\" at 11 am on 15 November on the Boulder County Fairgrounds feed"
 ---
 

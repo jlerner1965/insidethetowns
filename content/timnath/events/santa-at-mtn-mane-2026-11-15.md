@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/santa-at-mtn-mane-tickets-2002833119776"
 sourceId: "eventbrite-com-o-121097739636"
 sourceUid: "2002833119776"
 sourceHash: "4b72afb92cd4"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Kelsey Gray + Lyndsey Lewis (its Eventbrite page) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Santa at Mtn + Mane\" at 1 pm on 15 November in the page's structured data"
 ---
 
 Santa at Mtn + Mane at Mtn + Mane Salon, Sunday, November 15, 1 pm. Listed by Kelsey Gray + Lyndsey Lewis (its Eventbrite page); the organizer's page has the details and any registration.

@@ -12,8 +12,8 @@ organizer: "Clearview Library District"
 organizerUrl: "https://clearviewlibrary.org/"
 source: "https://clearview.libnet.info/event/17452872"
 sourceId: "clearviewlibrary-org"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Paper Roses\" at 5 pm on 12 November on the Clearview Library District: Events (Severance Library) feed"
 ---
 
 An hour's craft workshop for adults 18 and over in the Severance Library's Cottonwood room: turning discarded book pages into a paper rose, for a Thanksgiving centerpiece or a holiday gift. Registration is required and the class is full; the library's page takes names for a waitlist.

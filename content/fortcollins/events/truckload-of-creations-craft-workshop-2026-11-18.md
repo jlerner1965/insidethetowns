@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/truckload-of-creations-craft-workshop-tick
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003997810397"
 sourceHash: "014258797576"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Truckload of Creations Craft Workshop\" at 6 pm on 18 November in the page's structured data"
 ---
 
 Truckload of Creations Craft Workshop at Zwei Brewing, Wednesday, November 18, 6 pm – 8:30 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.
