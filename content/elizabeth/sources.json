@@ -42,7 +42,7 @@
       "url": "https://pplibraries.org/",
       "feedUrl": "https://calendar.google.com/calendar/ical/a683dnsqgd0lmnqsase3860vu4%40group.calendar.google.com/public/basic.ics",
       "sampleUrl": "https://pplibraries.org/03a-activities-calendar/",
-      "type": "manual",
+      "type": "ical",
       "category": "library",
       "priority": "core",
       "status": "confirmed",
@@ -53,9 +53,16 @@
         "events": 15,
         "places": 1
       },
-      "robots": "honor",
+      "robots": "subscribe",
       "defaultVenue": "Elizabeth Library",
-      "notes": "Manual until the library answers: the activities page embeds five public Google calendars and this feedUrl is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver), but calendar.google.com's robots.txt disallows unlisted agents, and the editor is asking the library for permission before ingest reads it (docs/archive/emails/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026. Read once on 10 November 2026 to count: the feed answered 200 (text/calendar, 646 VEVENTs, calendar name 'Elizabeth Events'). 28 occurrences fall in the next 30 days under 13 titles; 19 of them are the standing regulars (Story Time 9, Yarning for All 4, Book Club 2, WIC Clinic 2, Community Coffee & Chat 2), leaving 9 occurrences of 8 one-off or monthly programs: Star Party with CSASTRO (14 Nov), Just a Note - Paper Arts, Curiosity Club, LEGO Construction Masters, Free Virtual Legal Clinic, Joy Seekers with Courtney, Heritage Crew, Piecemaker's quilting group. Two items carry no LOCATION, so defaultVenue is needed. robots.txt position unchanged: calendar.google.com's robots.txt is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent; type left manual until the library answers."
+      "notes": "Manual until the library answers: the activities page embeds five public Google calendars and this feedUrl is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver), but calendar.google.com's robots.txt disallows unlisted agents, and the editor is asking the library for permission before ingest reads it (docs/archive/emails/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026. Read once on 10 November 2026 to count: the feed answered 200 (text/calendar, 646 VEVENTs, calendar name 'Elizabeth Events'). 28 occurrences fall in the next 30 days under 13 titles; 19 of them are the standing regulars (Story Time 9, Yarning for All 4, Book Club 2, WIC Clinic 2, Community Coffee & Chat 2), leaving 9 occurrences of 8 one-off or monthly programs: Star Party with CSASTRO (14 Nov), Just a Note - Paper Arts, Curiosity Club, LEGO Construction Masters, Free Virtual Legal Clinic, Joy Seekers with Courtney, Heritage Crew, Piecemaker's quilting group. Two items carry no LOCATION, so defaultVenue is needed. robots.txt position unchanged: calendar.google.com's robots.txt is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent; type left manual until the library answers. 11 November 2026: the owner accepted public Google Calendar feeds as a source (\"I'm good with Google Calendar if the system works and provides more events\"), so this is confirmed with robots: subscribe and ingest reads it.",
+      "excludeTitles": [
+        "Story Time",
+        "Yarning for All",
+        "WIC Clinic",
+        "Book Club",
+        "Virtual Legal Clinic"
+      ]
     },
     {
       "id": "pplibraries-org-district",
@@ -209,8 +216,8 @@
       "type": "ical",
       "category": "other",
       "priority": "other",
-      "status": "proposed",
-      "robots": "honor",
+      "status": "confirmed",
+      "robots": "subscribe",
       "excludeTitles": [
         "ATHLETICS:",
         "CLUB:",
@@ -228,7 +235,7 @@
         "Picture"
       ],
       "defaultVenue": "Legacy Academy, 1975 Legacy Circle",
-      "notes": "Found and read 10 November 2026. Legacy Academy is the K-8 charter school at 1975 Legacy Circle, Elizabeth (the address is on the feed's own items); the district calendar already in this registry does not carry its events. Its Finalsite home page links a public Google calendar, 'LA PUBLIC', and the feedUrl is that calendar's iCal address. Read once to count: 200, text/calendar, 5,394 VEVENTs back to 2017, 630 with a recurrence rule, times in UTC. Worth a row, 10 November to 10 December: 4. EVENT: PTCO Craft Fair (Saturday 14 November, 9 am), EVENT: Kinder-2nd Music + Piano & Guitar Concert (Tuesday 1 December, 6 pm), EVENT: 3rd-5th Grade Music & Choir Concert (Wednesday 2 December, 6 pm), EVENT: Fall Theater Performance (Thursday 3 December, 6 pm). The school prefixes its titles, and only 'EVENT:' items are candidates: about 45 other occurrences in the window are 'ATHLETICS:' (middle school basketball and cheer, mostly practices), 'CLUB:' (after-school clubs), 'FT' field trips, dress days, assemblies, the food drive, board meetings and no-school days, all never-list. The four EVENT items carry no LOCATION, so defaultVenue is needed. An editor may judge the two grade-level concerts to be parents' evenings and keep only the craft fair and the play. The excludeTitles here are fragments; a single regex entry '^(?!EVENT:)' would do the same job more tightly. robots.txt: legacyk8.org allows its pages (Crawl-delay 5, /fs/ disallowed); calendar.google.com is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent and this needs the editor's robots: subscribe, as the other guides' school calendars did. The craft fair is on the same Saturday as the EHS Craft Fair on the district calendar; they are two fairs at two schools."
+      "notes": "Found and read 10 November 2026. Legacy Academy is the K-8 charter school at 1975 Legacy Circle, Elizabeth (the address is on the feed's own items); the district calendar already in this registry does not carry its events. Its Finalsite home page links a public Google calendar, 'LA PUBLIC', and the feedUrl is that calendar's iCal address. Read once to count: 200, text/calendar, 5,394 VEVENTs back to 2017, 630 with a recurrence rule, times in UTC. Worth a row, 10 November to 10 December: 4. EVENT: PTCO Craft Fair (Saturday 14 November, 9 am), EVENT: Kinder-2nd Music + Piano & Guitar Concert (Tuesday 1 December, 6 pm), EVENT: 3rd-5th Grade Music & Choir Concert (Wednesday 2 December, 6 pm), EVENT: Fall Theater Performance (Thursday 3 December, 6 pm). The school prefixes its titles, and only 'EVENT:' items are candidates: about 45 other occurrences in the window are 'ATHLETICS:' (middle school basketball and cheer, mostly practices), 'CLUB:' (after-school clubs), 'FT' field trips, dress days, assemblies, the food drive, board meetings and no-school days, all never-list. The four EVENT items carry no LOCATION, so defaultVenue is needed. An editor may judge the two grade-level concerts to be parents' evenings and keep only the craft fair and the play. The excludeTitles here are fragments; a single regex entry '^(?!EVENT:)' would do the same job more tightly. robots.txt: legacyk8.org allows its pages (Crawl-delay 5, /fs/ disallowed); calendar.google.com is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent and this needs the editor's robots: subscribe, as the other guides' school calendars did. The craft fair is on the same Saturday as the EHS Craft Fair on the district calendar; they are two fairs at two schools. 11 November 2026: the owner accepted public Google Calendar feeds as a source (\"I'm good with Google Calendar if the system works and provides more events\"), so this is confirmed with robots: subscribe and ingest reads it."
     },
     {
       "id": "elbertcountychamber-org",
@@ -238,8 +245,8 @@
       "type": "ical",
       "category": "chamber",
       "priority": "core",
-      "status": "proposed",
-      "robots": "honor",
+      "status": "confirmed",
+      "robots": "subscribe",
       "locationFilter": [
         "Elizabeth"
       ],
@@ -260,7 +267,7 @@
         "SEO",
         "Food Drive"
       ],
-      "notes": "Found and read 10 November 2026. The Elbert County Chamber of Commerce has its office at 338 S Main Street, Elizabeth (the address on its own orientation events) and most of what it lists is in Elizabeth. The elizabethchamber.org and elizabethkiwanis.org domains are parked and are not this. /events embeds a public Google calendar, 'ECCC Events Calendar (Website Only)'; the feedUrl is its iCal address. Read once to count: 200, text/calendar, 44 VEVENTs, 8 recurring. Worth a row, 10 November to 10 December: 0. The window holds only the chamber's own business: 1st Annual Member Appreciation Night (12 November, Spring Valley Golf Club, members), the monthly Business Over Beverages, Meet & Mingle and book club (third Tuesday and Wednesday), and Perk Up! networking (10 December, Catalina's Diner). It is recorded because through the year it does carry public days nobody else publishes as a feed: The Carriage Shoppes Christmas Open House (7 November 2026, 392 Main St), the 4th Annual Fall Fest & Movie in the Park (17 October, Evans Park), the ECCC Business Expo (25 April, Elizabeth High School), Town of Elizabeth Meet the Candidates (21 September), and, outside Elizabeth, Kiowa Fall Fest and Apples & Asses at Burro Base Camp (both 10 October); perhaps one or two a month in season. Some items are in Kiowa or Parker, so locationFilter keeps Elizabeth's. robots.txt: elbertcountychamber.org's is empty (200, no rules); calendar.google.com is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent and reading it weekly needs the editor's robots: subscribe. Low yield; turn on only if the networking exclusions hold."
+      "notes": "Found and read 10 November 2026. The Elbert County Chamber of Commerce has its office at 338 S Main Street, Elizabeth (the address on its own orientation events) and most of what it lists is in Elizabeth. The elizabethchamber.org and elizabethkiwanis.org domains are parked and are not this. /events embeds a public Google calendar, 'ECCC Events Calendar (Website Only)'; the feedUrl is its iCal address. Read once to count: 200, text/calendar, 44 VEVENTs, 8 recurring. Worth a row, 10 November to 10 December: 0. The window holds only the chamber's own business: 1st Annual Member Appreciation Night (12 November, Spring Valley Golf Club, members), the monthly Business Over Beverages, Meet & Mingle and book club (third Tuesday and Wednesday), and Perk Up! networking (10 December, Catalina's Diner). It is recorded because through the year it does carry public days nobody else publishes as a feed: The Carriage Shoppes Christmas Open House (7 November 2026, 392 Main St), the 4th Annual Fall Fest & Movie in the Park (17 October, Evans Park), the ECCC Business Expo (25 April, Elizabeth High School), Town of Elizabeth Meet the Candidates (21 September), and, outside Elizabeth, Kiowa Fall Fest and Apples & Asses at Burro Base Camp (both 10 October); perhaps one or two a month in season. Some items are in Kiowa or Parker, so locationFilter keeps Elizabeth's. robots.txt: elbertcountychamber.org's is empty (200, no rules); calendar.google.com is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent and reading it weekly needs the editor's robots: subscribe. Low yield; turn on only if the networking exclusions hold. 11 November 2026: the owner accepted public Google Calendar feeds as a source (\"I'm good with Google Calendar if the system works and provides more events\"), so this is confirmed with robots: subscribe and ingest reads it."
     },
     {
       "id": "allevents-in-elizabeth-co",

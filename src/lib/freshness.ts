@@ -27,7 +27,7 @@ export function ageDays(verified: Date, now: Date = new Date()): number {
 type Provenanced = { source?: string; verified?: Date };
 /** The part of a `seasonal` block the gate reads; see seasonalSchema. */
 export type SeasonLike = { opens?: Date; closes?: Date; openMonths?: readonly string[]; closedMonths?: readonly string[] };
-type PlaceLike = Provenanced & { status?: string; hours?: string; seasonal?: SeasonLike };
+type PlaceLike = Provenanced & { status?: string; hours?: string; seasonal?: SeasonLike; alwaysListed?: boolean };
 
 /** Why an entry may not publish, or null when it may. */
 export type Exclusion =
@@ -44,13 +44,16 @@ export type Exclusion =
  * A `closed` or `temporarily-closed` listing is not held to the window: its
  * claim is that the place is shut, which the passing of ninety days does
  * not make less true, and the page exists for the reader who goes looking
- * for it. It still needs its source and date like everything else.
+ * for it. It still needs its source and date like everything else. Nor is a
+ * listing the owner has marked `alwaysListed`.
  */
 export function placeExclusion(data: unknown, variant: TownVariant, now: Date = new Date()): Exclusion | null {
   const common = provenanceExclusion(data);
   if (common) return common;
   const place = data as PlaceLike & { verified: Date };
   if (place.status && place.status !== 'open') return null;
+  // The owner's word that it stays (placeSchema, alwaysListed).
+  if (place.alwaysListed) return null;
   const { listingDays } = windowsFor(variant);
   const age = ageDays(place.verified, now);
   if (age > listingDays) {
