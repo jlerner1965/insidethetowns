@@ -10284,7 +10284,24 @@ the owner's word puts it beside Berthoud for search work.*
 - **`test/series.test.ts`** assumed no annual event ended before its
   fixed date of 20 September; the Literary Festival does, so the test now
   reads the rule as `pastEventSlugs` states it.
-- **Not done:** permanent pages for yearly events the guides never
-  listed (Berthoud Day, the fireworks, the Berthoud Market; Erie's Town
-  Fair and balloon festival, Erie Fest, the farmers market). They are new
-  listings and wait for the owner's yes.
+- **Yearly events the guides had never listed, the owner's yes the same
+  day.** Each is a permanent page showing the 2026 date as last held,
+  every fact from the organizer's or the Town's own page read on 11
+  November. Erie: the Town Fair (the Chamber's page), the Fireworks Show,
+  Arbor Day and Earth Day, Touch-A-Truck, National Night Out and the
+  Youth Fishing Derby (the Town's pages; where a page gives a day and
+  date with no year, the weekday fits 2026 and not 2027), and Erie Fest
+  (Being Better Neighbors). Berthoud: Berthoud Day, the Independence Day
+  celebration and fireworks, and National Night Out, from the Town's
+  Board update memos of 18 May, 3 June and 2 July 2026, since the
+  Chamber's site asks AI crawlers to stay out; the Berthoud Market's
+  listing is restored with its season. Berthoud's fireworks page has the
+  day and the park and no time, because the memos give none.
+- **Left out:** the Erie Balloon Festival (the Chamber gives 10 to 12
+  July and no launch site; its own site answers a bot challenge), Biscuit
+  Day (the Historical Society withdrew its 2026 application; the Town's
+  page says so) and Erie's farmers market (no source read).
+- **Erie's property reads now** (three more properties hidden in GSC
+  Wizard, the owner's yes): 58 clicks and 3,887 impressions in the 28
+  days to 8 November. Boo! on Briggs Street drew 1,256 impressions at
+  position 6 and six clicks; the Town's own page takes the rest.
