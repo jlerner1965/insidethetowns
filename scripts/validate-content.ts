@@ -193,6 +193,25 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     const hedge = publicText.match(HEDGE_PHRASES);
     if (hedge) warnings.push(`${rel}: "${hedge[0]}" is a note to the editor on a public page; state the fact or leave it out`);
   }
+  // A picks guide names places on its own guide, each published and open
+  // (pickSchema): a pick that went to staging, closed or was renamed would
+  // otherwise drop off the page without a word (the picks guides, 11
+  // November 2026).
+  if (collection === 'pages') {
+    const picks = (result.data as { picks?: Array<{ place: string }> }).picks ?? [];
+    const seen = new Set<string>();
+    for (const { place } of picks) {
+      if (seen.has(place)) errors.push(`${rel}: "${place}" is picked twice`);
+      seen.add(place);
+      const file = join(contentDir, town, 'places', `${place}.md`);
+      if (!existsSync(file)) {
+        errors.push(`${rel}: pick "${place}" is not a published place on this guide (content/${town}/places/${place}.md)`);
+        continue;
+      }
+      const pd = parseFrontmatter(readFileSync(file, 'utf8')).data as Record<string, unknown>;
+      if (pd.status === 'closed' || pd.status === 'temporarily-closed') errors.push(`${rel}: pick "${place}" is marked ${pd.status}`);
+    }
+  }
   // A local change whose stage says "complete" while its own words say the
   // count or the decision is unofficial or pending is two claims at once
   // (Berthoud's Ballot Issue 3G, 6 November 2026: stage complete, "the

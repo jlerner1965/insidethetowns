@@ -6,7 +6,9 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import SubTownLinks from '@/components/SubTownLinks.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
-import { getTownEntries } from '@/lib/content';
+import { getTownEntries, getTownEntry } from '@/lib/content';
+import PicksGuide from '@/components/PicksGuide.astro';
+import { picksFirst } from '@/lib/picks';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { byProminence } from '@/lib/places';
 import { THINGS_TO_DO_TYPES } from '@/content/schemas';
@@ -19,8 +21,12 @@ const outdoors = (await getTownEntries('articles')).filter(
   (a) => a.data.tags.includes('outdoors') || a.data.category.toLowerCase() === 'outdoors',
 );
 const listing = [...places, ...lodging].map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` }));
+// The picks guide above the directory, where the guide has one
+// (content/<town>/pages/things-to-do.md; PicksGuide.astro).
+const guide = await getTownEntry('pages', 'things-to-do');
+const pickPaths = (guide?.data.picks ?? []).map((p) => `/places/${p.place}/`);
 /** One line for the meta description and the CollectionPage markup; see /eat-drink/. */
-const description = `Trails, parks and venues in and around ${town.name}, ${town.state}: where to go for an afternoon outdoors, what is there and who looks after it.`;
+const description = guide?.data.description ?? `Trails, parks and venues in and around ${town.name}, ${town.state}: where to go for an afternoon outdoors, what is there and who looks after it.`;
 /**
  * A mountain guide's road and closure links (config `conditionsLinks`): the
  * reader checks CDOT, or the park, before driving up. Linked, never
@@ -32,7 +38,7 @@ const structured = [
     name: `Things to do in ${town.name}, Colorado`,
     description,
     path: '/things-to-do/',
-    items: listing,
+    items: picksFirst(listing, pickPaths),
   }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
@@ -44,7 +50,7 @@ const structured = [
     the page ranked around position 30 to 60 for "things to do in <town>" on
     every guide while its H1 said "Things to do" (the search audit of 7
     November 2026). */}
-<Page title={`Things to do in ${town.name}`} jsonLd={structured} seoTitle={`Things to do in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`Trails, parks and places worth an afternoon in and around ${town.name}.`}>
+<Page title={`Things to do in ${town.name}`} jsonLd={structured} seoTitle={guide?.data.seoTitle ?? `Things to do in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`Trails, parks and places worth an afternoon in and around ${town.name}.`}>
   <SubTownLinks slot="after-header" class="mt-5" />
   {conditionsLinks.length > 0 && (
     <aside slot="after-header" class="mt-6 max-w-2xl rounded-lg border-l-4 border-accent bg-raised p-5 ring-1 ring-line-soft" aria-labelledby="roads">
@@ -62,7 +68,10 @@ const structured = [
   )}
   {/* Places to stay are one more group of the list, as the shops are on Eat
      & Drink: their own heading, count and filter button. */}
-  <PlaceDirectory places={[...places, ...lodging]} heading={lodging.length > 0 ? 'Trails, parks, venues and places to stay' : 'Trails, parks and venues'} filterable emptyMessage="No trails, parks or venues listed yet." />
+  {guide && <PicksGuide page={guide} places={[...places, ...lodging]} />}
+  <div id="directory" class="scroll-mt-6">
+    <PlaceDirectory places={[...places, ...lodging]} heading={`${guide ? 'Every trail, park and venue' : 'Trails, parks and venues'}${lodging.length > 0 ? ', and places to stay' : ''}`} filterable emptyMessage="No trails, parks or venues listed yet." />
+  </div>
   {outdoors.length > 0 && (
     <section class="mt-20">
       <SectionHeader eyebrow="From the guide" title="Outdoors, in depth" href="/guides/" linkLabel="All guides" />

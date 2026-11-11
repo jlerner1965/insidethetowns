@@ -997,6 +997,21 @@ export const correctionSchema = z.object({
 });
 
 /** Free-form pages such as moving-here.md. */
+/**
+ * One pick in a picks guide (content/<town>/pages/eat-drink.md and
+ * things-to-do.md): a place on the same guide, in the guide's order, with
+ * who or when it suits and why it is there, every fact from a source read
+ * when the guide was checked.
+ */
+export const pickSchema = z.object({
+  /** The slug of a published, open place on the same guide. */
+  place: z.string().min(1),
+  /** Two to four words: "Breakfast", "A rainy afternoon", "Game night". */
+  for: z.string().min(1).max(40).optional(),
+  /** One or two sentences: what it is and why it is here. */
+  why: z.string().min(1).max(400),
+});
+
 export function pageSchema<I extends z.ZodType>(image: () => I) {
   return z.object({
     title: z.string().min(1),
@@ -1006,6 +1021,19 @@ export function pageSchema<I extends z.ZodType>(image: () => I) {
     /** Shown under the image. Required when the license asks for attribution. */
     imageCredit: z.string().optional(),
     updated: localDate.optional(),
+    /** The page's <title> where the guide's heading is not it. */
+    seoTitle: z.string().min(1).optional(),
+    /** The day every fact on the page was read against its source. */
+    verified: localDate.optional(),
+    verifiedBy: z.string().min(1).optional(),
+    /**
+     * A picks guide's places, in order (the search audit of 7 November 2026:
+     * /eat-drink/ and /things-to-do/ were directories with no picks and no
+     * date, on page three for "restaurants in <town>"). The directory stays
+     * under them. Each must be a published, open place on the same guide
+     * (validate-content.ts).
+     */
+    picks: z.array(pickSchema).min(3).max(15).optional(),
   });
 }
 
