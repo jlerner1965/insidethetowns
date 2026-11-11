@@ -10335,11 +10335,13 @@ alone.*
 - **The format** (`content/<town>/pages/eat-drink.md`, `things-to-do.md`;
   `pickSchema` in src/content/schemas.ts; src/components/PicksGuide.astro):
   a heading, "Checked <date>" from `verified` (the editor's name once the
-  hub config carries one), a short lead that says how the picks were
-  chosen and what is left out, then 8 to 10 numbered picks, each a place
+  hub config carries one), then 8 to 10 numbered picks, each a place
   already on the guide with two to four words on who or when it suits and
   a sentence or two on why. The directory stays under it, whole, behind an
-  "Every place we list" jump link. The guide can carry the page's `seoTitle`
+  "Every place we list" jump link. The page's body, which says how the
+  picks were chosen and what is left out, comes after the picks and the
+  jump link, not before: above them it was 150 to 200 words to scroll past
+  on a phone before the first pick (James, the same day). The guide can carry the page's `seoTitle`
   and `description`; the CollectionPage list leads with the picks.
 - **What a pick may say**: what a place is, what it serves or holds, when
   it is open, what it suits, every fact from its own site or its manager's
