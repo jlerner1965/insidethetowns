@@ -508,6 +508,16 @@ Left alone: gallery photos the society captions as another collection's
 uncaptioned copies of them; and the photos on its museum page whose metadata
 names the Daily Camera and Cliff Grassmick.
 
+Seven more from the same gallery went into a new article, "Old Erie in
+photographs" (`content/erie/articles/old-erie-in-photographs.md`), the same
+day: the Erie Bank interior (Mary Young collection) and Thomas Richards's
+store (DeWitt Brennan collection), both captioned by the society as its own;
+the Lincoln School; Erie schoolchildren; the Clayton Mine and Columbine Mine
+Camp postcards; and the National Fuel First Aid Team Number 13. The two mine
+postcards are Sanborn souvenir cards and the first-aid team was printed by
+the Mile High Photo Co. of Denver; the society holds the prints, and any of
+them comes down if the society or anyone with a better claim asks.
+
 ---
 
 ## Stock licences — bought photographs
