@@ -497,6 +497,17 @@ The request was for the museum listing on Inside Erie, and that is the use
 the owner's reply names; the grant's own words do not limit it to one
 listing or one guide, but anything beyond Inside Erie should be asked first.
 
+**Used** 11 November 2026: the farmhouse photograph from the society's Wise
+Homestead Museum page (a 2013 Nikon frame) on the museum's listing, and three
+from its "Erie Historical Photos" gallery in the Erie history article: the
+"Main St. Erie, Colo." postcard of Briggs Street (captioned by the society
+"Erie Historical Society collection"), the Boulder Valley Mine top crew and
+the horse teams titled "Farming" (watermarked "Erie Historical Society").
+Left alone: gallery photos the society captions as another collection's
+(Sallie Gorce collection, Carnegie Branch Library for Local History) and
+uncaptioned copies of them; and the photos on its museum page whose metadata
+names the Daily Camera and Cliff Grassmick.
+
 ---
 
 ## Stock licences — bought photographs

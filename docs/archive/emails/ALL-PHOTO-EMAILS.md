@@ -1427,7 +1427,7 @@ media doing stories on Colorado State at no charge; that is this.
 | C4 | Venues | Berthoud Main Street (murals), optional | form; skip once A2 has gone | | | |
 | C5 | Venues | Wildfire Arts Center | form or phone | | | |
 | C6 | Venues | Pines & Plains Libraries | email | | | |
-| C7 | Venues | Erie Historical Society | email | yes | 2026-11-11 | Granted by Matt Flood, Treasurer: any photo on eriehistoricalsociety.org or photos.eriehistoricalsociety.org, credit "Erie Historical Society" (PERMISSIONS.md); also invited to photograph the museum any time. No photo used yet |
+| C7 | Venues | Erie Historical Society | email | yes | 2026-11-11 | Granted by Matt Flood, Treasurer: any photo on eriehistoricalsociety.org or photos.eriehistoricalsociety.org, credit "Erie Historical Society" (PERMISSIONS.md); also invited to photograph the museum any time. One used on the museum listing, three in the Erie history article |
 | C8 | Venues | Johnstown Historical Society | email | yes | 2026-10-02 | Granted: the walking tour page's photographs, credit "Courtesy of the Johnstown Historical Society, Ltd" (PERMISSIONS.md); three used on the walking tour listing. Parish House interior and meteorite photographs promised; asked portrait or landscape, answered landscape. Also: Cemetery Crawl registration open, listing updated |
 | C9 | Venues | Johnstown-Milliken Public Libraries | phone | | | |
 | C10 | Venues | YMCA of Northern Colorado | phone | | | |
