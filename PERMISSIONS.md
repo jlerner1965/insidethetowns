@@ -467,6 +467,38 @@ organizer comes.
 
 ---
 
+## Erie Historical Society — its website and SmugMug photographs
+
+**Granted** 11 November 2026 by **Matt Flood, Treasurer**, Erie Historical
+Society (matt@eriehistoricalsociety.org), by email, in reply to the owner's
+request for a photograph of the Wise Homestead Museum for Inside Erie
+(`docs/archive/emails/ALL-PHOTO-EMAILS.md`, C7).
+
+His wording, in full (the typo is his):
+
+> Thanks James
+> Youbare welcome to stop by anytime and get a shot of the museum
+>
+> You are also welcome to use any of our photos from website or from
+> photos.eriehistoricalsociety.org just credit Erie Historical Society
+
+The owner replied the same evening that he would pick a day to stop by for
+a photograph and would credit the Erie Historical Society on the listing.
+
+| | |
+|---|---|
+| **Scope** | Any photograph on eriehistoricalsociety.org or photos.eriehistoricalsociety.org (the society's SmugMug), for Inside Erie; also an open invitation to photograph the Wise Homestead Museum ourselves |
+| **Not covered** | Photographs of the society's held elsewhere; and any photograph on those sites that is credited to someone other than the society — check the caption before using one |
+| **Credit** | Required: "Erie Historical Society" |
+| **Standing** | Yes — "any of our photos", not limited to one request |
+| **Contact** | Matt Flood, matt@eriehistoricalsociety.org; the society at info@eriehistoricalsociety.org, 303-828-4568 |
+
+The request was for the museum listing on Inside Erie, and that is the use
+the owner's reply names; the grant's own words do not limit it to one
+listing or one guide, but anything beyond Inside Erie should be asked first.
+
+---
+
 ## Stock licences — bought photographs
 
 `docs/HERO-PHOTOS.md` is the list of heroes worth buying.
