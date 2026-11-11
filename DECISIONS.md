@@ -10297,10 +10297,28 @@ the owner's word puts it beside Berthoud for search work.*
   Chamber's site asks AI crawlers to stay out; the Berthoud Market's
   listing is restored with its season. Berthoud's fireworks page has the
   day and the park and no time, because the memos give none.
-- **Left out:** the Erie Balloon Festival (the Chamber gives 10 to 12
-  July and no launch site; its own site answers a bot challenge), Biscuit
-  Day (the Historical Society withdrew its 2026 application; the Town's
-  page says so) and Erie's farmers market (no source read).
+- **Left out:** Biscuit Day (the Historical Society withdrew its 2026
+  application; the Town's page says so) and Erie's farmers market (no
+  source read).
+- **The Erie Balloon Festival has its page** (the owner's go-ahead, later
+  the same day): dates and hours from the Chamber's page; the launch
+  field, Weld County Road 5 and Colliers Parkway, from the Denver
+  Gazette's guide of 4 June 2026 and Yellow Scene's listing, which agree,
+  since the festival's own site answers a bot challenge. The body names
+  the Gazette for what rests on it.
+- **Two Erie restaurants added, of the many missing:** Abo's Pizza (its
+  Erie page: address, phone, hours) and Si Señor (its site: address,
+  phone, happy hour; no opening hours published, and the listing says
+  so). The Chamber's food members were read for more: Fortezza is in
+  Niwot, Rumbo 52 has a Longmont address, Blake's is in Broomfield,
+  Tibet's in Louisville, Fox Crumb's site needs a browser, Miner's
+  Tavern's does not answer. Search turns up directories, not the
+  restaurants' own pages, so the next batch needs names from the owner.
+- **Berthoud Day's parade time and the fireworks' start are still out.**
+  Listings elsewhere give a 10 am parade and 5 to 9 pm for 3 July, but
+  one puts Berthoud Day at Waggener Farm Park where the Town's memo says
+  Town Park, and the page that carries the fireworks times refuses
+  automated reads.
 - **Erie's property reads now** (three more properties hidden in GSC
   Wizard, the owner's yes): 58 clicks and 3,887 impressions in the 28
   days to 8 November. Boo! on Briggs Street drew 1,256 impressions at
