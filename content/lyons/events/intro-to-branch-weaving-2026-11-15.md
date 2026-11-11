@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/intro-to-branch-weaving-tickets-1993487761
 sourceId: "eventbrite-com-lyons"
 sourceUid: "1993487761558"
 sourceHash: "d6d735c36264"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Lyons feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Intro to Branch Weaving\" at 1 pm on 15 November in the page's structured data"
 ---
 
 Intro to Branch Weaving at Lyons Farmette, Sunday, November 15, 1 pm – 5 pm. Listed by Eventbrite, events in Lyons; the organizer's page has the details and any registration.

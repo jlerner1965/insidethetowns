@@ -10,8 +10,8 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6abb486d0f56a0002cd4c55e"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen After Hours: Go Nuts for Donuts!\" at 6 pm on 13 November in the page's structured data"
 ---
 
 The library's monthly after-hours evening for teens in grades 6 to 12, and only for them: crochet an amigurumi donut while eating real ones, then take home the donut, a crochet hook and extra yarn. No crochet experience is needed. Registration is required and closes at 6 pm on the day.

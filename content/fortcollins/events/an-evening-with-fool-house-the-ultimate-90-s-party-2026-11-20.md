@@ -10,8 +10,8 @@ source: "https://bohemianlivemusic.org/event/an-evening-with-fool-house-the-ulti
 sourceId: "bohemianlivemusic-org"
 sourceUid: "54013"
 sourceHash: "72aeedbe141c"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from Bohemian Live Music's own events feed (bohemianlivemusic.org) on 10 November 2026: date, start time, venue and price; the feed gives no end time"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"An Evening with Fool House &#8211; The Ultimate 90&#8217;s Party\" at 8 pm on 20 November in the page's structured data"
 ---
 
 An Evening with Fool House – The Ultimate 90’s Party at Washington's, Friday, November 20, 8 pm. Listed by bohemianlivemusic.org; the organizer's page has the details and any registration.

@@ -9,8 +9,8 @@ cost: "Free; registration required"
 category: other
 recurring: "Monthly, third Wednesdays"
 source: "https://highplains.libcal.com/event/16776753"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mahjong Meetup\" at 1 pm on 18 November on the highplains.libcal.com feed"
 ---
 
 Self-guided open play for mahjong players. Bring a set or National Mah Jongg card if you have one. Registration required.

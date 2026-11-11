@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/noco-singers-fall-concert-2026-saturday-ti
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003901639748"
 sourceHash: "18e86075ee4a"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"NOCO Singers Fall Concert 2026 - Saturday\" at 7 pm on 21 November in the page's structured data"
 ---
 
 NOCO Singers Fall Concert 2026 - Saturday at St Luke's Episcopal Church, Saturday, November 21, 7 pm – 8:30 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

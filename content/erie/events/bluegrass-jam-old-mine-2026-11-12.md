@@ -9,8 +9,8 @@ cost: "Free"
 category: music
 recurring: "Second Thursdays"
 source: "https://www.theoldmine.com/events"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Old Mine's events page: 2nd Thursday of the month, Bluegrass Jam, 5:00pm to 7:00pm, 500 Briggs Street; the page gives no price)"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Bluegrass Jam LIVE MUSIC\" at 5 pm on 12 November on the theoldmine.com feed"
 ---
 
 The Old Mine's monthly bluegrass jam on the second Thursday, 5 to 7: bring an instrument and join the circle, or just listen.

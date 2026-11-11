@@ -10,8 +10,8 @@ source: "https://bohemianlivemusic.org/event/kurt-vile-and-the-violators/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "53013"
 sourceHash: "29cd1e419c7e"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026: doors 7 pm, show 8 pm, all ages, sold out; the page gives no end time"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Kurt Vile and The Violators\" at 8 pm on 13 November in the page's structured data"
 ---
 
 Kurt Vile and The Violators at Washington's, Friday, November 13, 8 pm. Listed by bohemianlivemusic.org; the organizer's page has the details and any registration.

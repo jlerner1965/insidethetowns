@@ -10,8 +10,8 @@ source: "https://www.kuperwinebar.com/event/a-tour-of-italy-for-the-holidays-kup
 sourceId: "kuperwinebar-com"
 sourceUid: "11377"
 sourceHash: "ebafc5d8bce8"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Kuper Wine Bar (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"A Tour of Italy for the Holidays: Kuper Wine Bar &#038; Urban Field Holiday Dinner\" at 4:30 pm on 12 November in the page's structured data"
 ---
 
 A Tour of Italy for the Holidays: Kuper Wine Bar & Urban Field Holiday Dinner at Urban Field Pizza &#038; Market, Thursday, November 12, 4:30 pm – 10 pm. Listed by Kuper Wine Bar (events calendar); the organizer's page has the details and any registration.

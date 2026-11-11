@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/noco-whiskey-class-laf-tickets-20029797974
 sourceId: "eventbrite-com-lafayette"
 sourceUid: "2002979797493"
 sourceHash: "f5f89dd563fd"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Lafayette feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"NoCo Whiskey Class LAF\" at 6 pm on 17 November in the page's structured data"
 ---
 
 NoCo Whiskey Class LAF at William Oliver's Publick House, Tuesday, November 17, 6 pm – 7 pm. Listed by Eventbrite, events in Lafayette; the organizer's page has the details and any registration.

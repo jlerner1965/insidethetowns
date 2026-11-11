@@ -8,8 +8,8 @@ url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free"
 category: arts
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's Events and Classes page and its November 2026 newsletter)"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 15 November and 1 pm on the page"
 ---
 
 An afternoon at the library for people working on creative projects: part accountability group, part studio space. Bring what you are working on and any questions about it. Sunday, November 15, 1 to 4 pm. Spots are limited and registration is required: call the library at (970) 532-2757.

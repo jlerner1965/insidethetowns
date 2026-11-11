@@ -9,8 +9,8 @@ source: "https://www.skicooper.com/event/warren-miller-movie-at-the-cooper-lodge
 sourceId: "skicooper-com"
 sourceUid: "7623-1795201200-1795210200@www.skicooper.com"
 sourceHash: "9b2f606b89f6"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Ski Cooper events feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Warren Miller Movie at the Cooper Lodge\" at 7 pm on 20 November on the Ski Cooper feed"
 ---
 
 Warren Miller Movie at the Cooper Lodge at Ski Cooper, Friday, November 20, 7 pm – 9:30 pm. Listed by Ski Cooper; the organizer's page has the details and any registration.

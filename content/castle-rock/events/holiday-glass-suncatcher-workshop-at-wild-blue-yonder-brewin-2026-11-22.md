@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/holiday-glass-suncatcher-workshop-at-wild-
 sourceId: "eventbrite-com-castle-rock"
 sourceUid: "2004092766413"
 sourceHash: "f8a5cbb23c4b"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Castle Rock feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Glass Suncatcher Workshop at Wild Blue Yonder Brewing Co.\" at 2 pm on 22 November in the page's structured data"
 ---
 
 Holiday Glass Suncatcher Workshop at Wild Blue Yonder Brewing Co. at Wild Blue Yonder Brewing Co., Sunday, November 22, 2 pm – 5 pm. Listed by Eventbrite, events in Castle Rock; the organizer's page has the details and any registration.

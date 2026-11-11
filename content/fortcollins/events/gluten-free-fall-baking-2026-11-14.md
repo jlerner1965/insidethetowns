@@ -10,8 +10,8 @@ source: "https://gingerandbaker.com/my-event/tk-gluten-free-fall-baking-2/"
 sourceId: "gingerandbaker-com"
 sourceUid: "81278"
 sourceHash: "94fbe3a3a58a"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Ginger and Baker (classes and events) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Gluten Free Fall Baking\" at 10 am on 14 November in the page's structured data"
 ---
 
 Gluten Free Fall Baking at The Teaching Kitchen, Saturday, November 14, 10 am – 1 pm. Listed by Ginger and Baker (classes and events); the organizer's page has the details and any registration.

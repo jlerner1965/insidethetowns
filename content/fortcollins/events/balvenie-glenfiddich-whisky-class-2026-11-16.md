@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/balvenieglenfiddich-whisky-class-tickets-2
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003481411835"
 sourceHash: "054a874d0eed"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Balvenie/Glenfiddich Whisky Class\" at 6 pm on 16 November in the page's structured data"
 ---
 
 Balvenie/Glenfiddich Whisky Class at William Oliver's Publick House, Monday, November 16, 6 pm – 7 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

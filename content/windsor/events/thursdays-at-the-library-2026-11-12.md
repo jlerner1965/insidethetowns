@@ -9,8 +9,8 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17450251"
 sourceHash: "aebe0e889e13"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the clearview.libnet.info feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Thursdays at the Library\" at 10 am on 12 November on the Clearview Library District feed"
 ---
 
 Thursdays at the Library at Windsor Library - Pikes Peak, Thursday, November 12, 10 am – 11:30 am. Listed by Clearview Library District; the organizer's page has the details and any registration.

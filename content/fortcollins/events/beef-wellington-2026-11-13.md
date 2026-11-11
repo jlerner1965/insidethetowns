@@ -10,8 +10,8 @@ source: "https://gingerandbaker.com/my-event/tk-beef-wellington-8/"
 sourceId: "gingerandbaker-com"
 sourceUid: "81274"
 sourceHash: "6e4a025818e4"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Ginger and Baker (classes and events) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Beef Wellington\" at 5:30 pm on 13 November in the page's structured data"
 ---
 
 Beef Wellington at The Teaching Kitchen, Friday, November 13, 5:30 pm – 8:30 pm. Listed by Ginger and Baker (classes and events); the organizer's page has the details and any registration.

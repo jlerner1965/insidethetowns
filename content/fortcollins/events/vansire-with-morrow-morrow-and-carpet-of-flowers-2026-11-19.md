@@ -10,8 +10,8 @@ performers:
   - { name: "Morrow Morrow", kind: group }
   - { name: "Carpet of Flowers", kind: group }
 source: "https://www.z2ent.com/events/detail/vansire-2026-agg"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 8 pm on the page"
 ---
 
 Minnesota dream-pop duo Vansire, with Morrow Morrow and Carpet of Flowers opening. Doors at 7 pm, show at 8 pm. All ages. Presented by The Aggie Theatre. Ticket prices are on the Aggie's page; none was posted in the listing text when checked.

@@ -10,8 +10,8 @@ source: "https://www.honnibrook.com/event/trivia-night-the-muppets-food-truck-co
 sourceId: "honnibrook-com"
 sourceUid: "6408"
 sourceHash: "21aff776bf72"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Honnibrook Craft Meadery: events feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Trivia Night: The Muppets, Food Truck: Taquería El PeriKin\" at 7 pm on 17 November in the page's structured data"
 ---
 
 Trivia Night: The Muppets, Food Truck: Taquería El PeriKin at Honnibrook Craft Meadery, Tuesday, November 17, 7 pm – 9 pm. Listed by Honnibrook Craft Meadery; the organizer's page has the details and any registration.

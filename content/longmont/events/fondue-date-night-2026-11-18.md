@@ -10,8 +10,8 @@ source: "https://www.kuperwinebar.com/event/fondue-date-night-15/2026-11-18/"
 sourceId: "kuperwinebar-com"
 sourceUid: "10000994"
 sourceHash: "885bc6d7c85b"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Kuper Wine Bar (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Fondue Date Night\" at 5:30 pm on 18 November in the page's structured data"
 ---
 
 Fondue Date Night at Kuper Wine Bar, Wednesday, November 18, 5:30 pm – 7:30 pm. Listed by Kuper Wine Bar (events calendar); the organizer's page has the details and any registration.

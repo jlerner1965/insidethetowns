@@ -11,8 +11,8 @@ cost: "Free"
 category: music
 recurring: "Wednesdays at 6"
 source: "https://www.theoldmine.com/events"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Old Mine's events page: Wednesdays & Sundays, Live Music, 6:00pm to 8:00pm, 500 Briggs Street; the page gives no price)"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"No Live Music\" on 11 November on the theoldmine.com feed"
 ---
 
 Live music in the Old Mine every Wednesday evening, 6 to 8, with the cider list and the pizza oven going. No cover.

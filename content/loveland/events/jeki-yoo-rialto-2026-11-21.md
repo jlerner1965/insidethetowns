@@ -9,7 +9,7 @@ category: family
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=164"
 sourceId: "rialtotheatercenter-org"
 sourceUid: "showare:260"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 7:30 pm on the page"
 ---
 

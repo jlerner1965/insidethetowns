@@ -15,7 +15,7 @@ recurring: "Mondays and Tuesdays, November 23 to December 29"
 timeNote: "Mondays and Tuesdays, 5:30 to 7:30 pm"
 schedule:
   - { days: [mon, tue], start: "17:30", end: "19:30" }
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): 23 November and 5:30 pm on the page"
 ---
 

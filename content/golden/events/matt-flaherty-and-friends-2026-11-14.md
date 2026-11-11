@@ -10,8 +10,8 @@ source: "https://www.instagram.com/daddyflaherty?obrf=NmY1Ync4aHpycml6"
 sourceId: "calendar-google-com-goosetownstation"
 sourceUid: "6i35a4dsj853mu6dhfoisj9v7s@google.com"
 sourceHash: "d40abf418bc6"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Goosetown Station (music and food truck calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"🎶🎉🎸🥁🙌🏼🙏🏽 Matt, Flaherty, and friends\" at 6:30 pm on 14 November on the Goosetown Station (music and food truck calendar) feed"
 ---
 
 Matt, Flaherty, and friends at Goosetown Station, Saturday, November 14, 6:30 pm – 9:30 pm. Listed by Goosetown Station (music and food truck calendar); the organizer's page has the details and any registration.

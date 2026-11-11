@@ -10,8 +10,8 @@ source: "https://tockify.com/lovelanddowntown/detail/1808/1794783600000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1808/29913060/0/0"
 sourceHash: "fdc3fc30674e"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Loveland Downtown Partnership feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Friendsgiving Potluck\" at 4 pm on 15 November on the Loveland Downtown Partnership feed"
 ---
 
 Friendsgiving Potluck at Loveland Aleworks, Sunday, November 15, 4 pm – 7 pm. Listed by Loveland Downtown Partnership; the organizer's page has the details and any registration.

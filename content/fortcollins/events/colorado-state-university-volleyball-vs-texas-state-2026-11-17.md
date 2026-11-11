@@ -10,8 +10,8 @@ sourceId: "csurams-com"
 sourceUid: "vcal_22101-admin.csurams.com"
 sourceHash: "53377edcfb80"
 address: "951 W Plum St, Fort Collins"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the csurams.com feed read 2026-11-10, the review of 10 November 2026, ruled item by item for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado State University Volleyball vs Texas State\" at 6 pm on 17 November on the csurams.com feed"
 ---
 
 Colorado State University Volleyball vs Texas State at Moby Arena, Tuesday, November 17, 6 pm – 8 pm. Listed by csurams.com; the organizer's page has the details and any registration.

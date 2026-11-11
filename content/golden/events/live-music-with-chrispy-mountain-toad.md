@@ -13,8 +13,8 @@ category: music
 performers:
   - { name: "Chrispy", kind: person }
 source: "https://www.mountaintoadbrewing.com/events"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 11 November and 6 pm on the page"
 changeFlag: true
 changeNote: "Mountain Toad Brewing (events) now says: end 2026-12-30T20:00 → 2026-12-30T21:00 (read 2026-11-10; see staging/changes/live-music-with-chrispy-mountain-toad.json)"
 ---

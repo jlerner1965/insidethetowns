@@ -10,8 +10,8 @@ source: "https://music.colostate.edu/events/csu-trombone-choir-free/"
 sourceId: "music-colostate-edu"
 sourceUid: "17-19477@music.colostate.edu"
 sourceHash: "ef21d768a979"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the organizer's own events feed (colostate.edu) on 10 November 2026: date, start and end time, hall"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"CSU Trombone Choir / FREE\" at 7:30 pm on 15 November on the music.colostate.edu feed"
 ---
 
 CSU Trombone Choir / FREE at Griffin Concert Hall, Sunday, November 15, 7:30 pm – 8:30 pm. Listed by music.colostate.edu; the organizer's page has the details and any registration.
