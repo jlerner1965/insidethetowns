@@ -4,12 +4,13 @@ type: restaurant
 address: "21 N Parish Ave"
 area: "Old Town, Parish Avenue"
 url: "https://wingshackwings.com/locations/johnstown/"
-phone: "970-660-8566"
+phone: "970-601-7807"
 hours: "11 am–10 pm"
 tags: [wings, takeout, old-town]
 summary: "The Northern Colorado wing chain's Old Town shop on North Parish Avenue: wings in the house sauces, fries and sides, with online ordering."
 source: "https://wingshackwings.com/locations/johnstown/"
-verified: "2026-10-26"
+verified: "2026-11-11"
+verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 11 November 2026 (the Johnstown location page, which now gives 970-601-7807)"
 added: "2026-10-26"
 ---
 
