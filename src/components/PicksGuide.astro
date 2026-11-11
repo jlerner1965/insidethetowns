@@ -1,0 +1,63 @@
+---
+/**
+ * A picks guide above a directory (/eat-drink/, /things-to-do/): the
+ * guide's heading, the day its facts were checked, a short lead that says
+ * how the picks were chosen, then the picks in order, each linking to the
+ * place's own page with who or when it suits and why it is there
+ * (content/<town>/pages/eat-drink.md and things-to-do.md; pickSchema).
+ *
+ * The search audit of 7 November 2026 found both pages were filterable
+ * directories with no picks, no date and no criteria, ranking on page three
+ * for "things to do in <town>" and "restaurants in <town>"; Johnstown's
+ * eat-drink page ranked tenth with nothing on it but the list. The directory
+ * stays under this, whole.
+ *
+ * A pick whose place is not on the page's list (closed, delisted, moved to
+ * staging since) is left out rather than shown as a dead link; the validator
+ * fails the build on one first (validate-content.ts).
+ */
+import { render } from 'astro:content';
+import type { TownEntry } from '@/lib/content';
+import { PLACE_TYPE_LABELS } from '@/content/schemas';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+import { checkedBy } from '@/lib/editor';
+import { picksFor } from '@/lib/picks';
+
+interface Props {
+  page: TownEntry<'pages'>;
+  /** The published places the page lists, to resolve each pick against. */
+  places: TownEntry<'places'>[];
+  /** The id of the directory under the guide, for the jump link. */
+  directoryId?: string;
+}
+
+const { page, places, directoryId = 'directory' } = Astro.props;
+const { data } = page;
+const { Content } = await render(page);
+const shown = picksFor(data.picks ?? [], places);
+---
+{shown.length > 0 && (
+  <section aria-labelledby="picks-h" class="mb-14 max-w-3xl">
+    <h2 id="picks-h" class="display-md text-[1.75rem] leading-tight md:text-[2.25rem]">{data.title}</h2>
+    {data.verified && (
+      <p class="mt-2 text-[0.875rem] text-ink-muted">
+        <time datetime={toIsoLocal(data.verified).slice(0, 10)}>{checkedBy(formatDate(data.verified))}</time>{' '}
+        <a href="/editorial/" class="underline">How we check</a>
+      </p>
+    )}
+    <div class="prose mt-4"><Content /></div>
+    <ol class="mt-6 divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+      {shown.map(({ pick, place }, i) => (
+        <li class="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-3 py-5 sm:grid-cols-[2.5rem_minmax(0,1fr)]">
+          <span class="display-md text-[1.75rem] leading-none text-primary" aria-hidden="true">{i + 1}</span>
+          <div class="min-w-0">
+            <h3 class="text-lg font-semibold leading-snug"><a href={`/places/${place.slug}/`} class="text-primary underline">{place.data.title}</a></h3>
+            <p class="mt-0.5 text-[0.875rem] text-ink-muted">{[PLACE_TYPE_LABELS[place.data.type], place.data.area, pick.for].filter(Boolean).join(' · ')}</p>
+            <p class="mt-1.5 text-[0.9375rem] leading-relaxed">{pick.why}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <p class="mt-4 text-[0.9375rem]"><a href={`#${directoryId}`} class="font-semibold text-primary underline">Every place we list, with filters ↓</a></p>
+  </section>
+)}
