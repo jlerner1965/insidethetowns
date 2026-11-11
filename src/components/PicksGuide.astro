@@ -1,10 +1,13 @@
 ---
 /**
  * A picks guide above a directory (/eat-drink/, /things-to-do/): the
- * guide's heading, the day its facts were checked, a short lead that says
- * how the picks were chosen, then the picks in order, each linking to the
- * place's own page with who or when it suits and why it is there
- * (content/<town>/pages/eat-drink.md and things-to-do.md; pickSchema).
+ * guide's heading, the day its facts were checked, then the picks in
+ * order, each linking to the place's own page with who or when it suits and
+ * why it is there (content/<town>/pages/eat-drink.md and things-to-do.md;
+ * pickSchema). The page's body, which says how the picks were chosen and
+ * what is left out, comes after the picks: above them it was 150 to 200
+ * words a reader on a phone had to scroll past before the first pick
+ * (James, 11 November 2026).
  *
  * The search audit of 7 November 2026 found both pages were filterable
  * directories with no picks, no date and no criteria, ranking on page three
@@ -45,8 +48,7 @@ const shown = picksFor(data.picks ?? [], places);
         <a href="/editorial/" class="underline">How we check</a>
       </p>
     )}
-    <div class="prose mt-4"><Content /></div>
-    <ol class="mt-6 divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+    <ol class="mt-5 divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
       {shown.map(({ pick, place }, i) => (
         <li class="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-3 py-5 sm:grid-cols-[2.5rem_minmax(0,1fr)]">
           <span class="display-md text-[1.75rem] leading-none text-primary" aria-hidden="true">{i + 1}</span>
@@ -59,5 +61,6 @@ const shown = picksFor(data.picks ?? [], places);
       ))}
     </ol>
     <p class="mt-4 text-[0.9375rem]"><a href={`#${directoryId}`} class="font-semibold text-primary underline">Every place we list, with filters ↓</a></p>
+    <div class="prose mt-8 border-t border-line-soft pt-6 text-[0.9375rem]"><Content /></div>
   </section>
 )}
