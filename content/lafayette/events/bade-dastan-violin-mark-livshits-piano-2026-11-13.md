@@ -11,8 +11,8 @@ source: "https://centerformusicalarts.org/event/bade-dastan-violin-mark-livshits
 sourceId: "centerformusicalarts-org"
 sourceUid: "355638"
 sourceHash: "f7818fd190aa"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Center for Musical Arts (concert series and recitals) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Bade Daştan, violin | Mark Livshits, piano\" at 7:30 pm on 13 November in the page's structured data"
 ---
 
 Bade Daştan, violin | Mark Livshits, piano at Center for Musical Arts, Friday, November 13, 7:30 pm – 9:30 pm. Listed by Center for Musical Arts (concert series and recitals); the organizer's page has the details and any registration.

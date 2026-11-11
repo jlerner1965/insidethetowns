@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/northern-colorado-cards-and-collectibles-e
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2000528728279"
 sourceHash: "870515301e1b"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the review of 10 November 2026, ruled item by item for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Northern Colorado Cards and Collectibles Expo - 11/14/26  - VOLUME II\" at 11 am on 14 November in the page's structured data"
 ---
 
 Northern Colorado Cards and Collectibles Expo - 11/14/26 - VOLUME II at The Drake Centre, Saturday, November 14, 11 am – 6 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/cahve-x-lima-tickets-2000995914646"
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2000995914646"
 sourceHash: "46dc49182305"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 2 pm on the page"
 ---
 
 Cahve x Lima at Lima Coffee Roasters • Midtown Coffee Shop & Roastery, Saturday, November 14, 2 pm – 5 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

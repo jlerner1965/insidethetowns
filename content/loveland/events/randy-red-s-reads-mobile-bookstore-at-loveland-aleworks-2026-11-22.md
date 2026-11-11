@@ -10,8 +10,8 @@ source: "https://tockify.com/lovelanddowntown/detail/1791/1795381200000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1791/29923020/0/0"
 sourceHash: "a335e7255b09"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Loveland Downtown Partnership feed read 2026-11-10, the review of 10 November 2026, ruled item by item for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Randy Red's Reads Mobile Bookstore at Loveland Aleworks\" at 2 pm on 22 November on the Loveland Downtown Partnership feed"
 ---
 
 Randy Red's Reads Mobile Bookstore at Loveland Aleworks at Loveland Aleworks, Sunday, November 22, 2 pm – 6 pm. Listed by Loveland Downtown Partnership; the organizer's page has the details and any registration.

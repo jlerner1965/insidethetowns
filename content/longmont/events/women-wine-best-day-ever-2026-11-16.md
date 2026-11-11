@@ -10,8 +10,8 @@ source: "https://www.kuperwinebar.com/event/women-wine-best-day-ever/"
 sourceId: "kuperwinebar-com"
 sourceUid: "11374"
 sourceHash: "6f56f8196c8e"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Kuper Wine Bar (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Women + Wine – Best Day Ever\" at 6 pm on 16 November in the page's structured data"
 ---
 
 Women + Wine – Best Day Ever at Kuper Wine Bar, Monday, November 16, 6 pm – 8 pm. Listed by Kuper Wine Bar (events calendar); the organizer's page has the details and any registration.

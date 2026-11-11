@@ -10,8 +10,8 @@ category: other
 featured: true
 topOfDay: true
 source: "https://sweatpals.com/event/wellness-social-party/2026-11-21"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: submitted by the organizer (Move & Meet NoCo) on 10 November 2026, and read from the organizer's ticket page on SweatPals the same day: Saturday, November 21, 11 am to 1 pm, 120 E 4th St, the workout at 11:15, the social 11:45 to 1, $25 and $30 tickets, sales close November 20"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 11 am on the page"
 ---
 
 A Saturday morning for meeting people: Move & Meet NoCo, a Northern Colorado wellness social club, takes over The Love Shack, the alcohol-free bar on 4th Street, with an optional workout first and a social after. SPENGA leads an optional 30-minute strength workout at 11:15; all fitness levels are welcome, and the workout is limited to 30 people. From 11:45 to 1 it is a social: a DJ playing 2000s throwbacks, local wellness vendors, B12 shots, protein bites, activewear and permanent jewelry.

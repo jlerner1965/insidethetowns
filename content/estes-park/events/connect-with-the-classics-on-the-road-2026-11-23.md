@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17842574"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17842574"
 sourceHash: "4c0006bc2446"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Connect With the Classics: On the Road\" at 5:30 pm on 23 November on the Estes Valley Library feed"
 ---
 

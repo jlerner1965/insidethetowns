@@ -12,6 +12,8 @@ sourceUid: "2004324637947"
 sourceHash: "20b6d9f81638"
 verified: "2026-11-10"
 verifiedBy: "auto-review from the Amanda Engelhorn (its Eventbrite page) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+changeFlag: true
+changeNote: "recheck 2026-11-11: the source page answers 404"
 ---
 
 One More Wear: A Fancy Closet Party at Lyons Locale, Friday, November 13, 7 pm. Listed by Amanda Engelhorn (its Eventbrite page); the organizer's page has the details and any registration.

@@ -10,8 +10,8 @@ source: "https://www.google.com/url?q=http://www.miners-saloon.com/&amp;sa=D&amp
 sourceId: "calendar-google-com-goldentoday-live-music"
 sourceUid: "7dlb50ijhd7461uiiv6e27eqeg@google.com/2026-11-11"
 sourceHash: "e39250b39c69"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Golden Today (Live Music calendar) feed read 2026-11-10, the review of 10 November 2026, ruled item by item for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Derek Hall @ Miners Saloon\" at 6 pm on 11 November on the Golden Today (Live Music calendar) feed"
 ---
 
 Derek Hall @ Miners Saloon at Miners Saloon, Wednesday, November 11, 6 pm – 9 pm. Listed by Golden Today (Live Music calendar); the organizer's page has the details and any registration.

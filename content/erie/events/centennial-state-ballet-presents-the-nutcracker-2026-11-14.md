@@ -10,8 +10,8 @@ url: "https://highplains.libcal.com/event/17606458"
 cost: "Free"
 category: arts
 source: "https://highplains.libcal.com/event/17606458"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Centennial State Ballet Presents \"The Nutcracker\"\" at 10:30 am on 14 November on the highplains.libcal.com feed"
 ---
 
 A half-hour library program, not the full ballet: Centennial State Ballet dances excerpts from The Nutcracker, with the story read between the dance sections. All ages; seating may be limited.

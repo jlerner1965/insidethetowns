@@ -11,8 +11,8 @@ source: "https://centerformusicalarts.org/event/cma-student-open-recital/"
 sourceId: "centerformusicalarts-org"
 sourceUid: "356136"
 sourceHash: "462d1238a11d"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Center for Musical Arts (concert series and recitals) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"CMA Student Open Recital\" at 5 pm on 15 November in the page's structured data"
 ---
 
 CMA Student Open Recital at Center for Musical Arts, Sunday, November 15, 5 pm – 7 pm. Free. Listed by Center for Musical Arts (concert series and recitals); the organizer's page has the details and any registration.

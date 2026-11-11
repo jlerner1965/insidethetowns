@@ -10,8 +10,8 @@ sourceId: "csurams-com"
 sourceUid: "vcal_22099-admin.csurams.com"
 sourceHash: "9d31364230f7"
 address: "951 W Plum St, Fort Collins"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the csurams.com feed read 2026-11-10, the review of 10 November 2026, ruled item by item for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado State University Volleyball vs Fresno State\" at 6 pm on 12 November on the csurams.com feed"
 ---
 
 Colorado State University Volleyball vs Fresno State at Moby Arena, Thursday, November 12, 6 pm – 8 pm. Listed by csurams.com; the organizer's page has the details and any registration.

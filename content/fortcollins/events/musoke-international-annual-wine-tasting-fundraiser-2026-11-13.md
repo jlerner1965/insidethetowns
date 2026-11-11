@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/musoke-international-annual-wine-tasting-f
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2002755918866"
 sourceHash: "11c57c8ac04b"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Musoke International Annual Wine-tasting Fundraiser\" at 6 pm on 13 November in the page's structured data"
 ---
 
 Musoke International Annual Wine-tasting Fundraiser at Club Tico, Friday, November 13, 6 pm – 9 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

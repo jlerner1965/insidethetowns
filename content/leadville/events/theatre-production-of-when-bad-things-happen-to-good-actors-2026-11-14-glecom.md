@@ -9,8 +9,8 @@ source: "https://www.lakecountyschools.net/events-calendar/"
 sourceId: "lakecountyschools-net-lchs"
 sourceUid: "4nq4hdraa60fk8npt3vod37fjs@google.com"
 sourceHash: "2dbcfb890f6b"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Lake County High School calendar (Lake County School District) feed read 2026-11-10, the standing rules of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Theatre Production of When Bad Things Happen to Good Actors\" at 2 pm on 14 November on the Lake County High School calendar (Lake County School District) feed"
 ---
 
 Theatre Production of When Bad Things Happen to Good Actors at Lake County High School, Saturday, November 14, 2 pm – 4 pm. Listed by Lake County High School calendar (Lake County School District); the organizer's page has the details and any registration.

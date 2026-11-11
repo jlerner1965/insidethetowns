@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/womens-circles-of-boulder-and-longmont-mon
 sourceId: "eventbrite-com-longmont"
 sourceUid: "1980411933404"
 sourceHash: "9443caae6f5f"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Longmont feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Women's Circles of Boulder and Longmont - Monthly\" at 6 pm on 19 November in the page's structured data"
 ---
 
 Women's Circles of Boulder and Longmont - Monthly at Cavegirl Coffeehouse, Thursday, November 19, 6 pm – 8:30 pm. Listed by Eventbrite, events in Longmont; the organizer's page has the details and any registration.

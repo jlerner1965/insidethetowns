@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/i-3-it-here-release-show-feat-sagan-petr-s
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003918672694"
 sourceHash: "c0aead208213"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"\"I <3 IT HERE\"  RELEASE SHOW feat. Sagan Petr Smith, S.iah, KYSJAI & MORE\" at 6 pm on 13 November in the page's structured data"
 ---
 
 "I <3 IT HERE" RELEASE SHOW feat. Sagan Petr Smith, S.iah, KYSJAI & MORE at All Sales Vinyl, Friday, November 13, 6 pm – 9 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

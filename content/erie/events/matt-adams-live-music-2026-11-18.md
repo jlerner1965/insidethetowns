@@ -8,8 +8,8 @@ source: "https://theoldmine.com/"
 sourceId: "theoldmine-com"
 sourceUid: "5bbluero9ibr75oshmebbfm3km@google.com"
 sourceHash: "268a2fb278f5"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the theoldmine.com feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Matt Adams LIVE MUSIC\" at 6 pm on 18 November on the theoldmine.com feed"
 ---
 
 Matt Adams LIVE MUSIC at The Old Mine, 500 Briggs Street, Wednesday, November 18, 6 pm – 8 pm. Listed by theoldmine.com; the organizer's page has the details and any registration.

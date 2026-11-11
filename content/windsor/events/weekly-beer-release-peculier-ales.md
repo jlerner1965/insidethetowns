@@ -12,8 +12,8 @@ category: food
 recurring: "Every Thursday, open to close"
 timeNote: "Open to close, 11 am to 9 pm on Thursdays"
 source: "https://peculierales.com/events/weekly-beer-release-day/"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026; Peculier Ales' page says 'EVERY THURSDAY from OPEN TO CLOSE' at its Windsor and Fort Collins taprooms, and gives Windsor's Thursday hours as 11am - 9pm"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"WEEKLY BEER RELEASE DAY!\" on 12 November on the Peculier Ales (Windsor) feed"
 ---
 
 Peculier Ales puts its newest beer on tap every Thursday from open to close at its Windsor taproom in the rebuilt mill on Main Street. The brewery lists it as a standing weekly event; it is written here through the end of the year. Thursday hours are 11 am to 9 pm.

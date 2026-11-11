@@ -9,8 +9,8 @@ cost: "Free"
 category: civic
 recurring: "Second and fourth Tuesdays"
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town calendar and the same meeting on the Town's CivicClerk portal)"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Town Board Meeting\" at 6:30 pm on 24 November on the berthoud.org feed"
 ---
 
 Regular meeting of the Berthoud Board of Trustees in the Town Hall board room, second and fourth Tuesdays. Agendas and packets post to the Town website ahead of the meeting; public comment is taken on items not on the agenda.

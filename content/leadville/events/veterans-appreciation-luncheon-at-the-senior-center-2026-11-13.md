@@ -10,8 +10,8 @@ source: "https://www.leadvilletwinlakes.com/event/veterans-appreciation-luncheon
 sourceId: "leadvilletwinlakes-com"
 sourceUid: "10001823-1794571200-1794571200@www.leadvilletwinlakes.com"
 sourceHash: "69e6d406cdc4"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Visit Leadville Twin Lakes (Lake County Tourism Panel) community calendar feed read 2026-11-10, the standing rules of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Veterans Appreciation Luncheon at the Senior Center\" at 12 pm on 13 November on the Visit Leadville Twin Lakes (Lake County Tourism Panel) community calendar feed"
 ---
 
 Veterans Appreciation Luncheon at the Senior Center at Lake County Senior Center, Friday, November 13, 12 pm – 12 pm. Listed by Visit Leadville Twin Lakes (Lake County Tourism Panel) community calendar; the organizer's page has the details and any registration.

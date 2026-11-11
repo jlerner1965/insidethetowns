@@ -10,8 +10,8 @@ source: "https://estesschools.gofmx.com/scheduling/requests/3983793/occurrences/
 sourceId: "estesschools-org"
 sourceUid: "4293521@www.estesschools.org"
 sourceHash: "fb62df22bcf7"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Estes Park School District R-3 (public events calendar) feed read 2026-11-10, the review of 10 November 2026, ruled item by item for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"HOSA Vitalant Blood Drive\" at 2:30 pm on 19 November on the Estes Park School District R-3 (public events calendar) feed"
 ---
 
 HOSA Vitalant Blood Drive at Estes Park High School, Thursday, November 19, 2:30 pm – 6:30 pm. Listed by Estes Park School District R-3 (public events calendar); the organizer's page has the details and any registration.

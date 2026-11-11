@@ -10,8 +10,8 @@ source: "https://tockify.com/lovelanddowntown/detail/1822/1794618000000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1822/29910300/0/0"
 sourceHash: "db86e798c627"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Loveland Downtown Partnership feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"In the Age of Air and Fire: Maddy Weisz and CeCe Wire\" at 6 pm on 13 November on the Loveland Downtown Partnership feed"
 ---
 
 In the Age of Air and Fire: Maddy Weisz and CeCe Wire at Artworks Center for Contemporary Art, Friday, November 13, Fri, Nov 13 6 pm – Sun, Nov 29 5 pm. Listed by Loveland Downtown Partnership; the organizer's page has the details and any registration.

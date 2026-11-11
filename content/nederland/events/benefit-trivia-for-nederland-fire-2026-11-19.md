@@ -7,7 +7,7 @@ address: "70 East 1st Street, Nederland, CO 80466"
 url: "https://buseybrews.com/events/"
 category: civic
 source: "https://buseybrews.com/events/"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 6:30 pm on the page"
 ---
 

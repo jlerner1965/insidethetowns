@@ -10,8 +10,8 @@ source: "https://www.leadvilletwinlakes.com/event/thursday-night-family-bingo-at
 sourceId: "leadvilletwinlakes-com"
 sourceUid: "10001334-1795111200-1795122000@www.leadvilletwinlakes.com"
 sourceHash: "b2afc54ec157"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Visit Leadville Twin Lakes (Lake County Tourism Panel) community calendar feed read 2026-11-10, the standing rules of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Thursday Night Family Bingo at the Elks Lodge\" at 6 pm on 19 November on the Visit Leadville Twin Lakes (Lake County Tourism Panel) community calendar feed"
 ---
 
 Thursday Night Family Bingo at the Elks Lodge at Elks Lodge, Thursday, November 19, 6 pm – 9 pm. Listed by Visit Leadville Twin Lakes (Lake County Tourism Panel) community calendar; the organizer's page has the details and any registration.

@@ -10,8 +10,8 @@ source: "https://tockify.com/lovelanddowntown/detail/1789/1795305600000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1789/29921760/0/0"
 sourceHash: "a21cb7ca6cc8"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Loveland Downtown Partnership feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Mike O'Connell at Loveland Aleworks\" at 5 pm on 21 November on the Loveland Downtown Partnership feed"
 ---
 
 Live Music with Mike O'Connell at Loveland Aleworks at Loveland Aleworks, Saturday, November 21, 5 pm – 7 pm. Listed by Loveland Downtown Partnership; the organizer's page has the details and any registration.

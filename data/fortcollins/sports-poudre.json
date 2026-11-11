@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-09T23:42:31.811Z",
+  "generated": "2026-11-11T20:09:29.732Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/football/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T23:42:31",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T16:26:09",
       "overall": "3-7",
       "league": {
         "record": "1-6",
@@ -135,8 +135,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/soccer/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T23:42:40",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T18:06:25",
       "overall": "8-6-1",
       "league": {
         "record": "7-2-1",
@@ -320,8 +320,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/volleyball/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T21:43:57",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T20:03:58",
       "overall": "14-11",
       "league": {
         "record": "8-2",
@@ -642,8 +642,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/softball/fall/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T20:22:24",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T18:22:54",
       "overall": "5-18",
       "league": {
         "record": "2-8",
@@ -934,8 +934,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/cross-country/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T23:43:08",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T20:10:05",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -948,8 +948,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/cross-country/girls/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T20:21:41",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T17:24:28",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -962,8 +962,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/basketball/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T23:21:32",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T19:17:31",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1095,8 +1095,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/basketball/girls/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T23:43:25",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T17:20:49",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1152,7 +1152,8 @@
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-rocky-mountain-fort-collins/12-19-2026/?c=69537880-8617-4045-84f0-525b961f6138",
           "neutral": true,
-          "venue": "Moby Arena"
+          "venue": "Moby Arena",
+          "time": "15:30"
         },
         {
           "date": "2027-01-02",
@@ -1183,6 +1184,13 @@
           "time": "18:00"
         },
         {
+          "date": "2027-01-22",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-severance/1-22-2027/?c=d98000fc-8c66-4de1-bfd8-17fd6508b97d",
+          "time": "16:30"
+        },
+        {
           "date": "2027-01-26",
           "opponent": "Loveland",
           "site": "away",
@@ -1197,11 +1205,25 @@
           "time": "18:00"
         },
         {
+          "date": "2027-02-03",
+          "opponent": "Fossil Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/fossil-ridge-fort-collins-vs-poudre-fort-collins/2-3-2027/?c=6ca0c758-f9d8-40ff-a9e1-e38fec857c94",
+          "time": "16:30"
+        },
+        {
           "date": "2027-02-05",
           "opponent": "Roosevelt",
           "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-roosevelt-johnstown/2-5-2027/?c=7b700c8c-faf7-48c9-96fc-bc76c1ae0baa",
           "time": "17:30"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-windsor/2-9-2027/?c=a5f50be2-79ab-4fe6-a594-a03ebccb126e",
+          "time": "16:30"
         },
         {
           "date": "2027-02-11",
@@ -1225,6 +1247,13 @@
           "time": "17:30"
         },
         {
+          "date": "2027-02-19",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mountain-view-loveland-vs-poudre-fort-collins/2-19-2027/?c=d2dd0bd6-51d0-4587-9d50-d11b8d0ceda4",
+          "time": "16:00"
+        },
+        {
           "date": "2027-02-20",
           "opponent": "Frederick",
           "site": "away",
@@ -1241,8 +1270,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/wrestling/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T23:43:34",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T20:10:31",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1255,8 +1284,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/fort-collins/poudre-impalas/swimming/girls/",
-      "fetched": "2026-11-09T23:42:31.811Z",
-      "maxprepsUpdated": "2026-11-09T23:43:39",
+      "fetched": "2026-11-11T20:09:29.732Z",
+      "maxprepsUpdated": "2026-11-11T17:20:51",
       "results": [],
       "upcoming": [],
       "held": [],

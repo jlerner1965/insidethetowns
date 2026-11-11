@@ -9,8 +9,8 @@ source: "https://www.wolverinefarm.org/event/music-words-film-dance-w-nick-jaina
 sourceId: "wolverinefarm-org"
 sourceUid: "197769"
 sourceHash: "e0ee15ca1695"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Wolverine Farm Publick House (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Music/ Words/ Film/ Dance: W/ Nick Jaina\" at 7 pm on 21 November in the page's structured data"
 ---
 
 Music/ Words/ Film/ Dance: W/ Nick Jaina at Wolverine Farm Publick House, 316 Willow St., Saturday, November 21, 7 pm – 9 pm. Listed by Wolverine Farm Publick House (events calendar); the organizer's page has the details and any registration.

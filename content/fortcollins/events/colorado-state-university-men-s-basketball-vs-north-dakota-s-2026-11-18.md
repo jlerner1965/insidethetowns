@@ -9,8 +9,8 @@ source: "https://admin.csurams.com/calendar.aspx?game_id=22218&amp;sport_id=3"
 sourceId: "csurams-com"
 sourceUid: "vcal_22218-admin.csurams.com"
 sourceHash: "eda46e8ee710"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the csurams.com feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado State University Men's Basketball vs North Dakota State\" at 7 pm on 18 November on the csurams.com feed"
 ---
 
 Colorado State University Men's Basketball vs North Dakota State at Moby Arena, Wednesday, November 18, 7 pm – 9 pm. Listed by csurams.com; the organizer's page has the details and any registration.

@@ -10,8 +10,8 @@ cost: "Free"
 category: other
 recurring: "Mondays at 6"
 source: "https://www.odellbrewing.com/events/"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from Odell's events page and the Eventbrite listing it links to (trivia-night-odell-foco-tickets-1985287772169) on 10 November 2026: every Monday at 6 pm, free, next on 16 November; the October Eventbrite page the guide linked now reads Event ended"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 16 November and 6 pm on the page"
 ---
 
 Pub trivia in the Odell taproom every Monday at 6 pm. Odell lists it as a weekly series with no end date; this listing stops in mid-December.

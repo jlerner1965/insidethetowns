@@ -10,8 +10,8 @@ source: "https://www.stvraincidery.com/events/workshop-calligraphy-w-hilary"
 sourceId: "stvraincidery-com"
 sourceUid: "/events/workshop-calligraphy-w-hilary"
 sourceHash: "934f42ca96a3"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the St. Vrain Cidery (events) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"WORKSHOP | CALLIGRAPHY W/ HILARY — Home\" at 6 pm on 12 November in the page's structured data"
 ---
 
 WORKSHOP | CALLIGRAPHY W/ HILARY at St. Vrain Cidery, Thursday, November 12, 6 pm – 8 pm. Listed by St. Vrain Cidery (events); the organizer's page has the details and any registration.

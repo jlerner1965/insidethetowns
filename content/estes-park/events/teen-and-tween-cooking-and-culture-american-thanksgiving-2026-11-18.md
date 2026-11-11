@@ -11,7 +11,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17290702"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17290702"
 sourceHash: "831b3ea61c94"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen & Tween Cooking & Culture: American Thanksgiving\" at 4:30 pm on 18 November on the Estes Valley Library feed"
 ---
 

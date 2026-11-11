@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/craft-sip-glass-suncatcher-workshop-at-wib
 sourceId: "eventbrite-com-longmont"
 sourceUid: "2003320400245"
 sourceHash: "a8266262add1"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Longmont feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Craft & Sip - Glass Suncatcher Workshop - at Wibby Brewing!\" at 12 pm on 14 November in the page's structured data"
 ---
 
 Craft & Sip - Glass Suncatcher Workshop - at Wibby Brewing! at Wibby Brewing, Saturday, November 14, 12 pm – 2 pm. Listed by Eventbrite, events in Longmont; the organizer's page has the details and any registration.

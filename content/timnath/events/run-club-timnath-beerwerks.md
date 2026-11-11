@@ -10,8 +10,8 @@ cost: "Free"
 category: sports
 recurring: "Mondays at 6"
 source: "https://hoppeningsco.com/events/run-club-with-the-snowballaz-timnath-beerwerks-east-2026-09-21"
-verified: "2026-11-09"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Run Club with The Snowballaz\" at 6 pm on 9 November in the page's structured data"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Run Club with The Snowballaz\" at 6 pm on 16 November in the page's structured data"
 ---
 
 A weekly Monday-evening group run from the brewery on Main Street with the Snowballaz running club, every pace welcome, a beer at the end.

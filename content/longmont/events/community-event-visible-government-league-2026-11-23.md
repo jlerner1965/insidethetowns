@@ -10,8 +10,8 @@ source: "https://www.stvraincidery.com/events/community-event-visible-government
 sourceId: "stvraincidery-com"
 sourceUid: "/events/community-event-visible-government-league-34jj7-mxw64-lglel-m5h23-7cknb-wzwn2-sbfb5-2rb6s-wtlcb"
 sourceHash: "37297d0cba03"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the St. Vrain Cidery (events) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"COMMUNITY EVENT | VISIBLE GOVERNMENT LEAGUE — Home\" at 7 pm on 23 November in the page's structured data"
 ---
 
 COMMUNITY EVENT | VISIBLE GOVERNMENT LEAGUE at St. Vrain Cidery, Monday, November 23, 7 pm – 9 pm. Listed by St. Vrain Cidery (events); the organizer's page has the details and any registration.

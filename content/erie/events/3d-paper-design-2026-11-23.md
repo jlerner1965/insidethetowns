@@ -9,8 +9,8 @@ source: "https://highplains.libcal.com/event/17703042"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17703042"
 sourceHash: "79b3c3a620d7"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the highplains.libcal.com feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"3D Paper Design\" at 10 am on 23 November on the highplains.libcal.com feed"
 ---
 
 3D Paper Design at Erie Community Library, Monday, November 23, 10 am – 12 pm. Listed by highplains.libcal.com; the organizer's page has the details and any registration.

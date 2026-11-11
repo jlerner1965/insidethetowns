@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-09T23:33:29.967Z",
+  "generated": "2026-11-11T20:00:39.079Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/football/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T23:21:46",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T19:28:44",
       "overall": "9-2",
       "league": {
         "record": "6-1",
@@ -160,8 +160,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/soccer/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T23:14:08",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T19:54:02",
       "overall": "15-1-2",
       "league": {
         "record": "9-0-1",
@@ -396,8 +396,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/volleyball/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T19:43:05",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T16:37:05",
       "overall": "21-1",
       "league": {
         "record": "10-0",
@@ -682,8 +682,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/softball/fall/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T19:43:32",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T17:07:55",
       "overall": "9-12",
       "league": {
         "record": "5-9",
@@ -943,8 +943,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/cross-country/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T23:34:05",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T20:01:15",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -957,8 +957,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/cross-country/girls/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T23:34:09",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T20:01:19",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -971,8 +971,8 @@
       "key": "boys-tennis",
       "name": "Boys tennis",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/tennis/fall/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T23:34:14",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T20:01:24",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -985,8 +985,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/basketball/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T20:52:05",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T18:02:50",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1030,7 +1030,7 @@
           "url": "https://www.maxpreps.com/co/basketball/game/discovery-canyon-colorado-springs-vs-golden/12-12-2026/?c=4203e919-8d93-4ce8-aedf-931499d39969",
           "neutral": true,
           "venue": "At Green Mountain High School",
-          "time": "12:00"
+          "time": "17:30"
         },
         {
           "date": "2027-01-07",
@@ -1119,8 +1119,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/basketball/girls/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T21:40:28",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T17:47:37",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1241,7 +1241,7 @@
           "opponent": "Lakewood",
           "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/golden-vs-lakewood/2-20-2027/?c=fb962ebd-1054-4bd4-be1b-673c69d8a97d",
-          "time": "19:00"
+          "time": "13:00"
         }
       ],
       "held": [],
@@ -1253,8 +1253,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/wrestling/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T23:34:36",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T20:01:47",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1267,8 +1267,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/swimming/girls/",
-      "fetched": "2026-11-09T23:33:29.967Z",
-      "maxprepsUpdated": "2026-11-09T23:34:40",
+      "fetched": "2026-11-11T20:00:39.079Z",
+      "maxprepsUpdated": "2026-11-11T19:46:17",
       "results": [],
       "upcoming": [],
       "held": [],
