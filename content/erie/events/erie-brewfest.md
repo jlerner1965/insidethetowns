@@ -1,5 +1,7 @@
 ---
 title: "Erie Brewfest"
+annual: true
+formerSlugs: [erie-brewfest-2026]
 start: "2026-10-03T12:00"
 end: "2026-10-03T16:00"
 venue: "Coal Creek Park"

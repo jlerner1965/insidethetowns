@@ -1,5 +1,7 @@
 ---
 title: "Terror in the Corn at Anderson Farms"
+annual: true
+formerSlugs: [terror-in-the-corn-2026]
 start: "2026-09-25T19:00"
 end: "2026-10-31T23:00"
 venue: "Anderson Farms"

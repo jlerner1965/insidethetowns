@@ -169,7 +169,8 @@ test('expired events are excluded, and nothing upcoming is', () => {
     const all = readOccurrences(town);
     const expired = pastEventSlugs(town, 'content', now);
     for (const o of all) {
-      const isOver = o.lastDay < '2026-09-20';
+      // An annual event's permanent page is never over (pastEventSlugs), whatever its date.
+      const isOver = o.lastDay < '2026-09-20' && !o.annual;
       assert.equal(expired.has(o.slug), isOver, `${town}/${o.slug} (last day ${o.lastDay})`);
     }
   }

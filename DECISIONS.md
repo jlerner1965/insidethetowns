@@ -10251,3 +10251,40 @@ featured, beyond the three weeks; they take the card from 14 November.
 - **Light Up Longmont moved.** Re-read before featuring, Downtown
   Longmont's page now gives 5 to 7 pm (it had 5 to 6:30, with the fire
   pit from 4); the listing follows it, with a correction.
+
+## Erie and Berthoud: 1,000 visitors a week, and the annual pages the sweep had deleted, 11 November 2026
+
+*The owner: Inside Erie and Inside Berthoud as top search results, and
+1,000 visitors a week. Erie is outside the 90-day test's three towns;
+the owner's word puts it beside Berthoud for search work.*
+
+- **Where Berthoud stands** (Search Console, 28 days to 8 November): 127
+  clicks and 5,516 impressions, about 32 clicks and 1,380 impressions a
+  week, average position 11.4. Impressions nearly doubled on the four
+  weeks before; clicks did not. Every search the guide is shown for,
+  clicked every time, would be about 1,380 visits a week, so search alone
+  does not reach 1,000 on today's footprint. Erie's property could not be
+  read: GSC Wizard's Starter plan reads ten properties and Erie is behind
+  three others in the queue.
+- **The biggest pages were the ones deleted.** Berthoud's Trick or Treat
+  Street drew 731 impressions in the 28 days (second on the guide) and
+  its Oktoberfest about 400 the month before; both files went in the 27
+  October sweep, eleven days before annual events got permanent pages, so
+  the move of 8 November never saw them and their URLs redirected to
+  /events/. Restored from history as permanent pages (`annual: true`,
+  the dated slug in `formerSlugs`): Berthoud's Trick or Treat Street,
+  Oktoberfest, Zombie Fun Run and Literary Festival; Erie's Tails & Ales.
+  Erie's Brewfest (344 impressions in October, then noindexed), Anderson
+  Farms Fall Festival, Terror in the Corn and Veterans Day Celebration
+  were still on file and moved to permanent slugs. Each is yearly by its
+  organizer's own page or, for Trick or Treat Street and Oktoberfest, by
+  dated listings for 2024, 2025 and 2026. The four Berthoud host rules in
+  `vercel.json` now send the old URLs to the permanent pages; the five
+  restored slugs came out of `retired.json`.
+- **`test/series.test.ts`** assumed no annual event ended before its
+  fixed date of 20 September; the Literary Festival does, so the test now
+  reads the rule as `pastEventSlugs` states it.
+- **Not done:** permanent pages for yearly events the guides never
+  listed (Berthoud Day, the fireworks, the Berthoud Market; Erie's Town
+  Fair and balloon festival, Erie Fest, the farmers market). They are new
+  listings and wait for the owner's yes.

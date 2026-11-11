@@ -75,6 +75,6 @@ The Town does not collect trash. Its utility providers page says "The Town of Er
 
 ## On the days themselves
 
-- **Veterans Day:** the Town's [Veterans Day Celebration](/events/veterans-day-celebration-2026/) is at the Community Center on Wednesday, November 11, 11 am to 12:15 pm. Pre-registration closed on November 4.
+- **Veterans Day:** the Town's [Veterans Day Celebration](/events/veterans-day-celebration/) is at the Community Center on Wednesday, November 11, 11 am to 12:15 pm. Pre-registration closed on November 4.
 - **Thanksgiving morning:** [The Pilgrimage Run](/events/the-pilgrimage-run-2026-11-26/), a 2 mile and 4 mile run, starts at the Community Center at 9 am on Thursday, November 26.
 - **The first Friday of December:** the Chamber's [Parade of Lights](/events/parade-of-lights/) is downtown on Friday, December 4, 4:30 to 8:30 pm, with the parade at 6:30.

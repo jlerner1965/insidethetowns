@@ -1,5 +1,7 @@
 ---
 title: "Veterans Day Celebration"
+annual: true
+formerSlugs: [veterans-day-celebration-2026]
 start: "2026-11-11T11:00"
 end: "2026-11-11T12:15"
 venue: "Erie Community Center"
