@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-09T23:25:42.110Z",
+  "generated": "2026-11-11T19:52:51.936Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/football/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T19:28:49",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T15:56:35",
       "overall": "3-7",
       "league": {
         "record": "3-3",
@@ -135,8 +135,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/soccer/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T20:32:11",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T17:50:37",
       "overall": "0-14-1",
       "league": {
         "record": "0-10",
@@ -320,8 +320,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/volleyball/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T19:44:21",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T17:17:48",
       "overall": "13-12",
       "league": {
         "record": "6-4",
@@ -626,8 +626,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/softball/fall/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T21:53:34",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T19:37:27",
       "overall": "14-12",
       "league": {
         "record": "4-6",
@@ -957,8 +957,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/cross-country/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T21:53:33",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T19:53:27",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -971,8 +971,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/cross-country/girls/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T21:53:34",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T19:53:31",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -985,8 +985,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/basketball/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T20:31:36",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T18:50:57",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -995,13 +995,6 @@
       },
       "results": [],
       "upcoming": [
-        {
-          "date": "2026-12-01",
-          "opponent": "Monarch",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/game/monarch-louisville-vs-thompson-valley-loveland/12-1-2026/?c=8f02b1f9-7f30-40d9-aed9-5a276acf220d",
-          "time": "18:30"
-        },
         {
           "date": "2026-12-04",
           "opponent": "Standley Lake",
@@ -1154,6 +1147,13 @@
           "time": "19:30"
         },
         {
+          "date": "2027-02-12",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/monarch-louisville-vs-thompson-valley-loveland/2-12-2027/?c=8f02b1f9-7f30-40d9-aed9-5a276acf220d",
+          "time": "18:30"
+        },
+        {
           "date": "2027-02-16",
           "opponent": "Severance",
           "site": "home",
@@ -1177,8 +1177,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/basketball/girls/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T22:52:20",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T18:49:54",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1356,8 +1356,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/wrestling/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T23:26:47",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T19:20:49",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1370,8 +1370,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/swimming/girls/",
-      "fetched": "2026-11-09T23:25:42.110Z",
-      "maxprepsUpdated": "2026-11-09T23:26:51",
+      "fetched": "2026-11-11T19:52:51.936Z",
+      "maxprepsUpdated": "2026-11-11T19:53:57",
       "results": [],
       "upcoming": [],
       "held": [],
