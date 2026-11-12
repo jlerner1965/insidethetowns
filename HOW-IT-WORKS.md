@@ -189,6 +189,18 @@ event page's Where carries a Directions link, as a place page does.
 venue, lodging or a landmark. A resident guide's About calls it a
 community guide; the other town guides are community and visitor guides.
 
+**A town page on the hub** (12 November 2026) opens on the town's name over
+its landscape: the photograph where one is licensed (Estes Park), otherwise a
+drawn horizon for the country it is in (peaks, foothills, mesas or plains,
+`src/lib/ridgeline.ts`), with the next date set under the name. Then the
+year at a glance, twelve months with a mark for each tradition; Traditions
+beside Outdoor dates from the lg breakpoint; the statewide dates folded
+under a summary. Every dated row, there and on the season pages and a
+guide's `/traditions/`, carries a date block: month, day and year where the
+organizer has set a date, "TBA" in outline where it has not, never last
+year's date. The hub's home hero has the Front Range photograph beside the
+headline from lg.
+
 **Visual rules** (the ten from the 26 October pass, still in force):
 
 1. The accent colour draws the rule under a section heading and the

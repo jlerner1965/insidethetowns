@@ -13,6 +13,10 @@
  * below the first screen on a phone): the band's padding 1.5rem (2.25rem
  * from md), the title 2.25rem (3rem from md), the intro at reading size,
  * and the content 2rem under it.
+ *
+ * A page that draws its own masthead passes it in the `header` slot and
+ * the band is not drawn: the hub's town pages, whose name sits on the
+ * town's landscape (src/routes/hub/town.astro).
  */
 import Base from './Base.astro';
 
@@ -38,8 +42,10 @@ interface Props {
 }
 
 const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astro.props;
+const ownHeader = Astro.slots.has('header');
 ---
 <Base title={seoTitle ?? title} {...seo}>
+  {ownHeader ? <slot name="header" /> : (
   <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-6 md:py-9">
       <div class="max-w-3xl">
@@ -55,6 +61,7 @@ const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astr
       </div>
     </div>
   </header>
+  )}
   <div class="container-page pb-8 pt-8 md:pt-10">
     <div class:list={[narrow && 'max-w-2xl']}>
       <slot />
