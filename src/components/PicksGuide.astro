@@ -40,7 +40,7 @@ const { Content } = await render(page);
 const shown = picksFor(data.picks ?? [], places);
 ---
 {shown.length > 0 && (
-  <section aria-labelledby="picks-h" class="mb-14 max-w-3xl">
+  <section aria-labelledby="picks-h" class="mb-8 max-w-3xl md:mb-14">
     <h2 id="picks-h" class="display-md text-[1.75rem] leading-tight md:text-[2.25rem]">{data.title}</h2>
     {data.verified && (
       <p class="mt-2 text-[0.875rem] text-ink-muted">
@@ -60,7 +60,10 @@ const shown = picksFor(data.picks ?? [], places);
         </li>
       ))}
     </ol>
-    <p class="mt-4 text-[0.9375rem]"><a href={`#${directoryId}`} class="font-semibold text-primary underline">Every place we list, with filters ↓</a></p>
-    <div class="prose mt-8 border-t border-line-soft pt-6 text-[0.9375rem]"><Content /></div>
+    {/* Fine print, not a lead: `.prose` sets a first paragraph large, which
+        with a rule and its padding left most of a phone screen empty between
+        the picks and the directory (James, 12 November 2026). */}
+    <div class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted [&_a]:text-primary [&_a]:underline [&_p+p]:mt-2"><Content /></div>
+    <p class="mt-3 text-[0.9375rem]"><a href={`#${directoryId}`} class="font-semibold text-primary underline">Every place we list, with filters ↓</a></p>
   </section>
 )}
