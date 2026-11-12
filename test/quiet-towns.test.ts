@@ -41,7 +41,7 @@ test('the weekly email covers every live guide but a quiet one, a visitor guide 
   for (const t of liveTowns()) assert.equal(email.includes(t.slug), !t.quiet && !t.visitorGuide && t.lead !== 'updates', t.slug);
   for (const t of liveTowns()) assert.equal(listsEvents(t), t.lead !== 'updates', `${t.slug}: lists events unless it leads with updates`);
   assert.deepEqual(liveTowns().filter((t) => !email.includes(t.slug)).map((t) => t.slug), ['elizabeth', 'niwot']);
-  assert.deepEqual(email, ['berthoud', 'erie', 'frederick', 'johnstown', 'lafayette', 'lyons', 'windsor']);
+  assert.deepEqual(email, ['berthoud', 'erie', 'frederick', 'johnstown', 'lyons', 'windsor']);
   // Nothing that is not live is covered.
   for (const slug of email) assert.equal(towns.find((t) => t.slug === slug)?.status, 'live', slug);
 });

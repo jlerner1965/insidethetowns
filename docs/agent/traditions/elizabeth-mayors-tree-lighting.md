@@ -11,5 +11,7 @@ years:
   - year: 2026
     status: confirmed
     date: 2026-12-05
+    startTime: "3PM-6PM, Tree Lighting at 5PM"
+    place: "Main Street"
     checked: 2026-11-12
 ---

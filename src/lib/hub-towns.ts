@@ -11,11 +11,13 @@
  * It never imports astro:content or node:fs.
  */
 import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide, type HubTown } from '../config/hub-towns.ts';
-import { CURRENT_SEASONS, TRADITION_TYPE_INFO, byNextDate, hasVerifiedDate, isUpcoming, nextRow, type TraditionRecord, type TraditionRow } from './traditions.ts';
+import { CURRENT_SEASONS, TRADITION_TYPE_INFO, byNextDate, countsAsVerified, isUpcoming, nextRow, type TraditionRecord, type TraditionRow } from './traditions.ts';
 
 /**
  * A town page is published only when the town has this many verified
- * dated items of its own. "Its own" is a record whose home is the town
+ * items of its own (a date read on the source, or, the owner's rule of 12
+ * November 2026, the organizer's own word that the event continues while
+ * its next date is not announced). "Its own" is a record whose home is the town
  * (`town.guide`): an event held there, or the town's own outdoor date. A
  * shared date (Trail Ridge Road, listed for six towns) and a statewide one
  * show on the page but do not count toward it.
@@ -53,9 +55,13 @@ export function lineFor(record: Pick<TraditionRecord, 'towns'>, place: string): 
   return record.towns?.find((t) => placeKey(t.slug) === place)?.line;
 }
 
-/** A town's own records with a date read on the source: what its page is held to. */
+/**
+ * A town's own verified records: what its page is held to. A record whose
+ * home is the town, with a date read on its source or the organizer's own
+ * word that it continues (countsAsVerified).
+ */
 export function ownItems(records: readonly TraditionRecord[], town: string): TraditionRecord[] {
-  return records.filter((r) => !r.fixture && homeOf(r) === town && hasVerifiedDate(r));
+  return records.filter((r) => !r.fixture && homeOf(r) === town && countsAsVerified(r));
 }
 
 /** The hub towns with a page: MIN_OWN_ITEMS of their own or more. In the registry's order. */

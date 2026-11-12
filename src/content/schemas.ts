@@ -1663,6 +1663,14 @@ export function traditionSchema() {
        */
       typicalWindow: z.string().min(1).optional(),
       /**
+       * On a year not announced: the organizer's own words, on its own
+       * page, that the event continues ("See you in 2027!", "2026-27
+       * Season Passes On Sale Now!"). The owner's rule of 12 November 2026:
+       * such a record counts toward a town page's three; one with no
+       * date and no such words does not.
+       */
+      continues: z.string().min(1).optional(),
+      /**
        * The source's own caveat on a date it publishes: "weather
        * permitting", "tentative". Shown beside the date, in quotation marks.
        */
@@ -1698,6 +1706,7 @@ export function traditionSchema() {
       path: ['date'],
     })
     .refine((y) => !y.previousDate || y.status === 'moved', { message: 'previousDate goes with status moved', path: ['previousDate'] })
+    .refine((y) => !y.continues || y.status === 'not-announced', { message: 'continues goes with a year not announced: a dated year needs no such words', path: ['continues'] })
     .refine((y) => !y.endDate || (!!y.date && y.endDate >= y.date), { message: 'endDate goes with a date, and is not before it', path: ['endDate'] })
     .refine((y) => y.status !== 'typical' || (!!y.typicalWindow && !y.date && !y.startTime), {
       message: 'a typical year carries the window the source describes and no date: a typical window is never shown as a date',

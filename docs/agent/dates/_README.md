@@ -5,9 +5,11 @@ Researched for the restructure brief of 12 November 2026: for each of the
 organizer's or the agency's own page. One record per item, in the shape of
 `content/hub/traditions/` (src/content/schemas.ts, `traditionSchema`).
 
-- **Verified records are in `content/hub/traditions/`**, not here: 258
-  on 12 November, 245 from this research and the 13 holiday records
-  approved out of `docs/agent/traditions/`. Each carries its `sourceUrl` and a `checked`
+- **Verified records are in `content/hub/traditions/`**, not here: 267
+  on 12 November, 245 from this research, eight more for Salida from a
+  second pass that afternoon, Light Up Black Hawk after the owner's rule 3
+  clarification, and the 13 holiday records approved out of
+  `docs/agent/traditions/`. Each carries its `sourceUrl` and a `checked`
   date on every year.
 - **`unverified/`** holds what could not be read on its source: a page that
   refuses automated reads (not worked around), a date seen only in a search
@@ -41,7 +43,16 @@ organizer's or the agency's own page. One record per item, in the shape of
    paraphrases and not the page's words, and one programme with 2027 dates
    recorded as not announced. All six corrected. That is two material
    errors in 101, inside the handoff rule of 11 October (no more than one
-   in ten). The other three in five were not re-read.
+   in ten).
+4. The other three in five (160 records) were re-read the same way later
+   that day, on the owner's word. No date or weekday was wrong. Nine
+   wording problems: three typical windows or caveats that were paraphrases
+   and not the page's words, two start times that named the wrong moment,
+   one place and one cost the page does not give, one cost reworded, and
+   one boat-ramp note the page qualifies. All nine corrected. Four pages
+   could not be re-read that afternoon (two bot checks, two sites down);
+   their records stand on the morning's read. Every published record has
+   now been read twice.
 
 A date recorded for 2026 where the page prints a weekday and a day but no
 year follows the standing rule (README, "Rules at entry"): it counts as

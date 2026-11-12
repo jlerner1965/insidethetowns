@@ -5,12 +5,13 @@ town:
   name: Mead
   guide: mead
 type: festival
-organizer: "Not stated (listed by the Mead Area Chamber of Commerce)"
+organizer: "Town of Mead"
 sourceUrl: "https://meadchamber.org/"
 years:
   - year: 2026
     status: confirmed
-    date: 2026-12-04
-    endDate: 2026-12-05
+    date: 2026-12-05
+    startTime: "11am - 3pm"
+    place: "Mead Community Center"
     checked: 2026-11-12
 ---

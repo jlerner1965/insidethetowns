@@ -76,7 +76,7 @@ test('a guide folded into its page on the hub keeps its own entry, not live, and
   // The nine of 12 November 2026, and the five retired earlier whose domains
   // now forward to their town's page, not the hub's home page.
   const withPage = towns.filter((t) => t.hubPage);
-  assert.equal(withPage.filter((t) => !t.retired).length, 9);
+  assert.equal(withPage.filter((t) => !t.retired).length, 10);
   for (const t of withPage) {
     const m = listed.get(t.slug);
     assert.ok(m, `${t.slug} was folded into its hub page and is missing from manager/towns.json`);

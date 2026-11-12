@@ -82,7 +82,7 @@ test('a retired guide redirects, says why, goes nowhere else, and is out of ever
     assert.ok(!!t.foldedInto || !!t.retired || !!t.hubPage, `${t.slug}: folded into a guide, retired, or folded into its hub page`);
     if (t.foldedInto) assert.ok(!t.retired && !t.hubPage, `${t.slug}: folded into a guide, so neither retired nor on a hub page`);
   }
-  assert.deepEqual(retired.filter((t) => t.hubPage).map((t) => t.slug).sort(), ['evergreen', 'fort-lupton', 'georgetown', 'grand-lake', 'manitou-springs'], 'the retired guides whose domains go to their town page');
+  assert.deepEqual(retired.filter((t) => t.hubPage).map((t) => t.slug).sort(), ['black-hawk', 'evergreen', 'fort-lupton', 'georgetown', 'grand-lake', 'idaho-springs', 'manitou-springs'], 'the retired guides whose domains go to their town page');
   for (const t of towns.filter((t) => t.status !== 'redirect')) assert.equal(t.retired, undefined, `${t.slug}: retired without status redirect`);
 });
 
@@ -138,7 +138,10 @@ test("every path on a retired guide's domain redirects to its town's page on the
     assert.equal(rules.at(-1)?.destination, home, `${t.domain}: the catch-all goes home`);
   }
   // The three without a page, as before 12 November 2026.
-  assert.deepEqual(retired.filter((t) => !t.hubPage).map((t) => t.slug).sort(), ['black-hawk', 'carbon-valley', 'idaho-springs']);
+  // Black Hawk's and Idaho Springs' pages qualified later on 12 November
+  // 2026 (an organizer's own word of continuing counts), so Carbon Valley,
+  // with Frederick as its successor, is the one retired guide without a page.
+  assert.deepEqual(retired.filter((t) => !t.hubPage).map((t) => t.slug).sort(), ['carbon-valley']);
 });
 
 test('Carbon Valley forwards to Frederick, and Firestone with it', () => {

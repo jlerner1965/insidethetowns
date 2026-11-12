@@ -548,37 +548,6 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // track in the spring, on the owner's word (9 November 2026).
     teams: TEAMS(FALL_WITHOUT('boys-soccer'), WINTER_WITHOUT('girls-swimming'), [SPRING_BASEBALL, ...SPRING_TRACK]),
   },
-  {
-    town: 'lafayette',
-    // CHSAANow: Centaurus High School, Boulder Valley Re 2, Granite Peaks;
-    // football 4A, basketball 6A (2026–28, read 2 November 2026). The
-    // mascot is MaxPreps's school path (centaurus-warriors) and the
-    // school's own "Warrior Weekly"; the site never states it in a sentence.
-    school: 'Centaurus High School',
-    mascot: 'Warriors',
-    maxpreps: 'https://www.maxpreps.com/co/lafayette/centaurus-warriors/',
-    maxprepsName: 'Centaurus',
-    // Warrior blue: the darker blue of the school's own Finalsite theme
-    // stylesheet (ceh.bvsd.org/uploaded/themes/madison/css/centaurus-high-school.css,
-    // read 2 November 2026), 11:1 under white; the shade the theme uses
-    // most, #3a5fcd, is 5.7:1 and would not clear the home page's band
-    // (src/config/school-colors.ts), so the guide's school colour is the
-    // darker one throughout. MaxPreps refused the cloud address and gave no
-    // colour to the reader; the runner's first probe can compare.
-    colors: { primary: '#003399' },
-    // BVSD's Finalsite site: `?cal_date=YYYY-MM-01` shows a month, and the
-    // school's robots.txt (read 2 November 2026) allows /about/calendar. The
-    // athletics calendar proper is ArbiterLive, which refuses automated
-    // readers, so this grid is the cross-check; its dance-team rows carry
-    // placeholder times and an out-of-state address, which the check treats
-    // as not on the calendar.
-    calendar: { kind: 'finalsite', url: 'https://ceh.bvsd.org/about/calendar', label: 'the Centaurus calendar' },
-    // CHSAANow lists every fall and winter team the default lists follow
-    // (girls' wrestling and gymnastics are Broomfield co-ops, not followed).
-    // No data file yet: the first Saturday or Wednesday run writes
-    // data/lafayette/sports.json, and the page waits for it.
-    teams: TEAMS(),
-  },
 ];
 
 /** Every school a town follows, in the config's order. */

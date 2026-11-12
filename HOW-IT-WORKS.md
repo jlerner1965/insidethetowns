@@ -46,11 +46,11 @@ The config flag decides what a guide is; nothing is per-town in code.
 
 | Kind | Flag | Towns | What it means |
 |---|---|---|---|
-| Resident guide | `home: true` | Berthoud, Erie, Frederick, Johnstown, Lafayette, Lyons, Niwot, Windsor | Follows a school; has Families, Living here and Updates; gets the Thursday email. Lyons (`lead: 'outdoors'`) leads with the outdoor dates and keeps sports out of its menu; Niwot (`lead: 'updates'`) lists no events, is out of the email and the Wednesday notes run, and posts when there is an update |
+| Resident guide | `home: true` | Berthoud, Erie, Frederick, Johnstown, Lyons, Niwot, Windsor | Follows a school; has Families, Living here and Updates; gets the Thursday email. Lyons (`lead: 'outdoors'`) leads with the outdoor dates and keeps sports out of its menu; Niwot (`lead: 'updates'`) lists no events, is out of the email and the Wednesday notes run, and posts when there is an update |
 | Plain guide | none | — (none today) | In the email and the weekly rotation |
 | Visitor guide | `visitorGuide` | — (none today) | Checked on the 60-day cycle; no email, no signup box |
 | Quiet guide | `quiet` | Elizabeth | Pages up and indexed; listings checked as the rotation reaches them; no email, no signup, no Thursday draft. Each has a decide-by date in its config |
-| Folded or retired | `status: 'redirect'` | Severance (into Windsor); Carbon Valley (to Frederick); Black Hawk and Clear Creek (Idaho Springs) (to the hub's home page); Castle Rock, Estes Park, Evergreen, Fort Collins, Fort Lupton, Georgetown, Golden, Grand Lake, Leadville, Longmont, Loveland, Manitou Springs, Nederland and Timnath (to the town's page on the hub, `hubPage`, 12 November 2026) | No guide: every path on the domain redirects (`vercel.json`, `docs/REDIRECTS.md`) |
+| Folded or retired | `status: 'redirect'` | Severance (into Windsor); Carbon Valley (to Frederick); Black Hawk, Castle Rock, Estes Park, Evergreen, Fort Collins, Fort Lupton, Georgetown, Golden, Clear Creek (Idaho Springs), Lafayette, Grand Lake, Leadville, Longmont, Loveland, Manitou Springs, Nederland and Timnath (to the town's page on the hub, `hubPage`, 12 November 2026) | No guide: every path on the domain redirects (`vercel.json`, `docs/REDIRECTS.md`) |
 
 `test/how-it-works.test.ts` holds this table to the configs.
 

@@ -10,5 +10,6 @@ sourceUrl: "https://www.lafayettecolorado.com/annual-events"
 years:
   - year: 2027
     status: not-announced
+    continues: "Join us for a nostalgic Independence Day celebration!"
     checked: 2026-11-12
 ---

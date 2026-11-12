@@ -11,7 +11,7 @@ years:
   - year: 2026
     status: confirmed
     date: 2026-12-04
-    startTime: "4:30 pm"
+    startTime: "Parade begins at 6:30; activities begin at 4:30 pm"
     place: "Downtown Historic Erie"
     checked: 2026-11-12
 ---

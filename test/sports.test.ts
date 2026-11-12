@@ -927,7 +927,7 @@ test('a school’s teams are called by its short name and mascot, as people sear
   // their guides on 12 November 2026; the rule is held on the names still followed, and on every one below.
   assert.equal(schoolTeamName(schoolSportsFor('johnstown')!), 'Roosevelt Roughriders');
   assert.equal(schoolTeamName(schoolSportsFor('windsor', 'severance-high')!), 'Severance Silver Knights', 'a two-word mascot is kept whole');
-  assert.equal(schoolTeamName(schoolSportsFor('lafayette')!), 'Centaurus Warriors', 'the school’s name, not the town’s');
+  assert.equal(schoolTeamName(schoolSportsFor('johnstown')!), 'Roosevelt Roughriders', 'the school’s name, not the town’s');
   assert.equal(teamPageTitle(schoolSportsFor('lyons')!, { name: 'Football' }, '2026'), 'Lyons Lions Football Scores & Schedule 2026');
   for (const s of SCHOOL_SPORTS) assert.doesNotMatch(schoolTeamName(s), /School|Middle|Senior|\//, s.school);
 });

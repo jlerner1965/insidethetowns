@@ -118,13 +118,14 @@ test('each guide names the neighbours the owner set, in that order', () => {
   // Longmont, Loveland, Nederland and Timnath): each names nobody now, and
   // every guide that named one dropped it, so the lists below are what is
   // left of the owner's, in his order. Elizabeth's one neighbour was Castle
-  // Rock, so it names nobody.
+  // Rock, so it names nobody. Lafayette followed later the same day, out of
+  // Erie's and Niwot's lists.
   const NEIGHBORS: Record<string, string[]> = {
-    niwot: ['lyons', 'erie', 'lafayette'],
+    niwot: ['lyons', 'erie'],
     lyons: ['niwot'],
     longmont: [],
-    erie: ['lafayette', 'frederick', 'niwot'],
-    lafayette: ['erie', 'niwot'],
+    erie: ['frederick', 'niwot'],
+    lafayette: [],
     frederick: ['erie'],
     'carbon-valley': [],
     berthoud: ['johnstown'],

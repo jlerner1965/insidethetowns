@@ -105,5 +105,7 @@ test('the routes built and the headings linked agree on every town’s counts', 
     pages += routes.length;
   }
   assert.ok(checked > 300, `only ${checked} places checked`);
-  assert.ok(pages > 50, `only ${pages} kind pages across the network`);
+  // Over 50 until the restructure of 12 November 2026 took ten guides'
+  // listings out of the repo; eight guides are left.
+  assert.ok(pages > 40, `only ${pages} kind pages across the network`);
 });

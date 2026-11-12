@@ -41,7 +41,7 @@ test('an edition of one carries its town’s email sponsor; a shared one its own
   assert.equal(shared!.sponsor, own);
 });
 
-test('no shared edition is left, and seven editions in all', () => {
+test('no shared edition is left, and six editions in all', () => {
   // Three shared and fifteen in all until 20 October 2026: Idaho Springs and
   // Georgetown became one guide, Inside Clear Creek, an edition of one under
   // the Idaho Springs slug; Estes Park, Golden and Evergreen became visitor
@@ -54,14 +54,14 @@ test('no shared edition is left, and seven editions in all', () => {
   // 2026: nine. The restructure of 12 November 2026 folded Timnath and
   // Golden into their pages on the hub, which ended the Windsor and Timnath
   // edition (the last shared one) and Golden's, and Niwot became a quiet
-  // guide that lists no events (`lead: 'updates'`), so it has none: seven,
-  // each an edition of one.
+  // guide that lists no events (`lead: 'updates'`), so it has none; Lafayette's
+  // closed with its guide later the same day: six, each an edition of one.
   const editions = emailEditions();
   assert.deepEqual(hub.newsletter?.editions, [], 'the hub configures no shared edition');
   const shared = editions.filter((e) => e.shared).map((e) => [e.slug, e.towns.map((x) => x.slug)]);
   assert.deepEqual(shared, []);
-  assert.deepEqual(editions.map((e) => e.slug), ['berthoud', 'erie', 'frederick', 'johnstown', 'lafayette', 'lyons', 'windsor']);
-  assert.equal(editions.length, 7);
+  assert.deepEqual(editions.map((e) => e.slug), ['berthoud', 'erie', 'frederick', 'johnstown', 'lyons', 'windsor']);
+  assert.equal(editions.length, 6);
   // Every covered guide in exactly one edition.
   const placed = editions.flatMap((e) => e.towns.map((x) => x.slug)).sort();
   assert.deepEqual(placed, emailTowns().map((x) => x.slug).sort());

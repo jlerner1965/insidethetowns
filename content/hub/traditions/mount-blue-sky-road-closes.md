@@ -12,7 +12,7 @@ sourceUrl: "https://www.codot.gov/news/2026/september-2026-news/summer-travel-se
 years:
   - year: 2027
     status: not-announced
-    typicalWindow: "Summit open Memorial Day through Labor Day only"
+    typicalWindow: "The highway to the summit remains open through Labor Day weekend."
     checked: 2026-11-12
   - year: 2026
     status: confirmed

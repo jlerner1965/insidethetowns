@@ -93,6 +93,9 @@ const pill = 'rounded-full bg-ink px-2 py-0.5 text-[0.75rem] font-semibold upper
       {row.lastHeld && <p class="mt-1.5 text-[0.9375rem] text-ink-muted">{lastWord} <time datetime={row.lastHeld}>{spanText(row.lastHeld, lastEnd)}</time></p>}
     </Fragment>
   )}
+  {entry.continues && entry.status === 'not-announced' && (
+    <p class="mt-1.5 text-[0.9375rem] text-ink-muted">{record.organizer}: “{entry.continues}”</p>
+  )}
   {entry.typicalWindow && (entry.status === 'typical' || entry.status === 'not-announced') && (
     <p class="mt-1.5 text-[0.9375rem] text-ink-muted"><span class="font-semibold text-ink">Typical window, not a date:</span> {entry.typicalWindow}</p>
   )}

@@ -15,6 +15,6 @@ years:
     status: confirmed
     date: 2026-04-01
     startTime: "7:00 AM"
-    place: "North Pines ramp and South Shore ramp"
+    place: "South Shore ramp (North Pines ramp only Saturday and Sunday while FLAP construction is in progress)"
     checked: 2026-11-12
 ---

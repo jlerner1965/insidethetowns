@@ -74,6 +74,8 @@ export interface TraditionYear {
   endDate?: string;
   /** The window the source describes where it gives no date, in its words: "usually by Memorial Day weekend". */
   typicalWindow?: string;
+  /** On a year not announced: the organizer's own words that the event continues. */
+  continues?: string;
   /** The source's own caveat on the date: "weather permitting". */
   note?: string;
   startTime?: string;
@@ -238,6 +240,20 @@ export function byNextDate(a: TraditionRow, b: TraditionRow): number {
  */
 export function hasVerifiedDate(record: Pick<TraditionRecord, 'years'>): boolean {
   return record.years.some((y) => isDated(y) && !!y.date && !!y.checked);
+}
+
+/**
+ * Whether a record counts toward a town page's three (the owner's rule of
+ * 12 November 2026): it carries a date read on its source, or its newest
+ * year is not announced and the organizer's own page says the event
+ * continues (`continues`, in its words). A record whose only source is a
+ * third-party list, or that nothing confirms is still running, is not
+ * written at all.
+ */
+export function countsAsVerified(record: Pick<TraditionRecord, 'years'>): boolean {
+  if (hasVerifiedDate(record)) return true;
+  const newest = record.years[0];
+  return !!newest && newest.status === 'not-announced' && !!newest.continues && !!newest.checked;
 }
 
 /** The count line: how many towns the page lists, and how many dates the organizers have published. */

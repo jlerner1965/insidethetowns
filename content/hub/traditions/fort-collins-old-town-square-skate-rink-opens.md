@@ -13,6 +13,5 @@ years:
     date: 2026-11-25
     startTime: "11 am"
     place: "Old Town Square"
-    cost: "Free"
     checked: 2026-11-12
 ---

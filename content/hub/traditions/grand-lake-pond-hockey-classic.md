@@ -12,6 +12,6 @@ years:
     status: confirmed
     date: 2027-02-06
     endDate: 2027-02-07
-    startTime: "9 am"
+    startTime: "9 a.m. to 5 p.m."
     checked: 2026-11-12
 ---

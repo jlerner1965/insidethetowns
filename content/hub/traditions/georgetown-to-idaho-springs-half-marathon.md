@@ -14,7 +14,6 @@ years:
   - year: 2027
     status: confirmed
     date: 2027-08-14
-    place: "Georgetown Lake to Idaho Springs"
     checked: 2026-11-12
   - year: 2026
     status: confirmed

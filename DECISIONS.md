@@ -10481,3 +10481,40 @@ hub's season pages, "Every year in <Town>").*
   Timnath's guide; Windsor is an edition of its own.
 - **Research**: `docs/agent/dates/_README.md` says how the 245 new
   records were read, curated and spot-checked, and what waits unverified.
+
+## Rule 3 read again, three more pages, and the owner's domains, 12 November 2026 (later)
+
+*The owner's reply to the restructure pull request (#380), the same day.*
+
+- **Four calls stand**: Severance's domain keeps forwarding to the Windsor
+  guide's Severance section; Niwot stays out of the Thursday email; "three
+  of its own" is read strictly (a shared date counts toward no town);
+  Inside Frederick is the fifth sports-led guide, and the brief was wrong
+  about Carbon Valley.
+- **Rule 3 clarified.** A tradition counts toward a town's three when the
+  organizer's own page confirms it continues, even with no date announced;
+  it shows as "not yet announced" with the organizer's words beside it
+  (`continues` on the year; `countsAsVerified`). It does not count when
+  the only source is a third-party list, or when nothing confirms it is
+  still running. On that reading Idaho Springs (Echo Mountain: "2026-27
+  Winter Season Passes On Sale Now!"), Lafayette (the Chamber's "Join us"
+  for the Peach Festival and Independence Day) and Black Hawk (the city's
+  own page gives Light Up Black Hawk a Friday, 27 November, the weekday
+  fitting 2026) each reached three, so **Lafayette's guide was folded** and
+  the two retired domains now forward to their pages. Elizabeth and Mead
+  wait for the owner's own reads; the dates from the owner's screenshots
+  are drafted in `docs/agent/dates/` and not published.
+- **The rest re-read.** The three in five not spot-checked that morning
+  were re-read against their sources, so every published record has now
+  been read twice. (The counts are in the pull request.)
+- **Severance's Kids Fishing Derby** says "residents only" on its face, in
+  the Town's words.
+- **The owner's domains for towns that never had a guide** are on the hub
+  town's entry (`domain` in src/config/hub-towns.ts), with the same
+  redirect rules once the page is published: Salida, Steamboat Springs,
+  Buena Vista, Grand Junction and Fort Morgan now; Mead when its page
+  qualifies. Each still has to be attached to the hub's Vercel project.
+- **Niwot's subscribers.** The Thursday send goes to subscriber tags; with
+  no Niwot edition, a subscriber tagged `niwot` alone now receives
+  nothing, and nothing in the system sends an email when an update is
+  posted. Reported to the owner; nothing changed.

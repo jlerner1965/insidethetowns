@@ -10,7 +10,6 @@ sourceUrl: "https://palisadecoc.com/events/palisadepeachfest/"
 years:
   - year: 2027
     status: not-announced
-    typicalWindow: "the 3rd Friday & Saturday in August each year"
     checked: 2026-11-12
   - year: 2026
     status: confirmed

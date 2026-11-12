@@ -17,6 +17,6 @@ years:
     date: 2026-08-05
     endDate: 2026-08-09
     place: "Boulder County Fairgrounds, 9595 Nelson Road"
-    cost: "No admission fee"
+    cost: "Fairgrounds admission is free"
     checked: 2026-11-12
 ---

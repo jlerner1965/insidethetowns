@@ -1,6 +1,6 @@
 ---
 slug: severance-kids-fishing-derby
-name: "Kids Fishing Derby"
+name: "Kids Fishing Derby (residents only)"
 town:
   name: Severance
   guide: severance
@@ -16,5 +16,6 @@ years:
     date: 2026-05-16
     startTime: "7 am"
     place: "Blue Spruce Park"
+    cost: "Residents only: you must be a resident of Severance; registration is limited"
     checked: 2026-11-12
 ---

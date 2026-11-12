@@ -45,6 +45,16 @@ export interface HubTown {
   cluster: HubCluster;
   /** The town's config in src/config/towns/, where it has or had a guide of its own. */
   guide?: string;
+  /**
+   * A domain the owner holds for a town that never had a guide here
+   * (the owner, 12 November 2026): once the town's page is published,
+   * every path on it redirects to the page (vercel.json, written by
+   * scripts/fold-rules.ts from src/lib/fold.ts). The rules are host-scoped
+   * and deploy with every site, so the domain works from whichever Vercel
+   * project it is attached to; the hub's is the natural one (DEPLOY.md).
+   * A town with a guide keeps its domain on that guide's config instead.
+   */
+  domain?: string;
   /** Clusters whose pages this one also links to, beside its own. */
   alsoLinks?: readonly HubCluster[];
   /**
@@ -83,6 +93,7 @@ export const HUB_TOWNS: readonly HubTown[] = [
   },
   {
     slug: 'salida',
+    domain: 'insidesalida.com',
     name: 'Salida',
     counties: ['Chaffee'],
     cluster: 'Showpiece pages',
@@ -104,9 +115,9 @@ export const HUB_TOWNS: readonly HubTown[] = [
   { slug: 'timnath', name: 'Timnath', counties: ['Larimer'], cluster: 'Front Range and plains towns', guide: 'timnath' },
   { slug: 'elizabeth', name: 'Elizabeth', counties: ['Elbert'], cluster: 'Front Range and plains towns', guide: 'elizabeth' },
   { slug: 'severance', name: 'Severance', counties: ['Weld'], cluster: 'Front Range and plains towns', guide: 'severance' },
-  { slug: 'mead', name: 'Mead', counties: ['Weld'], cluster: 'Front Range and plains towns' },
+  { slug: 'mead', name: 'Mead', counties: ['Weld'], cluster: 'Front Range and plains towns', domain: 'insidemead.com' },
   { slug: 'fort-lupton', name: 'Fort Lupton', counties: ['Weld'], cluster: 'Front Range and plains towns', guide: 'fort-lupton' },
-  { slug: 'fort-morgan', name: 'Fort Morgan', counties: ['Morgan'], cluster: 'Front Range and plains towns' },
+  { slug: 'fort-morgan', name: 'Fort Morgan', counties: ['Morgan'], cluster: 'Front Range and plains towns', domain: 'insidefortmorgan.com' },
   { slug: 'evergreen', name: 'Evergreen', counties: ['Jefferson'], cluster: 'I-70 mountain', guide: 'evergreen' },
   { slug: 'idaho-springs', name: 'Idaho Springs', counties: ['Clear Creek'], cluster: 'I-70 mountain', guide: 'idaho-springs' },
   { slug: 'georgetown', name: 'Georgetown', counties: ['Clear Creek'], cluster: 'I-70 mountain', guide: 'georgetown' },
@@ -114,11 +125,11 @@ export const HUB_TOWNS: readonly HubTown[] = [
   { slug: 'frisco', name: 'Frisco', counties: ['Summit'], cluster: 'Summit County' },
   { slug: 'breckenridge', name: 'Breckenridge', counties: ['Summit'], cluster: 'Summit County' },
   { slug: 'keystone', name: 'Keystone', counties: ['Summit'], cluster: 'Summit County' },
-  { slug: 'buena-vista', name: 'Buena Vista', counties: ['Chaffee'], cluster: 'Arkansas valley', alsoLinks: ['Showpiece pages'] },
+  { slug: 'buena-vista', name: 'Buena Vista', counties: ['Chaffee'], cluster: 'Arkansas valley', alsoLinks: ['Showpiece pages'], domain: 'insidebuenavista.com' },
   { slug: 'leadville', name: 'Leadville', counties: ['Lake'], cluster: 'Arkansas valley', guide: 'leadville', alsoLinks: ['Showpiece pages'] },
   { slug: 'manitou-springs', name: 'Manitou Springs', counties: ['El Paso'], cluster: 'Pikes Peak', guide: 'manitou-springs' },
-  { slug: 'steamboat-springs', name: 'Steamboat Springs', counties: ['Routt'], cluster: 'Yampa valley' },
-  { slug: 'grand-junction', name: 'Grand Junction', counties: ['Mesa'], cluster: 'Western Slope' },
+  { slug: 'steamboat-springs', name: 'Steamboat Springs', counties: ['Routt'], cluster: 'Yampa valley', domain: 'insidesteamboatsprings.com' },
+  { slug: 'grand-junction', name: 'Grand Junction', counties: ['Mesa'], cluster: 'Western Slope', domain: 'insidegrandjunction.com' },
   { slug: 'palisade', name: 'Palisade', counties: ['Mesa'], cluster: 'Western Slope' },
   { slug: 'fruita', name: 'Fruita', counties: ['Mesa'], cluster: 'Western Slope' },
   { slug: 'carbondale', name: 'Carbondale', counties: ['Garfield'], cluster: 'Roaring Fork valley' },

@@ -10,5 +10,6 @@ sourceUrl: "https://echomtn.com/"
 years:
   - year: 2026
     status: not-announced
+    continues: "All Echo Mountain 2026-27 Winter Season Passes On Sale Now!"
     checked: 2026-11-12
 ---
