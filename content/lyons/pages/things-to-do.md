@@ -37,8 +37,8 @@ picks:
     why: "The St. Vrain flows through the heart of Lyons, and visitors come to tube it. Warning flags show the creek's status, the Town bans tubing above 450 cfs and requires life jackets for children under 13 through July 15; Ray's River Rentals, its official outfitter, rents tubes and jackets when conditions are safe."
 ---
 
-These ten are for a first visit to Lyons, or a first year living here: where to walk, where to take a dog, what to do on a cold evening, and what to plan for next summer. Each one links to its page on this guide, with directions and the rules of whoever runs it.
+Nobody pays to be listed. Every fact above comes from the place's own page or its manager's, read on November 11, 2026.
 
-**How we chose them.** Every pick is a place already in the directory below, and every fact above comes from the place's own page or its manager's, read on November 11, 2026: Boulder County Parks & Open Space, the City of Longmont, the Town of Lyons, Planet Bluegrass and Lyons Classic Pinball. Nobody pays to be listed. The order follows what most visitors come for: the trails and Main Street first, then the river park, then the places for a dog or a cold evening, and last the two summer draws, which are out of season now.
+**Before you go.** The Lyons Redstone Museum is closed until May. Conditions change by the day: the County posts burn closures on each park's page, and the Town's flags decide the river.
 
-**What is not here.** The Lyons Redstone Museum is closed until May. Bohn Park, Sandstone Park and the library are in the directory below. For more on dogs and trails, read [Lyons hikes: where dogs are allowed](/articles/lyons-hikes-where-dogs-are-allowed/) and [Trails and the river](/articles/trails-and-the-river/); with children, [Lyons with kids](/articles/lyons-with-kids/). Conditions change by the day: the County posts burn closures on each park's page, and the Town's flags decide the river.
+**More on the guide.** For dogs and trails, read [Lyons hikes: where dogs are allowed](/articles/lyons-hikes-where-dogs-are-allowed/) and [Trails and the river](/articles/trails-and-the-river/); with children, [Lyons with kids](/articles/lyons-with-kids/). Bohn Park, Sandstone Park and the library are in the directory below.

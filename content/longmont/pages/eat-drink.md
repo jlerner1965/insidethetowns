@@ -37,8 +37,6 @@ picks:
     why: "A wine bar and tasting room at 704 Main St run by Doug and Julie Oldfield, who set out to make wine relaxed rather than exclusive: wines from around the world, flights and monthly events. Open Wednesday to Sunday from 3 pm; closed Mondays and Tuesdays."
 ---
 
-This list is for anyone eating out in Longmont for the first time, or new to town: breakfast on Main Street, a sandwich or a slice at lunch, a brewery in the afternoon, and dinner or a glass of wine after. It runs in the order of a day: breakfast and lunch first, then the breweries, then dinner and a glass of wine.
+Nobody pays to be listed, and we do not review food: each pick says what the place is and when it is open. Every fact above comes from the place's own website, read on November 11, 2026.
 
-**How we chose them.** Every pick is already in the directory below, and every fact above comes from the place's own website, read on November 11, 2026. A place makes the list only when its own site gives its current hours on the day we check. We picked for range: breakfast, a bakery, a deli, pizza, Indian, fried chicken, three breweries with different reasons to go, and a wine bar. Six are on Main Street downtown; the rest are a short drive away on Boston Avenue, Emery Street, South Sunset Street and South Hover Road. We say what each place is and when it is open; we do not review food, and nobody pays to be listed.
-
-**What is not here.** Ten is a short list for a city this size. Barbecue, steak and seafood, an Irish pub, more breweries and more coffee are in the directory below, and the guide's [walk through downtown](/articles/explore-downtown-longmont-in-walking-order/) strings several together.
+**More on the guide.** Barbecue, steak and seafood, an Irish pub, more breweries and more coffee are in the directory below, and the guide's [walk through downtown](/articles/explore-downtown-longmont-in-walking-order/) strings several together.

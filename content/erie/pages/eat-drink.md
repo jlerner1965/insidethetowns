@@ -37,10 +37,6 @@ picks:
     why: "A family-run ice cream shop on Briggs Street scooping Colorado-made Little Man and Glacier ice cream, with shakes, malts and floats. Fall hours are 3 to 8 pm Monday to Thursday, noon to 9 Friday and Saturday, and noon to 8 Sunday."
 ---
 
-This is a short list for someone new to Erie, or visiting, who wants to know where to start. The full directory, with every restaurant, bar, coffee shop and store on the guide, is below it.
+Nobody pays to be listed or picked. We do not review food, so the list is not ranked by taste. Every hour and dish here comes from the place's own site, read on 11 November 2026.
 
-**How we chose.** We started from the places already on this guide and kept ones that are locally owned or run, open this week, and that post their hours or menu on their own site. We read each one's site on 11 November 2026, and every hour and dish here comes from it. We do not review food, so the list is not ranked by taste. We aimed for a spread of meals and kinds of food.
-
-**The order** follows a visit. The first seven are on or just off the Briggs Street block downtown, where most of Erie's independent restaurants are: a drink and a pizza, coffee, a dinner out, then four more particular kinds of meal. The next two are out on Erie Parkway and Village Vista Drive, nearer the newer neighborhoods. Ice cream is last.
-
-**What is not here.** National chains, though the directory lists one. Places we have not been able to check against their own site this week, which stay in the directory until we can. Cristos Coffee, the Dugout and Erie Social Club did not fit in ten; they are in the directory below. Nobody pays to be listed or picked.
+**Not on this list.** National chains. Cristos Coffee, the Dugout and Erie Social Club did not fit in ten; they are in the directory below.

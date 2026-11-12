@@ -37,10 +37,6 @@ picks:
     why: "Hickory-smoked barbecue on St. Cloud Drive since 2008: brisket smoked for 14 hours, Carolina pork, ribs, smoked turkey and catfish, with a lunch buffet Wednesday to Friday 11 to 2. Open Wednesday, Thursday and Sunday 11 am to 9 pm and Friday and Saturday to 10; closed Monday and Tuesday."
 ---
 
-A short list for anyone new to Loveland or here for the day: ten places to eat and drink, and what each one suits. Every restaurant, bar, coffee shop and store on the guide is in the directory below.
+Nobody pays to be on the list. We do not review food: each pick says what the place is, when it is open and who it suits. Each was checked against its own website on 11 November 2026.
 
-**How the picks were chosen.** One of each kind before a second of any kind: a diner, a coffee roaster, a pub, tacos, a brewery, a steakhouse, a meadery, an alcohol-free bar, pizza and barbecue. Locally owned places first; none of the ten is a national chain. Each is open all year, and each was checked against its own website on 11 November 2026; the hours and menus here come from those pages. We do not review food, so each pick says what the place is, when it is open and who it suits. Nobody pays to be on the list.
-
-**The order.** The first eight are downtown and run through a day there, from breakfast to a late evening. The last two are a short drive out, on West Eisenhower and St. Cloud Drive.
-
-**What is not here.** Loveland has more breweries than one list can hold; the rest are in the directory, with the coffee shops, the cat cafe and the pinball bar. A place goes on this list only when its own site shows its current hours, so some listings wait for the next check.
+**More on the guide.** Loveland has more breweries than one list can hold; the rest are in the directory below, with the coffee shops, the cat cafe and the pinball bar.

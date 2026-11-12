@@ -34,10 +34,6 @@ picks:
     why: "Culver's at I-25 and US 34, for frozen custard, with each day's flavor posted on its page. The dining room is open every day 10 am to 10 pm; the drive-thru stays open to 10:30 pm, and to 11 on Friday and Saturday."
 ---
 
-A short list for anyone new to Johnstown or stopping off I-25: nine places to eat, and what each one suits. Every place to eat, drink and shop on the guide is in the directory below.
+Nobody pays to be on the list. We do not review food: each pick says what the place is, when it is open and who it suits. Each was checked against its own website or location page on 11 November 2026.
 
-**How the picks were chosen.** One of each kind before a second of any kind: crepes, a lunch spot, Mexican, wings, a diner, brunch, burgers, seafood and custard. Places that are not chains come first. Each is open all year, and each was checked against its own website or location page on 11 November 2026; the hours and menus here are from those pages. We do not review food, so each pick says what the place is, when it is open and who it suits. Nobody pays to be on the list.
-
-**The order.** Old Town comes first, because Parish Avenue is the town's own main street, with its two places that are not chains ahead of the two that are. The rest are along Thompson Parkway and the frontage road by I-25 and US 34, where most of Johnstown's restaurants now are, and run from breakfast to dessert.
-
-**What is not here.** A place goes on this list only when its own site shows current hours, so some listings wait for the next check. The Candlelight Dinner Playhouse, the dinner theater at the interchange, is under [Things to do](/things-to-do/). The other chains at the interchange are in the directory.
+**Not on this list.** The Candlelight Dinner Playhouse, the dinner theater at the interchange, is under [Things to do](/things-to-do/). The other chains at the interchange are in the directory below.

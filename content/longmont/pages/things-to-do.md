@@ -37,8 +37,6 @@ picks:
     why: "Boulder County's free farm museum at 8348 Ute Highway, set in the years 1900 to 1925: a furnished 1909 farmhouse, two barns and an heirloom garden. From November to March it opens only on the first Saturday of the month, 10 am to 5 pm. Farm animals are there April to October."
 ---
 
-These ten are for a first visit to Longmont, or a first winter living here: what to see on a cold day, where to walk, where to take the dog and the children, and one night out. Each links to its page on this guide, with hours, fees and directions.
+Nobody pays to be listed. Every fact above comes from the page of whoever runs the place, read on November 11, 2026.
 
-**How we chose them.** Every pick is a place already in the directory below, and every fact above comes from the page of whoever runs it, read on November 11, 2026: the City of Longmont, Boulder County and the Longmont Theatre Company. Nobody pays to be listed. The order follows what a visitor most likely wants first: the expanded museum, the lake loop and the greenway, then the winter rink and the dog beach, a night at the theatre, and last the quieter places for anglers, children and a Saturday on the farm. They spread across town, from Golden Ponds in the west to Sandstone Ranch in the east.
-
-**What is not here.** Clark Centennial Park, the fishing pond at Izaak Walton kept for children 14 and under, Roger's Grove and Boulder County's Pella Crossing are in the directory below. For the lakes side by side, read [McIntosh or Union](/articles/mcintosh-versus-union/); with children, [Longmont with kids](/articles/longmont-with-kids/); for a day downtown, [Explore downtown Longmont in walking order](/articles/explore-downtown-longmont-in-walking-order/).
+**More on the guide.** For the lakes side by side, read [McIntosh or Union](/articles/mcintosh-versus-union/); with children, [Longmont with kids](/articles/longmont-with-kids/); for a day downtown, [Explore downtown Longmont in walking order](/articles/explore-downtown-longmont-in-walking-order/). Clark Centennial Park, Roger's Grove and Boulder County's Pella Crossing are in the directory below.
