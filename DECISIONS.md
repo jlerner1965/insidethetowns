@@ -10710,3 +10710,27 @@ off that list.*
   failed read keeps the last good file and never fails a run or a build.
 - **The other signatures are proposed, not built**: the table is in the
   pull request for the owner to pick from.
+
+## The 90-day test is paused: this is creation time, 12 November 2026
+
+*The owner: "The rules should be removed for the 90 days until we have a
+product we want to put to a test." And: "I think this is still creation
+time not time to test."*
+
+- **The rules are removed.** No new towns, no new features and no
+  search-engine projects, set on 20 October 2026, no longer apply. They
+  had become the limit: a review of the hub on 12 November found the
+  useful next steps were small changes the rules forbade, and the rules
+  had already been set aside by exception more than once (the tradition
+  registry, the two-tier restructure, sports additions).
+- **The test is paused, not judged.** There is no verdict on 20 January
+  2027. The network changed shape during the test (seven guides and the
+  town pages on the hub, 12 November), so the thing being measured is not
+  yet the thing to measure.
+- **It starts again at the owner's word**, with a new 90-day clock, once
+  there is a product he wants to test. The targets, the three towns and
+  the scorecard in `docs/90-DAY-TEST.md` are kept for that.
+- **Not decided here.** Whether the weekly scorecard keeps being filled
+  as a baseline while the test is paused, and the rows in `TODO.md` dated
+  to 20 January (the quiet guides' decide-by dates, the held domains).
+  They stand as written until the owner says otherwise.
