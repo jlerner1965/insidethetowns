@@ -1,5 +1,10 @@
 # The 90-day test: Niwot, Lyons, Berthoud
 
+**Paused on 12 November 2026** (DECISIONS.md, "The 90-day test is
+paused"). The product is still being built; the rules are removed and
+there is no verdict on 20 January 2027. The test restarts with a new
+clock at the owner's word. What follows is the test as decided.
+
 Decided 20 October 2026 (DECISIONS.md, "The 90-day test"). Three guides,
 one product (the Thursday email), one proof (a sponsor who renews). The
 clock starts with the first automated Thursday send, 22 October 2026 if that
