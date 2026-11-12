@@ -13,9 +13,28 @@ image: ../images/niwot-gateway-sculpture.jpg
 imageAlt: "The steel gateway sculpture at the highway edge of Niwot: an oval sign held inside two curving rails"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 featured: true
-source: "https://niwot.com/upcoming-events/annual-events-and-festivals/"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (https://niwot.com/events/enchanted-evening/ and the Business Association's calendar: Friday 27 November, 6 to 9 pm; neither page states a price)"
+organizer: "Niwot Business Association"
+source: "https://niwot.com/events/enchanted-evening/"
+verified: "2026-11-12"
+verifiedBy: "Claude Code, delegated by James Lerner: the Niwot Business Association's event page (https://niwot.com/events/enchanted-evening/: Nov 27 2026, 6:00 pm - 9:00 pm, downtown Niwot, 2nd Ave & Cottonwood Square) and its list at https://niwot.com/upcoming-events/annual-events-and-festivals/; neither states a price, the time of the tree lighting, closures or parking"
 ---
 
-Niwot opens the holiday season on the evening after Thanksgiving: the community tree is lit, Santa arrives by horse-drawn sleigh, there are carols and live music, and the shops through Old Town and Cottonwood Square stay open. The Business Association’s listing gives 6 to 9 pm: Santa arrives at 6 and is at Niwot Hall from 6:30 to 8.
+Enchanted Evening, Niwot's tree lighting and the start of its holiday season, is on Friday, November 27, 2026, from 6 to 9 pm in Old Town and Cottonwood Square. It is held every year on the day after Thanksgiving: the community tree is lit, Santa comes to town, there are carols, and the shops and vendors are open for the evening.
+
+## Schedule
+
+- 6 pm: Santa arrives in a horse-drawn sleigh.
+- 6:30 to 8 pm: Santa is at Niwot Hall, formerly the Left Hand Grange.
+- Through the evening, until 9 pm: live music throughout Old Town and Cottonwood Square.
+
+The Niwot Business Association's listing does not give a time for the tree lighting or say where the tree stands.
+
+## Where it is
+
+The listing puts the evening in downtown Niwot, at Second Avenue and Cottonwood Square. The music and the open shops are spread across both.
+
+## Before you go
+
+The listing names no charge or ticket. It does not give road closures, parking or a weather plan. The Niwot Business Association runs the evening, and its contact page is at niwot.com/contact.
+
+Santa is back the next morning for the [Niwot Holiday Parade](/events/holiday-parade/), Saturday, November 28, at 11 am on Second Avenue.
