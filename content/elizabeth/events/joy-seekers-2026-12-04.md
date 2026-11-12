@@ -8,6 +8,8 @@ cost: "Free"
 category: arts
 recurring: "First Friday of the month"
 source: "https://www.elizabethmainstreet.org/calendar/"
+sourceId: "pplibraries-org"
+sourceUid: "7vfgi9dd94nmfr6l70n8u5ajd4_R20260807T170000@google.com/2026-12-04"
 verified: "2026-09-18"
 ---
 

@@ -109,6 +109,8 @@ async function fetchText(url: string): Promise<{ code: string; body: string }> {
 
 /** Every event file of a town, published and staged, as the matcher needs it. */
 function existingEvents(town: string): ExistingEvent[] {
+  // Where each registered feed's ids live (ExistingEvent.feedHost).
+  const feedHosts = new Map(readRegistry(town, contentDir).sources.filter((x) => x.feedUrl).map((x) => [x.id, hostOf(x.feedUrl)] as const));
   const out: ExistingEvent[] = [];
   for (const [dir, staged] of [
     [join(contentDir, town, 'events'), false],
@@ -166,6 +168,7 @@ function existingEvents(town: string): ExistingEvent[] {
           mergedUids: d.mergedUids,
           sourceHash: d.sourceHash,
           sourceHost: hostOf(d.source ?? d.url),
+          feedHost: d.sourceId ? feedHosts.get(d.sourceId) : undefined,
           address: d.address,
           urls: [...fileUrls, ...sessions.filter((s) => (s.timed ? s.start.getTime() === start.getTime() : dayKey(s.start) === dayKey(start))).map((s) => s.url)],
         });

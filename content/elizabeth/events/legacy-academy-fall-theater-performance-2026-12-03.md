@@ -8,6 +8,8 @@ url: "https://www.legacyk8.org/"
 category: arts
 organizer: "Legacy Academy"
 source: "https://www.legacyk8.org/"
+sourceId: "legacyk8-org"
+sourceUid: "0hvv4hhhirrtqet6nlhn8v6p3u@google.com"
 verified: "2026-11-11"
 verifiedBy: "Claude Code, delegated by James Lerner: the school's public 'LA PUBLIC' Google calendar, linked from its home page, read 11 November 2026 (\"EVENT: Fall Theater Performance\", Thursday, December 3, 6 to 7:30 pm), and the home page for the address"
 ---

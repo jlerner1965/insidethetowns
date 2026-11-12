@@ -215,3 +215,18 @@ test("a feed item an editor merged into a listing (mergedUids) is that listing, 
   // A staged file's merged ids claim nothing: only an editor's published merge counts.
   assert.equal(matchExisting(band, [{ ...merged, staged: true }], 1, undefined, 'citystarbrewing.com').kind, 'none');
 });
+
+test("a feed's id matches a listing whose page is on the organizer's site and whose feed is on another host", () => {
+  // A school's Google Calendar: the file cites crms.svvsd.org, the ids are
+  // calendar.google.com's. Without the feed's host the id never matched and
+  // a differently titled listing of the same concert was staged again.
+  const concert = file({ title: 'Coal Ridge Middle School Winter Choir Concert', sourceUid: 'abc@google.com', sourceHost: 'crms.svvsd.org' });
+  const feedItem = item({ uid: 'abc@google.com', title: 'Choir - Winter Concert 6th Grade', url: undefined });
+  assert.equal(matchExisting(feedItem, [concert], 1, undefined, 'calendar.google.com').kind, 'none', 'the page host alone does not match');
+  const m = matchExisting(feedItem, [{ ...concert, feedHost: 'calendar.google.com' }], 1, undefined, 'calendar.google.com');
+  assert.equal(m.kind, 'published');
+  assert.equal(m.how, 'uid');
+  // An id merged into the listing matches the same way.
+  const merged = matchExisting(feedItem, [{ ...concert, sourceUid: undefined, mergedUids: ['abc@google.com'], feedHost: 'calendar.google.com' }], 1, undefined, 'calendar.google.com');
+  assert.equal(merged.how, 'merged');
+});

@@ -32,6 +32,15 @@ export interface ExistingEvent {
   sourceHash?: string;
   /** The host of the page the file was read from, without "www.": the site whose ids `sourceUid` belongs to. */
   sourceHost?: string;
+  /**
+   * The host of the feed the file's `sourceId` names, where the registry
+   * gives one. A school or a library that publishes a Google Calendar has
+   * its page on its own site and its ids on calendar.google.com, so the
+   * file's `source` and the feed's ids are on two hosts; without this the
+   * id never matched and such a listing was found by its title alone, or
+   * staged again (Coal Ridge Middle's concerts, 11 November 2026).
+   */
+  feedHost?: string;
   /** The street address the file gives, for telling one venue written two ways ("400 S Parish Ave", "400 South Parish Avenue"). */
   address?: string;
   /**
@@ -384,6 +393,11 @@ function byFile<T extends { file: string }>(list: T[]): T[] {
  */
 export type Claimed = ReadonlySet<string> | ReadonlyMap<string, string>;
 
+/** The file's ids and the item's are one site's: by the page the file cites, or by the feed its `sourceId` names. */
+function idsShareSite(e: ExistingEvent, host?: string): boolean {
+  return !host || !e.sourceHost || sameSite(e.sourceHost, host) || (!!e.feedHost && sameSite(e.feedHost, host));
+}
+
 export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblings = 1, claimed?: Claimed, host?: string): Match {
   // A site's ids are its own: CivicPlus numbers its events from 1 on every
   // site, so Firestone's 2690 and Dacono's 2690 are two events on one guide.
@@ -392,12 +406,12 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   // event. A file whose host is unknown still matches any id, as before.
   // tickets.lctix.com and www.lctix.com are one site: the comparison is on
   // the registrable domain, not the hostname.
-  const byUid = existing.find((e) => e.sourceUid && !e.laterShow && e.sourceUid === item.uid && (!host || !e.sourceHost || sameSite(e.sourceHost, host)));
+  const byUid = existing.find((e) => e.sourceUid && !e.laterShow && e.sourceUid === item.uid && idsShareSite(e, host));
   if (byUid) return { kind: byUid.staged ? 'staged' : 'published', existing: byUid, how: 'uid' };
   // An id an editor merged into a published listing: that listing, whatever
   // time the item gives, since the part (the band at 6) is not the
   // listing's start (the release at 3).
-  const byMerged = existing.find((e) => !e.staged && !e.laterShow && e.mergedUids?.includes(item.uid) && (!host || !e.sourceHost || sameSite(e.sourceHost, host)));
+  const byMerged = existing.find((e) => !e.staged && !e.laterShow && e.mergedUids?.includes(item.uid) && idsShareSite(e, host));
   if (byMerged) return { kind: 'published', existing: byMerged, how: 'merged' };
   const day = dayKey(item.start);
   const near = (e: ExistingEvent) => item.allDay || Math.abs(e.start.getTime() - item.start.getTime()) <= HALF_HOUR;
