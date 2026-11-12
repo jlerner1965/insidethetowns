@@ -232,7 +232,17 @@
         "Meeting",
         "Conference",
         "Testing",
-        "Picture"
+        "Picture",
+        "Polar Express",
+        "Photos",
+        "Parties",
+        "Seuss",
+        "Marking Period",
+        "Pep Rally",
+        "Cookies & Canvas",
+        "Father",
+        "Mother",
+        "Nerf"
       ],
       "defaultVenue": "Legacy Academy, 1975 Legacy Circle",
       "notes": "Found and read 10 November 2026. Legacy Academy is the K-8 charter school at 1975 Legacy Circle, Elizabeth (the address is on the feed's own items); the district calendar already in this registry does not carry its events. Its Finalsite home page links a public Google calendar, 'LA PUBLIC', and the feedUrl is that calendar's iCal address. Read once to count: 200, text/calendar, 5,394 VEVENTs back to 2017, 630 with a recurrence rule, times in UTC. Worth a row, 10 November to 10 December: 4. EVENT: PTCO Craft Fair (Saturday 14 November, 9 am), EVENT: Kinder-2nd Music + Piano & Guitar Concert (Tuesday 1 December, 6 pm), EVENT: 3rd-5th Grade Music & Choir Concert (Wednesday 2 December, 6 pm), EVENT: Fall Theater Performance (Thursday 3 December, 6 pm). The school prefixes its titles, and only 'EVENT:' items are candidates: about 45 other occurrences in the window are 'ATHLETICS:' (middle school basketball and cheer, mostly practices), 'CLUB:' (after-school clubs), 'FT' field trips, dress days, assemblies, the food drive, board meetings and no-school days, all never-list. The four EVENT items carry no LOCATION, so defaultVenue is needed. An editor may judge the two grade-level concerts to be parents' evenings and keep only the craft fair and the play. The excludeTitles here are fragments; a single regex entry '^(?!EVENT:)' would do the same job more tightly. robots.txt: legacyk8.org allows its pages (Crawl-delay 5, /fs/ disallowed); calendar.google.com is 'Allow: /$' then 'Disallow: /', so the .ics path is disallowed to an unlisted agent and this needs the editor's robots: subscribe, as the other guides' school calendars did. The craft fair is on the same Saturday as the EHS Craft Fair on the district calendar; they are two fairs at two schools. 11 November 2026: the owner accepted public Google Calendar feeds as a source (\"I'm good with Google Calendar if the system works and provides more events\"), so this is confirmed with robots: subscribe and ingest reads it."

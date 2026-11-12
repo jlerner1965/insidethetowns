@@ -468,7 +468,8 @@
         "Basketball",
         "Rehearsal",
         "Meeting",
-        "Late Start"
+        "Late Start",
+        "Non-Student Contact"
       ],
       "defaultVenue": "Thunder Valley K-8, 600 5th Street, Frederick",
       "notes": "Found and read 10 November 2026. Thunder Valley K-8, 600 5th Street, Frederick (address from this guide's families config; the school's home page was fetched and did not print it). The home page embeds a public Google Calendar named \"Thunder Valley Website Calendar\" (id c_umjia982kts6g0otn74ad8jekc@group.calendar.google.com); the public iCal answered 200 text/calendar with 559 VEVENTs (76 recurring) from November 2022 to 27 May 2027. 16 items touch 10 November to 10 December 2026, and 1 is worth a row: the Soaring Singers Concert (7 December, 6 pm). The rest are regulars or never-list: the weekly clubs and band and choir sessions, basketball practice and a home game (16 November), a booster fundraiser (11 November), an after-school Sip & Draw (17 November, 4 December) and the Thanksgiving break; excluded by title. No LOCATION on the items, so the school is the default venue. Expect one or two concerts or performances a month in term, fewer than the high school. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this feed; it is a public calendar the school embeds on its own site, and robots: subscribe is the owner's call, as it was for Frederick High. It was fetched once on 10 November 2026 to count it. tvk8.svvsd.org is the same district WordPress as crms.svvsd.org, whose robots.txt disallows only /wp-admin/ and a forms folder; its own robots.txt was not fetched separately. 11 November 2026: the owner accepted public Google Calendar feeds as a source (\"I'm good with Google Calendar if the system works and provides more events\"), so this is confirmed with robots: subscribe and ingest reads it."

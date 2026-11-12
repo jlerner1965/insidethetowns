@@ -8,6 +8,8 @@ url: "https://www.legacyk8.org/"
 category: music
 organizer: "Legacy Academy"
 source: "https://www.legacyk8.org/"
+sourceId: "legacyk8-org"
+sourceUid: "2h2a2s8hhsbg5dr88kejsub7tt@google.com"
 verified: "2026-11-11"
 verifiedBy: "Claude Code, delegated by James Lerner: the school's public 'LA PUBLIC' Google calendar, linked from its home page, read 11 November 2026 (\"EVENT: Band Concert\", Thursday, December 10, 6 to 7:30 pm), and the home page for the address"
 ---

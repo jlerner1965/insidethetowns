@@ -468,8 +468,8 @@
       "type": "ical",
       "category": "venue",
       "priority": "other",
-      "status": "proposed",
-      "robots": "honor",
+      "status": "confirmed",
+      "robots": "subscribe",
       "excludeTitles": [
         "^[AB] Day",
         "Meeting",
@@ -483,13 +483,32 @@
         "Practice",
         "Testing",
         "Finals",
-        " @ "
+        " @ ",
+        "Basketball",
+        "Wrestling",
+        "Tennis",
+        "Soccer",
+        "Baseball",
+        "Softball",
+        "Lacrosse",
+        "Track",
+        "Swim",
+        "Golf",
+        "Volleyball",
+        "Football",
+        "Conferences",
+        "No School",
+        "Contact Day",
+        "Screening",
+        "Induction",
+        "Leadership St. Vrain",
+        "Honor Band"
       ],
       "locationFilter": [
         "1040 Sunset",
         "Longmont High School"
       ],
-      "notes": "Found and read 10 November 2026. Longmont High School, 1040 Sunset Street, Longmont. The school's site (WordPress, robots.txt disallows only /wp-admin/ and a forms folder) embeds a public Google Calendar, cajg17r506kt1nhv94p6nh7ivbc84kjf@import.calendar.google.com. calendar.google.com's robots.txt disallows everything but its front page, so reading this feed weekly needs the editor's robots: subscribe; it was fetched once today to count it. 637 items, 375 from today on, to May 2027; times are in UTC, so an evening event shows on the next day's date. Worth a row from 10 November to 10 December 2026, 3 on the stage: Musical Theater Showcase Fundraiser Friday 13 November 6 pm, Performing Arts Winter Gala Friday 4 December 7 pm, Choir Concert Tuesday 8 December 7 pm; plus 2 home varsity games if the guide lists them (girls basketball against Prairie View 2 December, boys against Legacy 4 December). Everything else is A Day and B Day markers, booster and class meetings, auditions, breaks, and away or sub-varsity games; the exclusions and the location filter are a first cut and want a dry run, since away games name Longmont High School in their location too (the \" @ \" title exclusion drops those). The Longmont Chorale (6 December) and the Longmont Youth Symphony (15 November) also perform here. Skyline High's calendar was read the same day and held nothing for the public in the window."
+      "notes": "Found and read 10 November 2026. Longmont High School, 1040 Sunset Street, Longmont. The school's site (WordPress, robots.txt disallows only /wp-admin/ and a forms folder) embeds a public Google Calendar, cajg17r506kt1nhv94p6nh7ivbc84kjf@import.calendar.google.com. calendar.google.com's robots.txt disallows everything but its front page, so reading this feed weekly needs the editor's robots: subscribe; it was fetched once today to count it. 637 items, 375 from today on, to May 2027; times are in UTC, so an evening event shows on the next day's date. Worth a row from 10 November to 10 December 2026, 3 on the stage: Musical Theater Showcase Fundraiser Friday 13 November 6 pm, Performing Arts Winter Gala Friday 4 December 7 pm, Choir Concert Tuesday 8 December 7 pm; plus 2 home varsity games if the guide lists them (girls basketball against Prairie View 2 December, boys against Legacy 4 December). Everything else is A Day and B Day markers, booster and class meetings, auditions, breaks, and away or sub-varsity games; the exclusions and the location filter are a first cut and want a dry run, since away games name Longmont High School in their location too (the \" @ \" title exclusion drops those). The Longmont Chorale (6 December) and the Longmont Youth Symphony (15 November) also perform here. Skyline High's calendar was read the same day and held nothing for the public in the window. 12 November 2026: title exclusions tightened to concerts, plays and showcases at the school (religious and public holidays, theatre black-out and tech days, testing, conferences, registration, other schools' concerts, items marked TBD or tentative and away honor festivals are out), dry-run checked, and confirmed with robots: subscribe on the owner's word."
     },
     {
       "id": "longmontchorale-org",

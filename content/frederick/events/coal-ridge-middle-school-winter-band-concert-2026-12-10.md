@@ -9,6 +9,9 @@ category: music
 timeNote: "6th grade at 6 pm; 7th and 8th grade at 7 pm"
 organizer: "Coal Ridge Middle School (St. Vrain Valley Schools)"
 source: "https://crms.svvsd.org/"
+sourceId: "crms-svvsd-org"
+# Both sittings are this one listing: the feed gives each its own id.
+mergedUids: ["0a4a2cih5ec4l9hd8o7dt8va5b@google.com", "7q4o75pee1ga6a7kur4ge1ds51@google.com"]
 verified: "2026-11-11"
 verifiedBy: "Claude Code, delegated by James Lerner: the school's CRMS Building Calendar, the public Google calendar its home page embeds, read 11 November 2026 (\"Winter Band Concert 6th Grade\" 6 to 7 pm and \"Winter Band Concert 7th/8th Grade\" 7 to 8 pm, Thursday, December 10), and the home page for the address"
 ---

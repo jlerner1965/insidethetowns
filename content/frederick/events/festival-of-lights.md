@@ -15,8 +15,26 @@ source: "https://www.frederickco.gov/237/Festival-of-Lights"
 sourceId: "frederickco-gov"
 sourceUid: "4287"
 sourceHash: "8f48148b7d85"
-verified: "2026-11-02"
-verifiedBy: "auto-review from the Town of Frederick: Frederick Events Calendar feed read 2026-11-02, the weekly ingest workflow"
+verified: "2026-11-12"
+verifiedBy: "Claude Code, delegated by James Lerner: read on 12 November 2026 the Town of Frederick's Festival of Lights page (Saturday, December 5, 2026, Crist Park, 105 Fifth Street, 5:30 to 8 pm), its calendar entry, its 2026 parade application (parade begins promptly at 5:30 pm, staging 3:30 to 5:30) and the Town of Firestone's Carbon Valley Holiday Festival page"
 ---
 
-Frederick opens the holiday season on Saturday, December 5 from 5:30 to 8 pm by counting down to the tree lighting in Crist Park, with a parade of lights, free horse-drawn carriage rides, a live ice-sculpture demonstration, selfies with Santa and carolers. The Frederick Market of growers, artisans and non-profits sets up in the park for the same hours. It is Frederick's part of the Carbon Valley Holiday Festival, with Firestone's and Dacono's festivals the same day. The Town's page notes that filming may take place and that drones are not allowed except the Town's own.
+Frederick's Festival of Lights is Saturday, December 5, 2026, from 5:30 to 8 pm at Crist Park, 105 Fifth Street, with a lighted parade at 5:30 and a countdown to the tree lighting.
+
+## Schedule
+
+- **3:30 to 5:30 pm:** parade entries stage and line up.
+- **5:30 pm:** the parade begins "promptly", in the words of the Town's parade application.
+- **5:30 to 8 pm:** the festival in Crist Park. The crowd counts down to the lighting of the trees, and around it are free horse-drawn carriage rides, a live ice-sculpture demonstration that ends as a sculpture visitors can interact with, selfies with Santa and carolers.
+
+## One of three festivals that day
+
+The Festival of Lights is Frederick's part of the Carbon Valley Holiday Festival, put on with Firestone and Dacono. [Firestone's festival](/events/carbon-valley-holiday-festival-2026-12-05/) runs from noon to 4 pm at Miners Park, 170 Grant Avenue, so the two do not overlap. Dacono holds its own.
+
+## Entering the parade
+
+Businesses and organizations can enter through the Town's 2026 Festival of Lights Parade Application. The Town's page gives the deadline as Tuesday, November 24; the form itself says November 21, so the earlier date is the safe one. Entry leads and drivers must attend a parade safety meeting.
+
+## Rules and who runs it
+
+The Town of Frederick runs the festival. Its page says photography and video recording may take place, and that no drones may be flown in or over the event other than the Town's own. The Town is looking for volunteers and links the sign-up from the same page.
