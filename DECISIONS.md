@@ -10597,6 +10597,13 @@ brief is Inside Frederick"; "the brief was wrong about Carbon Valley").*
   Advertise page ("from Fort Collins … to Elizabeth … up to Leadville",
   "mountain towns", and a sentence that broke once every guide had a
   neighbour), and the titles that said "Front Range and mountain guides".
+- **The build's own check on a redirect-only site.** Every folded or
+  retired guide's build ended in about 150 "problems" (each menu link on
+  its holding pages "is redirected"), which fails the build anywhere but
+  Vercel. vercel.json answers every path on those domains before a holding
+  page is reached, so `check-site` now says a redirect-only site has
+  nothing to check; the redirect tests hold the rules. `check-network` and
+  the `_redirects` export read a path-keeping rule (`/(.*)` to `…/$1`).
 - **Found in production, not fixable here**: seven domains retired before
   12 November (Fort Lupton, Black Hawk, Idaho Springs, Georgetown, Grand
   Lake, Evergreen, Manitou Springs) still answered with the hub's home

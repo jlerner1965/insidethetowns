@@ -70,6 +70,14 @@ export const frederick: TownConfig = {
   social: {
     email: 'hello@insidefrederickco.com',
   },
+  // As Inside Frederick had them (St. Vrain's school-feeders page, read 2 November 2026).
+  movingHere: {
+    listingsLinks: [
+      { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Frederick,-CO_rb/' },
+      { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Frederick_CO' },
+    ],
+    schoolDistrict: 'St. Vrain Valley Schools, based in Longmont; the Frederick feeder runs from Spark! Discovery Preschool and three elementaries through Thunder Valley K-8 and Coal Ridge Middle to Frederick High.',
+  },
   officialLinks: {
     townSite: 'https://www.frederickco.gov/',
     townSiteLabel: 'the Town of Frederick',

@@ -27,7 +27,8 @@ import { schoolsFor, schoolTeamName, sportsPath } from '@/config/school-sports';
 import { groupByRegion } from '@/lib/regions';
 import { wordmarkParts } from '@/lib/titles';
 
-const hub = getHub();
+// Throws on any build but the hub's.
+getHub();
 /**
  * The town pages (the restructure of 12 November 2026): every town that is
  * not a standalone guide and has three verified dated items of its own,
