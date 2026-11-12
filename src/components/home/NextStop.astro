@@ -8,9 +8,13 @@
  *
  * Each photograph is one the town already has: the best-placed listing of
  * the kind with a picture (the editor's pick first), and the town's own
- * guide's own colour where no listing of the kind has one. Not the hero: it
- * is at the top of the same page, and a guide with no listing photograph
- * showed it four times (the design audit, 10 November 2026).
+ * guide's own colour where no listing of the kind has one. Not the hero by
+ * default: it is at the top of the same page, and a guide with no listing
+ * photograph showed it four times (the design audit, 10 November 2026). A
+ * guide can name a photograph for a tile in its config
+ * (TownConfig.nextStopPhotos), used only where no listing has one: Berthoud's
+ * Eat & drink tile is downtown, with the hero's iStock credit on it as the
+ * licence asks (the owner, 11 November 2026).
  *
  * Under each label, one short line of what the page holds ("Coffee,
  * restaurants, breweries"), the town's own from its config
@@ -25,6 +29,7 @@ import type { TownConfig } from '@/config';
 import { EAT_DRINK_TYPES, LAND_TYPES } from '@/content/schemas';
 import type { TownEntry } from '@/lib/content';
 import { resolveSiteImage } from '@/lib/images';
+import { heroCreditOnImage } from '@/lib/photo-credits';
 
 interface Props {
   town: TownConfig;
@@ -37,7 +42,21 @@ type Place = TownEntry<'places'>;
 const heroSrc = resolveSiteImage(town.slug, town.hero.image).src;
 const withPhoto = places.filter((p) => !!p.data.image && p.data.image.src !== heroSrc);
 const best = (types: readonly string[]) => [...withPhoto.filter((p) => types.includes(p.data.type))].sort((a, b) => Number(!!b.data.featured) - Number(!!a.data.featured))[0];
-const photo = (p: Place | undefined) => (p?.data.image ? { src: p.data.image, alt: p.data.imageAlt ?? '' } : { src: undefined, alt: '' });
+type TileKey = 'eatDrink' | 'thingsToDo' | 'living';
+// The guide's named photograph for a tile, where it has one. The hero's own
+// file brings the hero's alt and, for an editorial stock licence, its credit.
+const configured = (key: TileKey) => {
+  const chosen = town.nextStopPhotos?.[key];
+  if (!chosen) return { src: undefined, alt: '', credit: undefined };
+  const isHero = chosen.image === town.hero.image;
+  if (!isHero && !chosen.alt) throw new Error(`${town.slug}: nextStopPhotos.${key} (${chosen.image}) needs alt text`);
+  return {
+    src: resolveSiteImage(town.slug, chosen.image),
+    alt: chosen.alt ?? town.hero.alt,
+    credit: isHero ? heroCreditOnImage() : undefined,
+  };
+};
+const photo = (p: Place | undefined, key: TileKey) => (p?.data.image ? { src: p.data.image, alt: p.data.imageAlt ?? '', credit: undefined } : configured(key));
 // The generic lines say what every guide's page holds and name nothing in
 // it: the two directories' own headings, and what each residents' page is for.
 const lines = town.nextStop ?? {
@@ -46,11 +65,11 @@ const lines = town.nextStop ?? {
   living: town.livingHere ? 'Who handles what in town' : 'What it’s like to live here',
 };
 const tiles = [
-  { label: 'Eat & drink', line: lines.eatDrink, href: '/eat-drink/', ...photo(best([...EAT_DRINK_TYPES, 'shop'])) },
-  { label: 'Things to do', line: lines.thingsToDo, href: '/things-to-do/', ...photo(best(LAND_TYPES)) },
+  { label: 'Eat & drink', line: lines.eatDrink, href: '/eat-drink/', ...photo(best([...EAT_DRINK_TYPES, 'shop']), 'eatDrink') },
+  { label: 'Things to do', line: lines.thingsToDo, href: '/things-to-do/', ...photo(best(LAND_TYPES), 'thingsToDo') },
   town.livingHere
-    ? { label: 'Living here', line: lines.living, href: '/living-here/', ...photo(best(['venue'])) }
-    : { label: 'Moving here', line: lines.living, href: '/moving-here/', ...photo(best(['venue'])) },
+    ? { label: 'Living here', line: lines.living, href: '/living-here/', ...photo(best(['venue']), 'living') }
+    : { label: 'Moving here', line: lines.living, href: '/moving-here/', ...photo(best(['venue']), 'living') },
 ];
 ---
 <section class="band-compact band-white" aria-labelledby="next-stop">
@@ -67,6 +86,10 @@ const tiles = [
           <a href={t.href} class="group relative isolate flex min-h-[44px] flex-col justify-center overflow-hidden rounded-lg bg-primary px-3 py-0.5 no-underline sm:block sm:aspect-[4/3] sm:min-h-0 sm:p-0">
             {t.src && <Image src={t.src} alt={t.alt} width={720} height={720} sizes="(min-width: 640px) 400px, 45vw" class="absolute inset-0 -z-20 h-full! w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" />}
             {t.src && <span class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.6)_65%,rgba(0,0,0,0.35)_100%)] sm:bg-[linear-gradient(to_top,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.35)_45%,transparent_100%)]" aria-hidden="true"></span>}
+            {/* A stock photograph's licence wants its credit beside the
+                picture: the hero's 8px credit, in the tile's top corner,
+                clear of the words. */}
+            {t.credit && <span class="absolute right-1.5 top-1 z-10 text-[8px] leading-none text-white/75 [text-shadow:0_1px_1px_rgb(0_0_0/0.6)]">{t.credit}</span>}
             <span class="block sm:absolute sm:inset-x-0 sm:bottom-0 sm:p-4 md:p-5">
               <span class="block whitespace-nowrap text-[0.9375rem] font-semibold leading-tight text-white sm:whitespace-normal sm:text-xl md:text-2xl">{t.label} <span aria-hidden="true">→</span></span>
               <span class="block text-[0.875rem] leading-tight text-white sm:mt-1 sm:text-[0.9375rem] sm:leading-snug">{t.line}</span>

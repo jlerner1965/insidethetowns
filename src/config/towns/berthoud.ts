@@ -44,6 +44,10 @@ export const berthoud: TownConfig = {
   },
   // The line under each Find your next stop tile (TownConfig.nextStop), the owner’s, 9 November 2026.
   nextStop: { eatDrink: 'Coffee, restaurants, breweries', thingsToDo: 'Parks, trails, Carter Lake', living: 'Utilities, schools, who to call' },
+  // Downtown on the Eat & drink tile until a restaurant listing has a
+  // photograph of its own (the owner, 11 November 2026). It is the hero's
+  // file, so the tile prints the hero's iStock credit beside it.
+  nextStopPhotos: { eatDrink: { image: 'iStock-1417954947.jpg' } },
   hero: {
     // Bought from iStock on 28 October 2026 (docs/HERO-PHOTOS.md). Its
     // editorial licence wants this credit beside the photograph, so the

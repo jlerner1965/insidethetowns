@@ -413,6 +413,17 @@ export interface TownConfig {
    * line that names no place.
    */
   nextStop?: { eatDrink: string; thingsToDo: string; living: string };
+  /**
+   * A photograph for a Find your next stop tile that has no listing
+   * photograph of its kind, by file name in content/<town>/images/. A
+   * listing photograph still wins when one exists; a tile with neither is
+   * the guide's colour with its words. The hero's own file brings the
+   * hero's alt text and, where its licence wants one beside the picture,
+   * its credit; any other file needs `alt`. Berthoud's Eat & drink tile
+   * (the owner, 11 November 2026): no restaurant there has a photograph
+   * yet, and the plain maroon tile read as a missing picture.
+   */
+  nextStopPhotos?: Partial<Record<'eatDrink' | 'thingsToDo' | 'living', { image: string; alt?: string }>>;
   /** The high school the home page's scoreboard and the sports pages lead with: see SchoolConfig. */
   school?: SchoolConfig;
   livingHere?: LivingHereConfig;
