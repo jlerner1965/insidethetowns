@@ -16,6 +16,14 @@
  * things more: a hero photograph, one tradition spotlighted, and the
  * year's traditions laid out by season in place of the one list.
  *
+ * The look (the design pass of 12 November 2026): the name sits on the
+ * town's own landscape, a photograph where one is licensed and otherwise
+ * a drawn horizon for the country it is in (src/lib/ridgeline.ts); under
+ * it the year at a glance, twelve months with a mark for each tradition
+ * in the month it falls; then Traditions beside Outdoor dates from the lg
+ * breakpoint, one column below it. The statewide dates, the same six on
+ * every page, are folded under a summary so the town's own lead.
+ *
  * The two section ids, #traditions and #outdoor-dates, are where a folded
  * guide's old addresses land (vercel.json), so they are on every page
  * even when a section is empty.
@@ -30,7 +38,9 @@ import { dayKey } from '@/lib/dates';
 import { resolveSiteImage } from '@/lib/images';
 import { bySeason, lineFor, nearbyPages, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
-import type { TraditionRow as Row } from '@/lib/traditions';
+import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
+import { formatDayLong, parseLocal } from '@/lib/dates';
+import { isUpcoming, type TraditionRow as Row } from '@/lib/traditions';
 
 export async function getStaticPaths() {
   return publishedHubTowns(await getTraditions()).map((t) => ({ params: { town: t.slug } }));
@@ -81,31 +91,120 @@ const h2 = 'mb-6 border-b-2 border-accent pb-3 text-3xl font-medium';
 const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary';
 const clusterNote = HUB_TOWNS.length;
+const intro = show?.intro ?? 'The events this town holds every year and the outdoor dates around it, each with the page it was read from.';
+const ridge = hero ? undefined : ridgeline(town.slug, town.cluster);
+
+/**
+ * The first line of facts under the name: what is next, from the rows the
+ * page already lists. The soonest tradition with a date set, else the
+ * soonest outdoor date; nothing where no date ahead has been published.
+ */
+const nextUp = traditions.find(isUpcoming) ?? outdoor.find(isUpcoming);
+const nextDay = nextUp ? `${formatDayLong(parseLocal(nextUp.entry.date!))}, ${nextUp.entry.date!.slice(0, 4)}` : undefined;
+
+/**
+ * The year at a glance: each tradition in the month of its date. A date
+ * set is a filled mark; a tradition whose next date is not announced sits
+ * in the month it was last held, as a ring, and the legend says which is
+ * which in words (visual rule 5). One with no date in any year is left
+ * off the strip and stays in the list.
+ */
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const thisMonth = Number(today.slice(5, 7)) - 1;
+const marks = traditions.flatMap((r) => {
+  const set = isUpcoming(r);
+  const date = set ? r.entry.date : r.lastHeld;
+  if (!date) return [];
+  const label = `${r.record.name}: ${set ? '' : 'last held '}${formatDayLong(parseLocal(date))}, ${date.slice(0, 4)}${set ? '' : '; next date not yet announced'}`;
+  return [{ slug: r.record.slug, month: Number(date.slice(5, 7)) - 1, set, label, name: r.record.name }];
+});
+const months = MONTHS.map((name, i) => ({ name, now: i === thisMonth, marks: marks.filter((m) => m.month === i) }));
+const hasRings = marks.some((m) => !m.set);
 ---
-<Page {title} {seoTitle} eyebrow={`${county} · Colorado`} {description} intro={show?.intro ?? 'The events this town holds every year and the outdoor dates around it, each with the page it was read from.'} jsonLd={structured}>
-  {hero && (
-    <figure class="mb-10 overflow-hidden rounded-lg md:mb-14" data-showpiece-hero>
-      <Image
-        src={hero.src}
-        alt={hero.alt}
-        widths={[480, 800, 1200, 1600]}
-        sizes="(min-width: 1200px) 1120px, 100vw"
-        loading="eager"
-        class="aspect-[4/3] w-full object-cover sm:aspect-[16/9] md:aspect-[21/9]"
-        style={hero.position ? `object-position:${hero.position}` : undefined}
-      />
-    </figure>
+<Page {title} {seoTitle} {description} jsonLd={structured}>
+  <header slot="header" class="on-dark relative isolate overflow-hidden bg-primary text-white" data-town-hero={hero ? 'photo' : ridge!.terrain}>
+    {hero ? (
+      <Fragment>
+        <Image
+          src={hero.src}
+          alt={hero.alt}
+          widths={[640, 960, 1280, 1920]}
+          sizes="100vw"
+          loading="eager"
+          class="absolute inset-0 -z-20 h-full w-full object-cover"
+          style={hero.position ? `object-position:${hero.position}` : undefined}
+          data-showpiece-hero
+        />
+        {/* Shade only where the words are: the foot and the left, the picture clear above and to the right. */}
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/30 to-transparent" aria-hidden="true"></div>
+        <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black/45 to-transparent" aria-hidden="true"></div>
+      </Fragment>
+    ) : (
+      <svg
+        class="pointer-events-none absolute inset-x-0 -bottom-px -z-10 h-[62%] w-full sm:h-[70%]"
+        viewBox={`0 0 ${RIDGE_WIDTH} ${RIDGE_HEIGHT}`}
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path d={ridge!.layers[0]} fill="#fff" fill-opacity="0.07" />
+        <path d={ridge!.layers[1]} fill="#fff" fill-opacity="0.11" />
+        {/* The nearest line is the page's own paper, so the band ends on the land and not on a rule. */}
+        <path d={ridge!.layers[2]} fill="var(--color-paper)" />
+      </svg>
+    )}
+    <div class:list={['container-page', hero ? 'pb-10 pt-40 sm:pt-56 md:pb-14 md:pt-72' : 'pb-24 pt-10 sm:pb-28 md:pb-36 md:pt-16']}>
+      <p class="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/85">{county} · Colorado</p>
+      <h1 class="display mt-3 text-[3rem] leading-[0.95] sm:text-7xl lg:text-8xl">{title}</h1>
+      <p class="mt-4 max-w-2xl text-[1.0625rem] leading-relaxed text-white/90 md:text-xl md:leading-relaxed">{intro}</p>
+      {nextUp && (
+        <p class="mt-6 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-lg bg-white/12 px-4 py-2.5 text-[0.9375rem] ring-1 ring-white/25 backdrop-blur-sm" data-next-up>
+          <span class="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/85">Next</span>
+          <a href={`#${nextUp.record.slug}`} class="font-semibold text-white underline decoration-white/50 underline-offset-4 hover:decoration-white">{nextUp.record.name}</a>
+          <span class="text-white/90">{nextDay}</span>
+        </p>
+      )}
+    </div>
+  </header>
+
+  {marks.length > 0 && (
+    <section aria-labelledby="year-heading" class="mb-12 md:mb-16" data-year-strip>
+      <div class="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+        <h2 id="year-heading" class="eyebrow">The year at a glance</h2>
+        <p class="text-sm text-ink-muted">
+          {marks.some((m) => m.set) && (
+            <span class="mr-4 inline-block"><span class="mr-1 inline-block size-2.5 rounded-full bg-primary align-baseline" aria-hidden="true"></span>Date set</span>
+          )}
+          {hasRings && (
+            <span class="inline-block"><span class="mr-1 inline-block size-2.5 rounded-full border-2 border-primary align-baseline" aria-hidden="true"></span>Last held; next date not yet announced</span>
+          )}
+        </p>
+      </div>
+      <ol class="grid grid-cols-6 gap-px overflow-hidden rounded-lg bg-line-soft ring-1 ring-line-soft md:grid-cols-12">
+        {months.map((m) => (
+          <li class:list={['flex min-h-24 flex-col items-center gap-2 px-1 pb-3 pt-2.5 md:min-h-28', m.now ? 'bg-highlight-soft' : 'bg-raised']} data-month={m.name} data-now={m.now ? '' : undefined}>
+            <span class:list={['text-[0.75rem] font-semibold uppercase tracking-[0.12em]', m.now ? 'text-ink' : 'text-ink-muted']}>{m.name}</span>
+            {m.now && <span class="-mt-1.5 text-[0.75rem] leading-none text-ink">now</span>}
+            <span class="flex flex-wrap justify-center gap-1.5">
+              {m.marks.map((k) => (
+                <a href={`#${k.slug}`} title={k.label} aria-label={k.label} class:list={['block size-4 rounded-full transition-transform hover:scale-125', k.set ? 'bg-primary' : 'border-2 border-primary bg-raised']}></a>
+              ))}
+            </span>
+          </li>
+        ))}
+      </ol>
+    </section>
   )}
 
   {spotlight && (
     <section aria-labelledby="spotlight-heading" class="mb-14 md:mb-16" data-spotlight>
       <h2 id="spotlight-heading" class="eyebrow mb-3">The one to know</h2>
-      <div class="rounded-lg border-2 border-primary bg-raised px-5 sm:px-7">
+      <div class="rounded-lg border-2 border-primary bg-raised px-5 shadow-[0_18px_40px_-24px_rgb(0_0_0/0.35)] sm:px-7">
         <TraditionRow {...rowProps(spotlight)} />
       </div>
     </section>
   )}
 
+  <div class="lg:grid lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] lg:items-start lg:gap-x-12">
   <section id="traditions" aria-labelledby="traditions-heading" class="mb-14 scroll-mt-4 md:mb-16">
     <h2 id="traditions-heading" class={h2}>{show ? `The year in ${town.name}` : 'Traditions'}</h2>
     {year ? (
@@ -134,13 +233,21 @@ const clusterNote = HUB_TOWNS.length;
     <h2 id="outdoor-heading" class={h2}>Outdoor dates</h2>
     {outdoor.length > 0 && <div class={card}>{outdoor.map((row) => <TraditionRow {...rowProps(row)} />)}</div>}
     {statewide.length > 0 && (
-      <div class:list={[outdoor.length > 0 && 'mt-8']}>
-        <h3 class="eyebrow mb-3">Across Colorado</h3>
-        <div class={card}>{statewide.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
-      </div>
+      <details class:list={['group rounded-lg bg-raised ring-1 ring-line-soft', outdoor.length > 0 && 'mt-6']} data-statewide>
+        <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-5 py-3 sm:px-7 [&::-webkit-details-marker]:hidden">
+          <span>
+            <span class="eyebrow block">Across Colorado</span>
+            <span class="mt-0.5 block text-[0.9375rem] text-ink-muted">{statewide.length} statewide dates: meteor showers, free park days, license seasons</span>
+          </span>
+          <span class="shrink-0 text-sm font-semibold text-primary underline group-open:hidden">Show</span>
+          <span class="hidden shrink-0 text-sm font-semibold text-primary underline group-open:inline">Hide</span>
+        </summary>
+        <div class="border-t border-line-soft px-5 sm:px-7">{statewide.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
+      </details>
     )}
     {outdoor.length === 0 && statewide.length === 0 && <p class="text-ink-muted">No outdoor date for this town has been read on its agency’s page yet.</p>}
   </section>
+  </div>
 
   {nearby.length > 0 && (
     <nav aria-labelledby="nearby-heading" class="mb-12">

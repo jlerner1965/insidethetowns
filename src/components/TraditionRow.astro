@@ -6,6 +6,14 @@
  * name, the status line, the time, place and cost the organizer published,
  * and the check date with the source link. Every row has the last two.
  *
+ * Beside them, a date block (the design pass of 12 November 2026): a page
+ * of dates had each date as one more line of small type, so the rows read
+ * as a list of names. The block is the month, the day and the year of a
+ * date the organizer has set, white on the primary; a row with no date set
+ * has the same block in outline saying "TBA", and it never borrows last
+ * year's date, which stays in words beside it ("Last held …"). The block
+ * repeats what the status line says and is hidden from a screen reader.
+ *
  * The statuses, each a word as well as a look (visual rule 5):
  * - confirmed: "Confirmed · <the day>".
  * - not-announced: the dark status pill and "Last held <day>" where an
@@ -58,16 +66,55 @@ const town = record.town?.name ?? townLabel ?? (record.statewide ? 'Statewide' :
 // "Last held" is a tradition's word; a road's last opening was not held.
 const lastWord = record.type === 'outdoor' ? 'Most recent' : 'Last held';
 const lastEnd = past ? entry.endDate : record.years.find((y) => y.date === row.lastHeld)?.endDate;
-const pill = 'rounded-full bg-ink px-2 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-raised';
+// A block, not a run of inline boxes: beside the date block the words wrap on a phone, and a wrapped inline pill broke into two ragged pieces.
+const pill = 'inline-block rounded-md bg-ink px-2 py-1 text-[0.75rem] font-semibold uppercase leading-tight tracking-[0.1em] text-raised';
+/**
+ * The date block's three lines. A date set: "APR", "9–11" (the span where
+ * it ends in the same month, else the first day with "to Dec 31" under
+ * it, the year left to the status line), "2027". No date set: "TBA" and the year it is awaited for. A
+ * typical window only: "Varies".
+ */
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const shown = dated || canceled ? entry.date : undefined;
+const block = (() => {
+  if (shown) {
+    const [y, m, d] = shown.split('-').map(Number) as [number, number, number];
+    const end = entry.endDate && entry.endDate !== shown ? (entry.endDate.split('-').map(Number) as [number, number, number]) : undefined;
+    const sameMonth = !!end && end[0] === y && end[1] === m;
+    return {
+      set: true,
+      top: MONTHS[m - 1]!,
+      main: sameMonth ? `${d}–${end![2]}` : String(d),
+      foot: end && !sameMonth ? `to ${MONTHS[end[1] - 1]} ${end[2]}` : String(y),
+    };
+  }
+  if (entry.status === 'typical') return { set: false, top: '', main: 'Varies', foot: '' };
+  return { set: false, top: '', main: 'TBA', foot: past ? '' : String(row.year) };
+})();
 ---
 <article
   id={record.slug}
-  class="scroll-mt-4 border-line-soft py-5 [:not([hidden])~&]:border-t md:py-6"
+  class="grid scroll-mt-4 grid-cols-[4.25rem_minmax(0,1fr)] gap-x-4 border-line-soft py-5 sm:grid-cols-[5.25rem_minmax(0,1fr)] sm:gap-x-6 [:not([hidden])~&]:border-t md:py-6"
   data-tradition-row
   data-town={town}
   data-status={past ? 'not-announced' : entry.status}
   data-fixture={record.fixture ? '' : undefined}
 >
+  <div
+    aria-hidden="true"
+    data-date-block={block.set ? 'set' : 'open'}
+    class:list={[
+      'flex aspect-square w-full flex-col items-center justify-center self-start rounded-lg text-center leading-none',
+      block.set && !canceled && 'bg-primary text-white',
+      block.set && canceled && 'border border-line text-ink-muted line-through',
+      !block.set && 'border border-dashed border-line text-ink-muted',
+    ]}
+  >
+    {block.top && <span class="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] sm:text-[0.75rem]">{block.top}</span>}
+    <span class:list={['font-heading', block.set ? (block.main.length > 3 ? 'mt-1 text-[1.25rem] sm:text-[1.625rem]' : 'mt-0.5 text-[1.875rem] sm:text-[2.375rem]') : 'text-[0.8125rem] font-semibold uppercase tracking-[0.12em] font-body']}>{block.main}</span>
+    {block.foot && <span class:list={['mt-1 text-[0.6875rem] sm:text-[0.75rem]', block.set ? 'opacity-80' : '']}>{block.foot}</span>}
+  </div>
+  <div class="min-w-0">
   {eyebrow === 'town' ? (
     <p class="eyebrow mb-1.5">{town}</p>
   ) : (
@@ -134,4 +181,5 @@ const pill = 'rounded-full bg-ink px-2 py-0.5 text-[0.75rem] font-semibold upper
   {record.fixture && (
     <p class="mt-1.5 text-sm font-semibold text-ink">Sample record (test fixture): not a real event, never on the live site.</p>
   )}
+  </div>
 </article>

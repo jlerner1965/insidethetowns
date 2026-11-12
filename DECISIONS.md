@@ -10612,3 +10612,43 @@ brief is Inside Frederick"; "the brief was wrong about Carbon Valley").*
   insidebuenavista.com, insidegrandjunction.com, insidefortmorgan.com and
   insidemead.com do not resolve. Both are in the pull request for the
   owner.
+
+## The hub's town pages get a face, 12 November 2026 (design pass)
+
+*The owner, after the QA pass merged: a full design audit, "make look
+stunning and feel should match content". Every guide and the hub were
+built and read at 1280px and 390px.*
+
+- **Where the work went.** The seven guides open on their town's
+  photograph and have had four design passes; nothing there was changed.
+  The hub's new surfaces had had none: the home page opened on half a
+  screen of empty paper, and the 35 town pages were a white band and
+  full-width rows of small type, half of each page the same six statewide
+  dates.
+- **A town page opens on its landscape.** The name, the county and the
+  next date set sit on the hub's blue over the town's horizon: the
+  photograph where one is licensed (Estes Park's), otherwise three drawn
+  ridgelines for the country the town is in, peaks, foothills, mesas or
+  plains by cluster, the detail seeded from the slug so no two pages share
+  one (`src/lib/ridgeline.ts`). It is a drawing of a kind of country and
+  no peak in it is a named one. Salida has the peaks until a photograph
+  is licensed.
+- **The year at a glance.** Twelve months, a filled mark for each
+  tradition with a date set and a ring, in the month it was last held, for
+  one whose next date is not announced; the legend says which is which in
+  words, each mark links to its row, and this month is marked.
+- **The date is the thing to see.** Every row (town pages, season pages, a
+  guide's `/traditions/`) has a date block: month, day and year, white on
+  the primary, where the organizer has set a date; "TBA" in a dashed
+  outline where it has not. It never shows last year's date, which stays
+  in words. The "not yet announced" pill wraps as one block.
+- **Layout.** Traditions beside Outdoor dates from lg, so a row no longer
+  runs the width of a laptop; the statewide dates are folded under "Across
+  Colorado" with a count, still on the page and still reachable by their
+  anchors.
+- **The hub's home page** has the Front Range photograph beside the
+  headline from lg, where the first screen was empty; nothing changes on
+  a phone, where the picker stays on the first screen.
+- **Not done, the owner's**: a licensed photograph for Salida and the other
+  33 pages; and Lyons, outdoors-led, leads its home page with outdoor dates
+  of which three in five read "not yet announced" this week.
