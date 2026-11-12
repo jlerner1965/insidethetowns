@@ -142,6 +142,13 @@ export function readIcal(ics: string, horizon: Horizon): FeedEvent[] {
     let guard = 0;
     while ((next = iterator.next()) && guard++ < 10_000) {
       if (next.compare(to) >= 0) break;
+      // A date long past is skipped on the series' own duration, before
+      // its details are built: a daily series begun in 2011 has thousands
+      // of them, and building each ran ingest out of memory on Golden
+      // Today's calendars (1,530 recurring events, 11 November 2026).
+      const roughEnd = next.clone();
+      roughEnd.addDuration(event.duration);
+      if (roughEnd.compare(from) < 0 && !event.exceptions?.[next.toString()]) continue;
       const details = event.getOccurrenceDetails(next);
       if (details.endDate.compare(from) < 0) continue;
       push(details.item, details.startDate, details.endDate, `/${details.recurrenceId.toString().slice(0, 10)}`);
