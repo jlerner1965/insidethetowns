@@ -9,8 +9,8 @@ performers:
 url: "https://www.niwotwheelhouse.com/events/strange-byrds-5fjn9-yng4t"
 category: music
 source: "https://www.niwotwheelhouse.com/events/strange-byrds-5fjn9-yng4t"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Wheel House's own events list, https://www.niwotwheelhouse.com/events: Friday 13 November, 7 to 9 pm; no price on the page)"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 13 November and 7 pm on the page"
 ---
 
 Strangebyrds are Cari Minor and Ray Smith, a husband-and-wife singer-songwriter duo from Rollinsville who have made music together for twelve years. 7 to 9 pm at the taproom on Second Avenue.

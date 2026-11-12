@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/mollie-mcgees-45th-annual-holiday-craft
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004422-1795341600-1795363200@bouldercounty.gov"
 sourceHash: "a8f0a5380fc0"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Mollie McGee's 45th Annual Holiday Craft Market\" at 10 am on 22 November on the Boulder County Fairgrounds feed"
 ---
 

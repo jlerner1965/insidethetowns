@@ -8,8 +8,8 @@ url: "https://highplains.libcal.com/event/16845714"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/16845714"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mini Bookshelf and Origami Books\" at 4:30 pm on 12 November on the highplains.libcal.com feed"
 ---
 
 Choose a front for a pre-assembled mini bookshelf, then make origami books to put on it. For teens and adults; registration required.

@@ -7,7 +7,7 @@ url: "https://csurams.com/sports/womens-basketball/schedule/2026-27"
 cost: "Tickets from the Rams ticket office"
 category: sports
 source: "https://csurams.com/sports/womens-basketball/schedule/2026-27"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado State University Women's Basketball vs Wyoming\" at 6:30 pm on 13 November on the csurams.com feed"
 ---
 

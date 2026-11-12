@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/colorado-ghosts-vampire-tours-under-18-yea
 sourceId: "eventbrite-com-frederick"
 sourceUid: "2004506405619"
 sourceHash: "1aaca033f97a"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Frederick, Firestone, Dacono feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado Ghosts & Vampire Tours - Under 18 years old Free with Gaurdian\" at 7 pm on 14 November in the page's structured data"
 ---
 
 Colorado Ghosts & Vampire Tours - Under 18 years old Free with Gaurdian at Meco Coffee Collection, Saturday, November 14, 7 pm – 10 pm. Listed by Eventbrite, events in Frederick, Firestone, Dacono; the organizer's page has the details and any registration.

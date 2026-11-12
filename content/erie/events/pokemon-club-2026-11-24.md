@@ -8,8 +8,8 @@ url: "https://highplains.libcal.com/event/16886161"
 cost: "Free; registration required"
 category: family
 source: "https://highplains.libcal.com/event/16886161"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Pokemon Club\" at 1 pm on 24 November on the highplains.libcal.com feed"
 ---
 
 School-holiday Pokemon sessions for grades 4 to 8, with battles, card trading and snacks. Registration required for each session.

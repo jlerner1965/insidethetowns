@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/state-38-distilling-cocktail-class-nov-21-
 sourceId: "eventbrite-com-o-32376638039"
 sourceUid: "2001442862479"
 sourceHash: "bef2f69bb3ea"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the State 38 Distilling (its Eventbrite page) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"State 38 Distilling Cocktail Class  Nov. 21, 2026\" at 4 pm on 21 November in the page's structured data"
 ---
 
 State 38 Distilling Cocktail Class Nov. 21, 2026 at State 38 Distilling, Saturday, November 21, 4 pm. Listed by State 38 Distilling (its Eventbrite page); the organizer's page has the details and any registration.

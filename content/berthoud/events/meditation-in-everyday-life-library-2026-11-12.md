@@ -7,8 +7,8 @@ url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free"
 category: other
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's Events and Classes page and its November 2026 newsletter)"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 10:30 am on the page"
 ---
 
 A meditation class at the library on Thursday, November 12 at 10:30 am: some teaching, then guided practice, for anyone wherever they are with meditation.

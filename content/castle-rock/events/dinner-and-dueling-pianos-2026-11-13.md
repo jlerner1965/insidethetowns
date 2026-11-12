@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/dinner-and-dueling-pianos-tickets-20031663
 sourceId: "eventbrite-com-castle-rock"
 sourceUid: "2003166355493"
 sourceHash: "e7515a6ec699"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Castle Rock feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Dinner and Dueling Pianos\" at 5 pm on 13 November in the page's structured data"
 ---
 
 Dinner and Dueling Pianos at Wide Awake Eatery, Friday, November 13, 5 pm – 9 pm. Listed by Eventbrite, events in Castle Rock; the organizer's page has the details and any registration.

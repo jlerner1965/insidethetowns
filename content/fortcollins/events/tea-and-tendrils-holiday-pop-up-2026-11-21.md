@@ -9,8 +9,8 @@ source: "https://maxlinebrewing.com/events/tea-and-tendrils-holiday-pop-up/"
 sourceId: "maxlinebrewing-com"
 sourceUid: "2384@maxlinebrewing.com"
 sourceHash: "420140efed86"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Maxline Brewing (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Tea and Tendrils: Holiday Pop-Up\" at 12 pm on 21 November on the Maxline Brewing (events calendar) feed"
 ---
 
 Tea and Tendrils: Holiday Pop-Up at Maxline Brewing, 2724 McClelland Dr #190, Saturday, November 21, 12 pm – 5 pm. Listed by Maxline Brewing (events calendar); the organizer's page has the details and any registration.

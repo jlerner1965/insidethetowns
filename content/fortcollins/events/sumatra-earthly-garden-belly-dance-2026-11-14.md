@@ -8,8 +8,8 @@ url: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
 cost: "$20"
 category: "arts"
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 7 pm on the page"
 ---
 
 Sumatra's Earthly Garden belly dance showcase, 7 to 9 p.m. At Avogadro's Number, 605 South Mason Street.

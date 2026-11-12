@@ -14,7 +14,7 @@ category: other
 organizer: "The Crawford Child Advocacy Center"
 organizerUrl: "https://crawfordcac.org/"
 source: "https://crawfordcac.org/holidayhometour/"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): 13 November and 2 pm on the page"
 ---
 

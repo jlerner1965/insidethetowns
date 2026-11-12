@@ -14,7 +14,7 @@ performers:
   - { name: "Magic City Hippies", kind: group }
 source: "https://www.stanleyhotel.com/event/magic-city-hippies-live-at-the-stanley/"
 sourceId: "stanleyhotel-com"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): 13 November on the page"
 ---
 

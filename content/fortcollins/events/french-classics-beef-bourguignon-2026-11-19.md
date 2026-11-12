@@ -10,8 +10,8 @@ source: "https://gingerandbaker.com/my-event/tk-french-classics-beef-bourguignon
 sourceId: "gingerandbaker-com"
 sourceUid: "81315"
 sourceHash: "35e1ab7898e2"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Ginger and Baker (classes and events) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"French Classics &#8211; Beef Bourguignon\" at 5:30 pm on 19 November in the page's structured data"
 ---
 
 French Classics – Beef Bourguignon at The Teaching Kitchen, Thursday, November 19, 5:30 pm – 8:30 pm. Listed by Ginger and Baker (classes and events); the organizer's page has the details and any registration.

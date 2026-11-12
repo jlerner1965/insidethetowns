@@ -9,8 +9,8 @@ source: "https://www.wolverinefarm.org/event/a-mouthful-of-blood-writing-the-his
 sourceId: "wolverinefarm-org"
 sourceUid: "197766"
 sourceHash: "6207a597db91"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Wolverine Farm Publick House (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"A Mouthful of Blood: Writing the History of the American West A Poetry Workshop presented by the Fort Collins (Co-)Poet Laureate\" at 1 pm on 14 November in the page's structured data"
 ---
 
 A Mouthful of Blood: Writing the History of the American West A Poetry Workshop presented by the Fort Collins (Co-)Poet Laureate at Wolverine Farm Publick House, 316 Willow St., Saturday, November 14, 1 pm – 4 pm. Listed by Wolverine Farm Publick House (events calendar); the organizer's page has the details and any registration.

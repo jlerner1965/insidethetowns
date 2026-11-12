@@ -11,8 +11,8 @@ source: "https://legionlisten.com/event/grace-morrison/"
 sourceId: "legionlisten-com"
 sourceUid: "263"
 sourceHash: "856e167e9ea8"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Listening at the Legion (American Legion Post 119 concert series) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Grace Morrison\" at 6:30 pm on 14 November in the page's structured data"
 ---
 
 Grace Morrison at Listening at the Legion, Saturday, November 14, 6:30 pm – 8:30 pm. Free. Listed by Listening at the Legion (American Legion Post 119 concert series); the organizer's page has the details and any registration.

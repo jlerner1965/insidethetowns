@@ -10,8 +10,8 @@ source: "https://weldre4.revtrak.net/high-schools/severance-high-school/severanc
 sourceId: "shs-weldre4-org"
 sourceUid: "5o838alri3hr35gb24t8onsc01_R20261121T020000@google.com/2026-11-21"
 sourceHash: "775b21c943e1"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Severance High School feed read 2026-11-10, the review of 10 November 2026, ruled item by item for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"SHS Musical - Les Misérables\" at 7 pm on 21 November on the Severance High School feed"
 ---
 
 SHS Musical - Les Misérables at Severance High School, 1200 Hidden Valley Parkway, Severance, Saturday, November 21, 7 pm – 9:30 pm. Listed by Severance High School; the organizer's page has the details and any registration.

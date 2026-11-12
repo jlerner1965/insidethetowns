@@ -9,8 +9,8 @@ source: "https://admin.csurams.com/calendar.aspx?game_id=22216&amp;sport_id=3"
 sourceId: "csurams-com"
 sourceUid: "vcal_22216-admin.csurams.com"
 sourceHash: "b8e2942988f5"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the csurams.com feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado State University Men's Basketball vs Portland State\" at 7 pm on 11 November on the csurams.com feed"
 ---
 
 Colorado State University Men's Basketball vs Portland State at Moby Arena, Wednesday, November 11, 7 pm – 9 pm. Listed by csurams.com; the organizer's page has the details and any registration.

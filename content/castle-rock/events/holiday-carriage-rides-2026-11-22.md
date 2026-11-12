@@ -16,7 +16,7 @@ schedule:
   - { days: [wed, thu, fri], start: "16:30", end: "20:30" }
   - { days: [sat, sun], start: "17:00", end: "20:00" }
 except: ["2026-11-26", "2026-12-24", "2026-12-25", "2026-12-31"]
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): 22 November and 5 pm on the page"
 ---
 

@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/let-it-snow-tote-bag-or-wood-sign-painting
 sourceId: "eventbrite-com-castle-rock"
 sourceUid: "2003896158353"
 sourceHash: "36244c5fc1e0"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Castle Rock feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Let It Snow! Tote Bag or Wood Sign Painting at Iron Mule Brewery\" at 6 pm on 20 November in the page's structured data"
 ---
 
 Let It Snow! Tote Bag or Wood Sign Painting at Iron Mule Brewery at Iron Mule Public House and Brewery, Friday, November 20, 6 pm – 9 pm. Listed by Eventbrite, events in Castle Rock; the organizer's page has the details and any registration.

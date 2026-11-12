@@ -10,7 +10,7 @@ category: music
 performers:
   - { name: "Zambi String Band", kind: group }
 source: "https://newterrainbrewing.com/event/zambi-string-band-music-by-the-mesa/"
-verified: "2026-11-10"
+verified: "2026-11-11"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Zambi String Band @ Music By The Mesa\" at 6 pm on 19 November in the page's structured data"
 ---
 

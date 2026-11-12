@@ -8,8 +8,8 @@ source: "https://calendar.boulderlibrary.org/events"
 sourceId: "boulderlibrary-libnet-info"
 sourceUid: "17494917"
 sourceHash: "5e77ff459242"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Boulder Public Library District - Gunbarrel Library events feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Gunbarrel Classic Movies\" at 1 pm on 22 November on the Boulder Public Library District - Gunbarrel Library events feed"
 ---
 
 Gunbarrel Classic Movies at Gunbarrel Library - Gunbarrel Study Rooms - Joined, Sunday, November 22, 1 pm – 3 pm. Listed by Boulder Public Library District - Gunbarrel Library events; the organizer's page has the details and any registration.

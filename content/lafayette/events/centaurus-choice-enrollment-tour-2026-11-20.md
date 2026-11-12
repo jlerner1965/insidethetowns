@@ -14,8 +14,8 @@ category: family
 organizer: "Centaurus High School"
 organizerUrl: "https://ceh.bvsd.org/"
 source: "https://ceh.bvsd.org/"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: the Centaurus home page’s \"Choice Enrollment Tours- 11/20, 12/4 & 12/11 - 8:45am-10:15am- No reservation needed\" and Boulder Valley’s Choice Enrollment page, read 10 November 2026; neither page states a price"
+verified: "2026-11-11"
+verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 8:45 am on the page"
 ---
 
 Morning tours for families considering Centaurus for 2027–28, on Fridays, November 20, December 4 and December 11, each 8:45 to 10:15 am, with no reservation needed. The school’s [IB and Engineering Night](/events/centaurus-ib-and-engineering-night-2026-12-01/) is Tuesday, December 1, 5 to 6 pm. Boulder Valley’s on-time choice-enrollment window closes December 18.
