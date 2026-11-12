@@ -46,8 +46,19 @@ export interface HeroLineOptions {
   changes?: boolean;
 }
 
-export function heroLine(town: Pick<TownConfig, 'name' | 'home' | 'visitorGuide'>, { pick = false, changes = true }: HeroLineOptions = {}): HeroLine | undefined {
+export function heroLine(town: Pick<TownConfig, 'name' | 'home' | 'visitorGuide' | 'lead'>, { pick = false, changes = true }: HeroLineOptions = {}): HeroLine | undefined {
   if (town.visitorGuide) return undefined;
+  // A quiet guide (`lead: 'updates'`) lists no events and promises no week:
+  // its line says what its home page has.
+  if (town.lead === 'updates') {
+    const line = changes ? `What’s new in ${town.name}, and what to know` : `What to know in ${town.name}`;
+    return { short: line, long: line };
+  }
+  // An outdoors-led guide (`lead: 'outdoors'`) leads with the outdoor dates.
+  if (town.lead === 'outdoors') {
+    const line = `The outdoor dates around ${town.name}, and what’s on this week`;
+    return { short: line, long: pick ? `${line}, with the one we’d go to` : line };
+  }
   const on = `What’s on in ${town.name} this week`;
   const more = town.home && changes ? 'what’s new in town' : 'where to eat and drink';
   const short = `${on}, and ${more}`;

@@ -9,6 +9,10 @@
  * went, the receiving guide lists it as a section, its content has left its
  * old folder, and vercel.json sends every path on the old domain to the new
  * guide. A miss in any one is a 404 on a URL search engines still hold.
+ *
+ * A guide folded into its town's page on the hub (`hubPage`, nine of them on
+ * 12 November 2026) is another thing, with no receiving guide, and has its
+ * own file: test/hub-fold.test.ts.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -19,11 +23,14 @@ import { towns } from '../src/config/towns/registry.ts';
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
   redirects: Array<{ source: string; destination: string; permanent?: boolean; has?: Array<{ type: string; value?: string }> }>;
 };
-// A retired guide redirects too, but to the hub, with no guide to take it: test/retired-towns.test.ts.
-const folded = towns.filter((t) => t.status === 'redirect' && !t.retired);
+// A retired guide redirects too, but to the hub, with no guide to take it:
+// test/retired-towns.test.ts. So does a guide folded into its town's page on
+// the hub (`hubPage`, the restructure of 12 November 2026), which no guide
+// takes either: test/hub-fold.test.ts.
+const folded = towns.filter((t) => t.status === 'redirect' && !t.retired && !t.hubPage);
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 
-test('Severance is the folded guide', () => {
+test('Severance is the one guide folded into another guide', () => {
   assert.deepEqual(folded.map((t) => t.slug).sort(), ['severance']);
 });
 

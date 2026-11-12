@@ -2,7 +2,9 @@
  * The flagship guides (Berthoud and Niwot, 21 October 2026; Lyons, 22
  * October; Elizabeth, Windsor, Erie and Johnstown, later that day; Golden, 28
  * October; Lafayette and Frederick, 2 November; Elizabeth left the list on
- * 4 November, a quiet guide; Timnath joined on 9 November): what their
+ * 4 November, a quiet guide; Timnath joined on 9 November; Golden and
+ * Timnath were folded into their pages on the hub on 12 November and keep
+ * their configs, so they are still read here): what their
  * configs promise the pages, checked so a config edit cannot quietly break
  * a hub. Every link on Living Here is an official page or a path on the
  * guide, every school break names its source and its check date, and the
@@ -32,14 +34,24 @@ test('each flagship has the flagship layout and the three hubs; no other guide d
   }
 });
 
-test('every guide has the same menu, built from what it has: the week, events, its school, the places, its hub, Living here or Moving here, and Guides', () => {
+test('every guide has the same menu, built from what it has: the week (Updates on a quiet guide), things to do, its school, the places, its hub, Living here or Moving here, and Guides', () => {
   for (const t of towns) {
     const nav = townNav(t);
     const labels = nav.map((n) => n.label);
-    assert.deepEqual(nav.slice(0, 2).map((n) => n.href), ['/this-week/', '/things-to-do/'], `${t.slug}: the week and things to do lead`);
-    assert.ok(nav.some((n) => n.href === (t.families ? '/families/' : '/events/')), `${t.slug}: Families, or Events where there is no family hub`);
+    // A quiet guide (`lead: 'updates'`, Niwot, 12 November 2026) builds no
+    // events pages: Updates stands where This week does, and nothing in the
+    // menu links to a page it does not build.
+    const quiet = t.lead === 'updates';
+    assert.deepEqual(nav.slice(0, 2).map((n) => n.href), [quiet ? '/updates/' : '/this-week/', '/things-to-do/'], `${t.slug}: the week (or Updates) and things to do lead`);
+    if (quiet) {
+      for (const href of ['/events/', '/this-week/', '/this-weekend/']) assert.ok(!nav.some((n) => n.href === href), `${t.slug}: a quiet guide's menu has no ${href}`);
+      assert.equal(nav.some((n) => n.href === '/families/'), !!t.families, `${t.slug}: Families where there is a family hub, and no Events in its place`);
+    } else {
+      assert.ok(nav.some((n) => n.href === (t.families ? '/families/' : '/events/')), `${t.slug}: Families, or Events where there is no family hub`);
+    }
     const sports = nav.find((n) => n.href === '/sports/');
-    assert.equal(!!sports, schoolsFor(t.slug).length > 0, `${t.slug}: a sports item exactly where there is a school`);
+    // An outdoors-led guide (`lead: 'outdoors'`, Lyons) keeps its sports pages and leaves them out of the menu.
+    assert.equal(!!sports, schoolsFor(t.slug).length > 0 && t.lead !== 'outdoors', `${t.slug}: a sports item exactly where there is a school, but on an outdoors-led guide`);
     if (sports) assert.match(sports.label, /^Athletics$|\bsports$/, `${t.slug}: "${sports.label}" is Athletics or says sports`);
     assert.ok(nav.some((n) => n.href === (t.families ? '/families/' : '/things-to-do/')), `${t.slug}: hub or things to do`);
     assert.ok(nav.some((n) => n.href === (t.livingHere ? '/living-here/' : '/moving-here/')), `${t.slug}: living or moving here`);
@@ -50,15 +62,22 @@ test('every guide has the same menu, built from what it has: the week, events, i
   }
   // Berthoud lists ten open shops or more, so Shops follows Eat & drink (the owner, 7 November 2026).
   assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Shops', 'Families', 'Living here', 'Guides']);
-  assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Athletics');
+  // Lyons leads with the outdoors since 12 November 2026: it still follows Lyons Middle/Senior High, and the menu has no sports item.
+  assert.ok(schoolsFor('lyons').length > 0, 'Lyons still follows its school');
+  assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/'), undefined);
+  assert.deepEqual(townNav(by('lyons')).map((n) => n.label), ['This week', 'Things to do', 'Eat & drink', 'Families', 'Living here', 'Guides']);
+  // Niwot is a quiet guide since 12 November 2026: Updates first, Athletics kept, never Events.
+  assert.deepEqual(townNav(by('niwot')).map((n) => n.label), ['Updates', 'Things to do', 'Athletics', 'Eat & drink', 'Shops', 'Families', 'Living here', 'Guides']);
+  assert.equal(townNav(by('niwot'))[0]?.href, '/updates/');
   // One word on every guide (the owner, 6 November 2026): Johnstown's Roosevelt High and Frederick High alike.
   assert.equal(townNav(towns.find((t) => t.slug === 'johnstown')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
   assert.equal(townNav(towns.find((t) => t.slug === 'frederick')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
-  assert.equal(townNav(towns.find((t) => t.slug === 'loveland')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
+  // A guide that follows several schools says so: Windsor's two (Windsor High and Severance High), as Loveland's four did until that guide was folded on 12 November 2026.
+  assert.equal(townNav(towns.find((t) => t.slug === 'windsor')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
   // Erie follows Erie High since 25 October 2026, so its menu carries Erie High in the third slot.
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
-  // Longmont follows its three high schools since 9 November 2026 (the owner's word), so its menu carries them in the third slot, as Loveland's.
-  assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Things to do', 'High school sports', 'Eat & drink', 'Events', 'Moving here', 'Guides']);
+  // A guide without the family hub or Living here keeps Events and Moving here: Elizabeth, the one live guide without them (Longmont's menu was the example until that guide was folded on 12 November 2026).
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'elizabeth')!).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Events', 'Moving here', 'Guides']);
 });
 
 test('Shops is in the menu only where the guide lists enough open shops, right after Eat & drink', () => {

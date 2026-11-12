@@ -26,6 +26,8 @@ import {
   townGroups,
   type TraditionRecord,
 } from '../src/lib/traditions.ts';
+import { STANDALONE_GUIDES, findHubTown } from '../src/config/hub-towns.ts';
+import { placeKey } from '../src/lib/hub-towns.ts';
 import { guidesWithTraditions, seasonTypesWithRecords } from '../src/lib/tradition-files.ts';
 import { seasonRoutes, traditionRoutes } from '../src/integrations/town-routes.ts';
 
@@ -193,7 +195,8 @@ test('the fixtures are valid, clearly marked, and show all four statuses', () =>
     assert.match(rec.sourceUrl, /^https:\/\/example\.com\//, `${file}: links go nowhere real`);
     statuses.add(rec.years[0]!.status);
   }
-  assert.deepEqual([...statuses].sort(), [...TRADITION_STATUSES].sort());
+  // `typical` is an outdoor date's status (a window, never a date); the holiday fixtures show the other four.
+  assert.deepEqual([...statuses].sort(), TRADITION_STATUSES.filter((x) => x !== 'typical').sort());
 });
 
 test('without the switch, no fixture reaches a route', () => {
@@ -204,7 +207,7 @@ test('without the switch, no fixture reaches a route', () => {
   }
   const on = { TRADITIONS_FIXTURES: '1' };
   assert.ok(guidesWithTraditions('.', on).has('berthoud'));
-  assert.deepEqual(seasonTypesWithRecords('.', on), ['parade-of-lights', 'tree-lighting']);
+  assert.deepEqual(seasonTypesWithRecords('.', on).filter((t) => t !== 'outdoor'), ['parade-of-lights', 'tree-lighting']);
 });
 
 test('the routes: /traditions/ only on a guide a record names; a hub page per season type with a record', () => {
@@ -215,22 +218,26 @@ test('the routes: /traditions/ only on a guide a record names; a hub page per se
     assert.ok(Object.values(TRADITION_TYPE_INFO).some((i) => i.path === `${pattern}/`), pattern);
     assert.doesNotMatch(pattern, /\d{4}/, 'no year in the address');
   }
-  assert.deepEqual(Object.keys(CURRENT_SEASONS).sort(), ['parade-of-lights', 'tree-lighting']);
+  assert.deepEqual(Object.keys(CURRENT_SEASONS).sort(), ['outdoor', 'parade-of-lights', 'tree-lighting']);
 });
 
 // ---------- approved records and drafts ----------
 
-test('every approved record is valid, named for its slug, real, and points at a live guide', () => {
-  const live = new Set(liveTowns().map((t) => t.slug));
+test('every approved record is valid, named for its slug, real, and names places the network has', () => {
   for (const { file, data } of filesIn(TRADITIONS_DIR)) {
     assert.deepEqual(issues(data), [], file);
     const rec = parsed(data);
     assert.equal(file, `${rec.slug}.md`);
     assert.ok(!rec.fixture && !rec.slug.startsWith('fixture-'), `${file}: a fixture in content/`);
-    if (rec.town.guide) {
-      assert.ok(live.has(rec.town.guide), `${file}: ${rec.town.guide} is not a live guide`);
-      assert.equal(rec.town.name, findTown(rec.town.guide)!.name);
+    if (rec.town?.guide) {
+      const key = placeKey(rec.town.guide);
+      assert.ok(key, `${file}: ${rec.town.guide} is not a hub town or a standalone guide`);
+      assert.equal(rec.town.name, findHubTown(key!)?.name ?? findTown(STANDALONE_GUIDES[key!]!.guide)!.name, file);
     }
+    for (const t of rec.towns ?? []) assert.ok(placeKey(t.slug), `${file}: towns names ${t.slug}`);
+    // Rule 5: every date has a source and a checked date.
+    assert.match(rec.sourceUrl, /^https?:\/\//, file);
+    for (const y of rec.years) assert.match(y.checked, /^\d{4}-\d{2}-\d{2}$/, `${file}: ${y.year} checked`);
   }
 });
 
@@ -242,10 +249,7 @@ test('every draft in docs/agent/traditions/ is a record the owner can approve by
     assert.ok(!rec.fixture, file);
     assert.ok(rec.years.some((y) => y.year === 2026), `${file}: a 2026 entry`);
     // As the validator will hold it once moved: a live guide, under its own name.
-    if (rec.town.guide) {
-      assert.ok(liveTowns().some((t) => t.slug === rec.town.guide), `${file}: ${rec.town.guide} is not a live guide`);
-      assert.equal(rec.town.name, findTown(rec.town.guide)!.name, file);
-    }
+    assert.ok(rec.town?.guide && placeKey(rec.town.guide), `${file}: names a place the network has`);
   }
 });
 

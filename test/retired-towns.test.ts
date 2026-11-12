@@ -10,9 +10,16 @@
  * section anywhere, so its domain forwards to the hub. Four things have to
  * agree, each in a different file: the config says it is retired and not
  * where it went, no guide names it as a neighbour, its content has left its
- * folder, and vercel.json sends every path on its domain to the hub's home
- * page. A miss in any one is a 404 on a URL search engines still hold, or a
- * retired guide's stale listings somewhere a reader can reach them.
+ * folder, and vercel.json sends every path on its domain to the hub. A miss
+ * in any one is a 404 on a URL search engines still hold, or a retired
+ * guide's stale listings somewhere a reader can reach them.
+ *
+ * Where on the hub, since the restructure of 12 November 2026: a retired
+ * guide whose town has a published page there (`hubPage` beside `retired`:
+ * Grand Lake, Evergreen, Georgetown, Manitou Springs and Fort Lupton)
+ * forwards to that page by the same rules as a guide folded that day
+ * (src/lib/fold.ts, test/hub-fold.test.ts); one without (Black Hawk, Clear
+ * Creek) still goes to the hub's home page, and Carbon Valley to Frederick.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -20,6 +27,9 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { emailTowns, findTown, LIVE_TOWNS } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { hub } from '../src/config/towns/hub.ts';
+import { foldRules, OUTDOOR_ANCHOR, TRADITIONS_ANCHOR } from '../src/lib/fold.ts';
+import { findHubTown } from '../src/config/hub-towns.ts';
+import { publishedHubTownSlugs } from '../src/lib/tradition-files.ts';
 
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
   redirects: Array<{ source: string; destination: string; permanent?: boolean; has?: Array<{ type: string; value?: string }> }>;
@@ -64,7 +74,15 @@ test('a retired guide redirects, says why, goes nowhere else, and is out of ever
     assert.deepEqual([...t.neighbors], [], `${t.slug}: names no neighbours`);
     for (const other of towns) assert.ok(!other.neighbors.includes(t.slug), `${other.slug} still lists ${t.slug}`);
   }
-  for (const t of towns.filter((t) => t.status === 'redirect')) assert.ok(!!t.foldedInto !== !!t.retired, `${t.slug}: folded or retired, one of the two`);
+  // Every redirect says where it went or why: folded into a guide, retired,
+  // or folded into its town's page on the hub. A guide folded into another
+  // guide is neither of the others; `hubPage` may accompany `retired` (a
+  // guide retired earlier whose town has since got its page).
+  for (const t of towns.filter((t) => t.status === 'redirect')) {
+    assert.ok(!!t.foldedInto || !!t.retired || !!t.hubPage, `${t.slug}: folded into a guide, retired, or folded into its hub page`);
+    if (t.foldedInto) assert.ok(!t.retired && !t.hubPage, `${t.slug}: folded into a guide, so neither retired nor on a hub page`);
+  }
+  assert.deepEqual(retired.filter((t) => t.hubPage).map((t) => t.slug).sort(), ['evergreen', 'fort-lupton', 'georgetown', 'grand-lake', 'manitou-springs'], 'the retired guides whose domains go to their town page');
   for (const t of towns.filter((t) => t.status !== 'redirect')) assert.equal(t.retired, undefined, `${t.slug}: retired without status redirect`);
 });
 
@@ -78,13 +96,33 @@ test("a retired guide's content has left its folder", () => {
   }
 });
 
-test("every path on a retired guide's domain redirects to the hub's home page, or into the guide that took its ground", () => {
+test("every path on a retired guide's domain redirects to its town's page on the hub, to the hub's home page where it has none, or into the guide that took its ground", () => {
+  const published = new Set(publishedHubTownSlugs());
   for (const t of retired) {
     const rules = rulesFor(t.domain);
+    assert.ok(rules.length > 0, `${t.domain}: no rules`);
+    if (t.hubPage) {
+      // The town has a published page on the hub: the same rules as a guide
+      // folded on 12 November 2026, to the matching place on the page.
+      assert.equal(t.retired!.successor, undefined, `${t.slug}: a hub page, so no successor guide`);
+      assert.ok(findHubTown(t.hubPage.town), `${t.slug}: ${t.hubPage.town} is a hub town`);
+      assert.ok(published.has(t.hubPage.town), `${t.slug}: the page /${t.hubPage.town}/ is published`);
+      const page = `https://${hub.domain}/${t.hubPage.town}/`;
+      assert.deepEqual(rules, foldRules(t.domain, hub.domain, t.hubPage.town), `${t.domain}: the rules src/lib/fold.ts writes`);
+      assert.ok(rules.every((r) => r.permanent === true && r.destination.startsWith(page)), `${t.domain}: permanent, to ${page}`);
+      const to = (source: string) => rules.find((r) => r.source === source)?.destination;
+      assert.equal(to('/'), page, `${t.domain}: the home page`);
+      assert.equal(to('/events{/}?'), `${page}#${TRADITIONS_ANCHOR}`, `${t.domain}: the events list goes to the page's traditions`);
+      assert.equal(to('/events/(.*)'), `${page}#${TRADITIONS_ANCHOR}`, `${t.domain}: every event goes to the page's traditions`);
+      assert.equal(to('/things-to-do{/}?'), `${page}#${OUTDOOR_ANCHOR}`, `${t.domain}: things to do goes to the page's outdoor dates`);
+      assert.equal(rules[0]?.source, '/', `${t.domain}: the home page first`);
+      assert.equal(rules.at(-1)?.source, '/(.*)', `${t.domain}: the catch-all last`);
+      assert.equal(rules.at(-1)?.destination, page, `${t.domain}: the catch-all goes to the top of the page`);
+      continue;
+    }
     const successor = t.retired!.successor ? findTown(t.retired!.successor) : undefined;
     if (t.retired!.successor) assert.ok(successor && LIVE_TOWNS.includes(successor.slug), `${t.slug}: the successor ${t.retired!.successor} is a live guide`);
     const home = successor ? `https://${successor.domain}/` : `https://${hub.domain}/`;
-    assert.ok(rules.length > 0, `${t.domain}: no rules`);
     if (successor) {
       // Path kept where the page exists on the successor, the home page otherwise.
       assert.ok(rules.every((r) => r.permanent === true && r.destination.startsWith(home)), `${t.domain}: permanent, into ${successor.domain}`);
@@ -99,6 +137,8 @@ test("every path on a retired guide's domain redirects to the hub's home page, o
     assert.equal(rules.at(-1)?.source, '/(.*)', `${t.domain}: the catch-all last`);
     assert.equal(rules.at(-1)?.destination, home, `${t.domain}: the catch-all goes home`);
   }
+  // The three without a page, as before 12 November 2026.
+  assert.deepEqual(retired.filter((t) => !t.hubPage).map((t) => t.slug).sort(), ['black-hawk', 'carbon-valley', 'idaho-springs']);
 });
 
 test('Carbon Valley forwards to Frederick, and Firestone with it', () => {

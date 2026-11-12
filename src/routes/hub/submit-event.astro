@@ -21,11 +21,12 @@
  * town now says which it is, read from the same config the town page reads.
  */
 import Page from '@/layouts/Page.astro';
-import { countyLabel, getHub, liveTowns } from '@/config';
+import { countyLabel, getHub, listsEvents, liveTowns } from '@/config';
 import { eventEmailHref } from '@/lib/submit';
 
 const hub = getHub();
-const towns = liveTowns();
+// A guide that lists no events (Niwot) takes none.
+const towns = liveTowns().filter(listsEvents);
 const withForm = towns.filter((t) => t.formspreeId).length;
 const mailto = eventEmailHref(hub.social.email, 'Event submission');
 ---
