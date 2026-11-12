@@ -36,10 +36,4 @@ picks:
     why: "A neighborhood park at Indiana Avenue and 2nd Street with a fishing pond, a playground, a basketball court, a roller hockey rink, bocce and horseshoe pits (bring your own gear), three large pavilions and permanent restrooms."
 ---
 
-This is a short list for a newcomer, a visitor or a family looking for something to do in Berthoud this week or this year. The full directory of trails, parks and venues on the guide is below it.
-
-**How we chose.** We started from the places already on this guide and kept ones a person can simply turn up to, free or for a small fee. We read each one's own page, or its owner's, on 11 November 2026: the Town's, Larimer County's, the Historical Society's, the library's and Berthoud Main Street's. Every hour, price and closure here comes from those pages.
-
-**The order** starts with what works now, in November, and through the winter: a walk downtown, the museum, the pool, a lake trail. It ends with the places that are best in warmer, drier weather. Each pick says when it suits.
-
-**What is not here.** Events, which are on the calendar. The McCarty-Fickel Home, closed for the season until spring 2027. Roberts Lake, Fickel Park, Bein Park and the Town's dog park, which are in the directory below.
+Nobody pays to be listed. Events are on the [calendar](/events/).

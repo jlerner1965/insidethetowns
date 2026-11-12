@@ -37,8 +37,4 @@ picks:
     why: "Northern Italian and southern French cooking at 405 Main St, dinner only, Wednesday to Sunday from 5 pm. Its site lists James Beard semifinalist nods for Best Chef: Mountain in 2024 and 2026, and a place on Wine Enthusiast's 2024 list of the best wine restaurants in America. Reservations are online."
 ---
 
-This list is for anyone eating in Lyons for the first time, or the first time in a while: where to get coffee before the trailhead, lunch on Main Street, a drink in the afternoon and dinner out. It runs in the order of a day: coffee and breakfast first, then lunch, then the afternoon and evening places, and dinner out last.
-
-**How we chose them.** Every pick is already in the directory below, and every fact above comes from the place's own website, read on November 11, 2026. A place makes the list only when its own site gives its current hours on the day we check. We picked for range, so the ten cover coffee, a bakery, Indian, barbecue, tacos, pizza, spirits, wine and a dinner out, on Main Street, High Street and the Ute Highway. We say what each place is and when it is open; we do not review food, and nobody pays to be listed.
-
-**What is not here.** Ten is a short list in a town with this many kitchens. Also in the directory below: La Mariposa, a Mexican restaurant at the east end of Main open every day from 11 am; the Rock Garden, A-Lodge's outdoor beer garden by the creek; and the original Oskar Blues Grill & Brew. The Town notes that some hours vary in winter, so check a place's page before a long drive.
+Nobody pays to be listed, and we do not review food.

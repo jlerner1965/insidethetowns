@@ -31,12 +31,4 @@ picks:
     why: "Blue Arena, home ice of the American Hockey League's Colorado Eagles; the Ranch's other halls hold shows and festivals on dates of their own, on the guide's calendar. Box office in the arena, weekdays 10 to 5; arena parking is sold through ParkWhiz."
 ---
 
-A short list for anyone new to Loveland or here for a day: eight places to go, and what each one suits. Every trail, park, venue and place to stay on the guide is in the directory below.
-
-**How the picks were chosen.** No two of the same kind: a sculpture garden, a sculpture walk, a nature center, a hike, a state park, a museum, a theater and an arena. Each is open through the winter, and each was checked against its own page, or the page of the agency that runs it, on 11 November 2026; the hours and prices here come from those pages. Nobody pays to be on the list.
-
-**The order.** Outdoors first, starting with the two sculpture parks because they are free and open every day. Then indoors, from an afternoon at the museum to an evening show or game.
-
-**In November.** Boyd Lake is closed to boats for the rest of 2026. Devil's Backbone closes at sunset, which comes early at this time of year, and the County's page has a webcam of its parking lot.
-
-**What is not here.** A place goes on this list only when its own page confirms its hours that day, so some listings, including the City's recreation center and parks, wait for the next check.
+Nobody pays to be listed.

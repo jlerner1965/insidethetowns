@@ -37,10 +37,4 @@ picks:
     why: "Pizza, wings, calzones and stromboli from a shop on North 4th Street, with house-made chorizo and Italian sausage and unbleached, unbromated flour. Orders from 11 am to 8 pm every day, breakfast sandwiches from 9 to 11, and delivery online."
 ---
 
-This is a short list for someone new to Berthoud, or passing through, who wants to know where to start. The full directory, with every restaurant, bar, coffee shop and store on the guide, is below it.
-
-**How we chose.** We started from the places already on this guide and kept ones that are locally owned or run, open this week, and that post their hours or menu on their own site. We read each one's site on 11 November 2026, and every hour and dish here comes from it. We do not review food, so the list is not ranked by taste. We aimed for a spread of meals, kinds of food and streets.
-
-**The order** is the order we would walk a visitor through town. The first four, on or beside the main block of Mountain Avenue, cover a day from breakfast to dinner. The next four are a few blocks off it. The last two are for eating at home.
-
-**What is not here.** National chains, though the directory lists some. Places that post no hours online, which stay in the directory until we can check them by phone. Places that have closed, which leave every list. Nobody pays to be listed or picked.
+Nobody pays to be listed, and we do not review food.

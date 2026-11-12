@@ -36,10 +36,4 @@ picks:
     why: "3.15 miles of singletrack with rollers, jumps and tabletops, marked beginner to advanced, on Town open space with views of the Front Range. The Town closes it when it is wet, muddy, snowy or icy, and posts the status on its page."
 ---
 
-This is a short list for a newcomer, a visitor or a family looking for something to do in Erie this week or this year. The full directory of trails, parks and venues on the guide is below it.
-
-**How we chose.** We started from the places already on this guide and kept ones a person can simply turn up to or book, free or for a fee. We read each one's own page, or its owner's, on 11 November 2026: the Town's, the library district's, Downtown Erie's and the railbike company's. Every hour, price and closure here comes from those pages.
-
-**The order** starts with what works now, in November, and through the winter: a walk downtown, the regional trail, the indoor pool, the ice rink once it opens, the sledding hill, a holiday ride and the library. It ends with three places for an hour outdoors, the last of which shuts when the ground is wet or frozen. Each pick says when it suits.
-
-**What is not here.** Events, which are on the calendar. Anderson Farms, closed until its next season. The Wise Homestead Museum, open on Saturdays from May to September and otherwise by appointment. Erie Lake, the velodrome and the other parks, which are in the directory below.
+Nobody pays to be listed. Events are on the [calendar](/events/).

@@ -10341,7 +10341,13 @@ alone.*
   "Every place we list" jump link. The page's body, which says how the
   picks were chosen and what is left out, comes after the picks and the
   jump link, not before: above them it was 150 to 200 words to scroll past
-  on a phone before the first pick (James, the same day). The guide can carry the page's `seoTitle`
+  on a phone before the first pick (James, the same day). That body is one
+  or two sentences: nobody pays to be listed (and, on Eat & Drink, that we
+  do not review food), then links to related articles where the guide has
+  them. How the picks were chosen and ordered, whose pages were read,
+  seasonal closures and what else is in the directory are not repeated
+  there; the date is in the "Checked" line and the picks carry their own
+  closures (James, 12 November: readers do not care, keep it short). The guide can carry the page's `seoTitle`
   and `description`; the CollectionPage list leads with the picks.
 - **What a pick may say**: what a place is, what it serves or holds, when
   it is open, what it suits, every fact from its own site or its manager's
