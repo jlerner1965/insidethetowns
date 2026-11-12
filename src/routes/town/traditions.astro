@@ -1,0 +1,83 @@
+---
+/**
+ * "Every year in <Town>": the guide's traditions (src/lib/traditions.ts),
+ * in the guide's own palette. Two groups: "Date confirmed", soonest first,
+ * and "Not announced yet". Rows as on the hub's season page, with the
+ * category dot and the type's label where the hub has the town.
+ *
+ * Built only on a guide that a record names (src/integrations/town-routes.ts,
+ * traditionRoutes), and linked from the guide's events page and nowhere
+ * else: not the menu, not the home page. The Thursday signup closes it, as
+ * it is everywhere else (it is dark on a quiet or visitor guide, as there).
+ */
+import Page from '@/layouts/Page.astro';
+import TraditionRow from '@/components/TraditionRow.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import { getNetworkHub, getTown } from '@/config';
+import { getTraditions } from '@/lib/content';
+import { dayKey } from '@/lib/dates';
+import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
+import { TRADITION_TYPE_INFO, townGroups } from '@/lib/traditions';
+
+const town = getTown();
+const hub = getNetworkHub();
+const today = dayKey(new Date());
+const { dated, waiting } = townGroups(await getTraditions(), town.slug, today);
+const rows = [...dated, ...waiting];
+const years = [...new Set(rows.map((r) => r.year))].sort();
+const yearText = years.join(' and ');
+const kinds = [...new Set(rows.map((r) => TRADITION_TYPE_INFO[r.record.type].plural.toLowerCase()))];
+const kindText = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kinds.at(-1)}` : kinds[0];
+
+const path = '/traditions/';
+const pageUrl = `https://${town.domain}${path}`;
+const seoTitle = `${town.name}, Colorado ${kindText} ${yearText}`;
+const description = `${town.name}, Colorado’s ${kindText} for ${yearText}: the date each organizer has published, or that it has not yet, and the page it was read from.`;
+const structured = [
+  collectionPageJsonLd(town, {
+    name: `Every year in ${town.name}`,
+    description,
+    path,
+    items: rows.map((r) => ({ name: r.record.name, url: `${pageUrl}#${r.record.slug}` })),
+  }),
+  breadcrumbJsonLd(town, [
+    { name: town.siteTitle, path: '/' },
+    { name: 'Events', path: '/events/' },
+    { name: `Every year in ${town.name}`, path },
+  ]),
+  ...rows.map((r) => traditionEventJsonLd(r.record, r.entry, pageUrl)).filter((e) => !!e),
+];
+const subject = `[Correction] ${town.name} traditions`;
+const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${encodeURIComponent(subject)}`;
+---
+<Page
+  title={`Every year in ${town.name}`}
+  {seoTitle}
+  eyebrow={`${town.name} traditions`}
+  {description}
+  intro="The events this town holds every year, with this year’s date where the organizer has set it, and where we read it."
+  jsonLd={structured}
+>
+  {dated.length > 0 && (
+    <section aria-labelledby="confirmed-heading" class="mb-14 md:mb-16">
+      <h2 id="confirmed-heading" class="mb-6 border-b-2 border-accent pb-3 text-3xl font-medium">Date confirmed</h2>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {dated.map((row) => <TraditionRow row={row} eyebrow="category" />)}
+      </div>
+    </section>
+  )}
+  {waiting.length > 0 && (
+    <section aria-labelledby="waiting-heading" class="mb-14 md:mb-16">
+      <h2 id="waiting-heading" class="mb-6 border-b-2 border-accent pb-3 text-3xl font-medium">Not announced yet</h2>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {waiting.map((row) => <TraditionRow row={row} eyebrow="category" />)}
+      </div>
+    </section>
+  )}
+
+  <p class="mb-12 rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
+    Run one of these, or found a date wrong? <a href={mailto} class="font-semibold underline">Tell us</a>. Every date links to the page it was read from.
+  </p>
+
+  <NewsletterSignup town={town} />
+</Page>

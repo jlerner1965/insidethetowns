@@ -48,6 +48,29 @@ entry and its "updated" date; nothing guessed or partial is written. `npm run
 sports` prints what a run would do; `--town=niwot` narrows it, and
 `--town=berthoud --sport=football` reads one team's page and prints it.
 
+## Traditions
+
+One record per named annual event (a parade of lights, a tree lighting),
+in `content/hub/traditions/<slug>.md`, read by the hub and every guide
+(`src/lib/traditions.ts`; the schema is `traditionSchema`). The slug has no
+year; each year is an entry in `years`, newest first, with its status
+(confirmed, not-announced, moved, canceled) and the day a person last read
+the organizer's page (`checked`). From them the hub builds one season page
+per type (`/parades-of-lights/`, `/tree-lightings/`; the season shown is
+`CURRENT_SEASONS`) and a guide that a record names builds `/traditions/`,
+linked from its events page only. A type or a guide with no record builds
+nothing.
+
+- The research drafts records into `docs/agent/traditions/`; a record is
+  approved by moving the file into `content/hub/traditions/`.
+- The collection is strict: a confirmed or moved year with no date, no
+  source or no `checked` fails the build. The validator lists every year
+  dated in the next 30 days whose check is more than 14 days old.
+- Sample records for looking at the pages are in
+  `test/fixtures/traditions/` and load only with `TRADITIONS_FIXTURES=1`
+  (`TRADITIONS_FIXTURES=1 TOWN=hub npm run build`). That switch throws on
+  Vercel. The site check fails any build without it that carries one.
+
 ## The resident hubs and the flagship layout
 
 Berthoud and Niwot (21 October 2026) and Lyons (22 October) carry the

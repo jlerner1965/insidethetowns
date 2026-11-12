@@ -8,6 +8,7 @@ import { getSite, liveTowns, type TownConfig } from '@/config';
 import { isExcluded } from '@/content/schemas';
 import { eventExclusion, hubExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
 import { eventPresentation, type Confidence } from '@/lib/confidence';
+import { FIXTURES_ENV, fixturesEnabled, type TraditionRecord } from '@/lib/traditions';
 
 export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & {
   slug: string;
@@ -207,5 +208,27 @@ export async function getNeighborEntries<C extends CollectionKey>(
     const townSlug = entry.id.split('/')[0]!;
     const data = entry.data as { slug?: string };
     return Object.assign(entry, { slug: data.slug ?? slugOf(entry.id, townSlug), town: towns.get(townSlug)! }) as NetworkEntry<C>;
+  });
+}
+
+/**
+ * Every tradition record (content/hub/traditions/, src/lib/traditions.ts),
+ * for the hub's season pages and each guide's /traditions/. The one
+ * collection both kinds of site read whole: a record names its town, and
+ * the pages pick by it. A sample record reaching here without the fixtures
+ * switch is a broken build, never a page.
+ */
+export async function getTraditions(): Promise<TraditionRecord[]> {
+  const fixtures = fixturesEnabled();
+  const entries = await getCollection('traditions');
+  return entries.map((entry) => {
+    const record = entry.data as TraditionRecord;
+    if (record.fixture && !fixtures) {
+      throw new Error(`Tradition "${record.slug}" is a fixture and ${FIXTURES_ENV} is not set: fixtures never ship.`);
+    }
+    if (!!record.fixture !== record.slug.startsWith('fixture-')) {
+      throw new Error(`Tradition "${record.slug}": a fixture's slug starts "fixture-", and only a fixture's does.`);
+    }
+    return record;
   });
 }

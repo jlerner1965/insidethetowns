@@ -19,6 +19,7 @@ import { z } from 'astro/zod';
 import { dayKey, parseLocal } from '../lib/dates.ts';
 import { OPENING_HOURS_RE } from '../lib/hours.ts';
 import { CLOCK_RE, WEEKDAYS, isDayOff, runSittings, weekdayOf } from '../lib/schedule.ts';
+import { TRADITION_STATUSES, TRADITION_TYPES } from '../lib/traditions.ts';
 
 /** Astro passes its image() helper (typed to ImageMetadata); the validator passes a plain string check. */
 export type ImageSchema = () => z.ZodType;
@@ -1624,7 +1625,107 @@ export function profileSchema<I extends z.ZodType>(image: () => I) {
 }
 export type ProfileData = z.infer<ReturnType<typeof profileSchema>>;
 
-export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues', 'weekly', 'corrections', 'programs', 'updates', 'profiles'] as const;
+/**
+ * A calendar day, kept as "YYYY-MM-DD". YAML reads an unquoted date as a
+ * Date at UTC midnight, whose UTC fields are the day the author typed.
+ */
+const isoDay = z.union([z.string(), z.date()]).transform((value, ctx) => {
+  const day = value instanceof Date ? (Number.isNaN(value.getTime()) ? '' : value.toISOString().slice(0, 10)) : value.trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || Number.isNaN(Date.parse(`${day}T12:00:00Z`))) {
+    ctx.addIssue({ code: 'custom', message: `"${String(value)}" is not a date; write it as YYYY-MM-DD` });
+    return z.NEVER;
+  }
+  return day;
+});
+
+/**
+ * One named annual event (src/lib/traditions.ts): content/hub/traditions/<slug>.md,
+ * front matter only. Not lenient, unlike events and places: a tradition
+ * record carries a date a reader plans a December evening around, so the
+ * brief's rule is that the build fails, rather than drops it, when a
+ * confirmed or moved year has no date, no source or no check date.
+ *
+ * An optional field the organizer has not published is left out, never
+ * filled; the schema has no defaults for any of them.
+ */
+export function traditionSchema() {
+  const year = z
+    .object({
+      year: z.number().int().min(1900).max(2100),
+      status: z.enum(TRADITION_STATUSES),
+      /** The day the organizer gives. Required when confirmed or moved. */
+      date: isoDay.optional(),
+      /** "6 pm", as the organizer gives it. */
+      startTime: z.string().min(1).optional(),
+      place: z.string().min(1).optional(),
+      cost: z.string().min(1).optional(),
+      /** When moved: the day it was set for before. */
+      previousDate: isoDay.optional(),
+      /** When moved (required) or canceled (where given): why, in the organizer's words. */
+      reason: z.string().min(1).optional(),
+      /** The organizer page this year was read from, where it is not the record's `sourceUrl`. */
+      sourceUrl: httpUrl.optional(),
+      /** The day a person last read the source. Required on every year. */
+      checked: isoDay,
+    })
+    .strict()
+    .refine((y) => !(y.status === 'confirmed' || y.status === 'moved') || !!y.date, {
+      message: 'a confirmed or moved year needs the date the organizer gives',
+      path: ['date'],
+    })
+    .refine((y) => y.status !== 'moved' || (!!y.previousDate && !!y.reason), {
+      message: 'a moved year needs previousDate and the reason, in the organizer’s words',
+      path: ['reason'],
+    })
+    .refine((y) => y.status !== 'not-announced' || (!y.date && !y.startTime && !y.place && !y.cost), {
+      message: 'a not-announced year carries no date, time, place or cost: nothing is shown until the organizer says it',
+      path: ['status'],
+    })
+    .refine((y) => !y.date || y.date.slice(0, 4) === String(y.year), {
+      message: 'the date is not in this entry’s year',
+      path: ['date'],
+    })
+    .refine((y) => !y.previousDate || y.status === 'moved', { message: 'previousDate goes with status moved', path: ['previousDate'] });
+
+  return z
+    .object({
+      /** Permanent: no year in it. Each year is an entry in `years`. */
+      slug: z
+        .string()
+        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'lowercase words joined by hyphens')
+        .refine((s) => !/(?:^|-)(?:19|20)\d\d(?:-|$)/.test(s), 'a tradition’s slug is permanent: no year in it'),
+      /** The organizer's own name for the event. */
+      name: z.string().min(1),
+      town: z
+        .object({
+          name: z.string().min(1),
+          /** The guide's slug, when the town has one in the network. */
+          guide: z.string().regex(/^[a-z0-9-]+$/).optional(),
+        })
+        .strict(),
+      type: z.enum(TRADITION_TYPES),
+      organizer: z.string().min(1),
+      /** The organizer's page or post the date is read from. */
+      sourceUrl: httpUrl,
+      /** Only when the organizer states it. */
+      firstYear: z.number().int().min(1800).max(2100).optional(),
+      years: z.array(year).min(1),
+      /** A sample record (test/fixtures/traditions/). Never true in content/. */
+      fixture: z.boolean().optional(),
+    })
+    .strict()
+    .refine((r) => r.years.every((y, i) => i === 0 || y.year < r.years[i - 1]!.year), {
+      message: 'years go newest first, one entry per year',
+      path: ['years'],
+    })
+    .refine((r) => !r.firstYear || r.years.every((y) => y.year >= r.firstYear!), {
+      message: 'an entry is older than firstYear',
+      path: ['firstYear'],
+    });
+}
+export type TraditionData = z.infer<ReturnType<typeof traditionSchema>>;
+
+export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues', 'weekly', 'corrections', 'programs', 'updates', 'profiles', 'traditions'] as const;
 export type CollectionName = (typeof COLLECTIONS)[number];
 
 /** The collections that have a staging folder: content/<town>/staging/<collection>/. */
@@ -1641,6 +1742,7 @@ export const schemaFor: Record<CollectionName, (image: ImageSchema) => z.ZodType
   programs: programSchema,
   updates: updateSchema,
   profiles: profileSchema,
+  traditions: () => traditionSchema(),
 };
 
 /**

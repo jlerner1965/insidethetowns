@@ -56,6 +56,12 @@ export interface SiteInput {
    * to land somewhere.
    */
   archive?: RegExp;
+  /**
+   * Whether the tradition fixtures were switched on for this build
+   * (TRADITIONS_FIXTURES=1, src/lib/traditions.ts). Without it, a page
+   * carrying a sample record (`data-fixture`) is a problem: fixtures never ship.
+   */
+  fixtures?: boolean;
 }
 
 export interface Manifest {
@@ -453,6 +459,9 @@ export function checkSite(input: SiteInput): { problems: Problem[]; manifest: Ma
 
   for (const page of pages.values()) {
     const { scan, path } = page;
+    if (!input.fixtures && scan.tags.some((t) => 'data-fixture' in t.attrs)) {
+      add('fixture-shipped', path, 'carries a sample tradition record (data-fixture) in a build without TRADITIONS_FIXTURES=1; fixtures never ship');
+    }
     if (page.refresh !== undefined) {
       // A former slug's redirect page: where it goes has to be there, and be the end of the road.
       moved[path] = page.refresh;

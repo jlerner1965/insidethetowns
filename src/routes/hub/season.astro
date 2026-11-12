@@ -1,0 +1,130 @@
+---
+/**
+ * The hub's season page for one kind of tradition: /parades-of-lights/,
+ * /tree-lightings/ (src/lib/traditions.ts). Permanent addresses with no
+ * year in them; the season and year are in the eyebrow and the title, and
+ * change when CURRENT_SEASONS does.
+ *
+ * Top to bottom: the eyebrow ("Colorado · winter 2026"), the title, one
+ * line of counts from the records, "Find your town", the pills to the
+ * other season pages, the rows A to Z by town, and the correction line.
+ * A row for a town with a guide links to that guide's /traditions/; any
+ * other links to the organizer's own page.
+ *
+ * The town filter is the page's only script, and the field is hidden until
+ * it runs: without it the page is the whole list, which is complete.
+ *
+ * One file at several fixed paths (src/integrations/town-routes.ts,
+ * seasonRoutes), reading its type off its own URL, as the place-type pages do.
+ */
+import Page from '@/layouts/Page.astro';
+import TraditionRow from '@/components/TraditionRow.astro';
+import { getHub, liveTowns } from '@/config';
+import { getTraditions } from '@/lib/content';
+import { dayKey } from '@/lib/dates';
+import { collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, seasonCounts, seasonRows, type TraditionType } from '@/lib/traditions';
+
+const hub = getHub();
+const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const type = TRADITION_TYPES.find((t) => TRADITION_TYPE_INFO[t].path === path);
+if (!type) throw new Error(`season.astro was built at ${path}, which is no tradition type's page (src/lib/traditions.ts).`);
+const info = TRADITION_TYPE_INFO[type];
+const season = CURRENT_SEASONS[type]!;
+const today = dayKey(new Date());
+const records = await getTraditions();
+const rows = seasonRows(records, type, today);
+const counts = seasonCounts(rows);
+const guides = new Map(liveTowns().map((t) => [t.slug, t]));
+
+/** The other season pages that are built: the types with a season and a row for it. */
+const pages = TRADITION_TYPES.filter((t: TraditionType) => seasonRows(records, t, today).length > 0);
+
+const hrefFor = (row: (typeof rows)[number]): string => {
+  const guide = row.record.town.guide ? guides.get(row.record.town.guide) : undefined;
+  return guide ? `https://${guide.domain}/traditions/#${row.record.slug}` : row.source;
+};
+
+const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
+const countLine = `${plural(counts.towns, 'town', 'towns')} listed · ${plural(counts.confirmed, 'date', 'dates')} confirmed`;
+
+const title = `${info.plural}, town by town`;
+const seoTitle = `${info.plural} in Colorado, ${season.season} ${season.year}`;
+const description = `Colorado ${info.plural.toLowerCase()} for ${season.season} ${season.year}, town by town: the date each organizer has published, or that it has not yet, with the page it was read from.`;
+const pageUrl = `https://${hub.domain}${path}`;
+const structured = [
+  collectionPageJsonLd(hub, {
+    name: seoTitle,
+    description,
+    path,
+    items: rows.map((r) => ({ name: `${r.record.name} — ${r.record.town.name}`, url: hrefFor(r) })),
+  }),
+  ...rows.map((r) => traditionEventJsonLd(r.record, r.entry, pageUrl)).filter((e) => !!e),
+];
+const subject = `[Correction] ${info.plural}, ${season.season} ${season.year}`;
+const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
+const pill =
+  'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary aria-[current=page]:border-primary aria-[current=page]:bg-primary aria-[current=page]:text-white';
+---
+<Page title={title} {seoTitle} eyebrow={`Colorado · ${season.season} ${season.year}`} {description} intro={countLine} jsonLd={structured}>
+  <div data-town-filter hidden class="mb-5 max-w-sm">
+    <label for="town-filter" class="block text-sm font-semibold">Find your town</label>
+    <input
+      id="town-filter"
+      type="search"
+      autocomplete="off"
+      class="mt-1.5 block w-full rounded-md border border-field-line bg-raised px-3 py-2.5 text-[1.0625rem]"
+      data-town-filter-input
+    />
+    <p class="sr-only" role="status" data-town-filter-status></p>
+  </div>
+
+  {pages.length > 1 && (
+    <nav aria-label="Other traditions this season" class="mb-10 flex flex-wrap gap-2">
+      {pages.map((t) => (
+        <a href={TRADITION_TYPE_INFO[t].path} aria-current={t === type ? 'page' : undefined} class={pill}>{TRADITION_TYPE_INFO[t].plural}</a>
+      ))}
+    </nav>
+  )}
+
+  <section aria-labelledby="rows-heading">
+    <h2 id="rows-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">A to Z by town</h2>
+    <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
+      {rows.map((row) => <TraditionRow row={row} eyebrow="town" href={hrefFor(row)} />)}
+    </div>
+    <p data-town-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+      No town by that name on this page yet.
+    </p>
+  </section>
+
+  <p class="mt-12 rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
+    Town missing, or a date wrong? <a href={mailto} class="font-semibold underline">Tell us</a>. Every date links to the page it was read from.
+  </p>
+</Page>
+
+<script>
+  /*
+   * "Find your town": hides the rows whose town does not contain what the
+   * reader types. The page's only script; the field stays hidden without it.
+   */
+  const box = document.querySelector<HTMLElement>('[data-town-filter]');
+  const input = document.querySelector<HTMLInputElement>('[data-town-filter-input]');
+  const status = document.querySelector<HTMLElement>('[data-town-filter-status]');
+  const empty = document.querySelector<HTMLElement>('[data-town-filter-empty]');
+  const rows = [...document.querySelectorAll<HTMLElement>('[data-tradition-row]')];
+  if (box && input) {
+    box.hidden = false;
+    const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+    input.addEventListener('input', () => {
+      const q = norm(input.value);
+      let shown = 0;
+      for (const row of rows) {
+        const match = !q || norm(row.dataset.town ?? '').includes(q);
+        row.hidden = !match;
+        if (match) shown++;
+      }
+      if (empty) empty.hidden = shown > 0;
+      if (status) status.textContent = q ? `${shown} of ${rows.length} shown` : '';
+    });
+  }
+</script>
