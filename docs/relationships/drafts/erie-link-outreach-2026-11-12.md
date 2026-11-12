@@ -49,7 +49,7 @@ and on https://members.eriechamber.org/contact/.
 
 Hello Pat,
 
-I'm James Lerner, and I publish Inside Erie (https://insideerie.com), an independent local guide to Erie, Colorado; nobody pays to be listed. The Parade of Lights and Country Christmas on December 4 is on the guide at https://insideerie.com/events/parade-of-lights/, read from the Chamber's calendar and linked back to it, as Brewfest and the Town Fair were.
+I'm James Lerner, and I publish Inside Erie (https://insideerie.com), an independent local guide to Erie, Colorado; nobody pays to be listed. The Parade of Lights and Country Christmas on December 4 is on the guide at https://insideerie.com/events/parade-of-lights/, read from the Chamber's page and linked back to it, as Brewfest and the Town Fair were.
 
 One small ask. Your Community Resources page lists local newspapers and services. If the guide's events calendar (https://insideerie.com/events/) belongs there, I'd be glad to be included.
 
@@ -175,7 +175,7 @@ Erie Economic Development Council. No person is named.
 
 Hello,
 
-I'm James Lerner, and I publish Inside Erie (https://insideerie.com), an independent local guide to Erie, Colorado; nobody pays to be listed. Your self-guided tour of historic downtown is on the guide at https://insideerie.com/places/downtown-walking-tour/, and https://insideerie.com/articles/explore-erie-in-walking-order/ walks Briggs Street in order. Both name downtownerie.biz as the source and link to it.
+I'm James Lerner, and I publish Inside Erie (https://insideerie.com), an independent local guide to Erie, Colorado; nobody pays to be listed. Your self-guided tour of historic downtown is on the guide at https://insideerie.com/places/downtown-walking-tour/, and https://insideerie.com/articles/explore-erie-in-walking-order/ walks four downtown places in order. Both name downtownerie.biz as the source and link to it.
 
 One small ask. If your Events page has room, a link to the guide's calendar (https://insideerie.com/events/) would give visitors the week's full list downtown, from the Parade of Lights to the Wednesday music at the Old Mine.
 
@@ -210,4 +210,4 @@ Thank you,
 James Lerner
 Inside Erie · hello@insideerie.com
 
-**Note for James:** Eighteen upcoming listings come from the Old Mine's page, more than any other business in Erie. A bar's site rarely links out, so the point is a contact for changes; if a link comes it would be on https://www.theoldmine.com/events. Confirm the right inbox by phone or in person before using Max's address.
+**Note for James:** Eighteen upcoming listings come from the Old Mine's page, more than any other business in Erie. A bar's site rarely links out, so the point is a contact for changes; if a link comes it would be on https://www.theoldmine.com/events. Confirm the right inbox by phone or in person before using Max's address. The home page's hours block has a Monday line and the guide's listing says closed Mondays; read both before sending.
