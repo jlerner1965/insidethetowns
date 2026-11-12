@@ -20,7 +20,7 @@ import { existsSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
 import { hubRoutes } from '../src/integrations/town-routes.ts';
 
-const FLAGSHIPS = ['berthoud', 'niwot', 'lyons', 'windsor', 'erie', 'johnstown', 'golden', 'lafayette', 'frederick', 'timnath'];
+const FLAGSHIPS = ['berthoud', 'niwot', 'lyons', 'windsor', 'erie', 'johnstown', 'golden', 'lafayette', 'carbon-valley', 'timnath'];
 const by = (slug: string) => towns.find((t) => t.slug === slug)!;
 
 test('each flagship has the flagship layout and the three hubs; no other guide does', () => {
@@ -71,7 +71,7 @@ test('every guide has the same menu, built from what it has: the week (Updates o
   assert.equal(townNav(by('niwot'))[0]?.href, '/updates/');
   // One word on every guide (the owner, 6 November 2026): Johnstown's Roosevelt High and Frederick High alike.
   assert.equal(townNav(towns.find((t) => t.slug === 'johnstown')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
-  assert.equal(townNav(towns.find((t) => t.slug === 'frederick')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
+  assert.equal(townNav(towns.find((t) => t.slug === 'carbon-valley')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
   // A guide that follows several schools says so: Windsor's two (Windsor High and Severance High), as Loveland's four did until that guide was folded on 12 November 2026.
   assert.equal(townNav(towns.find((t) => t.slug === 'windsor')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
   // Erie follows Erie High since 25 October 2026, so its menu carries Erie High in the third slot.

@@ -36,7 +36,10 @@ const names = (list: { name: string }[]) =>
   list.length > 1 ? `${list.slice(0, -1).map((t) => t.name).join(', ')} and ${list[list.length - 1]!.name}` : (list[0]?.name ?? '');
 const visitor = liveTowns().filter((t) => t.visitorGuide);
 const paused = liveTowns().filter((t) => t.quiet);
-const uncovered = liveTowns().length - towns.length;
+// A guide that lists no events (`lead: 'updates'`, Niwot) has no week to
+// send, by design and not "yet": it is named apart from the others.
+const noEvents = liveTowns().filter((t) => t.lead === 'updates');
+const uncovered = liveTowns().length - towns.length - noEvents.length;
 ---
 <Page
   title="The weekly email"
@@ -72,6 +75,11 @@ const uncovered = liveTowns().length - towns.length;
       <li>Places added to the guides since the last one, and places that closed.</li>
       <li>A new article from the guides, when there is one.</li>
     </ul>
+    {noEvents.length > 0 && (
+      <p>
+        {names(noEvents.map((t) => ({ name: t.siteTitle })))} {noEvents.length === 1 ? 'lists' : 'list'} no events, so there is no weekly edition and no box for {noEvents.length === 1 ? 'it' : 'them'} above; {noEvents.length === 1 ? 'it posts' : 'they post'} updates on {noEvents.length === 1 ? 'its' : 'their'} own site when there is one.
+      </p>
+    )}
     {uncovered > 0 && (
       <p>
         {uncovered === 1 ? 'One' : uncovered} of the {liveTowns().length} guides {uncovered === 1 ? 'has' : 'have'} no edition yet, so there is no box for {uncovered === 1 ? 'it' : 'them'} above.

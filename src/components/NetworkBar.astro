@@ -2,8 +2,8 @@
 /**
  * Thin strip at the very bottom of every site, saying where this guide sits.
  *
- * On a guide: the hub, then "Sister guides", every other live guide by name,
- * A to Z, generated from the town configs. An earlier version carried only
+ * On a guide: the hub, then "Nearby guides", its neighbours among the
+ * seven guides, generated from the town configs. An earlier version carried only
  * the hub link, on the reasoning that a permanent list of towns on every page
  * reads as a link network; the owner chose the list (5 October 2026) so a
  * reader on one guide can see the others exist.
@@ -27,9 +27,8 @@ import { getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
 
 const site = getSite();
 const hub = getNetworkHub();
-// A to Z on the hub as on the guides, so a town is in the same place in both lists.
-const byName = (a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name, 'en');
-const guides = site.kind === 'hub' ? [...liveTowns()].sort(byName) : [];
+// The seven guides in the one order every list uses (liveTowns()).
+const guides = site.kind === 'hub' ? liveTowns() : [];
 // Every guide names its neighbours and the hub, not every guide (the
 // flagships from 21 October 2026, every guide from the navigation audit of
 // 22 October: 19 sister guides with their taglines were some 200 words of

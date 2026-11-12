@@ -142,17 +142,37 @@ export const HUB_TOWNS: readonly HubTown[] = [
 
 /**
  * The seven standalone guides, by the slug a record names them with, and
- * the config each is built from. `carbon-valley` is the brief's name for
- * the guide to Frederick, Firestone and Dacono; since 2 November 2026 that
- * guide is Inside Frederick (src/config/towns/frederick.ts), and the old
- * carbonvalleyguide.com forwards to it.
+ * the config each is built from, in the order of the owner's brief: the
+ * five sports-led guides, then Lyons, then Niwot. This is the one list of
+ * guides, and its order is the order every page lists them in
+ * (`liveTowns()` in src/config/index.ts reads it). A guide that is live
+ * but not here (Elizabeth, until its page on the hub qualifies) still
+ * builds and is listed nowhere.
+ *
+ * `carbon-valley` is the guide to Frederick, Firestone and Dacono.
+ * Frederick is not a guide of its own: insidefrederickco.com forwards to
+ * Carbon Valley (src/config/towns/frederick.ts).
  */
-export const STANDALONE_GUIDES: Readonly<Record<string, { guide: string; kind: 'sports' | 'outdoors' | 'quiet' }>> = {
+export const STANDALONE_GUIDES: Readonly<
+  Record<
+    string,
+    {
+      guide: string;
+      kind: 'sports' | 'outdoors' | 'quiet';
+      /**
+       * The towns a guide to more than one covers, by name: a record at
+       * home there names the town its event is held in ("Frederick"), not
+       * the guide. Absent on a guide to one town, whose name is the town's.
+       */
+      towns?: readonly string[];
+    }
+  >
+> = {
   berthoud: { guide: 'berthoud', kind: 'sports' },
   erie: { guide: 'erie', kind: 'sports' },
   johnstown: { guide: 'johnstown', kind: 'sports' },
   windsor: { guide: 'windsor', kind: 'sports' },
-  'carbon-valley': { guide: 'frederick', kind: 'sports' },
+  'carbon-valley': { guide: 'carbon-valley', kind: 'sports', towns: ['Frederick', 'Firestone', 'Dacono'] },
   lyons: { guide: 'lyons', kind: 'outdoors' },
   niwot: { guide: 'niwot', kind: 'quiet' },
 };

@@ -30,7 +30,7 @@ import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { COLLECTIONS, FEED_TYPES, STAGED_COLLECTIONS, changeSchema, schemaFor, type CollectionName } from '../src/content/schemas.ts';
-import { allSites, findTown, liveTowns } from '../src/config/index.ts';
+import { allSites, deployedTowns, findTown } from '../src/config/index.ts';
 import { describeExclusion, eventExclusion, placeExclusion } from '../src/lib/freshness.ts';
 import { describeCounts, launchCounts } from './lib/launch.ts';
 import { readRegistry, registryIssues } from '../src/lib/sources.ts';
@@ -42,7 +42,7 @@ import { hoursTextByDesign, parseHoursText } from '../src/lib/hours.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
 import { nextEventIssues, retiredLedgerIssues } from '../src/lib/former-slugs.ts';
-import { findHubTown } from '../src/config/hub-towns.ts';
+import { STANDALONE_GUIDES, findHubTown } from '../src/config/hub-towns.ts';
 import { placeKey } from '../src/lib/hub-towns.ts';
 import { STALE_CHECK_DAYS, STALE_WITHIN_DAYS, staleSoon, type TraditionRecord } from '../src/lib/traditions.ts';
 
@@ -147,9 +147,11 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     // or a standalone guide (src/config/hub-towns.ts), or, for a guide not
     // yet folded, the live guide itself.
     const guide = record.town?.guide;
-    if (guide && !placeKey(guide) && !liveTowns().some((t) => t.slug === guide)) errors.push(`${rel}: town.guide "${guide}" is not a hub town, a standalone guide or a live guide`);
+    if (guide && !placeKey(guide) && !deployedTowns().some((t) => t.slug === guide)) errors.push(`${rel}: town.guide "${guide}" is not a hub town, a standalone guide or a live guide`);
     const named = guide ? (findHubTown(placeKey(guide) ?? '')?.name ?? findTown(guide)?.name) : undefined;
-    if (named && named !== record.town!.name) errors.push(`${rel}: town.name "${record.town!.name}" is not ${guide}'s name, "${named}"`);
+    // A guide to several towns: the record names the one its event is in.
+    const covered = guide ? STANDALONE_GUIDES[placeKey(guide) ?? '']?.towns : undefined;
+    if (named && named !== record.town!.name && !covered?.includes(record.town!.name)) errors.push(`${rel}: town.name "${record.town!.name}" is not ${guide}'s name, "${named}"`);
     for (const t of record.towns ?? []) if (!placeKey(t.slug)) errors.push(`${rel}: towns names "${t.slug}", which is not a hub town or a standalone guide`);
   }
   // A staged entry must say why it is waiting; a published one must not
@@ -282,7 +284,7 @@ function validateFile(collection: CollectionName, file: string, town: string, st
 // live town with no figure does not just leave a gap — it quietly makes the
 // headline number wrong. Elizabeth did exactly that: seven guides, six
 // populations, a total that was 1,675 short and looked authoritative.
-for (const town of liveTowns()) {
+for (const town of deployedTowns()) {
   if (!town.population) {
     errors.push(`src/config/towns/${town.slug}.ts: live town has no population; the network total on the hub would undercount`);
   }
@@ -307,7 +309,7 @@ function checkFormActions() {
   const posts: { where: string; url: string }[] = [];
   const action = hub.newsletter?.action;
   if (action) posts.push({ where: 'src/config/towns/hub.ts: newsletter.action', url: action });
-  for (const town of liveTowns()) {
+  for (const town of deployedTowns()) {
     if (town.formspreeId) {
       posts.push({
         where: `src/config/towns/${town.slug}.ts: formspreeId`,
@@ -340,7 +342,7 @@ checkFormActions();
  * browser while the dashboard just shows nobody came.
  */
 function checkPlausible() {
-  const towns = liveTowns().filter((town) => town.plausible);
+  const towns = deployedTowns().filter((town) => town.plausible);
   const vercelJson = join(root, 'vercel.json');
   if (towns.length === 0 || !existsSync(vercelJson)) return;
   const directive = /connect-src ([^;"]*)/.exec(readFileSync(vercelJson, 'utf8'));
@@ -542,7 +544,7 @@ checkRepeatSlugs();
 const pending: string[] = [];
 if (!hub.rates?.length) pending.push('/advertise/ has no rate card (hub.rates) — it invites founding-partnership enquiries');
 if (!hub.newsletter) pending.push('the weekly email is dark (hub.newsletter) — no signup renders anywhere');
-if (!liveTowns().some((t) => t.ga4Id) && !hub.ga4Id && hub.analytics !== true) {
+if (!deployedTowns().some((t) => t.ga4Id) && !hub.ga4Id && hub.analytics !== true) {
   pending.push('no site measures traffic — /advertise/ cannot quote an audience');
 }
 // An error, not a warning: without a start date /advertise/ has no way to know
@@ -634,8 +636,8 @@ if (!existsSync(contentDir)) {
 // The ledger of listings that came off (content/<town>/retired.json,
 // src/lib/former-slugs.ts): a slug still live, a target that is not, or a
 // file the build could not read would each make a redirect wrong or missing.
-for (const town of liveTowns()) for (const issue of retiredLedgerIssues(town.slug, contentDir)) errors.push(issue);
-for (const town of liveTowns()) for (const issue of nextEventIssues(town.slug, contentDir)) errors.push(`content/${issue}`);
+for (const town of deployedTowns()) for (const issue of retiredLedgerIssues(town.slug, contentDir)) errors.push(issue);
+for (const town of deployedTowns()) for (const issue of nextEventIssues(town.slug, contentDir)) errors.push(`content/${issue}`);
 
 // Traditions dated in the next 30 days whose check is over 14 days old: a
 // list, never a failure (src/lib/traditions.ts, staleSoon). The date was

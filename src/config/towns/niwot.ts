@@ -11,13 +11,14 @@ export const niwot: TownConfig = {
   name: 'Niwot',
   domain: 'insideniwot.com',
   siteTitle: 'Inside Niwot',
-  tagline: 'An independent guide to Niwot, Colorado: what’s on, where to eat, where to walk, and what it’s like to live here.',
+  // "Local updates", not "what's on": the guide lists no events since 12 November 2026.
+  tagline: 'An independent guide to Niwot, Colorado: local updates, where to eat, where to walk, and what it’s like to live here.',
   // An enduring line, since 21 October 2026: the incorporation vote of
   // 3 November 2026 was in this tagline for a month and belongs in dated
   // coverage instead (the election explainer, the local-changes notice and
   // the home page's dated line), where it can be retired the morning after.
   shortTagline: 'Old Town, the trails, and the people who run the place',
-  seoTagline: 'Old Town, trails and events in Niwot, Colorado',
+  seoTagline: 'Old Town, trails and updates in Niwot, Colorado',
   counties: ['Boulder'],
   state: 'CO',
   lat: 40.1039,

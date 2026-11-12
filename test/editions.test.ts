@@ -14,14 +14,14 @@ import type { TownConfig } from '../src/config/towns/types.ts';
 
 const t = (slug: string, name: string, extra: Partial<TownConfig> = {}) => ({ slug, name, ...extra }) as TownConfig;
 
-test('a shared edition holds its towns, the rest are editions of one, A to Z', () => {
+test('a shared edition holds its towns, the rest are editions of one, in the order given', () => {
   const covered = [t('windsor', 'Windsor'), t('timnath', 'Timnath'), t('erie', 'Erie')];
   const editions = editionsOf(covered, [{ slug: 'windsor-timnath', name: 'Windsor and Timnath', towns: ['windsor', 'timnath'] }]);
-  assert.deepEqual(editions.map((e) => e.slug), ['erie', 'windsor-timnath']);
-  const shared = editions[1]!;
+  assert.deepEqual(editions.map((e) => e.slug), ['windsor-timnath', 'erie']);
+  const shared = editions[0]!;
   assert.equal(shared.shared, true);
   assert.deepEqual(shared.towns.map((x) => x.slug), ['windsor', 'timnath'], 'the lead town first');
-  assert.equal(editions[0]!.shared, false);
+  assert.equal(editions[1]!.shared, false);
   assert.equal(editionFor('timnath', editions), shared);
   assert.equal(editionFor('lyons', editions), undefined);
 });
@@ -56,11 +56,13 @@ test('no shared edition is left, and six editions in all', () => {
   // edition (the last shared one) and Golden's, and Niwot became a quiet
   // guide that lists no events (`lead: 'updates'`), so it has none; Lafayette's
   // closed with its guide later the same day: six, each an edition of one.
+  // Frederick's is Carbon Valley's since the same day (the brief: Frederick
+  // is covered by Carbon Valley), and the six come in the guides' own order.
   const editions = emailEditions();
   assert.deepEqual(hub.newsletter?.editions, [], 'the hub configures no shared edition');
   const shared = editions.filter((e) => e.shared).map((e) => [e.slug, e.towns.map((x) => x.slug)]);
   assert.deepEqual(shared, []);
-  assert.deepEqual(editions.map((e) => e.slug), ['berthoud', 'erie', 'frederick', 'johnstown', 'lyons', 'windsor']);
+  assert.deepEqual(editions.map((e) => e.slug), ['berthoud', 'erie', 'johnstown', 'windsor', 'carbon-valley', 'lyons']);
   assert.equal(editions.length, 6);
   // Every covered guide in exactly one edition.
   const placed = editions.flatMap((e) => e.towns.map((x) => x.slug)).sort();

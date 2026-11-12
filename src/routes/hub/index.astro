@@ -22,12 +22,13 @@ import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, seasonRows } fro
 import { dayKey } from '@/lib/dates';
 import { formatDayRange } from '@/lib/dates';
 import { forGeneralReaders, highlights, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
-import { LIVE_TOWNS, countiesCovered, getHub } from '@/config';
+import { countiesCovered, getHub, liveTowns } from '@/config';
 import { schoolsFor, schoolTeamName, sportsPath } from '@/config/school-sports';
 import { groupByRegion } from '@/lib/regions';
 import { wordmarkParts } from '@/lib/titles';
 
-const hub = getHub();
+// Throws on any build but the hub's.
+getHub();
 /**
  * The town pages (the restructure of 12 November 2026): every town that is
  * not a standalone guide and has three verified dated items of its own,
@@ -40,27 +41,29 @@ const clusters = byCluster(pages);
 /** The season pages that are built: a tradition type with a season set and a row for it. */
 const seasonPages = TRADITION_TYPES.filter((t) => CURRENT_SEASONS[t] && seasonRows(records, t, dayKey(new Date())).length > 0);
 /**
- * Only live guides reach this page: the picker, the cards, the map and the
- * counts all read `live`. A town whose status is not `live` is not named
- * here at all until the owner flips it (6 October 2026); its domain serves a
- * holding page and the hub does not point at it.
+ * Only the seven standalone guides reach this page, in the one order every
+ * list uses (liveTowns()): the picker, the cards, the map and the counts
+ * all read `live`. Any other town is a page under "Town pages" or is not
+ * named here at all.
  */
-const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
+const live = liveTowns();
 /**
  * Most visitors came for one town. On a phone the cards were two screens of
- * events and a map away, so the hero ends in a row of names, A to Z, drawn
- * from the same live list as the cards so the two cannot disagree.
+ * events and a map away, so the hero ends in a row of names, drawn from
+ * the same list as the cards so the two cannot disagree.
  */
-const atoz = [...live].sort((a, b) => a.name.localeCompare(b.name, 'en'));
-/** The cards, one group per region in TOWN_REGIONS order, A to Z within each; an empty region is not drawn. */
+const atoz = live;
+/** The cards, one group per region in TOWN_REGIONS order, the guides' order within each; an empty region is not drawn. */
 const regions = groupByRegion(live);
 // The guides that follow a high school, and their schools: the network's
 // scores and schedules, which the hub did not mention (navigation audit,
 // 22 October 2026).
+// Not an outdoors-led guide (`lead: 'outdoors'`, Lyons): sports are off its
+// menu and its home page, so the hub does not send a reader there for them.
 const sports = live
+  .filter((t) => t.lead !== 'outdoors')
   .map((t) => ({ town: t, schools: schoolsFor(t.slug) }))
-  .filter((s) => s.schools.length > 0)
-  .sort((a, b) => a.town.name.localeCompare(b.town.name, 'en'));
+  .filter((s) => s.schools.length > 0);
 const schoolCount = sports.reduce((n, s) => n + s.schools.length, 0);
 const NUMBER: Record<number, string> = { 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten', 11: 'eleven', 12: 'twelve' };
 /**

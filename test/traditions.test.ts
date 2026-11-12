@@ -232,7 +232,11 @@ test('every approved record is valid, named for its slug, real, and names places
     if (rec.town?.guide) {
       const key = placeKey(rec.town.guide);
       assert.ok(key, `${file}: ${rec.town.guide} is not a hub town or a standalone guide`);
-      assert.equal(rec.town.name, findHubTown(key!)?.name ?? findTown(STANDALONE_GUIDES[key!]!.guide)!.name, file);
+      // The town is the page's or the guide's own, or, on the one guide to
+      // three towns, the town of the three the event is held in: Frederick's
+      // Festival of Lights says Frederick, not "Carbon Valley".
+      const names = STANDALONE_GUIDES[key!]?.towns ?? [findHubTown(key!)?.name ?? findTown(STANDALONE_GUIDES[key!]!.guide)!.name];
+      assert.ok(names.includes(rec.town.name), `${file}: ${rec.town.name}`);
     }
     for (const t of rec.towns ?? []) assert.ok(placeKey(t.slug), `${file}: towns names ${t.slug}`);
     // Rule 5: every date has a source and a checked date.

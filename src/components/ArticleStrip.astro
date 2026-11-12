@@ -68,7 +68,7 @@ const link = 'inline-block -my-3 py-3 font-medium text-primary underline';
         </div>
       )}
       <p class="mt-4 text-[0.9375rem]" hidden={!listsEvents(town)}>
-        <a href={listsEvents(town) ? '/this-week/' : '/'} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">This week in {town.name} →</a>
+        <a href={listsEvents(town) ? '/this-week/' : '/'} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{listsEvents(town) ? 'This week in' : 'What’s new in'} {town.name} →</a>
       </p>
     </div>
     {related.length > 0 && (

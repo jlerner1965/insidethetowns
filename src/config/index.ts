@@ -10,6 +10,7 @@ import type { HubConfig, SiteConfig, TownConfig } from './towns/types.ts';
 import { towns } from './towns/registry.ts';
 import { hub } from './towns/hub.ts';
 import { editionsOf, type Edition } from '../lib/editions.ts';
+import { STANDALONE_GUIDES } from './hub-towns.ts';
 
 export type { ConditionsLink, EditorConfig, HubConfig, NewsletterEdition, SiteConfig, TownConfig, TownRegion, TownStatus, TownVariant, NavItem } from './towns/types.ts';
 export type { Edition } from '../lib/editions.ts';
@@ -19,11 +20,19 @@ export { censusGrowth, countiesCovered, countyLabel, countyShort } from './towns
 
 /**
  * Towns that are deployed and public: every config whose `status` is `live`.
- * The hub only links to these, the NetworkBar only lists these, CI builds
- * only these. Set `status: 'live'` on the town's config when its domain
- * serves; there is no second list to keep in step.
+ * CI builds these and the scripts audit, ingest and re-check these. Set
+ * `status: 'live'` on the town's config when its domain serves.
+ *
+ * Not the list of guides a page shows: that is `liveTowns()`, the seven
+ * standalone guides. A site can be deployed and listed nowhere (Elizabeth,
+ * whose guide stays up until its page on the hub qualifies).
  */
 export const LIVE_TOWNS: string[] = towns.filter((t) => t.status === 'live').map((t) => t.slug);
+
+/** Every deployed guide's config, in the registry's order: what the scripts work through. */
+export function deployedTowns(): TownConfig[] {
+  return towns.filter((t) => LIVE_TOWNS.includes(t.slug));
+}
 
 /**
  * Whether a site lists events. Every guide does but a quiet one (`lead:
@@ -46,17 +55,24 @@ export function findTown(slug: string): TownConfig | undefined {
 }
 
 /**
- * A to Z, so the same names come in the same order on every page that lists
- * them: the hub's filter, its signup, the submit form and About had the
- * config's own order (Niwot, Lyons, Berthoud…) while the home page and the
- * footer were alphabetical. A page that wants another order sorts its copy.
+ * The guides, as every page lists them: the seven standalone guides and no
+ * other town, in the order of STANDALONE_GUIDES (src/config/hub-towns.ts):
+ * Berthoud, Erie, Johnstown, Windsor, Carbon Valley, Lyons, Niwot. The hub's
+ * home page, the menus, the footers, the signup, the newsletter page, the
+ * search index, the structured data and About all read this, so the same
+ * seven come in the same order everywhere, and a town is added to or taken
+ * off every list in one place. (Until 12 November 2026 this was every live
+ * config, A to Z, which listed Frederick and Elizabeth as guides.) A guide
+ * here that is not yet `live` is left out, as before.
  */
 export function liveTowns(): TownConfig[] {
-  return towns.filter((t) => LIVE_TOWNS.includes(t.slug)).sort((a, b) => a.name.localeCompare(b.name));
+  return Object.values(STANDALONE_GUIDES)
+    .map(({ guide }) => towns.find((t) => t.slug === guide))
+    .filter((t): t is TownConfig => !!t && LIVE_TOWNS.includes(t.slug));
 }
 
 /**
- * The live guides the weekly email covers, A to Z: every one but a guide
+ * The guides the weekly email covers, in the guides' own order: every one but a guide
  * the owner has made quiet (`quiet`) or a visitor guide (`visitorGuide`).
  * The signup, the newsletter page and the Thursday drafts read this, through
  * `emailEditions()`, so neither is promised a weekly issue.
@@ -67,13 +83,13 @@ export function emailTowns(): TownConfig[] {
   return liveTowns().filter((t) => !t.quiet && !t.visitorGuide && t.lead !== 'updates');
 }
 
-/** The weekly email's editions, A to Z: shared ones from the hub's config, every other covered guide on its own. */
+/** The weekly email's editions, in the guides' order: shared ones from the hub's config, every other covered guide on its own. */
 export function emailEditions(): Edition[] {
   return editionsOf(emailTowns(), hub.newsletter?.editions);
 }
 
 /**
- * The live mountain guides, A to Z: what the Front Range guides' "Up the hill
+ * The live mountain guides (none of the seven is one today): what the Front Range guides' "Up the hill
  * this weekend" strip (UpTheHill.astro) reads. Decided by `variant`, so a
  * mountain town joins the strip the day it goes live and nothing is listed
  * twice.
@@ -88,7 +104,8 @@ export function mountainTowns(): TownConfig[] {
  * not serve a guide yet.
  */
 export function neighborsOf(town: Pick<TownConfig, 'neighbors'>): TownConfig[] {
-  return town.neighbors.map((slug) => findTown(slug)).filter((t): t is TownConfig => !!t && LIVE_TOWNS.includes(t.slug));
+  const guides = new Set(liveTowns().map((t) => t.slug));
+  return town.neighbors.map((slug) => findTown(slug)).filter((t): t is TownConfig => !!t && guides.has(t.slug));
 }
 
 /**

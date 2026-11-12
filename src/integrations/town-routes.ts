@@ -43,6 +43,8 @@ export const EVENT_ROUTES: Array<[pattern: string, file: string]> = [
   ['/events.rss', 'events.rss.ts'],
   ['/events/[slug]', 'events/[slug].astro'],
   ['/submit-event', 'submit-event.astro'],
+  // Where the event form lands; built only with the form.
+  ['/thanks', 'thanks.astro'],
 ];
 
 const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
@@ -56,7 +58,6 @@ const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/for-businesses', 'for-businesses.astro'],
   ['/moving-here', 'moving-here.astro'],
   ['/correct', 'correct.astro'],
-  ['/thanks', 'thanks.astro'],
 ];
 
 /**

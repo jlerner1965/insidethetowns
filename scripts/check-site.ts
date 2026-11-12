@@ -53,6 +53,19 @@ const to = option('manifest') ?? MANIFESTS;
 mkdirSync(to, { recursive: true });
 writeFileSync(join(to, manifestName(site.domain)), JSON.stringify(manifest));
 
+// A guide that only redirects (`status: 'redirect'`: folded, retired or
+// covered by another guide): vercel.json answers every path on its domain
+// before the holding pages it builds are reached, so what those pages link
+// to is never served and there is nothing here for a reader to hit. The
+// redirects themselves are held by test/hub-fold.test.ts,
+// test/folded-towns.test.ts and test/retired-towns.test.ts. Until 12
+// November 2026 each of these builds ended in some 150 "problems" (every
+// menu link "is redirected"), which failed the build anywhere but Vercel.
+if (site.kind === 'town' && site.status === 'redirect') {
+  console.log(`check-site: ${site.domain}: redirect only (${pages} holding pages, every path redirected by vercel.json); nothing to check`);
+  process.exit(0);
+}
+
 if (problems.length === 0) {
   console.log(`check-site: ${site.domain}: ${pages} pages, ${manifest.outbound.length} links to other guides, no problems`);
   process.exit(0);

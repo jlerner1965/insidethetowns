@@ -188,7 +188,8 @@ export const GET: APIRoute = async () => {
     ...places.filter((p) => !p.delisted).map(placeRecord),
     ...articles.map(articleRecord),
     ...indexedEvents(events).map(eventRecord),
-    ...liveTowns().flatMap((t) => sportsRecords(t)),
+    // Not an outdoors-led guide's (Lyons): the hub does not point at sports there.
+    ...liveTowns().filter((t) => t.lead !== 'outdoors').flatMap((t) => sportsRecords(t)),
   ];
   return new Response(JSON.stringify(records.map((r) => ({ url: r.url, html: recordHtml(r) }))), {
     headers: { 'Content-Type': 'application/json' },

@@ -68,15 +68,15 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
 <Page
   title="Advertise & partner"
   eyebrow="Work with us"
-  description={`Reach residents and visitors in Colorado’s Front Range and mountain towns through the ${live.length} Inside the Towns guides. Sponsorship is always labeled.`}
-  intro={`${live.length} independent guides to Colorado towns, on the Front Range and in the mountains, written for people deciding where to go this weekend, or whether to move here at all. Two ways to work with them: a labeled sponsorship, or a community partnership that costs nothing.`}
+  description={`Reach residents and visitors in Colorado’s Front Range towns through the ${live.length} Inside the Towns guides. Sponsorship is always labeled.`}
+  intro={`${live.length} independent guides to Colorado towns on the Front Range, written for people deciding where to go this weekend, or whether to move here at all. Two ways to work with them: a labeled sponsorship, or a community partnership that costs nothing.`}
   narrow
 >
   <div class="prose">
     <p>
-      The guides are written for people who live in, visit, or are about to move to towns and cities on Colorado’s
-      Front Range and in its mountains, from Fort Collins in the north to Elizabeth south-east of Denver and up to
-      Leadville at 10,000 feet. Placements are clearly labeled and never mixed into the editorial listings.
+      The guides are written for people who live in, visit, or are about to move to {live.length} towns on Colorado’s
+      Front Range north of Denver, from Windsor in the north to Erie in the south. Placements are clearly labeled and
+      never mixed into the editorial listings.
     </p>
 
     <h2>What isn’t for sale</h2>
@@ -213,8 +213,9 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
         <li>
           “Nearby this weekend, presented by” your name, on that block on the {withNearby.length} of the {live.length} guides
           that have a neighboring guide, each weekend its neighbors have something on. The block is built from the
-          neighbors’ one-off listings and is not drawn on a weekend with none, and {list(withoutNearby.map((t) => t.name))}{' '}
-          {withoutNearby.length === 1 ? 'has' : 'have'} no neighboring guide yet, so no block.
+          neighbors’ one-off listings and is not drawn on a weekend with none{withoutNearby.length > 0 && (
+            <Fragment>, and {list(withoutNearby.map((t) => t.name))} {withoutNearby.length === 1 ? 'has' : 'have'} no neighboring guide yet, so no block</Fragment>
+          )}.
         </li>
         <li>The same line on every This Weekend page, each guide’s and the network’s.</li>
         {hub.newsletter && <li>A labeled sponsor line in the {sendDay} email.</li>}

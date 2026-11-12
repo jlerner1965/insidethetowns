@@ -10,7 +10,7 @@
  *
  * A guide folded into another (`foldedInto`, status `redirect`) builds this
  * page too, saying where it went, and a retired one (`retired`) says it has
- * closed. vercel.json sends every path on its domain on first, so a reader
+ * closed, or names the guide that took its ground (`retired.successor`). vercel.json sends every path on its domain on first, so a reader
  * should never see it; it is here for the request that gets past the rules.
  */
 import Page from '@/layouts/Page.astro';
@@ -25,6 +25,9 @@ const area = covers ? `${covers}, Colorado` : `${town.name}, Colorado`;
 const home = town.foldedInto && findTown(town.foldedInto.town);
 const moved = home && `https://${home.domain}${town.foldedInto!.path}`;
 const page = town.hubPage && `https://${hub.domain}/${town.hubPage.town}/`;
+// A guide whose ground a live guide took over (`retired.successor`):
+// Frederick, covered by Inside Carbon Valley since 12 November 2026.
+const successor = !page && town.retired?.successor ? findTown(town.retired.successor) : undefined;
 ---
 {page ? (
   <Page
@@ -39,6 +42,22 @@ const page = town.hubPage && `https://${hub.domain}/${town.hubPage.town}/`;
     <div class="prose">
       <p>
         <a href={page}>{town.name} on {hub.siteTitle}</a> has the dates. The guide’s listings are no longer checked, so they are no longer shown.
+      </p>
+    </div>
+  </Page>
+) : successor ? (
+  <Page
+    title={`${town.name} is now on ${successor.siteTitle}`}
+    seoTitle={`${town.name} is now on ${successor.siteTitle}`}
+    eyebrow={town.name}
+    description={`${town.siteTitle} is now part of ${successor.siteTitle}.`}
+    intro={`${town.name}’s events, places and guides are on ${successor.siteTitle}.`}
+    noindex
+    narrow
+  >
+    <div class="prose">
+      <p>
+        <a href={`https://${successor.domain}/`}>{successor.siteTitle}</a> has everything that was here, at the same addresses.
       </p>
     </div>
   </Page>

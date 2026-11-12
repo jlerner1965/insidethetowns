@@ -700,8 +700,10 @@ export function checkNetwork(manifests: Manifest[], redirects: VercelRedirect[],
     }
     if (!network.has(url.hostname)) continue; // off the network: not ours to check
     if (!byDomain.has(url.hostname) && network.get(url.hostname)) continue; // live and not built: reported once by the caller
-    // A parameter in the path stands for many pages; the site it lands on still has to be a guide.
-    if (/\/:[A-Za-z_]/.test(url.pathname)) {
+    // A parameter in the path stands for many pages, as does "$1", what a
+    // trailing "(.*)" matched (insidefrederickco.com keeps every path); the
+    // site it lands on still has to be a guide.
+    if (/\/:[A-Za-z_]/.test(url.pathname) || /\$\d/.test(rule.destination)) {
       if (!byDomain.has(url.hostname)) problems.push({ rule: 'redirect-target', where, detail: `goes to ${rule.destination}: no guide is built at ${url.hostname}` });
       continue;
     }
