@@ -86,4 +86,4 @@ Jeffco Public Schools' [calendar](https://www.jeffcopublicschools.org/calendar) 
 
 ## The events
 
-Thanksgiving morning has [The Great Turkey Chase](/events/great-turkey-chase/) from Parfet Park at 8:30 am, and the Golden Mill serves a free or pay-what-you-can [community lunch](/events/thanksgiving-community-table-golden-mill-2026-11-26/) from 11 am to 3 pm. In December come the [Candlelight Walk](/events/olde-golden-candlelight-walk-2026-12-04/) on the 4th, the [Holiday Parade](/events/olde-golden-holiday-parade/) on the 12th and [Jingle on the Avenue](/events/jingle-on-the-avenue/) on the 19th.
+Thanksgiving morning has [The Great Turkey Chase](/events/great-turkey-chase/) from Parfet Park at 8:30 am, and the Golden Mill serves a free or pay-what-you-can [community lunch](/events/thanksgiving-community-table-golden-mill-2026-11-26/) from 11 am to 3 pm. In December come the [Candlelight Walk](/events/olde-golden-candlelight-walk/) on the 4th, the [Holiday Parade](/events/olde-golden-holiday-parade/) on the 12th and [Jingle on the Avenue](/events/jingle-on-the-avenue/) on the 19th.

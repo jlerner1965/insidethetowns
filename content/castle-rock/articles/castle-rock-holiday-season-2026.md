@@ -22,7 +22,7 @@ sources:
   - { label: "Sudden Fiction Books: upcoming events", url: "https://suddenfictionbooks.com/upcoming-events" }
   - { label: "Town of Castle Rock: Festival Park (read by the owner in a browser; the Town's site refuses automated reads)", url: "https://www.crgov.com/facilities/facility/details/festivalpark" }
 related:
-  - { label: "Castle Rock Starlighting", href: "/events/castle-rock-starlighting-2026-11-21/", note: "The Chamber's opener, Saturday, November 21." }
+  - { label: "Castle Rock Starlighting", href: "/events/castle-rock-starlighting/", note: "The Chamber's opener, Saturday, November 21." }
   - { label: "Holiday Carriage Rides", href: "/events/holiday-carriage-rides-2026-11-22/", note: "Online tickets from noon on November 18." }
   - { label: "Castle Rock Museum", href: "/places/castle-rock-museum/", note: "Santa at the depot on December 12." }
 ---

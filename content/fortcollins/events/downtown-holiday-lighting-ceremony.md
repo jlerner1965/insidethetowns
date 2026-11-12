@@ -1,5 +1,7 @@
 ---
 title: "Downtown Holiday Lighting Ceremony"
+annual: true
+formerSlugs: [downtown-holiday-lighting-ceremony-2026-11-06]
 start: "2026-11-06T17:30"
 end: "2026-11-06T19:00"
 venue: "Old Town Square"
