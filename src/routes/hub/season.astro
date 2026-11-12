@@ -19,6 +19,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
+import DateCorrection from '@/components/DateCorrection.astro';
 import { findTown, getHub } from '@/config';
 import { STANDALONE_GUIDES, findHubTown } from '@/config/hub-towns';
 import { homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
@@ -69,9 +70,7 @@ const dated = season.year !== undefined;
 const when = dated ? `${season.season} ${season.year}` : season.season;
 
 const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
-const countLine = dated
-  ? `${plural(counts.towns, 'town', 'towns')} listed · ${plural(counts.confirmed, 'date', 'dates')} confirmed`
-  : `${plural(rows.length, 'date', 'dates')} listed · ${counts.confirmed} with a date ahead`;
+
 
 const title = dated ? `${info.plural}, town by town` : `${info.plural} in Colorado`;
 const seoTitle = `${info.plural} in Colorado, ${when}`;
@@ -86,14 +85,24 @@ const structured = [
     path,
     items: rows.map((r) => ({ name: r.record.town ? `${r.record.name} — ${r.record.town.name}` : r.record.name, url: hrefFor(r) })),
   }),
-  ...rows.map((r) => traditionEventJsonLd(r.record, r.entry, pageUrl)).filter((e) => !!e),
+  // Never an Event for a date that has passed.
+  ...rows.map((r) => (r.past ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
 ];
 const subject = `[Correction] ${info.plural}, ${when}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary aria-[current=page]:border-primary aria-[current=page]:bg-primary aria-[current=page]:text-white';
 ---
-<Page title={title} {seoTitle} eyebrow={`Colorado · ${when}`} {description} intro={countLine} jsonLd={structured}>
+<Page title={title} {seoTitle} eyebrow={`Colorado · ${when}`} {description} jsonLd={structured}>
+  {/* The count line, with the number of dates still to come in a span the
+      page corrects for the reader's own day (DateCorrection). */}
+  <p slot="after-header" class="mt-3 max-w-2xl text-[1.0625rem] leading-relaxed text-ink-muted md:text-lg" data-count-line>
+    {dated ? (
+      <Fragment>{plural(counts.towns, 'town', 'towns')} listed · <span data-date-count="dates">{plural(counts.confirmed, 'date', 'dates')}</span> confirmed</Fragment>
+    ) : (
+      <Fragment>{plural(rows.length, 'date', 'dates')} listed · <span data-date-count="ahead">{counts.confirmed}</span> with a date ahead</Fragment>
+    )}
+  </p>
   <div data-town-filter hidden class="mb-5 max-w-sm">
     <label for="town-filter" class="block text-sm font-semibold">Find your town</label>
     <input
@@ -127,6 +136,7 @@ const pill =
   <p class="mt-12 rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
     Town missing, or a date wrong? <a href={mailto} class="font-semibold underline">Tell us</a>. Every date links to the page it was read from.
   </p>
+  <DateCorrection />
 </Page>
 
 <script>

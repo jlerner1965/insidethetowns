@@ -1,0 +1,29 @@
+{
+ "fetched": "2026-11-12",
+ "readings": [
+  {
+   "triplet": "564:CO:SNTL",
+   "date": "2026-11-11",
+   "swe": 0.4,
+   "median": 1
+  },
+  {
+   "triplet": "415:CO:SNTL",
+   "date": "2026-11-11",
+   "swe": 0.3,
+   "median": 1.7
+  },
+  {
+   "triplet": "485:CO:SNTL",
+   "date": "2026-11-11",
+   "swe": 0.9,
+   "median": 2.6
+  },
+  {
+   "triplet": "380:CO:SNTL",
+   "date": "2026-11-11",
+   "swe": 0.6,
+   "median": 1.1
+  }
+ ]
+}

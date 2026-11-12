@@ -213,7 +213,16 @@ const structured = collectionPageJsonLd(hub, {
   if (weekendList && laterList) {
     for (const day of document.querySelectorAll<HTMLElement>('[data-day]')) {
       const when = day.dataset.day!;
-      const target = when >= key(start) && when <= key(sunday) ? weekendList : laterList;
+      // A day between today and the reader's weekend: the build never puts
+      // one on this page (`before` in weekendSections), and on a stale
+      // build the days that were "the two weeks after" become exactly
+      // that. Left in, Monday to Thursday sorted to the top of "Coming up",
+      // under the weekend they come before (reviews of 12 November 2026).
+      if (when < key(start)) {
+        day.remove();
+        continue;
+      }
+      const target = when <= key(sunday) ? weekendList : laterList;
       if (day.parentElement !== target) target.append(day);
     }
     // Days arrive in whatever order they were moved; put them back in date order.

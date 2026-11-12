@@ -16,6 +16,7 @@
  * to go is exactly who needs to see it — with the label and the title struck
  * through, so nobody drives to a meeting the Town has called off.
  */
+import { isFreeCost } from '@/lib/cost';
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayRange, formatMonthDay, formatTime, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
@@ -115,7 +116,7 @@ const note =
   data-start-day={dayKey(data.start)}
   data-event-day={lastDay(event)}
   data-end={toIsoLocal(listedUntil(event))}
-  data-free={/^free\b/i.test(data.cost ?? '') ? 'true' : undefined}
+  data-free={isFreeCost(data.cost) ? 'true' : undefined}
   data-status={statusLabel ? data.status : undefined}
   data-sub-town={data.subTown}
   data-regular={regular ? '' : undefined}

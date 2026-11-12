@@ -31,6 +31,7 @@
 import { Image } from 'astro:assets';
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
+import DateCorrection from '@/components/DateCorrection.astro';
 import { findTown, getHub } from '@/config';
 import { HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getTraditions } from '@/lib/content';
@@ -39,6 +40,7 @@ import { findSiteImage } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
 import { bySeason, lineFor, nearbyPages, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, statewideSummary, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
+import { FLOW_SOURCES, SNOW_SOURCE, formatCfs, percentOfMedian, riverFlow, snowpack, type FlowData, type SnowData } from '@/lib/town-signals';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
 import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { isUpcoming, type TraditionRow as Row } from '@/lib/traditions';
@@ -122,7 +124,9 @@ const marks = traditions.flatMap((r) => {
   const date = set ? r.entry.date : r.lastHeld;
   if (!date) return [];
   const label = `${r.record.name}: ${set ? '' : 'last held '}${formatDayLong(parseLocal(date))}, ${date.slice(0, 4)}${set ? '' : '; next date not yet announced'}`;
-  return [{ slug: r.record.slug, month: Number(date.slice(5, 7)) - 1, set, label, name: r.record.name }];
+  // What the mark says once its date has passed, for the reader's own day (DateCorrection).
+  const labelPast = `${r.record.name}: last held ${formatDayLong(parseLocal(date))}, ${date.slice(0, 4)}; next date not yet announced`;
+  return [{ slug: r.record.slug, month: Number(date.slice(5, 7)) - 1, set, label, labelPast, name: r.record.name }];
 });
 const months = MONTHS.map((name, i) => ({ name, now: i === thisMonth, marks: marks.filter((m) => m.month === i) }));
 const hasRings = marks.some((m) => !m.set);
@@ -136,6 +140,19 @@ const hasRings = marks.some((m) => !m.set);
 const stockingFiles = import.meta.glob<StockingData>('../../../data/hub/fish-stocking.json', { eager: true, import: 'default' });
 const stocking = Object.values(stockingFiles)[0];
 const stocked = town.signature?.kind === 'fish-stocking' ? recentlyStocked(town.signature.waters, stocking, today) : [];
+// The river at the town's gauge, or the snowpack at its station, the same
+// way: from the file the daily job writes, and only while the reading is
+// fresh (src/lib/town-signals.ts).
+const flowFiles = import.meta.glob<FlowData>('../../../data/hub/river-flow.json', { eager: true, import: 'default' });
+const snowFiles = import.meta.glob<SnowData>('../../../data/hub/snowpack.json', { eager: true, import: 'default' });
+const gauge = town.signature?.kind === 'river-flow' ? town.signature.gauge : undefined;
+const flow = gauge ? riverFlow(gauge, Object.values(flowFiles)[0], new Date()) : undefined;
+const station = town.signature?.kind === 'snowpack' ? town.signature.station : undefined;
+const snow = station ? snowpack(station, Object.values(snowFiles)[0], today) : undefined;
+const snowPercent = snow ? percentOfMedian(snow) : undefined;
+const measuredAt = (iso: string) =>
+  new Date(iso).toLocaleString('en-US', { timeZone: 'America/Denver', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
 ---
 <Page {title} {seoTitle} {description} jsonLd={structured}>
   <header slot="header" class="on-dark relative isolate overflow-hidden bg-primary text-white" data-town-hero={hero ? 'photo' : ridge!.terrain}>
@@ -176,7 +193,7 @@ const stocked = town.signature?.kind === 'fish-stocking' ? recentlyStocked(town.
         <p class="mt-6 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-lg bg-white/12 px-4 py-2.5 text-[0.9375rem] ring-1 ring-white/25 backdrop-blur-sm" data-next-up>
           <span class="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/85">Next</span>
           <a href={`#${nextUp.record.slug}`} class="font-semibold text-white underline decoration-white/50 underline-offset-4 hover:decoration-white">{nextUp.record.name}</a>
-          <span class="text-white/90">{nextDay}</span>
+          <span class="text-white/90" data-next-day>{nextDay}</span>
         </p>
       )}
     </div>
@@ -199,12 +216,12 @@ const stocked = town.signature?.kind === 'fish-stocking' ? recentlyStocked(town.
         {months.map((m) => (
           <li class:list={['flex min-h-24 flex-col items-center gap-2 px-1 pb-3 pt-2.5 md:min-h-28', m.now ? 'bg-highlight-soft' : 'bg-raised']} data-month={m.name} data-now={m.now ? '' : undefined}>
             <span class:list={['text-[0.75rem] font-semibold uppercase tracking-[0.12em]', m.now ? 'text-ink' : 'text-ink-muted']}>{m.name}</span>
-            {m.now && <span class="-mt-1.5 text-[0.75rem] leading-none text-ink">now</span>}
+            <span class="-mt-1.5 text-[0.75rem] leading-none text-ink" data-now-label hidden={!m.now}>now</span>
             {/* Each mark is a 24px target around a 16px dot (the dot alone was under the minimum for a thumb). */}
             <span class="flex flex-wrap justify-center">
               {m.marks.map((k) => (
-                <a href={`#${k.slug}`} title={k.label} aria-label={k.label} class="group/mark flex size-6 items-center justify-center">
-                  <span class:list={['block size-4 rounded-full transition-transform group-hover/mark:scale-125', k.set ? 'bg-primary' : 'border-2 border-primary bg-raised']}></span>
+                <a href={`#${k.slug}`} title={k.label} aria-label={k.label} data-mark={k.set ? 'set' : 'held'} data-label-past={k.set ? k.labelPast : undefined} class="group/mark flex size-6 items-center justify-center">
+                  <span data-dot class:list={['block size-4 rounded-full transition-transform group-hover/mark:scale-125', k.set ? 'bg-primary' : 'border-2 border-primary bg-raised']}></span>
                 </a>
               ))}
             </span>
@@ -219,7 +236,7 @@ const stocked = town.signature?.kind === 'fish-stocking' ? recentlyStocked(town.
           <li>
             <span class="mr-1.5 inline-block w-9 text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink">{m.name}</span>
             {m.marks.map((k, i) => (
-              <Fragment>{i > 0 && ' · '}<a href={`#${k.slug}`} class="inline-block py-1.5 text-primary underline">{k.name}</a>{!k.set && ' (last held)'}</Fragment>
+              <span data-mark-name={k.slug}>{i > 0 && ' · '}<a href={`#${k.slug}`} class="inline-block py-1.5 text-primary underline">{k.name}</a><span data-held-note hidden={k.set}> (last held)</span></span>
             ))}
           </li>
         ))}
@@ -253,6 +270,44 @@ const stocked = town.signature?.kind === 'fish-stocking' ? recentlyStocked(town.
       <h2 id="spotlight-heading" class="eyebrow mb-3">The one to know</h2>
       <div class="rounded-lg border-2 border-primary bg-raised px-5 shadow-[0_18px_40px_-24px_rgb(0_0_0/0.35)] sm:px-7">
         <TraditionRow {...rowProps(spotlight)} />
+      </div>
+    </section>
+  )}
+
+  {gauge && flow && (
+    <section aria-labelledby="flow-heading" class="mb-12 md:mb-16" data-signature="river-flow" data-measured={flow.measured}>
+      <h2 id="flow-heading" class="eyebrow mb-3">The {gauge.river} {gauge.where}</h2>
+      <div class="rounded-lg bg-raised px-5 py-5 ring-1 ring-line-soft sm:px-7">
+        <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <span class="font-heading text-[2.5rem] font-medium leading-none text-ink">{formatCfs(flow.cfs)}</span>
+          <span class="text-[1.0625rem] text-ink">cubic feet a second</span>
+        </p>
+        <p class="mt-2 text-[0.9375rem] text-ink-muted">Measured <time datetime={flow.measured}>{measuredAt(flow.measured)}</time>. Provisional, and subject to revision by the agency.</p>
+        <p class="mt-3 border-t border-line-soft pt-3 text-sm text-ink-muted">
+          Checked <time datetime={Object.values(flowFiles)[0]!.fetched}>{formatShortDate(parseLocal(Object.values(flowFiles)[0]!.fetched))}</time> · Source:
+          <a href={gauge.page} rel="noopener" class="text-primary underline">{FLOW_SOURCES[gauge.agency].name}, gauge {gauge.id}</a>
+        </p>
+      </div>
+    </section>
+  )}
+
+  {station && snow && (
+    <section aria-labelledby="snow-heading" class="mb-12 md:mb-16" data-signature="snowpack" data-day={snow.date}>
+      <h2 id="snow-heading" class="eyebrow mb-3">Snowpack at {station.name}, {station.elevationFt.toLocaleString('en-US')} feet</h2>
+      <div class="rounded-lg bg-raised px-5 py-5 ring-1 ring-line-soft sm:px-7">
+        <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <span class="font-heading text-[2.5rem] font-medium leading-none text-ink">{inches(snow.swe)}</span>
+          <span class="text-[1.0625rem] text-ink">of water in the snow (snow water equivalent)</span>
+        </p>
+        <p class="mt-2 text-[0.9375rem] text-ink-muted">
+          On <time datetime={snow.date}>{formatDayLong(parseLocal(snow.date))}, {snow.date.slice(0, 4)}</time>.
+          {snow.median !== undefined && <Fragment> The station’s median for the date, 1991 to 2020, is {inches(snow.median)}{snowPercent !== undefined && <Fragment>: this is {snowPercent}% of it</Fragment>}.</Fragment>}
+          {' '}Provisional, and subject to revision.
+        </p>
+        <p class="mt-3 border-t border-line-soft pt-3 text-sm text-ink-muted">
+          Checked <time datetime={Object.values(snowFiles)[0]!.fetched}>{formatShortDate(parseLocal(Object.values(snowFiles)[0]!.fetched))}</time> · Source:
+          <a href={station.page} rel="noopener" class="text-primary underline">{SNOW_SOURCE}, station {station.triplet.split(':')[0]}</a>
+        </p>
       </div>
     </section>
   )}
@@ -316,6 +371,7 @@ const stocked = town.signature?.kind === 'fish-stocking' ? recentlyStocked(town.
   <p class="rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
     Something missing, or a date wrong? <a href={mailto} class="font-semibold underline">Tell us</a>. Every date links to the page it was read from.
   </p>
+  <DateCorrection />
 </Page>
 
 <script>

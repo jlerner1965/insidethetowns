@@ -7,6 +7,7 @@
  * daysBetween): "14 days left" means fourteen midnights, whatever the hour
  * the page was built at.
  */
+import { isFreeCost } from './cost.ts';
 import {
   PROGRAM_STATUS_LABELS,
   PROGRAM_TOPICS,
@@ -307,12 +308,7 @@ export function deadlinePassed(p: ProgramLike, now = new Date()): boolean {
  */
 export function isFree(p: ProgramLike): boolean {
   if (p.data.free !== undefined) return p.data.free;
-  const price = p.data.price?.trim() ?? '';
-  if (!/^free\b/i.test(price)) return false;
-  if (/^free\s+(?:to|for)\s+(?:volunteer|members?|apply|tour)/i.test(price)) return false;
-  // Anything priced after a semicolon or a comma is a paid part of the same listing.
-  const rest = price.replace(/^free\b/i, '').replace(/\([^)]*\)/g, '');
-  return !/\$|\bfee\b|\bdues\b/i.test(rest);
+  return isFreeCost(p.data.price);
 }
 
 /** A reader can turn up without signing up, on the organizer's word; unknown when the file says nothing. */

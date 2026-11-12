@@ -212,7 +212,8 @@ export const MIN_OUTDOOR_TO_LEAD = 2;
  * A guide's dates on its home page, in the order they are shown (the
  * owner, 12 November 2026; a rule for every guide, not for one). Both
  * lists hold only rows with a date set. The outdoor dates come first when
- * at least two qualify; with fewer, the guide's own traditions lead and
+ * at least two of the guide's own local ones qualify (a statewide date
+ * does not count); with fewer, the guide's own traditions lead and
  * the outdoor dates follow. Either list may be empty, and a page draws
  * nothing for an empty one.
  */
@@ -223,7 +224,11 @@ export function guideHomeDates(
 ): { lead: 'outdoor' | 'traditions'; outdoor: TraditionRow[]; traditions: TraditionRow[] } {
   const outdoor = guideLines(records, key, today);
   const traditions = placeRows(records, key, today).traditions.filter(isUpcoming);
-  return { lead: outdoor.length >= MIN_OUTDOOR_TO_LEAD ? 'outdoor' : 'traditions', outdoor, traditions };
+  // Only the guide's own local dates count toward the two (the owner, 12
+  // November 2026, later): a statewide date is shown in the list but never
+  // makes the outdoor dates lead. Lyons does not open on meteor showers.
+  const local = outdoor.filter((r) => !r.record.statewide).length;
+  return { lead: local >= MIN_OUTDOOR_TO_LEAD ? 'outdoor' : 'traditions', outdoor, traditions };
 }
 
 /**

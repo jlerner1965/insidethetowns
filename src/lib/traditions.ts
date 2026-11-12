@@ -173,7 +173,8 @@ export interface TraditionRow {
   /**
    * The newest entry's date has passed and the record has no later year:
    * the row says the next date is not yet announced and gives this one as
-   * the last (nextRow). Never set on a season page's row.
+   * the last (nextRow). On a season page's row (toRow) it is set once the
+   * season's own date has passed.
    */
   past?: boolean;
 }
@@ -181,7 +182,14 @@ export interface TraditionRow {
 export function toRow(record: TraditionRecord, today: string): TraditionRow | undefined {
   const entry = currentEntry(record);
   if (!entry) return undefined;
-  return { record, entry, year: entry.year, lastHeld: lastHeld(record, entry.year, today), source: entrySource(record, entry) };
+  const source = entrySource(record, entry);
+  // A date that has passed is no longer the season's date to come: the row
+  // stops reading "Confirmed", leaves the count and leaves the Event
+  // markup, and gives the day as the last held (as nextRow does on a town
+  // page). Until 12 November 2026 a season page never expired a date.
+  const end = entry.endDate ?? entry.date;
+  if (isDated(entry) && end && end < today) return { record, entry, year: entry.year, lastHeld: entry.date, source, past: true };
+  return { record, entry, year: entry.year, lastHeld: lastHeld(record, entry.year, today), source };
 }
 
 /** A to Z by town, then by event name: the hub's order. */
@@ -275,10 +283,11 @@ export function townGroups(records: readonly TraditionRecord[], guide: string, t
     .filter((r) => r.town?.guide === guide)
     .map((r) => toRow(r, today))
     .filter((row): row is TraditionRow => !!row);
+  // A date that has passed is no longer "confirmed": it waits with the rest.
   const dated = rows
-    .filter((r) => r.entry.status !== 'not-announced')
+    .filter((r) => r.entry.status !== 'not-announced' && !r.past)
     .sort((a, b) => (a.entry.date ?? '9999').localeCompare(b.entry.date ?? '9999') || a.record.name.localeCompare(b.record.name));
-  const waiting = rows.filter((r) => r.entry.status === 'not-announced').sort((a, b) => a.record.name.localeCompare(b.record.name));
+  const waiting = rows.filter((r) => r.entry.status === 'not-announced' || r.past).sort((a, b) => a.record.name.localeCompare(b.record.name));
   return { dated, waiting };
 }
 

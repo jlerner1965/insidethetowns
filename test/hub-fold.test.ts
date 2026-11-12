@@ -40,9 +40,9 @@ const folded = withPage.filter((t) => !t.retired);
 const published = new Set(publishedHubTownSlugs());
 const standaloneConfigs = Object.values(STANDALONE_GUIDES).map((g) => g.guide);
 
-test('ten guides were folded into their hub pages on 12 November 2026, and seven retired earlier forward to theirs', () => {
+test('eleven guides were folded into their hub pages on 12 November 2026, and seven retired earlier forward to theirs', () => {
   assert.equal(hub.domain, 'insidethetowns.com');
-  assert.deepEqual(folded.map((t) => t.slug).sort(), ['castle-rock', 'estes-park', 'fortcollins', 'golden', 'lafayette', 'leadville', 'longmont', 'loveland', 'nederland', 'timnath']);
+  assert.deepEqual(folded.map((t) => t.slug).sort(), ['castle-rock', 'elizabeth', 'estes-park', 'fortcollins', 'golden', 'lafayette', 'leadville', 'longmont', 'loveland', 'nederland', 'timnath']);
   for (const t of folded) assert.equal(t.hubPage!.since, '2026-11-12', `${t.slug}: the day it was folded`);
   assert.deepEqual(withPage.filter((t) => t.retired).map((t) => t.slug).sort(), ['black-hawk', 'evergreen', 'fort-lupton', 'georgetown', 'grand-lake', 'idaho-springs', 'manitou-springs']);
 });
@@ -125,8 +125,9 @@ test('a folded guide is out of every list: not live, not in the email, no longer
 test('a live guide that is not one of the seven stays up only because its town’s page does not qualify yet', () => {
   const others = towns.filter((t) => t.status === 'live' && !standaloneConfigs.includes(t.slug));
   // Lafayette's page qualified later on 12 November 2026 (an organizer's
-  // own word of continuing counts), so Elizabeth is the one left.
-  assert.deepEqual(others.map((t) => t.slug).sort(), ['elizabeth']);
+  // own word of continuing counts), and Elizabeth's that evening, with
+  // the Mayor's Tree Lighting the owner read himself: none is left.
+  assert.deepEqual(others.map((t) => t.slug).sort(), []);
   for (const t of others) {
     const hubTown = hubTownForGuide(t.slug);
     assert.ok(hubTown, `${t.slug}: a live guide outside the seven is a hub town`);
@@ -166,5 +167,6 @@ test('the seven standalone guides are live, each from its own config, and none i
   assert.equal(findTown('frederick')!.status, 'redirect');
   assert.equal(findTown('frederick')!.retired?.successor, 'carbon-valley');
   // A site that is deployed and not one of the seven is listed nowhere.
-  assert.ok(LIVE_TOWNS.includes('elizabeth') && !liveTowns().some((t) => t.slug === 'elizabeth'));
+  // (Elizabeth was that site until it was folded on 12 November 2026: what is deployed is now exactly the seven.)
+  assert.deepEqual([...LIVE_TOWNS].sort(), [...standaloneConfigs].sort());
 });

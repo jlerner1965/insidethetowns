@@ -1,6 +1,7 @@
 /**
  * JSON-LD builders. Keep these pure so they are easy to eyeball in tests.
  */
+import { isFreeCost } from './cost.ts';
 import { hhmm, hoursWithMeridiem, openingHoursOf, parseOpeningHours } from './hours.ts';
 import { namesTown } from './titles.ts';
 import type { CollectionEntry } from 'astro:content';
@@ -438,7 +439,9 @@ export function offerPrice(
   cost: string,
 ): { price: string; priceCurrency: 'USD' } | { lowPrice: string; highPrice: string; priceCurrency: 'USD' } | undefined {
   const text = cost.trim();
-  if (/^free\b/i.test(text)) return { price: '0', priceCurrency: 'USD' };
+  // Free, on the one rule every page uses (src/lib/cost.ts): "Free; costume
+  // contest $5" is not a price of zero, and falls through to the range.
+  if (isFreeCost(text)) return { price: '0', priceCurrency: 'USD' };
   const charged = text.replace(SURCHARGE, ' ');
   const admission = charged.replace(DONATION, ' ');
   const amounts = [...admission.matchAll(/\$\s?(\d+(?:\.\d{1,2})?)/g)].map((m) => Number(m[1]));
