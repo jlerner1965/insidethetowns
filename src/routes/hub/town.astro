@@ -35,11 +35,12 @@ import { findTown, getHub } from '@/config';
 import { HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
-import { resolveSiteImage } from '@/lib/images';
-import { bySeason, lineFor, nearbyPages, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { findSiteImage } from '@/lib/images';
+import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
+import { bySeason, lineFor, nearbyPages, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, statewideSummary, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
-import { formatDayLong, parseLocal } from '@/lib/dates';
+import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { isUpcoming, type TraditionRow as Row } from '@/lib/traditions';
 
 export async function getStaticPaths() {
@@ -67,7 +68,11 @@ const rowProps = (row: Row) => ({ row, eyebrow: 'category' as const, line: lineF
 const show = town.showpiece;
 const spotlight = show ? traditions.find((r) => r.record.slug === show.spotlight) : undefined;
 const year = show ? bySeason(traditions.filter((r) => r !== spotlight)) : undefined;
-const hero = show?.hero ? { src: resolveSiteImage('hub', show.hero.image), ...show.hero } : undefined;
+// The photograph, where the file is in content/hub/images/ and its alt is
+// written (HubTown.showpiece.hero): Salida's entry waits for the owner's
+// picture, and until it arrives the page draws the town's horizon.
+const heroFile = show?.hero && show.hero.alt.trim() ? findSiteImage('hub', show.hero.image) : undefined;
+const hero = heroFile ? { src: heroFile, ...show!.hero! } : undefined;
 
 const path = `/${town.slug}/`;
 const pageUrl = `https://${hub.domain}${path}`;
@@ -92,14 +97,15 @@ const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary';
 const clusterNote = HUB_TOWNS.length;
 const intro = show?.intro ?? 'The events this town holds every year and the outdoor dates around it, each with the page it was read from.';
-const ridge = hero ? undefined : ridgeline(town.slug, town.cluster);
+const ridge = hero ? undefined : ridgeline(town.slug, town.cluster, town.terrain);
 
 /**
  * The first line of facts under the name: what is next, from the rows the
- * page already lists. The soonest tradition with a date set, else the
- * soonest outdoor date; nothing where no date ahead has been published.
+ * page already lists. The soonest date set among the traditions and the
+ * town's outdoor dates, whichever kind it is (src/lib/hub-towns.ts,
+ * nextUp); nothing where no date ahead has been published.
  */
-const nextUp = traditions.find(isUpcoming) ?? outdoor.find(isUpcoming);
+const nextUp = nextRowUp(traditions, outdoor);
 const nextDay = nextUp ? `${formatDayLong(parseLocal(nextUp.entry.date!))}, ${nextUp.entry.date!.slice(0, 4)}` : undefined;
 
 /**
@@ -120,6 +126,16 @@ const marks = traditions.flatMap((r) => {
 });
 const months = MONTHS.map((name, i) => ({ name, now: i === thisMonth, marks: marks.filter((m) => m.month === i) }));
 const hasRings = marks.some((m) => !m.set);
+
+/**
+ * The page's signature (HubTown.signature): the town's waters on CPW's
+ * stocking report lately, from the file the scheduled job writes. Nothing
+ * out of season, when no water matches, or when the file is missing or old
+ * (src/lib/fish-stocking.ts); a build never reads the network for it.
+ */
+const stockingFiles = import.meta.glob<StockingData>('../../../data/hub/fish-stocking.json', { eager: true, import: 'default' });
+const stocking = Object.values(stockingFiles)[0];
+const stocked = town.signature?.kind === 'fish-stocking' ? recentlyStocked(town.signature.waters, stocking, today) : [];
 ---
 <Page {title} {seoTitle} {description} jsonLd={structured}>
   <header slot="header" class="on-dark relative isolate overflow-hidden bg-primary text-white" data-town-hero={hero ? 'photo' : ridge!.terrain}>
@@ -184,14 +200,51 @@ const hasRings = marks.some((m) => !m.set);
           <li class:list={['flex min-h-24 flex-col items-center gap-2 px-1 pb-3 pt-2.5 md:min-h-28', m.now ? 'bg-highlight-soft' : 'bg-raised']} data-month={m.name} data-now={m.now ? '' : undefined}>
             <span class:list={['text-[0.75rem] font-semibold uppercase tracking-[0.12em]', m.now ? 'text-ink' : 'text-ink-muted']}>{m.name}</span>
             {m.now && <span class="-mt-1.5 text-[0.75rem] leading-none text-ink">now</span>}
-            <span class="flex flex-wrap justify-center gap-1.5">
+            {/* Each mark is a 24px target around a 16px dot (the dot alone was under the minimum for a thumb). */}
+            <span class="flex flex-wrap justify-center">
               {m.marks.map((k) => (
-                <a href={`#${k.slug}`} title={k.label} aria-label={k.label} class:list={['block size-4 rounded-full transition-transform hover:scale-125', k.set ? 'bg-primary' : 'border-2 border-primary bg-raised']}></a>
+                <a href={`#${k.slug}`} title={k.label} aria-label={k.label} class="group/mark flex size-6 items-center justify-center">
+                  <span class:list={['block size-4 rounded-full transition-transform group-hover/mark:scale-125', k.set ? 'bg-primary' : 'border-2 border-primary bg-raised']}></span>
+                </a>
               ))}
             </span>
           </li>
         ))}
       </ol>
+      {/* A dot's name was a hover title, which a thumb never sees: where
+          there is no hover, and on a narrow screen, the same marks as
+          words, by month, each a link to its row. */}
+      <ul class="mt-4 space-y-1.5 text-[0.9375rem] leading-snug text-ink-muted md:hidden pointer-coarse:block" data-year-list>
+        {months.filter((m) => m.marks.length > 0).map((m) => (
+          <li>
+            <span class="mr-1.5 inline-block w-9 text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink">{m.name}</span>
+            {m.marks.map((k, i) => (
+              <Fragment>{i > 0 && ' · '}<a href={`#${k.slug}`} class="inline-block py-1.5 text-primary underline">{k.name}</a>{!k.set && ' (last held)'}</Fragment>
+            ))}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {stocked.length > 0 && (
+    <section aria-labelledby="stocked-heading" class="mb-12 md:mb-16" data-signature="fish-stocking">
+      <h2 id="stocked-heading" class="eyebrow mb-3">Recently stocked near {town.name}</h2>
+      <div class="rounded-lg bg-raised px-5 py-1 ring-1 ring-line-soft sm:px-7">
+        <ul class="divide-y divide-line-soft">
+          {stocked.map((w) => (
+            <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3.5">
+              <a href={w.atlas} rel="noopener" class="font-heading text-xl font-medium text-ink no-underline hover:text-primary hover:underline">{w.name}</a>
+              <span class="text-[0.9375rem] text-ink-muted">Added to the report <time datetime={w.added}>{formatDayLong(parseLocal(w.added))}, {w.added.slice(0, 4)}</time></span>
+            </li>
+          ))}
+        </ul>
+        <p class="border-t border-line-soft py-3.5 text-sm leading-relaxed text-ink-muted">
+          Catchable trout, about ten inches. The date is the day the water was added to the report; the stocking may have been earlier that week.
+          Checked <time datetime={stocking!.fetched}>{formatShortDate(parseLocal(stocking!.fetched))}</time> · Source:
+          <a href={STOCKING_SOURCE} rel="noopener" class="text-primary underline">{STOCKING_SOURCE_NAME}, stocking report</a>
+        </p>
+      </div>
     </section>
   )}
 
@@ -237,7 +290,7 @@ const hasRings = marks.some((m) => !m.set);
         <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-5 py-3 sm:px-7 [&::-webkit-details-marker]:hidden">
           <span>
             <span class="eyebrow block">Across Colorado</span>
-            <span class="mt-0.5 block text-[0.9375rem] text-ink-muted">{statewide.length} statewide dates: meteor showers, free park days, license seasons</span>
+            <span class="mt-0.5 block text-[0.9375rem] text-ink-muted">{statewideSummary(statewide)}</span>
           </span>
           <span class="shrink-0 text-sm font-semibold text-primary underline group-open:hidden">Show</span>
           <span class="hidden shrink-0 text-sm font-semibold text-primary underline group-open:inline">Hide</span>
@@ -264,3 +317,23 @@ const hasRings = marks.some((m) => !m.set);
     Something missing, or a date wrong? <a href={mailto} class="font-semibold underline">Tell us</a>. Every date links to the page it was read from.
   </p>
 </Page>
+
+<script>
+  // A link to a row inside the folded "Across Colorado" list (from another
+  // page's "Also on", or the year strip) has to open the fold: Chrome does
+  // that on its own, and Safari on an iPhone is not relied on to. On load
+  // and on every hash change: find the row, open the fold it is in, and
+  // bring it into view.
+  const reveal = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    const target = document.getElementById(id);
+    const fold = target?.closest('details');
+    if (target && fold && !fold.open) {
+      fold.open = true;
+      target.scrollIntoView();
+    }
+  };
+  reveal();
+  window.addEventListener('hashchange', reveal);
+</script>

@@ -53,10 +53,10 @@ import RecCenterToday from '@/components/RecCenterToday.astro';
 import { recCenterFor, type RecCenterData } from '@/lib/rec-center';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
-import DateLines from '@/components/DateLines.astro';
+import HomeDates from '@/components/home/HomeDates.astro';
 import { STANDALONE_GUIDES } from '@/config/hub-towns';
 import { getTownEntries, getTraditions } from '@/lib/content';
-import { guideLines, lineFor, placeKey, placeRows } from '@/lib/hub-towns';
+import { guideHomeDates, lineFor, placeKey } from '@/lib/hub-towns';
 import { fillTest, forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
 import { familyLines } from '@/lib/family-home';
 import { eventItem, weekDays } from '@/lib/flagship-home';
@@ -87,9 +87,11 @@ const today = dayKey(now);
 const place = placeKey(town.slug);
 const standalone = !!place && !!STANDALONE_GUIDES[place];
 const records = standalone ? await getTraditions() : [];
-const dateRows = standalone ? guideLines(records, place!, today) : [];
-const ownRows = standalone && quietGuide ? placeRows(records, place!, today).traditions : [];
-const localLines = Object.fromEntries(dateRows.map((r) => [r.record.slug, place ? lineFor(r.record, place) : undefined]));
+// Only dates that are set, and the outdoor ones first only when two or
+// more are (guideHomeDates): otherwise the guide's own traditions lead.
+const dates = standalone ? guideHomeDates(records, place!, today) : { lead: 'outdoor' as const, outdoor: [], traditions: [] };
+const anyDates = dates.outdoor.length + dates.traditions.length > 0;
+const localLines = Object.fromEntries(dates.outdoor.map((r) => [r.record.slug, place ? lineFor(r.record, place) : undefined]));
 
 // 2. The school. One school: its strip. Several: the shared one. None on
 // an outdoors-led guide, whose home page carries no sports.
@@ -205,13 +207,13 @@ if (featured) {
 ---
 <Hero compact pick={!quietGuide && !!pick} changes={know.length > 0} />
 
-{/* An outdoors-led guide (Lyons): the outdoor dates lead the page. */}
-{outdoorsLed && dateRows.length > 0 && (
+{/* An outdoors-led guide (Lyons): its dates lead the page, the outdoor
+    ones first when two or more have a date set, else its traditions. */}
+{outdoorsLed && anyDates && (
   <section class="band-compact band-paper" aria-labelledby="outdoor-lead" data-outdoor-lead>
     <div class="container-page">
-      <h2 id="outdoor-lead" class="display-md text-[2rem] md:text-[2.5rem]">Outdoor dates</h2>
-      <DateLines rows={dateRows} lines={localLines} track="outdoor-lead" />
-      <p class="mt-3 text-[1.0625rem]"><a href="/traditions/#outdoor-dates" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every date, with its source →</a></p>
+      <h2 id="outdoor-lead" class="display-md text-[2rem] md:text-[2.5rem]">{dates.lead === 'outdoor' ? 'Outdoor dates' : `Every year in ${town.name}`}</h2>
+      <HomeDates {dates} town={town.name} lines={localLines} track="outdoor-lead" firstLabelled />
     </div>
   </section>
 )}
@@ -235,12 +237,7 @@ if (featured) {
   <section class="band-compact band-paper" aria-labelledby="things-to-know" data-things-to-know>
     <div class="container-page">
       <h2 id="things-to-know" class="display-md text-[2rem] md:text-[2.5rem]">Things to know</h2>
-      {[...ownRows, ...dateRows].length > 0 && (
-        <Fragment>
-          <DateLines rows={[...ownRows, ...dateRows]} lines={localLines} track="things-to-know" />
-          <p class="mt-3 text-[1.0625rem]"><a href="/traditions/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every date, with its source →</a></p>
-        </Fragment>
-      )}
+      {anyDates && <div class="mt-4"><HomeDates {dates} town={town.name} lines={localLines} track="things-to-know" /></div>}
     </div>
   </section>
 )}
@@ -300,7 +297,7 @@ if (featured) {
   </section>
 )}
 
-{!quietGuide && (know.length > 0 || (!outdoorsLed && dateRows.length > 0)) && (
+{!quietGuide && (know.length > 0 || (!outdoorsLed && anyDates)) && (
   <section class="band-compact band-paper" aria-labelledby="know">
     <div class="container-page">
       <h2 id="know" class="display-md text-[2rem] md:text-[2.5rem]">Worth knowing</h2>
@@ -314,12 +311,11 @@ if (featured) {
           <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every local change →</a></p>
         </Fragment>
       )}
-      {/* The shared outdoor dates, one line each, on a sports-led guide;
-          an outdoors-led one has them at the top of the page. */}
-      {!outdoorsLed && dateRows.length > 0 && (
+      {/* The guide's dates, one line each, on a sports-led guide; an
+          outdoors-led one has them at the top of the page. */}
+      {!outdoorsLed && anyDates && (
         <div class:list={[know.length > 0 && 'mt-6']} data-shared-dates>
-          <DateLines rows={dateRows} lines={localLines} track="worth-knowing-date" />
-          <p class="mt-3 text-[1.0625rem]"><a href="/traditions/#outdoor-dates" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every date, with its source →</a></p>
+          <HomeDates {dates} town={town.name} lines={localLines} track="worth-knowing-date" />
         </div>
       )}
     </div>

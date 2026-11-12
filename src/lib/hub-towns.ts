@@ -193,14 +193,63 @@ export function guideRecords(records: readonly TraditionRecord[], key: string): 
 }
 
 /**
- * The shared dates a standalone guide shows as single lines (its home
- * page, This week): every outdoor date that names the guide, soonest
- * first, then the statewide ones that have a date ahead. A statewide
- * date with nothing announced is on the guide's /traditions/ and not
- * here: a line that only says "not yet announced" for the whole state is
- * no reason to stop a reader.
+ * The outdoor dates a standalone guide shows as single lines (its home
+ * page, This week): every outdoor date that names the guide and the
+ * statewide ones, soonest first, and only those with a date set (the
+ * owner, 12 November 2026). A line that only says "not yet announced" is
+ * no reason to stop a reader, whether the date is the whole state's or
+ * the road's up the canyon: those stay on the guide's /traditions/.
  */
 export function guideLines(records: readonly TraditionRecord[], key: string, today: string): TraditionRow[] {
   const { outdoor, statewide } = placeRows(records, key, today);
-  return [...outdoor, ...statewide.filter(isUpcoming)];
+  return [...outdoor.filter(isUpcoming), ...statewide.filter(isUpcoming)];
+}
+
+/** Outdoor dates lead a guide's dates only when this many have a date set. */
+export const MIN_OUTDOOR_TO_LEAD = 2;
+
+/**
+ * A guide's dates on its home page, in the order they are shown (the
+ * owner, 12 November 2026; a rule for every guide, not for one). Both
+ * lists hold only rows with a date set. The outdoor dates come first when
+ * at least two qualify; with fewer, the guide's own traditions lead and
+ * the outdoor dates follow. Either list may be empty, and a page draws
+ * nothing for an empty one.
+ */
+export function guideHomeDates(
+  records: readonly TraditionRecord[],
+  key: string,
+  today: string,
+): { lead: 'outdoor' | 'traditions'; outdoor: TraditionRow[]; traditions: TraditionRow[] } {
+  const outdoor = guideLines(records, key, today);
+  const traditions = placeRows(records, key, today).traditions.filter(isUpcoming);
+  return { lead: outdoor.length >= MIN_OUTDOOR_TO_LEAD ? 'outdoor' : 'traditions', outdoor, traditions };
+}
+
+/**
+ * What is next on a town page: the soonest row with a date set among its
+ * traditions and its own outdoor dates, whichever kind it is. (Until 12
+ * November 2026 an outdoor date was only looked at when no tradition had
+ * a date, so a ski area opening in three weeks lost to a festival in
+ * July.) A tie goes to the tradition.
+ */
+export function nextUp(traditions: readonly TraditionRow[], outdoor: readonly TraditionRow[]): TraditionRow | undefined {
+  const a = traditions.find(isUpcoming);
+  const b = outdoor.find(isUpcoming);
+  if (!a || !b) return a ?? b;
+  return b.entry.date! < a.entry.date! ? b : a;
+}
+
+/**
+ * The one line under "Across Colorado" on a town page, from the records
+ * themselves: how many, and the first few by name, cut at a colon ("Geminid
+ * meteor shower: peak night" is "Geminid meteor shower").
+ */
+export function statewideSummary(rows: readonly TraditionRow[], show = 3): string {
+  const names = rows.map((r) => r.record.name.split(':')[0]!.trim());
+  const count = `${rows.length} statewide date${rows.length === 1 ? '' : 's'}`;
+  if (names.length === 0) return count;
+  const listed = names.slice(0, show).join(', ');
+  const more = names.length - show;
+  return `${count}: ${listed}${more > 0 ? `, and ${more} more` : ''}`;
 }

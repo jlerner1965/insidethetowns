@@ -10649,6 +10649,64 @@ built and read at 1280px and 390px.*
 - **The hub's home page** has the Front Range photograph beside the
   headline from lg, where the first screen was empty; nothing changes on
   a phone, where the picker stays on the first screen.
-- **Not done, the owner's**: a licensed photograph for Salida and the other
-  33 pages; and Lyons, outdoors-led, leads its home page with outdoor dates
-  of which three in five read "not yet announced" this week.
+
+## The design pass's fixes, its two open items decided, and the first signature, 12 November 2026 (later)
+
+*The owner's review of the design pass (#385), three jobs in order. The two
+items that pass left as "Not done, the owner's" are decided here and are
+off that list.*
+
+- **Photographs (decided).** Salida gets a licensed photograph, which the
+  owner buys and supplies; every other town page keeps its drawn horizon,
+  and nobody else sources, downloads or adds one. The page is wired so the
+  photograph needs three things and no code: the file at
+  `content/hub/images/salida.jpg`, its alt text on Salida's `showpiece.hero`
+  in `src/config/hub-towns.ts`, and its row in `IMAGE_LICENSES.csv`. Until
+  the file is there and the alt is written the page draws Salida's peaks
+  (`test/showpiece-hero.test.ts`).
+- **Outdoor dates on a guide's home page (decided).** Only outdoor dates
+  with a date set are shown, the road's up the canyon as well as the
+  state's (`guideLines`, which already did this for the statewide ones).
+  If fewer than two qualify, the guide's own traditions lead and the
+  outdoor dates come second (`guideHomeDates`, `MIN_OUTDOOR_TO_LEAD`). A
+  rule for every guide: the lead section on Lyons, under Worth knowing on
+  the sports-led guides, under Things to know on Niwot, all through
+  `HomeDates.astro`. The unannounced ones stay on `/traditions/`.
+  `test/home-dates.test.ts` holds the switch. As the records stand the two
+  statewide meteor showers have dates, so the outdoor list leads on every
+  guide today; whether a statewide date should count toward the two is
+  the owner's to say.
+- **Fixes to the design pass.** The hub's home photograph is `loading=lazy`:
+  hidden below lg, it is no longer fetched on a phone (checked: no request).
+  The year strip's marks are 24px targets, and where there is no hover, or
+  the screen is narrow, the same marks are listed by month in words, each a
+  link. "Next" under a town's name is the sooner of its next tradition and
+  its next outdoor date (`nextUp`). A link to a row inside the folded
+  statewide list opens the fold on load and on hashchange, by script: it
+  was checked in Chromium, and not on an iPhone, which this session cannot
+  run, so the script is there whether or not Safari would have opened it.
+  The fold's summary is built from the records (`statewideSummary`). The
+  date block's logic is `src/lib/date-block.ts`, with tests; the horizon
+  has a determinism test. A town may set its own `terrain`: Evergreen
+  foothills, Castle Rock mesa, Longmont and Louisville plains.
+- **One signature per town page.** `signature` on a hub town: one block no
+  other kind of page has, from a public source, with its source link and
+  checked date. A town without one shows nothing.
+- **The first: recent fish stocking.** Colorado Parks and Wildlife's trout
+  stocking report is one HTML table, updated "every Friday during the
+  fishing season"; its robots.txt does not exclude it. CPW's site has no
+  terms-of-use page: its privacy statement lets a visitor "read, download
+  or print information" and disclaims accuracy, and its media kit licenses
+  images and media CC BY-NC-ND. The block copies no media and no prose:
+  a water's name and a date, with links to the report and to the water in
+  CPW's Fishing Atlas. Fourteen towns map to their waters by hand, by the
+  Atlas id in the report's link (the report spells one water several
+  ways). The page says "Added to the report", never "stocked on", with
+  CPW's own caveat that the stocking may have been earlier that week. It
+  shows nothing when no water of the town's was added in thirty days, when
+  the report's newest date is three weeks old (out of season), or when the
+  last good read is two weeks old. `.github/workflows/fish-stocking.yml`
+  reads it Saturdays and Tuesdays into `data/hub/fish-stocking.json`; a
+  failed read keeps the last good file and never fails a run or a build.
+- **The other signatures are proposed, not built**: the table is in the
+  pull request for the owner to pick from.

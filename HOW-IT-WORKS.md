@@ -198,7 +198,18 @@ beside Outdoor dates from the lg breakpoint; the statewide dates folded
 under a summary. Every dated row, there and on the season pages and a
 guide's `/traditions/`, carries a date block: month, day and year where the
 organizer has set a date, "TBA" in outline where it has not, never last
-year's date. The hub's home hero has the Front Range photograph beside the
+year's date. A showpiece's photograph needs the file in
+`content/hub/images/`, its alt text in the config and its licence row, and
+no code. A town may carry one **signature** (`signature` in
+`src/config/hub-towns.ts`): a block from a public source with its source
+link and checked date, read by a scheduled job into `data/hub/` and never
+at build time; the first is "Recently stocked near <Town>" from Colorado
+Parks and Wildlife's stocking report (`src/lib/fish-stocking.ts`).
+
+**A guide's dates on its home page** are only those with a date set. The
+outdoor dates lead when two or more qualify; otherwise the guide's own
+traditions lead and the outdoor dates come second (`guideHomeDates`). The
+rest are on `/traditions/`. The hub's home hero has the Front Range photograph beside the
 headline from lg.
 
 **Visual rules** (the ten from the 26 October pass, still in force):
