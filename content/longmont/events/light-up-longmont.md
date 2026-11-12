@@ -7,6 +7,7 @@ end: "2026-11-21T19:00"
 venue: "Roosevelt Park"
 address: "700 Longs Peak Ave, Longmont, CO 80501"
 url: "https://www.downtownlongmont.com/do/light-up-longmont-a-new-holiday-lights-stroll"
+cost: "Free"
 category: festival
 featured: true
 timeNote: "5 to 7 pm; Roosevelt Park lit at 5:30, 6th Avenue Plaza tree at 6, St. Stephen's Plaza at 6:30"
@@ -33,7 +34,7 @@ Start at the Ice Pavilion for the first lighting at 5:30, then follow Santa and 
 
 ## New in 2026
 
-Downtown Longmont calls this a new format for its holiday lighting: one evening that moves between three places instead of a single ceremony. It opens the downtown holiday calendar, which runs to the Longmont Lights parade on Saturday, December 12.
+Downtown Longmont calls this a new format for its holiday lighting, with three lightings in one evening. Its holiday calendar continues with Small Business Saturday on November 28 and the Longmont Lights parade on Saturday, December 12.
 
 ## Who runs it
 

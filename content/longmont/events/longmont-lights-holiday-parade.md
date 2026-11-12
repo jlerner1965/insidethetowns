@@ -7,7 +7,6 @@ end: "2026-12-12T19:00"
 venue: "Roosevelt Park"
 address: "700 Longs Peak Ave., Longmont, CO, 80501"
 url: "https://longmontcolorado.gov/event/longmont-lights-holiday-parade-2/"
-cost: "Free"
 category: festival
 featured: true
 organizer: "City of Longmont Recreation Services"
