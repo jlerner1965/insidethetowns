@@ -64,6 +64,45 @@ used on those terms. All six listings now have a photograph: one from each
 park page, and for the Singletrack the shelter, a summer trail shot and the
 trailhead kiosk from the folder. Nothing of the Town's remains unphotographed.
 
+**Update, 12 November 2026 — scope widened to the whole Town site.** Email to
+James from **Ashley Burger, Communications & Marketing Manager**, forwarded
+into a working session on 12 November 2026 (the forwarded text carried no
+signature; James confirmed the sender the same day). Its closing line, in
+full:
+
+> Feel free to periodically look at this park pages, and others, and grab new
+> photos whenever you see them.
+> Permission give to use any photo from https://erieco.gov/2271/Parks and all
+> Erie gov. Site in general
+
+And on two parks:
+
+> Although Ironstone Park is listed on our website as one of our parks, it
+> actually isn't quite yet. It is still under warranty period with the builder
+> until sometime in 2027. Once we take over ownership we will have more photos
+> on the website and you can grab them at that point. [...] Photos will go at
+> the bottom in a photo slideshow once it's ours.
+>
+> Note: Coal Miner Park playground is currently being replaced, we should have
+> a new playground at that location sometime end of this month or early
+> December. Then the volleyball court is being upgraded. Best photos of this
+> new park look will likely come in the spring, but I plan to put photos on
+> the site this winter too.
+
+| | |
+|---|---|
+| **Scope** | Any photograph on erieco.gov — no longer only parks and open space |
+| **Still not covered** | Photographs on erieco.gov the Town did not take (a credited outside photographer, a reposted event photo). "Any photo" from the Town can only cover what the Town owns; check the caption before using one that isn't plainly staff work |
+| **Credit** | Unchanged: not required; we credit "Town of Erie" |
+| **Standing** | Yes, and explicitly ongoing: "periodically look ... and grab new photos whenever you see them" |
+
+Used the same day for the five park listings that had none (Clayton,
+Coal Miner, Columbine Mine, Country Fields, Crescent), one photograph each
+from its park page. Coal Miner's is the shelter, not the playground being
+replaced. Ironstone has no Town photographs yet; recheck its page after the
+Town takes it over in 2027, and Coal Miner's this winter and in spring for the
+new playground.
+
 ---
 
 ## Boulder County Parks & Open Space — trail photographs

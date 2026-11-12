@@ -23,11 +23,14 @@ the email and on the site, three months minimum.
 
 ## 2. The decision we are inside
 
-**The 90-day test** (20 October 2026 to 20 January 2027): three towns get
-the work; everything else runs on automation. No new towns, no new
-features, no search-engine projects until the test ends. The targets and
-the weekly scorecard are in `docs/90-DAY-TEST.md`; the scorecard is filled
-every Tuesday, once Search Console has settled the Sunday.
+**Building, not testing.** The 90-day test (decided 20 October 2026) is
+paused by the owner as of 12 November 2026: the product is still being
+made, so it is not yet time to test it. Its rules (no new towns, no new
+features, no search-engine projects) are removed, and the 20 January 2027
+verdict no longer stands. The test starts again, with a new clock, when
+the owner says there is a product worth testing (`DECISIONS.md`, "The
+90-day test is paused"). The targets and scorecard it will use are kept
+in `docs/90-DAY-TEST.md`. The three towns it chose:
 
 | Town | Why |
 |---|---|
@@ -35,7 +38,7 @@ every Tuesday, once Search Console has settled the Sunday.
 | Lyons | The one chamber relationship; where distribution is tested |
 | Berthoud | Best search performance in the network; a town of 10,000 with no good calendar |
 
-On 20 January: a sponsor renewal and two of three subscriber targets means
+When the test runs, at its day 90: a sponsor renewal and two of three subscriber targets means
 the model repeats in Golden and Erie. Readers but no sponsor means fix the
 offer. Neither means the network stays live on automation as a community
 project.
