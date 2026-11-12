@@ -148,7 +148,7 @@ export function readIcal(ics: string, horizon: Horizon): FeedEvent[] {
       // Today's calendars (1,530 recurring events, 11 November 2026).
       const roughEnd = next.clone();
       roughEnd.addDuration(event.duration);
-      if (roughEnd.compare(from) < 0 && !event.exceptions?.[next.toString()]) continue;
+      if (roughEnd.compare(from) < 0 && !(event.exceptions as unknown as Record<string, unknown> | undefined)?.[next.toString()]) continue;
       const details = event.getOccurrenceDetails(next);
       if (details.endDate.compare(from) < 0) continue;
       push(details.item, details.startDate, details.endDate, `/${details.recurrenceId.toString().slice(0, 10)}`);
