@@ -5,9 +5,11 @@ export const erie: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Boulder County',
-  // Frederick in Carbon Valley's place and Lafayette beside it, 2 November 2026;
-  // Golden, owner's word, 3 November 2026, when its mountain neighbours retired.
-  neighbors: ['frederick', 'niwot'],
+  // Carbon Valley (Frederick, Firestone and Dacono), up Colorado 52, and
+  // Niwot. Inside Frederick stood in Carbon Valley's place from 2 to 12
+  // November 2026; Lafayette and Golden were neighbours until their guides
+  // were folded into their hub pages on 12 November.
+  neighbors: ['carbon-valley', 'niwot'],
   slug: 'erie',
   name: 'Erie',
   domain: 'insideerie.com',

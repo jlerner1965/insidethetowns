@@ -3,7 +3,7 @@ slug: frederick-festival-of-lights
 name: "Festival of Lights"
 town:
   name: Frederick
-  guide: frederick
+  guide: carbon-valley
 type: tree-lighting
 organizer: "Town of Frederick"
 sourceUrl: "https://www.frederickco.gov/237/Festival-of-Lights"

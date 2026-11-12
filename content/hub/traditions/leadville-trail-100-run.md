@@ -12,5 +12,6 @@ years:
   - year: 2027
     status: confirmed
     date: 2027-08-21
+    note: "Race Across the Sky"
     checked: 2026-11-12
 ---

@@ -95,8 +95,10 @@ const nextBreak = breaks[0];
 const glance = familyGlance({ programs, events: forGeneralReaders(occurrences(events, { now, horizonDays: 8 }), events), now, isSeries: weeklyTest(events) });
 const glanceCells = [glance.signUp.length > 0 || later.length > 0, !!nextBreak, glance.free.length > 0 || free.length > 0].filter(Boolean).length;
 const glanceCols = ({ 1: '', 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-3' } as Record<number, string>)[glanceCells] ?? '';
-// The schools the guide follows on its sports pages, linked from the sports section.
-const schools = schoolsFor(town.slug);
+// The schools the guide follows on its sports pages, linked from the sports
+// section; none on an outdoors-led guide (`lead: 'outdoors'`, Lyons), which
+// links to no sports page from anywhere.
+const schools = town.lead === 'outdoors' ? [] : schoolsFor(town.slug);
 // A program whose sign-ups have closed is one line under its subject, not a full row.
 const isClosed = (p: (typeof programs)[number]) => programStatus(p, now)?.state === 'closed';
 const breakSources = [...new Map(breaks.map((b) => [b.source, b])).values()];

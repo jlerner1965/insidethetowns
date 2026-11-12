@@ -482,10 +482,11 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     teams: TEAMS(FALL(), WINTER_WITHOUT('girls-swimming')),
   },
   {
-    // The Carbon Valley guide's entry from 22 October 2026, Frederick's own
-    // from 2 November, when that guide closed and Inside Frederick opened; the
-    // data file moved with it (data/frederick/sports.json).
-    town: 'frederick',
+    // The Carbon Valley guide's entry from 22 October 2026, Inside
+    // Frederick's from 2 to 12 November, and the Carbon Valley guide's again
+    // since (the restructure brief: Frederick is covered by Carbon Valley);
+    // the data file moved with it each time (data/carbon-valley/sports.json).
+    town: 'carbon-valley',
     // CHSAANow: Frederick Senior High School, St Vrain Valley RE1J; football
     // 4A (2026–28). Its profile named the league 4A Northern on 22 October
     // 2026 and Granite Peaks on 2 November; MaxPreps's data file still

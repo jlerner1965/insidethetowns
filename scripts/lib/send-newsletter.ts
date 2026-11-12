@@ -24,12 +24,16 @@ export interface Audience {
  * The subscriber tags an issue goes to. An edition goes to every town in it,
  * and to any town folded into one of them, because a reader who ticked
  * Severance before 12 October still carries `severance` and now reads
- * Windsor's guide. The network issue (no towns) goes to the all-towns tag.
+ * Windsor's guide; and to a guide whose ground one of them took over
+ * (`retired.successor`), because a reader who signed up on Inside Frederick
+ * between 2 and 12 November 2026 carries `frederick` and now reads Carbon
+ * Valley's. The network issue (no towns) goes to the all-towns tag.
  */
 export function recipientTags(issueTowns: readonly string[], towns: readonly TownConfig[], allTag: string): string[] {
   if (!issueTowns.length) return [allTag];
   const tags = new Set(issueTowns);
   for (const t of towns) if (t.foldedInto && issueTowns.includes(t.foldedInto.town)) tags.add(t.slug);
+  for (const t of towns) if (t.retired?.successor && issueTowns.includes(t.retired.successor)) tags.add(t.slug);
   return [...tags];
 }
 

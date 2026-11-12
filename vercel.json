@@ -1510,6 +1510,17 @@
       "permanent": true
     },
     {
+      "source": "/thanks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/events.rss",
       "has": [
         {
@@ -2709,17 +2720,6 @@
       "permanent": true
     },
     {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "carbonvalleyguide.com"
-        }
-      ],
-      "destination": "https://insidefrederickco.com/",
-      "permanent": true
-    },
-    {
       "source": "/frederick{/}?",
       "has": [
         {
@@ -2727,414 +2727,1041 @@
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/events{/}?",
+      "source": "/firestone{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/eat-drink{/}?",
+      "source": "/dacono{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/eat-drink/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/things-to-do{/}?",
+      "source": "/fort-lupton{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/things-to-do/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/directory{/}?",
+      "source": "/places/a-natural-way{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/directory/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/moving-here{/}?",
+      "source": "/places/ace-hardware-of-fort-lupton{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/moving-here/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/this-weekend{/}?",
+      "source": "/places/blitz-paintball-and-airsoft{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/this-weekend/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/this-week{/}?",
+      "source": "/places/cannery-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/this-week/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/guides{/}?",
+      "source": "/places/centennial-field{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/guides/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/about{/}?",
+      "source": "/places/central-park-disc-golf-and-dog-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/about/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/contact{/}?",
+      "source": "/places/clem-dufour-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/contact/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/submit-event{/}?",
+      "source": "/places/colorado-national-speedway{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/submit-event/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/families{/}?",
+      "source": "/places/community-center-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/families/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/get-involved{/}?",
+      "source": "/places/coyote-creek-golf-course{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/get-involved/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/living-here{/}?",
+      "source": "/places/firestone-regional-sports-complex{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/living-here/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/updates{/}?",
+      "source": "/places/firestone-trail{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/updates/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/sports{/}?",
+      "source": "/places/fort-lupton-city-museum{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/sports/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/events/calendar.ics",
+      "source": "/places/fort-lupton-dog-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events/calendar.ics",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/rss.xml",
+      "source": "/places/fort-lupton-public-and-school-library{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/rss.xml",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/events.rss",
+      "source": "/places/hart-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events.rss",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/events/adult-dungeons-and-dragons-one-shot-2026-11-28{/}?",
+      "source": "/places/heritage-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events/adult-dungeons-and-dragons-one-shot-2026-11-28/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/events/bubble-tea-social-2026-11-16{/}?",
+      "source": "/places/historic-denver-avenue{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events/bubble-tea-social-2026-11-16/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/events/create-with-canva-2026-11-18{/}?",
+      "source": "/places/house-of-smoke{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events/create-with-canva-2026-11-18/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/events/harvest-and-holly-market-2026-11-15{/}?",
+      "source": "/places/imi-motorsports{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events/harvest-and-holly-market-2026-11-15/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/events/medieval-garb-workshop-2026-11-07{/}?",
+      "source": "/places/lancaster-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events/medieval-garb-workshop-2026-11-07/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/events/teen-dungeons-and-dragons-2026-11-03{/}?",
+      "source": "/places/legacy-trail{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events/teen-dungeons-and-dragons-2026-11-03/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/events/teen-dungeons-and-dragons-2026-12-01{/}?",
+      "source": "/places/lucky-shot-sports-bar-and-grill{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/events/teen-dungeons-and-dragons-2026-12-01/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/places/bella-rosa-golf-course{/}?",
+      "source": "/places/marcos-pizza-firestone{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/bella-rosa-golf-course/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/places/bulrush-open-space{/}?",
+      "source": "/places/miners-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/bulrush-open-space/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/places/carbon-valley-recreation-center{/}?",
+      "source": "/places/mountain-shadows-bike-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/carbon-valley-recreation-center/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/places/carbon-valley-regional-library{/}?",
+      "source": "/places/pearson-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/carbon-valley-regional-library/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/places/centennial-park{/}?",
+      "source": "/places/railroad-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/centennial-park/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/places/crist-park{/}?",
+      "source": "/places/raw-roots-juice-bar-and-cafe{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/crist-park/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/places/frederick-recreation-area{/}?",
+      "source": "/places/saddleback-golf-club{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/frederick-recreation-area/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/places/gabes-cafe{/}?",
+      "source": "/places/salt-and-acres{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/gabes-cafe/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/places/georgia-boys-bbq-smokehouse{/}?",
+      "source": "/places/santiagos{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/georgia-boys-bbq-smokehouse/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
-      "source": "/places/miners-memorial-museum{/}?",
+      "source": "/places/settlers-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/miners-memorial-museum/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/places/st-vrain-state-park{/}?",
+      "source": "/places/south-platte-valley-historic-park{/}?",
       "has": [
         {
           "type": "host",
           "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/places/st-vrain-state-park/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
+      "permanent": true
+    },
+    {
+      "source": "/places/wholly-stromboli{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/",
+      "permanent": true
+    },
+    {
+      "source": "/places/wing-shack-dacono{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/events/adam-doleac-at-salt-and-acres-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/adult-d-and-d-one-shot-adventures-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/carbon-valley-holiday-festival-2026-12-05-2691{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/chat-with-a-trustee-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/chat-with-a-trustee-2026-11-04{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/chat-with-a-trustee-2026-12-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/community-game-night-2026-11-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/creepy-crawly-creatures-2026-10-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/dia-de-los-muertos-day-of-the-dead-celebration-2026-11-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/dmv2go-2026-12-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/drug-take-back-day-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/empty-bowls-painting-party-2026-10-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/family-health-plate-2026-11-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/festival-of-lights-2026-12-05{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/firestone-art-and-music-show-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/frights-on-fifth-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/ftl-closed-for-veterans-day-2026-11-11{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/ftl-closing-early-2026-11-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/genealogy-presentation-saying-goodbye-our-ancestors-traditio-2026-10-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/halloween-dance-party-2026-10-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/halloween-nail-art-2026-10-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/halloween-pancake-breakfast-2026-10-31{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/halloween-safe-night-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/holiday-nails-harvest-edition-2026-11-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/improv-for-teens-2026-10-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/kids-winter-coat-clothing-swap-2026-11-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/la-posada-and-loteria-celebration-2026-12-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/leaf-drop-off-event-2026-11-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/leaf-drop-off-event-2026-11-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/leaf-drop-off-event-2026-11-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/leaf-drop-off-event-2026-12-04{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/low-sensory-blue-heart-social-2026-11-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/murder-at-shade-hallow-manor-2026-10-27{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/national-coffee-with-a-cop-day-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/pumpkinfest-and-hayrides-2026-10-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/reel-talk-2026-10-27{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/reel-talk-2026-11-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/school-s-out-standing-paint-the-plows-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/sipping-and-socializing-how-tea-has-guided-social-interactio-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/splash-the-pumpkin-pool-and-movie-party-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/teen-laser-tag-2026-10-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/to-the-moon-teen-gaming-night-2026-10-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/trick-or-treat-street-2026-10-31{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/trimble-sketchup-project-spectrum-3d-modelling-class-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/victorian-death-ritual-presentation-2026-10-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/winterfest-featuring-cookies-and-cocoa-with-santa-2026-12-05{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/articles/carbon-valley-history{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/carbon-valley-with-kids{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/explore-carbon-valley-in-driving-order{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/explore-fort-lupton-in-walking-order{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/fort-lupton-history{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/fort-lupton-with-kids{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/moving-to-fort-lupton{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefrederickco.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/",
+      "permanent": true
+    },
+    {
+      "source": "/events/frights-on-fifth-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefrederickco.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/events/",
       "permanent": true
     },
     {
@@ -3142,10 +3769,10 @@
       "has": [
         {
           "type": "host",
-          "value": "carbonvalleyguide.com"
+          "value": "insidefrederickco.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/",
+      "destination": "https://carbonvalleyguide.com/$1",
       "permanent": true
     },
     {
@@ -3156,7 +3783,7 @@
           "value": "insidefirestone.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/",
+      "destination": "https://carbonvalleyguide.com/",
       "permanent": true
     },
     {
@@ -3167,7 +3794,7 @@
           "value": "insidefirestone.com"
         }
       ],
-      "destination": "https://insidefrederickco.com/",
+      "destination": "https://carbonvalleyguide.com/",
       "permanent": true
     },
     {

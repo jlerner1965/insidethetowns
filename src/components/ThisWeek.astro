@@ -143,7 +143,9 @@ const when = (event: typeof calendar[number]) =>
 // beside this block already. Nothing drawn for a week with no games; a
 // town's several schools each get a line group.
 const sportsFiles = import.meta.glob<SportsData>('../../data/*/sports*.json', { eager: true, import: 'default' });
-const schoolWeeks = compact
+// Nor on an outdoors-led guide (`lead: 'outdoors'`, Lyons): sports are off
+// its menu and its home page, and off its week too.
+const schoolWeeks = compact || town.lead === 'outdoors'
   ? []
   : schoolsFor(town.slug).flatMap((school) => {
       const data = sportsDataFor(school, sportsFiles);

@@ -22,7 +22,7 @@ import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { findTown, liveTowns } from '../src/config/index.ts';
+import { deployedTowns, findTown } from '../src/config/index.ts';
 import { townSportsWeek } from '../scripts/lib/sports-data.ts';
 import { gameText, resultText } from '../src/lib/school-sports.ts';
 
@@ -51,7 +51,7 @@ if (!mode || !townArg) printUsage();
 // run: it posts when there is an update and makes no weekly promise, so a
 // drafted week would be an empty one. It is still in `changes all`, which
 // is where its updates come from, and `weekly niwot` by name still runs.
-const everyTown = mode === 'weekly' ? liveTowns().filter((t) => t.lead !== 'updates') : liveTowns();
+const everyTown = mode === 'weekly' ? deployedTowns().filter((t) => t.lead !== 'updates') : deployedTowns();
 const towns = townArg === 'all' ? everyTown : [findTown(townArg) ?? die(`Unknown town "${townArg}".`)];
 
 const denver = (opts) => new Date().toLocaleDateString('en-US', { timeZone: 'America/Denver', ...opts });

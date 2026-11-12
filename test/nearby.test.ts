@@ -8,7 +8,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
 import { nearbyPicks } from '../src/lib/events.ts';
-import { findTown, liveTowns, neighborsOf } from '../src/config/index.ts';
+import { findTown, LIVE_TOWNS, liveTowns, neighborsOf } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 
 let n = 0;
@@ -119,15 +119,16 @@ test('each guide names the neighbours the owner set, in that order', () => {
   // every guide that named one dropped it, so the lists below are what is
   // left of the owner's, in his order. Elizabeth's one neighbour was Castle
   // Rock, so it names nobody. Lafayette followed later the same day, out of
-  // Erie's and Niwot's lists.
+  // Erie's and Niwot's lists. Carbon Valley is the guide beside Erie again
+  // since 12 November 2026, and Frederick, covered by it, names nobody.
   const NEIGHBORS: Record<string, string[]> = {
     niwot: ['lyons', 'erie'],
     lyons: ['niwot'],
     longmont: [],
-    erie: ['frederick', 'niwot'],
+    erie: ['carbon-valley', 'niwot'],
     lafayette: [],
-    frederick: ['erie'],
-    'carbon-valley': [],
+    frederick: [],
+    'carbon-valley': ['erie'],
     berthoud: ['johnstown'],
     loveland: [],
     johnstown: ['windsor', 'berthoud'],
@@ -178,12 +179,13 @@ test('Elizabeth has no live neighbours, so its block is never built; every other
   // 2026 Leadville, Golden and Castle Rock are folded into their pages on
   // the hub, which leaves Elizabeth, whose one neighbour was Castle Rock,
   // the live guide with none.
+  // Elizabeth is deployed and not one of the seven guides the pages list.
   const ALONE = ['elizabeth'];
   for (const slug of ALONE) {
-    assert.ok(liveTowns().some((t) => t.slug === slug), `${slug} is live`);
+    assert.ok(LIVE_TOWNS.includes(slug), `${slug} is live`);
     assert.deepEqual(neighborsOf(findTown(slug)!), [], slug);
   }
-  for (const t of liveTowns().filter((t) => !ALONE.includes(t.slug))) assert.ok(neighborsOf(t).length > 0, t.slug);
+  for (const t of liveTowns()) assert.ok(neighborsOf(t).length > 0, t.slug);
   // A guide that is not live names nobody, and nobody names it.
   for (const t of towns.filter((t) => t.status !== 'live')) {
     assert.deepEqual([...t.neighbors], [], `${t.slug}: not live, names no neighbours`);

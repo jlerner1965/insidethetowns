@@ -29,9 +29,9 @@ scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 
 ## High-school sports
 
-A town that follows its high school (Berthoud, Niwot, Lyons, Timnath,
-Elizabeth, Johnstown, Windsor, Frederick, Erie and Lafayette, and Loveland's four
-schools, in `src/config/school-sports.ts`) has `/sports/`: each followed team's record, the
+A town that follows its high school (Berthoud, Erie, Johnstown, Windsor's two
+schools, Carbon Valley, Lyons, Niwot and Elizabeth, in
+`src/config/school-sports.ts`) has `/sports/`: each followed team's record, the
 whole season's results and the games to come, read from the team's MaxPreps
 home page and its `/schedule/` page (the full season, used only where it
 agrees with the home page on every game both carry) by
@@ -226,7 +226,7 @@ read it. A source that refuses automated reads is not worked around.
 ## Two tiers: the standalone guides and the town pages
 
 Since 12 November 2026 a town is one of seven standalone guides (Berthoud,
-Erie, Johnstown, Windsor, Frederick, Lyons, Niwot) or a **town page** on
+Erie, Johnstown, Windsor, Carbon Valley, Lyons, Niwot) or a **town page** on
 the hub at `/<town>/` (`src/config/hub-towns.ts`). A town page is dates
 only: its traditions and its outdoor dates, each a record in
 `content/hub/traditions/` with a `sourceUrl` and a `checked` date

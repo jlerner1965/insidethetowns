@@ -718,7 +718,7 @@ test('boys tennis is a fall team and baseball a spring one, at MaxPreps’s own 
   for (const s of SCHOOL_SPORTS) assert.equal(s.teams.some((t) => ['boys-lacrosse', 'girls-lacrosse'].includes(t.key)), false, s.school);
   // Boys' tennis is Frederick's, Niwot's and Windsor High's (FREDERICK_FALL_EXTRAS; NIWOT_BOYS_TENNIS;
   // BOYS_TENNIS for Windsor High), the owner's word of 9 November 2026.
-  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['frederick', 'niwot', 'windsor']);
+  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['carbon-valley', 'niwot', 'windsor']);
 });
 
 test('a spring team before its season is written empty, not with last spring’s games', () => {

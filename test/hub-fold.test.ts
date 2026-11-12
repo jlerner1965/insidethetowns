@@ -22,7 +22,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { emailTowns, findTown, LIVE_TOWNS } from '../src/config/index.ts';
+import { emailTowns, findTown, LIVE_TOWNS, liveTowns } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide } from '../src/config/hub-towns.ts';
@@ -144,7 +144,10 @@ test('a live guide that is not one of the seven stays up only because its townâ€
 
 test('the seven standalone guides are live, each from its own config, and none is a hub town', () => {
   assert.deepEqual(Object.keys(STANDALONE_GUIDES).sort(), ['berthoud', 'carbon-valley', 'erie', 'johnstown', 'lyons', 'niwot', 'windsor']);
-  assert.deepEqual([...standaloneConfigs].sort(), ['berthoud', 'erie', 'frederick', 'johnstown', 'lyons', 'niwot', 'windsor']);
+  assert.deepEqual([...standaloneConfigs].sort(), ['berthoud', 'carbon-valley', 'erie', 'johnstown', 'lyons', 'niwot', 'windsor']);
+  // In the order of the owner's brief, which is the order every page lists them in.
+  assert.deepEqual(Object.keys(STANDALONE_GUIDES), ['berthoud', 'erie', 'johnstown', 'windsor', 'carbon-valley', 'lyons', 'niwot']);
+  assert.deepEqual(liveTowns().map((t) => t.slug), Object.keys(STANDALONE_GUIDES), 'the list every page reads is these seven, in this order');
   assert.equal(new Set(standaloneConfigs).size, 7, 'seven configs, none twice');
   for (const [key, { guide, kind }] of Object.entries(STANDALONE_GUIDES)) {
     const t = findTown(guide);
@@ -156,7 +159,12 @@ test('the seven standalone guides are live, each from its own config, and none i
     // What it leads with (TownConfig.lead): unset on the sports-led guides.
     assert.equal(t.lead, kind === 'sports' ? undefined : kind === 'quiet' ? 'updates' : 'outdoors', `${key}: ${kind}`);
   }
-  // "Carbon Valley" is the brief's name for the guide to Frederick: the config of that name is retired and forwards to it.
-  assert.equal(STANDALONE_GUIDES['carbon-valley']!.guide, 'frederick');
-  assert.equal(findTown('carbon-valley')!.retired?.successor, 'frederick');
+  // Carbon Valley is the guide to Frederick, Firestone and Dacono; Frederick
+  // is not a guide of its own, and its domain forwards to Carbon Valley.
+  assert.equal(STANDALONE_GUIDES['carbon-valley']!.guide, 'carbon-valley');
+  assert.equal(findTown('carbon-valley')!.domain, 'carbonvalleyguide.com');
+  assert.equal(findTown('frederick')!.status, 'redirect');
+  assert.equal(findTown('frederick')!.retired?.successor, 'carbon-valley');
+  // A site that is deployed and not one of the seven is listed nowhere.
+  assert.ok(LIVE_TOWNS.includes('elizabeth') && !liveTowns().some((t) => t.slug === 'elizabeth'));
 });

@@ -25,6 +25,8 @@ import Page from '@/layouts/Page.astro';
 import { getSite, listsEvents } from '@/config';
 
 const site = getSite();
+// What a guide's search holds: no events on a guide that lists none (Niwot).
+const things = site.kind === 'town' && !listsEvents(site) ? 'place and guide' : 'event, place and guide';
 const browse =
   site.kind === 'town'
     ? [
@@ -44,8 +46,8 @@ const browse =
   title="Search"
   seoTitle={`Search ${site.siteTitle}`}
   eyebrow={site.name}
-  description={site.kind === 'town' ? `Search every event, place and guide on ${site.siteTitle}.` : `Search every event, place and guide on every ${site.siteTitle} guide.`}
-  intro={site.kind === 'town' ? `Every event, place and guide on ${site.siteTitle}.` : 'Every event, place and guide on every town’s guide, and the network’s own pages.'}
+  description={site.kind === 'town' ? `Search every ${things} on ${site.siteTitle}.` : `Search every event, place and guide on every ${site.siteTitle} guide.`}
+  intro={site.kind === 'town' ? `Every ${things} on ${site.siteTitle}.` : 'Every event, place and guide on every town’s guide, and the network’s own pages.'}
   noindex
   narrow
 >

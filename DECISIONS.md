@@ -10518,3 +10518,90 @@ hub's season pages, "Every year in <Town>").*
   no Niwot edition, a subscriber tagged `niwot` alone now receives
   nothing, and nothing in the system sends an email when an update is
   posted. Reported to the owner; nothing changed.
+
+## Carbon Valley is the guide; Frederick is covered by it, 12 November 2026 (QA pass)
+
+*The owner's QA brief of 12 November 2026, after the restructure merged:
+"There are exactly seven standalone guides: Berthoud, Erie, Johnstown,
+Windsor, Carbon Valley, Lyons, Niwot. Frederick is NOT its own guide; it is
+covered by Carbon Valley (with Firestone and Dacono)", and
+"insidefirestone.com and insidefrederickco.com go to Carbon Valley." This
+reverses the reading in the two entries above ("'Carbon Valley' in the
+brief is Inside Frederick"; "the brief was wrong about Carbon Valley").*
+
+- **Carbon Valley is live again and Frederick redirects to it.** The
+  config `carbon-valley` is the guide (carbonvalleyguide.com, "Inside
+  Carbon Valley", Frederick, Firestone and Dacono); `frederick` is
+  `status: 'redirect'` with `retired.successor: 'carbon-valley'`. What
+  Inside Frederick held moved with its slugs to `content/carbon-valley/`
+  and `data/carbon-valley/`: 60 events, 31 places, the programs, updates,
+  articles, the Moving here page, the source registry, the rec-center and
+  sports files. Nothing was written for Firestone or Dacono in the move
+  (the listings the guide had for them until 2 November are in git
+  history, not checked since, and the owner's to bring back or not); the
+  guide already carried the library, the Community Center, the state
+  park, the grocery and the pharmacy in Firestone and the rec district's
+  programs for all three towns. Fort Lupton is not part of it: it has its
+  page on the hub.
+- **Its figures are the three towns' again**, as this config had them until
+  that morning: 37,191 people at the 2020 census and 22,978 in 2010
+  (Frederick 14,513 and 8,679, Firestone 16,381 and 10,147, Dacono 6,297
+  and 4,152), "since 1907" from Frederick's incorporation, Frederick's
+  point and elevation. Living here, Families and the school breaks are
+  still Frederick's and St. Vrain's, and the Living here line says so.
+- **Redirects, one hop each.** insidefrederickco.com: `/` to the guide's
+  home page and every other path to the same path. insidefirestone.com:
+  everything to the guide's home page. carbonvalleyguide.com no longer
+  forwards anywhere; in place of those forty rules, one for each address
+  the guide had before 2 November and has no page for now (93, read from
+  git history): the old section pages and the Firestone and Dacono
+  listings to the home page or `/events/`, the Fort Lupton ones to Fort
+  Lupton's page on the hub. Two events deleted before that are in the
+  guide's `retired.json`.
+- **The email.** The edition is `carbon-valley`. A subscriber tagged
+  `frederick` (signed up between 2 and 12 November) gets it
+  (`recipientTags` now follows `retired.successor` as it does
+  `foldedInto`), and so again does one tagged `carbon-valley` from before
+  2 November. `fort-lupton` tags still get nothing.
+- **One list of guides, one order.** `liveTowns()` was every config with
+  `status: 'live'`, A to Z, which made Frederick and Elizabeth guides on
+  the hub's home page, the menus, the footers, the newsletter page, the
+  search index and the structured data. It now reads `STANDALONE_GUIDES`:
+  the seven, in the brief's order, on every page. The hub's region cards
+  keep their regions (the brief's order within each) and the Moving
+  comparison keeps its population sort; both are the owner's to flatten.
+  `LIVE_TOWNS` and `deployedTowns()` are what is deployed, for CI and the
+  scripts.
+- **Elizabeth** is deployed and on no list. Its page on the hub still has
+  two verified dates of the three it needs, so by rule 4 it is not folded
+  and insideelizabeth.com still serves the guide. The third date is the
+  owner's to approve (`docs/agent/`).
+- **Lyons, no sports.** The first pass took sports out of its menu and off
+  its home page. They were still on its This week page (the week's games
+  and last result), on Families (the athletics link), in the hub's "High
+  school sports" list and in the hub's search; all four are out. The
+  `/sports/` pages still build and are in its sitemap, linked from
+  nowhere: removing them is the owner's call.
+- **Niwot, no events.** Leftovers from when it listed them: the tagline's
+  and the home title's "what's on" and "events", the articles' "This week
+  in Niwot" link, the search page's "every event", the footer's Weekly
+  email link, and `/thanks/`, the event form's landing page, which still
+  built and said "0 events are listed"; it is no longer built there and
+  its address goes to the home page. The newsletter page says Niwot has
+  no edition because it lists no events, not that it has none "yet".
+- **Leadville.** The Leadville Trail 100 Run carries the organizer's own
+  name for it, "Race Across the Sky", read on leadvilleraceseries.com on
+  12 November.
+- **Copy that still named folded guides**: the hub's Moving page (Timnath,
+  Elizabeth's Tech Center commute, Leadville's missing drive time), its
+  Advertise page ("from Fort Collins … to Elizabeth … up to Leadville",
+  "mountain towns", and a sentence that broke once every guide had a
+  neighbour), and the titles that said "Front Range and mountain guides".
+- **Found in production, not fixable here**: seven domains retired before
+  12 November (Fort Lupton, Black Hawk, Idaho Springs, Georgetown, Grand
+  Lake, Evergreen, Manitou Springs) still answered with the hub's home
+  page at 19:05 UTC, though `vercel.json` on `main` sends them to their
+  town pages; and insidesalida.com, insidesteamboatsprings.com,
+  insidebuenavista.com, insidegrandjunction.com, insidefortmorgan.com and
+  insidemead.com do not resolve. Both are in the pull request for the
+  owner.

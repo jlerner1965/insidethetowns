@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { towns } from '../src/config/towns/registry.ts';
 import { TOWN_REGIONS, censusGrowth, countiesCovered, countyLabel, countyShort } from '../src/config/towns/types.ts';
-import { LIVE_TOWNS } from '../src/config/index.ts';
+import { LIVE_TOWNS, liveTowns } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { homeTitle, wordmarkEm, wordmarkParts } from '../src/lib/titles.ts';
 import { groupByRegion } from '../src/lib/regions.ts';
@@ -110,8 +110,9 @@ test('every live town is configured and every config is complete enough to build
   // One guide's domain was not an "inside" one: Carbon Valley covered three
   // towns at carbonvalleyguide.com until 2 November 2026. Its title was still
   // "Inside Carbon Valley", as every guide's is, whatever the domain (owner,
-  // 5 October 2026). No live guide departs from the pattern today.
-  const OWN_DOMAIN = new Map<string, string>([]);
+  // 5 October 2026). It is the guide again since 12 November 2026 (the
+  // restructure brief), at the same domain.
+  const OWN_DOMAIN = new Map<string, string>([['carbon-valley', 'carbonvalleyguide.com']]);
   // One guide's title is not "Inside …": a local magazine already publishes
   // as Inside Longmont, so Longmont's guide is named for the network instead
   // (owner, October 2026). Its domain is unchanged.
@@ -205,16 +206,17 @@ test('the most ambiguous names spell Colorado out rather than abbreviating', () 
 });
 
 test('the hub draws a region only when it has a live town, from the region field alone', () => {
-  const live = towns.filter((t) => LIVE_TOWNS.includes(t.slug));
+  const live = liveTowns();
   const groups = groupByRegion(live);
   for (const g of groups) assert.ok(g.towns.length > 0, `${g.region} is drawn empty`);
   // Every live town appears once, under its own region, and nothing else does.
-  assert.deepEqual(groups.flatMap((g) => g.towns.map((t) => t.slug)).sort(), [...LIVE_TOWNS].sort());
+  assert.deepEqual(groups.flatMap((g) => g.towns.map((t) => t.slug)).sort(), live.map((t) => t.slug).sort());
   for (const g of groups) for (const t of g.towns) assert.equal(t.region, g.region, t.slug);
-  // Order follows TOWN_REGIONS, A to Z within each.
+  // Order follows TOWN_REGIONS, and the guides' own order within each.
   const order = groups.map((g) => TOWN_REGIONS.indexOf(g.region));
   assert.deepEqual(order, [...order].sort((a, b) => a - b));
-  for (const g of groups) assert.deepEqual(g.towns.map((t) => t.name), [...g.towns.map((t) => t.name)].sort((a, b) => a.localeCompare(b, 'en')));
+  const place = (slug: string) => live.findIndex((t) => t.slug === slug);
+  for (const g of groups) assert.deepEqual(g.towns.map((t) => t.slug), [...g.towns.map((t) => t.slug)].sort((a, b) => place(a) - place(b)));
   // A region whose towns are all unlaunched disappears: with only the four
   // mountain towns' region emptied of live guides, it is not drawn.
   const regionsDrawn = new Set(groups.map((g) => g.region));

@@ -48,7 +48,7 @@ This is the check James cares about most. He's fine with the number of towns; he
 ### Links
 - Crawl internal links from the home page to depth 3 and every external link on the pages you fetched.
 - Report 4xx, 5xx, timeouts, and redirect chains longer than one hop. Note soft 404s (a 200 that says "page not found").
-- Check that the alternate domains redirect to the Inside domain (`manager/towns.json` lists them) and that `insidefirestone.com` goes to the Carbon Valley site.
+- Check that the alternate domains redirect to the Inside domain (`manager/towns.json` lists them) and that `insidefirestone.com` and `insidefrederickco.com` go to the Carbon Valley site (`carbonvalleyguide.com`).
 - Flag links to competitors or to dead businesses separately from plain broken links.
 
 ### Coverage

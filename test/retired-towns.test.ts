@@ -19,7 +19,13 @@
  * Grand Lake, Evergreen, Georgetown, Manitou Springs and Fort Lupton)
  * forwards to that page by the same rules as a guide folded that day
  * (src/lib/fold.ts, test/hub-fold.test.ts); one without (Black Hawk, Clear
- * Creek) still goes to the hub's home page, and Carbon Valley to Frederick.
+ * Creek) still goes to the hub's home page.
+ *
+ * Carbon Valley was one of these from 2 to 12 November 2026, forwarding to
+ * Inside Frederick. The owner's restructure brief has it the other way
+ * round: Carbon Valley is the guide and Frederick is covered by it, so
+ * Frederick's is the retired config now, with Carbon Valley its successor
+ * and every path kept, since everything it held moved with its slugs.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -37,8 +43,8 @@ const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url
 const retired = towns.filter((t) => t.retired);
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 
-test('Grand Lake, Black Hawk, Carbon Valley, Fort Lupton, Evergreen, Manitou Springs, Clear Creek and Georgetown are the retired guides', () => {
-  assert.deepEqual(retired.map((t) => t.slug).sort(), ['black-hawk', 'carbon-valley', 'evergreen', 'fort-lupton', 'georgetown', 'grand-lake', 'idaho-springs', 'manitou-springs']);
+test('Grand Lake, Black Hawk, Frederick, Fort Lupton, Evergreen, Manitou Springs, Clear Creek and Georgetown are the retired guides', () => {
+  assert.deepEqual(retired.map((t) => t.slug).sort(), ['black-hawk', 'evergreen', 'fort-lupton', 'frederick', 'georgetown', 'grand-lake', 'idaho-springs', 'manitou-springs']);
 });
 
 test('a retired multi-town guide lists no sections, and nothing is tagged with a retired section anywhere', () => {
@@ -135,18 +141,44 @@ test("every path on a retired guide's domain redirects to its town's page on the
     }
     assert.equal(rules.find((r) => r.source === '/')?.destination, home, `${t.domain}: the home page`);
     assert.equal(rules.at(-1)?.source, '/(.*)', `${t.domain}: the catch-all last`);
-    assert.equal(rules.at(-1)?.destination, home, `${t.domain}: the catch-all goes home`);
+    // A successor that took everything with its slugs keeps the path
+    // (Frederick to Carbon Valley); otherwise the catch-all goes home.
+    assert.equal(rules.at(-1)?.destination, successor ? `${home}$1` : home, `${t.domain}: the catch-all ${successor ? 'keeps the path' : 'goes home'}`);
   }
   // The three without a page, as before 12 November 2026.
   // Black Hawk's and Idaho Springs' pages qualified later on 12 November
-  // 2026 (an organizer's own word of continuing counts), so Carbon Valley,
-  // with Frederick as its successor, is the one retired guide without a page.
-  assert.deepEqual(retired.filter((t) => !t.hubPage).map((t) => t.slug).sort(), ['carbon-valley']);
+  // 2026 (an organizer's own word of continuing counts), so Frederick,
+  // with Carbon Valley as its successor, is the one retired guide without a page.
+  assert.deepEqual(retired.filter((t) => !t.hubPage).map((t) => t.slug).sort(), ['frederick']);
 });
 
-test('Carbon Valley forwards to Frederick, and Firestone with it', () => {
-  const frederick = findTown('frederick')!;
-  assert.equal(findTown('carbon-valley')!.retired!.successor, 'frederick');
+test('Frederick and Firestone forward to Carbon Valley in one step, and no old Carbon Valley address is left without a page', () => {
+  const cv = findTown('carbon-valley')!;
+  assert.equal(cv.status, 'live');
+  assert.equal(cv.retired, undefined);
+  assert.equal(findTown('frederick')!.retired!.successor, 'carbon-valley');
+  const home = `https://${cv.domain}/`;
+  // Firestone never had pages of its own: everything to the guide's home page.
   const firestone = rulesFor('insidefirestone.com');
-  assert.ok(firestone.length > 0 && firestone.every((r) => r.permanent === true && r.destination === `https://${frederick.domain}/`), 'insidefirestone.com goes to Frederick’s home page');
+  assert.ok(firestone.length > 0 && firestone.every((r) => r.permanent === true && r.destination === home), 'insidefirestone.com goes to Carbon Valley’s home page');
+  // Frederick: the path kept, and nothing that points anywhere but the guide.
+  const frederick = rulesFor('insidefrederickco.com');
+  assert.deepEqual([frederick[0]?.source, frederick[0]?.destination], ['/', home]);
+  assert.ok(frederick.every((r) => r.permanent === true && r.destination.startsWith(home)));
+  // No rule anywhere still points at the domain that now forwards: that would be a chain.
+  for (const r of vercel.redirects) assert.ok(!r.destination.includes('insidefrederickco.com'), `${r.source} still goes to insidefrederickco.com`);
+  // The guide's own domain: only the addresses the closed guide had and
+  // this one does not (a section page, a Firestone, Dacono or Fort Lupton
+  // listing), each to a page that exists; never a catch-all on a live guide.
+  const own = rulesFor(cv.domain);
+  assert.ok(own.length > 0);
+  for (const r of own) {
+    assert.notEqual(r.source, '/(.*)', 'no catch-all on a live guide');
+    assert.notEqual(r.source, '/', 'the home page is served, not redirected');
+    assert.equal(r.permanent, true);
+    assert.ok(['/', '/events/'].includes(r.destination) || r.destination.startsWith(`https://${hub.domain}/fort-lupton/`), `${r.source} goes to ${r.destination}`);
+    const m = r.source.match(/^\/(events|places|articles)\/([a-z0-9-]+)\{\/\}\?$/);
+    if (m) assert.ok(!existsSync(new URL(`../content/carbon-valley/${m[1]}/${m[2]}.md`, import.meta.url)), `${r.source} redirects a page the guide still has`);
+  }
+  assert.ok(new Set(publishedHubTownSlugs()).has('fort-lupton'), 'Fort Lupton’s old addresses go to a page that is published');
 });

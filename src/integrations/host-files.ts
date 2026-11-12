@@ -91,7 +91,9 @@ export function hostFiles(config: VercelConfig, domain: string): AstroIntegratio
         // 301 and 308 both mean "moved permanently, keep the rankings"; 302 is
         // the temporary one. Vercel spells the distinction `permanent`.
         const redirectLines = (config.redirects ?? []).filter((r) => forSite(r, domain)).map(
-          (r) => `${toPath(r.source)}  ${r.destination}  ${r.permanent === false ? 302 : 301}`,
+          // Vercel writes what a trailing "(.*)" matched as "$1"; these hosts
+          // write it ":splat" (insidefrederickco.com keeps every path).
+          (r) => `${toPath(r.source)}  ${/\(\.\*\)$/.test(r.source) ? r.destination.replace('$1', ':splat') : r.destination}  ${r.permanent === false ? 302 : 301}`,
         );
         writeFileSync(join(out, '_redirects'), redirectLines.join('\n') + '\n', 'utf8');
 
