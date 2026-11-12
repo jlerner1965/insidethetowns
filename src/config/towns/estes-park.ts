@@ -17,17 +17,16 @@ export const estesPark: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
   // the launch threshold (docs/archive/ACCURACY-SYSTEM.md).
-  status: 'live',
-  // A visitor guide from 20 October 2026, owner's word, with Estes Park,
-  // Golden and Evergreen together (DECISIONS.md, "The other mountain guides,
-  // 20 October"): kept current on the sixty-day check, no weekly email.
-  visitorGuide: {
-    since: '2026-10-20',
-    reason: 'the gateway to Rocky Mountain National Park, with Visit Estes Park and the Town behind the official calendar; its readers plan a trip, not a week, and the weekly effort goes to the Front Range towns that can be won',
-  },
+  // Folded into its town's page on the hub on 12 November 2026 (the
+  // restructure brief; DECISIONS.md, "Two tiers"): the page has its three
+  // verified dated items, so every address on this domain redirects to the
+  // matching place on it (vercel.json, src/lib/fold.ts) and the guide's
+  // content has left content/estes-park/ (git history keeps it).
+  status: 'redirect',
+  hubPage: { town: 'estes-park', since: '2026-11-12' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  neighbors: ['lyons', 'loveland'],
+  neighbors: [],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   launchThreshold: { events: 20, listings: 30 },
   slug: 'estes-park',

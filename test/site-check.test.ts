@@ -309,3 +309,19 @@ test('the scanner reads attributes however they are quoted, and decodes them', (
   assert.equal(scan.tags.find((t) => t.name === 'a')!.attrs.class, 'plain');
   assert.ok(scan.ids.has('one'));
 });
+
+test('a sample tradition record in a build without the fixtures switch is refused', () => {
+  const files = { ...sound(), '/about/index.html': page('/about/', { body: '<a href="/">Home</a><h2 id="who">Who</h2><article data-tradition-row data-fixture>Sample</article>' }) };
+  assert.deepEqual(rules(files), ['fixture-shipped']);
+  const dir = mkdtempSync(join(tmpdir(), 'site-check-'));
+  try {
+    for (const [file, text] of Object.entries(files)) {
+      mkdirSync(dirname(join(dir, file)), { recursive: true });
+      writeFileSync(join(dir, file), text);
+    }
+    const allowed = checkSite({ dir, domain: DOMAIN, network: NETWORK, redirects: [], now: new Date('2026-11-09T12:00:00Z'), fixtures: true });
+    assert.deepEqual(allowed.problems, []);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

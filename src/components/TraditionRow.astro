@@ -1,0 +1,137 @@
+---
+/**
+ * One tradition, one year: a row on the hub's season page and on a guide's
+ * /traditions/ (src/lib/traditions.ts). Top to bottom: the eyebrow (the town
+ * on the hub; the category dot and the type's label on a guide), the event's
+ * name, the status line, the time, place and cost the organizer published,
+ * and the check date with the source link. Every row has the last two.
+ *
+ * The statuses, each a word as well as a look (visual rule 5):
+ * - confirmed: "Confirmed · <the day>".
+ * - not-announced: the dark status pill and "Last held <day>" where an
+ *   earlier year has a date. Never a predicted date or a rule.
+ * - moved: the Moved pill, the new day, the old day and the organizer's
+ *   reason, quoted and attributed.
+ * - canceled: the Canceled pill and the title struck through, as an event
+ *   row does (EventCard.astro).
+ *
+ * A sample record (`fixture`) says so on its face and carries
+ * `data-fixture`, which the site check refuses on any build without the
+ * fixtures switch (scripts/lib/site-check.ts).
+ */
+import { parseLocal, formatDayLong, formatShortDate } from '@/lib/dates';
+import { TRADITION_TYPE_INFO, type TraditionRow } from '@/lib/traditions';
+
+interface Props {
+  row: TraditionRow;
+  /** 'town' on the hub (the town is the eyebrow), 'category' on a guide. */
+  eyebrow: 'town' | 'category';
+  /** Where the name links: the town's guide, or the organizer's page. None on the guide's own page. */
+  href?: string;
+  /** The eyebrow's words where the record has no home town: "Statewide", "Estes Park, Grand Lake". */
+  townLabel?: string;
+  /** What the date means in this place: the record's local line for it (src/lib/hub-towns.ts, lineFor). */
+  line?: string;
+  /** The record's other showings, as links: every showing links to the others. */
+  also?: ReadonlyArray<{ label: string; href: string }>;
+}
+
+const { row, eyebrow, href, townLabel, line, also = [] } = Astro.props;
+const { record, entry, source } = row;
+const type = TRADITION_TYPE_INFO[record.type];
+const day = (d: string) => parseLocal(d);
+/**
+ * "Saturday, December 5, 2026": always with the year, since a town page
+ * lists this winter's dates beside next summer's.
+ */
+const dayText = (d: string) => `${formatDayLong(day(d))}, ${d.slice(0, 4)}`;
+/** A date that runs several days: "Friday, June 18 to Sunday, June 21, 2027", the year once where both share it. */
+const spanText = (from: string, to?: string) => {
+  if (!to || to === from) return dayText(from);
+  return from.slice(0, 4) === to.slice(0, 4) ? `${formatDayLong(day(from))} to ${dayText(to)}` : `${dayText(from)} to ${dayText(to)}`;
+};
+const canceled = entry.status === 'canceled';
+const past = !!row.past;
+const dated = !past && (entry.status === 'confirmed' || entry.status === 'moved');
+const details = dated ? [entry.note && `${record.organizer}: “${entry.note}”`, entry.startTime, entry.place, entry.cost].filter(Boolean) : [];
+const town = record.town?.name ?? townLabel ?? (record.statewide ? 'Statewide' : '');
+// "Last held" is a tradition's word; a road's last opening was not held.
+const lastWord = record.type === 'outdoor' ? 'Most recent' : 'Last held';
+const lastEnd = past ? entry.endDate : record.years.find((y) => y.date === row.lastHeld)?.endDate;
+const pill = 'rounded-full bg-ink px-2 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-raised';
+---
+<article
+  id={record.slug}
+  class="scroll-mt-4 border-line-soft py-5 [:not([hidden])~&]:border-t md:py-6"
+  data-tradition-row
+  data-town={town}
+  data-status={past ? 'not-announced' : entry.status}
+  data-fixture={record.fixture ? '' : undefined}
+>
+  {eyebrow === 'town' ? (
+    <p class="eyebrow mb-1.5">{town}</p>
+  ) : (
+    <p class="eyebrow mb-1.5 flex flex-wrap items-center gap-2" style={`color:var(--cat-${type.category}-ink)`}>
+      <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${type.category}-dot)`} aria-hidden="true"></span>
+      {type.label}{record.firstYear && <span> · Since {record.firstYear}</span>}
+    </p>
+  )}
+  <h3 class="text-xl font-medium leading-tight md:text-2xl">
+    {href ? (
+      <a href={href} class:list={['hover:text-primary', canceled ? 'line-through decoration-ink-muted decoration-2' : 'no-underline']}>{record.name}</a>
+    ) : (
+      <span class:list={[canceled && 'line-through decoration-ink-muted decoration-2']}>{record.name}</span>
+    )}
+  </h3>
+
+  {entry.status === 'confirmed' && !past && (
+    <p class="mt-2 text-[0.9375rem] font-semibold text-ink">Confirmed · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time></p>
+  )}
+  {(entry.status === 'not-announced' || past) && (
+    <Fragment>
+      <p class="mt-2"><span class={pill}>{past ? 'Next date not yet announced' : `${row.year} date not yet announced`}</span></p>
+      {row.lastHeld && <p class="mt-1.5 text-[0.9375rem] text-ink-muted">{lastWord} <time datetime={row.lastHeld}>{spanText(row.lastHeld, lastEnd)}</time></p>}
+    </Fragment>
+  )}
+  {entry.continues && entry.status === 'not-announced' && (
+    <p class="mt-1.5 text-[0.9375rem] text-ink-muted">{record.organizer}: “{entry.continues}”</p>
+  )}
+  {entry.typicalWindow && (entry.status === 'typical' || entry.status === 'not-announced') && (
+    <p class="mt-1.5 text-[0.9375rem] text-ink-muted"><span class="font-semibold text-ink">Typical window, not a date:</span> {entry.typicalWindow}</p>
+  )}
+  {entry.status === 'moved' && !past && (
+    <Fragment>
+      <p class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span class={pill}>Moved</span>
+        <time datetime={entry.date} class="text-[0.9375rem] font-semibold text-ink">{spanText(entry.date!, entry.endDate)}</time>
+      </p>
+      <p class="mt-1.5 text-[0.9375rem] text-ink-muted">
+        Was <time datetime={entry.previousDate}>{dayText(entry.previousDate!)}</time>. {record.organizer}: “{entry.reason}”
+      </p>
+    </Fragment>
+  )}
+  {canceled && (
+    <Fragment>
+      <p class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span class={pill}>Canceled</span>
+        {entry.date && <span class="text-[0.9375rem] text-ink-muted">Was set for <time datetime={entry.date}>{dayText(entry.date)}</time></span>}
+      </p>
+      {entry.reason && <p class="mt-1.5 text-[0.9375rem] text-ink-muted">{record.organizer}: “{entry.reason}”</p>}
+    </Fragment>
+  )}
+
+  {details.length > 0 && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">{details.join(' · ')}</p>}
+  {line && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink" data-local-line>{line}</p>}
+  <p class="mt-1.5 text-sm text-ink-muted">
+    Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · Source:
+    <a href={source} rel="noopener" class="text-primary underline">{record.organizer}</a>
+  </p>
+  {also.length > 0 && (
+    <p class="mt-1 text-sm text-ink-muted" data-also-on>
+      Also on: {also.map((a, i) => (<Fragment>{i > 0 && ' · '}<a href={a.href} class="text-primary underline">{a.label}</a></Fragment>))}
+    </p>
+  )}
+  {record.fixture && (
+    <p class="mt-1.5 text-sm font-semibold text-ink">Sample record (test fixture): not a real event, never on the live site.</p>
+  )}
+</article>

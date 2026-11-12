@@ -222,8 +222,15 @@ test('a game to come shows its time and where; one played shows the result', () 
 
 // ------------------------------------------------------- the school's colours
 
-test('every flagship names its school as the sports pages do, and its band clears 7:1 under white', () => {
-  for (const t of towns.filter((t) => t.home)) {
+test('every live flagship names its school as the sports pages do, and its band clears 7:1 under white', () => {
+  // A flagship folded into its page on the hub (Golden and Timnath, 12
+  // November 2026) keeps its config, but its school has left the sports
+  // coverage with the guide: nothing is built from it to hold in step.
+  for (const t of towns.filter((t) => t.home && t.status !== 'live')) {
+    assert.ok(t.hubPage, `${t.slug}: a flagship that is not live was folded into its page on the hub`);
+    assert.deepEqual(schoolsFor(t.slug), [], `${t.slug}: a folded guide follows no school`);
+  }
+  for (const t of towns.filter((t) => t.home && t.status === 'live')) {
     assert.ok(t.school, `${t.slug}: a flagship with a school in the sports coverage has its colours`);
     // The town's only school, or, where it follows several (Windsor and Severance's two), the one its colours are.
     const sports = schoolSportsFor(t.slug) ?? schoolsFor(t.slug).find((s) => s.school === t.school!.name)!;
@@ -277,10 +284,14 @@ test('a long time note is said once on the agenda’s meta line, not before and 
 test('quick answers link only pages the guide builds', () => {
   // src/components/home/QuickAnswers.astro derives its links; the one typed
   // value, a rec center listing named on the config, must be a listing file.
+  // A flagship folded into its page on the hub (12 November 2026) keeps the
+  // setting in its config and builds no home page; its listings have left
+  // content/<town>/, so only a live guide's are looked for.
   for (const t of towns.filter((t) => t.quickAnswers)) {
-    assert.ok(t.status === 'live' && t.home, `${t.slug}: quick answers on a live home page`);
+    assert.ok(t.home, `${t.slug}: quick answers on a flagship home page`);
+    assert.ok(t.status === 'live' || t.hubPage, `${t.slug}: quick answers on a live home page, or left on a guide folded into its hub page`);
     const rec = t.quickAnswers!.recCenter;
-    if (rec) assert.ok(existsSync(new URL(`../content/${t.slug}/places/${rec.place}.md`, import.meta.url)), `${t.slug}: ${rec.place} is a listing`);
+    if (rec && t.status === 'live') assert.ok(existsSync(new URL(`../content/${t.slug}/places/${rec.place}.md`, import.meta.url)), `${t.slug}: ${rec.place} is a listing`);
   }
 });
 

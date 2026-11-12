@@ -32,6 +32,9 @@ export const georgetown: TownConfig = {
     since: '2026-11-03',
     reason: 'A section of the Clear Creek guide from 20 October 2026; the owner closed that guide, Idaho Springs and Georgetown both, on 3 November 2026, so there is no section left for the domain to point at.',
   },
+  // Its town page on the hub is published (12 November 2026), so the
+  // domain now forwards there, not to the hub's home page.
+  hubPage: { town: 'georgetown', since: '2026-11-12' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: [],

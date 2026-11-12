@@ -49,7 +49,10 @@ const indexable = (/** @type {string} */ url) => {
 // A guide's places index is /directory/; /places/ alone, the parent of every
 // listing's URL, answered 404 on every guide (the search audit of 7 November
 // 2026). Sent on, as a former slug is.
-const redirects = site.kind === 'town' ? { ...formerSlugRedirects(site.slug), '/places': '/directory/' } : {};
+// A quiet guide (`lead: 'updates'`) builds no events pages: its old event
+// addresses are vercel.json's to send home, not redirect pages to /events/.
+const formerRedirects = site.kind === 'town' ? Object.fromEntries(Object.entries(formerSlugRedirects(site.slug)).filter(([from]) => site.lead !== 'updates' || !from.startsWith('/events'))) : {};
+const redirects = site.kind === 'town' ? { ...formerRedirects, '/places': '/directory/' } : {};
 
 export default defineConfig({
   site: `https://${site.domain}`,

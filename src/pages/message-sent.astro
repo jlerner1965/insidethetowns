@@ -16,7 +16,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { getSite } from '@/config';
+import { getSite, listsEvents } from '@/config';
 import { PRIVACY_LINE } from '@/lib/privacy';
 
 const site = getSite();
@@ -52,7 +52,7 @@ const town = site.kind === 'town';
   </div>
 
   <Fragment slot="after">
-    {town ? (
+    {town && !listsEvents(site) ? null : town ? (
       <CtaBand
         eyebrow="While you’re here"
         title={`What’s on in ${site.name}`}

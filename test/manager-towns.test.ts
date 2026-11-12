@@ -4,8 +4,9 @@
  * current; if the two disagree, the repo config wins". A hand-kept copy of
  * the configs drifts the day a town is flipped live or folded, so this holds
  * the two together: every live config is listed live with its domain, a
- * folded town's domain is an alternate of the guide that took it, and a
- * guide out of the weekly email says so in its notes.
+ * folded town's domain is an alternate of the guide that took it, a guide
+ * folded into its page on the hub (12 November 2026) is listed not live with
+ * where it went, and a guide out of the weekly email says so in its notes.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -51,7 +52,8 @@ test('nothing is listed live that the configs do not deploy', () => {
 });
 
 test("a folded town's domain is an alternate of the guide that took it, and is not its own entry", () => {
-  for (const t of towns.filter((t) => t.status === 'redirect' && !t.retired)) {
+  // A guide folded into its town's page on the hub (`hubPage`) has no guide to take it: the next test but one.
+  for (const t of towns.filter((t) => t.status === 'redirect' && !t.retired && !t.hubPage)) {
     assert.ok(t.foldedInto, `${t.slug} redirects but says not where`);
     const host = listed.get(t.foldedInto.town);
     assert.ok(host, `${t.foldedInto.town} is missing from manager/towns.json`);
@@ -70,6 +72,23 @@ test('a retired guide keeps its own entry, not live, and its notes say it was re
   }
 });
 
+test('a guide folded into its page on the hub keeps its own entry, not live, and its notes say where it went and when', () => {
+  // The nine of 12 November 2026, and the five retired earlier whose domains
+  // now forward to their town's page, not the hub's home page.
+  const withPage = towns.filter((t) => t.hubPage);
+  assert.equal(withPage.filter((t) => !t.retired).length, 10);
+  for (const t of withPage) {
+    const m = listed.get(t.slug);
+    assert.ok(m, `${t.slug} was folded into its hub page and is missing from manager/towns.json`);
+    assert.equal(m.live, false, `${t.slug} was folded into its hub page and is listed live`);
+    assert.equal(m.domain, t.domain, `${t.slug}: domain`);
+    assert.equal(m.name, t.name, `${t.slug}: name`);
+    assert.ok((m.notes ?? '').includes(`${hub.domain}/${t.hubPage!.town}/`), `${t.slug}: notes should name the page, ${hub.domain}/${t.hubPage!.town}/`);
+    if (!t.retired) assert.ok((m.notes ?? '').includes(`folded into its page on ${hub.domain} ${t.hubPage!.since}`), `${t.slug}: notes should say "folded into its page on ${hub.domain} ${t.hubPage!.since}"`);
+    assert.doesNotMatch(m.notes ?? '', /\b(quiet|visitor guide) since\b/, `${t.slug}: no longer a quiet or visitor guide`);
+  }
+});
+
 test('a guide out of the weekly email says so in its notes, and nothing else claims to be', () => {
   for (const t of towns.filter((t) => t.status === 'live')) {
     const notes = listed.get(t.slug)?.notes ?? '';
@@ -79,6 +98,14 @@ test('a guide out of the weekly email says so in its notes, and nothing else cla
     else assert.doesNotMatch(notes, /\bvisitor guide since\b/, `${t.slug} is not a visitor guide`);
     // The owner publishes weekly notes on every live guide; only the email is dropped. A note that
     // tells the audit agent not to expect This Week on these guides would have it pass a missing page.
-    if (t.quiet || t.visitorGuide) assert.doesNotMatch(notes, /no .*This Week expected/i, `${t.slug}: This Week runs on every live guide`);
+    // The one exception since 12 November 2026 is a guide that lists no events (`lead: 'updates'`, Niwot):
+    // it builds no events, This week or This weekend page and is out of the email, and its notes say both.
+    if (t.quiet || t.visitorGuide) assert.doesNotMatch(notes, /no .*This Week expected/i, `${t.slug}: This Week runs on every live guide that lists events`);
+    if (t.lead === 'updates') {
+      assert.match(notes, /lists no events/, `${t.slug} lists no events; its notes should say so`);
+      assert.match(notes, /out of the weekly email/, `${t.slug} is out of the weekly email; its notes should say so`);
+    } else {
+      assert.doesNotMatch(notes, /lists no events/, `${t.slug} lists events`);
+    }
   }
 });

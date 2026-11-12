@@ -1,0 +1,43 @@
+---
+/**
+ * Shared dates as single lines (the restructure of 12 November 2026): a
+ * record's name and its next date, or that it is not yet announced, each
+ * line a link to the record's row on this guide's /traditions/, where the
+ * source, the check date and the record's other showings are. Used under
+ * "Worth knowing" and on This week on the sports-led guides, as the lead
+ * section on Lyons and under "Things to know" on Niwot.
+ *
+ * One line a record: never a second date, never a guess. A date not
+ * published reads "not yet announced"; a typical window is not shown
+ * here, since a line has no room to label it as one.
+ */
+import { formatDayShort, parseLocal } from '@/lib/dates';
+import { isUpcoming, type TraditionRow } from '@/lib/traditions';
+
+interface Props {
+  rows: readonly TraditionRow[];
+  /** The record's local line for this guide, by slug, shown after the date where there is one. */
+  lines?: Readonly<Record<string, string | undefined>>;
+  /** For the click counts. */
+  track?: string;
+}
+const { rows, lines = {}, track = 'date-line' } = Astro.props;
+const day = (d: string) => formatDayShort(parseLocal(d));
+const when = (row: TraditionRow): string => {
+  const { entry } = row;
+  if (entry.status === 'canceled') return 'canceled';
+  if (!isUpcoming(row)) return 'not yet announced';
+  const year = entry.date!.slice(0, 4);
+  const span = entry.endDate && entry.endDate !== entry.date ? `${day(entry.date!)} to ${day(entry.endDate)}` : day(entry.date!);
+  return `${span}, ${entry.endDate ? entry.endDate.slice(0, 4) : year}`;
+};
+---
+<ul class="mt-3 divide-y divide-line-soft" data-date-lines>
+  {rows.map((row) => (
+    <li class="py-3 text-[1.0625rem] leading-snug" data-record={row.record.slug}>
+      <a href={`/traditions/#${row.record.slug}`} class="font-medium text-primary no-underline hover:underline" data-track={track}>{row.record.name}</a>
+      <span class="text-ink-muted"> · {when(row)}</span>
+      {lines[row.record.slug] && <span class="block text-[0.9375rem] text-ink-muted">{lines[row.record.slug]}</span>}
+    </li>
+  ))}
+</ul>

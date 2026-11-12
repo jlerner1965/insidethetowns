@@ -5,33 +5,37 @@ code; the `TOWN` environment variable decides which site it produces.
 
 ```
 insidethetowns.com   TOWN=hub
+insidesalida.com, insidesteamboatsprings.com, insidebuenavista.com, insidegrandjunction.com, insidefortmorgan.com
+                     (no TOWN: the owner's domains for towns that never had a guide, 12 Nov 2026; to be added to the
+                     hub's project `insidethetowns`, whose vercel.json forwards each to its town page, docs/REDIRECTS.md;
+                     insidemead.com waits for Mead's page)
 insideniwot.com      TOWN=niwot
 insidelyons.com      TOWN=lyons
 insideberthoud.com   TOWN=berthoud
 insideerie.com       TOWN=erie
 insidejohnstown.com  TOWN=johnstown
-insidetimnath.com    TOWN=timnath
+insidetimnath.com    TOWN=timnath   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/timnath/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
 insideelizabeth.com  TOWN=elizabeth
 insidewindsorco.com  TOWN=windsor        (Windsor and Severance on one site)
-insidefortcollins.com TOWN=fortcollins
-insidelongmontco.com TOWN=longmont
-insidelovelandco.com TOWN=loveland
+insidefortcollins.com TOWN=fortcollins   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/fort-collins/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
+insidelongmontco.com TOWN=longmont   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/longmont/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
+insidelovelandco.com TOWN=loveland   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/loveland/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
 carbonvalleyguide.com TOWN=carbon-valley   (project `carbonvalleyguide`; retired 2 Nov 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md; insidefirestone.com is a domain on it)
 insidefrederickco.com TOWN=frederick      (a flagship from 2 Nov 2026, Frederick alone, in the Carbon Valley guide's place; project `insidefrederickco`)
-insidelafayette.com  TOWN=lafayette      (a flagship from 2 Nov 2026; project `insidelafayette`)
+insidelafayette.com  TOWN=lafayette   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/lafayette/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
 insideseverance.com  TOWN=severance      (folded into Windsor 12 Oct 2026; serves redirects only, docs/REDIRECTS.md)
-insidefortlupton.com TOWN=fort-lupton    (folded into Carbon Valley 12 Oct 2026, retired with it 2 Nov 2026; serves redirects to insidethetowns.com only)
-insidecastlerockco.com TOWN=castle-rock   (live 31 Oct 2026, quiet; insidecastlerock.com is someone else's)
-insideestespark.com  TOWN=estes-park      (mountain variant)
-insidegolden.com     TOWN=golden          (mountain variant)
-insideevergreenco.com TOWN=evergreen      (retired 3 Nov 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md; insideevergreen.com is someone else's)
-insidenederland.com  TOWN=nederland       (mountain variant)
-insideidahosprings.com   TOWN=idaho-springs   (Inside Clear Creek, Idaho Springs and Georgetown, from 20 Oct 2026; retired 3 Nov 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md)
-insidegeorgetownco.com   TOWN=georgetown      (folded into the Idaho Springs guide 20 Oct 2026, retired with it 3 Nov 2026; serves redirects to insidethetowns.com only)
-insidegrandlake.com      TOWN=grand-lake      (retired 30 Oct 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md)
-insidemanitousprings.com TOWN=manitou-springs (retired 3 Nov 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md)
-insideleadville.com      TOWN=leadville       (mountain variant)
-insideblackhawk.com      TOWN=black-hawk      (folded into the Idaho Springs guide 20 Oct 2026, retired 2 Nov 2026; serves redirects to insidethetowns.com only)
+insidefortlupton.com TOWN=fort-lupton    (folded into Carbon Valley 12 Oct 2026, retired with it 2 Nov 2026; serves redirects to insidethetowns.com only; from 12 Nov 2026 to its town page on the hub, not the hub's home page)
+insidecastlerockco.com TOWN=castle-rock   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/castle-rock/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
+insideestespark.com  TOWN=estes-park   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/estes-park/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
+insidegolden.com     TOWN=golden   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/golden/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
+insideevergreenco.com TOWN=evergreen      (retired 3 Nov 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md; insideevergreen.com is someone else's; from 12 Nov 2026 to its town page on the hub, not the hub's home page)
+insidenederland.com  TOWN=nederland   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/nederland/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
+insideidahosprings.com   TOWN=idaho-springs   (Inside Clear Creek, Idaho Springs and Georgetown, from 20 Oct 2026; retired 3 Nov 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md; from 12 Nov 2026 to its town page on the hub, not the hub's home page)
+insidegeorgetownco.com   TOWN=georgetown      (folded into the Idaho Springs guide 20 Oct 2026, retired with it 3 Nov 2026; serves redirects to insidethetowns.com only; from 12 Nov 2026 to its town page on the hub, not the hub's home page)
+insidegrandlake.com      TOWN=grand-lake      (retired 30 Oct 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md; from 12 Nov 2026 to its town page on the hub, not the hub's home page)
+insidemanitousprings.com TOWN=manitou-springs (retired 3 Nov 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md; from 12 Nov 2026 to its town page on the hub, not the hub's home page)
+insideleadville.com      TOWN=leadville   (folded into its page on the hub 12 Nov 2026, insidethetowns.com/leadville/; serves redirects only, docs/REDIRECTS.md; the project keeps building)
+insideblackhawk.com      TOWN=black-hawk      (folded into the Idaho Springs guide 20 Oct 2026, retired 2 Nov 2026; serves redirects to insidethetowns.com only; from 12 Nov 2026 to its town page on the hub, not the hub's home page)
 …
 ```
 

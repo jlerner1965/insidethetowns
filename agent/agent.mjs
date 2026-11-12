@@ -47,7 +47,12 @@ const skill = await readFile(skillPath, 'utf8');
 
 const [mode, townArg, ...rest] = process.argv.slice(2);
 if (!mode || !townArg) printUsage();
-const towns = townArg === 'all' ? liveTowns() : [findTown(townArg) ?? die(`Unknown town "${townArg}".`)];
+// A quiet guide (`lead: 'updates'`, Niwot) is left out of the weekly notes
+// run: it posts when there is an update and makes no weekly promise, so a
+// drafted week would be an empty one. It is still in `changes all`, which
+// is where its updates come from, and `weekly niwot` by name still runs.
+const everyTown = mode === 'weekly' ? liveTowns().filter((t) => t.lead !== 'updates') : liveTowns();
+const towns = townArg === 'all' ? everyTown : [findTown(townArg) ?? die(`Unknown town "${townArg}".`)];
 
 const denver = (opts) => new Date().toLocaleDateString('en-US', { timeZone: 'America/Denver', ...opts });
 const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' }); // YYYY-MM-DD

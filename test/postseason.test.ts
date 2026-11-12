@@ -73,7 +73,7 @@ test('a state match MaxPreps does not carry yet is added, linked to the bracket'
 
 test('an opponent still to be decided matches whichever team MaxPreps names', () => {
   const data: SportsData = { generated: '', sports: [team('volleyball', { upcoming: [{ date: '2026-11-12', opponent: 'Platte Valley', site: 'home', url: 'https://www.maxpreps.com/m/' }] })] };
-  const merged = withPostseason({ town: 'loveland', slug: 'resurrection-christian' }, data, SUNDAY, [row({ town: 'loveland', slug: 'resurrection-christian', opponent: 'Alamosa or Platte Valley', time: '18:30' })]);
+  const merged = withPostseason({ town: 'windsor', slug: 'windsor-high' }, data, SUNDAY, [row({ town: 'windsor', slug: 'windsor-high', opponent: 'Alamosa or Platte Valley', time: '18:30' })]);
   assert.equal(merged.sports[0]!.upcoming.length, 1);
   assert.equal(merged.sports[0]!.upcoming[0]!.opponent, 'Platte Valley');
   assert.equal(merged.sports[0]!.upcoming[0]!.venue, 'Denver Coliseum');
@@ -81,15 +81,33 @@ test('an opponent still to be decided matches whichever team MaxPreps names', ()
 
 test('a row for another school of the same town, a played game or a passed day changes nothing', () => {
   const data: SportsData = { generated: '', sports: [team('volleyball', { results: [{ date: '2026-11-12', opponent: 'Eaton', site: 'away', result: 'W', score: { us: 3, them: 1 }, url: 'https://www.maxpreps.com/r/' }] })] };
-  assert.equal(withPostseason({ town: 'loveland', slug: 'mountain-view' }, data, SUNDAY, [row({ town: 'loveland', slug: 'resurrection-christian' })]), data);
+  assert.equal(withPostseason({ town: 'windsor', slug: 'severance-high' }, data, SUNDAY, [row({ town: 'windsor', slug: 'windsor-high' })]), data);
   assert.equal(withPostseason({ town: 'berthoud' }, data, SUNDAY, [row()]).sports[0]!.upcoming.length, 0, 'the result is there; no game to come is added');
   assert.equal(withPostseason({ town: 'berthoud' }, data, new Date('2026-11-13T19:00:00Z'), [row()]), data);
 });
 
 test('a team with a first-round bye is not called finished while its playoff game is to come', () => {
-  const timnath = readSportsData({ town: 'timnath' }, undefined, SUNDAY);
-  const football = timnath?.sports.find((t) => t.key === 'football');
-  assert.ok(football, 'Timnath’s football data');
-  assert.equal(football.upcoming[0]?.opponent, 'Eagle Valley');
+  // Timnath's football (3A, No. 7, a bye on 6 November 2026 and Eagle Valley
+  // on the 13th) was read here from data/timnath/ until that guide was
+  // folded into its page on the hub on 12 November 2026 and its data left
+  // with it; no school still followed had a bye, so the case is built: a
+  // last result nine days back, nothing to come on MaxPreps, and CHSAA's row.
+  const football = team('football', { overall: '8-2', results: [{ date: '2026-10-30', opponent: 'Severance', site: 'home', result: 'W', score: { us: 28, them: 14 }, url: 'https://www.maxpreps.com/r/' }] });
+  const data: SportsData = { generated: '', sports: [football] };
+  assert.equal(seasonOver(football, '2026-11-08'), true, 'on MaxPreps alone the season reads as over');
+  const bye = row({ town: 'berthoud', team: 'football', date: '2026-11-13', time: undefined, opponent: 'Eagle Valley', venue: undefined, stage: 'State Football Playoffs', source: 'https://chsaanow.com/brackets/football/2026/state/3a' });
+  const merged = withPostseason({ town: 'berthoud' }, data, SUNDAY, [bye]).sports.find((t) => t.key === 'football');
+  assert.ok(merged, 'the football team');
+  assert.equal(merged.upcoming[0]?.opponent, 'Eagle Valley');
+  assert.equal(seasonOver(merged, '2026-11-08'), false);
+});
+
+test('the data files as the pages read them carry the postseason rows of the schools still followed', () => {
+  // Severance High's football file and CHSAA's row for Pueblo East at Dutch Clark on 13 November 2026.
+  const severance = readSportsData({ town: 'windsor', slug: 'severance-high' }, undefined, SUNDAY);
+  const football = severance?.sports.find((t) => t.key === 'football');
+  assert.ok(football, 'Severance’s football data');
+  assert.equal(football.upcoming[0]?.opponent, 'Pueblo East');
+  assert.equal(football.upcoming.filter((g) => g.date === '2026-11-13').length, 1, 'one game, not MaxPreps’s and CHSAA’s both');
   assert.equal(seasonOver(football, '2026-11-08'), false);
 });

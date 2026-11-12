@@ -6,7 +6,8 @@
  */
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { articleSchema, correctionSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema, profileSchema, programSchema, updateSchema, weeklySchema } from './content/schemas';
+import { articleSchema, correctionSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema, profileSchema, programSchema, traditionSchema, updateSchema, weeklySchema } from './content/schemas';
+import { FIXTURES_DIR, TRADITIONS_DIR, fixturesEnabled } from './lib/traditions';
 
 const base = './content';
 
@@ -94,4 +95,25 @@ const profiles = defineCollection({
   schema: ({ image }) => lenient(profileSchema(image)),
 });
 
-export const collections = { events, places, articles, pages, issues, weekly, corrections, programs, updates, profiles };
+/**
+ * Traditions (src/lib/traditions.ts): one record per named annual event,
+ * network-wide, so they live with the hub's content and both the hub and
+ * every guide read them. Strict, not lenient: a confirmed or moved year
+ * without its date, source or check date fails the build (the brief's
+ * rule), because the one failure this collection exists to prevent is a
+ * wrong date on the page.
+ *
+ * The sample records in test/fixtures/traditions/ load only when
+ * TRADITIONS_FIXTURES=1, which fixturesEnabled() refuses on Vercel; the id
+ * is the record's slug, which for a fixture always starts "fixture-".
+ */
+const traditions = defineCollection({
+  loader: glob({
+    pattern: [`${TRADITIONS_DIR}/[^_]*.md`, ...(fixturesEnabled() ? [`${FIXTURES_DIR}/[^_]*.md`] : [])],
+    base: '.',
+    generateId: ({ entry, data }) => (typeof data.slug === 'string' ? data.slug : entry.replace(/^.*\//, '').replace(/\.md$/, '')),
+  }),
+  schema: () => traditionSchema(),
+});
+
+export const collections = { events, places, articles, pages, issues, weekly, corrections, programs, updates, profiles, traditions };

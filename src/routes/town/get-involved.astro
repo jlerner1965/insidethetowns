@@ -13,7 +13,7 @@ import ProgramRow from '@/components/ProgramRow.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CheckedLine from '@/components/CheckedLine.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
-import { getTown } from '@/config';
+import { getTown, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { byName, isWayIn } from '@/lib/programs';
 import { PROGRAM_KIND_LABELS, type ProgramKind } from '@/content/schemas';
@@ -77,10 +77,10 @@ const structured = [
         <div class="rounded-lg bg-raised p-6 ring-1 ring-line-soft">
           <p class="eyebrow border-b border-line-soft pb-3">Also on this guide</p>
           <ul class="mt-3 space-y-2 text-[0.9375rem]">
-            <li><a href="/events/?category=civic" class="font-semibold text-primary underline">Town and county meetings on the calendar</a></li>
+            {listsEvents(town) && <li><a href="/events/?category=civic" class="font-semibold text-primary underline">Town and county meetings on the calendar</a></li>}
             {town.families && <li><a href="/families/" class="font-semibold text-primary underline">{town.families.label}</a></li>}
             {town.livingHere && <li><a href="/living-here/" class="font-semibold text-primary underline">Living here: who handles what</a></li>}
-            <li><a href="/submit-event/" class="font-semibold text-primary underline">Run a group that should be here? Send it in</a></li>
+            <li><a href={listsEvents(town) ? '/submit-event/' : '/contact/'} class="font-semibold text-primary underline">Run a group that should be here? Send it in</a></li>
           </ul>
         </div>
       </aside>

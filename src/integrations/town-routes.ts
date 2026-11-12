@@ -13,6 +13,8 @@ import { PLACE_TYPE_PAGES, placeTypePages } from '../lib/place-types.ts';
 import { openPlaceTypeCounts } from '../lib/raw-places.ts';
 import { schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } from '../config/school-sports.ts';
 import { teamsWithData } from '../lib/school-sports.ts';
+import { guidesWithTraditions, seasonTypesWithRecords } from '../lib/tradition-files.ts';
+import { TRADITION_TYPE_INFO } from '../lib/traditions.ts';
 
 /**
  * The home page: one route file for every guide (design pass, 26 October
@@ -26,16 +28,25 @@ export function homeRoute(_site: Pick<TownConfig, 'home'>): [pattern: string, fi
   return ['/', 'index.astro'];
 }
 
-const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
+/**
+ * The events pages. Every guide has them but a quiet one (`lead:
+ * 'updates'`, Niwot): it lists no events, so none of these is built and
+ * vercel.json sends their old addresses to its home page.
+ */
+export const EVENT_ROUTES: Array<[pattern: string, file: string]> = [
   ['/events', 'events/index.astro'],
   ['/this-weekend', 'this-weekend.astro'],
   ['/this-week', 'this-week.astro'],
   ['/events/calendar.ics', 'events/calendar.ics.ts'],
   ['/events/[slug].ics', 'events/[slug].ics.ts'],
   ['/events/[slug]/[show].ics', 'events/[slug]/[show].ics.ts'],
-  ['/rss.xml', 'rss.xml.ts'],
   ['/events.rss', 'events.rss.ts'],
   ['/events/[slug]', 'events/[slug].astro'],
+  ['/submit-event', 'submit-event.astro'],
+];
+
+const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
+  ['/rss.xml', 'rss.xml.ts'],
   ['/places/[slug]', 'places/[slug].astro'],
   ['/articles/[slug]', 'articles/[slug].astro'],
   ['/guides', 'guides.astro'],
@@ -44,7 +55,6 @@ const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/directory', 'directory.astro'],
   ['/for-businesses', 'for-businesses.astro'],
   ['/moving-here', 'moving-here.astro'],
-  ['/submit-event', 'submit-event.astro'],
   ['/correct', 'correct.astro'],
   ['/thanks', 'thanks.astro'],
 ];
@@ -136,6 +146,25 @@ export function hubRoutes(site: TownConfig, contentRoot = 'content'): Array<[pat
   return routes;
 }
 
+/**
+ * "Every year in <Town>" (src/lib/traditions.ts): /traditions/ on a guide
+ * that at least one tradition record names. A guide with none builds
+ * nothing new. Read from the markdown, as the folders above are.
+ */
+export function traditionRoutes(site: Pick<TownConfig, 'slug'>, root = '.'): Array<[pattern: string, file: string]> {
+  return guidesWithTraditions(root).has(site.slug) ? [['/traditions', 'traditions.astro']] : [];
+}
+
+/**
+ * The hub's season pages, one per tradition type with a season set and a
+ * record for it: /parades-of-lights/, /tree-lightings/. One component at
+ * fixed paths, reading the type off its own URL, as the place-type pages
+ * do. No year in the address; the year is in the page's title.
+ */
+export function seasonRoutes(root = '.'): Array<[pattern: string, file: string]> {
+  return seasonTypesWithRecords(root).map((type) => [TRADITION_TYPE_INFO[type].path.replace(/\/$/, ''), 'season.astro']);
+}
+
 function hasFiles(dir: string): boolean {
   return existsSync(dir) && readdirSync(dir).some((f) => f.endsWith('.md') && !f.startsWith('_'));
 }
@@ -159,6 +188,9 @@ const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/submit-event', 'submit-event.astro'],
   ['/events.rss', 'events.rss.ts'],
   ['/advertise', 'advertise.astro'],
+  // A town's page, built only for a town with three dated items of its own
+  // (src/lib/hub-towns.ts); the file's getStaticPaths names them.
+  ['/[town]', 'town.astro'],
   // Read and deleted by the indexing step; never deployed (src/lib/network-search.ts).
   ['/network-search.json', 'network-search.json.ts'],
 ];
@@ -170,15 +202,17 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
       'astro:config:setup': ({ config, injectRoute, logger }) => {
         const routes =
           site.kind === 'hub'
-            ? HUB_ROUTES
+            ? [...HUB_ROUTES, ...seasonRoutes()]
             : site.status === 'live'
               ? [
                   homeRoute(site),
+                  ...(site.lead === 'updates' ? [] : EVENT_ROUTES),
                   ...TOWN_ROUTES,
                   ...(site.subTowns?.length ? SUB_TOWN_ROUTES : []),
                   ...sportsRoutes(site.slug),
                   ...hubRoutes(site),
                   ...placeTypeRoutes(site.slug),
+                  ...traditionRoutes(site),
                 ]
               : HOLDING_ROUTES;
         for (const [pattern, file] of routes) {

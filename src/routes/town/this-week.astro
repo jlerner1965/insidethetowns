@@ -6,6 +6,10 @@
  */
 import Page from '@/layouts/Page.astro';
 import ThisWeek from '@/components/ThisWeek.astro';
+import DateLines from '@/components/DateLines.astro';
+import { STANDALONE_GUIDES } from '@/config/hub-towns';
+import { getTraditions } from '@/lib/content';
+import { guideLines, lineFor, placeKey } from '@/lib/hub-towns';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { dayKey, formatDayLong, formatDayRange } from '@/lib/dates';
 import { nextSendDay } from '@/lib/newsletter';
@@ -27,6 +31,11 @@ const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const today = new Date();
 const send = nextSendDay(today, sendDay);
 const sendWhen = dayKey(send) === dayKey(today) ? 'today' : `on ${formatDayLong(send)}${hub.newsletter?.sendTime ? ` at ${hub.newsletter.sendTime}` : ''}`;
+// The shared outdoor dates, one line each, on a standalone guide
+// (src/lib/hub-towns.ts): the same lines as the home page's.
+const place = placeKey(town.slug);
+const dateRows = place && STANDALONE_GUIDES[place] ? guideLines(await getTraditions(), place, dayKey(today)) : [];
+const localLines = Object.fromEntries(dateRows.map((r) => [r.record.slug, lineFor(r.record, place!)]));
 const description = fillDescription(`This week in ${town.name}, Colorado, ${range}: our pick, this weekend’s events, and what is new or closed.`, ['Every listing checked against its source.']);
 ---
 <Page
@@ -51,4 +60,11 @@ const description = fillDescription(`This week in ${town.name}, Colorado, ${rang
     Rebuilt every morning from the listings.{emailOn && <Fragment> The weekend’s full list goes out by email {sendWhen}: <a href="#signup" class="font-semibold text-primary underline">get it</a>.</Fragment>}
   </p>
   <ThisWeek town={town} />
+  {dateRows.length > 0 && (
+    <section class="mt-14 md:mt-16" aria-labelledby="outdoor-dates-week" data-shared-dates>
+      <h2 id="outdoor-dates-week" class="mb-2 border-b-2 border-accent pb-3 text-3xl font-medium">Outdoor dates</h2>
+      <DateLines rows={dateRows} lines={localLines} track="this-week-date" />
+      <p class="mt-3 text-[1.0625rem]"><a href="/traditions/#outdoor-dates" class="font-semibold text-primary underline">Every date, with its source →</a></p>
+    </section>
+  )}
 </Page>

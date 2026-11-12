@@ -30,6 +30,10 @@ export const blackHawk: TownConfig = {
     since: '2026-11-02',
     reason: 'The owner closed the Black Hawk coverage on 2 November 2026, with the Carbon Valley guide, to put the hand work into Lafayette and Frederick instead; Clear Creek keeps Idaho Springs and Georgetown.',
   },
+  // Its town page on the hub is published (12 November 2026, with the
+  // owner's rule that an organizer's own word of continuing counts), so
+  // the domain now forwards there, not to the hub's home page.
+  hubPage: { town: 'black-hawk', since: '2026-11-12' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: [],

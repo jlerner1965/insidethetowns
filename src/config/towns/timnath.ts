@@ -2,10 +2,16 @@ import type { TownConfig } from './types.ts';
 
 export const timnath: TownConfig = {
   kind: 'town',
-  status: 'live',
+  // Folded into its town's page on the hub on 12 November 2026 (the
+  // restructure brief; DECISIONS.md, "Two tiers"): the page has its three
+  // verified dated items, so every address on this domain redirects to the
+  // matching place on it (vercel.json, src/lib/fold.ts) and the guide's
+  // content has left content/timnath/ (git history keeps it).
+  status: 'redirect',
+  hubPage: { town: 'timnath', since: '2026-11-12' },
   variant: 'front-range',
   region: 'Northern Colorado',
-  neighbors: ['fortcollins', 'windsor'],
+  neighbors: [],
   slug: 'timnath',
   name: 'Timnath',
   domain: 'insidetimnath.com',

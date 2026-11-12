@@ -11,7 +11,7 @@
  * sentence, because a sentence nobody wrote is worse than none.
  */
 import WeekEventRow from './WeekEventRow.astro';
-import { getTown } from '@/config';
+import { getTown, listsEvents } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { occurrences } from '@/lib/events';
 import { linkedPlaceSlugs } from '@/lib/mentions';
@@ -67,8 +67,8 @@ const link = 'inline-block -my-3 py-3 font-medium text-primary underline';
           {events.map((event) => <WeekEventRow event={event} />)}
         </div>
       )}
-      <p class="mt-4 text-[0.9375rem]">
-        <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">This week in {town.name} →</a>
+      <p class="mt-4 text-[0.9375rem]" hidden={!listsEvents(town)}>
+        <a href={listsEvents(town) ? '/this-week/' : '/'} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">This week in {town.name} →</a>
       </p>
     </div>
     {related.length > 0 && (

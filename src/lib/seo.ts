@@ -802,3 +802,37 @@ export function localBusinessJsonLd(
     ...(imageUrl ? { image: imageUrl } : {}),
   };
 }
+
+/**
+ * A tradition's year as an Event, for the hub's season page and a guide's
+ * /traditions/ (src/lib/traditions.ts). Only a confirmed year: a date the
+ * organizer has not published, or one that moved or was called off, is not
+ * offered to a search engine as a scheduled event. The date alone, as the
+ * organizer gives it; the place where the organizer names one, and the
+ * town otherwise, which is a fact of the record and not a guess.
+ */
+export function traditionEventJsonLd(
+  record: { slug: string; name: string; organizer: string; town?: { name: string }; type?: string },
+  entry: { status: string; date?: string; endDate?: string; place?: string },
+  pageUrl: string,
+) {
+  // An outdoor date (a road opening, a licence window) is not an event to
+  // attend, and a record with no town has no place to give one.
+  if (entry.status !== 'confirmed' || !entry.date || !record.town || record.type === 'outdoor') return undefined;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: record.name,
+    startDate: entry.date,
+    ...(entry.endDate ? { endDate: entry.endDate } : {}),
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: {
+      '@type': 'Place',
+      name: entry.place ?? record.town.name,
+      address: { '@type': 'PostalAddress', addressLocality: record.town.name, addressRegion: 'CO', addressCountry: 'US' },
+    },
+    organizer: { '@type': 'Organization', name: record.organizer },
+    url: `${pageUrl}#${record.slug}`,
+  };
+}

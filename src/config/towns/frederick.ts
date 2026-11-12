@@ -30,7 +30,7 @@ export const frederick: TownConfig = {
   region: 'Carbon Valley & I-25',
   // Erie down Colorado 52 and Longmont up 119, as Carbon Valley's were; each
   // names Frederick back.
-  neighbors: ['erie', 'longmont'],
+  neighbors: ['erie'],
   slug: 'frederick',
   name: 'Frederick',
   domain: 'insidefrederickco.com',

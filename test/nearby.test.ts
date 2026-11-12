@@ -113,38 +113,41 @@ test('each guide names the neighbours the owner set, in that order', () => {
   // name nobody; nobody names them. Carbon Valley and Fort Lupton were
   // retired on 2 November 2026, when Frederick took Carbon Valley's place
   // beside Erie and Longmont and Lafayette joined the Boulder County guides.
+  // The restructure of 12 November 2026 folded nine guides into their pages
+  // on the hub (Castle Rock, Estes Park, Fort Collins, Golden, Leadville,
+  // Longmont, Loveland, Nederland and Timnath): each names nobody now, and
+  // every guide that named one dropped it, so the lists below are what is
+  // left of the owner's, in his order. Elizabeth's one neighbour was Castle
+  // Rock, so it names nobody. Lafayette followed later the same day, out of
+  // Erie's and Niwot's lists.
   const NEIGHBORS: Record<string, string[]> = {
-    niwot: ['longmont', 'lyons', 'erie', 'lafayette', 'nederland'],
-    lyons: ['longmont', 'niwot', 'estes-park', 'nederland'],
-    longmont: ['niwot', 'lyons', 'erie', 'lafayette', 'frederick', 'berthoud'],
-    erie: ['longmont', 'lafayette', 'frederick', 'niwot', 'golden'],
-    lafayette: ['erie', 'longmont', 'niwot', 'golden'],
-    frederick: ['erie', 'longmont'],
+    niwot: ['lyons', 'erie'],
+    lyons: ['niwot'],
+    longmont: [],
+    erie: ['frederick', 'niwot'],
+    lafayette: [],
+    frederick: ['erie'],
     'carbon-valley': [],
-    berthoud: ['loveland', 'longmont', 'johnstown'],
-    loveland: ['berthoud', 'johnstown', 'fortcollins', 'estes-park'],
-    johnstown: ['loveland', 'windsor', 'berthoud'],
-    windsor: ['timnath', 'johnstown', 'fortcollins'],
-    timnath: ['fortcollins', 'windsor'],
-    fortcollins: ['timnath', 'windsor', 'loveland'],
-    elizabeth: ['castle-rock'],
+    berthoud: ['johnstown'],
+    loveland: [],
+    johnstown: ['windsor', 'berthoud'],
+    windsor: ['johnstown'],
+    timnath: [],
+    fortcollins: [],
+    elizabeth: [],
     severance: [],
     'fort-lupton': [],
-    'castle-rock': ['elizabeth'],
-    'estes-park': ['lyons', 'loveland'],
-    // Evergreen and Clear Creek were Golden's two until both retired on 3
-    // November 2026; the owner named Lafayette and Erie the same day.
-    golden: ['lafayette', 'erie'],
+    'castle-rock': [],
+    'estes-park': [],
+    golden: [],
     evergreen: [],
-    nederland: ['lyons', 'niwot'],
+    nederland: [],
     // The six mountain guides, live 10 October 2026, each pair both ways.
-    // Leadville has none within an afternoon's drive; Manitou Springs names
-    // Castle Rock, live since 31 October 2026. Georgetown and Black Hawk are
-    // sections of the Idaho Springs guide since 20 October 2026, so Nederland's
-    // Peak to Peak neighbour is that guide now and the two name nobody. Grand
-    // Lake was retired on 30 October 2026, so it and Estes Park drop each other.
-    // Clear Creek and Manitou Springs were retired on 3 November 2026, with
-    // Evergreen, so Golden, Nederland and Castle Rock drop them.
+    // Georgetown and Black Hawk were sections of the Idaho Springs guide from
+    // 20 October 2026 and name nobody. Grand Lake was retired on 30 October
+    // 2026, and Clear Creek, Manitou Springs and Evergreen on 3 November;
+    // Leadville, which never had a neighbour within an afternoon's drive,
+    // was folded on 12 November.
     'black-hawk': [],
     'idaho-springs': [],
     georgetown: [],
@@ -152,6 +155,7 @@ test('each guide names the neighbours the owner set, in that order', () => {
     'manitou-springs': [],
     leadville: [],
   };
+  assert.deepEqual(Object.keys(NEIGHBORS).sort(), towns.map((t) => t.slug).sort(), 'every config is in the list');
   for (const t of towns) assert.deepEqual([...t.neighbors], NEIGHBORS[t.slug], t.slug);
 });
 
@@ -165,13 +169,24 @@ test('neighbours are real guides, never the town itself, and go both ways', () =
   }
 });
 
-test('Leadville has no live neighbours, so its block is never built', () => {
-  // Leadville names nobody: nothing in the network is an afternoon's drive
-  // away. Elizabeth and Manitou Springs were alone too until Castle Rock,
-  // on both their lists, went live on 31 October 2026. Golden was alone for
-  // part of 3 November 2026, between its neighbours' retirement and the
-  // owner naming Lafayette and Erie.
-  const ALONE = ['leadville'];
-  for (const slug of ALONE) assert.deepEqual(neighborsOf(findTown(slug)!), [], slug);
+test('Elizabeth has no live neighbours, so its block is never built; every other live guide has one', () => {
+  // Leadville named nobody from the start: nothing in the network was an
+  // afternoon's drive away. Elizabeth and Manitou Springs were alone too
+  // until Castle Rock, on both their lists, went live on 31 October 2026.
+  // Golden was alone for part of 3 November 2026, between its neighbours'
+  // retirement and the owner naming Lafayette and Erie. Since 12 November
+  // 2026 Leadville, Golden and Castle Rock are folded into their pages on
+  // the hub, which leaves Elizabeth, whose one neighbour was Castle Rock,
+  // the live guide with none.
+  const ALONE = ['elizabeth'];
+  for (const slug of ALONE) {
+    assert.ok(liveTowns().some((t) => t.slug === slug), `${slug} is live`);
+    assert.deepEqual(neighborsOf(findTown(slug)!), [], slug);
+  }
   for (const t of liveTowns().filter((t) => !ALONE.includes(t.slug))) assert.ok(neighborsOf(t).length > 0, t.slug);
+  // A guide that is not live names nobody, and nobody names it.
+  for (const t of towns.filter((t) => t.status !== 'live')) {
+    assert.deepEqual([...t.neighbors], [], `${t.slug}: not live, names no neighbours`);
+    for (const other of towns) assert.ok(!other.neighbors.includes(t.slug), `${other.slug} still lists ${t.slug}`);
+  }
 });

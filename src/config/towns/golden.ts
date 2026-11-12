@@ -16,18 +16,19 @@ export const golden: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
   // the launch threshold (docs/archive/ACCURACY-SYSTEM.md).
-  status: 'live',
-  // A visitor guide from 20 October 2026, and a flagship again from 28
-  // October, owner's word ("bring golden back… I believe golden has huge
-  // potential"): its first week of Plausible counted 106 visitors, rising
-  // to 28 a day, and two readers had signed up for a Golden email that no
-  // longer went out (DECISIONS.md, "Golden as a flagship, 28 October").
+  // Folded into its town's page on the hub on 12 November 2026 (the
+  // restructure brief; DECISIONS.md, "Two tiers"): the page has its three
+  // verified dated items, so every address on this domain redirects to the
+  // matching place on it (vercel.json, src/lib/fold.ts) and the guide's
+  // content has left content/golden/ (git history keeps it).
+  status: 'redirect',
+  hubPage: { town: 'golden', since: '2026-11-12' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Evergreen and Clear Creek were its neighbours until both retired on 3
   // November 2026; the owner named Lafayette and Erie in their place the same
   // day, up 93 and the Northwest Parkway. Each names Golden back.
-  neighbors: ['lafayette', 'erie'],
+  neighbors: [],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   launchThreshold: { events: 20, listings: 25 },
   slug: 'golden',

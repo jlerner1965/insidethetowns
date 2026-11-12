@@ -1,13 +1,12 @@
 ---
 import Page from '@/layouts/Page.astro';
-import { getSite } from '@/config';
+import { getSite, listsEvents } from '@/config';
 
 const site = getSite();
 const links =
   site.kind === 'town'
     ? [
-        { label: 'This weekend', href: '/this-weekend/' },
-        { label: 'Events', href: '/events/' },
+        ...(listsEvents(site) ? [{ label: 'This weekend', href: '/this-weekend/' }, { label: 'Events', href: '/events/' }] : []),
         { label: 'Eat & drink', href: '/eat-drink/' },
         { label: 'Directory', href: '/directory/' },
         { label: 'Guides', href: '/guides/' },

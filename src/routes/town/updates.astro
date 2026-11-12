@@ -14,7 +14,7 @@ import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import UpdateRow from '@/components/UpdateRow.astro';
 import CheckedLine from '@/components/CheckedLine.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
-import { getTown } from '@/config';
+import { getTown, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { archivedUpdates, currentUpdates } from '@/lib/updates';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
@@ -78,7 +78,7 @@ const structured = [
         {town.livingHere && <li><a href="/living-here/" class="font-semibold text-primary underline">Living in {town.name}: who to call</a></li>}
         {town.families && <li><a href="/families/" class="font-semibold text-primary underline">Kids’ activities and school days off</a></li>}
         {town.participation && <li><a href="/get-involved/" class="font-semibold text-primary underline">{town.participation.label}</a></li>}
-        <li><a href="/events/" class="font-semibold text-primary underline">What’s on</a></li>
+        {listsEvents(town) && <li><a href="/events/" class="font-semibold text-primary underline">What’s on</a></li>}
       </ul>
     </div>
   </aside>

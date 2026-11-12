@@ -17,24 +17,13 @@ export const leadville: TownConfig = {
   // Live 10 October 2026, on the owner's word, under its launch threshold:
   // it publishes what is verified, and the validator and the weekly report
   // say what it is short of (docs/archive/ACCURACY-SYSTEM.md).
-  status: 'live',
-  // Quiet from 20 October 2026, owner's word, with the other small mountain
-  // guides (DECISIONS.md, "The other mountain guides, 20 October"): pages
-  // up, listings checked as the rotation reaches them, no weekly promise.
-  // The date stays before any listing's hours expire (45 days from its check
-  // on the mountain chassis; the quiet-towns test holds the order). Kept on
-  // 30 October 2026 until the 90-day verdict (DECISIONS.md, "Six quiet guides
-  // kept"); 24 of its 26 listings were re-checked that day. Healy House
-  // (10 October; History Colorado refused the read) and the fish hatchery
-  // (17 October; sources disagree on whether it is open) wait for a call, so
-  // the date moves only from 19 to 23 November, the day before Healy House
-  // loses its hours. The calls move it to 13 December; a full pass in the
-  // week of 7 December takes it to 20 January.
-  quiet: {
-    since: '2026-10-20',
-    decideBy: '2026-11-23',
-    reason: 'the farthest guide from the rest of the network and a dozen events; a visitor guide from 12 October, and out of the weekly report too from 20 October, with the small mountain guides',
-  },
+  // Folded into its town's page on the hub on 12 November 2026 (the
+  // restructure brief; DECISIONS.md, "Two tiers"): the page has its three
+  // verified dated items, so every address on this domain redirects to the
+  // matching place on it (vercel.json, src/lib/fold.ts) and the guide's
+  // content has left content/leadville/ (git history keeps it).
+  status: 'redirect',
+  hubPage: { town: 'leadville', since: '2026-11-12' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Nothing in the network is within an afternoon's drive of Leadville:

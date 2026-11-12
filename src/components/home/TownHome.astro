@@ -53,7 +53,10 @@ import RecCenterToday from '@/components/RecCenterToday.astro';
 import { recCenterFor, type RecCenterData } from '@/lib/rec-center';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
-import { getTownEntries } from '@/lib/content';
+import DateLines from '@/components/DateLines.astro';
+import { STANDALONE_GUIDES } from '@/config/hub-towns';
+import { getTownEntries, getTraditions } from '@/lib/content';
+import { guideLines, lineFor, placeKey, placeRows } from '@/lib/hub-towns';
 import { fillTest, forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
 import { familyLines } from '@/lib/family-home';
 import { eventItem, weekDays } from '@/lib/flagship-home';
@@ -71,8 +74,26 @@ const town = getTown();
 const now = new Date();
 const hub = getNetworkHub();
 
-// 2. The school. One school: its strip. Several: the shared one.
-const schools = schoolsFor(town.slug);
+// What the guide leads with (TownConfig.lead): its school's sports unless
+// it says outdoors (Lyons) or updates (Niwot, which lists no events).
+const outdoorsLed = town.lead === 'outdoors';
+const quietGuide = town.lead === 'updates';
+
+// The shared dates, on a standalone guide (src/lib/hub-towns.ts): single
+// lines under Worth knowing on a sports-led guide, the lead section on an
+// outdoors-led one, and under Things to know on a quiet one, where the
+// guide's own traditions join them.
+const today = dayKey(now);
+const place = placeKey(town.slug);
+const standalone = !!place && !!STANDALONE_GUIDES[place];
+const records = standalone ? await getTraditions() : [];
+const dateRows = standalone ? guideLines(records, place!, today) : [];
+const ownRows = standalone && quietGuide ? placeRows(records, place!, today).traditions : [];
+const localLines = Object.fromEntries(dateRows.map((r) => [r.record.slug, place ? lineFor(r.record, place) : undefined]));
+
+// 2. The school. One school: its strip. Several: the shared one. None on
+// an outdoors-led guide, whose home page carries no sports.
+const schools = outdoorsLed ? [] : schoolsFor(town.slug);
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
 const school = schools.length === 1 ? schools[0] : undefined;
 const data = school ? sportsDataFor(school, files) : undefined;
@@ -133,7 +154,7 @@ const thin = (tabs.find((t) => t.key === open)?.rows.length ?? 0) < THIN;
 // alone sat here and put two routine notices above Berthoud's featured
 // election result (flagship audit, 4 November 2026).
 const updates = await getTownEntries('updates');
-const know = currentUpdates(updates, now).slice(0, 2);
+const know = currentUpdates(updates, now).slice(0, quietGuide ? 5 : 2);
 
 // 5. For families: the hub's three timeliest lines, where the town has them on.
 const familyRows = town.families?.onHome
@@ -182,13 +203,55 @@ if (featured) {
   };
 }
 ---
-<Hero compact pick={!!pick} changes={know.length > 0} />
+<Hero compact pick={!quietGuide && !!pick} changes={know.length > 0} />
 
-{school && <SportsBar town={town} />}
+{/* An outdoors-led guide (Lyons): the outdoor dates lead the page. */}
+{outdoorsLed && dateRows.length > 0 && (
+  <section class="band-compact band-paper" aria-labelledby="outdoor-lead" data-outdoor-lead>
+    <div class="container-page">
+      <h2 id="outdoor-lead" class="display-md text-[2rem] md:text-[2.5rem]">Outdoor dates</h2>
+      <DateLines rows={dateRows} lines={localLines} track="outdoor-lead" />
+      <p class="mt-3 text-[1.0625rem]"><a href="/traditions/#outdoor-dates" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every date, with its source →</a></p>
+    </div>
+  </section>
+)}
 
-<WhatsHappening town={town} editions={editions} open={open} feature={feature}>
-  {rec && <RecCenterToday slot="today" data={rec} fallback href={`/places/${rec.place}/`} />}
-</WhatsHappening>
+{/* A quiet guide (Niwot): Updates, only when there is one, then Things to
+    know. No events, so no tabs and no empty week. */}
+{quietGuide && know.length > 0 && (
+  <section class="band-compact band-paper" aria-labelledby="updates-home" data-quiet-updates>
+    <div class="container-page">
+      <h2 id="updates-home" class="display-md text-[2rem] md:text-[2.5rem]">Updates</h2>
+      <ul class="mt-3 divide-y divide-line-soft">
+        {know.map((u) => (
+          <li class="py-3 text-[1.0625rem] leading-snug"><a href={`/updates/#${u.slug}`} class="font-medium text-primary no-underline hover:underline">{u.data.title}</a></li>
+        ))}
+      </ul>
+      <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every local change →</a></p>
+    </div>
+  </section>
+)}
+{quietGuide && (
+  <section class="band-compact band-paper" aria-labelledby="things-to-know" data-things-to-know>
+    <div class="container-page">
+      <h2 id="things-to-know" class="display-md text-[2rem] md:text-[2.5rem]">Things to know</h2>
+      {[...ownRows, ...dateRows].length > 0 && (
+        <Fragment>
+          <DateLines rows={[...ownRows, ...dateRows]} lines={localLines} track="things-to-know" />
+          <p class="mt-3 text-[1.0625rem]"><a href="/traditions/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every date, with its source →</a></p>
+        </Fragment>
+      )}
+    </div>
+  </section>
+)}
+
+{school && !quietGuide && <SportsBar town={town} />}
+
+{!quietGuide && (
+  <WhatsHappening town={town} editions={editions} open={open} feature={feature}>
+    {rec && <RecCenterToday slot="today" data={rec} fallback href={`/places/${rec.place}/`} />}
+  </WhatsHappening>
+)}
 
 <QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} />
 
@@ -201,7 +264,7 @@ if (featured) {
   </section>
 )}
 
-{emailOn && !thin && (
+{emailOn && !thin && !quietGuide && (
   <section class="band-paper py-4 md:py-6">
     <div class="container-page">
       <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
@@ -229,7 +292,7 @@ if (featured) {
 
 <NextStop town={town} places={places} />
 
-{emailOn && thin && (
+{emailOn && (thin || quietGuide) && (
   <section class="band-paper py-4 md:py-6">
     <div class="container-page">
       <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
@@ -237,16 +300,28 @@ if (featured) {
   </section>
 )}
 
-{know.length > 0 && (
+{!quietGuide && (know.length > 0 || (!outdoorsLed && dateRows.length > 0)) && (
   <section class="band-compact band-paper" aria-labelledby="know">
     <div class="container-page">
       <h2 id="know" class="display-md text-[2rem] md:text-[2.5rem]">Worth knowing</h2>
-      <ul class="mt-3 divide-y divide-line-soft">
-        {know.map((u) => (
-          <li class="py-3 text-[1.0625rem] leading-snug"><a href={`/updates/#${u.slug}`} class="font-medium text-primary no-underline hover:underline">{u.data.title}</a></li>
-        ))}
-      </ul>
-      <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every local change →</a></p>
+      {know.length > 0 && (
+        <Fragment>
+          <ul class="mt-3 divide-y divide-line-soft">
+            {know.map((u) => (
+              <li class="py-3 text-[1.0625rem] leading-snug"><a href={`/updates/#${u.slug}`} class="font-medium text-primary no-underline hover:underline">{u.data.title}</a></li>
+            ))}
+          </ul>
+          <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every local change →</a></p>
+        </Fragment>
+      )}
+      {/* The shared outdoor dates, one line each, on a sports-led guide;
+          an outdoors-led one has them at the top of the page. */}
+      {!outdoorsLed && dateRows.length > 0 && (
+        <div class:list={[know.length > 0 && 'mt-6']} data-shared-dates>
+          <DateLines rows={dateRows} lines={localLines} track="worth-knowing-date" />
+          <p class="mt-3 text-[1.0625rem]"><a href="/traditions/#outdoor-dates" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every date, with its source →</a></p>
+        </div>
+      )}
     </div>
   </section>
 )}

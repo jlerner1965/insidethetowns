@@ -32,7 +32,7 @@ export const elizabeth = {
   },
   variant: 'front-range',
   region: 'South Metro',
-  neighbors: ['castle-rock'],
+  neighbors: [],
   slug: "elizabeth",
   name: "Elizabeth",
   domain: "insideelizabeth.com",

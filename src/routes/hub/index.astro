@@ -15,7 +15,11 @@ import TownMap from '@/components/TownMap.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import FactStrip from '@/components/FactStrip.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
-import { getNetworkEntries } from '@/lib/content';
+import { getNetworkEntries, getTraditions } from '@/lib/content';
+import { hubCountyLine } from '@/config/hub-towns';
+import { byCluster, publishedHubTowns } from '@/lib/hub-towns';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, seasonRows } from '@/lib/traditions';
+import { dayKey } from '@/lib/dates';
 import { formatDayRange } from '@/lib/dates';
 import { forGeneralReaders, highlights, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
 import { LIVE_TOWNS, countiesCovered, getHub } from '@/config';
@@ -24,6 +28,17 @@ import { groupByRegion } from '@/lib/regions';
 import { wordmarkParts } from '@/lib/titles';
 
 const hub = getHub();
+/**
+ * The town pages (the restructure of 12 November 2026): every town that is
+ * not a standalone guide and has three verified dated items of its own,
+ * by cluster. The count and the names are the records', so a town joins
+ * the list the day its third date is read and not before.
+ */
+const records = await getTraditions();
+const pages = publishedHubTowns(records);
+const clusters = byCluster(pages);
+/** The season pages that are built: a tradition type with a season set and a row for it. */
+const seasonPages = TRADITION_TYPES.filter((t) => CURRENT_SEASONS[t] && seasonRows(records, t, dayKey(new Date())).length > 0);
 /**
  * Only live guides reach this page: the picker, the cards, the map and the
  * counts all read `live`. A town whose status is not `live` is not named
@@ -85,7 +100,7 @@ const { start: weekendStart, sunday } = weekendWindow(now);
  */
 // Under 155 characters with a two-digit count, so the snippet ends at its
 // full stop: the longer line was cut at "what it’s…" in every result.
-const description = `${live.length} independent guides to Colorado towns, on the Front Range and in the mountains: the week’s events, where to eat and drink, the trails, and moving there.`;
+const description = `${live.length} independent guides to Colorado towns and ${pages.length} town pages of dates, on the Front Range and in the mountains: the week’s events, the traditions, and the outdoor dates.`;
 /**
  * Where the towns are, for a visitor who does not know one from another: the
  * northernmost and southernmost by latitude, and the mountain guides by name,
@@ -125,7 +140,7 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
       Independent guides to the towns worth knowing.
     </h1>
     <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-muted sm:mt-5 sm:text-lg md:text-xl md:leading-relaxed">
-      {live.length} guides: the week’s events, where to eat and drink, the trails, and what it’s like to live there.
+      {live.length} guides: the week’s events, where to eat and drink, the trails, and what it’s like to live there. And {pages.length} <a href="#town-pages" class="text-primary underline">town pages</a>: each town’s traditions and outdoor dates.
     </p>
     <nav aria-labelledby="town-picker" class="mt-6 sm:mt-8">
       <p id="town-picker" class="eyebrow">Pick your town</p>
@@ -220,6 +235,36 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
     </div>
   </section>
 
+  {pages.length > 0 && (
+    <section id="town-pages" class="band band-white" aria-labelledby="town-pages-h">
+      <div class="container-page">
+        <SectionHeader eyebrow="Dates, town by town" title="Town pages" id="town-pages-h" />
+        <p class="-mt-2 mb-8 max-w-2xl text-lg leading-relaxed text-ink-muted">
+          {pages.length} towns, one page each: the events the town holds every year and the outdoor dates around it, every date with the page it was read from.
+        </p>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {clusters.map(({ cluster, towns }) => (
+            <div>
+              <h3 class="eyebrow mb-3">{cluster}</h3>
+              <ul class="flex flex-wrap gap-2">
+                {towns.map((t) => (
+                  <li>
+                    <a href={`/${t.slug}/`} title={hubCountyLine(t)} class="inline-flex min-h-11 items-center rounded-full bg-raised px-4 text-[0.9375rem] font-semibold text-ink no-underline ring-1 ring-line-soft transition hover:text-primary hover:ring-line">{t.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        {seasonPages.length > 0 && (
+          <p class="mt-8 text-[1.0625rem]">
+            Across every town: {seasonPages.map((t, i) => (<Fragment>{i > 0 && ' · '}<a href={TRADITION_TYPE_INFO[t].path} class="font-semibold text-primary underline">{TRADITION_TYPE_INFO[t].plural}</a></Fragment>))}
+          </p>
+        )}
+      </div>
+    </section>
+  )}
+
   {sports.length > 0 && (
     <section class="band band-white" aria-labelledby="sports-h">
       <div class="container-page">
@@ -249,6 +294,7 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
           size="number"
           facts={[
             { label: 'Guides live', value: String(live.length) },
+            { label: 'Town pages', value: String(pages.length) },
             { label: 'Counties', value: String(countiesCovered(live).length) },
             { label: 'Population of the towns', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
           ]}

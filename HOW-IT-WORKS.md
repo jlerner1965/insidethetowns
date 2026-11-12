@@ -46,20 +46,24 @@ The config flag decides what a guide is; nothing is per-town in code.
 
 | Kind | Flag | Towns | What it means |
 |---|---|---|---|
-| Resident guide | `home: true` | Berthoud, Erie, Frederick, Golden, Johnstown, Lafayette, Lyons, Niwot, Timnath, Windsor | Follows a school; has Families, Living here and Updates; gets the Thursday email |
+| Resident guide | `home: true` | Berthoud, Erie, Frederick, Johnstown, Lyons, Niwot, Windsor | Follows a school; has Families, Living here and Updates; gets the Thursday email. Lyons (`lead: 'outdoors'`) leads with the outdoor dates and keeps sports out of its menu; Niwot (`lead: 'updates'`) lists no events, is out of the email and the Wednesday notes run, and posts when there is an update |
 | Plain guide | none | — (none today) | In the email and the weekly rotation |
-| Visitor guide | `visitorGuide` | Estes Park | Checked on the 60-day cycle; no email, no signup box |
-| Quiet guide | `quiet` | Castle Rock, Elizabeth, Fort Collins, Leadville, Longmont, Loveland, Nederland | Pages up and indexed; listings checked as the rotation reaches them; no email, no signup, no Thursday draft. Each has a decide-by date in its config |
-| Folded or retired | `status: 'redirect'` | Severance (into Windsor); Carbon Valley (to Frederick); Black Hawk, Clear Creek (Idaho Springs), Evergreen, Fort Lupton, Georgetown, Grand Lake and Manitou Springs (to the hub) | No guide: every path on the domain redirects (`vercel.json`, `docs/REDIRECTS.md`) |
+| Visitor guide | `visitorGuide` | — (none today) | Checked on the 60-day cycle; no email, no signup box |
+| Quiet guide | `quiet` | Elizabeth | Pages up and indexed; listings checked as the rotation reaches them; no email, no signup, no Thursday draft. Each has a decide-by date in its config |
+| Folded or retired | `status: 'redirect'` | Severance (into Windsor); Carbon Valley (to Frederick); Black Hawk, Castle Rock, Estes Park, Evergreen, Fort Collins, Fort Lupton, Georgetown, Golden, Clear Creek (Idaho Springs), Lafayette, Grand Lake, Leadville, Longmont, Loveland, Manitou Springs, Nederland and Timnath (to the town's page on the hub, `hubPage`, 12 November 2026) | No guide: every path on the domain redirects (`vercel.json`, `docs/REDIRECTS.md`) |
 
 `test/how-it-works.test.ts` holds this table to the configs.
 
-Resident guides are for towns: Windsor, about 33,000 people, is the largest.
-A city over 70,000 stays a quiet guide, and its decide-by date stands
-(9 November 2026).
+Two tiers since 12 November 2026: a town is one of the seven standalone
+guides (Berthoud, Erie, Frederick, Johnstown, Windsor, Lyons, Niwot) or a
+town page on the hub, which is dates only: its traditions and its outdoor
+dates, each from one record with its source and check date
+(`content/hub/traditions/`, `src/config/hub-towns.ts`). A town gets its
+page once three of its own dates are verified; a live guide is folded into
+it only then, which is why Elizabeth and Lafayette are still guides.
 
-The hub lists every live guide A to Z and carries the network pages:
-newsletter, advertise, privacy, about.
+The hub lists every live guide A to Z and every town page by cluster, and
+carries the network pages: newsletter, advertise, privacy, about.
 
 ## 4. Who does what
 

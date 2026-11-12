@@ -29,6 +29,9 @@ export const evergreen: TownConfig = {
     since: '2026-11-03',
     reason: 'The owner closed the guide on 3 November 2026: the network is a set of town guides for the people who live there, and Evergreen\'s readers came for the lake, the trails and the seasons; a visitor guide, not a town guide.',
   },
+  // Its town page on the hub is published (12 November 2026), so the
+  // domain now forwards there, not to the hub's home page.
+  hubPage: { town: 'evergreen', since: '2026-11-12' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Retired 3 November 2026: it names no neighbour, and Golden, which named

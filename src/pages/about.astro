@@ -1,10 +1,12 @@
 ---
 import { Image } from 'astro:assets';
+import { getTraditions } from '@/lib/content';
+import { publishedHubTowns } from '@/lib/hub-towns';
 import Page from '@/layouts/Page.astro';
 import FactStrip from '@/components/FactStrip.astro';
 import TipsLink from '@/components/TipsLink.astro';
 import { resolveSiteImage } from '@/lib/images';
-import { countiesCovered, countyLabel, getNetworkHub, getSite, liveTowns } from '@/config';
+import { countiesCovered, countyLabel, getNetworkHub, getSite, liveTowns, listsEvents } from '@/config';
 import CtaBand from '@/components/CtaBand.astro';
 import { getTownEntries } from '@/lib/content';
 import { eventTotals, describeTotals } from '@/lib/event-totals';
@@ -57,6 +59,9 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
 // the site title is appended to every page's and "About Inside Lyons | Inside
 // Lyons" said it twice (Longmont's read "About Longmont · Inside the Towns |
 // Longmont · Inside the Towns"). Search-visibility phase 2, 15 October 2026.
+// The town pages on the hub (src/lib/hub-towns.ts): how many are published.
+const hub = getNetworkHub();
+const townPages = publishedHubTowns(await getTraditions()).length;
 ---
 {site.kind === 'town' ? (
   <Page title={`About ${site.siteTitle}`} seoTitle="About this guide" eyebrow="Independent, local" description={`What ${site.siteTitle} is, who runs it and what it is not: an independent guide to ${site.name}, not the town government or a chamber of commerce.`}>
@@ -185,7 +190,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
       title="Start with what’s on"
       body={`${describeTotals(totals)} in ${site.name} right now, from markets and live music to town meetings.`}
       links={[
-        { label: 'See the events', href: '/events/', primary: true },
+        ...(listsEvents(site) ? [{ label: 'See the events', href: '/events/', primary: true }] : []),
         { label: 'Eat & drink', href: '/eat-drink/' },
       ]}
     />
@@ -208,6 +213,14 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
           mountains: a guide for each town, or for a few neighboring communities together, each with the week’s
           events, places to eat and drink, things to do outdoors, and a plain account of what it’s like to move there.
         </p>
+        {townPages > 0 && (
+          <p>
+            A town without a guide of its own has a page on <a href={`https://${hub.domain}/#town-pages`}>{hub.siteTitle}</a>
+            instead, and that page is dates only: the events the town holds every year and the outdoor dates around it,
+            each with the page it was read from and the day it was read. There are {townPages} of them. A town gets its
+            page once three of its own dates have been read on the organizer’s or the agency’s page, and not before.
+          </p>
+        )}
         {city && (
           <p>
             One of them, {city.name}, is a city of {(Math.round((city.population ?? 0) / 10_000) * 10_000).toLocaleString('en-US')} rather than a

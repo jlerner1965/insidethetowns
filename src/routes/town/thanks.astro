@@ -10,7 +10,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { getTown } from '@/config';
+import { getTown, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 
@@ -54,8 +54,7 @@ const upcomingCount = uniqueByEvent(upcoming(occurrences(await getTownEntries('e
     title="While you’re here"
     body={`${upcomingCount} events are listed in ${town.name} right now. Yours may be about to join them.`}
     links={[
-      { label: 'See what’s on', href: '/events/', primary: true },
-      { label: 'Subscribe to the calendar', href: '/events/calendar.ics' },
+      ...(listsEvents(town) ? [{ label: 'See what’s on', href: '/events/', primary: true }, { label: 'Subscribe to the calendar', href: '/events/calendar.ics' }] : [{ label: `Back to ${town.name}`, href: '/', primary: true }]),
     ]}
   />
 </Page>

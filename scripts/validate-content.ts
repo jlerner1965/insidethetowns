@@ -42,6 +42,9 @@ import { hoursTextByDesign, parseHoursText } from '../src/lib/hours.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
 import { nextEventIssues, retiredLedgerIssues } from '../src/lib/former-slugs.ts';
+import { findHubTown } from '../src/config/hub-towns.ts';
+import { placeKey } from '../src/lib/hub-towns.ts';
+import { STALE_CHECK_DAYS, STALE_WITHIN_DAYS, staleSoon, type TraditionRecord } from '../src/lib/traditions.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -81,6 +84,8 @@ const unparsedHours: string[] = [];
 /** Lines that are text on purpose (see hoursTextByDesign): counted, not flagged. */
 const hoursByDesign: string[] = [];
 let checked = 0;
+/** Every approved tradition record (content/hub/traditions/), for the stale-check list at the end. */
+const traditionRecords: TraditionRecord[] = [];
 
 function imageSchemaFor(file: string) {
   return () =>
@@ -130,6 +135,23 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     return;
   }
   const data = result.data as Record<string, unknown>;
+  if (collection === 'traditions') {
+    const record = data as unknown as TraditionRecord;
+    traditionRecords.push(record);
+    // The sample records live in test/fixtures/traditions/ and load only
+    // behind TRADITIONS_FIXTURES; one in content/ would ship.
+    if (record.fixture || record.slug.startsWith('fixture-')) errors.push(`${rel}: a fixture record in content/; fixtures live in test/fixtures/traditions/ and never ship`);
+    if (town !== 'hub') errors.push(`${rel}: tradition records live in content/hub/traditions/, shared by every guide`);
+    if (`${record.slug}.md` !== rel.split('/').at(-1)) errors.push(`${rel}: the file is named for its slug, ${record.slug}.md`);
+    // Every place a record names is one the network has: a hub town's page
+    // or a standalone guide (src/config/hub-towns.ts), or, for a guide not
+    // yet folded, the live guide itself.
+    const guide = record.town?.guide;
+    if (guide && !placeKey(guide) && !liveTowns().some((t) => t.slug === guide)) errors.push(`${rel}: town.guide "${guide}" is not a hub town, a standalone guide or a live guide`);
+    const named = guide ? (findHubTown(placeKey(guide) ?? '')?.name ?? findTown(guide)?.name) : undefined;
+    if (named && named !== record.town!.name) errors.push(`${rel}: town.name "${record.town!.name}" is not ${guide}'s name, "${named}"`);
+    for (const t of record.towns ?? []) if (!placeKey(t.slug)) errors.push(`${rel}: towns names "${t.slug}", which is not a hub town or a standalone guide`);
+  }
   // A staged entry must say why it is waiting; a published one must not
   // still be carrying that note.
   if (staged && !data.review) {
@@ -182,7 +204,7 @@ function validateFile(collection: CollectionName, file: string, town: string, st
   }
   if (staged) return;
   // A weekly notes file is all frontmatter; a corrections entry is one line.
-  if (!['pages', 'weekly', 'corrections', 'programs', 'updates'].includes(collection) && parsed.body.trim() === '') {
+  if (!['pages', 'weekly', 'corrections', 'programs', 'updates', 'traditions'].includes(collection) && parsed.body.trim() === '') {
     warnings.push(`${rel}: body is empty`);
   }
   // A published page states facts or leaves them out (HOW-IT-WORKS.md,
@@ -614,6 +636,17 @@ if (!existsSync(contentDir)) {
 // file the build could not read would each make a redirect wrong or missing.
 for (const town of liveTowns()) for (const issue of retiredLedgerIssues(town.slug, contentDir)) errors.push(issue);
 for (const town of liveTowns()) for (const issue of nextEventIssues(town.slug, contentDir)) errors.push(`content/${issue}`);
+
+// Traditions dated in the next 30 days whose check is over 14 days old: a
+// list, never a failure (src/lib/traditions.ts, staleSoon). The date was
+// right when it was read; the fix is reading the organizer's page again.
+{
+  const stale = staleSoon(traditionRecords, dayKey(new Date()));
+  if (stale.length > 0) {
+    console.warn(`traditions: ${stale.length} dated in the next ${STALE_WITHIN_DAYS} days with a check over ${STALE_CHECK_DAYS} days old; read the source again and move \`checked\`:`);
+    for (const s of stale) console.warn(`  stale  content/hub/traditions/${s.slug}.md: ${s.year} on ${s.date}, checked ${s.checked}`);
+  }
+}
 
 for (const w of warnings) console.warn(`warn  ${w}`);
 /**

@@ -413,7 +413,7 @@ test('a playoff game the school calendar files as home is published at its neutr
   assert.equal(late.held.length, 1);
 });
 
-test('a town with one school keeps /sports/ and sports.json; Loveland’s four each get a slug, a page and a file, and /sports/ lists them', () => {
+test('a town with one school keeps /sports/ and sports.json; Windsor’s two each get a slug, a page and a file, and /sports/ lists them', () => {
   const berthoud = schoolSportsFor('berthoud')!;
   assert.equal(sportsPath(berthoud), '/sports/');
   assert.equal(sportsDataFile(berthoud), 'data/berthoud/sports.json');
@@ -429,30 +429,39 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   assert.ok(berthoudRoutes.some(([p]) => p === '/sports/football'), 'football has a page');
   assert.deepEqual(sportsRoutes('berthoud', '/nowhere'), [['/sports', 'sports.astro'], ['/sports/share/[image].png', 'sports-share.png.ts']], 'no data file, no team pages');
   assert.deepEqual(sportsRoutes('black-hawk'), [], 'a town without a school has no page');
-  assert.deepEqual(schoolsFor('longmont').map((s) => s.slug), ['longmont-high', 'skyline', 'silver-creek'], 'Longmont follows its three high schools (9 November 2026)');
-  assert.deepEqual(schoolsFor('fortcollins').map((s) => s.slug), ['fort-collins-high', 'fossil-ridge', 'poudre', 'rocky-mountain'], 'Fort Collins follows its four high schools (9 November 2026)');
+  // Loveland's four, Longmont's three, Fort Collins' four, Timnath's and Golden's left the coverage
+  // on 12 November 2026, when those guides were folded into their pages on the hub: a folded guide
+  // follows no school and builds no sports page.
+  for (const town of ['loveland', 'longmont', 'fortcollins', 'timnath', 'golden']) {
+    assert.deepEqual(schoolsFor(town), [], `${town}: folded, follows no school`);
+    assert.deepEqual(sportsRoutes(town), [], `${town}: no sports page`);
+  }
+  for (const s of SCHOOL_SPORTS) assert.equal(findTown(s.town)?.status, 'live', `${s.school}: followed by a live guide`);
   assert.equal(sportsRoutes('erie')[0]![0], '/sports', 'Erie follows Erie High (25 October 2026)');
   assert.equal(teamPath(berthoud, 'football'), '/sports/football/');
 
-  const loveland = schoolsFor('loveland');
-  assert.deepEqual(loveland.map((s) => s.slug), ['loveland-high', 'thompson-valley', 'mountain-view', 'resurrection-christian']);
-  assert.equal(schoolSportsFor('loveland'), undefined, 'no one school is the city’s');
-  assert.equal(schoolSportsFor('loveland', 'mountain-view')?.mascot, 'Mountain Lions');
-  assert.equal(sportsPath(loveland[1]!), '/sports/thompson-valley/');
-  assert.equal(sportsDataFile(loveland[1]!), 'data/loveland/sports-thompson-valley.json');
-  assert.deepEqual(sportsRoutes('loveland', '/nowhere'), [
+  // A guide that follows several schools: Windsor's two since 9 November 2026 (Loveland's four were
+  // the example until that guide was folded).
+  const windsorSchools = schoolsFor('windsor');
+  assert.deepEqual(windsorSchools.map((s) => s.slug), ['windsor-high', 'severance-high']);
+  assert.equal(schoolSportsFor('windsor'), undefined, 'no one school is the guide’s');
+  assert.equal(schoolSportsFor('windsor', 'severance-high')?.mascot, 'Silver Knights');
+  assert.equal(sportsPath(windsorSchools[1]!), '/sports/severance-high/');
+  assert.equal(sportsDataFile(windsorSchools[1]!), 'data/windsor/sports-severance-high.json');
+  assert.deepEqual(sportsRoutes('windsor', '/nowhere'), [
     ['/sports', 'sports-index.astro'],
-    ['/sports/loveland-high', 'sports.astro'],
-    ['/sports/thompson-valley', 'sports.astro'],
-    ['/sports/mountain-view', 'sports.astro'],
-    ['/sports/resurrection-christian', 'sports.astro'],
+    ['/sports/windsor-high', 'sports.astro'],
+    ['/sports/severance-high', 'sports.astro'],
     ['/sports/share/[image].png', 'sports-share.png.ts'],
   ]);
-  assert.ok(sportsRoutes('loveland').some(([p, f]) => p === '/sports/mountain-view/football' && f === 'sports-team.astro'), 'a school’s team page carries the school’s slug');
-  assert.equal(teamPath(loveland[2]!, 'football'), '/sports/mountain-view/football/');
+  assert.ok(sportsRoutes('windsor').some(([p, f]) => p === '/sports/severance-high/football' && f === 'sports-team.astro'), 'a school’s team page carries the school’s slug');
+  assert.equal(teamPath(windsorSchools[1]!, 'football'), '/sports/severance-high/football/');
+  // An outdoors-led guide (Lyons, 12 November 2026) keeps its sports pages though they are out of its menu.
+  assert.equal(findTown('lyons')!.lead, 'outdoors');
+  assert.deepEqual(sportsRoutes('lyons')[0], ['/sports', 'sports.astro'], 'Lyons’s sports pages still build');
 });
 
-test('every school is one entry with its own file, and its town’s menu carries it in the third slot', () => {
+test('every school is one entry with its own file, and its town’s menu carries it in the third slot, but on an outdoors-led guide', () => {
   const files = SCHOOL_SPORTS.map(sportsDataFile);
   assert.equal(new Set(files).size, files.length, 'no two schools share a file');
   for (const town of new Set(SCHOOL_SPORTS.map((s) => s.town))) {
@@ -460,10 +469,16 @@ test('every school is one entry with its own file, and its town’s menu carries
     const sluggish = schools.filter((s) => s.slug).length;
     assert.ok(sluggish === 0 ? schools.length === 1 : sluggish === schools.length, `${town}: either one school without a slug or several each with one`);
     const nav = townNav(findTown(town)!);
-    assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third menu item`);
-    assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? 'Athletics') : 'High school sports', `${town}: the label says athletics`);
+    if (findTown(town)!.lead === 'outdoors') {
+      // Lyons leads with the outdoors since 12 November 2026: the pages build, the menu does not carry them.
+      assert.ok(!nav.some((n) => n.href === '/sports/'), `${town}: an outdoors-led guide has no sports item in its menu`);
+    } else {
+      assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third menu item`);
+      assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? 'Athletics') : 'High school sports', `${town}: the label says athletics`);
+    }
     for (const s of schools) assert.ok(s.calendar || s.calendarNote, `${s.school}: a calendar to check against, or a note saying why not`);
   }
+  assert.deepEqual([...new Set(SCHOOL_SPORTS.map((s) => s.town))].filter((town) => findTown(town)!.lead === 'outdoors'), ['lyons']);
 });
 
 test('a result MaxPreps lists twice is shown once; a doubleheader stays two games', async () => {
@@ -625,7 +640,7 @@ test('the strip, This week and the email read one week: football first, the last
   assert.deepEqual(townSportsWeek('estes-park', now), []);
 });
 
-test('every school carries the winter list after its fall list, any spring teams last, ice hockey only where CHSAA lists the school, and the eyebrow’s season comes from the data', async () => {
+test('every school carries the winter list after its fall list, any spring teams last, ice hockey at none of the schools followed, and the eyebrow’s season comes from the data', async () => {
   const { seasonOf } = await import('../src/lib/school-sports.ts');
   for (const school of SCHOOL_SPORTS) {
     const keys = school.teams.map((t) => t.key);
@@ -635,9 +650,11 @@ test('every school carries the winter list after its fall list, any spring teams
     const order = { fall: 0, winter: 1, spring: 2 } as const;
     const seasons = school.teams.map((t) => order[t.season]);
     assert.deepEqual(seasons, [...seasons].sort((a, b) => a - b), `${school.school}: fall, then winter, then spring`);
-    // Spring teams only where a guide has asked: Lyons's baseball and track, Golden's baseball and lacrosse, Roosevelt's baseball and girls' soccer (the owner, 9 November 2026).
-    assert.equal(school.teams.some((t) => t.season === 'spring'), ['lyons', 'golden', 'johnstown'].includes(school.town), `${school.school}: spring teams only at Lyons, Golden and Roosevelt`);
-    assert.equal(keys.includes('ice-hockey'), school.school === 'Resurrection Christian School', `${school.school}: ice hockey only where CHSAA lists the school`);
+    // Spring teams only where a guide has asked: Lyons's baseball and track and Roosevelt's baseball and girls' soccer (the owner, 9 November 2026).
+    // Golden's baseball and lacrosse went with its guide, folded into its page on the hub on 12 November 2026.
+    assert.equal(school.teams.some((t) => t.season === 'spring'), ['lyons', 'johnstown'].includes(school.town), `${school.school}: spring teams only at Lyons and Roosevelt`);
+    // Ice hockey only where CHSAA lists the school: Resurrection Christian was the one, and it went with Loveland's guide the same day.
+    assert.equal(keys.includes('ice-hockey'), false, `${school.school}: CHSAA lists no ice hockey for a school still followed`);
     // MaxPreps has no girls' swimming page for Elizabeth or Lyons (25 October 2026), nor for Severance, which CHSAANow lists none for (9 November 2026).
     assert.equal(keys.includes('girls-swimming'), !['Elizabeth High School', 'Lyons Middle/Senior High School', 'Severance High School'].includes(school.school), `${school.school}: girls swimming`);
   }
@@ -656,9 +673,9 @@ test('every school carries the winter list after its fall list, any spring teams
   assert.equal(seasonOf(done, teams, new Date('2026-11-20T15:00:00Z')).label, 'Fall 2026');
   assert.equal(seasonOf({ generated: '', sports: [] }, teams, now).label, 'Fall 2026');
   // A spring team's game names its own season and year.
-  const golden = schoolSportsFor('golden')!.teams;
-  const goldenSpring: SportsData = { generated: '', sports: [team('baseball', [], [game('2027-03-09', 'Wheat Ridge')])] };
-  assert.equal(seasonOf(goldenSpring, golden, new Date('2027-03-01T15:00:00Z')).label, 'Spring 2027');
+  const rooseveltTeams = schoolSportsFor('johnstown')!.teams;
+  const rooseveltSpring: SportsData = { generated: '', sports: [team('baseball', [], [game('2027-03-09', 'Wheat Ridge')])] };
+  assert.equal(seasonOf(rooseveltSpring, rooseveltTeams, new Date('2027-03-01T15:00:00Z')).label, 'Spring 2027');
   // A spring game: the spring of its own calendar year, and the school page's eyebrow is the school year while winter is on it too.
   const { pageSeasonLabel } = await import('../src/lib/school-sports.ts');
   const lyons = schoolSportsFor('lyons')!.teams;
@@ -688,20 +705,20 @@ test('a MaxPreps page still on last school year’s season is not this season’
   assert.equal(parseTeamPage(html, us).season, '25-26');
 });
 
-test('Golden follows boys tennis in the fall and baseball and both lacrosse teams in spring, at MaxPreps’s own paths', () => {
-  const golden = schoolSportsFor('golden')!;
-  const byKey = new Map(golden.teams.map((t) => [t.key, t]));
-  assert.deepEqual(['boys-tennis', 'baseball', 'boys-lacrosse', 'girls-lacrosse'].map((k) => [byKey.get(k)?.season, byKey.get(k)?.maxpreps]), [
-    ['fall', 'tennis/fall'],
-    ['spring', 'baseball'],
-    ['spring', 'lacrosse'],
-    ['spring', 'lacrosse/girls'],
-  ]);
-  // Only Golden asked for lacrosse (Lyons follows baseball and track in spring, not these); boys'
-  // tennis is Golden's, Frederick's, Niwot's and Windsor High's, which the owner added the same day
-  // (FREDERICK_FALL_EXTRAS; NIWOT_BOYS_TENNIS; BOYS_TENNIS for Windsor High).
-  for (const s of SCHOOL_SPORTS.filter((x) => x.town !== 'golden')) assert.equal(s.teams.some((t) => ['boys-lacrosse', 'girls-lacrosse'].includes(t.key)), false, s.school);
-  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['frederick', 'golden', 'niwot', 'windsor']);
+test('boys tennis is a fall team and baseball a spring one, at MaxPreps’s own paths; no school still followed has lacrosse', () => {
+  // Golden High was the school this was read on (boys' tennis in the fall, baseball and both lacrosse
+  // teams in spring) until its guide was folded into its page on the hub on 12 November 2026. The
+  // tennis and baseball paths are held on the schools that still follow them: Windsor High's tennis
+  // and Roosevelt's baseball. Lacrosse was Golden's alone, so nothing follows it and its paths
+  // ('lacrosse', 'lacrosse/girls') have no school left to be checked on.
+  const tennis = schoolSportsFor('windsor', 'windsor-high')!.teams.find((t) => t.key === 'boys-tennis');
+  assert.deepEqual([tennis?.season, tennis?.maxpreps], ['fall', 'tennis/fall']);
+  const baseball = schoolSportsFor('johnstown')!.teams.find((t) => t.key === 'baseball');
+  assert.deepEqual([baseball?.season, baseball?.maxpreps], ['spring', 'baseball']);
+  for (const s of SCHOOL_SPORTS) assert.equal(s.teams.some((t) => ['boys-lacrosse', 'girls-lacrosse'].includes(t.key)), false, s.school);
+  // Boys' tennis is Frederick's, Niwot's and Windsor High's (FREDERICK_FALL_EXTRAS; NIWOT_BOYS_TENNIS;
+  // BOYS_TENNIS for Windsor High), the owner's word of 9 November 2026.
+  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['frederick', 'niwot', 'windsor']);
 });
 
 test('a spring team before its season is written empty, not with last spring’s games', () => {
@@ -720,8 +737,9 @@ test('a spring team before its season is written empty, not with last spring’s
   assert.equal(beforeSpringSeason(spring, lastSpring, '2026-06-10'), false);
   // A fall or winter team is never held back this way.
   assert.equal(beforeSpringSeason({ season: 'fall' }, lastSpring, '2026-11-09'), false);
-  const baseball = schoolSportsFor('golden')!.teams.find((t) => t.key === 'baseball')!;
-  const entry = offSeasonEntry(baseball, { url: 'https://www.maxpreps.com/co/golden/golden-demons/baseball/', glance: [], results: [], warnings: [] }, '2026-11-09T12:00:00Z');
+  // Roosevelt's baseball (Golden's until that guide was folded on 12 November 2026).
+  const baseball = schoolSportsFor('johnstown')!.teams.find((t) => t.key === 'baseball')!;
+  const entry = offSeasonEntry(baseball, { url: `${schoolSportsFor('johnstown')!.maxpreps}baseball/`, glance: [], results: [], warnings: [] }, '2026-11-09T12:00:00Z');
   assert.ok(entry.empty && entry.results.length === 0 && entry.upcoming.length === 0);
 });
 
@@ -807,8 +825,9 @@ test('a share card is a 1200×630 PNG in the school’s colour, named for the sc
   assert.ok(white > 2000, `white type on the card (${white} pixels)`);
   assert.equal(shareImageName(berthoud), 'school');
   assert.equal(shareImagePath(berthoud, 'football'), '/sports/share/football.png');
-  assert.equal(shareImagePath(schoolsFor('loveland')[2]!, 'football'), '/sports/share/mountain-view-football.png');
-  assert.equal(shareImagePath(schoolsFor('loveland')[2]!), '/sports/share/mountain-view.png');
+  // A school of a guide that follows several carries its slug: Windsor's Severance High.
+  assert.equal(shareImagePath(schoolsFor('windsor')[1]!, 'football'), '/sports/share/severance-high-football.png');
+  assert.equal(shareImagePath(schoolsFor('windsor')[1]!), '/sports/share/severance-high.png');
   assert.ok(sportsRoutes('berthoud').some(([p, f]) => p === '/sports/share/[image].png' && f === 'sports-share.png.ts'));
 });
 
@@ -852,6 +871,9 @@ test('the email’s "Last week" is a result from the past seven days: football�
 });
 
 test('the email’s games carry their day in full, and a shared edition gives them a section of their own (29 October 2026)', async () => {
+  // No edition is shared since 12 November 2026, when Timnath's guide was folded and the Windsor and
+  // Timnath edition ended (test/editions.test.ts); the drafting code still serves one, so the shared
+  // section is held here on two schools still followed, Windsor High and Johnstown's Roosevelt.
   const { weekAhead } = await import('../src/lib/school-sports.ts');
   const { schoolWeekLines, sharedGames, townGames } = await import('../scripts/lib/email-sports.ts');
   const send = new Date('2026-10-29T06:00:00Z'); // Thursday, midnight in Denver
@@ -862,7 +884,7 @@ test('the email’s games carry their day in full, and a shared edition gives th
     team('boys-soccer', 'Boys soccer', '10-1-4', [game('2026-10-29', 'Rampart', 'neutral', '18:00', { stage: 'Boys Soccer State Championships', neutral: true })]),
     team('volleyball', 'Volleyball', '13-6', [game('2026-10-30', 'Legend', 'away', '08:00')]),
   ] } as SportsData;
-  const timnath = { generated: '', sports: [team('football', 'Football', '7-2', [game('2026-10-30', 'Fort Morgan', 'away', '19:00')])] } as SportsData;
+  const roosevelt = { generated: '', sports: [team('football', 'Football', '7-2', [game('2026-10-30', 'Fort Morgan', 'away', '19:00')])] } as SportsData;
   const quiet = { generated: '', sports: [team('football', 'Football', '3-6', [])] } as SportsData;
   const week = (school: ReturnType<typeof schoolSportsFor>, data: SportsData) => ({ school: school!, week: weekAhead(data, send) });
 
@@ -874,35 +896,38 @@ test('the email’s games carry their day in full, and a shared edition gives th
   assert.doesNotMatch(lines.join('\n'), /Today|Tomorrow/, 'merged on the Friday, or read in the archive, "Today" would be wrong');
   assert.equal(townGames([week(schoolSportsFor('windsor', 'windsor-high'), windsor)], 'S')[0], '## Windsor Wizards this week');
 
-  // Windsor, Severance and Timnath: the games are their own section, split by town like the edition's others.
+  // A shared edition of two guides: the games are their own section, split by town like the edition's others.
   const shared = sharedGames([
     { heading: 'Windsor and Severance', sports: [week(schoolSportsFor('windsor', 'windsor-high'), windsor)], scores: 'W' },
-    { heading: 'Timnath', sports: [week(schoolSportsFor('timnath'), timnath)], scores: 'T' },
+    { heading: 'Johnstown', sports: [week(schoolSportsFor('johnstown'), roosevelt)], scores: 'T' },
   ]);
-  assert.deepEqual(shared.filter((l) => l.startsWith('#')), ['## Windsor Wizards and Timnath Cubs this week', '### Windsor and Severance', '### Timnath'], 'not under "This weekend"');
+  assert.deepEqual(shared.filter((l) => l.startsWith('#')), ['## Windsor Wizards and Roosevelt Roughriders this week', '### Windsor and Severance', '### Johnstown'], 'not under "This weekend"');
   assert.ok(shared.includes('[Scores and schedules](T)'));
-  // A town following two schools names each.
-  const [loveland, , mountainView] = schoolsFor('loveland');
-  const two = sharedGames([{ heading: 'Loveland', sports: [week(loveland, timnath), week(mountainView, timnath)], scores: 'L' }]);
-  assert.deepEqual(two.filter((l) => l.startsWith('###')), [`### Loveland: ${schoolTeamName(loveland!)}`, `### Loveland: ${schoolTeamName(mountainView!)}`]);
+  // A town following two schools names each: Windsor High and Severance High.
+  const [windsorHigh, severanceHigh] = schoolsFor('windsor');
+  const two = sharedGames([{ heading: 'Windsor', sports: [week(windsorHigh, roosevelt), week(severanceHigh, roosevelt)], scores: 'L' }]);
+  assert.deepEqual(two.filter((l) => l.startsWith('###')), [`### Windsor: ${schoolTeamName(windsorHigh!)}`, `### Windsor: ${schoolTeamName(severanceHigh!)}`]);
+  assert.deepEqual(two.filter((l) => l.startsWith('###')), ['### Windsor: Windsor Wizards', '### Windsor: Severance Silver Knights']);
 
   // A school with no games and no result this week: no heading, and a section only where another has something.
   assert.deepEqual(schoolWeekLines(week(schoolSportsFor('niwot'), quiet), 'S'), []);
   assert.deepEqual(townGames([week(schoolSportsFor('niwot'), quiet)], 'S'), []);
-  assert.deepEqual(sharedGames([{ heading: 'Timnath', sports: [week(schoolSportsFor('timnath'), quiet)], scores: 'T' }]), []);
+  assert.deepEqual(sharedGames([{ heading: 'Johnstown', sports: [week(schoolSportsFor('johnstown'), quiet)], scores: 'T' }]), []);
   const one = sharedGames([
     { heading: 'Windsor and Severance', sports: [week(schoolSportsFor('windsor', 'windsor-high'), quiet)], scores: 'W' },
-    { heading: 'Timnath', sports: [week(schoolSportsFor('timnath'), timnath)], scores: 'T' },
+    { heading: 'Johnstown', sports: [week(schoolSportsFor('johnstown'), roosevelt)], scores: 'T' },
   ]);
-  assert.deepEqual(one.filter((l) => l.startsWith('#')), ['## Timnath Cubs this week', '### Timnath']);
+  assert.deepEqual(one.filter((l) => l.startsWith('#')), ['## Roosevelt Roughriders this week', '### Johnstown']);
 });
 
 test('a school’s teams are called by its short name and mascot, as people search for them', async () => {
   const { teamPageTitle } = await import('../src/lib/school-sports.ts');
   assert.equal(schoolTeamName(schoolSportsFor('lyons')!), 'Lyons Lions', 'not "Lyons Middle/Senior Lions"');
-  assert.equal(schoolTeamName(schoolSportsFor('timnath')!), 'Timnath Cubs', 'not "Timnath Middle-High Cubs"');
+  // Timnath's ("Timnath Cubs", not "Timnath Middle-High Cubs") and Resurrection Christian's left with
+  // their guides on 12 November 2026; the rule is held on the names still followed, and on every one below.
   assert.equal(schoolTeamName(schoolSportsFor('johnstown')!), 'Roosevelt Roughriders');
-  assert.equal(schoolTeamName(schoolSportsFor('loveland', 'resurrection-christian')!), 'Resurrection Christian Cougars');
+  assert.equal(schoolTeamName(schoolSportsFor('windsor', 'severance-high')!), 'Severance Silver Knights', 'a two-word mascot is kept whole');
+  assert.equal(schoolTeamName(schoolSportsFor('johnstown')!), 'Roosevelt Roughriders', 'the school’s name, not the town’s');
   assert.equal(teamPageTitle(schoolSportsFor('lyons')!, { name: 'Football' }, '2026'), 'Lyons Lions Football Scores & Schedule 2026');
   for (const s of SCHOOL_SPORTS) assert.doesNotMatch(schoolTeamName(s), /School|Middle|Senior|\//, s.school);
 });
@@ -974,11 +999,12 @@ test('what CHSAA settles is applied over MaxPreps: the volleyball state openers 
   const fileOf = (town: string) => (town === 'windsor' ? 'data/windsor/sports-windsor-high.json' : `data/${town}/sports.json`);
   const schoolOf = (town: string) => schoolSportsFor(town, town === 'windsor' ? 'windsor-high' : undefined)!;
   const read = (town: string) => JSON.parse(readFileSync(fileOf(town), 'utf8')) as SportsData;
-  const files = Object.fromEntries(['berthoud', 'golden', 'windsor'].map((town) => [`/${fileOf(town)}`, read(town)]));
+  const files = Object.fromEntries(['berthoud', 'niwot', 'windsor'].map((town) => [`/${fileOf(town)}`, read(town)]));
   const volleyball = (town: string) => sportsDataFor(schoolOf(town), files)!.sports.find((t) => t.key === 'volleyball')!;
 
-  // MaxPreps had "at Eaton", "vs Mullen" and "vs Battle Mountain": all three are at the Coliseum.
-  for (const [town, opponent] of [['berthoud', 'Eaton'], ['golden', 'Mullen'], ['windsor', 'Battle Mountain']] as const) {
+  // MaxPreps had "at Eaton" and "vs Battle Mountain", and Niwot's match with Mead: all three are at
+  // the Coliseum. (Golden's "vs Mullen" was the third until its guide was folded on 12 November 2026.)
+  for (const [town, opponent] of [['berthoud', 'Eaton'], ['niwot', 'Mead'], ['windsor', 'Battle Mountain']] as const) {
     const game = volleyball(town).upcoming.find((g) => g.date === '2026-11-12')!;
     assert.equal(game.opponent, opponent);
     assert.equal(game.site, 'neutral', town);
@@ -1056,12 +1082,13 @@ test('the school page’s eyebrow is the school year while it lays out fall and 
   const winterOnly = { ...data, sports: data.sports.filter((t) => teams.find((c) => c.key === t.key)?.season === 'winter') };
   assert.equal(pageSeasonLabel(winterOnly, teams, now), 'Winter 2026–27');
   // Spring's next game with winter's results beside it: the school year the spring belongs to.
-  const golden = schoolSportsFor('golden')!.teams;
+  // Roosevelt's teams, which include baseball (Golden's until that guide was folded on 12 November 2026).
+  const withSpring = schoolSportsFor('johnstown')!.teams;
   const t = (key: string, results: SportsData['sports'][number]['results'], upcoming: SportsData['sports'][number]['upcoming']) => ({ key, name: key, maxprepsUrl: '', fetched: 'x', results, upcoming, held: [], notes: [] });
   const march: SportsData = { generated: '', sports: [
     t('boys-basketball', [{ date: '2027-03-01', opponent: 'X', site: 'home', result: 'W', score: { us: 50, them: 40 }, url: 'b' }], []),
     t('baseball', [], [{ date: '2027-03-09', opponent: 'Wheat Ridge', site: 'home', url: 'a' }]),
   ] };
-  assert.equal(pageSeasonLabel(march, golden, new Date('2027-03-05T15:00:00Z')), '2026–27');
-  assert.equal(pageSeasonLabel({ ...march, sports: [march.sports[1]!] }, golden, new Date('2027-03-05T15:00:00Z')), 'Spring 2027');
+  assert.equal(pageSeasonLabel(march, withSpring, new Date('2027-03-05T15:00:00Z')), '2026–27');
+  assert.equal(pageSeasonLabel({ ...march, sports: [march.sports[1]!] }, withSpring, new Date('2027-03-05T15:00:00Z')), 'Spring 2027');
 });

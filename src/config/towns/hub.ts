@@ -61,9 +61,10 @@ export const hub: HubConfig = {
     // the Loveland and Johnstown edition the same day, when Loveland went
     // quiet, so Johnstown is an edition of its own. Clear Creek's own edition
     // ended on 3 November 2026, when the owner retired the guide.
-    editions: [
-      { slug: 'windsor-timnath', name: 'Windsor, Severance and Timnath', towns: ['windsor', 'timnath'] },
-    ],
+    // The Windsor, Severance and Timnath edition ended on 12 November 2026,
+    // when Timnath's guide was folded into its page on the hub; Windsor is
+    // an edition of its own again.
+    editions: [],
   },
   social: {
     email: 'hello@insidethetowns.com',

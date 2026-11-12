@@ -265,6 +265,19 @@ export interface TownConfig {
     successor?: string;
   };
   /**
+   * A guide folded into its town's page on the hub (the restructure of 12
+   * November 2026): the page's slug on insidethetowns.com and the day.
+   * Set only once that page is published, with three verified dated items
+   * of the town's own (src/lib/hub-towns.ts); until then a live guide
+   * stays up unchanged. With it the status is `redirect`: vercel.json
+   * sends the home page and every old address on the domain to the
+   * matching place on the page (src/lib/fold.ts), the guide's content has
+   * left its folder (git history keeps it), and the holding page the old
+   * project still builds says where the town went. A guide retired
+   * earlier keeps `retired` beside it, for the record of when and why.
+   */
+  hubPage?: { town: string; since: string };
+  /**
    * A live guide taken out of the weekly routine on the owner's word while
    * it is decided whether to keep it: the day it went quiet, the day to
    * decide by, and why. Its pages stay up and its listings stay accurate as
@@ -424,6 +437,22 @@ export interface TownConfig {
    * yet, and the plain maroon tile read as a missing picture.
    */
   nextStopPhotos?: Partial<Record<'eatDrink' | 'thingsToDo' | 'living', { image: string; alt?: string }>>;
+  /**
+   * What a standalone guide leads with, where it is not its school's
+   * sports (the restructure of 12 November 2026). Unset on the sports-led
+   * guides, which are unchanged.
+   *
+   * - `outdoors` (Lyons): the outdoor dates lead the home page, and sports
+   *   are out of the menu and off the home page. The sports pages still
+   *   build, so no address that was live stops answering.
+   * - `updates` (Niwot): a quiet guide. No events: the events, This week
+   *   and This weekend pages are not built (vercel.json sends their old
+   *   addresses home), and the home page is "Updates", shown only when
+   *   there is a current one, and "Things to know". It makes no weekly
+   *   promise, so it is out of the Wednesday notes run and the Thursday
+   *   email; it never shows an empty week.
+   */
+  lead?: 'outdoors' | 'updates';
   /** The high school the home page's scoreboard and the sports pages lead with: see SchoolConfig. */
   school?: SchoolConfig;
   livingHere?: LivingHereConfig;

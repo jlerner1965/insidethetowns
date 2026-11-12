@@ -58,9 +58,15 @@ test('a sports page is as new as the run that wrote its data file: the school’
     JSON.stringify({ generated, sports: sports.map((s) => ({ name: s.key, maxprepsUrl: '', results: [], upcoming: [], held: [], notes: [], ...s })) });
   mkdirSync(join(root, 'data', 'berthoud'), { recursive: true });
   writeFileSync(join(root, 'data', 'berthoud', 'sports.json'), data([{ key: 'football', fetched: generated }, { key: 'boys-cross-country', fetched: generated, empty: 'nothing' }, { key: 'wrestling' }]));
-  mkdirSync(join(root, 'data', 'loveland'), { recursive: true });
-  writeFileSync(join(root, 'data', 'loveland', 'sports-mountain-view.json'), data([{ key: 'football', fetched: generated }]));
-  writeFileSync(join(root, 'data', 'loveland', 'sports-loveland-high.json'), data([{ key: 'football', fetched: generated }]).replace(generated, '2026-10-22T17:00:00.000Z'));
+  // A town with several schools: Windsor's two (Loveland's four until that
+  // guide was folded into its page on the hub on 12 November 2026).
+  mkdirSync(join(root, 'data', 'windsor'), { recursive: true });
+  writeFileSync(join(root, 'data', 'windsor', 'sports-severance-high.json'), data([{ key: 'football', fetched: generated }]));
+  writeFileSync(join(root, 'data', 'windsor', 'sports-windsor-high.json'), data([{ key: 'football', fetched: generated }]).replace(generated, '2026-10-22T17:00:00.000Z'));
+  // And the same town with one school's file not yet written.
+  const partial = mkdtempSync(join(tmpdir(), 'lastmod-partial-'));
+  mkdirSync(join(partial, 'data', 'windsor'), { recursive: true });
+  writeFileSync(join(partial, 'data', 'windsor', 'sports-windsor-high.json'), data([{ key: 'football', fetched: generated }]).replace(generated, '2026-10-22T17:00:00.000Z'));
 
   const berthoud = contentDates({ kind: 'town', slug: 'berthoud' }, root, root);
   assert.equal(berthoud.get('/sports/'), generated);
@@ -68,11 +74,14 @@ test('a sports page is as new as the run that wrote its data file: the school’
   assert.equal(berthoud.has('/sports/boys-cross-country/'), false, 'a team with nothing has no page');
   assert.equal(berthoud.has('/sports/wrestling/'), false, 'an unread team has no page');
 
-  const loveland = contentDates({ kind: 'town', slug: 'loveland' }, root, root);
-  assert.equal(loveland.get('/sports/mountain-view/'), generated);
-  assert.equal(loveland.get('/sports/mountain-view/football/'), generated);
-  assert.equal(loveland.get('/sports/loveland-high/'), '2026-10-22T17:00:00.000Z');
-  assert.equal(loveland.get('/sports/'), generated, 'the index is as new as the newest school’s run');
-  assert.equal(loveland.has('/sports/thompson-valley/'), false, 'no file, the build date stands in');
+  const windsor = contentDates({ kind: 'town', slug: 'windsor' }, root, root);
+  assert.equal(windsor.get('/sports/severance-high/'), generated);
+  assert.equal(windsor.get('/sports/severance-high/football/'), generated);
+  assert.equal(windsor.get('/sports/windsor-high/'), '2026-10-22T17:00:00.000Z');
+  assert.equal(windsor.get('/sports/'), generated, 'the index is as new as the newest school’s run');
+  const oneFile = contentDates({ kind: 'town', slug: 'windsor' }, root, partial);
+  assert.equal(oneFile.has('/sports/severance-high/'), false, 'no file, the build date stands in');
+  assert.equal(oneFile.get('/sports/'), '2026-10-22T17:00:00.000Z', 'the index is dated by the one file there is');
+  // A town that follows no school (Longmont's three left with its guide on 12 November 2026) has no sports dates.
   assert.equal(contentDates({ kind: 'town', slug: 'longmont' }, root, root).has('/sports/'), false);
 });

@@ -30,6 +30,9 @@ export const fortLupton: TownConfig = {
     since: '2026-11-02',
     reason: 'Retired with the Carbon Valley guide on 2 November 2026, on the owner’s word: Frederick alone went on to a guide of its own, and no neighbouring guide takes Fort Lupton.',
   },
+  // Its town page on the hub is published (12 November 2026), so the
+  // domain now forwards there, not to the hub's home page.
+  hubPage: { town: 'fort-lupton', since: '2026-11-12' },
   variant: 'front-range',
   region: 'Carbon Valley & I-25',
   neighbors: [],

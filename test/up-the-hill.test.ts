@@ -33,7 +33,7 @@ function ev(town: string, title: string, start: string, o: { category?: string; 
 const now = parseLocal('2026-10-05T12:00');
 const titles = (list: { data: { title: string } }[]) => list.map((e) => e.data.title);
 
-test('the strip reads every live mountain guide and nothing else, decided by variant alone', () => {
+test('the strip reads every live mountain guide and nothing else, decided by variant alone; none is live today', () => {
   const hills = mountainTowns();
   // A to Z by name, as liveTowns() lists them: the Idaho Springs guide is
   // named Clear Creek since 20 October 2026, so slug order is not name order.
@@ -42,7 +42,13 @@ test('the strip reads every live mountain guide and nothing else, decided by var
     towns.filter((t) => t.status === 'live' && t.variant === 'mountain').sort((a, b) => a.name.localeCompare(b.name)).map((t) => t.slug),
   );
   for (const t of hills) assert.equal(t.variant, 'mountain', t.slug);
-  assert.ok(hills.length >= 4, 'four mountain guides were live on 7 October 2026');
+  // Four mountain guides were live on 7 October 2026 and ten on the 10th.
+  // Seven were retired by 3 November, and the last three, Estes Park, Golden
+  // and Nederland, with Leadville, were folded into their pages on the hub
+  // on 12 November 2026: no mountain guide is live, so the strip has nothing
+  // to read and is not shown. It fills again the day one goes live.
+  assert.deepEqual(hills.map((t) => t.slug), [], 'no mountain guide is live since 12 November 2026');
+  for (const t of towns.filter((t) => t.variant === 'mountain')) assert.equal(t.status, 'redirect', `${t.slug}: a mountain guide, folded or retired`);
   assert.ok(!hills.some((t) => t.slug === 'niwot'));
 });
 

@@ -4,10 +4,11 @@
  * town's content.
  */
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
-import { getSite, liveTowns, type TownConfig } from '@/config';
+import { getSite, listsEvents, liveTowns, type TownConfig } from '@/config';
 import { isExcluded } from '@/content/schemas';
 import { eventExclusion, hubExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
 import { eventPresentation, type Confidence } from '@/lib/confidence';
+import { FIXTURES_ENV, fixturesEnabled, type TraditionRecord } from '@/lib/traditions';
 
 export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & {
   slug: string;
@@ -130,6 +131,8 @@ function shapeEvent(entry: CollectionEntry<'events'>, now: Date) {
 export async function getTownEntries<C extends CollectionKey>(collection: C): Promise<TownEntry<C>[]> {
   const site = getSite();
   if (site.kind === 'hub') return [];
+  // A quiet guide lists no events (listsEvents): none reaches any page.
+  if (collection === 'events' && !listsEvents(site)) return [];
   const prefix = `${site.slug}/`;
   const entries = publishable(collection, await getCollection(collection, (entry) => entry.id.startsWith(prefix)), new Map([[site.slug, site]]));
   return entries.map((entry) => {
@@ -161,7 +164,8 @@ export async function getNetworkEntries<C extends CollectionKey>(collection: C):
   if (site.kind !== 'hub') {
     throw new Error(`getNetworkEntries() was called while building ${site.domain}. Town pages must use getTownEntries().`);
   }
-  const towns = new Map(liveTowns().map((t) => [t.slug, t]));
+  // A guide that lists no events has none on the network's pages either.
+  const towns = new Map(liveTowns().filter((t) => collection !== 'events' || listsEvents(t)).map((t) => [t.slug, t]));
   const entries = publishable(collection, await getCollection(collection, (entry) => towns.has(entry.id.split('/')[0]!)), towns);
   return entries.map((entry) => {
     const townSlug = entry.id.split('/')[0]!;
@@ -200,12 +204,34 @@ export async function getNeighborEntries<C extends CollectionKey>(
   collection: C,
   neighbors: readonly TownConfig[],
 ): Promise<NetworkEntry<C>[]> {
-  const towns = new Map(neighbors.map((t) => [t.slug, t]));
+  const towns = new Map(neighbors.filter((t) => collection !== 'events' || listsEvents(t)).map((t) => [t.slug, t]));
   if (towns.size === 0) return [];
   const entries = publishable(collection, await getCollection(collection, (entry) => towns.has(entry.id.split('/')[0]!)), towns);
   return entries.map((entry) => {
     const townSlug = entry.id.split('/')[0]!;
     const data = entry.data as { slug?: string };
     return Object.assign(entry, { slug: data.slug ?? slugOf(entry.id, townSlug), town: towns.get(townSlug)! }) as NetworkEntry<C>;
+  });
+}
+
+/**
+ * Every tradition record (content/hub/traditions/, src/lib/traditions.ts),
+ * for the hub's season pages and each guide's /traditions/. The one
+ * collection both kinds of site read whole: a record names its town, and
+ * the pages pick by it. A sample record reaching here without the fixtures
+ * switch is a broken build, never a page.
+ */
+export async function getTraditions(): Promise<TraditionRecord[]> {
+  const fixtures = fixturesEnabled();
+  const entries = await getCollection('traditions');
+  return entries.map((entry) => {
+    const record = entry.data as TraditionRecord;
+    if (record.fixture && !fixtures) {
+      throw new Error(`Tradition "${record.slug}" is a fixture and ${FIXTURES_ENV} is not set: fixtures never ship.`);
+    }
+    if (!!record.fixture !== record.slug.startsWith('fixture-')) {
+      throw new Error(`Tradition "${record.slug}": a fixture's slug starts "fixture-", and only a fixture's does.`);
+    }
+    return record;
   });
 }

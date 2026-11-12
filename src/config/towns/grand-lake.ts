@@ -27,6 +27,9 @@ export const grandLake: TownConfig = {
     since: '2026-10-30',
     reason: 'the smallest guide, 410 people, under its launch threshold with six events against ten; the Town\'s site refuses automated reads, three of seven listings checked on 27 October had summer hours, and its readers are visitors to a resort that turns over with Trail Ridge Road',
   },
+  // Its town page on the hub is published (12 November 2026), so the
+  // domain now forwards there, not to the hub's home page.
+  hubPage: { town: 'grand-lake', since: '2026-11-12' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Retired 30 October 2026: it names no neighbour, and Estes Park, which

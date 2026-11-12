@@ -22,13 +22,20 @@ export const lafayette: TownConfig = {
   // events and 33 checked listings against a threshold set like Golden's,
   // above the default for a city this size. The Vercel project, DNS and
   // Email Routing are the owner's (DEPLOY.md).
-  status: 'live',
+  // Folded into its town's page on the hub on 12 November 2026, once the
+  // page had its three verified items of the town's own (the owner's rule
+  // of that day: an organizer's own word that an event continues counts
+  // while its date is not announced): every address on this domain
+  // redirects to the matching place on it (vercel.json, src/lib/fold.ts)
+  // and the guide's content has left content/lafayette/ (git history keeps it).
+  status: 'redirect',
+  hubPage: { town: 'lafayette', since: '2026-11-12' },
   variant: 'front-range',
   region: 'Boulder County',
   // Erie east along Arapahoe (the JUMP runs between them), Longmont up 287,
   // Niwot by the Diagonal's side roads; each names Lafayette back. Golden,
   // owner's word, 3 November 2026, when its mountain neighbours retired.
-  neighbors: ['erie', 'longmont', 'niwot', 'golden'],
+  neighbors: [],
   launchThreshold: { events: 20, listings: 25 },
   slug: 'lafayette',
   name: 'Lafayette',

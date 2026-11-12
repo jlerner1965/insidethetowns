@@ -5,7 +5,7 @@ export const lyons: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Boulder County',
-  neighbors: ['longmont', 'niwot', 'estes-park', 'nederland'],
+  neighbors: ['niwot'],
   slug: 'lyons',
   name: 'Lyons',
   domain: 'insidelyons.com',
@@ -52,6 +52,8 @@ export const lyons: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
+  // The restructure of 12 November 2026 (TownConfig.lead).
+  lead: 'outdoors',
   // Quick answers under What's happening (parity with Berthoud, 9 November 2026).
   // Lyons has no recreation center, so no rec center link.
   quickAnswers: {},

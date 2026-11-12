@@ -10390,3 +10390,131 @@ alone.*
   shows a closed status, and the validator warns once it is past the
   window so a person confirms it by phone or in a browser. Only the
   owner sets it.
+
+## Two tiers: seven guides and the town pages on the hub, 12 November 2026
+
+*The owner's restructure brief of 12 November 2026, in one pass. Built on
+the tradition records of the day before (one record per annual event, the
+hub's season pages, "Every year in <Town>").*
+
+- **Two tiers, no third.** A town is one of seven standalone guides
+  (Berthoud, Erie, Johnstown, Windsor and Frederick, sports-led; Lyons,
+  outdoors-led; Niwot, quiet) or a town page on insidethetowns.com at
+  `/<town>/`. The 37 hub towns and their clusters are
+  `src/config/hub-towns.ts`; twelve of them never had a guide or a domain
+  here.
+- **"Carbon Valley" in the brief is Inside Frederick.** The brief lists
+  Carbon Valley as a standalone guide and sends insidefrederickco.com to
+  it. Since 2 November that is the other way round: the Carbon Valley
+  guide is retired, its content gone, and carbonvalleyguide.com and
+  insidefirestone.com forward to Inside Frederick. Reopening the retired
+  guide was not done; a record may name the guide `carbon-valley` or
+  `frederick` and lands on Frederick either way.
+- **A hub page is dates only**: Traditions and Outdoor dates, the nearby
+  pages of its cluster and the correction line
+  (`src/routes/hub/town.astro`). No listings, no weekly events: eleven
+  weekly markets and series that were read and are sound wait in
+  `docs/agent/dates/held/`.
+- **An outdoor date is a tradition record** (`type: outdoor`): a road, a
+  pass, a boat ramp or a ski area opening or closing, a park's entry
+  season, a licence window, a meteor shower. The record gained `towns`
+  (the places it shows, each with an optional local line), `statewide`,
+  `endDate`, `typicalWindow`, `note` (the source's own caveat, quoted:
+  "weather permitting") and the status `typical`. An opening and a closing
+  are two records. `town` is optional only on an outdoor date.
+- **Never a guess.** A row shows its newest entry; once that date has
+  passed and no later year is on file it reads "Next date not yet
+  announced" with the passed date as the last (`nextRow`). A typical
+  window is labelled "Typical window, not a date". Every date prints its
+  year.
+- **Three of its own** (`src/lib/hub-towns.ts`, `MIN_OWN_ITEMS`). "Its
+  own" is read strictly: a record whose home is the town and that carries
+  a date read on its source. A shared date (Trail Ridge Road, listed for
+  six towns) and a statewide one show on the page and do not count. 32 of
+  the 37 pages publish. Not published: Lafayette (2), Elizabeth (2), Idaho
+  Springs (2), Black Hawk (2), Mead (1).
+- **One record, many places.** A record shows on the hub's season page
+  for its type (`/outdoor-dates/` is new, with no year: every record's
+  next date), on each published town page it names, and on each standalone
+  guide's `/traditions/`, with its local line where it has one; each
+  showing lists the others under "Also on" (`showings`). A statewide
+  record links the season page alone, since it is on every page.
+- **Showpieces.** Estes Park and Salida use the richer layout of the same
+  template: a hero photograph, one tradition spotlighted, the year by
+  season. Estes Park spotlights Frozen Dead Guy Days, and the record
+  carries a line for Nederland, whose page shows it with the link to
+  Estes Park. Estes Park's photograph is the guide's own hero (the Adobe
+  Stock licence of 30 October). Salida has no photograph yet: none is
+  licensed, and the layout builds without one rather than borrow.
+- **Nine guides folded** into their pages (`hubPage` on the config,
+  status `redirect`): Castle Rock, Estes Park, Fort Collins, Golden,
+  Leadville, Longmont, Loveland, Nederland and Timnath. Their content left
+  their folders (git history keeps it), their schools left the sports run,
+  and no guide names them as a neighbour. Five guides retired earlier now
+  forward to their pages instead of the hub's home page: Grand Lake,
+  Evergreen, Georgetown, Manitou Springs and Fort Lupton.
+- **Not folded** (rule 4, no fold without a page): Lafayette and
+  Elizabeth stay up unchanged. Idaho Springs' and Black Hawk's domains
+  still forward to the hub's home page.
+- **Severance keeps forwarding to Windsor.** Its page on the hub is
+  published, but its listings live in the Windsor guide's Severance
+  section with their slugs, so every old address already lands on its
+  match there. Sending the domain to a page of dates would break that; it
+  is the owner's call.
+- **Where a folded guide's addresses go** (`src/lib/fold.ts`,
+  `scripts/fold-rules.ts`, `test/hub-fold.test.ts`): the events pages to
+  the page's `#traditions`, Things to do and the trail and park pages to
+  `#outdoor-dates`, everything else to the top; all permanent.
+- **Lyons leads with the outdoors** (`lead: 'outdoors'`): the outdoor
+  dates are the first section of its home page, and sports are out of its
+  menu and off its home. The sports pages still build.
+- **Niwot is a quiet guide** (`lead: 'updates'`): no events pages (their
+  old addresses go to its home page), home is "Updates", only when there
+  is a current one, and "Things to know". It is out of the Wednesday notes
+  run and, since the Thursday email is the week's events, out of the
+  email. Its event files are still in `content/niwot/events/`, read by no
+  page.
+- **The five sports-led guides** show the shared outdoor dates as single
+  lines under "Worth knowing" and on This week (`DateLines.astro`), each
+  linking to its row on `/traditions/`.
+- **The Windsor, Severance and Timnath email edition ended** with
+  Timnath's guide; Windsor is an edition of its own.
+- **Research**: `docs/agent/dates/_README.md` says how the 245 new
+  records were read, curated and spot-checked, and what waits unverified.
+
+## Rule 3 read again, three more pages, and the owner's domains, 12 November 2026 (later)
+
+*The owner's reply to the restructure pull request (#380), the same day.*
+
+- **Four calls stand**: Severance's domain keeps forwarding to the Windsor
+  guide's Severance section; Niwot stays out of the Thursday email; "three
+  of its own" is read strictly (a shared date counts toward no town);
+  Inside Frederick is the fifth sports-led guide, and the brief was wrong
+  about Carbon Valley.
+- **Rule 3 clarified.** A tradition counts toward a town's three when the
+  organizer's own page confirms it continues, even with no date announced;
+  it shows as "not yet announced" with the organizer's words beside it
+  (`continues` on the year; `countsAsVerified`). It does not count when
+  the only source is a third-party list, or when nothing confirms it is
+  still running. On that reading Idaho Springs (Echo Mountain: "2026-27
+  Winter Season Passes On Sale Now!"), Lafayette (the Chamber's "Join us"
+  for the Peach Festival and Independence Day) and Black Hawk (the city's
+  own page gives Light Up Black Hawk a Friday, 27 November, the weekday
+  fitting 2026) each reached three, so **Lafayette's guide was folded** and
+  the two retired domains now forward to their pages. Elizabeth and Mead
+  wait for the owner's own reads; the dates from the owner's screenshots
+  are drafted in `docs/agent/dates/` and not published.
+- **The rest re-read.** The three in five not spot-checked that morning
+  were re-read against their sources, so every published record has now
+  been read twice. (The counts are in the pull request.)
+- **Severance's Kids Fishing Derby** says "residents only" on its face, in
+  the Town's words.
+- **The owner's domains for towns that never had a guide** are on the hub
+  town's entry (`domain` in src/config/hub-towns.ts), with the same
+  redirect rules once the page is published: Salida, Steamboat Springs,
+  Buena Vista, Grand Junction and Fort Morgan now; Mead when its page
+  qualifies. Each still has to be attached to the hub's Vercel project.
+- **Niwot's subscribers.** The Thursday send goes to subscriber tags; with
+  no Niwot edition, a subscriber tagged `niwot` alone now receives
+  nothing, and nothing in the system sends an email when an update is
+  posted. Reported to the owner; nothing changed.

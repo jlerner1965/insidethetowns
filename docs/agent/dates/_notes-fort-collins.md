@@ -1,0 +1,17 @@
+# Notes: Fort Collins (read 12 Nov 2026)
+
+- **Taste of Fort Collins** — https://tasteoffortcollins.com/ (curl). "September 26 & 27, 2026 | Washington Park"; "7:30 PM | Saturday, September 26th"; "In 2026, we're shifting the festival from early June to September 26 & 27". Sat/Sun check OK. No 2027 date. Organizer not named on the page; record uses the site's own name.
+- **FoCoMX** — https://focoma.org/focomx (curl). "April 30th & May 1st" / "Save the Date". The visible text gives no year; the page's two hero images carry alt text "FoCoMX 2027 Hero" / "FoCoMX 2027 Type", and https://focoma.org/focomx/submit says "Submit to play FoCoMX 2027! Submissions will be accepted through January 11, 2027". 30 Apr 2027 is a Friday, 1 May a Saturday. Written as 2027 confirmed; **editor: the year is only in image alt text and the submit page**. Page also says "for the past 19 years" (no first year stated; some stale 2025 blurbs lower down).
+- **Tour de Fat** — https://www.newbelgium.com/events/tour-de-fat/ (curl + WebFetch). "August 29, 2026 / Fort Collins"; "The Tour de Fat costumed bicycle parade kicks off at 9:30am"; "It's FREE." Page gives no weekday (29 Aug 2026 is a Saturday). No 2027.
+- **Horsetooth Half Marathon** — https://horsetooth-half.com/course-race-info/ (curl). "Date: Sunday, April 18, 2027"; "Start Time: 8:00 AM"; "Point-to-Point Course: Dixon Canyon Dr to New Belgium Brewing". Sunday check OK. Organizer taken from "the Fort Collins Running Club's mission" on the same page. (horsetoothhalfmarathon.com does not resolve; horsetooth-half.com is the race's site.)
+- **Tour de Corgi** — https://tourdecorgi.org/ (curl). "WELCOME TO THE 12th ANNUAL TOUR DE CORGI FORT COLLINS, CO | Saturday, October 3rd, 2026". Saturday check OK. No 2027; no time or place on the home page.
+- **Independence Day Community Celebration** — https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q3/Independence-Day-Community-Celebration (curl 403; WebFetch read it). "Saturday, July 04, 2026 | 07:30 AM - 10:00 PM"; "City Park, 1500 W. Mulberry St."; "Fireworks start at 9:35 p.m. over Sheldon Lake in City Park."; "The event is free and open for all to attend." Odd: the 2026 page says there was no parade in 2026 ("In place of the parade, this year's celebration will feature a new experience in City Park") and asks "Will the parade return next year?".
+- **Old Town Square Skate Rink (opens/closes)** — hours PDF https://downtownfortcollins.org/wp-content/uploads/2026/10/OTS-Skate-Rink-2026-27-Hours-Nov-Dec-Jan.pdf (curl + pdftotext), linked from https://downtownfortcollins.org/winter-in-downtown/ (curl 403; WebFetch read it: "Free admission", "Free skate rentals"). PDF calendar: first hours shown are Wed 25 Nov 2026 "11 am - 5 pm"; Sun 24 Jan 2027 "12 pm - 5 pm LAST DAY". Dates are read off a calendar grid, not a sentence. Typed `outdoor` (operator season); organizer written as Downtown Fort Collins (the page is the DDA's; group bookings go to an fcgov.com address).
+
+## Could not verify
+- Nothing blocked for this town.
+
+## Looked for and did not find
+- **Colorado Brewers' Festival**: no organizer page for 2026 or 2027; search results only (not a source) say it has ended. No record written.
+- **Bohemian Nights at NewWestFest**: bohemiannights.org redirects to bohemianlivemusic.org, which returned an empty page to both tools. No date read; no record written. Editor should check whether it still runs.
+- Old holiday items (lighting ceremony, NightLights) are already in docs/agent/traditions/.

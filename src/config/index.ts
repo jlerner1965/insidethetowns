@@ -25,6 +25,16 @@ export { censusGrowth, countiesCovered, countyLabel, countyShort } from './towns
  */
 export const LIVE_TOWNS: string[] = towns.filter((t) => t.status === 'live').map((t) => t.slug);
 
+/**
+ * Whether a site lists events. Every guide does but a quiet one (`lead:
+ * 'updates'`, Niwot, the restructure of 12 November 2026): it builds no
+ * events page, so nothing on it or on any other site links to one, and
+ * its event files are read by no page.
+ */
+export function listsEvents(site: SiteConfig): boolean {
+  return site.kind === 'hub' || site.lead !== 'updates';
+}
+
 /** All configured towns, wave order (live or not). */
 export const allTowns: TownConfig[] = towns;
 
@@ -52,7 +62,9 @@ export function liveTowns(): TownConfig[] {
  * `emailEditions()`, so neither is promised a weekly issue.
  */
 export function emailTowns(): TownConfig[] {
-  return liveTowns().filter((t) => !t.quiet && !t.visitorGuide);
+  // Nor a guide that lists no events (`lead: 'updates'`): the email is the
+  // week's events, and it has none to send.
+  return liveTowns().filter((t) => !t.quiet && !t.visitorGuide && t.lead !== 'updates');
 }
 
 /** The weekly email's editions, A to Z: shared ones from the hub's config, every other covered guide on its own. */

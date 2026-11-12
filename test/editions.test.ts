@@ -1,7 +1,8 @@
 /**
  * The weekly email's editions (src/lib/editions.ts): every guide the email
- * covers is in exactly one, a few guides share one, and the visitor guides
- * and the quiet guide are in none (owner, 12 October 2026).
+ * covers is in exactly one, a few guides may share one (none does since 12
+ * November 2026), and a visitor guide, a quiet guide and a guide that lists
+ * no events are in none (owner, 12 October 2026).
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -40,7 +41,7 @@ test('an edition of one carries its town’s email sponsor; a shared one its own
   assert.equal(shared!.sponsor, own);
 });
 
-test('the one shared edition left, and nine in all', () => {
+test('no shared edition is left, and six editions in all', () => {
   // Three shared and fifteen in all until 20 October 2026: Idaho Springs and
   // Georgetown became one guide, Inside Clear Creek, an edition of one under
   // the Idaho Springs slug; Estes Park, Golden and Evergreen became visitor
@@ -50,13 +51,17 @@ test('the one shared edition left, and nine in all', () => {
   // October 2026, a flagship. On 2 November 2026 Carbon Valley's edition
   // closed with the guide and Lafayette's and Frederick's opened, flagships
   // from the start: ten. Clear Creek's closed with the guide on 3 November
-  // 2026: nine.
+  // 2026: nine. The restructure of 12 November 2026 folded Timnath and
+  // Golden into their pages on the hub, which ended the Windsor and Timnath
+  // edition (the last shared one) and Golden's, and Niwot became a quiet
+  // guide that lists no events (`lead: 'updates'`), so it has none; Lafayette's
+  // closed with its guide later the same day: six, each an edition of one.
   const editions = emailEditions();
+  assert.deepEqual(hub.newsletter?.editions, [], 'the hub configures no shared edition');
   const shared = editions.filter((e) => e.shared).map((e) => [e.slug, e.towns.map((x) => x.slug)]);
-  assert.deepEqual(shared, [
-    ['windsor-timnath', ['windsor', 'timnath']],
-  ]);
-  assert.equal(editions.length, 9);
+  assert.deepEqual(shared, []);
+  assert.deepEqual(editions.map((e) => e.slug), ['berthoud', 'erie', 'frederick', 'johnstown', 'lyons', 'windsor']);
+  assert.equal(editions.length, 6);
   // Every covered guide in exactly one edition.
   const placed = editions.flatMap((e) => e.towns.map((x) => x.slug)).sort();
   assert.deepEqual(placed, emailTowns().map((x) => x.slug).sort());
@@ -79,18 +84,25 @@ test('the configured editions name live guides the email covers, once each, unde
   }
 });
 
-test('Estes Park is the visitor guide, live and out of the email', () => {
+test('no visitor guide is left: Estes Park, the last, was folded into its page on the hub', () => {
   // Black Hawk, Leadville and Manitou Springs until 20 October 2026: Black
   // Hawk became a section of the Idaho Springs guide, which the email covers,
   // Leadville went quiet, and Estes Park, Golden and Evergreen joined Manitou.
   // Golden left on 28 October 2026 as a flagship, back in the email.
-  // Evergreen and Manitou Springs were retired on 3 November 2026.
+  // Evergreen and Manitou Springs were retired on 3 November 2026. Estes
+  // Park, the last visitor guide, and Golden were folded into their pages on
+  // the hub on 12 November 2026: neither is live, and neither has an edition.
   const visitor = towns.filter((x) => x.visitorGuide).map((x) => x.slug).sort();
-  assert.deepEqual(visitor, ['estes-park']);
-  assert.ok(editionFor('golden', emailEditions()), 'Golden has its own edition again');
+  assert.deepEqual(visitor, []);
   const live = liveTowns().map((x) => x.slug);
-  for (const slug of visitor) {
-    assert.ok(live.includes(slug), `${slug} stays live`);
+  for (const slug of ['estes-park', 'golden']) {
+    assert.equal(findTown(slug)?.status, 'redirect', `${slug}: folded`);
+    assert.ok(!live.includes(slug), `${slug} is no longer live`);
     assert.equal(editionFor(slug, emailEditions()), undefined, `${slug}: no edition`);
+  }
+  // A live guide the email does not cover (quiet, or one that lists no
+  // events) still has no edition.
+  for (const t of liveTowns().filter((x) => x.quiet || x.lead === 'updates')) {
+    assert.equal(editionFor(t.slug, emailEditions()), undefined, `${t.slug}: no edition`);
   }
 });
