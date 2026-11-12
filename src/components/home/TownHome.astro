@@ -242,6 +242,15 @@ if (featured) {
   </section>
 )}
 
+{/* A quiet guide's one form: occasional updates, not the weekly email. */}
+{quietGuide && (
+  <section class="band-paper py-4 md:py-6">
+    <div class="container-page">
+      <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
+    </div>
+  </section>
+)}
+
 {school && !quietGuide && <SportsBar town={town} />}
 
 {!quietGuide && (

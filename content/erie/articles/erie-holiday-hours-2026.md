@@ -6,7 +6,7 @@ date: "2026-11-10"
 excerpt: "The Community Center opens 6 am to 1 pm on Thanksgiving, Christmas Eve and New Year's Eve and closes on Christmas and New Year's Day. The library closes on Veterans Day, Thanksgiving, Christmas Eve and Christmas Day. The ice rink opens November 27."
 category: "Families"
 tags: [living-here, holidays, hours, families, guide]
-verified: "2026-11-10"
+verified: "2026-11-12"
 sources:
   - { label: "Town of Erie: Erie Community Center holiday hours", url: "https://www.erieco.gov/2084/Holiday-Hours" }
   - { label: "Town of Erie: Erie Community Center", url: "https://www.erieco.gov/172/Erie-Community-Center" }
@@ -16,6 +16,7 @@ sources:
   - { label: "Town of Erie: Observed Holidays", url: "https://www.erieco.gov/1908/Observed-Holidays" }
   - { label: "Town of Erie: Alert Center", url: "https://www.erieco.gov/AlertCenter.aspx" }
   - { label: "Town of Erie: Recycling Center", url: "https://www.erieco.gov/282/Recycling-Center" }
+  - { label: "Town of Erie: Tree Recycling", url: "https://www.erieco.gov/1651/Tree-Recycling" }
   - { label: "Town of Erie: calendar, November and December 2026", url: "https://www.erieco.gov/calendar.aspx?view=list&year=2026&month=11" }
   - { label: "Town of Erie: Utility Providers", url: "https://www.erieco.gov/1284/Utility-Providers" }
 related:
@@ -66,6 +67,8 @@ Admission is $10 for adults and $8 for children 12 and under, and the price incl
 The Town's list of observed holidays for the rest of the year: Veterans Day, Wednesday, November 11; Thanksgiving Day and the day after, Thursday and Friday, November 26 and 27; Christmas Eve and Christmas Day, Thursday and Friday, December 24 and 25; New Year's Eve, Thursday, December 31; and New Year's Day. Town Hall's regular hours are Monday to Friday, 8 am–5 pm.
 
 For Veterans Day the Town has posted two closures in its Alert Center. The Recycling Center at 1000 Briggs Street is closed on Wednesday, November 11, and back to regular operations on Thursday, November 12. Police records services are closed on the 11th and resume the next business day at 8 am. The Recycling Center's regular hours are 8 am–4 pm, seven days a week, "holiday and weather permitting," and it is for Erie residents with proof of residency; later holiday closures go up in the Alert Center.
+
+A Christmas tree can go to the Recycling Center after the holiday. The Town's Tree Recycling page names no season: trees are taken for composting all year at the marked drop-off area, for Erie residents with proof of residency, free of decorations, hooks, ornaments, tinsel, string and beads.
 
 Town Council does not meet on November 24 or December 22: the Town's calendar lists both regular meetings as canceled. A special meeting is on the calendar for Tuesday, December 1, at 6 pm, and the next regular meeting is Tuesday, December 8.
 

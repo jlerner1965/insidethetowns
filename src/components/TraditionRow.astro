@@ -43,9 +43,11 @@ interface Props {
   line?: string;
   /** The record's other showings, as links: every showing links to the others. */
   also?: ReadonlyArray<{ label: string; href: string }>;
+  /** "Add to calendar" for a date still ahead: the entry's .ics file and its Google link (src/lib/tradition-calendar.ts). */
+  calendar?: { ics: string; google: string };
 }
 
-const { row, eyebrow, href, townLabel, line, also = [] } = Astro.props;
+const { row, eyebrow, href, townLabel, line, also = [], calendar } = Astro.props;
 const { record, entry, source } = row;
 const type = TRADITION_TYPE_INFO[record.type];
 const day = (d: string) => parseLocal(d);
@@ -175,6 +177,14 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
   )}
   {details.length > 0 && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined}>{details.join(' · ')}</p>}
   {line && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink" data-local-line>{line}</p>}
+  {calendar && expires && (
+    <p class="mt-1.5 text-sm text-ink-muted" data-when-set data-add-to-calendar>
+      Add to calendar:
+      <a href={calendar.ics} class="inline-block py-1 text-primary underline" aria-label={`Add ${record.name} to a calendar: download the .ics file`}>Apple or Outlook (.ics)</a>
+      {' · '}
+      <a href={calendar.google} rel="noopener" class="inline-block py-1 text-primary underline" aria-label={`Add ${record.name} to Google Calendar`}>Google</a>
+    </p>
+  )}
   <p class="mt-1.5 text-sm text-ink-muted">
     Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · Source:
     <a href={source} rel="noopener" class="text-primary underline">{record.organizer}</a>

@@ -91,6 +91,15 @@ const sendTime = config?.sendTime;
 const emailField = config?.emailField ?? 'email';
 const tagField = config?.tagField ?? 'tag';
 const where = mine ? mine.name : 'the towns';
+/**
+ * A guide that lists no events (`lead: 'updates'`, Niwot) has no weekly
+ * issue, and until 12 November 2026 no form: a reader could not ask to be
+ * told when an update was posted. It has the short form now, under other
+ * words: occasional updates, never "every Thursday" or a next issue. The
+ * tag is the town's own, and an issue filed with `towns: [niwot]` goes to
+ * it (scripts/lib/send-newsletter.ts).
+ */
+const updatesOnly = !!town && !mine && town.lead === 'updates';
 // Two of these can sit on one page (an issue page shows the compact one), and
 // two inputs sharing an id is a broken label, not a cosmetic slip.
 const fieldKey = id ?? (compact ? 'compact' : 'main');
@@ -139,7 +148,8 @@ const box = 'size-5 shrink-0 rounded border-line';
     48rem or more the words sit on the left and the field and the button on
     the right, on one row (a container query, so This week, Events and
     Families, whose columns differ, each get the row only where it fits). */}
-{config && (!town || mine) && (
+{/* The updates form is the short one only: the fuller layouts list a weekly edition's towns. */}
+{config && (!town || mine || (updatesOnly && home)) && (
   <section id={anchor} data-signup-section data-pagefind-ignore class:list={[className, home ? '@container rounded-lg px-4 py-4 sm:px-6 sm:py-5' : 'max-w-3xl rounded-lg p-6 md:p-8', 'scroll-mt-6', dark ? 'on-dark bg-primary text-white' : ['bg-raised ring-1', compact ? 'ring-line-soft' : 'ring-primary-line']]}>
     {/*
       A new tab keeps the reader on the page they were reading, and the
@@ -155,10 +165,20 @@ const box = 'size-5 shrink-0 rounded border-line';
       {home ? (
         <Fragment>
           <div class="@3xl:row-span-3">
-            <h2 class="display-md text-[1.5rem] leading-tight @3xl:text-[1.75rem]">Your {day} local.</h2>
-            <p class="mt-1 text-[1rem] leading-snug text-balance text-ink-muted">Next issue {nextIssue}: the weekend’s events{town?.school ? ', the scores' : ''} and what opened or closed in {town?.name}.</p>
+            {updatesOnly ? (
+              <Fragment>
+                <h2 class="display-md text-[1.5rem] leading-tight @3xl:text-[1.75rem]">{town!.name} updates, by email.</h2>
+                <p class="mt-1 text-[1rem] leading-snug text-balance text-ink-muted" data-updates-signup>An occasional email, sent only when there is a local update: a closure, a vote, a change to a service. Not weekly, and no events.</p>
+              </Fragment>
+            ) : (
+              <Fragment>
+                <h2 class="display-md text-[1.5rem] leading-tight @3xl:text-[1.75rem]">Your {day} local.</h2>
+                <p class="mt-1 text-[1rem] leading-snug text-balance text-ink-muted">Next issue {nextIssue}: the weekend’s events{town?.school ? ', the scores' : ''} and what opened or closed in {town?.name}.</p>
+              </Fragment>
+            )}
           </div>
           {town && mine && <input type="checkbox" name={tagField} value={town.slug} checked hidden data-towns={covers(mine)} />}
+          {updatesOnly && <input type="checkbox" name={tagField} value={town!.slug} checked hidden data-towns={town!.slug} />}
         </Fragment>
       ) : card ? (
         <Fragment>
@@ -237,7 +257,7 @@ const box = 'size-5 shrink-0 rounded border-line';
             and the full words return from the sm width; the heading above
             already says which email. */}
         <button type="submit" data-signup-button class:list={[home ? 'btn h-12 shrink-0 justify-center px-4 sm:px-6' : 'btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', dark ? 'bg-highlight text-ink hover:bg-highlight-ink' : 'btn-primary']}>{home ? (
-          <Fragment><span class="sm:hidden">Sign up</span><span class="hidden sm:inline">Send me {day}’s email</span></Fragment>
+          <Fragment><span class="sm:hidden">Sign up</span><span class="hidden sm:inline">{updatesOnly ? `Send me ${town!.name} updates` : `Send me ${day}’s email`}</span></Fragment>
         ) : <Fragment>Send me {dark || card ? `${day}’s` : `the ${day}`} email</Fragment>}</button>
       </div>
       <p id={emailErrorId} data-email-error hidden aria-live="polite" class:list={['mt-2 text-[0.9375rem] font-semibold', home && '@3xl:col-start-2']}>

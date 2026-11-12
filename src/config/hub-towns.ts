@@ -18,9 +18,14 @@
  * scripts and the tests can all read it.
  */
 
-/** The clusters, in the order the hub lists them. Towns in a cluster link to each other. */
+/**
+ * The clusters, in the order the hub lists them. Towns in a cluster link to
+ * each other. Every cluster is a place: "Showpiece pages", which named a
+ * layout and not a place, went on 12 November 2026, and Estes Park and
+ * Salida are listed where they are (the park's gateway, the Arkansas
+ * valley). The richer layout is still `showpiece` on the town.
+ */
 export const HUB_CLUSTERS = [
-  'Showpiece pages',
   'Park gateway',
   'Front Range cities',
   'Front Range and plains towns',
@@ -150,9 +155,8 @@ export const HUB_TOWNS: readonly HubTown[] = [
     slug: 'estes-park',
     name: 'Estes Park',
     counties: ['Larimer'],
-    cluster: 'Showpiece pages',
+    cluster: 'Park gateway',
     guide: 'estes-park',
-    alsoLinks: ['Park gateway'],
     signature: { kind: 'fish-stocking', waters: [{ name: 'Lake Estes', ids: [795] }] },
     showpiece: {
       spotlight: 'estes-park-frozen-dead-guy-days',
@@ -170,8 +174,7 @@ export const HUB_TOWNS: readonly HubTown[] = [
     domain: 'insidesalida.com',
     name: 'Salida',
     counties: ['Chaffee'],
-    cluster: 'Showpiece pages',
-    alsoLinks: ['Arkansas valley'],
+    cluster: 'Arkansas valley',
     signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'ARKSALCO', river: 'Arkansas River', where: 'at Salida', page: 'https://dwr.state.co.us/Tools/Stations/ARKSALCO' } },
     showpiece: {
       spotlight: 'salida-fibark',
@@ -182,8 +185,8 @@ export const HUB_TOWNS: readonly HubTown[] = [
       hero: { image: 'salida.jpg', alt: '' },
     },
   },
-  { slug: 'grand-lake', name: 'Grand Lake', counties: ['Grand'], cluster: 'Park gateway', guide: 'grand-lake', alsoLinks: ['Showpiece pages'], signature: { kind: 'fish-stocking', waters: [{ name: 'Grand Lake', ids: [83] }] } },
-  { slug: 'nederland', name: 'Nederland', counties: ['Boulder'], cluster: 'Park gateway', guide: 'nederland', alsoLinks: ['Showpiece pages'], signature: { kind: 'snowpack', station: { triplet: '564:CO:SNTL', name: 'Lake Eldora', elevationFt: 9700, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=564' } } },
+  { slug: 'grand-lake', name: 'Grand Lake', counties: ['Grand'], cluster: 'Park gateway', guide: 'grand-lake', signature: { kind: 'fish-stocking', waters: [{ name: 'Grand Lake', ids: [83] }] } },
+  { slug: 'nederland', name: 'Nederland', counties: ['Boulder'], cluster: 'Park gateway', guide: 'nederland', signature: { kind: 'snowpack', station: { triplet: '564:CO:SNTL', name: 'Lake Eldora', elevationFt: 9700, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=564' } } },
   { slug: 'fort-collins', name: 'Fort Collins', counties: ['Larimer'], cluster: 'Front Range cities', guide: 'fortcollins', signature: { kind: 'fish-stocking', waters: [{ name: 'Sheldon Lake', ids: [550] }, { name: 'Prospect Ponds', ids: [444] }, { name: 'Riverbend Ponds', ids: [437] }] } },
   { slug: 'longmont', name: 'Longmont', counties: ['Boulder', 'Weld'], cluster: 'Front Range cities', guide: 'longmont', terrain: 'plains', signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'SVCLOPCO', river: 'St. Vrain Creek', where: 'below Ken Pratt Boulevard at Longmont', page: 'https://dwr.state.co.us/Tools/Stations/SVCLOPCO' } } },
   { slug: 'loveland', name: 'Loveland', counties: ['Larimer'], cluster: 'Front Range cities', guide: 'loveland', signature: { kind: 'fish-stocking', waters: [{ name: 'North Lake Park Pond', ids: [794] }, { name: 'Lon Hagler Reservoir', ids: [450] }, { name: 'Jayhawker Ponds', ids: [1342] }] } },
@@ -204,8 +207,8 @@ export const HUB_TOWNS: readonly HubTown[] = [
   { slug: 'frisco', name: 'Frisco', counties: ['Summit'], cluster: 'Summit County', signature: { kind: 'fish-stocking', waters: [{ name: 'Dillon Reservoir', ids: [39] }] } },
   { slug: 'breckenridge', name: 'Breckenridge', counties: ['Summit'], cluster: 'Summit County', signature: { kind: 'snowpack', station: { triplet: '415:CO:SNTL', name: 'Copper Mountain', elevationFt: 10500, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=415' } } },
   { slug: 'keystone', name: 'Keystone', counties: ['Summit'], cluster: 'Summit County' },
-  { slug: 'buena-vista', name: 'Buena Vista', counties: ['Chaffee'], cluster: 'Arkansas valley', alsoLinks: ['Showpiece pages'], domain: 'insidebuenavista.com', signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'ARKGRNCO', river: 'Arkansas River', where: 'at Granite, about 16 miles upstream', page: 'https://dwr.state.co.us/Tools/Stations/ARKGRNCO' } } },
-  { slug: 'leadville', name: 'Leadville', counties: ['Lake'], cluster: 'Arkansas valley', guide: 'leadville', alsoLinks: ['Showpiece pages'], signature: { kind: 'snowpack', station: { triplet: '485:CO:SNTL', name: 'Fremont Pass', elevationFt: 11310, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=485' } } },
+  { slug: 'buena-vista', name: 'Buena Vista', counties: ['Chaffee'], cluster: 'Arkansas valley', domain: 'insidebuenavista.com', signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'ARKGRNCO', river: 'Arkansas River', where: 'at Granite, about 16 miles upstream', page: 'https://dwr.state.co.us/Tools/Stations/ARKGRNCO' } } },
+  { slug: 'leadville', name: 'Leadville', counties: ['Lake'], cluster: 'Arkansas valley', guide: 'leadville', signature: { kind: 'snowpack', station: { triplet: '485:CO:SNTL', name: 'Fremont Pass', elevationFt: 11310, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=485' } } },
   { slug: 'manitou-springs', name: 'Manitou Springs', counties: ['El Paso'], cluster: 'Pikes Peak', guide: 'manitou-springs' },
   { slug: 'steamboat-springs', name: 'Steamboat Springs', counties: ['Routt'], cluster: 'Yampa valley', domain: 'insidesteamboatsprings.com', signature: { kind: 'fish-stocking', waters: [{ name: 'Casey’s Pond', ids: [18] }, { name: 'Fetcher Pond', ids: [201] }, { name: 'Stagecoach Reservoir', ids: [362] }] } },
   { slug: 'grand-junction', name: 'Grand Junction', counties: ['Mesa'], cluster: 'Western Slope', domain: 'insidegrandjunction.com', signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '09106485', river: 'Colorado River', where: 'at Grand Junction, above the Gunnison', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-09106485/' } } },

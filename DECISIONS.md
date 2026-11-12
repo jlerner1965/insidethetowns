@@ -10777,3 +10777,50 @@ was checked in the code first.*
 - **CPW**: the block stays, with its caveat and its link. A courtesy email
   asking permission is drafted for the owner to send
   (`docs/relationships/drafts/cpw-stocking-report-2026-11-12.md`).
+
+## The home page, the weekend filters and the season pages, 12 November 2026 (night)
+
+The owner's second pull request of three. Stacked on the bugs pass.
+
+- **The hub home page** is in the owner's order: a shorter hero that keeps
+  the town picker; the season collections; the weekend; the newsletter
+  signup; the towns; moving; sports; how it is made. A collection shows
+  only while its records have a date still to come (`isUpcoming`), with its
+  count read from the records; when none has, outdoor dates stand in. No
+  season list is written into the page. Every weekend card shows its day.
+- **"Showpiece pages" is gone** from the directory. Estes Park sits under
+  "Park gateway" and Salida under "Arkansas valley"; each town's county is
+  text beside its name. No URL changed.
+- **The weekend page** has two filters, Free and Live music
+  (`category: music`), that combine with the town filter. The town is kept
+  in the address and in the browser's storage; the filters are kept in the
+  address only. There is no Kids & families filter and no region filter.
+- **Season pages** list dates to come first, in date order or A to Z, then
+  "Not announced yet", then what has passed. "Add to calendar" is an
+  all-day entry unless the record's start time parses with certainty
+  (src/lib/tradition-calendar.ts); an end time is never made up.
+- **Turkey trots** have a page because six records are verified from the
+  organizers' own pages. Eleven more whose only source is a RunSignup
+  listing are held in `docs/agent/dates/held-runsignup/` for the owner.
+- **Ski closing days** are `outdoor` records, seven read from the areas'
+  own pages. Breckenridge, Keystone and Crested Butte could not be read
+  (the resort sites refuse automated reads) and Echo Mountain's robots
+  file disallows it; none is listed.
+- **Parades of lights**: no organizer's page for Windsor, Johnstown,
+  Loveland, Fort Collins or Golden lists one this season, so none is added.
+- **CHSAA championships** are not built: chsaanow.com's robots file
+  disallows this reader. A dated row is in TODO.md.
+- **Christmas-tree recycling**: only Frederick has published this season's
+  dates and Erie takes trees all year; both are in the guides. Berthoud,
+  Windsor, Johnstown, Lyons and Niwot have published nothing readable, and
+  nothing is written for them.
+- **Niwot** has a signup for occasional updates. Its tag is allowed at
+  signup and still blocked from the weekly edition (`emailTowns()`), and
+  the copy says occasional, not weekly. No update email exists yet: one is
+  sent only when the owner sends it.
+- **Moving** compares the seven on commute and school district, from what
+  the configs already source. No guide has a sourced housing cost, so the
+  page shows none.
+- **Five record types are added with no records**: egg hunts, farmers
+  markets, closures, school dates, tax dates. Dated rows are in TODO.md.
+

@@ -109,6 +109,8 @@ export interface FilterRow {
   open?: string;
   /** A park, a trail or a trailhead: open ground, kept by daylight or not at all. */
   land?: boolean;
+  /** What else the row is: "free", "music". A "Show only" toggle asks for one (the hub's weekend page). */
+  tags?: readonly string[];
 }
 
 export interface FilterState {
@@ -119,6 +121,8 @@ export interface FilterState {
   where: string;
   /** The name search, as typed. */
   query: string;
+  /** The "Show only" toggles that are on: a row is shown only when it carries every one of them. */
+  only?: readonly string[];
 }
 
 export interface FilterResult {
@@ -152,7 +156,8 @@ export function filterRows(rows: readonly FilterRow[], state: FilterState): Filt
     const matches =
       (state.value === 'all' || row.category === state.value) &&
       (state.where === 'all' || row.subTown === state.where) &&
-      (q === '' || normalizeName(row.name ?? '').includes(q));
+      (q === '' || normalizeName(row.name ?? '').includes(q)) &&
+      (state.only ?? []).every((tag) => row.tags?.includes(tag));
     if (!matches) return false;
     if (state.openOnly && row.open !== 'true') {
       // Closed is closed; a row whose hours cannot be read is not, and is
@@ -190,11 +195,12 @@ export function collapsePlan(shown: readonly boolean[], after: number): { above:
 }
 
 /** "1 result in Estes Park, matching “bruni”", for the screen reader's status line. */
-export function statusText(count: number, { label, openOnly, whereLabel, query }: { label?: string; openOnly: boolean; whereLabel?: string; query: string }): string {
+export function statusText(count: number, { label, openOnly, whereLabel, query, onlyLabels = [] }: { label?: string; openOnly: boolean; whereLabel?: string; query: string; onlyLabels?: readonly string[] }): string {
   const q = query.trim();
   return [
     `${count} ${count === 1 ? 'result' : 'results'}`,
-    label ? ` in ${label}` : '',
+    onlyLabels.length ? `, ${onlyLabels.join(' and ').toLowerCase()} only` : '',
+    label ? `${onlyLabels.length ? ',' : ''} in ${label}` : '',
     openOnly ? ', open now' : '',
     whereLabel ? `, in ${whereLabel}` : '',
     q ? `, matching “${q}”` : '',
@@ -202,9 +208,11 @@ export function statusText(count: number, { label, openOnly, whereLabel, query }
 }
 
 /** What the empty box says: the search and the filters that left nothing. */
-export function emptyText({ label, openOnly, whereLabel, query }: { label?: string; openOnly: boolean; whereLabel?: string; query: string }): string {
+export function emptyText({ label, openOnly, whereLabel, query, onlyLabels = [] }: { label?: string; openOnly: boolean; whereLabel?: string; query: string; onlyLabels?: readonly string[] }): string {
   const q = query.trim();
   const scope = [label ? `in ${label}` : '', whereLabel ? `in ${whereLabel}` : '', openOnly ? 'open right now' : ''].filter(Boolean).join(', ');
   if (q) return `Nothing matches “${q}”${scope ? ` ${scope}` : ''}.`;
+  // "Nothing marked free in Erie.", "Nothing marked free and live music."
+  if (onlyLabels.length) return `Nothing marked ${onlyLabels.join(' and ').toLowerCase()}${scope ? ` ${scope}` : ''}.`;
   return `Nothing ${scope || 'listed'}.`;
 }

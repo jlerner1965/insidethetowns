@@ -189,6 +189,15 @@ event page's Where carries a Directions link, as a place page does.
 venue, lodging or a landmark. A resident guide's About calls it a
 community guide; the other town guides are community and visitor guides.
 
+**A season page** (12 November 2026) lists dates to come first, in date
+order or A to Z, then "Not announced yet", then what has passed. Each dated
+row has "Add to calendar": a one-event file at `/dates/<record>.ics` and a
+Google link, all-day unless the record's start time parses with certainty
+(`src/lib/tradition-calendar.ts`). The hub's home page shows a collection
+only while its records have a date to come. `/this-weekend/` filters by
+town, Free and Live music together; the town is kept in the address and in
+the browser, the filters in the address.
+
 **A town page on the hub** (12 November 2026) opens on the town's name over
 its landscape: the photograph where one is licensed (Estes Park), otherwise a
 drawn horizon for the country it is in (peaks, foothills, mesas or plains,

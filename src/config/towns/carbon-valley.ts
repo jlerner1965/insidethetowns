@@ -258,6 +258,16 @@ export const carbonValley: TownConfig = {
           { label: 'Waste Connections pickup schedule', url: 'https://www.wasteconnections.com/pickup-schedule/', note: 'Which recycling week your neighborhood is on (the Town’s page lists Schedule A and B by subdivision)' },
           { label: 'Clean-Up Days', url: 'https://www.frederickco.gov/235/Clean-Up-Days', note: 'The Town’s spring and fall drop-off days; extra bags, branches and bulk items otherwise go through Waste Connections at special rates' },
           { label: 'Household hazardous waste', url: 'https://www.frederickco.gov/372/Garbage-Recycling', note: 'Weld County’s facility takes paint, batteries, oil, antifreeze and pesticides free; 970-304-6415' },
+          // Added 12 November 2026 (the holiday pass), read that day from the
+          // Town of Frederick's Community Programs page and the City of
+          // Dacono's Utilities page. The tree drop-off line prints no year:
+          // the years are from the page's own "2026/27" heading on the list
+          // above it and the weekdays it gives. Firestone says only
+          // "Annually, in January" with no dates yet, and Dacono's site says
+          // nothing about trees, so neither is listed.
+          { label: 'Frederick: holiday tree recycling', url: 'https://www.frederickco.gov/226/Community-Programs', note: 'Live trees only, Monday, December 21, 2026 to Friday, January 22, 2027: inside the fenced area at 602 Maple Street, on the southeast corner of Eighth Street and Maple Avenue by the entrance to Centennial Park; plastic bags, stands, decorations and lights off; no trees on the sidewalk or outside the fence' },
+          { label: 'Frederick: holiday trash drop-off', url: 'https://www.frederickco.gov/226/Community-Programs', note: 'For households that pay for trash on the Town utility bill: extra holiday waste to Public Works, 7301 Eagle Blvd., south gate, 7 am to 2:30 pm on December 21, 22, 28, 29 and 30, 2026 and January 4 to 8, 2027, and 7 am to noon on December 23 and 31; bring ID; wrapping paper, packaging, artificial trees, holiday lights and food waste are accepted' },
+          { label: 'Dacono: trash and recycling', url: 'https://www.daconoco.gov/868/Utilities', note: 'Waste Connections of Colorado, weekly trash and recycling every other week, on the City water bill; a pickup that falls on Thanksgiving, Christmas Day or New Year’s Day is a day late, and the normal schedule resumes the next week; 303-288-2100' },
         ],
       },
       {
