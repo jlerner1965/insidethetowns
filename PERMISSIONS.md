@@ -65,10 +65,10 @@ park page, and for the Singletrack the shelter, a summer trail shot and the
 trailhead kiosk from the folder. Nothing of the Town's remains unphotographed.
 
 **Update, 12 November 2026 — scope widened to the whole Town site.** Email to
-James, forwarded into a working session on 12 November 2026. The forwarded
-text carries no signature; it reads as Ashley Burger's (it continues her
-park-photo correspondence), but confirm the sender before relying on the name.
-Its closing line, in full:
+James from **Ashley Burger, Communications & Marketing Manager**, forwarded
+into a working session on 12 November 2026 (the forwarded text carried no
+signature; James confirmed the sender the same day). Its closing line, in
+full:
 
 > Feel free to periodically look at this park pages, and others, and grab new
 > photos whenever you see them.
