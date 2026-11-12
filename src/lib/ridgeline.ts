@@ -13,9 +13,9 @@
  *
  * Pure: a slug and a cluster in, SVG path data out.
  */
-import type { HubCluster } from '../config/hub-towns.ts';
+import type { HubCluster, Terrain } from '../config/hub-towns.ts';
 
-export type Terrain = 'peaks' | 'foothills' | 'mesa' | 'plains';
+export type { Terrain } from '../config/hub-towns.ts';
 
 /** The country each cluster is in. */
 export const TERRAIN: Record<HubCluster, Terrain> = {
@@ -113,9 +113,11 @@ function layer(shape: Shape, rand: () => number): string {
   return `${d} L${W} ${H} Z`;
 }
 
-/** Three closed paths, farthest first, in a 1200 by 220 box. */
-export function ridgeline(slug: string, cluster: HubCluster): { terrain: Terrain; layers: [string, string, string] } {
-  const terrain = TERRAIN[cluster];
+/**
+ * Three closed paths, farthest first, in a 1200 by 220 box. The terrain is
+ * the town's own where its config sets one (`terrain`), else its cluster's.
+ */
+export function ridgeline(slug: string, cluster: HubCluster, terrain: Terrain = TERRAIN[cluster]): { terrain: Terrain; layers: [string, string, string] } {
   const rand = seeded(slug);
   const [far, mid, near] = SHAPES[terrain];
   return { terrain, layers: [layer(far, rand), layer(mid, rand), layer(near, rand)] };

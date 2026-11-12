@@ -1,0 +1,40 @@
+---
+/**
+ * A guide's dates on its home page: its outdoor dates and its own
+ * traditions as single lines, only those with a date set, in the order
+ * src/lib/hub-towns.ts guideHomeDates gives (the owner, 12 November 2026):
+ * the outdoor dates first when at least two have a date, otherwise the
+ * traditions first and the outdoor dates second. The same on every guide:
+ * the lead section on an outdoors-led one, under Worth knowing on a
+ * sports-led one, under Things to know on a quiet one. A list with nothing
+ * in it is not drawn, and a date not yet announced is on /traditions/.
+ */
+import DateLines from '@/components/DateLines.astro';
+import type { TraditionRow } from '@/lib/traditions';
+
+interface Props {
+  dates: { lead: 'outdoor' | 'traditions'; outdoor: readonly TraditionRow[]; traditions: readonly TraditionRow[] };
+  town: string;
+  lines?: Readonly<Record<string, string | undefined>>;
+  track: string;
+  /** The first list's label is the section's own heading, drawn by the page; only the second gets one here. */
+  firstLabelled?: boolean;
+}
+const { dates, town, lines = {}, track, firstLabelled = false } = Astro.props;
+const lists = {
+  outdoor: { rows: dates.outdoor, label: 'Outdoor dates' },
+  traditions: { rows: dates.traditions, label: `Every year in ${town}` },
+};
+const order = (dates.lead === 'outdoor' ? [lists.outdoor, lists.traditions] : [lists.traditions, lists.outdoor]).filter((l) => l.rows.length > 0);
+---
+<div data-home-dates data-lead={dates.lead}>
+  {order.map((list, i) => (
+    <div class:list={[i > 0 && 'mt-6']}>
+      {!(firstLabelled && i === 0) && <h3 class="eyebrow">{list.label}</h3>}
+      <DateLines rows={list.rows} {lines} {track} />
+    </div>
+  ))}
+  {order.length > 0 && (
+    <p class="mt-3 text-[1.0625rem]"><a href="/traditions/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every date, with its source →</a></p>
+  )}
+</div>

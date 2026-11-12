@@ -20,3 +20,8 @@ export function resolveSiteImage(siteSlug: string, fileName: string): ImageMetad
   }
   return image;
 }
+
+/** The same lookup for a picture that may not be there yet (a town page's photograph, awaited): undefined, not an error. */
+export function findSiteImage(siteSlug: string, fileName: string): ImageMetadata | undefined {
+  return images[`/content/${siteSlug}/images/${fileName}`];
+}

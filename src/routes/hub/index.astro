@@ -177,8 +177,12 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
         src={heroImage}
         alt={hub.hero.alt}
         widths={[640, 960, 1280]}
-        sizes="(min-width: 1024px) 46vw, 0px"
-        loading="eager"
+        sizes="(min-width: 1024px) 46vw, 1px"
+        {/* Lazy, not eager: the figure is display:none below lg, and a lazy
+            image that is not rendered is never fetched, so a phone does not
+            download a photograph it never shows. From lg it is on the first
+            screen and loads at once. */}
+        loading="lazy"
         class="aspect-[4/5] w-full object-cover xl:aspect-[5/6]"
       />
     </figure>

@@ -1,0 +1,708 @@
+{
+ "source": "https://cpw.state.co.us/fishing/stocking-report",
+ "fetched": "2026-11-12",
+ "rows": [
+  {
+   "id": 433,
+   "name": "McCall Lake",
+   "region": "northeast",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 670,
+   "name": "Turks Pond",
+   "region": "southeast",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 805,
+   "name": "Black Hole at Two Buttes",
+   "region": "southeast",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 851,
+   "name": "Runyon Lake",
+   "region": "southeast",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 540,
+   "name": "Anticline Lake",
+   "region": "southeast",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 261,
+   "name": "Pueblo West Pond",
+   "region": "southeast",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 412,
+   "name": "Sylvan Lake",
+   "region": "northwest",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 668,
+   "name": "Gypsum Ponds",
+   "region": "northwest",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 83,
+   "name": "Grand Lake",
+   "region": "northwest",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 46,
+   "name": "Wolford Mountain Reservoir",
+   "region": "northwest",
+   "added": "2026-11-06"
+  },
+  {
+   "id": 550,
+   "name": "Sheldon Lake",
+   "region": "northeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 284,
+   "name": "Pinewood Reservoir",
+   "region": "northeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 295,
+   "name": "KOA Lake Boulder",
+   "region": "northeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 325,
+   "name": "Boulder Kids Pond",
+   "region": "northeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 450,
+   "name": "Lon Hagler Reservoir",
+   "region": "northeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 79,
+   "name": "Flatiron Reservoir",
+   "region": "northeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 357,
+   "name": "Jacksons Pond",
+   "region": "southeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 47,
+   "name": "Las Animas Pond",
+   "region": "southeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 859,
+   "name": "Clay Creek Pond",
+   "region": "southeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 348,
+   "name": "Midwestern Farms Pond",
+   "region": "southeast",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 1614,
+   "name": "Roan's Pothole",
+   "region": "northwest",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 1613,
+   "name": "Old Orchard",
+   "region": "northwest",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 1611,
+   "name": "Fruita Red Rocks Lake",
+   "region": "northwest",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 1615,
+   "name": "Snooks Bottom Lake",
+   "region": "northwest",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 362,
+   "name": "Stagecoach Reservoir",
+   "region": "northwest",
+   "added": "2026-10-30"
+  },
+  {
+   "id": 78,
+   "name": "Rifle Pond, South",
+   "region": "northwest",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 675,
+   "name": "Parachute Pond",
+   "region": "northwest",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 163,
+   "name": "Monument Lake",
+   "region": "southeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 153,
+   "name": "Palmer Lake",
+   "region": "southeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 539,
+   "name": "Kinney Lake",
+   "region": "southeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 155,
+   "name": "Hougo SWA Pond #2",
+   "region": "southeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 1349,
+   "name": "Homestead Ranch Park Pond",
+   "region": "southeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 85,
+   "name": "Aurora Reservoir",
+   "region": "northeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 410,
+   "name": "Weneka Lake",
+   "region": "northeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 523,
+   "name": "Harper Lake",
+   "region": "northeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 406,
+   "name": "Highline Lake",
+   "region": "northwest",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 434,
+   "name": "Mack Mesa Lake",
+   "region": "northwest",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 1342,
+   "name": "Jayhawker Pond #1",
+   "region": "northeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 1706,
+   "name": "Hudson Town Pond",
+   "region": "northeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 824,
+   "name": "Severance City Pond",
+   "region": "northeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 817,
+   "name": "Roberts Lake",
+   "region": "northeast",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 423,
+   "name": "Rifle Gap Reservoir",
+   "region": "northwest",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 1441,
+   "name": "Crystal River",
+   "region": "northwest",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 342,
+   "name": "Harvey Gap Reservoir",
+   "region": "northwest",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 469,
+   "name": "Georgetown Lake",
+   "region": "northwest",
+   "added": "2026-10-23"
+  },
+  {
+   "id": 51,
+   "name": "Pueblo Reservoir",
+   "region": "southeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 111,
+   "name": "Trinidad Reservoir",
+   "region": "southeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 849,
+   "name": "Windsor Reservoir",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 294,
+   "name": "KOA Lake Boulder",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 325,
+   "name": "Boulder Kids Pond",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 433,
+   "name": "McCall Lake",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 794,
+   "name": "North Lake Park Pond",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 265,
+   "name": "San Isabel Lake",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 572,
+   "name": "Webster Lake",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 235,
+   "name": "Coot Pond",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 234,
+   "name": "Pintail Pond",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 315,
+   "name": "Cherry Creek Reservoir",
+   "region": "northeast",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 836,
+   "name": "Confluence Lake",
+   "region": "southwest",
+   "added": "2026-10-16"
+  },
+  {
+   "id": 540,
+   "name": "Anticline Lake",
+   "region": "southeast",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 852,
+   "name": "Fountain Lake",
+   "region": "southeast",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 851,
+   "name": "Runyon Lake",
+   "region": "southeast",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 614,
+   "name": "San Miguel River #3",
+   "region": "southwest",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 363,
+   "name": "Breeze Pond",
+   "region": "northwest",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 79,
+   "name": "Flatiron Reservoir",
+   "region": "northeast",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 450,
+   "name": "Lon Hagler reservoir",
+   "region": "northeast",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 372,
+   "name": "McMurry Park Lake",
+   "region": "northeast",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 824,
+   "name": "Severance City Pond",
+   "region": "northeast",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 444,
+   "name": "Prospect Pond #3 South",
+   "region": "northeast",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 437,
+   "name": "Riverbend Pond #2",
+   "region": "northeast",
+   "added": "2026-10-09"
+  },
+  {
+   "id": 380,
+   "name": "Brush Hollow Reservoir",
+   "region": "southeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 65,
+   "name": "Pathfinder Park Pond",
+   "region": "southeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 39,
+   "name": "Dillon Reservoir",
+   "region": "northwest",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 1611,
+   "name": "Fruita Red Rocks",
+   "region": "northwest",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 110,
+   "name": "Sunset Lake",
+   "region": "northwest",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 320,
+   "name": "Arvada Reservoir",
+   "region": "northeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 319,
+   "name": "Thomas Reservoir",
+   "region": "northeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 290,
+   "name": "Golden Gravel #3",
+   "region": "northeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 159,
+   "name": "Quail Lake",
+   "region": "southeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 638,
+   "name": "Prospect Lake",
+   "region": "southeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 637,
+   "name": "Pike View Reservoir",
+   "region": "southeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 63,
+   "name": "Bear Creek Reservoir",
+   "region": "northeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 112,
+   "name": "Thornton Gravel Lake #2",
+   "region": "northeast",
+   "added": "2026-10-02"
+  },
+  {
+   "id": 396,
+   "name": "Beaver Creek Reservoir",
+   "region": "southwest",
+   "added": "2026-09-25"
+  },
+  {
+   "id": 545,
+   "name": "Big Meadows Reservoir",
+   "region": "southwest",
+   "added": "2026-09-25"
+  },
+  {
+   "id": 204,
+   "name": "Pericles Pond",
+   "region": "southwest",
+   "added": "2026-09-25"
+  },
+  {
+   "id": 203,
+   "name": "Shavano Pond",
+   "region": "southwest",
+   "added": "2026-09-25"
+  },
+  {
+   "id": 62,
+   "name": "Ridgway Reservoir",
+   "region": "southwest",
+   "added": "2026-09-25"
+  },
+  {
+   "id": 176,
+   "name": "Manitou Reservoir",
+   "region": "southeast",
+   "added": "2026-09-25"
+  },
+  {
+   "id": 78,
+   "name": "Rifle Pond South",
+   "region": "northwest",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 342,
+   "name": "Harvey Gap",
+   "region": "northwest",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 830,
+   "name": "Old pond",
+   "region": "northwest",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 347,
+   "name": "Christine Lake",
+   "region": "northwest",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 1613,
+   "name": "Old Orchard",
+   "region": "northwest",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 1614,
+   "name": "Roans Pothole",
+   "region": "northwest",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 823,
+   "name": "Waldens Kids Pond",
+   "region": "northeast",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 513,
+   "name": "Tiago Lake",
+   "region": "northeast",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 397,
+   "name": "Big Creek Lake Lower",
+   "region": "northeast",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 18,
+   "name": "Casey Pond",
+   "region": "northwest",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 201,
+   "name": "Fetcher City Pond",
+   "region": "northwest",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 397,
+   "name": "Big Creek Lake Lower",
+   "region": "northeast",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 739,
+   "name": "Blue Lake",
+   "region": "southeast",
+   "added": "2026-09-18"
+  },
+  {
+   "id": 790,
+   "name": "Axial Basin",
+   "region": "northwest",
+   "added": "2026-09-11"
+  },
+  {
+   "id": 1769,
+   "name": "Scenery Pond",
+   "region": "northwest",
+   "added": "2026-09-11"
+  },
+  {
+   "id": 810,
+   "name": "Craig City Pond",
+   "region": "northwest",
+   "added": "2026-09-11"
+  },
+  {
+   "id": 1352,
+   "name": "Circle Park Pond",
+   "region": "northwest",
+   "added": "2026-09-11"
+  },
+  {
+   "id": 663,
+   "name": "Sleepycat Pond",
+   "region": "northwest",
+   "added": "2026-09-11"
+  },
+  {
+   "id": 265,
+   "name": "San Isabel Lake",
+   "region": "southeast",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 104,
+   "name": "Taylor Reservoir",
+   "region": "southwest",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 469,
+   "name": "Georgetown Lake",
+   "region": "northeast",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 975,
+   "name": "Deep Lake",
+   "region": "northwest",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 532,
+   "name": "Sweetwater Lake",
+   "region": "northwest",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 795,
+   "name": "Estes Lake",
+   "region": "northeast",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 548,
+   "name": "Evergreen Res",
+   "region": "northeast",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 74,
+   "name": "Nottingham Lake",
+   "region": "northwest",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 999,
+   "name": "Berry Creek Pond",
+   "region": "northwest",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 765,
+   "name": "Wilmor Pond",
+   "region": "northwest",
+   "added": "2026-09-04"
+  },
+  {
+   "id": 767,
+   "name": "Camp Hale Pond",
+   "region": "northwest",
+   "added": "2026-09-04"
+  }
+ ]
+}

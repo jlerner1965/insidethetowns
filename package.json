@@ -36,7 +36,8 @@
     "recheck": "node scripts/recheck-events.ts",
     "recheck-development": "node scripts/recheck-development.ts",
     "confirm": "node scripts/confirm-events.ts",
-    "sports": "node scripts/sports.ts"
+    "sports": "node scripts/sports.ts",
+    "fish-stocking": "node scripts/fish-stocking.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",

@@ -28,6 +28,7 @@
  * fixtures switch (scripts/lib/site-check.ts).
  */
 import { parseLocal, formatDayLong, formatShortDate } from '@/lib/dates';
+import { dateBlock } from '@/lib/date-block';
 import { TRADITION_TYPE_INFO, type TraditionRow } from '@/lib/traditions';
 
 interface Props {
@@ -68,29 +69,8 @@ const lastWord = record.type === 'outdoor' ? 'Most recent' : 'Last held';
 const lastEnd = past ? entry.endDate : record.years.find((y) => y.date === row.lastHeld)?.endDate;
 // A block, not a run of inline boxes: beside the date block the words wrap on a phone, and a wrapped inline pill broke into two ragged pieces.
 const pill = 'inline-block rounded-md bg-ink px-2 py-1 text-[0.75rem] font-semibold uppercase leading-tight tracking-[0.1em] text-raised';
-/**
- * The date block's three lines. A date set: "APR", "9–11" (the span where
- * it ends in the same month, else the first day with "to Dec 31" under
- * it, the year left to the status line), "2027". No date set: "TBA" and the year it is awaited for. A
- * typical window only: "Varies".
- */
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const shown = dated || canceled ? entry.date : undefined;
-const block = (() => {
-  if (shown) {
-    const [y, m, d] = shown.split('-').map(Number) as [number, number, number];
-    const end = entry.endDate && entry.endDate !== shown ? (entry.endDate.split('-').map(Number) as [number, number, number]) : undefined;
-    const sameMonth = !!end && end[0] === y && end[1] === m;
-    return {
-      set: true,
-      top: MONTHS[m - 1]!,
-      main: sameMonth ? `${d}–${end![2]}` : String(d),
-      foot: end && !sameMonth ? `to ${MONTHS[end[1] - 1]} ${end[2]}` : String(y),
-    };
-  }
-  if (entry.status === 'typical') return { set: false, top: '', main: 'Varies', foot: '' };
-  return { set: false, top: '', main: 'TBA', foot: past ? '' : String(row.year) };
-})();
+// What the block says is src/lib/date-block.ts, tested there.
+const block = dateBlock(row);
 ---
 <article
   id={record.slug}
