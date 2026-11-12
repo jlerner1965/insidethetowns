@@ -2,8 +2,9 @@
 
 The one list. Who does each thing is in the last column: the owner (calls,
 photographs, meetings, merges, money) or the assistant (code, drafts,
-reports, checks). Three towns get the work until 20 January 2027
-(`HOW-IT-WORKS.md`, section 2); everything else is on hold at the bottom.
+reports, checks). The 90-day test is paused as of 12 November 2026 and its
+rules are removed (`HOW-IT-WORKS.md`, section 2); rows dated to 20 January
+stand until the owner revisits them.
 Remove a row when it is done; the dated audits in `docs/audits/` say what
 was found and when.
 
