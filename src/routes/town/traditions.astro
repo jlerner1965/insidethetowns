@@ -13,26 +13,54 @@
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { getNetworkHub, getTown } from '@/config';
+import { findTown, getNetworkHub, getTown } from '@/config';
+import { STANDALONE_GUIDES } from '@/config/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
+import { lineFor, placeKey, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
-import { TRADITION_TYPE_INFO, townGroups } from '@/lib/traditions';
+import { TRADITION_TYPE_INFO, isUpcoming, nextRow, type TraditionRow as Row } from '@/lib/traditions';
 
 const town = getTown();
 const hub = getNetworkHub();
 const today = dayKey(new Date());
-const { dated, waiting } = townGroups(await getTraditions(), town.slug, today);
-const rows = [...dated, ...waiting];
-const years = [...new Set(rows.map((r) => r.year))].sort();
+const records = await getTraditions();
+/**
+ * A standalone guide shows everything that applies to it: its own
+ * traditions, the shared outdoor dates that name it, and the statewide
+ * ones (src/lib/hub-towns.ts). Any other guide shows the records it is
+ * the home of, as before the restructure.
+ */
+const place = placeKey(town.slug);
+const standalone = !!place && !!STANDALONE_GUIDES[place];
+const mine = standalone
+  ? placeRows(records, place!, today)
+  : { traditions: records.filter((r) => r.town?.guide === town.slug).map((r) => nextRow(r, today)), outdoor: [], statewide: [] };
+const dated = mine.traditions.filter((r) => isUpcoming(r) || r.entry.status === 'canceled');
+const waiting = mine.traditions.filter((r) => !dated.includes(r));
+const outdoor = [...mine.outdoor, ...mine.statewide];
+const rows = [...dated, ...waiting, ...outdoor];
+const ctx: ShowingContext = {
+  hubDomain: hub.domain,
+  published: new Set(publishedHubTowns(records).map((t) => t.slug)),
+  guideDomain: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.domain,
+  guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
+};
+const rowProps = (row: Row) => ({
+  row,
+  eyebrow: 'category' as const,
+  line: place ? lineFor(row.record, place) : undefined,
+  also: standalone ? showings(row.record, ctx).filter((s) => s.key !== place) : [],
+});
+const years = [...new Set(rows.filter((r) => !r.past).map((r) => r.year))].sort();
 const yearText = years.join(' and ');
 const kinds = [...new Set(rows.map((r) => TRADITION_TYPE_INFO[r.record.type].plural.toLowerCase()))];
 const kindText = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kinds.at(-1)}` : kinds[0];
 
 const path = '/traditions/';
 const pageUrl = `https://${town.domain}${path}`;
-const seoTitle = `${town.name}, Colorado ${kindText} ${yearText}`;
-const description = `${town.name}, Colorado’s ${kindText} for ${yearText}: the date each organizer has published, or that it has not yet, and the page it was read from.`;
+const seoTitle = `${town.name}, Colorado ${kindText}${yearText ? ` ${yearText}` : ''}`;
+const description = `${town.name}, Colorado’s ${kindText}${yearText ? ` for ${yearText}` : ''}: the date each organizer has published, or that it has not yet, and the page it was read from.`;
 const structured = [
   collectionPageJsonLd(town, {
     name: `Every year in ${town.name}`,
@@ -42,10 +70,9 @@ const structured = [
   }),
   breadcrumbJsonLd(town, [
     { name: town.siteTitle, path: '/' },
-    { name: 'Events', path: '/events/' },
     { name: `Every year in ${town.name}`, path },
   ]),
-  ...rows.map((r) => traditionEventJsonLd(r.record, r.entry, pageUrl)).filter((e) => !!e),
+  ...rows.map((r) => (r.past ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
 ];
 const subject = `[Correction] ${town.name} traditions`;
 const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${encodeURIComponent(subject)}`;
@@ -55,14 +82,14 @@ const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${en
   {seoTitle}
   eyebrow={`${town.name} traditions`}
   {description}
-  intro="The events this town holds every year, with this year’s date where the organizer has set it, and where we read it."
+  intro="The events this town holds every year and the outdoor dates around it, with the date where it has been set, and where we read it."
   jsonLd={structured}
 >
   {dated.length > 0 && (
     <section aria-labelledby="confirmed-heading" class="mb-14 md:mb-16">
       <h2 id="confirmed-heading" class="mb-6 border-b-2 border-accent pb-3 text-3xl font-medium">Date confirmed</h2>
       <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-        {dated.map((row) => <TraditionRow row={row} eyebrow="category" />)}
+        {dated.map((row) => <TraditionRow {...rowProps(row)} />)}
       </div>
     </section>
   )}
@@ -70,7 +97,15 @@ const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${en
     <section aria-labelledby="waiting-heading" class="mb-14 md:mb-16">
       <h2 id="waiting-heading" class="mb-6 border-b-2 border-accent pb-3 text-3xl font-medium">Not announced yet</h2>
       <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-        {waiting.map((row) => <TraditionRow row={row} eyebrow="category" />)}
+        {waiting.map((row) => <TraditionRow {...rowProps(row)} />)}
+      </div>
+    </section>
+  )}
+  {outdoor.length > 0 && (
+    <section id="outdoor-dates" aria-labelledby="outdoor-heading" class="mb-14 scroll-mt-4 md:mb-16">
+      <h2 id="outdoor-heading" class="mb-6 border-b-2 border-accent pb-3 text-3xl font-medium">Outdoor dates</h2>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {outdoor.map((row) => <TraditionRow {...rowProps(row)} />)}
       </div>
     </section>
   )}

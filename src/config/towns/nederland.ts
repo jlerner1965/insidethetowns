@@ -15,26 +15,17 @@ export const nederland: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
   // the launch threshold (docs/archive/ACCURACY-SYSTEM.md).
-  status: 'live',
-  // Quiet from 20 October 2026, owner's word, with the other small mountain
-  // guides (DECISIONS.md, "The other mountain guides, 20 October"): pages
-  // up, listings checked as the rotation reaches them, no weekly promise.
-  // The date stays before any listing's hours expire (45 days from its check
-  // on the mountain chassis; the quiet-towns test holds the order). Kept on
-  // 30 October 2026 until the 90-day verdict (DECISIONS.md, "Six quiet guides
-  // kept"); 15 listings were re-checked that day, so the date moves from 19
-  // November to 3 December, the day before the three checked on 20 October
-  // lose their hours. A full pass in the week of 7 December takes it to 20
-  // January.
-  quiet: {
-    since: '2026-10-20',
-    decideBy: '2026-12-03',
-    reason: 'seventeen events and no guide to fold into (Boulder has none); with the other small mountain guides it leaves the weekly routine so the effort goes to the Front Range towns that can be won',
-  },
+  // Folded into its town's page on the hub on 12 November 2026 (the
+  // restructure brief; DECISIONS.md, "Two tiers"): the page has its three
+  // verified dated items, so every address on this domain redirects to the
+  // matching place on it (vercel.json, src/lib/fold.ts) and the guide's
+  // content has left content/nederland/ (git history keeps it).
+  status: 'redirect',
+  hubPage: { town: 'nederland', since: '2026-11-12' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Clear Creek dropped out on 3 November 2026, when it retired.
-  neighbors: ['lyons', 'niwot'],
+  neighbors: [],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   launchThreshold: { events: 10, listings: 15 },
   slug: 'nederland',

@@ -20,7 +20,7 @@
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import TipsLink from '@/components/TipsLink.astro';
-import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getTown, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { LAND_TYPES } from '@/content/schemas';
@@ -57,12 +57,16 @@ const actions = [
     label: 'Report a correction',
     href: '/correct/',
   },
-  {
+  ...(listsEvents(town)
+    ? [
+      {
     title: 'Submit an event',
     body: 'Anything open to the public, such as a tasting, a class or a market day, goes on the events calendar for nothing. We need the date, the time and a link to your own page about it.',
     label: 'Submit an event',
     href: '/submit-event/',
   },
+      ]
+    : []),
   {
     title: 'Send a photograph',
     body: 'One you took or hold the rights to, with how to credit it. The email opens with the questions we need answered.',
@@ -145,7 +149,7 @@ const actions = [
       list, or what we write. The placements on this guide are:
     </p>
     <ul>
-      <li>A “presented by” line on the <a href="/events/">events page</a> and the <a href="/this-weekend/">weekend page</a>, which list what is on each week.</li>
+      {listsEvents(town) && <li>A “presented by” line on the <a href="/events/">events page</a> and the <a href="/this-weekend/">weekend page</a>, which list what is on each week.</li>}
       <li>A labeled block on <a href="/moving-here/">Moving here</a>, the guide’s page for people about to move to {town.name}.</li>
       {hub.newsletter && edition && (
         <li>
@@ -194,7 +198,7 @@ const actions = [
     title="Something to add or fix?"
     links={[
       { label: 'Correct a listing', href: '/correct/', primary: true },
-      { label: 'Submit an event', href: '/submit-event/' },
+      ...(listsEvents(town) ? [{ label: 'Submit an event', href: '/submit-event/' }] : []),
       { label: 'Send a photograph', href: photo },
     ]}
   />

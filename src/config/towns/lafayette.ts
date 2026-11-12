@@ -28,7 +28,7 @@ export const lafayette: TownConfig = {
   // Erie east along Arapahoe (the JUMP runs between them), Longmont up 287,
   // Niwot by the Diagonal's side roads; each names Lafayette back. Golden,
   // owner's word, 3 November 2026, when its mountain neighbours retired.
-  neighbors: ['erie', 'longmont', 'niwot', 'golden'],
+  neighbors: ['erie', 'niwot'],
   launchThreshold: { events: 20, listings: 25 },
   slug: 'lafayette',
   name: 'Lafayette',

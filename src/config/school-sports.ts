@@ -394,28 +394,6 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     calendarNote: 'Niwot’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
     teams: TEAMS([...FALL(), NIWOT_GYMNASTICS, NIWOT_BOYS_GOLF, NIWOT_BOYS_TENNIS]),
   },
-  // The six guides of 22 October 2026, the Berthoud pattern as it stands.
-  // Each school's colour is MaxPreps's first school colour, read by the
-  // probe on the GitHub runner that day (`npm run sports -- --sport=football`
-  // prints them); one is darkened a step to clear the paper, as Niwot's was.
-  {
-    town: 'timnath',
-    // CHSAANow: Timnath Middle-High School, Poudre R-1; football 3A, Granite Peaks (2026–28).
-    school: 'Timnath Middle-High School',
-    mascot: 'Cubs',
-    maxpreps: 'https://www.maxpreps.com/co/timnath/timnath-cubs/',
-    maxprepsName: 'Timnath',
-    // Cub blue, as MaxPreps's team data gives it (1580A5, 22 October 2026),
-    // darkened 10%: the exact shade is 4.13:1 on the warm paper and 6% short on the amber wash. The guide's
-    // primary is the same.
-    colors: { primary: '#137495' },
-    // Poudre School District keeps Timnath's schedules on ArbiterLive
-    // (arbiterlive.com/Teams?entityId=119370, linked from
-    // tmh.psdschools.org/athletics), whose robots.txt disallows every
-    // automated reader.
-    calendarNote: 'Timnath’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
-  },
   {
     town: 'elizabeth',
     // CHSAANow: Elizabeth High School, Elizabeth School District; football 2A, 2A Metro (2026–28).
@@ -504,68 +482,6 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     teams: TEAMS(FALL(), WINTER_WITHOUT('girls-swimming')),
   },
   {
-    town: 'loveland',
-    slug: 'loveland-high',
-    // CHSAANow: Loveland High School, Thompson R2-J; football 4A, 4A Northern (2026–28).
-    school: 'Loveland High School',
-    mascot: 'Red Wolves',
-    maxpreps: 'https://www.maxpreps.com/co/loveland/loveland-red-wolves/',
-    maxprepsName: 'Loveland',
-    // Red Wolf red, the shade Loveland High's own site brands with (MaxPreps's
-    // CC0022 is Elizabeth's too); the guide's primary is the same.
-    colors: { primary: '#BA0C2F' },
-    // Loveland High's Finalsite calendar is at lhs.tsd.org/family/calendar,
-    // but the site's robots.txt disallows that path to every automated
-    // reader (22 October 2026), where Mountain View's allows it.
-    calendarNote: 'Loveland High’s calendar asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
-  },
-  {
-    town: 'loveland',
-    slug: 'thompson-valley',
-    // CHSAANow: Thompson Valley High School, Thompson R2-J; football 3A, Cache la Poudre (2026–28).
-    school: 'Thompson Valley High School',
-    mascot: 'Eagles',
-    maxpreps: 'https://www.maxpreps.com/co/loveland/thompson-valley-eagles/',
-    maxprepsName: 'Thompson Valley',
-    // Eagle black, as MaxPreps's team data gives it (222222, 22 October 2026).
-    colors: { primary: '#222222' },
-    // As Loveland High: tvhs.tsd.org/robots.txt disallows /family/calendar.
-    calendarNote: 'Thompson Valley’s calendar asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
-  },
-  {
-    town: 'loveland',
-    slug: 'mountain-view',
-    // CHSAANow: Mountain View High School, Thompson R2-J; football 3A, Cache la Poudre (2026–28).
-    school: 'Mountain View High School',
-    mascot: 'Mountain Lions',
-    maxpreps: 'https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/',
-    maxprepsName: 'Mountain View',
-    // Mountain Lion purple, as MaxPreps's team data gives it (754ACC, 22 October 2026).
-    colors: { primary: '#754ACC' },
-    calendar: TSD_CALENDAR('mvhs', 'the Mountain View calendar'),
-    teams: TEAMS(),
-  },
-  {
-    town: 'loveland',
-    slug: 'resurrection-christian',
-    // CHSAANow: Resurrection Christian, non-public; football 2A, Patriot (2026–28).
-    school: 'Resurrection Christian School',
-    mascot: 'Cougars',
-    maxpreps: 'https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/',
-    maxprepsName: 'Resurrection Christian',
-    // Cougar blue, as MaxPreps's team data gives it (034CB2, 22 October 2026).
-    colors: { primary: '#034CB2' },
-    // The school's Teams & Schedules page sends readers to ArbiterSports
-    // (students.arbitersports.com/organizations/resurrection-christian-school),
-    // which this reader does not read.
-    calendarNote: 'Resurrection Christian’s schedules live on ArbiterSports, which this site does not read yet, so games to come are published on MaxPreps’s word alone.',
-    // No boys' soccer: CHSAANow's alignment lists none for the school. Ice
-    // hockey: the one school followed that CHSAA lists for it.
-    teams: TEAMS(FALL_WITHOUT('boys-soccer'), [...WINTER(), ICE_HOCKEY]),
-  },
-  {
     // The Carbon Valley guide's entry from 22 October 2026, Frederick's own
     // from 2 November, when that guide closed and Inside Frederick opened; the
     // data file moved with it (data/frederick/sports.json).
@@ -633,30 +549,6 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     teams: TEAMS(FALL_WITHOUT('boys-soccer'), WINTER_WITHOUT('girls-swimming'), [SPRING_BASEBALL, ...SPRING_TRACK]),
   },
   {
-    town: 'golden',
-    // CHSAANow: Golden High School, Jefferson County R-1, Jeffco League;
-    // football 4A, basketball 5A (2026–28, read 28 October 2026); MaxPreps
-    // has football in 4A Front Range. The mascot is MaxPreps's (its school
-    // path, golden-demons).
-    school: 'Golden High School',
-    mascot: 'Demons',
-    maxpreps: 'https://www.maxpreps.com/co/golden/golden-demons/',
-    maxprepsName: 'Golden',
-    // Demon crimson, MaxPreps's first school colour (schoolColor1 8F0018,
-    // then FFFFFF and 222222), read by the sports probe from the runner on
-    // 28 October 2026 (run 40789110242): MaxPreps refuses the cloud address
-    // and Jeffco's school sites did not answer it. Not used from 10 November
-    // 2026: the owner's word is that Golden's sports pages wear the guide's
-    // own copper, so no `colors` here and the pages take the primary.
-    calendarNote: 'Golden High’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
-    // CHSAANow lists every fall and winter team the default lists follow
-    // (football, boys soccer, volleyball, softball, both cross country;
-    // both basketball, wrestling, girls' swimming). A team MaxPreps has
-    // nothing for is left off the page by the run. Boys' tennis, baseball
-    // and both lacrosse teams from 9 November 2026 (BOYS_TENNIS above).
-    teams: TEAMS([...FALL(), BOYS_TENNIS], WINTER(), [SPRING_BASEBALL, BOYS_LACROSSE, GIRLS_LACROSSE]),
-  },
-  {
     town: 'lafayette',
     // CHSAANow: Centaurus High School, Boulder Valley Re 2, Granite Peaks;
     // football 4A, basketball 6A (2026–28, read 2 November 2026). The
@@ -685,147 +577,6 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // (girls' wrestling and gymnastics are Broomfield co-ops, not followed).
     // No data file yet: the first Saturday or Wednesday run writes
     // data/lafayette/sports.json, and the page waits for it.
-    teams: TEAMS(),
-  },
-  // Longmont's three high schools, on the owner's word of 9 November 2026
-  // (the Longmont gap report of 8 November). A city guide follows several
-  // schools, as Loveland does: /sports/ lists them and each has its own
-  // page and file (data/longmont/sports-<slug>.json). MaxPreps's school
-  // paths are as its Skyline football page links them (read 9 November
-  // 2026); the run on the runner reads each team's page, and a team
-  // MaxPreps has nothing for is left off by the run. No data files yet:
-  // the first run after this lands writes them, and the pages wait.
-  {
-    town: 'longmont',
-    slug: 'longmont-high',
-    // CHSAANow: Longmont High School, St Vrain Valley RE1J, Granite Peaks;
-    // football 4A, basketball 5A (2026–28, read 9 November 2026).
-    school: 'Longmont High School',
-    mascot: 'Trojans',
-    maxpreps: 'https://www.maxpreps.com/co/longmont/longmont-trojans/',
-    maxprepsName: 'Longmont',
-    // Trojan blue, from Longmont High's own stylesheet (lhs.svvsd.org,
-    // theme `--color-primary: #00417f`, read 9 November 2026).
-    colors: { primary: '#00417F' },
-    // The school's Sports Schedules page (lhs.svvsd.org/activities-arts-
-    // athletics/athletics/sports-schedules/, 9 November 2026) posts each
-    // team's schedule as a Google Sheet or Doc, which the cross-check does
-    // not read, as Lyons's.
-    calendarNote: 'Longmont High posts its schedules as spreadsheets on the school site, which the cross-check does not read, so games to come are published on MaxPreps’s word alone.',
-    // CHSAANow lists every fall and winter team the default lists follow.
-    teams: TEAMS(),
-  },
-  {
-    town: 'longmont',
-    slug: 'skyline',
-    // CHSAANow: Skyline High School, St Vrain Valley RE1J; football 3A,
-    // basketball 5A (2026–28, read 9 November 2026).
-    school: 'Skyline High School',
-    mascot: 'Falcons',
-    maxpreps: 'https://www.maxpreps.com/co/longmont/skyline-falcons/',
-    maxprepsName: 'Skyline',
-    // Falcon red, from Skyline High's own stylesheet (shs.svvsd.org, theme
-    // `--color-primary: #a01c29`, read 9 November 2026); MaxPreps's CC0022
-    // is Loveland High's and Elizabeth's too.
-    colors: { primary: '#A01C29' },
-    // The school's athletics page links ArbiterLive
-    // (arbiterlive.com/Teams?entityId=21096), whose robots.txt disallows
-    // every automated reader, as Niwot's, Erie's and Frederick's.
-    calendarNote: 'Skyline’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    // No softball: CHSAANow's alignment lists none for the school.
-    teams: TEAMS(FALL_WITHOUT('softball')),
-  },
-  {
-    town: 'longmont',
-    slug: 'silver-creek',
-    // CHSAANow: Silver Creek High School, St Vrain Valley RE1J, Granite
-    // Peaks; football 3A, basketball 5A (2026–28, read 9 November 2026).
-    school: 'Silver Creek High School',
-    mascot: 'Raptors',
-    maxpreps: 'https://www.maxpreps.com/co/longmont/silver-creek-raptors/',
-    maxprepsName: 'Silver Creek',
-    // Raptor maroon, from Silver Creek High's own stylesheet (schs.svvsd.org,
-    // theme `--color-primary: #6c0633`, read 9 November 2026).
-    colors: { primary: '#6C0633' },
-    // The school's athletics page (schs.svvsd.org/activities-arts-athletics/
-    // athletics/, 9 November 2026) links no calendar of games.
-    calendarNote: 'Silver Creek’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
-    // CHSAANow lists every fall and winter team the default lists follow.
-    teams: TEAMS(),
-  },
-  // Fort Collins, on the owner's word of 9 November 2026 (the gap report of
-  // 8 November: Fort Collins High 10-0 and seeded fourth in 5A, and the guide
-  // had no sports). The four comprehensive high schools of Poudre School
-  // District, as Loveland follows its four: /sports/ lists them. Each school
-  // is CHSAANow's member profile (chsaanow.com/schools/<school>, read 9
-  // November 2026: district Poudre R-1, and every fall and winter team the
-  // default lists follow); ice hockey is the district's co-op, under another
-  // MaxPreps school, and is not followed. MaxPreps refuses the cloud
-  // address, so each path is the one MaxPreps's own team pages carry in a
-  // search of 9 November 2026 (/co/fort-collins/<school>-<mascot>/); the
-  // first Saturday or Wednesday run reads them and writes the files. Each
-  // colour is the header band of the school's own site (fch, frh, phs and
-  // rmh.psdschools.org, the theme stylesheets), read 9 November 2026.
-  {
-    town: 'fortcollins',
-    slug: 'fort-collins-high',
-    // CHSAANow: Fort Collins, Poudre R-1; football 5A, basketball 6A (2026–28).
-    school: 'Fort Collins High School',
-    mascot: 'Lambkins',
-    maxpreps: 'https://www.maxpreps.com/co/fort-collins/fort-collins-lambkins/',
-    maxprepsName: 'Fort Collins',
-    // Lambkin purple, the header band of fch.psdschools.org (#5e408e, a
-    // gradient to #301b51, gold #d4c17e beside it). 8.1:1 under white.
-    colors: { primary: '#5E408E' },
-    // The school's athletics pages send schedules to ArbiterLive
-    // (arbiterlive.com/Teams?entityId=7755, linked from
-    // fch.psdschools.org/athletics/fall-sports), whose robots.txt disallows
-    // every automated reader, as Timnath's.
-    calendarNote: 'Fort Collins High’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
-  },
-  {
-    town: 'fortcollins',
-    slug: 'fossil-ridge',
-    // CHSAANow: Fossil Ridge, Poudre R-1; football 5A, basketball 6A (2026–28).
-    school: 'Fossil Ridge High School',
-    // "Sabercat", one word, as the school writes it ("Once a Sabercat,
-    // Always a Sabercat"); MaxPreps's path is fossil-ridge-sabercats.
-    mascot: 'Sabercats',
-    maxpreps: 'https://www.maxpreps.com/co/fort-collins/fossil-ridge-sabercats/',
-    maxprepsName: 'Fossil Ridge',
-    // Sabercat green, the header band of frh.psdschools.org (#005336). 9.2:1 under white.
-    colors: { primary: '#005336' },
-    calendarNote: 'Fossil Ridge’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
-  },
-  {
-    town: 'fortcollins',
-    slug: 'poudre',
-    // CHSAANow: Poudre, Poudre R-1; football 4A, basketball 5A (2026–28).
-    school: 'Poudre High School',
-    mascot: 'Impalas',
-    maxpreps: 'https://www.maxpreps.com/co/fort-collins/poudre-impalas/',
-    maxprepsName: 'Poudre',
-    // Impala blue, the header band of phs.psdschools.org (#002c73). 13:1 under white.
-    colors: { primary: '#002C73' },
-    calendarNote: 'Poudre’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
-  },
-  {
-    town: 'fortcollins',
-    slug: 'rocky-mountain',
-    // CHSAANow: Rocky Mountain, Poudre R-1; football 5A, basketball 6A (2026–28).
-    school: 'Rocky Mountain High School',
-    mascot: 'Lobos',
-    maxpreps: 'https://www.maxpreps.com/co/fort-collins/rocky-mountain-lobos/',
-    maxprepsName: 'Rocky Mountain',
-    // Lobo maroon, the header band of rmh.psdschools.org (#9d2235, a
-    // gradient to #671e2b, gold #eba900 beside it). 7.7:1 under white.
-    colors: { primary: '#9D2235' },
-    // The school's site sends athletics to rockyathletics.org, an
-    // rSchoolToday site, which this reader does not read.
-    calendarNote: 'Rocky Mountain posts its schedules on rockyathletics.org, which this site does not read yet, so games to come are published on MaxPreps’s word alone.',
     teams: TEAMS(),
   },
 ];

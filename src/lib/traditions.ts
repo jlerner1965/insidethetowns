@@ -20,10 +20,15 @@
  */
 import type { EventCategory } from '../content/schemas.ts';
 
-export const TRADITION_TYPES = ['parade-of-lights', 'tree-lighting', 'turkey-trot', 'trick-or-treat', 'fireworks', 'festival'] as const;
+export const TRADITION_TYPES = ['parade-of-lights', 'tree-lighting', 'turkey-trot', 'trick-or-treat', 'fireworks', 'festival', 'race', 'outdoor'] as const;
 export type TraditionType = (typeof TRADITION_TYPES)[number];
 
-export const TRADITION_STATUSES = ['confirmed', 'not-announced', 'moved', 'canceled'] as const;
+/**
+ * `typical` is for a date nobody announces (peak fall colour, a pass that
+ * opens when the snow lets it): the row shows the window the agency
+ * describes, labelled as a typical window, and never a date.
+ */
+export const TRADITION_STATUSES = ['confirmed', 'not-announced', 'moved', 'canceled', 'typical'] as const;
 export type TraditionStatus = (typeof TRADITION_STATUSES)[number];
 
 /**
@@ -38,6 +43,12 @@ export const TRADITION_TYPE_INFO: Record<TraditionType, { label: string; plural:
   'trick-or-treat': { label: 'Trick-or-treat', plural: 'Trick-or-treats', path: '/trick-or-treat/', category: 'family' },
   fireworks: { label: 'Fireworks', plural: 'Fireworks', path: '/fireworks/', category: 'festival' },
   festival: { label: 'Festival', plural: 'Festivals', path: '/festivals/', category: 'festival' },
+  race: { label: 'Race', plural: 'Races', path: '/races/', category: 'sports' },
+  // An outdoor date (the restructure of 12 November 2026): the day a road,
+  // a pass, a boat ramp or a ski area opens or closes, a park's entry
+  // season, a licence window, a meteor shower's peak. The same record as a
+  // tradition; the agency or the operator is its organizer.
+  outdoor: { label: 'Outdoor date', plural: 'Outdoor dates', path: '/outdoor-dates/', category: 'outdoors' },
 };
 
 /**
@@ -46,9 +57,12 @@ export const TRADITION_TYPE_INFO: Record<TraditionType, { label: string; plural:
  * on a guide its rows show their newest entry. The year is never worked
  * out from the calendar: it changes the day the owner says so.
  */
-export const CURRENT_SEASONS: Partial<Record<TraditionType, { season: string; year: number }>> = {
+export const CURRENT_SEASONS: Partial<Record<TraditionType, { season: string; year?: number }>> = {
   'parade-of-lights': { season: 'winter', year: 2026 },
   'tree-lighting': { season: 'winter', year: 2026 },
+  // No year: outdoor dates run through the year, so the page shows every
+  // record's next date, whichever year that falls in (nextRow).
+  outdoor: { season: 'through the year' },
 };
 
 /** One year of a tradition, as the schema leaves it: dates as "YYYY-MM-DD". */
@@ -56,6 +70,12 @@ export interface TraditionYear {
   year: number;
   status: TraditionStatus;
   date?: string;
+  /** The last day of a date that runs several: a festival weekend, an application window. */
+  endDate?: string;
+  /** The window the source describes where it gives no date, in its words: "usually by Memorial Day weekend". */
+  typicalWindow?: string;
+  /** The source's own caveat on the date: "weather permitting". */
+  note?: string;
   startTime?: string;
   place?: string;
   cost?: string;
@@ -69,7 +89,20 @@ export interface TraditionYear {
 export interface TraditionRecord {
   slug: string;
   name: string;
-  town: { name: string; guide?: string };
+  /**
+   * The town the event is held in, or whose own date it is; `guide` is the
+   * town's slug in the network (a hub town page's or a standalone guide's,
+   * src/config/hub-towns.ts). A shared or statewide outdoor date has none.
+   */
+  town?: { name: string; guide?: string };
+  /**
+   * The other places the record shows, each with the one line that says
+   * what the date means there. One record, many places: the date is stored
+   * once and every page reads it.
+   */
+  towns?: Array<{ slug: string; line?: string }>;
+  /** Applies everywhere in Colorado: shown on every town page and standalone guide. */
+  statewide?: boolean;
   type: TraditionType;
   organizer: string;
   sourceUrl: string;
@@ -135,6 +168,12 @@ export interface TraditionRow {
   year: number;
   lastHeld?: string;
   source: string;
+  /**
+   * The newest entry's date has passed and the record has no later year:
+   * the row says the next date is not yet announced and gives this one as
+   * the last (nextRow). Never set on a season page's row.
+   */
+  past?: boolean;
 }
 
 export function toRow(record: TraditionRecord, today: string): TraditionRow | undefined {
@@ -145,7 +184,7 @@ export function toRow(record: TraditionRecord, today: string): TraditionRow | un
 
 /** A to Z by town, then by event name: the hub's order. */
 export function byTown(a: TraditionRow, b: TraditionRow): number {
-  return a.record.town.name.localeCompare(b.record.town.name) || a.record.name.localeCompare(b.record.name);
+  return (a.record.town?.name ?? '').localeCompare(b.record.town?.name ?? '') || a.record.name.localeCompare(b.record.name);
 }
 
 /**
@@ -155,18 +194,57 @@ export function byTown(a: TraditionRow, b: TraditionRow): number {
 export function seasonRows(records: readonly TraditionRecord[], type: TraditionType, today: string): TraditionRow[] {
   const season = CURRENT_SEASONS[type];
   if (!season) return [];
-  return records
-    .filter((r) => r.type === type)
+  const ofType = records.filter((r) => r.type === type);
+  // A season without a year (outdoor dates) lists every record's next date, soonest first.
+  if (season.year === undefined) return ofType.map((r) => nextRow(r, today)).sort(byNextDate);
+  return ofType
     .map((r) => toRow(r, today))
     .filter((row): row is TraditionRow => !!row && row.year === season.year)
     .sort(byTown);
 }
 
+/**
+ * A record as the town pages and the guides show it: its next date. The
+ * newest entry, as the organizer or the agency published it; once that
+ * date has passed and the record carries no later year, the row says the
+ * next date is not yet announced and gives the passed one as the last.
+ * Nothing is carried forward or worked out: a row never shows a date that
+ * was not read on the source.
+ */
+export function nextRow(record: TraditionRecord, today: string): TraditionRow {
+  const entry = record.years[0]!;
+  const source = entrySource(record, entry);
+  const end = entry.endDate ?? entry.date;
+  if (isDated(entry) && end && end < today) return { record, entry, year: entry.year, lastHeld: entry.date, source, past: true };
+  return { record, entry, year: entry.year, lastHeld: lastHeld(record, entry.year, today), source };
+}
+
+/** Whether a row shows a date still ahead (or under way) that the source published. */
+export function isUpcoming(row: TraditionRow): boolean {
+  return !row.past && isDated(row.entry) && !!row.entry.date;
+}
+
+/** Rows with a date ahead first, soonest first; then the rest A to Z by name. */
+export function byNextDate(a: TraditionRow, b: TraditionRow): number {
+  const ka = isUpcoming(a) ? a.entry.date! : '9999';
+  const kb = isUpcoming(b) ? b.entry.date! : '9999';
+  return ka.localeCompare(kb) || a.record.name.localeCompare(b.record.name);
+}
+
+/**
+ * Whether a record carries a date read on its source, in any year: the
+ * count a town page is held to (src/lib/hub-towns.ts). A year not
+ * announced, canceled or only a typical window is not a date.
+ */
+export function hasVerifiedDate(record: Pick<TraditionRecord, 'years'>): boolean {
+  return record.years.some((y) => isDated(y) && !!y.date && !!y.checked);
+}
+
 /** The count line: how many towns the page lists, and how many dates the organizers have published. */
 export function seasonCounts(rows: readonly TraditionRow[]): { towns: number; confirmed: number } {
   return {
-    towns: new Set(rows.map((r) => r.record.town.name)).size,
-    confirmed: rows.filter((r) => isDated(r.entry)).length,
+    towns: new Set(rows.map((r) => r.record.town?.name).filter(Boolean)).size,
+    confirmed: rows.filter((r) => isDated(r.entry) && !r.past).length,
   };
 }
 
@@ -178,7 +256,7 @@ export function seasonCounts(rows: readonly TraditionRow[]): { towns: number; co
  */
 export function townGroups(records: readonly TraditionRecord[], guide: string, today: string): { dated: TraditionRow[]; waiting: TraditionRow[] } {
   const rows = records
-    .filter((r) => r.town.guide === guide)
+    .filter((r) => r.town?.guide === guide)
     .map((r) => toRow(r, today))
     .filter((row): row is TraditionRow => !!row);
   const dated = rows

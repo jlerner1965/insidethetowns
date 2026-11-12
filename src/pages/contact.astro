@@ -18,7 +18,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import TipsLink from '@/components/TipsLink.astro';
-import { getSite } from '@/config';
+import { getSite, listsEvents } from '@/config';
 import { eventEmailHref } from '@/lib/submit';
 
 const site = getSite();
@@ -30,8 +30,8 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
   <div class="prose">
     <p>Email <a href={`mailto:${email}`}>{email}</a>, or use the shortcuts below.</p>
 
-    <h2 id="submit-event">Submit an event</h2>
-    {site.kind === 'town' ? (
+    {listsEvents(site) && <h2 id="submit-event">Submit an event</h2>}
+    {!listsEvents(site) ? null : site.kind === 'town' ? (
       <Fragment>
         <p>
           Anything open to the public in and around {site.name} is welcome, and

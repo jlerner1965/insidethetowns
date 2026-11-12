@@ -19,7 +19,9 @@
  */
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
-import { getHub, liveTowns } from '@/config';
+import { findTown, getHub } from '@/config';
+import { STANDALONE_GUIDES, findHubTown } from '@/config/hub-towns';
+import { homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
@@ -35,38 +37,63 @@ const today = dayKey(new Date());
 const records = await getTraditions();
 const rows = seasonRows(records, type, today);
 const counts = seasonCounts(rows);
-const guides = new Map(liveTowns().map((t) => [t.slug, t]));
+const published = publishedHubTowns(records);
+const ctx: ShowingContext = {
+  hubDomain: hub.domain,
+  published: new Set(published.map((t) => t.slug)),
+  guideDomain: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.domain,
+  guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
+};
+/** Every other place the record shows: the town pages and the guides. */
+const alsoFor = (row: (typeof rows)[number]) => showings(row.record, ctx).filter((s) => s.key !== 'season');
+/** A shared record's eyebrow: the towns it names, or that it is statewide. */
+const townLabel = (row: (typeof rows)[number]): string | undefined => {
+  if (row.record.town) return undefined;
+  if (row.record.statewide) return 'Statewide';
+  const names = (row.record.towns ?? []).map((t) => {
+    const key = placeKey(t.slug);
+    return key ? findHubTown(key)?.name ?? findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.name : undefined;
+  });
+  return names.filter(Boolean).join(', ');
+};
 
 /** The other season pages that are built: the types with a season and a row for it. */
 const pages = TRADITION_TYPES.filter((t: TraditionType) => seasonRows(records, t, today).length > 0);
 
+/** The name links to the record's home: its town's page or guide where there is one, else the source. */
 const hrefFor = (row: (typeof rows)[number]): string => {
-  const guide = row.record.town.guide ? guides.get(row.record.town.guide) : undefined;
-  return guide ? `https://${guide.domain}/traditions/#${row.record.slug}` : row.source;
+  const home = homeOf(row.record);
+  return (home && alsoFor(row).find((s) => s.key === home)?.href) || row.source;
 };
+const dated = season.year !== undefined;
+const when = dated ? `${season.season} ${season.year}` : season.season;
 
 const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
-const countLine = `${plural(counts.towns, 'town', 'towns')} listed · ${plural(counts.confirmed, 'date', 'dates')} confirmed`;
+const countLine = dated
+  ? `${plural(counts.towns, 'town', 'towns')} listed · ${plural(counts.confirmed, 'date', 'dates')} confirmed`
+  : `${plural(rows.length, 'date', 'dates')} listed · ${counts.confirmed} with a date ahead`;
 
-const title = `${info.plural}, town by town`;
-const seoTitle = `${info.plural} in Colorado, ${season.season} ${season.year}`;
-const description = `Colorado ${info.plural.toLowerCase()} for ${season.season} ${season.year}, town by town: the date each organizer has published, or that it has not yet, with the page it was read from.`;
+const title = dated ? `${info.plural}, town by town` : `${info.plural} in Colorado`;
+const seoTitle = `${info.plural} in Colorado, ${when}`;
+const description = dated
+  ? `Colorado ${info.plural.toLowerCase()} for ${when}, town by town: the date each organizer has published, or that it has not yet, with the page it was read from.`
+  : `Colorado ${info.plural.toLowerCase()} ${when}: road and pass openings, park entry seasons, boat ramps and licence windows, each with the date its agency has published, or that it has not yet.`;
 const pageUrl = `https://${hub.domain}${path}`;
 const structured = [
   collectionPageJsonLd(hub, {
     name: seoTitle,
     description,
     path,
-    items: rows.map((r) => ({ name: `${r.record.name} — ${r.record.town.name}`, url: hrefFor(r) })),
+    items: rows.map((r) => ({ name: r.record.town ? `${r.record.name} — ${r.record.town.name}` : r.record.name, url: hrefFor(r) })),
   }),
   ...rows.map((r) => traditionEventJsonLd(r.record, r.entry, pageUrl)).filter((e) => !!e),
 ];
-const subject = `[Correction] ${info.plural}, ${season.season} ${season.year}`;
+const subject = `[Correction] ${info.plural}, ${when}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary aria-[current=page]:border-primary aria-[current=page]:bg-primary aria-[current=page]:text-white';
 ---
-<Page title={title} {seoTitle} eyebrow={`Colorado · ${season.season} ${season.year}`} {description} intro={countLine} jsonLd={structured}>
+<Page title={title} {seoTitle} eyebrow={`Colorado · ${when}`} {description} intro={countLine} jsonLd={structured}>
   <div data-town-filter hidden class="mb-5 max-w-sm">
     <label for="town-filter" class="block text-sm font-semibold">Find your town</label>
     <input
@@ -88,9 +115,9 @@ const pill =
   )}
 
   <section aria-labelledby="rows-heading">
-    <h2 id="rows-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">A to Z by town</h2>
+    <h2 id="rows-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">{dated ? 'A to Z by town' : 'Soonest first'}</h2>
     <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
-      {rows.map((row) => <TraditionRow row={row} eyebrow="town" href={hrefFor(row)} />)}
+      {rows.map((row) => <TraditionRow row={row} eyebrow="town" href={hrefFor(row)} townLabel={townLabel(row)} also={alsoFor(row)} />)}
     </div>
     <p data-town-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
       No town by that name on this page yet.

@@ -1655,6 +1655,18 @@ export function traditionSchema() {
       status: z.enum(TRADITION_STATUSES),
       /** The day the organizer gives. Required when confirmed or moved. */
       date: isoDay.optional(),
+      /** The last day of a date that runs several: a festival weekend, an application window. */
+      endDate: isoDay.optional(),
+      /**
+       * The window the source describes where it gives no date, in its own
+       * words. Shown labelled as a typical window, never as a date.
+       */
+      typicalWindow: z.string().min(1).optional(),
+      /**
+       * The source's own caveat on a date it publishes: "weather
+       * permitting", "tentative". Shown beside the date, in quotation marks.
+       */
+      note: z.string().min(1).optional(),
       /** "6 pm", as the organizer gives it. */
       startTime: z.string().min(1).optional(),
       place: z.string().min(1).optional(),
@@ -1677,7 +1689,7 @@ export function traditionSchema() {
       message: 'a moved year needs previousDate and the reason, in the organizer’s words',
       path: ['reason'],
     })
-    .refine((y) => y.status !== 'not-announced' || (!y.date && !y.startTime && !y.place && !y.cost), {
+    .refine((y) => y.status !== 'not-announced' || (!y.date && !y.endDate && !y.startTime && !y.place && !y.cost && !y.note), {
       message: 'a not-announced year carries no date, time, place or cost: nothing is shown until the organizer says it',
       path: ['status'],
     })
@@ -1685,7 +1697,16 @@ export function traditionSchema() {
       message: 'the date is not in this entry’s year',
       path: ['date'],
     })
-    .refine((y) => !y.previousDate || y.status === 'moved', { message: 'previousDate goes with status moved', path: ['previousDate'] });
+    .refine((y) => !y.previousDate || y.status === 'moved', { message: 'previousDate goes with status moved', path: ['previousDate'] })
+    .refine((y) => !y.endDate || (!!y.date && y.endDate >= y.date), { message: 'endDate goes with a date, and is not before it', path: ['endDate'] })
+    .refine((y) => y.status !== 'typical' || (!!y.typicalWindow && !y.date && !y.startTime), {
+      message: 'a typical year carries the window the source describes and no date: a typical window is never shown as a date',
+      path: ['typicalWindow'],
+    })
+    .refine((y) => !y.typicalWindow || y.status === 'typical' || y.status === 'not-announced', {
+      message: 'typicalWindow goes with a year that has no announced date (not-announced or typical)',
+      path: ['typicalWindow'],
+    });
 
   return z
     .object({
@@ -1696,13 +1717,22 @@ export function traditionSchema() {
         .refine((s) => !/(?:^|-)(?:19|20)\d\d(?:-|$)/.test(s), 'a tradition’s slug is permanent: no year in it'),
       /** The organizer's own name for the event. */
       name: z.string().min(1),
+      /** The town it is held in, or whose own date it is. A shared or statewide outdoor date has none. */
       town: z
         .object({
           name: z.string().min(1),
-          /** The guide's slug, when the town has one in the network. */
+          /** The town's slug in the network: a hub town page's or a standalone guide's (src/config/hub-towns.ts). */
           guide: z.string().regex(/^[a-z0-9-]+$/).optional(),
         })
-        .strict(),
+        .strict()
+        .optional(),
+      /** The other places the record shows, each with its own local line. */
+      towns: z
+        .array(z.object({ slug: z.string().regex(/^[a-z0-9-]+$/), line: z.string().min(1).optional() }).strict())
+        .min(1)
+        .optional(),
+      /** Applies everywhere in Colorado. */
+      statewide: z.boolean().optional(),
       type: z.enum(TRADITION_TYPES),
       organizer: z.string().min(1),
       /** The organizer's page or post the date is read from. */
@@ -1717,6 +1747,18 @@ export function traditionSchema() {
     .refine((r) => r.years.every((y, i) => i === 0 || y.year < r.years[i - 1]!.year), {
       message: 'years go newest first, one entry per year',
       path: ['years'],
+    })
+    .refine((r) => !!r.town || !!r.towns || r.statewide === true, {
+      message: 'a record names where it applies: a town, a list of towns, or statewide',
+      path: ['town'],
+    })
+    .refine((r) => r.type === 'outdoor' || !!r.town, {
+      message: 'a tradition is held in a town: only an outdoor date can be shared or statewide without one',
+      path: ['town'],
+    })
+    .refine((r) => !r.towns || new Set(r.towns.map((t) => t.slug)).size === r.towns.length, {
+      message: 'a town is listed once',
+      path: ['towns'],
     })
     .refine((r) => !r.firstYear || r.years.every((y) => y.year >= r.firstYear!), {
       message: 'an entry is older than firstYear',

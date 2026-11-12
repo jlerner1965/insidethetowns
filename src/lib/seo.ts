@@ -812,16 +812,19 @@ export function localBusinessJsonLd(
  * town otherwise, which is a fact of the record and not a guess.
  */
 export function traditionEventJsonLd(
-  record: { slug: string; name: string; organizer: string; town: { name: string } },
-  entry: { status: string; date?: string; place?: string },
+  record: { slug: string; name: string; organizer: string; town?: { name: string }; type?: string },
+  entry: { status: string; date?: string; endDate?: string; place?: string },
   pageUrl: string,
 ) {
-  if (entry.status !== 'confirmed' || !entry.date) return undefined;
+  // An outdoor date (a road opening, a licence window) is not an event to
+  // attend, and a record with no town has no place to give one.
+  if (entry.status !== 'confirmed' || !entry.date || !record.town || record.type === 'outdoor') return undefined;
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: record.name,
     startDate: entry.date,
+    ...(entry.endDate ? { endDate: entry.endDate } : {}),
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {

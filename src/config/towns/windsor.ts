@@ -16,7 +16,7 @@ export const windsor: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Northern Colorado',
-  neighbors: ['timnath', 'johnstown', 'fortcollins'],
+  neighbors: ['johnstown'],
   subTowns: ['windsor', 'severance'],
   slug: 'windsor',
   name: 'Windsor',

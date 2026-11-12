@@ -7,11 +7,13 @@
  */
 import Page from '@/layouts/Page.astro';
 import TipsLink from '@/components/TipsLink.astro';
-import { getSite } from '@/config';
+import { getSite, listsEvents } from '@/config';
 import { getHubEntries, getTownEntries } from '@/lib/content';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 
 const site = getSite();
+// A guide that lists no events has no event pages for an old correction to link to; the line stands without its link.
+const linkable = (item: string) => listsEvents(site) || !item.startsWith('/events/');
 const entries = (site.kind === 'hub' ? await getHubEntries('corrections') : await getTownEntries('corrections')).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
@@ -33,7 +35,7 @@ const entries = (site.kind === 'hub' ? await getHubEntries('corrections') : awai
         <li class="border-b border-line-soft py-5">
           <p class="eyebrow"><time datetime={toIsoLocal(c.data.date)}>{formatDate(c.data.date)}</time></p>
           <p class="mt-1.5 text-[1.0625rem] leading-relaxed">
-            {c.data.item ? <a href={c.data.item} class="font-medium">{c.data.summary}</a> : c.data.summary}
+            {c.data.item && linkable(c.data.item) ? <a href={c.data.item} class="font-medium">{c.data.summary}</a> : c.data.summary}
           </p>
         </li>
       ))}

@@ -1,4 +1,6 @@
-# Researches every live town's weekly notes on Wednesday morning, and up to
+# Researches every live town's weekly notes on Wednesday morning (but a
+# quiet guide's: Niwot, `lead: 'updates'`, posts when there is an update and
+# is left out of the weekly run, agent/agent.mjs), and up to
 # two local changes for each resident guide from its Town's, county's,
 # library's and district's own pages, and commits the drafts to
 # docs/agent/<town>/, so the Wednesday editor and Thursday's content session

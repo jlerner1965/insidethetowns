@@ -45,7 +45,7 @@ import ProgramRow from '@/components/ProgramRow.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CheckedLine from '@/components/CheckedLine.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
-import { getTown } from '@/config';
+import { getTown, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { schoolAthletics, schoolsFor, sportsPath } from '@/config/school-sports';
 import { familyGlance } from '@/lib/family-home';
@@ -259,9 +259,9 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
                 to what is open that week. */}
             {b.open ? (
               <a href={`#program-${b.open.program.slug}`} class="inline-flex min-h-11 shrink-0 items-center rounded-full bg-accent-soft px-3 py-2 text-[0.875rem] font-semibold text-ink no-underline ring-1 ring-primary-line hover:bg-raised">{b.open.note}</a>
-            ) : (
+            ) : listsEvents(town) ? (
               <a href="/events/?category=family" class="inline-block -my-3 shrink-0 py-3 text-[0.875rem] font-semibold text-primary underline">Browse family events →</a>
-            )}
+            ) : null}
           </li>
         ))}
       </ul>
@@ -389,8 +389,8 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
             </a>
           </li>
         ))}
-        <li>
-          <a href="/events/?category=family" class={card}>
+        <li hidden={!listsEvents(town)}>
+          <a href={listsEvents(town) ? '/events/?category=family' : '/families/'} class={card}>
             <span class="font-semibold leading-snug text-title">Family listings on the calendar</span>
             <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">Each with its price, many free</span>
           </a>
@@ -435,8 +435,8 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
 
   <p class="mt-10 flex flex-wrap gap-x-4 gap-y-1 text-[0.9375rem]">
     <a href="/correct/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Something wrong? Send a correction</a>
-    <a href="/submit-event/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Suggest a program</a>
-    <a href="/events/?category=family" class="inline-block -my-3 py-3 font-semibold text-primary underline">Family listings on the calendar</a>
+    <a href={listsEvents(town) ? '/submit-event/' : '/contact/'} class="inline-block -my-3 py-3 font-semibold text-primary underline">Suggest a program</a>
+    {listsEvents(town) && <a href="/events/?category=family" class="inline-block -my-3 py-3 font-semibold text-primary underline">Family listings on the calendar</a>}
   </p>
     </div>
   </div>

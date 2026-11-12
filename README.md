@@ -223,6 +223,36 @@ item in five, every photo licence) and accepted on its own reading when no more
 than one checked item in ten has a material error, with `verifiedBy` naming who
 read it. A source that refuses automated reads is not worked around.
 
+## Two tiers: the standalone guides and the town pages
+
+Since 12 November 2026 a town is one of seven standalone guides (Berthoud,
+Erie, Johnstown, Windsor, Frederick, Lyons, Niwot) or a **town page** on
+the hub at `/<town>/` (`src/config/hub-towns.ts`). A town page is dates
+only: its traditions and its outdoor dates, each a record in
+`content/hub/traditions/` with a `sourceUrl` and a `checked` date
+(`src/lib/traditions.ts`, `src/lib/hub-towns.ts`). A page is built once the
+town has three verified dated records of its own; until then it is not
+built and a live guide for that town stays up unchanged.
+
+- One record, many places: a record names its home `town`, the other
+  `towns` it shows in (each with an optional local `line`), or says
+  `statewide`. It shows on the hub's season page, on each town page and on
+  each standalone guide's `/traditions/`, and each showing links the others.
+- A date not published reads "not yet announced"; a `typicalWindow` is
+  labelled as one; nothing is predicted.
+- To fold a guide whose page qualifies: set `status: 'redirect'` and
+  `hubPage` on its config, remove its content folders, drop it from other
+  guides' `neighbors` and from `src/config/school-sports.ts`, then `node
+  scripts/fold-rules.ts --write` (the redirect rules, `src/lib/fold.ts`).
+  `test/hub-fold.test.ts` holds the config, the records and `vercel.json`
+  in step.
+- `node scripts/check-drafts.ts <folder>` reads draft records against the
+  schema before they are moved into `content/hub/traditions/`.
+- `lead` on a guide's config: `outdoors` (Lyons) puts the outdoor dates
+  first on the home page and takes sports out of the menu; `updates`
+  (Niwot) builds no events pages and makes the home page Updates and
+  Things to know.
+
 ## Folded and quiet guides
 
 A town too small or too thin to hold a guide of its own can be **folded**

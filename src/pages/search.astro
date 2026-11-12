@@ -22,14 +22,13 @@
  * In `astro dev` there is no index yet, and the page says so.
  */
 import Page from '@/layouts/Page.astro';
-import { getSite } from '@/config';
+import { getSite, listsEvents } from '@/config';
 
 const site = getSite();
 const browse =
   site.kind === 'town'
     ? [
-        { label: 'This weekend', href: '/this-weekend/' },
-        { label: 'Events', href: '/events/' },
+        ...(listsEvents(site) ? [{ label: 'This weekend', href: '/this-weekend/' }, { label: 'Events', href: '/events/' }] : []),
         { label: 'Eat & drink', href: '/eat-drink/' },
         { label: 'Things to do', href: '/things-to-do/' },
         { label: 'Guides', href: '/guides/' },

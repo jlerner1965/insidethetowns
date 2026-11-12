@@ -23,16 +23,17 @@ export const castleRock: TownConfig = {
   // the rotation reaches them, no weekly email. 29 November is before any listing's hours expire
   // (60 days from the 6 October checks: 5 December); the quiet-towns test
   // holds the order.
-  status: 'live',
-  quiet: {
-    since: '2026-10-31',
-    decideBy: '2026-11-29',
-    reason: "a town of 73,000 between Denver and Colorado Springs with the Town's own calendar, the Chamber and Visit Castle Rock behind it, an hour from every guide in the email; it opens to be read and counted, like the other city guides, until the 90-day test decides what the network keeps",
-  },
+  // Folded into its town's page on the hub on 12 November 2026 (the
+  // restructure brief; DECISIONS.md, "Two tiers"): the page has its three
+  // verified dated items, so every address on this domain redirects to the
+  // matching place on it (vercel.json, src/lib/fold.ts) and the guide's
+  // content has left content/castle-rock/ (git history keeps it).
+  status: 'redirect',
+  hubPage: { town: 'castle-rock', since: '2026-11-12' },
   variant: 'front-range',
   region: 'South Metro',
   // Manitou Springs dropped out on 3 November 2026, when it retired.
-  neighbors: ['elizabeth'],
+  neighbors: [],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   // Listings lowered from 30 to 29 by the owner on 6 October 2026, the Town's own
   // parks and facilities being unreadable by automated means.

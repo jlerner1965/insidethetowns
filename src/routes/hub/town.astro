@@ -1,0 +1,159 @@
+---
+/**
+ * A town's page on the hub: /<town>/ (the restructure of 12 November 2026;
+ * src/config/hub-towns.ts, src/lib/hub-towns.ts). Dates only: the town's
+ * traditions and its outdoor dates, every row from one record with the
+ * page it was read from and the day it was read. No listings, no weekly
+ * events.
+ *
+ * Top to bottom, phone first: the county and the town's name, Traditions,
+ * Outdoor dates (the town's own and the shared ones that name it, then
+ * the statewide ones), the nearby pages in its cluster, and the
+ * correction line. Built only for a town with three verified dated items
+ * of its own; any other town has no page and nothing links to one.
+ *
+ * The showpiece layout (Estes Park and Salida) is this page with three
+ * things more: a hero photograph, one tradition spotlighted, and the
+ * year's traditions laid out by season in place of the one list.
+ *
+ * The two section ids, #traditions and #outdoor-dates, are where a folded
+ * guide's old addresses land (vercel.json), so they are on every page
+ * even when a section is empty.
+ */
+import { Image } from 'astro:assets';
+import Page from '@/layouts/Page.astro';
+import TraditionRow from '@/components/TraditionRow.astro';
+import { findTown, getHub } from '@/config';
+import { HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
+import { getTraditions } from '@/lib/content';
+import { dayKey } from '@/lib/dates';
+import { resolveSiteImage } from '@/lib/images';
+import { bySeason, lineFor, nearbyPages, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
+import type { TraditionRow as Row } from '@/lib/traditions';
+
+export async function getStaticPaths() {
+  return publishedHubTowns(await getTraditions()).map((t) => ({ params: { town: t.slug } }));
+}
+
+const hub = getHub();
+const town = findHubTown(Astro.params.town as string)!;
+const records = await getTraditions();
+const published = publishedHubTowns(records);
+const today = dayKey(new Date());
+const { traditions, outdoor, statewide } = placeRows(records, town.slug, today);
+const nearby = nearbyPages(town, published);
+
+const ctx: ShowingContext = {
+  hubDomain: hub.domain,
+  published: new Set(published.map((t) => t.slug)),
+  guideDomain: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.domain,
+  guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
+};
+const alsoFor = (row: Row) => showings(row.record, ctx).filter((s) => s.key !== town.slug);
+/** A shared record's eyebrow on this page is its kind, never another town's name. */
+const rowProps = (row: Row) => ({ row, eyebrow: 'category' as const, line: lineFor(row.record, town.slug), also: alsoFor(row) });
+
+const show = town.showpiece;
+const spotlight = show ? traditions.find((r) => r.record.slug === show.spotlight) : undefined;
+const year = show ? bySeason(traditions.filter((r) => r !== spotlight)) : undefined;
+const hero = show?.hero ? { src: resolveSiteImage('hub', show.hero.image), ...show.hero } : undefined;
+
+const path = `/${town.slug}/`;
+const pageUrl = `https://${hub.domain}${path}`;
+const county = hubCountyLine(town);
+const title = town.name;
+const seoTitle = `${town.name}, Colorado: annual events and outdoor dates`;
+const description = `${town.name}, Colorado’s traditions and outdoor dates: the date each organizer or agency has published, or that it has not yet, with the page it was read from.`;
+const all = [...traditions, ...outdoor, ...statewide];
+const structured = [
+  collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: `${pageUrl}#${r.record.slug}` })) }),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: town.name, path },
+  ]),
+  ...traditions.map((r) => (r.past ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
+];
+const subject = `[Correction] ${town.name}`;
+const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
+const card = 'rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7';
+const h2 = 'mb-6 border-b-2 border-accent pb-3 text-3xl font-medium';
+const pill =
+  'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary';
+const clusterNote = HUB_TOWNS.length;
+---
+<Page {title} {seoTitle} eyebrow={`${county} · Colorado`} {description} intro={show?.intro ?? 'The events this town holds every year and the outdoor dates around it, each with the page it was read from.'} jsonLd={structured}>
+  {hero && (
+    <figure class="mb-10 overflow-hidden rounded-lg md:mb-14" data-showpiece-hero>
+      <Image
+        src={hero.src}
+        alt={hero.alt}
+        widths={[480, 800, 1200, 1600]}
+        sizes="(min-width: 1200px) 1120px, 100vw"
+        loading="eager"
+        class="aspect-[4/3] w-full object-cover sm:aspect-[16/9] md:aspect-[21/9]"
+        style={hero.position ? `object-position:${hero.position}` : undefined}
+      />
+    </figure>
+  )}
+
+  {spotlight && (
+    <section aria-labelledby="spotlight-heading" class="mb-14 md:mb-16" data-spotlight>
+      <h2 id="spotlight-heading" class="eyebrow mb-3">The one to know</h2>
+      <div class="rounded-lg border-2 border-primary bg-raised px-5 sm:px-7">
+        <TraditionRow {...rowProps(spotlight)} />
+      </div>
+    </section>
+  )}
+
+  <section id="traditions" aria-labelledby="traditions-heading" class="mb-14 scroll-mt-4 md:mb-16">
+    <h2 id="traditions-heading" class={h2}>{show ? `The year in ${town.name}` : 'Traditions'}</h2>
+    {year ? (
+      <Fragment>
+        {year.seasons.map((group) => (
+          <div class="mb-8" data-season={group.season}>
+            <h3 class="eyebrow mb-3">{group.season}</h3>
+            <div class={card}>{group.rows.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
+          </div>
+        ))}
+        {year.undated.length > 0 && (
+          <div class="mb-8">
+            <h3 class="eyebrow mb-3">No date published yet</h3>
+            <div class={card}>{year.undated.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
+          </div>
+        )}
+      </Fragment>
+    ) : traditions.length > 0 ? (
+      <div class={card}>{traditions.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
+    ) : (
+      <p class="text-ink-muted">No tradition here has a date we have read on its organizer’s page yet.</p>
+    )}
+  </section>
+
+  <section id="outdoor-dates" aria-labelledby="outdoor-heading" class="mb-14 scroll-mt-4 md:mb-16">
+    <h2 id="outdoor-heading" class={h2}>Outdoor dates</h2>
+    {outdoor.length > 0 && <div class={card}>{outdoor.map((row) => <TraditionRow {...rowProps(row)} />)}</div>}
+    {statewide.length > 0 && (
+      <div class:list={[outdoor.length > 0 && 'mt-8']}>
+        <h3 class="eyebrow mb-3">Across Colorado</h3>
+        <div class={card}>{statewide.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
+      </div>
+    )}
+    {outdoor.length === 0 && statewide.length === 0 && <p class="text-ink-muted">No outdoor date for this town has been read on its agency’s page yet.</p>}
+  </section>
+
+  {nearby.length > 0 && (
+    <nav aria-labelledby="nearby-heading" class="mb-12">
+      <h2 id="nearby-heading" class="mb-4 text-2xl font-medium">Nearby pages</h2>
+      <ul class="flex flex-wrap gap-2" data-nearby data-of={clusterNote}>
+        {nearby.map((t) => (
+          <li><a href={`/${t.slug}/`} class={pill}>{t.name}</a></li>
+        ))}
+      </ul>
+    </nav>
+  )}
+
+  <p class="rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
+    Something missing, or a date wrong? <a href={mailto} class="font-semibold underline">Tell us</a>. Every date links to the page it was read from.
+  </p>
+</Page>

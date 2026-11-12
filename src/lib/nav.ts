@@ -59,18 +59,22 @@ export function sportsNavLabel(town: string): string | undefined {
 export const MIN_SHOPS_FOR_MENU = 10;
 
 export function townNav(
-  town: Pick<TownConfig, 'slug' | 'families' | 'livingHere'>,
+  town: Pick<TownConfig, 'slug' | 'families' | 'livingHere' | 'lead'>,
   counts: Partial<Record<string, number>> = openPlaceTypeCounts(town.slug),
 ): NavItem[] {
-  const sports = sportsNavLabel(town.slug);
+  // An outdoors-led guide (Lyons) has no sports in its menu; the pages stay.
+  const sports = town.lead === 'outdoors' ? undefined : sportsNavLabel(town.slug);
+  // A quiet guide (Niwot) has no events: Updates stands where This week
+  // does, and the hub slot never falls back to Events.
+  const quiet = town.lead === 'updates';
   const shops = (counts.shop ?? 0) >= MIN_SHOPS_FOR_MENU;
   return [
-    { label: 'This week', href: '/this-week/' },
+    quiet ? { label: 'Updates', href: '/updates/' } : { label: 'This week', href: '/this-week/' },
     { label: 'Things to do', href: '/things-to-do/' },
     ...(sports ? [{ label: sports, href: '/sports/' }] : []),
     { label: 'Eat & drink', href: '/eat-drink/' },
     ...(shops ? [{ label: 'Shops', href: '/shops/' }] : []),
-    town.families ? { label: 'Families', href: '/families/' } : { label: 'Events', href: '/events/' },
+    ...(town.families ? [{ label: 'Families', href: '/families/' }] : quiet ? [] : [{ label: 'Events', href: '/events/' }]),
     town.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' },
     { label: 'Guides', href: '/guides/' },
   ];

@@ -1,5 +1,13 @@
 # Tradition drafts, winter 2026: for approval
 
+**12 November 2026, later the same day:** 13 of the 18 drafts were moved to
+`content/hub/traditions/` under the restructure brief (verified records go
+into content): the ones whose date was read again on its source and that
+carry no open question below. The five still here wait for the owner:
+Elizabeth (not read), the two shopping-centre tree lightings, and the two
+whose type is in question (Fort Collins' downtown lighting ceremony, Light
+Up Longmont). The table and the notes below are as written that morning.
+
 Drafted 12 November 2026 for the 18 live guides, two types only: parades of
 lights and tree lightings. Each `.md` here is a complete record. To approve
 one, read its `sourceUrl`, then move the file unchanged to

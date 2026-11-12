@@ -9,7 +9,6 @@ tags: [community, living-here]
 related:
   - { label: "The 2026 Niwot incorporation election, plainly", href: "/articles/2026-incorporation-election/", note: "What the November 2026 ballot asked, and how the count stands." }
   - { label: "Niwot Hall", href: "/places/niwot-hall/", note: "The Left Hand Grange hall on Second Avenue, where community meetings are held." }
-  - { label: "Events in Niwot", href: "/events/", note: "Meetings and civic dates are listed under Civic, with the rest of the calendar." }
 ---
 
 Niwot has no town government. The summer concerts, art walks and seasonal gatherings are not municipal programs; they happen because residents and local organizations build the calendar, maintain the public art and keep showing up. Public services come from Boulder County, the special districts and a water district. Here is which body to approach for what.
@@ -60,4 +59,4 @@ Each row names the body responsible and links to the page of its site that handl
 
 ## Get involved
 
-The quickest way in is to turn up. [The events calendar](/events/) lists what has been published: the summer concerts beside the caboose, the art walks, and the seasonal gatherings in Old Town. Most of them are run by the groups above, and every one of them is looking for hands.
+The quickest way in is to turn up. The events calendar lists what has been published: the summer concerts beside the caboose, the art walks, and the seasonal gatherings in Old Town. Most of them are run by the groups above, and every one of them is looking for hands.

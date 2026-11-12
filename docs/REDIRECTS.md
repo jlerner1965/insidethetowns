@@ -19,6 +19,29 @@ going to the home page otherwise.
 | insideevergreenco.com | insidethetowns.com, the home page | this repo's `vercel.json`, host-scoped to `insideevergreenco.com`; the domain stays on the Vercel project that served the guide, which still builds (`TOWN=evergreen`, status `redirect`, `retired`); `www` 308s to the apex at the domain level | Written 3 November 2026, when the owner retired the guide with no guide to take it: `/` and everything else to the hub's home page, as Grand Lake's. |
 | insidemanitousprings.com | insidethetowns.com, the home page | this repo's `vercel.json`, host-scoped to `insidemanitousprings.com`; the domain stays on its own Vercel project `insidemanitousprings`, which still builds (`TOWN=manitou-springs`, status `redirect`, `retired`); `www` 308s to the apex at the domain level | Written 3 November 2026, when the owner retired the guide with no guide to take it: `/` and everything else to the hub's home page, as Grand Lake's. Its one in-guide rule (`/places/garden-of-the-gods/` to `/things-to-do/`) went with it. |
 
+### Guides folded into their town page on the hub, 12 November 2026
+
+| From | To | Rules |
+|---|---|---|
+| insidecastlerockco.com, insideestespark.com, insidefortcollins.com, insidegolden.com, insideleadville.com, insidelongmontco.com, insidelovelandco.com, insidenederland.com, insidetimnath.com (folded 12 November 2026) | that town's page, `https://insidethetowns.com/<town>/` | `src/lib/fold.ts`, written into `vercel.json` by `node scripts/fold-rules.ts --write`, host-scoped; each domain stays on its own Vercel project, which still builds (status `redirect`, `hubPage`) and serves the rules |
+| insidegrandlake.com, insideevergreenco.com, insidegeorgetownco.com, insidemanitousprings.com, insidefortlupton.com (retired earlier) | the same, in place of the hub's home page | the same rules; the rows above for these five describe where they went until 12 November |
+
+On each: `/` goes to the page; `/events/`, every `/events/<slug>/`,
+`/this-week/`, `/this-weekend/`, `/traditions/` and `/events.rss` go to
+the page's `#traditions`; `/things-to-do/`, `/trails/`, `/trailheads/` and
+`/parks/` go to `#outdoor-dates`; everything else goes to the top of the
+page. All permanent. A fragment in a redirect's `Location` is kept by
+browsers; check one with `curl -sI https://insideestespark.com/events/`
+once the projects have rebuilt. insideidahosprings.com and
+insideblackhawk.com still go to the hub's home page (their pages have not
+reached three dated items), and insideseverance.com still goes to the
+Windsor guide's Severance section.
+
+insideniwot.com (a quiet guide from 12 November 2026, no events):
+`/events/`, every `/events/<slug>/`, `/this-week/`, `/this-weekend/`,
+`/submit-event/` and `/events.rss` go to its home page, host-scoped in
+`vercel.json`.
+
 Only Niwot's lives outside this repository, in its own Vercel project, so
 the redirects and the search rankings they preserve do not depend on this
 build. This network's `vercel.json` is built into every town's site and

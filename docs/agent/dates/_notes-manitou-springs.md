@@ -1,0 +1,20 @@
+# Notes: Manitou Springs (checked 2026-11-12)
+
+manitousprings.org returns 403 to curl; WebFetch reads it. All other pages read with `curl -A "Mozilla/5.0"`.
+
+- **Emma Crawford Coffin Races** — https://www.emmacrawfordfestival.com/ (curl). "Saturday, Oct. 30, 2027 / 900 Block of Manitou Avenue / Free" and "Saturday, Oct. 24, 2026"; "32nd Annual Emma Crawford Coffin Races October 24, 2026"; "In 1995, the Manitou Springs Chamber of Commerce started the first coffin races in the nation". Both dates are Saturdays. Footer: "Visit Manitou Springs".
+- **Pikes Peak Ascent & Marathon** — https://www.pikespeakmarathon.org/ (curl). "2027 Dates - September 18-19, 2027"; /ascent: "Pikes Peak Ascent - September 18, 2027"; /marathon: "September 19, 2027 - 7:00AM Start Time". "The Pikes Peak Marathon, founded in 1956". Odd: registration lines say "Sunday, March 1, 2027" (marathon page) and "Saturday, March 1, 2027" (ascent page); 1 March 2027 is a Monday. Not the race date, not used. 2026 race date not on the pages read.
+- **Barr Trail Mountain Race** — https://www.barrtrailmountainrace.com/ (curl). "SAVE THE DATE FOR NEXT YEAR: 7.18.2027"; "The 25th Running of the BTMR in 2026"; "began in 2000"; "begins at the Cog Railway Station (6,570 ft) in Manitou Springs". 2026 date not on page.
+- **Great Fruitcake Toss** — https://manitousprings.org/events/fruitcake-toss/ (WebFetch, summarised by the fetch model, not raw text). Visible date "January 30, 2027", "Noon-3pm", Memorial Park, 502 Manitou Avenue; "It all started in 1995"; banner "Celebrating 32 years". Odd: the page's structured data still says January 31, 2026. Events index https://manitousprings.org/events/ also says "January 30, 2027". No weekday on page (30 Jan 2027 is a Saturday). Cost is per-toss tickets ("$1 per ticket plus $1 to 'rent' a Fruitcake"), left out of the record.
+- **Carnivale** — 2027 from the events index https://manitousprings.org/events/ (WebFetch): "Carnivale Weekends ... February 6, 2027" — one date only; it does not say which part (CarniBall or parade) is on 6 Feb. Detail page https://manitousprings.org/carnivale-weekend/ (WebFetch) is still the 2026 page: CarniBall "(Saturday, 02/07/26)", gumbo cook-off and parade "Saturday, February 14, 2026", parade "1 pm start", "its 33rd crazy year". EDITOR: 2027 parade date not yet published; treat 6 Feb 2027 as the start of the weekends.
+- **Pikes Peak International Hill Climb** — https://ppihc.org/ (curl + WebFetch). "Gear Up for the 105TH Running June 27, 2027"; "Save the Date: Race to the Clouds set for June 27, 2027"; "founded in 1916"; "Tickets for the 2027 Race go on sale December 1, 2026". Page names Pikes Peak, not Manitou Springs. 2026 race date not on the page.
+- **Commonwheel Labor Day Weekend Art Festival** — https://www.commonwheel.com/festival.html (curl). "THE 52nd ANNUAL COMMONWHEEL ARTISTS CO-OP LABOR DAY WEEKEND ART FESTIVAL 2026 / September 5 - 7, 2026". No 2027 date on page.
+- **AdAmAn fireworks** — https://adaman.org/ (curl). "a Pikes Peak Region tradition since 1922 ... each year on December 30th and 31st ... at the stroke of midnight on New Year's Eve, AdAmAn members and their guests ignite a glorious fireworks display from the summit"; "The guest application process has been closed for the 2026 climb." Date recorded as 2026-12-31 (fireworks at midnight); the page gives the rule "each year", not a dated 2026 announcement.
+
+## Could not verify
+- **Manitou Springs Colorado Wine Festival** (unverified record): pages conflict. Events index says "June 5, 2027"; the festival page says "Saturday, June 3, 2027" (3 June 2027 is a Thursday) and its lineup section says "Date: June 6th, 2026". No date written.
+
+## Looked for and did not find
+- Manitou Incline: no dated season looked up (reservations are year-round; nothing dated).
+- Heritage Brew Festival and Legends & Libations: events index says "TBD". Ice Cream Social listed as "July 5, 2027" (not recorded: minor, unchecked detail page).
+- manitoucarnivale.com does not resolve.

@@ -18,4 +18,4 @@ source: "https://niwot.com/listing/niwot-community-connection-ncc"
 verified: "2026-10-21"
 ---
 
-Founded in October 2021 by three residents and several hundred members strong, by its own and the Courier's accounts, with membership free to anyone 50 and over in the Niwot area. The monthly meeting brings local news and a guest presentation; the [November 12 session](/events/niwot-community-connection-2026-11-12/) is on the hall's calendar. The interest groups are where most of it happens: art, hiking, bridge, knitting, mahjong, birding, cooking, brew hopping, book club, wine tasting, gardening and writing among them.
+Founded in October 2021 by three residents and several hundred members strong, by its own and the Courier's accounts, with membership free to anyone 50 and over in the Niwot area. The monthly meeting brings local news and a guest presentation; the November 12 session is on the hall's calendar. The interest groups are where most of it happens: art, hiking, bridge, knitting, mahjong, birding, cooking, brew hopping, book club, wine tasting, gardening and writing among them.

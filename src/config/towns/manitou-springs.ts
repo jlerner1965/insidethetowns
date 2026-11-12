@@ -30,6 +30,9 @@ export const manitouSprings: TownConfig = {
     since: '2026-11-03',
     reason: 'The owner closed the guide on 3 November 2026: the network is a set of town guides for the people who live there, and Manitou Springs, an hour or more from the other guides, was read as a visitor guide to the Incline, the springs and the Peak.',
   },
+  // Its town page on the hub is published (12 November 2026), so the
+  // domain now forwards there, not to the hub's home page.
+  hubPage: { town: 'manitou-springs', since: '2026-11-12' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Retired 3 November 2026: it names no neighbour, and Castle Rock, which

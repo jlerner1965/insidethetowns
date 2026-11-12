@@ -42,6 +42,8 @@ import { hoursTextByDesign, parseHoursText } from '../src/lib/hours.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
 import { nextEventIssues, retiredLedgerIssues } from '../src/lib/former-slugs.ts';
+import { findHubTown } from '../src/config/hub-towns.ts';
+import { placeKey } from '../src/lib/hub-towns.ts';
 import { STALE_CHECK_DAYS, STALE_WITHIN_DAYS, staleSoon, type TraditionRecord } from '../src/lib/traditions.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -141,12 +143,14 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     if (record.fixture || record.slug.startsWith('fixture-')) errors.push(`${rel}: a fixture record in content/; fixtures live in test/fixtures/traditions/ and never ship`);
     if (town !== 'hub') errors.push(`${rel}: tradition records live in content/hub/traditions/, shared by every guide`);
     if (`${record.slug}.md` !== rel.split('/').at(-1)) errors.push(`${rel}: the file is named for its slug, ${record.slug}.md`);
-    // A row links to the guide's /traditions/, which only a live guide builds.
-    const guide = record.town.guide;
-    if (guide && !liveTowns().some((t) => t.slug === guide)) errors.push(`${rel}: town.guide "${guide}" is not a live guide`);
-    if (guide && findTown(guide) && findTown(guide)!.name !== record.town.name) {
-      errors.push(`${rel}: town.name "${record.town.name}" is not ${guide}'s name, "${findTown(guide)!.name}"`);
-    }
+    // Every place a record names is one the network has: a hub town's page
+    // or a standalone guide (src/config/hub-towns.ts), or, for a guide not
+    // yet folded, the live guide itself.
+    const guide = record.town?.guide;
+    if (guide && !placeKey(guide) && !liveTowns().some((t) => t.slug === guide)) errors.push(`${rel}: town.guide "${guide}" is not a hub town, a standalone guide or a live guide`);
+    const named = guide ? (findHubTown(placeKey(guide) ?? '')?.name ?? findTown(guide)?.name) : undefined;
+    if (named && named !== record.town!.name) errors.push(`${rel}: town.name "${record.town!.name}" is not ${guide}'s name, "${named}"`);
+    for (const t of record.towns ?? []) if (!placeKey(t.slug)) errors.push(`${rel}: towns names "${t.slug}", which is not a hub town or a standalone guide`);
   }
   // A staged entry must say why it is waiting; a published one must not
   // still be carrying that note.

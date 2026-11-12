@@ -1,0 +1,24 @@
+# Notes: Clear Creek roads (checked 2026-11-12)
+
+## Guanella Pass (guanella-pass-opens, guanella-pass-closes)
+- https://www.clearcreekcounty.us/689/Guanella-Pass-Information (WebFetch): "Guanella Pass Road is seasonally closed after Thanksgiving and reopens on or about Memorial Day weekend at Naylor Lake on the Clear Creek County side and Burning Bear Campground on the Park County side."; "Clear Creek County closes the pass at the Naylor Lake intersection of Guanella Pass Road, which is 0.8 miles from the summit and the Mount Bierstadt Trailhead."; "The pass road is completely paved from Georgetown in Clear Creek County to Grant (Highway 285) in Park County."; "Guanella Pass officially opened early for the summer season at 9:00 a.m. on Thursday, April 16th."
+- County news flash https://www.clearcreekcounty.us/CivicAlerts.aspx?AID=863 (curl + WebFetch), "Posted on April 09, 2026": "Guanella Pass will officially open early for the summer season at 9:00 a.m. on Thursday, April 16th."; "It is typically open from Memorial Day Weekend to the week of Thanksgiving." (16 Apr 2026 is a Thursday.)
+- CDOT byway page https://www.codot.gov/travel/coloradobyways/north-central/guanella-pass (WebFetch): seasonally closed "on or about Nov. 26", reopens "on Memorial Day weekend".
+- 2026 closing: no county notice posted yet (county news flash list has none) → not-announced with the county's typical wording.
+- Could not read: the county's 2025 closure notice (CivicAlerts AID=846, "Guanella Pass closes for winter season") returns 404 by WebFetch and curl. A search snippet says the road closed Monday, Dec. 1, 2025; not read on the source, so there is no 2025 entry.
+- No Idaho Springs line: the county page ties the road to Georgetown and Grant only.
+
+## Mount Blue Sky (mount-blue-sky-road-opens, mount-blue-sky-road-closes, mount-blue-sky-timed-entry)
+- The 2025–26 construction closure is over. CDOT byway page https://www.codot.gov/travel/coloradobyways/north-central/mount-evans (WebFetch): "Road construction was completed in 2025."; "The road from Echo Lake Lodge to the top of Mount Blue Sky is scheduled to open on the 2026 Memorial Day weekend pending weather and any unforeseen circumstances, and reservations are needed."; "The Mount Blue Sky Scenic and Historic Byway is open from Idaho Springs to the Evergreen Parkway."; "Summit open Memorial Day through Labor Day only". (That page has not been updated since the reopening.)
+- Opening 2026: CDOT release of May 19, 2026, https://www.codot.gov/news/2026/may2026/memorial-day-weekend-kicks-off-colorado-summer-travel : "CO 5/Mount Blue Sky Road is expected to open on Friday, May 22". NOTE for editor: the wording is "expected"; I did not find a CDOT page confirming the gate opened that day. The Forest Service release of April 14, 2026 (below) gives the same day for first reservations.
+- Closing 2026: CDOT release of Sept. 3, 2026, https://www.codot.gov/news/2026/september-2026-news/summer-travel-season-wraps-up-this-weekend : "The highway to the summit remains open through Labor Day weekend."; "The section between Summit Lake and the summit closes for the season at 8 a.m. Tuesday, Sept. 8."; "The lower segment from Echo Lake to Summit Lake will remain open until adverse weather requires a full closure." Recreation.gov https://www.recreation.gov/timed-entry/10087438 (curl): "As of October 5th, 2026, the Mount Blue Sky Road (State Highway 5) is closed to vehicle access through 2026." The record's date is the published Sept 8 summit closure; the full closure (as of Oct 5) is in `place`/these notes only.
+- 2027: nothing published by CDOT, the Forest Service or Recreation.gov → not-announced.
+- Timed entry: Forest Service release https://www.fs.usda.gov/r02/arp/newsroom/releases/denver-mountain-parks-take-helm-mount-blue-sky-summer (April 14, 2026): "will reopen Memorial Day Weekend 2026, weather permitting"; "Reservations are expected to go live on recreation.gov in early- to mid-May"; "the first reservations available beginning Friday, May 22, 2026"; "Denver Mountain Parks will lead operations at the Mount Blue Sky Recreation Area." No end date for the reservation season is published, so the record has a start date only. Recreation.gov also says "75% of the timed tickets will be available 30 days in advance at 8:00 AM MDT, on a daily rolling basis" and lists event closures "June 28, July 11, and July 25 2026". Denver's page (denvergov.org Mountain Parks / Mount Blue Sky) gives no dates.
+- Town lines for Idaho Springs and Evergreen come from the CDOT byway sentence above plus "Echo Lake Lodge"/"Echo Lake" in the CDOT texts.
+
+## Could not verify
+- Guanella Pass 2025 closing date (page gone).
+- That CO 5 actually opened on May 22, 2026 (only "expected").
+
+## Looked for and did not find
+- A 2027 opening or reservation date for Mount Blue Sky; a 2026 Guanella winter-closure notice.

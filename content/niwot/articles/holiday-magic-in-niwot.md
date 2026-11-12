@@ -23,7 +23,6 @@ sources:
   - { label: "Sunshine Productions on Eventbrite: Niwot Holiday Magic Concert tickets", url: "https://www.eventbrite.com/e/niwot-holiday-magic-concert-tickets-2002898206452" }
 related:
   - { label: "Niwot Hall", href: "/places/niwot-hall/", note: "The old Grange hall on Second Avenue, where Santa sits and the market is held." }
-  - { label: "This week in Niwot", href: "/this-week/", note: "Everything else on in town between the holiday weekends." }
   - { label: "Explore Niwot in walking order", href: "/articles/explore-niwot-in-walking-order/", note: "The shops on Second Avenue and Cottonwood Square, in the order you pass them." }
 ---
 
@@ -31,24 +30,24 @@ Holiday Magic is the Niwot Business Association's name for the town's holiday se
 
 ## Friday, November 27: Enchanted Evening
 
-The night after Thanksgiving, every year. The community tree is lit, Santa arrives by horse-drawn sleigh at 6 pm and sits at [Niwot Hall](/places/niwot-hall/) from 6:30 to 8, and there are carols and live music through Old Town and Cottonwood Square while the shops open late. 6 to 9 pm. [The listing](/events/enchanted-evening/).
+The night after Thanksgiving, every year. The community tree is lit, Santa arrives by horse-drawn sleigh at 6 pm and sits at [Niwot Hall](/places/niwot-hall/) from 6:30 to 8, and there are carols and live music through Old Town and Cottonwood Square while the shops open late. 6 to 9 pm. The listing.
 
 ## Saturday, November 28: the Holiday Parade
 
-The next morning at 11, the parade comes down Second Avenue from Murray Street to Niwot Road with Santa in it. Afterwards he is at Niwot Hall until 1 pm to take children's wish lists. [The listing](/events/holiday-parade/).
+The next morning at 11, the parade comes down Second Avenue from Murray Street to Niwot Road with Santa in it. Afterwards he is at Niwot Hall until 1 pm to take children's wish lists. The listing.
 
 ## Friday, December 4: the first Stroll
 
-Shops on Second Avenue and Cottonwood Square stay open until 8 pm for holiday shopping, on the same evening as the First Friday Art Walk. 5 to 8 pm, free. [The listing](/events/niwot-stroll-2026-12-04/). The Stroll comes back on [Thursday, December 10](/events/niwot-stroll-2026-12-10/), [Thursday, December 17](/events/niwot-stroll-2026-12-17/) and [Monday, December 21](/events/niwot-stroll-2026-12-21/), 5 to 8 pm each evening.
+Shops on Second Avenue and Cottonwood Square stay open until 8 pm for holiday shopping, on the same evening as the First Friday Art Walk. 5 to 8 pm, free. The listing. The Stroll comes back on Thursday, December 10, Thursday, December 17 and Monday, December 21, 5 to 8 pm each evening.
 
 ## Saturdays, December 5 and 12: the Market Fayre, and a concert on the 5th
 
-From 10 to 4, holiday pop-up vendors fill Niwot Hall and businesses around town, and the hall becomes a food hall: mulled wine, hot chocolate and cider, Christmas cookies, roast chestnuts and glögg. Santa and Mrs. Claus are there from 1 to 3, with horse and carriage rides, carolers, harpists and a brass band around Old Town. The Business Association and the Local Improvement District sponsor it. [The listing](/events/holiday-magic-market-fayre/).
+From 10 to 4, holiday pop-up vendors fill Niwot Hall and businesses around town, and the hall becomes a food hall: mulled wine, hot chocolate and cider, Christmas cookies, roast chestnuts and glögg. Santa and Mrs. Claus are there from 1 to 3, with horse and carriage rides, carolers, harpists and a brass band around Old Town. The Business Association and the Local Improvement District sponsor it. The listing.
 
 The market is back at Niwot Hall the next Saturday, December 12, from 10 to 4: the Business Association's page gives the 5th and the 12th, and the hall's calendar lists both.
 
-On the evening of the 5th, the Rebecca Folsom Trio plays a holiday concert at Niwot Hall, 7 to 9 pm. It is ticketed: the organizer prices tickets at $45 on Eventbrite, with a welcome drink included. [The listing](/events/holiday-magic-concert-rebecca-folsom-2026-12-05/).
+On the evening of the 5th, the Rebecca Folsom Trio plays a holiday concert at Niwot Hall, 7 to 9 pm. It is ticketed: the organizer prices tickets at $45 on Eventbrite, with a welcome drink included. The listing.
 
 ## Every year
 
-The shape holds from year to year: Enchanted Evening on the Friday after Thanksgiving, the parade on the Saturday morning, and the market at Niwot Hall, 195 Second Avenue, in early December. The Business Association posts the dates on its calendar in the fall, and they are in [This week](/this-week/) as they come up.
+The shape holds from year to year: Enchanted Evening on the Friday after Thanksgiving, the parade on the Saturday morning, and the market at Niwot Hall, 195 Second Avenue, in early December. The Business Association posts the dates on its calendar in the fall, and they are in This week as they come up.

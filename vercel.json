@@ -312,25 +312,135 @@
     },
     {
       "source": "/",
-      "destination": "https://insidethetowns.com/",
-      "permanent": true,
       "has": [
         {
           "type": "host",
           "value": "insidegrandlake.com"
         }
-      ]
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/#outdoor-dates",
+      "permanent": true
     },
     {
       "source": "/(.*)",
-      "destination": "https://insidethetowns.com/",
-      "permanent": true,
       "has": [
         {
           "type": "host",
           "value": "insidegrandlake.com"
         }
-      ]
+      ],
+      "destination": "https://insidethetowns.com/grand-lake/",
+      "permanent": true
     },
     {
       "source": "/",
@@ -340,7 +450,117 @@
           "value": "insidefortlupton.com"
         }
       ],
-      "destination": "https://insidethetowns.com/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-lupton/#outdoor-dates",
       "permanent": true
     },
     {
@@ -351,7 +571,7 @@
           "value": "insidefortlupton.com"
         }
       ],
-      "destination": "https://insidethetowns.com/",
+      "destination": "https://insidethetowns.com/fort-lupton/",
       "permanent": true
     },
     {
@@ -384,7 +604,117 @@
           "value": "insideevergreenco.com"
         }
       ],
-      "destination": "https://insidethetowns.com/",
+      "destination": "https://insidethetowns.com/evergreen/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/evergreen/#outdoor-dates",
       "permanent": true
     },
     {
@@ -395,7 +725,7 @@
           "value": "insideevergreenco.com"
         }
       ],
-      "destination": "https://insidethetowns.com/",
+      "destination": "https://insidethetowns.com/evergreen/",
       "permanent": true
     },
     {
@@ -406,7 +736,117 @@
           "value": "insidemanitousprings.com"
         }
       ],
-      "destination": "https://insidethetowns.com/",
+      "destination": "https://insidethetowns.com/manitou-springs/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/manitou-springs/#outdoor-dates",
       "permanent": true
     },
     {
@@ -417,7 +857,7 @@
           "value": "insidemanitousprings.com"
         }
       ],
-      "destination": "https://insidethetowns.com/",
+      "destination": "https://insidethetowns.com/manitou-springs/",
       "permanent": true
     },
     {
@@ -450,7 +890,117 @@
           "value": "insidegeorgetownco.com"
         }
       ],
-      "destination": "https://insidethetowns.com/",
+      "destination": "https://insidethetowns.com/georgetown/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/georgetown/#outdoor-dates",
       "permanent": true
     },
     {
@@ -461,18 +1011,139 @@
           "value": "insidegeorgetownco.com"
         }
       ],
-      "destination": "https://insidethetowns.com/",
+      "destination": "https://insidethetowns.com/georgetown/",
       "permanent": true
     },
     {
-      "source": "/places/arapaho-bend-natural-area{/}?",
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "insidetimnath.com"
         }
       ],
-      "destination": "https://insidefortcollins.com/places/arapaho-bend-natural-area/",
+      "destination": "https://insidethetowns.com/timnath/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/",
       "permanent": true
     },
     {
@@ -553,17 +1224,6 @@
       "permanent": true
     },
     {
-      "source": "/places/chelos-modern-mexican{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidetimnath.com"
-        }
-      ],
-      "destination": "/eat-drink/",
-      "permanent": true
-    },
-    {
       "source": "/places/subway{/}?",
       "has": [
         {
@@ -572,6 +1232,72 @@
         }
       ],
       "destination": "/eat-drink/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/submit-event{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/",
       "permanent": true
     },
     {
@@ -605,28 +1331,6 @@
         }
       ],
       "destination": "/events/berthoud-oktoberfest/",
-      "permanent": true
-    },
-    {
-      "source": "/events/niwot-trot-5k-2026{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/niwot-cougars-football-vs-skyview-2026-10-16{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
       "permanent": true
     },
     {
@@ -1004,28 +1708,6 @@
       "permanent": true
     },
     {
-      "source": "/events/artist-in-residence-open-house-gail-denton-2026-10-16{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/niwot-cemetery-talk-2026-10-21{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
       "source": "/events/twilight-tour-of-lakeview-cemetery-2026-10-23{/}?",
       "has": [
         {
@@ -1279,14 +1961,135 @@
       "permanent": true
     },
     {
-      "source": "/events/yoga-with-a-ranger-2026-10-24{/}?",
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "insidegolden.com"
         }
       ],
-      "destination": "/events/",
+      "destination": "https://insidethetowns.com/golden/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/",
       "permanent": true
     },
     {
@@ -1683,171 +2486,6 @@
         }
       ],
       "destination": "/eat-drink/",
-      "permanent": true
-    },
-    {
-      "source": "/events/artist-in-residence-open-house-gail-denton-2026-10-15{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/ballots-mailed-2026-10-02{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/childrens-park-turns-10{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/dancing-under-the-stars-season-finale{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/first-friday-art-walk-2026-10-02{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/niwot-business-association-monthly-meeting-2026-10-13{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/niwot-cougars-football-vs-fort-morgan-2026-10-23{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/sports/",
-      "permanent": true
-    },
-    {
-      "source": "/events/niwot-local-improvement-district-advisory-committee-meeting-2026-10-06{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/tree-sculptures-open-house-2026-10-04{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/wellness-lecture-2026-10-07{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideniwot.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/timnath-cubs-boys-soccer-vs-loveland-2026-09-29{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidetimnath.com"
-        }
-      ],
-      "destination": "/sports/",
-      "permanent": true
-    },
-    {
-      "source": "/events/timnath-cubs-boys-soccer-vs-northridge-2026-10-13{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidetimnath.com"
-        }
-      ],
-      "destination": "/sports/",
-      "permanent": true
-    },
-    {
-      "source": "/events/timnath-cubs-boys-soccer-vs-thompson-valley-2026-10-06{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidetimnath.com"
-        }
-      ],
-      "destination": "/sports/",
-      "permanent": true
-    },
-    {
-      "source": "/events/timnath-cubs-football-vs-mead-2026-10-15{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidetimnath.com"
-        }
-      ],
-      "destination": "/sports/",
-      "permanent": true
-    },
-    {
-      "source": "/events/timnath-reservoir-motorized-season-ends-2026{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidetimnath.com"
-        }
-      ],
-      "destination": "/events/",
       "permanent": true
     },
     {
@@ -2310,6 +2948,930 @@
         }
       ],
       "destination": "https://insidefrederickco.com/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidenederland.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/nederland/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/",
       "permanent": true
     }
   ]

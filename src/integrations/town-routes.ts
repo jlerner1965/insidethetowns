@@ -28,16 +28,25 @@ export function homeRoute(_site: Pick<TownConfig, 'home'>): [pattern: string, fi
   return ['/', 'index.astro'];
 }
 
-const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
+/**
+ * The events pages. Every guide has them but a quiet one (`lead:
+ * 'updates'`, Niwot): it lists no events, so none of these is built and
+ * vercel.json sends their old addresses to its home page.
+ */
+export const EVENT_ROUTES: Array<[pattern: string, file: string]> = [
   ['/events', 'events/index.astro'],
   ['/this-weekend', 'this-weekend.astro'],
   ['/this-week', 'this-week.astro'],
   ['/events/calendar.ics', 'events/calendar.ics.ts'],
   ['/events/[slug].ics', 'events/[slug].ics.ts'],
   ['/events/[slug]/[show].ics', 'events/[slug]/[show].ics.ts'],
-  ['/rss.xml', 'rss.xml.ts'],
   ['/events.rss', 'events.rss.ts'],
   ['/events/[slug]', 'events/[slug].astro'],
+  ['/submit-event', 'submit-event.astro'],
+];
+
+const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
+  ['/rss.xml', 'rss.xml.ts'],
   ['/places/[slug]', 'places/[slug].astro'],
   ['/articles/[slug]', 'articles/[slug].astro'],
   ['/guides', 'guides.astro'],
@@ -46,7 +55,6 @@ const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/directory', 'directory.astro'],
   ['/for-businesses', 'for-businesses.astro'],
   ['/moving-here', 'moving-here.astro'],
-  ['/submit-event', 'submit-event.astro'],
   ['/correct', 'correct.astro'],
   ['/thanks', 'thanks.astro'],
 ];
@@ -180,6 +188,9 @@ const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/submit-event', 'submit-event.astro'],
   ['/events.rss', 'events.rss.ts'],
   ['/advertise', 'advertise.astro'],
+  // A town's page, built only for a town with three dated items of its own
+  // (src/lib/hub-towns.ts); the file's getStaticPaths names them.
+  ['/[town]', 'town.astro'],
   // Read and deleted by the indexing step; never deployed (src/lib/network-search.ts).
   ['/network-search.json', 'network-search.json.ts'],
 ];
@@ -195,6 +206,7 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
             : site.status === 'live'
               ? [
                   homeRoute(site),
+                  ...(site.lead === 'updates' ? [] : EVENT_ROUTES),
                   ...TOWN_ROUTES,
                   ...(site.subTowns?.length ? SUB_TOWN_ROUTES : []),
                   ...sportsRoutes(site.slug),

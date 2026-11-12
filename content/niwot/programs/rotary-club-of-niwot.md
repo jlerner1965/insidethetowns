@@ -18,4 +18,4 @@ source: "https://www.niwotrotary.org/page/become-a-member"
 verified: "2026-11-03"
 ---
 
-The club's own page says it meets most Thursdays between 7:30 and 8:30 am at Niwot Hall and would love to have you join. Its fundraisers are the peach sale, the Burns dinner, the duck race and a See's candy store, each with a page on its site. The [November breakfasts](/events/breakfast-with-the-rotary-club-of-niwot-november/) are on the calendar; the November 26 Thursday is a committee meeting at Old Oak Coffeehouse, not a breakfast.
+The club's own page says it meets most Thursdays between 7:30 and 8:30 am at Niwot Hall and would love to have you join. Its fundraisers are the peach sale, the Burns dinner, the duck race and a See's candy store, each with a page on its site. The November breakfasts are on the calendar; the November 26 Thursday is a committee meeting at Old Oak Coffeehouse, not a breakfast.

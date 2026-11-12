@@ -49,4 +49,4 @@ Boulder County plans to close the Niwot Loop Trailhead and trail later this wint
 
 ## What's on for families
 
-The [events page](/events/?category=family) filters to family listings. Everything there is checked against its source before it goes up.
+The events page filters to family listings. Everything there is checked against its source before it goes up.

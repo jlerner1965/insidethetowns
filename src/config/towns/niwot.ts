@@ -6,7 +6,7 @@ export const niwot: TownConfig = {
   variant: 'front-range',
   region: 'Boulder County',
   // Lafayette, down the Diagonal's side roads, from 2 November 2026.
-  neighbors: ['longmont', 'lyons', 'erie', 'lafayette', 'nederland'],
+  neighbors: ['lyons', 'erie', 'lafayette'],
   slug: 'niwot',
   name: 'Niwot',
   domain: 'insideniwot.com',
@@ -54,6 +54,8 @@ export const niwot: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 21 October 2026.
   home: true,
+  // The restructure of 12 November 2026 (TownConfig.lead).
+  lead: 'updates',
   // Quick answers under What's happening (the owner, 8 November 2026).
   quickAnswers: {},
   participation: {

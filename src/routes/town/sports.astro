@@ -37,7 +37,7 @@ import CtaBand from '@/components/CtaBand.astro';
 import NextUp from '@/components/NextUp.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import TeamSeason from '@/components/TeamSeason.astro';
-import { getTown } from '@/config';
+import { getTown, listsEvents } from '@/config';
 import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
 import { bigGame, coming, gameDay as day, latestResult, pageSeasonLabel, postseasonSource, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
@@ -290,7 +290,7 @@ const jsonLd = [
     body="If a game moved or a score is off, say so and we will check it."
     links={[
       { label: 'Report a correction', href: `/correct/?item=sports&title=${encodeURIComponent(`${school} sports`)}`, primary: true },
-      { label: `This week in ${town.name}`, href: '/this-week/' },
+      ...(listsEvents(town) ? [{ label: `This week in ${town.name}`, href: '/this-week/' }] : []),
     ]}
   />
   </div>

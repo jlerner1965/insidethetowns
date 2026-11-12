@@ -4,7 +4,7 @@
  * town's content.
  */
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
-import { getSite, liveTowns, type TownConfig } from '@/config';
+import { getSite, listsEvents, liveTowns, type TownConfig } from '@/config';
 import { isExcluded } from '@/content/schemas';
 import { eventExclusion, hubExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
 import { eventPresentation, type Confidence } from '@/lib/confidence';
@@ -131,6 +131,8 @@ function shapeEvent(entry: CollectionEntry<'events'>, now: Date) {
 export async function getTownEntries<C extends CollectionKey>(collection: C): Promise<TownEntry<C>[]> {
   const site = getSite();
   if (site.kind === 'hub') return [];
+  // A quiet guide lists no events (listsEvents): none reaches any page.
+  if (collection === 'events' && !listsEvents(site)) return [];
   const prefix = `${site.slug}/`;
   const entries = publishable(collection, await getCollection(collection, (entry) => entry.id.startsWith(prefix)), new Map([[site.slug, site]]));
   return entries.map((entry) => {
@@ -162,7 +164,8 @@ export async function getNetworkEntries<C extends CollectionKey>(collection: C):
   if (site.kind !== 'hub') {
     throw new Error(`getNetworkEntries() was called while building ${site.domain}. Town pages must use getTownEntries().`);
   }
-  const towns = new Map(liveTowns().map((t) => [t.slug, t]));
+  // A guide that lists no events has none on the network's pages either.
+  const towns = new Map(liveTowns().filter((t) => collection !== 'events' || listsEvents(t)).map((t) => [t.slug, t]));
   const entries = publishable(collection, await getCollection(collection, (entry) => towns.has(entry.id.split('/')[0]!)), towns);
   return entries.map((entry) => {
     const townSlug = entry.id.split('/')[0]!;
@@ -201,7 +204,7 @@ export async function getNeighborEntries<C extends CollectionKey>(
   collection: C,
   neighbors: readonly TownConfig[],
 ): Promise<NetworkEntry<C>[]> {
-  const towns = new Map(neighbors.map((t) => [t.slug, t]));
+  const towns = new Map(neighbors.filter((t) => collection !== 'events' || listsEvents(t)).map((t) => [t.slug, t]));
   if (towns.size === 0) return [];
   const entries = publishable(collection, await getCollection(collection, (entry) => towns.has(entry.id.split('/')[0]!)), towns);
   return entries.map((entry) => {

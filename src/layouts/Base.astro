@@ -22,7 +22,7 @@ import '@/styles/global.css';
 import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
 import instrumentLatin from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
 import Analytics from '@vercel/analytics/astro';
-import { getNetworkHub, getSite } from '@/config';
+import { getNetworkHub, getSite, listsEvents } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
@@ -92,7 +92,7 @@ const cssVars = [
     <meta name="theme-color" content={site.colors.primary} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {/* Discovery: an aggregator that lands on any page finds the feeds. */}
-    <link rel="alternate" type="application/rss+xml" title={`${site.siteTitle} — what’s on`} href="/events.rss" />
+    {listsEvents(site) && <link rel="alternate" type="application/rss+xml" title={`${site.siteTitle} — what’s on`} href="/events.rss" />}
     {site.kind === 'town' && (
       <link rel="alternate" type="application/rss+xml" title={`${site.siteTitle} — guides`} href="/rss.xml" />
     )}

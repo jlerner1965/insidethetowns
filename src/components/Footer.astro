@@ -12,7 +12,7 @@
  * The only difference left is the space above it: the home closes on a
  * band with its own padding, where an inner page closes on its text.
  */
-import { getNetworkHub, getSite } from '@/config';
+import { getNetworkHub, getSite, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { siteNav } from '@/lib/nav';
 import NetworkBar from './NetworkBar.astro';
@@ -31,7 +31,7 @@ const inMenu = new Set(siteNav(site).map((n) => n.href));
 const hasUpdates = site.kind === 'town' && (await getTownEntries('updates')).length > 0;
 const sections = site.kind === 'town'
   ? [
-      { label: 'This weekend', href: '/this-weekend/' },
+      ...(listsEvents(site) ? [{ label: 'This weekend', href: '/this-weekend/' }] : []),
       { label: 'Things to do', href: '/things-to-do/' },
       { label: 'Guides', href: '/guides/' },
       { label: 'Every place, A to Z', href: '/directory/' },
@@ -60,7 +60,7 @@ const sections = site.kind === 'town'
             contact form alone (network audit, 14 October 2026). The
             network's one address, which is where every town's mail goes. */}
         <li><a href={`mailto:${hub.social.email}`} class:list={[linkClass, '[overflow-wrap:anywhere]']}>{hub.social.email}</a></li>
-        {site.kind === 'town' && (
+        {site.kind === 'town' && listsEvents(site) && (
           <li><a href="/submit-event/" class={linkClass}>Submit an event</a></li>
         )}
         {site.kind === 'town' && (

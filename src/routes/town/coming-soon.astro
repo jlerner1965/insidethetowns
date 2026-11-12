@@ -24,8 +24,25 @@ const covers = subTownList(town);
 const area = covers ? `${covers}, Colorado` : `${town.name}, Colorado`;
 const home = town.foldedInto && findTown(town.foldedInto.town);
 const moved = home && `https://${home.domain}${town.foldedInto!.path}`;
+const page = town.hubPage && `https://${hub.domain}/${town.hubPage.town}/`;
 ---
-{town.retired ? (
+{page ? (
+  <Page
+    title={`${town.name} is now on ${hub.siteTitle}`}
+    seoTitle={`${town.name} is now on ${hub.siteTitle}`}
+    eyebrow={town.name}
+    description={`${town.siteTitle} is now ${town.name}’s page on ${hub.siteTitle}.`}
+    intro={`${town.siteTitle} is now one page on ${hub.siteTitle}: ${town.name}’s traditions and outdoor dates, each with the page it was read from.`}
+    noindex
+    narrow
+  >
+    <div class="prose">
+      <p>
+        <a href={page}>{town.name} on {hub.siteTitle}</a> has the dates. The guide’s listings are no longer checked, so they are no longer shown.
+      </p>
+    </div>
+  </Page>
+) : town.retired ? (
   <Page
     title={`${town.siteTitle} has closed`}
     seoTitle={`${town.siteTitle} has closed`}
