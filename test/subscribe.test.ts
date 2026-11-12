@@ -204,3 +204,9 @@ test('the function answers a post with a status and nothing more', async () => {
     if (prevKey !== undefined) process.env.BUTTONDOWN_API_KEY = prevKey;
   }
 });
+
+test('a guide that sends occasional updates takes signups under its own tag, and is still in no weekly edition', async () => {
+  const { emailTowns } = await import('../src/config/index.ts');
+  assert.ok(allowedTags().has('niwot'), 'Niwot updates can be signed up for');
+  assert.ok(!emailTowns().some((t) => t.slug === 'niwot'), 'and Niwot has no Thursday issue');
+});

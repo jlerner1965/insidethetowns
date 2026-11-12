@@ -74,8 +74,8 @@ test('every town registry on disk validates, and every sourceId in the content r
     }
   }
   // Nine registries on 1 October 2026; the restructure of 12 November left
-  // the eight live guides' (test/hub-fold.test.ts).
-  assert.ok(registries >= 8, 'every live town was seeded');
+  // the eight live guides', and Elizabeth's fold that evening the seven.
+  assert.ok(registries >= 7, 'every live town was seeded');
 });
 
 test('the registry has no say in what publishes', () => {

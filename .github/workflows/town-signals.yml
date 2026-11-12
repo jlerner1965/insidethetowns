@@ -1,0 +1,54 @@
+name: River flow and snowpack (USGS, Colorado DWR, NRCS)
+
+# Every morning: the river at each town page's gauge (USGS's
+# api.waterdata.usgs.gov, Colorado DWR's telemetry service) and the snow
+# water equivalent at each page's SNOTEL station (NRCS AWDB), into
+# data/hub/river-flow.json and data/hub/snowpack.json
+# (src/lib/town-signals.ts). No key. A gauge that cannot be read keeps its
+# last reading, a run that reads nothing changes nothing, and neither fails
+# the run: the pages drop a reading by its own age.
+
+on:
+  schedule:
+    - cron: '25 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: town-signals
+  cancel-in-progress: false
+
+jobs:
+  stocking:
+    name: Read the gauges and the stations, write the data files
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Read and write
+        run: node scripts/town-signals.ts --write | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Commit the data file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/hub/river-flow.json data/hub/snowpack.json
+          if git diff --cached --quiet; then
+            echo "Nothing changed; nothing to commit."
+            exit 0
+          fi
+          git commit -m "River flow and snowpack, $(TZ=America/Denver date +%F)" \
+            -m "Written by the town-signals workflow (scripts/town-signals.ts) from USGS, Colorado DWR and NRCS SNOTEL."
+          # As the sports workflow does: take what moved and push again; the
+          # commit touches two data files, and this run's read is the newer.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:${{ github.ref_name }}; then exit 0; fi
+            echo "The branch moved; taking its new commits and trying again ($attempt)."
+            git pull --rebase -X theirs origin ${{ github.ref_name }}
+          done
+          echo "Could not push after three tries."
+          exit 1

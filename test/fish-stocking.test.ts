@@ -65,9 +65,8 @@ test('the config maps waters by hand: named, with ids, no water watched by two t
   const seen = new Map<number, string>();
   let towns = 0;
   for (const t of HUB_TOWNS) {
-    if (!t.signature) continue;
+    if (t.signature?.kind !== 'fish-stocking') continue;
     towns++;
-    assert.equal(t.signature.kind, 'fish-stocking');
     assert.ok(t.signature.waters.length > 0, t.slug);
     for (const w of t.signature.waters) {
       assert.ok(w.name.length > 3 && w.ids.length > 0, `${t.slug}: ${w.name}`);

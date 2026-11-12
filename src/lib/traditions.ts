@@ -20,7 +20,24 @@
  */
 import type { EventCategory } from '../content/schemas.ts';
 
-export const TRADITION_TYPES = ['parade-of-lights', 'tree-lighting', 'turkey-trot', 'trick-or-treat', 'fireworks', 'festival', 'race', 'outdoor'] as const;
+export const TRADITION_TYPES = [
+  'parade-of-lights',
+  'tree-lighting',
+  'turkey-trot',
+  'trick-or-treat',
+  'fireworks',
+  'festival',
+  'race',
+  'outdoor',
+  // Added 12 November 2026 for records to come, each on its date in TODO.md:
+  // the type exists so a record can be filed the day its source is read.
+  // None has a season set, so none has a hub page yet.
+  'egg-hunt',
+  'farmers-market',
+  'closure',
+  'school-date',
+  'tax-date',
+] as const;
 export type TraditionType = (typeof TRADITION_TYPES)[number];
 
 /**
@@ -49,6 +66,16 @@ export const TRADITION_TYPE_INFO: Record<TraditionType, { label: string; plural:
   // season, a licence window, a meteor shower's peak. The same record as a
   // tradition; the agency or the operator is its organizer.
   outdoor: { label: 'Outdoor date', plural: 'Outdoor dates', path: '/outdoor-dates/', category: 'outdoors' },
+  // An Easter egg hunt, from its organizer's page.
+  'egg-hunt': { label: 'Egg hunt', plural: 'Easter egg hunts', path: '/egg-hunts/', category: 'family' },
+  // A market's season: its first and last day, as two years' entries or a date and an endDate.
+  'farmers-market': { label: 'Farmers market', plural: 'Farmers markets', path: '/farmers-markets/', category: 'market' },
+  // A wildlife or trail closure the land manager posts each year: the day it starts and the day it lifts.
+  closure: { label: 'Seasonal closure', plural: 'Wildlife and trail closures', path: '/seasonal-closures/', category: 'outdoors' },
+  // The first day and the last day of school, and graduation, from the district's calendar.
+  'school-date': { label: 'School date', plural: 'School dates', path: '/school-dates/', category: 'family' },
+  // A property-tax due date, from the county treasurer.
+  'tax-date': { label: 'Tax date', plural: 'Property-tax dates', path: '/property-tax-dates/', category: 'civic' },
 };
 
 /**
@@ -60,6 +87,8 @@ export const TRADITION_TYPE_INFO: Record<TraditionType, { label: string; plural:
 export const CURRENT_SEASONS: Partial<Record<TraditionType, { season: string; year?: number }>> = {
   'parade-of-lights': { season: 'winter', year: 2026 },
   'tree-lighting': { season: 'winter', year: 2026 },
+  // Opened 12 November 2026, with six verified records (the owner's bar was five).
+  'turkey-trot': { season: 'Thanksgiving', year: 2026 },
   // No year: outdoor dates run through the year, so the page shows every
   // record's next date, whichever year that falls in (nextRow).
   outdoor: { season: 'through the year' },
@@ -173,7 +202,8 @@ export interface TraditionRow {
   /**
    * The newest entry's date has passed and the record has no later year:
    * the row says the next date is not yet announced and gives this one as
-   * the last (nextRow). Never set on a season page's row.
+   * the last (nextRow). On a season page's row (toRow) it is set once the
+   * season's own date has passed.
    */
   past?: boolean;
 }
@@ -181,7 +211,14 @@ export interface TraditionRow {
 export function toRow(record: TraditionRecord, today: string): TraditionRow | undefined {
   const entry = currentEntry(record);
   if (!entry) return undefined;
-  return { record, entry, year: entry.year, lastHeld: lastHeld(record, entry.year, today), source: entrySource(record, entry) };
+  const source = entrySource(record, entry);
+  // A date that has passed is no longer the season's date to come: the row
+  // stops reading "Confirmed", leaves the count and leaves the Event
+  // markup, and gives the day as the last held (as nextRow does on a town
+  // page). Until 12 November 2026 a season page never expired a date.
+  const end = entry.endDate ?? entry.date;
+  if (isDated(entry) && end && end < today) return { record, entry, year: entry.year, lastHeld: entry.date, source, past: true };
+  return { record, entry, year: entry.year, lastHeld: lastHeld(record, entry.year, today), source };
 }
 
 /** A to Z by town, then by event name: the hub's order. */
@@ -275,10 +312,11 @@ export function townGroups(records: readonly TraditionRecord[], guide: string, t
     .filter((r) => r.town?.guide === guide)
     .map((r) => toRow(r, today))
     .filter((row): row is TraditionRow => !!row);
+  // A date that has passed is no longer "confirmed": it waits with the rest.
   const dated = rows
-    .filter((r) => r.entry.status !== 'not-announced')
+    .filter((r) => r.entry.status !== 'not-announced' && !r.past)
     .sort((a, b) => (a.entry.date ?? '9999').localeCompare(b.entry.date ?? '9999') || a.record.name.localeCompare(b.record.name));
-  const waiting = rows.filter((r) => r.entry.status === 'not-announced').sort((a, b) => a.record.name.localeCompare(b.record.name));
+  const waiting = rows.filter((r) => r.entry.status === 'not-announced' || r.past).sort((a, b) => a.record.name.localeCompare(b.record.name));
   return { dated, waiting };
 }
 

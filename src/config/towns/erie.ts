@@ -144,6 +144,10 @@ export const erie: TownConfig = {
         items: [
           { label: 'Haulers the Town lists', url: 'https://www.erieco.gov/1284/Utility-Providers', note: 'One Way, Republic Services, Waste Connections, Waste Management and Western Disposal; curbside compost from Waste Connections, Western Disposal and Wompost' },
           { label: 'Erie Recycling Center, 1000 Briggs St', url: 'https://www.erieco.gov/282/Recycling-Center', note: 'Free for Erie residents (a Town water bill is proof): single-stream, cardboard, yard waste, food scraps and mixed metal, and gently used clothing and shoes in tied bags; 8 am to 4 pm daily, holidays and weather permitting; 303-926-2734. Leaves go here in paper yard-waste bags, never into the street or the storm drains' },
+          // Added 12 November 2026 (the holiday pass), from the Town's Tree
+          // Recycling page read that day. The page gives no season and never
+          // says "Christmas": trees are taken all year.
+          { label: 'Christmas trees: Erie Recycling Center', url: 'https://www.erieco.gov/1651/Tree-Recycling', note: 'Trees are taken for composting all year at the marked drop-off area, 1000 Briggs St, 8 am to 4 pm daily, for Erie residents with proof of residency; free of decorations, hooks, ornaments, tinsel, string and beads' },
           { label: 'Household hazardous waste', url: 'https://www.erieco.gov/980/Household-Hazardous-Waste', note: 'Boulder County’s facility at 1901 63rd St takes Erie residents from either county, Wednesday to Saturday 8:30 to 4; Weld County’s are in Greeley and Dacono' },
           { label: 'Eco-Cycle CHaRM: hard-to-recycle items', url: 'https://ecocycle.org/services-and-facilities/charm/', note: 'In Boulder; takes plastic bags, which the Erie center does not' },
         ],

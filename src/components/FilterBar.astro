@@ -22,17 +22,30 @@ interface Props {
   openNow?: boolean;
   /** On a multi-town guide, a second row narrowing to one of its towns; rows carry data-sub-town. */
   subTowns?: Array<{ slug: string; label: string }>;
+  /**
+   * "Show only" toggles that combine with the first row (the hub's weekend
+   * page: Free, Live music). A row is shown when it carries every toggle
+   * that is on, in `data-tags`. With them comes a Reset button.
+   */
+  toggles?: Array<{ key: string; label: string }>;
+  /**
+   * The first row's choice in the address and the browser (the hub's
+   * weekend page: `town`): `?town=erie` opens the page on Erie, and the
+   * last choice is remembered for the next visit. The toggles go in
+   * `?only=free,music`. Unset, the bar keeps nothing, as before.
+   */
+  remember?: string;
 }
 
-const { options, label = 'Filter', rowLabel = 'What', openNow = false, subTowns = [] } = Astro.props;
+const { options, label = 'Filter', rowLabel = 'What', openNow = false, subTowns = [], toggles = [], remember } = Astro.props;
 const pill =
   'min-h-11 rounded-full border border-primary-line bg-raised px-4 py-2 text-sm sm:min-h-0 sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white';
 ---
 {/* Held at the top of the screen while its list scrolls: a directory on a
    phone runs to many screens, and the filters used to scroll away with the
    first of them. The negative margins carry its paper to the page edge. */}
-{(options.length > 1 || openNow || subTowns.length > 1) && (
-  <div class="sticky top-0 z-20 -mx-5 mb-5 space-y-3 bg-paper/95 px-5 py-3 shadow-[0_1px_0_var(--color-line-soft)] backdrop-blur-sm sm:-mx-8 sm:px-8 md:mb-7 lg:-mx-10 lg:px-10" data-filter-bar>
+{(options.length > 1 || openNow || subTowns.length > 1 || toggles.length > 0) && (
+  <div class="sticky top-0 z-20 -mx-5 mb-5 space-y-3 bg-paper/95 px-5 py-3 shadow-[0_1px_0_var(--color-line-soft)] backdrop-blur-sm sm:-mx-8 sm:px-8 md:mb-7 lg:-mx-10 lg:px-10" data-filter-bar data-remember={remember}>
     {/* Every row is labelled, so "Where" no longer sits under an unlabelled
         first row whose buttons started further left (see .filter-row). */}
     <div class="filter-row" role="group" aria-label={label}>
@@ -60,6 +73,17 @@ const pill =
         </div>
       </div>
     )}
+    {toggles.length > 0 && (
+      <div class="filter-row" role="group" aria-label="Show only">
+        <span class="eyebrow text-ink-muted">Show only</span>
+        <div class="filter-pills">
+          {toggles.map((t) => (
+            <button type="button" data-filter-tag={t.key} aria-pressed="false" class:list={[pill, 'border-dashed']}>{t.label}</button>
+          ))}
+          <button type="button" data-filter-reset hidden class="min-h-11 px-2 text-sm font-semibold text-primary underline sm:min-h-0">Reset</button>
+        </div>
+      </div>
+    )}
     {openNow && <p class="text-[0.875rem] text-ink-muted" data-filter-unknown hidden></p>}
     <p class="sr-only" role="status" data-filter-status></p>
   </div>
@@ -78,6 +102,26 @@ const pill =
     const buttons = bar.querySelectorAll<HTMLButtonElement>('[data-filter]');
     const openToggle = bar.querySelector<HTMLButtonElement>('[data-filter-open]');
     const whereButtons = bar.querySelectorAll<HTMLButtonElement>('[data-where]');
+    const tagButtons = bar.querySelectorAll<HTMLButtonElement>('[data-filter-tag]');
+    // The toggles that are on, and where the first row's choice is kept.
+    const only = new Set<string>();
+    const remember = bar.dataset.remember;
+    const storageKey = remember ? `filter:${location.pathname}:${remember}` : undefined;
+    const keep = () => {
+      if (!remember) return;
+      const url = new URL(location.href);
+      if (value === 'all') url.searchParams.delete(remember);
+      else url.searchParams.set(remember, value);
+      if (only.size) url.searchParams.set('only', [...only].join(','));
+      else url.searchParams.delete('only');
+      history.replaceState(null, '', url);
+      try {
+        if (value === 'all') localStorage.removeItem(storageKey!);
+        else localStorage.setItem(storageKey!, value);
+      } catch {
+        /* Private mode, or storage off: the address still carries the choice. */
+      }
+    };
     const search = root.querySelector<HTMLInputElement>('[data-filter-search]');
     let value = 'all';
     let openOnly = false;
@@ -93,6 +137,9 @@ const pill =
       for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.filter === value));
       openToggle?.setAttribute('aria-pressed', String(openOnly));
       for (const b of whereButtons) b.setAttribute('aria-pressed', String(b.dataset.where === where));
+      for (const b of tagButtons) b.setAttribute('aria-pressed', String(only.has(b.dataset.filterTag ?? '')));
+      const barReset = bar.querySelector<HTMLButtonElement>('[data-filter-reset]');
+      if (barReset) barReset.hidden = value === 'all' && only.size === 0;
       const query = search?.value ?? '';
       const items = [...root.querySelectorAll<HTMLElement>('[data-filter-item]')].sort((a, b) => order(a) - order(b));
       const result = filterRows(
@@ -102,8 +149,9 @@ const pill =
           name: item.dataset.name ?? item.querySelector('h3, h4')?.textContent ?? '',
           open: item.dataset.open,
           land: item.dataset.land === 'true',
+          tags: (item.dataset.tags ?? '').split(' ').filter(Boolean),
         })),
-        { value, openOnly, where, query },
+        { value, openOnly, where, query, only: [...only] },
       );
       items.forEach((item, i) => (item.hidden = !result.shown[i]));
 
@@ -132,11 +180,12 @@ const pill =
 
       const label = value === 'all' ? undefined : labelOf(`[data-filter="${value}"]`) ?? value;
       const whereLabel = where === 'all' ? undefined : labelOf(`[data-where="${where}"]`) ?? where;
+      const onlyLabels = [...tagButtons].filter((b) => only.has(b.dataset.filterTag ?? '')).map((b) => b.textContent?.trim() ?? '');
       const empty = root.querySelector<HTMLElement>('[data-filter-empty]');
       if (empty) {
         empty.hidden = result.count > 0;
         const text = empty.querySelector<HTMLElement>('[data-filter-empty-text]');
-        if (text) text.textContent = emptyText({ label, openOnly, whereLabel, query });
+        if (text) text.textContent = emptyText({ label, openOnly, whereLabel, query, onlyLabels });
       }
       const unknown = bar.querySelector<HTMLElement>('[data-filter-unknown]');
       if (unknown) {
@@ -145,13 +194,23 @@ const pill =
       }
       // aria-pressed reports the button; this reports the result, by name.
       const status = bar.querySelector<HTMLElement>('[data-filter-status]');
-      if (status) status.textContent = statusText(result.count, { label, openOnly, whereLabel, query });
+      if (status) status.textContent = statusText(result.count, { label, openOnly, whereLabel, query, onlyLabels });
       // For a page whose sections need more than their groups hidden.
-      root.dispatchEvent(new CustomEvent('filter:change', { detail: { value, label } }));
+      root.dispatchEvent(new CustomEvent('filter:change', { detail: { value, label, only: [...only], onlyLabels, count: result.count } }));
     };
     for (const b of buttons) {
       b.addEventListener('click', () => {
         value = b.dataset.filter ?? 'all';
+        keep();
+        apply();
+      });
+    }
+    for (const b of tagButtons) {
+      b.addEventListener('click', () => {
+        const tag = b.dataset.filterTag ?? '';
+        if (only.has(tag)) only.delete(tag);
+        else only.add(tag);
+        keep();
         apply();
       });
     }
@@ -166,18 +225,20 @@ const pill =
       });
     }
     // Everything back as built: the buttons, the toggle, the search.
-    for (const reset of root.querySelectorAll<HTMLButtonElement>('[data-filter-reset]')) {
+    for (const reset of [...root.querySelectorAll<HTMLButtonElement>('[data-filter-reset]'), ...bar.querySelectorAll<HTMLButtonElement>('[data-filter-reset]')].filter((b, i, all) => all.indexOf(b) === i)) {
       reset.addEventListener('click', () => {
         value = 'all';
         openOnly = false;
         where = 'all';
+        only.clear();
+        keep();
         if (search) search.value = '';
         const url = new URL(location.href);
         url.searchParams.delete('where');
         url.searchParams.delete('q');
         history.replaceState(null, '', url);
         apply();
-        search?.focus();
+        (search ?? bar.querySelector<HTMLButtonElement>('[data-filter="all"]'))?.focus();
       });
     }
     // A section page links here with ?where=firestone; a value the bar does
@@ -203,6 +264,21 @@ const pill =
       document.addEventListener('hours:ready', reveal);
       reveal();
     }
-    if (where !== 'all' || search?.value) apply();
+    // The first row's choice and the toggles, from the address first and
+    // the last visit second; a value the bar does not offer is ignored.
+    if (remember) {
+      const offered = (v: string | null) => !!v && [...buttons].some((b) => b.dataset.filter === v);
+      const fromUrl = params.get(remember);
+      let stored: string | null = null;
+      try {
+        stored = localStorage.getItem(storageKey!);
+      } catch {
+        /* storage off */
+      }
+      if (offered(fromUrl)) value = fromUrl!;
+      else if (!params.has(remember) && offered(stored)) value = stored!;
+      for (const tag of (params.get('only') ?? '').split(',')) if ([...tagButtons].some((b) => b.dataset.filterTag === tag)) only.add(tag);
+    }
+    if (where !== 'all' || search?.value || value !== 'all' || only.size) apply();
   }
 </script>

@@ -10734,3 +10734,117 @@ time not time to test."*
   as a baseline while the test is paused, and the rows in `TODO.md` dated
   to 20 January (the quiet guides' decide-by dates, the held domains).
   They stand as written until the owner says otherwise.
+
+## The bugs pass, and the stocking pull request's answers, 12 November 2026 (evening)
+
+*The owner's reply on #386 and the first of three pull requests from the
+four reviews of the hub (12 November 2026, against 0a36348). Each finding
+was checked in the code first.*
+
+- **A season page expires a date.** `toRow` sets `past` once a season's
+  date is behind today, as `nextRow` does on a town page: the row stops
+  reading "Confirmed", leaves `seasonCounts`, leaves the Event markup, and
+  on a guide's `/traditions/` moves out of "Date confirmed".
+- **"Today" is the reader's.** A row with a date set carries the day it
+  ends and, hidden, what it reads once that day has passed;
+  `DateCorrection.astro` (src/lib/tradition-expiry.ts) swaps them by the
+  reader's Denver date on the town pages, the season pages and a guide's
+  `/traditions/`, and puts right what hangs off the rows: the year strip's
+  marks and its "now" month, "Next" under a town's name, a season page's
+  count. Structured data stays the build's.
+- **One rule for free** (`src/lib/cost.ts`): the organizer's word, with
+  nothing paid after it. "Free; costume contest $5" is not free and its
+  structured price is a range from 0, not 0; a missing cost is never free.
+  The event cards and their filter, the weekly regulars, the Event markup,
+  the family pages and the programs all read it.
+- **The weekend page on a stale build** drops a day that falls before the
+  reader's weekend, as the build always has: left in, Monday to Thursday
+  sorted to the top of "Coming up".
+- **Two dead comparison pages** (`/moving/windsor-vs-fortcollins/`,
+  `/moving/timnath-vs-windsor/`) redirect to `/moving/`.
+- **Elizabeth is folded** into insidethetowns.com/elizabeth/, like Timnath:
+  the page's third date is the Mayor's Tree Lighting (5 December 2026), the
+  Town Clerk's release the owner read himself, moved from `docs/agent/`
+  into the records with the fold. Its content, its sources and Elizabeth
+  High's sports left; its domain's twelve rules go to the page. No guide
+  is quiet and nothing is deployed but the seven and the hub.
+- **Cache headers: not changed, the owner's call.** The reviews ask for
+  `max-age=31536000, immutable` on `/_astro/`. `test/cache-headers.test.ts`
+  forbids exactly that, for a recorded reason: Vercel puts a path's
+  headers on a 404 too, and on 8 October a renamed stylesheet's 404 was
+  cached for a year by a visitor's browser, who saw bare HTML. The hour
+  stands until the owner says which risk he prefers.
+- **Subscribers who get nothing** (counted read-only through Buttondown,
+  15 in all): six hold only a tag no edition reaches, `golden` three (one
+  unconfirmed), `longmont` one, `estes-park` one (unconfirmed), `niwot` one
+  (unconfirmed). Nothing in delivery changed; the proposal is in the pull
+  request.
+- **Statewide dates do not count toward the two** on a guide's home page:
+  outdoor dates lead only when two of the guide's own local dates are set.
+  Lyons opens on its tree lighting and parade.
+- **River flow and snowpack** are the second and third signatures
+  (src/lib/town-signals.ts, `.github/workflows/town-signals.yml`, daily).
+  Chosen and checked against the agencies' own services on 12 November:
+  Salida, DWR ARKSALCO (Arkansas River at Salida; the USGS gauges nearby
+  are seasonal and report nothing in November); Buena Vista, DWR ARKGRNCO
+  (at Granite, about 16 miles upstream: no gauge nearer reports all year,
+  and the page says where it is); Durango, USGS 09361500; Golden, USGS
+  06719505; Grand Junction, USGS 09106485 (above the Gunnison); Fort
+  Lupton, USGS 06721000; Fort Morgan, USGS 06759500; Longmont, DWR
+  SVCLOPCO (in town; the USGS gauge is below the Boulder Creek confluence
+  and reads more than twice as much); Timnath, USGS 06752280. Snowpack:
+  Leadville, 485 Fremont Pass; Breckenridge, 415 Copper Mountain;
+  Crested Butte, 380 Butte; Nederland, 564 Lake Eldora. USGS is read from
+  api.waterdata.usgs.gov, since waterservices.usgs.gov "will be
+  permanently shut down on February 22nd, 2027". Castle Rock has no
+  signature. Road status, ski-area status and aspen colour are not built.
+- **CPW**: the block stays, with its caveat and its link. A courtesy email
+  asking permission is drafted for the owner to send
+  (`docs/relationships/drafts/cpw-stocking-report-2026-11-12.md`).
+
+## The home page, the weekend filters and the season pages, 12 November 2026 (night)
+
+The owner's second pull request of three. Stacked on the bugs pass.
+
+- **The hub home page** is in the owner's order: a shorter hero that keeps
+  the town picker; the season collections; the weekend; the newsletter
+  signup; the towns; moving; sports; how it is made. A collection shows
+  only while its records have a date still to come (`isUpcoming`), with its
+  count read from the records; when none has, outdoor dates stand in. No
+  season list is written into the page. Every weekend card shows its day.
+- **"Showpiece pages" is gone** from the directory. Estes Park sits under
+  "Park gateway" and Salida under "Arkansas valley"; each town's county is
+  text beside its name. No URL changed.
+- **The weekend page** has two filters, Free and Live music
+  (`category: music`), that combine with the town filter. The town is kept
+  in the address and in the browser's storage; the filters are kept in the
+  address only. There is no Kids & families filter and no region filter.
+- **Season pages** list dates to come first, in date order or A to Z, then
+  "Not announced yet", then what has passed. "Add to calendar" is an
+  all-day entry unless the record's start time parses with certainty
+  (src/lib/tradition-calendar.ts); an end time is never made up.
+- **Turkey trots** have a page because six records are verified from the
+  organizers' own pages. Eleven more whose only source is a RunSignup
+  listing are held in `docs/agent/dates/held-runsignup/` for the owner.
+- **Ski closing days** are `outdoor` records, seven read from the areas'
+  own pages. Breckenridge, Keystone and Crested Butte could not be read
+  (the resort sites refuse automated reads) and Echo Mountain's robots
+  file disallows it; none is listed.
+- **Parades of lights**: no organizer's page for Windsor, Johnstown,
+  Loveland, Fort Collins or Golden lists one this season, so none is added.
+- **CHSAA championships** are not built: chsaanow.com's robots file
+  disallows this reader. A dated row is in TODO.md.
+- **Christmas-tree recycling**: only Frederick has published this season's
+  dates and Erie takes trees all year; both are in the guides. Berthoud,
+  Windsor, Johnstown, Lyons and Niwot have published nothing readable, and
+  nothing is written for them.
+- **Niwot** has a signup for occasional updates. Its tag is allowed at
+  signup and still blocked from the weekly edition (`emailTowns()`), and
+  the copy says occasional, not weekly. No update email exists yet: one is
+  sent only when the owner sends it.
+- **Moving** compares the seven on commute and school district, from what
+  the configs already source. No guide has a sourced housing cost, so the
+  page shows none.
+- **Five record types are added with no records**: egg hunts, farmers
+  markets, closures, school dates, tax dates. Dated rows are in TODO.md.
+

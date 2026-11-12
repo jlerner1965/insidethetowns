@@ -9,6 +9,7 @@
  * palettes work together rather than separately, and it is what tells you at a
  * glance that the farmers market you want is in Lyons and not in Erie.
  */
+import { isFreeCost } from '@/lib/cost';
 import type { NetworkEntry } from '@/lib/content';
 import { dayKey, formatDayRange, formatDayShort, formatMonthDay, toIsoLocal } from '@/lib/dates';
 import { clockText, displayTitle, isCanceled, isInProgress, lastDay, listedUntil } from '@/lib/events';
@@ -65,6 +66,7 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â
   class="group relative grid grid-cols-1 gap-x-7 border-t border-line-soft py-5 first:border-t-0 sm:grid-cols-[9rem_1fr] md:py-6"
   data-filter-item
   data-category={town.slug}
+  data-tags={[isFreeCost(data.cost) && 'free', data.category === 'music' && 'music'].filter(Boolean).join(' ') || undefined}
   data-event-day={lastDay(event)}
   data-start={toIsoLocal(data.start)}
   data-end={toIsoLocal(listedUntil(event))}

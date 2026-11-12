@@ -47,6 +47,7 @@ import CheckedLine from '@/components/CheckedLine.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
+import { isFreeCost } from '@/lib/cost';
 import { schoolAthletics, schoolsFor, sportsPath } from '@/config/school-sports';
 import { familyGlance } from '@/lib/family-home';
 import { forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
@@ -75,7 +76,7 @@ const TOPIC_CHIP: Record<ProgramTopic, string> = { sports: 'Sports', arts: 'Arts
 // A heading the schema's label does not fit on a children's page: a youth council is civic, not a public meeting.
 const TOPIC_HEADING: Partial<Record<ProgramTopic, string>> = { civic: 'Civic', other: 'More to join' };
 /** A program's one-line entry: the days and the organizer's calendar, no hours (isStorytimeProgram). */
-const storytimeLine = (p: (typeof programs)[number]) => [scheduleDays(p.data.schedule), p.data.price && /^free\b/i.test(p.data.price) ? 'Free' : undefined].filter(Boolean).join(' · ');
+const storytimeLine = (p: (typeof programs)[number]) => [scheduleDays(p.data.schedule), isFreeCost(p.data.price) ? 'Free' : undefined].filter(Boolean).join(' · ');
 const free = freePrograms(programs);
 // School breaks still ahead, from the district calendar, in date order,
 // each with the program that says it keeps hours on it (openOn), if one

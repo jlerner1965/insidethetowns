@@ -12,6 +12,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
+import DateCorrection from '@/components/DateCorrection.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { findTown, getNetworkHub, getTown } from '@/config';
 import { STANDALONE_GUIDES } from '@/config/hub-towns';
@@ -115,4 +116,5 @@ const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${en
   </p>
 
   <NewsletterSignup town={town} />
+  <DateCorrection />
 </Page>

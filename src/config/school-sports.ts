@@ -394,22 +394,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     calendarNote: 'Niwot’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
     teams: TEAMS([...FALL(), NIWOT_GYMNASTICS, NIWOT_BOYS_GOLF, NIWOT_BOYS_TENNIS]),
   },
-  {
-    town: 'elizabeth',
-    // CHSAANow: Elizabeth High School, Elizabeth School District; football 2A, 2A Metro (2026–28).
-    school: 'Elizabeth High School',
-    mascot: 'Cardinals',
-    maxpreps: 'https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/',
-    maxprepsName: 'Elizabeth',
-    // Cardinal red, the shade the school's own site brands with (MaxPreps's
-    // CC0022 is Loveland High's too); the guide's primary is the same.
-    colors: { primary: '#8D181B' },
-    // The school's athletics page sends schedules to GoBound
-    // (gobound.com/co/schools/elizabethhs), which this reader does not read.
-    calendarNote: 'Elizabeth’s schedules live on GoBound, which this site does not read yet, so games to come are published on MaxPreps’s word alone.',
-    // No girls' swimming page on MaxPreps (HTTP 404, 25 October 2026).
-    teams: TEAMS(FALL(), WINTER_WITHOUT('girls-swimming')),
-  },
+  // Elizabeth High left the sports run when its guide was folded into its
+  // page on the hub, 12 November 2026.
   {
     town: 'johnstown',
     // CHSAANow: Roosevelt High School, Johnstown-Milliken RE-5J; football 4A, 4A Northern (2026–28).

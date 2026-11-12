@@ -1,0 +1,13 @@
+---
+/**
+ * Corrects a page of dates to the reader's own day (src/lib/tradition-expiry.ts):
+ * the hub's town and season pages and a guide's /traditions/. One line on
+ * each of those pages, as Freshness.astro is on a page of events.
+ */
+---
+<script>
+  import { correctDates } from '@/lib/tradition-expiry';
+  // The sites keep their dates as Denver days, so ask for the date in Denver.
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
+  correctDates(document.body as never, today);
+</script>

@@ -19,13 +19,16 @@
  */
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
+import DateCorrection from '@/components/DateCorrection.astro';
 import { findTown, getHub } from '@/config';
 import { STANDALONE_GUIDES, findHubTown } from '@/config/hub-towns';
 import { homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, seasonCounts, seasonRows, type TraditionType } from '@/lib/traditions';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonCounts, seasonRows, type TraditionType } from '@/lib/traditions';
+import { googleCalendarUrl } from '@/lib/ics';
+import { traditionCalendarEvent } from '@/lib/tradition-calendar';
 
 const hub = getHub();
 const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
@@ -69,9 +72,7 @@ const dated = season.year !== undefined;
 const when = dated ? `${season.season} ${season.year}` : season.season;
 
 const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
-const countLine = dated
-  ? `${plural(counts.towns, 'town', 'towns')} listed · ${plural(counts.confirmed, 'date', 'dates')} confirmed`
-  : `${plural(rows.length, 'date', 'dates')} listed · ${counts.confirmed} with a date ahead`;
+
 
 const title = dated ? `${info.plural}, town by town` : `${info.plural} in Colorado`;
 const seoTitle = `${info.plural} in Colorado, ${when}`;
@@ -86,14 +87,44 @@ const structured = [
     path,
     items: rows.map((r) => ({ name: r.record.town ? `${r.record.name} — ${r.record.town.name}` : r.record.name, url: hrefFor(r) })),
   }),
-  ...rows.map((r) => traditionEventJsonLd(r.record, r.entry, pageUrl)).filter((e) => !!e),
+  // Never an Event for a date that has passed.
+  ...rows.map((r) => (r.past ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
 ];
 const subject = `[Correction] ${info.plural}, ${when}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
+/**
+ * The page in three groups (the reviews of 12 November 2026): the dates
+ * still to come, soonest first; the ones not announced yet; and the ones
+ * already past this season. A canceled row sits with the dates to come
+ * while its day is ahead, where the reader who planned on it will look.
+ */
+const byDate = (a: (typeof rows)[number], b: (typeof rows)[number]) =>
+  (a.entry.date ?? '9999').localeCompare(b.entry.date ?? '9999') || (a.record.town?.name ?? '').localeCompare(b.record.town?.name ?? '') || a.record.name.localeCompare(b.record.name);
+const ahead = (r: (typeof rows)[number]) => isUpcoming(r) || (r.entry.status === 'canceled' && !!r.entry.date && r.entry.date >= today);
+const upcoming = rows.filter(ahead).sort(byDate);
+const gone = rows.filter((r) => r.past).sort((a, b) => byDate(b, a));
+const waiting = rows.filter((r) => !ahead(r) && !r.past);
+/** "Add to calendar" for a date still ahead: the entry's file on this site, and the same entry as a Google link. */
+const calendarFor = (row: (typeof rows)[number]) => {
+  const event = traditionCalendarEvent(row, { domain: hub.domain, pageUrl });
+  return event ? { ics: `/dates/${row.record.slug}.ics`, google: googleCalendarUrl(event) } : undefined;
+};
+const rowProps = (row: (typeof rows)[number]) => ({ row, eyebrow: 'town' as const, href: hrefFor(row), townLabel: townLabel(row), also: alsoFor(row) });
+const sortButton =
+  'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white';
 const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary aria-[current=page]:border-primary aria-[current=page]:bg-primary aria-[current=page]:text-white';
 ---
-<Page title={title} {seoTitle} eyebrow={`Colorado · ${when}`} {description} intro={countLine} jsonLd={structured}>
+<Page title={title} {seoTitle} eyebrow={`Colorado · ${when}`} {description} jsonLd={structured}>
+  {/* The count line, with the number of dates still to come in a span the
+      page corrects for the reader's own day (DateCorrection). */}
+  <p slot="after-header" class="mt-3 max-w-2xl text-[1.0625rem] leading-relaxed text-ink-muted md:text-lg" data-count-line>
+    {dated ? (
+      <Fragment>{plural(counts.towns, 'town', 'towns')} listed · <span data-date-count="dates">{plural(counts.confirmed, 'date', 'dates')}</span> confirmed</Fragment>
+    ) : (
+      <Fragment>{plural(rows.length, 'date', 'dates')} listed · <span data-date-count="ahead">{counts.confirmed}</span> with a date ahead</Fragment>
+    )}
+  </p>
   <div data-town-filter hidden class="mb-5 max-w-sm">
     <label for="town-filter" class="block text-sm font-semibold">Find your town</label>
     <input
@@ -114,19 +145,51 @@ const pill =
     </nav>
   )}
 
-  <section aria-labelledby="rows-heading">
-    <h2 id="rows-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">{dated ? 'A to Z by town' : 'Soonest first'}</h2>
-    <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
-      {rows.map((row) => <TraditionRow row={row} eyebrow="town" href={hrefFor(row)} townLabel={townLabel(row)} also={alsoFor(row)} />)}
+  <section aria-labelledby="rows-heading" class="mb-12" data-season-group="upcoming">
+    <div class="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-line-soft pb-3">
+      <h2 id="rows-heading" class="text-2xl font-medium">Dates to come</h2>
+      {upcoming.length > 1 && (
+        <div role="group" aria-label="Order the dates to come" class="flex flex-wrap gap-2" data-season-sort hidden>
+          <button type="button" class={sortButton} aria-pressed="true" data-sort="date">Soonest first</button>
+          <button type="button" class={sortButton} aria-pressed="false" data-sort="town">A to Z by town</button>
+        </div>
+      )}
     </div>
-    <p data-town-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
-      No town by that name on this page yet.
-    </p>
+    {upcoming.length > 0 ? (
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows data-sortable>
+        {upcoming.map((row) => <TraditionRow {...rowProps(row)} calendar={calendarFor(row)} />)}
+      </div>
+    ) : (
+      <p class="rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">No date still to come has been published yet.</p>
+    )}
   </section>
+
+  {waiting.length > 0 && (
+    <section aria-labelledby="waiting-heading" class="mb-12" data-season-group="waiting">
+      <h2 id="waiting-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">Not announced yet</h2>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
+        {waiting.map((row) => <TraditionRow {...rowProps(row)} />)}
+      </div>
+    </section>
+  )}
+
+  {gone.length > 0 && (
+    <section aria-labelledby="gone-heading" class="mb-12" data-season-group="past">
+      <h2 id="gone-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">{dated ? 'Already held this season' : 'Passed; the next date is not announced'}</h2>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
+        {gone.map((row) => <TraditionRow {...rowProps(row)} />)}
+      </div>
+    </section>
+  )}
+
+  <p data-town-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+    No town by that name on this page yet.
+  </p>
 
   <p class="mt-12 rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
     Town missing, or a date wrong? <a href={mailto} class="font-semibold underline">Tell us</a>. Every date links to the page it was read from.
   </p>
+  <DateCorrection />
 </Page>
 
 <script>
@@ -153,5 +216,27 @@ const pill =
       if (empty) empty.hidden = shown > 0;
       if (status) status.textContent = q ? `${shown} of ${rows.length} shown` : '';
     });
+  }
+</script>
+
+<script>
+  /*
+   * The order of "Dates to come": soonest first, as built, or A to Z by
+   * town. The buttons stay hidden without the script, and the order is
+   * the rows' own, so nothing is lost.
+   */
+  const group = document.querySelector<HTMLElement>('[data-season-sort]');
+  const list = document.querySelector<HTMLElement>('[data-sortable]');
+  if (group && list) {
+    group.hidden = false;
+    const built = [...list.querySelectorAll<HTMLElement>(':scope > [data-tradition-row]')];
+    const name = (row: HTMLElement) => `${row.dataset.town ?? ''} ${row.querySelector('h3')?.textContent ?? ''}`.trim().toLowerCase();
+    for (const button of group.querySelectorAll<HTMLButtonElement>('button[data-sort]')) {
+      button.addEventListener('click', () => {
+        const rows = button.dataset.sort === 'town' ? [...built].sort((a, b) => name(a).localeCompare(name(b))) : built;
+        for (const row of rows) list.append(row);
+        for (const other of group.querySelectorAll('button[data-sort]')) other.setAttribute('aria-pressed', String(other === button));
+      });
+    }
   }
 </script>

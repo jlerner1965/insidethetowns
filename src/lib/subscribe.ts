@@ -21,7 +21,7 @@
  * Pure apart from the `fetch` it is given, so the tests never reach
  * Buttondown.
  */
-import { emailEditions, getNetworkHub } from '../config/index.ts';
+import { emailEditions, getNetworkHub, liveTowns } from '../config/index.ts';
 
 export const BUTTONDOWN_SUBSCRIBERS = 'https://api.buttondown.com/v1/subscribers';
 /** The longest address RFC 5321 allows. */
@@ -29,9 +29,14 @@ const MAX_EMAIL = 254;
 /** Every edition and "All towns" is fewer than this. */
 const MAX_TAGS = 40;
 
-/** The tags a form may post: every town in an edition the email covers, and "All towns". */
+/**
+ * The tags a form may post: every town in an edition the email covers,
+ * "All towns", and a guide that sends occasional updates instead of a
+ * weekly issue (`lead: 'updates'`, Niwot), whose form posts its own tag.
+ */
 export function allowedTags(): Set<string> {
   const tags = new Set(emailEditions().flatMap((e) => e.towns.map((t) => t.slug)));
+  for (const t of liveTowns()) if (t.lead === 'updates') tags.add(t.slug);
   const all = getNetworkHub().newsletter?.allTag;
   if (all) tags.add(all);
   return tags;

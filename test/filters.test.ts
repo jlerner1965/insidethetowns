@@ -105,3 +105,18 @@ test('a filter with many matches folds after the first few of them; reset restor
 test('names compare the way a reader types them', () => {
   assert.equal(normalizeName('Café  Luna’s'), "cafe luna's");
 });
+
+test('the weekend page: Free and Live music combine with the town, and the line says which are on', () => {
+  const weekend: FilterRow[] = [
+    { name: 'Concert in the park', category: 'erie', tags: ['free', 'music'] },
+    { name: 'Open mic', category: 'erie', tags: ['music'] },
+    { name: 'Story time', category: 'windsor', tags: ['free'] },
+    { name: 'Farm dinner', category: 'windsor' },
+  ];
+  assert.deepEqual(names(weekend, { only: ['free'] }), ['Concert in the park', 'Story time']);
+  assert.deepEqual(names(weekend, { only: ['free', 'music'] }), ['Concert in the park'], 'both, not either');
+  assert.deepEqual(names(weekend, { value: 'windsor', only: ['music'] }), [], 'the town still holds');
+  assert.equal(statusText(2, { openOnly: false, query: '', onlyLabels: ['Free'] }), '2 results, free only', 'no comma left hanging');
+  assert.equal(statusText(1, { label: 'Erie', openOnly: false, query: '', onlyLabels: ['Free', 'Live music'] }), '1 result, free and live music only, in Erie');
+  assert.equal(emptyText({ label: 'Windsor', openOnly: false, query: '', onlyLabels: ['Live music'] }), 'Nothing marked live music in Windsor.');
+});

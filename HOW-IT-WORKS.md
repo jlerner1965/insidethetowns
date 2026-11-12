@@ -52,8 +52,8 @@ The config flag decides what a guide is; nothing is per-town in code.
 | Resident guide | `home: true` | Berthoud, Erie, Johnstown, Windsor, Carbon Valley, Lyons, Niwot | Follows a school; has Families, Living here and Updates; gets the Thursday email. Lyons (`lead: 'outdoors'`) leads with the outdoor dates and keeps sports out of its menu; Niwot (`lead: 'updates'`) lists no events, is out of the email and the Wednesday notes run, and posts when there is an update |
 | Plain guide | none | — (none today) | In the email and the weekly rotation |
 | Visitor guide | `visitorGuide` | — (none today) | Checked on the 60-day cycle; no email, no signup box |
-| Quiet guide | `quiet` | Elizabeth | Pages up and indexed; listings checked as the rotation reaches them; no email, no signup, no Thursday draft. Each has a decide-by date in its config |
-| Folded or retired | `status: 'redirect'` | Severance (into Windsor); Frederick (to Carbon Valley, which covers it); Black Hawk, Castle Rock, Estes Park, Evergreen, Fort Collins, Fort Lupton, Georgetown, Golden, Clear Creek (Idaho Springs), Lafayette, Grand Lake, Leadville, Longmont, Loveland, Manitou Springs, Nederland and Timnath (to the town's page on the hub, `hubPage`, 12 November 2026) | No guide: every path on the domain redirects (`vercel.json`, `docs/REDIRECTS.md`) |
+| Quiet guide | `quiet` | — (none today) | Pages up and indexed; listings checked as the rotation reaches them; no email, no signup, no Thursday draft. Each has a decide-by date in its config |
+| Folded or retired | `status: 'redirect'` | Severance (into Windsor); Frederick (to Carbon Valley, which covers it); Black Hawk, Castle Rock, Elizabeth, Estes Park, Evergreen, Fort Collins, Fort Lupton, Georgetown, Golden, Clear Creek (Idaho Springs), Lafayette, Grand Lake, Leadville, Longmont, Loveland, Manitou Springs, Nederland and Timnath (to the town's page on the hub, `hubPage`, 12 November 2026) | No guide: every path on the domain redirects (`vercel.json`, `docs/REDIRECTS.md`) |
 
 `test/how-it-works.test.ts` holds this table to the configs.
 
@@ -63,8 +63,8 @@ town page on the hub, which is dates only: its traditions and its outdoor
 dates, each from one record with its source and check date
 (`content/hub/traditions/`, `src/config/hub-towns.ts`). A town gets its
 page once three of its own dates are verified; a live guide is folded into
-it only then, which is why Elizabeth's guide is still up (its page has two
-verified dates); it is deployed and audited, and on no list of guides.
+it only then. Elizabeth's was the last, folded on 12 November 2026 once its
+third date was read.
 
 The hub lists the seven guides, in that order on every page that lists them
 (`liveTowns()`, from `STANDALONE_GUIDES`), and every town page by cluster, and
@@ -192,6 +192,15 @@ event page's Where carries a Directions link, as a place page does.
 venue, lodging or a landmark. A resident guide's About calls it a
 community guide; the other town guides are community and visitor guides.
 
+**A season page** (12 November 2026) lists dates to come first, in date
+order or A to Z, then "Not announced yet", then what has passed. Each dated
+row has "Add to calendar": a one-event file at `/dates/<record>.ics` and a
+Google link, all-day unless the record's start time parses with certainty
+(`src/lib/tradition-calendar.ts`). The hub's home page shows a collection
+only while its records have a date to come. `/this-weekend/` filters by
+town, Free and Live music together; the town is kept in the address and in
+the browser, the filters in the address.
+
 **A town page on the hub** (12 November 2026) opens on the town's name over
 its landscape: the photograph where one is licensed (Estes Park), otherwise a
 drawn horizon for the country it is in (peaks, foothills, mesas or plains,
@@ -207,10 +216,18 @@ no code. A town may carry one **signature** (`signature` in
 `src/config/hub-towns.ts`): a block from a public source with its source
 link and checked date, read by a scheduled job into `data/hub/` and never
 at build time; the first is "Recently stocked near <Town>" from Colorado
-Parks and Wildlife's stocking report (`src/lib/fish-stocking.ts`).
+Parks and Wildlife's stocking report (`src/lib/fish-stocking.ts`). The others
+are the river at the town's gauge (USGS or Colorado DWR) and the snowpack
+at its SNOTEL station (`src/lib/town-signals.ts`), each shown only while
+its reading is fresh.
+
+**A page of dates corrects itself to the reader's day**
+(`DateCorrection.astro`): a date that has passed since the build stops
+reading "Confirmed". **Free** is one rule, `src/lib/cost.ts`.
 
 **A guide's dates on its home page** are only those with a date set. The
-outdoor dates lead when two or more qualify; otherwise the guide's own
+outdoor dates lead when two or more of the guide's own local ones qualify
+(a statewide date does not count); otherwise the guide's own
 traditions lead and the outdoor dates come second (`guideHomeDates`). The
 rest are on `/traditions/`. The hub's home hero has the Front Range photograph beside the
 headline from lg.

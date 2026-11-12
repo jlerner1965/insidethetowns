@@ -81,8 +81,8 @@ test('the network counts every county it covers, not every town', () => {
   // into their pages on the hub; Larimer stays with Berthoud, Johnstown and
   // Windsor though Fort Collins, Loveland, Timnath and Estes Park went too.
   // This counts the guides' counties only: the hub's town pages name theirs
-  // in src/config/hub-towns.ts.
-  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Elbert', 'Larimer', 'Weld']);
+  // in src/config/hub-towns.ts. Elbert left with Elizabeth, folded that evening.
+  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Larimer', 'Weld']);
 });
 
 test('no guide claims a single school district for a town that has two', () => {
@@ -149,8 +149,8 @@ test('what is live is decided by status, nowhere else', () => {
   // every town says which chassis it runs on.
   assert.deepEqual(LIVE_TOWNS, towns.filter((t) => t.status === 'live').map((t) => t.slug));
   // Nine were live on 1 October 2026; the restructure of 12 November left
-  // the seven standalone guides and Elizabeth.
-  assert.ok(LIVE_TOWNS.length >= 8, 'eight guides stayed live on 12 November 2026');
+  // the seven standalone guides and Elizabeth, folded that evening.
+  assert.ok(LIVE_TOWNS.length >= 7, 'the seven guides are live');
   for (const t of towns) {
     assert.ok(['live', 'wave1', 'wave2', 'wave3', 'wave4', 'redirect'].includes(t.status), `${t.slug}: status`);
     assert.ok(['front-range', 'mountain'].includes(t.variant), `${t.slug}: variant`);

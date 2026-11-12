@@ -16,6 +16,7 @@
  * and a directory of every weekday is not what was asked for
  * (src/lib/filters.ts, `eventRowShown`).
  */
+import { isFreeCost } from '@/lib/cost';
 import { isTentative } from '@/lib/confidence';
 import type { TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatWeekday } from '@/lib/dates';
@@ -61,7 +62,7 @@ const through = (e: TownEntry<'events'>) => (e.data.until && !e.seriesCut ? `thr
                 data-directory
                 data-category={e.data.category}
                 data-start-day={dayKey(e.data.start)}
-                data-free={/^free\b/i.test(e.data.cost ?? '') ? 'true' : undefined}
+                data-free={isFreeCost(e.data.cost) ? 'true' : undefined}
                 data-sub-town={e.data.subTown}
               >
                 <p class="text-sm font-semibold tabular-nums text-ink-muted sm:pt-0.5">{e.data.timeNote ?? clockText(e)}</p>

@@ -192,6 +192,8 @@ const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   // A town's page, built only for a town with three dated items of its own
   // (src/lib/hub-towns.ts); the file's getStaticPaths names them.
   ['/[town]', 'town.astro'],
+  // One date as a calendar entry (src/lib/tradition-calendar.ts).
+  ['/dates/[slug].ics', 'date.ics.ts'],
   // Read and deleted by the indexing step; never deployed (src/lib/network-search.ts).
   ['/network-search.json', 'network-search.json.ts'],
 ];

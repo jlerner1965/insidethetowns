@@ -137,7 +137,7 @@ test('the season page: one row per town with an entry for the season, A to Z, an
   assert.deepEqual(rows.map((x) => x.record.town.name), ['Aspen', 'Berthoud', 'Erie', 'Windsor'], 'a record with no 2026 entry is not listed');
   // Confirmed and moved carry an organizer's date; canceled and not announced do not.
   assert.deepEqual(seasonCounts(rows), { towns: 4, confirmed: 2 });
-  assert.deepEqual(seasonRows(RECORDS, 'turkey-trot', TODAY), [], 'no season set, no page');
+  assert.deepEqual(seasonRows(RECORDS, 'fireworks', TODAY), [], 'no season set, no page');
 });
 
 test('a guide’s page: dated soonest first, then not announced; other guides’ records left out', () => {
@@ -207,7 +207,7 @@ test('without the switch, no fixture reaches a route', () => {
   }
   const on = { TRADITIONS_FIXTURES: '1' };
   assert.ok(guidesWithTraditions('.', on).has('berthoud'));
-  assert.deepEqual(seasonTypesWithRecords('.', on).filter((t) => t !== 'outdoor'), ['parade-of-lights', 'tree-lighting']);
+  assert.deepEqual(seasonTypesWithRecords('.', on).filter((t) => t !== 'outdoor'), ['parade-of-lights', 'tree-lighting', 'turkey-trot']);
 });
 
 test('the routes: /traditions/ only on a guide a record names; a hub page per season type with a record', () => {
@@ -218,7 +218,8 @@ test('the routes: /traditions/ only on a guide a record names; a hub page per se
     assert.ok(Object.values(TRADITION_TYPE_INFO).some((i) => i.path === `${pattern}/`), pattern);
     assert.doesNotMatch(pattern, /\d{4}/, 'no year in the address');
   }
-  assert.deepEqual(Object.keys(CURRENT_SEASONS).sort(), ['outdoor', 'parade-of-lights', 'tree-lighting']);
+  // Turkey trots opened on 12 November 2026 with six verified records.
+  assert.deepEqual(Object.keys(CURRENT_SEASONS).sort(), ['outdoor', 'parade-of-lights', 'tree-lighting', 'turkey-trot']);
 });
 
 // ---------- approved records and drafts ----------

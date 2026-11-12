@@ -77,7 +77,7 @@ const uncovered = liveTowns().length - towns.length - noEvents.length;
     </ul>
     {noEvents.length > 0 && (
       <p>
-        {names(noEvents.map((t) => ({ name: t.siteTitle })))} {noEvents.length === 1 ? 'lists' : 'list'} no events, so there is no weekly edition and no box for {noEvents.length === 1 ? 'it' : 'them'} above; {noEvents.length === 1 ? 'it posts' : 'they post'} updates on {noEvents.length === 1 ? 'its' : 'their'} own site when there is one.
+        {names(noEvents.map((t) => ({ name: t.siteTitle })))} {noEvents.length === 1 ? 'lists' : 'list'} no events, so there is no weekly edition and no box for {noEvents.length === 1 ? 'it' : 'them'} above; {noEvents.length === 1 ? 'it posts' : 'they post'} updates on {noEvents.length === 1 ? 'its' : 'their'} own site, where you can sign up for an occasional email when there is one{noEvents.length === 1 && <Fragment>: <a href={`https://${noEvents[0]!.domain}/#signup`} class="text-primary underline">{noEvents[0]!.siteTitle}</a></Fragment>}.
       </p>
     )}
     {uncovered > 0 && (

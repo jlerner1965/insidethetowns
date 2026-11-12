@@ -19,7 +19,6 @@ export type { Terrain } from '../config/hub-towns.ts';
 
 /** The country each cluster is in. */
 export const TERRAIN: Record<HubCluster, Terrain> = {
-  'Showpiece pages': 'peaks',
   'Park gateway': 'peaks',
   'Front Range cities': 'foothills',
   'Front Range and plains towns': 'plains',

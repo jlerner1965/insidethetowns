@@ -4,7 +4,7 @@ name: "Castle Rock Starlighting"
 town:
   name: Castle Rock
   guide: castle-rock
-type: festival
+type: tree-lighting
 organizer: "Castle Rock Chamber of Commerce"
 sourceUrl: "https://castlerock.org/castle-rock-starlighting/"
 firstYear: 1962

@@ -76,8 +76,8 @@ test('every guide has the same menu, built from what it has: the week (Updates o
   assert.equal(townNav(towns.find((t) => t.slug === 'windsor')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
   // Erie follows Erie High since 25 October 2026, so its menu carries Erie High in the third slot.
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
-  // A guide without the family hub or Living here keeps Events and Moving here: Elizabeth, the one live guide without them (Longmont's menu was the example until that guide was folded on 12 November 2026).
-  assert.deepEqual(townNav(towns.find((t) => t.slug === 'elizabeth')!).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Events', 'Moving here', 'Guides']);
+  // A guide without the family hub or Living here keeps Events and Moving here, and one without a school has no sports item: Elizabeth's config, folded into its hub page on 12 November 2026 (its school left the sports run), is the shape still on file.
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'elizabeth')!).map((n) => n.label), ['This week', 'Things to do', 'Eat & drink', 'Events', 'Moving here', 'Guides']);
 });
 
 test('Shops is in the menu only where the guide lists enough open shops, right after Eat & drink', () => {

@@ -11,7 +11,7 @@ import { RIDGE_HEIGHT, RIDGE_WIDTH, TERRAIN, ridgeline } from '../src/lib/ridgel
 test('a slug draws the same horizon every time', () => {
   for (const t of HUB_TOWNS) assert.deepEqual(ridgeline(t.slug, t.cluster, t.terrain), ridgeline(t.slug, t.cluster, t.terrain), t.slug);
   // Pinned, so a change to the generator is a decision and not an accident.
-  assert.ok(ridgeline('salida', 'Showpiece pages').layers[0].startsWith('M0 220 L0 21.1 L73 26.9 L150 31.9 L228 86.9 L300 96.1'));
+  assert.ok(ridgeline('salida', 'Arkansas valley').layers[0].startsWith('M0 220 L0 21.1 L73 26.9 L150 31.9 L228 86.9 L300 96.1'));
   const again = JSON.stringify(ridgeline('leadville', 'Arkansas valley'));
   for (let i = 0; i < 5; i++) assert.equal(JSON.stringify(ridgeline('leadville', 'Arkansas valley')), again);
 });

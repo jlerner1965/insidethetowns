@@ -75,6 +75,28 @@
       ]
     },
     {
+      "source": "/moving/timnath-vs-windsor{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/moving/",
+      "permanent": true
+    },
+    {
+      "source": "/moving/windsor-vs-fortcollins{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/moving/",
+      "permanent": true
+    },
+    {
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
       "permanent": false
@@ -1367,17 +1389,6 @@
       "permanent": true
     },
     {
-      "source": "/places/two-bridges-trail{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideelizabeth.com"
-        }
-      ],
-      "destination": "/things-to-do/",
-      "permanent": true
-    },
-    {
       "source": "/events/music-and-movement-afternoon-sessions-2026{/}?",
       "has": [
         {
@@ -2024,83 +2035,6 @@
         }
       ],
       "destination": "/sports/windsor-high/girls-basketball/",
-      "permanent": true
-    },
-    {
-      "source": "/events/elbert-county-marketplace-2026-10-03{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideelizabeth.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/events/heritage-crew-2026-10-03{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideelizabeth.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/families{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideelizabeth.com"
-        }
-      ],
-      "destination": "/events/",
-      "permanent": true
-    },
-    {
-      "source": "/living-here{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideelizabeth.com"
-        }
-      ],
-      "destination": "/moving-here/",
-      "permanent": true
-    },
-    {
-      "source": "/places/86-and-main{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideelizabeth.com"
-        }
-      ],
-      "destination": "/eat-drink/",
-      "permanent": true
-    },
-    {
-      "source": "/places/coffee-house-on-main{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideelizabeth.com"
-        }
-      ],
-      "destination": "/eat-drink/",
-      "permanent": true
-    },
-    {
-      "source": "/places/cowgirlz-coffee{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideelizabeth.com"
-        }
-      ],
-      "destination": "/eat-drink/",
       "permanent": true
     },
     {
@@ -5511,6 +5445,138 @@
         }
       ],
       "destination": "https://insidethetowns.com/grand-junction/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/",
       "permanent": true
     }
   ]

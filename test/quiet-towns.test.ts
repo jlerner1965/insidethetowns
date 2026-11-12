@@ -19,7 +19,7 @@ import { FRESHNESS } from '../src/config/freshness.ts';
 
 const quiet = towns.filter((t) => t.quiet);
 
-test('Elizabeth is the quiet guide, and still live', () => {
+test('no guide is quiet: Elizabeth, the last, was folded into its hub page', () => {
   // Elizabeth from 12 October 2026; Grand Lake, Leadville and Nederland, then
   // Fort Collins, Longmont and Loveland, from 20 October (DECISIONS.md, "The
   // other mountain guides" and "The city guides"). Grand Lake was retired on
@@ -28,8 +28,9 @@ test('Elizabeth is the quiet guide, and still live', () => {
   // The restructure of 12 November 2026 folded Castle Rock, Fort Collins,
   // Leadville, Longmont, Loveland and Nederland into their pages on the hub
   // (test/hub-fold.test.ts): a folded guide is not quiet, it is gone, so
-  // Elizabeth, whose page did not qualify, is the one left.
-  assert.deepEqual(quiet.map((t) => t.slug).sort(), ['elizabeth']);
+  // Elizabeth, whose page did not qualify that morning, was the one left,
+  // and was folded that evening once it did.
+  assert.deepEqual(quiet.map((t) => t.slug).sort(), []);
   for (const t of quiet) assert.equal(t.status, 'live', `${t.slug}: a quiet guide stays up`);
   for (const t of towns.filter((t) => t.hubPage)) assert.equal(t.quiet, undefined, `${t.slug}: folded into its hub page, no longer quiet`);
 });

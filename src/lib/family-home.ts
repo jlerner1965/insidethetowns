@@ -23,6 +23,7 @@
 import { dayKey, daysBetween, formatDayRange, formatDayShort, formatTime, parseLocal, toIsoLocal } from './dates.ts';
 import { listedUntil, weekendWindow } from './events.ts';
 import type { EventLike } from './flagship-home.ts';
+import { isFreeCost } from './cost.ts';
 import { ageText, deadlineAction, isFree, programStatus, splitDeadlines, type ProgramLike } from './programs.ts';
 
 /** How far ahead a school break is worth a line on the home page. */
@@ -74,8 +75,7 @@ function programFacts(p: ProgramLike): string[] {
 
 /** The event's cost says free and nothing paid follows ("Free; registration required" is free). */
 export function eventIsFree(cost: string | undefined): boolean {
-  const c = cost?.trim() ?? '';
-  return /^free\b/i.test(c) && !/\$/.test(c);
+  return isFreeCost(cost);
 }
 
 export function familyLines<P extends ProgramLike, E extends EventLike>({

@@ -43,9 +43,11 @@ interface Props {
   line?: string;
   /** The record's other showings, as links: every showing links to the others. */
   also?: ReadonlyArray<{ label: string; href: string }>;
+  /** "Add to calendar" for a date still ahead: the entry's .ics file and its Google link (src/lib/tradition-calendar.ts). */
+  calendar?: { ics: string; google: string };
 }
 
-const { row, eyebrow, href, townLabel, line, also = [] } = Astro.props;
+const { row, eyebrow, href, townLabel, line, also = [], calendar } = Astro.props;
 const { record, entry, source } = row;
 const type = TRADITION_TYPE_INFO[record.type];
 const day = (d: string) => parseLocal(d);
@@ -71,6 +73,16 @@ const lastEnd = past ? entry.endDate : record.years.find((y) => y.date === row.l
 const pill = 'inline-block rounded-md bg-ink px-2 py-1 text-[0.75rem] font-semibold uppercase leading-tight tracking-[0.1em] text-raised';
 // What the block says is src/lib/date-block.ts, tested there.
 const block = dateBlock(row);
+/**
+ * "Today" is the build's. A row whose date is set carries the day it ends
+ * (`data-ends`) and, hidden, what it reads once that day has passed: the
+ * outline block and "Next date not yet announced · Last held …". The
+ * script on the page (src/lib/tradition-expiry.ts) swaps the two by the
+ * reader's Denver date, as Freshness.astro does for events, so a build a
+ * week old never calls a date that has gone "Confirmed".
+ */
+const expires = dated && !canceled ? (entry.endDate ?? entry.date) : undefined;
+const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
 ---
 <article
   id={record.slug}
@@ -79,10 +91,15 @@ const block = dateBlock(row);
   data-town={town}
   data-status={past ? 'not-announced' : entry.status}
   data-fixture={record.fixture ? '' : undefined}
+  data-starts={expires ? entry.date : undefined}
+  data-ends={expires}
+  data-name={expires ? record.name : undefined}
+  data-day-text={expires ? dayText(entry.date!) : undefined}
 >
   <div
     aria-hidden="true"
     data-date-block={block.set ? 'set' : 'open'}
+    data-when-set={expires ? '' : undefined}
     class:list={[
       'flex aspect-square w-full flex-col items-center justify-center self-start rounded-lg text-center leading-none',
       block.set && !canceled && 'bg-primary text-white',
@@ -94,6 +111,11 @@ const block = dateBlock(row);
     <span class:list={['font-heading', block.set ? (block.main.length > 3 ? 'mt-1 text-[1.25rem] sm:text-[1.625rem]' : 'mt-0.5 text-[1.875rem] sm:text-[2.375rem]') : 'text-[0.8125rem] font-semibold uppercase tracking-[0.12em] font-body']}>{block.main}</span>
     {block.foot && <span class:list={['mt-1 text-[0.6875rem] sm:text-[0.75rem]', block.set ? 'opacity-80' : '']}>{block.foot}</span>}
   </div>
+  {pastBlock && (
+    <div aria-hidden="true" data-date-block="open" data-when-past hidden class="flex aspect-square w-full flex-col items-center justify-center self-start rounded-lg border border-dashed border-line text-center leading-none text-ink-muted">
+      <span class="font-body text-[0.8125rem] font-semibold uppercase tracking-[0.12em]">{pastBlock.main}</span>
+    </div>
+  )}
   <div class="min-w-0">
   {eyebrow === 'town' ? (
     <p class="eyebrow mb-1.5">{town}</p>
@@ -112,7 +134,7 @@ const block = dateBlock(row);
   </h3>
 
   {entry.status === 'confirmed' && !past && (
-    <p class="mt-2 text-[0.9375rem] font-semibold text-ink">Confirmed · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time></p>
+    <p class="mt-2 text-[0.9375rem] font-semibold text-ink" data-when-set={expires ? '' : undefined}>Confirmed · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time></p>
   )}
   {(entry.status === 'not-announced' || past) && (
     <Fragment>
@@ -128,11 +150,11 @@ const block = dateBlock(row);
   )}
   {entry.status === 'moved' && !past && (
     <Fragment>
-      <p class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
+      <p class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1" data-when-set={expires ? '' : undefined}>
         <span class={pill}>Moved</span>
         <time datetime={entry.date} class="text-[0.9375rem] font-semibold text-ink">{spanText(entry.date!, entry.endDate)}</time>
       </p>
-      <p class="mt-1.5 text-[0.9375rem] text-ink-muted">
+      <p class="mt-1.5 text-[0.9375rem] text-ink-muted" data-when-set={expires ? '' : undefined}>
         Was <time datetime={entry.previousDate}>{dayText(entry.previousDate!)}</time>. {record.organizer}: “{entry.reason}”
       </p>
     </Fragment>
@@ -147,8 +169,22 @@ const block = dateBlock(row);
     </Fragment>
   )}
 
-  {details.length > 0 && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">{details.join(' · ')}</p>}
+  {expires && (
+    <div data-when-past hidden>
+      <p class="mt-2"><span class={pill}>Next date not yet announced</span></p>
+      <p class="mt-1.5 text-[0.9375rem] text-ink-muted">{lastWord} <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time></p>
+    </div>
+  )}
+  {details.length > 0 && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined}>{details.join(' · ')}</p>}
   {line && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink" data-local-line>{line}</p>}
+  {calendar && expires && (
+    <p class="mt-1.5 text-sm text-ink-muted" data-when-set data-add-to-calendar>
+      Add to calendar:
+      <a href={calendar.ics} class="inline-block py-1 text-primary underline" aria-label={`Add ${record.name} to a calendar: download the .ics file`}>Apple or Outlook (.ics)</a>
+      {' · '}
+      <a href={calendar.google} rel="noopener" class="inline-block py-1 text-primary underline" aria-label={`Add ${record.name} to Google Calendar`}>Google</a>
+    </p>
+  )}
   <p class="mt-1.5 text-sm text-ink-muted">
     Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · Source:
     <a href={source} rel="noopener" class="text-primary underline">{record.organizer}</a>

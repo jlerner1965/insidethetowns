@@ -8,7 +8,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
 import { nearbyPicks } from '../src/lib/events.ts';
-import { findTown, LIVE_TOWNS, liveTowns, neighborsOf } from '../src/config/index.ts';
+import { findTown, liveTowns, neighborsOf } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 
 let n = 0;
@@ -170,22 +170,11 @@ test('neighbours are real guides, never the town itself, and go both ways', () =
   }
 });
 
-test('Elizabeth has no live neighbours, so its block is never built; every other live guide has one', () => {
-  // Leadville named nobody from the start: nothing in the network was an
-  // afternoon's drive away. Elizabeth and Manitou Springs were alone too
-  // until Castle Rock, on both their lists, went live on 31 October 2026.
-  // Golden was alone for part of 3 November 2026, between its neighbours'
-  // retirement and the owner naming Lafayette and Erie. Since 12 November
-  // 2026 Leadville, Golden and Castle Rock are folded into their pages on
-  // the hub, which leaves Elizabeth, whose one neighbour was Castle Rock,
-  // the live guide with none.
-  // Elizabeth is deployed and not one of the seven guides the pages list.
-  const ALONE = ['elizabeth'];
-  for (const slug of ALONE) {
-    assert.ok(LIVE_TOWNS.includes(slug), `${slug} is live`);
-    assert.deepEqual(neighborsOf(findTown(slug)!), [], slug);
-  }
+test('every guide has a neighbour to name, and a guide that is not live names nobody', () => {
+  // Elizabeth, the last live guide with none, was folded into its hub page
+  // on 12 November 2026.
   for (const t of liveTowns()) assert.ok(neighborsOf(t).length > 0, t.slug);
+  assert.deepEqual(neighborsOf(findTown('elizabeth')!), []);
   // A guide that is not live names nobody, and nobody names it.
   for (const t of towns.filter((t) => t.status !== 'live')) {
     assert.deepEqual([...t.neighbors], [], `${t.slug}: not live, names no neighbours`);

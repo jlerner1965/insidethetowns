@@ -3,33 +3,18 @@ import type { TownConfig } from './types.ts';
 
 export const elizabeth = {
   kind: 'town',
-  status: 'live',
-  // Not a flagship from 4 November 2026, on the owner's word ("quiet;
-  // Elizabeth should not be a flagship anyway"): the Town's site and the
-  // library's both block automated reads, so a resident guide's promise
-  // could not be kept there (DECISIONS.md, "Elizabeth is a quiet guide, not
-  // a flagship"). Its Families and Living here configs are parked below as
-  // `elizabethHubs`; `home: true` and the two blocks put it back.
-  // Out of the weekly routine from 12 October 2026 on the owner's word
-  // (DECISIONS.md, "Severance and Fort Lupton become sections"). Kept, on
-  // the owner's word of 15 October 2026, on its readers: 148 visitors in the
-  // four weeks to 15 October, more than Golden, Fort Collins or Timnath
-  // (DECISIONS.md, "Elizabeth stays"). It stays quiet, with no weekly
-  // promise, because the reason it went quiet (an hour from every other
-  // guide, so nothing about it combines) has not changed. What is left to
-  // decide is only whether it rejoins the weekly email; the date stays
-  // before any listing's hours expire, and the test holds the order. Kept
-  // again on 30 October 2026, until the 90-day verdict (DECISIONS.md, "Six
-  // quiet guides kept"): 21 of its 24 listings were re-checked that day, so
-  // the date moves from 15 to 30 November, the day before Catrina's (last
-  // checked 2 October) loses its hours. Catrina's, Town Hall and Running
-  // Creek Park need a call, and the guide a second pass on or after 21
-  // November (60-day hours), before it can move to 20 January.
-  quiet: {
-    since: '2026-10-12',
-    decideBy: '2026-11-30',
-    reason: 'kept on 15 and 30 October 2026 and taken off the flagship list on 4 November: accurate where a machine can read it, but the Town and the library block automated reads, so it stays a quiet guide until the 90-day verdict',
-  },
+  // Folded into its page on the hub, insidethetowns.com/elizabeth/, on 12
+  // November 2026 (the owner, the bugs pass: "a live guide with no link
+  // from the hub and no hub page. Fold it into a hub town page with
+  // redirects, like Timnath"). The page had two verified dates of the three
+  // it needs; the third is the Mayor's Tree Lighting, 5 December 2026,
+  // from the Town Clerk's release the owner read himself that day
+  // (docs/agent/dates/_notes-owner-reads-2026-11-12.md), moved into
+  // content/hub/traditions/ with the fold. A quiet guide from 12 October
+  // to 12 November 2026 (DECISIONS.md, "Elizabeth stays"); its content left
+  // its folder with the fold and git history keeps it.
+  status: 'redirect',
+  hubPage: { town: 'elizabeth', since: '2026-11-12' },
   variant: 'front-range',
   region: 'South Metro',
   neighbors: [],
