@@ -217,3 +217,22 @@ export function placeTitle(name: string, kind: string, town: { name: string; sta
   }
   return plain;
 }
+
+/**
+ * The <title> of an annual event's permanent page: the year beside the
+ * name, where people type it ("niwot trot 2026", "boo on briggs 2026"),
+ * then the day. "Olde Golden Holiday Parade 2026 — Sat, Dec 12"; once the
+ * year's edition is over and no later listing exists, "Niwot Trot 5K —
+ * held Oct 4, 2026; 2027 date to come". The town is added where the title
+ * does not already name it, and a year already in the title is not said
+ * twice (the owner's brief, 11 November 2026: date and year in the title
+ * tag of every date-bound page).
+ */
+export function annualEventTitle(title: string, town: string, date: Date, awaiting: boolean): string {
+  const year = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, year: 'numeric' }).format(date);
+  const { month, day, weekday } = monthDay(date);
+  const where = title.toLowerCase().includes(town.toLowerCase()) ? '' : ` in ${town}`;
+  if (awaiting) return `${title}${where} \u2014 held ${month} ${day}, ${year}; ${Number(year) + 1} date to come`;
+  const named = title.includes(year) ? title : `${title} ${year}`;
+  return `${named}${where} \u2014 ${weekday}, ${month} ${day}`;
+}

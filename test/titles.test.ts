@@ -85,3 +85,12 @@ test('a place title that will stand without the guide’s name carries the town 
   const long = 'A Restaurant With a Name That Runs On Past Fifty Characters Here';
   assert.equal(placeTitle(long, 'Restaurant', fc, facts({ type: 'restaurant', hours: true })), `${long} — Restaurant in Fort Collins, CO`);
 });
+
+test('an annual event title carries the year beside the name, then the day; a past one says when it was held and which year is to come', async () => {
+  const { annualEventTitle } = await import('../src/lib/titles.ts');
+  const { parseLocal } = await import('../src/lib/dates.ts');
+  assert.equal(annualEventTitle('Olde Golden Holiday Parade', 'Golden', parseLocal('2026-12-12T10:30'), false), 'Olde Golden Holiday Parade 2026 — Sat, Dec 12');
+  assert.equal(annualEventTitle('Parade of Lights', 'Erie', parseLocal('2026-12-04T18:00'), false), 'Parade of Lights 2026 in Erie — Fri, Dec 4');
+  assert.equal(annualEventTitle('Niwot Trot 5K', 'Niwot', parseLocal('2026-10-04T09:00'), true), 'Niwot Trot 5K — held Oct 4, 2026; 2027 date to come');
+  assert.equal(annualEventTitle('Brewfest 2026', 'Erie', parseLocal('2026-09-12T12:00'), false), 'Brewfest 2026 in Erie — Sat, Sep 12');
+});
