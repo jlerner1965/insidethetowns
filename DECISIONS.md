@@ -10848,3 +10848,40 @@ The owner's second pull request of three. Stacked on the bugs pass.
 - **Five record types are added with no records**: egg hunts, farmers
   markets, closures, school dates, tax dates. Dated rows are in TODO.md.
 
+## Search and feeds, 12 November 2026 (late)
+
+The owner's third pull request of three. Stacked on the home page pass.
+
+- **A town page's title and description** name the town, the year and its
+  next two or three traditions with a date set (`townSearchText`,
+  src/lib/hub-towns.ts). The title names the first only where it fits in
+  65 characters. A town with no date ahead names no event. Headings carry
+  the town: "Annual events in Golden", "Outdoor dates near Golden".
+- **An Event is marked up on one page** (`eventPage`): the record's home,
+  which is its town page on the hub or its guide's /traditions/, and the
+  season page only where it has neither. The start carries its time and
+  Denver's offset where the time is one certain clock time, and is the day
+  alone otherwise. No end time is given. The venue is the organizer's
+  wording, the town where it names none. The description is made of the
+  record's own fields.
+- **Links**: "Seasonal dates" in the hub's menu goes to the first season
+  page built; the footer names each one and links `/towns/`, a new A to Z
+  index of the guides, the town pages and the season pages. A town page
+  links the season pages it has a row on; `/this-weekend/` links them all.
+- **Share images**: a town page shares its own photograph where it has
+  one, else a text card drawn at build (`/share/<town>.png`): the town,
+  its next date, its county. The hero photograph loads with high priority.
+- **Calendars**: a guide's events page offers "Subscribe to calendar"
+  (`webcal://`) and Google's add-by-URL, with the file as a third way.
+  The hub has `/calendars/<town>.ics` and `/calendars/<season>.ics`: dates
+  still ahead that the organizer has set, a town's own and not the
+  statewide ones.
+- **Updates RSS**: `/updates.rss` on any guide with local changes, the
+  thirty newest, in the record's own words. Linked from `/updates/`.
+- **"Local changes across the towns"** on the hub's home page: what is
+  current in the guides, newest first, two a town at most, six in all.
+  It sits after the town directory, since the owner's order for the page
+  did not place it.
+- **Print**: a guide's `/this-weekend/` prints as the listings alone,
+  black on white, with a line saying where and when it was printed.
+

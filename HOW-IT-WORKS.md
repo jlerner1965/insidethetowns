@@ -201,6 +201,14 @@ only while its records have a date to come. `/this-weekend/` filters by
 town, Free and Live music together; the town is kept in the address and in
 the browser, the filters in the address.
 
+**Feeds** (12 November 2026). A guide: `/events/calendar.ics` (subscribe
+by `webcal://` or Google's add-by-URL from `/events/`), `/events.rss`,
+`/rss.xml`, and `/updates.rss` where it has local changes. The hub:
+`/calendars/<town>.ics` for each town page and `/calendars/<season>.ics`
+for each season page, `/dates/<record>.ics` for one date, and
+`/share/<town>.png`, the share card of a town with no photograph. `/towns/`
+is the A to Z index of every guide, town page and season page.
+
 **A town page on the hub** (12 November 2026) opens on the town's name over
 its landscape: the photograph where one is licensed (Estes Park), otherwise a
 drawn horizon for the country it is in (peaks, foothills, mesas or plains,

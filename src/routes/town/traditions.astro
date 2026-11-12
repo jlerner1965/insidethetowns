@@ -18,7 +18,7 @@ import { findTown, getNetworkHub, getTown } from '@/config';
 import { STANDALONE_GUIDES } from '@/config/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
-import { lineFor, placeKey, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { eventPage, lineFor, placeKey, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { TRADITION_TYPE_INFO, isUpcoming, nextRow, type TraditionRow as Row } from '@/lib/traditions';
 
@@ -73,7 +73,8 @@ const structured = [
     { name: town.siteTitle, path: '/' },
     { name: `Every year in ${town.name}`, path },
   ]),
-  ...rows.map((r) => (r.past ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
+  // An event is marked up on one page: here when this guide is its home (eventPage).
+  ...rows.map((r) => (r.past || eventPage(r.record, ctx) !== place ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
 ];
 const subject = `[Correction] ${town.name} traditions`;
 const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${encodeURIComponent(subject)}`;

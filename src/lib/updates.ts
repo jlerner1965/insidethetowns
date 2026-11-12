@@ -67,3 +67,44 @@ export function isLateNotice(u: UpdateLike, days = 30): boolean {
   // An unofficial result is a thing that happened too (6 November 2026).
   return (u.data.stage === 'complete' || u.data.stage === 'unofficial') && gap > days;
 }
+
+/**
+ * The rows of a guide's /updates.rss (src/routes/town/updates.rss.ts):
+ * newest first by the day the guide published each, at most `limit`. The
+ * description is the record's own words, what changed, who it affects and
+ * what to do, with nothing added.
+ */
+export function updateFeedItems(list: readonly UpdateLike[], pageUrl: string, limit = 30) {
+  return [...list]
+    .sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
+    .slice(0, limit)
+    .map((u) => {
+      const link = `${pageUrl}#${u.slug ?? u.data.slug}`;
+      return {
+        title: u.data.title,
+        link,
+        guid: link,
+        description: [u.data.summary, `Affects: ${u.data.affects}`, u.data.action ? `What to do: ${u.data.action}` : undefined].filter(Boolean).join(' '),
+        pubDate: u.data.published,
+        categories: [u.data.kind],
+      };
+    });
+}
+
+/**
+ * The hub's "Local changes across the towns": the changes current today in
+ * every guide, the most recently published first, at most `perTown` from
+ * one guide so a busy town does not fill the strip, and `limit` in all.
+ */
+export function networkChanges<T extends UpdateLike & { town: { slug: string } }>(list: readonly T[], now = new Date(), { limit = 6, perTown = 2 } = {}): T[] {
+  const taken = new Map<string, number>();
+  const out: T[] = [];
+  for (const u of [...currentUpdates(list, now)].sort((a, b) => b.data.published.getTime() - a.data.published.getTime())) {
+    const n = taken.get(u.town.slug) ?? 0;
+    if (n >= perTown) continue;
+    taken.set(u.town.slug, n + 1);
+    out.push(u);
+    if (out.length === limit) break;
+  }
+  return out;
+}

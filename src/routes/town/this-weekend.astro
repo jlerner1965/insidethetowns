@@ -21,7 +21,7 @@ import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import NearbyWeekend from '@/components/NearbyWeekend.astro';
 import { getNetworkHub, getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { formatDayRange } from '@/lib/dates';
+import { formatDate, formatDayRange } from '@/lib/dates';
 import { occurrences, sectionCount, weekendSections, weekendWindow } from '@/lib/events';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
@@ -112,9 +112,38 @@ const structured = [
     </p>
   </div>
 
-  <NearbyWeekend town={town} sponsor={false} class="mt-16 md:mt-20" />
+  <div data-no-print>
+    <NearbyWeekend town={town} sponsor={false} class="mt-16 md:mt-20" />
 
-  <div class="mt-12 md:mt-16">
-    <NewsletterSignup town={town} compact />
+    <div class="mt-12 md:mt-16">
+      <NewsletterSignup town={town} compact />
+    </div>
   </div>
+  {/* On paper only: where the sheet came from and when, since a printed
+      list cannot be refreshed. */}
+  <p class="print-only" data-print-line>{town.siteTitle} · {town.domain}/this-weekend/ · printed from the listings as of {formatDate(new Date())}. Check the site for changes.</p>
 </Page>
+
+<style is:global>
+  /* A weekend on one or two sheets for the fridge (the feeds pass, 12
+     November 2026): the listings and nothing else. The menu, the footer,
+     the sponsor line, the filters, the neighbours and the signup are for
+     a screen. Black on white, no card left split across two sheets. */
+  .print-only { display: none; }
+  @media print {
+    body > :not(main), [data-no-print], [data-filter-bar], [data-sponsor], form, button { display: none !important; }
+    .print-only { display: block; margin-top: 1.5rem; font-size: 0.75rem; }
+    html, body, main, main * { background: #fff !important; color: #000 !important; box-shadow: none !important; }
+    main a { text-decoration: none !important; }
+    /* A day is its heading over its listings, the full width of the sheet:
+       the screen's two columns leave a third of the paper empty. */
+    main [data-filter-group] { display: block !important; }
+    main [data-filter-group] > h2 { position: static !important; margin-bottom: 0.25rem; break-inside: avoid; break-after: avoid; }
+    main [data-filter-group] > div { padding: 0 !important; }
+    main article { break-inside: avoid; padding-block: 0.6rem !important; }
+    main section, main .space-y-10 > * + * { margin-top: 0 !important; margin-bottom: 1rem !important; }
+    main header > div { padding-block: 0 0.5rem !important; }
+    main img { display: none !important; }
+    @page { margin: 14mm; }
+  }
+</style>

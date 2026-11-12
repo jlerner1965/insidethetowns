@@ -11,6 +11,7 @@
  * It never imports astro:content or node:fs.
  */
 import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide, type HubTown } from '../config/hub-towns.ts';
+import { formatMonthDay, parseLocal } from './dates.ts';
 import { CURRENT_SEASONS, TRADITION_TYPE_INFO, byNextDate, countsAsVerified, isUpcoming, nextRow, type TraditionRecord, type TraditionRow } from './traditions.ts';
 
 /**
@@ -185,6 +186,49 @@ export function showings(record: TraditionRecord, ctx: ShowingContext): Showing[
     if (domain) out.push({ key: place, label: ctx.guideName(place), href: `https://${domain}/traditions/#${record.slug}` });
   }
   return out;
+}
+
+/**
+ * A town page's title and description for a search result: the town, the
+ * year its next dates fall in, and the next two or three traditions with a
+ * date set, each by name and day. Only dates the organizers have
+ * published, so the line is as true as the page; a town with none ahead
+ * says what the page holds and names no event.
+ */
+export function townSearchText(name: string, traditions: readonly TraditionRow[]): { seoTitle: string; description: string } {
+  const next = traditions.filter(isUpcoming).sort((a, b) => a.entry.date!.localeCompare(b.entry.date!)).slice(0, 3);
+  if (next.length === 0) {
+    return {
+      seoTitle: `${name}, Colorado: annual events and outdoor dates`,
+      description: `${name}, Colorado’s annual events and outdoor dates: the date each organizer or agency has published, or that it has not yet, with the page it was read from.`,
+    };
+  }
+  const day = (r: TraditionRow) => formatMonthDay(parseLocal(r.entry.date!));
+  const first = next[0]!.entry.date!.slice(0, 4);
+  const last = next[next.length - 1]!.entry.date!.slice(0, 4);
+  const years = first === last ? first : `${first}–${last.slice(2)}`;
+  const list = next.map((r) => `${r.record.name} (${day(r)}${r.entry.date!.slice(0, 4) === first ? '' : `, ${r.entry.date!.slice(0, 4)}`})`);
+  const words = list.length === 1 ? list[0] : `${list.slice(0, -1).join(', ')} and ${list[list.length - 1]}`;
+  // A title a result page cuts short says less than a shorter one.
+  const named = `${name}, Colorado events ${years}: ${next[0]!.record.name} and annual dates`;
+  return {
+    seoTitle:
+      [named, `${name}, Colorado ${years}: ${next[0]!.record.name}`, `${name}, CO ${years}: ${next[0]!.record.name}`].find((t) => t.length <= 65) ??
+      `${name}, Colorado annual events and dates, ${years}`,
+    description: `${name}, Colorado in ${years}: ${words}. Every annual event and outdoor date, with the date its organizer has published and the page it was read from.`,
+  };
+}
+
+/**
+ * The one page that carries a record's Event structured data: its home
+ * (the town's page on the hub, or its guide's /traditions/) where that
+ * page exists, and the hub's season page otherwise. Returned as a
+ * showing's key: a place's slug, or 'season'. Each of the three pages asks
+ * whether it is the one and marks the event up only then.
+ */
+export function eventPage(record: TraditionRecord, ctx: ShowingContext): string {
+  const home = homeOf(record);
+  return home && showings(record, ctx).some((s) => s.key === home) ? home : 'season';
 }
 
 /** The records a standalone guide shows: its own traditions, and every outdoor date that applies to it. */

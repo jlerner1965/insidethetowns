@@ -20,9 +20,10 @@
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
 import DateCorrection from '@/components/DateCorrection.astro';
+import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
 import { findTown, getHub } from '@/config';
 import { STANDALONE_GUIDES, findHubTown } from '@/config/hub-towns';
-import { homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { eventPage, homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
@@ -88,7 +89,8 @@ const structured = [
     items: rows.map((r) => ({ name: r.record.town ? `${r.record.name} — ${r.record.town.name}` : r.record.name, url: hrefFor(r) })),
   }),
   // Never an Event for a date that has passed.
-  ...rows.map((r) => (r.past ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
+  // An event is marked up on one page: here only where it has no page of its own (eventPage).
+  ...rows.map((r) => (r.past || eventPage(r.record, ctx) !== 'season' ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
 ];
 const subject = `[Correction] ${info.plural}, ${when}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
@@ -144,6 +146,8 @@ const pill =
       ))}
     </nav>
   )}
+
+  <CalendarSubscribe name={info.path.replace(/\//g, '')} what={dated ? `every date on this page` : 'these dates'} class="mb-8" />
 
   <section aria-labelledby="rows-heading" class="mb-12" data-season-group="upcoming">
     <div class="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-line-soft pb-3">
