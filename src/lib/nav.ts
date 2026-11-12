@@ -44,6 +44,8 @@
  */
 import { schoolsFor } from '../config/school-sports.ts';
 import { openPlaceTypeCounts } from './raw-places.ts';
+import { seasonTypesWithRecords } from './tradition-files.ts';
+import { TRADITION_TYPE_INFO } from './traditions.ts';
 import type { NavItem, SiteConfig, TownConfig } from '../config/towns/types.ts';
 
 /** The menu's word for the sports page, or nothing where the guide follows no school. */
@@ -82,5 +84,22 @@ export function townNav(
 
 /** The site's menu: the rule above on a guide, the hub's own list on the hub. */
 export function siteNav(site: SiteConfig): NavItem[] {
-  return site.kind === 'hub' ? site.nav : townNav(site);
+  return site.kind === 'hub' ? hubNav(site.nav) : townNav(site);
+}
+
+/** The season pages that are built, as links: every type with a season and a record for it. */
+export function seasonLinks(root = '.'): NavItem[] {
+  return seasonTypesWithRecords(root).map((t) => ({ label: TRADITION_TYPE_INFO[t].plural, href: TRADITION_TYPE_INFO[t].path }));
+}
+
+/**
+ * The hub's menu: its own list, with "Seasonal dates" after the weekend.
+ * It goes to the first season page that is built, which carries the links
+ * to the others; the footer names each one. No season page, no entry.
+ */
+export function hubNav(nav: readonly NavItem[], seasons: readonly NavItem[] = seasonLinks()): NavItem[] {
+  const first = seasons[0];
+  if (!first) return [...nav];
+  const at = nav.findIndex((n) => n.href === '/this-weekend/') + 1;
+  return [...nav.slice(0, at), { label: 'Seasonal dates', href: first.href }, ...nav.slice(at)];
 }

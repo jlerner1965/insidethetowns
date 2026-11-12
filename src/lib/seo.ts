@@ -8,7 +8,8 @@ import type { CollectionEntry } from 'astro:content';
 // Relative rather than the '@/…' alias so the module loads in plain Node and
 // its builders can be unit-tested; Vite resolves both the same way.
 import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
-import { dayKey, toIsoLocal } from './dates.ts';
+import { dayKey, parseLocal, toIsoLocal } from './dates.ts';
+import { certainTime } from './tradition-calendar.ts';
 import { exportWhen } from './events.ts';
 import { isPlaceholder } from './editor.ts';
 import { addFirstFitting, clampAtWord, clampText, firstSentence, listWords, markdownToText, sentences } from './plain-text.ts';
@@ -807,26 +808,44 @@ export function localBusinessJsonLd(
 }
 
 /**
- * A tradition's year as an Event, for the hub's season page and a guide's
- * /traditions/ (src/lib/traditions.ts). Only a confirmed year: a date the
+ * A tradition's year as an Event. Only a confirmed year: a date the
  * organizer has not published, or one that moved or was called off, is not
- * offered to a search engine as a scheduled event. The date alone, as the
- * organizer gives it; the place where the organizer names one, and the
- * town otherwise, which is a fact of the record and not a guess.
+ * offered to a search engine as a scheduled event. The start carries its
+ * time and Denver's offset where the record's time is one certain clock
+ * time (src/lib/tradition-calendar.ts), and is the day alone otherwise;
+ * no end time is ever given, since no record has one. The place is the
+ * venue the organizer names, and the town where it names none, which is a
+ * fact of the record and not a guess. The description is made of the
+ * record's own facts and nothing else.
+ *
+ * One Event sits on one page (`eventPage` in src/lib/hub-towns.ts says
+ * which): the same event marked up on a town page, a season page and a
+ * guide is three claims to be the event's page.
  */
 export function traditionEventJsonLd(
-  record: { slug: string; name: string; organizer: string; town?: { name: string }; type?: string },
-  entry: { status: string; date?: string; endDate?: string; place?: string },
+  record: { slug: string; name: string; organizer: string; town?: { name: string }; type?: string; firstYear?: number },
+  entry: { status: string; date?: string; endDate?: string; place?: string; startTime?: string; cost?: string },
   pageUrl: string,
 ) {
   // An outdoor date (a road opening, a licence window) is not an event to
   // attend, and a record with no town has no place to give one.
   if (entry.status !== 'confirmed' || !entry.date || !record.town || record.type === 'outdoor') return undefined;
+  const span = !!entry.endDate && entry.endDate !== entry.date;
+  const time = span ? undefined : certainTime(entry.startTime);
+  const description = [
+    `${record.name} in ${record.town.name}, Colorado, organized by ${record.organizer}.`,
+    entry.place ? `At ${entry.place}.` : undefined,
+    entry.cost ? `Cost: ${entry.cost}.` : undefined,
+    record.firstYear ? `First held in ${record.firstYear}.` : undefined,
+  ]
+    .filter(Boolean)
+    .join(' ');
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: record.name,
-    startDate: entry.date,
+    description,
+    startDate: time ? toIsoLocal(parseLocal(`${entry.date}T${time}`)) : entry.date,
     ...(entry.endDate ? { endDate: entry.endDate } : {}),
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',

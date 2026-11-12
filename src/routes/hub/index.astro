@@ -27,6 +27,8 @@ import { countiesCovered, getHub, liveTowns } from '@/config';
 import { schoolsFor, schoolTeamName, sportsPath } from '@/config/school-sports';
 import { groupByRegion } from '@/lib/regions';
 import { wordmarkParts } from '@/lib/titles';
+import { networkChanges } from '@/lib/updates';
+import { UPDATE_KIND_LABELS } from '@/content/schemas';
 
 const hub = getHub();
 const heroImage = resolveSiteImage('hub', hub.hero.image);
@@ -98,6 +100,8 @@ const now = new Date();
 // The standing children's programs (standingFamilyTest) are off the
 // network's front page altogether, the fallback to regulars included.
 const networkEntries = await getNetworkEntries('events');
+// What is current in the guides' local changes (src/lib/updates.ts).
+const changes = networkChanges(await getNetworkEntries('updates'), new Date());
 const network = forGeneralReaders(occurrences(networkEntries, { now, horizonDays: 30 }), networkEntries);
 const sections = weekendSections(network, { now, horizonDays: 15 });
 const onThisWeekend = [...sections.now, ...sections.weekend];
@@ -333,6 +337,31 @@ const description = `${live.length} independent guides to Colorado towns and ${p
           ))}
         </div>
               </div>
+    </section>
+  )}
+
+  {/* Local changes across the towns (the feeds pass, 12 November 2026):
+      what is current in each guide's /updates/, newest first and no more
+      than two from one town. Each opens on its own row in that guide. */}
+  {changes.length > 0 && (
+    <section class="band-compact band-paper" aria-labelledby="changes-h" data-local-changes>
+      <div class="container-page">
+        <SectionHeader id="changes-h" eyebrow="Closures, votes, road work, openings" title="Local changes across the towns" />
+        <ul class="grid gap-x-10 gap-y-5 md:grid-cols-2">
+          {changes.map((u) => (
+            <li class="min-w-0 border-t border-line-soft pt-4">
+              <p class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.8125rem] text-ink-muted">
+                <span class="rounded-full px-2.5 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white" style={`background:${u.town.colors.primary}`}>{u.town.name}</span>
+                <span>{UPDATE_KIND_LABELS[u.data.kind]}</span>
+                <span aria-hidden="true">·</span>
+                <time datetime={dayKey(u.data.published)}>{formatDayShort(u.data.published)}</time>
+              </p>
+              <h3 class="mt-1.5 text-xl font-medium leading-snug"><a href={`https://${u.town.domain}/updates/#${u.slug}`} class="no-underline hover:underline">{u.data.title}</a></h3>
+              <p class="mt-1 text-[0.9375rem] leading-relaxed text-ink-muted">{u.data.summary}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   )}
 

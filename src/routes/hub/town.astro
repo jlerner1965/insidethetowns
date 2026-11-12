@@ -28,7 +28,7 @@
  * guide's old addresses land (vercel.json), so they are on every page
  * even when a section is empty.
  */
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
 import DateCorrection from '@/components/DateCorrection.astro';
@@ -38,12 +38,13 @@ import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { findSiteImage } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
-import { bySeason, lineFor, nearbyPages, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, statewideSummary, type ShowingContext } from '@/lib/hub-towns';
+import { bySeason, eventPage, lineFor, nearbyPages, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, statewideSummary, townSearchText, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { FLOW_SOURCES, SNOW_SOURCE, formatCfs, percentOfMedian, riverFlow, snowpack, type FlowData, type SnowData } from '@/lib/town-signals';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
 import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
-import { isUpcoming, type TraditionRow as Row } from '@/lib/traditions';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
+import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
 
 export async function getStaticPaths() {
   return publishedHubTowns(await getTraditions()).map((t) => ({ params: { town: t.slug } }));
@@ -76,12 +77,19 @@ const year = show ? bySeason(traditions.filter((r) => r !== spotlight)) : undefi
 const heroFile = show?.hero && show.hero.alt.trim() ? findSiteImage('hub', show.hero.image) : undefined;
 const hero = heroFile ? { src: heroFile, ...show!.hero! } : undefined;
 
+// What a shared link shows: the town's own photograph where it has one,
+// else its text card (src/routes/hub/town-share.png.ts). Before this every
+// town page shared the hub's one picture.
+const shareImage = hero ? (await getImage({ src: hero.src, width: 1200, height: 630, format: 'jpg' })).src : `/share/${town.slug}.png`;
+const shareAlt = hero ? hero.alt : `${town.name}, Colorado: annual events and outdoor dates`;
 const path = `/${town.slug}/`;
 const pageUrl = `https://${hub.domain}${path}`;
 const county = hubCountyLine(town);
 const title = town.name;
-const seoTitle = `${town.name}, Colorado: annual events and outdoor dates`;
-const description = `${town.name}, Colorado’s traditions and outdoor dates: the date each organizer or agency has published, or that it has not yet, with the page it was read from.`;
+// What a search result says: the town, the year, and the next two or three
+// traditions with a date set, by name and day (src/lib/hub-towns.ts,
+// townSearchText). A town with none ahead keeps the plain line.
+const { seoTitle, description } = townSearchText(town.name, traditions);
 const all = [...traditions, ...outdoor, ...statewide];
 const structured = [
   collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: `${pageUrl}#${r.record.slug}` })) }),
@@ -89,8 +97,12 @@ const structured = [
     { name: hub.siteTitle, path: '/' },
     { name: town.name, path },
   ]),
-  ...traditions.map((r) => (r.past ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
+  // An event is marked up on one page: here when this town is its home (eventPage).
+  ...traditions.map((r) => (r.past || eventPage(r.record, ctx) !== town.slug ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
 ];
+// The season pages this town has a row on: each is linked from here, as
+// each row there links back (the links pass, 12 November 2026).
+const seasonPages = TRADITION_TYPES.filter((t) => CURRENT_SEASONS[t] && seasonRows(records, t, today).some((r) => all.some((mine) => mine.record.slug === r.record.slug && !mine.record.statewide)));
 const subject = `[Correction] ${town.name}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 const card = 'rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7';
@@ -154,7 +166,7 @@ const measuredAt = (iso: string) =>
   new Date(iso).toLocaleString('en-US', { timeZone: 'America/Denver', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
 const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
 ---
-<Page {title} {seoTitle} {description} jsonLd={structured}>
+<Page {title} {seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt}>
   <header slot="header" class="on-dark relative isolate overflow-hidden bg-primary text-white" data-town-hero={hero ? 'photo' : ridge!.terrain}>
     {hero ? (
       <Fragment>
@@ -164,6 +176,7 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
           widths={[640, 960, 1280, 1920]}
           sizes="100vw"
           loading="eager"
+          fetchpriority="high"
           class="absolute inset-0 -z-20 h-full w-full object-cover"
           style={hero.position ? `object-position:${hero.position}` : undefined}
           data-showpiece-hero
@@ -314,7 +327,7 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
 
   <div class="lg:grid lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] lg:items-start lg:gap-x-12">
   <section id="traditions" aria-labelledby="traditions-heading" class="mb-14 scroll-mt-4 md:mb-16">
-    <h2 id="traditions-heading" class={h2}>{show ? `The year in ${town.name}` : 'Traditions'}</h2>
+    <h2 id="traditions-heading" class={h2}>{show ? `The year in ${town.name}` : `Annual events in ${town.name}`}</h2>
     {year ? (
       <Fragment>
         {year.seasons.map((group) => (
@@ -338,7 +351,7 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
   </section>
 
   <section id="outdoor-dates" aria-labelledby="outdoor-heading" class="mb-14 scroll-mt-4 md:mb-16">
-    <h2 id="outdoor-heading" class={h2}>Outdoor dates</h2>
+    <h2 id="outdoor-heading" class={h2}>Outdoor dates near {town.name}</h2>
     {outdoor.length > 0 && <div class={card}>{outdoor.map((row) => <TraditionRow {...rowProps(row)} />)}</div>}
     {statewide.length > 0 && (
       <details class:list={['group rounded-lg bg-raised ring-1 ring-line-soft', outdoor.length > 0 && 'mt-6']} data-statewide>
@@ -356,6 +369,19 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
     {outdoor.length === 0 && statewide.length === 0 && <p class="text-ink-muted">No outdoor date for this town has been read on its agency’s page yet.</p>}
   </section>
   </div>
+
+  <CalendarSubscribe name={town.slug} what={`${town.name}’s dates`} class="mb-10" />
+
+  {seasonPages.length > 0 && (
+    <nav aria-labelledby="seasons-heading" class="mb-12">
+      <h2 id="seasons-heading" class="mb-4 text-2xl font-medium">{town.name} and the other towns</h2>
+      <ul class="flex flex-wrap gap-2" data-season-links>
+        {seasonPages.map((t) => (
+          <li><a href={TRADITION_TYPE_INFO[t].path} class={pill}>{TRADITION_TYPE_INFO[t].plural} across Colorado</a></li>
+        ))}
+      </ul>
+    </nav>
+  )}
 
   {nearby.length > 0 && (
     <nav aria-labelledby="nearby-heading" class="mb-12">

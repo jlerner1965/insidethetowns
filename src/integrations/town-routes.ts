@@ -140,7 +140,7 @@ export function hubRoutes(site: TownConfig, contentRoot = 'content'): Array<[pat
   if (site.families) routes.push(['/families', 'families.astro']);
   if (site.participation) routes.push(['/get-involved', 'get-involved.astro']);
   if (site.livingHere) routes.push(['/living-here', 'living-here.astro']);
-  if (hasFiles(join(contentRoot, site.slug, 'updates'))) routes.push(['/updates', 'updates.astro']);
+  if (hasFiles(join(contentRoot, site.slug, 'updates'))) routes.push(['/updates', 'updates.astro'], ['/updates.rss', 'updates.rss.ts']);
   if (hasPublishedProfile(join(contentRoot, site.slug, 'profiles'))) {
     routes.push(['/people', 'people/index.astro'], ['/people/[slug]', 'people/[slug].astro']);
   }
@@ -189,11 +189,17 @@ const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/submit-event', 'submit-event.astro'],
   ['/events.rss', 'events.rss.ts'],
   ['/advertise', 'advertise.astro'],
+  // Every town page, the guides and the season pages in one index.
+  ['/towns', 'towns.astro'],
   // A town's page, built only for a town with three dated items of its own
   // (src/lib/hub-towns.ts); the file's getStaticPaths names them.
   ['/[town]', 'town.astro'],
+  // Its share card, where the town has no photograph (src/lib/share-image.ts).
+  ['/share/[town].png', 'town-share.png.ts'],
   // One date as a calendar entry (src/lib/tradition-calendar.ts).
   ['/dates/[slug].ics', 'date.ics.ts'],
+  // A town page's or a season page's dates as a calendar to subscribe to.
+  ['/calendars/[name].ics', 'calendar.ics.ts'],
   // Read and deleted by the indexing step; never deployed (src/lib/network-search.ts).
   ['/network-search.json', 'network-search.json.ts'],
 ];

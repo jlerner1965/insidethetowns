@@ -172,6 +172,18 @@ export function googleCalendarUrl(e: Omit<IcsEvent, 'uid'>): string {
   return `https://calendar.google.com/calendar/render?${params}`;
 }
 
+/**
+ * The two ways to follow a calendar feed, from its https address:
+ * `webcal://`, which a phone's or a desktop's calendar opens as a
+ * subscription, and Google Calendar's add-by-URL page, which takes the
+ * same address as `cid`. A subscription follows the feed; a downloaded
+ * .ics file is a copy of one day.
+ */
+export function subscribeLinks(feedUrl: string): { webcal: string; google: string } {
+  const webcal = feedUrl.replace(/^https?:\/\//, 'webcal://');
+  return { webcal, google: `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcal)}` };
+}
+
 type FeedEntry = { slug: string; data: CollectionEntry<'events'>['data'] };
 
 /**

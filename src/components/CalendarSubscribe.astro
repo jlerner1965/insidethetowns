@@ -1,0 +1,26 @@
+---
+/**
+ * "Subscribe to calendar" for a hub page's dates (/calendars/<name>.ics,
+ * src/routes/hub/calendar.ics.ts): the webcal link a phone or desktop
+ * calendar opens as a subscription, and Google Calendar's add-by-URL.
+ * One line of small type: the dates are the page, this is a way to keep
+ * them.
+ */
+import { getHub } from '@/config';
+import { subscribeLinks } from '@/lib/ics';
+
+interface Props {
+  /** The feed's name: a town's slug or a season page's. */
+  name: string;
+  /** What the calendar holds, after "Subscribe to": "Salida’s dates", "every tree lighting". */
+  what: string;
+  class?: string;
+}
+const { name, what, class: className } = Astro.props;
+const path = `/calendars/${name}.ics`;
+const links = subscribeLinks(`https://${getHub().domain}${path}`);
+const link = 'font-semibold text-primary underline';
+---
+<p class:list={['text-[0.875rem] leading-relaxed text-ink-muted', className]} data-calendar-subscribe-line>
+  Subscribe to {what}: <a href={links.webcal} class={link} data-calendar-subscribe>in your calendar</a>, <a href={links.google} rel="noopener" class={link} data-calendar-google>in Google Calendar</a>, or <a href={path} class={link}>as a file</a>. A date is added when its organizer sets it.
+</p>

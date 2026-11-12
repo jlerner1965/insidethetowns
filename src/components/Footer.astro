@@ -14,7 +14,7 @@
  */
 import { getNetworkHub, getSite, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { siteNav } from '@/lib/nav';
+import { seasonLinks, siteNav } from '@/lib/nav';
 import NetworkBar from './NetworkBar.astro';
 import Wordmark from './Wordmark.astro';
 
@@ -39,7 +39,8 @@ const sections = site.kind === 'town'
       ...(site.participation ? [{ label: 'Get involved', href: '/get-involved/' }] : []),
       ...(hasUpdates ? [{ label: 'Local changes', href: '/updates/' }] : []),
     ].filter((l) => !inMenu.has(l.href))
-  : [];
+  : // The hub: each season page by name, and the index of every town page.
+    [...seasonLinks(), { label: 'Every town, A to Z', href: '/towns/' }];
 ---
 <footer class:list={['on-dark bg-primary text-white', !home && 'mt-24']} data-pagefind-ignore>
   <div class="container-page grid gap-10 py-14 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] lg:gap-12">
