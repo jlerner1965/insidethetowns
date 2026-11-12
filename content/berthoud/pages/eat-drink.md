@@ -37,6 +37,4 @@ picks:
     why: "Pizza, wings, calzones and stromboli from a shop on North 4th Street, with house-made chorizo and Italian sausage and unbleached, unbromated flour. Orders from 11 am to 8 pm every day, breakfast sandwiches from 9 to 11, and delivery online."
 ---
 
-Nobody pays to be listed or picked. We do not review food, so the list is not ranked by taste. Every hour and dish here comes from the place's own site, read on 11 November 2026.
-
-**Not on this list.** National chains, though the directory below lists some, and places that post no hours online, which stay in the directory until we can check them by phone.
+Nobody pays to be listed, and we do not review food.

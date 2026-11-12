@@ -31,8 +31,4 @@ picks:
     why: "Blue Arena, home ice of the American Hockey League's Colorado Eagles; the Ranch's other halls hold shows and festivals on dates of their own, on the guide's calendar. Box office in the arena, weekdays 10 to 5; arena parking is sold through ParkWhiz."
 ---
 
-Nobody pays to be on the list. Each pick was checked against its own page, or the page of the agency that runs it, on 11 November 2026.
-
-**In November.** Boyd Lake is closed to boats for the rest of 2026. Devil's Backbone closes at sunset, which comes early at this time of year, and the County's page has a webcam of its parking lot.
-
-**Not on this list.** A place goes on it only when its own page confirms its hours that day, so some listings, including the City's recreation center and parks, wait for the next check.
+Nobody pays to be listed.

@@ -37,8 +37,4 @@ picks:
     why: "The St. Vrain flows through the heart of Lyons, and visitors come to tube it. Warning flags show the creek's status, the Town bans tubing above 450 cfs and requires life jackets for children under 13 through July 15; Ray's River Rentals, its official outfitter, rents tubes and jackets when conditions are safe."
 ---
 
-Nobody pays to be listed. Every fact above comes from the place's own page or its manager's, read on November 11, 2026.
-
-**Before you go.** The Lyons Redstone Museum is closed until May. Conditions change by the day: the County posts burn closures on each park's page, and the Town's flags decide the river.
-
-**More on the guide.** For dogs and trails, read [Lyons hikes: where dogs are allowed](/articles/lyons-hikes-where-dogs-are-allowed/) and [Trails and the river](/articles/trails-and-the-river/); with children, [Lyons with kids](/articles/lyons-with-kids/). Bohn Park, Sandstone Park and the library are in the directory below.
+Nobody pays to be listed. More on the guide: [Lyons hikes: where dogs are allowed](/articles/lyons-hikes-where-dogs-are-allowed/), [Trails and the river](/articles/trails-and-the-river/) and [Lyons with kids](/articles/lyons-with-kids/).

@@ -34,6 +34,4 @@ picks:
     why: "Culver's at I-25 and US 34, for frozen custard, with each day's flavor posted on its page. The dining room is open every day 10 am to 10 pm; the drive-thru stays open to 10:30 pm, and to 11 on Friday and Saturday."
 ---
 
-Nobody pays to be on the list. We do not review food: each pick says what the place is, when it is open and who it suits. Each was checked against its own website or location page on 11 November 2026.
-
-**Not on this list.** The Candlelight Dinner Playhouse, the dinner theater at the interchange, is under [Things to do](/things-to-do/). The other chains at the interchange are in the directory below.
+Nobody pays to be listed, and we do not review food. The Candlelight Dinner Playhouse is under [Things to do](/things-to-do/).

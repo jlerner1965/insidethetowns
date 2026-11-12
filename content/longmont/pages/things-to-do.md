@@ -37,6 +37,4 @@ picks:
     why: "Boulder County's free farm museum at 8348 Ute Highway, set in the years 1900 to 1925: a furnished 1909 farmhouse, two barns and an heirloom garden. From November to March it opens only on the first Saturday of the month, 10 am to 5 pm. Farm animals are there April to October."
 ---
 
-Nobody pays to be listed. Every fact above comes from the page of whoever runs the place, read on November 11, 2026.
-
-**More on the guide.** For the lakes side by side, read [McIntosh or Union](/articles/mcintosh-versus-union/); with children, [Longmont with kids](/articles/longmont-with-kids/); for a day downtown, [Explore downtown Longmont in walking order](/articles/explore-downtown-longmont-in-walking-order/). Clark Centennial Park, Roger's Grove and Boulder County's Pella Crossing are in the directory below.
+Nobody pays to be listed. More on the guide: [McIntosh or Union](/articles/mcintosh-versus-union/), [Longmont with kids](/articles/longmont-with-kids/) and [Explore downtown Longmont in walking order](/articles/explore-downtown-longmont-in-walking-order/).

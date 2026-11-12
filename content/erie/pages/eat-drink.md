@@ -37,6 +37,4 @@ picks:
     why: "A family-run ice cream shop on Briggs Street scooping Colorado-made Little Man and Glacier ice cream, with shakes, malts and floats. Fall hours are 3 to 8 pm Monday to Thursday, noon to 9 Friday and Saturday, and noon to 8 Sunday."
 ---
 
-Nobody pays to be listed or picked. We do not review food, so the list is not ranked by taste. Every hour and dish here comes from the place's own site, read on 11 November 2026.
-
-**Not on this list.** National chains. Cristos Coffee, the Dugout and Erie Social Club did not fit in ten; they are in the directory below.
+Nobody pays to be listed, and we do not review food.

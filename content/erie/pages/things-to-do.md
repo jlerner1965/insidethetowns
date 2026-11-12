@@ -36,6 +36,4 @@ picks:
     why: "3.15 miles of singletrack with rollers, jumps and tabletops, marked beginner to advanced, on Town open space with views of the Front Range. The Town closes it when it is wet, muddy, snowy or icy, and posts the status on its page."
 ---
 
-Nobody pays to be listed. Every hour, price and closure here comes from the place's own page, or its owner's, read on 11 November 2026.
-
-**Not on this list.** Events are on the [calendar](/events/). Anderson Farms is closed until its next season. The Wise Homestead Museum is open on Saturdays from May to September and otherwise by appointment. Erie Lake, the velodrome and the other parks are in the directory below.
+Nobody pays to be listed. Events are on the [calendar](/events/).

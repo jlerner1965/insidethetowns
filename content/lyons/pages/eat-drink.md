@@ -37,8 +37,4 @@ picks:
     why: "Northern Italian and southern French cooking at 405 Main St, dinner only, Wednesday to Sunday from 5 pm. Its site lists James Beard semifinalist nods for Best Chef: Mountain in 2024 and 2026, and a place on Wine Enthusiast's 2024 list of the best wine restaurants in America. Reservations are online."
 ---
 
-Nobody pays to be listed, and we do not review food: each pick says what the place is and when it is open. Every fact above comes from the place's own website, read on November 11, 2026.
-
-**Before you go.** The Town notes that some hours vary in winter, so check a place's page before a long drive.
-
-**More on the guide.** Also in the directory below: La Mariposa, a Mexican restaurant at the east end of Main open every day from 11 am; the Rock Garden, A-Lodge's outdoor beer garden by the creek; and the original Oskar Blues Grill & Brew.
+Nobody pays to be listed, and we do not review food.

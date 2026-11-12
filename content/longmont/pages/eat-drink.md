@@ -37,6 +37,4 @@ picks:
     why: "A wine bar and tasting room at 704 Main St run by Doug and Julie Oldfield, who set out to make wine relaxed rather than exclusive: wines from around the world, flights and monthly events. Open Wednesday to Sunday from 3 pm; closed Mondays and Tuesdays."
 ---
 
-Nobody pays to be listed, and we do not review food: each pick says what the place is and when it is open. Every fact above comes from the place's own website, read on November 11, 2026.
-
-**More on the guide.** Barbecue, steak and seafood, an Irish pub, more breweries and more coffee are in the directory below, and the guide's [walk through downtown](/articles/explore-downtown-longmont-in-walking-order/) strings several together.
+Nobody pays to be listed, and we do not review food. More on the guide: a [walk through downtown](/articles/explore-downtown-longmont-in-walking-order/).

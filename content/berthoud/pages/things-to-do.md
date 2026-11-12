@@ -36,6 +36,4 @@ picks:
     why: "A neighborhood park at Indiana Avenue and 2nd Street with a fishing pond, a playground, a basketball court, a roller hockey rink, bocce and horseshoe pits (bring your own gear), three large pavilions and permanent restrooms."
 ---
 
-Nobody pays to be listed. Every hour, price and closure here comes from the place's own page, or its owner's, read on 11 November 2026.
-
-**Not on this list.** Events are on the [calendar](/events/). The McCarty-Fickel Home is closed for the season until spring 2027. Roberts Lake, Fickel Park, Bein Park and the Town's dog park are in the directory below.
+Nobody pays to be listed. Events are on the [calendar](/events/).

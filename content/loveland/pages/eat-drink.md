@@ -37,6 +37,4 @@ picks:
     why: "Hickory-smoked barbecue on St. Cloud Drive since 2008: brisket smoked for 14 hours, Carolina pork, ribs, smoked turkey and catfish, with a lunch buffet Wednesday to Friday 11 to 2. Open Wednesday, Thursday and Sunday 11 am to 9 pm and Friday and Saturday to 10; closed Monday and Tuesday."
 ---
 
-Nobody pays to be on the list. We do not review food: each pick says what the place is, when it is open and who it suits. Each was checked against its own website on 11 November 2026.
-
-**More on the guide.** Loveland has more breweries than one list can hold; the rest are in the directory below, with the coffee shops, the cat cafe and the pinball bar.
+Nobody pays to be listed, and we do not review food.
