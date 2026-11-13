@@ -425,3 +425,33 @@ export function byActionable<T extends ProgramLike>(list: readonly T[], now = ne
   };
   return [...list].sort((a, b) => rank(a) - rank(b));
 }
+
+/**
+ * A fact that holds more than one program's answer, split into its parts
+ * (the audit of 13 November 2026): "Museum: all ages, free 11 and under;
+ * card contest: K–5th grade" is two answers, each with its own label. Only
+ * a value whose every part starts with a short "Name:" is split, so a
+ * plain "Tue and Thu; 4 to 5 pm" stays one line. Nothing is reworded.
+ */
+export function factParts(text: string): Array<{ label?: string; text: string }> {
+  const parts = text.split(/;\s+/);
+  if (parts.length < 2) return [{ text }];
+  const labelled = parts.map((p) => p.match(/^([^:;]{1,40}):\s+(.+)$/s));
+  if (labelled.some((m) => !m)) return [{ text }];
+  return labelled.map((m) => ({ label: m![1]!.charAt(0).toUpperCase() + m![1]!.slice(1), text: m![2]! }));
+}
+
+/** The age groups a families page can filter by, from the programs' `audience`: only those present, in age order. */
+export const AGE_FILTERS = [
+  { key: 'young', label: 'Babies and preschool', audiences: ['babies', 'preschool'] },
+  { key: 'elementary', label: 'Elementary', audiences: ['elementary'] },
+  { key: 'teens', label: 'Teens', audiences: ['teens'] },
+] as const;
+/** A program for families or for everyone is for every age. */
+export const ALL_AGES = ['families', 'everyone'] as const;
+
+/** The filter keys a program matches, as `data-ages` carries them; "all" where it is for every age. */
+export function ageKeys(audience: readonly string[]): string[] {
+  if (audience.some((a) => (ALL_AGES as readonly string[]).includes(a))) return ['all'];
+  return AGE_FILTERS.filter((f) => f.audiences.some((a) => audience.includes(a))).map((f) => f.key);
+}
