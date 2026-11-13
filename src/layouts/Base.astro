@@ -22,7 +22,7 @@ import '@/styles/global.css';
 import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
 import instrumentLatin from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
 import Analytics from '@vercel/analytics/astro';
-import { getNetworkHub, getSite, listsEvents, type NavItem } from '@/config';
+import { getNetworkHub, getSite, listsEvents } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
@@ -46,14 +46,20 @@ interface Props {
   noindex?: boolean;
   /** What the page is, for the site search's result list: "Event", "Place", "Guide". */
   kind?: string;
-  /** The masthead's menu, where a page has its own (Header.astro `items`): the hub's home. */
-  nav?: NavItem[];
+  /**
+   * The fonts to preload, where a page is set in other faces than the
+   * network's: the hub's home (the redesign of 13 November 2026), in
+   * Newsreader and Inter. Every other page preloads the two below.
+   */
+  preload?: string[];
+  /** A class on <body>, for a page with a stylesheet of its own: the hub's home. */
+  bodyClass?: string;
 }
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
 const plausible = site.kind === 'town' && site.plausible === true;
-const { jsonLd, kind, nav, ...props } = Astro.props;
+const { jsonLd, kind, preload = [frauncesLatin, instrumentLatin], bodyClass, ...props } = Astro.props;
 // A town that has not launched serves a holding page; nothing on it, nor the
 // shared pages around it, should be indexed before the guide exists.
 const seo = site.kind === 'town' && site.status !== 'live' ? { ...props, noindex: true } : props;
@@ -83,8 +89,7 @@ const cssVars = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <link rel="preload" as="font" type="font/woff2" href={frauncesLatin} crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href={instrumentLatin} crossorigin />
+    {preload.map((href) => <link rel="preload" as="font" type="font/woff2" href={href} crossorigin />)}
     <SEO {...seo} jsonLd={structured} />
     {verification.map((tag) => <meta name={tag.name} content={tag.content} />)}
     {/* ?v= busts the week-long /favicons/ cache in vercel.json; bump it when the marks change. */}
@@ -102,16 +107,17 @@ const cssVars = [
     {/* One definition of the category hues, from src/config/palette.ts. */}
     <style is:inline set:html={categoryCss()}></style>
   </head>
-  <body>
+  <body class={bodyClass}>
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-raised focus:px-4 focus:py-2">
       Skip to content
     </a>
-    <Header items={nav} />
+    {/* A page may draw its own masthead and footer (the hub's home); every other page has the site's. */}
+    {Astro.slots.has('header') ? <slot name="header" /> : <Header />}
     {/* The kind labels a result ("Place · Niwot"); the filter puts it under the search page's type buttons (src/lib/network-search.ts). */}
     <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined} data-pagefind-filter={searchable && searchType(kind) ? `type:${searchType(kind)}` : undefined}>
       <slot />
     </main>
-    <Footer />
+    {Astro.slots.has('footer') ? <slot name="footer" /> : <Footer />}
     <Freshness />
     {analytics && <Analytics />}
     {plausible && <Plausible domain={site.domain} />}

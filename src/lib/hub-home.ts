@@ -1,64 +1,33 @@
 /**
- * The hub's home page (the layout brief of 13 November 2026, and the fixes
- * brief the same day): what its Guides section shows and how the feature
- * card counts, decided from the content rather than written on the page.
+ * The hub's home page (the redesign of 13 November 2026, the approved
+ * mockup in docs/design/hub-home-mockup.html): what each section shows,
+ * decided from the content rather than written on the page.
  *
- * The Guides section's cards are the hub's town-anchored articles
- * (src/lib/curiosity.ts): an index card for each topic, Camping and Ghost
- * towns, once the topic has an article on the site (its index page is
- * built then, src/integrations/town-routes.ts curiosityRoutes), and the
- * one featured article, Sundance from the towns next door, once it is on
- * the site. A draft is not on the site, so it makes no card. With no card
- * the section is not drawn at all (the fixes brief: no "coming soon").
+ *   - The annual-events feature: the current season's count, by town.
+ *   - This weekend: one listing a day, Friday to Sunday. Friday's is the
+ *     week's high-school football game where the scores data has one on
+ *     that day (`fridayGame`), else, like Saturday's and Sunday's, the best
+ *     one-off the organizer's own page or a person has confirmed
+ *     (`weekendPicks`), never the same town twice.
+ *   - Each row's check line, in the words its guide's own page uses
+ *     (`provenanceText`, `deadlineSourceText`, `changeSourceText`,
+ *     `sportsSourceText`).
+ *   - The index of the seven guides: each one's name, as the towns it
+ *     covers make it, and its one line.
  *
  * Plain functions over plain data, like src/lib/hub-towns.ts, so
- * test/hub-home.test.ts can hold them. Never imports astro:content.
+ * test/hub-home.test.ts can hold them. Imports astro:content for its types only.
  */
-import { CURIOSITY_TOPICS, TOPIC_INFO, articlePath, type CuriosityKind } from './curiosity.ts';
-
-/** A card in the Guides section, always a link to a page that is built. */
-export interface HomeTile {
-  /** The small label over the title: "Index", "Featured article". */
-  eyebrow: string;
-  title: string;
-  /** One line under the title. */
-  line: string;
-  href: string;
-}
-
-/** The featured article's slot (the layout brief): this article, found by its title, once it is on the site. */
-export const FEATURED_ARTICLE = { title: 'Sundance from the towns next door', match: /\bsundance\b/i } as const;
-
-/** An article as the cards read it: one already on the site (getCuriosity()). */
-export interface ArticleOnSite {
-  kind: CuriosityKind;
-  title: string;
-  description: string;
-  slug: string;
-  towns: string[];
-}
-
-/** The index cards: each topic with an article on the site, in the topics' order, with how many towns it covers. */
-export function indexTiles(articles: ReadonlyArray<ArticleOnSite>): HomeTile[] {
-  return CURIOSITY_TOPICS.flatMap((topic) => {
-    const n = articles.filter((a) => a.kind === topic).length;
-    if (n === 0) return [];
-    return [{ eyebrow: 'Index', title: TOPIC_INFO[topic].label, line: `Near ${n} ${n === 1 ? 'town' : 'towns'}.`, href: TOPIC_INFO[topic].path }];
-  });
-}
-
-/** The featured card: the one-off event article that carries the featured title, once it is on the site. */
-export function featuredTile(articles: ReadonlyArray<ArticleOnSite>): HomeTile | undefined {
-  const found = articles.find((a) => a.kind === 'event' && FEATURED_ARTICLE.match.test(a.title));
-  if (!found) return undefined;
-  return { eyebrow: 'Featured article', title: found.title, line: found.description, href: articlePath(found) };
-}
-
-/** The Guides section's cards, in the brief's order: the indexes, then the feature. Empty, the section is not drawn. */
-export function guideTiles(articles: ReadonlyArray<ArticleOnSite>): HomeTile[] {
-  const featured = featuredTile(articles);
-  return [...indexTiles(articles), ...(featured ? [featured] : [])];
-}
+import type { CollectionEntry } from 'astro:content';
+import { STANDALONE_GUIDES } from '../config/hub-towns.ts';
+import type { SchoolSports, SportData, SportGame } from '../config/school-sports.ts';
+import { schoolTeamName } from '../config/school-sports.ts';
+import type { Confidence } from './confidence.ts';
+import { isTentative } from './confidence.ts';
+import { addDays, dayKey, formatDate, formatShortDate, parseLocal } from './dates.ts';
+import { checkedBy } from './editor.ts';
+import { PLAN_YOUR_DAY, forGeneralReaders, isFlagged, isPast, oneOffs, weekendWindow } from './events.ts';
+import { FLAGSHIP_TEAM, formatGameTime, placeText, where } from './school-sports.ts';
 
 /**
  * The feature card's count, by town (the fixes brief: "19 of 20 towns'
@@ -78,10 +47,9 @@ export function townsConfirmed(rows: ReadonlyArray<{ town?: string; confirmed: b
   return { confirmed: confirmed.size, towns: towns.size };
 }
 
-/** "19 of 20 towns’ dates confirmed. Next: …" */
-export function seasonFeatureLine(counts: { confirmed: number; towns: number }, next?: string): string {
-  const count = `${counts.confirmed} of ${counts.towns} ${counts.towns === 1 ? 'town’s' : 'towns’'} dates confirmed.`;
-  return next ? `${count} Next: ${next}.` : count;
+/** "19 of 20 towns’ dates confirmed." */
+export function seasonFeatureLine(counts: { confirmed: number; towns: number }): string {
+  return `${counts.confirmed} of ${counts.towns} ${counts.towns === 1 ? 'town’s' : 'towns’'} dates confirmed.`;
 }
 
 /** The names the home's search box suggests as they are typed: the guides and the town pages, A to Z, no name twice. */
@@ -89,21 +57,290 @@ export function searchSuggestions(...lists: ReadonlyArray<ReadonlyArray<{ name: 
   return [...new Set(lists.flat().map((t) => t.name))].sort((a, b) => a.localeCompare(b));
 }
 
-/** The numbers over the home's sections, "01", "02", …, counting only the sections that are drawn. */
-export function sectionNumbers<K extends string>(shown: ReadonlyArray<readonly [key: K, drawn: boolean]>): Partial<Record<K, string>> {
-  const numbers: Partial<Record<K, string>> = {};
-  let n = 0;
-  for (const [key, drawn] of shown) if (drawn) numbers[key] = String(++n).padStart(2, '0');
-  return numbers;
-}
-
 /**
- * The registration item for the hub's "Now in the towns": the soonest
- * deadline that closes, since that is the one a reader can miss; where
- * none closes within the window, the soonest that opens. Nothing where
- * there is neither (the audit of 13 November 2026: omit, never fill).
+ * The registration deadline among the home's dated items: the soonest that
+ * closes, since that is the one a reader can miss; where none closes within
+ * the window, the soonest that opens. Nothing where there is neither (the
+ * audit of 13 November 2026: omit, never fill).
  */
 export function pickDeadline<T extends { what: 'opens' | 'closes'; on: Date }>(deadlines: readonly T[]): T | undefined {
   const byDate = [...deadlines].sort((a, b) => a.on.getTime() - b.on.getTime());
   return byDate.find((d) => d.what === 'closes') ?? byDate[0];
 }
+
+const WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+
+/** "seven", for a count the page writes in words; past twelve, the digits. */
+export function numberWord(n: number): string {
+  return WORDS[n] ?? String(n);
+}
+
+/** "Seven". */
+export function capitalized(word: string): string {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+/** "Frederick, Firestone and Dacono". */
+export function listWords(names: readonly string[]): string {
+  return names.length <= 1 ? names.join('') : `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`;
+}
+
+/**
+ * The guides' one line each in the index, as the approved mockup has them.
+ * Each was read against the guide's own content on 13 November 2026 (its
+ * tagline, its places and the school it follows): Niwot's Second Avenue
+ * and LoBo Trail are its places, the Cougars its school. A guide with no
+ * line here shows its short tagline, so a new guide reaches the index the
+ * day it goes live.
+ */
+export const GUIDE_LINES: Readonly<Record<string, string>> = {
+  berthoud: 'Main Street, the lakes, Spartans scores',
+  erie: 'Briggs Street, trails, Tigers scores',
+  johnstown: 'Parish Avenue, parks, Roughriders scores',
+  windsor: 'The lake, Main Street, Wizards scores',
+  'carbon-valley': 'Frederick, Firestone and Dacono',
+  lyons: 'The river, trails and music at the canyon mouth',
+  niwot: 'Second Avenue, the LoBo Trail, Cougars scores',
+};
+
+export function guideLine(guide: { slug: string; shortTagline?: string; tagline: string }): string {
+  return GUIDE_LINES[guide.slug] ?? guide.shortTagline ?? guide.tagline;
+}
+
+/**
+ * A guide's name in the index: a guide named for a region keeps its name
+ * and its line lists the towns ("Carbon Valley"); one named for its own
+ * town adds the others it covers ("Windsor and Severance").
+ */
+export function guideName(guide: { slug: string; name: string }, covered: readonly string[]): string {
+  if (STANDALONE_GUIDES[guide.slug]?.towns?.length || covered.length === 0) return guide.name;
+  return listWords([guide.name, ...covered]);
+}
+
+/** The host a source line names: "chsaanow.com". */
+export function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
+
+/**
+ * An event's check line in the words of its own page on the guide
+ * (src/components/Provenance.astro): the confidence's own sentence where
+ * it says more than a date (a call to the organizer), with the listing's
+ * site; else "Checked November 11, 2026 against chsaanow.com". Without
+ * the closing full stop, since the home sets each as a line of its own.
+ */
+export function provenanceText(item: { data: { verified?: Date; source?: string }; confidence?: Pick<Confidence, 'line'> }, checked: (date: string) => string = checkedBy): string | undefined {
+  const { verified, source } = item.data;
+  const host = source ? hostOf(source) : undefined;
+  const own = item.confidence?.line;
+  if (own) return `${own}${host ? ` Listing: ${host}` : ''}`.replace(/\.$/, '');
+  if (!verified && !host) return undefined;
+  return `${verified ? checked(formatDate(verified)) : ''}${verified && host ? ' against ' : ''}${host ?? ''}`;
+}
+
+/** A registration deadline's line, as the family hub's card has it (DeadlineCard.astro): "Checked Nov 11, 2026 against host", or "Source: host". */
+export function deadlineSourceText(data: { verified?: Date; source?: string }): string | undefined {
+  if (!data.source) return undefined;
+  return data.verified ? `Checked ${formatShortDate(data.verified)} against ${hostOf(data.source)}` : `Source: ${hostOf(data.source)}`;
+}
+
+/** A local change's line, as the guide's /updates/ has it (UpdateRow.astro): "Source: Town of Frederick: …, read Nov 11, 2026". */
+export function changeSourceText(data: { verified?: Date; source?: string; sourceLabel?: string }): string | undefined {
+  if (!data.source) return undefined;
+  return `Source: ${data.sourceLabel ?? hostOf(data.source)}${data.verified ? `, read ${formatShortDate(data.verified)}` : ''}`;
+}
+
+/**
+ * A game's line, as the school's sports page words its source
+ * (src/routes/town/sports.astro): "Scores and schedules from MaxPreps, read
+ * Nov 11, 2026", "Scores from MaxPreps" where the school's calendar checks
+ * the dates, and the CHSAA bracket where the game came from one.
+ */
+export function sportsSourceText(team: Pick<SportData, 'fetched'>, game: Pick<SportGame, 'chsaa'>, calendar?: boolean): string {
+  const read = team.fetched ? `, read ${formatShortDate(new Date(team.fetched))}` : '';
+  const dates = calendar ? '; dates checked against the school calendar' : '';
+  const bracket = game.chsaa ? `; postseason games from CHSAA’s bracket, read ${formatShortDate(parseLocal(game.chsaa.read))}` : '';
+  return `${calendar ? 'Scores from' : 'Scores and schedules from'} MaxPreps${read}${dates}${bracket}`;
+}
+
+/** The days of the weekend this one is in or coming to, Friday to Sunday, as Denver days. On a Saturday it is still the Friday just gone. */
+export function weekendDays(now: Date): Array<{ key: string; date: Date }> {
+  const friday = addDays(weekendWindow(now).sunday, -2);
+  return [0, 1, 2].map((n) => {
+    const date = addDays(friday, n);
+    return { key: dayKey(date), date };
+  });
+}
+
+type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
+type Listing = EventLike & { town: { slug: string }; confidence?: Confidence };
+
+/**
+ * One listing for each day of the weekend that is not already taken (by
+ * Friday's game), never two from one town and never one from a town in
+ * `taken`. A listing qualifies when it starts that day and has not
+ * finished, the organizer's own page or a person has confirmed it (the
+ * `confirmed` level, src/lib/confidence.ts), and it is a one-off for a
+ * general reader: no regular, no standing children's program, nothing
+ * civic, canceled or flagged by the re-check, and not a program's own
+ * deadline listing (`exclude`). The best is the editor's featured listing,
+ * then a plan-your-day one (a festival, a market, music, a game, the
+ * arts), then the rest; within each, the earlier start, then the guides'
+ * order. The days are filled in order, Friday first.
+ *
+ * `all` is the network's listings expanded with `occurrences`, so a
+ * series stored as a file per date is known as one.
+ */
+export function weekendPicks<T extends Listing>(
+  all: readonly T[],
+  days: ReadonlyArray<{ key: string }>,
+  {
+    now = new Date(),
+    taken = new Set<string>(),
+    order = [],
+    exclude = new Set<string>(),
+  }: {
+    now?: Date;
+    taken?: ReadonlySet<string>;
+    order?: readonly string[];
+    /** Listings, as `listingKey`, that are something else on the page: a program's deadline (`deadlineListings`). */
+    exclude?: ReadonlySet<string>;
+  } = {},
+): Map<string, T> {
+  const general = forGeneralReaders(all, all);
+  const pool = oneOffs(general, all).filter((e) => !isPast(e, now) && !isFlagged(e) && !isTentative(e) && e.confidence?.level === 'confirmed' && !exclude.has(listingKey(e)));
+  // The editor's featured flag first, then a plan-your-day category, then the rest.
+  const rank = (e: T) => (e.data.featured ? 0 : PLAN_YOUR_DAY.has(e.data.category) ? 1 : 2);
+  const place = (slug: string) => order.indexOf(slug) + 1 || order.length + 1;
+  const towns = new Set(taken);
+  const picks = new Map<string, T>();
+  for (const { key } of days) {
+    const best = pool
+      .filter((e) => dayKey(e.data.start) === key && !towns.has(e.town.slug))
+      .sort((a, b) => rank(a) - rank(b) || a.data.start.getTime() - b.data.start.getTime() || place(a.town.slug) - place(b.town.slug))[0];
+    if (!best) continue;
+    picks.set(key, best);
+    towns.add(best.town.slug);
+  }
+  return picks;
+}
+
+/** A listing as one key across the network: "berthoud/holiday-card-art-contest-deadline-2026-11-14". */
+export function listingKey(e: { town: { slug: string }; slug?: string; id?: string }): string {
+  return `${e.town.slug}/${e.slug ?? e.id ?? ''}`;
+}
+
+type ProgramLike = { town: { slug: string }; data: { nextEvent?: string; registration?: { deadline?: Date; opens?: Date } } };
+
+/**
+ * The listings that are a program's registration deadline or opening, as
+ * `listingKey`: the listing the program points at (`nextEvent`) where it
+ * falls on one of those days ("Holiday Card Art Contest: artwork due"). The
+ * family hub shows such a listing on the deadline's card (DeadlineCard.astro);
+ * the home keeps it out of the weekend's picks, since it is a date to
+ * meet, not a thing to go to.
+ */
+export function deadlineListings<P extends ProgramLike>(programs: readonly P[], listings: ReadonlyArray<Listing>): Set<string> {
+  const keys = new Set<string>();
+  for (const p of programs) {
+    const r = p.data.registration;
+    if (!p.data.nextEvent || !r) continue;
+    const days = [r.deadline, r.opens].filter((d): d is Date => !!d).map((d) => dayKey(d));
+    const own = listings.find((e) => e.town.slug === p.town.slug && e.slug === p.data.nextEvent);
+    if (own && days.includes(dayKey(own.data.start))) keys.add(listingKey(own));
+  }
+  return keys;
+}
+
+/**
+ * A deadline's title as the family hub's card gives it (DeadlineCard.astro):
+ * the listing's own, less its "artwork due", where the program's listing
+ * is on the deadline's day; else the program's.
+ */
+export function deadlineTitle(programTitle: string, listing?: { data: { title: string } }): string {
+  return listing ? listing.data.title.replace(/\s*[:·-]\s*(?:\w+\s+)?due\s*$/i, '') : programTitle;
+}
+
+/** A school's football season, read for the home's Friday: its guide, the school, and the file's data after CHSAA's corrections. */
+export interface GameSource<G> {
+  guide: G;
+  school: Pick<SchoolSports, 'slug' | 'town' | 'calendar' | 'maxprepsName' | 'mascot'>;
+  team: SportData;
+}
+
+export interface FridayGame<G, T> extends GameSource<G> {
+  game: SportGame;
+  /** The guide's own listing for the game, where it has one: its title, venue, link and check line. */
+  listing?: T;
+}
+
+/** The opponent's names a game may go by: CHSAA writes a winner still to be decided as "A or B". */
+function opponents(game: Pick<SportGame, 'opponent'>): string[] {
+  return game.opponent.split(/\s+or\s+/i).map((n) => n.trim().toLowerCase()).filter((n) => n.length >= 3);
+}
+
+/**
+ * Friday night lights: the high-school football game the home leads its
+ * weekend with, from the scores data (data/<town>/sports*.json, with
+ * CHSAA's brackets merged in), on the weekend's Friday, played or to come.
+ * The guide's own listing for it is found as the guides find it
+ * (src/lib/flagship-home.ts, listedAsEvent): a sports listing that day
+ * whose title names the opponent. Where several schools play that Friday,
+ * the one whose guide features its listing comes first, then a
+ * postseason game, then the guides' order. Nothing where no followed
+ * school plays football that day.
+ */
+export function fridayGame<G, T extends Listing & { town: { slug: string } }>(
+  sources: ReadonlyArray<GameSource<G> & { town: string }>,
+  friday: string,
+  listings: readonly T[],
+): FridayGame<G, T> | undefined {
+  const games = sources.flatMap((s, order) => {
+    if (s.team.key !== FLAGSHIP_TEAM) return [];
+    const game = s.team.results.find((g) => g.date === friday) ?? s.team.upcoming.find((g) => g.date === friday);
+    if (!game) return [];
+    const names = opponents(game);
+    const listing = listings.find(
+      (e) => e.town.slug === s.town && e.data.category === 'sports' && dayKey(e.data.start) === friday && e.data.status !== 'canceled' && names.some((n) => e.data.title.toLowerCase().includes(n)),
+    );
+    return [{ guide: s.guide, school: s.school, team: s.team, game, listing, order }];
+  });
+  const rank = (g: (typeof games)[number]) => (g.listing?.data.featured ? 0 : 2) + (g.game.stage ? 0 : 1);
+  const best = games.sort((a, b) => rank(a) - rank(b) || a.order - b.order)[0];
+  return best && { guide: best.guide, school: best.school, team: best.team, game: best.game, listing: best.listing };
+}
+
+/** "9–1": a record or a score, with the en dash the page sets them in. */
+export function dashed(text: string): string {
+  return text.replace(/(\d)-(\d)/g, '$1–$2');
+}
+
+/** The Friday game as a row: its title, the line under it, and whether it shows the final. */
+export function gameRow(g: Pick<FridayGame<unknown, Listing>, 'school' | 'team' | 'game' | 'listing'>, displayTitle: (e: EventLike) => string, clock: (e: EventLike) => string): { title: string; meta: string[]; final: boolean } {
+  const { school, team, game, listing } = g;
+  const title = listing ? displayTitle(listing) : `${schoolTeamName(school)} ${where(game)} ${game.opponent}`;
+  const record = team.overall ? `${dashed(team.overall)} this season` : undefined;
+  if (game.result) {
+    const word = { W: 'Won', L: 'Lost', T: 'Tied' }[game.result];
+    const score = game.forfeit ? 'by forfeit' : game.score ? `${game.score.us}–${game.score.them}` : undefined;
+    return { title, meta: [`Final: ${[word, score].filter(Boolean).join(' ')}`, record].filter((s): s is string => !!s), final: true };
+  }
+  const time = listing ? clock(listing) : game.time ? formatGameTime(game) : undefined;
+  const venue = listing?.data.venue ?? placeText(game);
+  return { title, meta: [time, venue, game.stage && !listing ? game.stage : undefined, record].filter((s): s is string => !!s), final: false };
+}
+
+/**
+ * The photograph beside the hero: the owner's own, of the Flatirons from
+ * the air (IMAGE_LICENSES.csv), shown clean, with no words on it and no
+ * credit line. The same picture is the page's share image.
+ */
+export const HOME_PHOTO = {
+  file: 'front-range-flatirons.jpg',
+  alt: 'The Flatirons and the foothills above Boulder from the air, with the plains and their towns beyond',
+  caption: 'The Flatirons above Boulder, looking toward the plains.',
+} as const;

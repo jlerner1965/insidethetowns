@@ -284,9 +284,8 @@ An article is a draft until its file says `status: verified`, which the
 schema refuses while a flag is open: a draft builds no page, no index row,
 no home row and no Nearby link (`npm run curiosity` lists every flagged or
 empty field by article; `CURIOSITY_DRAFTS=1` draws the drafts for a local
-read, noindex, and throws on Vercel). The hub's home page has one row,
-"Near the towns", linking the topic indexes and the event article, drawn
-once one is verified. A town page on the hub, and a standalone guide's
+read, noindex, and throws on Vercel). The hub's home page has no row for
+them since its redesign of 13 November 2026. A town page on the hub, and a standalone guide's
 `/things-to-do/`, has a "Nearby" block under Near <Town> that links the
 articles naming it: links only, no line of an article repeated.
 
@@ -312,8 +311,22 @@ reading "Confirmed". **Free** is one rule, `src/lib/cost.ts`.
 outdoor dates lead when two or more of the guide's own local ones qualify
 (a statewide date does not count); otherwise the guide's own
 traditions lead and the outdoor dates come second (`guideHomeDates`). The
-rest are on `/traditions/`. The hub's home hero has the Front Range photograph beside the
-headline from lg.
+rest are on `/traditions/`.
+
+**The hub's home page** (13 November 2026) is the approved design in
+`docs/design/hub-home-mockup.html`, with its own masthead, footer, type
+(Newsreader, Inter, the Fraunces wordmark, all self-hosted) and palette
+(`HUB_HOME`, one accent, pine), in `src/styles/hub-home.css`; the guides
+and the hub's other pages keep theirs. The owner's Flatirons photograph
+sits beside the headline (under it on a phone) and is the page's share
+image. The rules are `src/lib/hub-home.ts`: the season's count by town;
+one listing a day for the weekend, Friday's being the high-school football
+game where the scores data has one (the guide's featured listing first,
+then a playoff game), its final once posted, and otherwise a one-off the
+organizer has confirmed, never two from one town and never a program's
+deadline listing; the registration deadline and the local change; each
+row's check line in its guide page's words. Dated rows leave the page once
+past, and an emptied block goes with them.
 
 **Visual rules** (the ten from the 26 October pass, still in force):
 

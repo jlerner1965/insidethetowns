@@ -819,7 +819,7 @@ export function forGeneralReaders<T extends EventLike>(events: readonly T[], all
  * markets, concerts, races, shows. The rest (family, food, outdoors, other)
  * still qualify for a neighbour's block, after these.
  */
-const PLAN_YOUR_DAY: ReadonlySet<string> = new Set(['festival', 'market', 'music', 'sports', 'arts']);
+export const PLAN_YOUR_DAY: ReadonlySet<string> = new Set(['festival', 'market', 'music', 'sports', 'arts']);
 
 /**
  * The picks for a town's "Nearby this weekend" block, from its neighbours'
