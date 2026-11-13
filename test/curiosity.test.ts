@@ -22,6 +22,8 @@ import {
   curiositySchema,
   draftsEnabled,
   factsOf,
+  finalLine,
+  gamesByWeek,
   isShown,
   kindLabel,
   lastModified,
@@ -106,6 +108,52 @@ test('a story names several towns or one, rests on its sources, which may be new
   assert.equal(articlePath({ kind: 'story', towns: ['nederland'], slug: 'nederland-eldora' }), '/articles/nederland-eldora/');
   assert.equal(storyHomeUntil({ date: '2026-11-13' }), '2026-11-27');
   assert.equal(storyHomeUntil({ date: '2026-11-13', homeUntil: '2026-12-01' }), '2026-12-01');
+});
+
+test('a game shows a score only once it is final, says who advances only then, and lives only on an event article', () => {
+  const src = [{ label: 'CHSAA: 4A bracket', url: 'https://chsaanow.com/brackets/football/2026/state/4a', checked: '2026-11-13' }];
+  const event = { slug: 'x', kind: 'event', towns: ['johnstown'], title: 'X', description: 'X.', date: '2026-11-13', sources: src };
+  const game = (over: Record<string, unknown> = {}) => ({
+    class: '4A',
+    round: 'Second round',
+    kickoff: '2026-11-13T19:00',
+    home: { name: 'Roosevelt', seed: 1, section: '#roosevelt-high-school-johnstown' },
+    away: { name: 'Montbello', seed: 17 },
+    url: 'https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-roosevelt',
+    checked: '2026-11-13',
+    ...over,
+  });
+  assert.deepEqual(issues({ ...event, games: [game()] }), [], 'a scheduled game, no venue: the page says so');
+  assert.equal(curiositySchema.parse({ ...event, games: [game()] }).games[0]!.status, 'scheduled');
+  // No score before the final, and no final without both scores: nothing reads as live.
+  assert.ok(issues({ ...event, games: [game({ home: { name: 'Roosevelt', seed: 1, score: 21 }, away: { name: 'Montbello', seed: 17, score: 7 } })] }).some((i) => /final/.test(i)));
+  assert.ok(issues({ ...event, games: [game({ status: 'final' })] }).some((i) => /final/.test(i)));
+  assert.ok(issues({ ...event, games: [game({ status: 'live' })] }).length > 0, 'there is no live status');
+  const final = game({ status: 'final', home: { name: 'Roosevelt', seed: 1, score: 35 }, away: { name: 'Montbello', seed: 17, score: 14 }, next: 'Roosevelt plays Golden or Mesa Ridge on November 20.' });
+  assert.deepEqual(issues({ ...event, games: [final] }), []);
+  assert.ok(issues({ ...event, games: [game({ next: 'Roosevelt advances.' })] }).some((i) => /final/.test(i)), 'who advances waits for the final');
+  assert.equal(finalLine(curiositySchema.parse({ ...event, games: [final] }).games[0]!), 'Roosevelt 35, Montbello 14', 'the winner first');
+  assert.ok(issues({ ...event, games: [game({ kickoff: '2026-11-13 7pm' })] }).some((i) => /kickoff/.test(i)));
+  assert.ok(issues(camping({ games: [game()] })).some((i) => /event article/.test(i)), 'only an event article');
+  // An update may carry its time, for a page that changes more than once a day.
+  assert.deepEqual(issues({ ...event, updated: { date: '2026-11-14', time: '22:30', note: 'Friday’s finals.' } }), []);
+  assert.ok(issues({ ...event, updated: { date: '2026-11-14', time: '10 pm', note: 'n' } }).some((i) => /HH:MM/.test(i)));
+  // A game's check counts toward "Last verified" and the reverify reminder.
+  assert.equal(lastVerified({ ...curiositySchema.parse(event), games: [curiositySchema.parse({ ...event, games: [game({ checked: '2026-11-10' })] }).games[0]!] }), '2026-11-10');
+});
+
+test('the schedule groups games by weekend, the newest first, so earlier results stay under this week’s games', () => {
+  const g = (kickoff: string) => ({ kickoff }) as Parameters<typeof gamesByWeek>[0][number];
+  const weeks = gamesByWeek([g('2026-11-13T19:00'), g('2026-11-20T19:00'), g('2026-11-12T19:00'), g('2026-11-14T13:00'), g('2026-11-21T13:00')]);
+  assert.deepEqual(
+    weeks.map((w) => [w.first, w.last, w.games.length]),
+    [
+      ['2026-11-20', '2026-11-21', 2],
+      ['2026-11-12', '2026-11-14', 3],
+    ],
+  );
+  assert.deepEqual(weeks[1]!.games.map((x) => x.kickoff), ['2026-11-12T19:00', '2026-11-13T19:00', '2026-11-14T13:00'], 'kickoff order within a weekend');
+  assert.deepEqual(gamesByWeek([]), []);
 });
 
 test('an article with an open flag cannot be marked verified; an empty field with no flag can', () => {
@@ -213,6 +261,10 @@ test('the byline is the studio’s, not a person’s, and the pages print it, th
   assert.match(page, /Last verified/);
   assert.match(page, /'Visited' : 'Not personally visited'/);
   assert.match(page, /noindex=\{draft\}/, 'a draft under the preview switch is noindex');
+  // An update with a time prints it in Mountain Time, and the same instant is the dateModified.
+  assert.match(page, /\$\{formatTime\(updatedAt\)\} MT/);
+  assert.match(page, /const modified = updatedAt && lastModified\(data\) === data\.updated!\.date \? `\$\{data\.updated!\.date\}T\$\{data\.updated!\.time\}`/);
+  assert.match(page, /Venue not yet confirmed/, 'a game with no named venue says so, never a guess');
 });
 
 test('the Nearby block is links only, on the hub town page and a guide’s things to do', () => {

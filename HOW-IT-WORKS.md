@@ -302,6 +302,23 @@ them since its redesign of 13 November 2026. A town page on the hub, and a stand
 `/things-to-do/`, has a "Nearby" block under Near <Town> that links the
 articles naming it: links only, no line of an article repeated.
 
+An event article that follows games (the football playoffs, 13 November
+2026) carries them as `games` in its file and draws them first: a table on
+a wide screen and a card per game on a phone, by weekend with the newest on
+top, so earlier results stay on the page. Each game names the home team, its
+kickoff in Mountain Time, the venue only where CHSAA's game page or the
+host's ticket listing names one ("Venue not yet confirmed" and a link to
+the game page otherwise, never the school's campus by assumption), and the
+ticket and stream links CHSAA's game page gives, a paid stream marked as
+one. A game is `scheduled`, `postponed` or `final`; there is no "live", and
+the schema refuses a score on anything but a final, which is read on
+CHSAA's game page. Its update may carry a time (`updated.time`), printed
+"Updated … MT" and given as the dateModified, and moved only for a
+substantive change such as a final. Such an article may set its own
+masthead line, a reporting note in place of the visited label, jump links,
+its own closing note and one invitation, and may leave off the towns' links
+at the foot when each section links its own town.
+
 Under Outdoor dates, "Open now" and "Opens next" (`src/lib/open-now.ts`)
 read the records' own dates: a window in force, an opening with a closing
 still ahead, or an opening in the last ninety days where no closing has

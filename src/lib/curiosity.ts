@@ -176,6 +176,76 @@ const ghostTown = z
   .strict();
 export type GhostTown = z.infer<typeof ghostTown>;
 
+/**
+ * A game an event article follows: a playoff schedule that turns into
+ * results (the football playoffs brief, 13 November 2026). The page draws
+ * the games first, a table on a wide screen and one card per game on a
+ * phone, grouped by weekend with the newest first, so last week's results
+ * stay on the page under this week's games.
+ *
+ * Preview to result, one game at a time:
+ *   1. Before kickoff the game is `scheduled`, with the venue only where
+ *      CHSAA's game page or the host's ticket listing names one; without
+ *      it the page says "Venue not yet confirmed" and links the game page.
+ *   2. When CHSAA's game page posts the final, set `status: final`, both
+ *      `score`s, `next` (who advances, and to which game, once CHSAA's
+ *      bracket names it) and `checked`. A score read anywhere else waits.
+ *   3. Move the article's `updated` only for a change like that, and add
+ *      the next round's games as CHSAA posts them; nothing is deleted.
+ * There is no "live": the page has no live source, so a game in progress
+ * stays `scheduled` until its final is posted.
+ */
+export const GAME_STATUSES = ['scheduled', 'postponed', 'final'] as const;
+export type GameStatus = (typeof GAME_STATUSES)[number];
+
+/** A Denver wall-clock time, as the content files write one: "2026-11-13T19:00". */
+const wallClock = z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/, '"YYYY-MM-DDTHH:MM", Denver time');
+const anchor = z.string().regex(/^#[a-z0-9]+(?:-[a-z0-9]+)*$/, 'an anchor on the page: "#find-your-team"');
+
+const gameTeam = z
+  .object({
+    /** As CHSAA's bracket names the school: "Fort Collins", "Douglas County". */
+    name: text.max(60),
+    seed: z.number().int().min(1).max(32),
+    /** The article's section for the team, where it has one: the schedule links the name to it. */
+    section: anchor.optional(),
+    /** The final score: only a final game carries one. */
+    score: z.number().int().min(0).optional(),
+  })
+  .strict();
+
+const game = z
+  .object({
+    /** "5A", "2A". */
+    class: text.max(8),
+    /** "Second round", "Quarterfinal". */
+    round: text.max(40),
+    kickoff: wallClock,
+    home: gameTeam,
+    away: gameTeam,
+    /** The stadium, as CHSAA's game page or the host's ticket listing names it. Left out, the page says "Venue not yet confirmed". */
+    venue: text.max(120).optional(),
+    status: z.enum(GAME_STATUSES).default('scheduled'),
+    /** CHSAA's game page: the official listing, and the page a final is read on. */
+    url: source,
+    /** The host's ticket page, where CHSAA's game page links one. */
+    tickets: source.optional(),
+    /** The stream CHSAA's game page links, and whether it costs money to watch. */
+    stream: z.object({ url: source, label: text.max(60), paid: z.boolean() }).strict().optional(),
+    /** After a final: who advances, and to which game, in one line. */
+    next: text.max(240).optional(),
+    /** The day the game's facts were last read. */
+    checked: day,
+  })
+  .strict()
+  .refine((g) => (g.status === 'final') === (g.home.score !== undefined && g.away.score !== undefined), {
+    message: 'a final carries both scores, and nothing else carries a score: no result until CHSAA posts the final',
+    path: ['status'],
+  })
+  .refine((g) => g.home.score === undefined || g.home.score !== g.away.score, { message: 'a playoff game has a winner', path: ['home', 'score'] })
+  .refine((g) => g.status === 'final' || !g.next, { message: 'who advances is written once the game is final', path: ['next'] });
+export type Game = z.infer<typeof game>;
+
 const placeSlug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'a town page’s slug or a guide’s key, as src/config/hub-towns.ts names it');
 
 export const curiositySchema = z
@@ -227,8 +297,32 @@ export const curiositySchema = z
      * and one line on what changed, both printed under the byline and the
      * day given as the page's dateModified. Not for a re-check that changed
      * nothing a reader sees (that moves `checked`), and never to look fresh.
+     * `time` (Denver, "16:10") is for a page that changes more than once a
+     * day, such as a playoff schedule taking results: the line then reads
+     * "Updated November 13, 2026, 4:10 pm MT" and the dateModified carries it.
      */
-    updated: z.object({ date: day, note: text.max(300) }).strict().optional(),
+    updated: z
+      .object({ date: day, time: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, '"HH:MM", Denver time').optional(), note: text.max(300) })
+      .strict()
+      .optional(),
+    // An event article's own masthead and close, where the defaults (the
+    // towns by name, "Not personally visited", the note on fees and roads,
+    // the towns' links at the foot) do not fit it. The football playoffs
+    // article (13 November 2026) is the first.
+    /** The line over the headline, in place of the towns by name: "High school football · Colorado playoffs". */
+    eyebrow: text.max(80).optional(),
+    /** How the article was reported, in place of the visited label. */
+    reportingNote: text.max(200).optional(),
+    /** Jump links under the byline, each to an anchor on the page. */
+    jump: z.array(z.object({ label: text.max(30), href: anchor }).strict()).max(5).default([]),
+    /** The note after the sources, in place of the one about fees, seasons and roads. */
+    footnote: text.max(400).optional(),
+    /** Whether the towns' links are drawn at the foot; false where each section links its own town. */
+    townsNav: z.boolean().default(true),
+    /** The one invitation the article ends with, to a page on the hub: the newsletter. */
+    invite: z.object({ text: text.max(120), href: z.string().regex(/^\/[a-z0-9/-]*$/, 'a page on the hub: "/newsletter/"') }).strict().optional(),
+    /** The games an event article follows, drawn first (see GAME_STATUSES). */
+    games: z.array(game).default([]),
   })
   .strict()
   .refine((a) => isStandalone(a.kind) || a.towns.length === 1, { message: 'a topic article is anchored to one town', path: ['towns'] })
@@ -238,6 +332,7 @@ export const curiositySchema = z
   .refine((a) => a.kind === 'story' || !a.homeUntil, { message: 'only a story is shown on the hub’s home, so only a story carries homeUntil', path: ['homeUntil'] })
   .refine((a) => !a.homeUntil || a.homeUntil >= a.date, { message: 'homeUntil is on or after the story’s date', path: ['homeUntil'] })
   .refine((a) => !a.updated || a.updated.date >= a.date, { message: 'an update is on or after the article’s date', path: ['updated', 'date'] })
+  .refine((a) => a.kind === 'event' || a.games.length === 0, { message: 'only an event article carries games', path: ['games'] })
   .refine((a) => a.status !== 'verified' || (a.needs.length === 0 && [...a.campgrounds, ...a.ghostTowns].every((e) => e.flags.length === 0)), {
     message: 'an article with open flags is not verified: settle each one (fill the field from its source, or delete the flag and leave the field out)',
     path: ['status'],
@@ -251,15 +346,53 @@ export function entriesOf(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns'
   return [...a.campgrounds, ...a.ghostTowns];
 }
 
-/** Every fact in the article with a source and a day: the entries' fields and the prose's sources. */
-export function factsOf(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns' | 'sources'>): Array<{ source: string; checked: string }> {
+/** Every fact in the article with a source and a day: the entries' fields, the games and the prose's sources. */
+export function factsOf(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns' | 'sources'> & { games?: readonly Game[] }): Array<{ source: string; checked: string }> {
   const fields = [...new Set<string>([...CAMPING_FIELDS, ...GHOST_FIELDS])];
   const fromEntries = entriesOf(a).flatMap((e) => [
     ...fields.map((f) => (e as Record<string, unknown>)[f] as Fact | undefined).filter((f): f is Fact => !!f),
     ...e.more,
     ...(e.skip ? [e.skip] : []),
   ]);
-  return [...fromEntries, ...a.sources.map((s) => ({ source: s.url, checked: s.checked }))];
+  const fromGames = (a.games ?? []).map((g) => ({ source: g.url, checked: g.checked }));
+  return [...fromEntries, ...fromGames, ...a.sources.map((s) => ({ source: s.url, checked: s.checked }))];
+}
+
+/** One weekend's games, as the schedule groups them: the days they fall on, and the games in kickoff order. */
+export interface GameWeek {
+  /** The weekend's first and last days, "2026-11-13". */
+  first: string;
+  last: string;
+  games: Game[];
+}
+
+/**
+ * The games by weekend, the newest weekend first, so this week's games sit
+ * above last week's results. A weekend runs Monday to Sunday: Thursday,
+ * Friday and Saturday games of one round are one group.
+ */
+export function gamesByWeek(games: readonly Game[]): GameWeek[] {
+  const monday = (wall: string) => {
+    const d = new Date(`${wall.slice(0, 10)}T12:00:00Z`);
+    d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+    return d.toISOString().slice(0, 10);
+  };
+  const weeks = new Map<string, Game[]>();
+  for (const g of [...games].sort((x, y) => x.kickoff.localeCompare(y.kickoff))) {
+    const key = monday(g.kickoff);
+    weeks.set(key, [...(weeks.get(key) ?? []), g]);
+  }
+  return [...weeks.entries()]
+    .sort(([x], [y]) => y.localeCompare(x))
+    .map(([, list]) => ({ first: list[0]!.kickoff.slice(0, 10), last: list[list.length - 1]!.kickoff.slice(0, 10), games: list }));
+}
+
+/** A final's line, the winner first: "Fort Collins 35, Northfield 21". */
+export function finalLine(g: Pick<Game, 'home' | 'away'>): string | undefined {
+  const { home, away } = g;
+  if (home.score === undefined || away.score === undefined) return undefined;
+  const [w, l] = home.score > away.score ? [home, away] : [away, home];
+  return `${w.name} ${w.score}, ${l.name} ${l.score}`;
 }
 
 /**
@@ -268,7 +401,7 @@ export function factsOf(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns' |
  * again moves that fact's own date; the article's moves when the oldest
  * one has been read again.
  */
-export function lastVerified(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns' | 'sources' | 'date'>): string {
+export function lastVerified(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns' | 'sources' | 'date'> & { games?: readonly Game[] }): string {
   return (
     factsOf(a)
       .map((f) => f.checked)
@@ -281,7 +414,7 @@ export function lastVerified(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTow
  * the latest of its first day, its last revision (`updated`) and its
  * "Last verified" day, so it is never earlier than the day it was published.
  */
-export function lastModified(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns' | 'sources' | 'date' | 'updated'>): string {
+export function lastModified(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns' | 'sources' | 'date' | 'updated'> & { games?: readonly Game[] }): string {
   return [a.date, lastVerified(a), a.updated?.date ?? a.date].sort().at(-1)!;
 }
 
@@ -360,7 +493,7 @@ export function openItems(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns'
 }
 
 /** Whether the article is due to be read again (`reverify`) and has a fact not read since. */
-export function reverifyDue(a: Pick<CuriosityArticle, 'reverify' | 'campgrounds' | 'ghostTowns' | 'sources' | 'date'>, today: string): boolean {
+export function reverifyDue(a: Pick<CuriosityArticle, 'reverify' | 'campgrounds' | 'ghostTowns' | 'sources' | 'date'> & { games?: readonly Game[] }, today: string): boolean {
   return !!a.reverify && today >= a.reverify.from && lastVerified(a) < a.reverify.from;
 }
 
