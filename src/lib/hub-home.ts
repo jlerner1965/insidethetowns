@@ -3,19 +3,18 @@
  * brief the same day): what its Guides section shows and how the feature
  * card counts, decided from the content rather than written on the page.
  *
- * The Guides section lists only cards that link to a page that is built
- * and has something on it, and is not drawn at all until one does (the
- * fixes brief: no "coming soon" cards). Two kinds of card:
- *
- * - an article index, Camping or Ghost towns: the hub's own page, live
- *   once the hub builds it (a route in src/integrations/town-routes.ts)
- *   and content/hub/articles/ holds an article in its category;
- * - the featured article, named here and found by its title among every
- *   guide's published articles, on its guide's own domain.
+ * The Guides section's cards are the hub's town-anchored articles
+ * (src/lib/curiosity.ts): an index card for each topic, Camping and Ghost
+ * towns, once the topic has an article on the site (its index page is
+ * built then, src/integrations/town-routes.ts curiosityRoutes), and the
+ * one featured article, Sundance from the towns next door, once it is on
+ * the site. A draft is not on the site, so it makes no card. With no card
+ * the section is not drawn at all (the fixes brief: no "coming soon").
  *
  * Plain functions over plain data, like src/lib/hub-towns.ts, so
  * test/hub-home.test.ts can hold them. Never imports astro:content.
  */
+import { CURIOSITY_TOPICS, TOPIC_INFO, articlePath, type CuriosityKind } from './curiosity.ts';
 
 /** A card in the Guides section, always a link to a page that is built. */
 export interface HomeTile {
@@ -27,63 +26,38 @@ export interface HomeTile {
   href: string;
 }
 
-/** The hub's article indexes, in the order the Guides section lists them. */
-export const GUIDE_INDEXES: ReadonlyArray<{ category: string; label: string; path: string; line: string }> = [
-  { category: 'camping', label: 'Camping', path: '/camping/', line: 'Campgrounds and camping dates across the towns.' },
-  { category: 'ghost-towns', label: 'Ghost towns', path: '/ghost-towns/', line: 'The townsites that emptied, and what is left to see.' },
-];
-
-/** The featured article, found by title among the network's published articles. */
+/** The featured article's slot (the layout brief): this article, found by its title, once it is on the site. */
 export const FEATURED_ARTICLE = { title: 'Sundance from the towns next door', match: /\bsundance\b/i } as const;
 
-/** An article as the resolver reads it: the hub's own carries no domain. */
-export interface ArticleRef {
+/** An article as the cards read it: one already on the site (getCuriosity()). */
+export interface ArticleOnSite {
+  kind: CuriosityKind;
   title: string;
-  category: string;
+  description: string;
   slug: string;
-  excerpt?: string;
-  /** The guide's domain, for an article on a guide: "insidelyons.com". */
-  domain?: string;
+  towns: string[];
 }
 
-/** Where an article's page is: on its guide, or on the hub. */
-export function articleHref(article: Pick<ArticleRef, 'slug' | 'domain'>): string {
-  return article.domain ? `https://${article.domain}/articles/${article.slug}/` : `/articles/${article.slug}/`;
+/** The index cards: each topic with an article on the site, in the topics' order, with how many towns it covers. */
+export function indexTiles(articles: ReadonlyArray<ArticleOnSite>): HomeTile[] {
+  return CURIOSITY_TOPICS.flatMap((topic) => {
+    const n = articles.filter((a) => a.kind === topic).length;
+    if (n === 0) return [];
+    return [{ eyebrow: 'Index', title: TOPIC_INFO[topic].label, line: `Near ${n} ${n === 1 ? 'town' : 'towns'}.`, href: TOPIC_INFO[topic].path }];
+  });
 }
 
-/** "/camping/" and "/camping" name the same page. */
-const bare = (path: string) => path.replace(/\/$/, '');
-
-/**
- * The index cards that are live: the hub builds the index's page
- * (`routes`, the hub's route patterns) and holds an article in its
- * category. Neither alone: a route with nothing in it is an empty page,
- * and an article with no index page has nowhere to be listed.
- */
-export function indexTiles(hubArticles: ReadonlyArray<Pick<ArticleRef, 'category'>>, routes: ReadonlyArray<string>): HomeTile[] {
-  const built = new Set(routes.map(bare));
-  return GUIDE_INDEXES.filter((index) => built.has(bare(index.path)) && hubArticles.some((a) => a.category === index.category)).map((index) => ({
-    eyebrow: 'Index',
-    title: index.label,
-    line: index.line,
-    href: index.path,
-  }));
-}
-
-/** The featured card, where one of the network's published articles carries its title; else none. */
-export function featuredTile(articles: ReadonlyArray<ArticleRef>): HomeTile | undefined {
-  const found = articles.find((a) => a.domain && FEATURED_ARTICLE.match.test(a.title));
+/** The featured card: the one-off event article that carries the featured title, once it is on the site. */
+export function featuredTile(articles: ReadonlyArray<ArticleOnSite>): HomeTile | undefined {
+  const found = articles.find((a) => a.kind === 'event' && FEATURED_ARTICLE.match.test(a.title));
   if (!found) return undefined;
-  return { eyebrow: 'Featured article', title: found.title, line: found.excerpt ?? '', href: articleHref(found) };
+  return { eyebrow: 'Featured article', title: found.title, line: found.description, href: articlePath(found) };
 }
 
-/**
- * The Guides section's cards, in the brief's order: the indexes, then the
- * feature. Only live ones; empty, the section is not drawn.
- */
-export function guideTiles(hubArticles: ReadonlyArray<Pick<ArticleRef, 'category'>>, articles: ReadonlyArray<ArticleRef>, routes: ReadonlyArray<string>): HomeTile[] {
+/** The Guides section's cards, in the brief's order: the indexes, then the feature. Empty, the section is not drawn. */
+export function guideTiles(articles: ReadonlyArray<ArticleOnSite>): HomeTile[] {
   const featured = featuredTile(articles);
-  return [...indexTiles(hubArticles, routes), ...(featured ? [featured] : [])];
+  return [...indexTiles(articles), ...(featured ? [featured] : [])];
 }
 
 /**

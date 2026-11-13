@@ -13,6 +13,7 @@ import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { byProminence } from '@/lib/places';
 import { THINGS_TO_DO_TYPES } from '@/content/schemas';
 import NearThisTown from '@/components/NearThisTown.astro';
+import NearbyArticles from '@/components/NearbyArticles.astro';
 import { placeKey } from '@/lib/hub-towns';
 import { STANDALONE_GUIDES } from '@/config/hub-towns';
 
@@ -91,6 +92,8 @@ const structured = [
     </section>
   )}
   {nearPlace && <NearThisTown place={nearPlace} name={town.name} class="mt-20" />}
+  {/* The hub's articles anchored to this guide's town, as links only (the brief of 13 November 2026). */}
+  {nearPlace && <NearbyArticles place={nearPlace} />}
   {/* The Thursday email, once, under the list: this page type had no form
       at all (the sweep of 10 November 2026). Nothing on a guide the email
       does not cover (NewsletterSignup). */}

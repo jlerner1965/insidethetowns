@@ -26,7 +26,7 @@
  */
 import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { getHubEntries, getNetworkEntries, getTraditions } from '@/lib/content';
+import { getCuriosity, getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { guideTiles, searchSuggestions, seasonFeatureLine, sectionNumbers, townsConfirmed } from '@/lib/hub-home';
 import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows } from '@/lib/traditions';
@@ -34,7 +34,6 @@ import { dayKey, formatDayShort, parseLocal } from '@/lib/dates';
 import { getHub, liveTowns, type NavItem } from '@/config';
 import { siteNav } from '@/lib/nav';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
-import { HUB_ROUTES } from '../../integrations/town-routes';
 
 const hub = getHub();
 /**
@@ -54,17 +53,12 @@ const sections = siteNav(hub).filter((item) => item.href !== '/#towns');
 const names = searchSuggestions(live, pages);
 
 /**
- * 02, Guides: an index is live once the hub builds its page and has an
- * article in its category; the featured article is looked for among every
- * guide's published articles. No live card, no section.
+ * 02, Guides: the hub's town-anchored articles that are on the site
+ * (getCuriosity(): verified, never a draft), as an index card per topic
+ * and the featured article. No card, no section. In place of the "Near
+ * the towns" row the old home carried for the same articles.
  */
-const hubArticles = await getHubEntries('articles');
-const networkArticles = await getNetworkEntries('articles');
-const tiles = guideTiles(
-  hubArticles.map((a) => ({ category: a.data.category })),
-  networkArticles.map((a) => ({ title: a.data.title, category: a.data.category, slug: a.slug, excerpt: a.data.excerpt, domain: a.town.domain })),
-  HUB_ROUTES.map(([pattern]) => pattern),
-);
+const tiles = guideTiles((await getCuriosity()).map((a) => a.data));
 const showGuides = tiles.length > 0;
 
 /**

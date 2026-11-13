@@ -3,45 +3,38 @@
  * (src/lib/hub-home.ts). The fixes brief of 13 November 2026: the Guides
  * section is not drawn until a card links to a live page, it carries only
  * such cards, and the sections after it are numbered from what is drawn.
+ * The cards are the hub's town-anchored articles (src/lib/curiosity.ts),
+ * and the page passes only those on the site (getCuriosity()).
  */
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { FEATURED_ARTICLE, articleHref, featuredTile, guideTiles, indexTiles, searchSuggestions, sectionNumbers, seasonFeatureLine, townsConfirmed } from '../src/lib/hub-home.ts';
+import { FEATURED_ARTICLE, featuredTile, guideTiles, indexTiles, searchSuggestions, sectionNumbers, seasonFeatureLine, townsConfirmed, type ArticleOnSite } from '../src/lib/hub-home.ts';
 
-const HUB_ROUTES = ['/', '/this-weekend', '/towns', '/[town]'];
-const sundance = { title: FEATURED_ARTICLE.title, category: 'culture', slug: 'sundance-from-the-towns-next-door', excerpt: 'The festival moves to Boulder.', domain: 'insidelyons.com' };
+const article = (kind: ArticleOnSite['kind'], slug: string, towns: string[], title = `Article ${slug}`): ArticleOnSite => ({ kind, slug, towns, title, description: `About ${slug}.` });
+const sundance = article('event', 'sundance-from-the-towns-next-door', ['lyons', 'niwot'], FEATURED_ARTICLE.title);
 
-test('with nothing published, there are no cards, so no section', () => {
-  assert.deepEqual(guideTiles([], [], HUB_ROUTES), []);
+test('with nothing on the site, there are no cards, so no section', () => {
+  assert.deepEqual(guideTiles([]), []);
 });
 
-test('an index needs both its page built and an article in its category', () => {
-  assert.deepEqual(indexTiles([{ category: 'camping' }], HUB_ROUTES), [], 'an article, but no /camping/ page');
-  assert.deepEqual(indexTiles([], [...HUB_ROUTES, '/camping']), [], 'a page, but nothing in it');
-  const tiles = indexTiles([{ category: 'camping' }, { category: 'ghost-towns' }], [...HUB_ROUTES, '/camping']);
-  assert.deepEqual(tiles.map((t) => t.href), ['/camping/'], 'Ghost towns has articles and no page');
+test('an index card per topic with an article on the site, Camping before Ghost towns, with its count', () => {
+  const tiles = indexTiles([article('ghost-towns', 'nederland', ['nederland']), article('camping', 'lyons', ['lyons']), article('camping', 'berthoud', ['berthoud'])]);
+  assert.deepEqual(tiles.map((t) => [t.title, t.href, t.line]), [['Camping', '/camping/', 'Near 2 towns.'], ['Ghost towns', '/ghost-towns/', 'Near 1 town.']]);
 });
 
-test('only live cards are listed, indexes first, then the feature', () => {
-  const tiles = guideTiles([{ category: 'ghost-towns' }], [sundance], [...HUB_ROUTES, '/ghost-towns/']);
-  assert.deepEqual(tiles.map((t) => t.title), ['Ghost towns', FEATURED_ARTICLE.title]);
-  for (const t of tiles) assert.ok(t.href, `${t.title} is a link`);
+test('the featured card is the Sundance event article, at its address on the hub', () => {
+  const tile = featuredTile([article('camping', 'lyons', ['lyons']), sundance]);
+  assert.equal(tile?.href, '/articles/sundance-from-the-towns-next-door/');
+  assert.equal(tile?.line, 'About sundance-from-the-towns-next-door.');
 });
 
-test('the featured card finds its article by title and links to it on its guide', () => {
-  const tile = featuredTile([{ title: 'Carter Lake: the permit and the launch', category: 'outdoors', slug: 'carter-lake', domain: 'insideberthoud.com' }, sundance]);
-  assert.equal(tile?.href, 'https://insidelyons.com/articles/sundance-from-the-towns-next-door/');
-  assert.equal(tile?.line, 'The festival moves to Boulder.');
+test('no featured card for another event article, or "Sundance" inside another word', () => {
+  assert.equal(featuredTile([article('event', 'fair', ['berthoud'], 'The county fair from the towns next door')]), undefined);
+  assert.equal(featuredTile([article('event', 'sundancer', ['erie'], 'The Sundancer bakery opens')]), undefined);
 });
 
-test('the featured card is not drawn for "Sundance" inside another word, or for an article with no guide page', () => {
-  assert.equal(featuredTile([{ title: 'The Sundancer bakery opens', category: 'food', slug: 'sundancer', domain: 'insideerie.com' }]), undefined);
-  assert.equal(featuredTile([{ ...sundance, domain: undefined }]), undefined);
-});
-
-test("a hub article's page is on the hub, a guide's on its domain", () => {
-  assert.equal(articleHref({ slug: 'camping-at-carter-lake' }), '/articles/camping-at-carter-lake/');
-  assert.equal(articleHref({ slug: 'carter-lake', domain: 'insideberthoud.com' }), 'https://insideberthoud.com/articles/carter-lake/');
+test('only live cards, indexes first, then the feature', () => {
+  assert.deepEqual(guideTiles([sundance, article('ghost-towns', 'leadville', ['leadville'])]).map((t) => t.title), ['Ghost towns', FEATURED_ARTICLE.title]);
 });
 
 test('the feature counts towns, not dates: a town with two rows is one town', () => {

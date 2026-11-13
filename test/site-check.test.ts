@@ -310,6 +310,11 @@ test('the scanner reads attributes however they are quoted, and decodes them', (
   assert.ok(scan.ids.has('one'));
 });
 
+test('a draft article in a build without the preview switch is refused', () => {
+  const files = { ...sound(), '/about/index.html': page('/about/', { body: '<a href="/">Home</a><h2 id="who">Who</h2><p data-draft>A draft</p>' }) };
+  assert.deepEqual(rules(files), ['draft-shipped']);
+});
+
 test('a sample tradition record in a build without the fixtures switch is refused', () => {
   const files = { ...sound(), '/about/index.html': page('/about/', { body: '<a href="/">Home</a><h2 id="who">Who</h2><article data-tradition-row data-fixture>Sample</article>' }) };
   assert.deepEqual(rules(files), ['fixture-shipped']);

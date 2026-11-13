@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 12 November 2026.
+Last revised: 13 November 2026.
 
 ## 1. What this is
 
@@ -260,6 +260,35 @@ or a historical society's, and a value that only a historical society
 holds is left empty.
 Items four to six are the hub's only; a standalone guide gets Near <Town>
 at the foot of `/things-to-do/` and the open-now view on `/traditions/`.
+
+**The town-anchored articles** (13 November 2026; `src/lib/curiosity.ts`).
+The hub has one more kind of page: an article anchored to one town, in two
+topics, Camping at `/camping/<town>/` and Ghost towns at
+`/ghost-towns/<town>/`, each topic with its index at `/camping/` and
+`/ghost-towns/`; and a one-off event article at `/articles/<slug>/`, which
+may cover several towns (the first is Sundance from the towns next door).
+One file an article, `content/hub/curiosity/<slug>.md`. A campground is its
+fee, reservation or first-come, number of sites, season with its year, road
+surface and who manages it; a ghost town is its road surface, the vehicle
+clearance it takes, the season it can be reached, what still stands, and
+who owns it and whether going there is legal. Every one of those is a value
+with the official page it was read on (the land manager, the town, the
+county, the state park) and the day it was read, both printed beside it;
+the day moves only when the fact is read again, and the article's "Last
+verified" is the oldest of them. A field no official page gave is left out
+of the file and named in `flags`; a "skip it" note needs its source like any
+fact. A guide site is never a source. Each article prints its byline (James
+Lerner, for these articles only), its last verified day and "Visited" or
+"Not personally visited", the second unless the file says `visited: true`.
+An article is a draft until its file says `status: verified`, which the
+schema refuses while a flag is open: a draft builds no page, no index row,
+no home row and no Nearby link (`npm run curiosity` lists every flagged or
+empty field by article; `CURIOSITY_DRAFTS=1` draws the drafts for a local
+read, noindex, and throws on Vercel). The hub's home page has one row,
+"Near the towns", linking the topic indexes and the event article, drawn
+once one is verified. A town page on the hub, and a standalone guide's
+`/things-to-do/`, has a "Nearby" block under Near <Town> that links the
+articles naming it: links only, no line of an article repeated.
 
 Under Outdoor dates, "Open now" and "Opens next" (`src/lib/open-now.ts`)
 read the records' own dates: a window in force, an opening with a closing

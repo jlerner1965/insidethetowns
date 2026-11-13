@@ -11,6 +11,7 @@ import { pastEventSlugs, repeatOccurrenceSlugs } from './src/lib/series.ts';
 import { closedPlaceSlugs } from './src/lib/raw-places.ts';
 import { contentDates, lastmodFor } from './src/lib/lastmod.ts';
 import { formerSlugRedirects } from './src/lib/former-slugs.ts';
+import { draftPaths } from './src/lib/curiosity-files.ts';
 import vercelConfig from './vercel.json' with { type: 'json' };
 
 // Which site to build is decided by the TOWN env var (see src/config/index.ts).
@@ -31,7 +32,8 @@ const live = site.kind === 'hub' || site.status === 'live';
 const buildDate = new Date();
 const dates = contentDates(site);
 /** Pages that carry noindex must not be listed in the sitemap either. */
-const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/', '/newsletter/sample/', '/search/']);
+// A draft article drawn by the local preview switch is noindex too (src/lib/curiosity.ts).
+const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/', '/newsletter/sample/', '/search/', ...(site.kind === 'hub' ? draftPaths() : [])]);
 
 const indexable = (/** @type {string} */ url) => {
   if (!live) return false;
