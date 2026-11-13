@@ -1,5 +1,12 @@
 {
   "slug": "louisville",
+  "facts": {
+    "incorporated": {
+      "year": 1882,
+      "source": "https://www.louisvilleco.gov/local-government-council/",
+      "checked": "2026-11-13"
+    }
+  },
   "transit": [
     {
       "name": "Louisville FlexRide",
@@ -10,6 +17,11 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "Louis Nawatny, a local landowner, platted his land and named the town for himself.",
+      "source": "https://www.louisvilleco.gov/local-government-council/",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1878,
       "text": "Founded as one of the first coal mining towns in Boulder County",
@@ -44,6 +56,13 @@
         "hours": "Tuesday, Thursday, Friday and Saturday 10 am–3 pm; Wednesday 1–5 pm; closed Sunday and Monday",
         "source": "https://www.louisvilleco.gov/departments/historical-museum/plan-your-visit/location-hours/",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "Denver Elevator (Louisville Grain Elevator)",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/denver-elevator-grain-elevator",
+        "source": "https://www.historycolorado.org/location/denver-elevator-grain-elevator",
+        "checked": "2026-11-13"
       }
     ]
   }

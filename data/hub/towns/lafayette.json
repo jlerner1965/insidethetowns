@@ -1,5 +1,12 @@
 {
   "slug": "lafayette",
+  "facts": {
+    "incorporated": {
+      "year": 1890,
+      "source": "https://lafayetteco.gov/DocumentCenter/View/166/Old-Town-Perimeter-Survey-2004?bidId=",
+      "checked": "2026-11-13"
+    }
+  },
   "transit": [
     {
       "name": "Ride Free Lafayette",
@@ -10,6 +17,49 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "Mary Miller named the town after her late husband, Lafayette Miller.",
+      "source": "https://www.historycolorado.org/location/miller-house",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1888,
+      "text": "Mary Miller platted a 150-acre townsite on the Miller farm",
+      "source": "https://www.historycolorado.org/location/miller-house",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1884,
+        "text": "Coal was discovered on the 1,280-acre Miller farm.",
+        "source": "https://www.historycolorado.org/location/miller-house",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1888,
+        "text": "Mary Miller platted the townsite and named it Lafayette.",
+        "source": "https://www.historycolorado.org/location/miller-house",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1890,
+        "text": "The town was incorporated on January 6, a year after it was re-platted.",
+        "source": "https://lafayetteco.gov/DocumentCenter/View/166/Old-Town-Perimeter-Survey-2004?bidId=",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1892,
+        "text": "The Congregational Church was built, paid for largely by Mary Miller.",
+        "source": "https://www.historycolorado.org/location/congregational-church-lafayette",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1983,
+        "text": "The Miller House, the Lewis House and the Congregational Church were listed on the National Register of Historic Places on May 20.",
+        "source": "https://www.historycolorado.org/location/lewis-house",
+        "checked": "2026-11-13"
+      }
+    ],
     "sites": [
       {
         "name": "Lafayette History Museum",
@@ -18,6 +68,20 @@
         "hours": "Wednesday–Friday 10 am–2 pm; Saturday 8 am–noon",
         "source": "https://lafayettehistoricalsociety.org/",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "Arapaho Center Theater (Congregational Church)",
+        "kind": "landmark",
+        "url": "https://www.lafayetteco.gov/458/Mary-Miller-Theater",
+        "source": "https://www.lafayetteco.gov/458/Mary-Miller-Theater",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Miller House",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/miller-house",
+        "source": "https://www.historycolorado.org/location/miller-house",
+        "checked": "2026-11-13"
       }
     ]
   }

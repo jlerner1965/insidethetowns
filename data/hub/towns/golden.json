@@ -1,5 +1,12 @@
 {
   "slug": "golden",
+  "facts": {
+    "incorporated": {
+      "year": 1871,
+      "source": "https://digitalarchives.jeffco.us/historical-timeline",
+      "checked": "2026-11-13"
+    }
+  },
   "transit": [
     {
       "name": "Ore Cart",

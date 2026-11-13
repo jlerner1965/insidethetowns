@@ -5,7 +5,11 @@
     { "name": "Alpen Way Chalet Mountain Lodge", "kind": "Lodge", "url": "https://www.alpenwaychalet.com/", "source": "https://www.alpenwaychalet.com/", "checked": "2026-11-12" },
     { "name": "Colorado Bear Creek Cabins", "kind": "Cabins", "url": "https://www.coloradobearcreekcabins.com/", "source": "https://www.coloradobearcreekcabins.com/", "checked": "2026-11-12" }
   ],
+  "transit": [
+    { "name": "RTD Evergreen FlexRide", "detail": "Reservation-only bus service in Evergreen. Monday to Friday 5:30 am to 7 pm, Saturday 9 am to 7 pm; no service Sundays and holidays", "url": "https://www.rtd-denver.com/routes-services/other-services/flexride/flexride-service-areas/evergreen", "source": "https://www.rtd-denver.com/routes-services/other-services/flexride/flexride-service-areas/evergreen", "checked": "2026-11-13" }
+  ],
   "heritage": {
+    "nameOrigin": { "text": "Dwight Wilmot asked the federal government for a post office and, asked what to call it, answered Evergreen for the evergreen trees around him.", "source": "https://emahs.org/wp-content/uploads/2025/05/EMAHS-Spring2025Newsletter_FINAL.pdf", "checked": "2026-11-13" },
     "timeline": [
       { "year": 1893, "text": "Dr. Mary Josepha Williams Douglas and her mother bought land in Evergreen for a summer retreat they named Camp Neosho.", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" },
       { "year": 1939, "text": "Darst and Ruth Buchanan renamed the property Hiwan Ranch and went on to expand it to more than 15,000 acres.", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" },
@@ -14,7 +18,8 @@
       { "year": 1975, "text": "Hiwan Heritage Park & Museum opened.", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" }
     ],
     "sites": [
-      { "name": "Hiwan Heritage Park & Museum", "kind": "museum", "url": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "hours": "Museum Thursday to Sunday, noon to 4:30 pm; closed Monday to Wednesday. The park is open daily.", "cost": "Free guided tours", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" }
+      { "name": "Hiwan Heritage Park & Museum", "kind": "museum", "url": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "hours": "Museum Thursday to Sunday, noon to 4:30 pm; closed Monday to Wednesday. The park is open daily.", "cost": "Free guided tours", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" },
+      { "name": "Evergreen Conference District (Bear Creek and Colorado Highway 74)", "kind": "landmark", "source": "https://www.historycolorado.org/location/evergreen-conference-district", "checked": "2026-11-13" }
     ]
   }
 }

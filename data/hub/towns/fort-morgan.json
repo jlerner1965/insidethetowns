@@ -3,6 +3,9 @@
   "transit": [
     { "name": "Amtrak Fort Morgan station", "detail": "Train station with a waiting room at South Ensign Street and Main Street", "url": "https://www.amtrak.com/stations/fmg", "source": "https://www.amtrak.com/stations/fmg", "checked": "2026-11-12" }
   ],
+  "lodging": [
+    { "name": "Baymont by Wyndham Fort Morgan", "kind": "Hotel", "url": "https://www.wyndhamhotels.com/hotel/52240", "source": "https://www.wyndhamhotels.com/hotel/52240", "checked": "2026-11-13" }
+  ],
   "heritage": {
     "nameOrigin": { "text": "Fort Morgan was named after a frontier military fort that existed from 1864 to 1868.", "source": "https://www.cityoffortmorgan.com/248/About-the-Area", "checked": "2026-11-12" },
     "founded": { "year": 1884, "text": "Founded by Abner S. Baker, a Civil War veteran from Wisconsin", "source": "https://www.cityoffortmorgan.com/248/About-the-Area", "checked": "2026-11-12" },
