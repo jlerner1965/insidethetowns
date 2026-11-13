@@ -339,10 +339,23 @@ image. The rules are `src/lib/hub-home.ts`:
   that still have a date to come, soonest first, each with its count by
   town and next date. The year-round pages are on `/towns/` ("All annual
   events").
+- **Words that hold:** the title and description say what the page is
+  ("Colorado events this weekend, town by town"); "N more towns" counts
+  town pages no guide covers; the email is "every Thursday", no hour (the
+  send is the owner's merge of the drafts pull request); a deadline shows
+  the organizer's own note where the guide's card does.
 - Each row's check line is in its guide page's words. Dated rows leave the
   page once past, and an emptied block goes with them. The sections' links
   carry `data-track` (`home-weekend`, `home-season`, `home-deadline`,
   `home-scores`, `home-guides`, `home-index`), counted by TrackClicks.
+
+**The hub's other pages** share the home's menu (This weekend, Annual
+events, Towns, Moving here, Newsletter, How we check; `src/lib/nav.ts`,
+`hubNav`, "Annual events" going to the list on `/towns/`) and call the
+editorial page "How we check listings" in the footer. Their share image is
+the same Flatirons photograph. In the sitemap a town page and a season page
+are dated by the newest check of the records they show
+(`src/lib/lastmod.ts`), and every dated town page title says "events".
 
 **Visual rules** (the ten from the 26 October pass, still in force):
 

@@ -1000,7 +1000,10 @@ test('what CHSAA settles is applied over MaxPreps: the volleyball state openers 
   const schoolOf = (town: string) => schoolSportsFor(town, town === 'windsor' ? 'windsor-high' : undefined)!;
   const read = (town: string) => JSON.parse(readFileSync(fileOf(town), 'utf8')) as SportsData;
   const files = Object.fromEntries(['berthoud', 'niwot', 'windsor'].map((town) => [`/${fileOf(town)}`, read(town)]));
-  const volleyball = (town: string) => sportsDataFor(schoolOf(town), files)!.sports.find((t) => t.key === 'volleyball')!;
+  // Read as of the audit (9 November 2026): the postseason rows drop off once their day has passed, so on the
+  // day after the openers this test failed with the real clock (13 November 2026).
+  const asOf = new Date('2026-11-09T12:00:00-07:00');
+  const volleyball = (town: string) => sportsDataFor(schoolOf(town), files, asOf)!.sports.find((t) => t.key === 'volleyball')!;
 
   // MaxPreps had "at Eaton" and "vs Battle Mountain", and Niwot's match with Mead: all three are at
   // the Coliseum. (Golden's "vs Mullen" was the third until its guide was folded on 12 November 2026.)

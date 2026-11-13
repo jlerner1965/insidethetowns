@@ -11189,3 +11189,41 @@ request for the owner.
 - **The hero photograph** is cut once to the 2:1 band the page shows
   (`front-range-flatirons-hero.jpg`), so no reader downloads the rest;
   the whole photograph stays the share image.
+
+## The audits' open items, decided, 13 November 2026 (night)
+
+The owner left the six open questions from the four audits to this
+session. Decided and done:
+
+- **The home's title and description** say what the page is: "Colorado
+  events this weekend, town by town | Inside the Towns", and this weekend's
+  events, the seasons now on and the count of other towns. The original
+  brief kept the old ones; the page they described is gone.
+- **One menu across the hub.** The other hub pages take the home's six
+  items and words ("Seasonal dates" is "Annual events", to the list on
+  `/towns/`, which is now headed "Annual events"; About and Contact stay in
+  the footer). The footer's "Editorial policy" and "Sources", two links to
+  one page, are one "How we check listings". The wordmark colour stays as
+  it is: pine is the approved brief's for the home alone, and taking it to
+  the rest of the hub is a recolouring of every hub page, a pass of its own.
+- **"Every Thursday", no hour.** The drafts pull request opens at 5:10 am
+  and the email goes when it is merged; this week's went at 12:49 pm. The
+  guides' forms still say "at 7 am" from `sendTime` in the hub config,
+  which the owner called "a promise to keep"; left for the owner.
+- **The home's footer** adds Weekly email, Privacy and Photo credits.
+- **The deadline** carries the organizer's note where the program has one,
+  as the family hub's card does: Camp Erie's says which camp closes today.
+- **Type in rem**, so a reader's own text size applies; at 200% nothing
+  runs off the page.
+- Also: "N more towns" no longer counts Severance twice (95); the hub's
+  photograph is the Flatirons original, so `/credits/` names what the home
+  shows; every dated town title says "events"; season pages carry a
+  breadcrumb; town and season pages are dated in the sitemap by their
+  records' checks; the Fraunces preload is dropped; a test that read the
+  real clock (`test/sports.test.ts`, the volleyball openers) reads the
+  audit's day.
+- **Not done, on purpose:** `/_astro/` keeps its hour-long cache (the
+  owner's rule after the missed deploy, held by `test/cache-headers.test.ts`);
+  town pages keep the town's name alone as their heading (the title carries
+  the search words); the signup keeps the browser's own check of an email
+  address, which is accessible, rather than a new script in the shared form.
