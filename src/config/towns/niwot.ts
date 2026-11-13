@@ -223,7 +223,7 @@ export const niwot: TownConfig = {
   },
   about: {
     who: [
-      'Inside Niwot is published by Lerner Works, the small studio James Lerner runs. James grew up in Niwot, and this guide is the one in the network he edits from memory as well as from the sources: the street he knows, read again each week against the organizers’ own pages, the hall’s calendar and the county’s. Every listing still names its source and the day it was checked, because a memory is not a source.',
+      'Inside Niwot is published by Lerner Works, a small studio, and edited from the sources: the organizers’ own pages, the hall’s calendar and the county’s, read again each week. Every listing names its source and the day it was checked.',
     ],
   },
   movingHere: {
