@@ -1,18 +1,58 @@
 {
   "slug": "fraser",
-  "transit": [ { "name": "The Lift", "detail": "Free transit service year-round to and from Winter Park Resort, Downtown Winter Park, Fraser, Granby and Grand Lake", "url": "https://www.theliftwp.com/", "source": "https://www.theliftwp.com/", "checked": "2026-11-12" } ],
+  "transit": [
+    {
+      "name": "The Lift",
+      "detail": "Free transit service year-round to and from Winter Park Resort, Downtown Winter Park, Fraser, Granby and Grand Lake",
+      "url": "https://www.theliftwp.com/",
+      "source": "https://www.theliftwp.com/",
+      "checked": "2026-11-12"
+    }
+  ],
   "heritage": {
-    "nameOrigin": { "text": "The town was formerly known as Eastom, for George Eastom, who laid out the town site in 1871; the spelling of Fraser was originally Frazier, after Reuben Frazier.", "source": "https://stories.grandcountyhistory.org/node/1697", "checked": "2026-11-12" },
-    "founded": {"year": 1905, "text": "The Grand County Historical Association dates the origin of Fraser to 1905", "source": "https://stories.grandcountyhistory.org/node/1697", "checked": "2026-11-13"},
+    "nameOrigin": {
+      "text": "The town was formerly known as Eastom, for George Eastom, who laid out the town site in 1871; the spelling of Fraser was originally Frazier, after Reuben Frazier.",
+      "source": "https://stories.grandcountyhistory.org/node/1697",
+      "checked": "2026-11-12"
+    },
     "timeline": [
-      { "year": 1871, "text": "George Eastom laid out the town site, first known as Eastom.", "source": "https://stories.grandcountyhistory.org/node/1697", "checked": "2026-11-12" },
-      { "year": 1874, "text": "William Zane Cozens, formerly sheriff in Central City, moved his family to the Fraser Valley and began building the ranch and stage stop.", "source": "https://grandcountyhistory.org/museums/cozens-ranch-museum/", "checked": "2026-11-12" },
-      { "year": 1876, "text": "Billy Cozens was appointed postmaster of the Fraser Post Office.", "source": "https://grandcountyhistory.org/museums/cozens-ranch-museum/", "checked": "2026-11-12" },
-      { "year": 1953, "text": "Fraser was incorporated.", "source": "https://stories.grandcountyhistory.org/node/1697", "checked": "2026-11-12" }
+      {
+        "year": 1874,
+        "text": "William Zane Cozens, formerly sheriff in Central City, moved his family to the Fraser Valley and began building the ranch and stage stop.",
+        "source": "https://grandcountyhistory.org/museums/cozens-ranch-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1876,
+        "text": "Billy Cozens was appointed postmaster of the Fraser Post Office.",
+        "source": "https://grandcountyhistory.org/museums/cozens-ranch-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1953,
+        "text": "Fraser was incorporated.",
+        "source": "https://stories.grandcountyhistory.org/node/1697",
+        "checked": "2026-11-12"
+      }
     ],
     "sites": [
-      { "name": "Cozens Ranch Museum", "kind": "museum", "url": "https://grandcountyhistory.org/museums/cozens-ranch-museum/", "hours": "Wednesday to Sunday 10am to 4pm; closed Monday and Tuesday", "cost": "$8 adults; $7 seniors; $5 children (6-17); under 5 free", "season": "Summer and winter", "source": "https://grandcountyhistory.org/museums/cozens-ranch-museum/", "checked": "2026-11-12" },
-      {"name": "Fraser Historic Church", "kind": "landmark", "url": "https://www.frasercolorado.com/410/Rent-Historic-Church", "source": "https://www.frasercolorado.com/410/Rent-Historic-Church", "checked": "2026-11-13"}
+      {
+        "name": "Cozens Ranch Museum",
+        "kind": "museum",
+        "url": "https://grandcountyhistory.org/museums/cozens-ranch-museum/",
+        "hours": "Wednesday to Sunday 10am to 4pm; closed Monday and Tuesday",
+        "cost": "$8 adults; $7 seniors; $5 children (6-17); under 5 free",
+        "season": "Summer and winter",
+        "source": "https://grandcountyhistory.org/museums/cozens-ranch-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Fraser Historic Church",
+        "kind": "landmark",
+        "url": "https://www.frasercolorado.com/410/Rent-Historic-Church",
+        "source": "https://www.frasercolorado.com/410/Rent-Historic-Church",
+        "checked": "2026-11-13"
+      }
     ]
   }
 }

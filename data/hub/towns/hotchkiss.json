@@ -1,23 +1,5 @@
 {
   "slug": "hotchkiss",
-  "lodging": [
-    {
-      "name": "Big B's Delicious Orchards campground",
-      "kind": "Campground",
-      "url": "https://www.bigbs.com/",
-      "season": "Open April 1st - November 30th",
-      "source": "https://www.bigbs.com/",
-      "checked": "2026-11-12"
-    },
-    {
-      "name": "Mountain Valley Meadows RV Park",
-      "kind": "RV park",
-      "url": "https://mountainvalleymeadowsrvpark.net/",
-      "season": "Year-round",
-      "source": "https://mountainvalleymeadowsrvpark.net/",
-      "checked": "2026-11-13"
-    }
-  ],
   "heritage": {
     "nameOrigin": {
       "text": "The town is named for Enos Throop Hotchkiss, the Colorado pioneer who founded it.",

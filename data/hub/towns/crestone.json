@@ -27,15 +27,15 @@
         "checked": "2026-11-12"
       },
       {
-        "year": 2011,
-        "text": "The Crestone Historical Museum opened in July 2011.",
-        "source": "https://www.museumtrail.org/crestone-historical-museum",
-        "checked": "2026-11-12"
+        "year": 2022,
+        "text": "The Crestone Museum and Welcome Center opened in the Old Schoolhouse on May 20, 2022.",
+        "source": "https://townofcrestone.gov/pages/museum",
+        "checked": "2026-11-13"
       }
     ],
     "sites": [
       {
-        "name": "Crestone Historical Museum",
+        "name": "Crestone Museum and Welcome Center",
         "kind": "museum",
         "url": "https://www.museumtrail.org/crestone-historical-museum",
         "hours": "Fri 1–4 pm; Sat–Sun 10 am–4 pm",

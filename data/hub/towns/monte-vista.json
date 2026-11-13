@@ -7,21 +7,15 @@
       "checked": "2026-11-12"
     },
     "founded": {
-      "year": 1884,
-      "text": "Incorporated and platted on May 1, 1884 as the town of Henry",
-      "source": "https://www.museumtrail.org/history-of-monte-vista",
-      "checked": "2026-11-12"
+      "year": 1886,
+      "text": "The City says Monte Vista was founded in 1886.",
+      "source": "https://www.cityofmontevista.com/",
+      "checked": "2026-11-13"
     },
     "timeline": [
       {
         "year": 1881,
         "text": "The Denver & Rio Grande Railroad placed a railroad siding named Lariat here.",
-        "source": "https://www.museumtrail.org/history-of-monte-vista",
-        "checked": "2026-11-12"
-      },
-      {
-        "year": 1884,
-        "text": "The town of Henry was incorporated on May 1, 1884 and platted on the Lariat town site.",
         "source": "https://www.museumtrail.org/history-of-monte-vista",
         "checked": "2026-11-12"
       },

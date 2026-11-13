@@ -1,12 +1,5 @@
 {
   "slug": "alma",
-  "facts": {
-    "incorporated": {
-      "year": 1873,
-      "source": "https://southparkheritage.org/alma/",
-      "checked": "2026-11-13"
-    }
-  },
   "transit": [
     {
       "name": "Summit Stage Park County Commuter",

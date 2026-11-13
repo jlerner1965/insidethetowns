@@ -250,6 +250,14 @@ the rest is one file a town, `data/hub/towns/<slug>.json`, every value with
 its source and the day it was read (`src/lib/town-profile.ts`). A value
 nobody confirmed is not in the file and a block with nothing in it is not
 drawn. A guide site is never a source: the schema refuses the ones named.
+Three rules from the owner (13 November 2026): the year of incorporation
+comes from the Town, the county or the state and nothing else, so a year
+only a historical society gives stays off the page; Where to stay has no
+target number, lists only properties inside the town, and a town with one
+inn lists one; and where two acceptable sources disagree, the state's
+record is taken first, then the Town's, then the National Park Service's
+or a historical society's, and a value that only a historical society
+holds is left empty.
 Items four to six are the hub's only; a standalone guide gets Near <Town>
 at the foot of `/things-to-do/` and the open-now view on `/traditions/`.
 

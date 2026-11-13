@@ -1,12 +1,5 @@
 {
   "slug": "la-junta",
-  "facts": {
-    "incorporated": {
-      "year": 1881,
-      "source": "https://visitlajunta.net/history/",
-      "checked": "2026-11-12"
-    }
-  },
   "transit": [
     {
       "name": "La Junta Transit",
