@@ -11,8 +11,8 @@ cost: "Free"
 category: music
 recurring: "Wednesdays at 6"
 source: "https://www.theoldmine.com/events"
-verified: "2026-11-11"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"No Live Music\" on 11 November on the theoldmine.com feed"
+verified: "2026-11-13"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Matt Adams LIVE MUSIC\" at 6 pm on 18 November on the theoldmine.com feed"
 ---
 
 Live music in the Old Mine every Wednesday evening, 6 to 8, with the cider list and the pizza oven going. No cover.

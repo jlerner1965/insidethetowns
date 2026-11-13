@@ -8,7 +8,7 @@ source: "https://calendar.boulderlibrary.org/events"
 sourceId: "boulderlibrary-libnet-info"
 sourceUid: "17494917"
 sourceHash: "5e77ff459242"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Gunbarrel Classic Movies\" at 1 pm on 22 November on the Boulder Public Library District - Gunbarrel Library events feed"
 ---
 

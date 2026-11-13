@@ -9,7 +9,7 @@ source: "https://www.fritzfamilybrewers.com/calendar"
 sourceId: "fritzfamilybrewers-com"
 sourceUid: "3uuod0q1a6c0d06k8ca19qs50h@google.com"
 sourceHash: "051fe693439e"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Cruagh Irish Food Truck\" on 14 November on the Fritz Family Brewers feed"
 ---
 

@@ -7,7 +7,7 @@ address: "432 5th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Third Thursdays"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=5542"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Lyons Urban Renewal Authority\" at 5 pm on 19 November on the townoflyons.com feed"
 ---
 

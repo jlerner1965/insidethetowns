@@ -8,7 +8,7 @@ source: "https://calendar.boulderlibrary.org/events"
 sourceId: "boulderlibrary-libnet-info"
 sourceUid: "17499075"
 sourceHash: "c786469edbf1"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Great Decisions Presented by the Foreign Policy Association\" at 3 pm on 15 November on the Boulder Public Library District - Gunbarrel Library events feed"
 ---
 

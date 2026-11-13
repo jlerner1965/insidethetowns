@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/watercolor-trees-leav
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10673"
 sourceHash: "0a6527ebda11"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Watercolor Trees &#038; Leaves\" at 10 am on 20 November in the page's structured data"
 ---
 

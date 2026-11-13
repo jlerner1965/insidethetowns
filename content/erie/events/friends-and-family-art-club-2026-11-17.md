@@ -9,7 +9,7 @@ cost: "Free"
 category: arts
 recurring: "Third Tuesdays"
 source: "https://highplains.libcal.com/event/16672965"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Friends And Family Art Club\" at 6 pm on 17 November on the highplains.libcal.com feed"
 ---
 

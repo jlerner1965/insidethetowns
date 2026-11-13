@@ -9,7 +9,7 @@ source: "https://whs.weldre4.org/en-US/calendar/ccc76fb3-b06a-4512-8f20-a8672237
 sourceId: "whs-weldre4-org"
 sourceUid: "65pv4ms4fekrs1bv7kmnrolrrs@google.com"
 sourceHash: "231cff731429"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"WHS Fall Play: Make 'Em Laugh\" at 7 pm on 13 November on the Windsor High School feed"
 ---
 

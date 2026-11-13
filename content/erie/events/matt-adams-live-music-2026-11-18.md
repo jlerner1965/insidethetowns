@@ -8,7 +8,7 @@ source: "https://theoldmine.com/"
 sourceId: "theoldmine-com"
 sourceUid: "5bbluero9ibr75oshmebbfm3km@google.com"
 sourceHash: "268a2fb278f5"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Matt Adams LIVE MUSIC\" at 6 pm on 18 November on the theoldmine.com feed"
 ---
 

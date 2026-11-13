@@ -10,7 +10,7 @@ category: other
 organizer: "ResoundingWell"
 organizerUrl: "https://www.eventbrite.com/o/annmarie-of-resoundingwell-62943742393"
 source: "https://www.eventbrite.com/e/gratitude-of-presence-sound-journey-thanksgiving-to-the-self-tickets-2003223456283"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Gratitude of Presence Sound Journey: Thanksgiving to the Self\" at 6:30 pm on 20 November in the page's structured data"
 ---
 

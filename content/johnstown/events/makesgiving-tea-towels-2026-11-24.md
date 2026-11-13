@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/makesgiving-tea-towel
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10817"
 sourceHash: "697651adf874"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Makesgiving: Tea Towels\" at 11 am on 24 November in the page's structured data"
 ---
 

@@ -11,8 +11,8 @@ url: "https://mightyriverbrewing.com/events-calendar/"
 category: other
 recurring: "Every Wednesday, 6:30 to 8:30 pm"
 source: "https://tockify.com/api/feeds/ics/mighty.river.brewing"
-verified: "2026-11-11"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Bingo night at Mighty River Brewing\" at 6:30 pm on 11 November on the Mighty River Brewing feed"
+verified: "2026-11-13"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Bingo night at Mighty River Brewing\" at 6:30 pm on 18 November on the Mighty River Brewing feed"
 ---
 
 Wednesday bingo in the taproom of Mighty River Brewing on Fairgrounds Avenue, 6:30 to 8:30. The brewery's calendar lists every Wednesday through 2027; it is written here through January 27, 2027. The listing gives no cost. Peculier Ales on Main Street runs its own bingo on the same night, 6 to 8.

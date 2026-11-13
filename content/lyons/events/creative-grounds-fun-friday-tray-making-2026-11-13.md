@@ -9,7 +9,7 @@ url: "https://creativegroundslyons.com/classes/fridays-4-8pm-youth-handbuilding-
 cost: "$30"
 source: "https://creativegroundslyons.com/classes/fridays-4-8pm-youth-handbuilding-5-weeks-ages-14-21-962nf"
 sourceId: "creativegroundslyons-com"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Fun Friday One Time Tray Making Class (Ages 12-21)  — Creative Grounds\" at 4 pm on 13 November in the page's structured data"
 ---
 

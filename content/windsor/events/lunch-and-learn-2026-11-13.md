@@ -9,7 +9,7 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17459231"
 sourceHash: "73e9945e3ff1"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Lunch and Learn\" at 12 pm on 13 November on the Clearview Library District feed"
 ---
 

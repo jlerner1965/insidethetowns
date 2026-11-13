@@ -10,8 +10,8 @@ category: food
 organizer: "Carbon Valley Parks and Recreation District"
 organizerUrl: "https://www.cvprd.com/"
 source: "https://www.cvprd.com/active-adults-special-events"
-verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: the district's Active Adults Special Events page (Friday, November 20, 1 PM - 3 PM, Community Center, no cost, registration suggested by November 17) and its November 2026 Active Adults Newsletter for the center's address, 151 Grant Ave, Firestone, read 11 November 2026"
+verified: "2026-11-13"
+verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 1 pm on the page"
 ---
 
 The recreation district's active adults pie potluck, Friday, November 20, 1 to 3 pm at its Community Center in Firestone. Bring a pie to share, homemade or store-bought, and sample everyone else's; bringing a friend or family member is encouraged. No cost. The district suggests registering by November 17, online or at 303-833-3660 ext. 123.

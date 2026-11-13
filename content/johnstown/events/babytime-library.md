@@ -12,8 +12,8 @@ cost: "Free"
 category: family
 recurring: "Thursdays at 11; no Babytime November 26"
 source: "https://johnstownmillikenpubliclibraries.us/"
-verified: "2026-11-11"
-verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 11 am on the page"
+verified: "2026-11-13"
+verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 11 am on the page"
 ---
 
 Fifteen minutes of songs, rhymes, lap bounces and a story, then 45 minutes of open play, for babies not yet walking and their grown-ups, Thursday mornings at the Johnstown library. The library lists sessions on November 12 and 19 and December 3 and 10; it is closed on Thanksgiving Day, November 26.

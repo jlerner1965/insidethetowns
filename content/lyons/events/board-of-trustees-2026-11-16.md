@@ -8,7 +8,7 @@ url: "https://www.townoflyons.com/AgendaCenter"
 category: civic
 recurring: "First and third Mondays"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6705"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Board of Trustees Meeting\" at 7 pm on 16 November on the townoflyons.com feed"
 ---
 

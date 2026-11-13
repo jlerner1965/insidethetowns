@@ -7,7 +7,7 @@ url: "https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-rooseve
 category: sports
 featured: true
 source: "https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-roosevelt"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Montbello vs. Roosevelt Football\" at 7 pm on 13 November in the page's structured data"
 ---
 
