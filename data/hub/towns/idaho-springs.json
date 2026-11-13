@@ -1,28 +1,123 @@
 {
   "slug": "idaho-springs",
   "transit": [
-    { "name": "RoundAbout Bus Service", "detail": "Clear Creek County bus linking Georgetown, Silver Plume, Dumont and Idaho Springs", "url": "https://www.clearcreekcounty.us/857/RoundAbout-Bus-Service", "source": "https://www.clearcreekcounty.us/857/RoundAbout-Bus-Service", "checked": "2026-11-12" }
+    {
+      "name": "RoundAbout Bus Service",
+      "detail": "Clear Creek County bus linking Georgetown, Silver Plume, Dumont and Idaho Springs",
+      "url": "https://www.clearcreekcounty.us/857/RoundAbout-Bus-Service",
+      "source": "https://www.clearcreekcounty.us/857/RoundAbout-Bus-Service",
+      "checked": "2026-11-12"
+    }
   ],
   "lodging": [
-    { "name": "Club Hotel", "kind": "Hotel", "url": "https://clubhotelcolorado.com/", "source": "https://clubhotelcolorado.com/", "checked": "2026-11-12" },
-    { "name": "Columbine Inn", "kind": "Motel", "url": "https://www.columbineinn.net/", "source": "https://www.columbineinn.net/", "checked": "2026-11-12" },
-    { "name": "Argo Inn & Suites", "kind": "Inn", "url": "https://argoinnandsuites.com/", "source": "https://argoinnandsuites.com/", "checked": "2026-11-12" },
-    { "name": "Uplift Inn", "kind": "Motel", "url": "https://www.upliftinn.com/", "season": "Closed for the winter season; reopening in late May 2027", "source": "https://www.upliftinn.com/", "checked": "2026-11-12" }
+    {
+      "name": "Club Hotel",
+      "kind": "Hotel",
+      "url": "https://clubhotelcolorado.com/",
+      "source": "https://clubhotelcolorado.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Columbine Inn",
+      "kind": "Motel",
+      "url": "https://www.columbineinn.net/",
+      "source": "https://www.columbineinn.net/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Argo Inn & Suites",
+      "kind": "Inn",
+      "url": "https://argoinnandsuites.com/",
+      "source": "https://argoinnandsuites.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Uplift Inn",
+      "kind": "Motel",
+      "url": "https://www.upliftinn.com/",
+      "season": "Closed for the winter season; reopening in late May 2027",
+      "source": "https://www.upliftinn.com/",
+      "checked": "2026-11-12"
+    }
   ],
   "heritage": {
-    "founded": { "year": 1859, "text": "Prospector George Jackson found gold at the junction of Chicago Creek and Clear Creek", "source": "https://historicidahosprings.com/idaho-springs-history/", "checked": "2026-11-12" },
+    "founded": {
+      "year": 1859,
+      "text": "Prospector George Jackson found gold at the junction of Chicago Creek and Clear Creek",
+      "source": "https://historicidahosprings.com/idaho-springs-history/",
+      "checked": "2026-11-12"
+    },
     "timeline": [
-      { "year": 1859, "text": "George Jackson found gold in January at the junction of Chicago and Clear Creeks. A mining district was organized in June.", "source": "https://historicidahosprings.com/idaho-springs-history/", "checked": "2026-11-12" },
-      { "year": 1873, "text": "A town site of more than 105 acres was registered and R.B. Griswold was elected mayor.", "source": "https://historicidahosprings.com/idaho-springs-history/", "checked": "2026-11-12" },
-      { "year": 1877, "text": "The railroad reached Idaho Springs in June.", "source": "https://historicidahosprings.com/idaho-springs-history/", "checked": "2026-11-12" },
-      { "year": 1893, "text": "Work began on the Argo Tunnel, which was completed in 1903.", "source": "https://historicidahosprings.com/idaho-springs-history/", "checked": "2026-11-12" },
-      { "year": 1913, "text": "The Argo Mill dates from this year. The operation closed after a mine disaster in 1943.", "source": "https://www.historycolorado.org/location/argo-tunnel-mill", "checked": "2026-11-12" }
+      {
+        "year": 1859,
+        "text": "George Jackson found gold in January at the junction of Chicago and Clear Creeks. A mining district was organized in June.",
+        "source": "https://historicidahosprings.com/idaho-springs-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1873,
+        "text": "A town site of more than 105 acres was registered and R.B. Griswold was elected mayor.",
+        "source": "https://historicidahosprings.com/idaho-springs-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1877,
+        "text": "The railroad reached Idaho Springs in June.",
+        "source": "https://historicidahosprings.com/idaho-springs-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1893,
+        "text": "Work began on the Argo Tunnel, which was completed in 1903.",
+        "source": "https://historicidahosprings.com/idaho-springs-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1913,
+        "text": "The Argo Mill dates from this year. The operation closed after a mine disaster in 1943.",
+        "source": "https://www.historycolorado.org/location/argo-tunnel-mill",
+        "checked": "2026-11-12"
+      }
     ],
     "sites": [
-      { "name": "Argo Mill and Tunnel", "kind": "landmark", "url": "https://argomilltour.com/", "hours": "Winter hours 10 am to 5 pm; tours start at the top of the hour", "cost": "$30 adults; $20 ages 5 to 16; $4 ages 1 to 4", "source": "https://argomilltour.com/things-to-do-in-colorado/gold-mine-tours-prices/", "checked": "2026-11-12" },
-      { "name": "Heritage Museum and Visitor Center", "kind": "museum", "url": "https://historicidahosprings.com/historic-sites/the-heritage-museum-and-visitor-center-of-idaho-springs/", "hours": "Open 7 days a week. Winter 10 am to 4 pm; summer 9:30 am to 5 pm", "cost": "A nominal fee for entry into the museum", "source": "https://historicidahosprings.com/", "checked": "2026-11-12" },
-      { "name": "Underhill Museum", "kind": "museum", "url": "https://historicidahosprings.com/historic-sites/underhill-museum/", "source": "https://historicidahosprings.com/historic-sites/underhill-museum/", "checked": "2026-11-12" },
-      { "name": "Idaho Springs Downtown Commercial District", "kind": "landmark", "source": "https://www.historycolorado.org/location/idaho-springs-downtown-commercial-district", "checked": "2026-11-12" }
+      {
+        "name": "Argo Mill and Tunnel",
+        "kind": "landmark",
+        "url": "https://argomilltour.com/",
+        "hours": "Winter hours 10 am to 5 pm; tours start at the top of the hour",
+        "cost": "$30 adults; $20 ages 5 to 16; $4 ages 1 to 4",
+        "source": "https://argomilltour.com/things-to-do-in-colorado/gold-mine-tours-prices/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Heritage Museum and Visitor Center",
+        "kind": "museum",
+        "url": "https://historicidahosprings.com/historic-sites/the-heritage-museum-and-visitor-center-of-idaho-springs/",
+        "hours": "Open 7 days a week. Winter 10 am to 4 pm; summer 9:30 am to 5 pm",
+        "cost": "A nominal fee for entry into the museum",
+        "source": "https://historicidahosprings.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Underhill Museum",
+        "kind": "museum",
+        "url": "https://historicidahosprings.com/historic-sites/underhill-museum/",
+        "source": "https://historicidahosprings.com/historic-sites/underhill-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Idaho Springs Downtown Commercial District",
+        "kind": "landmark",
+        "source": "https://www.historycolorado.org/location/idaho-springs-downtown-commercial-district",
+        "checked": "2026-11-12"
+      }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1885,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

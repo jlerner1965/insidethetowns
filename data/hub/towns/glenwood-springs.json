@@ -1,12 +1,5 @@
 {
   "slug": "glenwood-springs",
-  "facts": {
-    "incorporated": {
-      "year": 1885,
-      "source": "https://cogs.us/DocumentCenter/View/1199/Glenwood-Springs-Municipal-Water-Efficiency-Plan-PDF",
-      "checked": "2026-11-13"
-    }
-  },
   "transit": [
     {
       "name": "Ride Glenwood Springs",
@@ -80,10 +73,10 @@
         "checked": "2026-11-12"
       },
       {
-        "year": 1893,
-        "text": "Hotel Colorado begins taking guests.",
-        "source": "https://www.hotelcolorado.com/",
-        "checked": "2026-11-12"
+        "year": 1892,
+        "text": "The Hotel Colorado, a four-story building of brick and stone around a courtyard, dates from 1892.",
+        "source": "https://www.historycolorado.org/location/hotel-colorado",
+        "checked": "2026-11-13"
       },
       {
         "year": 1963,
@@ -134,5 +127,12 @@
         "checked": "2026-11-12"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1885,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

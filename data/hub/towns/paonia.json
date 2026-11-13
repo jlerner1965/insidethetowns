@@ -1,12 +1,5 @@
 {
   "slug": "paonia",
-  "facts": {
-    "incorporated": {
-      "year": 1902,
-      "source": "https://deltacountycolorado.com/stay/towns/paonia/",
-      "checked": "2026-11-13"
-    }
-  },
   "lodging": [
     {
       "name": "Bross Hotel Bed & Breakfast",
@@ -77,5 +70,12 @@
         "checked": "2026-11-13"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1902,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

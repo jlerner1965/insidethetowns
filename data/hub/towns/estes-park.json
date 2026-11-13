@@ -3,7 +3,7 @@
   "facts": {
     "incorporated": {
       "year": 1917,
-      "source": "https://www.historycolorado.org/sites/default/files/media/document/2020/SR_Larimer%20County_Stanley%20House_web.pdf",
+      "source": "https://estespark.colorado.gov/developmentcode",
       "checked": "2026-11-13"
     }
   },
@@ -61,17 +61,17 @@
       "checked": "2026-11-13"
     },
     "founded": {
-      "year": 1858,
-      "text": "Joel Estes entered what is now Estes Park and started a ranch.",
-      "source": "https://www.nps.gov/romo/learn/historyculture/time_line_of_historic_events.htm",
-      "checked": "2026-11-12"
+      "year": 1859,
+      "text": "Joel Estes found the valley in the fall of 1859 and started a ranch.",
+      "source": "https://www.historycolorado.org/sites/default/files/media/document/2020/SR_Larimer%20County_Stanley%20House_web.pdf",
+      "checked": "2026-11-13"
     },
     "timeline": [
       {
-        "year": 1858,
-        "text": "Joel Estes entered what is now Estes Park and started a ranch.",
-        "source": "https://www.nps.gov/romo/learn/historyculture/time_line_of_historic_events.htm",
-        "checked": "2026-11-12"
+        "year": 1859,
+        "text": "Joel Estes found the valley in the fall of 1859 and started a ranch.",
+        "source": "https://www.historycolorado.org/sites/default/files/media/document/2020/SR_Larimer%20County_Stanley%20House_web.pdf",
+        "checked": "2026-11-13"
       },
       {
         "year": 1873,
@@ -92,10 +92,10 @@
         "checked": "2026-11-12"
       },
       {
-        "year": 1982,
-        "text": "The Lawn Lake dam collapsed; the flood killed three people and severely affected Estes Park.",
-        "source": "https://www.nps.gov/romo/learn/historyculture/time_line_of_historic_events.htm",
-        "checked": "2026-11-12"
+        "year": 1917,
+        "text": "The Town of Estes Park was incorporated on April 17.",
+        "source": "https://estespark.colorado.gov/developmentcode",
+        "checked": "2026-11-13"
       }
     ],
     "sites": [
