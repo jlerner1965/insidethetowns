@@ -314,19 +314,48 @@ traditions lead and the outdoor dates come second (`guideHomeDates`). The
 rest are on `/traditions/`.
 
 **The hub's home page** (13 November 2026) is the approved design in
-`docs/design/hub-home-mockup.html`, with its own masthead, footer, type
+`docs/design/hub-home-mockup.html`, reordered the same day to lead with
+what changes: a compact hero, the guides, this weekend, this season, the
+guides' index, the email. It has its own masthead, footer, type
 (Newsreader, Inter, the Fraunces wordmark, all self-hosted) and palette
 (`HUB_HOME`, one accent, pine), in `src/styles/hub-home.css`; the guides
 and the hub's other pages keep theirs. The owner's Flatirons photograph
 sits beside the headline (under it on a phone) and is the page's share
-image. The rules are `src/lib/hub-home.ts`: the season's count by town;
-one listing a day for the weekend, Friday's being the high-school football
-game where the scores data has one (the guide's featured listing first,
-then a playoff game), its final once posted, and otherwise a one-off the
-organizer has confirmed, never two from one town and never a program's
-deadline listing; the registration deadline and the local change; each
-row's check line in its guide page's words. Dated rows leave the page once
-past, and an emptied block goes with them.
+image. The rules are `src/lib/hub-home.ts`:
+
+- **This weekend** is one listing a day. Friday's is the high-school
+  football game where the scores data has one (the guide's featured
+  listing first, then a playoff game), its final once posted. Otherwise a
+  guide editor's pick for the week comes first (the weekly notes'
+  `picks`), then a one-off the organizer has confirmed, never two from one
+  town and never a program's deadline listing.
+- **Each pick says why it is there** in a few words, only from fields:
+  the guide's pick, an annual event in the registry (its running where
+  numbered), free admission, a run of 90 minutes or less, a playoff stage
+  the title does not name, the team's league place. No field, no line.
+- Beside it, **one date**: the nearest registration deadline, else the
+  newest local change; and the schools' score pages.
+- **This season** is the seasons opened with a year in `CURRENT_SEASONS`
+  that still have a date to come, soonest first, each with its count by
+  town and next date. The year-round pages are on `/towns/` ("All annual
+  events").
+- **Words that hold:** the title and description say what the page is
+  ("Colorado events this weekend, town by town"); "N more towns" counts
+  town pages no guide covers; the email is "every Thursday", no hour (the
+  send is the owner's merge of the drafts pull request); a deadline shows
+  the organizer's own note where the guide's card does.
+- Each row's check line is in its guide page's words. Dated rows leave the
+  page once past, and an emptied block goes with them. The sections' links
+  carry `data-track` (`home-weekend`, `home-season`, `home-deadline`,
+  `home-scores`, `home-guides`, `home-index`), counted by TrackClicks.
+
+**The hub's other pages** share the home's menu (This weekend, Annual
+events, Towns, Moving here, Newsletter, How we check; `src/lib/nav.ts`,
+`hubNav`, "Annual events" going to the list on `/towns/`) and call the
+editorial page "How we check listings" in the footer. Their share image is
+the same Flatirons photograph. In the sitemap a town page and a season page
+are dated by the newest check of the records they show
+(`src/lib/lastmod.ts`), and every dated town page title says "events".
 
 **Visual rules** (the ten from the 26 October pass, still in force):
 

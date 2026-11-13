@@ -11,6 +11,7 @@ organizerUrl: "https://www.cvprd.com/"
 source: "https://www.cvprd.com/special-events"
 sourceId: "cvprd-com"
 verified: "2026-11-11"
+why: "More than forty local vendors, a kids’ corner and live music"
 verifiedBy: "recheck-events (the nightly re-check workflow): 15 November and 11 am on the page"
 ---
 

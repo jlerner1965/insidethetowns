@@ -26,7 +26,7 @@ import { STANDALONE_GUIDES, findHubTown } from '@/config/hub-towns';
 import { eventPage, homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
-import { collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, rowsByState, seasonCounts, seasonRows, type TraditionType } from '@/lib/traditions';
 import { googleCalendarUrl } from '@/lib/ics';
 import { traditionCalendarEvent } from '@/lib/tradition-calendar';
@@ -87,6 +87,11 @@ const description = dated
       : `${info.plural} in Colorado, town by town: the next date each organizer has published, or that it has not yet and when it was last held, with the page it was read from.`;
 const pageUrl = `https://${hub.domain}${path}`;
 const structured = [
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: 'Annual events', path: '/towns/' },
+    { name: info.plural, path },
+  ]),
   collectionPageJsonLd(hub, {
     name: seoTitle,
     description,

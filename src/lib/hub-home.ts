@@ -26,8 +26,11 @@ import type { Confidence } from './confidence.ts';
 import { isTentative } from './confidence.ts';
 import { addDays, dayKey, formatDate, formatShortDate, parseLocal } from './dates.ts';
 import { checkedBy } from './editor.ts';
-import { PLAN_YOUR_DAY, forGeneralReaders, isFlagged, isPast, oneOffs, weekendWindow } from './events.ts';
-import { FLAGSHIP_TEAM, formatGameTime, placeText, where } from './school-sports.ts';
+import { PLAN_YOUR_DAY, forGeneralReaders, isFlagged, isMultiDay, isPast, lastDay, oneOffs, weekendWindow } from './events.ts';
+import { FLAGSHIP_TEAM, formatGameTime, leaguePlace, placeText, where } from './school-sports.ts';
+import { isFreeCost } from './cost.ts';
+import { homeOf } from './hub-towns.ts';
+import { CURRENT_SEASONS, TRADITION_TYPES, byTown, isDated, isUpcoming, seasonRows, type TraditionRecord, type TraditionRow, type TraditionType, type TraditionYear } from './traditions.ts';
 
 /**
  * The feature card's count, by town (the fixes brief: "19 of 20 towns'
@@ -36,20 +39,24 @@ import { FLAGSHIP_TEAM, formatGameTime, placeText, where } from './school-sports
  * on it. A row with no town of its own (a shared or statewide record) is
  * in neither number.
  */
-export function townsConfirmed(rows: ReadonlyArray<{ town?: string; confirmed: boolean }>): { confirmed: number; towns: number } {
-  const towns = new Set<string>();
+export function townsConfirmed(rows: ReadonlyArray<{ town?: string; confirmed: boolean; canceled?: boolean }>): { confirmed: number; towns: number; canceled: number } {
+  const live = new Set<string>();
   const confirmed = new Set<string>();
+  const called = new Set<string>();
   for (const row of rows) {
     if (!row.town) continue;
-    towns.add(row.town);
-    if (row.confirmed) confirmed.add(row.town);
+    if (row.canceled) called.add(row.town);
+    else live.add(row.town);
+    if (row.confirmed && !row.canceled) confirmed.add(row.town);
   }
-  return { confirmed: confirmed.size, towns: towns.size };
+  // A town whose only date was called off is not waiting on a date: it is counted apart.
+  const canceled = [...called].filter((t) => !live.has(t)).length;
+  return { confirmed: confirmed.size, towns: live.size, canceled };
 }
 
 /** "19 of 20 towns’ dates confirmed." */
-export function seasonFeatureLine(counts: { confirmed: number; towns: number }): string {
-  return `${counts.confirmed} of ${counts.towns} ${counts.towns === 1 ? 'town’s' : 'towns’'} dates confirmed.`;
+export function seasonFeatureLine(counts: { confirmed: number; towns: number; canceled?: number }): string {
+  return `${counts.confirmed} of ${counts.towns} ${counts.towns === 1 ? 'town’s' : 'towns’'} dates confirmed${counts.canceled ? `, ${counts.canceled} canceled` : ''}.`;
 }
 
 /** The names the home's search box suggests as they are typed: the guides and the town pages, A to Z, no name twice. */
@@ -184,13 +191,16 @@ type Listing = EventLike & { town: { slug: string }; confidence?: Confidence };
  * Friday's game), never two from one town and never one from a town in
  * `taken`. A listing qualifies when it starts that day and has not
  * finished, the organizer's own page or a person has confirmed it (the
- * `confirmed` level, src/lib/confidence.ts), and it is a one-off for a
+ * `confirmed` level, src/lib/confidence.ts), or it is a run of days still
+ * on that day, and it is a one-off for a
  * general reader: no regular, no standing children's program, nothing
  * civic, canceled or flagged by the re-check, and not a program's own
- * deadline listing (`exclude`). The best is the editor's featured listing,
- * then a plan-your-day one (a festival, a market, music, a game, the
- * arts), then the rest; within each, the earlier start, then the guides'
- * order. The days are filled in order, Friday first.
+ * deadline listing (`exclude`). The best is one its guide's editor picked
+ * for the week or featured (the guides' rule: nothing is picked by a
+ * machine where an editor has picked), then a plan-your-day one (a
+ * festival, a market, music, a game, the arts), then the rest; within
+ * each, the earlier start, then the guides' order. The days are filled in
+ * order, Friday first.
  *
  * `all` is the network's listings expanded with `occurrences`, so a
  * series stored as a file per date is known as one.
@@ -203,29 +213,42 @@ export function weekendPicks<T extends Listing>(
     taken = new Set<string>(),
     order = [],
     exclude = new Set<string>(),
+    picked = new Set<string>(),
   }: {
     now?: Date;
     taken?: ReadonlySet<string>;
     order?: readonly string[];
     /** Listings, as `listingKey`, that are something else on the page: a program's deadline (`deadlineListings`). */
     exclude?: ReadonlySet<string>;
+    /** Listings, as `listingKey`, a guide's editor picked for the week (src/lib/weekly.ts, currentPicks): these come first. */
+    picked?: ReadonlySet<string>;
   } = {},
 ): Map<string, T> {
   const general = forGeneralReaders(all, all);
   const pool = oneOffs(general, all).filter((e) => !isPast(e, now) && !isFlagged(e) && !isTentative(e) && e.confidence?.level === 'confirmed' && !exclude.has(listingKey(e)));
-  // The editor's featured flag first, then a plan-your-day category, then the rest.
-  const rank = (e: T) => (e.data.featured ? 0 : PLAN_YOUR_DAY.has(e.data.category) ? 1 : 2);
+  // A guide editor's pick or featured listing first, then a plan-your-day category, then the rest.
+  const rank = (e: T) => (picked.has(listingKey(e)) || e.data.featured ? 0 : PLAN_YOUR_DAY.has(e.data.category) ? 1 : 2);
   const place = (slug: string) => order.indexOf(slug) + 1 || order.length + 1;
-  const towns = new Set(taken);
-  const picks = new Map<string, T>();
-  for (const { key } of days) {
-    const best = pool
-      .filter((e) => dayKey(e.data.start) === key && !towns.has(e.town.slug))
-      .sort((a, b) => rank(a) - rank(b) || a.data.start.getTime() - b.data.start.getTime() || place(a.town.slug) - place(b.town.slug))[0];
-    if (!best) continue;
-    picks.set(key, best);
-    towns.add(best.town.slug);
+  // On a day: it starts then, or it is a run of days that began earlier and is still on.
+  const onDay = (e: T, key: string) => {
+    const first = dayKey(e.data.start);
+    return first === key || (isMultiDay(e) && first < key && lastDay(e) >= key);
+  };
+  // The best listing anywhere in the weekend is placed first, so a town's
+  // lesser Friday listing cannot take the town from its Saturday pick.
+  const candidates = days
+    .flatMap(({ key }, day) => pool.filter((e) => !taken.has(e.town.slug) && onDay(e, key)).map((e) => ({ e, key, day })))
+    .sort((a, b) => rank(a.e) - rank(b.e) || a.day - b.day || a.e.data.start.getTime() - b.e.data.start.getTime() || place(a.e.town.slug) - place(b.e.town.slug));
+  const towns = new Set<string>();
+  const chosen = new Map<string, T>();
+  for (const { e, key } of candidates) {
+    if (chosen.has(key) || towns.has(e.town.slug)) continue;
+    chosen.set(key, e);
+    towns.add(e.town.slug);
   }
+  // In the days' own order.
+  const picks = new Map<string, T>();
+  for (const { key } of days) if (chosen.has(key)) picks.set(key, chosen.get(key)!);
   return picks;
 }
 
@@ -320,18 +343,123 @@ export function dashed(text: string): string {
 }
 
 /** The Friday game as a row: its title, the line under it, and whether it shows the final. */
-export function gameRow(g: Pick<FridayGame<unknown, Listing>, 'school' | 'team' | 'game' | 'listing'>, displayTitle: (e: EventLike) => string, clock: (e: EventLike) => string): { title: string; meta: string[]; final: boolean } {
+export function gameRow(g: Pick<FridayGame<unknown, Listing>, 'school' | 'team' | 'game' | 'listing'>, displayTitle: (e: EventLike) => string, clock: (e: EventLike) => string): { title: string; meta: string[]; reasons: string[]; final: boolean } {
   const { school, team, game, listing } = g;
   const title = listing ? displayTitle(listing) : `${schoolTeamName(school)} ${where(game)} ${game.opponent}`;
   const record = team.overall ? `${dashed(team.overall)} this season` : undefined;
+  const reasons = gameReasons(title, team, game);
   if (game.result) {
     const word = { W: 'Won', L: 'Lost', T: 'Tied' }[game.result];
     const score = game.forfeit ? 'by forfeit' : game.score ? `${game.score.us}–${game.score.them}` : undefined;
-    return { title, meta: [`Final: ${[word, score].filter(Boolean).join(' ')}`, record].filter((s): s is string => !!s), final: true };
+    return { title, meta: [`Final: ${[word, score].filter(Boolean).join(' ')}`, record].filter((s): s is string => !!s), reasons, final: true };
   }
   const time = listing ? clock(listing) : game.time ? formatGameTime(game) : undefined;
   const venue = listing?.data.venue ?? placeText(game);
-  return { title, meta: [time, venue, game.stage && !listing ? game.stage : undefined, record].filter((s): s is string => !!s), final: false };
+  return { title, meta: [time, venue, record].filter((s): s is string => !!s), reasons, final: false };
+}
+
+/**
+ * Why the game earned the space, from the scores data alone: the postseason
+ * it is part of, where the title does not already say so, and the team's
+ * place in its league, in the sports page's words ("1st in the 4A
+ * Northern"; leaguePlace leaves out a place with no league game played).
+ */
+export function gameReasons(title: string, team: Pick<SportData, 'league'>, game: Pick<SportGame, 'stage'>): string[] {
+  const stage = game.stage && !/playoff|tournament|championship/i.test(title) ? game.stage : undefined;
+  const place = leaguePlace(team);
+  // "league" said, for a reader who does not know "4A Northern" is one, unless the name says it already.
+  const league = team.league ? `${team.league.name}${/league|conference/i.test(team.league.name) ? '' : ' league'}` : undefined;
+  return [stage, place && league ? `${place} in the ${league}` : undefined].filter((s): s is string => !!s);
+}
+
+/** "Half an hour", "45 minutes", "An hour", "An hour and a half": a short listing's length, up to 90 minutes; nothing longer. */
+export function durationWords(minutes: number): string | undefined {
+  // A quarter of an hour to an hour and a half, in round figures: "61 minutes" is not a reason.
+  if (minutes < 15 || minutes > 90 || minutes % 5 !== 0) return undefined;
+  if (minutes === 30) return 'Half an hour';
+  if (minutes === 60) return 'An hour';
+  if (minutes === 90) return 'An hour and a half';
+  return `${minutes} minutes`;
+}
+
+/** "1st", "2nd", "23rd", "78th". */
+export function ordinal(n: number): string {
+  const tens = n % 100;
+  const suffix = tens >= 11 && tens <= 13 ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' } as Record<number, string>)[n % 10] ?? 'th';
+  return `${n}${suffix}`;
+}
+
+const nameKey = (text: string) => text.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
+
+/**
+ * The annual event a weekend listing is, from the registry of traditions
+ * (content/hub/traditions/): a record at home in the listing's guide, with
+ * a date the organizer set on the listing's own day, whose name the
+ * listing's title carries (or the other way round). The year's entry, for
+ * its edition number where the organizer gives one.
+ */
+export function annualRecordFor(e: Pick<Listing, 'town' | 'data'>, title: string, records: readonly TraditionRecord[]): { record: TraditionRecord; entry: TraditionYear } | undefined {
+  const day = dayKey(e.data.start);
+  const listed = nameKey(title);
+  for (const record of records) {
+    if (record.statewide || homeOf(record) !== e.town.slug) continue;
+    const entry = record.years.find((y) => y.date === day && isDated(y));
+    const name = nameKey(record.name);
+    // Whole words: "Art Walk" is not in "Heart Walk for Lyons".
+    if (entry && name && (` ${listed} `.includes(` ${name} `) || ` ${name} `.includes(` ${listed} `))) return { record, entry };
+  }
+  return undefined;
+}
+
+/**
+ * Why a weekend listing earned the space, in a few words, each from a field
+ * the listing or the registry carries, never from its prose: the guide's
+ * own pick this week, an annual event (its running, where the organizer
+ * numbers it), free admission (isFreeCost), and a short run time from its
+ * start and end; or, in their place, the listing's own `why`, a few words
+ * its editor read on the source. Nothing, where none of them holds: no
+ * line is better than a filler one.
+ */
+export function listingReasons(
+  e: Pick<Listing, 'data'>,
+  { pickedBy, annual }: { pickedBy?: string; annual?: { edition?: number } } = {},
+): string[] {
+  const { start, end, allDay, cost, why } = e.data;
+  const pick = pickedBy ? `${pickedBy}’s pick this week` : undefined;
+  // The editor's own words, read on the source, stand in for the worked-out reasons.
+  if (why) return [pick, why].filter((s): s is string => !!s);
+  const sameDay = !!end && dayKey(start) === dayKey(end);
+  const length = sameDay && !allDay ? durationWords(Math.round((end!.getTime() - start.getTime()) / 60_000)) : undefined;
+  return [
+    pick,
+    // A first running is not yet annual.
+    annual ? (annual.edition && annual.edition > 1 ? `The ${ordinal(annual.edition)} annual` : 'Once a year') : undefined,
+    isFreeCost(cost) ? 'Free' : undefined,
+    length,
+  ].filter((s): s is string => !!s);
+}
+
+/**
+ * This season: the annual events whose season the owner has opened with a
+ * year (CURRENT_SEASONS: parades of lights, tree lightings and turkey trots
+ * in November 2026), each with a date still to come, the soonest first. The year-round pages (Oktoberfests, rodeos, outdoor dates) are
+ * not in it: they are one link away, under all the annual events.
+ */
+export function seasonsNow(records: readonly TraditionRecord[], today: string): Array<{ type: TraditionType; counts: { confirmed: number; towns: number; canceled: number }; next: TraditionRow }> {
+  return TRADITION_TYPES.flatMap((type) => {
+    if (CURRENT_SEASONS[type]?.year === undefined) return [];
+    const rows = seasonRows(records, type, today);
+    const next = rows.filter(isUpcoming).sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || byTown(a, b))[0];
+    if (!next) return [];
+    // Confirmed is a date the organizer set, held already or still to come, so the count does not fall as the season is played out.
+    return [{ type, counts: townsConfirmed(rows.map((r) => ({ town: r.record.town?.name, confirmed: isDated(r.entry) && !!r.entry.date, canceled: r.entry.status === 'canceled' }))), next }];
+  }).sort((a, b) => a.next.entry.date!.localeCompare(b.next.entry.date!));
+}
+
+/** "Catch the Glow Parade, Estes Park"; the town once only ("Longmont Turkey Trot"). */
+export function nextLine(record: Pick<TraditionRecord, 'name' | 'town'>): string {
+  const town = record.town?.name;
+  return town && !record.name.includes(town) ? `${record.name}, ${town}` : record.name;
 }
 
 /**
@@ -340,7 +468,10 @@ export function gameRow(g: Pick<FridayGame<unknown, Listing>, 'school' | 'team' 
  * credit line. The same picture is the page's share image.
  */
 export const HOME_PHOTO = {
+  /** The whole photograph, for the share image. */
   file: 'front-range-flatirons.jpg',
+  /** The 2:1 band of it the page shows, cut once so no reader downloads the rest. */
+  hero: 'front-range-flatirons-hero.jpg',
   alt: 'The Flatirons and the foothills above Boulder from the air, with the plains and their towns beyond',
   caption: 'The Flatirons above Boulder, looking toward the plains.',
 } as const;

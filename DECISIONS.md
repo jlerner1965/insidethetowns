@@ -11117,3 +11117,113 @@ hub's home page only.
   towns' colours, the drawn horizon, "Now in the towns"' date coming up,
   and the Guides row of articles (none is verified yet). The articles are
   reached from the town pages and guides that name them.
+
+## The hub home, reordered to lead with the weekend, 13 November 2026 (later)
+
+After the design went live, a review of the page asked for the changing
+content higher, a little editorial judgment on each pick, and less weight
+on seasons that are not on. All three, without a new section:
+
+- **The order:** a compact hero (one line under the headline, a 48px
+  headline, the photograph at 2:1 beside it), the guides line, this
+  weekend, this season, the index, the email. The weekend now starts at
+  about 545px on a 1280px screen (it was about 1,060px) and at about 880px
+  on a phone (about 1,430px). The approved mockup stays in
+  `docs/design/` as it was approved; the page departs from it here.
+- **The guides' own picks first.** Each guide's weekly notes carry the
+  editor's approved picks, under the rule that nothing is picked by a
+  machine where an editor has picked. The home now takes those first and
+  falls back to its rule only for a day with none. The first weekend under
+  it: Saturday is Berthoud's Blues Bash, Inside Berthoud's pick, where the
+  rule alone had chosen Erie's Nutcracker excerpts.
+- **Why it is there, from fields only.** A short line under each pick's
+  title: the guide's pick, "Once a year" or "The 78th annual" where the
+  listing is an annual event in the registry on its day, "Free" (then not
+  repeated in the line below), a run of 90 minutes or less, a playoff
+  stage the title does not already name, the team's league place in the
+  sports page's words. Nothing from a listing's prose: "All ages" on the
+  Nutcracker is prose, and listings have no audience field, so "suits
+  younger children" is not said. A pick with none of these has no line;
+  this weekend, the Carbon Valley market. A hand-written `why` on a listing
+  for the rest is the next step, not done here.
+- **One date beside the weekend:** the nearest registration deadline,
+  else the newest local change.
+- **This season** is the seasons the owner has opened with a year
+  (parades of lights, tree lightings, turkey trots), soonest first, each
+  with its count and next date. Oktoberfests, rodeos, harvest festivals,
+  winter carnivals, free days and outdoor dates are behind "All annual
+  events", the list on `/towns/`; a season appears here the day the owner
+  sets its year.
+- **Measured, not assumed.** Every section's links carry `data-track`, so
+  Vercel Web Analytics counts clicks by section. Compare each section's
+  share over three or four weeks; a before-and-after against the first
+  layout would be muddied by Thanksgiving.
+
+## The hub home, after four audits, 13 November 2026 (evening)
+
+Four read-only audits of the reordered home (search, design, content
+accuracy, navigation). Fixed on the home; the rest is listed in the pull
+request for the owner.
+
+- **A listing's `why`:** an optional few words on an event, read on its
+  source, shown on the home's weekend picks in place of the worked-out
+  reasons; refused without a source and a check date.
+- **Promises the page could not keep.** "Final score here Saturday
+  morning" is "on Saturday": the scores run is at 7 am and the hub's
+  rebuild follows mid-morning. The game's record is marked as MaxPreps's.
+- **The season counts** are of dates the organizer set, held or to come,
+  so they no longer fall as a season is played out, and a canceled date is
+  counted apart ("19 of 19 towns' dates confirmed, 1 canceled").
+- **The weekend's picks:** the best listing of the whole weekend is placed
+  first, so a town's lesser Friday listing cannot take the town from its
+  Saturday pick; a run of days counts on each day it is on. A run time is
+  a reason only in round figures; a first running is not "1st annual";
+  an annual event is matched on whole words.
+- **Words:** "from seven local guides" (Niwot lists no events), "six
+  weekly editions" (not towns).
+- **Design:** the menu button from 860px and the hero stacked from 940px
+  (the row of links wrapped and the headline ran to four lines on a
+  tablet); the scores as a list; the seasons three across or one; square
+  focus outlines; a hover and a forced-colours edge on the two buttons;
+  the phone menu closes when focus or a tap leaves it.
+- **The hero photograph** is cut once to the 2:1 band the page shows
+  (`front-range-flatirons-hero.jpg`), so no reader downloads the rest;
+  the whole photograph stays the share image.
+
+## The audits' open items, decided, 13 November 2026 (night)
+
+The owner left the six open questions from the four audits to this
+session. Decided and done:
+
+- **The home's title and description** say what the page is: "Colorado
+  events this weekend, town by town | Inside the Towns", and this weekend's
+  events, the seasons now on and the count of other towns. The original
+  brief kept the old ones; the page they described is gone.
+- **One menu across the hub.** The other hub pages take the home's six
+  items and words ("Seasonal dates" is "Annual events", to the list on
+  `/towns/`, which is now headed "Annual events"; About and Contact stay in
+  the footer). The footer's "Editorial policy" and "Sources", two links to
+  one page, are one "How we check listings". The wordmark colour stays as
+  it is: pine is the approved brief's for the home alone, and taking it to
+  the rest of the hub is a recolouring of every hub page, a pass of its own.
+- **"Every Thursday", no hour.** The drafts pull request opens at 5:10 am
+  and the email goes when it is merged; this week's went at 12:49 pm. The
+  guides' forms still say "at 7 am" from `sendTime` in the hub config,
+  which the owner called "a promise to keep"; left for the owner.
+- **The home's footer** adds Weekly email, Privacy and Photo credits.
+- **The deadline** carries the organizer's note where the program has one,
+  as the family hub's card does: Camp Erie's says which camp closes today.
+- **Type in rem**, so a reader's own text size applies; at 200% nothing
+  runs off the page.
+- Also: "N more towns" no longer counts Severance twice (95); the hub's
+  photograph is the Flatirons original, so `/credits/` names what the home
+  shows; every dated town title says "events"; season pages carry a
+  breadcrumb; town and season pages are dated in the sitemap by their
+  records' checks; the Fraunces preload is dropped; a test that read the
+  real clock (`test/sports.test.ts`, the volleyball openers) reads the
+  audit's day.
+- **Not done, on purpose:** `/_astro/` keeps its hour-long cache (the
+  owner's rule after the missed deploy, held by `test/cache-headers.test.ts`);
+  town pages keep the town's name alone as their heading (the title carries
+  the search words); the signup keeps the browser's own check of an email
+  address, which is accessible, rather than a new script in the shared form.

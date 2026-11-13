@@ -1,34 +1,37 @@
 ---
 /**
  * The hub's home, on the approved design of 13 November 2026
- * (docs/design/hub-home-mockup.html): its own masthead, type, colours and
- * footer (src/styles/hub-home.css), the guides keeping theirs. Top to
- * bottom:
+ * (docs/design/hub-home-mockup.html), reordered the same day to lead with
+ * what is changing: its own masthead, type, colours and footer
+ * (src/styles/hub-home.css), the guides keeping theirs. Top to bottom:
  *
  *   1. The masthead: the wordmark and six links; a menu button on a phone.
- *   2. The hero: the headline, one sentence, the search, and the owner's
+ *   2. A compact hero: the headline, one line, the search, and the owner's
  *      photograph of the Flatirons beside it (under it on a phone).
  *   3. The guides as one line of links, and the count of the town pages.
- *   4. Annual events: the current season's page, its count by town, and
- *      its next date set in type; then the other season pages.
- *   5. This weekend: one listing a day, Friday to Sunday. Friday's is the
+ *   4. This weekend: one listing a day, Friday to Sunday, each with the
+ *      reason it is there where a field supports one. Friday's is the
  *      high-school football game where the scores data has one, its final
- *      once posted; otherwise, and on Saturday and Sunday, a one-off the
- *      organizer has confirmed, never two from one town
- *      (src/lib/hub-home.ts).
- *   6. Beside it: up to two deadlines or local changes, and the schools'
+ *      once posted; otherwise, and on Saturday and Sunday, a guide editor's
+ *      pick first, else a one-off the organizer has confirmed, never two
+ *      from one town (src/lib/hub-home.ts). Beside it: the nearest
+ *      registration deadline (else the local change) and the schools'
  *      score pages.
- *   7. The seven guides as an index, and the town pages.
- *   8. The Thursday email, to every town.
- *   9. The footer: the independence line and five links.
+ *   5. This season: the annual events whose season is open (a season the
+ *      owner has set with a year), each with its count and next date, and
+ *      the way to all the annual events.
+ *   6. The seven guides as an index, and the town pages.
+ *   7. The Thursday email, to every town.
+ *   8. The footer: the independence line and five links.
  *
  * Every list reads what the rest of the hub reads: liveTowns() for the
  * guides, publishedHubTowns() for the town pages, the tradition records for
- * the season, the guides' own listings, changes and programs, and the
- * scores files. Each dated row carries its last day, so the page's own
- * script takes it down once it has passed (Freshness.astro), and a block
- * left with nothing goes with it. A section with nothing to show is not
- * drawn.
+ * the seasons, the guides' own listings, weekly notes, changes and
+ * programs, and the scores files. Each dated row carries its last day, so
+ * the page's own script takes it down once it has passed (Freshness.astro),
+ * and a block left with nothing goes with it. A section with nothing to
+ * show is not drawn. The sections' links carry `data-track` (home-…), so
+ * TrackClicks.astro counts which part of the page is used.
  */
 import '@fontsource-variable/newsreader/opsz.css';
 import '@fontsource-variable/inter/index.css';
@@ -36,18 +39,18 @@ import '@fontsource-variable/fraunces/opsz-italic.css';
 import '@/styles/hub-home.css';
 import newsreaderLatin from '@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2?url';
 import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
-import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
 import { Image, getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { emailEditions, getHub, liveTowns } from '@/config';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { getNetworkEntries, getTraditions } from '@/lib/content';
-import { dayKey, formatDayRange, formatMonthDay, formatWeekday, monthDay, parseLocal, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatDayRange, formatMonthDay, monthDay, parseLocal, toIsoLocal } from '@/lib/dates';
 import { clockText, displayTitle, isInProgress, lastDay, listedUntil, occurrences } from '@/lib/events';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import {
   HOME_PHOTO,
+  annualRecordFor,
   capitalized,
   changeSourceText,
   deadlineListings,
@@ -57,23 +60,29 @@ import {
   gameRow,
   guideLine,
   guideName,
+  listWords,
+  listingKey,
+  listingReasons,
+  nextLine,
   numberWord,
   pickDeadline,
   provenanceText,
   searchSuggestions,
   seasonFeatureLine,
+  seasonsNow,
   sportsSourceText,
-  townsConfirmed,
   weekendDays,
   weekendPicks,
 } from '@/lib/hub-home';
 import { resolveSiteImage } from '@/lib/images';
-import { seasonLinks } from '@/lib/nav';
 import { upcomingDeadlines } from '@/lib/programs';
 import { FLAGSHIP_TEAM, hasData, sportsDataFor } from '@/lib/school-sports';
 import { coveredTowns } from '@/lib/town-search-index';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows } from '@/lib/traditions';
+import { TRADITION_TYPE_INFO } from '@/lib/traditions';
+import { currentPicks } from '@/lib/weekly';
 import { wordmarkParts } from '@/lib/titles';
+import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
+import { collectionPageJsonLd } from '@/lib/seo';
 import { expiresOn, networkChanges, timing } from '@/lib/updates';
 import { shownCategoryLabel } from '@/content/schemas';
 
@@ -90,44 +99,36 @@ const guideUrl = (t: { domain: string }) => `https://${t.domain}/`;
 const names = searchSuggestions(live, pages);
 
 /** The photograph beside the hero, and the same picture as the page's share image. */
-const photo = resolveSiteImage('hub', HOME_PHOTO.file);
-const shareImage = (await getImage({ src: photo, width: 1200, height: 630, format: 'jpg' })).src;
+const photo = resolveSiteImage('hub', HOME_PHOTO.hero);
+const shareImage = (await getImage({ src: resolveSiteImage('hub', HOME_PHOTO.file), width: 1200, height: 630, format: 'jpg' })).src;
 
 /**
- * 4. Annual events: the first season page that is built, its count by town
- * as of today, its next date, and the other season pages as links.
+ * 5. This season: the annual events whose season is open, each with its
+ * count by town as of today and its next date (src/lib/hub-home.ts,
+ * seasonsNow). The rest are one link away, on /towns/.
  */
-const seasonType = TRADITION_TYPES.find((t) => CURRENT_SEASONS[t] && seasonRows(records, t, todayKey).length > 0);
-const annual = (() => {
-  if (!seasonType) return undefined;
-  const info = TRADITION_TYPE_INFO[seasonType];
-  const season = CURRENT_SEASONS[seasonType]!;
-  const rows = seasonRows(records, seasonType, todayKey);
-  const counts = townsConfirmed(rows.map((r) => ({ town: r.record.town?.name, confirmed: isUpcoming(r) })));
-  const next = rows.filter(isUpcoming).sort((a, b) => a.entry.date!.localeCompare(b.entry.date!))[0];
-  const dated = season.year !== undefined;
-  const nextDay = next ? parseLocal(next.entry.date!) : undefined;
+const seasons = seasonsNow(records, todayKey).map(({ type, counts, next }) => {
+  const info = TRADITION_TYPE_INFO[type];
+  const day = parseLocal(next.entry.date!);
+  const md = monthDay(day);
   return {
-    label: `Annual events · ${dated ? `${season.season} ${season.year}` : season.season}`,
-    title: dated ? `${info.plural}, town by town` : `${info.plural} in Colorado`,
+    key: type,
+    dayLabel: md.month,
+    dayNum: md.day,
+    weekday: md.weekday,
+    title: info.plural,
+    next: nextLine(next.record),
     line: counts.towns > 0 ? seasonFeatureLine(counts) : undefined,
     href: info.path,
-    next: next && nextDay && {
-      day: `${monthDay(nextDay).month} ${monthDay(nextDay).day}`,
-      weekday: formatWeekday(nextDay),
-      name: next.record.name,
-      town: next.record.town?.name,
-      href: `${info.path}#${next.record.slug}`,
-      until: next.entry.endDate ?? next.entry.date!,
-    },
-    others: seasonLinks().filter((l) => l.href !== info.path),
+    until: next.entry.endDate ?? next.entry.date!,
   };
-})();
+});
 
 /**
- * 5. This weekend. The listings are every guide's, expanded to their
+ * 4. This weekend. The listings are every guide's, expanded to their
  * dates (a series is known as one); the scores are each followed school's
- * file with CHSAA's brackets merged in.
+ * file with CHSAA's brackets merged in; the editors' picks are each guide's
+ * current weekly notes (src/lib/weekly.ts, currentPicks).
  */
 const days = weekendDays(now);
 const friday = days[0]!.key;
@@ -144,10 +145,21 @@ const found = fridayGame(gameSources, friday, listings);
 // A game still to come shows until Friday is over; its final, once the Saturday run posts it, through Sunday.
 const game = found && (found.game.result || friday >= todayKey) ? found : undefined;
 const programs = await getNetworkEntries('programs');
+const weeklyNotes = await getNetworkEntries('weekly');
+const picked = new Set(
+  live.flatMap((t) =>
+    currentPicks(
+      weeklyNotes.filter((n) => n.town.slug === t.slug),
+      listings.filter((e) => e.town.slug === t.slug),
+      now,
+      Infinity,
+    ).map(listingKey),
+  ),
+);
 const picks = weekendPicks(
   listings,
   days.filter((d) => d.key >= todayKey && !(game && d.key === friday)),
-  { now, taken: new Set(game ? [game.guide.slug] : []), order: live.map((t) => t.slug), exclude: deadlineListings(programs, listings) },
+  { now, taken: new Set(game ? [game.guide.slug] : []), order: live.map((t) => t.slug), exclude: deadlineListings(programs, listings), picked },
 );
 
 interface Row {
@@ -158,6 +170,10 @@ interface Row {
   title: string;
   href: string;
   meta: string[];
+  /** Why it earned the space, in a few words from its fields; none where none holds. */
+  reasons?: string[];
+  /** A line from the organizer's own words, where the guide's card shows one (DeadlineCard.astro). */
+  note?: string;
   check?: string;
   /** The last day it shows, and the instant it comes off where it has one (src/lib/expiry.ts). */
   until: string;
@@ -177,7 +193,10 @@ const weekendRows: Row[] = days.flatMap((d): Row[] => {
       title: row.title,
       href: row.final || !listing ? `https://${guide.domain}${teamPath(school, team.key)}` : `https://${guide.domain}/events/${listing.slug}/`,
       meta: row.meta,
-      check: row.final ? source : [source, 'Final score here Saturday morning'].filter(Boolean).join(' · '),
+      reasons: row.reasons,
+      // The record and the league place are MaxPreps's; the listing's check covers the date, time and place.
+      // "On Saturday", not "Saturday morning": the scores run is at 7 am and the hub's rebuild follows mid-morning.
+      check: row.final ? source : [source, listing && team.overall ? 'Record from MaxPreps' : undefined, 'Final score here on Saturday'].filter(Boolean).join(' · '),
       until: row.final ? sunday : friday,
     }];
   }
@@ -188,12 +207,16 @@ const weekendRows: Row[] = days.flatMap((d): Row[] => {
   // As the hub’s weekend page words a listing (NetworkEventCard.astro).
   const when = data.timeNote ?? (multiDay && isInProgress(e, now) ? `Now through ${formatMonthDay(data.end!)}` : multiDay && data.allDay ? formatDayRange(data.start, data.end!) : clockText(e));
   const category = shownCategoryLabel(data.category);
+  const title = displayTitle(e);
+  const reasons = listingReasons(e, { pickedBy: picked.has(listingKey(e)) && !data.featured ? e.town.siteTitle : undefined, annual: annualRecordFor(e, title, records)?.entry });
   return [{
     ...head,
     label: category ? `${e.town.name} · ${category}` : e.town.name,
-    title: displayTitle(e),
+    title,
     href: `https://${e.town.domain}/events/${e.slug}/`,
-    meta: [when, data.venue, data.cost].filter((s): s is string => !!s),
+    // "Free" is said once, as the reason, where it is one.
+    meta: [when, data.venue, reasons.includes('Free') ? undefined : data.cost].filter((s): s is string => !!s),
+    reasons,
     check: provenanceText(e),
     until: lastDay(e),
     end: toIsoLocal(listedUntil(e)),
@@ -201,65 +224,78 @@ const weekendRows: Row[] = days.flatMap((d): Row[] => {
 });
 
 /**
- * 6. Deadlines: the registration deadline and the local change the home
- * has carried since the audit of 13 November 2026, each only where there
- * is one, soonest first.
+ * Beside the weekend, one date to act on: the nearest registration
+ * deadline (pickDeadline: the soonest that closes, else the soonest that
+ * opens), or, with none, the newest local change.
  */
-const change = networkChanges(await getNetworkEntries('updates'), now, { limit: 1 })[0];
 const deadline = pickDeadline(upcomingDeadlines(programs, { now, days: 30 }));
+const change = deadline ? undefined : networkChanges(await getNetworkEntries('updates'), now, { limit: 1 })[0];
 // The program's own listing on the deadline's day, whose title the guide's card uses.
 const deadlineListing = deadline && listings.find((e) => e.town.slug === deadline.program.town.slug && e.slug === deadline.program.data.nextEvent && dayKey(e.data.start) === dayKey(deadline.on));
-const dated = (date: Date, row: Omit<Row, 'key' | 'dayLabel' | 'dayNum'>): Row & { on: number } => {
+const dated = (date: Date, row: Omit<Row, 'key' | 'dayLabel' | 'dayNum'>): Row => {
   const md = monthDay(date);
-  return { key: dayKey(date), dayLabel: md.month, dayNum: md.day, on: date.getTime(), ...row };
+  return { key: dayKey(date), dayLabel: md.month, dayNum: md.day, ...row };
 };
-const deadlineRows = [
-  deadline &&
-    dated(deadline.on, {
-      // Under "Deadlines" a closing date needs no word of its own; an opening says so.
-      label: deadline.what === 'opens' ? `${deadline.program.town.name} · Registration opens` : deadline.program.town.name,
-      title: deadlineTitle(deadline.program.data.title, deadlineListing),
-      href: deadline.program.data.registration?.url ?? deadline.program.data.url ?? deadline.program.data.organizerUrl ?? `https://${deadline.program.town.domain}/`,
-      meta: [],
-      check: deadlineSourceText(deadline.program.data),
-      until: dayKey(deadline.on),
-    }),
-  change &&
-    // The day that matters: the start of a change still ahead, else the end of one under way, else the day it took effect.
-    dated(timing(change, now) === 'ahead' ? change.data.effective : (change.data.effectiveEnd ?? change.data.effective), {
-      label: `${change.town.name} · Local change`,
-      title: change.data.title,
-      href: `https://${change.town.domain}/updates/#${change.slug}`,
-      meta: [],
-      check: changeSourceText(change.data),
-      until: dayKey(expiresOn(change)),
-    }),
-]
-  .filter((r) => !!r)
-  .sort((a, b) => a.on - b.on);
+const aside = deadline
+  ? {
+      heading: 'Deadline',
+      row: dated(deadline.on, {
+        // A closing date needs no word under "Deadline"; an opening says so.
+        label: `${deadline.program.town.name} · Registration ${deadline.what}`,
+        title: deadlineTitle(deadline.program.data.title, deadlineListing),
+        href: deadline.program.data.registration?.url ?? deadline.program.data.url ?? deadline.program.data.organizerUrl ?? `https://${deadline.program.town.domain}/`,
+        meta: [],
+        // The organizer's note on the deadline, short enough to be a line, as the family hub's card shows it:
+        // a program with several deadlines says which one this is.
+        note: deadline.program.data.registration?.note && deadline.program.data.registration.note.length <= 140 ? deadline.program.data.registration.note : undefined,
+        check: deadlineSourceText(deadline.program.data),
+        until: dayKey(deadline.on),
+      }),
+    }
+  : change && {
+      heading: 'Local change',
+      // The day that matters: the start of a change still ahead, else the end of one under way, else the day it took effect.
+      row: dated(timing(change, now) === 'ahead' ? change.data.effective : (change.data.effectiveEnd ?? change.data.effective), {
+        label: change.town.name,
+        title: change.data.title,
+        href: `https://${change.town.domain}/updates/#${change.slug}`,
+        meta: [],
+        check: changeSourceText(change.data),
+        until: dayKey(expiresOn(change)),
+      }),
+    };
 
 /** The schools' score pages, on every guide that puts its sports in its menu (src/lib/nav.ts: not an outdoors-led guide). */
 const scoreLinks = live
   .filter((t) => t.lead !== 'outdoors')
   .flatMap((t) => schoolsFor(t.slug).map((s) => ({ label: schoolTeamName(s), href: `https://${t.domain}${sportsPath(s)}` })));
 
-/** 7. The index: each guide's name with the towns it covers, its counties and its line. */
+/** 6. The index: each guide's name with the towns it covers, its counties and its line. */
 const guides = live.map((t) => ({ name: guideName(t, coveredTowns(t)), counties: t.counties.join(' · '), line: guideLine(t), href: guideUrl(t) }));
 // The span the mockup names, while both ends have a page.
 const span = ['Estes Park', 'Durango'].every((n) => pages.some((p) => p.name === n));
 const pagesLine = `${span ? 'Estes Park to Durango: p' : 'P'}arades, festivals, outdoor dates`;
 const guideCount = numberWord(live.length);
+/**
+ * "N more towns": the town pages for towns no guide covers. Severance has a
+ * page of its own and is in "Windsor and Severance" too, so it is not
+ * counted twice (the content audit of 13 November 2026). /towns/ still
+ * lists every page.
+ */
+const guideTowns = new Set(live.flatMap((t) => [t.name, ...coveredTowns(t)]));
+const moreTowns = pages.filter((p) => !guideTowns.has(p.name)).length;
 
-/** 8. The email: every edition, by default. */
+/** 7. The email: every edition, by default. */
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
-const sendTime = hub.newsletter?.sendTime;
 const editionCount = emailEditions().length;
 
-/** The masthead's links, each to something on the page or a page that exists. */
-const firstSeason = seasonLinks()[0];
+/** Every annual-events page, as /towns/ lists them. */
+const ALL_ANNUAL = ANNUAL_EVENTS_HREF;
+
+/** The masthead's links, in the page's order, each to something on the page or a page that exists. */
 const nav = [
-  annual ? { label: 'Annual events', href: '#annual' } : firstSeason && { label: 'Annual events', href: firstSeason.href },
   { label: 'This weekend', href: weekendRows.length > 0 ? '#weekend' : '/this-weekend/' },
+  { label: 'Annual events', href: seasons.length > 0 ? '#annual' : ALL_ANNUAL },
   { label: 'Towns', href: '#towns' },
   { label: 'Moving here', href: '/moving/' },
   hub.newsletter && { label: 'Newsletter', href: '#signup' },
@@ -270,11 +306,34 @@ const wordmark = wordmarkParts(hub.siteTitle);
 const year = now.getFullYear();
 const correction = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(`[Correction] ${hub.siteTitle}`)}`;
 
-// Under 155 characters with a two-digit count, so the snippet ends at its
-// full stop: the longer line was cut at "what it’s…" in every result.
-const description = `${live.length} independent community guides to Colorado towns, and the annual events and seasonal dates of ${pages.length} more, from the Front Range to the mountains.`;
+/**
+ * The title and description say what the page now is (the search audit of
+ * 13 November 2026: they still described a directory of guides): this
+ * weekend's events and the annual dates, the words people search with.
+ * The description names the seasons now on, and is the longest of its
+ * forms that fits 155 characters, so a result shows it whole.
+ */
+const fullTitle = `Colorado events this weekend, town by town | ${hub.siteTitle}`;
+const seasonWords = seasons.length > 0 ? `: ${listWords(seasons.map((r) => r.title.toLowerCase()))}` : '';
+const description = [
+  `This weekend’s events from ${guideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}, each checked against its source.`,
+  `This weekend’s events from ${guideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}.`,
+  `This weekend’s events from ${guideCount} Colorado town guides, and annual dates for ${moreTowns} more towns, each checked against its source.`,
+].find((d) => d.length <= 155)!;
+
+/** What the page lists, for search engines: the weekend's picks and the seasons now on. Their Event markup stays on the pages that own them. */
+const structured = collectionPageJsonLd(hub, {
+  name: 'What’s happening in Colorado’s towns',
+  description,
+  path: '/',
+  items: [
+    ...weekendRows.map((r) => ({ name: r.title, url: r.href })),
+    ...seasons.map((r) => ({ name: r.title, path: r.href })),
+    { name: 'Everything on this weekend', path: '/this-weekend/' },
+  ],
+});
 ---
-<Base {description} image={shareImage} imageAlt={HOME_PHOTO.alt} preload={[newsreaderLatin, interLatin, frauncesLatin]} bodyClass="hh">
+<Base {fullTitle} {description} image={shareImage} imageAlt={HOME_PHOTO.alt} jsonLd={structured} preload={[newsreaderLatin, interLatin]} bodyClass="hh">
   <header slot="header" class="hh-header" data-hh-header data-pagefind-ignore>
     <div class="hh-wrap hh-masthead">
       <a href="/" class="hh-wordmark" aria-label={`${hub.siteTitle} home`}>{wordmark.before && <Fragment><span class="hh-wm-before">{wordmark.before}</span>{' '}</Fragment>}<span class="hh-wm-name">{wordmark.name}</span></a>
@@ -292,7 +351,7 @@ const description = `${live.length} independent community guides to Colorado tow
       <div>
         <p class="hh-label hh-kicker">Plains to peaks · Colorado</p>
         <h1 id="hero-h" class="hh-h1">What’s happening in Colorado’s towns</h1>
-        <p class="hh-intro">Annual events across Colorado and the week ahead in {guideCount} towns. Every listing is checked against its source.</p>
+        <p class="hh-intro">This weekend from {guideCount} local guides, and annual dates across Colorado, each checked against its source.</p>
         {/* The site's search (src/pages/search.astro), which on the hub holds
             every guide's places, guides and events as well as the town pages;
             the names of the towns are offered as they are typed. */}
@@ -309,7 +368,7 @@ const description = `${live.length} independent community guides to Colorado tow
       </div>
       <figure class="hh-figure">
         <div class="hh-photo">
-          <Image src={photo} alt={HOME_PHOTO.alt} widths={[480, 640, 800, 960, 1280]} sizes="(max-width: 760px) 100vw, 610px" layout="full-width" quality={78} priority />
+          <Image src={photo} alt={HOME_PHOTO.alt} widths={[480, 640, 800, 960, 1280]} sizes="(max-width: 940px) 100vw, 500px" layout="full-width" quality={78} priority />
         </div>
         <figcaption class="hh-chk hh-cap">{HOME_PHOTO.caption}</figcaption>
       </figure>
@@ -317,79 +376,58 @@ const description = `${live.length} independent community guides to Colorado tow
 
     <nav aria-label="Local guides" class="hh-guides">
       <span class="hh-label">Guides</span>
-      {live.map((t) => <a class="hh-tl" href={guideUrl(t)}>{t.name}</a>)}
-      {pages.length > 0 && <a class="hh-tl hh-strong" href="/towns/">{pages.length} more towns →</a>}
+      {live.map((t) => <a class="hh-tl" href={guideUrl(t)} data-track="home-guides">{t.name}</a>)}
+      {moreTowns > 0 && <a class="hh-tl hh-strong" href="/towns/" data-track="home-guides">{moreTowns} more towns, A to Z →</a>}
     </nav>
 
-    {annual && (
-      <section id="annual" class="hh-sec" aria-labelledby="annual-h">
-        <p class="hh-label hh-label-pine hh-kicker">{annual.label}</p>
-        <div class="hh-two hh-annual-body">
-          <div>
-            <h2 id="annual-h" class="hh-feat">{annual.title}</h2>
-            {annual.line && <p class="hh-lede">{annual.line}</p>}
-            <a class="hh-tl hh-strong hh-every" href={annual.href}>See every date →</a>
-          </div>
-          {annual.next && (
-            <div data-hide-when-empty>
-              <a href={annual.next.href} class="hh-next" data-event-day={annual.next.until}>
-                <span class="hh-next-date"><span class="hh-nr hh-next-day">{annual.next.day}</span><span class="hh-meta">{annual.next.weekday}</span></span>
-                <span class="hh-stack"><span class="hh-label">Next up</span><span class="hh-ttl">{annual.next.name}</span>{annual.next.town && <span class="hh-meta">{annual.next.town}</span>}</span>
-              </a>
-            </div>
-          )}
-        </div>
-        <p class="hh-meta hh-more-dates"><span class="hh-label">More annual dates</span>{annual.others.map((l) => <a class="hh-tl" href={l.href}>{l.label}</a>)}<a class="hh-tl" href="/towns/">Every town, A to Z</a></p>
-      </section>
-    )}
-
-    {(weekendRows.length > 0 || deadlineRows.length > 0 || scoreLinks.length > 0) && (
-      <section id="weekend" class="hh-sec" aria-labelledby={weekendRows.length > 0 ? 'weekend-h' : undefined} aria-label={weekendRows.length > 0 ? undefined : 'Deadlines and scores'}>
+    {(weekendRows.length > 0 || aside || scoreLinks.length > 0) && (
+      <section id="weekend" class="hh-sec" aria-labelledby={weekendRows.length > 0 ? 'weekend-h' : undefined} aria-label={weekendRows.length > 0 ? undefined : 'Dates and scores'}>
         <div class="hh-now">
           {weekendRows.length > 0 && (
             <div data-hide-when-empty>
-              <h2 id="weekend-h" class="hh-h2 hh-h2-rows">This weekend</h2>
+              <h2 id="weekend-h" class="hh-h2">This weekend</h2>
+              <p class="hh-chk hh-h2-note">Each listing opens on its town’s own guide.</p>
               <div class="hh-rows">
                 {weekendRows.map((r) => (
-                  <a class="hh-row" href={r.href} data-event-day={r.until} data-end={r.end}>
+                  <a class="hh-row" href={r.href} data-event-day={r.until} data-end={r.end} data-track="home-weekend">
                     <span class="hh-day"><span class="hh-label">{r.dayLabel}</span><span class="hh-day-num">{r.dayNum}</span></span>
                     <span class="hh-stack">
                       <span class="hh-label">{r.label}</span>
                       <span class="hh-ttl">{r.title}</span>
+                      {r.reasons && r.reasons.length > 0 && <span class="hh-why">{r.reasons.join(' · ')}</span>}
                       {r.meta.length > 0 && <span class="hh-meta">{r.meta.join(' · ')}</span>}
                       {r.check && <span class="hh-chk">{r.check}</span>}
                     </span>
                   </a>
                 ))}
               </div>
-              <a class="hh-tl hh-strong hh-all-weekend" href="/this-weekend/">Everything on this weekend →</a>
+              <a class="hh-tl hh-strong hh-all-weekend" href="/this-weekend/" data-track="home-weekend">Everything on this weekend →</a>
             </div>
           )}
-          {(deadlineRows.length > 0 || scoreLinks.length > 0) && (
+          {(aside || scoreLinks.length > 0) && (
             <div class="hh-side">
-              {deadlineRows.length > 0 && (
+              {aside && (
                 <div data-hide-when-empty>
-                  <h3 class="hh-h3">Deadlines</h3>
+                  <h3 class="hh-h3">{aside.heading}</h3>
                   <div class="hh-rows">
-                    {deadlineRows.map((r) => (
-                      <a class="hh-row" href={r.href} rel={/^https?:/.test(r.href) ? 'noopener' : undefined} data-event-day={r.until}>
-                        <span class="hh-day"><span class="hh-label">{r.dayLabel}</span><span class="hh-day-num">{r.dayNum}</span></span>
-                        <span class="hh-stack">
-                          <span class="hh-label">{r.label}</span>
-                          <span class="hh-ttl hh-ttl-sm">{r.title}</span>
-                          {r.check && <span class="hh-chk">{r.check}</span>}
-                        </span>
-                      </a>
-                    ))}
+                    <a class="hh-row" href={aside.row.href} rel={/^https?:/.test(aside.row.href) ? 'noopener' : undefined} data-event-day={aside.row.until} data-track="home-deadline">
+                      <span class="hh-day"><span class="hh-label">{aside.row.dayLabel}</span><span class="hh-day-num">{aside.row.dayNum}</span></span>
+                      <span class="hh-stack">
+                        <span class="hh-label">{aside.row.label}</span>
+                        <span class="hh-ttl hh-ttl-sm">{aside.row.title}</span>
+                        {aside.row.note && <span class="hh-meta">{aside.row.note}</span>}
+                        {aside.row.check && <span class="hh-chk">{aside.row.check}</span>}
+                      </span>
+                    </a>
                   </div>
                 </div>
               )}
               {scoreLinks.length > 0 && (
                 <Fragment>
                   <h3 class="hh-h3 hh-h3-scores">High school scores</h3>
-                  <p class="hh-meta hh-scores">
-                    {scoreLinks.map((l, i) => <span class="hh-nw"><a class="hh-tl" href={l.href}>{l.label}</a>{i < scoreLinks.length - 1 && ','}</span>)}
-                  </p>
+                  <ul class="hh-meta hh-scores">
+                    {scoreLinks.map((l) => <li><a class="hh-tl" href={l.href} data-track="home-scores">{l.label}</a></li>)}
+                  </ul>
                 </Fragment>
               )}
             </div>
@@ -398,19 +436,39 @@ const description = `${live.length} independent community guides to Colorado tow
       </section>
     )}
 
+    {seasons.length > 0 && (
+      <section id="annual" class="hh-sec" aria-labelledby="annual-h">
+        <p class="hh-label hh-label-pine hh-kicker">Annual events</p>
+        <h2 id="annual-h" class="hh-h2 hh-season-h">This season</h2>
+        <div class="hh-seasons" data-hide-when-empty>
+          {seasons.map((r) => (
+            <a class="hh-row" href={r.href} data-event-day={r.until} data-track="home-season">
+              <span class="hh-day"><span class="hh-label">{r.dayLabel}</span><span class="hh-day-num">{r.dayNum}</span><span class="hh-chk">{r.weekday}</span></span>
+              <span class="hh-stack">
+                <span class="hh-ttl">{r.title}</span>
+                <span class="hh-meta">Next: {r.next}</span>
+                {r.line && <span class="hh-chk">{r.line}</span>}
+              </span>
+            </a>
+          ))}
+        </div>
+        <a class="hh-tl hh-strong hh-all-annual" href={ALL_ANNUAL} data-track="home-season">All annual events →</a>
+      </section>
+    )}
+
     <section id="towns" class="hh-sec" aria-labelledby="towns-h">
       <h2 id="towns-h" class="hh-h2 hh-h2-rows">{capitalized(guideCount)} local guides</h2>
       <div class="hh-index">
         {guides.map((g) => (
-          <a class="hh-irow" href={g.href}>
+          <a class="hh-irow" href={g.href} data-track="home-index">
             <span class="hh-ihead"><span class="hh-iname">{g.name}</span><span class="hh-label">{g.counties}</span></span>
             <span class="hh-meta hh-idesc">{g.line}</span>
           </a>
         ))}
         {/* `town-pages`: where the guides' About pages send a reader for "a page on Inside the Towns". */}
-        {pages.length > 0 && (
-          <a id="town-pages" class="hh-irow" href="/towns/">
-            <span class="hh-ihead"><span class="hh-iname">{pages.length} more towns, A to Z →</span><span class="hh-label">Annual dates</span></span>
+        {moreTowns > 0 && (
+          <a id="town-pages" class="hh-irow" href="/towns/" data-track="home-index">
+            <span class="hh-ihead"><span class="hh-iname">{moreTowns} more towns, A to <span class="hh-nw">Z →</span></span><span class="hh-label">Annual dates</span></span>
             <span class="hh-meta hh-idesc">{pagesLine}</span>
           </a>
         )}
@@ -419,13 +477,13 @@ const description = `${live.length} independent community guides to Colorado tow
 
     {hub.newsletter && (
       <section id="signup" class="hh-sec" aria-labelledby="signup-h">
-        <div class="hh-two hh-two-top">
+        <div class="hh-two">
           <div>
             <h2 id="signup-h" class="hh-h2">The {sendDay} email</h2>
-            <p class="hh-signup-line">The weekend’s events, the scores, and what opened or closed. Every {sendDay}{sendTime && ` at ${sendTime}`}.</p>
+            <p class="hh-signup-line">The weekend’s events, the scores, and what opened or closed. Every {sendDay}.</p>
           </div>
           <NewsletterSignup variant="hub" id="home">
-            <p class="hh-chk hh-fine">All {numberWord(editionCount)} towns by default. <a class="hh-tap" href="/newsletter/">Choose towns</a> · Free, unsubscribe any time · <a class="hh-tap" href="/privacy/">Privacy</a></p>
+            <p class="hh-chk hh-fine">All {numberWord(editionCount)} weekly editions by default. <a class="hh-tap" href="/newsletter/">Choose towns</a> · Free, unsubscribe any time · <a class="hh-tap" href="/privacy/">Privacy</a></p>
           </NewsletterSignup>
         </div>
       </section>
@@ -440,7 +498,10 @@ const description = `${live.length} independent community guides to Colorado tow
         <a class="hh-tl" href="/editorial/">How we check listings</a>
         <a class="hh-tl" href={correction}>Report a correction</a>
         <a class="hh-tl" href="/contact/">Contact</a>
+        <a class="hh-tl" href="/newsletter/">Weekly email</a>
         <a class="hh-tl" href="/advertise/">Partner with us</a>
+        <a class="hh-tl" href="/privacy/">Privacy</a>
+        <a class="hh-tl" href="/credits/">Photo credits</a>
       </div>
     </div>
   </footer>
@@ -472,7 +533,14 @@ const description = `${live.length} independent community guides to Colorado tow
         button.focus();
       }
     });
-    window.matchMedia('(min-width: 761px)').addEventListener('change', (event) => {
+    // Leaving it closes it: focus moving out of the masthead, or a tap anywhere else.
+    header.addEventListener('focusout', (event) => {
+      if (!header.contains(event.relatedTarget as Node | null)) set(false);
+    });
+    document.addEventListener('click', (event) => {
+      if (!header.contains(event.target as Node)) set(false);
+    });
+    window.matchMedia('(min-width: 861px)').addEventListener('change', (event) => {
       if (event.matches) set(false);
     });
   }

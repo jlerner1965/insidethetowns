@@ -23,14 +23,20 @@ body.hh {
   background: var(--hh-page);
   color: var(--hh-ink);
   font-family: 'Inter Variable', system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: normal;
 }
-html:has(> body.hh) { background: #FCFBF8; }
+/* Type in rem against the reader's own default size, not the network's 17px
+   root (global.css), so a larger text setting in the browser enlarges the
+   page as zoom does (the design audit of 13 November 2026). Spacing and
+   the 44px tap targets stay in px. */
+html:has(> body.hh) { background: #FCFBF8; font-size: 100%; }
 
 .hh a { color: var(--hh-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--hh-underline); }
 .hh a:hover { color: var(--hh-pine); text-decoration-color: var(--hh-pine); }
-.hh :focus-visible { outline: 2px solid var(--hh-pine); outline-offset: 2px; box-shadow: none; }
+.hh :focus-visible { outline: 2px solid var(--hh-pine); outline-offset: 2px; box-shadow: none; border-radius: 0; }
+.hh :is(.hh-field, .hh-btn):focus-visible { border-radius: 2px; }
+.hh .hh-signup-done:focus-visible { outline: 0; }
 /* The skip link (src/layouts/Base.astro), in the page's own terms once it is focused. */
 body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); color: var(--hh-ink); border: 1px solid var(--hh-ink); font-weight: 600; text-decoration: none; }
 .hh :is(h1, h2, h3) { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; font-variation-settings: normal; letter-spacing: normal; text-wrap: wrap; }
@@ -39,10 +45,10 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 /* The full width up to 1120px: the body is a flex column (global.css), where an auto margin alone would shrink the footer to its content. */
 .hh .hh-wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; }
 .hh .hh-nr { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; }
-.hh .hh-label { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--hh-meta); }
+.hh .hh-label { font-size: 0.75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--hh-meta); }
 .hh .hh-label-pine { color: var(--hh-pine); }
-.hh .hh-meta { font-size: 14px; line-height: 1.45; color: var(--hh-secondary); }
-.hh .hh-chk { font-size: 13px; line-height: 1.45; color: var(--hh-meta); }
+.hh .hh-meta { font-size: 0.875rem; line-height: 1.45; color: var(--hh-secondary); }
+.hh .hh-chk { font-size: 0.8125rem; line-height: 1.45; color: var(--hh-meta); }
 /* A text link's tap target: 44px tall, and 8px wider each side than its words (the margin keeps the words where they were), so even "Erie" is 44px across. */
 .hh .hh-tl { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 8px; margin-inline: -8px; }
 .hh .hh-strong { font-weight: 600; }
@@ -51,28 +57,31 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 
 /* The masthead. */
 .hh .hh-header { position: relative; border-bottom: 1px solid var(--hh-hairline); }
-.hh .hh-masthead { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
-.hh .hh-wordmark { display: inline-block; padding: 9px 0; margin: -9px 0; font-family: 'Fraunces Variable', Georgia, serif; font-size: 27px; line-height: 1; text-decoration: none; white-space: nowrap; color: var(--hh-ink); }
+.hh .hh-masthead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 16px; min-height: 64px; }
+.hh .hh-wordmark { display: inline-block; padding: 9px 0; margin: -9px 0; font-family: 'Fraunces Variable', Georgia, serif; font-size: 1.6875rem; line-height: 1; text-decoration: none; color: var(--hh-ink); min-width: 0; }
 .hh .hh-wm-before { font-style: italic; font-weight: 300; }
 .hh .hh-wm-name { font-weight: 600; color: var(--hh-pine); }
-.hh .hh-nav { display: flex; align-items: center; gap: 4px; }
-.hh .hh-navlink { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; font-weight: 500; text-decoration: none; }
-.hh .hh-menu { display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: var(--hh-ink); padding: 0; cursor: pointer; }
+/* The row of links wraps rather than run off the page when a reader's text size is large. */
+.hh .hh-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 0 4px; }
+.hh .hh-navlink { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 0.9375rem; font-weight: 500; text-decoration: none; white-space: nowrap; }
+.hh .hh-menu { flex: none; display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: var(--hh-ink); padding: 0; cursor: pointer; }
 
 /* The hero. */
-.hh .hh-hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: start; padding-top: 48px; }
+/* Compact (the reorder of 13 November 2026): two equal columns, a 48px headline and a 2:1 photograph, so the weekend starts within a laptop's first screen. */
+.hh .hh-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; padding-top: 40px; }
 .hh .hh-kicker { margin: 0; }
-.hh .hh-h1 { margin: 12px 0 0; font-size: 56px; line-height: 1.05; letter-spacing: -0.015em; }
-.hh .hh-intro { margin: 16px 0 0; font-size: 17px; line-height: 1.55; color: var(--hh-secondary); }
+.hh .hh-h1 { margin: 12px 0 0; font-size: 3rem; line-height: 1.05; letter-spacing: -0.015em; }
+.hh .hh-intro { margin: 16px 0 0; font-size: 1.0625rem; line-height: 1.55; color: var(--hh-secondary); }
 .hh .hh-search { margin-top: 24px; }
 .hh .hh-field-label { display: block; margin-bottom: 8px; }
 .hh .hh-fieldrow { display: flex; gap: 8px; }
-.hh .hh-field { flex: 1; min-width: 0; height: 48px; box-sizing: border-box; border: 1px solid var(--hh-ink); border-radius: 2px; background: #FFFFFF; padding: 0 14px; font-family: inherit; font-size: 17px; color: var(--hh-ink); }
+.hh .hh-field { flex: 1; min-width: 0; height: 48px; box-sizing: border-box; border: 1px solid var(--hh-ink); border-radius: 2px; background: #FFFFFF; padding: 0 14px; font-family: inherit; font-size: 1.0625rem; color: var(--hh-ink); }
 .hh .hh-field::placeholder { color: var(--hh-meta); opacity: 1; }
-.hh .hh-btn { height: 48px; padding: 0 20px; border: 0; border-radius: 2px; background: var(--hh-pine); color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 15px; cursor: pointer; }
+.hh .hh-btn { height: 48px; padding: 0 20px; border: 1px solid transparent; border-radius: 2px; background: var(--hh-pine); color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 0.9375rem; cursor: pointer; }
+.hh .hh-btn:hover { background: var(--hh-ink); }
 .hh .hh-figure { margin: 0; }
-.hh .hh-photo { aspect-ratio: 3 / 2; overflow: hidden; background: var(--hh-hairline); }
-.hh .hh-photo img { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 34%; }
+.hh .hh-photo { aspect-ratio: 2 / 1; overflow: hidden; background: var(--hh-hairline); }
+.hh .hh-photo img { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; }
 .hh .hh-cap { margin-top: 8px; }
 
 /* The line of guides under the hero. */
@@ -80,56 +89,53 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 
 /* Sections: a 2px ink rule opens each. */
 .hh .hh-sec { margin-top: 64px; border-top: 2px solid var(--hh-ink); padding-top: 20px; }
-.hh .hh-h2 { margin: 0; font-size: 28px; line-height: 1.15; }
-.hh .hh-two { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 64px; align-items: end; }
-.hh .hh-two-top { align-items: start; }
+.hh .hh-h2 { margin: 0; font-size: 1.75rem; line-height: 1.15; }
+.hh .hh-two { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 64px; align-items: start; }
 
-/* Annual events. */
-.hh .hh-annual-body { margin-top: 10px; }
-.hh .hh-feat { margin: 0; font-size: 40px; line-height: 1.08; letter-spacing: -0.01em; }
-.hh .hh-lede { margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: var(--hh-secondary); }
-.hh .hh-every { margin-top: 4px; }
-.hh .hh-next { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; text-decoration: none; padding-bottom: 8px; }
-.hh .hh-next:hover .hh-ttl { color: var(--hh-pine); }
-.hh .hh-next-date { display: flex; flex-direction: column; gap: 4px; padding-right: 20px; border-right: 1px solid var(--hh-hairline); }
-.hh .hh-next-day { font-size: 40px; line-height: 1; white-space: nowrap; color: var(--hh-ink); }
-.hh .hh-more-dates { margin: 12px 0 0; padding-top: 4px; border-top: 1px solid var(--hh-hairline); display: flex; flex-wrap: wrap; align-items: center; column-gap: 20px; }
+/* This season: the open seasons side by side, each a row like the weekend's. */
+.hh .hh-season-h { margin: 10px 0 16px; }
+.hh .hh-seasons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; border-bottom: 1px solid var(--hh-hairline); }
+.hh .hh-all-annual { margin-top: 6px; }
 
 /* This weekend, and its column of deadlines and scores. */
 .hh .hh-now { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 64px; align-items: start; }
 .hh .hh-h2-rows { margin: 0 0 16px; }
+.hh .hh-h2-note { margin: 4px 0 12px; }
 .hh .hh-row { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-top: 1px solid var(--hh-hairline); text-decoration: none; color: var(--hh-ink); }
 .hh .hh-rows > .hh-row:last-child { border-bottom: 1px solid var(--hh-hairline); }
 .hh .hh-row:hover .hh-ttl { color: var(--hh-pine); }
 .hh .hh-day { display: flex; flex-direction: column; gap: 2px; }
-.hh .hh-day-num { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums; color: var(--hh-ink); }
-.hh .hh-ttl { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: var(--hh-ink); }
-.hh .hh-ttl-sm { font-size: 18px; }
+.hh .hh-day-num { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; font-size: 1.75rem; line-height: 1; font-variant-numeric: tabular-nums; color: var(--hh-ink); }
+.hh .hh-ttl { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; font-size: 1.25rem; line-height: 1.25; color: var(--hh-ink); }
+.hh .hh-ttl-sm { font-size: 1.125rem; }
 .hh .hh-stack { display: flex; flex-direction: column; gap: 4px; }
+/* Why a weekend listing earned the space ("Free · Half an hour"), from its fields. */
+.hh .hh-why { font-size: 0.8125rem; line-height: 1.45; font-weight: 600; color: var(--hh-ink); }
 .hh .hh-all-weekend { margin-top: 6px; }
-.hh .hh-h3 { margin: 4px 0 16px; font-size: 20px; line-height: 1.2; }
+.hh .hh-h3 { margin: 4px 0 16px; font-size: 1.25rem; line-height: 1.2; }
 .hh .hh-h3-scores { margin: 28px 0 8px; }
 .hh .hh-side > :first-child.hh-h3-scores { margin-top: 4px; }
-.hh .hh-scores { margin: 0; display: flex; flex-wrap: wrap; column-gap: 6px; }
+.hh .hh-scores { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); column-gap: 16px; }
 
 /* The guides' index. */
 .hh .hh-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; }
 .hh .hh-irow { display: block; padding: 14px 0; border-top: 1px solid var(--hh-hairline); text-decoration: none; }
 .hh .hh-irow:hover .hh-iname { color: var(--hh-pine); }
-.hh .hh-ihead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.hh .hh-iname { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2; color: var(--hh-ink); }
+.hh .hh-ihead { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 12px; }
+.hh .hh-ihead .hh-label { white-space: nowrap; flex: none; }
+.hh .hh-iname { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; font-size: 1.375rem; line-height: 1.2; color: var(--hh-ink); }
 .hh .hh-idesc { display: block; margin-top: 2px; }
 
 /* The Thursday email. */
-.hh .hh-signup-line { margin: 8px 0 0; font-size: 16px; line-height: 1.55; color: var(--hh-secondary); }
+.hh .hh-signup-line { margin: 8px 0 0; font-size: 1rem; line-height: 1.55; color: var(--hh-secondary); }
 .hh .hh-fine { margin: 10px 0 0; }
 .hh .hh-fine a { color: var(--hh-meta); }
 .hh .hh-fine a:hover { color: var(--hh-pine); }
 .hh .hh-signup-error { margin: 8px 0 0; color: var(--hh-ink); font-weight: 600; }
-.hh .hh-signup-done-title { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.45; }
+.hh .hh-signup-done-title { margin: 0; font-size: 1.0625rem; font-weight: 600; line-height: 1.45; }
 .hh .hh-signup-done .hh-meta { margin: 8px 0 0; }
 .hh .hh-signup-done-actions { margin: 8px 0 0; display: flex; flex-wrap: wrap; column-gap: 24px; }
-.hh .hh-textbutton { display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: transparent; font: inherit; font-size: 15px; font-weight: 600; color: var(--hh-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--hh-underline); cursor: pointer; }
+.hh .hh-textbutton { display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: transparent; font: inherit; font-size: 0.9375rem; font-weight: 600; color: var(--hh-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--hh-underline); cursor: pointer; }
 .hh .hh-textbutton:hover { color: var(--hh-pine); text-decoration-color: var(--hh-pine); }
 
 /* The footer. */
@@ -137,25 +143,32 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 .hh .hh-footer-line { margin: 0; max-width: 420px; padding-top: 12px; }
 .hh .hh-footer-links { display: flex; flex-wrap: wrap; column-gap: 20px; }
 
-@media (max-width: 760px) {
-  .hh .hh-wrap { padding: 0 20px; }
+/* The menu button takes over before the row of links would wrap. */
+@media (max-width: 860px) {
   .hh .hh-nav { display: none; }
   .hh .hh-menu { display: inline-flex; }
   /* The menu, open: the same links, a column under the masthead. */
-  .hh .hh-header[data-open] .hh-nav { display: flex; flex-direction: column; align-items: stretch; gap: 0; position: absolute; z-index: 20; top: 100%; left: 0; right: 0; padding: 0 20px 8px; background: var(--hh-page); border-bottom: 1px solid var(--hh-hairline); }
+  .hh .hh-header[data-open] .hh-nav { display: flex; flex-direction: column; align-items: stretch; gap: 0; position: absolute; z-index: 20; top: 100%; left: 0; right: 0; padding: 0 40px 8px; background: var(--hh-page); border-bottom: 1px solid var(--hh-hairline); }
   .hh .hh-header[data-open] .hh-navlink { padding: 0; border-top: 1px solid var(--hh-hairline); }
   .hh .hh-header[data-open] .hh-navlink:first-child { border-top: 0; }
+}
+/* The hero and the seasons stack before two columns would cramp the headline and the search. */
+@media (max-width: 940px) {
   .hh .hh-hero { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 28px; }
-  .hh .hh-h1 { font-size: 36px; }
-  .hh .hh-photo { aspect-ratio: 16 / 10; margin: 0 -20px; }
+  .hh .hh-h1 { font-size: 2.25rem; }
+  .hh .hh-seasons { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .hh .hh-wrap { padding: 0 20px; }
+  .hh .hh-header[data-open] .hh-nav { padding: 0 20px 8px; }
+  .hh .hh-photo { margin: 0 -20px; }
   .hh .hh-cap { padding: 0 20px; }
   .hh .hh-sec { margin-top: 40px; }
-  .hh .hh-h2 { font-size: 24px; }
-  .hh .hh-two { grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
-  .hh .hh-feat { font-size: 30px; }
+  .hh .hh-h2 { font-size: 1.5rem; }
+  .hh .hh-two { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .hh .hh-now { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .hh .hh-ttl { font-size: 19px; }
-  .hh .hh-ttl-sm { font-size: 18px; }
+  .hh .hh-ttl { font-size: 1.1875rem; }
+  .hh .hh-ttl-sm { font-size: 1.125rem; }
   .hh .hh-index { grid-template-columns: minmax(0, 1fr); }
   .hh .hh-idesc { display: none; }
 }

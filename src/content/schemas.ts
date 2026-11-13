@@ -422,6 +422,20 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
       statusNote: z.string().min(1).optional(),
       /** The page that says so, when there is one to link. */
       statusSource: httpUrl.optional(),
+      /**
+       * Why this listing is worth a reader's weekend, in a few plain words
+       * for the hub's home ("More than forty local vendors, a kids' corner
+       * and live music"): facts read on the listing's source, never an
+       * opinion or a "best". Shown only where the home features the
+       * listing, in place of the reasons it would work out from the fields
+       * (src/lib/hub-home.ts, listingReasons). Needs the source and the
+       * day it was read, like any other fact. No full stop.
+       */
+      why: z.string().min(1).max(90).regex(/[^.!]$/, 'no closing full stop or exclamation mark').optional(),
+    })
+    .refine((e) => !e.why || (!!e.source && !!e.verified), {
+      message: 'why needs the source it was read on and the day (source, verified)',
+      path: ['why'],
     })
     .refine((e) => e.status === 'scheduled' || !!e.statusNote, {
       message: 'a status other than scheduled needs a statusNote saying who says so',

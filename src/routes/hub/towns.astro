@@ -64,7 +64,7 @@ const link = 'font-semibold text-primary underline';
 
   {seasons.length > 0 && (
     <section aria-labelledby="seasons-heading" class="mb-12">
-      <h2 id="seasons-heading" class={h2}>Dates across the towns</h2>
+      <h2 id="seasons-heading" class={h2}>Annual events</h2>
       <ul class="grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3" data-index="seasons">
         {seasons.map((t) => (
           <li><a href={TRADITION_TYPE_INFO[t].path} class={link}>{TRADITION_TYPE_INFO[t].plural}</a></li>
