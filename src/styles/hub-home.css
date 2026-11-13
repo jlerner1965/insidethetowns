@@ -60,9 +60,10 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 .hh .hh-menu { display: none; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: var(--hh-ink); padding: 0; cursor: pointer; }
 
 /* The hero. */
-.hh .hh-hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: start; padding-top: 48px; }
+/* Compact (the reorder of 13 November 2026): two equal columns, a 48px headline and a 2:1 photograph, so the weekend starts within a laptop's first screen. */
+.hh .hh-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-top: 40px; }
 .hh .hh-kicker { margin: 0; }
-.hh .hh-h1 { margin: 12px 0 0; font-size: 56px; line-height: 1.05; letter-spacing: -0.015em; }
+.hh .hh-h1 { margin: 12px 0 0; font-size: 48px; line-height: 1.05; letter-spacing: -0.015em; }
 .hh .hh-intro { margin: 16px 0 0; font-size: 17px; line-height: 1.55; color: var(--hh-secondary); }
 .hh .hh-search { margin-top: 24px; }
 .hh .hh-field-label { display: block; margin-bottom: 8px; }
@@ -71,7 +72,7 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 .hh .hh-field::placeholder { color: var(--hh-meta); opacity: 1; }
 .hh .hh-btn { height: 48px; padding: 0 20px; border: 0; border-radius: 2px; background: var(--hh-pine); color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 15px; cursor: pointer; }
 .hh .hh-figure { margin: 0; }
-.hh .hh-photo { aspect-ratio: 3 / 2; overflow: hidden; background: var(--hh-hairline); }
+.hh .hh-photo { aspect-ratio: 2 / 1; overflow: hidden; background: var(--hh-hairline); }
 .hh .hh-photo img { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 34%; }
 .hh .hh-cap { margin-top: 8px; }
 
@@ -81,19 +82,12 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 /* Sections: a 2px ink rule opens each. */
 .hh .hh-sec { margin-top: 64px; border-top: 2px solid var(--hh-ink); padding-top: 20px; }
 .hh .hh-h2 { margin: 0; font-size: 28px; line-height: 1.15; }
-.hh .hh-two { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 64px; align-items: end; }
-.hh .hh-two-top { align-items: start; }
+.hh .hh-two { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 64px; align-items: start; }
 
-/* Annual events. */
-.hh .hh-annual-body { margin-top: 10px; }
-.hh .hh-feat { margin: 0; font-size: 40px; line-height: 1.08; letter-spacing: -0.01em; }
-.hh .hh-lede { margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: var(--hh-secondary); }
-.hh .hh-every { margin-top: 4px; }
-.hh .hh-next { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; text-decoration: none; padding-bottom: 8px; }
-.hh .hh-next:hover .hh-ttl { color: var(--hh-pine); }
-.hh .hh-next-date { display: flex; flex-direction: column; gap: 4px; padding-right: 20px; border-right: 1px solid var(--hh-hairline); }
-.hh .hh-next-day { font-size: 40px; line-height: 1; white-space: nowrap; color: var(--hh-ink); }
-.hh .hh-more-dates { margin: 12px 0 0; padding-top: 4px; border-top: 1px solid var(--hh-hairline); display: flex; flex-wrap: wrap; align-items: center; column-gap: 20px; }
+/* This season: the open seasons side by side, each a row like the weekend's. */
+.hh .hh-season-h { margin: 10px 0 16px; }
+.hh .hh-seasons { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); column-gap: 32px; border-bottom: 1px solid var(--hh-hairline); }
+.hh .hh-all-annual { margin-top: 6px; }
 
 /* This weekend, and its column of deadlines and scores. */
 .hh .hh-now { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 64px; align-items: start; }
@@ -106,6 +100,8 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 .hh .hh-ttl { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: var(--hh-ink); }
 .hh .hh-ttl-sm { font-size: 18px; }
 .hh .hh-stack { display: flex; flex-direction: column; gap: 4px; }
+/* Why a weekend listing earned the space ("Free · Half an hour"), from its fields. */
+.hh .hh-why { font-size: 14px; line-height: 1.45; font-weight: 600; color: var(--hh-ink); }
 .hh .hh-all-weekend { margin-top: 6px; }
 .hh .hh-h3 { margin: 4px 0 16px; font-size: 20px; line-height: 1.2; }
 .hh .hh-h3-scores { margin: 28px 0 8px; }
@@ -147,12 +143,11 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
   .hh .hh-header[data-open] .hh-navlink:first-child { border-top: 0; }
   .hh .hh-hero { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 28px; }
   .hh .hh-h1 { font-size: 36px; }
-  .hh .hh-photo { aspect-ratio: 16 / 10; margin: 0 -20px; }
+  .hh .hh-photo { aspect-ratio: 2 / 1; margin: 0 -20px; }
   .hh .hh-cap { padding: 0 20px; }
   .hh .hh-sec { margin-top: 40px; }
   .hh .hh-h2 { font-size: 24px; }
-  .hh .hh-two { grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
-  .hh .hh-feat { font-size: 30px; }
+  .hh .hh-two { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .hh .hh-now { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .hh .hh-ttl { font-size: 19px; }
   .hh .hh-ttl-sm { font-size: 18px; }

@@ -11117,3 +11117,44 @@ hub's home page only.
   towns' colours, the drawn horizon, "Now in the towns"' date coming up,
   and the Guides row of articles (none is verified yet). The articles are
   reached from the town pages and guides that name them.
+
+## The hub home, reordered to lead with the weekend, 13 November 2026 (later)
+
+After the design went live, a review of the page asked for the changing
+content higher, a little editorial judgment on each pick, and less weight
+on seasons that are not on. All three, without a new section:
+
+- **The order:** a compact hero (one line under the headline, a 48px
+  headline, the photograph at 2:1 beside it), the guides line, this
+  weekend, this season, the index, the email. The weekend now starts at
+  about 545px on a 1280px screen (it was about 1,060px) and at about 880px
+  on a phone (about 1,430px). The approved mockup stays in
+  `docs/design/` as it was approved; the page departs from it here.
+- **The guides' own picks first.** Each guide's weekly notes carry the
+  editor's approved picks, under the rule that nothing is picked by a
+  machine where an editor has picked. The home now takes those first and
+  falls back to its rule only for a day with none. The first weekend under
+  it: Saturday is Berthoud's Blues Bash, Inside Berthoud's pick, where the
+  rule alone had chosen Erie's Nutcracker excerpts.
+- **Why it is there, from fields only.** A short line under each pick's
+  title: the guide's pick, "Once a year" or "The 78th annual" where the
+  listing is an annual event in the registry on its day, "Free" (then not
+  repeated in the line below), a run of 90 minutes or less, a playoff
+  stage the title does not already name, the team's league place in the
+  sports page's words. Nothing from a listing's prose: "All ages" on the
+  Nutcracker is prose, and listings have no audience field, so "suits
+  younger children" is not said. A pick with none of these has no line;
+  this weekend, the Carbon Valley market. A hand-written `why` on a listing
+  for the rest is the next step, not done here.
+- **One date beside the weekend:** the nearest registration deadline,
+  else the newest local change.
+- **This season** is the seasons the owner has opened with a year
+  (parades of lights, tree lightings, turkey trots), soonest first, each
+  with its count and next date. Oktoberfests, rodeos, harvest festivals,
+  winter carnivals, free days and outdoor dates are behind "All annual
+  events", the list on `/towns/`; a season appears here the day the owner
+  sets its year.
+- **Measured, not assumed.** Every section's links carry `data-track`, so
+  Vercel Web Analytics counts clicks by section. Compare each section's
+  share over three or four weeks; a before-and-after against the first
+  layout would be muddied by Thanksgiving.

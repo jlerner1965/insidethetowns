@@ -9,22 +9,30 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { HUB_HOME } from '../src/config/palette.ts';
 import type { SportData, SportGame } from '../src/config/school-sports.ts';
+import type { TraditionRecord } from '../src/lib/traditions.ts';
 import { parseLocal } from '../src/lib/dates.ts';
 import {
   GUIDE_LINES,
+  annualRecordFor,
   changeSourceText,
   deadlineListings,
   deadlineSourceText,
   deadlineTitle,
+  durationWords,
   fridayGame,
+  gameReasons,
   gameRow,
   guideLine,
   guideName,
+  listingReasons,
+  nextLine,
   numberWord,
+  ordinal,
   pickDeadline,
   provenanceText,
   searchSuggestions,
   seasonFeatureLine,
+  seasonsNow,
   sportsSourceText,
   townsConfirmed,
   weekendDays,
@@ -223,9 +231,70 @@ test('the game’s row: its time, venue and record before; the final, once poste
   const clock = () => '7 pm';
   const listing = ev('johnstown', 'Roosevelt football vs Montbello', '2026-11-13T19:00', { category: 'sports' });
   const before = gameRow({ school: sc, team: team({}), game: game({ date: '2026-11-13', opponent: 'Montbello', time: '19:00' }), listing }, title, clock);
-  assert.deepEqual(before, { title: 'Roosevelt football vs Montbello', meta: ['7 pm', 'The hall', '9–1 this season'], final: false });
+  assert.deepEqual(before, { title: 'Roosevelt football vs Montbello', meta: ['7 pm', 'The hall', '9–1 this season'], reasons: [], final: false });
   const after = gameRow({ school: sc, team: team({}, '10-1'), game: game({ date: '2026-11-13', opponent: 'Montbello', result: 'W', score: { us: 35, them: 14 } }) }, title, clock);
-  assert.deepEqual(after, { title: 'Roosevelt Roughriders vs Montbello', meta: ['Final: Won 35–14', '10–1 this season'], final: true });
+  assert.deepEqual(after, { title: 'Roosevelt Roughriders vs Montbello', meta: ['Final: Won 35–14', '10–1 this season'], reasons: [], final: true });
+});
+
+test('a guide editor’s pick comes before the plan-your-day rule', () => {
+  const picks = weekendPicks(
+    [ev('erie', 'Nutcracker excerpts', '2026-11-14T10:30', { category: 'arts' }), ev('berthoud', 'Blues Bash', '2026-11-14T19:00', { category: 'other', slug: 'blues-bash' })],
+    days,
+    { now, picked: new Set(['berthoud/blues-bash']) },
+  );
+  assert.equal(picks.get('2026-11-14')?.data.title, 'Blues Bash');
+});
+
+test('a listing’s reasons come from its fields only, and none is better than a filler', () => {
+  const listing = (cost: string | undefined, start: string, end?: string, allDay = false) => ({ data: { cost, start: parseLocal(start), end: end ? parseLocal(end) : undefined, allDay } }) as unknown as Parameters<typeof listingReasons>[0];
+  assert.deepEqual(listingReasons(listing('Free', '2026-11-14T10:30', '2026-11-14T11:00')), ['Free', 'Half an hour']);
+  assert.deepEqual(listingReasons(listing('$10', '2026-11-15T11:00', '2026-11-15T15:00')), []);
+  assert.deepEqual(listingReasons(listing('Free to members', '2026-11-15T11:00')), []);
+  assert.deepEqual(listingReasons(listing(undefined, '2026-11-14T19:00'), { pickedBy: 'Inside Berthoud', annual: { edition: 78 } }), ['Inside Berthoud’s pick this week', 'The 78th annual']);
+  assert.deepEqual(listingReasons(listing(undefined, '2026-11-14T19:00'), { annual: {} }), ['Once a year']);
+  assert.equal(durationWords(45), '45 minutes');
+  assert.equal(durationWords(60), 'An hour');
+  assert.equal(durationWords(120), undefined);
+  assert.deepEqual([1, 2, 3, 11, 12, 13, 21, 78, 101].map(ordinal), ['1st', '2nd', '3rd', '11th', '12th', '13th', '21st', '78th', '101st']);
+});
+
+test('the game’s reasons: the postseason its title does not already name, and its league place', () => {
+  const league = { league: { record: '7-0', name: '4A Northern', place: '1st' } };
+  assert.deepEqual(gameReasons('Roosevelt football vs Montbello: 4A playoffs, second round', league, { stage: 'State Football Playoffs' }), ['1st in the 4A Northern']);
+  assert.deepEqual(gameReasons('Severance Silver Knights vs Pueblo East', {}, { stage: 'State Football Playoffs' }), ['State Football Playoffs']);
+  assert.deepEqual(gameReasons('Erie Tigers vs Broomfield', { league: { record: '0-0', name: '5A', place: '1st' } }, {}), []);
+});
+
+const record = (over: Partial<TraditionRecord> & Pick<TraditionRecord, 'slug' | 'name' | 'type' | 'years'>): TraditionRecord => ({ organizer: 'The town', sourceUrl: 'https://example.org', town: { name: 'Berthoud', guide: 'berthoud' }, ...over });
+const year = (date: string, extra: Partial<TraditionRecord['years'][number]> = {}) => ({ year: 2026, status: 'confirmed' as const, date, checked: '2026-11-11', ...extra });
+
+test('an annual event is a record at home in the listing’s guide, on its day, under its name', () => {
+  const parade = record({ slug: 'berthoud-parade', name: 'Parade of Lights', type: 'parade-of-lights', years: [year('2026-12-05', { edition: 30 })] });
+  const listing = ev('berthoud', 'Berthoud Parade of Lights', '2026-12-05T18:00');
+  assert.equal(annualRecordFor(listing, 'Berthoud Parade of Lights', [parade])?.entry.edition, 30);
+  assert.equal(annualRecordFor(ev('erie', 'Erie Parade of Lights', '2026-12-05T18:00'), 'Erie Parade of Lights', [parade]), undefined);
+  assert.equal(annualRecordFor(ev('berthoud', 'Parade of Lights', '2026-12-06T18:00'), 'Parade of Lights', [parade]), undefined);
+});
+
+test('this season is the seasons opened with a year that still have a date to come', () => {
+  const records = [
+    record({ slug: 'a', name: 'Parade A', type: 'parade-of-lights', years: [year('2026-11-27')] }),
+    record({ slug: 'b', name: 'Parade B', type: 'parade-of-lights', town: { name: 'Erie', guide: 'erie' }, years: [{ year: 2026, status: 'not-announced', checked: '2026-11-11' }] }),
+    record({ slug: 'c', name: 'Oktoberfest', type: 'oktoberfest', years: [year('2026-11-20')] }),
+    record({ slug: 'd', name: 'Trot', type: 'turkey-trot', years: [year('2026-11-10')] }),
+  ];
+  const now = seasonsNow(records, '2026-11-13');
+  assert.deepEqual(now.map((s) => [s.type, s.next.record.slug, s.counts]), [['parade-of-lights', 'a', { confirmed: 1, towns: 2 }]]);
+});
+
+test('the open seasons come soonest first, and a town named in the event is not named twice', () => {
+  const records = [
+    record({ slug: 'p', name: 'Parade', type: 'parade-of-lights', years: [year('2026-11-27')] }),
+    record({ slug: 't', name: 'Longmont Turkey Trot', type: 'turkey-trot', town: { name: 'Longmont' }, years: [year('2026-11-26')] }),
+  ];
+  assert.deepEqual(seasonsNow(records, '2026-11-13').map((s) => s.type), ['turkey-trot', 'parade-of-lights']);
+  assert.equal(nextLine(records[1]!), 'Longmont Turkey Trot');
+  assert.equal(nextLine({ name: 'Catch the Glow Parade', town: { name: 'Estes Park' } }), 'Catch the Glow Parade, Estes Park');
 });
 
 test('the stylesheet declares the palette in src/config/palette.ts', () => {
