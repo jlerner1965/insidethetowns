@@ -54,6 +54,17 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "The town takes its name from Crested Butte Mountain, which rises to the northeast.",
+      "source": "https://npgallery.nps.gov/GetAsset/d1c49d14-a736-4e40-a2e6-329fd28293fa",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1878,
+      "text": "Howard F. Smith established the settlement at the junction of Coal Creek and the Slate River; it was known as Crested Butte by the summer of 1878.",
+      "source": "https://npgallery.nps.gov/GetAsset/d1c49d14-a736-4e40-a2e6-329fd28293fa",
+      "checked": "2026-11-13"
+    },
     "timeline": [
       {
         "year": 1874,
@@ -84,6 +95,23 @@
         "text": "The Crested Butte Historic District was listed on the National Register on May 29, 1974.",
         "source": "https://www.historycolorado.org/location/crested-butte-historic-district",
         "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Old Rock Library",
+        "kind": "landmark",
+        "url": "https://www.gunnisoncountylibraries.org/crested-butte-library/",
+        "hours": "Mon–Fri 10 am–6 pm; Sat 10 am–4 pm; Sun 1–5 pm",
+        "source": "https://www.gunnisoncountylibraries.org/crested-butte-library/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Crested Butte Denver and Rio Grande Railroad Depot",
+        "kind": "landmark",
+        "url": "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/01000444_text",
+        "source": "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/01000444_text",
+        "checked": "2026-11-13"
       }
     ]
   }

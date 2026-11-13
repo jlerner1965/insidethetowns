@@ -48,7 +48,42 @@
         "text": "Scheduled trains to Morrison stopped running.",
         "source": "https://morrisonhistory.org/early-morrison/",
         "checked": "2026-11-12"
+      },
+      {
+        "year": 1941,
+        "text": "Red Rocks Amphitheatre was dedicated on June 15.",
+        "source": "https://www.redrocksonline.com/our-story/history/",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Dinosaur Ridge",
+        "kind": "landmark",
+        "url": "https://dinoridge.org/",
+        "hours": "Main Visitor Center daily 9 am–4 pm Nov 1–Mar 14, 9 am–5 pm Mar 15–Oct 31; closed Thanksgiving, Christmas and New Year's Day",
+        "cost": "Guided bus tour $21 adults, $15 children 3–11, free 2 and under; parking free",
+        "season": "Year-round",
+        "source": "https://dinoridge.org/visit-dinosaur-ridge/hours-directions/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Red Rocks Park and Amphitheatre",
+        "kind": "landmark",
+        "url": "https://www.redrocksonline.com/",
+        "hours": "Park open one hour before sunrise to one hour after sunset; amphitheatre usually closes to the public around 2 pm on concert days",
+        "cost": "Free admission and parking on non-event days",
+        "season": "Every day of the year",
+        "source": "https://www.redrocksonline.com/plan-your-visit/faq/",
+        "checked": "2026-11-13"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1906,
+      "source": "https://morrisonhistory.org/2025/11/08/mayors-messages/",
+      "checked": "2026-11-13"
+    }
   }
 }

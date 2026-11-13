@@ -40,6 +40,11 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "The city, originally called Uncompahgre, and the county are both named in honor of the Ute leader Chief Ouray (1833-1880).",
+      "source": "https://ouraycountyco.gov/DocumentCenter/View/20050/OC-MP-Draft-071424-V1-CLEAN",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1875,
       "text": "The Ouray County Historical Society dates Ouray's founding to 1875.",

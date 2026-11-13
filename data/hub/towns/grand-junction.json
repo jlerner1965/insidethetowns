@@ -1,5 +1,12 @@
 {
   "slug": "grand-junction",
+  "facts": {
+    "incorporated": {
+      "year": 1882,
+      "source": "https://trim22-web.gjcity.org/GJ_WebDrawer/Record/32550/File/document",
+      "checked": "2026-11-13"
+    }
+  },
   "transit": [
     {
       "name": "Grand Valley Transit",
@@ -33,6 +40,11 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "The name was adopted in November 1881 because the townsite was at the junction of the two largest rivers in the state.",
+      "source": "https://trim22-web.gjcity.org/GJ_WebDrawer/Record/32550/File/document",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1881,
       "text": "Established after the area was opened for settlement",
@@ -71,7 +83,26 @@
         "kind": "landmark",
         "url": "https://www.avalontheatregj.com/",
         "source": "https://www.avalontheatregj.com/history",
-        "checked": "2026-11-12"
+        "checked": "2026-11-12",
+        "hours": "Box office: Thursday–Saturday noon–6 pm"
+      },
+      {
+        "name": "Western Colorado Botanical Gardens",
+        "kind": "landmark",
+        "url": "https://wcbotanic.org/",
+        "hours": "Monday and Tuesday 9 am–4 pm; Wednesday–Saturday 9 am–7 pm; closed Sunday; hours may vary with scheduled events",
+        "cost": "Adults $9; seniors, students, military and children 12 and over $6; children 3–11 $4; under 3 free",
+        "source": "https://wcbotanic.org/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "The Art Center of Western Colorado",
+        "kind": "museum",
+        "url": "https://www.gjartcenter.org/",
+        "hours": "Tuesday–Saturday 9 am–4 pm",
+        "cost": "$5; free for members and children under 12",
+        "source": "https://www.gjartcenter.org/visit",
+        "checked": "2026-11-13"
       }
     ],
     "makers": [

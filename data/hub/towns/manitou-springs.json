@@ -30,9 +30,22 @@
       "url": "https://www.villamotel.com/",
       "source": "https://www.villamotel.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "The Pikes Peak Inn",
+      "kind": "Hotel",
+      "url": "https://pikespeakmanitousprings.com/",
+      "source": "https://pikespeakmanitousprings.com/",
+      "checked": "2026-11-13"
     }
   ],
   "heritage": {
+    "founded": {
+      "year": 1876,
+      "text": "Founded as a resort community. The National Register nomination names Dr. William Bell as the town's founder.",
+      "source": "https://npgallery.nps.gov/pdfhost/docs/NRHP/Text/64000076.pdf",
+      "checked": "2026-11-13"
+    },
     "timeline": [
       {
         "year": 1891,
@@ -93,7 +106,9 @@
         "kind": "landmark",
         "url": "https://www.cograilway.com/",
         "source": "https://www.cograilway.com/about-us/cog-history/",
-        "checked": "2026-11-12"
+        "checked": "2026-11-12",
+        "cost": "Reserved admission booked online: adults starting at $67; children starting at $57",
+        "season": "Year-round operation"
       }
     ]
   }

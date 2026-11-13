@@ -54,6 +54,11 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "Platted as Columbia, the town changed its name at the request of the postal service to avoid confusion with Columbia, California; it was named, reportedly, after telluride ore.",
+      "source": "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/66000256_text",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1878,
       "text": "The mining camp, originally called Columbia, became a town in 1878.",

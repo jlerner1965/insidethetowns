@@ -1,5 +1,14 @@
 {
   "slug": "salida",
+  "transit": [
+    {
+      "name": "Mountain Valley Transit",
+      "detail": "Free door-to-door rides in Salida, booked by phone with the dispatcher. The operator says all Salida local service is suspended from November 16, 2026 through the end of the year.",
+      "url": "https://mountainvalleytransit.com/chaffee-county-door-to-door-service/",
+      "source": "https://mountainvalleytransit.com/chaffee-county-door-to-door-service/",
+      "checked": "2026-11-13"
+    }
+  ],
   "lodging": [
     {
       "name": "Palace Hotel",
@@ -76,6 +85,14 @@
         "cost": "Adult $5, senior $3, kids $1",
         "source": "https://www.salidamuseum.org/",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "Salida SteamPlant",
+        "kind": "landmark",
+        "url": "https://www.salidasteamplant.com/",
+        "hours": "Box office Monday through Friday, 11 am–4 pm",
+        "source": "https://www.salidasteamplant.com/",
+        "checked": "2026-11-13"
       }
     ],
     "makers": [

@@ -35,6 +35,24 @@
   "heritage": {
     "timeline": [
       {
+        "year": 1871,
+        "text": "The City of Boulder was incorporated.",
+        "source": "https://bouldercolorado.gov/history-matters",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1894,
+        "text": "The Great Boulder Flood.",
+        "source": "https://bouldercounty.gov/government/about-boulder-county/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1898,
+        "text": "The Chautauqua Auditorium opened on July 4.",
+        "source": "https://bouldercounty.gov/government/about-boulder-county/",
+        "checked": "2026-11-13"
+      },
+      {
         "year": 1909,
         "text": "Hotel Boulderado welcomed its first guests on January 1, 1909.",
         "source": "https://www.boulderado.com/about/history",
@@ -53,8 +71,34 @@
         "kind": "landmark",
         "url": "https://www.boulderado.com/about/history",
         "source": "https://www.boulderado.com/about/history",
-        "checked": "2026-11-12"
+        "checked": "2026-11-12",
+        "hours": "Guided history tours by reservation; self-guided tour of the third floor of the historic wing, check in at the front desk",
+        "cost": "Guided tour $25 per person for non-guests, $20 for hotel guests, $15 for seniors"
+      },
+      {
+        "name": "Museum of Boulder",
+        "kind": "museum",
+        "url": "https://museumofboulder.org/",
+        "hours": "September–May: 9 am–5 pm, closed Tuesday. June–August: Monday 12–8 pm, Wednesday–Sunday 9 am–5 pm, closed Tuesday",
+        "cost": "$12 adults; $10 seniors, college students and youth 5–17; free under 5",
+        "source": "https://museumofboulder.org/visit/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Colorado Chautauqua",
+        "kind": "landmark",
+        "url": "https://www.chautauqua.com/",
+        "hours": "Chautauqua Park open daily 5 am–11 pm",
+        "source": "https://bouldercolorado.gov/locations/chautauqua-park",
+        "checked": "2026-11-13"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1871,
+      "source": "https://bouldercolorado.gov/history-matters",
+      "checked": "2026-11-13"
+    }
   }
 }

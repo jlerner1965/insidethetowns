@@ -32,6 +32,17 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "The town is named for Grand Lake, the largest natural body of water in Colorado.",
+      "source": "https://stories.grandcountyhistory.org/node/1951",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1879,
+      "text": "Established in 1879",
+      "source": "https://stories.grandcountyhistory.org/node/1951",
+      "checked": "2026-11-13"
+    },
     "timeline": [
       {
         "year": 1867,

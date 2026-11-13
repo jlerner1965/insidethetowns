@@ -1,10 +1,23 @@
 {
   "slug": "milliken",
+  "facts": {
+    "incorporated": {
+      "year": 1910,
+      "source": "https://www.millikenco.gov/231/History-of-Milliken",
+      "checked": "2026-11-13"
+    }
+  },
   "heritage": {
     "nameOrigin": {
       "text": "The town is named in honor of Judge John David Milliken.",
       "source": "https://www.millikenco.gov/231/History-of-Milliken",
       "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1909,
+      "text": "The Denver, Laramie & Northwestern Railroad established Milliken Station outside the former town of Hillsboro.",
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-13"
     },
     "timeline": [
       {
@@ -24,6 +37,12 @@
         "text": "On October 1 the Town annexed Hillsboro.",
         "source": "https://www.millikenco.gov/231/History-of-Milliken",
         "checked": "2026-11-12"
+      },
+      {
+        "year": 1911,
+        "text": "A fire, the first of several, burned downtown Milliken.",
+        "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+        "checked": "2026-11-13"
       },
       {
         "year": 1917,

@@ -1,5 +1,21 @@
 {
   "slug": "estes-park",
+  "facts": {
+    "incorporated": {
+      "year": 1917,
+      "source": "https://www.historycolorado.org/sites/default/files/media/document/2020/SR_Larimer%20County_Stanley%20House_web.pdf",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Rocky Mountain National Park Hiker Shuttle",
+      "detail": "Runs from the Estes Park Visitor Center to the park's Park & Ride on Bear Lake Road. In 2026 it ran daily May 22 to September 7 and on weekends September 12 to October 18. Tickets are reserved on Recreation.gov, $2 per reservation, and a park entrance pass is also needed.",
+      "url": "https://www.nps.gov/romo/planyourvisit/shuttle-buses-and-public-transit.htm",
+      "source": "https://www.nps.gov/romo/planyourvisit/shuttle-buses-and-public-transit.htm",
+      "checked": "2026-11-13"
+    }
+  ],
   "lodging": [
     {
       "name": "The Stanley Hotel",
@@ -39,6 +55,11 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "The town is named for Joel Estes, the valley's first settler of European descent. William N. Byers of the Rocky Mountain News visited in August 1864 and was the first to call the valley Estes Park in print.",
+      "source": "https://www.historycolorado.org/sites/default/files/media/document/2020/SR_Larimer%20County_Stanley%20House_web.pdf",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1858,
       "text": "Joel Estes entered what is now Estes Park and started a ranch.",

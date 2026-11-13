@@ -1,5 +1,12 @@
 {
   "slug": "loveland",
+  "facts": {
+    "incorporated": {
+      "year": 1881,
+      "source": "https://www.historycolorado.org/sites/default/files/media/documents/2018/5lr9700.pdf",
+      "checked": "2026-11-13"
+    }
+  },
   "transit": [
     {
       "name": "FLEX",
@@ -10,7 +17,30 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "David Barnes named the town for William A. H. Loveland, president of the Colorado Central Railroad.",
+      "source": "https://www.historycolorado.org/sites/default/files/media/documents/2018/5lr9700.pdf",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1877,
+      "text": "Laid out by farmer David Barnes as a station town on the Colorado Central Railroad",
+      "source": "https://www.historycolorado.org/sites/default/files/media/documents/2018/5lr9700.pdf",
+      "checked": "2026-11-13"
+    },
     "timeline": [
+      {
+        "year": 1877,
+        "text": "In September, farmer David Barnes laid out a townsite on his wheat field north of the Big Thompson River.",
+        "source": "https://www.historycolorado.org/sites/default/files/media/documents/2018/5lr9700.pdf",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1881,
+        "text": "Loveland was incorporated, a year after the 1880 census counted 256 residents.",
+        "source": "https://www.historycolorado.org/sites/default/files/media/documents/2018/5lr9700.pdf",
+        "checked": "2026-11-13"
+      },
       {
         "year": 1937,
         "text": "Harold Dunning founded the museum that became the Loveland Museum.",
@@ -22,6 +52,12 @@
         "text": "The City of Loveland took over operation of Dunning's pioneer museum.",
         "source": "https://www.thelovelandmuseum.org/about-us/",
         "checked": "2026-11-12"
+      },
+      {
+        "year": 2015,
+        "text": "The Downtown Loveland Historic District was listed on the National Register on June 1.",
+        "source": "https://www.historycolorado.org/location/downtown-loveland-historic-district",
+        "checked": "2026-11-13"
       }
     ],
     "sites": [
@@ -37,8 +73,12 @@
       {
         "name": "Benson Sculpture Garden",
         "kind": "landmark",
-        "source": "https://www.sculptureinthepark.org/",
-        "checked": "2026-11-12"
+        "url": "https://www.sculptureinthepark.org/about-benson",
+        "hours": "Open at any time of day",
+        "cost": "Free, except during the Sculpture in the Park show weekend, the second weekend in August",
+        "season": "Year-round; a small section closes during show setup and takedown",
+        "source": "https://www.sculptureinthepark.org/about-benson",
+        "checked": "2026-11-13"
       }
     ]
   }

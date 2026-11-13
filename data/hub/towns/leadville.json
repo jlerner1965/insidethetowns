@@ -26,6 +26,17 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "The U.S. Geological Survey says the name was probably chosen because lead was the major mineral in both the placers and the lode mines.",
+      "source": "https://pubs.usgs.gov/sim/2004/2820/sim2820.html",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1878,
+      "text": "The city of Leadville was founded in 1878",
+      "source": "https://mininghalloffame.org/museum/",
+      "checked": "2026-11-13"
+    },
     "timeline": [
       {
         "year": 1878,
@@ -84,7 +95,8 @@
         "url": "https://taboroperahouse.org/visit",
         "season": "Public group tours run from late May to the middle of October, Friday through Sunday",
         "source": "https://taboroperahouse.org/visit",
-        "checked": "2026-11-12"
+        "checked": "2026-11-12",
+        "cost": "Private tours $40 per person or $100 per group of 4; free for children 10 and under"
       }
     ],
     "makers": [
