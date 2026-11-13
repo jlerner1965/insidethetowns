@@ -85,3 +85,12 @@ test('a sports page is as new as the run that wrote its data file: the school’
   // A town that follows no school (Longmont's three left with its guide on 12 November 2026) has no sports dates.
   assert.equal(contentDates({ kind: 'town', slug: 'longmont' }, root, root).has('/sports/'), false);
 });
+
+test('the hub’s town and season pages are dated by the newest check of their records, not the build', () => {
+  const dates = contentDates({ kind: 'hub', slug: 'hub' });
+  for (const path of ['/parades-of-lights/', '/estes-park/']) {
+    const iso = dates.get(path);
+    assert.ok(iso, path);
+    assert.ok(iso! <= new Date().toISOString(), `${path} is not in the future`);
+  }
+});

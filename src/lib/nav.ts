@@ -92,14 +92,18 @@ export function seasonLinks(root = '.'): NavItem[] {
   return seasonTypesWithRecords(root).map((t) => ({ label: TRADITION_TYPE_INFO[t].plural, href: TRADITION_TYPE_INFO[t].path }));
 }
 
+/** Where every annual-events page is listed: the section of /towns/ that names them all. */
+export const ANNUAL_EVENTS_HREF = '/towns/#seasons-heading';
+
 /**
- * The hub's menu: its own list, with "Seasonal dates" after the weekend.
- * It goes to the first season page that is built, which carries the links
- * to the others; the footer names each one. No season page, no entry.
+ * The hub's menu: its own list, with "Annual events" after the weekend,
+ * the home page's word for the season pages (13 November 2026; it was
+ * "Seasonal dates", to the first season page). It goes to the list of every
+ * season page on /towns/; the home page's own link goes to its section of
+ * the seasons now on. No season page, no entry.
  */
 export function hubNav(nav: readonly NavItem[], seasons: readonly NavItem[] = seasonLinks()): NavItem[] {
-  const first = seasons[0];
-  if (!first) return [...nav];
+  if (!seasons[0]) return [...nav];
   const at = nav.findIndex((n) => n.href === '/this-weekend/') + 1;
-  return [...nav.slice(0, at), { label: 'Seasonal dates', href: first.href }, ...nav.slice(at)];
+  return [...nav.slice(0, at), { label: 'Annual events', href: ANNUAL_EVENTS_HREF }, ...nav.slice(at)];
 }

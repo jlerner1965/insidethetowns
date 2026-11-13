@@ -218,8 +218,9 @@ export function townSearchText(name: string, traditions: readonly TraditionRow[]
   const named = `${name}, Colorado events ${years}: ${next[0]!.record.name} and annual dates`;
   return {
     seoTitle:
-      [named, `${name}, Colorado ${years}: ${next[0]!.record.name}`, `${name}, CO ${years}: ${next[0]!.record.name}`].find((t) => t.length <= 65) ??
-      `${name}, Colorado annual events and dates, ${years}`,
+      // "events" in every shape, the word people search with (the search audit of 13 November 2026).
+      [named, `${name}, Colorado events ${years}: ${next[0]!.record.name}`, `${name}, CO events ${years}: ${next[0]!.record.name}`].find((t) => t.length <= 65) ??
+      `${name}, Colorado events and annual dates, ${years}`,
     description: `${name}, Colorado in ${years}: ${words}. Every annual event and outdoor date, with the date its organizer has published and the page it was read from.`,
   };
 }

@@ -39,7 +39,6 @@ import '@fontsource-variable/fraunces/opsz-italic.css';
 import '@/styles/hub-home.css';
 import newsreaderLatin from '@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2?url';
 import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
-import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
 import { Image, getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
@@ -61,6 +60,7 @@ import {
   gameRow,
   guideLine,
   guideName,
+  listWords,
   listingKey,
   listingReasons,
   nextLine,
@@ -81,6 +81,8 @@ import { coveredTowns } from '@/lib/town-search-index';
 import { TRADITION_TYPE_INFO } from '@/lib/traditions';
 import { currentPicks } from '@/lib/weekly';
 import { wordmarkParts } from '@/lib/titles';
+import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
+import { collectionPageJsonLd } from '@/lib/seo';
 import { expiresOn, networkChanges, timing } from '@/lib/updates';
 import { shownCategoryLabel } from '@/content/schemas';
 
@@ -170,6 +172,8 @@ interface Row {
   meta: string[];
   /** Why it earned the space, in a few words from its fields; none where none holds. */
   reasons?: string[];
+  /** A line from the organizer's own words, where the guide's card shows one (DeadlineCard.astro). */
+  note?: string;
   check?: string;
   /** The last day it shows, and the instant it comes off where it has one (src/lib/expiry.ts). */
   until: string;
@@ -237,10 +241,13 @@ const aside = deadline
       heading: 'Deadline',
       row: dated(deadline.on, {
         // A closing date needs no word under "Deadline"; an opening says so.
-        label: deadline.what === 'opens' ? `${deadline.program.town.name} · Registration opens` : deadline.program.town.name,
+        label: `${deadline.program.town.name} · Registration ${deadline.what}`,
         title: deadlineTitle(deadline.program.data.title, deadlineListing),
         href: deadline.program.data.registration?.url ?? deadline.program.data.url ?? deadline.program.data.organizerUrl ?? `https://${deadline.program.town.domain}/`,
         meta: [],
+        // The organizer's note on the deadline, short enough to be a line, as the family hub's card shows it:
+        // a program with several deadlines says which one this is.
+        note: deadline.program.data.registration?.note && deadline.program.data.registration.note.length <= 140 ? deadline.program.data.registration.note : undefined,
         check: deadlineSourceText(deadline.program.data),
         until: dayKey(deadline.on),
       }),
@@ -269,14 +276,21 @@ const guides = live.map((t) => ({ name: guideName(t, coveredTowns(t)), counties:
 const span = ['Estes Park', 'Durango'].every((n) => pages.some((p) => p.name === n));
 const pagesLine = `${span ? 'Estes Park to Durango: p' : 'P'}arades, festivals, outdoor dates`;
 const guideCount = numberWord(live.length);
+/**
+ * "N more towns": the town pages for towns no guide covers. Severance has a
+ * page of its own and is in "Windsor and Severance" too, so it is not
+ * counted twice (the content audit of 13 November 2026). /towns/ still
+ * lists every page.
+ */
+const guideTowns = new Set(live.flatMap((t) => [t.name, ...coveredTowns(t)]));
+const moreTowns = pages.filter((p) => !guideTowns.has(p.name)).length;
 
 /** 7. The email: every edition, by default. */
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
-const sendTime = hub.newsletter?.sendTime;
 const editionCount = emailEditions().length;
 
-/** Every annual-events page, as /towns/ lists them under "Dates across the towns". */
-const ALL_ANNUAL = '/towns/#seasons-heading';
+/** Every annual-events page, as /towns/ lists them. */
+const ALL_ANNUAL = ANNUAL_EVENTS_HREF;
 
 /** The masthead's links, in the page's order, each to something on the page or a page that exists. */
 const nav = [
@@ -292,11 +306,34 @@ const wordmark = wordmarkParts(hub.siteTitle);
 const year = now.getFullYear();
 const correction = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(`[Correction] ${hub.siteTitle}`)}`;
 
-// Under 155 characters with a two-digit count, so the snippet ends at its
-// full stop: the longer line was cut at "what it’s…" in every result.
-const description = `${live.length} independent community guides to Colorado towns, and the annual events and seasonal dates of ${pages.length} more, from the Front Range to the mountains.`;
+/**
+ * The title and description say what the page now is (the search audit of
+ * 13 November 2026: they still described a directory of guides): this
+ * weekend's events and the annual dates, the words people search with.
+ * The description names the seasons now on, and is the longest of its
+ * forms that fits 155 characters, so a result shows it whole.
+ */
+const fullTitle = `Colorado events this weekend, town by town | ${hub.siteTitle}`;
+const seasonWords = seasons.length > 0 ? `: ${listWords(seasons.map((r) => r.title.toLowerCase()))}` : '';
+const description = [
+  `This weekend’s events from ${guideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}, each checked against its source.`,
+  `This weekend’s events from ${guideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}.`,
+  `This weekend’s events from ${guideCount} Colorado town guides, and annual dates for ${moreTowns} more towns, each checked against its source.`,
+].find((d) => d.length <= 155)!;
+
+/** What the page lists, for search engines: the weekend's picks and the seasons now on. Their Event markup stays on the pages that own them. */
+const structured = collectionPageJsonLd(hub, {
+  name: 'What’s happening in Colorado’s towns',
+  description,
+  path: '/',
+  items: [
+    ...weekendRows.map((r) => ({ name: r.title, url: r.href })),
+    ...seasons.map((r) => ({ name: r.title, path: r.href })),
+    { name: 'Everything on this weekend', path: '/this-weekend/' },
+  ],
+});
 ---
-<Base {description} image={shareImage} imageAlt={HOME_PHOTO.alt} preload={[newsreaderLatin, interLatin, frauncesLatin]} bodyClass="hh">
+<Base {fullTitle} {description} image={shareImage} imageAlt={HOME_PHOTO.alt} jsonLd={structured} preload={[newsreaderLatin, interLatin]} bodyClass="hh">
   <header slot="header" class="hh-header" data-hh-header data-pagefind-ignore>
     <div class="hh-wrap hh-masthead">
       <a href="/" class="hh-wordmark" aria-label={`${hub.siteTitle} home`}>{wordmark.before && <Fragment><span class="hh-wm-before">{wordmark.before}</span>{' '}</Fragment>}<span class="hh-wm-name">{wordmark.name}</span></a>
@@ -340,7 +377,7 @@ const description = `${live.length} independent community guides to Colorado tow
     <nav aria-label="Local guides" class="hh-guides">
       <span class="hh-label">Guides</span>
       {live.map((t) => <a class="hh-tl" href={guideUrl(t)} data-track="home-guides">{t.name}</a>)}
-      {pages.length > 0 && <a class="hh-tl hh-strong" href="/towns/" data-track="home-guides">{pages.length} more towns →</a>}
+      {moreTowns > 0 && <a class="hh-tl hh-strong" href="/towns/" data-track="home-guides">{moreTowns} more towns, A to Z →</a>}
     </nav>
 
     {(weekendRows.length > 0 || aside || scoreLinks.length > 0) && (
@@ -348,7 +385,8 @@ const description = `${live.length} independent community guides to Colorado tow
         <div class="hh-now">
           {weekendRows.length > 0 && (
             <div data-hide-when-empty>
-              <h2 id="weekend-h" class="hh-h2 hh-h2-rows">This weekend</h2>
+              <h2 id="weekend-h" class="hh-h2">This weekend</h2>
+              <p class="hh-chk hh-h2-note">Each listing opens on its town’s own guide.</p>
               <div class="hh-rows">
                 {weekendRows.map((r) => (
                   <a class="hh-row" href={r.href} data-event-day={r.until} data-end={r.end} data-track="home-weekend">
@@ -377,6 +415,7 @@ const description = `${live.length} independent community guides to Colorado tow
                       <span class="hh-stack">
                         <span class="hh-label">{aside.row.label}</span>
                         <span class="hh-ttl hh-ttl-sm">{aside.row.title}</span>
+                        {aside.row.note && <span class="hh-meta">{aside.row.note}</span>}
                         {aside.row.check && <span class="hh-chk">{aside.row.check}</span>}
                       </span>
                     </a>
@@ -427,9 +466,9 @@ const description = `${live.length} independent community guides to Colorado tow
           </a>
         ))}
         {/* `town-pages`: where the guides' About pages send a reader for "a page on Inside the Towns". */}
-        {pages.length > 0 && (
+        {moreTowns > 0 && (
           <a id="town-pages" class="hh-irow" href="/towns/" data-track="home-index">
-            <span class="hh-ihead"><span class="hh-iname">{pages.length} more towns, A to <span class="hh-nw">Z →</span></span><span class="hh-label">Annual dates</span></span>
+            <span class="hh-ihead"><span class="hh-iname">{moreTowns} more towns, A to <span class="hh-nw">Z →</span></span><span class="hh-label">Annual dates</span></span>
             <span class="hh-meta hh-idesc">{pagesLine}</span>
           </a>
         )}
@@ -441,7 +480,7 @@ const description = `${live.length} independent community guides to Colorado tow
         <div class="hh-two">
           <div>
             <h2 id="signup-h" class="hh-h2">The {sendDay} email</h2>
-            <p class="hh-signup-line">The weekend’s events, the scores, and what opened or closed. Every {sendDay}{sendTime && ` at ${sendTime}`}.</p>
+            <p class="hh-signup-line">The weekend’s events, the scores, and what opened or closed. Every {sendDay}.</p>
           </div>
           <NewsletterSignup variant="hub" id="home">
             <p class="hh-chk hh-fine">All {numberWord(editionCount)} weekly editions by default. <a class="hh-tap" href="/newsletter/">Choose towns</a> · Free, unsubscribe any time · <a class="hh-tap" href="/privacy/">Privacy</a></p>
@@ -459,7 +498,10 @@ const description = `${live.length} independent community guides to Colorado tow
         <a class="hh-tl" href="/editorial/">How we check listings</a>
         <a class="hh-tl" href={correction}>Report a correction</a>
         <a class="hh-tl" href="/contact/">Contact</a>
+        <a class="hh-tl" href="/newsletter/">Weekly email</a>
         <a class="hh-tl" href="/advertise/">Partner with us</a>
+        <a class="hh-tl" href="/privacy/">Privacy</a>
+        <a class="hh-tl" href="/credits/">Photo credits</a>
       </div>
     </div>
   </footer>

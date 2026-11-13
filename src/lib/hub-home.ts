@@ -367,7 +367,9 @@ export function gameRow(g: Pick<FridayGame<unknown, Listing>, 'school' | 'team' 
 export function gameReasons(title: string, team: Pick<SportData, 'league'>, game: Pick<SportGame, 'stage'>): string[] {
   const stage = game.stage && !/playoff|tournament|championship/i.test(title) ? game.stage : undefined;
   const place = leaguePlace(team);
-  return [stage, place && team.league ? `${place} in the ${team.league.name}` : undefined].filter((s): s is string => !!s);
+  // "league" said, for a reader who does not know "4A Northern" is one, unless the name says it already.
+  const league = team.league ? `${team.league.name}${/league|conference/i.test(team.league.name) ? '' : ' league'}` : undefined;
+  return [stage, place && league ? `${place} in the ${league}` : undefined].filter((s): s is string => !!s);
 }
 
 /** "Half an hour", "45 minutes", "An hour", "An hour and a half": a short listing's length, up to 90 minutes; nothing longer. */

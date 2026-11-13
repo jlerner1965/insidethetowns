@@ -21,8 +21,8 @@ import Wordmark from './Wordmark.astro';
 const site = getSite();
 const hub = getNetworkHub();
 const year = new Date().getFullYear();
-// The hub's home too, since its layout of 13 November 2026: it ends on the
-// signup band, which has its own padding, as a guide's home ends on a band.
+// A guide's home ends on a band with its own padding. (The hub's home draws
+// its own footer since 13 November 2026, src/routes/hub/index.astro.)
 const home = Astro.url.pathname === '/';
 // A phone gets a 44px line to tap (cleanup pass, 9 November 2026; it was 34px):
 // the padding is the target and the negative margin keeps the rows where they were.
@@ -88,12 +88,12 @@ const sections = site.kind === 'town'
       <p class="eyebrow text-white">{site.kind === 'town' ? 'This guide' : 'This site'}</p>
       <ul class="mt-3 space-y-0.5 text-[0.9375rem] sm:mt-4 sm:space-y-2">
         <li><a href="/about/" class={linkClass}>About</a></li>
-        <li><a href="/editorial/" class={linkClass}>Editorial policy</a></li>
-        {/* The hub (the home page brief of 13 November 2026): where the facts
-            come from, on the editorial page, and the one address a wrong
-            date or listing is reported to, the same as every town page's
-            correction line (src/routes/hub/town.astro). */}
-        {site.kind === 'hub' && <li><a href="/editorial/" class={linkClass}>Sources</a></li>}
+        {/* On the hub, the home page's words for the same page (13 November
+            2026): "Editorial policy" and "Sources" were two links to it, side
+            by side. Then the one address a wrong date or listing is reported
+            to, the same as every town page's correction line
+            (src/routes/hub/town.astro). */}
+        <li><a href="/editorial/" class={linkClass}>{site.kind === 'hub' ? 'How we check listings' : 'Editorial policy'}</a></li>
         {site.kind === 'hub' && (
           <li><a href={`mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(`[Correction] ${site.siteTitle}`)}`} class={linkClass}>Report a correction</a></li>
         )}

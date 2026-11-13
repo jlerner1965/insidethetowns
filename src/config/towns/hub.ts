@@ -26,9 +26,13 @@ export const hub: HubConfig = {
     accent: '#7A8A6B',
     paper: 'warm',
   },
+  // The owner's photograph of the Flatirons, the full-resolution original
+  // of front-range-aerial.jpg (13 November 2026): the home page shows it,
+  // and it is every other hub page's share image, so /credits/ names the
+  // picture the home page actually carries.
   hero: {
-    image: 'front-range-aerial.jpg',
-    alt: 'The Colorado Front Range from the air: tilted sandstone slabs and forested foothills dropping away to the towns on the plains',
+    image: 'front-range-flatirons.jpg',
+    alt: 'The Flatirons and the foothills above Boulder from the air, with the plains and their towns beyond',
   },
   /**
    * Vercel Web Analytics, network-wide. Still has to be enabled per project
@@ -76,13 +80,16 @@ export const hub: HubConfig = {
   // publisher is an organisation, Lerner Works, named below at the owner's
   // direction the same day (the follow-up audit asked who is accountable).
   publisher: { name: 'Lerner Works', url: 'https://lernerworks.com' },
+  // The home page's order and words (13 November 2026), so the menu does not
+  // change under a reader between the home and any other page; "Annual
+  // events" is added after the weekend (src/lib/nav.ts, hubNav). About and
+  // Contact are in the footer of every page.
   nav: [
     { label: 'This weekend', href: '/this-weekend/' },
+    { label: 'Towns', href: '/#towns' },
     { label: 'Moving here', href: '/moving/' },
     { label: 'Newsletter', href: '/newsletter/' },
-    { label: 'Towns', href: '/#towns' },
-    { label: 'About', href: '/about/' },
-    { label: 'Contact', href: '/contact/' },
+    { label: 'How we check', href: '/editorial/' },
   ],
   towns,
   formspreeId: 'xeaoakgg',

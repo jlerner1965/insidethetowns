@@ -80,7 +80,7 @@ const weekendLabel =
  * the page to the hub's own WebSite node.
  */
 const structured = collectionPageJsonLd(hub, {
-  name: `What’s on across ${hub.siteTitle}`,
+  name: `This weekend across Colorado’s towns`,
   description: `Every event across ${towns.length} Colorado town guides this weekend.`,
   path: '/this-weekend/',
   items: everything.map((e) => ({ name: `${e.data.title} — ${e.town.name}`, url: `https://${e.town.domain}/events/${e.slug}/` })),
@@ -103,7 +103,7 @@ const seasons = seasonLinks();
   >
     <strong class="font-semibold">Nothing here is current.</strong> This page was last refreshed on {formatDate(refreshedAt)} and
     everything it was carrying has now happened. That is a fault at our end, not a quiet weekend. Each town's guide
-    keeps its own calendar — they are linked from <a href="/#towns" class="text-primary underline">the map</a>.
+    keeps its own calendar — they are linked from <a href="/#towns" class="text-primary underline">the list of guides</a>.
   </p>
 
   <div data-filter-root>

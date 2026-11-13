@@ -30,6 +30,7 @@ test('a town page’s title and description name its next dated traditions and t
   const long = townSearchText('Salida', [row('Christmas Mountain 5 Mile & 1 Mile Run', '2026-11-27')]);
   assert.ok(long.seoTitle.length <= 65, long.seoTitle);
   assert.match(long.seoTitle, /Christmas Mountain/);
+  assert.match(long.seoTitle, /events/, 'every dated title says events');
 
   const none = townSearchText('Ouray', [row('Ice Festival')]);
   assert.equal(none.seoTitle, 'Ouray, Colorado: annual events and outdoor dates', 'no date ahead, no event named');
@@ -91,8 +92,8 @@ test('the hub’s local changes are current ones only, newest first, two a town 
   assert.deepEqual(networkChanges(list, now).map((u) => u.slug), ['e1', 'e2', 'b1']);
 });
 
-test('the hub’s menu gains Seasonal dates after the weekend only while a season page is built', () => {
+test('the hub’s menu gains Annual events after the weekend only while a season page is built', () => {
   const nav = [{ label: 'This Weekend', href: '/this-weekend/' }, { label: 'Towns', href: '/#towns' }];
-  assert.deepEqual(hubNav(nav, [{ label: 'Tree lightings', href: '/tree-lightings/' }]).map((n) => n.href), ['/this-weekend/', '/tree-lightings/', '/#towns']);
+  assert.deepEqual(hubNav(nav, [{ label: 'Tree lightings', href: '/tree-lightings/' }]).map((n) => [n.label, n.href]), [['This Weekend', '/this-weekend/'], ['Annual events', '/towns/#seasons-heading'], ['Towns', '/#towns']]);
   assert.deepEqual(hubNav(nav, []), nav);
 });

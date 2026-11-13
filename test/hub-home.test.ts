@@ -281,7 +281,7 @@ test('a listing’s reasons come from its fields only, and none is better than a
 
 test('the game’s reasons: the postseason its title does not already name, and its league place', () => {
   const league = { league: { record: '7-0', name: '4A Northern', place: '1st' } };
-  assert.deepEqual(gameReasons('Roosevelt football vs Montbello: 4A playoffs, second round', league, { stage: 'State Football Playoffs' }), ['1st in the 4A Northern']);
+  assert.deepEqual(gameReasons('Roosevelt football vs Montbello: 4A playoffs, second round', league, { stage: 'State Football Playoffs' }), ['1st in the 4A Northern league']);
   assert.deepEqual(gameReasons('Severance Silver Knights vs Pueblo East', {}, { stage: 'State Football Playoffs' }), ['State Football Playoffs']);
   assert.deepEqual(gameReasons('Erie Tigers vs Broomfield', { league: { record: '0-0', name: '5A', place: '1st' } }, {}), []);
 });

@@ -7,7 +7,9 @@
  * article when it was last checked, else updated, else published; an issue
  * on its send day; a sports page (the school's, each team's, and the index
  * of a town's several schools) when the run last wrote its data file
- * (`generated`). Every other page is as new as the build.
+ * (`generated`); on the hub, a town page and a season page when the
+ * newest of their records was last read on its source (`checked`). Every
+ * other page is as new as the build.
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -15,6 +17,9 @@ import { parseLocal } from './dates.ts';
 import { schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } from '../config/school-sports.ts';
 import { teamsWithData } from './school-sports.ts';
 import { curiosityDates } from './curiosity-files.ts';
+import { appliesTo, publishedHubTowns } from './hub-towns.ts';
+import { rawRecords } from './tradition-files.ts';
+import { CURRENT_SEASONS, TRADITION_TYPE_INFO, type TraditionRecord } from './traditions.ts';
 
 const FIELD = (name: string) => new RegExp(`^${name}:\\s*"?([^"\\n]+?)"?\\s*$`, 'm');
 
@@ -76,10 +81,47 @@ export function contentDates(site: { kind: 'town' | 'hub'; slug: string }, conte
     sportsDates(site.slug, repoRoot, out);
   } else {
     read(join(root, 'issues'), ['date'], (slug) => `/newsletter/${slug}/`, out);
+    traditionDates(repoRoot, out);
     // The town-anchored articles on the site: the day their facts were last verified.
     for (const [path, iso] of curiosityDates(repoRoot)) out.set(path, iso);
   }
   return out;
+}
+
+/** The newest day any of these records was read on its source, as an ISO instant. */
+function newestCheck(records: readonly TraditionRecord[]): string | undefined {
+  let newest: string | undefined;
+  for (const record of records) {
+    for (const year of record.years) {
+      if (!year.checked) continue;
+      try {
+        const iso = parseLocal(year.checked as string | Date).toISOString();
+        if (!newest || iso > newest) newest = iso;
+      } catch {
+        // an unreadable date is the validator's to report
+      }
+    }
+  }
+  return newest;
+}
+
+/**
+ * The hub's town pages and season pages (the search audit of 13 November
+ * 2026: all 119 took the build's instant): each dated by the newest check
+ * among the records it shows, a town page's by every record that applies
+ * there (statewide ones too), a season page's by the records of its type.
+ */
+function traditionDates(repoRoot: string, out: Map<string, string>): void {
+  const records = rawRecords(repoRoot);
+  for (const town of publishedHubTowns(records)) {
+    const iso = newestCheck(records.filter((r) => appliesTo(r, town.slug)));
+    if (iso) out.set(`/${town.slug}/`, iso);
+  }
+  for (const [type, info] of Object.entries(TRADITION_TYPE_INFO) as Array<[keyof typeof TRADITION_TYPE_INFO, (typeof TRADITION_TYPE_INFO)[keyof typeof TRADITION_TYPE_INFO]]>) {
+    if (!CURRENT_SEASONS[type]) continue;
+    const iso = newestCheck(records.filter((r) => r.type === type));
+    if (iso) out.set(info.path, iso);
+  }
 }
 
 /** The lastmod for one sitemap URL: the page's own date, else the build's. */
