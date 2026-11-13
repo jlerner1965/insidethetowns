@@ -332,6 +332,8 @@ const nav = [
   { label: 'This weekend', href: weekendRows.length > 0 ? '#weekend' : '/this-weekend/' },
   { label: 'Annual events', href: seasons.length > 0 ? '#annual' : ALL_ANNUAL },
   { label: 'Towns', href: '#towns' },
+  // The index of every article, as on every other page's menu (src/lib/nav.ts, hubNav).
+  articlesOnSite.length > 0 && { label: 'Articles', href: ARTICLES_INDEX_PATH },
   { label: 'Moving here', href: '/moving/' },
   hub.newsletter && { label: 'Newsletter', href: '#signup' },
   { label: 'How we check', href: '/editorial/' },
