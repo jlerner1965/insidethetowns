@@ -13,14 +13,14 @@
       "kind": "Motel",
       "url": "https://www.parkviewinnmotel.com/",
       "source": "https://www.parkviewinnmotel.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "A Step Back Inn",
       "kind": "Vacation rental homes",
       "url": "https://astepbackinn.com/",
       "source": "https://astepbackinn.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -35,7 +35,7 @@
         "year": 1872,
         "text": "The decision that Cañon City should incorporate was made in the public hall above Murray's Saloon.",
         "source": "https://fremontheritage.com/wp-content/uploads/2023/04/canoncityonline2.pdf",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1881,
@@ -80,7 +80,7 @@
     "incorporated": {
       "year": 1872,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

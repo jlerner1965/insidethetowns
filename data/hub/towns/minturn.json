@@ -29,14 +29,14 @@
       "kind": "Hotel",
       "url": "https://www.theeagleriverinn.com/",
       "source": "https://www.theeagleriverinn.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "The Bunkhouse",
       "kind": "Hostel",
       "url": "https://vailbunkhouse.com/",
       "source": "https://vailbunkhouse.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -45,7 +45,7 @@
         "year": 1892,
         "text": "The building that is now the Eagle River Inn was built.",
         "source": "https://www.theeagleriverinn.com/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -53,7 +53,7 @@
     "incorporated": {
       "year": 1904,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

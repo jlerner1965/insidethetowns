@@ -7,7 +7,7 @@
  * pair is taken when present, because it is the one the site computed with
  * its own zone rules; the wall clock is the fallback.
  */
-import { TIME_ZONE, fromWallClock } from '../../../src/lib/dates.ts';
+import { TIME_ZONE, dayKey, fromWallClock } from '../../../src/lib/dates.ts';
 import { plainText, type FeedEvent, type Horizon, titleStatus } from './types.ts';
 
 interface TribeEvent {
@@ -52,7 +52,8 @@ function instant(local: string | undefined, utc: string | undefined, tz: string)
 export function tribeFirstPage(base: string, from: Date): string {
   const url = new URL(base);
   url.searchParams.set('per_page', '50');
-  url.searchParams.set('start_date', from.toISOString().slice(0, 10));
+  // Colorado's day: from UTC's, an evening import asked for tomorrow and missed tonight's events.
+  url.searchParams.set('start_date', dayKey(from));
   url.searchParams.set('status', 'publish');
   return url.toString();
 }

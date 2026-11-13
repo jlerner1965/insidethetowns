@@ -6,7 +6,7 @@
       "detail": "Free door-to-door rides, booked by phone, Tuesday to Friday 8 am to 4 pm. Local service is suspended from November 16, 2026 through the end of the year.",
       "url": "https://mountainvalleytransit.com/chaffee-county-door-to-door-service/",
       "source": "https://mountainvalleytransit.com/chaffee-county-door-to-door-service/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "lodging": [
@@ -65,7 +65,7 @@
         "url": "https://www.buenavistaheritage.org/historic-chaffee-county-courthouse",
         "season": "Closed for the season when checked in November 2026",
         "source": "https://www.buenavistaheritage.org/locations-and-hours",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Depot & Caboose",
@@ -73,7 +73,7 @@
         "url": "https://www.buenavistaheritage.org/depot-caboose",
         "season": "Closed for the season when checked in November 2026",
         "source": "https://www.buenavistaheritage.org/locations-and-hours",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "makers": [
@@ -90,7 +90,7 @@
     "incorporated": {
       "year": 1879,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

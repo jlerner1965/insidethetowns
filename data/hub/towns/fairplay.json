@@ -6,14 +6,14 @@
       "detail": "ADA accessible rides within the Fairplay and Alma areas, Monday to Thursday 7 am–5 pm and Friday to Sunday 9 am–7 pm; call to arrange a pickup",
       "url": "https://fairplayco.us/169/Public-Transit",
       "source": "https://fairplayco.us/169/Public-Transit",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Summit Stage Park County Commuter",
       "detail": "Low-cost bus between Fairplay, Alma, Blue River and Breckenridge",
       "url": "https://www.summitcountyco.gov/services/transit_summit_stage/bus_schedule/index.php",
       "source": "https://www.summitcountyco.gov/services/transit_summit_stage/bus_schedule/index.php",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "lodging": [
@@ -22,14 +22,14 @@
       "kind": "Hotel",
       "url": "https://handhotel.com/",
       "source": "https://handhotel.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Fairplay Beach",
       "kind": "Campground",
       "url": "https://fairplayco.us/224/Fairplay-Beach-Camping-Rules-and-Regulat",
       "source": "https://fairplayco.us/224/Fairplay-Beach-Camping-Rules-and-Regulat",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -93,7 +93,7 @@
         "url": "https://fairplayco.us/172/Special-Events",
         "hours": "Fall hours: Tue–Sat 10 am–2 pm",
         "source": "https://fairplayco.us/172/Special-Events",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -101,7 +101,7 @@
     "incorporated": {
       "year": 1872,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

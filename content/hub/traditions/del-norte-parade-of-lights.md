@@ -12,5 +12,5 @@ years:
     status: confirmed
     date: 2026-12-11
     place: "Cedar & 6th St."
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

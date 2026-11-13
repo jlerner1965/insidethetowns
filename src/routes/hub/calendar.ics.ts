@@ -21,8 +21,9 @@ export async function getStaticPaths() {
   const hub = getHub();
   const today = dayKey(new Date());
   const records = await getTraditions();
+  // A subscription carries a cancellation as one, so the date leaves the subscriber's calendar (audit, 13 November 2026).
   const events = (rows: readonly TraditionRow[], pageUrl: string): IcsEvent[] =>
-    rows.flatMap((row) => traditionCalendarEvent(row, { domain: hub.domain, pageUrl }) ?? []);
+    rows.flatMap((row) => traditionCalendarEvent(row, { domain: hub.domain, pageUrl, cancellations: true, today }) ?? []);
   const towns = publishedHubTowns(records).map((town) => {
     const { traditions, outdoor } = placeRows(records, town.slug, today);
     return { params: { name: town.slug }, props: { title: `${town.name}, Colorado: annual events and outdoor dates`, events: events([...traditions, ...outdoor], `https://${hub.domain}/${town.slug}/`) } };

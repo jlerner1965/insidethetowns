@@ -54,3 +54,24 @@ test('nothing for a date not set, canceled or passed', () => {
   assert.equal(traditionCalendarEvent(row({ status: 'typical' }), opts), undefined);
   assert.equal(traditionCalendarEvent(row({ date: '2026-11-01' }, { past: true }), opts), undefined);
 });
+
+test('a canceled date reaches a subscription as a cancellation, and nowhere else (audit, 13 November 2026)', () => {
+  const canceled = (date?: string) =>
+    ({
+      record: { slug: 'w-p', name: 'Parade of Lights', organizer: 'Town', town: { name: 'Wellington', guide: 'wellington' }, type: 'parade-of-lights', sourceUrl: 'https://example.gov/', years: [] },
+      entry: { year: 2026, status: 'canceled', ...(date ? { date } : {}), checked: '2026-11-12' },
+      year: 2026,
+      source: 'https://example.gov/',
+    }) as unknown as TraditionRow;
+  const ctx = { domain: 'insidethetowns.com', pageUrl: 'https://insidethetowns.com/parades-of-lights/' };
+  // "Add to calendar" never offers a canceled date.
+  assert.equal(traditionCalendarEvent(canceled('2026-12-20'), ctx), undefined);
+  // A feed carries one whose date had been set and is still ahead, marked cancelled.
+  const event = traditionCalendarEvent(canceled('2026-12-20'), { ...ctx, cancellations: true, today: '2026-11-12' });
+  assert.equal(event?.cancelled, true);
+  assert.match(event!.description!, /^Canceled:/);
+  assert.match(buildIcs([event!], { name: 'x', domain: 'x' }), /^STATUS:CANCELLED\r$/m);
+  // No date ever set, or a date gone: nothing to cancel.
+  assert.equal(traditionCalendarEvent(canceled(), { ...ctx, cancellations: true, today: '2026-11-12' }), undefined);
+  assert.equal(traditionCalendarEvent(canceled('2026-11-01'), { ...ctx, cancellations: true, today: '2026-11-12' }), undefined);
+});

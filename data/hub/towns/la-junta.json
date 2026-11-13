@@ -6,14 +6,14 @@
       "detail": "Demand-response, curb-to-curb rides within La Junta city limits and up to four miles outside. One-way fare is $1 per person.",
       "url": "https://www.lajuntacolorado.org/221/Transit",
       "source": "https://www.lajuntacolorado.org/221/Transit",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Amtrak Southwest Chief",
       "detail": "Daily train on the Chicago to Los Angeles route. La Junta is a station stop.",
       "url": "https://www.amtrak.com/southwest-chief-train",
       "source": "https://www.amtrak.com/southwest-chief-train",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "lodging": [
@@ -22,14 +22,14 @@
       "kind": "Inn",
       "url": "https://lajuntainn.com/",
       "source": "https://lajuntainn.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Midtown Inn & Suites",
       "kind": "Motel",
       "url": "https://midtowninnandsuites.com/",
       "source": "https://midtowninnandsuites.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -82,7 +82,7 @@
         "hours": "Wednesday to Sunday, 11 am to 3 pm; closed Mondays and Tuesdays",
         "cost": "Adults $6; students (17 and under) $4",
         "source": "https://koshares.com/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -90,7 +90,7 @@
     "incorporated": {
       "year": 1881,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

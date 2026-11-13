@@ -11,13 +11,13 @@ date: 2026-11-13
 sources:
   - label: "City of Longmont: activities at Union Reservoir"
     url: "https://longmontcolorado.gov/union-reservoir-nature-area/activities-at-union/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Adams County: parks rules and regulations"
     url: "https://adamscountyco.gov/our-county/parks-open-space-cultural-arts/rules-and-regulations/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Colorado Parks and Wildlife: St. Vrain State Park"
     url: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
-    checked: 2026-11-13
+    checked: 2026-11-12
 campgrounds:
   - name: "St. Vrain State Park"
     url: "https://cpw.state.co.us/state-parks/st-vrain-state-park/st-vrain-state-park-camping-lodging"
@@ -25,44 +25,44 @@ campgrounds:
     fee:
       value: "$36 to $41 a night, plus a vehicle pass for every vehicle: $10 to $12 a day with Colorado plates, $15 to $17 out-of-state, or the $29 Keep Colorado Wild pass. The park's page gives no year for these."
       source: "https://cpw.state.co.us/state-parks/st-vrain-state-park/st-vrain-state-park-camping-lodging"
-      checked: 2026-11-13
+      checked: 2026-11-12
     booking:
       value: "Reservation required; there are no first-come sites. Book at cpwshop.com or 1-800-244-5613, from the same day to six months ahead."
       source: "https://cpw.state.co.us/state-parks/st-vrain-state-park/st-vrain-state-park-camping-lodging"
-      checked: 2026-11-13
+      checked: 2026-11-12
     sites:
       value: "87 campsites in eight campgrounds along seven ponds, by the park's count, with electric and full-hookup sites. One electric and two full-hookup sites are accessible."
       source: "https://cpw.state.co.us/state-parks/st-vrain-state-park/st-vrain-state-park-camping-lodging"
-      checked: 2026-11-13
+      checked: 2026-11-12
     season:
       value: "Year-round; the booking site posts the season as January 1 to December 31, 2027. Some water hydrants may be shut off in winter."
       source: "https://www.cpwshop.com/camping/st-vrain-state-park/r/campgroundDetails.page?parkID=50020"
-      checked: 2026-11-13
+      checked: 2026-11-12
     manager:
       value: "Colorado Parks and Wildlife. 3785 Weld County Road 24 1/2, Firestone."
       source: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
-      checked: 2026-11-13
+      checked: 2026-11-12
     more:
       - label: "Closed now"
         value: "A paving project has closed the south campground road since October 13, 2026, so full-hookup sites 42 to 87 are unavailable. Trails on that side are closed through November, possibly into December 2026. The park gives no reopening date for the sites."
         source: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
-        checked: 2026-11-13
+        checked: 2026-11-12
       - label: "The loops"
         value: "On the booking site: Sandpiper, Pelican and Mallard are electric, with 40-foot back-in and 42-foot pull-through sites. Tail Feathers, Bald Eagle Point, Red Tail Pond, Coot Pond and Kestrel are full hookup, 45-foot pull-through."
         source: "https://www.cpwshop.com/camping/st-vrain-state-park/r/campgroundDetails.page?parkID=50020"
-        checked: 2026-11-13
+        checked: 2026-11-12
       - label: "Stay rules"
         value: "Fourteen days in any 28, six people a site, check-in at 1 p.m. and check-out at noon."
         source: "https://cpw.state.co.us/state-parks/st-vrain-state-park/st-vrain-state-park-camping-lodging"
-        checked: 2026-11-13
+        checked: 2026-11-12
       - label: "On the water"
         value: "Every pond is wakeless. Gas motors are allowed on Blue Heron Reservoir only; the other ponds take hand-, foot- or electric-powered boats."
         source: "https://cpw.state.co.us/state-parks/st-vrain-state-park/st-vrain-state-park-park-highlights"
-        checked: 2026-11-13
+        checked: 2026-11-12
     skip:
       value: "you need a sewer hookup this fall: the park says full-hookup sites 42 to 87 are unavailable while the south road is paved."
       source: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
-      checked: 2026-11-13
+      checked: 2026-11-12
     flags:
       - field: road
         note: "No CPW page states the road surface. The only hint is that the current closure is a paving project. Left empty."
@@ -80,32 +80,32 @@ campgrounds:
     fee:
       value: "$35 a night, paid by card or exact cash at the pay station. The county's page gives no year."
       source: "https://bouldercounty.gov/open-space/fairgrounds/campground/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     booking:
       value: "First-come, first-served. Reservations are not accepted. Pay by 10 a.m. or within an hour of arriving."
       source: "https://bouldercounty.gov/open-space/fairgrounds/campground/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     season:
       value: "Year-round. Water is seasonal, and the restrooms and showers are open March through October only."
       source: "https://bouldercounty.gov/open-space/fairgrounds/campground/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     manager:
       value: "Boulder County, with a campground host on site."
       source: "https://bouldercounty.gov/open-space/fairgrounds/campground/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     more:
       - label: "Stay rules"
         value: "Fourteen days in a calendar year. Check-out at 10 a.m. Quiet hours from 9 p.m. to 6 a.m."
         source: "https://bouldercounty.gov/open-space/fairgrounds/campground/"
-        checked: 2026-11-13
+        checked: 2026-11-12
       - label: "Dump station"
         value: "Closed until further notice for repairs; the campground itself is open. The notice carries no date."
         source: "https://bouldercounty.gov/open-space/fairgrounds/campground/"
-        checked: 2026-11-13
+        checked: 2026-11-12
     skip:
       value: "you are in a tent or sleeping in a car: the county prohibits both here."
       source: "https://bouldercounty.gov/open-space/fairgrounds/campground/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     flags:
       - field: sites
         note: "The county's page states no site count. Its campground map (an image from March 2025) numbers sites 1 to 71 in three electric types; a count read off a picture is not printed. Left empty."
@@ -117,19 +117,19 @@ campgrounds:
     booking:
       value: "Booked through the park's own site or by phone. All reservations are non-refundable once made."
       source: "https://longmontlodgeandrvpark.com/policies/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     sites:
       value: "20 full-hookup sites with water, sewer and 30- or 50-amp power, for rigs from 22 to 50 feet depending on the site."
       source: "https://longmontlodgeandrvpark.com/rv-park/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     manager:
       value: "Privately owned and run. 1550 Main Street, Longmont."
       source: "https://longmontlodgeandrvpark.com/rv-park/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     skip:
       value: "you want a fire: the park permits no open fires."
       source: "https://longmontlodgeandrvpark.com/policies/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     flags:
       - field: fee
         note: "The park publishes no nightly rate: 'Current rates depend on your dates and site availability.' Left empty."

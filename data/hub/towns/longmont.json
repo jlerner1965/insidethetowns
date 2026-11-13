@@ -4,7 +4,7 @@
     "incorporated": {
       "year": 1873,
       "source": "https://bouldercountyopenspace.org/i/?p=569",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   },
   "transit": [
@@ -36,14 +36,14 @@
       "kind": "Hotel",
       "url": "https://www.hotellongmont.com/",
       "source": "https://www.hotellongmont.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Super 8 by Wyndham Longmont/Twin Peaks",
       "kind": "Hotel",
       "url": "https://www.wyndhamhotels.com/super-8/longmont-colorado/super-8-longmont-twin-peaks/overview",
       "source": "https://www.wyndhamhotels.com/super-8/longmont-colorado/super-8-longmont-twin-peaks/overview",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -107,7 +107,7 @@
         "hours": "Daily 10 am–6 pm in spring and summer; may close for private events or maintenance",
         "season": "Spring and summer; closed in late fall and winter. Docent-led tours April through October",
         "source": "https://www.stvrainhistory.org/our-properties/old-mill-park/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Historic Hoverhome",
@@ -115,7 +115,7 @@
         "url": "https://www.stvrainhistory.org/our-properties/hoverhome-info/",
         "hours": "Docent-led tours during scheduled public events and private bookings; no regular open hours",
         "source": "https://www.stvrainhistory.org/our-properties/hoverhome-info/hoverhome-tours-events/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   }

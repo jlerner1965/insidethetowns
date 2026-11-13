@@ -12,5 +12,5 @@ years:
     status: confirmed
     date: 2026-12-04
     place: "Main Street, Delta, 9th to 2nd St."
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

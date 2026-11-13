@@ -16,13 +16,15 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { HUB_TOWNS } from '../src/config/hub-towns.ts';
+import { dayKey } from '../src/lib/dates.ts';
 import { dwrStationUrl, parseDwrStation, parseSnotel, parseUsgsLatest, snotelUrl, usgsLatestUrl, type FlowData, type FlowReading, type SnowData } from '../src/lib/town-signals.ts';
 
 const FLOW = 'data/hub/river-flow.json';
 const SNOW = 'data/hub/snowpack.json';
 const write = process.argv.includes('--write');
 const now = new Date();
-const today = now.toISOString().slice(0, 10);
+// The day as Colorado has it (dayKey): a run in the evening, already tomorrow in UTC, stamped every read a day ahead (audit, 13 November 2026).
+const today = dayKey(now);
 const headers = { 'user-agent': 'insidethetowns.com town pages (daily reader)', accept: 'application/json' };
 
 async function json(url: string): Promise<unknown | undefined> {
@@ -69,7 +71,7 @@ else console.log(`river-flow: nothing read; ${existsSync(FLOW) ? `keeping ${FLOW
 // Snowpack: all the stations in one request, the last week of daily values.
 const stations = HUB_TOWNS.flatMap((t) => (t.signature?.kind === 'snowpack' ? [{ town: t.slug, ...t.signature.station }] : []));
 if (stations.length > 0) {
-  const begin = new Date(now.getTime() - 7 * 86_400_000).toISOString().slice(0, 10);
+  const begin = dayKey(new Date(now.getTime() - 7 * 86_400_000));
   const body = await json(snotelUrl(stations.map((s) => s.triplet), begin, today));
   const parsed = body === undefined ? [] : parseSnotel(body);
   const old = read<SnowData>(SNOW);

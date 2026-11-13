@@ -6,39 +6,39 @@
       "kind": "Bed and breakfast",
       "url": "https://redrosebudbnb.com/",
       "source": "https://redrosebudbnb.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
     "nameOrigin": {
       "text": "The Fremont County Heritage Commission's tour guide calls Minnie Florence McCandless, daughter of Senator James A. McCandless, the namesake of the town.",
       "source": "https://fremontheritage.com/wp-content/uploads/2023/04/120579_Florence.pdf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "founded": {
       "year": 1872,
       "text": "Platted by James McCandless in 1872",
       "source": "https://fremontheritage.com/wp-content/uploads/2023/04/120579_Florence.pdf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
         "year": 1872,
         "text": "James McCandless platted Florence; an adobe on Main Street held the first post office, with McCandless as postmaster.",
         "source": "https://fremontheritage.com/wp-content/uploads/2023/04/120579_Florence.pdf",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1880,
         "text": "Edwin Lobach organized a company that drilled an oil well, which began the Florence oil boom.",
         "source": "https://fremontheritage.com/wp-content/uploads/2023/04/120579_Florence.pdf",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1894,
         "text": "The Phantom Canyon Road became the right of way for the Florence & Cripple Creek Railroad.",
         "source": "https://fremontheritage.com/wp-content/uploads/2023/04/120579_Florence.pdf",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1964,
@@ -67,7 +67,7 @@
         "kind": "landmark",
         "url": "https://www.historicrialtotheater.org/",
         "source": "https://www.historicrialtotheater.org/rialto-history/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -75,7 +75,7 @@
     "incorporated": {
       "year": 1887,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

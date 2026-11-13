@@ -8,8 +8,11 @@
  * am", "9:00" and "Evening" are not certain, and the entry is the day. A
  * timed entry has no end: no record carries a duration and none is
  * invented. A date that runs several days is all-day across them.
- * Nothing for a row with no date set, a canceled one, or one that has
- * passed.
+ * Nothing for a row with no date set or one that has passed. A canceled
+ * one is nothing too, except in a subscription feed (`cancellations`),
+ * where a date that had been set and is still ahead goes as
+ * STATUS:CANCELLED, so a subscriber's calendar drops it rather than
+ * keeping a date that is not happening (audit, 13 November 2026).
  */
 import { parseLocal } from './dates.ts';
 import type { IcsEvent } from './ics.ts';
@@ -27,14 +30,22 @@ export function certainTime(text: string | undefined): string | undefined {
   return `${String(h24).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
 }
 
-/** The entry for a row with a date still ahead; undefined otherwise. */
-export function traditionCalendarEvent(row: TraditionRow, { domain, pageUrl }: { domain: string; pageUrl: string }): IcsEvent | undefined {
+/** The entry for a row with a date still ahead; undefined otherwise. With `cancellations`, a canceled date still ahead too, marked so. */
+export function traditionCalendarEvent(
+  row: TraditionRow,
+  { domain, pageUrl, cancellations = false, today }: { domain: string; pageUrl: string; cancellations?: boolean; today?: string },
+): IcsEvent | undefined {
   const { record, entry } = row;
-  if (row.past || !entry.date || (entry.status !== 'confirmed' && entry.status !== 'moved')) return undefined;
+  const cancelled = entry.status === 'canceled';
+  if (cancelled) {
+    if (!cancellations || !entry.date || (today !== undefined && (entry.endDate ?? entry.date) < today)) return undefined;
+  } else if (row.past || !entry.date || (entry.status !== 'confirmed' && entry.status !== 'moved')) return undefined;
   const span = !!entry.endDate && entry.endDate !== entry.date;
   const time = span ? undefined : certainTime(entry.startTime);
+  const date = entry.date!;
   const where = [entry.place, record.town ? `${record.town.name}, CO` : undefined].filter(Boolean).join(', ');
   const description = [
+    cancelled ? `Canceled: ${record.organizer}'s page says this date is called off.` : undefined,
     time ? undefined : entry.startTime ? `Time, as published: ${entry.startTime}` : undefined,
     entry.cost ? `Cost: ${entry.cost}` : undefined,
     entry.note ? `${record.organizer}: “${entry.note}”` : undefined,
@@ -46,10 +57,11 @@ export function traditionCalendarEvent(row: TraditionRow, { domain, pageUrl }: {
   return {
     uid: `${record.slug}-${entry.year}@${domain}`,
     title: record.town ? `${record.name}, ${record.town.name}` : record.name,
-    start: parseLocal(time ? `${entry.date}T${time}` : entry.date),
+    start: parseLocal(time ? `${date}T${time}` : date),
     ...(time ? {} : { allDay: true, ...(span ? { end: parseLocal(entry.endDate!) } : {}) }),
     ...(where ? { location: where } : {}),
     description,
     url: row.source,
+    ...(cancelled ? { cancelled: true } : {}),
   };
 }

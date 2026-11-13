@@ -4,7 +4,7 @@
     "incorporated": {
       "year": 1917,
       "source": "https://estespark.colorado.gov/developmentcode",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   },
   "transit": [
@@ -13,7 +13,7 @@
       "detail": "Estes Park Visitor Center to the park's Park & Ride on Bear Lake Road. In 2026: daily May 22–Sept. 7, weekends Sept. 12–Oct. 18. Reserve on Recreation.gov, $2 per reservation.",
       "url": "https://www.nps.gov/romo/planyourvisit/shuttle-buses-and-public-transit.htm",
       "source": "https://www.nps.gov/romo/planyourvisit/shuttle-buses-and-public-transit.htm",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "lodging": [
@@ -58,20 +58,20 @@
     "nameOrigin": {
       "text": "The town is named for Joel Estes, the valley's first settler of European descent. William N. Byers of the Rocky Mountain News visited in August 1864 and was the first to call the valley Estes Park in print.",
       "source": "https://www.historycolorado.org/sites/default/files/media/document/2020/SR_Larimer%20County_Stanley%20House_web.pdf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "founded": {
       "year": 1859,
       "text": "Joel Estes found the valley in the fall of 1859 and started a ranch.",
       "source": "https://www.historycolorado.org/sites/default/files/media/document/2020/SR_Larimer%20County_Stanley%20House_web.pdf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
         "year": 1859,
         "text": "Joel Estes found the valley in the fall of 1859 and started a ranch.",
         "source": "https://www.historycolorado.org/sites/default/files/media/document/2020/SR_Larimer%20County_Stanley%20House_web.pdf",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1873,
@@ -95,7 +95,7 @@
         "year": 1917,
         "text": "The Town of Estes Park was incorporated on April 17.",
         "source": "https://estespark.colorado.gov/developmentcode",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "sites": [

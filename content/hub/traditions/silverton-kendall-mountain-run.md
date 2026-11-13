@@ -14,5 +14,5 @@ years:
     date: 2027-07-18
     startTime: "7:00 am"
     place: "13th Street and Greene Street, Silverton"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

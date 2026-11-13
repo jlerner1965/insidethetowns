@@ -20,5 +20,5 @@ years:
         date: 2027-08-14
       - name: "Sunday, 10 am to 4 pm"
         date: 2027-08-15
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

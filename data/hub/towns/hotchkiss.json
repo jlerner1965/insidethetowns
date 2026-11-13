@@ -4,20 +4,20 @@
     "nameOrigin": {
       "text": "The town is named for Enos Throop Hotchkiss, the Colorado pioneer who founded it.",
       "source": "https://www.historycolorado.org/location/hotchkiss-homestead",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "founded": {
       "year": 1885,
       "text": "Founded by Enos T. Hotchkiss",
       "source": "https://www.historycolorado.org/location/hotchkiss-hotel",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
         "year": 1897,
         "text": "The two-story red brick Hotchkiss Hotel was completed as the community's first major commercial building.",
         "source": "https://www.historycolorado.org/location/hotchkiss-hotel",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1975,
@@ -52,7 +52,7 @@
         "kind": "landmark",
         "url": "https://www.historycolorado.org/location/hotchkiss-hotel",
         "source": "https://www.historycolorado.org/location/hotchkiss-hotel",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "makers": [
@@ -69,7 +69,7 @@
     "incorporated": {
       "year": 1901,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

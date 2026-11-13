@@ -6,40 +6,40 @@
       "kind": "Bed and breakfast",
       "url": "https://brosshotel.com/",
       "source": "https://brosshotel.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Redwood Arms Motel & RV Campground",
       "kind": "Motel and RV campground",
       "url": "https://www.redwoodarmsmotel.com/",
       "source": "https://www.redwoodarmsmotel.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
     "nameOrigin": {
       "text": "Paonia is named for the peony; by local legend settler Samuel Wade wanted the flower's Greek spelling, Paeonia, and the town was incorporated as Paonia.",
       "source": "https://deltacountycolorado.com/stay/towns/paonia/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
         "year": 1902,
         "text": "The town was incorporated under the name Paonia.",
         "source": "https://deltacountycolorado.com/stay/towns/paonia/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1906,
         "text": "William T. Bross built the Bross Hotel, making about 100,000 bricks on site from clay dug for the cellar.",
         "source": "https://www.historycolorado.org/location/bross-hotel",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1928,
         "text": "The Paradise Theatre was built at 215 Grand Avenue and held its grand opening on October 5.",
         "source": "https://paradiseofpaonia.com/about-the-paradise/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1947,
@@ -51,7 +51,7 @@
         "year": 2015,
         "text": "The Bross Hotel was listed on the National Register of Historic Places on November 16.",
         "source": "https://www.historycolorado.org/location/bross-hotel",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "sites": [
@@ -60,14 +60,14 @@
         "kind": "landmark",
         "url": "https://paradiseofpaonia.com/",
         "source": "https://paradiseofpaonia.com/about-the-paradise/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Bross Hotel",
         "kind": "landmark",
         "url": "https://brosshotel.com/",
         "source": "https://www.historycolorado.org/location/bross-hotel",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -75,7 +75,7 @@
     "incorporated": {
       "year": 1902,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

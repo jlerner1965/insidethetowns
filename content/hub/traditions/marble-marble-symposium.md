@@ -22,5 +22,5 @@ years:
       - name: "Third session (July 29-Aug 5)"
         date: 2027-07-29
     note: "Three 8-day sessions are offered each year, always on the same dates; registration is open for the 2027 symposium"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

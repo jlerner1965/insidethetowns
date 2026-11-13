@@ -10,7 +10,7 @@ sourceUrl: "https://eagleoutside.com/kids-july-4th-bike-parade/"
 years:
   - year: 2027
     status: not-announced
-    checked: 2026-11-13
+    checked: 2026-11-12
   - year: 2026
     status: confirmed
     date: 2026-07-04
@@ -20,5 +20,5 @@ years:
       - name: "Lineup"
         date: 2026-07-04
         time: "9:30 AM"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

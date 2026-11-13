@@ -10,7 +10,7 @@ sourceUrl: "https://www.glenwoodspringsdda.com/market-on-7th/"
 years:
   - year: 2027
     status: not-announced
-    checked: 2026-11-13
+    checked: 2026-11-12
   - year: 2026
     status: confirmed
     date: 2026-06-23
@@ -18,5 +18,5 @@ years:
     startTime: "4 pm"
     place: "7th Street between Colorado and Cooper"
     note: "Tuesdays, 4-8 pm"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

@@ -14,85 +14,85 @@ reverify:
 sources:
   - label: "Sundance Film Festival: tickets and dates"
     url: "https://festival.sundance.org/tickets/in-person"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Sundance Film Festival: key dates"
     url: "https://festival.sundance.org/how-to-fest/welcome"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Sundance Film Festival: venues"
     url: "https://festival.sundance.org/venues/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Sundance Film Festival: attending in person (buses, parking, lodging)"
     url: "https://festival.sundance.org/how-to-fest/attend-in-person"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: service for the Sundance Film Festival"
     url: "https://www.rtd-denver.com/sundance"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: fares"
     url: "https://www.rtd-denver.com/fares-passes/fares"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: parking at Park-n-Rides"
     url: "https://www.rtd-denver.com/how-to-ride/parking"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: proposed January 2027 service changes"
     url: "https://www.rtd-denver.com/service-changes/proposed-january-27-service-changes"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: schedule data (GTFS), in force September 27, 2026 to January 2, 2027"
     url: "https://www.rtd-denver.com/open-records/open-spatial-information/gtfs"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: BOLT schedule"
     url: "https://app.rtd-denver.com/route/BOLT/schedule"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: Downtown Boulder Station"
     url: "https://app.rtd-denver.com/facilities/downtown-boulder-station"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: 8th and Coffman Park-n-Ride, Longmont"
     url: "https://app.rtd-denver.com/facilities/8th-coffman"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: Lafayette Park-n-Ride"
     url: "https://app.rtd-denver.com/facilities/lafayette"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: Nederland Park-n-Ride"
     url: "https://app.rtd-denver.com/facilities/nederland"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "City of Boulder: getting around during the festival"
     url: "https://bouldercolorado.gov/getting-around-boulder-sundance-film-festival"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "City of Boulder: 2027 Sundance Film Festival guide"
     url: "https://bouldercolorado.gov/guide/2027-sundance-film-festival"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Boulder County: Sundance Film Festival resources for unincorporated Boulder County"
     url: "https://bouldercounty.gov/departments/community-planning-permitting/sundance-film-festival/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Boulder County: Lyons Flyer"
     url: "https://bouldercounty.gov/transportation/multimodal/lyons-flyer/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Boulder County: Ride SouthEast"
     url: "https://bouldercounty.gov/transportation/multimodal/ride-southeast/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Boulder County: Ride Free Lafayette"
     url: "https://bouldercounty.gov/transportation/multimodal/ride-free-lafayette/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Town of Erie: transit services"
     url: "https://www.erieco.gov/2513/Transit-Services"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "City of Lafayette: 2027 Sundance Film Festival"
     url: "https://www.lafayetteco.gov/4365/2027-Sundance-Film-Festival"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "City of Longmont: bus and transit services"
     url: "https://longmontcolorado.gov/transportation/modes-of-travel/bus-transit-services/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Transfort: FLEX"
     url: "https://ridetransfort.com/routes/flex/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "CDOT: CO 119 Safety, Mobility and Bikeway project"
     url: "https://www.codot.gov/projects/co119mobility"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "CDOT: CO 7 intersection improvements in Lafayette"
     url: "https://www.codot.gov/projects/co7intersectionlafayette"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "CDOT: travel and road conditions"
     url: "https://www.codot.gov/travel"
-    checked: 2026-11-13
+    checked: 2026-11-12
 needs:
   - "Drive times are left out. The brief allows them only from the festival, the City of Boulder, RTD or CDOT, and none of them publishes one for any of the six towns. The article gives scheduled bus times instead."
   - "Every RTD time in the article is from the schedule in force to January 2, 2027. RTD's next schedule starts January 3 and only its proposed changes are published (none touches BOLT, JUMP, DASH, 225 or NB). Read each time again when the final January schedule is out."

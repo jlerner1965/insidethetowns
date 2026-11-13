@@ -5,7 +5,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
-import { buildIcs, escapeText, googleCalendarUrl } from '../src/lib/ics.ts';
+import { GOOGLE_PLACEHOLDER_NOTE, NO_END_NOTE, buildIcs, escapeText, googleCalendarUrl } from '../src/lib/ics.ts';
 import { exportWhen } from '../src/lib/events.ts';
 import { eventJsonLd } from '../src/lib/seo.ts';
 
@@ -34,9 +34,23 @@ test('a timed event is sent to Google in Denver wall-clock time', () => {
   assert.equal(url.searchParams.get('details'), 'https://insideberthoud.com/events/art-in-the-park/');
 });
 
-test('an event with no end goes to Google with none, not a guessed hour', () => {
-  const url = new URL(googleCalendarUrl({ title: 'Talk', start: at('2026-11-05T18:30') }));
-  assert.equal(url.searchParams.get('dates'), '20261105T183000/20261105T183000');
+test('an event with no end goes to Google with an hour that says it is a placeholder (audit, 13 November 2026)', () => {
+  // Identical start and end made an entry of no length; the hour is labeled as a placeholder, never as the organizer's.
+  const url = new URL(googleCalendarUrl({ title: 'Talk', start: at('2026-11-05T18:30'), description: 'At the library.' }));
+  assert.equal(url.searchParams.get('dates'), '20261105T183000/20261105T193000');
+  assert.equal(url.searchParams.get('details')!.split('\n')[0], GOOGLE_PLACEHOLDER_NOTE);
+  // A published end is used as it is, with no note.
+  const ended = new URL(googleCalendarUrl({ title: 'Talk', start: at('2026-11-05T18:30'), end: at('2026-11-05T20:00') }));
+  assert.equal(ended.searchParams.get('dates'), '20261105T183000/20261105T200000');
+  assert.equal(ended.searchParams.get('details'), null);
+});
+
+test('a timed .ics entry with no end has no DTEND, and its description says the end is not published', () => {
+  const ics = buildIcs([{ uid: 'talk@x', title: 'Talk', start: at('2026-11-05T18:30'), description: 'At the library.' }], { name: 'x', domain: 'x' });
+  assert.doesNotMatch(ics, /^DTEND/m);
+  assert.ok(ics.includes(`DESCRIPTION:${NO_END_NOTE}\\nAt the library.`), 'the note, then the description');
+  const allDay = buildIcs([{ uid: 'fair@x', title: 'Fair', start: at('2026-10-03'), allDay: true }], { name: 'x', domain: 'x' });
+  assert.doesNotMatch(allDay, /not published an end/, 'an all-day entry needs no note');
 });
 
 test('an all-day event uses dates, with the exclusive end Google expects', () => {
@@ -94,7 +108,7 @@ test('a two-night show exports each night on its own, at its own start, with no 
     const { ics, google, ld } = nights[i]!;
     assert.match(ics, new RegExp(`^DTSTART;TZID=America/Denver:${day}T193000\r$`, 'm'));
     assert.doesNotMatch(ics, /^DTEND/m, 'no end in the .ics');
-    assert.equal(google, `${day}T193000/${day}T193000`, 'no made-up end in the Google link');
+    assert.equal(google, `${day}T193000/${day}T203000`, 'the Google link takes an hour as a placeholder, and says so');
     assert.equal(ld.startDate, `${day.slice(0, 4)}-${day.slice(4, 6)}-${day.slice(6)}T19:30:00-06:00`);
     assert.equal(ld.endDate, undefined, 'no end in the structured data');
   }

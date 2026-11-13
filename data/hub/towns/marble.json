@@ -13,27 +13,27 @@
       "kind": "Cabins",
       "url": "https://www.marblehideaway.com",
       "source": "https://www.marblehideaway.com",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Marble Campground",
       "kind": "Campground",
       "url": "https://www.marblecampground.com/",
       "source": "https://www.marblecampground.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
     "nameOrigin": {
       "text": "The marble beds on Yule Creek were named Yule Marble in 1874; the neighboring settlements of Clarence and Marble agreed in 1890 to join as one town called Marble.",
       "source": "https://marblehistory.org/marble-timeline/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "founded": {
       "year": 1881,
       "text": "The town of Clarence was founded east of Carbonate Creek; it joined the neighboring Town of Marble in 1890",
       "source": "https://marblehistory.org/marble-timeline/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
@@ -78,14 +78,14 @@
         "url": "https://marblehistory.org/marble-history/",
         "hours": "Public access to the ruins of the finishing mill",
         "source": "https://marblehistory.org/marble-history/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Marble City State Bank Building (The Marble Hub)",
         "kind": "landmark",
         "url": "https://marblehistory.org/projects/marble-city-state-bank-building/",
         "source": "https://marblehistory.org/projects/marble-city-state-bank-building/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   }

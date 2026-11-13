@@ -11,19 +11,19 @@ date: 2026-11-13
 sources:
   - label: "Forest Service: Boulder Ranger District history"
     url: "https://www.fs.usda.gov/r02/arp/recreation/discover-history"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Forest Service: current road and campground conditions"
     url: "https://www.fs.usda.gov/r02/arp/conditions"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Boulder County: Road Map, the official record of county roads"
     url: "https://bouldercounty.gov/transportation/maps/roadmap/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Forest Service: Motor Vehicle Use Maps"
     url: "https://www.fs.usda.gov/r02/arp/maps-guides/motor-vehicle-use-maps-mvum"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "History Colorado: Eldora Historic District"
     url: "https://www.historycolorado.org/location/eldora-historic-district"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ghostTowns:
   - name: "Caribou Ranch: the Blue Bird Mine"
     url: "https://bouldercounty.gov/open-space/parks-and-trails/caribou-ranch/"
@@ -31,32 +31,32 @@ ghostTowns:
     road:
       value: "The trailhead is on County Road 126, two miles north of Nederland. The county's road record lists County Road 126 as gravel."
       source: "https://bouldercounty.gov/transportation/maps/roadmap/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     season:
       value: "Closed every year from April 1 through June 30 to protect migratory birds and elk calving, and open from July 1. Day use only, sunrise to sunset. The county's page gives the closure as annual, with no year."
       source: "https://bouldercounty.gov/open-space/parks-and-trails/caribou-ranch/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     standing:
       value: "At the Blue Bird Mine: a bunkhouse, the remains of a log building, the mining company house, chicken coops, a smoke house, a mill foundation, mine shafts and ore-cart tracks. The DeLonde Homestead also stands."
       source: "https://bouldercounty.gov/open-space/parks-and-trails/caribou-ranch/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     ownership:
       value: "Boulder County Parks and Open Space, 2,151 acres, open to the public on foot or horseback outside the spring closure. No pets and no bikes. Parts of the property are marked critical wildlife habitat with no public access."
       source: "https://bouldercounty.gov/open-space/parks-and-trails/caribou-ranch/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     more:
       - label: "The walk"
         value: "Two trails: the DeLonde Trail, 1.2 miles and rated easy, and the Blue Bird Loop, 1.8 miles and rated moderate."
         source: "https://bouldercounty.gov/open-space/parks-and-trails/caribou-ranch/"
-        checked: 2026-11-13
+        checked: 2026-11-12
       - label: "Parking"
         value: "25 car spaces and a restroom at the trailhead. When the lot is full, parking is allowed on the south side of County Road 126."
         source: "https://bouldercounty.gov/open-space/parks-and-trails/caribou-ranch/"
-        checked: 2026-11-13
+        checked: 2026-11-12
     skip:
       value: "you have a dog or a bike with you, or it is April, May or June: the county allows neither, and the whole property is closed those three months."
       source: "https://bouldercounty.gov/open-space/parks-and-trails/caribou-ranch/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     flags:
       - field: clearance
         note: "No official page states a vehicle type for County Road 126. The county classes it 'Local', not 'Jeep'. Left empty."
@@ -74,27 +74,27 @@ ghostTowns:
     road:
       value: "From Nederland, Colorado 72 west for half a mile from the traffic circle, then County Road 128 for five miles to Five Points, a five-way junction with gated roads and a loose parking area. The county's road record lists Caribou Road as gravel."
       source: "https://www.fs.usda.gov/r02/arp/recreation/caribou-dispersed-camping-area"
-      checked: 2026-11-13
+      checked: 2026-11-12
     clearance:
       value: "Beyond Five Points, on Forest Road 505, the Forest Service recommends a four-wheel-drive, high-clearance vehicle."
       source: "https://www.fs.usda.gov/r02/arp/recreation/caribou-dispersed-camping-area"
-      checked: 2026-11-13
+      checked: 2026-11-12
     season:
       value: "Forest Road 505 is open to motor vehicles from June 15 to November 30 on the 2026 Motor Vehicle Use Map. A Forest Service order also closes 1.38 miles of it at the Eldora end until April 23, 2027; that is not the approach from Nederland."
       source: "https://www.fs.usda.gov/r02/arp/alerts/caribou-road-closure-order"
-      checked: 2026-11-13
+      checked: 2026-11-12
     standing:
       value: "The shells of two stone buildings and crumbling mine structures scattered through the area. The streets and houses are gone. One mine there is still active."
       source: "https://www.fs.usda.gov/r02/arp/recreation/discover-history"
-      checked: 2026-11-13
+      checked: 2026-11-12
     ownership:
       value: "National forest with, in the Forest Service's words, a significant amount of private property inside it: do not trespass, and stay on the marked routes."
       source: "https://www.fs.usda.gov/r02/arp/recreation/caribou-dispersed-camping-area"
-      checked: 2026-11-13
+      checked: 2026-11-12
     skip:
       value: "you are expecting a standing town: the Forest Service says little remains of it."
       source: "https://www.fs.usda.gov/r02/arp/recreation/discover-history"
-      checked: 2026-11-13
+      checked: 2026-11-12
     flags:
       - field: ownership
         note: "Who owns the two stone ruins, and whether a visitor may walk up to them, is on no official page. The draft gives only the Forest Service's general warning. This is the field where a wrong answer sends a reader trespassing; settle it with the Boulder Ranger District before publishing."
@@ -110,28 +110,28 @@ ghostTowns:
     road:
       value: "From Nederland, Colorado 119 south 0.6 miles, then County Road 130, paved, to the far end of Eldora. From the end of the pavement it is 0.75 miles of unpaved road to a fork; the left fork goes to the trailhead."
       source: "https://www.fs.usda.gov/r02/arp/recreation/hessie-trailhead"
-      checked: 2026-11-13
+      checked: 2026-11-12
     season:
       value: "No gate, but no winter maintenance past Eldora: plows pile snow at the end of the pavement and the road is not passable in winter. Boulder County typically plows it open before Memorial Day weekend. In winter the way in is on foot from Eldora."
       source: "https://www.fs.usda.gov/r02/arp/recreation/trails/arapaho-pass-trail-0"
-      checked: 2026-11-13
+      checked: 2026-11-12
     standing:
       value: "The Hessie Cabin, a log cabin built in 1874, rebuilt by the Forest Service and HistoriCorps in a project that wrapped up in August 2022."
       source: "https://www.fs.usda.gov/r02/arp/newsroom/stories/hessie-cabin-dynamite-mines-and-trapdoors"
-      checked: 2026-11-13
+      checked: 2026-11-12
     ownership:
       value: "The trailhead is run by the U.S. Forest Service and is open to the public. Boulder County provides the road and the shuttle. There is private property along the road: do not trespass."
       source: "https://bouldercounty.gov/open-space/parks-and-trails/hessie-trailhead/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     more:
       - label: "Shuttle"
         value: "The free Hessie Shuttle from Nederland has ended for 2026 and resumes Memorial Day weekend 2027. In season it runs Fridays, Saturdays and Sundays, 6 a.m. to 6 p.m., every 15 minutes."
         source: "https://bouldercounty.gov/open-space/parks-and-trails/hessie-trailhead/"
-        checked: 2026-11-13
+        checked: 2026-11-12
       - label: "Parking"
         value: "On Fourth of July Road only between the signs. Violators are fined $50 or towed. No restrooms at the trailhead."
         source: "https://bouldercounty.gov/open-space/parks-and-trails/hessie-trailhead/"
-        checked: 2026-11-13
+        checked: 2026-11-12
     flags:
       - field: clearance
         note: "No official page says what vehicle the 0.75 miles of unpaved road to Hessie takes. The Forest Service calls the road beyond, to the Fourth of July Trailhead, 'rough but passable in a passenger car during the summer months'. The often-repeated claim that the Hessie spur needs four-wheel drive is on no official page; left empty."
@@ -143,20 +143,20 @@ ghostTowns:
     road:
       value: "National Forest System Road 327, an old railroad grade, described by the Forest Service between Gold Hill Road (County Road 52) and Colorado 72. It meets Gold Hill Road 2.5 miles west of Gold Hill. The county's road record lists it as gravel."
       source: "https://www.fs.usda.gov/r02/arp/recreation/switzerland-nfs-road-327"
-      checked: 2026-11-13
+      checked: 2026-11-12
     clearance:
       value: "Boulder County classes its part of the grade as a Jeep road: not maintained for passenger cars, with four-wheel drive or high clearance recommended."
       source: "https://bouldercounty.gov/transportation/maps/roadmap/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     standing:
       value: "At the Mount Alto picnic area, beside the road: the large stone chimney of the old lodge, and a cement and stone pillar from the fountain that met rail passengers."
       source: "https://www.fs.usda.gov/r02/arp/recreation/discover-history"
-      checked: 2026-11-13
+      checked: 2026-11-12
     more:
       - label: "Not all of it"
         value: "The Forest Service says not all of the old railbed is open to motor vehicles, and that vehicles must stay on routes designated for them."
         source: "https://www.fs.usda.gov/r02/arp/recreation/switzerland-nfs-road-327"
-        checked: 2026-11-13
+        checked: 2026-11-12
     flags:
       - field: clearance
         note: "Two official sources disagree. The county's Jeep class says the road is not maintained for passenger cars. The Forest Service's history page says 'portions of the Switzerland Trail can be driven by passenger car'. The draft prints the stricter one; say which you want."
@@ -172,19 +172,19 @@ ghostTowns:
     road:
       value: "6352 Fourmile Canyon Drive, west of Boulder."
       source: "https://bouldercounty.gov/open-space/education/museums/assay-office/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     season:
       value: "Open 11 a.m. to 3 p.m. on the third Saturday of each month from May through October; the 2026 season ended October 17 and the museum is closed for the season. Dates for 2027 are not posted."
       source: "https://bouldercounty.gov/open-space/education/museums/assay-office/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     standing:
       value: "The assay office itself, with the tools of the trade and the Bailey family's furniture inside."
       source: "https://bouldercounty.gov/open-space/education/museums/assay-office/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     ownership:
       value: "Owned and run by Boulder County and open to the public on its open days. Admission is free."
       source: "https://bouldercounty.gov/open-space/education/museums/assay-office/"
-      checked: 2026-11-13
+      checked: 2026-11-12
     flags:
       - field: road
         note: "The county's road record has Fourmile Canyon Drive paved to Salina and part gravel beyond Gold Run Road; which it is at the museum's address is not stated, so no surface is printed."
@@ -198,20 +198,20 @@ ghostTowns:
     road:
       value: "National Forest System Road 149, from Gilpin County Road 16. Twelve miles are open, from County Road 16 to a closure a quarter mile east of the Needle's Eye Tunnel. No motor route crosses the Divide."
       source: "https://www.fs.usda.gov/r02/arp/conditions"
-      checked: 2026-11-13
+      checked: 2026-11-12
     season:
       value: "No winter maintenance. The Forest Service's status table, updated November 2, 2026, lists the road closed at the point a quarter mile east of the tunnel."
       source: "https://www.fs.usda.gov/r02/arp/conditions"
-      checked: 2026-11-13
+      checked: 2026-11-12
     standing:
       value: "The grade itself and the collapsed Needle's Eye Tunnel, which can be passed on foot or by bicycle."
       source: "https://www.fs.usda.gov/r02/arp/recreation/rollins-pass-trailhead-cdt-access"
-      checked: 2026-11-13
+      checked: 2026-11-12
     more:
       - label: "The trestles"
         value: "The twin trestles of the Moffat Road are visible from the upper end of the King Lake Trail."
         source: "https://www.fs.usda.gov/r02/arp/recreation/trails/king-lake-trail"
-        checked: 2026-11-13
+        checked: 2026-11-12
     flags:
       - field: clearance
         note: "The Forest Service's 'high clearance, 4WD recommended' line is for the Winter Park side of the pass. Nothing official gives a vehicle type or a surface for the east side from Tolland. Left empty."

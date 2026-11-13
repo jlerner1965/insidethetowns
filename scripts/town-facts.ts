@@ -31,12 +31,14 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { HUB_TOWNS, STANDALONE_GUIDES } from '../src/config/hub-towns.ts';
 import { DENVER, pairKey, type Airports, type RoadMiles, type TownFacts } from '../src/lib/near.ts';
+import { dayKey } from '../src/lib/dates.ts';
 
 const FACTS = 'data/hub/town-facts.json';
 const ROADS = 'data/hub/road-miles.json';
 const AIRPORTS = 'data/hub/airports.json';
 const write = process.argv.includes('--write');
-const today = new Date().toISOString().slice(0, 10);
+// The day as Colorado has it (dayKey): a run in the evening, already tomorrow in UTC, stamped every read a day ahead (audit, 13 November 2026).
+const today = dayKey(new Date());
 const headers = { 'user-agent': 'insidethetowns.com town pages (yearly facts reader)' };
 
 const GNIS_ZIP = 'https://prd-tnm.s3.amazonaws.com/StagedProducts/GeographicNames/DomesticNames/DomesticNames_CO_Text.zip';

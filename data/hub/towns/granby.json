@@ -8,7 +8,7 @@
     { "name": "The Inn at SilverCreek", "kind": "Lodge", "url": "https://www.innatsilvercreek.com/", "source": "https://www.innatsilvercreek.com/", "checked": "2026-11-12" }
   ],
   "heritage": {
-    "nameOrigin": {"text": "The town was named for Granby Hillyer, a lawyer and state legislator who laid out its streets for the Frontier Land and Investment Company.", "source": "https://stories.grandcountyhistory.org/node/1764", "checked": "2026-11-13"},
+    "nameOrigin": {"text": "The town was named for Granby Hillyer, a lawyer and state legislator who laid out its streets for the Frontier Land and Investment Company.", "source": "https://stories.grandcountyhistory.org/node/1764", "checked": "2026-11-12"},
     "founded": { "year": 1905, "text": "Founded in 1905 as a logging and railroad community", "source": "https://townofgranby.com/about", "checked": "2026-11-12" },
     "timeline": [
       { "year": 1904, "text": "David Moffat's company platted the town; the Moffat Railroad reached it in September 1905.", "source": "https://stories.grandcountyhistory.org/category/places", "checked": "2026-11-12" },
@@ -19,7 +19,7 @@
     ],
     "sites": [
       { "name": "Emily Warner Field Aviation Museum", "kind": "museum", "url": "https://grandcountyhistory.org/museums/emily-warner-field-aviation-museum/", "hours": "Friday & Saturday 11am-2pm; can open by appointment", "cost": "Free", "season": "May 29 thru August 29, 2026; closed in winter", "source": "https://grandcountyhistory.org/museums/emily-warner-field-aviation-museum/", "checked": "2026-11-12" },
-      {"name": "Moffat Road Railroad Museum", "kind": "museum", "url": "https://moffatroadrailroadmuseum.org/", "hours": "Wednesday to Sunday 10 am to 4 pm in the holiday season; closed Mondays, Tuesdays and December 25", "cost": "$10 adults (17 and older); $7 seniors and military; $4 children 3 to 16; under 3 free", "season": "Holiday season November 27, 2026 to January 3; summer from the Friday of Memorial Weekend through August; weekends in September", "source": "https://moffatroadrailroadmuseum.org/", "checked": "2026-11-13"}
+      {"name": "Moffat Road Railroad Museum", "kind": "museum", "url": "https://moffatroadrailroadmuseum.org/", "hours": "Wednesday to Sunday 10 am to 4 pm in the holiday season; closed Mondays, Tuesdays and December 25", "cost": "$10 adults (17 and older); $7 seniors and military; $4 children 3 to 16; under 3 free", "season": "Holiday season November 27, 2026 to January 3; summer from the Friday of Memorial Weekend through August; weekends in September", "source": "https://moffatroadrailroadmuseum.org/", "checked": "2026-11-12"}
     ]
   }
 }

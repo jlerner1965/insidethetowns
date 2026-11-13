@@ -4,26 +4,26 @@
     "nameOrigin": {
       "text": "Investors from Holland bought the Caribou Mill in 1873 and renamed the town Nederland, which means lowland; it sits on lower ground than Caribou.",
       "source": "https://www.nederlandareahistoricalsociety.org/timeline",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "founded": {
       "year": 1861,
       "text": "Began as a huddle of cabins called Dayton",
       "source": "https://www.nederlandareahistoricalsociety.org/timeline",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
         "year": 1861,
         "text": "The town began as a huddle of cabins called Dayton, later known as Brown's Crossing.",
         "source": "https://www.nederlandareahistoricalsociety.org/timeline",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1873,
         "text": "Investors from Holland bought the Caribou Mill and the town took the name Nederland.",
         "source": "https://www.nederlandareahistoricalsociety.org/timeline",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1986,
@@ -71,7 +71,7 @@
     "incorporated": {
       "year": 1885,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

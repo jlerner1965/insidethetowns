@@ -20,21 +20,21 @@
       "kind": "Boutique hotel",
       "url": "https://westcliffesuites.com/",
       "source": "https://westcliffesuites.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Ravens' Lodging & Extended Stays",
       "kind": "Suites and cottages",
       "url": "https://ravenslodging.com/",
       "source": "https://ravenslodging.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Dark Sky Suites",
       "kind": "Hotel-style suites",
       "url": "https://darkskysuites.com/",
       "source": "https://darkskysuites.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -42,7 +42,7 @@
       "year": 1881,
       "text": "Grew up around a Denver & Rio Grande Railroad depot built one mile west of Silver Cliff",
       "source": "https://visitwetmountainvalley.com/railroad-created-westcliffe/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
@@ -86,7 +86,7 @@
         "hours": "Saturdays 10 am to 4 pm",
         "season": "Memorial Day weekend to Labor Day weekend",
         "source": "https://www.allaboardwestcliffe.co/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   }

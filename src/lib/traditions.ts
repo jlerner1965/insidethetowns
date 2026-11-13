@@ -339,6 +339,34 @@ export function isListed(row: TraditionRow): boolean {
   return isUpcoming(row) || (!row.past && !!row.entry.typicalWindow);
 }
 
+/**
+ * Each row in exactly one of four states (the audit of 13 November 2026:
+ * a canceled parade sat under "Not announced yet", and on the guides'
+ * pages under "Date confirmed"):
+ *
+ * - `upcoming`: a date the organizer has set (confirmed or moved), still ahead;
+ * - `canceled`: called off for the year shown, whether or not a date had been set;
+ * - `past`: its date has gone (on a season page, held this season; elsewhere,
+ *   held, with the next date not announced);
+ * - `waiting`: no date yet, or only a typical window.
+ *
+ * Canceled comes first, so a canceled date is never upcoming or waiting.
+ */
+export type RowState = 'upcoming' | 'canceled' | 'past' | 'waiting';
+export function rowState(row: Pick<TraditionRow, 'entry' | 'past'>): RowState {
+  if (row.entry.status === 'canceled') return 'canceled';
+  if (isUpcoming(row as TraditionRow)) return 'upcoming';
+  if (row.past) return 'past';
+  return 'waiting';
+}
+
+/** Rows by state, each in the order given. */
+export function rowsByState<R extends Pick<TraditionRow, 'entry' | 'past'>>(rows: readonly R[]): Record<RowState, R[]> {
+  const out: Record<RowState, R[]> = { upcoming: [], canceled: [], past: [], waiting: [] };
+  for (const row of rows) out[rowState(row)].push(row);
+  return out;
+}
+
 /** Rows with a date ahead first, soonest first; then the rest A to Z by name. */
 export function byNextDate(a: TraditionRow, b: TraditionRow): number {
   const ka = isUpcoming(a) ? a.entry.date! : '9999';
@@ -378,22 +406,20 @@ export function seasonCounts(rows: readonly TraditionRow[]): { towns: number; co
 }
 
 /**
- * A guide's page in its two groups. "Date confirmed" is every row with a
- * date from the organizer, soonest first; a canceled year sits there too, at
- * its date where it had one, so the reader who planned on it finds it where
- * the date was. "Not announced yet" is the rest, A to Z.
+ * A guide's page in its groups (rowState). "Date confirmed" is every row
+ * with a date from the organizer still ahead, soonest first; "Canceled" is
+ * every year called off, never with the dates to come; "Not announced
+ * yet" is the rest, a passed date waiting with them, A to Z.
  */
-export function townGroups(records: readonly TraditionRecord[], guide: string, today: string): { dated: TraditionRow[]; waiting: TraditionRow[] } {
+export function townGroups(records: readonly TraditionRecord[], guide: string, today: string): { dated: TraditionRow[]; canceled: TraditionRow[]; waiting: TraditionRow[] } {
   const rows = records
     .filter((r) => r.town?.guide === guide)
     .map((r) => toRow(r, today))
     .filter((row): row is TraditionRow => !!row);
-  // A date that has passed is no longer "confirmed": it waits with the rest.
-  const dated = rows
-    .filter((r) => r.entry.status !== 'not-announced' && !r.past)
-    .sort((a, b) => (a.entry.date ?? '9999').localeCompare(b.entry.date ?? '9999') || a.record.name.localeCompare(b.record.name));
-  const waiting = rows.filter((r) => r.entry.status === 'not-announced' || r.past).sort((a, b) => a.record.name.localeCompare(b.record.name));
-  return { dated, waiting };
+  const by = rowsByState(rows);
+  const az = (a: TraditionRow, b: TraditionRow) => a.record.name.localeCompare(b.record.name);
+  const dated = by.upcoming.sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || az(a, b));
+  return { dated, canceled: by.canceled.sort(az), waiting: [...by.waiting, ...by.past].sort(az) };
 }
 
 /** Days from one "YYYY-MM-DD" to another, by the calendar. */

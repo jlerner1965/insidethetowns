@@ -13,7 +13,7 @@
       "detail": "Reservation-based, curb-to-curb rides run by NECALG. Call the Morgan County dispatcher at least 24 hours ahead for a local ride. Local general public fare is $3.00.",
       "url": "https://www.necalg.org/county-express",
       "source": "https://www.necalg.org/county-express",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "lodging": [
@@ -54,7 +54,7 @@
         "year": 1911,
         "text": "The Knearl School was built; it mainly offered grades one through three.",
         "source": "https://www.historycolorado.org/location/knearl-school",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1978,
@@ -76,14 +76,14 @@
         "kind": "landmark",
         "url": "https://www.historycolorado.org/location/knearl-block-and-opera-housedesky-hotel",
         "source": "https://www.historycolorado.org/location/knearl-block-and-opera-housedesky-hotel",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Emerson Theatre / Sands Theatre",
         "kind": "landmark",
         "url": "https://www.historycolorado.org/location/emerson-theatre-sands-theatre",
         "source": "https://www.historycolorado.org/location/emerson-theatre-sands-theatre",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   }

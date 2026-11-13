@@ -14,14 +14,14 @@
       "url": "https://www.lavetapines.com/",
       "season": "Seasonal; the 2026 season ended October 8",
       "source": "https://www.lavetapines.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
     "nameOrigin": {
       "text": "The settlement at Francisco Plaza took the new name La Veta when the Denver and Rio Grande Railroad arrived in 1876.",
       "source": "https://www.historycolorado.org/location/francisco-plaza",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "founded": {
       "year": 1862,
@@ -34,19 +34,19 @@
         "year": 1862,
         "text": "John M. Francisco built the adobe buildings of Francisco Plaza around an open courtyard.",
         "source": "https://www.historycolorado.org/location/francisco-plaza",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1876,
         "text": "The Denver and Rio Grande Railroad arrived at Francisco Plaza, starting a period of growth.",
         "source": "https://www.historycolorado.org/location/francisco-plaza",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1986,
         "text": "Francisco Plaza was listed in the National Register of Historic Places on October 23.",
         "source": "https://www.historycolorado.org/location/francisco-plaza",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "sites": [
@@ -66,7 +66,7 @@
     "incorporated": {
       "year": 1886,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }
