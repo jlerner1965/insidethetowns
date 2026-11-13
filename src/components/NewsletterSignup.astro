@@ -68,8 +68,15 @@ interface Props {
    * the short words: "Your Thursday local.", one line, the field, the
    * button and "Free. Unsubscribe anytime." with the word privacy linked;
    * the privacy paragraph is the privacy page's.
+   *
+   * `hub` (the hub home's redesign, 13 November 2026): the field and "Sign
+   * up" alone, subscribing to every town (the all-towns tag, ticked and
+   * not shown), in the home page's own type and colours
+   * (src/styles/hub-home.css); the page sets the heading beside it, and its
+   * line about the towns goes in the slot. The full town picker stays on
+   * /newsletter/.
    */
-  variant?: 'card' | 'home';
+  variant?: 'card' | 'home' | 'hub';
   anchor?: string;
   /**
    * The form alone: no heading, no opening line and no card around it, for
@@ -94,6 +101,9 @@ const others = mine ? editions.filter((e) => e !== mine) : editions;
 const covers = (e: (typeof editions)[number]) => e.towns.map((t) => t.slug).join(' ');
 const day = config?.sendDay ?? 'Thursday';
 const card = variant === 'card' || variant === 'home';
+const hubHome = variant === 'hub' && !town;
+// Every town, as the all-towns tag, or each edition's own tag where the account has no such tag.
+const allTags = config?.allTag ? [config.allTag] : editions.map((e) => e.towns[0]!.slug);
 const home = variant === 'home';
 const sendTime = config?.sendTime;
 const emailField = config?.emailField ?? 'email';
@@ -174,7 +184,29 @@ const box = 'size-5 shrink-0 rounded border-line';
     the right, on one row (a container query, so This week, Events and
     Families, whose columns differ, each get the row only where it fits). */}
 {/* The updates form is the short one only: the fuller layouts list a weekly edition's towns. */}
-{config && (!town || mine || (updatesOnly && home)) && (
+{config && hubHome && (
+  <section id={anchor} data-signup-section data-pagefind-ignore class:list={[className, 'hh-signup-form']}>
+    <form action={config.action} method="POST" target="_blank" data-signup data-hub="" data-inline={inline ? '' : undefined} data-send-day={day}>
+      {allTags.map((tag) => <input type="checkbox" name={tagField} value={tag} checked hidden />)}
+      <label for={inputId} class="hh-label hh-field-label">Your email</label>
+      <div class="hh-fieldrow">
+        <input id={inputId} type="email" name={emailField} required autocomplete="email" placeholder="you@example.com" aria-describedby={emailErrorId} class="hh-field" />
+        <button type="submit" data-signup-button class="hh-btn">Sign up</button>
+      </div>
+      <p id={emailErrorId} data-email-error hidden aria-live="polite" class="hh-meta hh-signup-error">{SIGNUP_MESSAGES.invalid}</p>
+      <slot />
+    </form>
+    <div data-signup-done hidden tabindex="-1" class="hh-signup-done">
+      <p class="hh-signup-done-title" data-signup-title>{SIGNUP_MESSAGES.opened}</p>
+      <p class="hh-meta" data-signup-help>{SIGNUP_MESSAGES.openedHelp}</p>
+      <p class="hh-signup-done-actions">
+        <button type="button" class="hh-textbutton" data-signup-reopen>{SIGNUP_MESSAGES.reopen}</button>
+        <button type="button" class="hh-textbutton" data-signup-edit>Change your details</button>
+      </p>
+    </div>
+  </section>
+)}
+{config && !hubHome && (!town || mine || (updatesOnly && home)) && (
   <section id={anchor} data-signup-section data-pagefind-ignore class:list={bare ? [className, 'scroll-mt-6'] : [className, home ? '@container rounded-lg px-4 py-4 sm:px-6 sm:py-5' : 'max-w-3xl rounded-lg p-6 md:p-8', 'scroll-mt-6', dark ? 'on-dark bg-primary text-white' : ['bg-raised ring-1', compact ? 'ring-line-soft' : 'ring-primary-line']]}>
     {/*
       A new tab keeps the reader on the page they were reading, and the

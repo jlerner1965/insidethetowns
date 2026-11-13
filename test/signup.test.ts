@@ -127,7 +127,12 @@ test('each panel says only what Buttondown’s answer supports', () => {
 
 test('on a guide the address comes before the towns; on the hub the towns come first', () => {
   const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
-  const email = component.indexOf('type="email"');
+  // The hub home's short form (variant="hub") has no towns to pick: it
+  // posts the all-towns tag, ticked and unseen. The other forms follow it.
+  const full = component.indexOf('{config && !hubHome');
+  assert.ok(full > 0);
+  assert.match(component.slice(0, full), /allTags\.map\(\(tag\) => <input type="checkbox" name=\{tagField\} value=\{tag\} checked hidden \/>\)/);
+  const email = component.indexOf('type="email"', full);
   // The home page's card has no towns to pick (variant="card"); every other guide's form does.
   const townFieldset = component.indexOf('{town && !card && (\n        <fieldset');
   const hubFieldset = component.indexOf('{!town && (\n        <fieldset');
@@ -140,8 +145,9 @@ test('the form carries no attribute the freshness script prunes by', () => {
   // marked data-day="Thursday" vanished from /this-week/ on load (caught in
   // the browser before it shipped, 25 October 2026).
   const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
-  const form = component.match(/<form[^>]*data-signup[^>]*>/)![0];
-  for (const attr of ['data-day=', 'data-day-link', 'data-end=', 'data-event-day', 'data-hide-when-empty']) assert.ok(!form.includes(attr), attr);
+  const forms = [...component.matchAll(/<form[^>]*data-signup[^>]*>/g)].map((m) => m[0]);
+  assert.ok(forms.length >= 2);
+  for (const form of forms) for (const attr of ['data-day=', 'data-day-link', 'data-end=', 'data-event-day', 'data-hide-when-empty']) assert.ok(!form.includes(attr), attr);
 });
 
 test('the page calls the function at its own path, with the slash the sites redirect to', () => {

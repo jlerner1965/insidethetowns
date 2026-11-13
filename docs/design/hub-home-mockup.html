@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Inside the Towns home: approved mockup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&amp;family=Newsreader:opsz,wght@6..72,400..600&amp;family=Inter:wght@400..600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FCFBF8}
+a{color:#161A18;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:#9CA39F}
+a:hover{color:#1E4D3A;text-decoration-color:#1E4D3A}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #1E4D3A;outline-offset:2px}
+.nw{white-space:nowrap}
+.wrap{max-width:1120px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+.nr{font-family:'Newsreader',Georgia,serif;font-weight:500}
+.label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6A706C}
+.meta{font-size:14px;line-height:1.45;color:#4D5350}
+.chk{font-size:13px;line-height:1.45;color:#6A706C}
+.nav{display:flex;align-items:center;gap:4px}
+.navlink{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font-size:15px;font-weight:500;text-decoration:none}
+.menu{display:none}
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start;padding-top:48px}
+.h1{font-size:56px}
+.photo{aspect-ratio:3/2}
+.sec{margin-top:64px;border-top:2px solid #161A18;padding-top:20px}
+.h2{font-size:28px}
+.two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:64px;align-items:end}
+.feat{font-size:40px}
+.now{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:64px;align-items:start}
+.row{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid #DAD7CF;text-decoration:none;color:#161A18}
+.row:hover .ttl{color:#1E4D3A}
+.day{display:flex;flex-direction:column;gap:2px}
+.day b{font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:28px;line-height:1;font-variant-numeric:tabular-nums}
+.ttl{font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:20px;line-height:1.25;color:#161A18}
+.stack{display:flex;flex-direction:column;gap:4px}
+.index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:64px}
+.irow{display:block;padding:14px 0;border-top:1px solid #DAD7CF;text-decoration:none}
+.irow:hover .iname{color:#1E4D3A}
+.ihead{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.iname{font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:22px;line-height:1.2;color:#161A18}
+.idesc{display:block;margin-top:2px}
+.tl{display:inline-flex;align-items:center;min-height:44px}
+.btn{height:48px;padding:0 20px;border:0;border-radius:2px;background:#1E4D3A;color:#FFFFFF;font-family:inherit;font-weight:600;font-size:15px}
+.field{flex:1;min-width:0;height:48px;box-sizing:border-box;border:1px solid #161A18;border-radius:2px;background:#FFFFFF;padding:0 14px;font-family:inherit;font-size:17px;color:#161A18}
+@media (max-width:760px){
+.wrap{padding:0 20px}
+.nav{display:none}
+.menu{display:flex}
+.hero{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:28px}
+.h1{font-size:36px}
+.photo{aspect-ratio:16/10;margin:0 -20px}
+.cap{padding:0 20px}
+.sec{margin-top:40px}
+.h2{font-size:24px}
+.two{grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}
+.feat{font-size:30px}
+.now{grid-template-columns:minmax(0,1fr);gap:32px}
+.ttl{font-size:19px}
+.index{grid-template-columns:minmax(0,1fr)}
+.idesc{display:none}
+}
+</style>
+
+</head>
+<body>
+
+
+<div style="font-family: 'Inter', system-ui, sans-serif; font-size: 16px; color: #161A18; background: #FCFBF8; min-height: 100%;">
+
+<header style="border-bottom: 1px solid #DAD7CF;">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px;">
+<a href="#" style="font-family: 'Fraunces', Georgia, serif; font-size: 27px; line-height: 1; text-decoration: none; white-space: nowrap; color: #161A18;"><span style="font-style: italic; font-weight: 300;">Inside</span> <span style="font-weight: 600; color: #1E4D3A;">the Towns</span></a>
+<nav class="nav" aria-label="Primary">
+<a class="navlink" href="#annual">Annual events</a>
+<a class="navlink" href="#weekend">This weekend</a>
+<a class="navlink" href="#towns">Towns</a>
+<a class="navlink" href="#">Moving here</a>
+<a class="navlink" href="#signup">Newsletter</a>
+<a class="navlink" href="#">How we check</a>
+</nav>
+<div class="menu">
+<button type="button" aria-label="Menu" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: #161A18; padding: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="stroke-width: 1.8; stroke-linecap: round;" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
+</div>
+</div>
+</header>
+
+<div class="wrap">
+
+<section class="hero" aria-labelledby="hero-h">
+<div>
+<p class="label" style="margin: 0;">Plains to peaks · Colorado</p>
+<h1 id="hero-h" class="h1 nr" style="margin: 12px 0 0; line-height: 1.05; letter-spacing: -0.015em;">What’s happening in Colorado’s towns</h1>
+<p style="margin: 16px 0 0; font-size: 17px; line-height: 1.55; color: #4D5350;">Annual events across Colorado and the week ahead in seven towns. Every listing is checked against its source.</p>
+<form role="search" style="margin-top: 24px;">
+<label for="q" class="label" style="display: block; margin-bottom: 8px;">Search towns and events</label>
+<div style="display: flex; gap: 8px;">
+<input id="q" class="field" type="search" placeholder="Town, parade, festival…">
+<button type="submit" class="btn">Search</button>
+</div>
+</form>
+</div>
+<figure style="margin: 0;">
+<div class="photo" style="overflow: hidden; background: #C9CEC9;">
+<img src="front-range-flatirons.jpg" alt="The Flatirons and the foothills above Boulder from the air, with the plains and their towns beyond" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 34%;">
+</div>
+<figcaption class="chk cap" style="margin-top: 8px;">The Flatirons above Boulder, looking toward the plains.</figcaption>
+</figure>
+</section>
+
+<nav aria-label="Local guides" style="margin-top: 32px; border-top: 1px solid #DAD7CF; border-bottom: 1px solid #DAD7CF; padding: 4px 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 24px;">
+<span class="label">Guides</span>
+<a class="tl" href="#">Berthoud</a>
+<a class="tl" href="#">Erie</a>
+<a class="tl" href="#">Johnstown</a>
+<a class="tl" href="#">Windsor</a>
+<a class="tl" href="#">Carbon Valley</a>
+<a class="tl" href="#">Lyons</a>
+<a class="tl" href="#">Niwot</a>
+<a class="tl" href="#towns" style="font-weight: 600;">96 more towns →</a>
+</nav>
+
+<section id="annual" class="sec" aria-labelledby="annual-h">
+<p class="label" style="margin: 0; color: #1E4D3A;">Annual events · winter 2026</p>
+<div class="two" style="margin-top: 10px;">
+<div>
+<h2 id="annual-h" class="feat nr" style="margin: 0; line-height: 1.08; letter-spacing: -0.01em;">Parades of lights, town by town</h2>
+<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: #4D5350;">19 of 20 towns’ dates confirmed.</p>
+<a class="tl" href="#" style="margin-top: 4px; font-weight: 600;">See every date →</a>
+</div>
+<a href="#" style="display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; text-decoration: none; padding-bottom: 8px;">
+<span style="display: flex; flex-direction: column; gap: 4px; padding-right: 20px; border-right: 1px solid #DAD7CF;"><span class="nr" style="font-size: 40px; line-height: 1; white-space: nowrap;">Nov 27</span><span class="meta">Friday</span></span>
+<span class="stack"><span class="label">Next up</span><span class="ttl">Catch the Glow Parade</span><span class="meta">Estes Park</span></span>
+</a>
+</div>
+<p class="meta" style="margin: 12px 0 0; padding-top: 4px; border-top: 1px solid #DAD7CF; display: flex; flex-wrap: wrap; align-items: center; column-gap: 20px;"><span class="label">More annual dates</span><a class="tl" href="#">Tree lightings</a><a class="tl" href="#">Turkey trots</a><a class="tl" href="#">Winter carnivals</a><a class="tl" href="#">Outdoor dates</a><a class="tl" href="#">Every town, A to Z</a></p>
+</section>
+
+<section id="weekend" class="sec" aria-labelledby="weekend-h">
+<div class="now">
+<div>
+<h2 id="weekend-h" class="h2 nr" style="margin: 0 0 16px; line-height: 1.15;">This weekend</h2>
+<a class="row" href="#">
+<span class="day"><span class="label">Fri</span><b>13</b></span>
+<span class="stack"><span class="label">Johnstown · Friday night lights</span><span class="ttl">Roosevelt hosts Montbello in the 4A playoffs</span><span class="meta">7 pm · Roosevelt High School · No. 1 seed (9–1) vs No. 17</span><span class="chk">Checked Nov 11 against chsaanow.com · Final score here Saturday morning</span></span>
+</a>
+<a class="row" href="#">
+<span class="day"><span class="label">Sat</span><b>14</b></span>
+<span class="stack"><span class="label">Erie · Arts</span><span class="ttl">Nutcracker excerpts with Centennial State Ballet</span><span class="meta">10:30–11 am · Erie Community Library · Free</span><span class="chk">Checked Nov 11 against highplains.libcal.com</span></span>
+</a>
+<a class="row" href="#" style="border-bottom: 1px solid #DAD7CF;">
+<span class="day"><span class="label">Sun</span><b>15</b></span>
+<span class="stack"><span class="label">Carbon Valley · Market</span><span class="ttl">Harvest and Holly Market</span><span class="meta">11 am–3 pm · Carbon Valley Recreation Center</span><span class="chk">Checked Nov 11 against cvprd.com</span></span>
+</a>
+<a class="tl" href="#" style="margin-top: 6px; font-weight: 600;">Everything on this weekend →</a>
+</div>
+<div>
+<h3 class="nr" style="margin: 4px 0 16px; font-size: 20px; line-height: 1.2;">Deadlines</h3>
+<a class="row" href="#">
+<span class="day"><span class="label">Nov</span><b>14</b></span>
+<span class="stack"><span class="ttl" style="font-size: 18px;">Berthoud’s Holiday Card Art Contest</span><span class="chk">Checked Nov 11 against berthoudhistoricalsociety.org</span></span>
+</a>
+<a class="row" href="#" style="border-bottom: 1px solid #DAD7CF;">
+<span class="day"><span class="label">Nov</span><b>18</b></span>
+<span class="stack"><span class="ttl" style="font-size: 18px;">Name a Frederick snowplow, ages 5 to 11</span><span class="chk">Source: Town of Frederick, read Nov 11</span></span>
+</a>
+<h3 class="nr" style="margin: 28px 0 8px; font-size: 20px; line-height: 1.2;">High school scores</h3>
+<p class="meta" style="margin: 0; line-height: 2.3;"><a class="nw" href="#">Berthoud Spartans</a>, <a class="nw" href="#">Erie Tigers</a>, <a class="nw" href="#">Roosevelt Roughriders</a>, <a class="nw" href="#">Windsor Wizards</a>, <a class="nw" href="#">Severance Silver Knights</a>, <a class="nw" href="#">Frederick Golden Eagles</a>, <a class="nw" href="#">Niwot Cougars</a></p>
+</div>
+</div>
+</section>
+
+<section id="towns" class="sec" aria-labelledby="towns-h">
+<h2 id="towns-h" class="h2 nr" style="margin: 0 0 16px; line-height: 1.15;">Seven local guides</h2>
+<div class="index">
+<a class="irow" href="#"><span class="ihead"><span class="iname">Berthoud</span><span class="label">Larimer · Weld</span></span><span class="meta idesc">Main Street, the lakes, Spartans scores</span></a>
+<a class="irow" href="#"><span class="ihead"><span class="iname">Erie</span><span class="label">Weld · Boulder</span></span><span class="meta idesc">Briggs Street, trails, Tigers scores</span></a>
+<a class="irow" href="#"><span class="ihead"><span class="iname">Johnstown</span><span class="label">Weld · Larimer</span></span><span class="meta idesc">Parish Avenue, parks, Roughriders scores</span></a>
+<a class="irow" href="#"><span class="ihead"><span class="iname">Windsor and Severance</span><span class="label">Weld · Larimer</span></span><span class="meta idesc">The lake, Main Street, Wizards scores</span></a>
+<a class="irow" href="#"><span class="ihead"><span class="iname">Carbon Valley</span><span class="label">Weld</span></span><span class="meta idesc">Frederick, Firestone and Dacono</span></a>
+<a class="irow" href="#"><span class="ihead"><span class="iname">Lyons</span><span class="label">Boulder</span></span><span class="meta idesc">The river, trails and music at the canyon mouth</span></a>
+<a class="irow" href="#"><span class="ihead"><span class="iname">Niwot</span><span class="label">Boulder</span></span><span class="meta idesc">Second Avenue, the LoBo Trail, Cougars scores</span></a>
+<a class="irow" href="#"><span class="ihead"><span class="iname">96 more towns, A to Z →</span><span class="label">Annual dates</span></span><span class="meta idesc">Estes Park to Durango: parades, festivals, outdoor dates</span></a>
+</div>
+</section>
+
+<section id="signup" class="sec" aria-labelledby="signup-h">
+<div class="two" style="align-items: start;">
+<div>
+<h2 id="signup-h" class="h2 nr" style="margin: 0; line-height: 1.15;">The Thursday email</h2>
+<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.55; color: #4D5350;">The weekend’s events, the scores, and what opened or closed. Every Thursday at 7 am.</p>
+</div>
+<form>
+<label for="em" class="label" style="display: block; margin-bottom: 8px;">Your email</label>
+<div style="display: flex; gap: 8px;">
+<input id="em" class="field" type="email" placeholder="you@example.com">
+<button type="submit" class="btn">Sign up</button>
+</div>
+<p class="chk" style="margin: 10px 0 0;">All seven towns by default. <a href="#" style="color: #6A706C;">Choose towns</a> · Free, unsubscribe any time · <a href="#" style="color: #6A706C;">Privacy</a></p>
+</form>
+</div>
+</section>
+
+<footer style="margin-top: 64px; border-top: 1px solid #DAD7CF; padding: 20px 0 32px; display: flex; flex-wrap: wrap; justify-content: space-between; column-gap: 32px; row-gap: 8px;">
+<p class="chk" style="margin: 0; max-width: 420px; padding-top: 12px;">Inside the Towns: independent community guides, not affiliated with any town government. © 2026 · Published by Lerner Works</p>
+<div class="meta" style="display: flex; flex-wrap: wrap; column-gap: 20px;">
+<a class="tl" href="#">About</a>
+<a class="tl" href="#">How we check listings</a>
+<a class="tl" href="#">Report a correction</a>
+<a class="tl" href="#">Contact</a>
+<a class="tl" href="#">Partner with us</a>
+</div>
+</footer>
+
+</div>
+</div>
+
+
+</body>
+</html>

@@ -11074,3 +11074,46 @@ against the code and the live sites before anything was changed.*
   it corrects itself the day a rule changes. The consolidation stays
   worth doing by hand (Settings → Domains on each project) when the owner
   has a moment; DEPLOY.md says how.
+
+## The hub home page, on the approved design, 13 November 2026
+
+The owner's brief and mockup (`docs/design/hub-home-mockup.html`), for the
+hub's home page only.
+
+- **Its own look.** Page #FCFBF8, ink #161A18, two greys and a hairline,
+  and one accent, pine #1E4D3A, for "the Towns", the two buttons, the
+  "Annual events" label and a link's hover and focus. Newsreader for
+  headings, titles and date numerals, Inter for the rest, Fraunces for the
+  wordmark, all self-hosted (the CSP allows same-origin fonts only). The
+  values are `HUB_HOME` in `src/config/palette.ts`; `npm run check-colors`
+  proves each text pair, and a test holds the stylesheet to the same
+  values. The page draws its own masthead and footer through two slots in
+  `Base.astro`; every other page, on the hub and on the guides, renders as
+  it did (compared build against build, timestamps aside).
+- **The photograph** is the owner's own, of the Flatirons from the air, at
+  1600px with its EXIF stripped (`content/hub/images/front-range-flatirons.jpg`,
+  owned by the publisher). It is the full-resolution original of
+  `front-range-aerial.jpg`, which stays the hub's share image for its other
+  pages; the home's share image is the new file.
+- **The weekend, one listing a day.** Friday's is the high-school football
+  game the scores data has that day: the one whose guide features its
+  listing first, then a playoff game, then the guides' order. Seeds are not
+  in the data, so the row gives the record. Until the final is posted it
+  says "Final score here Saturday morning"; once posted, the score replaces
+  the time and the row stays through Sunday. Otherwise, and on Saturday and
+  Sunday, a one-off the organizer's page or a person has confirmed,
+  featured or plan-your-day first, never two from one town, and never a
+  program's own deadline listing ("Holiday Card Art Contest: artwork due"),
+  which is a date to meet and sits under Deadlines when it is the next one.
+- **Check lines in the guide's words.** An event's is its own page's
+  ("Checked November 11, 2026 against chsaanow.com"), a deadline's the
+  family hub card's, a change's the updates page's, a game's final the
+  sports page's. The mockup's shorter "Checked Nov 11" is not what the
+  guides say, so it is not what the home says.
+- **Counts are counted.** "Seven" guides, "96 more towns", "19 of 20" and
+  the email's "All six towns by default": Niwot has no weekly issue, so
+  the all-towns signup reaches six editions, not the mockup's seven.
+- **Gone from the home:** the numbered sections, the town tiles in the
+  towns' colours, the drawn horizon, "Now in the towns"' date coming up,
+  and the Guides row of articles (none is verified yet). The articles are
+  reached from the town pages and guides that name them.
