@@ -1,0 +1,82 @@
+{
+  "slug": "longmont",
+  "transit": [
+    {
+      "name": "Ride Free Longmont",
+      "detail": "Local bus routes 323, 324, 326 and 327 are free to ride",
+      "url": "https://www.rtd-denver.com/fares-passes/fares/longmont-ride-free-fare-program",
+      "source": "https://longmontcolorado.gov/transportation/modes-of-travel/bus-transit-services/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "RIDE Longmont",
+      "detail": "On-demand rides in a partnership of the City of Longmont, Via Transportation and RTD; $2, or $1 for students, seniors and riders with disabilities",
+      "url": "https://city.ridewithvia.com/longmont",
+      "source": "https://longmontcolorado.gov/transportation/modes-of-travel/bus-transit-services/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "FLEX",
+      "detail": "Regional bus operated by Transfort with stops between Fort Collins, Loveland, Berthoud, Longmont and Boulder",
+      "url": "https://ridetransfort.com/routes/flex/",
+      "source": "https://ridetransfort.com/routes/flex/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The Chicago-Colorado Colony named the town after Longs Peak.",
+      "source": "https://longmontcolorado.gov/information/about-longmont/history-of-longmont/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1871,
+      "text": "Built by members of the Chicago-Colorado Colony",
+      "source": "https://longmontcolorado.gov/information/about-longmont/history-of-longmont/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1873,
+        "text": "The Colorado Central Railroad began service from Golden to Longmont.",
+        "source": "https://longmontcolorado.gov/information/about-longmont/history-of-longmont/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1903,
+        "text": "The Longmont Sugar Factory was built on the east edge of town.",
+        "source": "https://longmontcolorado.gov/information/about-longmont/history-of-longmont/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1961,
+        "text": "Longmont adopted its City Charter and became a home-rule city.",
+        "source": "https://longmontcolorado.gov/information/about-longmont/history-of-longmont/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1977,
+        "text": "The Great Western Sugar factory in Longmont closed.",
+        "source": "https://longmontcolorado.gov/information/about-longmont/history-of-longmont/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2013,
+        "text": "A major flood damaged homes, businesses and roads.",
+        "source": "https://longmontcolorado.gov/information/about-longmont/history-of-longmont/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Longmont Museum",
+        "kind": "museum",
+        "url": "https://longmontcolorado.gov/museum/",
+        "hours": "Monday–Saturday 9 am–5 pm; Sunday 1–5 pm",
+        "cost": "Exhibitions $12 adults, $8 youth; free under 2; free on the second Saturday of each month",
+        "source": "https://longmontcolorado.gov/museum/about-the-museum/plan-your-visit/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

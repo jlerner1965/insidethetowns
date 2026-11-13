@@ -10,6 +10,9 @@ imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [playground, splash pad, ice rink, events]
 featured: true
+details:
+  source: "https://www.erieco.gov/2274/Coal-Creek-Park"
+  checked: "2026-11-12"
 summary: "The downtown park on Kattell Street: Maddie's butterfly playground, a splash pad in summer, an ice rink in winter, and the site of Brewfest and the Parade of Lights."
 source: "https://www.erieco.gov/2274/Coal-Creek-Park"
 verified: "2026-11-09"

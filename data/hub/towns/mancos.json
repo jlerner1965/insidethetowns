@@ -1,0 +1,45 @@
+{
+  "slug": "mancos",
+  "heritage": {
+    "nameOrigin": {
+      "text": "The Town says the name comes from the Dominguez-Escalante Expedition of 1776, though the reason for it is unclear.",
+      "source": "https://www.mancoscolorado.com/history",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1894,
+      "text": "The Town was founded in 1894; cattle ranchers had been settling the Mancos Valley since the 1870s.",
+      "source": "https://www.mancoscolorado.com/history",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1776,
+        "text": "The Dominguez-Escalante Expedition, which the Town credits for the name Mancos.",
+        "source": "https://www.mancoscolorado.com/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1894,
+        "text": "The Town of Mancos was founded.",
+        "source": "https://www.mancoscolorado.com/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1958,
+        "text": "The first Mancos Days celebration took place in Boyle Park.",
+        "source": "https://www.mancosdays.com/about-7",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Fenceline Cider & Wine",
+        "what": "Craft ciders and wines",
+        "url": "https://www.fenceline.co/",
+        "source": "https://www.fenceline.co/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -4,9 +4,13 @@ type: bar
 address: "105 Wells St, Suite 120"
 area: "Wells Street, downtown"
 url: "https://www.eriesocialclub.com/"
+phone: "(303) 993-6164"
 hours: "Tue–Thu 4–9, Fri–Sat 4–10; closed Sun–Mon"
 priceRange: "$$"
 tags: [wine, whiskey, small plates]
+details:
+  source: "https://www.eriesocialclub.com/"
+  checked: "2026-11-12"
 summary: "Wine and whiskey bar with small plates on Wells Street, a block off Briggs; open from 4, Tuesday to Saturday."
 source: "https://www.eriesocialclub.com/"
 verified: "2026-11-04"

@@ -1,0 +1,81 @@
+{
+  "slug": "basalt",
+  "facts": {
+    "incorporated": {
+      "year": 1901,
+      "source": "https://www.basalt.net/380/History-of-Basalt",
+      "checked": "2026-11-12"
+    }
+  },
+  "lodging": [
+    {
+      "name": "Basalt Mountain Inn",
+      "kind": "Inn",
+      "url": "https://basaltmountaininn.com/",
+      "source": "https://basaltmountaininn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Aspenalt Lodge",
+      "kind": "Lodge",
+      "url": "https://aspenalt.com/",
+      "source": "https://aspenalt.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Frying Pan River Lodge",
+      "kind": "Lodge",
+      "url": "https://fryingpanriverlodge.com/",
+      "source": "https://fryingpanriverlodge.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The town was known as Aspen Junction until 1895, when it was renamed Basalt for the basaltic rock of Black Mountain, now Basalt Mountain.",
+      "source": "https://www.basalt.net/380/History-of-Basalt",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1887,
+      "text": "The railroad established a town site on the north side of the Fryingpan River, first called Aspen Junction",
+      "source": "https://www.basalt.net/380/History-of-Basalt",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1882,
+        "text": "Seven charcoal kilns were built near the confluence of the Roaring Fork and Fryingpan rivers to supply smelters in Aspen.",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1887,
+        "text": "The town of Aspen Junction was formed across the Fryingpan River from the kilns.",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1895,
+        "text": "Aspen Junction was renamed Basalt.",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1901,
+        "text": "Basalt was officially incorporated during the summer.",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Fryingpan Kilns",
+        "kind": "landmark",
+        "url": "https://www.basalt.net/380/History-of-Basalt",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

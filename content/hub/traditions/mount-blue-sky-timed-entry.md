@@ -9,6 +9,10 @@ towns:
 type: outdoor
 organizer: "Denver Mountain Parks and the U.S. Forest Service (Recreation.gov)"
 sourceUrl: "https://www.recreation.gov/timed-entry/10087438"
+outdoor:
+  kind: timed-entry
+  facility: "Mount Blue Sky timed entry"
+  edge: window
 years:
   - year: 2027
     status: not-announced

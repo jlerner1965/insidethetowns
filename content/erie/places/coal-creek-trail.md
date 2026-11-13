@@ -10,6 +10,10 @@ imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [regional trail, walking, cycling, open space]
 featured: true
+details:
+  dogs: "Dogs must be on leash at all times"
+  source: "https://www.erieco.gov/2368/Coal-Creek-Open-Space"
+  checked: "2026-11-12"
 summary: "The regional trail along Coal Creek through 400 acres of Town open space, about 10 miles of concrete, soft-surface and crusher-fine trail from Reliance Park south to Lafayette's Coal Creek Trail."
 source: "https://www.erieco.gov/2368/Coal-Creek-Open-Space"
 verified: "2026-11-09"

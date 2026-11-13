@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Leadville Railroad"
 sourceUrl: "https://leadvillerailroad.com/"
+outdoor:
+  kind: other
+  facility: "Leadville Railroad"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

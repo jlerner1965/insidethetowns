@@ -10,6 +10,9 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "303-833-3660 x123"
 hours: "Mon–Fri 8 am–4 pm; closed Sat–Sun"
 tags: [seniors, active-adults, lunch, day-trips]
+details:
+  source: "https://www.cvprd.com/active-adults-community-center"
+  checked: "2026-11-12"
 summary: "The recreation district’s center for adults 55 and over, on Grant Avenue in old Firestone: weekday drop-in coffee, cards and crafts, talks, day trips, special events and the Friendly Fork lunch on Tuesdays and Thursdays."
 ---
 

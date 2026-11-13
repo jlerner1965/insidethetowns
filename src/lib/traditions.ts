@@ -37,6 +37,14 @@ export const TRADITION_TYPES = [
   'closure',
   'school-date',
   'tax-date',
+  // Added with the additions of 12 November 2026, each with a statewide
+  // season page: a rodeo or a county fair, an Oktoberfest, a harvest
+  // festival, a winter carnival, and a dated free-admission day.
+  'rodeo-fair',
+  'oktoberfest',
+  'harvest-festival',
+  'winter-carnival',
+  'free-day',
 ] as const;
 export type TraditionType = (typeof TRADITION_TYPES)[number];
 
@@ -76,6 +84,47 @@ export const TRADITION_TYPE_INFO: Record<TraditionType, { label: string; plural:
   'school-date': { label: 'School date', plural: 'School dates', path: '/school-dates/', category: 'family' },
   // A property-tax due date, from the county treasurer.
   'tax-date': { label: 'Tax date', plural: 'Property-tax dates', path: '/property-tax-dates/', category: 'civic' },
+  // A rodeo, a stampede or a county fair, from its committee's or its county's page.
+  'rodeo-fair': { label: 'Rodeo or county fair', plural: 'Rodeos and county fairs', path: '/rodeos-and-county-fairs/', category: 'festival' },
+  oktoberfest: { label: 'Oktoberfest', plural: 'Oktoberfests', path: '/oktoberfests/', category: 'festival' },
+  // A festival named for a crop or the harvest: peaches, apples, sweet corn, potatoes.
+  'harvest-festival': { label: 'Harvest festival', plural: 'Harvest festivals', path: '/harvest-festivals/', category: 'festival' },
+  'winter-carnival': { label: 'Winter carnival', plural: 'Winter carnivals', path: '/winter-carnivals/', category: 'festival' },
+  // A day admission is free: a state park, a national park or public land,
+  // a museum. One record per day the agency or the museum names.
+  'free-day': { label: 'Free-admission day', plural: 'Free-admission days', path: '/free-admission-days/', category: 'outdoors' },
+};
+
+/**
+ * The types that are a date set by an agency or an operator and not an
+ * event a town holds: filed under "Outdoor dates" on a town page, never
+ * marked up as an Event, and allowed to be shared or statewide.
+ */
+export function isAgencyDate(type: TraditionType): boolean {
+  return type === 'outdoor' || type === 'free-day';
+}
+
+/**
+ * What an outdoor date is the date of (the additions of 12 November 2026),
+ * so a town's rows can be read as "Open now" and "Opens next"
+ * (src/lib/open-now.ts). `facility` is the thing that opens and closes,
+ * the same words on its opening record and its closing one; `edge` says
+ * which this record is, or `window` where one record carries the whole
+ * open period as a date and an endDate (a timed-entry season, a river
+ * season, a campground's season).
+ */
+export const OUTDOOR_KINDS = ['campground', 'booking', 'timed-entry', 'road', 'ski-area', 'river', 'other'] as const;
+export type OutdoorKind = (typeof OUTDOOR_KINDS)[number];
+export const OUTDOOR_EDGES = ['opens', 'closes', 'window'] as const;
+export type OutdoorEdge = (typeof OUTDOOR_EDGES)[number];
+export const OUTDOOR_KIND_LABELS: Record<OutdoorKind, string> = {
+  campground: 'Campground',
+  booking: 'Reservations',
+  'timed-entry': 'Timed entry',
+  road: 'Road or pass',
+  'ski-area': 'Ski area',
+  river: 'River season',
+  other: 'Outdoor date',
 };
 
 /**
@@ -92,6 +141,14 @@ export const CURRENT_SEASONS: Partial<Record<TraditionType, { season: string; ye
   // No year: outdoor dates run through the year, so the page shows every
   // record's next date, whichever year that falls in (nextRow).
   outdoor: { season: 'through the year' },
+  // Opened with the additions of 12 November 2026. No year, as with the
+  // outdoor dates: each row is the record's next date, or that it is not
+  // announced and when it was last held.
+  'rodeo-fair': { season: 'through the year' },
+  oktoberfest: { season: 'each fall' },
+  'harvest-festival': { season: 'each summer and fall' },
+  'winter-carnival': { season: 'each winter' },
+  'free-day': { season: 'through the year' },
 };
 
 /** One year of a tradition, as the schema leaves it: dates as "YYYY-MM-DD". */
@@ -114,6 +171,12 @@ export interface TraditionYear {
   reason?: string;
   /** The page this year's date was read from, where it is not the record's own source. */
   sourceUrl?: string;
+  /** Which running this is, where the organizer numbers it: 78 for "the 78th annual". */
+  edition?: number;
+  /** The named parts of the event the organizer lists with a day or a time: the parade, the rodeo performances. */
+  subEvents?: Array<{ name: string; date?: string; time?: string; place?: string }>;
+  /** On a run of several weeks: the days inside it the organizer says it is closed, in its words ("Mondays", "December 25"). */
+  closedDays?: string[];
   checked: string;
 }
 
@@ -138,6 +201,8 @@ export interface TraditionRecord {
   organizer: string;
   sourceUrl: string;
   firstYear?: number;
+  /** On an outdoor date: what it is the date of (OUTDOOR_KINDS, src/lib/open-now.ts). */
+  outdoor?: { kind: OutdoorKind; facility: string; edge: OutdoorEdge };
   years: TraditionYear[];
   /** A sample record for building and checking the pages; never on a live site. */
   fixture?: boolean;
@@ -235,7 +300,7 @@ export function seasonRows(records: readonly TraditionRecord[], type: TraditionT
   if (!season) return [];
   const ofType = records.filter((r) => r.type === type);
   // A season without a year (outdoor dates) lists every record's next date, soonest first.
-  if (season.year === undefined) return ofType.map((r) => nextRow(r, today)).sort(byNextDate);
+  if (season.year === undefined) return ofType.map((r) => nextRow(r, today)).filter(isListed).sort(byNextDate);
   return ofType
     .map((r) => toRow(r, today))
     .filter((row): row is TraditionRow => !!row && row.year === season.year)
@@ -261,6 +326,17 @@ export function nextRow(record: TraditionRecord, today: string): TraditionRow {
 /** Whether a row shows a date still ahead (or under way) that the source published. */
 export function isUpcoming(row: TraditionRow): boolean {
   return !row.past && isDated(row.entry) && !!row.entry.date;
+}
+
+/**
+ * Whether a row is listed at all. Every row is, but a free-admission day:
+ * a day that has passed drops off every page (the brief of 12 November
+ * 2026), so one shows only with a date ahead, or with the window its
+ * museum or agency describes where it names no date yet.
+ */
+export function isListed(row: TraditionRow): boolean {
+  if (row.record.type !== 'free-day') return true;
+  return isUpcoming(row) || (!row.past && !!row.entry.typicalWindow);
 }
 
 /** Rows with a date ahead first, soonest first; then the rest A to Z by name. */

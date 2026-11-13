@@ -7,6 +7,9 @@ url: "https://www.lyonsclassicpinball.com/"
 phone: "(720) 837-2677"
 hours: "Thu 5–10, Fri 4–10, Sat 12–10, Sun 12–9; closed Mon–Wed"
 tags: [pinball, games, tournaments]
+details:
+  source: "https://www.lyonsclassicpinball.com/hours"
+  checked: "2026-11-12"
 summary: "A pinball hall with more than 70 machines, monthly tournaments and a Thursday-night league."
 source: "https://www.lyonsclassicpinball.com/hours"
 verified: "2026-11-10"

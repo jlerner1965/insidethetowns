@@ -1,0 +1,42 @@
+{
+  "slug": "keystone",
+  "transit": [
+    {
+      "name": "Summit Stage",
+      "detail": "Free public bus within Summit County. The winter 2026-27 schedule (November 15, 2026 to April 17, 2027) lists a Silverthorne - Keystone route.",
+      "url": "https://summitcountyco.gov/586/Transit-Summit-Stage/",
+      "source": "https://www.summitcountyco.gov/services/transit_summit_stage/bus_schedule/winter_bus_schedule.php",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Keystone Resort shuttle",
+      "detail": "Free in-resort shuttle from the winter shuttle parking lots to the mountain base areas every 10 to 15 minutes. Winter season only.",
+      "url": "https://www.keystoneresort.com/explore-the-resort/about-the-resort/getting-here.aspx",
+      "source": "https://www.keystoneresort.com/explore-the-resort/about-the-resort/getting-here.aspx",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Keystone Lodge & Spa",
+      "kind": "Hotel",
+      "url": "https://www.keystoneresort.com/plan-your-trip/stay/lodge-spa.aspx",
+      "source": "https://www.keystoneresort.com/plan-your-trip/stay/lodge-spa.aspx",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Kindred Resort",
+      "kind": "Hotel",
+      "url": "https://www.keystoneresort.com/plan-your-trip/stay/kindred-resort.aspx",
+      "source": "https://www.keystoneresort.com/plan-your-trip/stay/kindred-resort.aspx",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Ski Tip Lodge",
+      "kind": "Bed and breakfast",
+      "url": "https://www.keystoneresort.com/Plan-Your-Trip/stay/details/ski-tip-lodge-bed-and-breakfast?location=50016692",
+      "source": "https://www.keystoneresort.com/plan-your-trip/stay/signature-properties.aspx",
+      "checked": "2026-11-12"
+    }
+  ]
+}

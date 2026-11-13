@@ -223,7 +223,9 @@ export function openMonthsLabel(seasonal: SeasonLike | undefined): string | unde
  * that cannot be placed on the calendar (its `season` text still shows on
  * the page) and for a place with no season.
  */
-export function seasonLabel(seasonal: SeasonLike | undefined, now: Date = new Date()): string | undefined {
+export function seasonLabel(seasonal: SeasonLike | undefined, now: Date = new Date(), yearRound = false): string | undefined {
+  // The other half of the season field: a place its own page says is open all year.
+  if (!seasonal && yearRound) return 'Open year-round';
   if (!seasonal || !seasonDated(seasonal)) return undefined;
   const months = openMonthsLabel(seasonal);
   if (inSeason(seasonal, now)) return months ? `Open ${months}` : 'Open for the season';

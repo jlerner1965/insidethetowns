@@ -10,6 +10,9 @@ image: ../images/niwot-tavern-patios.jpg
 imageAlt: "The covered patio outside Niwot Tavern, with the bear sculptures on the corner of Cottonwood Square"
 tags: [patio, families]
 featured: true
+details:
+  source: "https://www.niwottavern.com/location/niwot-tavern/"
+  checked: "2026-11-12"
 summary: "The neighborhood tavern on the corner of Cottonwood Square, with a covered patio beside the bronze bears."
 source: "https://www.niwottavern.com/location/niwot-tavern/"
 verified: "2026-11-03"

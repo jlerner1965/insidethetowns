@@ -10885,3 +10885,42 @@ The owner's third pull request of three. Stacked on the home page pass.
 - **Print**: a guide's `/this-weekend/` prints as the listings alone,
   black on white, with a line saying where and when it was printed.
 
+
+## The hub's new town pages and the eight additions, 12 November 2026
+
+The owner's brief, done in one pass; what was built, filled and left empty
+is in `docs/additions-report.md`.
+
+- **One event makes a page.** The brief's test for a new town is one named
+  annual event whose next date or last-held date is read on the
+  organizer's own site. That replaces the three-items bar for every town
+  (`MIN_OWN_ITEMS` is 1, and the item must be an event: an outdoor date
+  alone makes no page). Sixty towns passed. Olathe did not: its Sweet Corn
+  Festival's own site puts the 2026 festival in Montrose.
+- **Eight new clusters** where none fitted: Eastern plains, Eagle valley,
+  Grand County, North Park, South Park, Southern Colorado, San Luis Valley
+  and North Fork valley. Craig went to the Yampa valley, Meeker, Rifle,
+  Delta and Cedaredge to the Western Slope, Brush and Sterling beside Fort
+  Morgan.
+- **One router for every pair.** Road miles are the Open Source Routing
+  Machine's public server on OpenStreetMap roads, between each town's
+  Populated Place point in USGS's GNIS, stored once a pair. It does not
+  know a pass is shut for the winter, and the block says so. Elevation is
+  USGS's point service at the same point, so it can differ by a few feet
+  from the figure on a town's sign. Drive time is the router's, with no
+  traffic, printed to the nearest five minutes.
+- **Population** is the Census Bureau's Vintage 2025 estimate. A
+  census-designated place (Evergreen, Redstone, Niwot) has none and shows
+  none.
+- **"Open now" is conservative.** An opening with no closing date on file
+  is read as open for ninety days and no longer: a wrong "open" costs more
+  than a missing one.
+- **Free-admission days are their own type**, one record a day, and a day
+  that has passed is listed nowhere. `nps-fee-free-days`, which held one
+  date for six days, was replaced by a record a day.
+- **Re-filed, not rewritten.** Existing records moved from
+  `festival` to `rodeo-fair`, `oktoberfest`, `harvest-festival` or
+  `winter-carnival`; `durango-polar-express` from `outdoor` to `festival`.
+- **Sources.** The researchers' web search allowance ran out early and
+  many `*.colorado.gov` town sites refuse automated reads, so the profiles
+  are thinner than the brief asks and the gaps are listed, not filled.

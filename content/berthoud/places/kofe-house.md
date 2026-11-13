@@ -3,11 +3,15 @@ title: "Kofe House"
 type: coffee
 address: "434 Mountain Ave"
 area: "Downtown, Mountain Avenue"
+url: "https://kofe-house.com/"
 phone: "(970) 344-5391"
 hours: "Mon–Sat 7:30 am–2:30 pm, Sun 8 am–2:30 pm; Thu also 5–8 pm"
 priceRange: "$"
 tags: [coffee, espresso, pastries]
 featured: true
+details:
+  source: "https://kofe-house.com/"
+  checked: "2026-11-12"
 summary: "The family-owned coffee house on Mountain Avenue downtown: coffee, breakfast and lunch every day, and an Italian dinner on Thursday evenings."
 source: "https://kofe-house.com/"
 verified: "2026-11-10"

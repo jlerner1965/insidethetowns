@@ -8,6 +8,9 @@ phone: "(970) 408-3447"
 hours: "Mon–Fri 7–2, Sat–Sun 7–2:30"
 priceRange: "$$"
 tags: [breakfast, brunch, gluten free]
+details:
+  source: "https://www.urbanegg.com/location/johnstown/"
+  checked: "2026-11-12"
 summary: "Breakfast and brunch at Johnstown Plaza with organic ingredients and gluten-free, vegan and dairy-free options; open 7 to 2."
 source: "https://www.urbanegg.com/location/johnstown/"
 verified: "2026-11-03"

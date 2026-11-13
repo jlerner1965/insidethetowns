@@ -8,6 +8,9 @@ phone: "(303) 652-0919"
 hours: "Daily 7 am–8:30 pm"
 tags: [grocery, deli, independent]
 featured: true
+details:
+  source: "https://niwotmarket.com/"
+  checked: "2026-11-12"
 summary: "Niwot’s independent grocery since 2002, open daily 7 am–8:30 pm at 7980 Niwot Road in Cottonwood Square: produce, a deli, prepared foods and pet supplies, with Sachi Sushi, The Nook and a Belle Terre Floral counter inside."
 source: "https://niwotmarket.com/contact-us"
 verified: "2026-10-15"

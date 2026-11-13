@@ -45,6 +45,10 @@ import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
 import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
 import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
+import NearThisTown from '@/components/NearThisTown.astro';
+import OpenNow from '@/components/OpenNow.astro';
+import TownProfile from '@/components/TownProfile.astro';
+import { appliesTo } from '@/lib/hub-towns';
 
 export async function getStaticPaths() {
   return publishedHubTowns(await getTraditions()).map((t) => ({ params: { town: t.slug } }));
@@ -367,6 +371,7 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
       </details>
     )}
     {outdoor.length === 0 && statewide.length === 0 && <p class="text-ink-muted">No outdoor date for this town has been read on its agency’s page yet.</p>}
+    <OpenNow records={records.filter((r) => !r.statewide && appliesTo(r, town.slug))} {today} class="mt-6" />
   </section>
   </div>
 
@@ -383,9 +388,13 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
     </nav>
   )}
 
+  {/* The additions of 12 November 2026, below what the page had, in the brief's order. */}
+  <NearThisTown place={town.slug} name={town.name} onHub />
+  <TownProfile {town} />
+
   {nearby.length > 0 && (
     <nav aria-labelledby="nearby-heading" class="mb-12">
-      <h2 id="nearby-heading" class="mb-4 text-2xl font-medium">Nearby pages</h2>
+      <h2 id="nearby-heading" class="mb-4 text-2xl font-medium">More in {town.cluster}</h2>
       <ul class="flex flex-wrap gap-2" data-nearby data-of={clusterNote}>
         {nearby.map((t) => (
           <li><a href={`/${t.slug}/`} class={pill}>{t.name}</a></li>

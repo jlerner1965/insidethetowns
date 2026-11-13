@@ -12,6 +12,10 @@ phone: "303-833-3140"
 hours: "Tue–Thu 11 am–8 pm; Fri–Sat 11 am–9 pm; Sun 11 am–8 pm; closed Mon"
 tags: [bbq, smokehouse, patio, full-bar, catering]
 featured: true
+details:
+  reservation: "Reservations for 8 or more only; on Fridays and Saturdays at or before 4:30 pm"
+  source: "https://www.georgiaboys.com/location/the-smokehouse/"
+  checked: "2026-11-12"
 summary: "Georgia-style slow-smoked barbecue with scratch sides, a patio and a full bar pouring local beer, in the Smokehouse on Fifth Street since 2014. Closed Mondays."
 ---
 

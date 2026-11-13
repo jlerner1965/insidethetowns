@@ -1,0 +1,58 @@
+{
+  "slug": "vail",
+  "transit": [
+    {
+      "name": "Core Transit",
+      "detail": "Regional buses; every route starts or ends in Vail. Free except trips to or from Eagle County Regional Airport, Gypsum or Leadville",
+      "url": "https://www.coretransit.org/",
+      "source": "https://www.coretransit.org/routes-schedules",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Tivoli Lodge",
+      "kind": "Hotel",
+      "url": "https://tivolilodge.com/",
+      "source": "https://tivolilodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Hotel Gasthof Gramshammer",
+      "kind": "Hotel",
+      "url": "https://www.pepis.com/",
+      "source": "https://www.pepis.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Christiania at Vail",
+      "kind": "Hotel",
+      "url": "https://www.christianiaatvail.com/",
+      "source": "https://www.christianiaatvail.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "sites": [
+      {
+        "name": "Colorado Snowsports Museum",
+        "kind": "museum",
+        "url": "https://www.snowsportsmuseum.org/",
+        "hours": "Open daily 10 am-6 pm",
+        "cost": "Free; a $10 donation is appreciated",
+        "source": "https://www.snowsportsmuseum.org/visit",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Betty Ford Alpine Gardens",
+        "kind": "landmark",
+        "url": "https://bettyfordalpinegardens.org/",
+        "hours": "Gardens daily, dawn to dusk; Education Center Monday-Friday 10 am-4 pm",
+        "cost": "No required cost of entry; $20 donation suggested",
+        "season": "Year-round",
+        "source": "https://bettyfordalpinegardens.org/visit/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

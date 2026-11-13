@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 9 November 2026.
+Last revised: 12 November 2026.
 
 ## 1. What this is
 
@@ -59,12 +59,15 @@ The config flag decides what a guide is; nothing is per-town in code.
 
 Two tiers since 12 November 2026: a town is one of the seven standalone
 guides (Berthoud, Erie, Johnstown, Windsor, Carbon Valley, Lyons, Niwot) or a
-town page on the hub, which is dates only: its traditions and its outdoor
+town page on the hub: its traditions and its outdoor
 dates, each from one record with its source and check date
-(`content/hub/traditions/`, `src/config/hub-towns.ts`). A town gets its
-page once three of its own dates are verified; a live guide is folded into
-it only then. Elizabeth's was the last, folded on 12 November 2026 once its
-third date was read.
+(`content/hub/traditions/`, `src/config/hub-towns.ts`), and below them, since
+12 November 2026, what the town is: near this town, its facts, getting there,
+where to stay and its history (see section 8). A town gets its page once one
+named annual event of its own has its next date, or the date it was last
+held, read on its organizer's own page (the owner's brief of 12 November
+2026; the bar had been three dates of any kind); a live guide is folded
+into it only then. Elizabeth's was the last, folded on 12 November 2026.
 
 The hub lists the seven guides, in that order on every page that lists them
 (`liveTowns()`, from `STANDALONE_GUIDES`), and every town page by cluster, and
@@ -228,6 +231,41 @@ Parks and Wildlife's stocking report (`src/lib/fish-stocking.ts`). The others
 are the river at the town's gauge (USGS or Colorado DWR) and the snowpack
 at its SNOTEL station (`src/lib/town-signals.ts`), each shown only while
 its reading is fresh.
+
+**The additions of 12 November 2026** (`docs/additions-report.md`). Below
+what a town page already had, in this order: Near <Town>, the nearest four
+to six towns with a page by road miles, and the passes and named routes
+between them with the usual seasonal closure where the road's agency gives
+one and the road's COtrip page (`data/hub/road-miles.json`,
+`data/hub/passes.json`; every pair from one router, stored once, so two
+pages cannot disagree); the facts strip (elevation, the Census Bureau's
+latest estimate with its year, county, the year of incorporation); Getting
+there (miles and drive time from Denver, the Bustang family's stops, the
+nearest commercial airport by road); Where to stay (the property's own
+site, never a booking or affiliate link); and the history card (the name,
+the founding, three to five dated facts, museums and landmarks with hours,
+cost and season, ghost towns and makers where they apply). The bulk facts
+are written by `scripts/town-facts.ts`, run by hand, never at build time;
+the rest is one file a town, `data/hub/towns/<slug>.json`, every value with
+its source and the day it was read (`src/lib/town-profile.ts`). A value
+nobody confirmed is not in the file and a block with nothing in it is not
+drawn. A guide site is never a source: the schema refuses the ones named.
+Items four to six are the hub's only; a standalone guide gets Near <Town>
+at the foot of `/things-to-do/` and the open-now view on `/traditions/`.
+
+Under Outdoor dates, "Open now" and "Opens next" (`src/lib/open-now.ts`)
+read the records' own dates: a window in force, an opening with a closing
+still ahead, or an opening in the last ninety days where no closing has
+been read. A record says what it is the date of in `outdoor` (campground,
+booking, timed entry, road, ski area, river; opens, closes or window). The
+registry also takes an edition number, sub-events with their times, and
+the closed days of a run of several weeks. Five more season pages:
+`/rodeos-and-county-fairs/`, `/oktoberfests/`, `/harvest-festivals/`,
+`/winter-carnivals/` and `/free-admission-days/`, where a day that has
+passed drops off. A place takes `yearRound`, the other half of its season
+field, and `details` (reservations, cash only, closed days, dogs, bikes,
+fees, tours, tastings, a market's day, hours and season), each shown only
+when filled, with the page it was read on.
 
 **A page of dates corrects itself to the reader's day**
 (`DateCorrection.astro`): a date that has passed since the build stops

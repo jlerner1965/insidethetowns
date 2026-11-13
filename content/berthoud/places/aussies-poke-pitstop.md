@@ -8,6 +8,9 @@ phone: "(970) 344-5215"
 hours: "Mon–Sat 11–7; closed Sun"
 priceRange: "$$"
 tags: [poke, bowls, lunch]
+details:
+  source: "https://www.aussiespokepitstop.com/"
+  checked: "2026-11-12"
 summary: "Poke bowls, Australian meat pies and desserts on Mountain Avenue, with online ordering and curbside pickup."
 source: "https://www.aussiespokepitstop.com/"
 verified: "2026-11-10"

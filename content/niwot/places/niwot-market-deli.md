@@ -6,6 +6,9 @@ area: "Inside Niwot Market"
 url: "https://niwotmarket.com/deli"
 phone: "(303) 652-0919"
 tags: [sandwiches, breakfast-burritos, quick]
+details:
+  source: "https://niwotmarket.com/deli"
+  checked: "2026-11-12"
 summary: "Deli counter inside the market: breakfast burritos, made-to-order sandwiches and soup made fresh daily."
 source: "https://niwotmarket.com/deli"
 verified: "2026-11-10"

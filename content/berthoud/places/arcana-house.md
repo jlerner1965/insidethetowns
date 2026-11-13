@@ -5,6 +5,9 @@ address: "347 Massachusetts Ave"
 area: "Massachusetts Avenue, downtown"
 url: "https://www.arcanahouse.com/"
 tags: [gifts, workshops]
+details:
+  source: "https://www.arcanahouse.com/"
+  checked: "2026-11-12"
 summary: "Ritual goods, botanicals, workshops and a design studio on Massachusetts Avenue."
 source: "https://www.arcanahouse.com/"
 verified: "2026-11-10"

@@ -1,0 +1,80 @@
+{
+  "slug": "frisco",
+  "transit": [
+    {
+      "name": "Summit Stage",
+      "detail": "Free public bus within Summit County. The winter 2026-27 schedule (November 15, 2026 to April 17, 2027) lists Breckenridge/Frisco, Copper/Frisco and Silverthorne/Frisco routes.",
+      "url": "https://summitcountyco.gov/586/Transit-Summit-Stage/",
+      "source": "https://www.summitcountyco.gov/services/transit_summit_stage/bus_schedule/winter_bus_schedule.php",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Frisco Lodge",
+      "kind": "Bed and breakfast",
+      "url": "https://www.friscolodge.com",
+      "source": "https://www.friscolodge.com",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Frisco Inn on Galena",
+      "kind": "Boutique hotel and bed and breakfast",
+      "url": "https://www.friscoinnongalena.com",
+      "source": "https://www.friscoinnongalena.com",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Hotel Frisco",
+      "kind": "Boutique hotel",
+      "url": "https://www.hotelfrisco.com/",
+      "source": "https://www.hotelfrisco.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1873,
+      "text": "Founded in 1873 by Henry Recen and officially chartered in 1879.",
+      "source": "https://www.townoffrisco.com/things-to-do/frisco-historic-park-museum/frisco-history/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1873,
+        "text": "Henry Recen founded Frisco.",
+        "source": "https://www.townoffrisco.com/things-to-do/frisco-historic-park-museum/frisco-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1879,
+        "text": "The town was officially chartered.",
+        "source": "https://www.townoffrisco.com/things-to-do/frisco-historic-park-museum/frisco-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1882,
+        "text": "By this year the town had two railroads, along with businesses, hotels and saloons.",
+        "source": "https://www.townoffrisco.com/things-to-do/frisco-historic-park-museum/frisco-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1918,
+        "text": "The mining boom that began in the 1870s came to an end.",
+        "source": "https://www.townoffrisco.com/things-to-do/frisco-historic-park-museum/frisco-history/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Frisco Historic Park & Museum",
+        "kind": "museum",
+        "url": "https://www.townoffrisco.com/things-to-do/frisco-historic-park-museum/",
+        "hours": "Tuesday–Sunday 10 am–5 pm; closed Monday",
+        "cost": "Free",
+        "source": "https://www.townoffrisco.com/things-to-do/frisco-historic-park-museum/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

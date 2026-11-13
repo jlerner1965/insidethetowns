@@ -19,7 +19,7 @@ import { z } from 'astro/zod';
 import { dayKey, parseLocal } from '../lib/dates.ts';
 import { OPENING_HOURS_RE } from '../lib/hours.ts';
 import { CLOCK_RE, WEEKDAYS, isDayOff, runSittings, weekdayOf } from '../lib/schedule.ts';
-import { TRADITION_STATUSES, TRADITION_TYPES } from '../lib/traditions.ts';
+import { OUTDOOR_EDGES, OUTDOOR_KINDS, TRADITION_STATUSES, TRADITION_TYPES, isAgencyDate } from '../lib/traditions.ts';
 
 /** Astro passes its image() helper (typed to ImageMetadata); the validator passes a plain string check. */
 export type ImageSchema = () => z.ZodType;
@@ -596,6 +596,55 @@ export const accessSchema = z.object({
   verified: localDate,
 });
 
+/**
+ * What a reader needs to know before going, beyond the hours (the
+ * additions of 12 November 2026): the rules of the door, a tour or a
+ * tasting, and for a farmers market its day, hours and season. Every line
+ * is in the place's own words or close to them, read on the page named in
+ * `source` on the day in `checked`; a line nobody read is left out, and a
+ * block with only its source draws nothing. `source` and `checked` also
+ * stand behind a phone number or a website added with the block.
+ */
+const offerSchema = z
+  .object({
+    /** What is offered, in a line: "Brewery tours Saturdays at 2 pm". */
+    offered: z.string().min(1).max(200),
+    cost: z.string().min(1).max(120).optional(),
+    /** "Required", "Recommended", "Walk-ins welcome", in the place's words. */
+    reservation: z.string().min(1).max(120).optional(),
+  })
+  .strict();
+export const placeDetailsSchema = z
+  .object({
+    /** "Reservations required", "Reservations recommended on weekends". */
+    reservation: z.string().min(1).max(160).optional(),
+    cashOnly: z.boolean().optional(),
+    /** Days it is shut that the hours line does not say: "Closed on Town holidays". */
+    closedDays: z.string().min(1).max(160).optional(),
+    /** "Dogs on leash", "No dogs", "Dogs welcome on the patio". */
+    dogs: z.string().min(1).max(160).optional(),
+    /** "Bikes allowed on the main trail only". */
+    bikes: z.string().min(1).max(160).optional(),
+    /** "$10 daily vehicle pass", "Free". */
+    fees: z.string().min(1).max(200).optional(),
+    tours: offerSchema.optional(),
+    tastings: offerSchema.optional(),
+    /** A farmers market: its day, its hours and the first and last day of its season. */
+    market: z
+      .object({
+        day: z.string().min(1).max(60),
+        hours: z.string().min(1).max(80).optional(),
+        seasonStart: localDate.optional(),
+        seasonEnd: localDate.optional(),
+      })
+      .strict()
+      .refine((m) => !m.seasonStart || !m.seasonEnd || m.seasonEnd.getTime() >= m.seasonStart.getTime(), { message: 'a market season ends on or after the day it starts', path: ['seasonEnd'] })
+      .optional(),
+    source: httpUrl,
+    checked: localDate,
+  })
+  .strict();
+
 export function placeSchema<I extends z.ZodType>(image: () => I) {
   return z
     .object({
@@ -607,6 +656,14 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
        */
       subTown: z.string().min(1).optional(),
       seasonal: seasonalSchema.optional(),
+      /**
+       * Open all year, in the place's own words or on its own calendar.
+       * The other half of the season field: `seasonal` carries open dates,
+       * this says there are none to carry. Shown wherever the place is
+       * listed, as the season is.
+       */
+      yearRound: z.boolean().optional(),
+      details: placeDetailsSchema.optional(),
       access: accessSchema.optional(),
       slug,
       type: z.enum(PLACE_TYPES),
@@ -728,6 +785,10 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
     .refine((p) => !p.changeFlag || !!p.changeNote, {
       message: 'a changeFlag needs a changeNote saying what the source changed',
       path: ['changeNote'],
+    })
+    .refine((p) => !p.yearRound || !p.seasonal, {
+      message: 'a place is open year-round or has a season, not both',
+      path: ['yearRound'],
     })
     .refine((p) => !p.access || LAND_TYPES.includes(p.type), {
       message: 'access notes belong on a trail, a trailhead or a park',
@@ -1685,10 +1746,34 @@ export function traditionSchema() {
       reason: z.string().min(1).optional(),
       /** The organizer page this year was read from, where it is not the record's `sourceUrl`. */
       sourceUrl: httpUrl.optional(),
+      /** Which running this is, where the organizer numbers it: 78 for "the 78th annual". */
+      edition: z.number().int().min(1).max(500).optional(),
+      /**
+       * The named parts the organizer lists with a day or a time, in its
+       * words: "Parade", "PRCA rodeo performance". Only on a year with a
+       * date; a part with neither a day nor a time is not written.
+       */
+      subEvents: z
+        .array(
+          z
+            .object({ name: z.string().min(1), date: isoDay.optional(), time: z.string().min(1).optional(), place: z.string().min(1).optional() })
+            .strict()
+            .refine((e) => !!e.date || !!e.time, { message: 'a sub-event carries the day or the time the organizer gives', path: ['time'] }),
+        )
+        .min(1)
+        .optional(),
+      /** On a run of several weeks: the days it is closed, in the organizer's words ("Mondays", "December 25"). */
+      closedDays: z.array(z.string().min(1)).min(1).optional(),
       /** The day a person last read the source. Required on every year. */
       checked: isoDay,
     })
     .strict()
+    .refine((y) => !y.subEvents || ((y.status === 'confirmed' || y.status === 'moved') && y.subEvents.every((e) => !e.date || (e.date >= y.date! && e.date <= (y.endDate ?? y.date!)))), {
+      message: 'sub-events go with a dated year, each inside its date and endDate',
+      path: ['subEvents'],
+    })
+    .refine((y) => !y.closedDays || !!y.endDate, { message: 'closedDays go with a run: a date and an endDate', path: ['closedDays'] })
+    .refine((y) => y.edition === undefined || y.status !== 'not-announced', { message: 'an edition number goes with a year the organizer has dated', path: ['edition'] })
     .refine((y) => !(y.status === 'confirmed' || y.status === 'moved') || !!y.date, {
       message: 'a confirmed or moved year needs the date the organizer gives',
       path: ['date'],
@@ -1748,6 +1833,8 @@ export function traditionSchema() {
       sourceUrl: httpUrl,
       /** Only when the organizer states it. */
       firstYear: z.number().int().min(1800).max(2100).optional(),
+      /** On an outdoor date: what it is the date of (src/lib/traditions.ts, OUTDOOR_KINDS; src/lib/open-now.ts). */
+      outdoor: z.object({ kind: z.enum(OUTDOOR_KINDS), facility: z.string().min(1), edge: z.enum(OUTDOOR_EDGES) }).strict().optional(),
       years: z.array(year).min(1),
       /** A sample record (test/fixtures/traditions/). Never true in content/. */
       fixture: z.boolean().optional(),
@@ -1761,10 +1848,11 @@ export function traditionSchema() {
       message: 'a record names where it applies: a town, a list of towns, or statewide',
       path: ['town'],
     })
-    .refine((r) => r.type === 'outdoor' || !!r.town, {
-      message: 'a tradition is held in a town: only an outdoor date can be shared or statewide without one',
+    .refine((r) => isAgencyDate(r.type) || !!r.town, {
+      message: 'a tradition is held in a town: only an outdoor date or a free-admission day can be shared or statewide without one',
       path: ['town'],
     })
+    .refine((r) => !r.outdoor || r.type === 'outdoor', { message: '`outdoor` goes with type outdoor', path: ['outdoor'] })
     .refine((r) => !r.towns || new Set(r.towns.map((t) => t.slug)).size === r.towns.length, {
       message: 'a town is listed once',
       path: ['towns'],

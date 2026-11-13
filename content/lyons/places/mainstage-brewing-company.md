@@ -8,6 +8,9 @@ phone: "(303) 823-2331"
 hours: "Mon–Sat 11 am–10 pm, Sun 11 am–9 pm"
 tags: [brewery, pizza, live-music]
 featured: true
+details:
+  source: "https://mainstagebrewing.com/"
+  checked: "2026-11-12"
 summary: "Brewery and pizza kitchen with a stage in the name for a reason: live music, with a bluegrass night on Thursdays from May to September."
 source: "https://www.mainstagebrewing.com/"
 verified: "2026-11-10"

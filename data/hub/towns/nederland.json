@@ -1,0 +1,47 @@
+{
+  "slug": "nederland",
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1986,
+        "text": "Nederland resident Scott Harrison trucked the empty frame of a Looff carousel from Utah to Nederland and began carving animals for it.",
+        "source": "https://carouselofhappiness.org/about/the-story-of-the-carousel/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2010,
+        "text": "The Carousel of Happiness opened on Memorial Day.",
+        "source": "https://carouselofhappiness.org/about/the-story-of-the-carousel/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2012,
+        "text": "Boulder County bought the artifact collection of the Nederland Mining Museum, which the Nederland Area Historical Society had created and run.",
+        "source": "https://bouldercounty.gov/open-space/education/museums/nederland-mining-museum/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Nederland Mining Museum",
+        "kind": "museum",
+        "url": "https://bouldercounty.gov/open-space/education/museums/nederland-mining-museum/",
+        "hours": "Friday-Sunday 11 am-5 pm",
+        "cost": "Free",
+        "season": "June 1 through October 31",
+        "source": "https://bouldercounty.gov/open-space/education/museums/nederland-mining-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Carousel of Happiness",
+        "kind": "landmark",
+        "url": "https://carouselofhappiness.org/",
+        "hours": "Days and times vary by season: generally 7 days a week from Memorial Day through Labor Day, weekends the rest of the year",
+        "cost": "$3 per ride; infants younger than 9 months ride free",
+        "season": "Year-round",
+        "source": "https://carouselofhappiness.org/visit-the-carousel/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -5,6 +5,9 @@ address: "Mobile; booked for events"
 area: "Around Niwot"
 url: "https://www.emoryjanescoffeeco.com/"
 tags: [mobile, espresso, van]
+details:
+  source: "https://www.emoryjanescoffeeco.com/"
+  checked: "2026-11-12"
 summary: "Niwot-based mobile espresso bar for hire: coffee, tea and pastries from a restored 1969 Dodge A100 van at events."
 source: "https://www.emoryjanescoffeeco.com/"
 verified: "2026-11-10"

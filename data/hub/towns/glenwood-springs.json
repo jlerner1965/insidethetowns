@@ -1,0 +1,106 @@
+{
+  "slug": "glenwood-springs",
+  "transit": [
+    {
+      "name": "Ride Glenwood Springs",
+      "detail": "Free city bus, year-round, daily at 30-minute intervals",
+      "url": "https://www.rfta.com/routes/ride-glenwood/",
+      "source": "https://www.rfta.com/routes/ride-glenwood/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Amtrak",
+      "detail": "Glenwood Springs station at 413 7th Street",
+      "url": "https://www.amtrak.com/stations/gsc",
+      "source": "https://www.amtrak.com/stations/gsc",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Hotel Colorado",
+      "kind": "Hotel",
+      "url": "https://www.hotelcolorado.com/",
+      "source": "https://www.hotelcolorado.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Glenwood Hot Springs Resort",
+      "kind": "Lodge",
+      "url": "https://hotspringspool.com/",
+      "season": "Year-round",
+      "source": "https://hotspringspool.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1887,
+        "text": "Doc Holliday dies on November 8 at the Hotel Glenwood and is buried in Linwood Cemetery.",
+        "source": "https://glenwoodhistory.org/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1888,
+        "text": "Glenwood Hot Springs opens on July 4.",
+        "source": "https://hotspringspool.com/blogs/the-fascinating-history-of-glenwood-hot-springs-resort/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1893,
+        "text": "Hotel Colorado begins taking guests.",
+        "source": "https://www.hotelcolorado.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1963,
+        "text": "Local residents form the Frontier Historical Society, renamed the Glenwood Springs Historical Society in 2016.",
+        "source": "https://glenwoodhistory.org/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1971,
+        "text": "The society's museum moves to 1001 Colorado Avenue, a house left to it by Stella Shumate.",
+        "source": "https://glenwoodhistory.org/about/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Frontier Museum",
+        "kind": "museum",
+        "url": "https://glenwoodhistory.org/",
+        "hours": "Tuesday through Saturday, 10 am–4 pm",
+        "cost": "17 and older $5; 16 and younger free",
+        "source": "https://glenwoodhistory.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Doc's Collection at Bullock's Western Wear",
+        "kind": "museum",
+        "url": "https://glenwoodhistory.org/",
+        "hours": "Daily 10 am–5:30 pm; closes 4:30 pm Sundays",
+        "cost": "Donation at the display",
+        "source": "https://glenwoodhistory.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Hotel Colorado",
+        "kind": "landmark",
+        "url": "https://www.hotelcolorado.com/",
+        "source": "https://www.hotelcolorado.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Glenwood Hot Springs",
+        "kind": "landmark",
+        "url": "https://hotspringspool.com/",
+        "hours": "9 am–9 pm",
+        "season": "Year-round",
+        "source": "https://hotspringspool.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

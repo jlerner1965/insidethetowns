@@ -1,0 +1,54 @@
+{
+  "slug": "sterling",
+  "facts": {
+    "incorporated": {
+      "year": 1884,
+      "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+      "checked": "2026-11-12"
+    }
+  },
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1871,
+        "text": "William Shaw Hadfield arrived and made his home on an island in the South Platte River a few miles south of present-day Sterling.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1873,
+        "text": "Settlers about four miles north of the present town site built the first irrigation ditch.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1881,
+        "text": "The Union Pacific Railroad came through, and a section house and depot were built.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1884,
+        "text": "Sterling was incorporated on December 13.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1887,
+        "text": "Sterling was made the county seat.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Overland Trail Museum",
+        "kind": "museum",
+        "url": "https://www.sterlingcolo.com/departments/parks_library_and_recreation/overland_trail_museum/index.php",
+        "hours": "April 1 to October 31: Monday through Saturday, 9:00 AM to 5:00 PM. November 1 to March 31: Tuesday through Saturday, 10:00 AM to 4:00 PM",
+        "source": "https://www.sterlingcolo.com/departments/parks_library_and_recreation/overland_trail_museum/index.php",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

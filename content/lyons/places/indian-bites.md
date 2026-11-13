@@ -7,6 +7,9 @@ url: "https://indianbitesco.com/"
 phone: "(303) 823-0390"
 hours: "Sun–Thu 11 am–8 pm, Fri–Sat 11 am–8:30 pm"
 tags: [indian, takeout]
+details:
+  source: "https://indianbitesco.com/"
+  checked: "2026-11-12"
 summary: "Fresh curries, biryani and saag, for eating in or taking to the park."
 source: "https://indianbitesco.com/"
 verified: "2026-11-10"

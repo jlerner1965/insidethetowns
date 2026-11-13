@@ -11,6 +11,14 @@ imageAlt: "The stone Bimson Blacksmith Shop at the Pioneer Museum, with a windmi
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 tags: [museum, history, kids]
 featured: true
+details:
+  fees: "Adults $5; seniors and youth (12-18) $3; children 11 and under free; members free"
+  tours:
+    offered: "Pre-arranged group tours for six or more"
+    cost: "No charge; donations accepted"
+    reservation: "Call or email; four weeks' notice requested"
+  source: "https://berthoudhistoricalsociety.org/ltv-pioneer-museum/"
+  checked: "2026-11-12"
 summary: "The Berthoud Historical Society's museum on Mountain Avenue, in and around the 1893 Bimson Blacksmith Shop: farm, railroad and family history. Wed–Sat 1–4, $5."
 source: "https://berthoudhistoricalsociety.org/ltv-pioneer-museum/"
 verified: "2026-11-10"

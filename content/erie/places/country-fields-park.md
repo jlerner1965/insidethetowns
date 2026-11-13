@@ -9,6 +9,9 @@ imageAlt: "The shelter at Country Fields Park, picnic tables under a pitched met
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [cricket, ballfields, playground]
+details:
+  source: "https://www.erieco.gov/2312/Country-Fields-Park"
+  checked: "2026-11-12"
 summary: "A 22.2-acre park on Tynan Drive with two ballfields, a cricket pitch in the native grass, a playground, a shelter and walking trails."
 source: "https://www.erieco.gov/2312/Country-Fields-Park"
 verified: "2026-11-09"

@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "(303) 997-3838"
 hours: "Mon–Fri 6:30 am–7 pm; Sat 9 am–6 pm; Sun 10 am–noon and 4–6 pm"
 tags: [pets, dog-daycare, boarding, grooming]
+details:
+  source: "https://houndstownusa.com/locations/erie"
+  checked: "2026-11-12"
 summary: "Dog daycare, overnight boarding and a pet spa on Monarch Street, with dogs grouped by size and temperament for all-day play."
 ---
 

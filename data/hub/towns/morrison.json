@@ -1,0 +1,54 @@
+{
+  "slug": "morrison",
+  "transit": [
+    {
+      "name": "Westracks",
+      "detail": "Free community shuttle on weekends and holidays, 9 a.m. to 5 p.m., Memorial Day to Labor Day, every 15 minutes.",
+      "url": "https://www.ridewestracks.com/",
+      "source": "https://www.morrisonco.us/425/Westracks-Shuttle",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Cliff House Lodge & Hot Tub Cottages",
+      "kind": "Bed and breakfast",
+      "url": "http://cliffhouselodge.net/",
+      "source": "http://cliffhouselodge.net/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "George Morrison, a stonemason who came to the area in 1859, platted the town that became known as Morrison.",
+      "source": "https://morrisonhistory.org/george-morrison/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1872,
+      "text": "The town got its start when Denver businessmen led by John Evans incorporated the Denver and South Park Railway.",
+      "source": "https://morrisonhistory.org/early-morrison/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1872,
+        "text": "The Denver and South Park Railway was incorporated to build a narrow gauge line toward Morrison.",
+        "source": "https://morrisonhistory.org/early-morrison/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1874,
+        "text": "The railroad to Morrison was completed.",
+        "source": "https://morrisonhistory.org/early-morrison/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1925,
+        "text": "Scheduled trains to Morrison stopped running.",
+        "source": "https://morrisonhistory.org/early-morrison/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

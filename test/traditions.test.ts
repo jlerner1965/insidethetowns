@@ -207,7 +207,8 @@ test('without the switch, no fixture reaches a route', () => {
   }
   const on = { TRADITIONS_FIXTURES: '1' };
   assert.ok(guidesWithTraditions('.', on).has('berthoud'));
-  assert.deepEqual(seasonTypesWithRecords('.', on).filter((t) => t !== 'outdoor'), ['parade-of-lights', 'tree-lighting', 'turkey-trot']);
+  // The three holiday seasons, and the five opened with the additions of 12 November 2026.
+  assert.deepEqual(seasonTypesWithRecords('.', on).filter((t) => t !== 'outdoor'), ['parade-of-lights', 'tree-lighting', 'turkey-trot', 'rodeo-fair', 'oktoberfest', 'harvest-festival', 'winter-carnival', 'free-day']);
 });
 
 test('the routes: /traditions/ only on a guide a record names; a hub page per season type with a record', () => {
@@ -219,7 +220,7 @@ test('the routes: /traditions/ only on a guide a record names; a hub page per se
     assert.doesNotMatch(pattern, /\d{4}/, 'no year in the address');
   }
   // Turkey trots opened on 12 November 2026 with six verified records.
-  assert.deepEqual(Object.keys(CURRENT_SEASONS).sort(), ['outdoor', 'parade-of-lights', 'tree-lighting', 'turkey-trot']);
+  assert.deepEqual(Object.keys(CURRENT_SEASONS).sort(), ['free-day', 'harvest-festival', 'oktoberfest', 'outdoor', 'parade-of-lights', 'rodeo-fair', 'tree-lighting', 'turkey-trot', 'winter-carnival']);
 });
 
 // ---------- approved records and drafts ----------

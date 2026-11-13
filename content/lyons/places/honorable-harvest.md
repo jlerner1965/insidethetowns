@@ -7,6 +7,9 @@ url: "https://www.honorable-harvest.com/"
 phone: "(303) 823-5507"
 hours: "Tue–Sun 10 am–6 pm"
 tags: [herbs, tea, apothecary]
+details:
+  source: "https://www.honorable-harvest.com/"
+  checked: "2026-11-12"
 summary: "Responsibly harvested herbs, teas and apothecary goods."
 source: "https://www.honorable-harvest.com/"
 verified: "2026-11-10"

@@ -1,0 +1,47 @@
+{
+  "slug": "castle-rock",
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1874,
+        "text": "Locals pushed for a railroad depot in Castle Rock, the designated seat of the newly realigned Douglas County.",
+        "source": "https://www.castlerockhistoricalsociety.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1875,
+        "text": "A depot of rhyolite stone went up on Third Street on the Denver & Rio Grande line.",
+        "source": "https://www.castlerockhistoricalsociety.org/?page_id=3044",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1962,
+        "text": "The Castle Rock Chamber of Commerce created the Starlighting celebration.",
+        "source": "https://castlerock.org/castle-rock-starlighting/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1970,
+        "text": "The depot was moved to 420 Elbert Street.",
+        "source": "https://www.castlerockhistoricalsociety.org/?page_id=3044",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1997,
+        "text": "The Castle Rock Historical Society opened the Castle Rock Museum in the depot in October.",
+        "source": "https://www.castlerockhistoricalsociety.org/?page_id=588",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Castle Rock Museum",
+        "kind": "museum",
+        "url": "https://www.castlerockhistoricalsociety.org/",
+        "hours": "Wednesday–Friday noon–5 pm; Saturday 11 am–4 pm",
+        "source": "https://www.castlerockhistoricalsociety.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

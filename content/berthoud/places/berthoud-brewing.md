@@ -8,6 +8,9 @@ phone: "(970) 532-9850"
 hours: "Mon–Thu 2–8, Fri 2–10, Sat 12–10, Sun 12–8"
 priceRange: "$$"
 tags: [brewery, patio, dog friendly]
+details:
+  source: "https://berthoudbrewing.com/locations"
+  checked: "2026-11-12"
 summary: "Family-owned brewery and taproom on 8th Street with a large covered patio, food trucks, dogs welcome, and beer to go."
 source: "https://berthoudbrewing.com/locations"
 verified: "2026-11-10"

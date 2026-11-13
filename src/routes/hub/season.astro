@@ -77,9 +77,14 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
 
 const title = dated ? `${info.plural}, town by town` : `${info.plural} in Colorado`;
 const seoTitle = `${info.plural} in Colorado, ${when}`;
+const agency = type === 'outdoor' || type === 'free-day';
 const description = dated
   ? `Colorado ${info.plural.toLowerCase()} for ${when}, town by town: the date each organizer has published, or that it has not yet, with the page it was read from.`
-  : `Colorado ${info.plural.toLowerCase()} ${when}: road and pass openings, park entry seasons, boat ramps and licence windows, each with the date its agency has published, or that it has not yet.`;
+  : type === 'outdoor'
+    ? `Colorado ${info.plural.toLowerCase()} ${when}: road and pass openings, park entry seasons, campgrounds, ski areas and licence windows, each with the date its agency has published, or that it has not yet.`
+    : type === 'free-day'
+      ? 'Free-admission days in Colorado: state parks, national parks and public lands, and museums, each a dated day read on the agency’s or the museum’s own page. A day that has passed drops off.'
+      : `${info.plural} in Colorado, town by town: the next date each organizer has published, or that it has not yet and when it was last held, with the page it was read from.`;
 const pageUrl = `https://${hub.domain}${path}`;
 const structured = [
   collectionPageJsonLd(hub, {
@@ -104,8 +109,10 @@ const byDate = (a: (typeof rows)[number], b: (typeof rows)[number]) =>
   (a.entry.date ?? '9999').localeCompare(b.entry.date ?? '9999') || (a.record.town?.name ?? '').localeCompare(b.record.town?.name ?? '') || a.record.name.localeCompare(b.record.name);
 const ahead = (r: (typeof rows)[number]) => isUpcoming(r) || (r.entry.status === 'canceled' && !!r.entry.date && r.entry.date >= today);
 const upcoming = rows.filter(ahead).sort(byDate);
+// A free-admission day that has passed drops off the page (the brief of 12 November 2026).
 const gone = rows.filter((r) => r.past).sort((a, b) => byDate(b, a));
 const waiting = rows.filter((r) => !ahead(r) && !r.past);
+const shown = upcoming.length + waiting.length + gone.length;
 /** "Add to calendar" for a date still ahead: the entry's file on this site, and the same entry as a Google link. */
 const calendarFor = (row: (typeof rows)[number]) => {
   const event = traditionCalendarEvent(row, { domain: hub.domain, pageUrl });
@@ -124,7 +131,7 @@ const pill =
     {dated ? (
       <Fragment>{plural(counts.towns, 'town', 'towns')} listed · <span data-date-count="dates">{plural(counts.confirmed, 'date', 'dates')}</span> confirmed</Fragment>
     ) : (
-      <Fragment>{plural(rows.length, 'date', 'dates')} listed · <span data-date-count="ahead">{counts.confirmed}</span> with a date ahead</Fragment>
+      <Fragment>{plural(shown, agency ? 'date' : 'event', agency ? 'dates' : 'events')} listed · <span data-date-count="ahead">{counts.confirmed}</span> with a date ahead</Fragment>
     )}
   </p>
   <div data-town-filter hidden class="mb-5 max-w-sm">
@@ -149,7 +156,7 @@ const pill =
 
   <CalendarSubscribe name={info.path.replace(/\//g, '')} what={dated ? `every date on this page` : 'these dates'} class="mb-8" />
 
-  <section aria-labelledby="rows-heading" class="mb-12" data-season-group="upcoming">
+  <section aria-labelledby="rows-heading" class="mb-12" data-season-group="upcoming" data-drop-past={type === 'free-day' ? '' : undefined}>
     <div class="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-line-soft pb-3">
       <h2 id="rows-heading" class="text-2xl font-medium">Dates to come</h2>
       {upcoming.length > 1 && (
@@ -179,7 +186,7 @@ const pill =
 
   {gone.length > 0 && (
     <section aria-labelledby="gone-heading" class="mb-12" data-season-group="past">
-      <h2 id="gone-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">{dated ? 'Already held this season' : 'Passed; the next date is not announced'}</h2>
+      <h2 id="gone-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">{dated ? 'Already held this season' : agency ? 'Passed; the next date is not announced' : 'Held; the next date is not announced'}</h2>
       <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
         {gone.map((row) => <TraditionRow {...rowProps(row)} />)}
       </div>
@@ -195,6 +202,15 @@ const pill =
   </p>
   <DateCorrection />
 </Page>
+
+<script>
+  // A free-admission day that has passed since the build drops off for the reader's own Denver day.
+  const drop = document.querySelector<HTMLElement>('[data-drop-past]');
+  if (drop) {
+    const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
+    for (const row of drop.querySelectorAll<HTMLElement>('[data-tradition-row][data-ends]')) if ((row.dataset.ends ?? '') < today) row.hidden = true;
+  }
+</script>
 
 <script>
   /*

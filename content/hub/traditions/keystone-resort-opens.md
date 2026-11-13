@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Keystone Resort (Vail Resorts)"
 sourceUrl: "https://news.vailresorts.com/keystone-opening-2026"
+outdoor:
+  kind: ski-area
+  facility: "Keystone Resort"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

@@ -6,6 +6,9 @@ area: "Downtown, Mountain Avenue"
 url: "https://www.houseofrossiboutique.com/"
 hours: "Tue 1–6, Wed–Sat 10–6, Sun 1–6; closed Mon"
 tags: [clothing, boutique]
+details:
+  source: "https://www.houseofrossiboutique.com/"
+  checked: "2026-11-12"
 summary: "Women's clothing boutique on Mountain Avenue for everyday fashion and accessories."
 source: "https://www.houseofrossiboutique.com/pages/about-us"
 verified: "2026-11-10"

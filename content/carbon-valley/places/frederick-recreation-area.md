@@ -11,6 +11,13 @@ phone: "720-382-5805"
 hours: "Dawn to 10 pm (the skate park’s posted hours)"
 tags: [lake, fishing, trails, dog-park, skatepark, boating]
 featured: true
+details:
+  reservation: "Picnic pavilion reservations are closed from September 30 to February 1"
+  dogs: "Off-leash dog park"
+  bikes: "All trails are open to hiking and biking"
+  fees: "No permit is required for non-motorized boating"
+  source: "https://www.frederickco.gov/Facilities/Facility/Details/2"
+  checked: "2026-11-12"
 summary: "129 acres around Milavec Lake: fishing piers, non-motorized boating, a 1.26-mile loop plus 1.7 miles of paved trail, an off-leash dog park, two playgrounds, a fitness court and a 30,000-square-foot skate park."
 ---
 

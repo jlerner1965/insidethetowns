@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "City of Steamboat Springs"
 sourceUrl: "https://www.steamboatsprings.net/131/Howelsen-Hill-Ski-Area"
+outdoor:
+  kind: ski-area
+  facility: "Howelsen Hill"
+  edge: opens
 years:
   - year: 2026
     status: confirmed

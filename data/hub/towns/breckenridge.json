@@ -1,0 +1,79 @@
+{
+  "slug": "breckenridge",
+  "transit": [
+    {
+      "name": "Summit Stage",
+      "detail": "Free public bus within Summit County. The winter 2026-27 schedule (November 15, 2026 to April 17, 2027) lists a Breckenridge/Frisco route.",
+      "url": "https://summitcountyco.gov/586/Transit-Summit-Stage/",
+      "source": "https://www.summitcountyco.gov/services/transit_summit_stage/bus_schedule/winter_bus_schedule.php",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Beaver Run Resort and Conference Center",
+      "kind": "Resort",
+      "url": "https://www.beaverrun.com/",
+      "source": "https://www.beaverrun.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Gravity Haus Breckenridge",
+      "kind": "Hotel",
+      "url": "https://www.gravityhaus.com/locations/breckenridge/",
+      "source": "https://www.gravityhaus.com/locations/breckenridge/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Bivvi Hostel",
+      "kind": "Hostel",
+      "url": "https://www.thebivvi.com/",
+      "source": "https://www.thebivvi.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Breckenridge History gives two accounts: some credit John Cabell Breckinridge, vice president under James Buchanan, and others credit Thomas E. Breckenridge, a member of the 1845 and 1848 Fremont expeditions.",
+      "source": "https://breckhistory.org/discover/breckenridge-history/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1859,
+        "text": "Prospectors first found gold in the spring, starting the first of three local mining booms.",
+        "source": "https://breckhistory.org/discover/breckenridge-history/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Barney Ford Museum",
+        "kind": "museum",
+        "url": "https://breckhistory.org/museums/barney-ford-museum/",
+        "hours": "30-minute guided tours at 11 am, 12 pm, 1 pm, 2 pm and 3 pm",
+        "season": "Closed in November",
+        "source": "https://breckhistory.org/museums/barney-ford-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Edwin Carter Museum",
+        "kind": "museum",
+        "url": "https://breckhistory.org/museums/edwin-carter-museum/",
+        "cost": "Free, $5 suggested donation",
+        "season": "Closed in November",
+        "source": "https://breckhistory.org/museums/edwin-carter-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Breckenridge Welcome Center Museum",
+        "kind": "museum",
+        "url": "https://breckhistory.org/museums/breckenridge-welcome-center-museum/",
+        "cost": "Free, $5 suggested donation",
+        "season": "Year-round",
+        "source": "https://breckhistory.org/museums/breckenridge-welcome-center-museum/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

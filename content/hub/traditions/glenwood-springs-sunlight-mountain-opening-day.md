@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Sunlight Mountain Resort"
 sourceUrl: "https://sunlightmtn.com/"
+outdoor:
+  kind: ski-area
+  facility: "Sunlight Mountain Resort"
+  edge: opens
 years:
   - year: 2026
     status: confirmed

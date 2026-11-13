@@ -15,6 +15,9 @@ image: ../images/bruces-bar.jpg
 imageAlt: "Bruce's Bar, a long salmon-pink building with a covered front porch, beside a snow-covered 1st Street in Severance in winter"
 imageCredit: "Jared Winkler, Wikimedia Commons, CC BY-SA 4.0"
 tags: [rocky mountain oysters, live music, karaoke, history]
+details:
+  source: "https://brucesbar123.com/"
+  checked: "2026-11-12"
 summary: "The 1st Street bar that has carried the Bruce's name since 1957, known for Rocky Mountain oysters, with live music on Saturday nights and karaoke on Wednesdays."
 ---
 

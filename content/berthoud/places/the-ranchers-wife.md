@@ -6,6 +6,9 @@ area: "Third Street"
 url: "https://the-ranchers-wife-co.square.site/"
 hours: "Tue–Sat 10–5; closed Sun–Mon"
 tags: [antiques, gifts, colorado made]
+details:
+  source: "https://the-ranchers-wife-co.square.site/"
+  checked: "2026-11-12"
 summary: "Colorado-made goods, antiques and farmhouse decor on Third Street."
 source: "https://the-ranchers-wife-co.square.site/"
 verified: "2026-11-10"

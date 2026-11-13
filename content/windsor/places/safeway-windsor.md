@@ -8,6 +8,9 @@ url: "https://local.safeway.com/safeway/co/windsor/1535-main-st.html"
 phone: "(970) 674-1177"
 hours: "Daily 6 am–11 pm"
 tags: [grocery, pharmacy, everyday]
+details:
+  source: "https://local.safeway.com/safeway/co/windsor/1535-main-st.html"
+  checked: "2026-11-12"
 summary: "Windsor's Safeway on west Main Street at 11th Street, open every day from 6 am to 11 pm, with a pharmacy, a cake shop and pickup or delivery orders."
 source: "https://local.safeway.com/safeway/co/windsor/1535-main-st.html"
 verified: "2026-11-10"

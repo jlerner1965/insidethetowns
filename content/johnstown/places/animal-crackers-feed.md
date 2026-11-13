@@ -7,6 +7,9 @@ url: "https://www.animalcrackersfeed.com/"
 phone: "(970) 587-2332"
 hours: "Mon–Fri 8 am–7 pm; Sat–Sun 8 am–5 pm"
 tags: [pets, feed, old-town]
+details:
+  source: "https://www.animalcrackersfeed.com/"
+  checked: "2026-11-12"
 summary: "The feed and pet-food store on Parish Avenue, inside the Ace Hardware: food for dogs, cats, chickens, wild birds and small animals."
 source: "https://www.animalcrackersfeed.com/"
 verified: "2026-10-26"

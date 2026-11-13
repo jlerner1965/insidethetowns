@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Purgatory Resort"
 sourceUrl: "https://www.purgatory.ski/"
+outdoor:
+  kind: ski-area
+  facility: "Purgatory Resort"
+  edge: opens
 years:
   - year: 2026
     status: confirmed

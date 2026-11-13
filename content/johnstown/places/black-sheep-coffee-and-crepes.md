@@ -9,6 +9,9 @@ hours: "Mon–Fri 7–2, Sat–Sun 8–2"
 priceRange: "$"
 tags: [coffee, crepes, breakfast]
 featured: true
+details:
+  source: "https://www.blacksheepjohnstown.com/"
+  checked: "2026-11-12"
 summary: "Old Town's coffee house: sweet and savory crepes, espresso, a rotating craft-beer tap and local makers' goods on the shelves. 7 to 2 on weekdays."
 source: "https://www.blacksheepjohnstown.com/"
 verified: "2026-11-02"

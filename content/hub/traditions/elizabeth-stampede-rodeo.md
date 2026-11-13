@@ -4,7 +4,7 @@ name: "Elizabeth Stampede Rodeo"
 town:
   name: Elizabeth
   guide: elizabeth
-type: festival
+type: rodeo-fair
 organizer: "Elizabeth Stampede Rodeo Association"
 sourceUrl: "https://www.elizabethstampede.com/upcoming-events"
 firstYear: 1966

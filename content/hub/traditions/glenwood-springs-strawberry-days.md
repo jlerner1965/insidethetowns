@@ -4,7 +4,7 @@ name: "Strawberry Days Festival"
 town:
   name: Glenwood Springs
   guide: glenwood-springs
-type: festival
+type: harvest-festival
 organizer: "Glenwood Springs Chamber Foundation"
 sourceUrl: "https://glenwoodchamber.com/strawberry-days/"
 years:
@@ -13,6 +13,7 @@ years:
     checked: 2026-11-12
   - year: 2026
     status: confirmed
+    edition: 129
     date: 2026-06-19
     endDate: 2026-06-21
     checked: 2026-11-12

@@ -12,6 +12,9 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 phone: "970-686-1218"
 hours: "Mon–Fri 8 am–12 pm & 1–5 pm"
 tags: [government, meetings]
+details:
+  source: "https://www.townofseverance.org/209/Parks-Recreation"
+  checked: "2026-11-12"
 summary: "The Town's offices at Timber Ridge Parkway and County Road 74, open weekdays 8 to 5 with a lunch closure from noon to 1; a drop box on the north side takes things after hours."
 ---
 

@@ -6,6 +6,9 @@ area: "South bank"
 url: "https://www.lyonscolorado.com/311/Parks-and-Recreation"
 hours: "Open daily, dawn to dusk"
 tags: [dog-park, fields]
+details:
+  source: "https://www.lyonscolorado.com/348/Parks-Facilities"
+  checked: "2026-11-12"
 summary: "Ball fields and the off-leash dog park."
 source: "https://www.lyonscolorado.com/348/Parks-Facilities"
 verified: "2026-11-10"

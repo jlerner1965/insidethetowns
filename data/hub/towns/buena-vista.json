@@ -1,0 +1,78 @@
+{
+  "slug": "buena-vista",
+  "lodging": [
+    {
+      "name": "Surf Hotel",
+      "kind": "Hotel",
+      "url": "https://www.surfhotel.com/",
+      "source": "https://www.surfhotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Vista Court Cabins & Lodge",
+      "kind": "Cabins",
+      "url": "https://www.vistacourtcabins.com/",
+      "source": "https://www.vistacourtcabins.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1882,
+        "text": "The Chaffee County Courthouse on East Main Street dates to 1882.",
+        "source": "https://www.buenavistaheritage.org/about-us",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1932,
+        "text": "The county seat shifted to Salida, leaving the courthouse without its purpose.",
+        "source": "https://www.buenavistaheritage.org/historic-chaffee-county-courthouse",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1936,
+        "text": "By 1936 the old courthouse had become a schoolhouse, a role it kept until 1972.",
+        "source": "https://www.buenavistaheritage.org/historic-chaffee-county-courthouse",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1974,
+        "text": "Buena Vista Heritage was founded and the courthouse was saved from demolition.",
+        "source": "https://www.buenavistaheritage.org/about-us",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2002,
+        "text": "After a fire, the Denver, South Park & Pacific depot was given a new use as a museum.",
+        "source": "https://www.buenavistaheritage.org/depot-caboose",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Buena Vista Heritage Museum (Historic Chaffee County Courthouse)",
+        "kind": "museum",
+        "url": "https://www.buenavistaheritage.org/historic-chaffee-county-courthouse",
+        "source": "https://www.buenavistaheritage.org/locations-and-hours",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Depot & Caboose",
+        "kind": "museum",
+        "url": "https://www.buenavistaheritage.org/depot-caboose",
+        "source": "https://www.buenavistaheritage.org/depot-caboose",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Deerhammer Distilling Company",
+        "what": "Whiskey",
+        "url": "https://www.deerhammer.com/",
+        "source": "https://www.deerhammer.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

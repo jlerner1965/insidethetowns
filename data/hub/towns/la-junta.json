@@ -1,0 +1,55 @@
+{
+  "slug": "la-junta",
+  "facts": {
+    "incorporated": {
+      "year": 1881,
+      "source": "https://visitlajunta.net/history/",
+      "checked": "2026-11-12"
+    }
+  },
+  "heritage": {
+    "nameOrigin": {
+      "text": "La Junta is Spanish for junction or meeting place.",
+      "source": "https://visitlajunta.net/history/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1875,
+      "text": "A settlement began on the south bank of the Arkansas River as a construction camp for the Santa Fe Railroad.",
+      "source": "https://visitlajunta.net/history/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1877,
+        "text": "The railroad moved on and the town was nearly abandoned.",
+        "source": "https://visitlajunta.net/history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1879,
+        "text": "The Santa Fe Railroad shops had been established.",
+        "source": "https://visitlajunta.net/history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1881,
+        "text": "Residents incorporated as the City of La Junta on May 15.",
+        "source": "https://visitlajunta.net/history/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Otero Museum",
+        "kind": "museum",
+        "url": "https://www.oteromuseum.org/",
+        "hours": "Monday to Friday, 1 to 4 pm",
+        "cost": "$5; 12 and under free",
+        "season": "June 1 through September 30, 2026",
+        "source": "https://www.oteromuseum.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

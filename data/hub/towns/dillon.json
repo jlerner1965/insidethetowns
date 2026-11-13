@@ -1,0 +1,29 @@
+{
+  "slug": "dillon",
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1883,
+        "text": "The town built the frame Dillon Schoolhouse for the children of its first families.",
+        "source": "https://summithistorical.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1956,
+        "text": "Residents learned they had to leave the old town by April 1, 1961, to make way for the Dillon Reservoir.",
+        "source": "https://summithistorical.org/dillon/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Old Dillon Schoolhouse (Summit Historical Society)",
+        "kind": "museum",
+        "url": "https://summithistorical.org/",
+        "hours": "Open by appointment",
+        "source": "https://summithistorical.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

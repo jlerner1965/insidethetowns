@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Telluride Ski Resort"
 sourceUrl: "https://tellurideskiresort.com/"
+outdoor:
+  kind: ski-area
+  facility: "Telluride Ski Resort"
+  edge: opens
 years:
   - year: 2026
     status: confirmed

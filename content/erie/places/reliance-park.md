@@ -9,6 +9,10 @@ imageAlt: "The Boneyard, the fenced dog park at Reliance Park, with the plains b
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [dog park, trailhead, ballfield]
+details:
+  dogs: "Home of the Boneyard at Reliance Park, a fenced off-leash dog park; dogs must be under voice control at all times"
+  source: "https://www.erieco.gov/1280/The-Boneyard-at-Reliance-Park"
+  checked: "2026-11-12"
 summary: "Park on the north edge of town with a ballfield, a playground, trails, and the Boneyard, a 7.75-acre fenced dog park with separate large- and small-dog areas."
 source: "https://www.erieco.gov/1280/The-Boneyard-at-Reliance-Park"
 verified: "2026-11-09"

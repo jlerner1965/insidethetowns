@@ -1,0 +1,91 @@
+{
+  "slug": "lake-city",
+  "facts": {
+    "incorporated": {
+      "year": 1875,
+      "source": "https://www.townoflakecityco.gov/lake-city-historic-district",
+      "checked": "2026-11-12"
+    }
+  },
+  "lodging": [
+    {
+      "name": "The Texan Resort",
+      "kind": "Cabins",
+      "url": "https://www.texanresort.com/",
+      "source": "https://www.texanresort.com/about",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Lake City Lodge",
+      "kind": "Cabins",
+      "url": "https://www.lakecitylodge.com/",
+      "source": "https://www.lakecitylodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Alpine Moose Lodge",
+      "kind": "Lodge",
+      "url": "https://www.alpinemooselodge.com/",
+      "source": "https://www.alpinemooselodge.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1874,
+      "text": "Lake City was platted after the Hotchkiss Mine was discovered at Lake San Cristobal",
+      "source": "https://www.townoflakecityco.gov/an-introduction-to-lake-city-s-history",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1873,
+        "text": "The Utes signed the Brunot Agreement on September 13 and road building into the San Juans began.",
+        "source": "https://www.townoflakecityco.gov/an-introduction-to-lake-city-s-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1874,
+        "text": "Lake City was platted in the fall.",
+        "source": "https://www.townoflakecityco.gov/an-introduction-to-lake-city-s-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1889,
+        "text": "The Denver & Rio Grande Railroad completed its Lake City Branch.",
+        "source": "https://www.townoflakecityco.gov/an-introduction-to-lake-city-s-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1904,
+        "text": "The Golden Fleece mine closed, marking the end of Lake City's major mining period.",
+        "source": "https://www.townoflakecityco.gov/an-introduction-to-lake-city-s-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1929,
+        "text": "The Liska Cabins, the town's first auto tourist camp, opened.",
+        "source": "https://www.townoflakecityco.gov/an-introduction-to-lake-city-s-history",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Hinsdale County Museum",
+        "kind": "museum",
+        "url": "https://lakecitymuseum.com/",
+        "hours": "From September 1: Sun–Fri 1–4 pm, Sat 10 am–5 pm",
+        "cost": "Adults $10; children under 10 $2; 5 and under free",
+        "source": "https://lakecitymuseum.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Lake City National Historic District",
+        "kind": "landmark",
+        "url": "https://www.townoflakecityco.gov/lake-city-historic-district",
+        "source": "https://www.townoflakecityco.gov/lake-city-historic-district",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

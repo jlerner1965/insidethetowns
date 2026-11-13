@@ -1,0 +1,56 @@
+{
+  "slug": "alma",
+  "heritage": {
+    "nameOrigin": {
+      "text": "The Town's history page says Alma was named after the grocery store owner's daughter.",
+      "source": "https://townofalma.com/about/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1873,
+        "text": "Smelter employees petitioned the Park County Commissioners for incorporation on December 2, and the Town held its first meeting on December 4.",
+        "source": "https://townofalma.com/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1907,
+        "text": "A fire destroyed many of the businesses in Alma, including the post office.",
+        "source": "https://southparkheritage.org/alma/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1928,
+        "text": "The original Alma School burned on May 15; construction of the new school began that summer.",
+        "source": "https://townofalma.com/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1937,
+        "text": "A fire in March virtually wiped out the business district.",
+        "source": "https://southparkheritage.org/alma/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1967,
+        "text": "The Town bought the former Alma School for $1.00; it now holds the Town offices, library and community center.",
+        "source": "https://townofalma.com/about/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Alma Town Hall (former Alma School)",
+        "kind": "landmark",
+        "source": "https://townofalma.com/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Alma Ladies Aid Hall",
+        "kind": "landmark",
+        "source": "https://townofalma.com/about/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

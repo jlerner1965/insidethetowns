@@ -8,6 +8,9 @@ tags: [playground, skate park, fields]
 image: ../images/waggener-farm-park.webp
 imageAlt: "The playground, miniature pump track, swings, and fields at Waggener Farm Park"
 imageCredit: "Town of Berthoud"
+details:
+  source: "https://www.berthoud.org/Facilities/Facility/Details/Waggener-Farm-Park-19"
+  checked: "2026-11-12"
 summary: "The big park on the north side: playgrounds, a basketball court, skate park, turf fields, a miniature pump track, and the Recreation Center on the same site."
 source: "https://www.berthoud.org/Facilities/Facility/Details/Waggener-Farm-Park-19"
 verified: "2026-11-08"

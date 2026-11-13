@@ -1,0 +1,83 @@
+{
+  "slug": "steamboat-springs",
+  "transit": [
+    {
+      "name": "Steamboat Springs Transit",
+      "detail": "Free bus system. Summer service runs April 13 through November 27, 2026, followed by the winter routes.",
+      "url": "https://www.steamboatsprings.net/166/Transit",
+      "source": "https://www.steamboatsprings.net/166/Transit",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Rabbit Ears Motel",
+      "kind": "Motel",
+      "url": "https://www.rabbitearsmotel.com/",
+      "source": "https://www.rabbitearsmotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Bristol Hotel",
+      "kind": "Hotel",
+      "url": "https://www.steamboathotelbristol.com/",
+      "source": "https://www.steamboathotelbristol.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1909,
+        "text": "The railroad arrived, and tourism to the mineral springs grew.",
+        "source": "https://steamboathistory.org/mineral-springs",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1914,
+        "text": "Winter Carnival was established.",
+        "source": "https://www.sswsc.org/winter-carnival",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1915,
+        "text": "Howelsen Hill has operated since 1915. The City calls it Colorado's oldest continuously operated ski area.",
+        "source": "https://www.steamboatsprings.net/131/Howelsen-Hill-Ski-Area",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1959,
+        "text": "Dorothy Wither founded the town's history museum.",
+        "source": "https://steamboathistory.org/our-story",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Steamboat Springs History Museum",
+        "kind": "museum",
+        "url": "https://steamboathistory.org/",
+        "hours": "Tuesday–Saturday 11 am–5 pm; closed major national holidays",
+        "cost": "Adults $6; seniors 62 and over $5; children 6–12 $2; under 6 and Routt County residents with ID free",
+        "source": "https://steamboathistory.org/plan-your-visit",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Howelsen Hill Ski Area",
+        "kind": "landmark",
+        "url": "https://www.steamboatsprings.net/131/Howelsen-Hill-Ski-Area",
+        "source": "https://www.steamboatsprings.net/131/Howelsen-Hill-Ski-Area",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Moots",
+        "what": "Handcrafted titanium bicycles, built in Steamboat Springs since 1981",
+        "url": "https://moots.com/",
+        "source": "https://moots.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

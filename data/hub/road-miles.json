@@ -1,0 +1,7326 @@
+{
+ "checked": "2026-11-12",
+ "source": {
+  "name": "Open Source Routing Machine, on OpenStreetMap roads",
+  "url": "https://project-osrm.org/"
+ },
+ "denver": {
+  "name": "Denver",
+  "lat": 39.7391536,
+  "lon": -104.9847034
+ },
+ "pairs": {
+  "alamosa|monte-vista": {
+   "miles": 17.3,
+   "minutes": 24
+  },
+  "alamosa|del-norte": {
+   "miles": 31,
+   "minutes": 42
+  },
+  "alamosa|crestone": {
+   "miles": 49.5,
+   "minutes": 64
+  },
+  "alamosa|la-veta": {
+   "miles": 59.6,
+   "minutes": 79
+  },
+  "alamosa|westcliffe": {
+   "miles": 88.4,
+   "minutes": 137
+  },
+  "alamosa|creede": {
+   "miles": 68.4,
+   "minutes": 92
+  },
+  "alamosa|pagosa-springs": {
+   "miles": 89.4,
+   "minutes": 124
+  },
+  "alamosa|salida": {
+   "miles": 81.4,
+   "minutes": 104
+  },
+  "alamosa|canon-city": {
+   "miles": 137.3,
+   "minutes": 184
+  },
+  "alamosa|florence": {
+   "miles": 153.6,
+   "minutes": 187
+  },
+  "alamosa|trinidad": {
+   "miles": 109.4,
+   "minutes": 130
+  },
+  "alamosa|lake-city": {
+   "miles": 115.7,
+   "minutes": 175
+  },
+  "alamosa|gunnison": {
+   "miles": 122.1,
+   "minutes": 159
+  },
+  "alamosa|victor": {
+   "miles": 183.6,
+   "minutes": 236
+  },
+  "alamosa|buena-vista": {
+   "miles": 100.4,
+   "minutes": 126
+  },
+  "alamosa|cripple-creek": {
+   "miles": 172.6,
+   "minutes": 226
+  },
+  "alamosa|silverton": {
+   "miles": 197.4,
+   "minutes": 262
+  },
+  "alamosa|ouray": {
+   "miles": 222.3,
+   "minutes": 298
+  },
+  "alamosa|manitou-springs": {
+   "miles": 169.2,
+   "minutes": 196
+  },
+  "alamosa|telluride": {
+   "miles": 251.7,
+   "minutes": 345
+  },
+  "alamosa|durango": {
+   "miles": 149.4,
+   "minutes": 206
+  },
+  "alamosa|green-mountain-falls": {
+   "miles": 177.9,
+   "minutes": 209
+  },
+  "alamosa|ridgway": {
+   "miles": 213,
+   "minutes": 286
+  },
+  "alamosa|woodland-park": {
+   "miles": 170,
+   "minutes": 210
+  },
+  "alma|fairplay": {
+   "miles": 5.5,
+   "minutes": 8
+  },
+  "alma|leadville": {
+   "miles": 55,
+   "minutes": 85
+  },
+  "alma|breckenridge": {
+   "miles": 16.8,
+   "minutes": 31
+  },
+  "alma|frisco": {
+   "miles": 25.2,
+   "minutes": 45
+  },
+  "alma|keystone": {
+   "miles": 30.3,
+   "minutes": 57
+  },
+  "alma|dillon": {
+   "miles": 30.6,
+   "minutes": 53
+  },
+  "alma|silverthorne": {
+   "miles": 29.7,
+   "minutes": 52
+  },
+  "alma|minturn": {
+   "miles": 58.3,
+   "minutes": 85
+  },
+  "alma|vail": {
+   "miles": 51.7,
+   "minutes": 77
+  },
+  "alma|buena-vista": {
+   "miles": 43.4,
+   "minutes": 56
+  },
+  "alma|avon": {
+   "miles": 61,
+   "minutes": 87
+  },
+  "alma|georgetown": {
+   "miles": 52.3,
+   "minutes": 80
+  },
+  "alma|aspen": {
+   "miles": 105.8,
+   "minutes": 183
+  },
+  "alma|idaho-springs": {
+   "miles": 63.7,
+   "minutes": 92
+  },
+  "alma|winter-park": {
+   "miles": 81.9,
+   "minutes": 127
+  },
+  "alma|central-city": {
+   "miles": 69.8,
+   "minutes": 111
+  },
+  "alma|evergreen": {
+   "miles": 67.9,
+   "minutes": 100
+  },
+  "alma|black-hawk": {
+   "miles": 74.8,
+   "minutes": 120
+  },
+  "alma|fraser": {
+   "miles": 72.6,
+   "minutes": 135
+  },
+  "alma|eagle": {
+   "miles": 81.1,
+   "minutes": 108
+  },
+  "alma|salida": {
+   "miles": 62.9,
+   "minutes": 82
+  },
+  "alma|basalt": {
+   "miles": 135.4,
+   "minutes": 175
+  },
+  "alma|morrison": {
+   "miles": 73.7,
+   "minutes": 104
+  },
+  "alma|nederland": {
+   "miles": 89,
+   "minutes": 148
+  },
+  "aspen|basalt": {
+   "miles": 18.5,
+   "minutes": 29
+  },
+  "aspen|marble": {
+   "miles": 56.7,
+   "minutes": 94
+  },
+  "aspen|redstone": {
+   "miles": 45.5,
+   "minutes": 70
+  },
+  "aspen|crested-butte": {
+   "miles": 102.6,
+   "minutes": 192
+  },
+  "aspen|carbondale": {
+   "miles": 29.6,
+   "minutes": 45
+  },
+  "aspen|leadville": {
+   "miles": 58.7,
+   "minutes": 121
+  },
+  "aspen|eagle": {
+   "miles": 73.5,
+   "minutes": 98
+  },
+  "aspen|minturn": {
+   "miles": 99.6,
+   "minutes": 125
+  },
+  "aspen|avon": {
+   "miles": 93.5,
+   "minutes": 117
+  },
+  "aspen|glenwood-springs": {
+   "miles": 42.1,
+   "minutes": 61
+  },
+  "aspen|vail": {
+   "miles": 102.9,
+   "minutes": 129
+  },
+  "aspen|fairplay": {
+   "miles": 100.3,
+   "minutes": 177
+  },
+  "aspen|buena-vista": {
+   "miles": 62.6,
+   "minutes": 129
+  },
+  "aspen|gunnison": {
+   "miles": 130,
+   "minutes": 233
+  },
+  "aspen|breckenridge": {
+   "miles": 138,
+   "minutes": 178
+  },
+  "aspen|frisco": {
+   "miles": 128.4,
+   "minutes": 160
+  },
+  "aspen|paonia": {
+   "miles": 87.2,
+   "minutes": 141
+  },
+  "aspen|silverthorne": {
+   "miles": 132.8,
+   "minutes": 164
+  },
+  "aspen|dillon": {
+   "miles": 133.7,
+   "minutes": 166
+  },
+  "aspen|keystone": {
+   "miles": 139.7,
+   "minutes": 176
+  },
+  "aspen|hotchkiss": {
+   "miles": 95.2,
+   "minutes": 152
+  },
+  "aspen|rifle": {
+   "miles": 68.2,
+   "minutes": 90
+  },
+  "aspen|cedaredge": {
+   "miles": 122.8,
+   "minutes": 189
+  },
+  "avon|minturn": {
+   "miles": 7,
+   "minutes": 10
+  },
+  "avon|vail": {
+   "miles": 10.2,
+   "minutes": 14
+  },
+  "avon|eagle": {
+   "miles": 21.1,
+   "minutes": 23
+  },
+  "avon|frisco": {
+   "miles": 35.7,
+   "minutes": 44
+  },
+  "avon|silverthorne": {
+   "miles": 40.1,
+   "minutes": 48
+  },
+  "avon|dillon": {
+   "miles": 41,
+   "minutes": 50
+  },
+  "avon|breckenridge": {
+   "miles": 45.3,
+   "minutes": 63
+  },
+  "avon|keystone": {
+   "miles": 47,
+   "minutes": 60
+  },
+  "avon|leadville": {
+   "miles": 37.1,
+   "minutes": 56
+  },
+  "avon|kremmling": {
+   "miles": 51.6,
+   "minutes": 84
+  },
+  "avon|basalt": {
+   "miles": 75.4,
+   "minutes": 90
+  },
+  "avon|fairplay": {
+   "miles": 66.2,
+   "minutes": 96
+  },
+  "avon|carbondale": {
+   "miles": 65.6,
+   "minutes": 78
+  },
+  "avon|glenwood-springs": {
+   "miles": 51.6,
+   "minutes": 57
+  },
+  "avon|fraser": {
+   "miles": 82.9,
+   "minutes": 132
+  },
+  "avon|granby": {
+   "miles": 78.6,
+   "minutes": 124
+  },
+  "avon|winter-park": {
+   "miles": 92.2,
+   "minutes": 124
+  },
+  "avon|georgetown": {
+   "miles": 62.6,
+   "minutes": 76
+  },
+  "avon|redstone": {
+   "miles": 81.5,
+   "minutes": 102
+  },
+  "avon|marble": {
+   "miles": 92.6,
+   "minutes": 126
+  },
+  "avon|idaho-springs": {
+   "miles": 74,
+   "minutes": 89
+  },
+  "avon|central-city": {
+   "miles": 80.2,
+   "minutes": 108
+  },
+  "basalt|carbondale": {
+   "miles": 11.7,
+   "minutes": 18
+  },
+  "basalt|redstone": {
+   "miles": 27.6,
+   "minutes": 42
+  },
+  "basalt|glenwood-springs": {
+   "miles": 24.2,
+   "minutes": 34
+  },
+  "basalt|marble": {
+   "miles": 38.8,
+   "minutes": 66
+  },
+  "basalt|eagle": {
+   "miles": 55.7,
+   "minutes": 70
+  },
+  "basalt|crested-butte": {
+   "miles": 84.7,
+   "minutes": 165
+  },
+  "basalt|minturn": {
+   "miles": 81.8,
+   "minutes": 98
+  },
+  "basalt|vail": {
+   "miles": 85,
+   "minutes": 102
+  },
+  "basalt|leadville": {
+   "miles": 111.9,
+   "minutes": 144
+  },
+  "basalt|rifle": {
+   "miles": 50.3,
+   "minutes": 63
+  },
+  "basalt|paonia": {
+   "miles": 69.3,
+   "minutes": 114
+  },
+  "basalt|frisco": {
+   "miles": 110.5,
+   "minutes": 132
+  },
+  "basalt|breckenridge": {
+   "miles": 120.1,
+   "minutes": 151
+  },
+  "basalt|hotchkiss": {
+   "miles": 77.3,
+   "minutes": 125
+  },
+  "basalt|silverthorne": {
+   "miles": 114.9,
+   "minutes": 137
+  },
+  "basalt|dillon": {
+   "miles": 115.8,
+   "minutes": 138
+  },
+  "basalt|fairplay": {
+   "miles": 141,
+   "minutes": 184
+  },
+  "basalt|gunnison": {
+   "miles": 112.1,
+   "minutes": 206
+  },
+  "basalt|cedaredge": {
+   "miles": 104.9,
+   "minutes": 162
+  },
+  "basalt|keystone": {
+   "miles": 121.8,
+   "minutes": 148
+  },
+  "basalt|kremmling": {
+   "miles": 106.2,
+   "minutes": 152
+  },
+  "berthoud|loveland": {
+   "miles": 6.6,
+   "minutes": 12
+  },
+  "berthoud|mead": {
+   "miles": 11.4,
+   "minutes": 15
+  },
+  "berthoud|johnstown": {
+   "miles": 11.4,
+   "minutes": 18
+  },
+  "berthoud|longmont": {
+   "miles": 11.2,
+   "minutes": 18
+  },
+  "berthoud|lyons": {
+   "miles": 18,
+   "minutes": 26
+  },
+  "berthoud|milliken": {
+   "miles": 14.4,
+   "minutes": 24
+  },
+  "berthoud|niwot": {
+   "miles": 18.3,
+   "minutes": 28
+  },
+  "berthoud|windsor": {
+   "miles": 22.6,
+   "minutes": 31
+  },
+  "berthoud|platteville": {
+   "miles": 20.2,
+   "minutes": 35
+  },
+  "berthoud|timnath": {
+   "miles": 21.9,
+   "minutes": 28
+  },
+  "berthoud|carbon-valley": {
+   "miles": 22.4,
+   "minutes": 31
+  },
+  "berthoud|erie": {
+   "miles": 26.4,
+   "minutes": 34
+  },
+  "berthoud|fort-collins": {
+   "miles": 19.9,
+   "minutes": 37
+  },
+  "berthoud|severance": {
+   "miles": 28.3,
+   "minutes": 39
+  },
+  "berthoud|fort-lupton": {
+   "miles": 30.7,
+   "minutes": 45
+  },
+  "berthoud|greeley": {
+   "miles": 29,
+   "minutes": 47
+  },
+  "berthoud|lafayette": {
+   "miles": 23.8,
+   "minutes": 38
+  },
+  "berthoud|boulder": {
+   "miles": 26.8,
+   "minutes": 41
+  },
+  "berthoud|louisville": {
+   "miles": 26,
+   "minutes": 41
+  },
+  "berthoud|estes-park": {
+   "miles": 38.6,
+   "minutes": 60
+  },
+  "berthoud|wellington": {
+   "miles": 34,
+   "minutes": 39
+  },
+  "berthoud|nederland": {
+   "miles": 42.9,
+   "minutes": 71
+  },
+  "berthoud|golden": {
+   "miles": 53.6,
+   "minutes": 64
+  },
+  "berthoud|grand-lake": {
+   "miles": 86.9,
+   "minutes": 156
+  },
+  "black-hawk|central-city": {
+   "miles": 1.5,
+   "minutes": 10
+  },
+  "black-hawk|idaho-springs": {
+   "miles": 6.7,
+   "minutes": 29
+  },
+  "black-hawk|nederland": {
+   "miles": 19.7,
+   "minutes": 43
+  },
+  "black-hawk|georgetown": {
+   "miles": 19.6,
+   "minutes": 46
+  },
+  "black-hawk|evergreen": {
+   "miles": 22.1,
+   "minutes": 47
+  },
+  "black-hawk|golden": {
+   "miles": 21.2,
+   "minutes": 47
+  },
+  "black-hawk|winter-park": {
+   "miles": 40.7,
+   "minutes": 83
+  },
+  "black-hawk|morrison": {
+   "miles": 28.8,
+   "minutes": 50
+  },
+  "black-hawk|boulder": {
+   "miles": 36.5,
+   "minutes": 75
+  },
+  "black-hawk|fraser": {
+   "miles": 45.8,
+   "minutes": 92
+  },
+  "black-hawk|louisville": {
+   "miles": 40.2,
+   "minutes": 80
+  },
+  "black-hawk|lafayette": {
+   "miles": 45.2,
+   "minutes": 81
+  },
+  "black-hawk|niwot": {
+   "miles": 48.1,
+   "minutes": 89
+  },
+  "black-hawk|erie": {
+   "miles": 55.1,
+   "minutes": 91
+  },
+  "black-hawk|keystone": {
+   "miles": 49,
+   "minutes": 85
+  },
+  "black-hawk|granby": {
+   "miles": 60.4,
+   "minutes": 117
+  },
+  "black-hawk|dillon": {
+   "miles": 43,
+   "minutes": 75
+  },
+  "black-hawk|lyons": {
+   "miles": 51.6,
+   "minutes": 98
+  },
+  "black-hawk|silverthorne": {
+   "miles": 41.7,
+   "minutes": 72
+  },
+  "black-hawk|longmont": {
+   "miles": 57.3,
+   "minutes": 97
+  },
+  "black-hawk|frisco": {
+   "miles": 45.9,
+   "minutes": 78
+  },
+  "black-hawk|grand-lake": {
+   "miles": 75.5,
+   "minutes": 143
+  },
+  "black-hawk|carbon-valley": {
+   "miles": 56.6,
+   "minutes": 92
+  },
+  "black-hawk|breckenridge": {
+   "miles": 54.9,
+   "minutes": 95
+  },
+  "boulder|louisville": {
+   "miles": 11.5,
+   "minutes": 19
+  },
+  "boulder|niwot": {
+   "miles": 9.4,
+   "minutes": 16
+  },
+  "boulder|lafayette": {
+   "miles": 11.1,
+   "minutes": 21
+  },
+  "boulder|erie": {
+   "miles": 14.7,
+   "minutes": 26
+  },
+  "boulder|nederland": {
+   "miles": 16.8,
+   "minutes": 31
+  },
+  "boulder|longmont": {
+   "miles": 15.6,
+   "minutes": 26
+  },
+  "boulder|lyons": {
+   "miles": 17,
+   "minutes": 26
+  },
+  "boulder|golden": {
+   "miles": 20,
+   "minutes": 34
+  },
+  "boulder|carbon-valley": {
+   "miles": 22,
+   "minutes": 36
+  },
+  "boulder|central-city": {
+   "miles": 36.3,
+   "minutes": 69
+  },
+  "boulder|mead": {
+   "miles": 27.4,
+   "minutes": 39
+  },
+  "boulder|idaho-springs": {
+   "miles": 44.3,
+   "minutes": 66
+  },
+  "boulder|fort-lupton": {
+   "miles": 35.8,
+   "minutes": 48
+  },
+  "boulder|morrison": {
+   "miles": 28.6,
+   "minutes": 45
+  },
+  "boulder|evergreen": {
+   "miles": 40,
+   "minutes": 62
+  },
+  "boulder|platteville": {
+   "miles": 34.6,
+   "minutes": 56
+  },
+  "boulder|winter-park": {
+   "miles": 77.6,
+   "minutes": 118
+  },
+  "boulder|estes-park": {
+   "miles": 37.6,
+   "minutes": 61
+  },
+  "boulder|loveland": {
+   "miles": 32.9,
+   "minutes": 49
+  },
+  "boulder|johnstown": {
+   "miles": 37.1,
+   "minutes": 51
+  },
+  "boulder|fraser": {
+   "miles": 82.7,
+   "minutes": 127
+  },
+  "boulder|milliken": {
+   "miles": 40.1,
+   "minutes": 56
+  },
+  "breckenridge|frisco": {
+   "miles": 9.7,
+   "minutes": 19
+  },
+  "breckenridge|keystone": {
+   "miles": 14.8,
+   "minutes": 31
+  },
+  "breckenridge|dillon": {
+   "miles": 15.2,
+   "minutes": 28
+  },
+  "breckenridge|silverthorne": {
+   "miles": 14.3,
+   "minutes": 26
+  },
+  "breckenridge|fairplay": {
+   "miles": 22.5,
+   "minutes": 39
+  },
+  "breckenridge|leadville": {
+   "miles": 39.6,
+   "minutes": 59
+  },
+  "breckenridge|vail": {
+   "miles": 36.3,
+   "minutes": 52
+  },
+  "breckenridge|minturn": {
+   "miles": 42.9,
+   "minutes": 59
+  },
+  "breckenridge|georgetown": {
+   "miles": 36.8,
+   "minutes": 54
+  },
+  "breckenridge|winter-park": {
+   "miles": 66.4,
+   "minutes": 101
+  },
+  "breckenridge|idaho-springs": {
+   "miles": 48.2,
+   "minutes": 66
+  },
+  "breckenridge|fraser": {
+   "miles": 57.1,
+   "minutes": 110
+  },
+  "breckenridge|central-city": {
+   "miles": 54.4,
+   "minutes": 86
+  },
+  "breckenridge|evergreen": {
+   "miles": 63.9,
+   "minutes": 93
+  },
+  "breckenridge|granby": {
+   "miles": 68.4,
+   "minutes": 110
+  },
+  "breckenridge|nederland": {
+   "miles": 73.5,
+   "minutes": 122
+  },
+  "breckenridge|eagle": {
+   "miles": 65.6,
+   "minutes": 82
+  },
+  "breckenridge|kremmling": {
+   "miles": 51.1,
+   "minutes": 75
+  },
+  "breckenridge|buena-vista": {
+   "miles": 60.4,
+   "minutes": 87
+  },
+  "breckenridge|morrison": {
+   "miles": 70.2,
+   "minutes": 95
+  },
+  "brush|fort-morgan": {
+   "miles": 11.5,
+   "minutes": 16
+  },
+  "brush|sterling": {
+   "miles": 38.1,
+   "minutes": 43
+  },
+  "brush|greeley": {
+   "miles": 83.4,
+   "minutes": 96
+  },
+  "brush|platteville": {
+   "miles": 77.9,
+   "minutes": 87
+  },
+  "brush|fort-lupton": {
+   "miles": 68.3,
+   "minutes": 74
+  },
+  "brush|milliken": {
+   "miles": 85.7,
+   "minutes": 104
+  },
+  "brush|severance": {
+   "miles": 97.4,
+   "minutes": 118
+  },
+  "brush|johnstown": {
+   "miles": 88.9,
+   "minutes": 110
+  },
+  "brush|windsor": {
+   "miles": 98.6,
+   "minutes": 121
+  },
+  "brush|carbon-valley": {
+   "miles": 81.4,
+   "minutes": 95
+  },
+  "brush|mead": {
+   "miles": 88.8,
+   "minutes": 104
+  },
+  "brush|timnath": {
+   "miles": 108.9,
+   "minutes": 126
+  },
+  "brush|erie": {
+   "miles": 92.3,
+   "minutes": 102
+  },
+  "berthoud|brush": {
+   "miles": 98.3,
+   "minutes": 116
+  },
+  "brush|loveland": {
+   "miles": 103.5,
+   "minutes": 122
+  },
+  "brush|longmont": {
+   "miles": 89.6,
+   "minutes": 106
+  },
+  "brush|wellington": {
+   "miles": 121,
+   "minutes": 137
+  },
+  "brush|lafayette": {
+   "miles": 92.2,
+   "minutes": 100
+  },
+  "brush|fort-collins": {
+   "miles": 116.7,
+   "minutes": 136
+  },
+  "brush|elizabeth": {
+   "miles": 123.7,
+   "minutes": 137
+  },
+  "brush|louisville": {
+   "miles": 93.1,
+   "minutes": 101
+  },
+  "brush|niwot": {
+   "miles": 95,
+   "minutes": 115
+  },
+  "brush|lyons": {
+   "miles": 101.6,
+   "minutes": 124
+  },
+  "boulder|brush": {
+   "miles": 102.8,
+   "minutes": 112
+  },
+  "buena-vista|salida": {
+   "miles": 24.4,
+   "minutes": 34
+  },
+  "buena-vista|fairplay": {
+   "miles": 37.9,
+   "minutes": 49
+  },
+  "buena-vista|leadville": {
+   "miles": 34.6,
+   "minutes": 49
+  },
+  "buena-vista|crested-butte": {
+   "miles": 110.7,
+   "minutes": 151
+  },
+  "buena-vista|gunnison": {
+   "miles": 83,
+   "minutes": 110
+  },
+  "buena-vista|frisco": {
+   "miles": 64.5,
+   "minutes": 91
+  },
+  "buena-vista|cripple-creek": {
+   "miles": 77.2,
+   "minutes": 108
+  },
+  "buena-vista|keystone": {
+   "miles": 75.8,
+   "minutes": 107
+  },
+  "buena-vista|minturn": {
+   "miles": 63.3,
+   "minutes": 94
+  },
+  "buena-vista|victor": {
+   "miles": 88.2,
+   "minutes": 117
+  },
+  "buena-vista|dillon": {
+   "miles": 69.8,
+   "minutes": 97
+  },
+  "buena-vista|silverthorne": {
+   "miles": 68.9,
+   "minutes": 95
+  },
+  "buena-vista|canon-city": {
+   "miles": 84.9,
+   "minutes": 110
+  },
+  "buena-vista|vail": {
+   "miles": 70.6,
+   "minutes": 105
+  },
+  "avon|buena-vista": {
+   "miles": 70.2,
+   "minutes": 104
+  },
+  "buena-vista|woodland-park": {
+   "miles": 74.6,
+   "minutes": 92
+  },
+  "buena-vista|marble": {
+   "miles": 119.2,
+   "minutes": 220
+  },
+  "buena-vista|green-mountain-falls": {
+   "miles": 79.6,
+   "minutes": 101
+  },
+  "basalt|buena-vista": {
+   "miles": 81,
+   "minutes": 158
+  },
+  "buena-vista|westcliffe": {
+   "miles": 71.6,
+   "minutes": 103
+  },
+  "buena-vista|crestone": {
+   "miles": 76.4,
+   "minutes": 100
+  },
+  "canon-city|florence": {
+   "miles": 9.1,
+   "minutes": 16
+  },
+  "canon-city|victor": {
+   "miles": 32.2,
+   "minutes": 88
+  },
+  "canon-city|cripple-creek": {
+   "miles": 28.2,
+   "minutes": 80
+  },
+  "canon-city|westcliffe": {
+   "miles": 49.6,
+   "minutes": 70
+  },
+  "canon-city|manitou-springs": {
+   "miles": 51.6,
+   "minutes": 74
+  },
+  "canon-city|green-mountain-falls": {
+   "miles": 60.3,
+   "minutes": 88
+  },
+  "canon-city|woodland-park": {
+   "miles": 64.2,
+   "minutes": 93
+  },
+  "canon-city|crestone": {
+   "miles": 113.3,
+   "minutes": 158
+  },
+  "canon-city|salida": {
+   "miles": 57.2,
+   "minutes": 85
+  },
+  "canon-city|palmer-lake": {
+   "miles": 69.8,
+   "minutes": 94
+  },
+  "canon-city|la-veta": {
+   "miles": 104.3,
+   "minutes": 133
+  },
+  "canon-city|castle-rock": {
+   "miles": 86.6,
+   "minutes": 109
+  },
+  "canon-city|fairplay": {
+   "miles": 74.7,
+   "minutes": 96
+  },
+  "canon-city|elizabeth": {
+   "miles": 94.7,
+   "minutes": 130
+  },
+  "alma|canon-city": {
+   "miles": 80.2,
+   "minutes": 104
+  },
+  "canon-city|monte-vista": {
+   "miles": 136.1,
+   "minutes": 183
+  },
+  "canon-city|leadville": {
+   "miles": 119.3,
+   "minutes": 159
+  },
+  "canon-city|del-norte": {
+   "miles": 137.6,
+   "minutes": 184
+  },
+  "canon-city|evergreen": {
+   "miles": 132.3,
+   "minutes": 169
+  },
+  "breckenridge|canon-city": {
+   "miles": 97.2,
+   "minutes": 135
+  },
+  "canon-city|morrison": {
+   "miles": 121.7,
+   "minutes": 148
+  },
+  "canon-city|rocky-ford": {
+   "miles": 91.1,
+   "minutes": 115
+  },
+  "carbon-valley|fort-lupton": {
+   "miles": 13.8,
+   "minutes": 24
+  },
+  "carbon-valley|erie": {
+   "miles": 9.9,
+   "minutes": 18
+  },
+  "carbon-valley|mead": {
+   "miles": 12.9,
+   "minutes": 20
+  },
+  "carbon-valley|longmont": {
+   "miles": 13.7,
+   "minutes": 22
+  },
+  "carbon-valley|platteville": {
+   "miles": 17.4,
+   "minutes": 27
+  },
+  "carbon-valley|lafayette": {
+   "miles": 16.3,
+   "minutes": 26
+  },
+  "carbon-valley|niwot": {
+   "miles": 15.2,
+   "minutes": 25
+  },
+  "carbon-valley|louisville": {
+   "miles": 20.6,
+   "minutes": 29
+  },
+  "carbon-valley|johnstown": {
+   "miles": 18.4,
+   "minutes": 31
+  },
+  "carbon-valley|milliken": {
+   "miles": 21.4,
+   "minutes": 37
+  },
+  "carbon-valley|lyons": {
+   "miles": 25.7,
+   "minutes": 40
+  },
+  "carbon-valley|loveland": {
+   "miles": 27.6,
+   "minutes": 38
+  },
+  "carbon-valley|greeley": {
+   "miles": 40.2,
+   "minutes": 60
+  },
+  "carbon-valley|windsor": {
+   "miles": 33.8,
+   "minutes": 45
+  },
+  "carbon-valley|golden": {
+   "miles": 37.1,
+   "minutes": 49
+  },
+  "carbon-valley|severance": {
+   "miles": 39.4,
+   "minutes": 52
+  },
+  "carbon-valley|timnath": {
+   "miles": 33.1,
+   "minutes": 41
+  },
+  "carbon-valley|nederland": {
+   "miles": 39.1,
+   "minutes": 67
+  },
+  "carbon-valley|morrison": {
+   "miles": 42.4,
+   "minutes": 54
+  },
+  "carbon-valley|fort-collins": {
+   "miles": 40.8,
+   "minutes": 51
+  },
+  "carbon-valley|estes-park": {
+   "miles": 46.3,
+   "minutes": 74
+  },
+  "carbondale|glenwood-springs": {
+   "miles": 14.2,
+   "minutes": 22
+  },
+  "carbondale|redstone": {
+   "miles": 16.6,
+   "minutes": 26
+  },
+  "carbondale|marble": {
+   "miles": 27.8,
+   "minutes": 50
+  },
+  "carbondale|eagle": {
+   "miles": 45.6,
+   "minutes": 58
+  },
+  "carbondale|rifle": {
+   "miles": 40.3,
+   "minutes": 51
+  },
+  "carbondale|crested-butte": {
+   "miles": 73.7,
+   "minutes": 149
+  },
+  "carbondale|paonia": {
+   "miles": 58.3,
+   "minutes": 97
+  },
+  "carbondale|minturn": {
+   "miles": 71.7,
+   "minutes": 86
+  },
+  "carbondale|vail": {
+   "miles": 75,
+   "minutes": 90
+  },
+  "carbondale|hotchkiss": {
+   "miles": 66.3,
+   "minutes": 109
+  },
+  "carbondale|leadville": {
+   "miles": 101.8,
+   "minutes": 132
+  },
+  "carbondale|cedaredge": {
+   "miles": 93.9,
+   "minutes": 146
+  },
+  "carbondale|meeker": {
+   "miles": 81.5,
+   "minutes": 114
+  },
+  "carbondale|frisco": {
+   "miles": 100.4,
+   "minutes": 120
+  },
+  "carbondale|gunnison": {
+   "miles": 101.1,
+   "minutes": 189
+  },
+  "alma|carbondale": {
+   "miles": 125.5,
+   "minutes": 162
+  },
+  "carbondale|silverthorne": {
+   "miles": 104.8,
+   "minutes": 125
+  },
+  "breckenridge|carbondale": {
+   "miles": 110.1,
+   "minutes": 137
+  },
+  "carbondale|kremmling": {
+   "miles": 96.1,
+   "minutes": 140
+  },
+  "carbondale|dillon": {
+   "miles": 105.8,
+   "minutes": 126
+  },
+  "carbondale|palisade": {
+   "miles": 89,
+   "minutes": 103
+  },
+  "castle-rock|elizabeth": {
+   "miles": 15.8,
+   "minutes": 24
+  },
+  "castle-rock|palmer-lake": {
+   "miles": 21.6,
+   "minutes": 28
+  },
+  "castle-rock|morrison": {
+   "miles": 35.7,
+   "minutes": 44
+  },
+  "castle-rock|woodland-park": {
+   "miles": 55.8,
+   "minutes": 72
+  },
+  "castle-rock|evergreen": {
+   "miles": 46.4,
+   "minutes": 65
+  },
+  "castle-rock|green-mountain-falls": {
+   "miles": 51.9,
+   "minutes": 67
+  },
+  "castle-rock|golden": {
+   "miles": 40.9,
+   "minutes": 54
+  },
+  "castle-rock|manitou-springs": {
+   "miles": 43.2,
+   "minutes": 54
+  },
+  "castle-rock|idaho-springs": {
+   "miles": 58.9,
+   "minutes": 75
+  },
+  "castle-rock|louisville": {
+   "miles": 50.6,
+   "minutes": 65
+  },
+  "castle-rock|lafayette": {
+   "miles": 50.6,
+   "minutes": 66
+  },
+  "black-hawk|castle-rock": {
+   "miles": 64.8,
+   "minutes": 93
+  },
+  "castle-rock|central-city": {
+   "miles": 63.7,
+   "minutes": 85
+  },
+  "castle-rock|cripple-creek": {
+   "miles": 81.4,
+   "minutes": 115
+  },
+  "castle-rock|erie": {
+   "miles": 55.4,
+   "minutes": 72
+  },
+  "castle-rock|victor": {
+   "miles": 83.3,
+   "minutes": 117
+  },
+  "castle-rock|fort-lupton": {
+   "miles": 60.9,
+   "minutes": 70
+  },
+  "boulder|castle-rock": {
+   "miles": 57.2,
+   "minutes": 72
+  },
+  "carbon-valley|castle-rock": {
+   "miles": 58.1,
+   "minutes": 73
+  },
+  "castle-rock|georgetown": {
+   "miles": 71,
+   "minutes": 90
+  },
+  "castle-rock|niwot": {
+   "miles": 61.9,
+   "minutes": 81
+  },
+  "castle-rock|nederland": {
+   "miles": 70.9,
+   "minutes": 102
+  },
+  "castle-rock|longmont": {
+   "miles": 66,
+   "minutes": 80
+  },
+  "castle-rock|platteville": {
+   "miles": 69.9,
+   "minutes": 81
+  },
+  "cedaredge|hotchkiss": {
+   "miles": 27.7,
+   "minutes": 38
+  },
+  "cedaredge|delta": {
+   "miles": 14.9,
+   "minutes": 22
+  },
+  "cedaredge|paonia": {
+   "miles": 36.9,
+   "minutes": 53
+  },
+  "cedaredge|olathe": {
+   "miles": 25.2,
+   "minutes": 39
+  },
+  "cedaredge|palisade": {
+   "miles": 59.8,
+   "minutes": 79
+  },
+  "cedaredge|montrose": {
+   "miles": 35.6,
+   "minutes": 52
+  },
+  "cedaredge|grand-junction": {
+   "miles": 54.5,
+   "minutes": 73
+  },
+  "cedaredge|marble": {
+   "miles": 78.5,
+   "minutes": 127
+  },
+  "cedaredge|redstone": {
+   "miles": 77.5,
+   "minutes": 120
+  },
+  "cedaredge|rifle": {
+   "miles": 81.4,
+   "minutes": 127
+  },
+  "cedaredge|fruita": {
+   "miles": 66.1,
+   "minutes": 89
+  },
+  "cedaredge|crested-butte": {
+   "miles": 82.7,
+   "minutes": 150
+  },
+  "cedaredge|ridgway": {
+   "miles": 62.3,
+   "minutes": 89
+  },
+  "cedaredge|glenwood-springs": {
+   "miles": 106.6,
+   "minutes": 153
+  },
+  "cedaredge|gunnison": {
+   "miles": 99.6,
+   "minutes": 140
+  },
+  "cedaredge|ouray": {
+   "miles": 71.6,
+   "minutes": 101
+  },
+  "cedaredge|telluride": {
+   "miles": 101,
+   "minutes": 148
+  },
+  "cedaredge|lake-city": {
+   "miles": 108.8,
+   "minutes": 177
+  },
+  "cedaredge|silverton": {
+   "miles": 95,
+   "minutes": 155
+  },
+  "cedaredge|eagle": {
+   "miles": 137.8,
+   "minutes": 188
+  },
+  "cedaredge|meeker": {
+   "miles": 122,
+   "minutes": 190
+  },
+  "central-city|idaho-springs": {
+   "miles": 6.3,
+   "minutes": 20
+  },
+  "central-city|nederland": {
+   "miles": 19.6,
+   "minutes": 38
+  },
+  "central-city|georgetown": {
+   "miles": 19.1,
+   "minutes": 37
+  },
+  "central-city|winter-park": {
+   "miles": 40.2,
+   "minutes": 74
+  },
+  "central-city|evergreen": {
+   "miles": 21.3,
+   "minutes": 40
+  },
+  "central-city|golden": {
+   "miles": 21.1,
+   "minutes": 42
+  },
+  "central-city|fraser": {
+   "miles": 45.3,
+   "minutes": 83
+  },
+  "central-city|morrison": {
+   "miles": 27.6,
+   "minutes": 41
+  },
+  "central-city|louisville": {
+   "miles": 50.5,
+   "minutes": 73
+  },
+  "central-city|lafayette": {
+   "miles": 50.6,
+   "minutes": 74
+  },
+  "central-city|niwot": {
+   "miles": 47.9,
+   "minutes": 84
+  },
+  "central-city|keystone": {
+   "miles": 48.5,
+   "minutes": 76
+  },
+  "central-city|granby": {
+   "miles": 59.9,
+   "minutes": 108
+  },
+  "central-city|erie": {
+   "miles": 60.5,
+   "minutes": 83
+  },
+  "central-city|dillon": {
+   "miles": 42.5,
+   "minutes": 66
+  },
+  "central-city|lyons": {
+   "miles": 51.4,
+   "minutes": 93
+  },
+  "central-city|silverthorne": {
+   "miles": 41.3,
+   "minutes": 63
+  },
+  "central-city|longmont": {
+   "miles": 62.7,
+   "minutes": 89
+  },
+  "central-city|frisco": {
+   "miles": 45.4,
+   "minutes": 70
+  },
+  "central-city|grand-lake": {
+   "miles": 75,
+   "minutes": 134
+  },
+  "carbon-valley|central-city": {
+   "miles": 62.9,
+   "minutes": 85
+  },
+  "cortez|dolores": {
+   "miles": 14.2,
+   "minutes": 36
+  },
+  "cortez|mancos": {
+   "miles": 17.7,
+   "minutes": 25
+  },
+  "cortez|durango": {
+   "miles": 45.7,
+   "minutes": 60
+  },
+  "cortez|telluride": {
+   "miles": 165.1,
+   "minutes": 244
+  },
+  "cortez|silverton": {
+   "miles": 93.7,
+   "minutes": 117
+  },
+  "cortez|ouray": {
+   "miles": 115.5,
+   "minutes": 167
+  },
+  "cortez|ridgway": {
+   "miles": 126.4,
+   "minutes": 185
+  },
+  "cortez|lake-city": {
+   "miles": 215.4,
+   "minutes": 312
+  },
+  "cortez|pagosa-springs": {
+   "miles": 104.4,
+   "minutes": 138
+  },
+  "cortez|montrose": {
+   "miles": 151.7,
+   "minutes": 217
+  },
+  "cortez|olathe": {
+   "miles": 162.6,
+   "minutes": 234
+  },
+  "cortez|creede": {
+   "miles": 168.1,
+   "minutes": 229
+  },
+  "cortez|delta": {
+   "miles": 173.6,
+   "minutes": 247
+  },
+  "cortez|hotchkiss": {
+   "miles": 192.9,
+   "minutes": 273
+  },
+  "cedaredge|cortez": {
+   "miles": 187.5,
+   "minutes": 268
+  },
+  "cortez|paonia": {
+   "miles": 202.1,
+   "minutes": 288
+  },
+  "cortez|grand-junction": {
+   "miles": 227.1,
+   "minutes": 265
+  },
+  "cortez|palisade": {
+   "miles": 237.7,
+   "minutes": 273
+  },
+  "cortez|gunnison": {
+   "miles": 215.9,
+   "minutes": 306
+  },
+  "cortez|del-norte": {
+   "miles": 162.6,
+   "minutes": 219
+  },
+  "cortez|fruita": {
+   "miles": 215.3,
+   "minutes": 250
+  },
+  "cortez|monte-vista": {
+   "miles": 176.4,
+   "minutes": 238
+  },
+  "cortez|crested-butte": {
+   "miles": 243.4,
+   "minutes": 347
+  },
+  "cortez|marble": {
+   "miles": 243.7,
+   "minutes": 363
+  },
+  "craig|steamboat-springs": {
+   "miles": 42.2,
+   "minutes": 52
+  },
+  "craig|meeker": {
+   "miles": 48.4,
+   "minutes": 59
+  },
+  "craig|glenwood-springs": {
+   "miles": 116.7,
+   "minutes": 153
+  },
+  "craig|walden": {
+   "miles": 101.1,
+   "minutes": 136
+  },
+  "craig|kremmling": {
+   "miles": 93.9,
+   "minutes": 120
+  },
+  "craig|rifle": {
+   "miles": 89.7,
+   "minutes": 122
+  },
+  "craig|eagle": {
+   "miles": 108.6,
+   "minutes": 160
+  },
+  "carbondale|craig": {
+   "miles": 129.9,
+   "minutes": 174
+  },
+  "avon|craig": {
+   "miles": 108.4,
+   "minutes": 159
+  },
+  "basalt|craig": {
+   "miles": 139.9,
+   "minutes": 186
+  },
+  "craig|vail": {
+   "miles": 118.1,
+   "minutes": 171
+  },
+  "craig|minturn": {
+   "miles": 114.8,
+   "minutes": 168
+  },
+  "craig|granby": {
+   "miles": 121.6,
+   "minutes": 161
+  },
+  "craig|grand-lake": {
+   "miles": 135.7,
+   "minutes": 185
+  },
+  "craig|redstone": {
+   "miles": 145.7,
+   "minutes": 197
+  },
+  "craig|silverthorne": {
+   "miles": 130.7,
+   "minutes": 170
+  },
+  "aspen|craig": {
+   "miles": 157.8,
+   "minutes": 213
+  },
+  "craig|fraser": {
+   "miles": 136.6,
+   "minutes": 187
+  },
+  "craig|dillon": {
+   "miles": 132.8,
+   "minutes": 175
+  },
+  "craig|frisco": {
+   "miles": 135.7,
+   "minutes": 179
+  },
+  "craig|marble": {
+   "miles": 156.9,
+   "minutes": 221
+  },
+  "craig|winter-park": {
+   "miles": 141.7,
+   "minutes": 196
+  },
+  "craig|keystone": {
+   "miles": 138.8,
+   "minutes": 185
+  },
+  "craig|palisade": {
+   "miles": 139.3,
+   "minutes": 178
+  },
+  "creede|lake-city": {
+   "miles": 50.3,
+   "minutes": 86
+  },
+  "creede|del-norte": {
+   "miles": 37.4,
+   "minutes": 50
+  },
+  "creede|pagosa-springs": {
+   "miles": 63.8,
+   "minutes": 91
+  },
+  "creede|silverton": {
+   "miles": 171.9,
+   "minutes": 229
+  },
+  "creede|ouray": {
+   "miles": 159.9,
+   "minutes": 264
+  },
+  "creede|monte-vista": {
+   "miles": 51.3,
+   "minutes": 68
+  },
+  "creede|gunnison": {
+   "miles": 105.1,
+   "minutes": 168
+  },
+  "creede|telluride": {
+   "miles": 189.3,
+   "minutes": 311
+  },
+  "creede|ridgway": {
+   "miles": 150.6,
+   "minutes": 252
+  },
+  "creede|durango": {
+   "miles": 123.8,
+   "minutes": 172
+  },
+  "creede|montrose": {
+   "miles": 124.3,
+   "minutes": 216
+  },
+  "creede|crestone": {
+   "miles": 94.8,
+   "minutes": 123
+  },
+  "creede|salida": {
+   "miles": 119.1,
+   "minutes": 154
+  },
+  "creede|crested-butte": {
+   "miles": 132.6,
+   "minutes": 209
+  },
+  "creede|olathe": {
+   "miles": 134.5,
+   "minutes": 230
+  },
+  "creede|hotchkiss": {
+   "miles": 142.5,
+   "minutes": 253
+  },
+  "creede|paonia": {
+   "miles": 151.1,
+   "minutes": 267
+  },
+  "buena-vista|creede": {
+   "miles": 138.1,
+   "minutes": 176
+  },
+  "creede|westcliffe": {
+   "miles": 165.2,
+   "minutes": 220
+  },
+  "creede|mancos": {
+   "miles": 150.4,
+   "minutes": 205
+  },
+  "creede|marble": {
+   "miles": 190.7,
+   "minutes": 338
+  },
+  "creede|delta": {
+   "miles": 145.5,
+   "minutes": 243
+  },
+  "creede|dolores": {
+   "miles": 174.3,
+   "minutes": 258
+  },
+  "crested-butte|marble": {
+   "miles": 58.3,
+   "minutes": 130
+  },
+  "crested-butte|gunnison": {
+   "miles": 27.6,
+   "minutes": 42
+  },
+  "crested-butte|redstone": {
+   "miles": 57.3,
+   "minutes": 123
+  },
+  "crested-butte|paonia": {
+   "miles": 47,
+   "minutes": 101
+  },
+  "crested-butte|hotchkiss": {
+   "miles": 55.1,
+   "minutes": 113
+  },
+  "crested-butte|leadville": {
+   "miles": 145.2,
+   "minutes": 200
+  },
+  "crested-butte|glenwood-springs": {
+   "miles": 87.2,
+   "minutes": 168
+  },
+  "crested-butte|eagle": {
+   "miles": 118.6,
+   "minutes": 205
+  },
+  "crested-butte|montrose": {
+   "miles": 92.3,
+   "minutes": 133
+  },
+  "crested-butte|olathe": {
+   "miles": 102.5,
+   "minutes": 147
+  },
+  "alma|crested-butte": {
+   "miles": 149.1,
+   "minutes": 199
+  },
+  "crested-butte|minturn": {
+   "miles": 144.7,
+   "minutes": 232
+  },
+  "crested-butte|salida": {
+   "miles": 92.6,
+   "minutes": 130
+  },
+  "avon|crested-butte": {
+   "miles": 138.5,
+   "minutes": 224
+  },
+  "crested-butte|fairplay": {
+   "miles": 143.6,
+   "minutes": 191
+  },
+  "crested-butte|delta": {
+   "miles": 75.7,
+   "minutes": 140
+  },
+  "crested-butte|lake-city": {
+   "miles": 82.3,
+   "minutes": 123
+  },
+  "crested-butte|vail": {
+   "miles": 148,
+   "minutes": 236
+  },
+  "crested-butte|rifle": {
+   "miles": 113.3,
+   "minutes": 198
+  },
+  "crestone|westcliffe": {
+   "miles": 103.4,
+   "minutes": 144
+  },
+  "crestone|monte-vista": {
+   "miles": 55.9,
+   "minutes": 72
+  },
+  "crestone|salida": {
+   "miles": 57.3,
+   "minutes": 77
+  },
+  "crestone|florence": {
+   "miles": 122,
+   "minutes": 172
+  },
+  "crestone|del-norte": {
+   "miles": 57.4,
+   "minutes": 73
+  },
+  "crestone|la-veta": {
+   "miles": 107.4,
+   "minutes": 138
+  },
+  "crestone|victor": {
+   "miles": 159.5,
+   "minutes": 209
+  },
+  "crestone|cripple-creek": {
+   "miles": 148.5,
+   "minutes": 199
+  },
+  "crestone|manitou-springs": {
+   "miles": 159.4,
+   "minutes": 206
+  },
+  "crestone|green-mountain-falls": {
+   "miles": 150.9,
+   "minutes": 193
+  },
+  "crestone|gunnison": {
+   "miles": 100.4,
+   "minutes": 139
+  },
+  "crestone|woodland-park": {
+   "miles": 145.9,
+   "minutes": 184
+  },
+  "crestone|fairplay": {
+   "miles": 109.2,
+   "minutes": 140
+  },
+  "crestone|trinidad": {
+   "miles": 157.2,
+   "minutes": 190
+  },
+  "crestone|pagosa-springs": {
+   "miles": 115.7,
+   "minutes": 155
+  },
+  "crestone|lake-city": {
+   "miles": 142.1,
+   "minutes": 206
+  },
+  "crestone|palmer-lake": {
+   "miles": 184.9,
+   "minutes": 240
+  },
+  "alma|crestone": {
+   "miles": 114.8,
+   "minutes": 148
+  },
+  "crested-butte|crestone": {
+   "miles": 128,
+   "minutes": 180
+  },
+  "crestone|leadville": {
+   "miles": 110.8,
+   "minutes": 149
+  },
+  "cripple-creek|victor": {
+   "miles": 4.7,
+   "minutes": 11
+  },
+  "cripple-creek|green-mountain-falls": {
+   "miles": 30.7,
+   "minutes": 54
+  },
+  "cripple-creek|manitou-springs": {
+   "miles": 39.2,
+   "minutes": 67
+  },
+  "cripple-creek|woodland-park": {
+   "miles": 25.7,
+   "minutes": 45
+  },
+  "cripple-creek|florence": {
+   "miles": 33.7,
+   "minutes": 90
+  },
+  "cripple-creek|palmer-lake": {
+   "miles": 64.7,
+   "minutes": 101
+  },
+  "cripple-creek|westcliffe": {
+   "miles": 80.2,
+   "minutes": 125
+  },
+  "cripple-creek|salida": {
+   "miles": 96.7,
+   "minutes": 134
+  },
+  "cripple-creek|elizabeth": {
+   "miles": 89.5,
+   "minutes": 137
+  },
+  "cripple-creek|fairplay": {
+   "miles": 67.1,
+   "minutes": 95
+  },
+  "alma|cripple-creek": {
+   "miles": 72.5,
+   "minutes": 102
+  },
+  "cripple-creek|evergreen": {
+   "miles": 86.5,
+   "minutes": 162
+  },
+  "cripple-creek|morrison": {
+   "miles": 116.5,
+   "minutes": 155
+  },
+  "breckenridge|cripple-creek": {
+   "miles": 89.5,
+   "minutes": 133
+  },
+  "cripple-creek|leadville": {
+   "miles": 111.7,
+   "minutes": 157
+  },
+  "cripple-creek|golden": {
+   "miles": 121.7,
+   "minutes": 164
+  },
+  "cripple-creek|idaho-springs": {
+   "miles": 139.7,
+   "minutes": 186
+  },
+  "cripple-creek|georgetown": {
+   "miles": 118.1,
+   "minutes": 176
+  },
+  "cripple-creek|keystone": {
+   "miles": 102.9,
+   "minutes": 159
+  },
+  "black-hawk|cripple-creek": {
+   "miles": 145.4,
+   "minutes": 203
+  },
+  "del-norte|monte-vista": {
+   "miles": 13.9,
+   "minutes": 18
+  },
+  "del-norte|pagosa-springs": {
+   "miles": 58.3,
+   "minutes": 82
+  },
+  "del-norte|westcliffe": {
+   "miles": 127.7,
+   "minutes": 171
+  },
+  "del-norte|lake-city": {
+   "miles": 84.7,
+   "minutes": 133
+  },
+  "del-norte|salida": {
+   "miles": 81.7,
+   "minutes": 104
+  },
+  "del-norte|gunnison": {
+   "miles": 106.5,
+   "minutes": 137
+  },
+  "del-norte|silverton": {
+   "miles": 166.4,
+   "minutes": 220
+  },
+  "del-norte|la-veta": {
+   "miles": 90.7,
+   "minutes": 121
+  },
+  "del-norte|ouray": {
+   "miles": 188.2,
+   "minutes": 271
+  },
+  "buena-vista|del-norte": {
+   "miles": 100.7,
+   "minutes": 126
+  },
+  "del-norte|telluride": {
+   "miles": 236,
+   "minutes": 323
+  },
+  "del-norte|florence": {
+   "miles": 146.4,
+   "minutes": 199
+  },
+  "del-norte|ridgway": {
+   "miles": 197.3,
+   "minutes": 264
+  },
+  "del-norte|durango": {
+   "miles": 118.3,
+   "minutes": 163
+  },
+  "crested-butte|del-norte": {
+   "miles": 134.1,
+   "minutes": 177
+  },
+  "del-norte|victor": {
+   "miles": 183.8,
+   "minutes": 236
+  },
+  "cripple-creek|del-norte": {
+   "miles": 172.9,
+   "minutes": 226
+  },
+  "del-norte|montrose": {
+   "miles": 171.1,
+   "minutes": 228
+  },
+  "del-norte|paonia": {
+   "miles": 194,
+   "minutes": 274
+  },
+  "del-norte|marble": {
+   "miles": 192.2,
+   "minutes": 307
+  },
+  "delta|olathe": {
+   "miles": 11.7,
+   "minutes": 18
+  },
+  "delta|hotchkiss": {
+   "miles": 20.7,
+   "minutes": 28
+  },
+  "delta|montrose": {
+   "miles": 22,
+   "minutes": 31
+  },
+  "delta|paonia": {
+   "miles": 29.9,
+   "minutes": 43
+  },
+  "delta|palisade": {
+   "miles": 45.4,
+   "minutes": 59
+  },
+  "delta|grand-junction": {
+   "miles": 40.2,
+   "minutes": 53
+  },
+  "delta|ridgway": {
+   "miles": 48.7,
+   "minutes": 68
+  },
+  "delta|fruita": {
+   "miles": 51.8,
+   "minutes": 69
+  },
+  "delta|marble": {
+   "miles": 71.5,
+   "minutes": 118
+  },
+  "delta|redstone": {
+   "miles": 70.5,
+   "minutes": 111
+  },
+  "delta|ouray": {
+   "miles": 58,
+   "minutes": 80
+  },
+  "delta|rifle": {
+   "miles": 94.4,
+   "minutes": 110
+  },
+  "delta|telluride": {
+   "miles": 87.4,
+   "minutes": 127
+  },
+  "delta|gunnison": {
+   "miles": 86.1,
+   "minutes": 119
+  },
+  "delta|lake-city": {
+   "miles": 95.3,
+   "minutes": 156
+  },
+  "carbondale|delta": {
+   "miles": 86.9,
+   "minutes": 136
+  },
+  "delta|silverton": {
+   "miles": 81.5,
+   "minutes": 134
+  },
+  "delta|glenwood-springs": {
+   "miles": 119.6,
+   "minutes": 137
+  },
+  "basalt|delta": {
+   "miles": 97.9,
+   "minutes": 153
+  },
+  "aspen|delta": {
+   "miles": 115.8,
+   "minutes": 180
+  },
+  "delta|meeker": {
+   "miles": 135,
+   "minutes": 173
+  },
+  "dillon|silverthorne": {
+   "miles": 2.1,
+   "minutes": 6
+  },
+  "dillon|keystone": {
+   "miles": 6.3,
+   "minutes": 12
+  },
+  "dillon|frisco": {
+   "miles": 6.3,
+   "minutes": 12
+  },
+  "dillon|vail": {
+   "miles": 31.9,
+   "minutes": 40
+  },
+  "dillon|georgetown": {
+   "miles": 24.6,
+   "minutes": 34
+  },
+  "dillon|minturn": {
+   "miles": 38.5,
+   "minutes": 47
+  },
+  "dillon|winter-park": {
+   "miles": 54.2,
+   "minutes": 81
+  },
+  "dillon|fraser": {
+   "miles": 45,
+   "minutes": 89
+  },
+  "dillon|fairplay": {
+   "miles": 36.3,
+   "minutes": 62
+  },
+  "dillon|idaho-springs": {
+   "miles": 36,
+   "minutes": 46
+  },
+  "dillon|leadville": {
+   "miles": 35.2,
+   "minutes": 48
+  },
+  "dillon|granby": {
+   "miles": 56.2,
+   "minutes": 90
+  },
+  "dillon|kremmling": {
+   "miles": 38.9,
+   "minutes": 55
+  },
+  "dillon|nederland": {
+   "miles": 61.4,
+   "minutes": 102
+  },
+  "dillon|evergreen": {
+   "miles": 51.7,
+   "minutes": 73
+  },
+  "dillon|eagle": {
+   "miles": 61.3,
+   "minutes": 70
+  },
+  "dillon|grand-lake": {
+   "miles": 70.3,
+   "minutes": 113
+  },
+  "dillon|golden": {
+   "miles": 59.3,
+   "minutes": 79
+  },
+  "dillon|morrison": {
+   "miles": 58,
+   "minutes": 75
+  },
+  "dolores|mancos": {
+   "miles": 24,
+   "minutes": 54
+  },
+  "dolores|durango": {
+   "miles": 51.9,
+   "minutes": 89
+  },
+  "dolores|telluride": {
+   "miles": 70.1,
+   "minutes": 255
+  },
+  "dolores|silverton": {
+   "miles": 99.9,
+   "minutes": 146
+  },
+  "dolores|ouray": {
+   "miles": 121.7,
+   "minutes": 196
+  },
+  "dolores|ridgway": {
+   "miles": 132.7,
+   "minutes": 214
+  },
+  "dolores|lake-city": {
+   "miles": 221.6,
+   "minutes": 341
+  },
+  "dolores|montrose": {
+   "miles": 158,
+   "minutes": 246
+  },
+  "dolores|olathe": {
+   "miles": 168.8,
+   "minutes": 263
+  },
+  "dolores|pagosa-springs": {
+   "miles": 110.6,
+   "minutes": 167
+  },
+  "delta|dolores": {
+   "miles": 180.2,
+   "minutes": 276
+  },
+  "dolores|hotchkiss": {
+   "miles": 199.1,
+   "minutes": 302
+  },
+  "cedaredge|dolores": {
+   "miles": 193.7,
+   "minutes": 297
+  },
+  "dolores|paonia": {
+   "miles": 208.3,
+   "minutes": 318
+  },
+  "dolores|grand-junction": {
+   "miles": 226.6,
+   "minutes": 276
+  },
+  "dolores|palisade": {
+   "miles": 237.3,
+   "minutes": 284
+  },
+  "dolores|gunnison": {
+   "miles": 222.1,
+   "minutes": 335
+  },
+  "dolores|fruita": {
+   "miles": 214.9,
+   "minutes": 261
+  },
+  "del-norte|dolores": {
+   "miles": 168.8,
+   "minutes": 248
+  },
+  "crested-butte|dolores": {
+   "miles": 250,
+   "minutes": 377
+  },
+  "dolores|monte-vista": {
+   "miles": 182.7,
+   "minutes": 267
+  },
+  "dolores|marble": {
+   "miles": 249.9,
+   "minutes": 392
+  },
+  "durango|mancos": {
+   "miles": 28,
+   "minutes": 36
+  },
+  "durango|silverton": {
+   "miles": 48.3,
+   "minutes": 58
+  },
+  "durango|telluride": {
+   "miles": 119.8,
+   "minutes": 185
+  },
+  "durango|pagosa-springs": {
+   "miles": 60.1,
+   "minutes": 82
+  },
+  "durango|ouray": {
+   "miles": 70.1,
+   "minutes": 109
+  },
+  "durango|lake-city": {
+   "miles": 171.1,
+   "minutes": 256
+  },
+  "durango|ridgway": {
+   "miles": 81.1,
+   "minutes": 126
+  },
+  "durango|montrose": {
+   "miles": 106.4,
+   "minutes": 158
+  },
+  "durango|olathe": {
+   "miles": 117.2,
+   "minutes": 175
+  },
+  "durango|monte-vista": {
+   "miles": 132.2,
+   "minutes": 182
+  },
+  "delta|durango": {
+   "miles": 128.6,
+   "minutes": 189
+  },
+  "durango|gunnison": {
+   "miles": 170.5,
+   "minutes": 247
+  },
+  "durango|hotchkiss": {
+   "miles": 147.5,
+   "minutes": 215
+  },
+  "durango|paonia": {
+   "miles": 156.7,
+   "minutes": 230
+  },
+  "cedaredge|durango": {
+   "miles": 142.1,
+   "minutes": 210
+  },
+  "crested-butte|durango": {
+   "miles": 198.4,
+   "minutes": 290
+  },
+  "durango|grand-junction": {
+   "miles": 166.5,
+   "minutes": 238
+  },
+  "crestone|durango": {
+   "miles": 175.7,
+   "minutes": 236
+  },
+  "durango|palisade": {
+   "miles": 171.8,
+   "minutes": 245
+  },
+  "eagle|minturn": {
+   "miles": 27.2,
+   "minutes": 30
+  },
+  "eagle|vail": {
+   "miles": 30.4,
+   "minutes": 34
+  },
+  "eagle|glenwood-springs": {
+   "miles": 31.8,
+   "minutes": 37
+  },
+  "eagle|kremmling": {
+   "miles": 51.5,
+   "minutes": 84
+  },
+  "eagle|frisco": {
+   "miles": 55.9,
+   "minutes": 65
+  },
+  "eagle|redstone": {
+   "miles": 61.6,
+   "minutes": 82
+  },
+  "eagle|leadville": {
+   "miles": 57.3,
+   "minutes": 76
+  },
+  "eagle|silverthorne": {
+   "miles": 60.3,
+   "minutes": 69
+  },
+  "eagle|marble": {
+   "miles": 72.8,
+   "minutes": 106
+  },
+  "eagle|keystone": {
+   "miles": 67.2,
+   "minutes": 81
+  },
+  "eagle|rifle": {
+   "miles": 58.4,
+   "minutes": 66
+  },
+  "eagle|fairplay": {
+   "miles": 86.4,
+   "minutes": 117
+  },
+  "eagle|granby": {
+   "miles": 78.5,
+   "minutes": 124
+  },
+  "eagle|fraser": {
+   "miles": 93.5,
+   "minutes": 150
+  },
+  "eagle|steamboat-springs": {
+   "miles": 83.8,
+   "minutes": 124
+  },
+  "eagle|winter-park": {
+   "miles": 112.4,
+   "minutes": 144
+  },
+  "elizabeth|palmer-lake": {
+   "miles": 38,
+   "minutes": 52
+  },
+  "elizabeth|woodland-park": {
+   "miles": 64.1,
+   "minutes": 94
+  },
+  "elizabeth|green-mountain-falls": {
+   "miles": 60.2,
+   "minutes": 89
+  },
+  "elizabeth|morrison": {
+   "miles": 48.5,
+   "minutes": 63
+  },
+  "elizabeth|manitou-springs": {
+   "miles": 51.5,
+   "minutes": 75
+  },
+  "elizabeth|evergreen": {
+   "miles": 59.1,
+   "minutes": 84
+  },
+  "elizabeth|golden": {
+   "miles": 55.9,
+   "minutes": 74
+  },
+  "elizabeth|lafayette": {
+   "miles": 69.9,
+   "minutes": 83
+  },
+  "elizabeth|louisville": {
+   "miles": 70.8,
+   "minutes": 84
+  },
+  "elizabeth|fort-lupton": {
+   "miles": 62.8,
+   "minutes": 78
+  },
+  "elizabeth|erie": {
+   "miles": 70,
+   "minutes": 86
+  },
+  "elizabeth|victor": {
+   "miles": 91.6,
+   "minutes": 139
+  },
+  "carbon-valley|elizabeth": {
+   "miles": 68.2,
+   "minutes": 86
+  },
+  "elizabeth|idaho-springs": {
+   "miles": 73.2,
+   "minutes": 94
+  },
+  "black-hawk|elizabeth": {
+   "miles": 78,
+   "minutes": 112
+  },
+  "central-city|elizabeth": {
+   "miles": 76.8,
+   "minutes": 103
+  },
+  "boulder|elizabeth": {
+   "miles": 69.3,
+   "minutes": 91
+  },
+  "elizabeth|niwot": {
+   "miles": 81.2,
+   "minutes": 98
+  },
+  "elizabeth|platteville": {
+   "miles": 71.8,
+   "minutes": 89
+  },
+  "elizabeth|longmont": {
+   "miles": 80.6,
+   "minutes": 94
+  },
+  "elizabeth|georgetown": {
+   "miles": 85.4,
+   "minutes": 110
+  },
+  "elizabeth|nederland": {
+   "miles": 85.9,
+   "minutes": 122
+  },
+  "erie|lafayette": {
+   "miles": 5.9,
+   "minutes": 14
+  },
+  "erie|louisville": {
+   "miles": 10.2,
+   "minutes": 18
+  },
+  "erie|niwot": {
+   "miles": 10.2,
+   "minutes": 17
+  },
+  "erie|longmont": {
+   "miles": 11,
+   "minutes": 18
+  },
+  "erie|fort-lupton": {
+   "miles": 18.2,
+   "minutes": 35
+  },
+  "erie|mead": {
+   "miles": 17.2,
+   "minutes": 24
+  },
+  "erie|platteville": {
+   "miles": 25.7,
+   "minutes": 41
+  },
+  "erie|lyons": {
+   "miles": 22.8,
+   "minutes": 36
+  },
+  "erie|johnstown": {
+   "miles": 26.9,
+   "minutes": 36
+  },
+  "erie|milliken": {
+   "miles": 29.9,
+   "minutes": 41
+  },
+  "erie|golden": {
+   "miles": 34.4,
+   "minutes": 47
+  },
+  "erie|loveland": {
+   "miles": 32,
+   "minutes": 42
+  },
+  "erie|nederland": {
+   "miles": 31.5,
+   "minutes": 57
+  },
+  "erie|morrison": {
+   "miles": 39.7,
+   "minutes": 52
+  },
+  "erie|windsor": {
+   "miles": 38.2,
+   "minutes": 49
+  },
+  "erie|greeley": {
+   "miles": 44.5,
+   "minutes": 64
+  },
+  "erie|evergreen": {
+   "miles": 51,
+   "minutes": 70
+  },
+  "erie|idaho-springs": {
+   "miles": 55.2,
+   "minutes": 73
+  },
+  "erie|timnath": {
+   "miles": 37.4,
+   "minutes": 45
+  },
+  "estes-park|lyons": {
+   "miles": 21.2,
+   "minutes": 35
+  },
+  "estes-park|grand-lake": {
+   "miles": 48.4,
+   "minutes": 98
+  },
+  "estes-park|loveland": {
+   "miles": 29.8,
+   "minutes": 58
+  },
+  "estes-park|niwot": {
+   "miles": 35.8,
+   "minutes": 59
+  },
+  "estes-park|longmont": {
+   "miles": 33,
+   "minutes": 54
+  },
+  "estes-park|fort-collins": {
+   "miles": 41.4,
+   "minutes": 78
+  },
+  "estes-park|nederland": {
+   "miles": 42,
+   "minutes": 72
+  },
+  "estes-park|mead": {
+   "miles": 37.9,
+   "minutes": 65
+  },
+  "estes-park|granby": {
+   "miles": 62.1,
+   "minutes": 117
+  },
+  "estes-park|timnath": {
+   "miles": 43.2,
+   "minutes": 76
+  },
+  "estes-park|johnstown": {
+   "miles": 42.2,
+   "minutes": 76
+  },
+  "estes-park|windsor": {
+   "miles": 43.9,
+   "minutes": 80
+  },
+  "erie|estes-park": {
+   "miles": 43.4,
+   "minutes": 70
+  },
+  "estes-park|fraser": {
+   "miles": 77.1,
+   "minutes": 143
+  },
+  "estes-park|louisville": {
+   "miles": 44.8,
+   "minutes": 74
+  },
+  "estes-park|lafayette": {
+   "miles": 45.6,
+   "minutes": 73
+  },
+  "estes-park|wellington": {
+   "miles": 55.2,
+   "minutes": 87
+  },
+  "estes-park|milliken": {
+   "miles": 45.2,
+   "minutes": 81
+  },
+  "estes-park|winter-park": {
+   "miles": 82.3,
+   "minutes": 151
+  },
+  "estes-park|severance": {
+   "miles": 49.5,
+   "minutes": 87
+  },
+  "estes-park|platteville": {
+   "miles": 48.5,
+   "minutes": 87
+  },
+  "evergreen|morrison": {
+   "miles": 10.5,
+   "minutes": 24
+  },
+  "evergreen|golden": {
+   "miles": 19.8,
+   "minutes": 33
+  },
+  "evergreen|idaho-springs": {
+   "miles": 16.4,
+   "minutes": 30
+  },
+  "evergreen|georgetown": {
+   "miles": 28.6,
+   "minutes": 45
+  },
+  "evergreen|nederland": {
+   "miles": 39.1,
+   "minutes": 73
+  },
+  "evergreen|louisville": {
+   "miles": 41.4,
+   "minutes": 60
+  },
+  "evergreen|lafayette": {
+   "miles": 41.4,
+   "minutes": 61
+  },
+  "evergreen|winter-park": {
+   "miles": 49.7,
+   "minutes": 82
+  },
+  "evergreen|niwot": {
+   "miles": 52.7,
+   "minutes": 76
+  },
+  "evergreen|fraser": {
+   "miles": 54.8,
+   "minutes": 91
+  },
+  "evergreen|keystone": {
+   "miles": 58,
+   "minutes": 84
+  },
+  "carbon-valley|evergreen": {
+   "miles": 53.8,
+   "minutes": 72
+  },
+  "evergreen|longmont": {
+   "miles": 53.5,
+   "minutes": 77
+  },
+  "evergreen|silverthorne": {
+   "miles": 50.7,
+   "minutes": 71
+  },
+  "evergreen|lyons": {
+   "miles": 55.5,
+   "minutes": 87
+  },
+  "evergreen|fort-lupton": {
+   "miles": 53.3,
+   "minutes": 70
+  },
+  "evergreen|palmer-lake": {
+   "miles": 66.7,
+   "minutes": 87
+  },
+  "fairplay|leadville": {
+   "miles": 60.5,
+   "minutes": 93
+  },
+  "fairplay|frisco": {
+   "miles": 30.7,
+   "minutes": 53
+  },
+  "fairplay|keystone": {
+   "miles": 35.8,
+   "minutes": 64
+  },
+  "fairplay|silverthorne": {
+   "miles": 35.2,
+   "minutes": 60
+  },
+  "fairplay|minturn": {
+   "miles": 63.8,
+   "minutes": 93
+  },
+  "fairplay|vail": {
+   "miles": 57.2,
+   "minutes": 85
+  },
+  "fairplay|georgetown": {
+   "miles": 52.1,
+   "minutes": 85
+  },
+  "fairplay|idaho-springs": {
+   "miles": 69.2,
+   "minutes": 100
+  },
+  "evergreen|fairplay": {
+   "miles": 62.3,
+   "minutes": 91
+  },
+  "central-city|fairplay": {
+   "miles": 75.4,
+   "minutes": 120
+  },
+  "fairplay|salida": {
+   "miles": 57.4,
+   "minutes": 74
+  },
+  "fairplay|winter-park": {
+   "miles": 87.4,
+   "minutes": 135
+  },
+  "black-hawk|fairplay": {
+   "miles": 75.9,
+   "minutes": 128
+  },
+  "fairplay|fraser": {
+   "miles": 78.1,
+   "minutes": 143
+  },
+  "fairplay|morrison": {
+   "miles": 68.2,
+   "minutes": 96
+  },
+  "fairplay|woodland-park": {
+   "miles": 64.4,
+   "minutes": 78
+  },
+  "florence|victor": {
+   "miles": 37.7,
+   "minutes": 98
+  },
+  "florence|westcliffe": {
+   "miles": 37.8,
+   "minutes": 56
+  },
+  "florence|manitou-springs": {
+   "miles": 45.4,
+   "minutes": 67
+  },
+  "florence|green-mountain-falls": {
+   "miles": 54.1,
+   "minutes": 80
+  },
+  "florence|woodland-park": {
+   "miles": 58,
+   "minutes": 85
+  },
+  "florence|salida": {
+   "miles": 66,
+   "minutes": 99
+  },
+  "florence|palmer-lake": {
+   "miles": 63.6,
+   "minutes": 87
+  },
+  "florence|la-veta": {
+   "miles": 98.1,
+   "minutes": 126
+  },
+  "buena-vista|florence": {
+   "miles": 93.7,
+   "minutes": 124
+  },
+  "castle-rock|florence": {
+   "miles": 80.4,
+   "minutes": 101
+  },
+  "elizabeth|florence": {
+   "miles": 88.7,
+   "minutes": 123
+  },
+  "fairplay|florence": {
+   "miles": 83.6,
+   "minutes": 111
+  },
+  "florence|monte-vista": {
+   "miles": 144.9,
+   "minutes": 197
+  },
+  "florence|rocky-ford": {
+   "miles": 84.9,
+   "minutes": 108
+  },
+  "alma|florence": {
+   "miles": 89.1,
+   "minutes": 119
+  },
+  "evergreen|florence": {
+   "miles": 125.5,
+   "minutes": 160
+  },
+  "florence|leadville": {
+   "miles": 128.1,
+   "minutes": 173
+  },
+  "florence|morrison": {
+   "miles": 115.4,
+   "minutes": 140
+  },
+  "florence|la-junta": {
+   "miles": 95.8,
+   "minutes": 125
+  },
+  "fort-collins|timnath": {
+   "miles": 9.8,
+   "minutes": 17
+  },
+  "fort-collins|wellington": {
+   "miles": 13.9,
+   "minutes": 20
+  },
+  "fort-collins|windsor": {
+   "miles": 16.6,
+   "minutes": 27
+  },
+  "fort-collins|severance": {
+   "miles": 16.5,
+   "minutes": 25
+  },
+  "fort-collins|loveland": {
+   "miles": 13.5,
+   "minutes": 25
+  },
+  "fort-collins|johnstown": {
+   "miles": 25.4,
+   "minutes": 33
+  },
+  "fort-collins|milliken": {
+   "miles": 28.4,
+   "minutes": 39
+  },
+  "fort-collins|greeley": {
+   "miles": 31,
+   "minutes": 49
+  },
+  "fort-collins|mead": {
+   "miles": 29.6,
+   "minutes": 35
+  },
+  "fort-collins|lyons": {
+   "miles": 36.7,
+   "minutes": 57
+  },
+  "fort-collins|longmont": {
+   "miles": 40.5,
+   "minutes": 48
+  },
+  "fort-collins|platteville": {
+   "miles": 38.4,
+   "minutes": 55
+  },
+  "fort-collins|niwot": {
+   "miles": 46.4,
+   "minutes": 57
+  },
+  "erie|fort-collins": {
+   "miles": 45.2,
+   "minutes": 56
+  },
+  "fort-collins|fort-lupton": {
+   "miles": 48.9,
+   "minutes": 65
+  },
+  "boulder|fort-collins": {
+   "miles": 55.4,
+   "minutes": 71
+  },
+  "fort-collins|lafayette": {
+   "miles": 51,
+   "minutes": 61
+  },
+  "fort-collins|louisville": {
+   "miles": 55.3,
+   "minutes": 64
+  },
+  "fort-collins|grand-lake": {
+   "miles": 89.7,
+   "minutes": 175
+  },
+  "fort-collins|nederland": {
+   "miles": 71,
+   "minutes": 100
+  },
+  "fort-collins|granby": {
+   "miles": 103.4,
+   "minutes": 194
+  },
+  "fort-lupton|platteville": {
+   "miles": 10.2,
+   "minutes": 16
+  },
+  "fort-lupton|mead": {
+   "miles": 21.1,
+   "minutes": 33
+  },
+  "fort-lupton|lafayette": {
+   "miles": 22.2,
+   "minutes": 35
+  },
+  "fort-lupton|longmont": {
+   "miles": 21.9,
+   "minutes": 35
+  },
+  "fort-lupton|milliken": {
+   "miles": 23.2,
+   "minutes": 41
+  },
+  "fort-lupton|johnstown": {
+   "miles": 23,
+   "minutes": 41
+  },
+  "fort-lupton|louisville": {
+   "miles": 26,
+   "minutes": 38
+  },
+  "fort-lupton|niwot": {
+   "miles": 27.3,
+   "minutes": 43
+  },
+  "fort-lupton|greeley": {
+   "miles": 39.8,
+   "minutes": 55
+  },
+  "fort-lupton|loveland": {
+   "miles": 35.9,
+   "minutes": 51
+  },
+  "fort-lupton|lyons": {
+   "miles": 33.9,
+   "minutes": 53
+  },
+  "fort-lupton|windsor": {
+   "miles": 42,
+   "minutes": 58
+  },
+  "fort-lupton|severance": {
+   "miles": 47.7,
+   "minutes": 65
+  },
+  "fort-lupton|golden": {
+   "miles": 36.7,
+   "minutes": 48
+  },
+  "fort-lupton|timnath": {
+   "miles": 41.3,
+   "minutes": 54
+  },
+  "fort-lupton|morrison": {
+   "miles": 42,
+   "minutes": 53
+  },
+  "fort-lupton|nederland": {
+   "miles": 51.7,
+   "minutes": 79
+  },
+  "black-hawk|fort-lupton": {
+   "miles": 57,
+   "minutes": 90
+  },
+  "fort-morgan|sterling": {
+   "miles": 48,
+   "minutes": 53
+  },
+  "fort-morgan|greeley": {
+   "miles": 74.3,
+   "minutes": 88
+  },
+  "fort-morgan|platteville": {
+   "miles": 68.7,
+   "minutes": 79
+  },
+  "fort-lupton|fort-morgan": {
+   "miles": 59,
+   "minutes": 65
+  },
+  "fort-morgan|milliken": {
+   "miles": 76.6,
+   "minutes": 96
+  },
+  "fort-morgan|severance": {
+   "miles": 88.2,
+   "minutes": 111
+  },
+  "fort-morgan|johnstown": {
+   "miles": 79.8,
+   "minutes": 102
+  },
+  "fort-morgan|windsor": {
+   "miles": 89.4,
+   "minutes": 113
+  },
+  "carbon-valley|fort-morgan": {
+   "miles": 72.1,
+   "minutes": 87
+  },
+  "fort-morgan|mead": {
+   "miles": 79.6,
+   "minutes": 96
+  },
+  "fort-morgan|timnath": {
+   "miles": 99.8,
+   "minutes": 118
+  },
+  "erie|fort-morgan": {
+   "miles": 83.1,
+   "minutes": 94
+  },
+  "berthoud|fort-morgan": {
+   "miles": 89.1,
+   "minutes": 107
+  },
+  "fort-morgan|loveland": {
+   "miles": 94.4,
+   "minutes": 114
+  },
+  "fort-morgan|longmont": {
+   "miles": 80.4,
+   "minutes": 99
+  },
+  "fort-morgan|lafayette": {
+   "miles": 83,
+   "minutes": 92
+  },
+  "fort-morgan|wellington": {
+   "miles": 111.9,
+   "minutes": 129
+  },
+  "fort-collins|fort-morgan": {
+   "miles": 107.3,
+   "minutes": 127
+  },
+  "fort-morgan|louisville": {
+   "miles": 83.9,
+   "minutes": 93
+  },
+  "fort-morgan|niwot": {
+   "miles": 85.8,
+   "minutes": 107
+  },
+  "elizabeth|fort-morgan": {
+   "miles": 113.1,
+   "minutes": 126
+  },
+  "fort-morgan|lyons": {
+   "miles": 92.5,
+   "minutes": 116
+  },
+  "boulder|fort-morgan": {
+   "miles": 93.5,
+   "minutes": 104
+  },
+  "fraser|winter-park": {
+   "miles": 5.6,
+   "minutes": 10
+  },
+  "fraser|granby": {
+   "miles": 15.1,
+   "minutes": 27
+  },
+  "fraser|nederland": {
+   "miles": 64.6,
+   "minutes": 120
+  },
+  "fraser|georgetown": {
+   "miles": 35.5,
+   "minutes": 60
+  },
+  "fraser|grand-lake": {
+   "miles": 30.2,
+   "minutes": 53
+  },
+  "fraser|idaho-springs": {
+   "miles": 39.2,
+   "minutes": 64
+  },
+  "fraser|keystone": {
+   "miles": 64.9,
+   "minutes": 99
+  },
+  "fraser|silverthorne": {
+   "miles": 42.9,
+   "minutes": 86
+  },
+  "fraser|frisco": {
+   "miles": 61.8,
+   "minutes": 92
+  },
+  "fraser|kremmling": {
+   "miles": 42.7,
+   "minutes": 67
+  },
+  "fraser|golden": {
+   "miles": 62.5,
+   "minutes": 97
+  },
+  "fraser|lyons": {
+   "miles": 98.2,
+   "minutes": 150
+  },
+  "fraser|niwot": {
+   "miles": 95.4,
+   "minutes": 139
+  },
+  "fraser|vail": {
+   "miles": 87.4,
+   "minutes": 120
+  },
+  "fraser|louisville": {
+   "miles": 84.1,
+   "minutes": 123
+  },
+  "fraser|lafayette": {
+   "miles": 84.1,
+   "minutes": 125
+  },
+  "fraser|morrison": {
+   "miles": 61.2,
+   "minutes": 92
+  },
+  "frisco|silverthorne": {
+   "miles": 5.2,
+   "minutes": 10
+  },
+  "frisco|keystone": {
+   "miles": 12.2,
+   "minutes": 22
+  },
+  "frisco|vail": {
+   "miles": 26.6,
+   "minutes": 33
+  },
+  "frisco|minturn": {
+   "miles": 33.2,
+   "minutes": 40
+  },
+  "frisco|georgetown": {
+   "miles": 27.8,
+   "minutes": 38
+  },
+  "frisco|leadville": {
+   "miles": 29.9,
+   "minutes": 41
+  },
+  "frisco|winter-park": {
+   "miles": 57.3,
+   "minutes": 85
+  },
+  "frisco|idaho-springs": {
+   "miles": 39.1,
+   "minutes": 50
+  },
+  "frisco|granby": {
+   "miles": 59.3,
+   "minutes": 94
+  },
+  "frisco|kremmling": {
+   "miles": 42,
+   "minutes": 59
+  },
+  "frisco|nederland": {
+   "miles": 64.5,
+   "minutes": 106
+  },
+  "evergreen|frisco": {
+   "miles": 54.9,
+   "minutes": 77
+  },
+  "frisco|golden": {
+   "miles": 62.4,
+   "minutes": 83
+  },
+  "frisco|morrison": {
+   "miles": 61.1,
+   "minutes": 78
+  },
+  "fruita|grand-junction": {
+   "miles": 12.2,
+   "minutes": 21
+  },
+  "fruita|palisade": {
+   "miles": 22.9,
+   "minutes": 29
+  },
+  "fruita|olathe": {
+   "miles": 60.5,
+   "minutes": 84
+  },
+  "fruita|rifle": {
+   "miles": 71.8,
+   "minutes": 80
+  },
+  "fruita|hotchkiss": {
+   "miles": 70.8,
+   "minutes": 95
+  },
+  "fruita|paonia": {
+   "miles": 80,
+   "minutes": 110
+  },
+  "fruita|montrose": {
+   "miles": 70.9,
+   "minutes": 98
+  },
+  "fruita|meeker": {
+   "miles": 112.4,
+   "minutes": 143
+  },
+  "fruita|glenwood-springs": {
+   "miles": 97,
+   "minutes": 106
+  },
+  "fruita|redstone": {
+   "miles": 126,
+   "minutes": 150
+  },
+  "fruita|marble": {
+   "miles": 137.2,
+   "minutes": 174
+  },
+  "carbondale|fruita": {
+   "miles": 111.2,
+   "minutes": 126
+  },
+  "fruita|ridgway": {
+   "miles": 97.6,
+   "minutes": 135
+  },
+  "basalt|fruita": {
+   "miles": 121.3,
+   "minutes": 138
+  },
+  "crested-butte|fruita": {
+   "miles": 126.8,
+   "minutes": 207
+  },
+  "fruita|ouray": {
+   "miles": 106.9,
+   "minutes": 147
+  },
+  "fruita|telluride": {
+   "miles": 136.3,
+   "minutes": 194
+  },
+  "aspen|fruita": {
+   "miles": 139.1,
+   "minutes": 165
+  },
+  "fruita|gunnison": {
+   "miles": 134.9,
+   "minutes": 185
+  },
+  "eagle|fruita": {
+   "miles": 129.4,
+   "minutes": 140
+  },
+  "fruita|lake-city": {
+   "miles": 144.1,
+   "minutes": 223
+  },
+  "fruita|silverton": {
+   "miles": 130.3,
+   "minutes": 200
+  },
+  "georgetown|idaho-springs": {
+   "miles": 12.9,
+   "minutes": 18
+  },
+  "georgetown|winter-park": {
+   "miles": 31.1,
+   "minutes": 53
+  },
+  "georgetown|keystone": {
+   "miles": 31.1,
+   "minutes": 45
+  },
+  "georgetown|nederland": {
+   "miles": 38.3,
+   "minutes": 74
+  },
+  "georgetown|silverthorne": {
+   "miles": 23.8,
+   "minutes": 32
+  },
+  "georgetown|golden": {
+   "miles": 36.2,
+   "minutes": 51
+  },
+  "georgetown|morrison": {
+   "miles": 34.9,
+   "minutes": 46
+  },
+  "georgetown|granby": {
+   "miles": 50.8,
+   "minutes": 87
+  },
+  "boulder|georgetown": {
+   "miles": 56.4,
+   "minutes": 81
+  },
+  "georgetown|louisville": {
+   "miles": 57.8,
+   "minutes": 77
+  },
+  "georgetown|vail": {
+   "miles": 53.6,
+   "minutes": 66
+  },
+  "georgetown|lafayette": {
+   "miles": 57.9,
+   "minutes": 79
+  },
+  "georgetown|grand-lake": {
+   "miles": 66,
+   "minutes": 113
+  },
+  "georgetown|niwot": {
+   "miles": 69.1,
+   "minutes": 93
+  },
+  "georgetown|minturn": {
+   "miles": 60.2,
+   "minutes": 73
+  },
+  "glenwood-springs|rifle": {
+   "miles": 27,
+   "minutes": 30
+  },
+  "glenwood-springs|redstone": {
+   "miles": 30.2,
+   "minutes": 46
+  },
+  "glenwood-springs|marble": {
+   "miles": 41.4,
+   "minutes": 70
+  },
+  "glenwood-springs|meeker": {
+   "miles": 68.3,
+   "minutes": 94
+  },
+  "glenwood-springs|minturn": {
+   "miles": 57.8,
+   "minutes": 65
+  },
+  "glenwood-springs|paonia": {
+   "miles": 71.9,
+   "minutes": 117
+  },
+  "glenwood-springs|vail": {
+   "miles": 61.1,
+   "minutes": 69
+  },
+  "glenwood-springs|hotchkiss": {
+   "miles": 79.9,
+   "minutes": 129
+  },
+  "glenwood-springs|leadville": {
+   "miles": 87.9,
+   "minutes": 111
+  },
+  "glenwood-springs|kremmling": {
+   "miles": 82.2,
+   "minutes": 119
+  },
+  "glenwood-springs|palisade": {
+   "miles": 75.8,
+   "minutes": 82
+  },
+  "frisco|glenwood-springs": {
+   "miles": 86.5,
+   "minutes": 97
+  },
+  "glenwood-springs|silverthorne": {
+   "miles": 91,
+   "minutes": 104
+  },
+  "dillon|glenwood-springs": {
+   "miles": 91.8,
+   "minutes": 104
+  },
+  "breckenridge|glenwood-springs": {
+   "miles": 96.1,
+   "minutes": 116
+  },
+  "golden|morrison": {
+   "miles": 8.6,
+   "minutes": 14
+  },
+  "golden|idaho-springs": {
+   "miles": 24.2,
+   "minutes": 35
+  },
+  "golden|louisville": {
+   "miles": 19.8,
+   "minutes": 36
+  },
+  "golden|lafayette": {
+   "miles": 24.8,
+   "minutes": 38
+  },
+  "golden|nederland": {
+   "miles": 29.9,
+   "minutes": 51
+  },
+  "golden|niwot": {
+   "miles": 28,
+   "minutes": 46
+  },
+  "golden|longmont": {
+   "miles": 36.9,
+   "minutes": 54
+  },
+  "golden|winter-park": {
+   "miles": 57.5,
+   "minutes": 87
+  },
+  "golden|lyons": {
+   "miles": 35.8,
+   "minutes": 57
+  },
+  "golden|mead": {
+   "miles": 44.3,
+   "minutes": 53
+  },
+  "golden|platteville": {
+   "miles": 45.6,
+   "minutes": 57
+  },
+  "golden|keystone": {
+   "miles": 65.8,
+   "minutes": 89
+  },
+  "granby|grand-lake": {
+   "miles": 15.1,
+   "minutes": 27
+  },
+  "granby|winter-park": {
+   "miles": 20.2,
+   "minutes": 35
+  },
+  "granby|kremmling": {
+   "miles": 27.8,
+   "minutes": 41
+  },
+  "granby|nederland": {
+   "miles": 79.1,
+   "minutes": 145
+  },
+  "granby|silverthorne": {
+   "miles": 54.1,
+   "minutes": 86
+  },
+  "granby|idaho-springs": {
+   "miles": 53.8,
+   "minutes": 89
+  },
+  "granby|keystone": {
+   "miles": 62.2,
+   "minutes": 101
+  },
+  "boulder|granby": {
+   "miles": 97.2,
+   "minutes": 152
+  },
+  "granby|lyons": {
+   "miles": 82.8,
+   "minutes": 150
+  },
+  "granby|vail": {
+   "miles": 84.7,
+   "minutes": 122
+  },
+  "granby|niwot": {
+   "miles": 110,
+   "minutes": 164
+  },
+  "granby|minturn": {
+   "miles": 91.3,
+   "minutes": 129
+  },
+  "granby|louisville": {
+   "miles": 98.7,
+   "minutes": 148
+  },
+  "golden|granby": {
+   "miles": 77.2,
+   "minutes": 121
+  },
+  "granby|longmont": {
+   "miles": 110.8,
+   "minutes": 165
+  },
+  "grand-junction|palisade": {
+   "miles": 12.5,
+   "minutes": 19
+  },
+  "grand-junction|olathe": {
+   "miles": 50.2,
+   "minutes": 68
+  },
+  "grand-junction|hotchkiss": {
+   "miles": 60.5,
+   "minutes": 79
+  },
+  "grand-junction|rifle": {
+   "miles": 61.4,
+   "minutes": 70
+  },
+  "grand-junction|paonia": {
+   "miles": 69.7,
+   "minutes": 94
+  },
+  "grand-junction|montrose": {
+   "miles": 60.5,
+   "minutes": 81
+  },
+  "grand-junction|redstone": {
+   "miles": 115.6,
+   "minutes": 140
+  },
+  "grand-junction|marble": {
+   "miles": 126.8,
+   "minutes": 164
+  },
+  "glenwood-springs|grand-junction": {
+   "miles": 86.9,
+   "minutes": 96
+  },
+  "grand-junction|meeker": {
+   "miles": 102,
+   "minutes": 132
+  },
+  "carbondale|grand-junction": {
+   "miles": 100.1,
+   "minutes": 117
+  },
+  "grand-junction|ridgway": {
+   "miles": 87.2,
+   "minutes": 118
+  },
+  "basalt|grand-junction": {
+   "miles": 110.2,
+   "minutes": 129
+  },
+  "crested-butte|grand-junction": {
+   "miles": 115.2,
+   "minutes": 191
+  },
+  "grand-junction|ouray": {
+   "miles": 96.5,
+   "minutes": 131
+  },
+  "grand-junction|telluride": {
+   "miles": 125.9,
+   "minutes": 177
+  },
+  "aspen|grand-junction": {
+   "miles": 128,
+   "minutes": 156
+  },
+  "grand-junction|gunnison": {
+   "miles": 124.5,
+   "minutes": 169
+  },
+  "grand-junction|lake-city": {
+   "miles": 133.7,
+   "minutes": 206
+  },
+  "grand-junction|silverton": {
+   "miles": 120,
+   "minutes": 184
+  },
+  "eagle|grand-junction": {
+   "miles": 118.3,
+   "minutes": 131
+  },
+  "grand-lake|winter-park": {
+   "miles": 35.6,
+   "minutes": 62
+  },
+  "grand-lake|nederland": {
+   "miles": 85.2,
+   "minutes": 166
+  },
+  "grand-lake|lyons": {
+   "miles": 69.3,
+   "minutes": 131
+  },
+  "grand-lake|kremmling": {
+   "miles": 42.1,
+   "minutes": 65
+  },
+  "boulder|grand-lake": {
+   "miles": 85.9,
+   "minutes": 157
+  },
+  "grand-lake|niwot": {
+   "miles": 83.9,
+   "minutes": 155
+  },
+  "grand-lake|longmont": {
+   "miles": 81.1,
+   "minutes": 150
+  },
+  "grand-lake|idaho-springs": {
+   "miles": 69.2,
+   "minutes": 116
+  },
+  "grand-lake|loveland": {
+   "miles": 78.3,
+   "minutes": 154
+  },
+  "grand-lake|walden": {
+   "miles": 103.4,
+   "minutes": 148
+  },
+  "grand-lake|louisville": {
+   "miles": 93,
+   "minutes": 170
+  },
+  "grand-lake|lafayette": {
+   "miles": 93.7,
+   "minutes": 169
+  },
+  "erie|grand-lake": {
+   "miles": 91.6,
+   "minutes": 167
+  },
+  "grand-lake|mead": {
+   "miles": 86,
+   "minutes": 161
+  },
+  "grand-lake|silverthorne": {
+   "miles": 68.4,
+   "minutes": 109
+  },
+  "greeley|milliken": {
+   "miles": 13.7,
+   "minutes": 26
+  },
+  "greeley|severance": {
+   "miles": 14.5,
+   "minutes": 26
+  },
+  "greeley|windsor": {
+   "miles": 13.9,
+   "minutes": 27
+  },
+  "greeley|johnstown": {
+   "miles": 16.8,
+   "minutes": 29
+  },
+  "greeley|platteville": {
+   "miles": 19.1,
+   "minutes": 39
+  },
+  "greeley|timnath": {
+   "miles": 25.2,
+   "minutes": 36
+  },
+  "greeley|loveland": {
+   "miles": 21.2,
+   "minutes": 33
+  },
+  "greeley|mead": {
+   "miles": 29.4,
+   "minutes": 38
+  },
+  "greeley|wellington": {
+   "miles": 37.3,
+   "minutes": 47
+  },
+  "greeley|longmont": {
+   "miles": 40.3,
+   "minutes": 51
+  },
+  "greeley|lyons": {
+   "miles": 45.3,
+   "minutes": 63
+  },
+  "greeley|niwot": {
+   "miles": 46.2,
+   "minutes": 60
+  },
+  "greeley|lafayette": {
+   "miles": 50.8,
+   "minutes": 64
+  },
+  "greeley|louisville": {
+   "miles": 55.1,
+   "minutes": 67
+  },
+  "boulder|greeley": {
+   "miles": 54.7,
+   "minutes": 79
+  },
+  "estes-park|greeley": {
+   "miles": 53.8,
+   "minutes": 98
+  },
+  "greeley|nederland": {
+   "miles": 70.8,
+   "minutes": 103
+  },
+  "golden|greeley": {
+   "miles": 70.6,
+   "minutes": 87
+  },
+  "green-mountain-falls|woodland-park": {
+   "miles": 5.2,
+   "minutes": 10
+  },
+  "green-mountain-falls|manitou-springs": {
+   "miles": 9.7,
+   "minutes": 17
+  },
+  "green-mountain-falls|palmer-lake": {
+   "miles": 35.1,
+   "minutes": 52
+  },
+  "green-mountain-falls|victor": {
+   "miles": 32.7,
+   "minutes": 55
+  },
+  "green-mountain-falls|morrison": {
+   "miles": 87,
+   "minutes": 105
+  },
+  "evergreen|green-mountain-falls": {
+   "miles": 97,
+   "minutes": 125
+  },
+  "fairplay|green-mountain-falls": {
+   "miles": 69.5,
+   "minutes": 88
+  },
+  "golden|green-mountain-falls": {
+   "miles": 91.9,
+   "minutes": 114
+  },
+  "green-mountain-falls|salida": {
+   "miles": 99.1,
+   "minutes": 127
+  },
+  "green-mountain-falls|westcliffe": {
+   "miles": 90.9,
+   "minutes": 133
+  },
+  "alma|green-mountain-falls": {
+   "miles": 75,
+   "minutes": 96
+  },
+  "green-mountain-falls|idaho-springs": {
+   "miles": 110.1,
+   "minutes": 136
+  },
+  "georgetown|green-mountain-falls": {
+   "miles": 121.9,
+   "minutes": 150
+  },
+  "black-hawk|green-mountain-falls": {
+   "miles": 115.9,
+   "minutes": 155
+  },
+  "central-city|green-mountain-falls": {
+   "miles": 114.7,
+   "minutes": 145
+  },
+  "breckenridge|green-mountain-falls": {
+   "miles": 92,
+   "minutes": 127
+  },
+  "green-mountain-falls|keystone": {
+   "miles": 105.3,
+   "minutes": 153
+  },
+  "green-mountain-falls|leadville": {
+   "miles": 114.1,
+   "minutes": 150
+  },
+  "gunnison|marble": {
+   "miles": 85.7,
+   "minutes": 171
+  },
+  "gunnison|lake-city": {
+   "miles": 54.8,
+   "minutes": 82
+  },
+  "gunnison|paonia": {
+   "miles": 87.8,
+   "minutes": 138
+  },
+  "gunnison|hotchkiss": {
+   "miles": 79.2,
+   "minutes": 125
+  },
+  "gunnison|redstone": {
+   "miles": 84.7,
+   "minutes": 164
+  },
+  "gunnison|salida": {
+   "miles": 64.9,
+   "minutes": 89
+  },
+  "gunnison|montrose": {
+   "miles": 64.8,
+   "minutes": 92
+  },
+  "gunnison|ridgway": {
+   "miles": 91.1,
+   "minutes": 128
+  },
+  "gunnison|ouray": {
+   "miles": 100.4,
+   "minutes": 140
+  },
+  "gunnison|olathe": {
+   "miles": 75,
+   "minutes": 106
+  },
+  "gunnison|leadville": {
+   "miles": 117.5,
+   "minutes": 159
+  },
+  "gunnison|telluride": {
+   "miles": 129.8,
+   "minutes": 187
+  },
+  "gunnison|silverton": {
+   "miles": 123.8,
+   "minutes": 193
+  },
+  "fairplay|gunnison": {
+   "miles": 116,
+   "minutes": 150
+  },
+  "alma|gunnison": {
+   "miles": 121.5,
+   "minutes": 158
+  },
+  "hotchkiss|paonia": {
+   "miles": 9.3,
+   "minutes": 16
+  },
+  "hotchkiss|olathe": {
+   "miles": 31,
+   "minutes": 44
+  },
+  "hotchkiss|montrose": {
+   "miles": 41.4,
+   "minutes": 58
+  },
+  "hotchkiss|marble": {
+   "miles": 50.9,
+   "minutes": 90
+  },
+  "hotchkiss|redstone": {
+   "miles": 49.9,
+   "minutes": 83
+  },
+  "hotchkiss|palisade": {
+   "miles": 65.6,
+   "minutes": 85
+  },
+  "hotchkiss|ridgway": {
+   "miles": 68.1,
+   "minutes": 95
+  },
+  "hotchkiss|rifle": {
+   "miles": 114.5,
+   "minutes": 136
+  },
+  "hotchkiss|ouray": {
+   "miles": 77.4,
+   "minutes": 107
+  },
+  "hotchkiss|lake-city": {
+   "miles": 92.2,
+   "minutes": 167
+  },
+  "hotchkiss|telluride": {
+   "miles": 106.8,
+   "minutes": 154
+  },
+  "hotchkiss|silverton": {
+   "miles": 100.8,
+   "minutes": 160
+  },
+  "eagle|hotchkiss": {
+   "miles": 111.3,
+   "minutes": 164
+  },
+  "idaho-springs|nederland": {
+   "miles": 25.4,
+   "minutes": 56
+  },
+  "idaho-springs|winter-park": {
+   "miles": 34.1,
+   "minutes": 55
+  },
+  "idaho-springs|morrison": {
+   "miles": 22,
+   "minutes": 31
+  },
+  "idaho-springs|louisville": {
+   "miles": 44.9,
+   "minutes": 62
+  },
+  "idaho-springs|keystone": {
+   "miles": 42.4,
+   "minutes": 57
+  },
+  "idaho-springs|lafayette": {
+   "miles": 45,
+   "minutes": 63
+  },
+  "idaho-springs|silverthorne": {
+   "miles": 35.1,
+   "minutes": 44
+  },
+  "idaho-springs|niwot": {
+   "miles": 56.3,
+   "minutes": 78
+  },
+  "idaho-springs|lyons": {
+   "miles": 59.1,
+   "minutes": 89
+  },
+  "idaho-springs|longmont": {
+   "miles": 57.1,
+   "minutes": 79
+  },
+  "carbon-valley|idaho-springs": {
+   "miles": 58,
+   "minutes": 75
+  },
+  "johnstown|milliken": {
+   "miles": 3.3,
+   "minutes": 7
+  },
+  "johnstown|mead": {
+   "miles": 11.7,
+   "minutes": 16
+  },
+  "johnstown|loveland": {
+   "miles": 12.4,
+   "minutes": 20
+  },
+  "johnstown|platteville": {
+   "miles": 12.9,
+   "minutes": 26
+  },
+  "johnstown|windsor": {
+   "miles": 10.6,
+   "minutes": 21
+  },
+  "johnstown|severance": {
+   "miles": 16.4,
+   "minutes": 31
+  },
+  "johnstown|timnath": {
+   "miles": 17.8,
+   "minutes": 23
+  },
+  "johnstown|longmont": {
+   "miles": 22.6,
+   "minutes": 29
+  },
+  "johnstown|lyons": {
+   "miles": 28.8,
+   "minutes": 42
+  },
+  "johnstown|niwot": {
+   "miles": 28.5,
+   "minutes": 37
+  },
+  "johnstown|lafayette": {
+   "miles": 33.1,
+   "minutes": 42
+  },
+  "johnstown|wellington": {
+   "miles": 29.9,
+   "minutes": 34
+  },
+  "johnstown|louisville": {
+   "miles": 37.5,
+   "minutes": 45
+  },
+  "johnstown|nederland": {
+   "miles": 53.1,
+   "minutes": 80
+  },
+  "golden|johnstown": {
+   "miles": 54,
+   "minutes": 65
+  },
+  "black-hawk|johnstown": {
+   "miles": 74.4,
+   "minutes": 108
+  },
+  "keystone|silverthorne": {
+   "miles": 8.1,
+   "minutes": 15
+  },
+  "keystone|vail": {
+   "miles": 37.9,
+   "minutes": 49
+  },
+  "keystone|winter-park": {
+   "miles": 60.2,
+   "minutes": 91
+  },
+  "keystone|minturn": {
+   "miles": 44.5,
+   "minutes": 57
+  },
+  "keystone|leadville": {
+   "miles": 41.2,
+   "minutes": 57
+  },
+  "keystone|nederland": {
+   "miles": 67.4,
+   "minutes": 112
+  },
+  "keystone|kremmling": {
+   "miles": 44.9,
+   "minutes": 65
+  },
+  "keystone|morrison": {
+   "miles": 64,
+   "minutes": 84
+  },
+  "grand-lake|keystone": {
+   "miles": 76.5,
+   "minutes": 124
+  },
+  "kremmling|vail": {
+   "miles": 67.5,
+   "minutes": 86
+  },
+  "kremmling|minturn": {
+   "miles": 57.8,
+   "minutes": 92
+  },
+  "kremmling|silverthorne": {
+   "miles": 36.8,
+   "minutes": 50
+  },
+  "kremmling|winter-park": {
+   "miles": 47.8,
+   "minutes": 76
+  },
+  "kremmling|steamboat-springs": {
+   "miles": 51.8,
+   "minutes": 70
+  },
+  "georgetown|kremmling": {
+   "miles": 60.6,
+   "minutes": 82
+  },
+  "kremmling|walden": {
+   "miles": 61.4,
+   "minutes": 83
+  },
+  "kremmling|nederland": {
+   "miles": 97.3,
+   "minutes": 150
+  },
+  "central-city|kremmling": {
+   "miles": 78.1,
+   "minutes": 113
+  },
+  "black-hawk|kremmling": {
+   "miles": 78.5,
+   "minutes": 122
+  },
+  "estes-park|kremmling": {
+   "miles": 88.8,
+   "minutes": 154
+  },
+  "idaho-springs|kremmling": {
+   "miles": 71.9,
+   "minutes": 94
+  },
+  "kremmling|leadville": {
+   "miles": 70.8,
+   "minutes": 94
+  },
+  "alma|kremmling": {
+   "miles": 66.5,
+   "minutes": 101
+  },
+  "la-junta|rocky-ford": {
+   "miles": 11.3,
+   "minutes": 18
+  },
+  "la-junta|trinidad": {
+   "miles": 80,
+   "minutes": 101
+  },
+  "la-junta|la-veta": {
+   "miles": 90.4,
+   "minutes": 121
+  },
+  "la-junta|manitou-springs": {
+   "miles": 110.9,
+   "minutes": 137
+  },
+  "canon-city|la-junta": {
+   "miles": 102,
+   "minutes": 131
+  },
+  "la-junta|victor": {
+   "miles": 151,
+   "minutes": 200
+  },
+  "cripple-creek|la-junta": {
+   "miles": 149,
+   "minutes": 198
+  },
+  "green-mountain-falls|la-junta": {
+   "miles": 119.5,
+   "minutes": 149
+  },
+  "la-junta|westcliffe": {
+   "miles": 134.3,
+   "minutes": 165
+  },
+  "la-junta|woodland-park": {
+   "miles": 123.6,
+   "minutes": 155
+  },
+  "la-junta|palmer-lake": {
+   "miles": 129.1,
+   "minutes": 156
+  },
+  "elizabeth|la-junta": {
+   "miles": 154.3,
+   "minutes": 193
+  },
+  "crestone|la-junta": {
+   "miles": 194.1,
+   "minutes": 239
+  },
+  "castle-rock|la-junta": {
+   "miles": 146,
+   "minutes": 171
+  },
+  "alamosa|la-junta": {
+   "miles": 146.3,
+   "minutes": 180
+  },
+  "la-junta|salida": {
+   "miles": 159,
+   "minutes": 215
+  },
+  "la-junta|monte-vista": {
+   "miles": 163.5,
+   "minutes": 204
+  },
+  "la-junta|morrison": {
+   "miles": 181,
+   "minutes": 210
+  },
+  "evergreen|la-junta": {
+   "miles": 191.1,
+   "minutes": 230
+  },
+  "golden|la-junta": {
+   "miles": 186,
+   "minutes": 219
+  },
+  "buena-vista|la-junta": {
+   "miles": 186.6,
+   "minutes": 240
+  },
+  "del-norte|la-junta": {
+   "miles": 177.4,
+   "minutes": 222
+  },
+  "fort-morgan|la-junta": {
+   "miles": 257.8,
+   "minutes": 286
+  },
+  "la-veta|trinidad": {
+   "miles": 53.4,
+   "minutes": 71
+  },
+  "la-veta|westcliffe": {
+   "miles": 60.9,
+   "minutes": 98
+  },
+  "la-veta|monte-vista": {
+   "miles": 76.9,
+   "minutes": 103
+  },
+  "la-veta|rocky-ford": {
+   "miles": 85.2,
+   "minutes": 114
+  },
+  "la-veta|victor": {
+   "miles": 153.3,
+   "minutes": 200
+  },
+  "cripple-creek|la-veta": {
+   "miles": 151.4,
+   "minutes": 199
+  },
+  "la-veta|salida": {
+   "miles": 108.2,
+   "minutes": 168
+  },
+  "la-veta|manitou-springs": {
+   "miles": 113.2,
+   "minutes": 137
+  },
+  "green-mountain-falls|la-veta": {
+   "miles": 121.9,
+   "minutes": 150
+  },
+  "la-veta|woodland-park": {
+   "miles": 125.8,
+   "minutes": 155
+  },
+  "creede|la-veta": {
+   "miles": 128.1,
+   "minutes": 171
+  },
+  "buena-vista|la-veta": {
+   "miles": 132.3,
+   "minutes": 201
+  },
+  "la-veta|pagosa-springs": {
+   "miles": 149,
+   "minutes": 203
+  },
+  "la-veta|palmer-lake": {
+   "miles": 131.4,
+   "minutes": 157
+  },
+  "gunnison|la-veta": {
+   "miles": 181.8,
+   "minutes": 237
+  },
+  "castle-rock|la-veta": {
+   "miles": 148.4,
+   "minutes": 172
+  },
+  "elizabeth|la-veta": {
+   "miles": 156.7,
+   "minutes": 194
+  },
+  "fairplay|la-veta": {
+   "miles": 178.8,
+   "minutes": 227
+  },
+  "lafayette|louisville": {
+   "miles": 3.5,
+   "minutes": 9
+  },
+  "lafayette|niwot": {
+   "miles": 12,
+   "minutes": 20
+  },
+  "lafayette|longmont": {
+   "miles": 12.8,
+   "minutes": 21
+  },
+  "lafayette|mead": {
+   "miles": 23.4,
+   "minutes": 30
+  },
+  "lafayette|lyons": {
+   "miles": 24.6,
+   "minutes": 38
+  },
+  "lafayette|platteville": {
+   "miles": 31.2,
+   "minutes": 46
+  },
+  "lafayette|nederland": {
+   "miles": 27.9,
+   "minutes": 52
+  },
+  "lafayette|morrison": {
+   "miles": 30.2,
+   "minutes": 44
+  },
+  "lafayette|milliken": {
+   "miles": 36.1,
+   "minutes": 47
+  },
+  "lafayette|loveland": {
+   "miles": 29.9,
+   "minutes": 46
+  },
+  "lafayette|windsor": {
+   "miles": 44.4,
+   "minutes": 55
+  },
+  "lake-city|ouray": {
+   "miles": 109.6,
+   "minutes": 178
+  },
+  "lake-city|silverton": {
+   "miles": 133,
+   "minutes": 231
+  },
+  "lake-city|ridgway": {
+   "miles": 100.3,
+   "minutes": 165
+  },
+  "lake-city|telluride": {
+   "miles": 139,
+   "minutes": 224
+  },
+  "lake-city|montrose": {
+   "miles": 74,
+   "minutes": 130
+  },
+  "lake-city|olathe": {
+   "miles": 84.2,
+   "minutes": 144
+  },
+  "lake-city|pagosa-springs": {
+   "miles": 111.1,
+   "minutes": 174
+  },
+  "lake-city|paonia": {
+   "miles": 100.8,
+   "minutes": 180
+  },
+  "lake-city|monte-vista": {
+   "miles": 98.5,
+   "minutes": 151
+  },
+  "lake-city|mancos": {
+   "miles": 197.7,
+   "minutes": 288
+  },
+  "lake-city|marble": {
+   "miles": 140.4,
+   "minutes": 252
+  },
+  "lake-city|salida": {
+   "miles": 119.5,
+   "minutes": 170
+  },
+  "lake-city|redstone": {
+   "miles": 139.3,
+   "minutes": 245
+  },
+  "aspen|lake-city": {
+   "miles": 184.6,
+   "minutes": 314
+  },
+  "leadville|minturn": {
+   "miles": 30.3,
+   "minutes": 47
+  },
+  "leadville|vail": {
+   "miles": 43.7,
+   "minutes": 56
+  },
+  "leadville|silverthorne": {
+   "miles": 34.2,
+   "minutes": 46
+  },
+  "georgetown|leadville": {
+   "miles": 56.9,
+   "minutes": 74
+  },
+  "leadville|marble": {
+   "miles": 128.9,
+   "minutes": 180
+  },
+  "leadville|redstone": {
+   "miles": 117.7,
+   "minutes": 156
+  },
+  "leadville|salida": {
+   "miles": 58.9,
+   "minutes": 83
+  },
+  "leadville|winter-park": {
+   "miles": 86.3,
+   "minutes": 121
+  },
+  "idaho-springs|leadville": {
+   "miles": 68.2,
+   "minutes": 86
+  },
+  "fraser|leadville": {
+   "miles": 90.7,
+   "minutes": 128
+  },
+  "longmont|niwot": {
+   "miles": 7,
+   "minutes": 12
+  },
+  "longmont|mead": {
+   "miles": 13,
+   "minutes": 17
+  },
+  "longmont|lyons": {
+   "miles": 12,
+   "minutes": 19
+  },
+  "longmont|louisville": {
+   "miles": 15,
+   "minutes": 23
+  },
+  "longmont|platteville": {
+   "miles": 20.3,
+   "minutes": 35
+  },
+  "longmont|loveland": {
+   "miles": 17.3,
+   "minutes": 26
+  },
+  "longmont|milliken": {
+   "miles": 25.7,
+   "minutes": 35
+  },
+  "longmont|windsor": {
+   "miles": 34,
+   "minutes": 42
+  },
+  "longmont|timnath": {
+   "miles": 33.2,
+   "minutes": 39
+  },
+  "longmont|nederland": {
+   "miles": 31.7,
+   "minutes": 55
+  },
+  "longmont|severance": {
+   "miles": 39.6,
+   "minutes": 50
+  },
+  "louisville|niwot": {
+   "miles": 11.2,
+   "minutes": 20
+  },
+  "louisville|lyons": {
+   "miles": 23.8,
+   "minutes": 40
+  },
+  "louisville|mead": {
+   "miles": 28.6,
+   "minutes": 33
+  },
+  "louisville|nederland": {
+   "miles": 27.4,
+   "minutes": 49
+  },
+  "louisville|morrison": {
+   "miles": 29.8,
+   "minutes": 42
+  },
+  "louisville|platteville": {
+   "miles": 35.8,
+   "minutes": 48
+  },
+  "louisville|milliken": {
+   "miles": 41.3,
+   "minutes": 51
+  },
+  "louisville|loveland": {
+   "miles": 32.1,
+   "minutes": 49
+  },
+  "louisville|winter-park": {
+   "miles": 78.7,
+   "minutes": 114
+  },
+  "loveland|timnath": {
+   "miles": 14.4,
+   "minutes": 21
+  },
+  "loveland|windsor": {
+   "miles": 15.1,
+   "minutes": 25
+  },
+  "loveland|mead": {
+   "miles": 16.6,
+   "minutes": 22
+  },
+  "loveland|milliken": {
+   "miles": 15.3,
+   "minutes": 25
+  },
+  "loveland|severance": {
+   "miles": 20.8,
+   "minutes": 32
+  },
+  "loveland|lyons": {
+   "miles": 24.1,
+   "minutes": 33
+  },
+  "loveland|platteville": {
+   "miles": 25.4,
+   "minutes": 41
+  },
+  "loveland|niwot": {
+   "miles": 24.4,
+   "minutes": 35
+  },
+  "loveland|wellington": {
+   "miles": 26.5,
+   "minutes": 32
+  },
+  "loveland|nederland": {
+   "miles": 49,
+   "minutes": 78
+  },
+  "golden|loveland": {
+   "miles": 59.1,
+   "minutes": 71
+  },
+  "lyons|niwot": {
+   "miles": 14.9,
+   "minutes": 25
+  },
+  "lyons|mead": {
+   "miles": 17,
+   "minutes": 31
+  },
+  "lyons|nederland": {
+   "miles": 31.9,
+   "minutes": 55
+  },
+  "lyons|milliken": {
+   "miles": 32,
+   "minutes": 48
+  },
+  "lyons|platteville": {
+   "miles": 27.6,
+   "minutes": 53
+  },
+  "lyons|timnath": {
+   "miles": 38.3,
+   "minutes": 51
+  },
+  "lyons|windsor": {
+   "miles": 39.1,
+   "minutes": 55
+  },
+  "lyons|severance": {
+   "miles": 44.7,
+   "minutes": 62
+  },
+  "mancos|silverton": {
+   "miles": 76,
+   "minutes": 93
+  },
+  "mancos|telluride": {
+   "miles": 147.5,
+   "minutes": 220
+  },
+  "mancos|ouray": {
+   "miles": 97.8,
+   "minutes": 143
+  },
+  "mancos|ridgway": {
+   "miles": 108.8,
+   "minutes": 161
+  },
+  "mancos|pagosa-springs": {
+   "miles": 86.7,
+   "minutes": 114
+  },
+  "mancos|montrose": {
+   "miles": 134.1,
+   "minutes": 193
+  },
+  "mancos|olathe": {
+   "miles": 144.9,
+   "minutes": 210
+  },
+  "delta|mancos": {
+   "miles": 156.3,
+   "minutes": 223
+  },
+  "hotchkiss|mancos": {
+   "miles": 175.6,
+   "minutes": 250
+  },
+  "del-norte|mancos": {
+   "miles": 144.9,
+   "minutes": 195
+  },
+  "cedaredge|mancos": {
+   "miles": 169.8,
+   "minutes": 244
+  },
+  "gunnison|mancos": {
+   "miles": 198.6,
+   "minutes": 283
+  },
+  "mancos|paonia": {
+   "miles": 184.4,
+   "minutes": 264
+  },
+  "mancos|monte-vista": {
+   "miles": 158.8,
+   "minutes": 214
+  },
+  "grand-junction|mancos": {
+   "miles": 194.8,
+   "minutes": 274
+  },
+  "mancos|palisade": {
+   "miles": 199.5,
+   "minutes": 279
+  },
+  "crested-butte|mancos": {
+   "miles": 226.1,
+   "minutes": 324
+  },
+  "fruita|mancos": {
+   "miles": 232.7,
+   "minutes": 273
+  },
+  "alamosa|mancos": {
+   "miles": 176,
+   "minutes": 238
+  },
+  "manitou-springs|woodland-park": {
+   "miles": 13.2,
+   "minutes": 22
+  },
+  "manitou-springs|victor": {
+   "miles": 40.7,
+   "minutes": 67
+  },
+  "manitou-springs|palmer-lake": {
+   "miles": 26.6,
+   "minutes": 41
+  },
+  "manitou-springs|morrison": {
+   "miles": 78.4,
+   "minutes": 94
+  },
+  "evergreen|manitou-springs": {
+   "miles": 88.3,
+   "minutes": 112
+  },
+  "manitou-springs|westcliffe": {
+   "miles": 82.4,
+   "minutes": 122
+  },
+  "manitou-springs|salida": {
+   "miles": 107.2,
+   "minutes": 139
+  },
+  "fairplay|manitou-springs": {
+   "miles": 78,
+   "minutes": 100
+  },
+  "golden|manitou-springs": {
+   "miles": 83.2,
+   "minutes": 101
+  },
+  "buena-vista|manitou-springs": {
+   "miles": 88.1,
+   "minutes": 114
+  },
+  "alma|manitou-springs": {
+   "miles": 83.5,
+   "minutes": 108
+  },
+  "idaho-springs|manitou-springs": {
+   "miles": 100.4,
+   "minutes": 122
+  },
+  "black-hawk|manitou-springs": {
+   "miles": 107.2,
+   "minutes": 141
+  },
+  "georgetown|manitou-springs": {
+   "miles": 113.2,
+   "minutes": 137
+  },
+  "central-city|manitou-springs": {
+   "miles": 106,
+   "minutes": 132
+  },
+  "breckenridge|manitou-springs": {
+   "miles": 100.5,
+   "minutes": 139
+  },
+  "keystone|manitou-springs": {
+   "miles": 113.7,
+   "minutes": 165
+  },
+  "marble|redstone": {
+   "miles": 11.4,
+   "minutes": 26
+  },
+  "marble|paonia": {
+   "miles": 42.9,
+   "minutes": 81
+  },
+  "marble|rifle": {
+   "miles": 67.4,
+   "minutes": 101
+  },
+  "marble|olathe": {
+   "miles": 81.8,
+   "minutes": 136
+  },
+  "marble|minturn": {
+   "miles": 98.8,
+   "minutes": 135
+  },
+  "marble|montrose": {
+   "miles": 92.2,
+   "minutes": 149
+  },
+  "marble|vail": {
+   "miles": 102.1,
+   "minutes": 139
+  },
+  "alma|marble": {
+   "miles": 152.6,
+   "minutes": 210
+  },
+  "marble|palisade": {
+   "miles": 116.1,
+   "minutes": 152
+  },
+  "fairplay|marble": {
+   "miles": 158.1,
+   "minutes": 218
+  },
+  "breckenridge|marble": {
+   "miles": 137.1,
+   "minutes": 185
+  },
+  "mead|platteville": {
+   "miles": 10.6,
+   "minutes": 22
+  },
+  "mead|milliken": {
+   "miles": 14.7,
+   "minutes": 21
+  },
+  "mead|niwot": {
+   "miles": 18.6,
+   "minutes": 25
+  },
+  "mead|windsor": {
+   "miles": 23,
+   "minutes": 29
+  },
+  "mead|timnath": {
+   "miles": 22.3,
+   "minutes": 26
+  },
+  "mead|severance": {
+   "miles": 28.7,
+   "minutes": 36
+  },
+  "mead|wellington": {
+   "miles": 34.4,
+   "minutes": 37
+  },
+  "mead|nederland": {
+   "miles": 43.2,
+   "minutes": 68
+  },
+  "black-hawk|mead": {
+   "miles": 64.8,
+   "minutes": 96
+  },
+  "meeker|rifle": {
+   "miles": 41.4,
+   "minutes": 63
+  },
+  "eagle|meeker": {
+   "miles": 99.7,
+   "minutes": 129
+  },
+  "meeker|steamboat-springs": {
+   "miles": 90.2,
+   "minutes": 109
+  },
+  "basalt|meeker": {
+   "miles": 91.6,
+   "minutes": 126
+  },
+  "meeker|palisade": {
+   "miles": 91.1,
+   "minutes": 119
+  },
+  "meeker|redstone": {
+   "miles": 97.5,
+   "minutes": 139
+  },
+  "marble|meeker": {
+   "miles": 108.6,
+   "minutes": 164
+  },
+  "avon|meeker": {
+   "miles": 119.5,
+   "minutes": 149
+  },
+  "kremmling|meeker": {
+   "miles": 141.8,
+   "minutes": 178
+  },
+  "meeker|paonia": {
+   "miles": 139.2,
+   "minutes": 210
+  },
+  "aspen|meeker": {
+   "miles": 109.5,
+   "minutes": 154
+  },
+  "meeker|minturn": {
+   "miles": 125.8,
+   "minutes": 157
+  },
+  "meeker|vail": {
+   "miles": 129,
+   "minutes": 161
+  },
+  "hotchkiss|meeker": {
+   "miles": 155.1,
+   "minutes": 199
+  },
+  "crested-butte|meeker": {
+   "miles": 154.5,
+   "minutes": 261
+  },
+  "meeker|walden": {
+   "miles": 149,
+   "minutes": 193
+  },
+  "meeker|olathe": {
+   "miles": 145,
+   "minutes": 188
+  },
+  "milliken|platteville": {
+   "miles": 13.2,
+   "minutes": 26
+  },
+  "milliken|windsor": {
+   "miles": 13.3,
+   "minutes": 25
+  },
+  "milliken|severance": {
+   "miles": 18.6,
+   "minutes": 34
+  },
+  "milliken|timnath": {
+   "miles": 20.8,
+   "minutes": 29
+  },
+  "milliken|niwot": {
+   "miles": 31.5,
+   "minutes": 43
+  },
+  "milliken|wellington": {
+   "miles": 32.9,
+   "minutes": 40
+  },
+  "milliken|nederland": {
+   "miles": 56.1,
+   "minutes": 86
+  },
+  "golden|milliken": {
+   "miles": 57,
+   "minutes": 70
+  },
+  "black-hawk|milliken": {
+   "miles": 77.4,
+   "minutes": 113
+  },
+  "minturn|vail": {
+   "miles": 7.4,
+   "minutes": 11
+  },
+  "minturn|silverthorne": {
+   "miles": 37.3,
+   "minutes": 46
+  },
+  "fraser|minturn": {
+   "miles": 94,
+   "minutes": 127
+  },
+  "minturn|winter-park": {
+   "miles": 89.4,
+   "minutes": 121
+  },
+  "idaho-springs|minturn": {
+   "miles": 71.5,
+   "minutes": 85
+  },
+  "central-city|minturn": {
+   "miles": 77.6,
+   "minutes": 104
+  },
+  "minturn|redstone": {
+   "miles": 87.5,
+   "minutes": 110
+  },
+  "black-hawk|minturn": {
+   "miles": 78.1,
+   "minutes": 113
+  },
+  "monte-vista|pagosa-springs": {
+   "miles": 72.2,
+   "minutes": 100
+  },
+  "monte-vista|westcliffe": {
+   "miles": 105.8,
+   "minutes": 161
+  },
+  "monte-vista|salida": {
+   "miles": 80.2,
+   "minutes": 102
+  },
+  "gunnison|monte-vista": {
+   "miles": 105,
+   "minutes": 135
+  },
+  "monte-vista|silverton": {
+   "miles": 180.2,
+   "minutes": 239
+  },
+  "buena-vista|monte-vista": {
+   "miles": 99.2,
+   "minutes": 125
+  },
+  "monte-vista|ouray": {
+   "miles": 205.1,
+   "minutes": 274
+  },
+  "monte-vista|telluride": {
+   "miles": 234.5,
+   "minutes": 321
+  },
+  "monte-vista|trinidad": {
+   "miles": 126.7,
+   "minutes": 154
+  },
+  "monte-vista|victor": {
+   "miles": 182.4,
+   "minutes": 234
+  },
+  "cripple-creek|monte-vista": {
+   "miles": 171.5,
+   "minutes": 225
+  },
+  "monte-vista|ridgway": {
+   "miles": 195.8,
+   "minutes": 262
+  },
+  "crested-butte|monte-vista": {
+   "miles": 132.6,
+   "minutes": 176
+  },
+  "manitou-springs|monte-vista": {
+   "miles": 186.5,
+   "minutes": 222
+  },
+  "green-mountain-falls|monte-vista": {
+   "miles": 173.9,
+   "minutes": 218
+  },
+  "montrose|olathe": {
+   "miles": 10.9,
+   "minutes": 18
+  },
+  "montrose|ridgway": {
+   "miles": 27,
+   "minutes": 39
+  },
+  "montrose|paonia": {
+   "miles": 50.4,
+   "minutes": 73
+  },
+  "montrose|ouray": {
+   "miles": 36.3,
+   "minutes": 51
+  },
+  "montrose|telluride": {
+   "miles": 65.7,
+   "minutes": 97
+  },
+  "montrose|silverton": {
+   "miles": 59.8,
+   "minutes": 104
+  },
+  "montrose|palisade": {
+   "miles": 65.6,
+   "minutes": 88
+  },
+  "montrose|redstone": {
+   "miles": 91,
+   "minutes": 140
+  },
+  "carbondale|montrose": {
+   "miles": 107.6,
+   "minutes": 166
+  },
+  "montrose|rifle": {
+   "miles": 114.5,
+   "minutes": 139
+  },
+  "aspen|montrose": {
+   "miles": 136.4,
+   "minutes": 210
+  },
+  "basalt|montrose": {
+   "miles": 118.6,
+   "minutes": 182
+  },
+  "glenwood-springs|montrose": {
+   "miles": 140,
+   "minutes": 165
+  },
+  "morrison|nederland": {
+   "miles": 38.6,
+   "minutes": 63
+  },
+  "morrison|niwot": {
+   "miles": 36.7,
+   "minutes": 58
+  },
+  "morrison|winter-park": {
+   "miles": 56.3,
+   "minutes": 85
+  },
+  "longmont|morrison": {
+   "miles": 42.3,
+   "minutes": 59
+  },
+  "morrison|palmer-lake": {
+   "miles": 56.4,
+   "minutes": 66
+  },
+  "lyons|morrison": {
+   "miles": 44.4,
+   "minutes": 68
+  },
+  "mead|morrison": {
+   "miles": 49.4,
+   "minutes": 57
+  },
+  "morrison|platteville": {
+   "miles": 50.5,
+   "minutes": 64
+  },
+  "nederland|winter-park": {
+   "miles": 59.4,
+   "minutes": 111
+  },
+  "nederland|niwot": {
+   "miles": 25.5,
+   "minutes": 46
+  },
+  "niwot|platteville": {
+   "miles": 25.6,
+   "minutes": 42
+  },
+  "niwot|windsor": {
+   "miles": 39.3,
+   "minutes": 50
+  },
+  "niwot|timnath": {
+   "miles": 38.5,
+   "minutes": 46
+  },
+  "olathe|paonia": {
+   "miles": 40.2,
+   "minutes": 59
+  },
+  "olathe|ridgway": {
+   "miles": 37.9,
+   "minutes": 55
+  },
+  "olathe|palisade": {
+   "miles": 55.3,
+   "minutes": 74
+  },
+  "olathe|ouray": {
+   "miles": 47.2,
+   "minutes": 67
+  },
+  "olathe|telluride": {
+   "miles": 76.6,
+   "minutes": 114
+  },
+  "olathe|redstone": {
+   "miles": 80.8,
+   "minutes": 127
+  },
+  "olathe|silverton": {
+   "miles": 70.6,
+   "minutes": 120
+  },
+  "olathe|rifle": {
+   "miles": 104.3,
+   "minutes": 125
+  },
+  "carbondale|olathe": {
+   "miles": 97.2,
+   "minutes": 152
+  },
+  "basalt|olathe": {
+   "miles": 108.2,
+   "minutes": 169
+  },
+  "glenwood-springs|olathe": {
+   "miles": 129.7,
+   "minutes": 151
+  },
+  "aspen|olathe": {
+   "miles": 126.1,
+   "minutes": 196
+  },
+  "ouray|telluride": {
+   "miles": 49.6,
+   "minutes": 77
+  },
+  "ouray|ridgway": {
+   "miles": 10.9,
+   "minutes": 18
+  },
+  "ouray|silverton": {
+   "miles": 23.4,
+   "minutes": 53
+  },
+  "ouray|paonia": {
+   "miles": 86.5,
+   "minutes": 121
+  },
+  "ouray|pagosa-springs": {
+   "miles": 130.4,
+   "minutes": 189
+  },
+  "crested-butte|ouray": {
+   "miles": 127.9,
+   "minutes": 181
+  },
+  "marble|ouray": {
+   "miles": 128.2,
+   "minutes": 198
+  },
+  "ouray|redstone": {
+   "miles": 127.1,
+   "minutes": 189
+  },
+  "ouray|palisade": {
+   "miles": 101.7,
+   "minutes": 136
+  },
+  "pagosa-springs|silverton": {
+   "miles": 108.2,
+   "minutes": 139
+  },
+  "pagosa-springs|telluride": {
+   "miles": 179.6,
+   "minutes": 266
+  },
+  "pagosa-springs|ridgway": {
+   "miles": 140.9,
+   "minutes": 207
+  },
+  "gunnison|pagosa-springs": {
+   "miles": 164.8,
+   "minutes": 218
+  },
+  "montrose|pagosa-springs": {
+   "miles": 166.7,
+   "minutes": 240
+  },
+  "pagosa-springs|salida": {
+   "miles": 140,
+   "minutes": 186
+  },
+  "pagosa-springs|westcliffe": {
+   "miles": 186,
+   "minutes": 252
+  },
+  "olathe|pagosa-springs": {
+   "miles": 177.6,
+   "minutes": 256
+  },
+  "crested-butte|pagosa-springs": {
+   "miles": 192.4,
+   "minutes": 259
+  },
+  "hotchkiss|pagosa-springs": {
+   "miles": 207.8,
+   "minutes": 296
+  },
+  "pagosa-springs|paonia": {
+   "miles": 216.5,
+   "minutes": 310
+  },
+  "delta|pagosa-springs": {
+   "miles": 188.5,
+   "minutes": 270
+  },
+  "palisade|rifle": {
+   "miles": 50.5,
+   "minutes": 56
+  },
+  "palisade|paonia": {
+   "miles": 74,
+   "minutes": 101
+  },
+  "palisade|redstone": {
+   "miles": 104.7,
+   "minutes": 127
+  },
+  "basalt|palisade": {
+   "miles": 99.1,
+   "minutes": 115
+  },
+  "palisade|ridgway": {
+   "miles": 91.5,
+   "minutes": 126
+  },
+  "crested-butte|palisade": {
+   "miles": 120.5,
+   "minutes": 198
+  },
+  "aspen|palisade": {
+   "miles": 117,
+   "minutes": 142
+  },
+  "gunnison|palisade": {
+   "miles": 129.7,
+   "minutes": 176
+  },
+  "palisade|telluride": {
+   "miles": 130.2,
+   "minutes": 185
+  },
+  "eagle|palisade": {
+   "miles": 107.2,
+   "minutes": 117
+  },
+  "lake-city|palisade": {
+   "miles": 138.9,
+   "minutes": 214
+  },
+  "palisade|silverton": {
+   "miles": 124.3,
+   "minutes": 191
+  },
+  "palmer-lake|woodland-park": {
+   "miles": 38.6,
+   "minutes": 56
+  },
+  "palmer-lake|victor": {
+   "miles": 66.1,
+   "minutes": 101
+  },
+  "golden|palmer-lake": {
+   "miles": 61.6,
+   "minutes": 76
+  },
+  "idaho-springs|palmer-lake": {
+   "miles": 78.8,
+   "minutes": 96
+  },
+  "black-hawk|palmer-lake": {
+   "miles": 85.6,
+   "minutes": 116
+  },
+  "central-city|palmer-lake": {
+   "miles": 84.4,
+   "minutes": 107
+  },
+  "georgetown|palmer-lake": {
+   "miles": 91.6,
+   "minutes": 111
+  },
+  "fairplay|palmer-lake": {
+   "miles": 103.4,
+   "minutes": 135
+  },
+  "louisville|palmer-lake": {
+   "miles": 71.2,
+   "minutes": 88
+  },
+  "lafayette|palmer-lake": {
+   "miles": 71.6,
+   "minutes": 90
+  },
+  "alma|palmer-lake": {
+   "miles": 108.9,
+   "minutes": 143
+  },
+  "boulder|palmer-lake": {
+   "miles": 78,
+   "minutes": 94
+  },
+  "erie|palmer-lake": {
+   "miles": 76.1,
+   "minutes": 94
+  },
+  "breckenridge|palmer-lake": {
+   "miles": 126.9,
+   "minutes": 160
+  },
+  "keystone|palmer-lake": {
+   "miles": 120.7,
+   "minutes": 150
+  },
+  "paonia|redstone": {
+   "miles": 41.9,
+   "minutes": 72
+  },
+  "paonia|rifle": {
+   "miles": 97.9,
+   "minutes": 146
+  },
+  "paonia|ridgway": {
+   "miles": 77.3,
+   "minutes": 110
+  },
+  "paonia|telluride": {
+   "miles": 116,
+   "minutes": 169
+  },
+  "eagle|paonia": {
+   "miles": 103.3,
+   "minutes": 153
+  },
+  "paonia|silverton": {
+   "miles": 110,
+   "minutes": 176
+  },
+  "leadville|paonia": {
+   "miles": 159.4,
+   "minutes": 227
+  },
+  "platteville|windsor": {
+   "miles": 22.8,
+   "minutes": 44
+  },
+  "platteville|severance": {
+   "miles": 28.5,
+   "minutes": 54
+  },
+  "platteville|timnath": {
+   "miles": 30.7,
+   "minutes": 45
+  },
+  "platteville|wellington": {
+   "miles": 42.7,
+   "minutes": 56
+  },
+  "nederland|platteville": {
+   "miles": 50.7,
+   "minutes": 86
+  },
+  "redstone|rifle": {
+   "miles": 56.2,
+   "minutes": 75
+  },
+  "redstone|vail": {
+   "miles": 90.9,
+   "minutes": 114
+  },
+  "alma|redstone": {
+   "miles": 141.4,
+   "minutes": 186
+  },
+  "buena-vista|redstone": {
+   "miles": 108,
+   "minutes": 197
+  },
+  "fairplay|redstone": {
+   "miles": 146.9,
+   "minutes": 194
+  },
+  "frisco|redstone": {
+   "miles": 116.3,
+   "minutes": 142
+  },
+  "ridgway|telluride": {
+   "miles": 38.9,
+   "minutes": 60
+  },
+  "ridgway|silverton": {
+   "miles": 34.4,
+   "minutes": 71
+  },
+  "crested-butte|ridgway": {
+   "miles": 118.6,
+   "minutes": 169
+  },
+  "marble|ridgway": {
+   "miles": 118.9,
+   "minutes": 186
+  },
+  "redstone|ridgway": {
+   "miles": 117.9,
+   "minutes": 178
+  },
+  "avon|rifle": {
+   "miles": 78.3,
+   "minutes": 86
+  },
+  "minturn|rifle": {
+   "miles": 84.4,
+   "minutes": 94
+  },
+  "rifle|vail": {
+   "miles": 87.7,
+   "minutes": 98
+  },
+  "leadville|rifle": {
+   "miles": 114.5,
+   "minutes": 140
+  },
+  "gunnison|rifle": {
+   "miles": 178.6,
+   "minutes": 227
+  },
+  "rocky-ford|trinidad": {
+   "miles": 80.5,
+   "minutes": 99
+  },
+  "manitou-springs|rocky-ford": {
+   "miles": 100.1,
+   "minutes": 121
+  },
+  "rocky-ford|victor": {
+   "miles": 140,
+   "minutes": 183
+  },
+  "cripple-creek|rocky-ford": {
+   "miles": 138.2,
+   "minutes": 182
+  },
+  "green-mountain-falls|rocky-ford": {
+   "miles": 108.6,
+   "minutes": 132
+  },
+  "rocky-ford|westcliffe": {
+   "miles": 108.4,
+   "minutes": 149
+  },
+  "rocky-ford|woodland-park": {
+   "miles": 112.5,
+   "minutes": 138
+  },
+  "palmer-lake|rocky-ford": {
+   "miles": 117.9,
+   "minutes": 139
+  },
+  "elizabeth|rocky-ford": {
+   "miles": 143.4,
+   "minutes": 176
+  },
+  "crestone|rocky-ford": {
+   "miles": 189,
+   "minutes": 232
+  },
+  "castle-rock|rocky-ford": {
+   "miles": 135.1,
+   "minutes": 154
+  },
+  "alamosa|rocky-ford": {
+   "miles": 141.2,
+   "minutes": 173
+  },
+  "rocky-ford|salida": {
+   "miles": 147.9,
+   "minutes": 199
+  },
+  "morrison|rocky-ford": {
+   "miles": 170,
+   "minutes": 193
+  },
+  "monte-vista|rocky-ford": {
+   "miles": 158.6,
+   "minutes": 197
+  },
+  "evergreen|rocky-ford": {
+   "miles": 180.2,
+   "minutes": 213
+  },
+  "buena-vista|rocky-ford": {
+   "miles": 175.7,
+   "minutes": 223
+  },
+  "golden|rocky-ford": {
+   "miles": 175.1,
+   "minutes": 202
+  },
+  "del-norte|rocky-ford": {
+   "miles": 172.3,
+   "minutes": 216
+  },
+  "fairplay|rocky-ford": {
+   "miles": 165.5,
+   "minutes": 210
+  },
+  "salida|westcliffe": {
+   "miles": 47.4,
+   "minutes": 71
+  },
+  "salida|victor": {
+   "miles": 107.6,
+   "minutes": 143
+  },
+  "salida|woodland-park": {
+   "miles": 94,
+   "minutes": 117
+  },
+  "aspen|salida": {
+   "miles": 86.8,
+   "minutes": 162
+  },
+  "breckenridge|salida": {
+   "miles": 79.9,
+   "minutes": 113
+  },
+  "palmer-lake|salida": {
+   "miles": 132.6,
+   "minutes": 173
+  },
+  "frisco|salida": {
+   "miles": 88.8,
+   "minutes": 124
+  },
+  "keystone|salida": {
+   "miles": 93.1,
+   "minutes": 138
+  },
+  "severance|windsor": {
+   "miles": 5.9,
+   "minutes": 12
+  },
+  "severance|timnath": {
+   "miles": 7.4,
+   "minutes": 14
+  },
+  "severance|wellington": {
+   "miles": 21,
+   "minutes": 27
+  },
+  "niwot|severance": {
+   "miles": 44.9,
+   "minutes": 57
+  },
+  "erie|severance": {
+   "miles": 43.8,
+   "minutes": 56
+  },
+  "lafayette|severance": {
+   "miles": 50,
+   "minutes": 62
+  },
+  "louisville|severance": {
+   "miles": 55.2,
+   "minutes": 66
+  },
+  "boulder|severance": {
+   "miles": 54,
+   "minutes": 71
+  },
+  "nederland|severance": {
+   "miles": 70,
+   "minutes": 101
+  },
+  "grand-lake|severance": {
+   "miles": 98,
+   "minutes": 183
+  },
+  "golden|severance": {
+   "miles": 70.9,
+   "minutes": 85
+  },
+  "silverthorne|vail": {
+   "miles": 30.6,
+   "minutes": 36
+  },
+  "silverthorne|winter-park": {
+   "miles": 53.3,
+   "minutes": 79
+  },
+  "nederland|silverthorne": {
+   "miles": 60.4,
+   "minutes": 100
+  },
+  "golden|silverthorne": {
+   "miles": 58.6,
+   "minutes": 76
+  },
+  "morrison|silverthorne": {
+   "miles": 57.4,
+   "minutes": 74
+  },
+  "silverton|telluride": {
+   "miles": 72.6,
+   "minutes": 130
+  },
+  "crested-butte|silverton": {
+   "miles": 151.3,
+   "minutes": 234
+  },
+  "marble|silverton": {
+   "miles": 151.6,
+   "minutes": 252
+  },
+  "redstone|silverton": {
+   "miles": 150.6,
+   "minutes": 243
+  },
+  "steamboat-springs|walden": {
+   "miles": 59,
+   "minutes": 85
+  },
+  "granby|steamboat-springs": {
+   "miles": 79.6,
+   "minutes": 111
+  },
+  "grand-lake|steamboat-springs": {
+   "miles": 93.9,
+   "minutes": 134
+  },
+  "avon|steamboat-springs": {
+   "miles": 83.9,
+   "minutes": 124
+  },
+  "steamboat-springs|vail": {
+   "miles": 93.2,
+   "minutes": 136
+  },
+  "fraser|steamboat-springs": {
+   "miles": 94.5,
+   "minutes": 137
+  },
+  "minturn|steamboat-springs": {
+   "miles": 90,
+   "minutes": 132
+  },
+  "estes-park|steamboat-springs": {
+   "miles": 140.6,
+   "minutes": 224
+  },
+  "glenwood-springs|steamboat-springs": {
+   "miles": 114.5,
+   "minutes": 159
+  },
+  "steamboat-springs|winter-park": {
+   "miles": 99.6,
+   "minutes": 145
+  },
+  "silverthorne|steamboat-springs": {
+   "miles": 88.9,
+   "minutes": 120
+  },
+  "dillon|steamboat-springs": {
+   "miles": 90.8,
+   "minutes": 125
+  },
+  "frisco|steamboat-springs": {
+   "miles": 93.8,
+   "minutes": 129
+  },
+  "keystone|steamboat-springs": {
+   "miles": 96.8,
+   "minutes": 134
+  },
+  "carbondale|steamboat-springs": {
+   "miles": 128.4,
+   "minutes": 180
+  },
+  "basalt|steamboat-springs": {
+   "miles": 138.4,
+   "minutes": 192
+  },
+  "nederland|steamboat-springs": {
+   "miles": 149.1,
+   "minutes": 219
+  },
+  "georgetown|steamboat-springs": {
+   "miles": 112.4,
+   "minutes": 151
+  },
+  "breckenridge|steamboat-springs": {
+   "miles": 102.9,
+   "minutes": 145
+  },
+  "rifle|steamboat-springs": {
+   "miles": 131.4,
+   "minutes": 171
+  },
+  "greeley|sterling": {
+   "miles": 120.1,
+   "minutes": 134
+  },
+  "severance|sterling": {
+   "miles": 138.3,
+   "minutes": 158
+  },
+  "milliken|sterling": {
+   "miles": 122.3,
+   "minutes": 142
+  },
+  "sterling|windsor": {
+   "miles": 134.5,
+   "minutes": 158
+  },
+  "platteville|sterling": {
+   "miles": 114.5,
+   "minutes": 125
+  },
+  "johnstown|sterling": {
+   "miles": 125.5,
+   "minutes": 147
+  },
+  "fort-lupton|sterling": {
+   "miles": 104.9,
+   "minutes": 112
+  },
+  "sterling|timnath": {
+   "miles": 144.9,
+   "minutes": 162
+  },
+  "sterling|wellington": {
+   "miles": 157,
+   "minutes": 173
+  },
+  "mead|sterling": {
+   "miles": 125.4,
+   "minutes": 142
+  },
+  "carbon-valley|sterling": {
+   "miles": 118,
+   "minutes": 133
+  },
+  "fort-collins|sterling": {
+   "miles": 153.2,
+   "minutes": 174
+  },
+  "loveland|sterling": {
+   "miles": 140.1,
+   "minutes": 160
+  },
+  "berthoud|sterling": {
+   "miles": 135,
+   "minutes": 154
+  },
+  "longmont|sterling": {
+   "miles": 126.3,
+   "minutes": 145
+  },
+  "erie|sterling": {
+   "miles": 129,
+   "minutes": 140
+  },
+  "lafayette|sterling": {
+   "miles": 129,
+   "minutes": 139
+  },
+  "niwot|sterling": {
+   "miles": 138.9,
+   "minutes": 152
+  },
+  "louisville|sterling": {
+   "miles": 130.5,
+   "minutes": 139
+  },
+  "lyons|sterling": {
+   "miles": 138.4,
+   "minutes": 163
+  },
+  "elizabeth|sterling": {
+   "miles": 159,
+   "minutes": 172
+  },
+  "boulder|sterling": {
+   "miles": 139.4,
+   "minutes": 150
+  },
+  "crested-butte|telluride": {
+   "miles": 157.3,
+   "minutes": 228
+  },
+  "marble|telluride": {
+   "miles": 157.6,
+   "minutes": 245
+  },
+  "redstone|telluride": {
+   "miles": 156.6,
+   "minutes": 236
+  },
+  "timnath|windsor": {
+   "miles": 8.1,
+   "minutes": 16
+  },
+  "timnath|wellington": {
+   "miles": 14.3,
+   "minutes": 18
+  },
+  "lafayette|timnath": {
+   "miles": 43.6,
+   "minutes": 52
+  },
+  "boulder|timnath": {
+   "miles": 47.6,
+   "minutes": 60
+  },
+  "louisville|timnath": {
+   "miles": 48.8,
+   "minutes": 55
+  },
+  "nederland|timnath": {
+   "miles": 63.7,
+   "minutes": 90
+  },
+  "grand-lake|timnath": {
+   "miles": 91.7,
+   "minutes": 172
+  },
+  "golden|timnath": {
+   "miles": 64.5,
+   "minutes": 74
+  },
+  "trinidad|westcliffe": {
+   "miles": 97.8,
+   "minutes": 115
+  },
+  "florence|trinidad": {
+   "miles": 118.4,
+   "minutes": 132
+  },
+  "canon-city|trinidad": {
+   "miles": 124.6,
+   "minutes": 139
+  },
+  "del-norte|trinidad": {
+   "miles": 140.5,
+   "minutes": 173
+  },
+  "trinidad|victor": {
+   "miles": 173.5,
+   "minutes": 206
+  },
+  "cripple-creek|trinidad": {
+   "miles": 171.7,
+   "minutes": 205
+  },
+  "manitou-springs|trinidad": {
+   "miles": 133.6,
+   "minutes": 145
+  },
+  "salida|trinidad": {
+   "miles": 145,
+   "minutes": 185
+  },
+  "green-mountain-falls|trinidad": {
+   "miles": 142.2,
+   "minutes": 156
+  },
+  "trinidad|woodland-park": {
+   "miles": 146.1,
+   "minutes": 161
+  },
+  "palmer-lake|trinidad": {
+   "miles": 151.4,
+   "minutes": 162
+  },
+  "pagosa-springs|trinidad": {
+   "miles": 198.8,
+   "minutes": 254
+  },
+  "creede|trinidad": {
+   "miles": 177.9,
+   "minutes": 222
+  },
+  "buena-vista|trinidad": {
+   "miles": 169.2,
+   "minutes": 218
+  },
+  "elizabeth|trinidad": {
+   "miles": 176.9,
+   "minutes": 200
+  },
+  "castle-rock|trinidad": {
+   "miles": 168.6,
+   "minutes": 178
+  },
+  "gunnison|trinidad": {
+   "miles": 208.6,
+   "minutes": 271
+  },
+  "fairplay|trinidad": {
+   "miles": 199.1,
+   "minutes": 234
+  },
+  "vail|winter-park": {
+   "miles": 83,
+   "minutes": 114
+  },
+  "idaho-springs|vail": {
+   "miles": 64.9,
+   "minutes": 78
+  },
+  "central-city|vail": {
+   "miles": 71,
+   "minutes": 97
+  },
+  "black-hawk|vail": {
+   "miles": 71.5,
+   "minutes": 106
+  },
+  "nederland|vail": {
+   "miles": 90.2,
+   "minutes": 134
+  },
+  "victor|woodland-park": {
+   "miles": 27.6,
+   "minutes": 46
+  },
+  "victor|westcliffe": {
+   "miles": 84.8,
+   "minutes": 135
+  },
+  "fairplay|victor": {
+   "miles": 78,
+   "minutes": 104
+  },
+  "alma|victor": {
+   "miles": 83.5,
+   "minutes": 112
+  },
+  "evergreen|victor": {
+   "miles": 88.6,
+   "minutes": 164
+  },
+  "morrison|victor": {
+   "miles": 118.1,
+   "minutes": 155
+  },
+  "breckenridge|victor": {
+   "miles": 100.5,
+   "minutes": 143
+  },
+  "leadville|victor": {
+   "miles": 122.6,
+   "minutes": 166
+  },
+  "golden|victor": {
+   "miles": 123.3,
+   "minutes": 165
+  },
+  "idaho-springs|victor": {
+   "miles": 140.5,
+   "minutes": 185
+  },
+  "georgetown|victor": {
+   "miles": 129.1,
+   "minutes": 185
+  },
+  "keystone|victor": {
+   "miles": 113.8,
+   "minutes": 168
+  },
+  "black-hawk|victor": {
+   "miles": 147.3,
+   "minutes": 205
+  },
+  "estes-park|walden": {
+   "miles": 167.7,
+   "minutes": 234
+  },
+  "granby|walden": {
+   "miles": 89.1,
+   "minutes": 124
+  },
+  "fraser|walden": {
+   "miles": 104.1,
+   "minutes": 150
+  },
+  "fort-collins|walden": {
+   "miles": 128.7,
+   "minutes": 162
+  },
+  "lyons|walden": {
+   "miles": 165.3,
+   "minutes": 216
+  },
+  "walden|winter-park": {
+   "miles": 109.2,
+   "minutes": 159
+  },
+  "walden|wellington": {
+   "miles": 124.7,
+   "minutes": 158
+  },
+  "nederland|walden": {
+   "miles": 158.6,
+   "minutes": 232
+  },
+  "loveland|walden": {
+   "miles": 141.8,
+   "minutes": 186
+  },
+  "timnath|walden": {
+   "miles": 140.1,
+   "minutes": 174
+  },
+  "berthoud|walden": {
+   "miles": 159.7,
+   "minutes": 195
+  },
+  "boulder|walden": {
+   "miles": 185.4,
+   "minutes": 228
+  },
+  "niwot|walden": {
+   "miles": 176.4,
+   "minutes": 214
+  },
+  "longmont|walden": {
+   "miles": 171.1,
+   "minutes": 206
+  },
+  "walden|windsor": {
+   "miles": 146.1,
+   "minutes": 183
+  },
+  "vail|walden": {
+   "miles": 129,
+   "minutes": 171
+  },
+  "mead|walden": {
+   "miles": 160.1,
+   "minutes": 193
+  },
+  "central-city|walden": {
+   "miles": 139.4,
+   "minutes": 196
+  },
+  "severance|walden": {
+   "miles": 146.7,
+   "minutes": 183
+  },
+  "silverthorne|walden": {
+   "miles": 98.4,
+   "minutes": 134
+  },
+  "wellington|windsor": {
+   "miles": 21.1,
+   "minutes": 28
+  },
+  "lyons|wellington": {
+   "miles": 50.4,
+   "minutes": 62
+  },
+  "longmont|wellington": {
+   "miles": 45.3,
+   "minutes": 50
+  },
+  "carbon-valley|wellington": {
+   "miles": 45.1,
+   "minutes": 52
+  },
+  "niwot|wellington": {
+   "miles": 50.6,
+   "minutes": 57
+  },
+  "fort-lupton|wellington": {
+   "miles": 53.3,
+   "minutes": 65
+  },
+  "erie|wellington": {
+   "miles": 49.5,
+   "minutes": 56
+  },
+  "lafayette|wellington": {
+   "miles": 55.7,
+   "minutes": 63
+  },
+  "boulder|wellington": {
+   "miles": 59.7,
+   "minutes": 71
+  },
+  "louisville|wellington": {
+   "miles": 60.9,
+   "minutes": 66
+  },
+  "grand-lake|wellington": {
+   "miles": 103.7,
+   "minutes": 183
+  },
+  "nederland|wellington": {
+   "miles": 75.7,
+   "minutes": 101
+  },
+  "granby|wellington": {
+   "miles": 150.6,
+   "minutes": 197
+  },
+  "westcliffe|woodland-park": {
+   "miles": 95,
+   "minutes": 140
+  },
+  "palmer-lake|westcliffe": {
+   "miles": 100.2,
+   "minutes": 139
+  },
+  "fairplay|westcliffe": {
+   "miles": 105.8,
+   "minutes": 141
+  },
+  "gunnison|westcliffe": {
+   "miles": 111,
+   "minutes": 156
+  },
+  "alma|westcliffe": {
+   "miles": 111.3,
+   "minutes": 149
+  },
+  "leadville|westcliffe": {
+   "miles": 106,
+   "minutes": 152
+  },
+  "castle-rock|westcliffe": {
+   "miles": 117.4,
+   "minutes": 155
+  },
+  "crested-butte|westcliffe": {
+   "miles": 138.6,
+   "minutes": 197
+  },
+  "louisville|windsor": {
+   "miles": 49.6,
+   "minutes": 58
+  },
+  "boulder|windsor": {
+   "miles": 48.3,
+   "minutes": 64
+  },
+  "nederland|windsor": {
+   "miles": 64.4,
+   "minutes": 94
+  },
+  "grand-lake|windsor": {
+   "miles": 92.4,
+   "minutes": 176
+  },
+  "golden|windsor": {
+   "miles": 65.3,
+   "minutes": 78
+  },
+  "niwot|winter-park": {
+   "miles": 85.4,
+   "minutes": 129
+  },
+  "lyons|winter-park": {
+   "miles": 93.3,
+   "minutes": 141
+  },
+  "lafayette|winter-park": {
+   "miles": 79.1,
+   "minutes": 116
+  },
+  "morrison|woodland-park": {
+   "miles": 90.7,
+   "minutes": 110
+  },
+  "evergreen|woodland-park": {
+   "miles": 61.4,
+   "minutes": 119
+  },
+  "golden|woodland-park": {
+   "miles": 95.9,
+   "minutes": 119
+  },
+  "idaho-springs|woodland-park": {
+   "miles": 113,
+   "minutes": 140
+  },
+  "alma|woodland-park": {
+   "miles": 69.9,
+   "minutes": 86
+  },
+  "georgetown|woodland-park": {
+   "miles": 125.9,
+   "minutes": 155
+  },
+  "black-hawk|woodland-park": {
+   "miles": 119.8,
+   "minutes": 160
+  },
+  "central-city|woodland-park": {
+   "miles": 118.6,
+   "minutes": 150
+  },
+  "breckenridge|woodland-park": {
+   "miles": 86.9,
+   "minutes": 117
+  },
+  "keystone|woodland-park": {
+   "miles": 100.2,
+   "minutes": 142
+  },
+  "louisville|woodland-park": {
+   "miles": 105.4,
+   "minutes": 132
+  }
+ },
+ "fromDenver": {
+  "alamosa": {
+   "miles": 232.2,
+   "minutes": 264
+  },
+  "alma": {
+   "miles": 88.9,
+   "minutes": 124
+  },
+  "aspen": {
+   "miles": 199.1,
+   "minutes": 246
+  },
+  "avon": {
+   "miles": 106.8,
+   "minutes": 131
+  },
+  "basalt": {
+   "miles": 181.1,
+   "minutes": 219
+  },
+  "berthoud": {
+   "miles": 45.4,
+   "minutes": 58
+  },
+  "black-hawk": {
+   "miles": 38,
+   "minutes": 64
+  },
+  "boulder": {
+   "miles": 27.9,
+   "minutes": 40
+  },
+  "breckenridge": {
+   "miles": 80.9,
+   "minutes": 111
+  },
+  "brush": {
+   "miles": 90.5,
+   "minutes": 99
+  },
+  "buena-vista": {
+   "miles": 120.3,
+   "minutes": 162
+  },
+  "canon-city": {
+   "miles": 114.5,
+   "minutes": 142
+  },
+  "carbon-valley": {
+   "miles": 27.6,
+   "minutes": 41
+  },
+  "carbondale": {
+   "miles": 171.2,
+   "minutes": 207
+  },
+  "castle-rock": {
+   "miles": 28.7,
+   "minutes": 39
+  },
+  "cedaredge": {
+   "miles": 263.6,
+   "minutes": 337
+  },
+  "central-city": {
+   "miles": 38.2,
+   "minutes": 57
+  },
+  "cortez": {
+   "miles": 378.6,
+   "minutes": 499
+  },
+  "craig": {
+   "miles": 198,
+   "minutes": 257
+  },
+  "creede": {
+   "miles": 253.4,
+   "minutes": 330
+  },
+  "crested-butte": {
+   "miles": 226,
+   "minutes": 305
+  },
+  "crestone": {
+   "miles": 191.7,
+   "minutes": 254
+  },
+  "cripple-creek": {
+   "miles": 109.3,
+   "minutes": 149
+  },
+  "del-norte": {
+   "miles": 216,
+   "minutes": 280
+  },
+  "delta": {
+   "miles": 275.6,
+   "minutes": 321
+  },
+  "dillon": {
+   "miles": 68.9,
+   "minutes": 91
+  },
+  "dolores": {
+   "miles": 384.8,
+   "minutes": 528
+  },
+  "durango": {
+   "miles": 334.3,
+   "minutes": 443
+  },
+  "eagle": {
+   "miles": 126.8,
+   "minutes": 152
+  },
+  "elizabeth": {
+   "miles": 40.8,
+   "minutes": 59
+  },
+  "erie": {
+   "miles": 26.1,
+   "minutes": 40
+  },
+  "estes-park": {
+   "miles": 64.1,
+   "minutes": 96
+  },
+  "evergreen": {
+   "miles": 29.1,
+   "minutes": 43
+  },
+  "fairplay": {
+   "miles": 83.4,
+   "minutes": 116
+  },
+  "florence": {
+   "miles": 108.3,
+   "minutes": 135
+  },
+  "fort-collins": {
+   "miles": 63.7,
+   "minutes": 77
+  },
+  "fort-lupton": {
+   "miles": 28.1,
+   "minutes": 40
+  },
+  "fort-morgan": {
+   "miles": 81.2,
+   "minutes": 91
+  },
+  "fraser": {
+   "miles": 71.7,
+   "minutes": 107
+  },
+  "frisco": {
+   "miles": 71.8,
+   "minutes": 94
+  },
+  "fruita": {
+   "miles": 254.9,
+   "minutes": 289
+  },
+  "georgetown": {
+   "miles": 45.5,
+   "minutes": 61
+  },
+  "glenwood-springs": {
+   "miles": 157.3,
+   "minutes": 186
+  },
+  "golden": {
+   "miles": 15.4,
+   "minutes": 25
+  },
+  "granby": {
+   "miles": 86.3,
+   "minutes": 132
+  },
+  "grand-junction": {
+   "miles": 243.8,
+   "minutes": 280
+  },
+  "grand-lake": {
+   "miles": 101.4,
+   "minutes": 159
+  },
+  "greeley": {
+   "miles": 62.1,
+   "minutes": 80
+  },
+  "green-mountain-falls": {
+   "miles": 79.8,
+   "minutes": 100
+  },
+  "gunnison": {
+   "miles": 198.3,
+   "minutes": 263
+  },
+  "hotchkiss": {
+   "miles": 236.8,
+   "minutes": 313
+  },
+  "idaho-springs": {
+   "miles": 33.3,
+   "minutes": 46
+  },
+  "johnstown": {
+   "miles": 45.4,
+   "minutes": 57
+  },
+  "keystone": {
+   "miles": 74.9,
+   "minutes": 101
+  },
+  "kremmling": {
+   "miles": 104.5,
+   "minutes": 137
+  },
+  "la-junta": {
+   "miles": 173.9,
+   "minutes": 204
+  },
+  "la-veta": {
+   "miles": 176.3,
+   "minutes": 205
+  },
+  "lafayette": {
+   "miles": 21.3,
+   "minutes": 34
+  },
+  "lake-city": {
+   "miles": 252.9,
+   "minutes": 345
+  },
+  "leadville": {
+   "miles": 100.7,
+   "minutes": 129
+  },
+  "longmont": {
+   "miles": 36.6,
+   "minutes": 48
+  },
+  "louisville": {
+   "miles": 21.2,
+   "minutes": 33
+  },
+  "loveland": {
+   "miles": 50.5,
+   "minutes": 63
+  },
+  "lyons": {
+   "miles": 43.5,
+   "minutes": 62
+  },
+  "mancos": {
+   "miles": 360.9,
+   "minutes": 475
+  },
+  "manitou-springs": {
+   "miles": 71.1,
+   "minutes": 87
+  },
+  "marble": {
+   "miles": 198.3,
+   "minutes": 254
+  },
+  "mead": {
+   "miles": 35.8,
+   "minutes": 45
+  },
+  "meeker": {
+   "miles": 225.2,
+   "minutes": 278
+  },
+  "milliken": {
+   "miles": 48.4,
+   "minutes": 63
+  },
+  "minturn": {
+   "miles": 104,
+   "minutes": 129
+  },
+  "monte-vista": {
+   "miles": 214.5,
+   "minutes": 278
+  },
+  "montrose": {
+   "miles": 296.9,
+   "minutes": 349
+  },
+  "morrison": {
+   "miles": 17.8,
+   "minutes": 26
+  },
+  "nederland": {
+   "miles": 44.1,
+   "minutes": 70
+  },
+  "niwot": {
+   "miles": 32.6,
+   "minutes": 49
+  },
+  "olathe": {
+   "miles": 286.6,
+   "minutes": 335
+  },
+  "ouray": {
+   "miles": 333,
+   "minutes": 398
+  },
+  "pagosa-springs": {
+   "miles": 274.3,
+   "minutes": 361
+  },
+  "palisade": {
+   "miles": 232.7,
+   "minutes": 266
+  },
+  "palmer-lake": {
+   "miles": 49.5,
+   "minutes": 62
+  },
+  "paonia": {
+   "miles": 228.8,
+   "minutes": 302
+  },
+  "platteville": {
+   "miles": 37,
+   "minutes": 51
+  },
+  "redstone": {
+   "miles": 187.1,
+   "minutes": 231
+  },
+  "ridgway": {
+   "miles": 323.7,
+   "minutes": 386
+  },
+  "rifle": {
+   "miles": 184,
+   "minutes": 215
+  },
+  "rocky-ford": {
+   "miles": 163,
+   "minutes": 188
+  },
+  "salida": {
+   "miles": 139.7,
+   "minutes": 188
+  },
+  "severance": {
+   "miles": 62.3,
+   "minutes": 78
+  },
+  "silverthorne": {
+   "miles": 67.7,
+   "minutes": 88
+  },
+  "silverton": {
+   "miles": 356.4,
+   "minutes": 451
+  },
+  "steamboat-springs": {
+   "miles": 156.3,
+   "minutes": 207
+  },
+  "sterling": {
+   "miles": 127.2,
+   "minutes": 137
+  },
+  "telluride": {
+   "miles": 362.4,
+   "minutes": 445
+  },
+  "timnath": {
+   "miles": 55.9,
+   "minutes": 67
+  },
+  "trinidad": {
+   "miles": 196.5,
+   "minutes": 211
+  },
+  "vail": {
+   "miles": 97.4,
+   "minutes": 122
+  },
+  "victor": {
+   "miles": 111.2,
+   "minutes": 151
+  },
+  "walden": {
+   "miles": 165.8,
+   "minutes": 220
+  },
+  "wellington": {
+   "miles": 68,
+   "minutes": 78
+  },
+  "westcliffe": {
+   "miles": 145.3,
+   "minutes": 188
+  },
+  "windsor": {
+   "miles": 56.7,
+   "minutes": 70
+  },
+  "winter-park": {
+   "miles": 66.6,
+   "minutes": 99
+  },
+  "woodland-park": {
+   "miles": 83.7,
+   "minutes": 105
+  }
+ },
+ "airport": {
+  "alamosa": {
+   "code": "ALS",
+   "miles": 2.6,
+   "minutes": 8
+  },
+  "alma": {
+   "code": "EGE",
+   "miles": 86.4,
+   "minutes": 120
+  },
+  "aspen": {
+   "code": "ASE",
+   "miles": 4.1,
+   "minutes": 9
+  },
+  "avon": {
+   "code": "EGE",
+   "miles": 26.5,
+   "minutes": 35
+  },
+  "basalt": {
+   "code": "ASE",
+   "miles": 16.9,
+   "minutes": 26
+  },
+  "berthoud": {
+   "code": "DEN",
+   "miles": 52.9,
+   "minutes": 61
+  },
+  "black-hawk": {
+   "code": "DEN",
+   "miles": 56.7,
+   "minutes": 93
+  },
+  "boulder": {
+   "code": "DEN",
+   "miles": 44,
+   "minutes": 54
+  },
+  "breckenridge": {
+   "code": "EGE",
+   "miles": 71,
+   "minutes": 94
+  },
+  "brush": {
+   "code": "DEN",
+   "miles": 87,
+   "minutes": 94
+  },
+  "buena-vista": {
+   "code": "ASE",
+   "miles": 66.5,
+   "minutes": 136
+  },
+  "canon-city": {
+   "code": "PUB",
+   "miles": 48,
+   "minutes": 85
+  },
+  "carbon-valley": {
+   "code": "DEN",
+   "miles": 31.6,
+   "minutes": 43
+  },
+  "carbondale": {
+   "code": "ASE",
+   "miles": 27.9,
+   "minutes": 42
+  },
+  "castle-rock": {
+   "code": "DEN",
+   "miles": 46.6,
+   "minutes": 54
+  },
+  "cedaredge": {
+   "code": "MTJ",
+   "miles": 33.3,
+   "minutes": 50
+  },
+  "central-city": {
+   "code": "DEN",
+   "miles": 62.1,
+   "minutes": 85
+  },
+  "cortez": {
+   "code": "CEZ",
+   "miles": 4.8,
+   "minutes": 10
+  },
+  "craig": {
+   "code": "HDN",
+   "miles": 20.1,
+   "minutes": 27
+  },
+  "creede": {
+   "code": "ALS",
+   "miles": 70.5,
+   "minutes": 98
+  },
+  "crested-butte": {
+   "code": "GUC",
+   "miles": 31.6,
+   "minutes": 57
+  },
+  "crestone": {
+   "code": "ALS",
+   "miles": 52.1,
+   "minutes": 71
+  },
+  "cripple-creek": {
+   "code": "COS",
+   "miles": 54.7,
+   "minutes": 93
+  },
+  "del-norte": {
+   "code": "ALS",
+   "miles": 33.1,
+   "minutes": 48
+  },
+  "delta": {
+   "code": "MTJ",
+   "miles": 19.8,
+   "minutes": 29
+  },
+  "dillon": {
+   "code": "EGE",
+   "miles": 66.7,
+   "minutes": 82
+  },
+  "dolores": {
+   "code": "CEZ",
+   "miles": 18.4,
+   "minutes": 44
+  },
+  "durango": {
+   "code": "DRO",
+   "miles": 16.8,
+   "minutes": 36
+  },
+  "eagle": {
+   "code": "EGE",
+   "miles": 5.4,
+   "minutes": 12
+  },
+  "elizabeth": {
+   "code": "COS",
+   "miles": 45.2,
+   "minutes": 68
+  },
+  "erie": {
+   "code": "DEN",
+   "miles": 33.7,
+   "minutes": 44
+  },
+  "estes-park": {
+   "code": "DEN",
+   "miles": 77.2,
+   "minutes": 105
+  },
+  "evergreen": {
+   "code": "DEN",
+   "miles": 53,
+   "minutes": 72
+  },
+  "fairplay": {
+   "code": "EGE",
+   "miles": 91.9,
+   "minutes": 128
+  },
+  "florence": {
+   "code": "PUB",
+   "miles": 41.8,
+   "minutes": 79
+  },
+  "fort-collins": {
+   "code": "DEN",
+   "miles": 71.1,
+   "minutes": 81
+  },
+  "fort-lupton": {
+   "code": "DEN",
+   "miles": 26.6,
+   "minutes": 39
+  },
+  "fort-morgan": {
+   "code": "DEN",
+   "miles": 77.9,
+   "minutes": 87
+  },
+  "fraser": {
+   "code": "DEN",
+   "miles": 95.7,
+   "minutes": 136
+  },
+  "frisco": {
+   "code": "EGE",
+   "miles": 61.4,
+   "minutes": 76
+  },
+  "fruita": {
+   "code": "GJT",
+   "miles": 12.8,
+   "minutes": 19
+  },
+  "georgetown": {
+   "code": "DEN",
+   "miles": 69.4,
+   "minutes": 90
+  },
+  "glenwood-springs": {
+   "code": "EGE",
+   "miles": 26.9,
+   "minutes": 36
+  },
+  "golden": {
+   "code": "DEN",
+   "miles": 36.3,
+   "minutes": 49
+  },
+  "granby": {
+   "code": "EGE",
+   "miles": 83.9,
+   "minutes": 136
+  },
+  "grand-junction": {
+   "code": "GJT",
+   "miles": 4.8,
+   "minutes": 12
+  },
+  "grand-lake": {
+   "code": "EGE",
+   "miles": 98.2,
+   "minutes": 159
+  },
+  "greeley": {
+   "code": "DEN",
+   "miles": 58.5,
+   "minutes": 75
+  },
+  "green-mountain-falls": {
+   "code": "COS",
+   "miles": 25.2,
+   "minutes": 43
+  },
+  "gunnison": {
+   "code": "GUC",
+   "miles": 4.1,
+   "minutes": 16
+  },
+  "hotchkiss": {
+   "code": "MTJ",
+   "miles": 39.1,
+   "minutes": 55
+  },
+  "idaho-springs": {
+   "code": "DEN",
+   "miles": 56.5,
+   "minutes": 75
+  },
+  "johnstown": {
+   "code": "DEN",
+   "miles": 53.3,
+   "minutes": 62
+  },
+  "keystone": {
+   "code": "EGE",
+   "miles": 72.7,
+   "minutes": 92
+  },
+  "kremmling": {
+   "code": "EGE",
+   "miles": 56.9,
+   "minutes": 96
+  },
+  "la-junta": {
+   "code": "PUB",
+   "miles": 63.3,
+   "minutes": 104
+  },
+  "la-veta": {
+   "code": "ALS",
+   "miles": 62.3,
+   "minutes": 87
+  },
+  "lafayette": {
+   "code": "DEN",
+   "miles": 33.7,
+   "minutes": 43
+  },
+  "lake-city": {
+   "code": "GUC",
+   "miles": 55.4,
+   "minutes": 91
+  },
+  "leadville": {
+   "code": "ASE",
+   "miles": 62.6,
+   "minutes": 129
+  },
+  "longmont": {
+   "code": "DEN",
+   "miles": 44.2,
+   "minutes": 53
+  },
+  "louisville": {
+   "code": "DEN",
+   "miles": 35.1,
+   "minutes": 43
+  },
+  "loveland": {
+   "code": "DEN",
+   "miles": 58.1,
+   "minutes": 68
+  },
+  "lyons": {
+   "code": "DEN",
+   "miles": 56.4,
+   "minutes": 71
+  },
+  "mancos": {
+   "code": "CEZ",
+   "miles": 22.7,
+   "minutes": 34
+  },
+  "manitou-springs": {
+   "code": "COS",
+   "miles": 16.6,
+   "minutes": 32
+  },
+  "marble": {
+   "code": "ASE",
+   "miles": 55.1,
+   "minutes": 91
+  },
+  "mead": {
+   "code": "DEN",
+   "miles": 43.4,
+   "minutes": 49
+  },
+  "meeker": {
+   "code": "HDN",
+   "miles": 68,
+   "minutes": 84
+  },
+  "milliken": {
+   "code": "DEN",
+   "miles": 56.2,
+   "minutes": 67
+  },
+  "minturn": {
+   "code": "EGE",
+   "miles": 32.6,
+   "minutes": 43
+  },
+  "monte-vista": {
+   "code": "ALS",
+   "miles": 19.4,
+   "minutes": 30
+  },
+  "montrose": {
+   "code": "MTJ",
+   "miles": 4.1,
+   "minutes": 11
+  },
+  "morrison": {
+   "code": "DEN",
+   "miles": 41.2,
+   "minutes": 56
+  },
+  "nederland": {
+   "code": "DEN",
+   "miles": 60.2,
+   "minutes": 84
+  },
+  "niwot": {
+   "code": "DEN",
+   "miles": 43.6,
+   "minutes": 55
+  },
+  "olathe": {
+   "code": "MTJ",
+   "miles": 8.9,
+   "minutes": 16
+  },
+  "ouray": {
+   "code": "MTJ",
+   "miles": 40.2,
+   "minutes": 59
+  },
+  "pagosa-springs": {
+   "code": "DRO",
+   "miles": 55.4,
+   "minutes": 85
+  },
+  "palisade": {
+   "code": "GJT",
+   "miles": 12.4,
+   "minutes": 17
+  },
+  "palmer-lake": {
+   "code": "COS",
+   "miles": 29.8,
+   "minutes": 45
+  },
+  "paonia": {
+   "code": "MTJ",
+   "miles": 48.3,
+   "minutes": 71
+  },
+  "platteville": {
+   "code": "DEN",
+   "miles": 35.5,
+   "minutes": 49
+  },
+  "redstone": {
+   "code": "ASE",
+   "miles": 43.9,
+   "minutes": 66
+  },
+  "ridgway": {
+   "code": "MTJ",
+   "miles": 30.9,
+   "minutes": 48
+  },
+  "rifle": {
+   "code": "EGE",
+   "miles": 53.6,
+   "minutes": 65
+  },
+  "rocky-ford": {
+   "code": "PUB",
+   "miles": 52.2,
+   "minutes": 88
+  },
+  "salida": {
+   "code": "GUC",
+   "miles": 65.8,
+   "minutes": 103
+  },
+  "severance": {
+   "code": "DEN",
+   "miles": 70.2,
+   "minutes": 82
+  },
+  "silverthorne": {
+   "code": "EGE",
+   "miles": 65.4,
+   "minutes": 79
+  },
+  "silverton": {
+   "code": "MTJ",
+   "miles": 63.2,
+   "minutes": 113
+  },
+  "steamboat-springs": {
+   "code": "HDN",
+   "miles": 24.7,
+   "minutes": 31
+  },
+  "sterling": {
+   "code": "DEN",
+   "miles": 123,
+   "minutes": 131
+  },
+  "telluride": {
+   "code": "TEX",
+   "miles": 5.7,
+   "minutes": 15
+  },
+  "timnath": {
+   "code": "DEN",
+   "miles": 63.8,
+   "minutes": 71
+  },
+  "trinidad": {
+   "code": "PUB",
+   "miles": 96.1,
+   "minutes": 127
+  },
+  "vail": {
+   "code": "EGE",
+   "miles": 36,
+   "minutes": 46
+  },
+  "victor": {
+   "code": "COS",
+   "miles": 56.6,
+   "minutes": 94
+  },
+  "walden": {
+   "code": "HDN",
+   "miles": 83.6,
+   "minutes": 116
+  },
+  "wellington": {
+   "code": "DEN",
+   "miles": 75.6,
+   "minutes": 82
+  },
+  "westcliffe": {
+   "code": "PUB",
+   "miles": 66.3,
+   "minutes": 122
+  },
+  "windsor": {
+   "code": "DEN",
+   "miles": 64.5,
+   "minutes": 75
+  },
+  "winter-park": {
+   "code": "DEN",
+   "miles": 90.6,
+   "minutes": 128
+  },
+  "woodland-park": {
+   "code": "COS",
+   "miles": 29,
+   "minutes": 48
+  }
+ }
+}

@@ -1,0 +1,54 @@
+{
+  "slug": "hotchkiss",
+  "lodging": [
+    {
+      "name": "Big B's Delicious Orchards campground",
+      "kind": "Campground",
+      "url": "https://www.bigbs.com/",
+      "season": "Open April 1st - November 30th",
+      "source": "https://www.bigbs.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1975,
+        "text": "A local board met with the goal of creating a permanent museum.",
+        "source": "https://hchsmuseum.org/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1988,
+        "text": "A branch museum opened in a room of the old schoolhouse, timed to Pioneer Days.",
+        "source": "https://hchsmuseum.org/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2005,
+        "text": "The Hotchkiss-Crawford Historical Society Museum had its grand opening on May 6.",
+        "source": "https://hchsmuseum.org/about/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Hotchkiss-Crawford Historical Society Museum",
+        "kind": "museum",
+        "url": "https://hchsmuseum.org/",
+        "hours": "Tue 10 am–1 pm; Thu 9 am–1 pm; Sat 1–4 pm",
+        "source": "https://hchsmuseum.org/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Big B's Delicious Orchards",
+        "what": "Juices and hard ciders",
+        "url": "https://www.bigbs.com/",
+        "source": "https://www.bigbs.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

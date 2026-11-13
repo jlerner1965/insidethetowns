@@ -8,6 +8,9 @@ phone: "(720) 250-0440"
 hours: "Daily 6–6"
 priceRange: "$"
 tags: [coffee, drive-through, early]
+details:
+  source: "https://ziggiscoffee.com/locations/331-milan-place-erie-co/"
+  checked: "2026-11-12"
 summary: "Drive-through Ziggi's on Milan Place by Erie Parkway, open from six."
 source: "https://ziggiscoffee.com/locations/331-milan-place-erie-co/"
 verified: "2026-10-03"

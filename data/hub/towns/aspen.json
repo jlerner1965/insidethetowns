@@ -1,0 +1,124 @@
+{
+  "slug": "aspen",
+  "transit": [
+    {
+      "name": "Roaring Fork Transportation Authority (RFTA)",
+      "detail": "Regional buses on a 70-mile service area from Rifle to Aspen; the route list includes the City of Aspen free shuttles",
+      "url": "https://www.rfta.com/routes/",
+      "source": "https://www.rfta.com/routes/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Hotel Jerome",
+      "kind": "Hotel",
+      "url": "https://auberge.com/hotel-jerome/",
+      "source": "https://auberge.com/hotel-jerome/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Little Nell",
+      "kind": "Hotel",
+      "url": "https://www.thelittlenell.com/",
+      "source": "https://www.thelittlenell.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Limelight Aspen",
+      "kind": "Hotel",
+      "url": "https://www.limelighthotels.com/aspen",
+      "source": "https://www.limelighthotels.com/aspen",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Mountain Chalet Aspen",
+      "kind": "Hotel",
+      "url": "https://www.mountainchaletaspen.com/",
+      "source": "https://www.mountainchaletaspen.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The camp was first laid out as Ute City in 1879; in 1880 B. Clark Wheeler surveyed the town site and renamed it Aspen.",
+      "source": "https://aspenhistory.org/aspen-history/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1879,
+      "text": "Henry B. Gillespie laid out a town and called it Ute City after prospectors crossed the passes looking for silver",
+      "source": "https://aspenhistory.org/aspen-history/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1887,
+        "text": "The Denver & Rio Grande Railroad reached Aspen in November.",
+        "source": "https://aspenhistory.org/aspen-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1889,
+        "text": "The Hotel Jerome opened in November.",
+        "source": "https://aspenhistory.org/aspen-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1893,
+        "text": "Congress repealed the Sherman Silver Act and Aspen's population declined sharply.",
+        "source": "https://aspenhistory.org/aspen-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1947,
+        "text": "Lift-1 was dedicated as the world's longest chairlift.",
+        "source": "https://aspenhistory.org/aspen-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1950,
+        "text": "Aspen hosted the FIS World Alpine Championships.",
+        "source": "https://aspenhistory.org/aspen-history/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Wheeler/Stallard Museum",
+        "kind": "museum",
+        "url": "https://aspenhistory.org/wheeler-stallard-museum/",
+        "hours": "Tue–Sat 12–5 pm; closed major holidays",
+        "cost": "Free admission",
+        "source": "https://aspenhistory.org/wheeler-stallard-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Holden/Marolt Mining & Ranching Museum",
+        "kind": "museum",
+        "url": "https://aspenhistory.org/holden-marolt-mining-ranching-museum/",
+        "hours": "Thu–Sat 12–5 pm",
+        "cost": "Free admission",
+        "season": "June 16 to September 26; grounds accessible year-round",
+        "source": "https://aspenhistory.org/holden-marolt-mining-ranching-museum/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "ghostTowns": [
+      {
+        "name": "Ashcroft",
+        "text": "A former mining town 11 miles up Castle Creek Road from Aspen, with log cabins, trails and interpretive signs; admission is $5 per adult.",
+        "url": "https://aspenhistory.org/ashcroft-ghost-town/",
+        "source": "https://aspenhistory.org/ashcroft-ghost-town/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Independence",
+        "text": "A former gold camp 16 miles east of Aspen on Highway 82, just below the summit of Independence Pass; visits are self-guided with a $5 suggested donation per adult.",
+        "url": "https://aspenhistory.org/independence-ghost-town/",
+        "source": "https://aspenhistory.org/independence-ghost-town/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

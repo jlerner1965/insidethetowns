@@ -1,0 +1,79 @@
+{
+  "slug": "carbondale",
+  "transit": [
+    {
+      "name": "Carbondale Circulator (RFTA)",
+      "detail": "Free bus between the Carbondale Park & Ride and in-town stops, every 15 minutes",
+      "url": "https://www.rfta.com/routes/carbondale-circulator/",
+      "source": "https://www.rfta.com/routes/carbondale-circulator/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Carbondale Downtowner",
+      "detail": "Free on-demand rides within town limits, Mon–Fri 7 am–10 pm and Sat–Sun 9 am–10 pm",
+      "url": "https://www.carbondalegov.org/community/local_transit.php",
+      "source": "https://www.carbondalegov.org/community/local_transit.php",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Roaring Fork Transportation Authority (RFTA)",
+      "detail": "Bus service from Aspen to Glenwood Springs through the Roaring Fork Valley",
+      "url": "https://www.rfta.com/",
+      "source": "https://www.carbondalegov.org/community/local_transit.php",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1881,
+        "text": "Land in and around Carbondale is opened to homesteaders.",
+        "source": "https://www.carbondalehistory.org/copy-of-our-town",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1885,
+        "text": "Myron Thompson builds the house that is now the Thompson House Museum for his daughter Hattie and her husband Oscar Holland.",
+        "source": "https://www.carbondalehistory.org/copy-of-our-town",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1888,
+        "text": "Carbondale is incorporated on April 26. William H. Dean is elected the first mayor.",
+        "source": "https://www.carbondalehistory.org/copy-of-our-town",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1909,
+        "text": "The Potato Day tradition begins.",
+        "source": "https://www.carbondalehistory.org/copy-of-our-town",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1984,
+        "text": "The Mt. Sopris Historical Society, now the Carbondale Historical Society, is chartered.",
+        "source": "https://www.carbondalehistory.org/about-us",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Thompson House Museum",
+        "kind": "museum",
+        "url": "https://www.carbondalehistory.org/",
+        "hours": "Open by appointment for guided tours",
+        "source": "https://www.carbondalehistory.org/copy-of-our-town",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Carbondale Clay Center",
+        "what": "Ceramics, with classes and a gallery; founded in 1997",
+        "url": "https://www.carbondaleclay.org/",
+        "source": "https://www.carbondaleclay.org/about",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

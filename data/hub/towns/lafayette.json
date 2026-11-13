@@ -1,0 +1,24 @@
+{
+  "slug": "lafayette",
+  "transit": [
+    {
+      "name": "Ride Free Lafayette",
+      "detail": "Free on-demand bus from Boulder County, 7 am to 8 pm seven days a week, throughout the City of Lafayette",
+      "url": "https://bouldercounty.gov/transportation/multimodal/ride-free-lafayette/",
+      "source": "https://bouldercounty.gov/transportation/multimodal/ride-free-lafayette/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "sites": [
+      {
+        "name": "Lafayette History Museum",
+        "kind": "museum",
+        "url": "https://lafayettehistoricalsociety.org/",
+        "hours": "Wednesday–Friday 10 am–2 pm; Saturday 8 am–noon",
+        "source": "https://lafayettehistoricalsociety.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

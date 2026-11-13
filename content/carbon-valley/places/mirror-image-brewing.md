@@ -10,6 +10,9 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-445-5969"
 hours: "Mon–Thu 3–9 pm; Fri 12–10 pm; Sat 12–9 pm; Sun 11 am–8 pm"
 tags: [brewery, pizza, beer-garden, live-music]
+details:
+  source: "https://www.mirrorimagebrewco.com/"
+  checked: "2026-11-12"
 summary: "A small brewery and pizza kitchen on Iris Parkway off Colorado Boulevard, with a beer garden and a September music festival of its own; open from 3 pm on weekdays and from noon or 11 at weekends."
 ---
 

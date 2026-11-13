@@ -1,0 +1,113 @@
+{
+  "slug": "silverton",
+  "transit": [
+    {
+      "name": "Durango & Silverton Narrow Gauge Railroad",
+      "detail": "Historic train from the Durango Depot to Silverton, about two hours in Silverton on the round trip; 2026 season May 2 to November 1",
+      "url": "https://www.durangotrain.com/ride-us/",
+      "source": "https://www.durangotrain.com/ride-us/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Grand Imperial Hotel",
+      "kind": "Hotel",
+      "url": "https://www.grandimperialhotel.com/",
+      "source": "https://www.grandimperialhotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Wyman Hotel",
+      "kind": "Hotel",
+      "url": "https://www.thewyman.com/",
+      "source": "https://www.thewyman.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Villa Dallavalle Historic Inn",
+      "kind": "Inn",
+      "url": "https://villadallavalle.com/",
+      "source": "https://villadallavalle.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Triangle Motel",
+      "kind": "Motel",
+      "url": "https://trianglemotel.com/",
+      "season": "Year-round",
+      "source": "https://trianglemotel.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1882,
+        "text": "By July the railroad tracks from Durango to Silverton were completed and the train began hauling passengers and freight.",
+        "source": "https://www.durangotrain.com/history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1902,
+        "text": "The two-story brick San Juan County Jail was built at a cost of $12,175; it is now part of the museum complex.",
+        "source": "https://www.sanjuancountyhistoricalsociety.org/county-jail.html",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1929,
+        "text": "A contract was issued to build the Mayflower (Shenandoah-Dives) Mill two miles northeast of town.",
+        "source": "https://www.sanjuancountyhistoricalsociety.org/mayflower-mill.html",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1991,
+        "text": "The Mayflower Mill closed; it was later donated to the San Juan County Historical Society.",
+        "source": "https://www.sanjuancountyhistoricalsociety.org/mayflower-mill.html",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2000,
+        "text": "The Mayflower Mill was declared a National Historic Landmark.",
+        "source": "https://www.sanjuancountyhistoricalsociety.org/mayflower-mill.html",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Mining Heritage Center and 1902 County Jail Museum",
+        "kind": "museum",
+        "url": "https://www.sanjuancountyhistoricalsociety.org/mining-heritage-museum.html",
+        "season": "Closed for the 2026 season; opens around Memorial Weekend 2027",
+        "source": "https://www.sanjuancountyhistoricalsociety.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Mayflower Mill",
+        "kind": "landmark",
+        "url": "https://www.sanjuancountyhistoricalsociety.org/mayflower-mill.html",
+        "season": "Self-guided tours in the summer months; opens around Memorial Weekend 2027",
+        "source": "https://www.sanjuancountyhistoricalsociety.org/mayflower-mill.html",
+        "checked": "2026-11-12"
+      }
+    ],
+    "ghostTowns": [
+      {
+        "name": "Animas Forks",
+        "text": "A mining town at 11,200 feet on the Alpine Loop, 12.3 miles by road from Silverton; its first cabin was built in 1873 and it was a ghost town by the 1920s.",
+        "url": "https://www.blm.gov/visit/animas-forks",
+        "source": "https://www.blm.gov/visit/animas-forks",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Venture Snowboards",
+        "what": "Snowboards and splitboards built in Silverton since 1999",
+        "url": "https://venturesnowboards.com/",
+        "source": "https://venturesnowboards.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

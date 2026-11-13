@@ -1,0 +1,23 @@
+{
+  "slug": "mead",
+  "facts": {
+    "incorporated": {
+      "year": 1908,
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-12"
+    }
+  },
+  "heritage": {
+    "nameOrigin": {
+      "text": "Paul Mead named the town for his father, Dr. Martin Mead.",
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1906,
+      "text": "Paul Mead platted the town beside the railroad tracks",
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-12"
+    }
+  }
+}

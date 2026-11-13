@@ -1,0 +1,16 @@
+{
+  "slug": "severance",
+  "facts": {
+    "incorporated": { "year": 1920, "source": "https://www.townofseverance.org/244/History-of-the-Town-of-Severance", "checked": "2026-11-12" }
+  },
+  "heritage": {
+    "nameOrigin": { "text": "In 1894 David E. Severance applied for a post office for a community that was to be named Tailholt. Because he made the application, the post office was named Severance by mistake, and the name stayed.", "source": "https://www.townofseverance.org/244/History-of-the-Town-of-Severance", "checked": "2026-11-12" },
+    "founded": { "year": 1906, "text": "Founded by Bruce Eaton, son of Governor Benjamin Eaton", "source": "https://www.townofseverance.org/244/History-of-the-Town-of-Severance", "checked": "2026-11-12" },
+    "timeline": [
+      { "year": 1894, "text": "David E. Severance applied for a post office for a community of about 50 families.", "source": "https://www.townofseverance.org/244/History-of-the-Town-of-Severance", "checked": "2026-11-12" },
+      { "year": 1903, "text": "The sugar factory in neighboring Windsor was built. Severance became a sugar beet receiving station and dump on the Great Western Railway.", "source": "https://www.townofseverance.org/244/History-of-the-Town-of-Severance", "checked": "2026-11-12" },
+      { "year": 1920, "text": "Residents voted to incorporate, 40 for and 0 against.", "source": "https://www.townofseverance.org/244/History-of-the-Town-of-Severance", "checked": "2026-11-12" },
+      { "year": 1985, "text": "The sugar beet receiving station on the Great Western Railway stopped operating.", "source": "https://www.townofseverance.org/244/History-of-the-Town-of-Severance", "checked": "2026-11-12" }
+    ]
+  }
+}

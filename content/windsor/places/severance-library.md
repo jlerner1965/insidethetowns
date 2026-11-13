@@ -12,6 +12,9 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 phone: "970-686-5603"
 hours: "Mon–Thu 10 am–6 pm; Fri–Sat 10 am–5 pm; closed Sun"
 tags: [library, kids]
+details:
+  source: "https://clearviewlibrary.org/about-us/learn-more/hours-locations"
+  checked: "2026-11-12"
 summary: "The Clearview Library District's Severance branch on Timber Ridge Parkway, open Monday to Saturday: until 6 pm Monday to Thursday and 5 pm on Fridays and Saturdays."
 ---
 

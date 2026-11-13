@@ -1,0 +1,21 @@
+{
+  "slug": "winter-park",
+  "facts": {
+    "incorporated": { "year": 1978, "source": "https://wpgov.com/live-play-visit/history/", "checked": "2026-11-12" }
+  },
+  "transit": [ { "name": "The Lift", "detail": "Free transit service year-round to and from Winter Park Resort, Downtown Winter Park, Fraser, Granby and Grand Lake", "url": "https://www.theliftwp.com/", "source": "https://www.theliftwp.com/", "checked": "2026-11-12" } ],
+  "lodging": [
+    { "name": "Zephyr Mountain Lodge", "kind": "Condominium", "url": "https://www.winterparkresort.com/plan-your-trip/hotel-lodging/zephyr-mountain-lodge", "source": "https://www.winterparkresort.com/plan-your-trip/lodging", "checked": "2026-11-12" },
+    { "name": "The Vintage Hotel", "kind": "Hotel", "url": "https://www.winterparkresort.com/plan-your-trip/hotel-lodging/vintage-hotel", "source": "https://www.winterparkresort.com/plan-your-trip/lodging", "checked": "2026-11-12" }
+  ],
+  "heritage": {
+    "nameOrigin": { "text": "The village of Hideaway Park was incorporated and renamed Winter Park in 1978, taking the name of the neighboring Winter Park Ski Area at West Portal.", "source": "https://wpgov.com/live-play-visit/history/", "checked": "2026-11-12" },
+    "timeline": [
+      { "year": 1928, "text": "The Moffat Tunnel was built, and the rail route over Rollins Pass was no longer needed.", "source": "https://wpgov.com/live-play-visit/history/", "checked": "2026-11-12" },
+      { "year": 1932, "text": "Doc and Helen Graves bought 10 acres on April 20 in what is now Winter Park.", "source": "https://wpgov.com/live-play-visit/history/", "checked": "2026-11-12" },
+      { "year": 1940, "text": "Winter Park Ski Area opened with its first ski tow and three trails.", "source": "https://www.winterparkresort.com/en/the-mountain/mountain-information/history/historic-trails", "checked": "2026-11-12" },
+      { "year": 1950, "text": "The City and County of Denver transferred operation of the ski area to the Winter Park Recreation Association.", "source": "https://www.winterparkresort.com/en/the-mountain/mountain-information/history/historic-trails", "checked": "2026-11-12" },
+      { "year": 1978, "text": "The village of Hideaway Park was incorporated and renamed Winter Park.", "source": "https://wpgov.com/live-play-visit/history/", "checked": "2026-11-12" }
+    ]
+  }
+}

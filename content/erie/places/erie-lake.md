@@ -9,6 +9,11 @@ imageAlt: "The gravel path along Erie Lake, running between the water and a spli
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [loop, fishing, birds]
+yearRound: true
+details:
+  dogs: "Dogs must be kept on a leash no longer than six feet; no dogs in the water at any time"
+  source: "https://www.erieco.gov/2294/Erie-Lake"
+  checked: "2026-11-12"
 summary: "Walking loop and ADA fishing access around the Town's drinking-water reservoir on the southwest edge of town. No swimming, boats or dogs in the water."
 source: "https://www.erieco.gov/2294/Erie-Lake"
 verified: "2026-11-02"

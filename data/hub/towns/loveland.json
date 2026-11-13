@@ -1,0 +1,45 @@
+{
+  "slug": "loveland",
+  "transit": [
+    {
+      "name": "FLEX",
+      "detail": "Regional bus operated by Transfort with stops between Fort Collins, Loveland, Berthoud, Longmont and Boulder",
+      "url": "https://ridetransfort.com/routes/flex/",
+      "source": "https://ridetransfort.com/routes/flex/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1937,
+        "text": "Harold Dunning founded the museum that became the Loveland Museum.",
+        "source": "https://www.thelovelandmuseum.org/about-us/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1945,
+        "text": "The City of Loveland took over operation of Dunning's pioneer museum.",
+        "source": "https://www.thelovelandmuseum.org/about-us/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Loveland Museum",
+        "kind": "museum",
+        "url": "https://www.thelovelandmuseum.org/",
+        "hours": "Tuesday–Wednesday 11 am–5 pm; Thursday–Friday 11 am–7 pm; Saturday 10 am–4 pm; closed Sunday and Monday",
+        "cost": "$7 Loveland residents; $10 non-residents; free 12 and under",
+        "source": "https://www.thelovelandmuseum.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Benson Sculpture Garden",
+        "kind": "landmark",
+        "source": "https://www.sculptureinthepark.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

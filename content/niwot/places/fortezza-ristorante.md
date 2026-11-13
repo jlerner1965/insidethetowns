@@ -8,6 +8,9 @@ phone: "(303) 834-8281"
 hours: "Wed–Mon 3:30–8:30 pm; closed Tue"
 tags: [italian, steak, wine, dinner]
 featured: true
+details:
+  source: "https://fortezzaristorante.com/"
+  checked: "2026-11-12"
 summary: "Northern Italian steakhouse: house-made pasta, Wagyu steaks and a long wine list. Opened August 2025."
 source: "https://fortezzaristorante.com/"
 verified: "2026-11-10"

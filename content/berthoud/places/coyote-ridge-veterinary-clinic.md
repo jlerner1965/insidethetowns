@@ -7,6 +7,9 @@ url: "https://www.coyoteridgevetclinic.com/locations/berthoud"
 phone: "(970) 663-7387"
 hours: "Mon–Fri 8 am–6 pm, Sat 8 am–2 pm; closed Sun"
 tags: [vet, pets, urgent-care]
+details:
+  source: "https://www.coyoteridgevetclinic.com/locations/berthoud"
+  checked: "2026-11-12"
 summary: "A vet clinic on Grand Market Avenue that takes new clients, keeps same-day appointments open and sees sick and urgent cases; open Saturday mornings."
 source: "https://www.coyoteridgevetclinic.com/locations/berthoud"
 verified: "2026-11-10"

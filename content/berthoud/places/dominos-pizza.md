@@ -7,6 +7,9 @@ url: "https://pizza.dominos.com/colorado/berthoud/1335-grand-market-ave-140"
 phone: "(720) 722-8366"
 hours: "Sun–Thu 10:30 am–11 pm, Fri–Sat 10 am–12 am"
 tags: [pizza, delivery, takeout]
+details:
+  source: "https://pizza.dominos.com/colorado/berthoud/1335-grand-market-ave-140"
+  checked: "2026-11-12"
 summary: "The Domino's on Grand Market Avenue for pizza delivery and carryout, open until 11 pm, and midnight on Friday and Saturday."
 source: "https://pizza.dominos.com/colorado/berthoud/1335-grand-market-ave-140"
 verified: "2026-11-10"

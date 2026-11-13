@@ -8,6 +8,11 @@ phone: "(970) 344-5660"
 hours: "Mon–Sat 6 am–9 pm, Sun 7 am–8 pm"
 priceRange: "$"
 tags: [tacos, mexican, takeout]
+details:
+  reservation: "We recommend making a reservation ahead of time"
+  closedDays: "Closed 4th of July, Thanksgiving, Christmas Eve and Day, New Year's Eve and Day"
+  source: "https://berthoudbennystacos.com/"
+  checked: "2026-11-12"
 summary: "Taqueria on Third Street with street tacos, burritos and tortas, and breakfast every morning."
 source: "https://berthoudbennystacos.com/"
 verified: "2026-11-10"

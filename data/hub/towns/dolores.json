@@ -1,0 +1,43 @@
+{
+  "slug": "dolores",
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1891,
+        "text": "The Rio Grande Southern Railroad reached Dolores.",
+        "source": "https://www.cortezco.gov/318/History-of-City",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1933,
+        "text": "Galloping Goose Motor No. 5 went into service on the Rio Grande Southern on June 8.",
+        "source": "https://gallopinggoose5.org/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1952,
+        "text": "In April the Interstate Commerce Commission gave permission to abandon the entire railroad.",
+        "source": "https://gallopinggoose5.org/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1991,
+        "text": "The Galloping Goose Historical Society built a replica of the original Rio Grande Southern Dolores depot.",
+        "source": "https://gallopinggoose5.org/history",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Galloping Goose Historical Society Museum",
+        "kind": "museum",
+        "url": "https://gallopinggoose5.org/",
+        "hours": "Mon–Sat 10 am–5 pm",
+        "cost": "Free",
+        "season": "May 22 through October 13; in winter open only for special events or by appointment",
+        "source": "https://gallopinggoose5.org/museum",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -4,8 +4,12 @@ type: lodging
 address: "342 Second Avenue"
 area: "Old Town, Second Avenue"
 url: "https://niwotinn.com/"
+phone: "(303) 652-8452"
 tags: [inn, spa]
 featured: true
+details:
+  source: "https://niwotinn.com/contact"
+  checked: "2026-11-12"
 summary: "Thirteen rooms and an on-site spa in the middle of Old Town, the only place to stay on Second Avenue."
 source: "https://niwotinn.com/"
 verified: "2026-10-02"

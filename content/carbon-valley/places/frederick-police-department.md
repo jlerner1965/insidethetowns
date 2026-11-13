@@ -11,6 +11,9 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-382-5700"
 hours: "Lobby Mon–Fri 8 am–5 pm"
 tags: [police, non-emergency, pet-licenses, records]
+details:
+  source: "https://www.frederickco.gov/360/Police"
+  checked: "2026-11-12"
 summary: "The Town’s police station on Fifth Street: 720-382-5700 for the department, 720-652-4222 for non-emergencies and 911 for emergencies. The lobby, open weekdays 8 to 5, is where pet licenses, Santa Cops tags and the prescription drop box live."
 ---
 

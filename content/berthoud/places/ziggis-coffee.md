@@ -8,6 +8,9 @@ phone: "(303) 802-4663"
 hours: "Daily 6 am–6 pm"
 priceRange: "$"
 tags: [coffee, drive-through, early]
+details:
+  source: "https://ziggiscoffee.com/locations/1011-mountain-avenue-berthoud-co/"
+  checked: "2026-11-12"
 summary: "Drive-through Ziggi's at the west end of Mountain Avenue, on the way out to US 287."
 source: "https://ziggiscoffee.com/locations/1011-mountain-avenue-berthoud-co/"
 verified: "2026-11-10"

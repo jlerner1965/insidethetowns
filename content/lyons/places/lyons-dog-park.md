@@ -6,6 +6,11 @@ area: "South end of Bohn Park"
 url: "https://www.townoflyons.com/640/Dog-Park"
 hours: "Open daily, dawn to dusk"
 tags: [dog-park, dogs, off-leash]
+details:
+  dogs: "The only designated off-leash area in Lyons; dogs must be leashed through the first gate when entering and before passing the gate when exiting"
+  fees: "Free"
+  source: "https://www.townoflyons.com/640/Dog-Park"
+  checked: "2026-11-12"
 summary: "The Town's fenced ten-acre dog park at the south end of Bohn Park: free, dawn to dusk, and the only place in Lyons a dog may be off the leash."
 source: "https://www.townoflyons.com/640/Dog-Park"
 verified: "2026-11-10"

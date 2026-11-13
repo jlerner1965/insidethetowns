@@ -4,7 +4,7 @@ name: "Rooftop Rodeo"
 town:
   name: Estes Park
   guide: estes-park
-type: festival
+type: rodeo-fair
 organizer: "Rooftop Rodeo (Town of Estes Park)"
 sourceUrl: "https://eventsinestes.com/rooftop-rodeo/"
 years:

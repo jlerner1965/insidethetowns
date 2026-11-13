@@ -4,9 +4,16 @@ name: "Kebler Pass opens for the season"
 town:
   name: Crested Butte
   guide: crested-butte
+towns:
+  - slug: gunnison
+  - slug: paonia
 type: outdoor
 organizer: "Gunnison County Public Works"
 sourceUrl: "https://www.gunnisoncounty.org/AlertCenter.aspx?AID=Kebler-Pass-OPENING-408"
+outdoor:
+  kind: road
+  facility: "Kebler Pass"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

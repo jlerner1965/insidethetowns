@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 added: "2026-10-01"
 hours: "Mon–Thu 10–6, Fri–Sat 10 am–8 pm, Sun 11–5"
 tags: [cookies, candy, soda, gifts, kids]
+details:
+  source: "https://www.missykays.com/"
+  checked: "2026-11-12"
 summary: "The candy and cookie shop behind the pink door at Main and 5th: cookies baked on site, more than 60 bottled sodas, classic and obscure candy, popsicles, toys and fudge from Eaton."
 ---
 

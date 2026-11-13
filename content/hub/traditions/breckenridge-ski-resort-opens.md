@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Breckenridge Ski Resort (Vail Resorts)"
 sourceUrl: "https://news.vailresorts.com/BreckOpeningDay2026"
+outdoor:
+  kind: ski-area
+  facility: "Breckenridge Ski Resort"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

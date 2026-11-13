@@ -6,6 +6,9 @@ area: "Berthoud Parkway, north side"
 url: "https://berthoud.org/facilities/facility/details/Berthoud-Reservoir-Park-Open-Space-17"
 tags: [loop, easy, fishing, paddle]
 featured: true
+details:
+  source: "https://berthoud.org/facilities/facility/details/Berthoud-Reservoir-Park-Open-Space-17"
+  checked: "2026-11-12"
 summary: "Walking trail at Berthoud Reservoir, opened to the public in 2020, with fishing on the west side, paddle-craft access, parking and a restroom. Dogs on leash."
 source: "https://berthoud.org/facilities/facility/details/Berthoud-Reservoir-Park-Open-Space-17"
 verified: "2026-11-08"

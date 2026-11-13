@@ -9,6 +9,9 @@ imageAlt: "The outdoor pickleball courts at Columbine Mine Park, blue courts on 
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [pickleball, ballfield, no playground]
+details:
+  source: "https://www.erieco.gov/2311/Columbine-Mine-Park"
+  checked: "2026-11-12"
 summary: "A 9.2-acre park on Skyline Drive with four outdoor pickleball courts for drop-in play or reservations, a ballfield, a multi-purpose field and a shelter. No playground."
 source: "https://www.erieco.gov/2311/Columbine-Mine-Park"
 verified: "2026-11-09"

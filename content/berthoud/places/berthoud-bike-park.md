@@ -6,6 +6,9 @@ area: "Meadowlark Drive, north side"
 url: "https://www.berthoud.org/1465/Berthoud-Bike-Park"
 tags: [pump track, jump lines, kids bike playground, mountain bike]
 featured: true
+details:
+  source: "https://www.berthoud.org/1465/Berthoud-Bike-Park"
+  checked: "2026-11-12"
 summary: "20-acre Town bike park with two jump and flow lines, a dual-slalom track, a mile of cross-country trail, a kids' bicycle playground and a 20,000 sq ft pump track. Closed when wet, icy or muddy."
 source: "https://www.berthoud.org/1465/Berthoud-Bike-Park"
 verified: "2026-11-08"

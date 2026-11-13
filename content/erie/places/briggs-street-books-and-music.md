@@ -6,6 +6,9 @@ area: "Historic downtown, Briggs Street"
 url: "https://briggsstreetbooks.com/"
 phone: "(303) 578-9528"
 tags: [books, records, gifts]
+details:
+  source: "https://briggsstreetbooks.com/pages/contact"
+  checked: "2026-11-12"
 summary: "Independent bookshop and record store in the 615 Briggs building: books, vinyl and gifts."
 source: "https://briggsstreetbooks.com/pages/contact"
 verified: "2026-11-09"

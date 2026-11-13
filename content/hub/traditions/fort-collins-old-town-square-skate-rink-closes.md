@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Downtown Fort Collins"
 sourceUrl: "https://downtownfortcollins.org/wp-content/uploads/2026/10/OTS-Skate-Rink-2026-27-Hours-Nov-Dec-Jan.pdf"
+outdoor:
+  kind: other
+  facility: "Old Town Square skate rink"
+  edge: closes
 years:
   - year: 2027
     status: confirmed

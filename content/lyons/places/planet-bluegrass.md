@@ -10,6 +10,9 @@ imageAlt: "A red sandstone cliff rising straight out of the St. Vrain at the Pla
 imageCredit: "Tobyotter, Flickr, CC BY 2.0"
 tags: [festivals, bluegrass, concerts]
 featured: true
+details:
+  source: "https://bluegrass.com/planet/get-in-touch/contact-us"
+  checked: "2026-11-12"
 summary: "The riverside ranch that hosts RockyGrass and the Rocky Mountain Folks Festival, plus the Wildflower Pavilion concerts in spring and fall."
 source: "https://bluegrass.com/planet/get-in-touch/contact-us"
 verified: "2026-11-09"

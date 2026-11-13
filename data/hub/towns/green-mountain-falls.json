@@ -1,0 +1,29 @@
+{
+  "slug": "green-mountain-falls",
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1890,
+        "text": "The Victorian gazebo on the lake, the town's focal point, dates from 1890.",
+        "source": "https://greenmountainfalls.colorado.gov/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2009,
+        "text": "The Green Box Arts Festival was held for the first time.",
+        "source": "https://greenboxarts.org/arts-festival/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Green Mountain Falls Skyspace",
+        "kind": "landmark",
+        "url": "https://greenboxarts.org/skyspace/",
+        "hours": "Thursday–Sunday from 8 AM till dusk",
+        "source": "https://greenboxarts.org/skyspace/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -9,6 +9,9 @@ imageAlt: "Clayton Park's playground tower, with a green tube slide spiralling d
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [playground, ballfields, pickleball, tennis]
+details:
+  source: "https://www.erieco.gov/2273/Clayton-Park"
+  checked: "2026-11-12"
 summary: "An 8.7-acre park on Highlands Circle with a big playground (a hill slide and a zipline), two ballfields, a pickleball and tennis court, a shelter and walking trails."
 source: "https://www.erieco.gov/2273/Clayton-Park"
 verified: "2026-11-09"

@@ -8,9 +8,14 @@ towns:
   - slug: berthoud
   - slug: loveland
   - slug: longmont
+  - slug: granby
 type: outdoor
 organizer: "National Park Service, Rocky Mountain National Park"
 sourceUrl: "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm"
+outdoor:
+  kind: timed-entry
+  facility: "Rocky Mountain National Park timed entry"
+  edge: window
 years:
   - year: 2027
     status: not-announced

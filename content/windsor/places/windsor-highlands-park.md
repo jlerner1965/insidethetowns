@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 added: "2026-10-01"
 phone: "970-674-3500"
 tags: [playground, sand-volleyball, basketball, shelters, trails]
+details:
+  source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Windsor-Highlands-Park-21"
+  checked: "2026-11-12"
 summary: "A Town park on Highland Meadows Parkway: playgrounds including a dragon play feature, a sand volleyball court, basketball, a ball-field backstop, two shelters (one a gazebo), and trails through a nature area."
 ---
 

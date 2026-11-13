@@ -829,7 +829,7 @@ export function traditionEventJsonLd(
 ) {
   // An outdoor date (a road opening, a licence window) is not an event to
   // attend, and a record with no town has no place to give one.
-  if (entry.status !== 'confirmed' || !entry.date || !record.town || record.type === 'outdoor') return undefined;
+  if (entry.status !== 'confirmed' || !entry.date || !record.town || record.type === 'outdoor' || record.type === 'free-day') return undefined;
   const span = !!entry.endDate && entry.endDate !== entry.date;
   const time = span ? undefined : certainTime(entry.startTime);
   const description = [

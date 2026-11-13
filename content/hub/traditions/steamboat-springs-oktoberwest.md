@@ -4,7 +4,7 @@ name: "Steamboat OktoberWest"
 town:
   name: Steamboat Springs
   guide: steamboat-springs
-type: festival
+type: oktoberfest
 organizer: "Steamboat Springs Chamber"
 sourceUrl: "https://www.steamboatchamber.com/events/annual-events/steamboat-oktoberwest/"
 years:

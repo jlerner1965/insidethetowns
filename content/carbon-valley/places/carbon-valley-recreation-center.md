@@ -12,6 +12,9 @@ phone: "303-833-3660"
 hours: "Mon–Fri 5:30 am–9 pm; Sat 7:30 am–5 pm; Sun 10 am–5 pm"
 tags: [rec-center, pool, gym, indoor-track, fitness]
 featured: true
+details:
+  source: "https://www.cvprd.com/carbon-valley-recreation-center"
+  checked: "2026-11-12"
 summary: "The three towns’ recreation center, run by the Carbon Valley Parks and Recreation District: a lap pool with diving board and climbing wall, an activity pool, a gym, an elevated indoor track and fitness rooms."
 ---
 

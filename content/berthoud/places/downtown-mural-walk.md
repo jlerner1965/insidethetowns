@@ -5,6 +5,9 @@ address: "Mountain Ave, 2nd St to 8th St"
 area: "Downtown"
 url: "https://berthoudmainstreet.org/berthoud-mural-public-art-tour/"
 tags: [walk, art, free]
+details:
+  source: "https://berthoudmainstreet.org/berthoud-mural-public-art-tour/"
+  checked: "2026-11-12"
 summary: "Self-guided walk along Mountain Avenue and its side streets past large murals, rotating sculptures, the Bimson leaf sidewalks and lamp posts and, from Memorial Day to Veterans Day, the Hometown Heroes banners."
 source: "https://berthoudmainstreet.org/berthoud-mural-public-art-tour/"
 verified: "2026-11-08"

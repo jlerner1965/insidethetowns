@@ -8,6 +8,9 @@ hours: "Open daily, dawn to dusk"
 image: ../images/depot.jpg
 imageAlt: "The small red sandstone 1885 Lyons railroad depot with a bench by its door"
 tags: [visitor-center, concerts, depot]
+details:
+  source: "https://www.lyonscolorado.com/348/Parks-Facilities"
+  checked: "2026-11-12"
 summary: "The downtown green with the visitor center, the summer concert stage and the 1885 Depot beside it."
 source: "https://www.lyonscolorado.com/348/Parks-Facilities"
 verified: "2026-10-03"

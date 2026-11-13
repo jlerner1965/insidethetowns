@@ -9,6 +9,10 @@ image: ../images/front-range-sunset-trail.jpg
 imageAlt: "A gravel trail at the edge of the grassland east of Niwot, looking west toward the foothills at sunset"
 tags: [walking, cycling, regional]
 featured: true
+details:
+  bikes: "E-bikes are allowed except on a short signed area near Twin Lakes open space"
+  source: "https://bouldercounty.gov/open-space/parks-and-trails/lobo-trail/"
+  checked: "2026-11-12"
 summary: "The twelve-mile Longmont-to-Boulder regional trail, through Gunbarrel and Niwot."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/lobo-trail/"
 verified: "2026-11-10"

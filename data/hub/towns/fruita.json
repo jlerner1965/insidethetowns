@@ -1,0 +1,51 @@
+{
+  "slug": "fruita",
+  "transit": [
+    {
+      "name": "Grand Valley Transit",
+      "detail": "Mesa County's public bus system, with routes in Grand Junction, Palisade and Fruita",
+      "url": "https://www.mesacounty.us/gvt",
+      "source": "https://www.mesacounty.us/gvt",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Balanced Rock Inn",
+      "kind": "Hotel",
+      "url": "https://www.balancedrockinn.com/",
+      "source": "https://www.balancedrockinn.com/about",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "James M. Robb Colorado River State Park, Fruita campground",
+      "kind": "Campground",
+      "url": "https://cpw.state.co.us/state-parks/james-m-robb-colorado-river-state-park/james-m-robb-colorado-river-state-park-camping",
+      "season": "Year-round",
+      "source": "https://cpw.state.co.us/state-parks/james-m-robb-colorado-river-state-park/james-m-robb-colorado-river-state-park-camping",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1884,
+      "text": "Established by William E. Pabor, who formed the Fruita Town and Land Company to sell town lots",
+      "source": "https://gofruita.com/fruita-history/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1882,
+        "text": "The first permanent homesteaders settle in the Fruita area late in the year.",
+        "source": "https://gofruita.com/fruita-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1884,
+        "text": "William E. Pabor establishes the town and forms the Fruita Town and Land Company. The town site was planned at 80 acres with a park in the middle.",
+        "source": "https://gofruita.com/fruita-history/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

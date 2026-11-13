@@ -8,6 +8,9 @@ phone: "(970) 344-5022"
 hours: "Mon–Fri 6 am–9 pm, Sat 7–9, Sun 7–8:30"
 priceRange: "$$"
 tags: [mexican, breakfast, cantina]
+details:
+  source: "https://berthoud.cocinaandcantina.com/"
+  checked: "2026-11-12"
 summary: "Breakfast, lunch and dinner with a Mexican slant on the main block; the downtown Saturday-breakfast spot."
 source: "https://berthoud.cocinaandcantina.com/"
 verified: "2026-11-10"

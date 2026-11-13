@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 added: "2026-10-01"
 phone: "970-686-7189"
 tags: [chamber, business-directory, visitor-information, events]
+details:
+  source: "https://www.windsorchamber.net/"
+  checked: "2026-11-12"
 summary: "The chamber's storefront office on Main Street, and the keeper of the member business directory, map and events calendar that are the best local index of who is open in Windsor."
 ---
 

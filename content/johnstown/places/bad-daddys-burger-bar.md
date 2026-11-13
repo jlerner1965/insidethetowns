@@ -8,6 +8,9 @@ phone: "(970) 667-4978"
 hours: "Sun–Thu 11–10, Fri–Sat 11–11"
 priceRange: "$$"
 tags: [burgers, beer]
+details:
+  source: "https://www.baddaddysburgerbar.com/find-us"
+  checked: "2026-11-12"
 summary: "Creative burgers, gluten-free buns and a long tap list at Johnstown Plaza."
 source: "https://www.baddaddysburgerbar.com/find-us"
 verified: "2026-11-02"

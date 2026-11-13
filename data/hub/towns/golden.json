@@ -1,0 +1,120 @@
+{
+  "slug": "golden",
+  "transit": [
+    {
+      "name": "Ore Cart",
+      "detail": "Free shuttle on three routes, run by Colorado School of Mines and the City of Golden",
+      "url": "https://orecart.mines.edu/",
+      "source": "https://orecart.mines.edu/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Golden FlexRide",
+      "detail": "RTD on-demand service covering most of Golden; Monday–Friday 5:30 am–7 pm, Saturday 8 am–7 pm",
+      "url": "https://www.rtd-denver.com/routes-services/other-services/flexride/flexride-service-areas/golden",
+      "source": "https://www.rtd-denver.com/routes-services/other-services/flexride/flexride-service-areas/golden",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Table Mountain Inn",
+      "kind": "Hotel",
+      "url": "https://www.tablemountaininn.com/",
+      "source": "https://www.tablemountaininn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Golden Hotel",
+      "kind": "Hotel",
+      "url": "https://www.thegoldenhotel.com/",
+      "source": "https://www.thegoldenhotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Origin Hotel Red Rocks",
+      "kind": "Hotel",
+      "url": "https://www.originhotel.com/hotels/red-rocks",
+      "source": "https://www.originhotel.com/hotels/red-rocks",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Clear Creek RV Park",
+      "kind": "RV park",
+      "url": "https://www.cityofgolden.gov/community/recreation/clear_creek_rv_park/index.php",
+      "season": "Year-round",
+      "source": "https://www.cityofgolden.gov/community/recreation/clear_creek_rv_park/index.php",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Named after Thomas L. Golden, a gold prospector who arrived in Jefferson County in 1858.",
+      "source": "https://www.cityofgolden.gov/community/art_culture_history/index.php",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1859,
+      "text": "Founded as a mining supply town during Colorado's gold rush",
+      "source": "https://www.cityofgolden.gov/community/art_culture_history/index.php",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1858,
+        "text": "Gold prospector Thomas L. Golden arrived in Jefferson County.",
+        "source": "https://www.cityofgolden.gov/community/art_culture_history/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1862,
+        "text": "Golden City became the capital of the Colorado Territory.",
+        "source": "https://www.cityofgolden.gov/community/art_culture_history/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1867,
+        "text": "The territorial legislature convened in Golden until 1867.",
+        "source": "https://www.cityofgolden.gov/community/art_culture_history/index.php",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Golden History Museum",
+        "kind": "museum",
+        "url": "https://www.goldenhistory.org/visit/history-museum/",
+        "hours": "Tuesday–Saturday 10 am–4:30 pm",
+        "cost": "Free",
+        "source": "https://www.goldenhistory.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Golden History Park",
+        "kind": "landmark",
+        "url": "https://www.goldenhistory.org/visit/history-park/",
+        "hours": "Grounds open daily 5 am–11 pm; buildings open periodically",
+        "cost": "Free",
+        "source": "https://www.goldenhistory.org/visit/history-park/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Colorado Railroad Museum",
+        "kind": "museum",
+        "url": "https://coloradorailroadmuseum.org/",
+        "hours": "Tuesday–Sunday 9 am–5 pm; closed Mondays",
+        "cost": "$12 adults; $10 seniors 60+; $5 ages 2–17",
+        "source": "https://coloradorailroadmuseum.org/plan-your-visit/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Buffalo Bill Museum and Grave",
+        "kind": "museum",
+        "url": "https://buffalobill.org/",
+        "hours": "May 1–October 31: daily 9 am–5 pm. November 1–April 30: Tuesday–Sunday 10 am–5 pm",
+        "source": "https://buffalobill.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

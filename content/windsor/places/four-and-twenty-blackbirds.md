@@ -12,6 +12,9 @@ added: "2026-10-01"
 phone: "970-460-0010"
 hours: "Mon–Sat 10–6"
 tags: [gifts, jewelry, home-decor, handmade]
+details:
+  source: "https://www.blackbirdsco.com/"
+  checked: "2026-11-12"
 summary: "Gift shop on the 500 block of Main Street: jewelry, accessories, home decor, bath and body, and handmade pieces, open Monday to Saturday."
 ---
 

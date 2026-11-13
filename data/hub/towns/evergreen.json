@@ -1,0 +1,20 @@
+{
+  "slug": "evergreen",
+  "lodging": [
+    { "name": "Highland Haven Creekside Inn", "kind": "Inn", "url": "https://highlandhaven.com/", "source": "https://highlandhaven.com/", "checked": "2026-11-12" },
+    { "name": "Alpen Way Chalet Mountain Lodge", "kind": "Lodge", "url": "https://www.alpenwaychalet.com/", "source": "https://www.alpenwaychalet.com/", "checked": "2026-11-12" },
+    { "name": "Colorado Bear Creek Cabins", "kind": "Cabins", "url": "https://www.coloradobearcreekcabins.com/", "source": "https://www.coloradobearcreekcabins.com/", "checked": "2026-11-12" }
+  ],
+  "heritage": {
+    "timeline": [
+      { "year": 1893, "text": "Dr. Mary Josepha Williams Douglas and her mother bought land in Evergreen for a summer retreat they named Camp Neosho.", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" },
+      { "year": 1939, "text": "Darst and Ruth Buchanan renamed the property Hiwan Ranch and went on to expand it to more than 15,000 acres.", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" },
+      { "year": 1973, "text": "The Evergreen Mountain Area Historical Society was founded.", "source": "https://emahs.org/history/", "checked": "2026-11-12" },
+      { "year": 1974, "text": "Jefferson County Parks & Open Space bought the Hiwan property after residents and the Jefferson County Historical Society rallied to save its buildings.", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" },
+      { "year": 1975, "text": "Hiwan Heritage Park & Museum opened.", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" }
+    ],
+    "sites": [
+      { "name": "Hiwan Heritage Park & Museum", "kind": "museum", "url": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "hours": "Museum Thursday to Sunday, noon to 4:30 pm; closed Monday to Wednesday. The park is open daily.", "cost": "Free guided tours", "source": "https://www.jeffco.us/1251/Hiwan-Heritage-Park", "checked": "2026-11-12" }
+    ]
+  }
+}

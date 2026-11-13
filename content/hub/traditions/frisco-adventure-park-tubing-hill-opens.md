@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Town of Frisco"
 sourceUrl: "https://www.townoffrisco.com/things-to-do/frisco-adventure-park/"
+outdoor:
+  kind: other
+  facility: "Frisco Adventure Park tubing hill"
+  edge: opens
 years:
   - year: 2026
     status: confirmed

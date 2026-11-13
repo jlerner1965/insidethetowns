@@ -10,6 +10,9 @@ image: ../images/town-hall.jpg
 imageAlt: "Johnstown Town Hall, a brick civic building with a curved glass entrance, at 450 South Parish Avenue"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 tags: [government, meetings]
+details:
+  source: "https://johnstownco.gov/"
+  checked: "2026-11-12"
 summary: "The Town's offices and Council Chambers at the south end of Parish Avenue; fishing permits, utility billing and the first-and-third-Monday Council meetings."
 source: "https://johnstownco.gov/"
 verified: "2026-11-03"

@@ -10,6 +10,10 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-382-5805"
 hours: "By appointment only, sunrise to sunset"
 tags: [wetland, birding, open-space, trails]
+details:
+  reservation: "Open by appointment only, from sunrise to sunset"
+  source: "https://www.frederickco.gov/Facilities/Facility/Details/6"
+  checked: "2026-11-12"
 summary: "A wetland plant and bird sanctuary two miles west of I-25 on Colorado 52, created as a mitigation bank and managed by the Town since 2007; trails, signs and a pavilion, open by appointment from sunrise to sunset."
 ---
 

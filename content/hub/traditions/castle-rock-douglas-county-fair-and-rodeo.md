@@ -4,7 +4,7 @@ name: "Douglas County Fair & Rodeo"
 town:
   name: Castle Rock
   guide: castle-rock
-type: festival
+type: rodeo-fair
 organizer: "Douglas County Fair & Rodeo"
 sourceUrl: "https://www.douglascountyfairandrodeo.com/"
 years:

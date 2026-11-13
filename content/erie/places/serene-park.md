@@ -9,6 +9,9 @@ imageAlt: "The wooden treehouse playground at Serene Park, swings behind it and 
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [fitness, playground, views]
+details:
+  source: "https://erieco.gov/2318/Serene-Park"
+  checked: "2026-11-12"
 summary: "Outdoor fitness park on Colliers Boulevard with a wooden treehouse playground, a picnic shelter and a multi-purpose field."
 source: "https://erieco.gov/2318/Serene-Park"
 verified: "2026-11-02"

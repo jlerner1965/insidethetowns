@@ -1,0 +1,65 @@
+{
+  "slug": "central-city",
+  "heritage": {
+    "nameOrigin": {
+      "text": "William Newton Byers, founder of the Rocky Mountain News, reportedly named the town for its central location in the mining district.",
+      "source": "https://www.gilpinhistory.org/central-city",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1859,
+      "text": "John Gregory discovered lode gold on May 6, 1859, in a gulch between what became Black Hawk and Central City.",
+      "source": "https://www.gilpinhistory.org/central-city",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1872,
+        "text": "The Teller House hotel was built.",
+        "source": "https://www.gilpinhistory.org/central-city",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1874,
+        "text": "Fire destroyed all but one of the buildings on Main Street.",
+        "source": "https://www.gilpinhistory.org/central-city",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1878,
+        "text": "The Opera House held its grand opening.",
+        "source": "https://www.gilpinhistory.org/central-city",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1961,
+        "text": "The Central City-Black Hawk Historic District was designated a National Historic Landmark on July 4.",
+        "source": "https://www.historycolorado.org/location/central-city-black-hawk-historic-district",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1991,
+        "text": "Limited stakes gaming began.",
+        "source": "https://www.gilpinhistory.org/central-city",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Central City Opera House",
+        "kind": "landmark",
+        "url": "https://centralcityopera.org/",
+        "source": "https://centralcityopera.org/2027-season-announcement/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Gilpin History Museum",
+        "kind": "museum",
+        "url": "https://www.gilpinhistory.org/",
+        "season": "Closed for the winter; access by appointment or through the Tour Office",
+        "source": "https://www.gilpinhistory.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

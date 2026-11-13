@@ -10,6 +10,9 @@ imageCredit: "Erie Historical Society"
 phone: "(303) 828-4568"
 hours: "Sat 10 am–2 pm, May–Sep; by appointment"
 tags: [museum, history]
+details:
+  source: "https://www.eriehistoricalsociety.org/erie-wise-homestead-museum/"
+  checked: "2026-11-12"
 summary: "The Erie Historical Society's 1870 farmhouse museum on Jasper Road, one of the oldest frame houses in Boulder County; Saturdays 10–2, May to September, or by appointment."
 source: "https://www.eriehistoricalsociety.org/erie-wise-homestead-museum/"
 verified: "2026-11-02"

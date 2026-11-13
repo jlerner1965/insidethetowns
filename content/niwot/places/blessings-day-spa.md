@@ -7,6 +7,9 @@ url: "https://www.niwotblessings.com/"
 phone: "(303) 652-0321"
 hours: "By appointment only"
 tags: [spa, facials, massage]
+details:
+  source: "https://www.niwotblessings.com/"
+  checked: "2026-11-12"
 summary: "A small day spa on Second Avenue for facials, massage, and lash and brow work, by appointment only: call (303) 652-0321, text (720) 340-0358 or book on its site."
 source: "https://www.niwotblessings.com/"
 verified: "2026-11-10"

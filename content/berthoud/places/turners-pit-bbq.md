@@ -8,6 +8,9 @@ phone: "(970) 532-3333"
 hours: "Sun–Wed 11 am–9:30 pm, Thu–Sat 11 am–12 am"
 priceRange: "$$"
 tags: [barbecue, takeout, catering]
+details:
+  source: "https://turnerspitbbq.com/"
+  checked: "2026-11-12"
 summary: "Slow-smoked barbecue on Welch Avenue across from the library: brisket, pulled pork and smoked sausage by the pound, ribs by the slab, plus brisket burgers and sandwiches."
 source: "https://turnerspitbbq.com/"
 verified: "2026-11-02"

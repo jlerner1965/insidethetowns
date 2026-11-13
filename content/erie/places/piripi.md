@@ -9,6 +9,9 @@ hours: "Mon–Thu 11–8, Fri–Sat 11–9, Sun 4–8"
 priceRange: "$$$"
 tags: [tapas, spanish, gluten free]
 featured: true
+details:
+  source: "https://www.piripirestaurant.com/"
+  checked: "2026-11-12"
 summary: "Latin and Mediterranean tapas in a shareable format on Briggs Street, with a monthly paella day and a menu that is almost entirely gluten-free."
 source: "https://www.piripirestaurant.com/"
 verified: "2026-11-02"

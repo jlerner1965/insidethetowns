@@ -14,6 +14,9 @@ image: ../images/main-park.jpg
 imageAlt: "Main Park in Windsor in autumn, big cottonwoods and maples turning over the lawn and the playground beyond"
 imageCredit: "Ssullivan1564, Wikimedia Commons, CC BY-SA 4.0"
 tags: [playground, pickleball, basketball, shelters, picnic]
+details:
+  source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Main-Park-14"
+  checked: "2026-11-12"
 summary: "The park under big trees just south of Town Hall: playground, pickleball and basketball courts, picnic shelters, restrooms, and cornhole, foosball and ping pong for the picnic crowd."
 ---
 

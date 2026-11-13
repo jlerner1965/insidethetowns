@@ -4,7 +4,7 @@ name: "Larimer County Fair & PRCA Rodeo"
 town:
   name: Loveland
   guide: loveland
-type: festival
+type: rodeo-fair
 organizer: "The Ranch Events Complex"
 sourceUrl: "https://www.treventscomplex.com/venues-events-at-the-ranch/larimer-county-fair"
 years:

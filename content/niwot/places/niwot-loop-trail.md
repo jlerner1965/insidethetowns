@@ -9,6 +9,10 @@ imageAlt: "The gravel path leading away from the Niwot trailhead, flat and open 
 imageCredit: "Boulder County Parks & Open Space"
 hours: "Open daily, sunrise to sunset"
 tags: [walking, running, dogs, easy]
+details:
+  bikes: "Bikes on designated trails only"
+  source: "https://bouldercounty.gov/open-space/parks-and-trails/niwot-trails/"
+  checked: "2026-11-12"
 summary: "The flat Boulder County loop around the edge of town, from the trailhead on 79th Street, joined to the LoBo Trail."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/niwot-trails/"
 verified: "2026-11-10"

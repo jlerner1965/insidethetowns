@@ -187,6 +187,29 @@ const seoTitle = placeTitle(data.title, PLACE_TYPE_LABELS[data.type], placeTown,
   dayPassPrices: !!rec?.prices,
   amenities: data.tags,
 });
+/**
+ * The place's details (schema `details`, the additions of 12 November
+ * 2026): the rules of the door, a tour or a tasting, a market's day, hours
+ * and season. Each line is shown only when it is filled; the block's own
+ * source and check date are printed under the facts.
+ */
+const d = data.details;
+const offer = (o?: { offered: string; cost?: string; reservation?: string }) => (o ? [o.offered, o.cost && `Cost: ${o.cost}`, o.reservation && `Reservation: ${o.reservation}`].filter(Boolean).join(' · ') : undefined);
+const marketSeason = d?.market?.seasonStart && d.market.seasonEnd ? `${formatDate(d.market.seasonStart)} to ${formatDate(d.market.seasonEnd)}` : d?.market?.seasonStart ? `from ${formatDate(d.market.seasonStart)}` : d?.market?.seasonEnd ? `until ${formatDate(d.market.seasonEnd)}` : undefined;
+const detailFacts: Array<{ label: string; value: string | undefined; href?: string; lines?: string[]; hours?: string }> = d
+  ? [
+      { label: 'Market', value: d.market ? [d.market.day, d.market.hours, marketSeason].filter(Boolean).join(' · ') : undefined },
+      { label: 'Reservations', value: d.reservation },
+      { label: 'Payment', value: d.cashOnly ? 'Cash only' : undefined },
+      { label: 'Closed', value: d.closedDays },
+      { label: 'Fees', value: d.fees },
+      { label: 'Dogs', value: d.dogs },
+      { label: 'Bikes', value: d.bikes },
+      { label: 'Tours', value: offer(d.tours) },
+      { label: 'Tastings', value: offer(d.tastings) },
+    ]
+  : [];
+const detailsShown = detailFacts.some((f) => f.value);
 // The menu beside the hours, and the Town's live schedule on the rec center: the one link a reader came for.
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
@@ -194,7 +217,8 @@ const facts = [
   { label: 'Hours', value: hoursValue, lines: hoursShown && hoursValue ? hoursLines(hoursWithMeridiem(hoursValue)) : undefined, hours },
   { label: 'Menu', value: data.menuUrl ? 'See the menu' : undefined, href: data.menuUrl },
   { label: 'Schedule', value: rec ? 'Pool, gym and holiday hours, from the Town' : undefined, href: rec?.scheduleUrl },
-  { label: 'Season', value: seasonValue },
+  { label: 'Season', value: seasonValue ?? (data.yearRound ? 'Open year-round' : undefined) },
+  ...detailFacts,
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
   { label: 'Trail map', value: data.mapUrl ? 'PDF, from the land manager' : undefined, href: data.mapUrl },
@@ -321,6 +345,11 @@ const description = placeDescription(
             </Fragment>
           ))}
         </dl>
+        {d && detailsShown && (
+          <p class="mt-3 text-sm text-ink-muted" data-details-checked>
+            Reservations, fees, rules and tours checked {formatDate(d.checked)} against <a href={d.source} rel="noopener" class="underline">{new URL(d.source).hostname.replace(/^www\./, '')}</a>.
+          </p>
+        )}
         <OpenStatus />
         {beforeYouGo && (
           <section class="mt-6 border-t border-line-soft pt-6" aria-labelledby="before-you-go">

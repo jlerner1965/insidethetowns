@@ -4,8 +4,12 @@ type: park
 address: "Rolling Hills Ranch Dr"
 area: "Rolling Hills Ranch"
 url: "https://johnstownco.gov/616/Rolling-Hills-Ranch-Park"
+phone: "(970) 587-4664"
 hours: "Daily 5 am–10 pm"
 tags: [playground, shelters]
+details:
+  source: "https://johnstownco.gov/616/Rolling-Hills-Ranch-Park"
+  checked: "2026-11-12"
 summary: "Neighborhood park in Rolling Hills Ranch with a playground, benches and two reservable shelters."
 source: "https://www.johnstownco.gov/616/Rolling-Hills-Ranch-Park"
 verified: "2026-11-02"

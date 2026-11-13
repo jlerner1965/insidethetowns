@@ -1,0 +1,106 @@
+{
+  "slug": "durango",
+  "transit": [
+    {
+      "name": "Durango Transit",
+      "detail": "City-run fixed-route trolleys and minibuses, plus microtransit and paratransit",
+      "url": "https://www.durangoco.gov/642/Public-Transit",
+      "source": "https://www.durangoco.gov/642/Public-Transit",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Strater Hotel",
+      "kind": "Hotel",
+      "url": "https://strater.com/",
+      "source": "https://strater.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "General Palmer Hotel",
+      "kind": "Hotel",
+      "url": "https://generalpalmerhotel.com/",
+      "source": "https://generalpalmerhotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Rochester Hotel",
+      "kind": "Hotel",
+      "url": "https://rochesterhotel.com/",
+      "source": "https://rochesterhotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Leland House",
+      "kind": "Inn",
+      "url": "https://www.lelandhouse.com/",
+      "source": "https://www.lelandhouse.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Durango was named after Durango, Mexico; the word comes from the Basque \"Urango\", meaning \"water town\" or \"well watered place\".",
+      "source": "https://www.durangoco.gov/274/History",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1880,
+      "text": "Formed by the Denver and Rio Grande Railroad Company in September 1880 to serve the San Juan mining district.",
+      "source": "https://www.durangoco.gov/274/History",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1881,
+        "text": "The railroad arrived in Durango on August 5, 1881.",
+        "source": "https://durangotrain.com/history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1882,
+        "text": "The tracks to Silverton were completed by July and trains began hauling passengers and freight.",
+        "source": "https://durangotrain.com/history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1889,
+        "text": "A fire virtually destroyed downtown.",
+        "source": "https://durangotrain.com/history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1912,
+        "text": "Voters approved a home rule charter on September 3, making Durango the fourth home rule city in Colorado.",
+        "source": "https://www.durangoco.gov/274/History",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1956,
+        "text": "Fort Lewis College relocated to Durango.",
+        "source": "https://www.durangoco.gov/274/History",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Animas Museum",
+        "kind": "museum",
+        "url": "https://www.animasmuseum.org/",
+        "hours": "Tue, Thu, Sat 10 am–4 pm; Wed, Fri 1–4 pm",
+        "source": "https://www.animasmuseum.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "D&SNGRR Museum",
+        "kind": "museum",
+        "url": "https://durangotrain.com/dsng-museum/",
+        "hours": "10:00–4:00 every day the train runs and Wednesday–Sunday otherwise; closed Thanksgiving and Christmas Day",
+        "cost": "Free",
+        "source": "https://durangotrain.com/dsng-museum/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

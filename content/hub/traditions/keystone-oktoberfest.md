@@ -4,7 +4,7 @@ name: "Keystone's Oktoberfest"
 town:
   name: Keystone
   guide: keystone
-type: festival
+type: oktoberfest
 organizer: "Keystone Festivals"
 sourceUrl: "https://www.keystonefestivals.com/festivals/oktoberfest/"
 years:

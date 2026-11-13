@@ -9,6 +9,10 @@ towns:
 type: outdoor
 organizer: "Colorado Department of Transportation"
 sourceUrl: "https://www.codot.gov/news/2026/september-2026-news/summer-travel-season-wraps-up-this-weekend"
+outdoor:
+  kind: road
+  facility: "Mount Blue Sky road"
+  edge: closes
 years:
   - year: 2027
     status: not-announced

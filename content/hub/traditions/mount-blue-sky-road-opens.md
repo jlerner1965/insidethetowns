@@ -9,6 +9,10 @@ towns:
 type: outdoor
 organizer: "Colorado Department of Transportation"
 sourceUrl: "https://www.codot.gov/travel/coloradobyways/north-central/mount-evans"
+outdoor:
+  kind: road
+  facility: "Mount Blue Sky road"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

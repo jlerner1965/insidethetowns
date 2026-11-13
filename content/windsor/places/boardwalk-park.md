@@ -12,6 +12,10 @@ added: "2026-10-01"
 phone: "970-674-3500"
 tags: [lake, swim-beach, boating, fishing, playground, dog-park, stage]
 featured: true
+details:
+  dogs: "Dogs must be leashed at all times except at the Windsor Lake Dog Park"
+  source: "https://www.recreationliveshere.com/206/Windsor-Lake"
+  checked: "2026-11-12"
 summary: "The Town park on Windsor Lake at the north edge of downtown: swim beach, boat rentals, fishing, a playground, a stage and three shelters, with the 2.25-mile lake trail and the History Museum's old buildings on the grounds."
 ---
 

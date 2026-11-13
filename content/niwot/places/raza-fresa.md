@@ -7,6 +7,9 @@ url: "https://razafresa.com/"
 phone: "(303) 652-3995"
 hours: "Sun–Wed 11–8:30, Thu–Sat 11–9"
 tags: [mexican]
+details:
+  source: "https://razafresa.com/"
+  checked: "2026-11-12"
 summary: "Mexican kitchen on the square."
 source: "https://razafresa.com/"
 verified: "2026-11-10"

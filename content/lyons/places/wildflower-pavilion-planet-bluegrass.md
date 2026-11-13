@@ -6,6 +6,9 @@ area: "West Main, on the river"
 url: "https://bluegrass.com/wildflower"
 phone: "(303) 823-0848"
 tags: [concerts, bluegrass, indoor]
+details:
+  source: "https://bluegrass.com/planet/get-in-touch/contact-us"
+  checked: "2026-11-12"
 summary: "Planet Bluegrass's indoor concert hall on the ranch at the west end of Main: seated shows in spring and fall, a bar, and the festivals' second stage in summer."
 source: "https://bluegrass.com/wildflower"
 verified: "2026-11-10"

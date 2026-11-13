@@ -9,6 +9,10 @@ towns:
 type: outdoor
 organizer: "Larimer County Department of Natural Resources"
 sourceUrl: "https://www.larimer.gov/naturalresources/parks/boating"
+outdoor:
+  kind: other
+  facility: "Horsetooth Reservoir boat ramps"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

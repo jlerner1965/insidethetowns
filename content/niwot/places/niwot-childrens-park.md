@@ -5,6 +5,9 @@ address: "101 First Avenue"
 area: "Old Town"
 url: "https://niwotarts.org/niwot-childrens-park/"
 tags: [playground, families]
+details:
+  source: "https://niwotarts.org/niwot-childrens-park/"
+  checked: "2026-11-12"
 summary: "The playground on First Avenue, built by the Cultural Arts Association ten years ago, across from Whistle Stop Park."
 source: "https://niwotarts.org/niwot-childrens-park/"
 verified: "2026-10-03"

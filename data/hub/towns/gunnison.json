@@ -1,0 +1,34 @@
+{
+  "slug": "gunnison",
+  "transit": [
+    {
+      "name": "Gunnison Valley RTA",
+      "detail": "Free bus between Gunnison and Crested Butte",
+      "url": "https://www.gunnisonvalleyrta.com/",
+      "source": "https://www.gunnisonvalleyrta.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Island Acres Resort Motel",
+      "kind": "Motel",
+      "url": "https://islandacresresort.com/",
+      "season": "Memorial Day weekend until the first week of October",
+      "source": "https://islandacresresort.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "sites": [
+      {
+        "name": "Gunnison Pioneer Museum",
+        "kind": "museum",
+        "url": "https://www.gunnisonpioneermuseum.com/",
+        "cost": "Adults $15; children 6-12 $5; 5 and under free",
+        "source": "https://www.gunnisonpioneermuseum.com/plan-your-visit",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -7,6 +7,9 @@ area: "East Garden Drive"
 url: "https://windsorplayhouse.org/"
 phone: "(970) 674-1790"
 tags: [theater, community]
+details:
+  source: "https://windsorplayhouse.org/"
+  checked: "2026-11-12"
 summary: "Windsor's community theater on East Garden Drive, staging a season of plays with Friday and Saturday evening shows and Sunday matinees; single and season tickets."
 source: "https://windsorplayhouse.org/"
 verified: "2026-11-10"

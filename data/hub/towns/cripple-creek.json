@@ -1,0 +1,99 @@
+{
+  "slug": "cripple-creek",
+  "transit": [
+    {
+      "name": "Gold Camp Connector",
+      "detail": "Free bus between Cripple Creek (Aspen Mine Center) and Victor (3rd Street Plaza), five runs a day",
+      "url": "https://www.cityofcripplecreek.com/transportation/page/gold-camp-connector",
+      "source": "https://www.cityofcripplecreek.com/transportation/page/gold-camp-connector",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Cripple Creek Trolley",
+      "detail": "Fridays and Saturdays, May 15 to October 15, 11 a.m. to 5 p.m., with fixed stops at casinos and museums",
+      "url": "https://www.cityofcripplecreek.com/transportation/page/cripple-creek-trolley",
+      "source": "https://www.cityofcripplecreek.com/transportation/page/cripple-creek-trolley",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Hotel St. Nicholas",
+      "kind": "Historic hotel",
+      "url": "https://hotelstnicholas.com/",
+      "source": "https://hotelstnicholas.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Cripple Creek Hospitality House & RV Park",
+      "kind": "Hotel and RV park",
+      "url": "https://cchospitalityhouse.com/",
+      "source": "https://cchospitalityhouse.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1890,
+        "text": "Bob Womack found gold ore in Poverty Gulch and filed a mining claim, the start of the last gold rush in Colorado.",
+        "source": "https://www.cityofcripplecreek.com/visit-cripple-creek/page/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1896,
+        "text": "Two fires four days apart in April destroyed most of the city, which was rebuilt in brick and stone.",
+        "source": "https://www.cityofcripplecreek.com/visit-cripple-creek/page/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1899,
+        "text": "Teller County was formed and Cripple Creek was voted the county seat.",
+        "source": "https://www.cityofcripplecreek.com/visit-cripple-creek/page/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1961,
+        "text": "Cripple Creek was named a National Historic Landmark.",
+        "source": "https://www.cityofcripplecreek.com/visit-cripple-creek/page/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1991,
+        "text": "Legalized gambling came to Cripple Creek.",
+        "source": "https://www.cityofcripplecreek.com/visit-cripple-creek/page/history",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Cripple Creek District Museum",
+        "kind": "museum",
+        "url": "https://cripplecreekmuseum.com/",
+        "hours": "Daily 10 a.m.–5 p.m. in summer; weekends 10 a.m.–4 p.m. mid-October through May",
+        "cost": "$9 adult; $7 military; $2 ages 6–12; 5 and under free with an adult or military admission",
+        "source": "https://cripplecreekmuseum.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Cripple Creek & Victor Narrow Gauge Railroad",
+        "kind": "landmark",
+        "url": "https://cripplecreekrailroad.com/",
+        "hours": "Trains depart every 70 minutes, 10:00 am to 5:00 pm",
+        "cost": "$21 adults; $19 seniors over 65; $14 ages 3–12; 2 and under free",
+        "season": "Mid-May through the first weekend in October",
+        "source": "https://cripplecreekrailroad.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Old Homestead House Museum",
+        "kind": "museum",
+        "url": "https://www.oldhomesteadhouse.com/",
+        "cost": "$9 adults; $3 kids 12 and under",
+        "season": "Closed for the winter; reopens in May",
+        "source": "https://www.oldhomesteadhouse.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

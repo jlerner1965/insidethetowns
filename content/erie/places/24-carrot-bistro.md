@@ -9,6 +9,9 @@ hours: "Tue–Thu 11–2 & 4:30–8, Fri 11–2 & 4:30–9, Sat 9–2 & 4:30–9
 priceRange: "$$$"
 tags: [new american, brunch, cocktails]
 featured: true
+details:
+  source: "https://www.24carrotbistro.com/"
+  checked: "2026-11-12"
 summary: "Farm-to-table New American on Briggs Street: a seasonal menu, weekend brunch, and craft cocktails with housemade ingredients."
 source: "https://www.24carrotbistro.com/"
 verified: "2026-11-02"

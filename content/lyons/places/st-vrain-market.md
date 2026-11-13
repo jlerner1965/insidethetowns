@@ -8,6 +8,9 @@ phone: "(303) 747-5661"
 hours: "Tue 11 am–7 pm, Wed–Sun 9 am–7 pm; closed Mon"
 tags: [grocery, deli, picnic]
 featured: true
+details:
+  source: "https://stvrainmarket.com/"
+  checked: "2026-11-12"
 summary: "Deli, bakery and grocery: sandwiches and picnic supplies before the trail, staples after."
 source: "https://www.stvrainmarket.com/"
 verified: "2026-11-10"

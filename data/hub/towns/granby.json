@@ -1,0 +1,23 @@
+{
+  "slug": "granby",
+  "facts": {
+    "incorporated": { "year": 1905, "source": "https://townofgranby.com/about", "checked": "2026-11-12" }
+  },
+  "transit": [ { "name": "The Lift", "detail": "Free transit service year-round to and from Winter Park Resort, Downtown Winter Park, Fraser, Granby and Grand Lake", "url": "https://www.theliftwp.com/", "source": "https://www.theliftwp.com/", "checked": "2026-11-12" } ],
+  "lodging": [
+    { "name": "The Inn at SilverCreek", "kind": "Lodge", "url": "https://www.innatsilvercreek.com/", "source": "https://www.innatsilvercreek.com/", "checked": "2026-11-12" }
+  ],
+  "heritage": {
+    "founded": { "year": 1905, "text": "Founded in 1905 as a logging and railroad community", "source": "https://townofgranby.com/about", "checked": "2026-11-12" },
+    "timeline": [
+      { "year": 1904, "text": "David Moffat's company platted the town; the Moffat Railroad reached it in September 1905.", "source": "https://stories.grandcountyhistory.org/category/places", "checked": "2026-11-12" },
+      { "year": 1905, "text": "Granby incorporated on December 11.", "source": "https://townofgranby.com/about", "checked": "2026-11-12" },
+      { "year": 1943, "text": "Rodeo began in Granby; the Flying Heels Arena has been at its current site since 1969.", "source": "https://www.granbyrodeo.com/", "checked": "2026-11-12" },
+      { "year": 1973, "text": "The Rocky Mountain Airways terminal was built at the Granby airport, and the airline's first flight landed on July 20.", "source": "https://grandcountyhistory.org/museums/emily-warner-field-aviation-museum/", "checked": "2026-11-12" },
+      { "year": 2015, "text": "The aviation museum opened in July and the airport was named Emily Warner Field.", "source": "https://grandcountyhistory.org/museums/emily-warner-field-aviation-museum/", "checked": "2026-11-12" }
+    ],
+    "sites": [
+      { "name": "Emily Warner Field Aviation Museum", "kind": "museum", "url": "https://grandcountyhistory.org/museums/emily-warner-field-aviation-museum/", "hours": "Friday & Saturday 11am-2pm; can open by appointment", "cost": "Free", "season": "May 29 thru August 29, 2026; closed in winter", "source": "https://grandcountyhistory.org/museums/emily-warner-field-aviation-museum/", "checked": "2026-11-12" }
+    ]
+  }
+}

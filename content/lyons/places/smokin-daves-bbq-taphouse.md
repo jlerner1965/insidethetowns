@@ -7,6 +7,9 @@ url: "https://lyons.smokindavesbbq.com/"
 phone: "(303) 823-7427"
 hours: "Mon–Thu 11 am–7 pm, Fri–Sun 11 am–8 pm"
 tags: [barbecue, beer, families]
+details:
+  source: "https://lyons.smokindavesbbq.com/"
+  checked: "2026-11-12"
 summary: "Slow-smoked barbecue and a long tap list, mid-block on Main."
 source: "https://lyons.smokindavesbbq.com/"
 verified: "2026-11-10"

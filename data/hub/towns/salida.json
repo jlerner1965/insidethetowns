@@ -1,0 +1,91 @@
+{
+  "slug": "salida",
+  "lodging": [
+    {
+      "name": "Palace Hotel",
+      "kind": "Hotel",
+      "url": "https://palacehotelsalida.com/",
+      "source": "https://palacehotelsalida.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Manhattan Hotel",
+      "kind": "Hotel",
+      "url": "https://www.manhattanhotelsalida.com/",
+      "source": "https://www.manhattanhotelsalida.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Amigo Motor Lodge",
+      "kind": "Motor lodge",
+      "url": "https://www.amigomotorlodge.com/",
+      "source": "https://www.amigomotorlodge.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Salida means exit in Spanish. The town was first named South Arkansas and was renamed for the exit, or gateway, to the Arkansas River canyon.",
+      "source": "https://www.salidamuseum.org/quick-facts/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1880,
+      "text": "Founded in 1880, when the Denver and Rio Grande Railroad reached the area",
+      "source": "https://www.salidamuseum.org/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1880,
+        "text": "The Denver and Rio Grande Railroad reached the area in May and the settlement was first named South Arkansas.",
+        "source": "https://www.salidamuseum.org/quick-facts/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1886,
+        "text": "Downtown burned in 1886 and again in 1888. Both times it was rebuilt in local brick.",
+        "source": "https://www.salidamuseum.org/quick-facts/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1949,
+        "text": "The first FIBArk race was held on June 19 on a 56-mile course through the Royal Gorge to Cañon City.",
+        "source": "https://www.salidamuseum.org/quick-facts/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1954,
+        "text": "The Salida Museum's collection was first displayed.",
+        "source": "https://www.salidamuseum.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1984,
+        "text": "The Salida Downtown Historic District, 111 buildings, was listed on the National Register on June 14.",
+        "source": "https://www.salidamuseum.org/quick-facts/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Salida Museum",
+        "kind": "museum",
+        "url": "https://www.salidamuseum.org/",
+        "hours": "Friday through Sunday, 12 pm–4 pm",
+        "cost": "Adult $5, senior $3, kids $1",
+        "source": "https://www.salidamuseum.org/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Wood's High Mountain Distillery",
+        "what": "Gin and whiskey, with a tasting room in downtown Salida",
+        "url": "https://www.woodsdistillery.com/",
+        "source": "https://www.woodsdistillery.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

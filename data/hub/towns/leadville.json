@@ -1,0 +1,100 @@
+{
+  "slug": "leadville",
+  "transit": [
+    {
+      "name": "Core Transit Leadville Route",
+      "detail": "Morning northbound and evening southbound service. Serves Vail, Minturn, Red Cliff and Leadville. Fare required to or from Leadville.",
+      "url": "https://coretransit.org/routes-schedules/leadville-route/",
+      "source": "https://coretransit.org/routes-schedules/leadville-route/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "The Historic Delaware Hotel",
+      "kind": "Hotel",
+      "url": "https://www.delawarehotel.com/",
+      "source": "https://www.delawarehotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Columbine Inn & Suites",
+      "kind": "Hotel",
+      "url": "https://www.columbineinn.com/",
+      "source": "https://www.columbineinn.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1878,
+        "text": "August R. Meyer built the Greek Revival clapboard house now called Healy House.",
+        "source": "https://www.historycolorado.org/healy-house-museum-dexter-cabin",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1879,
+        "text": "Horace Tabor built the Tabor Opera House in 100 days.",
+        "source": "https://taboroperahouse.org/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1880,
+        "text": "Horace Tabor bought the Matchless Mine on Fryer Hill on July 17 for $77,850.",
+        "source": "https://mininghalloffame.org/matchless-mine/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1899,
+        "text": "The Victorian school building that now houses the National Mining Hall of Fame and Museum dates to 1899. It was once Leadville's high school.",
+        "source": "https://mininghalloffame.org/about-us/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "National Mining Hall of Fame and Museum",
+        "kind": "museum",
+        "url": "https://mininghalloffame.org/",
+        "hours": "Tuesday–Sunday 10 am–4 pm; closed Monday",
+        "cost": "$20 combo ticket with the Matchless Mine; Lake County residents free",
+        "source": "https://mininghalloffame.org/museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Matchless Mine Historic Site",
+        "kind": "landmark",
+        "url": "https://mininghalloffame.org/matchless-mine/",
+        "season": "Opens for the season typically Memorial Day and closes for the season typically Labor Day",
+        "source": "https://mininghalloffame.org/matchless-mine/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Healy House Museum & Dexter Cabin",
+        "kind": "museum",
+        "url": "https://www.historycolorado.org/healy-house-museum-dexter-cabin",
+        "hours": "Gift shop and exhibit hall: Friday–Sunday, 10:30 am–2:30 pm",
+        "source": "https://www.historycolorado.org/healy-house-museum-dexter-cabin",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Tabor Opera House",
+        "kind": "landmark",
+        "url": "https://taboroperahouse.org/visit",
+        "season": "Public group tours run from late May to the middle of October, Friday through Sunday",
+        "source": "https://taboroperahouse.org/visit",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Melanzana",
+        "what": "Outdoor apparel made locally in Leadville since 1994",
+        "url": "https://melanzana.com/",
+        "source": "https://melanzana.com/pages/about",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -4,7 +4,7 @@ name: "Palisade Peach Festival"
 town:
   name: Palisade
   guide: palisade
-type: festival
+type: harvest-festival
 organizer: "Palisade Chamber of Commerce"
 sourceUrl: "https://palisadecoc.com/events/palisadepeachfest/"
 years:

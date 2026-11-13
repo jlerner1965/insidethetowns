@@ -8,6 +8,10 @@ phone: "(970) 532-7827"
 hours: "Mon 3–8, Tue–Thu 3–9, Fri 3–10, Sat 12–10, Sun 12–8"
 tags: [brewery, beer garden, live music, trivia]
 featured: true
+details:
+  dogs: "Dogs welcome"
+  source: "https://citystarbrewing.com/"
+  checked: "2026-11-12"
 summary: "The brewery on the main block: a taproom and beer garden, weekly trivia, a Thursday social run, food trucks and live music most weekends."
 source: "https://citystarbrewing.com/"
 verified: "2026-11-10"

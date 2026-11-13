@@ -47,7 +47,10 @@ test('the terrain is the cluster’s unless the town sets its own', () => {
     assert.equal(ridgeline(t.slug, t.cluster, t.terrain).terrain, terrain, slug);
     assert.notEqual(TERRAIN[t.cluster], terrain, `${slug}: the override differs from its cluster's`);
   }
-  assert.deepEqual(HUB_TOWNS.filter((t) => t.terrain).map((t) => t.slug).sort(), Object.keys(own).sort());
+  // Every override differs from its cluster's country, or it would not be one. (The owner's four were the
+  // only ones until the towns of the brief of 12 November 2026 were added.)
+  for (const t of HUB_TOWNS.filter((x) => x.terrain)) assert.notEqual(TERRAIN[t.cluster], t.terrain, `${t.slug}: the override repeats its cluster's`);
+  for (const slug of Object.keys(own)) assert.ok(findHubTown(slug)!.terrain, slug);
   // An override changes the line drawn, not only its label.
   const evergreen = findHubTown('evergreen')!;
   assert.notDeepEqual(ridgeline('evergreen', evergreen.cluster, 'foothills').layers, ridgeline('evergreen', evergreen.cluster).layers);

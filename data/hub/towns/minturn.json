@@ -1,0 +1,28 @@
+{
+  "slug": "minturn",
+  "transit": [
+    {
+      "name": "Core Transit Minturn Route",
+      "detail": "Connects Vail to Red Cliff through Eagle-Vail and Minturn. Free",
+      "url": "https://www.coretransit.org/",
+      "source": "https://www.coretransit.org/routes-schedules",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "The Minturn Inn",
+      "kind": "Bed and breakfast",
+      "url": "https://www.minturninn.com/",
+      "source": "https://www.minturninn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Hotel Minturn",
+      "kind": "Hotel",
+      "url": "https://www.hotelminturn.com/",
+      "source": "https://www.hotelminturn.com/",
+      "checked": "2026-11-12"
+    }
+  ]
+}

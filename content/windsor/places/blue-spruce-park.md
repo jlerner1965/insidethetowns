@@ -10,6 +10,9 @@ verified: "2026-11-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 tags: [fishing, pond, picnic tables, accessible]
+details:
+  source: "https://www.townofseverance.org/Facilities/Facility/Details/Blue-Spruce-Park-1"
+  checked: "2026-11-12"
 summary: "A quiet park in the Timber Ridge subdivision built around a stocked pond with a fountain, where licensed anglers may fish; picnic tables, benches, shade trees and lawn."
 ---
 

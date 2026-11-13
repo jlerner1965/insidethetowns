@@ -1,0 +1,29 @@
+{
+  "slug": "florence",
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1964,
+        "text": "The Florence Pioneer Museum was dedicated on September 12 in the old Eagles Lodge building.",
+        "source": "https://www.florencepioneermuseum.org/museum-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1976,
+        "text": "A State Centennial Commission grant of $3,200 helped pay for an addition to the museum.",
+        "source": "https://www.florencepioneermuseum.org/museum-history",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Florence Pioneer Museum & Research Center",
+        "kind": "museum",
+        "url": "https://www.florencepioneermuseum.org/",
+        "hours": "Tuesday and Friday 1 pm to 4 pm; Wednesday, Thursday and Saturday 10 am to 4 pm; closed Sunday and Monday",
+        "source": "https://www.florencepioneermuseum.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

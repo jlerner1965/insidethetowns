@@ -11,6 +11,9 @@ imageAlt: "The Old Mine in the two-story 1889 Davis building on Briggs Street, w
 imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 tags: [cider, pizza, live music, trivia]
 featured: true
+details:
+  source: "https://www.theoldmine.com/"
+  checked: "2026-11-12"
 summary: "Hard cidery and artisan pizza pub in a restored 1889 mercantile building on Briggs Street, with trivia on Tuesdays, live music Wednesdays and Sundays and a monthly bluegrass jam."
 source: "https://www.theoldmine.com/"
 verified: "2026-11-02"

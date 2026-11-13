@@ -1,0 +1,107 @@
+{
+  "slug": "ouray",
+  "facts": {
+    "incorporated": {
+      "year": 1876,
+      "source": "https://www.cityofouray.com/",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "All Points Transit OurWay",
+      "detail": "Commuter bus connecting Montrose, Ridgway and Ouray, Monday through Saturday; $4 single ride. The City of Ouray lists the regional shuttle as ending 1/1/27",
+      "url": "https://www.allpointstransit.com/ourway/",
+      "source": "https://www.allpointstransit.com/ourway/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Beaumont Hotel & Spa",
+      "kind": "Hotel",
+      "url": "https://www.beaumonthotel.com/",
+      "source": "https://www.beaumonthotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Wiesbaden Hot Springs Hotel & Spa",
+      "kind": "Hotel",
+      "url": "https://www.wiesbadenhotsprings.com/",
+      "source": "https://www.wiesbadenhotsprings.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Box Canyon Lodge & Hot Springs",
+      "kind": "Lodge",
+      "url": "https://www.boxcanyonouray.com/",
+      "source": "https://www.boxcanyonouray.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1875,
+      "text": "The Ouray County Historical Society dates Ouray's founding to 1875.",
+      "source": "https://www.ouraycountyhistoricalsociety.org/museum",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1876,
+        "text": "The City of Ouray was incorporated on October 2, two months after Colorado became a state.",
+        "source": "https://www.cityofouray.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1887,
+        "text": "St. Joseph's Miners' Hospital, begun in 1886, was finished; it now houses the county museum.",
+        "source": "https://www.ouraycountyhistoricalsociety.org/museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1927,
+        "text": "The Ouray Hot Springs Pool opened on July 4.",
+        "source": "https://www.ourayhotsprings.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1983,
+        "text": "The Ouray Historic District was listed on the National Register on October 6, 1983.",
+        "source": "https://www.historycolorado.org/location/ouray-historic-district",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Ouray County Museum",
+        "kind": "museum",
+        "url": "https://www.ouraycountyhistoricalsociety.org/",
+        "hours": "2026: May 7–30 Thu–Sat 10 am–4:30 pm; May 31–Sept 30 Mon–Sat 10 am–4:30 pm, Sun 12–4:30 pm; Oct 1–31 Thu–Sat 10 am–4:30 pm",
+        "cost": "Adults $10; youth 6-15 $5; children under 6 free",
+        "season": "Closed November through April",
+        "source": "https://www.ouraycountyhistoricalsociety.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Ouray Hot Springs Pool",
+        "kind": "landmark",
+        "url": "https://www.ourayhotsprings.com/",
+        "hours": "Open to the public 11 am–8 pm",
+        "cost": "Adults 18-64 $30; youth 3-17 $18; children under 3 free",
+        "season": "Year-round",
+        "source": "https://www.ourayhotsprings.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Box Cañon Falls Park",
+        "kind": "landmark",
+        "url": "https://www.visitouray.com/city-parks",
+        "cost": "Entry fee $5-$8",
+        "season": "Open May-November",
+        "source": "https://www.visitouray.com/city-parks",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

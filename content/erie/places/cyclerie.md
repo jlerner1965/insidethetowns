@@ -7,6 +7,9 @@ url: "https://store.cyclerie.net/"
 phone: "(720) 235-8660"
 hours: "Tue–Sat 10–6, Sun 11–3; closed Mon"
 tags: [bikes, e-bikes, service]
+details:
+  source: "https://store.cyclerie.net/"
+  checked: "2026-11-12"
 summary: "Erie's community bike shop on Briggs Street, specialising in e-bikes, with test rides and service."
 source: "https://store.cyclerie.net/"
 verified: "2026-11-02"

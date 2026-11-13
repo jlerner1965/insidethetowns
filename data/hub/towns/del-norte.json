@@ -1,0 +1,64 @@
+{
+  "slug": "del-norte",
+  "lodging": [
+    {
+      "name": "The Windsor Hotel",
+      "kind": "Hotel",
+      "url": "https://windsorhoteldelnorte.com/",
+      "source": "https://windsorhoteldelnorte.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Mellow Moon Lodge",
+      "kind": "Motel",
+      "url": "https://www.mellowmoonlodge.com/",
+      "source": "https://www.mellowmoonlodge.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1871,
+      "text": "Del Norte's history as a town starts in 1871",
+      "source": "https://riograndecountymuseum.org/del-norte/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1872,
+        "text": "Del Norte was officially incorporated on December 14, 1872.",
+        "source": "https://riograndecountymuseum.org/del-norte/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1873,
+        "text": "P.J. Peterson and F.H. Brandt discovered the Little Annie Mine on September 13, 1873.",
+        "source": "https://riograndecountymuseum.org/del-norte/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1874,
+        "text": "Rio Grande County was formed; until then the town was in Conejos County.",
+        "source": "https://riograndecountymuseum.org/del-norte/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1874,
+        "text": "The Windsor Hotel was established.",
+        "source": "https://windsorhoteldelnorte.com/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Rio Grande County Museum",
+        "kind": "museum",
+        "url": "https://riograndecountymuseum.org/",
+        "hours": "Sept. 1 to Memorial Day: Mon–Fri 9 am–4 pm, Sat 10 am–2 pm. Memorial Day to Aug. 31: Mon–Fri 9 am–5 pm, Sat 10 am–3 pm",
+        "cost": "Free; donations appreciated",
+        "source": "https://riograndecountymuseum.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

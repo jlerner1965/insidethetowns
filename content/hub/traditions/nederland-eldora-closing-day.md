@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Eldora Mountain Resort"
 sourceUrl: "https://www.eldora.com/the-mountain/questions/hours-faq/"
+outdoor:
+  kind: ski-area
+  facility: "Eldora"
+  edge: closes
 years:
   - year: 2027
     status: not-announced

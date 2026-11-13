@@ -4,9 +4,15 @@ name: "Silverton train season ends"
 town:
   name: Durango
   guide: durango
+towns:
+  - slug: silverton
 type: outdoor
 organizer: "Durango & Silverton Narrow Gauge Railroad"
 sourceUrl: "https://durangotrain.com/ride-us/"
+outdoor:
+  kind: other
+  facility: "Durango & Silverton train to Silverton"
+  edge: closes
 years:
   - year: 2027
     status: not-announced

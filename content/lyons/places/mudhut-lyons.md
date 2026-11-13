@@ -6,6 +6,11 @@ area: "East of town on CO 66"
 url: "https://www.mudhutlyons.com/"
 hours: "Daily 7 am–3 pm"
 tags: [drive-through, coffee]
+details:
+  closedDays: "Closed Thanksgiving, Christmas Eve, Christmas Day, New Year's Eve and New Year's Day"
+  dogs: "Dogs welcome at the drive-up; pup cups given out"
+  source: "https://www.mudhutlyons.com/contact-us"
+  checked: "2026-11-12"
 summary: "Drive-through coffee on the way into town from Longmont."
 source: "https://www.mudhutlyons.com/contact-us"
 verified: "2026-11-10"

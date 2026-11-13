@@ -7,6 +7,9 @@ url: "https://mojotaqueria.com/"
 phone: "(303) 823-2321"
 hours: "Tue–Thu 4–8 pm, Fri–Sat 11 am–8:30 pm, Sun 11 am–8 pm; closed Mon"
 tags: [tacos, bar]
+details:
+  source: "https://mojotaqueria.com/"
+  checked: "2026-11-12"
 summary: "Regional Mexican flavors, tacos and a busy bar; dinner most nights, lunch on weekends."
 source: "https://mojotaqueria.com/"
 verified: "2026-11-11"

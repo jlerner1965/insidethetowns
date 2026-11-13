@@ -1,0 +1,32 @@
+{
+  "slug": "la-veta",
+  "lodging": [
+    {
+      "name": "La Veta Inn",
+      "kind": "Inn",
+      "url": "https://lavetainncolorado.com",
+      "source": "https://lavetainncolorado.com",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1862,
+      "text": "Col. John Francisco founded a trading post at the foot of the Spanish Peaks, and the town grew up around the fort.",
+      "source": "https://www.franciscofort.org/",
+      "checked": "2026-11-12"
+    },
+    "sites": [
+      {
+        "name": "Francisco Fort Museum",
+        "kind": "museum",
+        "url": "https://www.franciscofort.org/",
+        "hours": "Thursday to Saturday, 10 am to 4 pm",
+        "cost": "$7 per adult; children free",
+        "season": "Memorial Day to Labor Day (May 21 to September 5 in 2026)",
+        "source": "https://www.franciscofort.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

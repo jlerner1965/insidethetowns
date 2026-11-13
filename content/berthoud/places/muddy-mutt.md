@@ -7,6 +7,10 @@ url: "https://muddymuttnoco.com/berthoud/"
 phone: "(970) 518-7494"
 hours: "Daily 8 am–7 pm"
 tags: [pets, dog-grooming]
+details:
+  reservation: "Grooming only, by appointment"
+  source: "https://muddymuttnoco.com/berthoud/"
+  checked: "2026-11-12"
 summary: "Dog grooming by appointment on Mountain Avenue, seven days a week from 8 am to 7 pm; the entrance is down the alley at the back."
 source: "https://muddymuttnoco.com/berthoud/"
 verified: "2026-11-10"

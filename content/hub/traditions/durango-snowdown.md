@@ -4,7 +4,7 @@ name: "Snowdown"
 town:
   name: Durango
   guide: durango
-type: festival
+type: winter-carnival
 organizer: "Snowdown Durango"
 sourceUrl: "https://www.snowdown.org/"
 years:

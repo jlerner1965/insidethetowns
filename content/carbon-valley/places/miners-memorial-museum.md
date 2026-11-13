@@ -11,6 +11,12 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-382-5581"
 hours: "First Fridays 5–7 pm and by appointment; Nov 6 and Dec 4 in 2026"
 tags: [museum, history, coal-mining, landmark]
+details:
+  tours:
+    offered: "Tours by arrangement"
+    reservation: "Contact the Town Clerk's office at 720.382.5500"
+  source: "https://www.frederickco.gov/717/Miners-Memorial-Museum"
+  checked: "2026-11-12"
 summary: "Frederick’s history museum in the original 1900s Town Hall, moved to Crist Park and made a Colorado Historic Landmark in 2012; open the first Friday evening of each month, at some Town events and by appointment."
 ---
 

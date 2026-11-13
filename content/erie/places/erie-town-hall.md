@@ -10,6 +10,9 @@ image: ../images/town-hall.jpg
 imageAlt: "Erie Town Hall, a red-brick building with a bell tower"
 imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 tags: [government]
+details:
+  source: "https://www.erieco.gov/Facilities/Facility/Details/Town-Hall-5"
+  checked: "2026-11-12"
 summary: "The Town's offices on Holbrook Street, where Town Council and the Planning Commission meet."
 source: "https://www.erieco.gov/Facilities/Facility/Details/Town-Hall-5"
 verified: "2026-11-09"

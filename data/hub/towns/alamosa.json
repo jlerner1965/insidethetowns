@@ -1,0 +1,58 @@
+{
+  "slug": "alamosa",
+  "facts": {
+    "incorporated": {
+      "year": 1878,
+      "source": "https://www.alamosa.gov/about-the-city-of-alamosa",
+      "checked": "2026-11-12"
+    }
+  },
+  "lodging": [
+    {
+      "name": "Dunes Inn",
+      "kind": "Hotel",
+      "url": "https://www.dunesinnalamosa.com/",
+      "source": "https://www.dunesinnalamosa.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Sunset Inn",
+      "kind": "Inn",
+      "url": "https://www.sunsetinns.com/",
+      "source": "https://www.sunsetinns.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Alamosa means \"cottonwood\" in Spanish.",
+      "source": "https://www.alamosa.gov/about-the-city-of-alamosa",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1878,
+      "text": "Went from a tent city to a rail center for the Denver and Rio Grande Railroad in June 1878",
+      "source": "https://www.alamosa.gov/about-the-city-of-alamosa",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1878,
+        "text": "Alamosa was incorporated on August 30, 1878.",
+        "source": "https://www.alamosa.gov/about-the-city-of-alamosa",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "San Luis Valley Museum",
+        "kind": "museum",
+        "url": "https://slvhistory.org/",
+        "hours": "Tue–Sat 10 am–4 pm; closed Sunday, Monday and some holidays",
+        "cost": "$8 general admission; $4 veterans; free 12 and under",
+        "source": "https://slvhistory.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

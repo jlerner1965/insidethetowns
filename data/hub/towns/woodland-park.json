@@ -1,0 +1,68 @@
+{
+  "slug": "woodland-park",
+  "transit": [
+    {
+      "name": "Cripple Creek Transit",
+      "detail": "Wednesdays only: two round trips from Victor and Cripple Creek through Divide to the Woodland Park Library",
+      "url": "https://www.cityofcripplecreek.com/transportation/page/victorcripple-creekdividewoodland-park-transit-service",
+      "source": "https://www.cityofcripplecreek.com/transportation/page/victorcripple-creekdividewoodland-park-transit-service",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Woodland Country Lodge",
+      "kind": "Hotel",
+      "url": "https://www.woodlandcountrylodge.com/",
+      "source": "https://www.woodlandcountrylodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Bristlecone Lodge",
+      "kind": "Cabins and RV park",
+      "url": "https://bristleconelodge.co/",
+      "source": "https://bristleconelodge.co/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Eagle Fire Lodge & Cabins",
+      "kind": "Lodge and cabins",
+      "url": "https://www.eaglefirelodge.com/",
+      "source": "https://www.eaglefirelodge.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Woodland Park was originally named Manitou Park and was laid out along the Midland Railroad tracks.",
+      "source": "https://www.tellercounty.gov/395/Teller-County-History",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1890,
+        "text": "The new Harvey House opened, when Woodland Park had 120 residents.",
+        "source": "https://www.tellercounty.gov/395/Teller-County-History",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1936,
+        "text": "The schoolhouse that is now the Ute Pass Cultural Center was built.",
+        "source": "https://woodlandpark.gov/319/Who-We-Are",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Rocky Mountain Dinosaur Resource Center",
+        "kind": "museum",
+        "url": "https://www.rmdrc.com/",
+        "hours": "Monday–Saturday 9 am to 6 pm; Sunday 10 am to 5 pm",
+        "cost": "$13 adults; $12 seniors 65+; $9 children 5–12; 4 and under free",
+        "season": "Year-round",
+        "source": "https://www.rmdrc.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

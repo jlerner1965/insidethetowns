@@ -1,0 +1,72 @@
+{
+  "slug": "palisade",
+  "transit": [
+    {
+      "name": "Grand Valley Transit",
+      "detail": "Mesa County's public bus system, with routes in Grand Junction, Palisade and Fruita",
+      "url": "https://www.mesacounty.us/gvt",
+      "source": "https://www.mesacounty.us/gvt",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Wine Country Inn",
+      "kind": "Hotel",
+      "url": "https://coloradowinecountryinn.com/",
+      "source": "https://coloradowinecountryinn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Spoke and Vine Motel",
+      "kind": "Motel",
+      "url": "https://www.spokeandvinemotel.com/",
+      "source": "https://www.spokeandvinemotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Palisade Basecamp RV Resort",
+      "kind": "Campground and cabins",
+      "url": "https://palisadebasecamp.com/",
+      "source": "https://palisadebasecamp.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1955,
+        "text": "The motel that is now the Spoke and Vine is built. It reopened in 2019.",
+        "source": "https://www.spokeandvinemotel.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2021,
+        "text": "The Palisade History Museum, the town's first history museum, is dedicated on August 18 in a pre-1939 log building.",
+        "source": "https://www.historicpalisade.org/index.php/history-museum/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Palisade History Museum",
+        "kind": "museum",
+        "url": "https://www.historicpalisade.org/index.php/history-museum/",
+        "hours": "Tuesdays, Thursdays, Fridays and Saturdays 10 am–2 pm, or by appointment; closed most holidays",
+        "cost": "Free",
+        "season": "Year-round",
+        "source": "https://www.historicpalisade.org/index.php/history-museum/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Peach Street Distillers",
+        "what": "Spirits; it calls itself Colorado's first craft distillery",
+        "url": "https://peachstreetdistillers.com/",
+        "source": "https://peachstreetdistillers.com/visit-us/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

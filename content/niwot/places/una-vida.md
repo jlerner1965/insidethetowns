@@ -10,6 +10,9 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 added: "2026-10-13"
 phone: "720-282-9988"
 tags: [yoga, meditation, qigong, dance, classes, workshops]
+details:
+  source: "https://www.unavidaniwot.com/contact"
+  checked: "2026-11-12"
 summary: "A community movement studio across the parking lot from Niwot Market: vinyasa, slow-flow and restorative yoga, guided and silent meditation, qigong and dance, with workshops and sound baths on its booking schedule."
 ---
 

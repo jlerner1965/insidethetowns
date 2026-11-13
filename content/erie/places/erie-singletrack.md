@@ -10,6 +10,11 @@ url: "https://www.erieco.gov/1672/Erie-Singletrack-Trails-at-Sunset-Open-S"
 hours: "Open daily, sunrise to sunset"
 tags: [mountain bike, singletrack, views]
 featured: true
+details:
+  dogs: "Dogs must be on-leash at all times"
+  bikes: "Class 1 & 2 e-bikes are permitted; Class 3 e-bikes are not permitted"
+  source: "https://www.erieco.gov/1672/Erie-Singletrack-Trails-at-Sunset-Open-S"
+  checked: "2026-11-12"
 summary: "3.15 miles of purpose-built mountain-bike singletrack with rollers, jumps and tabletops, graded beginner to advanced, on 50 acres of Town open space with Front Range views."
 source: "https://www.erieco.gov/1672/Erie-Singletrack-Trails-at-Sunset-Open-S"
 verified: "2026-11-02"

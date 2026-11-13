@@ -7,6 +7,9 @@ url: "https://marigoldlyons.com/"
 hours: "Wed–Thu & Sun 5–9 pm, Fri–Sat 5–10 pm"
 tags: [italian, french, dinner, date-night]
 featured: true
+details:
+  source: "https://marigoldlyons.com/"
+  checked: "2026-11-12"
 summary: "Northern Italian and southern French cooking in a small dining room; the town’s dinner-out address."
 source: "https://www.marigoldlyons.com/"
 verified: "2026-11-10"

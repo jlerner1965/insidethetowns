@@ -1,0 +1,674 @@
+{
+ "checked": "2026-11-12",
+ "cotripNote": "Each status link is the road's own page on COtrip (cotrip.org/result/route/<road>), the Colorado Department of Transportation's traveler site: the whole highway, not the pass alone.",
+ "passes": [
+  {
+   "slug": "trail-ridge-road",
+   "name": "Trail Ridge Road",
+   "highway": "US 34",
+   "elevationFt": 12183,
+   "elevationSource": "https://www.nps.gov/romo/planyourvisit/road_status.htm",
+   "connects": [
+    "estes-park",
+    "grand-lake"
+   ],
+   "seasonalClosure": "CDOT: “Both seasonal routes remain open through the fall until winter weather forces seasonal closures.”",
+   "closureSource": "https://www.codot.gov/news/2026/september-2026-news/summer-travel-season-wraps-up-this-weekend",
+   "statusUrl": "https://www.cotrip.org/result/route/US%2034",
+   "statusLabel": "COtrip: US 34",
+   "source": "https://www.nps.gov/romo/planyourvisit/road_status.htm",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "berthoud-pass",
+   "name": "Berthoud Pass",
+   "highway": "US 40",
+   "elevationFt": 11315,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "georgetown",
+    "winter-park"
+   ],
+   "alsoServes": [
+    "idaho-springs",
+    "fraser"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%2040",
+   "statusLabel": "COtrip: US 40",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "loveland-pass",
+   "name": "Loveland Pass",
+   "highway": "US 6",
+   "elevationFt": 11992,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "georgetown",
+    "keystone"
+   ],
+   "alsoServes": [
+    "dillon"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%206",
+   "statusLabel": "COtrip: US 6",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "vail-pass",
+   "name": "Vail Pass",
+   "highway": "I-70",
+   "elevationFt": 10666,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "frisco",
+    "vail"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/I-70",
+   "statusLabel": "COtrip: I-70",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "eisenhower-johnson-tunnels",
+   "name": "Eisenhower-Johnson Memorial Tunnels",
+   "highway": "I-70",
+   "elevationFt": 11158,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "georgetown",
+    "silverthorne"
+   ],
+   "alsoServes": [
+    "dillon"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/I-70",
+   "statusLabel": "COtrip: I-70",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "fremont-pass",
+   "name": "Fremont Pass",
+   "highway": "CO 91",
+   "elevationFt": 11318,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "frisco",
+    "leadville"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%2091",
+   "statusLabel": "COtrip: CO 91",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "tennessee-pass",
+   "name": "Tennessee Pass",
+   "highway": "US 24",
+   "elevationFt": 10424,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "minturn",
+    "leadville"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%2024",
+   "statusLabel": "COtrip: US 24",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "hoosier-pass",
+   "name": "Hoosier Pass",
+   "highway": "CO 9",
+   "elevationFt": 11541,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "breckenridge",
+    "alma"
+   ],
+   "alsoServes": [
+    "fairplay"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%209",
+   "statusLabel": "COtrip: CO 9",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "kenosha-pass",
+   "name": "Kenosha Pass",
+   "highway": "US 285",
+   "elevationFt": 10001,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "morrison",
+    "fairplay"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%20285",
+   "statusLabel": "COtrip: US 285",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "trout-creek-pass",
+   "name": "Trout Creek Pass",
+   "highway": "US 24/US 285",
+   "elevationFt": 9346,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "buena-vista",
+    "fairplay"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%20285",
+   "statusLabel": "COtrip: US 285",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "wilkerson-pass",
+   "name": "Wilkerson Pass",
+   "highway": "US 24",
+   "elevationFt": 9507,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "woodland-park",
+    "fairplay"
+   ],
+   "alsoServes": [
+    "buena-vista"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%2024",
+   "statusLabel": "COtrip: US 24",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "ute-pass",
+   "name": "Ute Pass",
+   "highway": "US 24",
+   "elevationFt": 9165,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "manitou-springs",
+    "woodland-park"
+   ],
+   "alsoServes": [
+    "green-mountain-falls",
+    "cripple-creek"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%2024",
+   "statusLabel": "COtrip: US 24",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "monarch-pass",
+   "name": "Monarch Pass",
+   "highway": "US 50",
+   "elevationFt": 11312,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "salida",
+    "gunnison"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%2050",
+   "statusLabel": "COtrip: US 50",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "poncha-pass",
+   "name": "Poncha Pass",
+   "highway": "US 285",
+   "elevationFt": 9010,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "salida",
+    "crestone"
+   ],
+   "alsoServes": [
+    "alamosa",
+    "monte-vista"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%20285",
+   "statusLabel": "COtrip: US 285",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "independence-pass",
+   "name": "Independence Pass",
+   "highway": "CO 82",
+   "elevationFt": 12095,
+   "elevationSource": "https://www.codot.gov/news/2026/november2026news/co82-independencepass-close-for-winter",
+   "connects": [
+    "aspen",
+    "leadville"
+   ],
+   "alsoServes": [
+    "buena-vista"
+   ],
+   "seasonalClosure": "CDOT: “Independence Pass typically closes in late Oct. or early Nov., depending on weather conditions,” and reopens “typically around the Memorial Day holiday weekend, weather permitting.”",
+   "closureSource": "https://www.codot.gov/news/2026/november2026news/co82-independencepass-close-for-winter",
+   "statusUrl": "https://www.cotrip.org/result/route/CO%2082",
+   "statusLabel": "COtrip: CO 82",
+   "source": "https://www.codot.gov/news/2026/november2026news/co82-independencepass-close-for-winter",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "cottonwood-pass",
+   "name": "Cottonwood Pass",
+   "highway": "County Road 306",
+   "connects": [
+    "buena-vista",
+    "gunnison"
+   ],
+   "alsoServes": [
+    "crested-butte"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/Forest%20Service%20Road%20306",
+   "statusLabel": "COtrip: Forest Service Road 306",
+   "source": "https://www.codot.gov/news/2022/may/summer-traffic-season-underway-friday",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "kebler-pass",
+   "name": "Kebler Pass",
+   "highway": "Gunnison County Road 12",
+   "connects": [
+    "crested-butte",
+    "paonia"
+   ],
+   "seasonalClosure": "CDOT: “There is a 31-mile gravel section over Kebler Pass closed in winter.”",
+   "closureSource": "https://www.codot.gov/travel/coloradobyways/southwest/west-elk-loop",
+   "statusUrl": "https://www.cotrip.org/result/route/Gunnison%20County%20Road%2012",
+   "statusLabel": "COtrip: Gunnison County Road 12",
+   "source": "https://www.codot.gov/travel/coloradobyways/southwest/west-elk-loop",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "mcclure-pass",
+   "name": "McClure Pass",
+   "highway": "CO 133",
+   "elevationFt": 8755,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "redstone",
+    "paonia"
+   ],
+   "alsoServes": [
+    "carbondale",
+    "marble"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%20133",
+   "statusLabel": "COtrip: CO 133",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "red-mountain-pass",
+   "name": "Red Mountain Pass",
+   "highway": "US 550",
+   "elevationFt": 11018,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "ouray",
+    "silverton"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%20550",
+   "statusLabel": "COtrip: US 550",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "molas-pass",
+   "name": "Molas Pass",
+   "highway": "US 550",
+   "elevationFt": 10910,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "silverton",
+    "durango"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%20550",
+   "statusLabel": "COtrip: US 550",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "coal-bank-pass",
+   "name": "Coal Bank Pass",
+   "highway": "US 550",
+   "elevationFt": 10640,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "silverton",
+    "durango"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%20550",
+   "statusLabel": "COtrip: US 550",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "lizard-head-pass",
+   "name": "Lizard Head Pass",
+   "highway": "CO 145",
+   "elevationFt": 10222,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "telluride",
+    "dolores"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%20145",
+   "statusLabel": "COtrip: CO 145",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "dallas-divide",
+   "name": "Dallas Divide",
+   "highway": "CO 62",
+   "elevationFt": 8970,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "ridgway",
+    "telluride"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%2062",
+   "statusLabel": "COtrip: CO 62",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "wolf-creek-pass",
+   "name": "Wolf Creek Pass",
+   "highway": "US 160",
+   "elevationFt": 10850,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "pagosa-springs",
+    "del-norte"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%20160",
+   "statusLabel": "COtrip: US 160",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "la-veta-pass",
+   "name": "La Veta Pass",
+   "highway": "US 160",
+   "elevationFt": 9413,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "la-veta",
+    "alamosa"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%20160",
+   "statusLabel": "COtrip: US 160",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "slumgullion-pass",
+   "name": "Slumgullion Pass",
+   "highway": "CO 149",
+   "elevationFt": 11361,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "lake-city",
+    "creede"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%20149",
+   "statusLabel": "COtrip: CO 149",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "spring-creek-pass",
+   "name": "Spring Creek Pass",
+   "highway": "CO 149",
+   "elevationFt": 10901,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "lake-city",
+    "creede"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%20149",
+   "statusLabel": "COtrip: CO 149",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "rabbit-ears-pass",
+   "name": "Rabbit Ears Pass",
+   "highway": "US 40",
+   "elevationFt": 9426,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "steamboat-springs",
+    "kremmling"
+   ],
+   "alsoServes": [
+    "walden"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%2040",
+   "statusLabel": "COtrip: US 40",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "cameron-pass",
+   "name": "Cameron Pass",
+   "highway": "CO 14",
+   "elevationFt": 10276,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "fort-collins",
+    "walden"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%2014",
+   "statusLabel": "COtrip: CO 14",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "willow-creek-pass",
+   "name": "Willow Creek Pass",
+   "highway": "CO 125",
+   "elevationFt": 9621,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "granby",
+    "walden"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%20125",
+   "statusLabel": "COtrip: CO 125",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "gore-pass",
+   "name": "Gore Pass",
+   "highway": "CO 134",
+   "elevationFt": 9527,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "kremmling",
+    "steamboat-springs"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%20134",
+   "statusLabel": "COtrip: CO 134",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "guanella-pass",
+   "name": "Guanella Pass",
+   "highway": "Clear Creek County Road 381 / Park County Road 62",
+   "connects": [
+    "georgetown",
+    "fairplay"
+   ],
+   "seasonalClosure": "CDOT: “Guanella Pass Road is seasonally closed on or about Nov. 26, and reopens on Memorial Day weekend.”",
+   "closureSource": "https://www.codot.gov/travel/coloradobyways/north-central/guanella-pass",
+   "statusUrl": "https://www.cotrip.org/result/route/CR%20381",
+   "statusLabel": "COtrip: CR 381",
+   "source": "https://www.codot.gov/travel/coloradobyways/north-central/guanella-pass",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "boreas-pass",
+   "name": "Boreas Pass",
+   "connects": [
+    "breckenridge",
+    "fairplay"
+   ],
+   "statusUrl": "https://www.summitcountyco.gov/services/public_works/road_bridge/road_conditions_closures.php",
+   "statusLabel": "Summit County Road & Bridge: Road Conditions & Closures",
+   "source": "https://www.summitcountyco.gov/services/public_works/road_bridge/road_conditions_closures.php",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "douglas-pass",
+   "name": "Douglas Pass",
+   "highway": "CO 139",
+   "elevationFt": 8268,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "fruita",
+    "meeker"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%20139",
+   "statusLabel": "COtrip: CO 139",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "cumbres-pass",
+   "name": "Cumbres Pass",
+   "highway": "CO 17",
+   "elevationFt": 10022,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "alamosa",
+    "pagosa-springs"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%2017",
+   "statusLabel": "COtrip: CO 17",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "la-manga-pass",
+   "name": "La Manga Pass",
+   "highway": "CO 17",
+   "elevationFt": 10230,
+   "elevationSource": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "connects": [
+    "alamosa",
+    "pagosa-springs"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%2017",
+   "statusLabel": "COtrip: CO 17",
+   "source": "https://www.codot.gov/news/2012-news-releases/12-2012/cdot-ready-to-keep-mountain-passes-open",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "mount-blue-sky-highway",
+   "name": "Mount Blue Sky Highway",
+   "highway": "CO 5",
+   "elevationFt": 14130,
+   "elevationSource": "https://www.codot.gov/travel/coloradobyways/north-central/mount-evans",
+   "connects": [
+    "idaho-springs",
+    "evergreen"
+   ],
+   "seasonalClosure": "CDOT: “Summit open Memorial Day through Labor Day only.”",
+   "closureSource": "https://www.codot.gov/travel/coloradobyways/north-central/mount-evans",
+   "statusUrl": "https://www.cotrip.org/result/route/CO%205/Mount%20Blue%20Sky%20Road",
+   "statusLabel": "COtrip: CO 5/Mount Blue Sky Road",
+   "source": "https://www.codot.gov/travel/coloradobyways/north-central/mount-evans",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "peak-to-peak-scenic-byway",
+   "name": "Peak to Peak Scenic Byway",
+   "connects": [
+    "estes-park",
+    "black-hawk"
+   ],
+   "alsoServes": [
+    "nederland",
+    "central-city"
+   ],
+   "statusUrl": "https://www.cotrip.org/",
+   "statusLabel": "COtrip",
+   "source": "https://www.codot.gov/travel/coloradobyways/north-central/peak-to-peak",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "big-thompson-canyon",
+   "name": "Big Thompson Canyon",
+   "highway": "US 34",
+   "connects": [
+    "loveland",
+    "estes-park"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/US%2034",
+   "statusLabel": "COtrip: US 34",
+   "source": "https://www.codot.gov/news/2018/november/us-34-big-thompson-canyon-project-nears-substantial-completion",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "glenwood-canyon",
+   "name": "Glenwood Canyon",
+   "highway": "I-70",
+   "connects": [
+    "glenwood-springs",
+    "eagle"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/I-70",
+   "statusLabel": "COtrip: I-70",
+   "source": "https://www.codot.gov/travel/i70mountain/glenwoodcanyon",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "grand-mesa-scenic-byway",
+   "name": "Grand Mesa Scenic Byway",
+   "highway": "CO 65",
+   "connects": [
+    "palisade",
+    "cedaredge"
+   ],
+   "alsoServes": [
+    "delta",
+    "grand-junction"
+   ],
+   "statusUrl": "https://www.cotrip.org/result/route/CO%2065",
+   "statusLabel": "COtrip: CO 65",
+   "source": "https://www.codot.gov/travel/coloradobyways/northwest/grand-mesa",
+   "checked": "2026-11-12"
+  },
+  {
+   "slug": "phantom-canyon-road",
+   "name": "Phantom Canyon Road",
+   "connects": [
+    "florence",
+    "victor"
+   ],
+   "alsoServes": [
+    "canon-city",
+    "cripple-creek"
+   ],
+   "statusUrl": "https://www.cotrip.org/",
+   "statusLabel": "COtrip",
+   "source": "https://www.codot.gov/travel/coloradobyways/south-central/gold-belt",
+   "checked": "2026-11-12"
+  }
+ ]
+}

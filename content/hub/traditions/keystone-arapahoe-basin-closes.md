@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Arapahoe Basin"
 sourceUrl: "https://www.arapahoebasin.com/operating-hours-/"
+outdoor:
+  kind: ski-area
+  facility: "Arapahoe Basin"
+  edge: closes
 years:
   - year: 2027
     status: not-announced

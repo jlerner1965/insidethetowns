@@ -7,6 +7,9 @@ area: "west Main Street"
 url: "https://romarestaurantco.com/"
 phone: "(970) 833-5908"
 tags: [italian, pizza, pasta]
+details:
+  source: "https://romarestaurantco.com/"
+  checked: "2026-11-12"
 summary: "A full-service Italian restaurant on Main Street for pizza and pasta, with a daily drink special and delivery in Windsor."
 source: "https://romarestaurantco.com/"
 verified: "2026-11-10"

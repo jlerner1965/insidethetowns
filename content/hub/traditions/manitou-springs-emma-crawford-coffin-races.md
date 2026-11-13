@@ -6,7 +6,7 @@ town:
   guide: manitou-springs
 type: festival
 organizer: "Visit Manitou Springs"
-sourceUrl: "https://www.emmacrawfordfestival.com/"
+sourceUrl: "https://emmacrawford.coffinraces.com/"
 firstYear: 1995
 years:
   - year: 2027

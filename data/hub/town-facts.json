@@ -1,0 +1,745 @@
+{
+ "checked": "2026-11-12",
+ "sources": {
+  "point": {
+   "name": "U.S. Geological Survey, Geographic Names Information System",
+   "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+  },
+  "elevation": {
+   "name": "U.S. Geological Survey, Elevation Point Query Service",
+   "url": "https://apps.nationalmap.gov/epqs/"
+  },
+  "population": {
+   "name": "U.S. Census Bureau, Vintage 2025 population estimates",
+   "url": "https://www.census.gov/programs-surveys/popest/data/tables.html",
+   "year": 2025
+  }
+ },
+ "towns": {
+  "estes-park": {
+   "gnisId": 204674,
+   "lat": 40.3772059,
+   "lon": -105.5216651,
+   "elevationFt": 7529,
+   "population": 5780
+  },
+  "salida": {
+   "gnisId": 204758,
+   "lat": 38.5347193,
+   "lon": -105.9989022,
+   "elevationFt": 7084,
+   "population": 5985
+  },
+  "grand-lake": {
+   "gnisId": 202505,
+   "lat": 40.2522073,
+   "lon": -105.8230671,
+   "elevationFt": 8388,
+   "population": 402
+  },
+  "nederland": {
+   "gnisId": 204702,
+   "lat": 39.9613759,
+   "lon": -105.5108312,
+   "elevationFt": 8233,
+   "population": 1463
+  },
+  "fort-collins": {
+   "gnisId": 204673,
+   "lat": 40.5852602,
+   "lon": -105.084423,
+   "elevationFt": 5004,
+   "population": 171500
+  },
+  "longmont": {
+   "gnisId": 202560,
+   "lat": 40.1672069,
+   "lon": -105.1019275,
+   "elevationFt": 4980,
+   "population": 100109
+  },
+  "loveland": {
+   "gnisId": 177720,
+   "lat": 40.3977612,
+   "lon": -105.0749801,
+   "elevationFt": 4986,
+   "population": 81387
+  },
+  "castle-rock": {
+   "gnisId": 169449,
+   "lat": 39.3722121,
+   "lon": -104.8560902,
+   "elevationFt": 6218,
+   "population": 83815
+  },
+  "golden": {
+   "gnisId": 202837,
+   "lat": 39.755543,
+   "lon": -105.2210997,
+   "elevationFt": 5673,
+   "population": 20390
+  },
+  "lafayette": {
+   "gnisId": 202813,
+   "lat": 39.9935959,
+   "lon": -105.0897058,
+   "elevationFt": 5210,
+   "population": 30116
+  },
+  "louisville": {
+   "gnisId": 181261,
+   "lat": 39.977763,
+   "lon": -105.1319296,
+   "elevationFt": 5336,
+   "population": 20581
+  },
+  "timnath": {
+   "gnisId": 180510,
+   "lat": 40.5291491,
+   "lon": -104.9852533,
+   "elevationFt": 4866,
+   "population": 11600
+  },
+  "elizabeth": {
+   "gnisId": 185149,
+   "lat": 39.3602662,
+   "lon": -104.596915,
+   "elevationFt": 6483,
+   "population": 2957
+  },
+  "severance": {
+   "gnisId": 180531,
+   "lat": 40.5241479,
+   "lon": -104.8510819,
+   "elevationFt": 4891,
+   "population": 11841
+  },
+  "mead": {
+   "gnisId": 202568,
+   "lat": 40.2333174,
+   "lon": -104.99859,
+   "elevationFt": 5003,
+   "population": 7042
+  },
+  "fort-lupton": {
+   "gnisId": 180857,
+   "lat": 40.0847055,
+   "lon": -104.8130275,
+   "elevationFt": 4906,
+   "population": 10402
+  },
+  "fort-morgan": {
+   "gnisId": 204722,
+   "lat": 40.2502582,
+   "lon": -103.799951,
+   "elevationFt": 4327,
+   "population": 11841
+  },
+  "evergreen": {
+   "gnisId": 204712,
+   "lat": 39.6333213,
+   "lon": -105.3172146,
+   "elevationFt": 7056
+  },
+  "idaho-springs": {
+   "gnisId": 204710,
+   "lat": 39.7424881,
+   "lon": -105.5136082,
+   "elevationFt": 7527,
+   "population": 1842
+  },
+  "georgetown": {
+   "gnisId": 181892,
+   "lat": 39.7060984,
+   "lon": -105.6975041,
+   "elevationFt": 8518,
+   "population": 1217
+  },
+  "black-hawk": {
+   "gnisId": 204706,
+   "lat": 39.7969322,
+   "lon": -105.4938853,
+   "elevationFt": 8534,
+   "population": 120
+  },
+  "frisco": {
+   "gnisId": 176218,
+   "lat": 39.5744309,
+   "lon": -106.0975204,
+   "elevationFt": 9062,
+   "population": 2792
+  },
+  "breckenridge": {
+   "gnisId": 204681,
+   "lat": 39.4816537,
+   "lon": -106.0383518,
+   "elevationFt": 9735,
+   "population": 5015
+  },
+  "keystone": {
+   "gnisId": 182373,
+   "lat": 39.5994311,
+   "lon": -105.9872386,
+   "elevationFt": 9169,
+   "population": 1274
+  },
+  "buena-vista": {
+   "gnisId": 189268,
+   "lat": 38.8422178,
+   "lon": -106.1311288,
+   "elevationFt": 7960,
+   "population": 3248
+  },
+  "leadville": {
+   "gnisId": 204683,
+   "lat": 39.2508229,
+   "lon": -106.2925238,
+   "elevationFt": 10156,
+   "population": 2668
+  },
+  "manitou-springs": {
+   "gnisId": 193457,
+   "lat": 38.8597127,
+   "lon": -104.9171989,
+   "elevationFt": 6368,
+   "population": 4577
+  },
+  "steamboat-springs": {
+   "gnisId": 172749,
+   "lat": 40.4849769,
+   "lon": -106.8317158,
+   "elevationFt": 6731,
+   "population": 13557
+  },
+  "grand-junction": {
+   "gnisId": 204662,
+   "lat": 39.0638705,
+   "lon": -108.5506486,
+   "elevationFt": 4591,
+   "population": 71827
+  },
+  "palisade": {
+   "gnisId": 174630,
+   "lat": 39.1102588,
+   "lon": -108.3509193,
+   "elevationFt": 4727,
+   "population": 2599
+  },
+  "fruita": {
+   "gnisId": 204660,
+   "lat": 39.1588696,
+   "lon": -108.7289882,
+   "elevationFt": 4512,
+   "population": 14003
+  },
+  "carbondale": {
+   "gnisId": 174841,
+   "lat": 39.4022054,
+   "lon": -107.2111628,
+   "elevationFt": 6175,
+   "population": 6762
+  },
+  "glenwood-springs": {
+   "gnisId": 204659,
+   "lat": 39.5505376,
+   "lon": -107.3247762,
+   "elevationFt": 5762,
+   "population": 10395
+  },
+  "crested-butte": {
+   "gnisId": 188848,
+   "lat": 38.8697146,
+   "lon": -106.9878232,
+   "elevationFt": 8912,
+   "population": 1693
+  },
+  "telluride": {
+   "gnisId": 204747,
+   "lat": 37.9374939,
+   "lon": -107.8122852,
+   "elevationFt": 8789,
+   "population": 2454
+  },
+  "ouray": {
+   "gnisId": 204753,
+   "lat": 38.0227716,
+   "lon": -107.6714487,
+   "elevationFt": 7786,
+   "population": 929
+  },
+  "durango": {
+   "gnisId": 202983,
+   "lat": 37.27528,
+   "lon": -107.8800667,
+   "elevationFt": 6534,
+   "population": 19733
+  },
+  "vail": {
+   "gnisId": 202339,
+   "lat": 39.6402638,
+   "lon": -106.3741955,
+   "elevationFt": 8179,
+   "population": 4407
+  },
+  "minturn": {
+   "gnisId": 176136,
+   "lat": 39.5863749,
+   "lon": -106.4308631,
+   "elevationFt": 7854,
+   "population": 986
+  },
+  "eagle": {
+   "gnisId": 204664,
+   "lat": 39.6552635,
+   "lon": -106.8286507,
+   "elevationFt": 6602,
+   "population": 7280
+  },
+  "avon": {
+   "gnisId": 204667,
+   "lat": 39.6313749,
+   "lon": -106.5222541,
+   "elevationFt": 7444,
+   "population": 6184
+  },
+  "dillon": {
+   "gnisId": 169442,
+   "lat": 39.6302643,
+   "lon": -106.0433518,
+   "elevationFt": 9127,
+   "population": 1029
+  },
+  "silverthorne": {
+   "gnisId": 204668,
+   "lat": 39.632139,
+   "lon": -106.074281,
+   "elevationFt": 8747,
+   "population": 5418
+  },
+  "winter-park": {
+   "gnisId": 180960,
+   "lat": 39.8916537,
+   "lon": -105.7630624,
+   "elevationFt": 9040,
+   "population": 1217
+  },
+  "fraser": {
+   "gnisId": 204701,
+   "lat": 39.9449868,
+   "lon": -105.8172316,
+   "elevationFt": 8580,
+   "population": 1543
+  },
+  "granby": {
+   "gnisId": 178402,
+   "lat": 40.086097,
+   "lon": -105.9394597,
+   "elevationFt": 7976,
+   "population": 2392
+  },
+  "kremmling": {
+   "gnisId": 204655,
+   "lat": 40.0588744,
+   "lon": -106.3889199,
+   "elevationFt": 7367,
+   "population": 1451
+  },
+  "aspen": {
+   "gnisId": 204686,
+   "lat": 39.1910983,
+   "lon": -106.8175387,
+   "elevationFt": 7890,
+   "population": 6489
+  },
+  "basalt": {
+   "gnisId": 175038,
+   "lat": 39.3688731,
+   "lon": -107.0328242,
+   "elevationFt": 6608,
+   "population": 4009
+  },
+  "redstone": {
+   "gnisId": 175203,
+   "lat": 39.1808189,
+   "lon": -107.2397727,
+   "elevationFt": 7185
+  },
+  "marble": {
+   "gnisId": 175531,
+   "lat": 39.0722106,
+   "lon": -107.1889377,
+   "elevationFt": 7992,
+   "population": 133
+  },
+  "gunnison": {
+   "gnisId": 188995,
+   "lat": 38.5458246,
+   "lon": -106.9253207,
+   "elevationFt": 7705,
+   "population": 6836
+  },
+  "lake-city": {
+   "gnisId": 188715,
+   "lat": 38.0299967,
+   "lon": -107.3153335,
+   "elevationFt": 8671,
+   "population": 416
+  },
+  "silverton": {
+   "gnisId": 204750,
+   "lat": 37.811941,
+   "lon": -107.6645057,
+   "elevationFt": 9311,
+   "population": 721
+  },
+  "ridgway": {
+   "gnisId": 188398,
+   "lat": 38.1527685,
+   "lon": -107.7617263,
+   "elevationFt": 7038,
+   "population": 1324
+  },
+  "pagosa-springs": {
+   "gnisId": 184338,
+   "lat": 37.26945,
+   "lon": -107.0097617,
+   "elevationFt": 7122,
+   "population": 1838
+  },
+  "montrose": {
+   "gnisId": 203328,
+   "lat": 38.4783198,
+   "lon": -107.8761738,
+   "elevationFt": 5809,
+   "population": 21583
+  },
+  "cortez": {
+   "gnisId": 179044,
+   "lat": 37.3488827,
+   "lon": -108.5859265,
+   "elevationFt": 6201,
+   "population": 9126
+  },
+  "mancos": {
+   "gnisId": 179088,
+   "lat": 37.344996,
+   "lon": -108.2892487,
+   "elevationFt": 7031,
+   "population": 1266
+  },
+  "dolores": {
+   "gnisId": 202607,
+   "lat": 37.4738818,
+   "lon": -108.5045356,
+   "elevationFt": 6937,
+   "population": 933
+  },
+  "paonia": {
+   "gnisId": 186589,
+   "lat": 38.8683204,
+   "lon": -107.5920017,
+   "elevationFt": 5681,
+   "population": 1477
+  },
+  "hotchkiss": {
+   "gnisId": 186534,
+   "lat": 38.799707,
+   "lon": -107.7195032,
+   "elevationFt": 5331,
+   "population": 945
+  },
+  "cedaredge": {
+   "gnisId": 186245,
+   "lat": 38.9016487,
+   "lon": -107.926454,
+   "elevationFt": 6230,
+   "population": 2448
+  },
+  "delta": {
+   "gnisId": 185516,
+   "lat": 38.7422062,
+   "lon": -108.0689582,
+   "elevationFt": 4959,
+   "population": 9802
+  },
+  "olathe": {
+   "gnisId": 204746,
+   "lat": 38.6049854,
+   "lon": -107.9822884,
+   "elevationFt": 5354,
+   "population": 1927
+  },
+  "rifle": {
+   "gnisId": 174045,
+   "lat": 39.5347023,
+   "lon": -107.7831198,
+   "elevationFt": 5347,
+   "population": 10844
+  },
+  "meeker": {
+   "gnisId": 173407,
+   "lat": 40.0374733,
+   "lon": -107.9131299,
+   "elevationFt": 6240,
+   "population": 2417
+  },
+  "craig": {
+   "gnisId": 171304,
+   "lat": 40.5152491,
+   "lon": -107.5464541,
+   "elevationFt": 6197,
+   "population": 8874
+  },
+  "creede": {
+   "gnisId": 190444,
+   "lat": 37.8491662,
+   "lon": -106.9264345,
+   "elevationFt": 8816,
+   "population": 275
+  },
+  "alamosa": {
+   "gnisId": 203624,
+   "lat": 37.4694491,
+   "lon": -105.8700215,
+   "elevationFt": 7543,
+   "population": 9849
+  },
+  "monte-vista": {
+   "gnisId": 204764,
+   "lat": 37.5791696,
+   "lon": -106.1480843,
+   "elevationFt": 7664,
+   "population": 4005
+  },
+  "del-norte": {
+   "gnisId": 190305,
+   "lat": 37.6788919,
+   "lon": -106.3533684,
+   "elevationFt": 7883,
+   "population": 1396
+  },
+  "crestone": {
+   "gnisId": 192409,
+   "lat": 37.9963881,
+   "lon": -105.6997332,
+   "elevationFt": 7931,
+   "population": 166
+  },
+  "fairplay": {
+   "gnisId": 169534,
+   "lat": 39.2247126,
+   "lon": -106.0019618,
+   "elevationFt": 9951,
+   "population": 743
+  },
+  "alma": {
+   "gnisId": 180003,
+   "lat": 39.2838783,
+   "lon": -106.0627967,
+   "elevationFt": 10358,
+   "population": 312
+  },
+  "canon-city": {
+   "gnisId": 191867,
+   "lat": 38.440985,
+   "lon": -105.242447,
+   "elevationFt": 5350,
+   "population": 17030
+  },
+  "florence": {
+   "gnisId": 204775,
+   "lat": 38.3902777,
+   "lon": -105.1185988,
+   "elevationFt": 5180,
+   "population": 3856
+  },
+  "westcliffe": {
+   "gnisId": 192151,
+   "lat": 38.134722,
+   "lon": -105.4658353,
+   "elevationFt": 7872,
+   "population": 488
+  },
+  "cripple-creek": {
+   "gnisId": 204769,
+   "lat": 38.7466555,
+   "lon": -105.1783149,
+   "elevationFt": 9455,
+   "population": 1120
+  },
+  "victor": {
+   "gnisId": 204771,
+   "lat": 38.7099896,
+   "lon": -105.1399807,
+   "elevationFt": 9707,
+   "population": 361
+  },
+  "woodland-park": {
+   "gnisId": 204768,
+   "lat": 38.9938808,
+   "lon": -105.0569301,
+   "elevationFt": 8480,
+   "population": 8014
+  },
+  "green-mountain-falls": {
+   "gnisId": 191196,
+   "lat": 38.9349905,
+   "lon": -105.0169263,
+   "elevationFt": 7748,
+   "population": 601
+  },
+  "palmer-lake": {
+   "gnisId": 204794,
+   "lat": 39.1222138,
+   "lon": -104.917204,
+   "elevationFt": 7300,
+   "population": 2591
+  },
+  "trinidad": {
+   "gnisId": 204811,
+   "lat": 37.1694632,
+   "lon": -104.5005407,
+   "elevationFt": 6030,
+   "population": 8091
+  },
+  "la-veta": {
+   "gnisId": 204782,
+   "lat": 37.5050118,
+   "lon": -105.0077747,
+   "elevationFt": 7046,
+   "population": 859
+  },
+  "central-city": {
+   "gnisId": 181484,
+   "lat": 39.8019322,
+   "lon": -105.5141639,
+   "elevationFt": 8499,
+   "population": 807
+  },
+  "morrison": {
+   "gnisId": 182140,
+   "lat": 39.6535988,
+   "lon": -105.1910996,
+   "elevationFt": 5765,
+   "population": 364
+  },
+  "walden": {
+   "gnisId": 204654,
+   "lat": 40.7316433,
+   "lon": -106.2836373,
+   "elevationFt": 8103,
+   "population": 529
+  },
+  "boulder": {
+   "gnisId": 178680,
+   "lat": 40.0149856,
+   "lon": -105.2705456,
+   "elevationFt": 5319,
+   "population": 105689
+  },
+  "greeley": {
+   "gnisId": 180649,
+   "lat": 40.4233142,
+   "lon": -104.7091322,
+   "elevationFt": 4674,
+   "population": 115073
+  },
+  "milliken": {
+   "gnisId": 180708,
+   "lat": 40.3294268,
+   "lon": -104.85525,
+   "elevationFt": 4752,
+   "population": 9183
+  },
+  "wellington": {
+   "gnisId": 202441,
+   "lat": 40.7038712,
+   "lon": -105.0085856,
+   "elevationFt": 5207,
+   "population": 12169
+  },
+  "platteville": {
+   "gnisId": 180790,
+   "lat": 40.2149829,
+   "lon": -104.8227494,
+   "elevationFt": 4812,
+   "population": 2908
+  },
+  "brush": {
+   "gnisId": 204723,
+   "lat": 40.2588686,
+   "lon": -103.6238367,
+   "elevationFt": 4233,
+   "population": 5337
+  },
+  "sterling": {
+   "gnisId": 202901,
+   "lat": 40.6255415,
+   "lon": -103.207709,
+   "elevationFt": 3938,
+   "population": 13054
+  },
+  "rocky-ford": {
+   "gnisId": 195481,
+   "lat": 38.052508,
+   "lon": -103.7202274,
+   "elevationFt": 4180,
+   "population": 3752
+  },
+  "la-junta": {
+   "gnisId": 204829,
+   "lat": 37.9850091,
+   "lon": -103.5438321,
+   "elevationFt": 4077,
+   "population": 6864
+  },
+  "berthoud": {
+   "gnisId": 178065,
+   "lat": 40.3083174,
+   "lon": -105.0810924,
+   "elevationFt": 5034,
+   "population": 14080
+  },
+  "erie": {
+   "gnisId": 178731,
+   "lat": 40.0502623,
+   "lon": -105.0499817,
+   "elevationFt": 5027,
+   "population": 40904
+  },
+  "johnstown": {
+   "gnisId": 180701,
+   "lat": 40.3369272,
+   "lon": -104.9121967,
+   "elevationFt": 4853,
+   "population": 22433
+  },
+  "windsor": {
+   "gnisId": 204693,
+   "lat": 40.4774818,
+   "lon": -104.9013617,
+   "elevationFt": 4796,
+   "population": 43840
+  },
+  "carbon-valley": {
+   "gnisId": 180839,
+   "lat": 40.0991506,
+   "lon": -104.9371993,
+   "elevationFt": 4980,
+   "population": 18241
+  },
+  "lyons": {
+   "gnisId": 178311,
+   "lat": 40.2247075,
+   "lon": -105.271378,
+   "elevationFt": 5366,
+   "population": 2119
+  },
+  "niwot": {
+   "gnisId": 204679,
+   "lat": 40.103874,
+   "lon": -105.1708193,
+   "elevationFt": 5095
+  }
+ }
+}

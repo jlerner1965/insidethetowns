@@ -4,7 +4,7 @@ name: "The Polar Express Train Ride"
 town:
   name: Durango
   guide: durango
-type: outdoor
+type: festival
 organizer: "Durango & Silverton Narrow Gauge Railroad"
 sourceUrl: "https://durangotrain.com/events/the-polar-express-train-ride/"
 years:

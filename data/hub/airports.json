@@ -1,0 +1,138 @@
+{
+ "listSource": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+ "listSourcePage": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger",
+ "checked": "2026-11-12",
+ "notes": "List = every Colorado (ST=CO) row in FAA's 'CY 2025 Commercial Service Airports (Rank Order)' enplanement spreadsheet (13 airports; S/L column P = primary, CS = non-primary commercial service: Cortez and Pueblo). Northern Colorado Regional (Loveland/Fort Collins) is not on that list. 'name' is the FAA list's airport name plus the word 'Airport'; 'city' is the FAA list's city (Yampa Valley is listed under Hayden, Eagle County Regional under Eagle). lat/lon are the airport reference point (LAT_DECIMAL/LONG_DECIMAL, rounded to 4 places) from FAA NASR 28-day subscription APT_BASE.csv effective 2026-10-29 (https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip, linked from https://www.faa.gov/air_traffic/flight_info/aeronav/aero_data/NASR_Subscription/2026-10-29). Airport 'url' values were each fetched this session and returned HTTP 200 except flydenver.com and aspenairport.com, which returned a Cloudflare 403 bot challenge to curl (domain exists, content not read) - verify those two in a browser.",
+ "airports": [
+  {
+   "code": "DEN",
+   "name": "Denver International Airport",
+   "city": "Denver",
+   "lat": 39.8617,
+   "lon": -104.6732,
+   "url": "https://www.flydenver.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "COS",
+   "name": "City of Colorado Springs Municipal Airport",
+   "city": "Colorado Springs",
+   "lat": 38.8058,
+   "lon": -104.7008,
+   "url": "https://www.flycos.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "ASE",
+   "name": "Aspen-Pitkin County/Sardy Field Airport",
+   "city": "Aspen",
+   "lat": 39.2219,
+   "lon": -106.8682,
+   "url": "https://www.aspenairport.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "EGE",
+   "name": "Eagle County Regional Airport",
+   "city": "Eagle",
+   "lat": 39.6427,
+   "lon": -106.9159,
+   "url": "https://flyege.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "GJT",
+   "name": "Grand Junction Regional Airport",
+   "city": "Grand Junction",
+   "lat": 39.1215,
+   "lon": -108.5255,
+   "url": "https://gjairport.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "DRO",
+   "name": "Durango-La Plata County Airport",
+   "city": "Durango",
+   "lat": 37.1515,
+   "lon": -107.7538,
+   "url": "https://www.flydurango.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "MTJ",
+   "name": "Montrose Regional Airport",
+   "city": "Montrose",
+   "lat": 38.5098,
+   "lon": -107.8942,
+   "url": "https://www.montroseairport.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "HDN",
+   "name": "Yampa Valley Airport",
+   "city": "Hayden",
+   "lat": 40.4812,
+   "lon": -107.2177,
+   "url": "https://flysteamboat.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "GUC",
+   "name": "Gunnison-Crested Butte Regional Airport",
+   "city": "Gunnison",
+   "lat": 38.5343,
+   "lon": -106.9317,
+   "url": "https://www.gunnisoncounty.org/airport",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "ALS",
+   "name": "San Luis Valley Regional/Bergman Field Airport",
+   "city": "Alamosa",
+   "lat": 37.4351,
+   "lon": -105.8679,
+   "url": "https://www.alamosacounty.org/184/San-Luis-Valley-SLV-Regional-Airport",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "TEX",
+   "name": "Telluride Regional Airport",
+   "city": "Telluride",
+   "lat": 37.9538,
+   "lon": -107.9087,
+   "url": "https://tellurideairport.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "CEZ",
+   "name": "Cortez Municipal Airport",
+   "city": "Cortez",
+   "lat": 37.303,
+   "lon": -108.628,
+   "url": "https://www.cortezco.gov/airport",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  },
+  {
+   "code": "PUB",
+   "name": "Pueblo Memorial Airport",
+   "city": "Pueblo",
+   "lat": 38.2899,
+   "lon": -104.498,
+   "url": "https://www.flypueblo.com/",
+   "source": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/arp-cy2025-commercial-service-enplanements.xlsx",
+   "latLonSource": "https://nfdc.faa.gov/webContent/28DaySub/extra/29_Oct_2026_APT_CSV.zip"
+  }
+ ]
+}

@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Echo Mountain"
 sourceUrl: "https://echomtn.com/"
+outdoor:
+  kind: ski-area
+  facility: "Echo Mountain"
+  edge: opens
 years:
   - year: 2026
     status: not-announced

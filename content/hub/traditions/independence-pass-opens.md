@@ -5,9 +5,17 @@ towns:
   - slug: leadville
     line: "The seasonal closure gates are near Aspen and Twin Lakes."
   - slug: buena-vista
+  - slug: aspen
+    line: "The seasonal closure gates are near Aspen and Twin Lakes."
+  - slug: basalt
+    line: "The seasonal closure gates are near Aspen and Twin Lakes."
 type: outdoor
 organizer: "Colorado Department of Transportation"
 sourceUrl: "https://www.codot.gov/news/2026/november2026news/co82-independencepass-close-for-winter"
+outdoor:
+  kind: road
+  facility: "Independence Pass"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

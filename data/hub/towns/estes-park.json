@@ -1,0 +1,126 @@
+{
+  "slug": "estes-park",
+  "lodging": [
+    {
+      "name": "The Stanley Hotel",
+      "kind": "Hotel",
+      "url": "https://www.stanleyhotel.com/",
+      "source": "https://www.stanleyhotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Silver Moon Inn",
+      "kind": "Hotel",
+      "url": "https://www.silvermooninn.com/",
+      "source": "https://www.silvermooninn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Murphy's River Lodge",
+      "kind": "Lodge",
+      "url": "https://www.murphysriverlodge.com/",
+      "source": "https://www.murphysriverlodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Alpine Trail Ridge Inn",
+      "kind": "Hotel",
+      "url": "https://www.alpinetrailridgeinn.com/",
+      "season": "Year-round",
+      "source": "https://www.alpinetrailridgeinn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Estes Park Resort",
+      "kind": "Resort",
+      "url": "https://www.theestesparkresort.com/",
+      "source": "https://www.theestesparkresort.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1858,
+      "text": "Joel Estes entered what is now Estes Park and started a ranch.",
+      "source": "https://www.nps.gov/romo/learn/historyculture/time_line_of_historic_events.htm",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1858,
+        "text": "Joel Estes entered what is now Estes Park and started a ranch.",
+        "source": "https://www.nps.gov/romo/learn/historyculture/time_line_of_historic_events.htm",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1873,
+        "text": "MacGregor Ranch was established.",
+        "source": "https://www.macgregorranch.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1906,
+        "text": "The road up the Big Thompson River, now Highway 34, was completed.",
+        "source": "https://www.nps.gov/romo/learn/historyculture/time_line_of_historic_events.htm",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1915,
+        "text": "Rocky Mountain National Park was dedicated on September 4.",
+        "source": "https://www.nps.gov/romo/learn/historyculture/time_line_of_historic_events.htm",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1982,
+        "text": "The Lawn Lake dam collapsed; the flood killed three people and severely affected Estes Park.",
+        "source": "https://www.nps.gov/romo/learn/historyculture/time_line_of_historic_events.htm",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "The Stanley Hotel",
+        "kind": "landmark",
+        "url": "https://www.stanleyhotel.com/tours/",
+        "hours": "60-minute guided Historic Tours; advance reservations recommended",
+        "cost": "Historic Tour $30 per person; $20 ages 8-17; $28 hotel guests",
+        "source": "https://www.stanleyhotel.com/tours/historic-tours/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Stanley Home Museum",
+        "kind": "museum",
+        "url": "https://stanleyhome.org/",
+        "hours": "Guided tours at 10 am, 12 pm and 2 pm; Sundays at 12 pm and 2 pm; closed Mondays, with fewer open days outside summer",
+        "cost": "$25 adults; $15 seniors 65 and older, active military and veterans; free 8 and younger",
+        "season": "Year-round",
+        "source": "https://stanleyhome.org/tour/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "MacGregor Ranch Museum",
+        "kind": "museum",
+        "url": "https://www.macgregorranch.org/",
+        "season": "Summer; closed for the season as of November 2026",
+        "source": "https://www.macgregorranch.org/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "The Taffy Shop",
+        "what": "Salt water taffy, made in the shop since 1935",
+        "url": "https://originaltaffyshop.com/",
+        "source": "https://originaltaffyshop.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Snowy Peaks Winery",
+        "what": "Wines made from Colorado-grown grapes",
+        "url": "https://snowypeakswinery.com/",
+        "source": "https://snowypeakswinery.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

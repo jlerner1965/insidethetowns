@@ -4,7 +4,7 @@ name: "Oktoberfest"
 town:
   name: Castle Rock
   guide: castle-rock
-type: festival
+type: oktoberfest
 organizer: "Castle Rock Downtown Alliance"
 sourceUrl: "https://www.downtowncastlerock.com/oktoberfest"
 years:

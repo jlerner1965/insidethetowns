@@ -1,0 +1,101 @@
+{
+  "slug": "pagosa-springs",
+  "facts": {
+    "incorporated": {
+      "year": 1891,
+      "source": "https://www.archuletacounty.gov/community/welcome-to-archuleta-county/history-of-archuleta-county/",
+      "checked": "2026-11-12"
+    }
+  },
+  "lodging": [
+    {
+      "name": "The Springs Resort & Spa",
+      "kind": "Hot springs resort",
+      "url": "https://www.pagosahotsprings.com/",
+      "source": "https://www.pagosahotsprings.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Healing Waters Resort & Spa",
+      "kind": "Hot springs resort",
+      "url": "https://pshotsprings.com/",
+      "source": "https://pshotsprings.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Nightingale Motel",
+      "kind": "Motel",
+      "url": "https://www.thenightingalemotel.com/",
+      "source": "https://www.thenightingalemotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "High Creek Lodge",
+      "kind": "Lodge",
+      "url": "https://www.highcreeklodge.com/",
+      "source": "https://www.highcreeklodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Fireside Cabins",
+      "kind": "Cabins",
+      "url": "https://firesidecabins.com/",
+      "source": "https://firesidecabins.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "\"Pagosah\" is a Southern Ute word for \"healing waters\", for the natural hot springs.",
+      "source": "https://www.pagosasprings.co.gov/165/About",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1883,
+      "text": "Platted and surveyed; the town grew around Fort Lewis",
+      "source": "https://www.archuletacounty.gov/community/welcome-to-archuleta-county/history-of-archuleta-county/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1878,
+        "text": "Fort Lewis was established along the San Juan River next to the Pagosa hot springs.",
+        "source": "https://www.archuletacounty.gov/community/welcome-to-archuleta-county/history-of-archuleta-county/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1883,
+        "text": "The Town of Pagosa Springs was platted and surveyed.",
+        "source": "https://www.archuletacounty.gov/community/welcome-to-archuleta-county/history-of-archuleta-county/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1891,
+        "text": "Pagosa Springs was incorporated; it remains the only incorporated town in Archuleta County.",
+        "source": "https://www.archuletacounty.gov/community/welcome-to-archuleta-county/history-of-archuleta-county/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1900,
+        "text": "The railroad reached Pagosa Springs.",
+        "source": "https://www.archuletacounty.gov/community/welcome-to-archuleta-county/history-of-archuleta-county/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1916,
+        "text": "A new state highway over Wolf Creek Pass opened on August 21.",
+        "source": "https://www.archuletacounty.gov/community/welcome-to-archuleta-county/history-of-archuleta-county/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Riff Raff Brewing Co.",
+        "what": "Brewery",
+        "url": "https://www.riffraffbrewing.com/",
+        "source": "https://www.riffraffbrewing.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

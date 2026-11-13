@@ -10,6 +10,9 @@ tags: [pool, gym, climbing wall, classes, rec center]
 image: ../images/berthoud-recreation-center.webp
 imageAlt: "The Berthoud Recreation Center and outdoor waterslide at sunset"
 imageCredit: "Town of Berthoud"
+details:
+  source: "https://www.berthoud.org/1547/Berthoud-Recreation-Center-at-Waggener-F"
+  checked: "2026-11-12"
 summary: "The Town's recreation center at Waggener Farm Park: pools, gym, climbing wall, fitness classes, day passes and the winter craft fair."
 source: "https://www.berthoud.org/1521/Facility-Schedules"
 verified: "2026-11-06"

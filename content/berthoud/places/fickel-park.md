@@ -5,6 +5,9 @@ address: "620 Mountain Ave"
 area: "Mountain Avenue, downtown"
 url: "https://berthoud.org/facilities/facility/details/Fickel-Park-2"
 tags: [sculpture, picnic, tennis]
+details:
+  source: "https://www.berthoud.org/Facilities/Facility/Details/Fickel-Park-2"
+  checked: "2026-11-12"
 summary: "Shaded downtown park on Mountain Avenue with sculptures by local artists, picnic tables and a lighted tennis court; the town's front lawn."
 source: "https://berthoud.org/facilities/facility/details/Fickel-Park-2"
 verified: "2026-11-10"

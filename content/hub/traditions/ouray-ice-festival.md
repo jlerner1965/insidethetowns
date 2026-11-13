@@ -10,6 +10,7 @@ sourceUrl: "https://ourayicepark.com/festival"
 years:
   - year: 2027
     status: confirmed
+    edition: 32
     date: 2027-01-28
     endDate: 2027-01-31
     checked: 2026-11-12

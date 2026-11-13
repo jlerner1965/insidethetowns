@@ -9,6 +9,9 @@ hours: "Mon–Sat 6 am–8 pm; closed Sun"
 priceRange: "$"
 tags: [mexican, breakfast burritos, green chile]
 featured: true
+details:
+  source: "https://eatatsantiagos.com/Johnstown"
+  checked: "2026-11-12"
 summary: "The Colorado breakfast-burrito chain's Old Town branch, open from 6 am Monday to Saturday for burritos, green chile and combination plates."
 source: "https://eatatsantiagos.com/Johnstown"
 verified: "2026-11-02"

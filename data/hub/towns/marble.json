@@ -1,0 +1,58 @@
+{
+  "slug": "marble",
+  "lodging": [
+    {
+      "name": "Beaver Lake Lodge & Cabins",
+      "kind": "Cabins",
+      "url": "https://www.beaverlakelodge.com/",
+      "source": "https://www.beaverlakelodge.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1882,
+        "text": "Marble was discovered on Yule Creek and John Osgood had a large block quarried.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1906,
+        "text": "The Colorado Yule Marble Company was organized and built seven miles of new track into Marble.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1915,
+        "text": "Marble's population reached 1,500.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1943,
+        "text": "The railroad tracks were taken up and the machinery sold for scrap metal.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1972,
+        "text": "The town was reincorporated.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Marble Museum",
+        "kind": "museum",
+        "url": "https://marblehistory.org/marble-museum/",
+        "hours": "Thu–Mon 11 am–4 pm",
+        "cost": "Admission donation: adults $5; juniors and seniors $3; children free",
+        "season": "Memorial Day through mid October",
+        "source": "https://marblehistory.org/marble-museum/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

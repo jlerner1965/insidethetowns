@@ -7,6 +7,9 @@ url: "https://niwotjewelry.com/"
 phone: "(303) 652-1433"
 hours: "Mon 10–5, Tue–Fri 10–6, Sat 10–5; closed Sun"
 tags: [jewelry, gifts]
+details:
+  source: "https://niwotjewelry.com/"
+  checked: "2026-11-12"
 summary: "Jewelry and gifts in the 300 block building on Second Avenue, open Monday to Saturday."
 source: "https://niwotjewelry.com/"
 verified: "2026-11-10"

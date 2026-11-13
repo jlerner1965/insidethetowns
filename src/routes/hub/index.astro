@@ -406,10 +406,10 @@ const description = `${live.length} independent guides to Colorado towns and ${p
           facts={[
             { label: 'Guides live', value: String(live.length) },
             { label: 'Town pages', value: String(pages.length) },
-            { label: 'Counties', value: String(countiesCovered(live).length) },
+            { label: 'Counties with a guide', value: String(countiesCovered(live).length) },
             { label: 'Population of the towns', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
           ]}
-          note="Population at the 2020 census, summed across the live guides: the towns' size, not a count of readers. Several have grown a long way since."
+          note="The population (2020 census) and the county count are for the seven live guides only; the town pages are in neither. The population is the towns' size, not a count of readers. Several have grown a long way since."
         />
       </div>
     </div>

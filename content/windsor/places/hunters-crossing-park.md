@@ -10,6 +10,9 @@ added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 mapUrl: "https://www.townofseverance.org/DocumentCenter/View/267/Parks-Map-PDF"
 tags: [park, pond, trails]
+details:
+  source: "https://www.townofseverance.org/209/Parks-Recreation"
+  checked: "2026-11-12"
 summary: "A 7.0-acre Town of Severance park, number 7 on the Town’s Parks & Trails map, just east of Ponderosa Drive, west of Timber Ridge Parkway. The map gives no street number; amenities are not listed."
 ---
 

@@ -4,8 +4,12 @@ type: park
 address: "900 Country Acres Dr"
 area: "Country Acres"
 url: "https://www.johnstownco.gov/572/Hays-Park"
+phone: "(970) 587-4664"
 hours: "Daily 5 am–10 pm"
 tags: [basketball, volleyball, shelters]
+details:
+  source: "https://www.johnstownco.gov/572/Hays-Park"
+  checked: "2026-11-12"
 summary: "Neighborhood park with a basketball court, sand volleyball, shelters with electricity and a playground; the only Town park where alcohol is allowed, by permit."
 source: "https://www.johnstownco.gov/572/Hays-Park"
 verified: "2026-11-02"

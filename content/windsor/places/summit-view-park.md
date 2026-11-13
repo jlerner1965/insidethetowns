@@ -10,6 +10,9 @@ verified: "2026-11-10"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 tags: [neighborhood park]
+details:
+  source: "https://www.townofseverance.org/209/Parks-Recreation"
+  checked: "2026-11-12"
 summary: "Neighborhood park at 270 Audubon Boulevard, one of the public parks the Town of Severance maintains in its subdivisions."
 ---
 

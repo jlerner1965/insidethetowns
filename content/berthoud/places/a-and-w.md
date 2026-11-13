@@ -8,6 +8,9 @@ phone: "(970) 532-2272"
 hours: "Mon–Sat 11 am–9 pm; closed Sun"
 priceRange: "$"
 tags: [burgers, root beer, drive-through]
+details:
+  source: "https://awrestaurants.com/locations/colorado/berthoud/802-mountain-avenue/"
+  checked: "2026-11-12"
 summary: "The A&W on west Mountain Avenue near Town Hall, root beer floats included."
 source: "https://awrestaurants.com/locations/colorado/berthoud/802-mountain-avenue/"
 verified: "2026-11-10"

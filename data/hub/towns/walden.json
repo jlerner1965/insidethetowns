@@ -1,0 +1,11 @@
+{
+  "slug": "walden",
+  "lodging": [
+    { "name": "North Park Inn & Suites", "kind": "Motel", "url": "https://northparkinnandsuites.com", "source": "https://northparkinnandsuites.com", "checked": "2026-11-12" }
+  ],
+  "heritage": {
+    "sites": [
+      { "name": "North Park Pioneer Museum", "kind": "museum", "url": "https://nppioneermuseum.com/", "hours": "10:00 AM - 4:00 PM; also open by appointment", "season": "Memorial Day-Labor Day", "source": "https://nppioneermuseum.com/", "checked": "2026-11-12" }
+    ]
+  }
+}

@@ -10,6 +10,9 @@ verified: "2026-11-10"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 tags: [shade, picnic tables, old town]
+details:
+  source: "https://www.townofseverance.org/Facilities/Facility/Details/Brownell-Park-2"
+  checked: "2026-11-12"
 summary: "A small, shady park with grass, trees and picnic tables at the Old Town Hall on 1st Street, in the middle of Severance's Old Town."
 ---
 

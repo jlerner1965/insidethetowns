@@ -10,6 +10,9 @@ added: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-750-7807"
 tags: [acupuncture, health, fifth-street]
+details:
+  source: "https://FrederickAcu.com/"
+  checked: "2026-11-12"
 summary: "An acupuncture and natural medicine practice at 426 Fifth Street in old-town Frederick, listed in the Town’s business directory; hours are not published there."
 ---
 

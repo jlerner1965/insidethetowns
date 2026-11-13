@@ -15,6 +15,9 @@ status: temporarily-closed
 closed: "2026-10-02"
 statusNote: "Closed since a kitchen fire in summer 2025. Its own site, read 10 November 2026, says it \"remains closed following our kitchen fire\" and will reopen in November 2026, with no confirmed date yet."
 statusSource: "https://www.chimneypark.com/"
+details:
+  source: "https://www.chimneypark.com/"
+  checked: "2026-11-12"
 summary: "Windsor's fine-dining restaurant since 2007, in an 1895 building on Main Street. Closed since a kitchen fire in summer 2025; its own site says it will reopen in November 2026, date still to be confirmed."
 ---
 

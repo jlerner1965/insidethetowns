@@ -12,18 +12,18 @@
  */
 import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide, type HubTown } from '../config/hub-towns.ts';
 import { formatMonthDay, parseLocal } from './dates.ts';
-import { CURRENT_SEASONS, TRADITION_TYPE_INFO, byNextDate, countsAsVerified, isUpcoming, nextRow, type TraditionRecord, type TraditionRow } from './traditions.ts';
+import { CURRENT_SEASONS, TRADITION_TYPE_INFO, byNextDate, countsAsVerified, hasVerifiedDate, isAgencyDate, isListed, isUpcoming, nextRow, type TraditionRecord, type TraditionRow } from './traditions.ts';
 
 /**
- * A town page is published only when the town has this many verified
- * items of its own (a date read on the source, or, the owner's rule of 12
- * November 2026, the organizer's own word that the event continues while
- * its next date is not announced). "Its own" is a record whose home is the town
- * (`town.guide`): an event held there, or the town's own outdoor date. A
- * shared date (Trail Ridge Road, listed for six towns) and a statewide one
- * show on the page but do not count toward it.
+ * A town page is published once the town has one named annual event of
+ * its own whose next date, or the date it was last held, was read on its
+ * organizer's own page (the owner's brief of 12 November 2026; until then
+ * the bar was three verified items of any kind). "Its own" is a record
+ * whose home is the town (`town.guide`). An outdoor date, a shared date
+ * (Trail Ridge Road, listed for six towns) and a statewide one show on the
+ * page but do not make one.
  */
-export const MIN_OWN_ITEMS = 3;
+export const MIN_OWN_ITEMS = 1;
 
 /**
  * The slug a record's `town.guide` or `towns[].slug` means, in the one
@@ -65,9 +65,14 @@ export function ownItems(records: readonly TraditionRecord[], town: string): Tra
   return records.filter((r) => !r.fixture && homeOf(r) === town && countsAsVerified(r));
 }
 
-/** The hub towns with a page: MIN_OWN_ITEMS of their own or more. In the registry's order. */
+/** The hub towns with a page: one dated event of their own or more. In the registry's order. */
 export function publishedHubTowns(records: readonly TraditionRecord[]): HubTown[] {
-  return HUB_TOWNS.filter((t) => ownItems(records, t.slug).length >= MIN_OWN_ITEMS);
+  return HUB_TOWNS.filter((t) => ownEvents(records, t.slug).length >= MIN_OWN_ITEMS);
+}
+
+/** A town's own named annual events with a date read on the organizer's page: what makes its page. */
+export function ownEvents(records: readonly TraditionRecord[], town: string): TraditionRecord[] {
+  return records.filter((r) => !r.fixture && homeOf(r) === town && !isAgencyDate(r.type) && hasVerifiedDate(r));
 }
 
 /** A place's rows in the page's two sections, each soonest first, then A to Z. */
@@ -80,12 +85,12 @@ export interface PlaceRows {
 }
 
 export function placeRows(records: readonly TraditionRecord[], place: string, today: string): PlaceRows {
-  const rows = records.filter((r) => appliesTo(r, place)).map((r) => nextRow(r, today));
+  const rows = records.filter((r) => appliesTo(r, place)).map((r) => nextRow(r, today)).filter(isListed);
   const sorted = (list: TraditionRow[]) => list.sort(byNextDate);
   return {
-    traditions: sorted(rows.filter((r) => r.record.type !== 'outdoor')),
-    outdoor: sorted(rows.filter((r) => r.record.type === 'outdoor' && !r.record.statewide)),
-    statewide: sorted(rows.filter((r) => r.record.type === 'outdoor' && !!r.record.statewide)),
+    traditions: sorted(rows.filter((r) => !isAgencyDate(r.record.type))),
+    outdoor: sorted(rows.filter((r) => isAgencyDate(r.record.type) && !r.record.statewide)),
+    statewide: sorted(rows.filter((r) => isAgencyDate(r.record.type) && !!r.record.statewide)),
   };
 }
 

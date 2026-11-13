@@ -11,6 +11,10 @@ imageAlt: "The library's sign, gold letters on a brown board shaped like an open
 imageCredit: "Berthoud Community Library District"
 imageListingOnly: true
 tags: [library, kids, classes]
+details:
+  closedDays: "Closed Sundays; 2026 closures include Thanksgiving (November 26 and 27) and Christmas Eve and Christmas Day"
+  source: "https://www.berthoudcommunitylibrary.org/hours"
+  checked: "2026-11-12"
 summary: "The library district on Welch Avenue: storytimes three mornings a week, a writers group, classes, tech help, and the September literary festival."
 source: "https://www.berthoudcommunitylibrary.org/hours"
 verified: "2026-11-10"

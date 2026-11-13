@@ -1,0 +1,61 @@
+{
+  "slug": "cortez",
+  "lodging": [
+    {
+      "name": "Retro Inn at Mesa Verde",
+      "kind": "Motel",
+      "url": "https://www.retroinnmesaverde.com/",
+      "source": "https://www.retroinnmesaverde.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1886,
+      "text": "On Christmas Day 1886 Matt Hammond hauled a wagon of lumber onto the old cattle roundup ground to put up the town's first buildings.",
+      "source": "https://www.cortezco.gov/318/History-of-City",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1887,
+        "text": "By spring, hundreds of men were at work on the irrigation system meant to bring water to the valley.",
+        "source": "https://www.cortezco.gov/318/History-of-City",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1889,
+        "text": "The stone block at the corner of Main and Market was completed.",
+        "source": "https://www.cortezco.gov/318/History-of-City",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1891,
+        "text": "The Rio Grande Southern reached Dolores; the spur to Cortez was never completed.",
+        "source": "https://www.cortezco.gov/318/History-of-City",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1906,
+        "text": "The Mesa Verde area was designated a national park.",
+        "source": "https://www.cortezco.gov/318/History-of-City",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1911,
+        "text": "Storms on July 10 washed out the flumes and much of the irrigation system.",
+        "source": "https://www.cortezco.gov/318/History-of-City",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "WildEdge Brewing Collective",
+        "what": "Beer brewed at 111 N Market St.",
+        "url": "https://www.wildedgebrewing.com/",
+        "source": "https://www.wildedgebrewing.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

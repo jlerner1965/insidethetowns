@@ -10,6 +10,9 @@ added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 mapUrl: "https://www.townofseverance.org/DocumentCenter/View/267/Parks-Map-PDF"
 tags: [park, neighborhood-park, reservoir]
+details:
+  source: "https://www.townofseverance.org/209/Parks-Recreation"
+  checked: "2026-11-12"
 summary: "A 2.3-acre Town of Severance park, number 15 on the Town’s Parks & Trails map, just west of Lake Vista Way in the Severance Shores subdivision, on the Windsor Reservoir shore. The map gives no street number; amenities are not listed."
 ---
 

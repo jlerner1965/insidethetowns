@@ -7,6 +7,9 @@ url: "https://www.joyfulbrews.com/"
 phone: "(970) 532-9963"
 priceRange: "$"
 tags: [coffee, tea, drive-through]
+details:
+  source: "https://www.joyfulbrews.com/contact-8"
+  checked: "2026-11-12"
 summary: "A woman-owned, family-run drive-thru coffee shop on Meadowlark Drive, going since 1996."
 source: "https://www.joyfulbrews.com/contact-8"
 verified: "2026-11-10"

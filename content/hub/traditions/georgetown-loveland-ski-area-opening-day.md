@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Loveland Ski Area"
 sourceUrl: "https://skiloveland.com/snowmaking/"
+outdoor:
+  kind: ski-area
+  facility: "Loveland Ski Area"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

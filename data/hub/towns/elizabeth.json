@@ -1,0 +1,13 @@
+{
+  "slug": "elizabeth",
+  "heritage": {
+    "timeline": [
+      { "year": 1890, "text": "The Huber Building at 239 Main St. was built. It housed a range of retail and wholesale businesses.", "source": "https://www.historycolorado.org/location/huber-building-carlson-building", "checked": "2026-11-12" },
+      { "year": 1907, "text": "The First National Bank building at 188 S. Main St. was constructed on the site where it still stands.", "source": "https://www.historycolorado.org/location/first-national-bank-elizabeth", "checked": "2026-11-12" }
+    ],
+    "sites": [
+      { "name": "Huber Building (Carlson Building)", "kind": "landmark", "source": "https://www.historycolorado.org/location/huber-building-carlson-building", "checked": "2026-11-12" },
+      { "name": "First National Bank of Elizabeth", "kind": "landmark", "source": "https://www.historycolorado.org/location/first-national-bank-elizabeth", "checked": "2026-11-12" }
+    ]
+  }
+}

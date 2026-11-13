@@ -10,6 +10,11 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "303-678-9402"
 hours: "Daily 5 am–10 pm; entrance station 9 am–5 pm"
 tags: [state-park, fishing, camping, birding, trails, fee]
+details:
+  dogs: "Leashed dogs permitted"
+  fees: "Daily vehicle pass $10-$15; individual daily pass $4"
+  source: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
+  checked: "2026-11-12"
 summary: "Colorado Parks and Wildlife’s pond-dotted park just west of I-25 at Exit 240, a few minutes from Frederick: 689 acres of land and 228 of water, 87 campsites, seven miles of trail, fishing and bald eagles in winter. A daily vehicle pass is $10 to $12 for Colorado plates."
 ---
 

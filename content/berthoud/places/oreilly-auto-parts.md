@@ -7,6 +7,9 @@ url: "https://locations.oreillyauto.com/en-us/co/berthoud/autoparts-5873.html"
 phone: "(970) 670-4002"
 hours: "Mon–Sat 7:30 am–9 pm, Sun 9 am–8 pm"
 tags: [auto-parts, everyday]
+details:
+  source: "https://locations.oreillyauto.com/en-us/co/berthoud/autoparts-5873.html"
+  checked: "2026-11-12"
 summary: "The auto parts store on West Mountain Avenue, with free battery, alternator and starter testing; open every day."
 source: "https://locations.oreillyauto.com/en-us/co/berthoud/autoparts-5873.html"
 verified: "2026-11-10"
