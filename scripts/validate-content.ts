@@ -46,6 +46,9 @@ import { STANDALONE_GUIDES, findHubTown } from '../src/config/hub-towns.ts';
 import { placeKey } from '../src/lib/hub-towns.ts';
 import { isGuideSite, townProfileSchema } from '../src/lib/town-profile.ts';
 import { STALE_CHECK_DAYS, STALE_WITHIN_DAYS, staleSoon, type TraditionRecord } from '../src/lib/traditions.ts';
+import { openItems, reverifyDue } from '../src/lib/curiosity.ts';
+import { curiosityFiles } from '../src/lib/curiosity-files.ts';
+import { placeName } from '../src/lib/curiosity-places.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -668,6 +671,26 @@ for (const town of deployedTowns()) for (const issue of nextEventIssues(town.slu
     for (const url of [r.sourceUrl, ...r.years.map((y) => y.sourceUrl)]) {
       if (url && isGuideSite(url)) errors.push(`content/hub/traditions/${r.slug}.md: ${url} is a guide site, not the organizer's page`);
     }
+  }
+}
+
+// The hub's town-anchored articles (content/hub/curiosity/, src/lib/curiosity.ts):
+// every fact with its official source and check date, the file named for
+// its slug, every town one the network has. A draft is counted, never
+// built; an article due to be read again is listed, never a failure.
+{
+  const today = dayKey(new Date());
+  const files = curiosityFiles(root);
+  for (const f of files) {
+    for (const issue of f.issues) errors.push(`${f.file}: ${issue}`);
+    if (!f.article) continue;
+    for (const t of f.article.towns) if (!placeName(t)) errors.push(`${f.file}: "${t}" is not a town page or a guide in src/config/hub-towns.ts`);
+    if (reverifyDue(f.article, today)) warnings.push(`${f.file}: due to be read again since ${f.article.reverify!.from} (${f.article.reverify!.why}); read each source and move its \`checked\``);
+  }
+  const drafts = files.filter((f) => f.article?.status === 'draft');
+  if (drafts.length > 0) {
+    const open = drafts.reduce((n, f) => n + openItems(f.article!).length, 0);
+    console.log(`curiosity: ${drafts.length} draft ${drafts.length === 1 ? 'article' : 'articles'} not on the site, ${open} flagged or empty ${open === 1 ? 'field' : 'fields'}; \`npm run curiosity\` lists them`);
   }
 }
 

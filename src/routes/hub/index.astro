@@ -17,7 +17,8 @@ import TownMap from '@/components/TownMap.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import FactStrip from '@/components/FactStrip.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
-import { getNetworkEntries, getTraditions } from '@/lib/content';
+import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
+import { CURIOSITY_TOPICS, TOPIC_INFO, articlePath } from '@/lib/curiosity';
 import { byCluster, publishedHubTowns } from '@/lib/hub-towns';
 import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows } from '@/lib/traditions';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
@@ -67,6 +68,17 @@ const collections = seasonal.length > 0 ? seasonal : outdoorFallback ? [outdoorF
  * named here at all.
  */
 const live = liveTowns();
+/**
+ * The town-anchored articles (src/lib/curiosity.ts), one row: each topic
+ * with an article on the site, by its index page, then each one-off event
+ * article by its title. A draft is not on the site, so the row is not
+ * drawn until the first article is marked verified.
+ */
+const curiosity = (await getCuriosity()).map((a) => a.data);
+const curiosityLinks = [
+  ...CURIOSITY_TOPICS.filter((t) => curiosity.some((a) => a.kind === t)).map((t) => ({ label: TOPIC_INFO[t].label, href: TOPIC_INFO[t].path, note: `${curiosity.filter((a) => a.kind === t).length} by town` })),
+  ...curiosity.filter((a) => a.kind === 'event').map((a) => ({ label: a.title, href: articlePath(a), note: undefined })),
+];
 /**
  * Most visitors came for one town. On a phone the cards were two screens of
  * events and a map away, so the hero ends in a row of names, drawn from
@@ -204,6 +216,25 @@ const description = `${live.length} independent guides to Colorado towns and ${p
                   <span class="shrink-0 text-sm font-semibold text-ink-muted">{c.count} to come</span>
                 </span>
                 <span class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">Next: {c.next}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {/* The town-anchored articles: one row of links (the brief of 13 November 2026). */}
+  {curiosityLinks.length > 0 && (
+    <section class="band-compact band-paper" aria-labelledby="curiosity-h" data-curiosity-row>
+      <div class="container-page flex flex-wrap items-center gap-x-6 gap-y-3">
+        <h2 id="curiosity-h" class="eyebrow">Near the towns</h2>
+        <ul class="flex flex-wrap gap-2">
+          {curiosityLinks.map((l) => (
+            <li>
+              <a href={l.href} class="group inline-flex min-h-11 items-baseline gap-2 rounded-full bg-raised px-4 py-2.5 no-underline ring-1 ring-line-soft transition hover:ring-line">
+                <span class="text-[0.9375rem] font-semibold text-ink group-hover:text-primary">{l.label}</span>
+                {l.note && <span class="text-[0.8125rem] text-ink-muted">{l.note}</span>}
               </a>
             </li>
           ))}

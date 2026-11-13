@@ -8,6 +8,7 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { articleSchema, correctionSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema, profileSchema, programSchema, traditionSchema, updateSchema, weeklySchema } from './content/schemas';
 import { FIXTURES_DIR, TRADITIONS_DIR, fixturesEnabled } from './lib/traditions';
+import { CURIOSITY_DIR, curiositySchema } from './lib/curiosity';
 
 const base = './content';
 
@@ -116,4 +117,21 @@ const traditions = defineCollection({
   schema: () => traditionSchema(),
 });
 
-export const collections = { events, places, articles, pages, issues, weekly, corrections, programs, updates, profiles, traditions };
+/**
+ * The hub's town-anchored articles (src/lib/curiosity.ts): Camping, Ghost
+ * towns and the one-off event article, one file each in
+ * content/hub/curiosity/. Hub-owned and read by the guides too, for the
+ * Nearby links, as the traditions are. Strict: a fact without its source
+ * and check date, or a source on a guide site, fails the build. A draft
+ * loads and is drawn nowhere (getCuriosity in src/lib/content.ts).
+ */
+const curiosity = defineCollection({
+  loader: glob({
+    pattern: `${CURIOSITY_DIR}/[^_]*.md`,
+    base: '.',
+    generateId: ({ entry, data }) => (typeof data.slug === 'string' ? data.slug : entry.replace(/^.*\//, '').replace(/\.md$/, '')),
+  }),
+  schema: () => curiositySchema,
+});
+
+export const collections = { events, places, articles, pages, issues, weekly, corrections, programs, updates, profiles, traditions, curiosity };

@@ -15,6 +15,8 @@ import { schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } fro
 import { teamsWithData } from '../lib/school-sports.ts';
 import { guidesWithTraditions, seasonTypesWithRecords } from '../lib/tradition-files.ts';
 import { TRADITION_TYPE_INFO } from '../lib/traditions.ts';
+import { TOPIC_INFO } from '../lib/curiosity.ts';
+import { hasEventArticle, topicsWithArticles } from '../lib/curiosity-files.ts';
 
 /**
  * The home page: one route file for every guide (design pass, 26 October
@@ -166,6 +168,27 @@ export function seasonRoutes(root = '.'): Array<[pattern: string, file: string]>
   return seasonTypesWithRecords(root).map((type) => [TRADITION_TYPE_INFO[type].path.replace(/\/$/, ''), 'season.astro']);
 }
 
+/**
+ * The hub's town-anchored articles (src/lib/curiosity.ts): for each topic
+ * with an article on the site, its index at /camping/ or /ghost-towns/
+ * and its articles at /<topic>/<town>/; and /articles/<slug>/ once a
+ * one-off event article is on the site. A draft is not on the site, so a
+ * topic whose articles are all drafts builds nothing and nothing links to
+ * it. Read from the markdown, as the season pages are.
+ */
+export function curiosityRoutes(root = '.', env: Record<string, string | undefined> = process.env): Array<[pattern: string, file: string]> {
+  return [
+    ...topicsWithArticles(root, env).flatMap((topic): Array<[string, string]> => {
+      const base = TOPIC_INFO[topic].path.replace(/\/$/, '');
+      return [
+        [base, 'curiosity-index.astro'],
+        [`${base}/[town]`, 'curiosity-article.astro'],
+      ];
+    }),
+    ...(hasEventArticle(root, env) ? ([['/articles/[slug]', 'curiosity-article.astro']] as Array<[string, string]>) : []),
+  ];
+}
+
 function hasFiles(dir: string): boolean {
   return existsSync(dir) && readdirSync(dir).some((f) => f.endsWith('.md') && !f.startsWith('_'));
 }
@@ -211,7 +234,7 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
       'astro:config:setup': ({ config, injectRoute, logger }) => {
         const routes =
           site.kind === 'hub'
-            ? [...HUB_ROUTES, ...seasonRoutes()]
+            ? [...HUB_ROUTES, ...seasonRoutes(), ...curiosityRoutes()]
             : site.status === 'live'
               ? [
                   homeRoute(site),

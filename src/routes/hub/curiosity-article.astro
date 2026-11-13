@@ -1,0 +1,192 @@
+---
+/**
+ * One town-anchored article on the hub (src/lib/curiosity.ts): Camping
+ * near a town at /camping/<town>/, Ghost towns near a town at
+ * /ghost-towns/<town>/, and a one-off event article at /articles/<slug>/.
+ * One file at three patterns, each asked for only once an article of its
+ * kind is on the site (src/integrations/town-routes.ts).
+ *
+ * Top to bottom: the masthead with the byline, the day the facts were
+ * last verified and whether the writer has been there; the prose; one
+ * card per entry, every field with the official page it was read on and
+ * the day it was read; the sources of what the prose says; the town's own
+ * page. A field nobody confirmed is not drawn: there is no "unknown".
+ *
+ * A draft reaches here only under the local preview switch, and says so
+ * on its face and to a crawler (noindex).
+ */
+import { render, type CollectionEntry } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import { getHub } from '@/config';
+import { getCuriosity, getTraditions } from '@/lib/content';
+import { formatDate, parseLocal, toIsoLocal } from '@/lib/dates';
+import { publishedHubTowns } from '@/lib/hub-towns';
+import { breadcrumbJsonLd } from '@/lib/seo';
+import {
+  CAMPING_FIELDS,
+  CAMPING_LABELS,
+  CURIOSITY_BYLINE,
+  CURIOSITY_TOPICS,
+  GHOST_FIELDS,
+  GHOST_LABELS,
+  TOPIC_INFO,
+  articlePath,
+  entriesOf,
+  lastVerified,
+  sourceHost,
+  type CuriosityTopic,
+  type Fact,
+} from '@/lib/curiosity';
+import { placeLink, placeName } from '@/lib/curiosity-places';
+
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const articles = await getCuriosity();
+  if (routePattern.startsWith('/articles')) {
+    return articles.filter((a) => a.data.kind === 'event').map((article) => ({ params: { slug: article.data.slug }, props: { article } }));
+  }
+  const topic = CURIOSITY_TOPICS.find((t) => routePattern.startsWith(TOPIC_INFO[t].path.replace(/\/$/, '')));
+  return articles.filter((a) => a.data.kind === topic).map((article) => ({ params: { town: article.data.towns[0] }, props: { article } }));
+}
+
+interface Props {
+  article: CollectionEntry<'curiosity'>;
+}
+
+const hub = getHub();
+const { article } = Astro.props;
+const { data } = article;
+const { Content } = await render(article);
+const topic = data.kind === 'event' ? undefined : TOPIC_INFO[data.kind as CuriosityTopic];
+const path = articlePath(data);
+const url = `https://${hub.domain}${path}`;
+const draft = data.status !== 'verified';
+const verified = lastVerified(data);
+const day = (d: string) => formatDate(parseLocal(d));
+
+const withPage = new Set(publishedHubTowns(await getTraditions()).map((t) => t.slug));
+const towns = data.towns.map((t) => ({ slug: t, name: placeName(t) ?? t, link: placeLink(t, { onHub: true, withPage }) }));
+
+const fields = data.kind === 'camping' ? CAMPING_FIELDS.map((f) => [f, CAMPING_LABELS[f]] as const) : GHOST_FIELDS.map((f) => [f, GHOST_LABELS[f]] as const);
+const entries = entriesOf(data).map((e) => ({
+  entry: e,
+  id: e.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+  rows: [
+    ...fields.map(([f, label]) => ({ label, fact: (e as Record<string, unknown>)[f] as Fact | undefined })),
+    ...e.more.map((m) => ({ label: m.label, fact: m as Fact })),
+  ].filter((r): r is { label: string; fact: Fact } => !!r.fact),
+}));
+
+const structured = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.title,
+    description: data.description,
+    datePublished: toIsoLocal(parseLocal(data.date)),
+    dateModified: toIsoLocal(parseLocal(verified)),
+    ...(topic ? { articleSection: topic.label } : {}),
+    author: { '@type': 'Person', name: CURIOSITY_BYLINE },
+    publisher: { '@id': `https://${hub.domain}/#org` },
+    isPartOf: { '@id': `https://${hub.domain}/#website` },
+    mainEntityOfPage: url,
+    url,
+  },
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    ...(topic ? [{ name: topic.label, path: topic.path }] : []),
+    { name: data.title, path },
+  ]),
+];
+const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
+---
+<Page title={data.title} seoTitle={data.seoTitle} kind="Guide" eyebrow={topic ? `${topic.label} · ${towns[0]!.name}` : towns.map((t) => t.name).join(' · ')} status={draft ? 'Draft' : undefined} intro={data.description} description={data.description} type="article" noindex={draft} jsonLd={structured}>
+  <Fragment slot="after-header">
+    <p class="mt-5 text-sm text-ink-muted" data-article-meta>
+      <span data-byline>By {CURIOSITY_BYLINE}</span>
+      <span> · Last verified <time datetime={verified}>{day(verified)}</time></span>
+      <span data-visited={data.visited ? 'yes' : 'no'}> · {data.visited ? 'Visited' : 'Not personally visited'}</span>
+    </p>
+    {draft && (
+      <p class="mt-4 rounded-lg border border-highlight bg-highlight-soft px-4 py-3 text-[0.9375rem] leading-relaxed text-ink" data-draft>
+        A draft, shown by the local preview only. It is not on the site until it is marked verified.
+      </p>
+    )}
+  </Fragment>
+
+  <div class="max-w-3xl">
+    <div class="prose">
+      <Content />
+    </div>
+
+    {entries.length > 0 && (
+      <div class="mt-12 space-y-8" data-entries>
+        {entries.map(({ entry, id, rows }) => (
+          <section id={id} aria-labelledby={`${id}-h`} class="scroll-mt-4 rounded-lg bg-raised px-5 py-6 ring-1 ring-line-soft sm:px-7" data-entry>
+            <h2 id={`${id}-h`} class="font-heading text-[1.75rem] font-medium leading-tight">{entry.name}</h2>
+            {entry.summary && <p class="mt-2 text-[1.0625rem] leading-relaxed text-ink">{entry.summary}</p>}
+            <dl class="mt-5 divide-y divide-line-soft border-t border-line-soft">
+              {rows.map(({ label, fact }) => (
+                <div class="grid gap-x-6 gap-y-1 py-3.5 sm:grid-cols-[11rem_minmax(0,1fr)]" data-fact>
+                  <dt class="eyebrow pt-0.5 text-ink-muted">{label}</dt>
+                  <dd>
+                    <p class="text-[1rem] leading-relaxed text-ink">{fact.value}</p>
+                    <p class={sourced}>
+                      Source: <a href={fact.source} rel="noopener" class="text-primary underline">{sourceHost(fact.source)}</a> · Last verified <time datetime={fact.checked}>{day(fact.checked)}</time>
+                    </p>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            {entry.skip && (
+              <div class="mt-4 rounded-lg border-l-4 border-accent bg-paper px-4 py-3" data-skip>
+                <p class="text-[1rem] leading-relaxed text-ink"><strong class="font-semibold">Skip it if</strong> {entry.skip.value}</p>
+                <p class={sourced}>
+                  Source: <a href={entry.skip.source} rel="noopener" class="text-primary underline">{sourceHost(entry.skip.source)}</a> · Last verified <time datetime={entry.skip.checked}>{day(entry.skip.checked)}</time>
+                </p>
+              </div>
+            )}
+            {entry.url && (
+              <p class="mt-4 text-[0.9375rem]">
+                <a href={entry.url} rel="noopener" class="font-semibold text-primary underline">{entry.name} on {sourceHost(entry.url)}</a>
+              </p>
+            )}
+          </section>
+        ))}
+      </div>
+    )}
+
+    {data.sources.length > 0 && (
+      <aside aria-labelledby="sources-h" class="mt-12 border-t border-line-soft pt-6" data-sources>
+        <h2 id="sources-h" class="eyebrow mb-3">Sources</h2>
+        <ul class="space-y-2.5 text-[0.9375rem] leading-snug">
+          {data.sources.map((s) => (
+            <li>
+              <a href={s.url} rel="noopener" class="text-primary underline">{s.label}</a>
+              <span class="text-ink-muted"> · {sourceHost(s.url)} · last verified <time datetime={s.checked}>{day(s.checked)}</time></span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    )}
+
+    <p class="mt-8 text-[0.9375rem] leading-relaxed text-ink-muted">
+      Fees, seasons, roads and rules change. Each fact above links to the page it was read on and carries the day it was read; that page is the record.
+    </p>
+
+    <nav aria-labelledby="towns-h" class="mt-10 border-t border-line-soft pt-6" data-article-towns>
+      <h2 id="towns-h" class="eyebrow mb-3">{towns.length > 1 ? 'The towns' : 'The town'}</h2>
+      <ul class="flex flex-wrap gap-2">
+        {towns.filter((t) => t.link).map((t) => (
+          <li>
+            <a href={t.link!.href} class="inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary">{t.link!.what}</a>
+          </li>
+        ))}
+        {topic && (
+          <li>
+            <a href={topic.path} class="inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary">All {topic.label.toLowerCase()} articles</a>
+          </li>
+        )}
+      </ul>
+    </nav>
+  </div>
+</Page>

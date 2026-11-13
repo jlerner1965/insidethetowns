@@ -10924,3 +10924,59 @@ is in `docs/additions-report.md`.
 - **Sources.** The researchers' web search allowance ran out early and
   many `*.colorado.gov` town sites refuse automated reads, so the profiles
   are thinner than the brief asks and the gaps are listed, not filled.
+
+## The town-anchored articles: Camping, Ghost towns and one event article, 13 November 2026
+
+The owner's brief of 13 November 2026 ("Curiosity articles, first batch"):
+town-anchored articles on the hub that beat the statewide list sites on
+verified practical detail. Six drafts, one pass.
+
+- **A collection of its own, on the traditions' pattern.** The guides'
+  `articles` collection is per town and read only by that town's build; these
+  are the hub's and are read by the guides too (the Nearby links), which is
+  what `content/hub/traditions/` already is. So: `content/hub/curiosity/`,
+  one strict collection, one plain schema (`src/lib/curiosity.ts`) built from
+  the town profile's rule (a value, its `source`, its `checked`; a guide site
+  refused by the same `GUIDE_SITES` list).
+- **A fact is a field, not a sentence.** The brief's fields are the schema's:
+  a campground's fee, booking, sites, season, road and manager; a ghost
+  town's road, clearance, season, standing and ownership. Each prints its
+  source's site and "Last verified" beside it. A season must carry a year
+  or say "year-round".
+- **"Last verified" on the article is the oldest check among its facts**, so
+  the line never claims more than every fact can carry. Reading one fact
+  again moves that fact's date only.
+- **Empty and flagged.** A field no official page gave is absent and has a
+  line in `flags` (or in `needs`, for the article as a whole).
+  `npm run curiosity` prints the list by article. `status: verified` is
+  refused while a flag is open; an empty field with no flag publishes as an
+  absent row, which is the standing rule (a page states a fact or leaves it
+  out).
+- **A draft builds nothing.** No route is injected for a topic whose
+  articles are all drafts, so the two index pages and the home row do not
+  exist until the first article is verified: an index with nothing on it is
+  an empty page, which no guide carries. `CURIOSITY_DRAFTS=1` draws the
+  drafts locally, marked and noindex; it throws on Vercel, and the site
+  check has a `draft-shipped` rule beside `fixture-shipped`.
+- **The byline names a person, for these articles only.** The hub's config
+  has carried no editor since 8 October 2026, at the owner's direction, and
+  the check lines everywhere else still read "Checked <date>". This brief
+  asks for "byline James Lerner" on each article, so the name is a constant
+  in `src/lib/curiosity.ts` and the article's structured data; `hub.editor`
+  is not set and nothing else on any site changed.
+- **Addresses.** `/camping/<town>/`, `/ghost-towns/<town>/`, with the
+  indexes at `/camping/` and `/ghost-towns/`; the event article at
+  `/articles/<slug>/`, the guides' own pattern for an article. No hub town
+  is named camping, ghost-towns or articles.
+- **The Nearby block** is `NearbyArticles.astro`, under Near <Town> on a hub
+  town page and on a standalone guide's `/things-to-do/`: a title and a
+  link.
+- **Sundance.** No drive time is printed: the brief allows drive times only
+  from the festival, the City of Boulder, RTD or CDOT, and none of them
+  publishes one; the hub's own road miles are a router's. The resident note
+  is inside the article, in the sections of the towns with a standalone
+  guide, and only where an official page supports it; nothing was added to
+  the guides themselves. The file carries `reverify.from: 2027-01-11`, and
+  the validator lists it from that day until every source has been read
+  again.
+

@@ -48,6 +48,7 @@ import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
 import NearThisTown from '@/components/NearThisTown.astro';
 import OpenNow from '@/components/OpenNow.astro';
 import TownProfile from '@/components/TownProfile.astro';
+import NearbyArticles from '@/components/NearbyArticles.astro';
 import { appliesTo } from '@/lib/hub-towns';
 
 export async function getStaticPaths() {
@@ -390,6 +391,8 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
 
   {/* The additions of 12 November 2026, below what the page had, in the brief's order. */}
   <NearThisTown place={town.slug} name={town.name} onHub />
+  {/* The hub's articles anchored to this town, as links only (the brief of 13 November 2026). */}
+  <NearbyArticles place={town.slug} onHub />
   <TownProfile {town} />
 
   {nearby.length > 0 && (

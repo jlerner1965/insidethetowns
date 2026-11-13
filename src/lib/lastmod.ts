@@ -14,6 +14,7 @@ import { join } from 'node:path';
 import { parseLocal } from './dates.ts';
 import { schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } from '../config/school-sports.ts';
 import { teamsWithData } from './school-sports.ts';
+import { curiosityDates } from './curiosity-files.ts';
 
 const FIELD = (name: string) => new RegExp(`^${name}:\\s*"?([^"\\n]+?)"?\\s*$`, 'm');
 
@@ -75,6 +76,8 @@ export function contentDates(site: { kind: 'town' | 'hub'; slug: string }, conte
     sportsDates(site.slug, repoRoot, out);
   } else {
     read(join(root, 'issues'), ['date'], (slug) => `/newsletter/${slug}/`, out);
+    // The town-anchored articles on the site: the day their facts were last verified.
+    for (const [path, iso] of curiosityDates(repoRoot)) out.set(path, iso);
   }
   return out;
 }
