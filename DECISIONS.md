@@ -11343,3 +11343,13 @@ Roosevelt High's own calendar, read on 13 November.
   on what changed, with "Published" beside it) the same evening. This page
   uses it, with an optional `time`, so a schedule taking results can say
   "Updated … MT" and give that instant as its dateModified.
+
+## No "Not personally visited" on the hub's articles, 13 November 2026 (night)
+
+The owner: "Remove all not recently visited under articles." The byline line
+on every hub article (camping, ghost towns, events, stories) said "Not
+personally visited" unless the file set `visited: true`, and no file does.
+The negative label is gone: an article prints "Visited" where its file says
+so and nothing about it otherwise. The `visited` field stays, and
+`npm run curiosity` still reports it for the owner. HOW-IT-WORKS section 8
+says the same.

@@ -8,7 +8,7 @@
  * kind is on the site (src/integrations/town-routes.ts).
  *
  * Top to bottom: the masthead with the byline, the day the facts were
- * last verified and whether the writer has been there; the prose; one
+ * last verified and, only where the writer has been there, "Visited"; the prose; one
  * card per entry, every field with the official page it was read on and
  * the day it was read; the sources of what the prose says; the town's own
  * page. A field nobody confirmed is not drawn: there is no "unknown".
@@ -147,7 +147,8 @@ const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
       <span data-published> · Published <time datetime={data.date}>{day(data.date)}</time></span>
       {data.updated && <span data-updated> · Updated <time datetime={updatedAt ? toIsoLocal(updatedAt) : data.updated.date}>{updatedLine}</time></span>}
       {verified !== shownDay && <span> · Last verified <time datetime={verified}>{day(verified)}</time></span>}
-      {!story && !data.reportingNote && <span data-visited={data.visited ? 'yes' : 'no'}> · {data.visited ? 'Visited' : 'Not personally visited'}</span>}
+      {/* "Visited" only where the writer has been there; no line says otherwise (the owner, 13 November 2026). */}
+      {!story && data.visited && <span data-visited="yes"> · Visited</span>}
     </p>
     {data.updated && (
       <p class="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted" data-update-note>

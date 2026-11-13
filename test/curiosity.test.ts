@@ -55,7 +55,7 @@ const issues = (data: unknown) => {
   return r.success ? [] : r.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`);
 };
 
-test('an article is a draft, and not personally visited, until its file says otherwise', () => {
+test('an article is a draft, and not marked visited, until its file says otherwise', () => {
   const a = curiositySchema.parse(camping());
   assert.equal(a.status, 'draft');
   assert.equal(a.visited, false);
@@ -259,7 +259,8 @@ test('the byline is the studio’s, not a person’s, and the pages print it, th
   assert.match(page, /'@type': 'Organization', name: CURIOSITY_BYLINE/);
   assert.match(page, /By \{CURIOSITY_BYLINE\}/);
   assert.match(page, /Last verified/);
-  assert.match(page, /'Visited' : 'Not personally visited'/);
+  assert.match(page, /data\.visited && <span data-visited="yes"> · Visited<\/span>/, '"Visited" only where the writer has been there');
+  assert.doesNotMatch(page, /personally visited/i, 'no article says it was not visited');
   assert.match(page, /noindex=\{draft\}/, 'a draft under the preview switch is noindex');
   // An update with a time prints it in Mountain Time, and the same instant is the dateModified.
   assert.match(page, /\$\{formatTime\(updatedAt\)\} MT/);
