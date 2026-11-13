@@ -13,8 +13,7 @@ outdoor:
   edge: opens
 years:
   - year: 2026
-    status: confirmed
-    date: 2026-11-13
-    note: "scheduled for Friday, November 13"
-    checked: 2026-11-12
+    status: not-announced
+    continues: "Opening Day is coming soon"
+    checked: 2026-11-13
 ---
