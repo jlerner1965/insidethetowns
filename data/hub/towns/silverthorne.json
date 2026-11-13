@@ -1,5 +1,21 @@
 {
   "slug": "silverthorne",
+  "facts": {
+    "incorporated": {
+      "year": 1967,
+      "source": "https://summithistorical.org/colorado-150/may/",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Summit Stage",
+      "detail": "Free county buses between the towns and resorts of Summit County",
+      "url": "https://www.summitcountyco.gov/services/transit_summit_stage/index.php",
+      "source": "https://www.summitcountyco.gov/services/transit_summit_stage/about.php",
+      "checked": "2026-11-13"
+    }
+  ],
   "lodging": [
     {
       "name": "The Pad",
@@ -8,5 +24,44 @@
       "source": "https://thepadlife.com/",
       "checked": "2026-11-12"
     }
-  ]
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Named for Judge Marshel Silverthorn, a prospector who claimed a section of the Lower Blue River in 1881 and served as judge of the Miners Court in Breckenridge.",
+      "source": "https://summithistorical.org/colorado-150/may/",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1966,
+      "text": "Virgil Cox and Clayton Hill laid out the town streets in 1966",
+      "source": "https://summithistorical.org/colorado-150/may/",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1881,
+        "text": "Marshel Silverthorn claimed a section of the Lower Blue River as a prospector.",
+        "source": "https://summithistorical.org/colorado-150/may/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1961,
+        "text": "Virgil Cox moved the Old Dillon Inn's bar to Silverthorne ahead of the flooding that created the Dillon Reservoir.",
+        "source": "https://summithistorical.org/colorado-150/may/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1966,
+        "text": "Virgil Cox and Clayton Hill laid out the town streets for homes and businesses.",
+        "source": "https://summithistorical.org/colorado-150/may/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1967,
+        "text": "Silverthorne was incorporated; Warren Alloway became its first elected mayor.",
+        "source": "https://summithistorical.org/colorado-150/may/",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
 }

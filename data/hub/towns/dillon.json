@@ -1,7 +1,35 @@
 {
   "slug": "dillon",
+  "facts": {
+    "incorporated": {
+      "year": 1883,
+      "source": "https://summithistorical.org/colorado-150/april/",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Summit Stage",
+      "detail": "Free county buses between the towns and resorts of Summit County",
+      "url": "https://www.summitcountyco.gov/services/transit_summit_stage/index.php",
+      "source": "https://www.summitcountyco.gov/services/transit_summit_stage/about.php",
+      "checked": "2026-11-13"
+    }
+  ],
   "heritage": {
+    "founded": {
+      "year": 1881,
+      "text": "Townsite established in 1881",
+      "source": "https://summithistorical.org/colorado-150/april/",
+      "checked": "2026-11-13"
+    },
     "timeline": [
+      {
+        "year": 1882,
+        "text": "The Denver & Rio Grande railroad arrived.",
+        "source": "https://summithistorical.org/colorado-150/april/",
+        "checked": "2026-11-13"
+      },
       {
         "year": 1883,
         "text": "The town built the frame Dillon Schoolhouse for the children of its first families.",
@@ -9,10 +37,22 @@
         "checked": "2026-11-12"
       },
       {
+        "year": 1883,
+        "text": "Dillon was incorporated on January 26.",
+        "source": "https://summithistorical.org/colorado-150/april/",
+        "checked": "2026-11-13"
+      },
+      {
         "year": 1956,
         "text": "Residents learned they had to leave the old town by April 1, 1961, to make way for the Dillon Reservoir.",
         "source": "https://summithistorical.org/dillon/",
         "checked": "2026-11-12"
+      },
+      {
+        "year": 1961,
+        "text": "Residents had relocated and the old townsite was cleared by April 1 for the Dillon Reservoir.",
+        "source": "https://summithistorical.org/colorado-150/april/",
+        "checked": "2026-11-13"
       }
     ],
     "sites": [
@@ -23,6 +63,20 @@
         "hours": "Open by appointment",
         "source": "https://summithistorical.org/",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "Lula Myers Cabin",
+        "kind": "landmark",
+        "url": "https://summithistorical.org/sites-collections/",
+        "source": "https://summithistorical.org/sites-collections/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Honeymoon Cabin",
+        "kind": "landmark",
+        "url": "https://summithistorical.org/sites-collections/",
+        "source": "https://summithistorical.org/sites-collections/",
+        "checked": "2026-11-13"
       }
     ]
   }

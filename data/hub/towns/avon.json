@@ -30,6 +30,20 @@
       "url": "https://www.christielodge.com/",
       "source": "https://www.christielodge.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "Beaver Creek West",
+      "kind": "Condominiums",
+      "url": "https://www.beavercreekwest.com/",
+      "source": "https://www.beavercreekwest.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Club Wyndham Resort at Avon",
+      "kind": "Resort",
+      "url": "https://clubwyndham.wyndhamdestinations.com/us/en/resorts/wyndham-hotels-resorts/united-states-of-america/colorado/avon/club-wyndham-resort-at-avon",
+      "source": "https://clubwyndham.wyndhamdestinations.com/us/en/resorts/wyndham-hotels-resorts/united-states-of-america/colorado/avon/club-wyndham-resort-at-avon",
+      "checked": "2026-11-13"
     }
   ],
   "heritage": {
@@ -62,6 +76,22 @@
         "text": "The Nottingham Power Plant was designated a historical site by the Colorado Historical Society.",
         "source": "https://www.avon.org/history",
         "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Nottingham Power Plant water wheel",
+        "kind": "landmark",
+        "url": "https://www.avon.org/history",
+        "source": "https://www.avon.org/history",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Avon Historical Markers",
+        "kind": "landmark",
+        "url": "https://www.avon.org/2401/Avon-Historical-Markers",
+        "source": "https://www.avon.org/2401/Avon-Historical-Markers",
+        "checked": "2026-11-13"
       }
     ]
   }

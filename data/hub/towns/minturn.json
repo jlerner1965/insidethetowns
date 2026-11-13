@@ -23,6 +23,30 @@
       "url": "https://www.hotelminturn.com/",
       "source": "https://www.hotelminturn.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "Eagle River Inn",
+      "kind": "Hotel",
+      "url": "https://www.theeagleriverinn.com/",
+      "source": "https://www.theeagleriverinn.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "The Bunkhouse",
+      "kind": "Hostel",
+      "url": "https://vailbunkhouse.com/",
+      "source": "https://vailbunkhouse.com/",
+      "checked": "2026-11-13"
     }
-  ]
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1892,
+        "text": "The building that is now the Eagle River Inn was built.",
+        "source": "https://www.theeagleriverinn.com/",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
 }
