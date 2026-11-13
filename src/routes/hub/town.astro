@@ -171,7 +171,7 @@ const measuredAt = (iso: string) =>
   new Date(iso).toLocaleString('en-US', { timeZone: 'America/Denver', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
 const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
 ---
-<Page {title} {seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt}>
+<Page {title} {seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual dates">
   <header slot="header" class="on-dark relative isolate overflow-hidden bg-primary text-white" data-town-hero={hero ? 'photo' : ridge!.terrain}>
     {hero ? (
       <Fragment>

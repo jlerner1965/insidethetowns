@@ -99,7 +99,7 @@ const structured = [
 ];
 const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
 ---
-<Page title={data.title} seoTitle={data.seoTitle} kind="Guide" eyebrow={topic ? `${topic.label} · ${towns[0]!.name}` : towns.map((t) => t.name).join(' · ')} status={draft ? 'Draft' : undefined} intro={data.description} description={data.description} type="article" noindex={draft} jsonLd={structured}>
+<Page title={data.title} seoTitle={data.seoTitle} kind="Article" eyebrow={topic ? `${topic.label} · ${towns[0]!.name}` : towns.map((t) => t.name).join(' · ')} status={draft ? 'Draft' : undefined} intro={data.description} description={data.description} type="article" noindex={draft} jsonLd={structured}>
   <Fragment slot="after-header">
     <p class="mt-5 text-sm text-ink-muted" data-article-meta>
       <span data-byline>By {CURIOSITY_BYLINE}</span>

@@ -27,7 +27,31 @@
 import { markdownToText } from './plain-text.ts';
 
 /** What a result is, as the town's own search labels it (Base.astro `kind`), plus the guide itself, its Moving Here page and its sports pages. */
-export type NetworkKind = 'Town' | 'Moving here' | 'Place' | 'Guide' | 'Event' | 'Sports';
+export type NetworkKind = 'Town' | 'Moving here' | 'Place' | 'Guide' | 'Article' | 'Event' | 'Sports';
+
+/**
+ * The search page's type filters (the audit of 13 November 2026): every
+ * indexed page's `kind` falls in one group, and the page offers a button
+ * for each group a search has results in. A page with no kind (About, the
+ * corrections log) is in no group and shows under All only.
+ */
+export const SEARCH_TYPES = ['Towns', 'Places', 'Events', 'Articles and pages', 'Dates', 'Sports'] as const;
+export type SearchType = (typeof SEARCH_TYPES)[number];
+const TYPE_OF_KIND: Record<string, SearchType> = {
+  Town: 'Towns',
+  'Annual dates': 'Towns',
+  Place: 'Places',
+  Event: 'Events',
+  Article: 'Articles and pages',
+  Guide: 'Articles and pages',
+  'Moving here': 'Articles and pages',
+  Person: 'Articles and pages',
+  'Seasonal dates': 'Dates',
+  Sports: 'Sports',
+};
+export function searchType(kind: string | undefined): SearchType | undefined {
+  return kind ? TYPE_OF_KIND[kind] : undefined;
+}
 
 export interface NetworkRecord {
   /** Absolute, on the town's own domain: "https://insideniwot.com/places/niwot-tavern/". */
@@ -101,6 +125,7 @@ export function recordHtml(record: NetworkRecord): string {
     `<main data-pagefind-body>${meta('kind', record.kind)}${meta('town', record.town)}${meta('domain', record.domain)}` +
     (record.summary ? meta('summary', record.summary) : '') +
     (record.kind === 'Place' ? meta('name', record.title) : '') +
+    `<span data-pagefind-filter="type:${escapeHtml(searchType(record.kind) ?? '')}"></span>` +
     `<h1>${escapeHtml(record.title)}</h1>${lead}${body}` +
     `</main></body></html>`
   );

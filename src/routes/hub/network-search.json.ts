@@ -97,7 +97,7 @@ function articleRecord(article: NetworkEntry<'articles'>): NetworkRecord {
   const { data, town } = article;
   return {
     url: `https://${town.domain}/articles/${article.slug}/`,
-    kind: 'Guide',
+    kind: 'Article',
     title: data.title,
     town: town.name,
     domain: town.domain,

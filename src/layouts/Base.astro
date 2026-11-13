@@ -30,6 +30,7 @@ import Plausible from '@/components/Plausible.astro';
 import TrackClicks from '@/components/TrackClicks.astro';
 import SEO from '@/components/SEO.astro';
 import { siteJsonLd } from '@/lib/seo';
+import { searchType } from '@/lib/network-search';
 import { verificationTags } from '@/lib/verification';
 import { PAPERS, categoryCss, primaryHover } from '@/config/palette';
 
@@ -106,7 +107,8 @@ const cssVars = [
       Skip to content
     </a>
     <Header items={nav} />
-    <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined}>
+    {/* The kind labels a result ("Place · Niwot"); the filter puts it under the search page's type buttons (src/lib/network-search.ts). */}
+    <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined} data-pagefind-filter={searchable && searchType(kind) ? `type:${searchType(kind)}` : undefined}>
       <slot />
     </main>
     <Footer />
