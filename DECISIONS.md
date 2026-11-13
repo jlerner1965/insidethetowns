@@ -11007,3 +11007,60 @@ verified practical detail. Six drafts, one pass.
   the validator lists it from that day until every source has been read
   again.
 
+
+## The network audit: access, search, dates, directories and the homes, 13 November 2026
+
+*The owner's audit brief of 13 November 2026, ten priorities, each checked
+against the code and the live sites before anything was changed.*
+
+- **Carbon Valley was a redirect loop, and the cause was hosting.**
+  carbonvalleyguide.com sent every path to insidefrederickco.com, which
+  sends it back. The repository had removed that rule on 12 November, but
+  the Vercel project `carbonvalleyguide` had cancelled every production
+  deployment since pull request #378 at its Ignored Build Step, so the
+  domain still served the build from before the restructure. The same
+  was true of seven retired domains' projects (`insideevergreenco`,
+  `insidegrandlake`, `insidegeorgetownco`, `insideidahosprings`,
+  `insideblackhawk`, `insidemanitousprings`, `insidefortlupton`), which
+  still sent readers to the hub's home page rather than their town's page.
+  The setting each project's own deployments were skipped by could not be
+  read through the API; each was set to the documented
+  `bash scripts/vercel-ignore.sh <slug>` and main redeployed. Every domain
+  now answers in at most two hops, and none loops. If a project's builds
+  stop again, its Ignored Build Step is the first thing to look at.
+- **Exact town searches** lead with the town (src/lib/town-search.ts):
+  its community guide or its page of annual dates, with its sections as
+  links, then Pagefind's results; other names (a town a guide covers, a
+  retired guide's town and title) and regions, clusters and counties
+  answer too; results filter by type.
+- **Four states for a dated row**, canceled first: upcoming, canceled,
+  past, waiting (rowState). Wellington's canceled parade had sat under
+  "Not announced yet".
+- **Check dates are Colorado's day.** 702 provenance dates written in the
+  evening of the 12th read the 13th; each was set to the 12th, the scripts
+  that stamp a day use dayKey, and test/check-dates.test.ts holds it.
+- **Calendar ends.** No end published: the .ics has no DTEND and says so;
+  Google's link takes one hour, said to be a placeholder. A canceled date
+  still ahead goes to subscription feeds as STATUS:CANCELLED.
+- **Directories.** Three picks before the filters and the rest after the
+  list; shops on /shops/ only, linked both ways; "Open now" says it goes
+  by listed hours and is not a live check.
+- **The hub's home** gains a line on what the site holds, Now in the
+  towns (one date coming up, one local change, one registration deadline,
+  each from checked listings and dropped once past), "This season" for
+  "Feature", and the towns a guide covers on its tile.
+- **The guides' homes.** Timely changes and a registration deadline within
+  the fortnight move up under the week's tabs; Niwot's updates carry their
+  dates and summaries, new apart from older; Lyons' week comes before its
+  dates; statewide dates are last everywhere. The hub's town pages lead
+  with the next 90 days and group their events by state.
+- **Families.** Who and Cost in view, one answer per program where a field
+  holds several, an age filter from `audience`, the email after the
+  urgent answers.
+- **Place pages** drop the summary from the header where the first
+  paragraph repeats it; "Our pick" is explained on /editorial/#our-pick and
+  beside any list that shows it. Two summaries make an unattributed "best"
+  claim (Windsor's chamber office, a Lyons trail); left for the owner.
+- **The email.** One description everywhere; "today" ends at the 7 am
+  send; Niwot's form has no weekly-issue link, and the hub's form points
+  to Niwot's occasional updates.

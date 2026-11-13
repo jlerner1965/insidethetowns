@@ -271,7 +271,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
                 link says what it is: the family listings, not an answer
                 to what is open that week. */}
             {b.open ? (
-              <a href={`#program-${b.open.program.slug}`} class="inline-flex min-h-11 shrink-0 items-center rounded-full bg-accent-soft px-3 py-2 text-[0.875rem] font-semibold text-ink no-underline ring-1 ring-primary-line hover:bg-raised">{b.open.note}</a>
+              <a href={`#program-${b.open.program.slug}`} class="inline-flex min-h-11 max-w-full items-center rounded-full bg-accent-soft px-3 py-2 text-[0.875rem] font-semibold text-ink no-underline ring-1 ring-primary-line hover:bg-raised">{b.open.note}</a>
             ) : listsEvents(town) ? (
               <a href="/events/?category=family" class="inline-block -my-3 shrink-0 py-3 text-[0.875rem] font-semibold text-primary underline">Browse family events →</a>
             ) : null}
