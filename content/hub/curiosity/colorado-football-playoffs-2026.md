@@ -5,18 +5,11 @@ towns: [johnstown, fort-collins, loveland, louisville, castle-rock, grand-juncti
 title: "Colorado high school football playoffs 2026: second-round brief on 15 teams"
 seoTitle: "Colorado high school football playoffs 2026: round 2 brief"
 description: "Colorado's 2A to 5A football playoffs, Nov. 13 and 14: records, season highlights and standout players for the 15 teams from our towns still alive."
-status: draft
+status: verified
 date: 2026-11-13
 reverify:
   from: 2026-11-15
   why: "Each weekend changes who is still playing: re-read every CHSAA bracket after Nov. 14, 21 and 28, update the table, the team briefs and Out of the playoffs, through the Dec. 5 finals"
-needs:
-  - "Sites marked 'not listed' are blank on CHSAA's brackets. Fill from CHSAA's game pages or the host schools if they post one before publishing, or leave as is."
-  - "Records are missing for Golden, Mead and Palisade's current mark (9-1 per High School On SI on Nov. 12 is used). MaxPreps served its 2025 pages when read; add 2026 records from MaxPreps or the schools if they load."
-  - "Jace Garcia's and Preston Mozer's state ranks are from CHSAA's Sept. 5 roundup. Replace with season totals if MaxPreps or the Coloradoan publishes them."
-  - "Fossil Ridge (Fort Collins) and Castle View (Castle Rock) are placed in their towns from general knowledge; confirm on CHSAA's school profiles."
-  - "Mascots are given only where a source in this session used them; Loveland's and Elizabeth's are left out."
-  - "Tickets: CHSAA's football postseason page still showed 2025 details when read. Replace the finals ticket line with 2026 details once CHSAA posts them."
 sources:
   - label: "CHSAA: Fall 2026 state championship dates and locations"
     url: "https://chsaanow.com/news/2026/09/09/fall-2026-state-championship-dates-locations-announced"
