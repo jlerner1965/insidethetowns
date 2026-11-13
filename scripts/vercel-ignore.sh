@@ -26,6 +26,9 @@
 # change to its config, and when that built only the town itself the hub went
 # on saying "9 guides" after the tenth opened. So any town config builds all.
 #
+# A site that only redirects (status 'redirect') is made of vercel.json and
+# its own config alone, and builds for nothing else: see below.
+#
 # Docs, tests, workflows, the offline scripts (ingest, review, weekly, ...)
 # and other towns' content change nothing this site's pages are made of.
 # Three things read other towns' listings: the hub's network events, the
@@ -63,6 +66,23 @@ if ! git cat-file -e "$prev^{commit}" 2>/dev/null; then
   git fetch --quiet --depth=1 origin "$prev" 2>/dev/null || build "cannot see ${prev:0:7} to compare with"
 fi
 changed="$(git diff --name-only --no-renames "$prev" "$head")" || build "cannot compare ${prev:0:7} with ${head:0:7}"
+
+# A site that only redirects (`status: 'redirect'` in its config: a folded or
+# retired guide) serves nothing but vercel.json's rules for its host: every
+# path on its domain is answered by a rule before its holding page is reached
+# (scripts/check-site.ts). So it is made of vercel.json, its own config and
+# this script, and a push that touches none of them changes nothing it serves.
+# Until the audit of 13 November 2026 twenty such projects built on every push
+# to shared code, for pages nobody could reach.
+if [ -f "src/config/towns/$slug.ts" ] && grep -qE "^[[:space:]]*status:[[:space:]]*'redirect'" "src/config/towns/$slug.ts"; then
+  while IFS= read -r path; do
+    case "$path" in
+      vercel.json | "src/config/towns/$slug.ts" | scripts/vercel-ignore.sh)
+        build "$path (a redirect-only site is made of its rules)" ;;
+    esac
+  done <<<"$changed"
+  skip "a redirect-only site, and its rules are unchanged since ${prev:0:7}"
+fi
 
 while IFS= read -r path; do
   case "$path" in

@@ -46,6 +46,9 @@ const base = commit({
   'content/hub/pages/c.md': 'c',
   'src/config/towns/niwot.ts': 'n',
   'src/config/towns/lyons.ts': 'l',
+  // A folded guide: its domain is answered by vercel.json's rules alone.
+  'src/config/towns/golden.ts': "export const golden = {\n  slug: 'golden',\n  status: 'redirect',\n};\n",
+  'vercel.json': '{"redirects":[]}',
   'src/config/towns/registry.ts': 'r',
   'src/lib/dates.ts': 'd',
   'IMAGE_LICENSES.csv': 'path,source_url,license,credit_required (y/n),town\ncontent/niwot/images/x.jpg,s,CC0,n,niwot\n',
@@ -136,3 +139,19 @@ test('rebuilds always build: a deploy hook, a redeploy, an old tip, no history',
 });
 
 test.after(() => rmSync(repo, { recursive: true, force: true }));
+
+test('a redirect-only site skips shared code and other content, and builds for its rules (audit, 13 November 2026)', () => {
+  const prev = git('rev-parse', 'HEAD');
+  // Shared code builds every live site, and no site that only redirects.
+  const shared = commit({ 'src/lib/dates.ts': String(clock) });
+  assert.equal(decide('niwot', shared, prev), 'build');
+  assert.equal(decide('golden', shared, prev), 'skip');
+  // Its rules: vercel.json, its own config, or the script itself.
+  const rules = commit({ 'vercel.json': `{"redirects":[{"n":${clock}}]}` });
+  assert.equal(decide('golden', rules, shared), 'build');
+  const config = commit({ 'src/config/towns/golden.ts': "export const golden = {\n  slug: 'golden',\n  status: 'redirect',\n  retired: {},\n};\n" });
+  assert.equal(decide('golden', config, rules), 'build');
+  assert.equal(decide('lyons', config, rules), 'build', 'every town config still builds every live site');
+  // A rebuild (the same commit again) still builds it.
+  assert.equal(decide('golden', config, config), 'build');
+});

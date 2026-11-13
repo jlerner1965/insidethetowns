@@ -157,7 +157,12 @@ its domain attached before the guide is ready. Flip the status and push.
   `src/config/towns/<slug>.ts`, shared code (the rest of `src/`, `public/`,
   `package.json`, `package-lock.json`, `astro.config.mjs`, `tsconfig.json`,
   `vercel.json`, `scripts/run.ts`) or the site's rows in `IMAGE_LICENSES.csv`,
-  and skips otherwise: a Niwot event edit builds Niwot and nothing else. The
+  and skips otherwise: a Niwot event edit builds Niwot and nothing else. A
+  site that only redirects (`status: 'redirect'`, the folded and retired
+  guides) builds only when `vercel.json`, its own config or the script
+  changes: its domain is answered by the host rules alone, so nothing else
+  reaches it (the audit of 13 November 2026; until then the twenty such
+  projects built on every shared-code push). The
   hub's network events and each town's "nearby" block read other towns, so they
   catch up at the nightly rebuild. A skipped deployment shows as Canceled.
   Anything the script cannot work out builds, and a rebuild (the nightly deploy
