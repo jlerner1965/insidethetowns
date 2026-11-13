@@ -44,6 +44,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+      # The packages, as every other content job installs them: the script
+      # dates pages through src/lib/lastmod.ts, which since 13 November 2026
+      # reaches src/lib/curiosity.ts and astro/zod. Without them the run
+      # failed before it sent anything ("Cannot find package 'astro'").
+      - run: npm ci
       - uses: actions/cache/restore@v4
         with:
           path: .cache/indexnow
