@@ -23,12 +23,6 @@
       "source": "https://www.historycolorado.org/story/2022/04/15/lion-winter",
       "checked": "2026-11-13"
     },
-    "founded": {
-      "year": 1902,
-      "text": "John C. Osgood's planned coal town was completed",
-      "source": "https://www.redstonecolorado.com/history",
-      "checked": "2026-11-12"
-    },
     "timeline": [
       {
         "year": 1881,
@@ -37,10 +31,10 @@
         "checked": "2026-11-12"
       },
       {
-        "year": 1902,
-        "text": "Osgood's planned community, with a castle, an inn and 88 cottages, was completed.",
-        "source": "https://www.redstonecolorado.com/history",
-        "checked": "2026-11-12"
+        "year": 1903,
+        "text": "Osgood’s residence, Cleveholm, now called Redstone Castle, was completed.",
+        "source": "https://www.historycolorado.org/location/osgood-castle-cleveholm-redstone-castle",
+        "checked": "2026-11-13"
       },
       {
         "year": 1909,

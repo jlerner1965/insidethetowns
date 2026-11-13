@@ -33,10 +33,10 @@
   "heritage": {
     "timeline": [
       {
-        "year": 1890,
-        "text": "The Victorian gazebo on the lake, the town's focal point, dates from 1890.",
-        "source": "https://greenmountainfalls.colorado.gov/",
-        "checked": "2026-11-12"
+        "year": 1888,
+        "text": "The gazebo on the lake was built in about 1888, when the area was being developed as a summer resort.",
+        "source": "https://www.historycolorado.org/location/green-mountain-falls-gazebo",
+        "checked": "2026-11-13"
       },
       {
         "year": 1910,
@@ -82,5 +82,12 @@
         "checked": "2026-11-13"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1880,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

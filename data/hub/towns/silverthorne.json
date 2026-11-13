@@ -1,12 +1,5 @@
 {
   "slug": "silverthorne",
-  "facts": {
-    "incorporated": {
-      "year": 1967,
-      "source": "https://summithistorical.org/colorado-150/may/",
-      "checked": "2026-11-13"
-    }
-  },
   "transit": [
     {
       "name": "Summit Stage",
@@ -19,12 +12,6 @@
   "heritage": {
     "nameOrigin": {
       "text": "Named for Judge Marshel Silverthorn, a prospector who claimed a section of the Lower Blue River in 1881 and served as judge of the Miners Court in Breckenridge.",
-      "source": "https://summithistorical.org/colorado-150/may/",
-      "checked": "2026-11-13"
-    },
-    "founded": {
-      "year": 1966,
-      "text": "Virgil Cox and Clayton Hill laid out the town streets in 1966",
       "source": "https://summithistorical.org/colorado-150/may/",
       "checked": "2026-11-13"
     },
@@ -54,5 +41,12 @@
         "checked": "2026-11-13"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1967,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

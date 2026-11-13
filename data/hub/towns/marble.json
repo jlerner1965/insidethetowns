@@ -1,12 +1,5 @@
 {
   "slug": "marble",
-  "facts": {
-    "incorporated": {
-      "year": 1895,
-      "source": "https://marblehistory.org/marble-timeline/",
-      "checked": "2026-11-13"
-    }
-  },
   "lodging": [
     {
       "name": "Beaver Lake Lodge & Cabins",
@@ -14,13 +7,6 @@
       "url": "https://www.beaverlakelodge.com/",
       "source": "https://www.beaverlakelodge.com/",
       "checked": "2026-11-12"
-    },
-    {
-      "name": "Raspberry Ridge Cafe and Inn",
-      "kind": "Inn",
-      "url": "https://www.innatraspberryridge.com",
-      "source": "https://www.innatraspberryridge.com",
-      "checked": "2026-11-13"
     },
     {
       "name": "Marble Hideaway",
@@ -50,12 +36,6 @@
       "checked": "2026-11-13"
     },
     "timeline": [
-      {
-        "year": 1882,
-        "text": "Marble was discovered on Yule Creek and John Osgood had a large block quarried.",
-        "source": "https://marblehistory.org/marble-history/",
-        "checked": "2026-11-12"
-      },
       {
         "year": 1906,
         "text": "The Colorado Yule Marble Company was organized and built seven miles of new track into Marble.",

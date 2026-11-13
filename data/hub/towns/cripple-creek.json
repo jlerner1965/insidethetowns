@@ -1,12 +1,5 @@
 {
   "slug": "cripple-creek",
-  "facts": {
-    "incorporated": {
-      "year": 1892,
-      "source": "https://npgallery.nps.gov/GetAsset/1112bbfe-3339-43ca-ba65-200e62a03d69",
-      "checked": "2026-11-13"
-    }
-  },
   "transit": [
     {
       "name": "Gold Camp Connector",
@@ -127,5 +120,12 @@
         "checked": "2026-11-12"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1892,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

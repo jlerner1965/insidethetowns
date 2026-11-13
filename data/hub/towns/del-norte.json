@@ -1,12 +1,5 @@
 {
   "slug": "del-norte",
-  "facts": {
-    "incorporated": {
-      "year": 1872,
-      "source": "https://riograndecountymuseum.org/del-norte/",
-      "checked": "2026-11-13"
-    }
-  },
   "lodging": [
     {
       "name": "The Windsor Hotel",
@@ -74,5 +67,12 @@
         "checked": "2026-11-13"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1895,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

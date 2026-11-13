@@ -1,12 +1,5 @@
 {
   "slug": "dillon",
-  "facts": {
-    "incorporated": {
-      "year": 1883,
-      "source": "https://summithistorical.org/colorado-150/april/",
-      "checked": "2026-11-13"
-    }
-  },
   "transit": [
     {
       "name": "Summit Stage",
@@ -17,12 +10,6 @@
     }
   ],
   "heritage": {
-    "founded": {
-      "year": 1881,
-      "text": "Townsite established in 1881",
-      "source": "https://summithistorical.org/colorado-150/april/",
-      "checked": "2026-11-13"
-    },
     "timeline": [
       {
         "year": 1882,
@@ -79,5 +66,12 @@
         "checked": "2026-11-13"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1883,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

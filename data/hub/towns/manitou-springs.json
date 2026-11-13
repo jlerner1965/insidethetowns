@@ -111,5 +111,12 @@
         "season": "Year-round operation"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1888,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

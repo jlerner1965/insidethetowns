@@ -10925,6 +10925,33 @@ is in `docs/additions-report.md`.
   many `*.colorado.gov` town sites refuse automated reads, so the profiles
   are thinner than the brief asks and the gaps are listed, not filled.
 
+## The second research round, and three rules, 13 November 2026
+
+The owner asked for the thin towns to be finished, and sixteen researchers
+filled 269 of the 452 gaps (`docs/additions-report.md`, section 3a). Three
+rules from the owner on what came back, now in `HOW-IT-WORKS.md`:
+
+- **The incorporation year is the Town's, the county's or the state's.**
+  That strictness is the trust edge over the guide sites. Nine years that
+  rested on a historical society, a museum, a heritage area, a tourism
+  office or the NPS came off the facts strip (Alma, Del Norte, Dillon,
+  Silverthorne, La Junta, Marble, Morrison, Paonia, Cripple Creek), and
+  Glenwood Springs' came off because two City documents give two years.
+  The state's Local Government Information System has the date for every
+  municipality, behind a terms screen with a human check; the owner reads
+  it, not the assistant.
+- **Lodging has no target.** Three to five was the brief's wish, not a
+  rule: a town with one inn lists one, and a property outside the town is
+  not listed to make the number.
+- **When sources disagree, the state's record wins**, then the Town's,
+  then the NPS or a historical society; a value only a historical society
+  holds is left empty. Applied to Estes Park (founded 1859, per the State
+  Register nomination), Monte Vista (1886, the City), Hotel Colorado
+  (1892), the Green Mountain Falls gazebo (about 1888), the Knearl School
+  (1911) and Redstone Castle (1903), each from History Colorado's listing;
+  and Fraser's founding and Marble's 1882 item, which only a historical
+  society gave two ways, are empty.
+
 ## The town-anchored articles: Camping, Ghost towns and one event article, 13 November 2026
 
 The owner's brief of 13 November 2026 ("Curiosity articles, first batch"):

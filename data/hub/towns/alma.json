@@ -1,12 +1,5 @@
 {
   "slug": "alma",
-  "facts": {
-    "incorporated": {
-      "year": 1873,
-      "source": "https://southparkheritage.org/alma/",
-      "checked": "2026-11-13"
-    }
-  },
   "transit": [
     {
       "name": "Summit Stage Park County Commuter",
@@ -74,5 +67,12 @@
         "checked": "2026-11-12"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1873,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }
