@@ -83,6 +83,13 @@ carries the network pages: newsletter, advertise, privacy, about.
   publish something specific; audit findings are proposals in a report.
   It never sends email, never pushes to `main`, and never adds a town, a
   feature or a per-town variant on its own.
+- **"Publish" on an article** (13 November 2026). When the owner says
+  "publish" in a session about an article draft shown there, that is his
+  instruction to put it live, merge included: the assistant writes the
+  file to `content/<town>/articles/`, runs the checks in section 9, opens a
+  pull request with that article alone, waits for CI to pass on every
+  site and merges it (`.claude/skills/research-and-write/`). It never
+  merges on red, and nothing unverified or hedged goes into the file.
 - **Automation** (section 9) ingests events, approves the safe ones under
   the standing rules, re-checks listings nightly, reads the scores, drafts
   the email and rebuilds the sites daily. Everything it writes lands as a
@@ -149,6 +156,12 @@ Plain, warm and local: a neighbour who pays attention, not a tourism
 board. Short sentences. The street, the business, the day. No hype words.
 The guide never passes an organizer's copy off as its own; quoted text
 names who said it. Every page says what it is and when it was checked.
+
+Every article is built to one structure and one of five templates (news
+explainer, service guide, roundup, event guide, history or profile): the
+answer in the first sentence, headings a scanner looks for, and an ending
+a reader needs last. The rules are in the "Article structure" section of
+`.claude/skills/inside-the-towns-editor/SKILL.md` (13 November 2026).
 
 ## 8. The pages and the design
 
@@ -277,8 +290,8 @@ county, the state park) and the day it was read, both printed beside it;
 the day moves only when the fact is read again, and the article's "Last
 verified" is the oldest of them. A field no official page gave is left out
 of the file and named in `flags`; a "skip it" note needs its source like any
-fact. A guide site is never a source. Each article prints its byline (James
-Lerner, for these articles only), its last verified day and "Visited" or
+fact. A guide site is never a source. Each article prints its byline (Lerner
+Works, for these articles only; no person is named, 13 November 2026), its last verified day and "Visited" or
 "Not personally visited", the second unless the file says `visited: true`.
 An article is a draft until its file says `status: verified`, which the
 schema refuses while a flag is open: a draft builds no page, no index row,

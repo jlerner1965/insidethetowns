@@ -11251,3 +11251,53 @@ source: "Colorado Sun can count, town doesn't need to publish first."
   meeting, read on 13 November 2026.
 - The editorial page on the hub says that a story may rest on a named news
   report, and that the town's own record controls where the two differ.
+
+## One article structure and five templates, 13 November 2026 (night)
+
+The owner set one structure for every article and five templates to build
+them from: readers scan, mostly on phones, and most arrive from a search
+with one question.
+
+- **Where it lives:** the "Article structure" section of
+  `.claude/skills/inside-the-towns-editor/SKILL.md`, so Claude Code and the
+  agent draft to the same rules from the same file. The article format's
+  body line now points to it.
+- **What it covers:** every guide article and the hub's event and story
+  articles. The hub's camping and ghost-town articles keep their entry
+  layout and take it for their introduction only; weekly notes and local
+  changes keep their own formats.
+- **The rules, in short:** a headline of 6 to 11 words with the place and
+  the searched thing in the first five; the answer in sentence one;
+  scannable H2s, short paragraphs, lists and tables; the source linked in
+  the sentence that uses it; no recap, an ending a reader needs last ("Not
+  settled yet", "Before you go" or "How we picked").
+- **The templates:** news explainer, service guide, roundup, event guide,
+  history or profile. The draft's closing notes name the one used. No
+  opinion pieces.
+- **Not changed:** existing articles, the agent code, the schemas and the
+  validators. The structure guides new drafts; nothing checks it by
+  machine.
+
+## "Publish" puts an article live, 13 November 2026 (night)
+
+The owner asked for two steps and no more: "write an article and say
+publish, that's it, no having to go into the repo."
+
+- **"Write an article about X in [Town]"** runs the `research-and-write`
+  skill: research, a draft built to the Article structure, a fact-check,
+  and the draft shown in the session with its open items.
+- **"Publish"** about that draft is the owner's instruction to put it
+  live, merge included. The assistant writes the file to
+  `content/<town>/articles/`, runs `npm run validate`, `npm test`,
+  `npm run check-colors` and `astro check`, opens a pull request holding
+  that article alone, waits for CI to build every live site, and merges.
+  This is the owner's standing ask for that one article; it does not let
+  the assistant merge anything else.
+- **Held to the same rules:** nothing unverified or hedged goes into the
+  file (an open item is cut or the article is held, the owner's choice);
+  a guide that isn't live is named before merging; red CI is never merged;
+  a failure is fixed in the article, never in the tests or the validator.
+- **Also:** `HOW-IT-WORKS.md` now carries the publish rule (section 4),
+  the Lerner Works byline on the hub's articles (section 8), and a pointer
+  to the article structure (section 7); the `content` and editor skills
+  name the exception to "never publish".
