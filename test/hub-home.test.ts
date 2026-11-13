@@ -347,3 +347,15 @@ test('the stylesheet declares the palette in src/config/palette.ts', () => {
   const css = readFileSync('src/styles/hub-home.css', 'utf8');
   for (const [name, hex] of Object.entries(HUB_HOME)) assert.match(css, new RegExp(`--hh-${name}:\\s*${hex};`, 'i'), `--hh-${name}`);
 });
+
+test('the phone menu closes when focus moves elsewhere, not when it goes to nothing (a tap in Safari)', () => {
+  const page = readFileSync('src/routes/hub/index.astro', 'utf8');
+  const handler = page.match(/header\.addEventListener\('focusout', \(event\) => \{([\s\S]*?)\n    \}\);/);
+  assert.ok(handler, 'the masthead has a focusout handler');
+  // Safari does not focus a tapped link, so relatedTarget is null on a tap
+  // inside the menu; closing then would hide the link before the tap lands.
+  assert.match(handler[1]!, /if \(next && !header\.contains\(next\)\) set\(false\);/);
+  assert.ok(!/if \(!header\.contains\(event\.relatedTarget/.test(handler[1]!), 'a null relatedTarget must not close the menu');
+  // A tap anywhere else still closes it.
+  assert.match(page, /document\.addEventListener\('click', \(event\) => \{\s*if \(!header\.contains\(event\.target as Node\)\) set\(false\);/);
+});
