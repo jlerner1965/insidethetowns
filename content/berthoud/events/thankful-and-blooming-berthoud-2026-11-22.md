@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/thankful-blooming-berthoud-tickets-2003558
 sourceId: "eventbrite-com-berthoud"
 sourceUid: "2003558544541"
 sourceHash: "2e1f0f906297"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Thankful & Blooming- Berthoud\" at 10 am on 22 November in the page's structured data"
 ---
 

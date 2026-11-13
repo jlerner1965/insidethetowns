@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: arts
 recurring: "Monthly, fourth Thursdays"
 source: "https://highplains.libcal.com/event/15947127"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Star-Crossed Covers Erie Romance Book Club\" at 4 pm on 19 November on the highplains.libcal.com feed"
 ---
 

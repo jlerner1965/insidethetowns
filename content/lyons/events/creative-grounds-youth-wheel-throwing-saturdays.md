@@ -12,7 +12,7 @@ cost: "Free; sign up on the class page"
 recurring: "Five Saturdays, November 7 to December 5"
 source: "https://creativegroundslyons.com/classes"
 sourceId: "creativegroundslyons-com"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 2:30 pm on the page"
 ---
 

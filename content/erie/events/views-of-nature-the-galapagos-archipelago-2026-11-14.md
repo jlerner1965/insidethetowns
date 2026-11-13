@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/17448299"
 cost: "Free; registration required"
 category: other
 source: "https://highplains.libcal.com/event/17448299"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Views of Nature The Galapagos Archipelago\" at 1 pm on 14 November on the highplains.libcal.com feed"
 ---
 

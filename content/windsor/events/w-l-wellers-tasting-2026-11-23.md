@@ -11,7 +11,7 @@ source: "https://www.eventbrite.com/e/wl-wellers-tasting-tickets-2003322133429"
 sourceId: "eventbrite-com-windsor"
 sourceUid: "2003322133429"
 sourceHash: "8159b2023fcf"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"W.L. Wellers Tasting\" at 6 pm on 23 November in the page's structured data"
 ---
 

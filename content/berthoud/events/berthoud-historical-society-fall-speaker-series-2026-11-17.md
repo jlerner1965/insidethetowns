@@ -8,7 +8,7 @@ url: "https://berthoudhistoricalsociety.org/event/fall-speaker-series-historic-p
 cost: "Free"
 category: other
 source: "https://berthoudhistoricalsociety.org/event/fall-speaker-series-historic-preservation-in-berthoud-with-the-town-of-berthoud-hpac/"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): 17 November and 7 pm on the page"
 ---
 

@@ -7,7 +7,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5488"
 cost: "Pay what you wish, from $0; reserve a seat with the Cultural Caravan"
 category: music
 source: "https://www.erieco.gov/Calendar.aspx?EID=5488"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Cultural Arts in Partnership with Cultural Caravan Presents: Njioma Grevious & Friends at the Erie Community Center\" at 7 pm on 20 November on the erieco.gov feed"
 ---
 

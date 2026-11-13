@@ -9,8 +9,8 @@ category: civic
 organizer: "Carbon Valley Help Center and Weld Food Bank"
 organizerUrl: "https://carbonvalleyhelpcenter.org/"
 source: "https://carbonvalleyhelpcenter.org/event/holiday-food-drive/"
-verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: the Help Center's event page (Saturday, November 21, 2026, 9:00 am - 3:00 pm, King Soopers Silverstone Marketplace, 5801 Silverstone Dr, Frederick; with Weld Food Bank), read 11 November 2026"
+verified: "2026-11-13"
+verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 9 am on the page"
 ---
 
 The Carbon Valley Help Center and Weld Food Bank collect food at the King Soopers on Silverstone Drive, Saturday, November 21, 9 am to 3 pm, to stock the Help Center's pantry for local families over the holidays. Volunteers are wanted to staff the drive; the Help Center's page links the sign-up.

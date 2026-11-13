@@ -9,7 +9,7 @@ source: "https://highplains.libcal.com/event/17625472"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17625472"
 sourceHash: "62df06f2065c"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Amazing Architecture Around the World\" at 4:15 pm on 19 November on the highplains.libcal.com feed"
 ---
 

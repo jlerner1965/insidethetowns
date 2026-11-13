@@ -7,7 +7,7 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Third Tuesdays"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6511"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Ecology Advisory Board\" at 6:30 pm on 17 November on the townoflyons.com feed"
 ---
 

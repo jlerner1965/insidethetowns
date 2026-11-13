@@ -9,7 +9,7 @@ cost: "Free"
 category: arts
 recurring: "First and third Wednesdays"
 source: "https://highplains.libcal.com/event/14510615"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Threads\" at 4 pm on 18 November on the highplains.libcal.com feed"
 ---
 

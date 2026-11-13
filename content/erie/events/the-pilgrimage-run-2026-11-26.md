@@ -9,8 +9,8 @@ cost: "$40 through November 10, $45 November 11–24, $50 on November 25, plus a
 category: sports
 timeNote: "Waves at 9:00, 9:01 and 9:02"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5197"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (date, times, waves and place on the Town's calendar; fees on the organizer's page, thepilgrimagerun.com/therun)"
+verified: "2026-11-13"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"The Pilgrimage Run\" at 9 am on 26 November on the erieco.gov feed"
 ---
 
 A Thanksgiving morning 2 mile and 4 mile run organized by Recess Factory, on courses that are about 90 percent paved trail. Chip-timed 4 mile starts at 9:00, untimed 4 mile at 9:01 and the 2 mile at 9:02.

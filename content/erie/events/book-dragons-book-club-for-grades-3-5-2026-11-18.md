@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: family
 recurring: "Monthly, usually second Wednesdays; November’s is the third"
 source: "https://highplains.libcal.com/event/17380772"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Book Dragons - 3rd-5th Book Club\" at 4:15 pm on 18 November on the highplains.libcal.com feed"
 ---
 

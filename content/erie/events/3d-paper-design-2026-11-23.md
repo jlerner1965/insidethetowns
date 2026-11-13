@@ -9,7 +9,7 @@ source: "https://highplains.libcal.com/event/17703042"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17703042"
 sourceHash: "79b3c3a620d7"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"3D Paper Design\" at 10 am on 23 November on the highplains.libcal.com feed"
 ---
 

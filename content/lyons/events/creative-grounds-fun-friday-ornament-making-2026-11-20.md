@@ -9,7 +9,7 @@ url: "https://creativegroundslyons.com/classes/fridays-4-8pm-youth-handbuilding-
 cost: "$30"
 source: "https://creativegroundslyons.com/classes/fridays-4-8pm-youth-handbuilding-5-weeks-ages-14-21-cjna2"
 sourceId: "creativegroundslyons-com"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Family Fun Friday One Time Ornament Making Class (Ages 12+) — Creative Grounds\" at 4 pm on 20 November in the page's structured data"
 ---
 

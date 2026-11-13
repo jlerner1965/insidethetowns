@@ -10,7 +10,7 @@ category: food
 organizer: "Carbon Valley Help Center"
 organizerUrl: "https://carbonvalleyhelpcenter.org/"
 source: "https://carbonvalleyhelpcenter.org/event/12th-annual-carbon-valley-help-center-empty-bowls-fundraiser/"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 11 am on the page"
 ---
 

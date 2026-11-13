@@ -11,7 +11,7 @@ source: "https://www.eventbrite.com/e/craft-sip-glass-suncatcher-workshop-at-pec
 sourceId: "eventbrite-com-windsor"
 sourceUid: "2003416383333"
 sourceHash: "23422cca617f"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Craft & Sip - Glass Suncatcher Workshop - at Peculier Ales!\" at 6 pm on 16 November in the page's structured data"
 ---
 

@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/16886161"
 cost: "Free; registration required"
 category: family
 source: "https://highplains.libcal.com/event/16886161"
-verified: "2026-11-11"
+verified: "2026-11-13"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Pokemon Club\" at 1 pm on 24 November on the highplains.libcal.com feed"
 ---
 
