@@ -108,5 +108,12 @@
         "checked": "2026-11-12"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1878,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }

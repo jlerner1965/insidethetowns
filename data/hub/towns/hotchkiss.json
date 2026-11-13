@@ -64,5 +64,12 @@
         "checked": "2026-11-12"
       }
     ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1901,
+      "source": "https://archives.colorado.gov/collections/history/incorporation-records",
+      "checked": "2026-11-13"
+    }
   }
 }
