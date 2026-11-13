@@ -52,7 +52,25 @@
         "cost": "Free; donations appreciated",
         "source": "https://www.museumtrail.org/monte-vista-historical-society-museum",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "Transportation of the West Museum",
+        "kind": "museum",
+        "url": "https://www.museumtrail.org/transportation-of-the-west-museum",
+        "hours": "Tue–Fri 11 am–3 pm",
+        "cost": "No admission fee; donations appreciated",
+        "source": "https://www.museumtrail.org/transportation-of-the-west-museum",
+        "checked": "2026-11-13"
       }
     ]
-  }
+  },
+  "lodging": [
+    {
+      "name": "Cobblestone Hotel & Suites – Monte Vista",
+      "kind": "Hotel",
+      "url": "https://www.staycobblestone.com/co/monte-vista/",
+      "source": "https://www.staycobblestone.com/co/monte-vista/",
+      "checked": "2026-11-13"
+    }
+  ]
 }

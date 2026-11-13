@@ -7,6 +7,20 @@
       "url": "https://www.hotelstcloud.com/",
       "source": "https://www.hotelstcloud.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "Parkview Inn",
+      "kind": "Motel",
+      "url": "https://www.parkviewinnmotel.com/",
+      "source": "https://www.parkviewinnmotel.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "A Step Back Inn",
+      "kind": "Vacation rental homes",
+      "url": "https://astepbackinn.com/",
+      "source": "https://astepbackinn.com/",
+      "checked": "2026-11-13"
     }
   ],
   "heritage": {
@@ -16,6 +30,12 @@
         "text": "Anson and Harriet Rudd arrived in Cañon City; they finished building their cabin around 1860.",
         "source": "https://www.canoncity.gov/573/About-Us",
         "checked": "2026-11-12"
+      },
+      {
+        "year": 1872,
+        "text": "The decision that Cañon City should incorporate was made in the public hall above Murray's Saloon.",
+        "source": "https://fremontheritage.com/wp-content/uploads/2023/04/canoncityonline2.pdf",
+        "checked": "2026-11-13"
       },
       {
         "year": 1881,

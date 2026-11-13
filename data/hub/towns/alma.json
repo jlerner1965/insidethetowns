@@ -1,10 +1,32 @@
 {
   "slug": "alma",
+  "facts": {
+    "incorporated": {
+      "year": 1873,
+      "source": "https://southparkheritage.org/alma/",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Summit Stage Park County Commuter",
+      "detail": "Low-cost bus between Fairplay, Alma, Blue River and Breckenridge",
+      "url": "https://www.summitcountyco.gov/services/transit_summit_stage/bus_schedule/index.php",
+      "source": "https://www.summitcountyco.gov/services/transit_summit_stage/bus_schedule/index.php",
+      "checked": "2026-11-13"
+    }
+  ],
   "heritage": {
     "nameOrigin": {
       "text": "The Town's history page says Alma was named after the grocery store owner's daughter.",
       "source": "https://townofalma.com/about/",
       "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1873,
+      "text": "Established as a silver smelting and supply town; its post office opened on March 7, 1873",
+      "source": "https://southparkheritage.org/alma/",
+      "checked": "2026-11-13"
     },
     "timeline": [
       {

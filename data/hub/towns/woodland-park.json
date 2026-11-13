@@ -40,6 +40,12 @@
     },
     "timeline": [
       {
+        "year": 1888,
+        "text": "The Midland Railroad began running through Ute Pass, bringing the tourism and commerce that let Woodland Park incorporate as a town.",
+        "source": "https://woodlandpark.gov/518/History-of-the-UPCC",
+        "checked": "2026-11-13"
+      },
+      {
         "year": 1890,
         "text": "The new Harvey House opened, when Woodland Park had 120 residents.",
         "source": "https://www.tellercounty.gov/395/Teller-County-History",
@@ -50,6 +56,12 @@
         "text": "The schoolhouse that is now the Ute Pass Cultural Center was built.",
         "source": "https://woodlandpark.gov/319/Who-We-Are",
         "checked": "2026-11-12"
+      },
+      {
+        "year": 1996,
+        "text": "The former schoolhouse reopened as a community center, the Ute Pass Cultural Center, on August 28.",
+        "source": "https://woodlandpark.gov/518/History-of-the-UPCC",
+        "checked": "2026-11-13"
       }
     ],
     "sites": [
@@ -62,6 +74,13 @@
         "season": "Year-round",
         "source": "https://www.rmdrc.com/",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "Ute Pass Cultural Center",
+        "kind": "landmark",
+        "url": "https://woodlandpark.gov/494/UPCC",
+        "source": "https://woodlandpark.gov/518/History-of-the-UPCC",
+        "checked": "2026-11-13"
       }
     ]
   }

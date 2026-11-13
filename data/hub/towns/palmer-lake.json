@@ -1,10 +1,23 @@
 {
   "slug": "palmer-lake",
+  "facts": {
+    "incorporated": {
+      "year": 1889,
+      "source": "https://www.townofpalmerlake.com/1311/About-Palmer-Lake",
+      "checked": "2026-11-13"
+    }
+  },
   "heritage": {
     "nameOrigin": {
       "text": "An 1835 Army expedition mapped the lake as Summit Lake; the name later changed to Divide Lake and finally Palmer Lake. General William J. Palmer bought the land that became the town.",
       "source": "https://palmerdividehistory.org/palmer-lake-history/",
       "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1871,
+      "text": "Founded by General William Jackson Palmer",
+      "source": "https://www.townofpalmerlake.com/1311/About-Palmer-Lake",
+      "checked": "2026-11-13"
     },
     "timeline": [
       {

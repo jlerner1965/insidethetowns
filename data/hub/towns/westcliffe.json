@@ -14,9 +14,36 @@
       "url": "https://westcliffeinn.com/",
       "source": "https://westcliffeinn.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "Westcliffe Suites on Main",
+      "kind": "Boutique hotel",
+      "url": "https://westcliffesuites.com/",
+      "source": "https://westcliffesuites.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Ravens' Lodging & Extended Stays",
+      "kind": "Suites and cottages",
+      "url": "https://ravenslodging.com/",
+      "source": "https://ravenslodging.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Dark Sky Suites",
+      "kind": "Hotel-style suites",
+      "url": "https://darkskysuites.com/",
+      "source": "https://darkskysuites.com/",
+      "checked": "2026-11-13"
     }
   ],
   "heritage": {
+    "founded": {
+      "year": 1881,
+      "text": "Grew up around a Denver & Rio Grande Railroad depot built one mile west of Silver Cliff",
+      "source": "https://visitwetmountainvalley.com/railroad-created-westcliffe/",
+      "checked": "2026-11-13"
+    },
     "timeline": [
       {
         "year": 1887,
@@ -51,6 +78,15 @@
         "hours": "No operating hours; open only during public events",
         "source": "https://www.darkskiescolorado.org/smokey-jack-observatory",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "All Aboard Westcliffe",
+        "kind": "museum",
+        "url": "https://www.allaboardwestcliffe.co/",
+        "hours": "Saturdays 10 am to 4 pm",
+        "season": "Memorial Day weekend to Labor Day weekend",
+        "source": "https://www.allaboardwestcliffe.co/",
+        "checked": "2026-11-13"
       }
     ]
   }

@@ -1,5 +1,12 @@
 {
   "slug": "del-norte",
+  "facts": {
+    "incorporated": {
+      "year": 1872,
+      "source": "https://riograndecountymuseum.org/del-norte/",
+      "checked": "2026-11-13"
+    }
+  },
   "lodging": [
     {
       "name": "The Windsor Hotel",
@@ -58,6 +65,13 @@
         "cost": "Free; donations appreciated",
         "source": "https://riograndecountymuseum.org/",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "The Windsor Hotel",
+        "kind": "landmark",
+        "url": "https://windsorhoteldelnorte.com/",
+        "source": "https://windsorhoteldelnorte.com/",
+        "checked": "2026-11-13"
       }
     ]
   }

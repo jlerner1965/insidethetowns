@@ -1,5 +1,35 @@
 {
   "slug": "green-mountain-falls",
+  "lodging": [
+    {
+      "name": "The Outlook Lodge",
+      "kind": "Lodge",
+      "url": "https://www.outlookgmf.com/",
+      "source": "https://www.outlookgmf.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Little Beaver Inn",
+      "kind": "Inn",
+      "url": "https://www.littlebeaverinn.com/",
+      "source": "https://www.littlebeaverinn.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Green Mountain Falls Lodge",
+      "kind": "Lodge",
+      "url": "https://www.gmflodge.com/",
+      "source": "https://www.gmflodge.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Green Mountain Falls Resorts",
+      "kind": "Vacation homes",
+      "url": "http://www.gmfresorts.com/",
+      "source": "http://www.gmfresorts.com/",
+      "checked": "2026-11-13"
+    }
+  ],
   "heritage": {
     "timeline": [
       {
@@ -7,6 +37,18 @@
         "text": "The Victorian gazebo on the lake, the town's focal point, dates from 1890.",
         "source": "https://greenmountainfalls.colorado.gov/",
         "checked": "2026-11-12"
+      },
+      {
+        "year": 1910,
+        "text": "The Columbine Hotel, now the Green Mountain Falls Lodge, was established.",
+        "source": "https://www.gmflodge.com/our-story/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 2006,
+        "text": "The Green Mountain Falls Gazebo was listed in the Colorado State Register of Historic Properties on August 31.",
+        "source": "https://www.historycolorado.org/location/green-mountain-falls-gazebo",
+        "checked": "2026-11-13"
       },
       {
         "year": 2009,
@@ -23,6 +65,21 @@
         "hours": "Thursday–Sunday from 8 AM till dusk",
         "source": "https://greenboxarts.org/skyspace/",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "Green Mountain Falls Gazebo",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/green-mountain-falls-gazebo",
+        "source": "https://www.historycolorado.org/location/green-mountain-falls-gazebo",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Green Box public art",
+        "kind": "landmark",
+        "url": "https://greenboxarts.org/year-round-programs/public-art/",
+        "season": "Permanent installations are on display year-round",
+        "source": "https://greenboxarts.org/year-round-programs/public-art/",
+        "checked": "2026-11-13"
       }
     ]
   }

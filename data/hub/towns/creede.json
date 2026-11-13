@@ -15,6 +15,13 @@
       "season": "Year-round",
       "source": "https://www.creedesnowshoe.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "The Creede Hotel & Restaurant",
+      "kind": "Hotel",
+      "url": "https://www.thecreedehotel.com/",
+      "source": "https://www.thecreedehotel.com/",
+      "checked": "2026-11-13"
     }
   ],
   "heritage": {
@@ -64,7 +71,8 @@
         "kind": "museum",
         "url": "https://www.museumtrail.org/creede-history-museum",
         "source": "https://www.museumtrail.org/creede-history-museum",
-        "checked": "2026-11-12"
+        "checked": "2026-11-13",
+        "hours": "Mon–Sun 10 am–4 pm"
       }
     ]
   }

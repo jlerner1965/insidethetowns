@@ -43,6 +43,14 @@
         "season": "Memorial Day Weekend to mid-October",
         "source": "https://www.museumtrail.org/crestone-historical-museum",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "Crestone Cemetery",
+        "kind": "landmark",
+        "url": "https://townofcrestone.gov/pages/cemetery",
+        "hours": "Gates are kept latched but not locked; visitors are welcome",
+        "source": "https://townofcrestone.gov/pages/cemetery",
+        "checked": "2026-11-13"
       }
     ]
   }

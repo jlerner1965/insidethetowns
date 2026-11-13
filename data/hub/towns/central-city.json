@@ -1,5 +1,30 @@
 {
   "slug": "central-city",
+  "facts": {
+    "incorporated": {
+      "year": 1864,
+      "source": "https://scholar.law.colorado.edu/session-laws-1951-2000/4182",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Black Hawk & Central City Tramway",
+      "detail": "Free shuttle; the Central City route links three stops in town with Black Hawk. Runs from 10 am to 2 am Monday to Thursday and to 3 am Friday to Sunday, every 20 to 30 minutes.",
+      "url": "http://signage.cityofblackhawk.org/",
+      "source": "http://signage.cityofblackhawk.org/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Grand Z Casino Hotel",
+      "kind": "Casino hotel",
+      "url": "https://www.grandzcasinohotel.com/",
+      "source": "https://www.grandzcasinohotel.com/",
+      "checked": "2026-11-13"
+    }
+  ],
   "heritage": {
     "nameOrigin": {
       "text": "William Newton Byers, founder of the Rocky Mountain News, reportedly named the town for its central location in the mining district.",
@@ -49,16 +74,20 @@
         "name": "Central City Opera House",
         "kind": "landmark",
         "url": "https://centralcityopera.org/",
-        "source": "https://centralcityopera.org/2027-season-announcement/",
-        "checked": "2026-11-12"
+        "hours": "Tours from the Washington Hall Tour Office, 117 Eureka St.: daily 10 am to 4 pm Memorial Day weekend through September; Tuesday to Sunday 10 am to 4 pm the rest of the year",
+        "cost": "Tours $10 per person per building; children 12 and under free",
+        "source": "https://www.gilpinhistory.org/hours-and-locations",
+        "checked": "2026-11-13"
       },
       {
         "name": "Gilpin History Museum",
         "kind": "museum",
         "url": "https://www.gilpinhistory.org/",
+        "hours": "Daily 10 am to 4 pm, Memorial Day weekend through the end of September",
+        "cost": "$10 adults; children 12 and under free",
         "season": "Closed for the winter; access by appointment or through the Tour Office",
-        "source": "https://www.gilpinhistory.org/",
-        "checked": "2026-11-12"
+        "source": "https://www.gilpinhistory.org/hours-and-locations",
+        "checked": "2026-11-13"
       }
     ]
   }
