@@ -200,9 +200,10 @@ test('the hub’s sitemap dates take in only the articles on the site', () => {
   for (const f of files) if (f.article!.status === 'draft' && process.env[DRAFTS_ENV] !== '1') assert.ok(!dates.has(articlePath(f.article!)), f.file);
 });
 
-test('the byline is the owner’s, and the pages print it, the verified day and the visited label', () => {
-  assert.equal(CURIOSITY_BYLINE, 'James Lerner');
+test('the byline is the studio’s, not a person’s, and the pages print it, the verified day and the visited label', () => {
+  assert.equal(CURIOSITY_BYLINE, 'Lerner Works');
   const page = readFileSync('src/routes/hub/curiosity-article.astro', 'utf8');
+  assert.match(page, /'@type': 'Organization', name: CURIOSITY_BYLINE/);
   assert.match(page, /By \{CURIOSITY_BYLINE\}/);
   assert.match(page, /Last verified/);
   assert.match(page, /'Visited' : 'Not personally visited'/);

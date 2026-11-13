@@ -13,7 +13,7 @@ details:
 summary: "Motel rooms and cabins in Lyons, with a pool."
 source: "https://www.stonemountainlodge.com/policy"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the policy page and the home page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the policy page and the home page)"
 added: "2026-09-17"
 ---
 

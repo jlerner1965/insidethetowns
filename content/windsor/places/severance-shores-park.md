@@ -7,7 +7,7 @@ url: "https://www.townofseverance.org/209/Parks-Recreation"
 source: "https://www.townofseverance.org/DocumentCenter/View/267/Parks-Map-PDF"
 verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 mapUrl: "https://www.townofseverance.org/DocumentCenter/View/267/Parks-Map-PDF"
 tags: [park, neighborhood-park, reservoir]
 details:

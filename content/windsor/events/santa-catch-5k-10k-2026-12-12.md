@@ -12,7 +12,7 @@ organizer: "Run Windsor"
 organizerUrl: "https://gomilesbeyond.com/"
 source: "https://business.windsorchamber.net/events/details/santa-catch-5k-10k-14284"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026; the Chamber's listing (Saturday Dec 12, 2026, 10K 9:00am, 5K 9:30am, Windsor Lake, 100 N Fifth St) and the race's RunSignup pages (runsignup.com/Race/Events/CO/Windsor/SantaCatch5K) for the fees and the price rise after November 29"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026; the Chamber's listing (Saturday Dec 12, 2026, 10K 9:00am, 5K 9:30am, Windsor Lake, 100 N Fifth St) and the race's RunSignup pages (runsignup.com/Race/Events/CO/Windsor/SantaCatch5K) for the fees and the price rise after November 29"
 ---
 
 A December Saturday race from Boardwalk Park: the 5K loops Windsor Lake and the 10K adds the Canal Trail. Entry comes with a Santa Catch beanie or hoodie, a finisher's medal and chip timing, with a hot cocoa bar (adult versions available), light refreshments, a visit from Santa, and a wood-fired sauna and cold plunge at the finish. Strollers and dogs are welcome and children get chips and medals too. The 10K starts at 9, the 5K at 9:30; fees on the registration page.

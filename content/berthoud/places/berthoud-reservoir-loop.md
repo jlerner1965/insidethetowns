@@ -12,7 +12,7 @@ details:
 summary: "Walking trail at Berthoud Reservoir, opened to the public in 2020, with fishing on the west side, paddle-craft access, parking and a restroom. Dogs on leash."
 source: "https://berthoud.org/facilities/facility/details/Berthoud-Reservoir-Park-Open-Space-17"
 verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Berthoud Reservoir Park & Open Space facility page, its Fishing in Berthoud page and its Pets in Parks page, read 8 November 2026; none gives the trail's length or a fee, so the 1.2-mile figure and 'no fee' are left off"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Berthoud Reservoir Park & Open Space facility page, its Fishing in Berthoud page and its Pets in Parks page, read 8 November 2026; none gives the trail's length or a fee, so the 1.2-mile figure and 'no fee' are left off"
 added: "2026-09-17"
 ---
 

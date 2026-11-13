@@ -9,7 +9,7 @@ category: civic
 recurring: "First and third Wednesdays"
 source: "https://www.erieco.gov/338/Planning-Commission"
 verified: "2026-11-01"
-verifiedBy: "auto-review from the erieco.gov feed read 2026-11-01, Claude Code for James Lerner"
+verifiedBy: "auto-review from the erieco.gov feed read 2026-11-01, Claude Code for Lerner Works"
 status: canceled
 statusNote: "erieco.gov lists this as canceled (read 2026-11-01)."
 statusSource: "https://www.erieco.gov/Calendar.aspx?EID=5209"

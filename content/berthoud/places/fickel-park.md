@@ -11,7 +11,7 @@ details:
 summary: "Shaded downtown park on Mountain Avenue with sculptures by local artists, picnic tables and a lighted tennis court; the town's front lawn."
 source: "https://berthoud.org/facilities/facility/details/Fickel-Park-2"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

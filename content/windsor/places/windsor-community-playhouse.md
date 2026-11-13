@@ -13,7 +13,7 @@ details:
 summary: "Windsor's community theater on East Garden Drive, staging a season of plays with Friday and Saturday evening shows and Sunday matinees; single and season tickets."
 source: "https://windsorplayhouse.org/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

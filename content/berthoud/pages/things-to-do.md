@@ -2,7 +2,7 @@
 title: "Things to do in Berthoud: 10 picks, and when to go"
 description: "Ten things to do in Berthoud, Colorado, and the season each suits: a downtown art walk, the Pioneer Museum, the rec center pool, lake trails and Carter Lake."
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's park, bike park and recreation center pages, Larimer County's Carter Lake page, the Historical Society's museum page, Berthoud Main Street's art tour page and the library's hours and events pages, read 11 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's park, bike park and recreation center pages, Larimer County's Carter Lake page, the Historical Society's museum page, Berthoud Main Street's art tour page and the library's hours and events pages, read 11 November 2026"
 picks:
   - place: downtown-mural-walk
     for: "A first afternoon downtown"

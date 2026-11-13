@@ -19,7 +19,7 @@ details:
 summary: "The low, dry, early-season option north-east of town, with the big view back to Longs Peak. Leashed dogs welcome."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/ron-stewart-preserve-rabbit-mountain/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (Boulder County's park page and its PDF trail map)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (Boulder County's park page and its PDF trail map)"
 added: "2026-09-17"
 ---
 

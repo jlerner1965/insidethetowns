@@ -18,7 +18,7 @@ volunteerNeed: "Pantry shifts on Tuesdays and Wednesdays; weekday and substitute
 contact: "foodpantry@leaflyons.org for the pantry; info@leaflyons.org or 303-823-6776"
 source: "https://leaflyons.org/give-volunteer/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the give-volunteer page and the Lyons Volunteers page, leaflyons.org/volunteers/)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the give-volunteer page and the Lyons Volunteers page, leaflyons.org/volunteers/)"
 ---
 
 LEAF, the town's mutual-aid fund, runs on volunteers. **At the pantry**, a Tuesday crew drives LEAF's vehicle to Community Food Share in Louisville and back (3 to 4 hours, lifting 50 pounds and more); on Wednesdays a morning crew sets the pantry up as a grocery store, a receptionist welcomes clients from 11 to 2:30, and an afternoon crew helps clients choose and packs up afterwards. **Meals on Wheels** drivers collect hot meals in Longmont and deliver them in Lyons on weekdays, about 10 am to 12:30 pm, with substitutes on call. **The Lyons Volunteers**, part of LEAF since 2020 and at work since the 2013 flood, do household and property jobs neighbours cannot manage and staff community events such as the LEAF Hootenanny. LEAF says its needs change often and keeps an application on file until a role opens. The pantry itself is open to clients on Wednesdays, 3:30 to 6 pm.

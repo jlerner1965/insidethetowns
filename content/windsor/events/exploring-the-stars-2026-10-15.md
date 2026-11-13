@@ -13,7 +13,7 @@ organizerUrl: "https://clearviewlibrary.org/"
 source: "https://clearview.libnet.info/event/17279124"
 sourceId: "clearviewlibrary-org"
 verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by Lerner Works"
 ---
 
 A talk on stargazing basics and the coming season's sky by the Northern Colorado Astronomical Society, in the library's Cottonwood room from 6 to 7 pm, then telescope viewing in the Severance Town Hall parking lot if the weather allows. For ages 12 and up; registration is optional and only sends a reminder. The library closes at 6 pm, so this runs after hours.

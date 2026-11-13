@@ -14,7 +14,7 @@ volunteerNeed: "\"We need your help. Check out our flexible and one-time volunte
 contact: "(970) 587-0278, jhscomuseum@gmail.com"
 source: "https://jhsco.org/get-involved/volunteer/"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Johnstown Historical Society's Volunteer, Visit, Connect with Us and home pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Johnstown Historical Society's Volunteer, Visit, Connect with Us and home pages, read November 9, 2026"
 ---
 
 The Johnstown Historical Society runs the [Historic Parish House and Museum](/places/parish-house-museum/) and says plainly, "We Need Your Help". Some jobs are one-time, such as helping at an event or fundraiser; some need training; others "only need a simple explanation or brief orientation".

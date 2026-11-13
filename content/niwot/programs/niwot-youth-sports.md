@@ -21,7 +21,7 @@ volunteerNeed: "'Parent Volunteers Needed' on the soccer page; coaches register 
 contact: "president@niwotyouthsports.org; https://www.niwotyouthsports.org/about/"
 source: "https://www.niwotyouthsports.org/sports/basketball/recreational-basketball/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (its recreational basketball, soccer and home pages)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (its recreational basketball, soccer and home pages)"
 ---
 
 A 501(c)(3) that runs year-round recreational and competitive sports for children of the St. Vrain district, ages 4 to 18: baseball (competitive and recreational), softball, soccer, flag football and basketball. **This winter's recreational basketball** is open for registration through December 1: kindergarten co-ed, then boys' and girls' leagues for grades 1–2, 3–4, 5 and 6–8, in partnership with YMCA NoCo in Lafayette, where most games are played; practices are once a week at a St. Vrain school in Niwot or south Longmont, and the season runs January to March with a tournament on March 6, 2027. The league says volunteers are what make it work, and has a page each for [volunteering](https://www.niwotyouthsports.org/volunteer/) and [coaching](https://www.niwotyouthsports.org/coaches/).

@@ -89,7 +89,7 @@ const structured = [
     datePublished: toIsoLocal(parseLocal(data.date)),
     dateModified: toIsoLocal(parseLocal(verified)),
     ...(topic ? { articleSection: topic.label } : {}),
-    author: { '@type': 'Person', name: CURIOSITY_BYLINE },
+    author: { '@type': 'Organization', name: CURIOSITY_BYLINE, url: 'https://lernerworks.com' },
     publisher: { '@id': `https://${hub.domain}/#org` },
     isPartOf: { '@id': `https://${hub.domain}/#website` },
     mainEntityOfPage: url,

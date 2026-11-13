@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: family
 source: "https://highplains.libcal.com/event/16886162"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 School-holiday Pokemon sessions for grades 4 to 8, with battles, card trading and snacks. Registration required for each session.

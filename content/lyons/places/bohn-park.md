@@ -12,7 +12,7 @@ details:
 summary: "Ball fields and the off-leash dog park."
 source: "https://www.lyonscolorado.com/348/Parks-Facilities"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town's Parks & Facilities and Bohn Park pages)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Town's Parks & Facilities and Bohn Park pages)"
 added: "2026-09-17"
 ---
 

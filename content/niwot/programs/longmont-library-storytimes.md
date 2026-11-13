@@ -19,7 +19,7 @@ contact: "Longmont Public Library, 303-651-8470"
 tags: [nearby, longmont]
 source: "https://longmontcolorado.gov/library/children-services/childrens-storytimes/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the storytimes page and the library card page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the storytimes page and the library card page)"
 ---
 
 This is in Longmont, a drive from Niwot, not in Niwot itself. The City of Longmont's library holds its weekly storytimes Monday to Saturday in its meeting rooms by the west entrance on Kimbark Street, and says no registration is required. Each session is for an age group, and the library asks families to come to the one for their child's age:

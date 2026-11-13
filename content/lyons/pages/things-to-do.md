@@ -3,7 +3,7 @@ title: "Things to do in Lyons: 10 picks, by season"
 seoTitle: "Things to do in Lyons, Colorado: 10 picks by season"
 description: "Ten things to do in Lyons, Colorado, checked November 11, 2026: open space trails, the river park, Main Street, pinball, a dog park and the summer festivals."
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: read on 11 November 2026 from Boulder County's Hall Ranch, Heil Valley Ranch and Rabbit Mountain pages, the City of Longmont's Button Rock Preserve page, the Town of Lyons's LaVern M. Johnson Park, Dog Park, tubing and History and Heritage pages, bluegrass.com and lyonsclassicpinball.com"
+verifiedBy: "Claude Code, delegated by Lerner Works: read on 11 November 2026 from Boulder County's Hall Ranch, Heil Valley Ranch and Rabbit Mountain pages, the City of Longmont's Button Rock Preserve page, the Town of Lyons's LaVern M. Johnson Park, Dog Park, tubing and History and Heritage pages, bluegrass.com and lyonsclassicpinball.com"
 picks:
   - place: hall-ranch
     for: "Hiking and biking"

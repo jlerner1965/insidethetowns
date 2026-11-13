@@ -11,7 +11,7 @@ sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10972"
 sourceHash: "e9d9b0be5d1d"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the library's own events feed (johnstownmillikenpubliclibraries.us/wp-json/tribe/events/v1/events), the record behind this page, on 10 November 2026: title, date, start and end time, the Johnstown location and the age and library-card rule match"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the library's own events feed (johnstownmillikenpubliclibraries.us/wp-json/tribe/events/v1/events), the record behind this page, on 10 November 2026: title, date, start and end time, the Johnstown location and the age and library-card rule match"
 ---
 
 Paint ‘n Sip at Glenn A. Jones, M.D. Memorial Library, Friday, December 4, 6:30 pm – 8:30 pm. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration. Participants must be 21 or older and hold a current Johnstown/Milliken library card, and each cardholder may attend one Paint & Sip class every three months.

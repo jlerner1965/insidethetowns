@@ -18,7 +18,7 @@ registration: { required: true, how: "The district's online preschool applicatio
 contact: "Niwot Elementary, 303-652-2828"
 source: "https://www.svvsd.org/departments/early-childhood/preschool/2026-2027-preschool-registration/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the district's registration page, preschool page and 2026–27 calendar)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the district's registration page, preschool page and 2026–27 calendar)"
 ---
 
 St. Vrain Valley Schools runs preschool at 25 of its elementary schools, Niwot Elementary among them, for 3- and 4-year-olds. The district's 2026–27 location list gives Niwot a morning session from 9 to 11:40 am and an afternoon session from 12:55 to 3:35 pm; it lists no full-day session at Niwot. Every classroom, the district says, is led by a licensed teacher with a bachelor's degree in early childhood education.

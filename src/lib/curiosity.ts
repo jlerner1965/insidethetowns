@@ -61,8 +61,11 @@ export const TOPIC_INFO: Record<CuriosityTopic, { label: string; path: string; n
   },
 };
 
-/** The name on every article (the owner's brief, 13 November 2026). */
-export const CURIOSITY_BYLINE = 'James Lerner';
+/**
+ * The name on every article: the studio, not a person (the owner, 13 November
+ * 2026: "remove my name from all articles; if needed say by Lerner Works").
+ */
+export const CURIOSITY_BYLINE = 'Lerner Works';
 
 /** Where the articles live. */
 export const CURIOSITY_DIR = 'content/hub/curiosity';

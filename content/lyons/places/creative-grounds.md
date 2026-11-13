@@ -15,7 +15,7 @@ details:
 summary: "A nonprofit café, pottery studio and hangout for young people at the east end of Main: Ozo coffee, house-made syrups, pastries and sandwiches, and pottery classes through December."
 source: "https://creativegroundslyons.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the home page and the class pages)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the home page and the class pages)"
 added: "2026-10-28"
 ---
 

@@ -16,7 +16,7 @@ volunteerNeed: "The library says its greatest need is during the Summer Reading 
 contact: "(970) 587-2459"
 source: "https://johnstownmillikenpubliclibraries.us/about/policies/"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the library's Policies, Library Staff & Board and Teens pages and its Volunteer Application, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the library's Policies, Library Staff & Board and Teens pages and its Volunteer Application, read November 9, 2026"
 ---
 
 "We welcome volunteers of all ages!" says [the library](/places/glenn-a-jones-library/). It has openings year-round, but "our greatest need is during the Summer Reading Program", and anyone who wants to help that summer must have an application in by April 30. The one-page [Volunteer Application](https://johnstownmillikenpubliclibraries.us/wp-content/uploads/2024/07/Volunteer-Application.pdf) asks for your contact details and the times you are free; hand it in at the Circulation Desk. The library is plain that an application does not guarantee a position: slots are limited and filled first come, first served. Its volunteer policies are on the same page.

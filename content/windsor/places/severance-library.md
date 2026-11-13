@@ -8,7 +8,7 @@ url: "https://clearviewlibrary.org/about-us/learn-more/hours-locations"
 source: "https://clearviewlibrary.org/about-us/learn-more/hours-locations"
 verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 phone: "970-686-5603"
 hours: "Mon–Thu 10 am–6 pm; Fri–Sat 10 am–5 pm; closed Sun"
 tags: [library, kids]

@@ -17,7 +17,7 @@ beginners: true
 contact: "970-686-5603"
 source: "https://clearview.libnet.info/events"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The Clearview Library District's after-school calendar, every session free and most with each child registered by name. **In Windsor**: Lego Engineers on Mondays at 3:15 (weekly to December 14, none on November 30); Young Scientists on Thursdays at 3:15 (November 12, December 3 and 10); the After-School Collective, a different make-and-do each time, on Tuesdays November 10 and December 8; and for 9-to-12s, The Scene on Wednesdays November 11 and December 9 at 4:30 and Tween RPG, a role-playing game, on November 18 and December 16 from 4:30 to 6. **In Severance**: Lego Explorers, free building, on Tuesdays at 3:15 through December 15; Kids in the Kitchen on Wednesdays November 18 and December 2 and 16 at 3:15; Chess Club for ages 6 to 18, all skill levels and no registration, on Wednesdays November 11 and December 9 at 4:30; The Scene on Thursday December 3 at 4:30; and the After-School Collective on Mondays November 16 and December 14. For 6-to-8-year-olds there is also Reading Bugs, an online book club on Fridays at 4 from November 13, one registration for the series.

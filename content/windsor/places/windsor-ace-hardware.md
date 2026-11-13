@@ -14,7 +14,7 @@ details:
 summary: "The locally and family-owned hardware store on west Main Street, with 45,000 items in stock; open seven days."
 source: "https://www.myaceonline.com/windsor-ace-hardware/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: hours, address and phone read from the store's own page, the rest from its Windsor Area Chamber listing, on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: hours, address and phone read from the store's own page, the rest from its Windsor Area Chamber listing, on 10 November 2026"
 added: "2026-11-06"
 ---
 

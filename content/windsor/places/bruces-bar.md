@@ -8,7 +8,7 @@ url: "https://brucesbar123.com/"
 source: "https://brucesbar123.com/"
 verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 phone: "(970) 686-2320"
 hours: "Mon–Thu 10 am–9 pm; Fri–Sat 10 am–11 pm; Sun 10 am–8 pm"
 image: ../images/bruces-bar.jpg

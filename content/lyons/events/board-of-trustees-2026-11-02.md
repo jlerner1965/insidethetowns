@@ -9,7 +9,7 @@ category: civic
 recurring: "First and third Mondays"
 source: "https://www.lyonscolorado.com/AgendaCenter"
 verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+verifiedBy: "Claude Code for Lerner Works, against the organizer's own page, 16 October 2026"
 ---
 
 Regular meeting of the Lyons Board of Trustees at Town Hall. Watch the livestream at townoflyons.com/livestream; audience comment is taken in person only. Agendas post to the Town's Agenda Center the week before.

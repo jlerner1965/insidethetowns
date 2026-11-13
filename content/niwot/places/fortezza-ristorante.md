@@ -14,7 +14,7 @@ details:
 summary: "Northern Italian steakhouse: house-made pasta, Wagyu steaks and a long wine list. Opened August 2025."
 source: "https://fortezzaristorante.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (its home page and Our Story page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (its home page and Our Story page)"
 added: "2026-09-17"
 ---
 

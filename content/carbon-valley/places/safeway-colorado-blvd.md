@@ -7,7 +7,7 @@ url: "https://local.safeway.com/safeway/co/firestone/8134-colorado-blvd.html"
 source: "https://local.safeway.com/safeway/co/firestone/8134-colorado-blvd.html"
 verified: "2026-11-09"
 added: "2026-11-09"
-verifiedBy: "Claude, read from the store's own page on 9 November 2026; listed at James Lerner's word the same day"
+verifiedBy: "Claude, read from the store's own page on 9 November 2026; listed at Lerner Works' word the same day"
 phone: "303-833-2844"
 hours: "Daily 6 am–11 pm"
 tags: [grocery, pharmacy]

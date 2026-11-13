@@ -11,7 +11,7 @@ details:
 summary: "Self-guided walk along Mountain Avenue and its side streets past large murals, rotating sculptures, the Bimson leaf sidewalks and lamp posts and, from Memorial Day to Veterans Day, the Hometown Heroes banners."
 source: "https://berthoudmainstreet.org/berthoud-mural-public-art-tour/"
 verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: Berthoud Main Street's Mural & Public Art Tour page and the Town's Hometown Heroes Banner Program page, read 8 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: Berthoud Main Street's Mural & Public Art Tour page and the Town's Hometown Heroes Banner Program page, read 8 November 2026"
 added: "2026-09-17"
 ---
 

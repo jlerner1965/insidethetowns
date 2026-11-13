@@ -9,7 +9,7 @@ cost: "Free"
 category: family
 source: "https://highplains.libcal.com/event/16070718"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 An unstructured drop-in for elementary school children to trade Pokemon cards, play and talk about the game. No guidance on trading is provided.

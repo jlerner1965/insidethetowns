@@ -26,7 +26,7 @@ contact: "970-674-3500, windsorpr@windsorgov.com"
 featured: true
 source: "https://www.recreationliveshere.com/173/Camp-Windsor"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The Town's day camp runs on the days Weld RE-4 is not in session, the single days off during the school year as well as the breaks, for children who have finished kindergarten and are not yet in 7th grade. The rest of this school year's dates: **school-out days** on Friday November 20 and Friday December 18 ($67 each); **fall break** Monday to Wednesday, November 23–25 ($180); and **winter break** December 21–23 and December 28–30 ($180 each) and January 4–5 ($120). Every day runs 7:30 am to 5:30 pm, and the registration site lists the same price for residents and non-residents. After registering, families get an email invitation to an ePACT health profile; the Town says every form, the immunization record and any medication form must be in before a child can attend, to meet state childcare licensing. Campers swim, so pack a swimsuit and labelled sunscreen as well as lunch and snacks.

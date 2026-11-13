@@ -11,7 +11,7 @@ details:
 summary: "The town's soccer park on Spartan Avenue near Berthoud High, with soccer fields, a fitness trail, a renovated playground and the Bein baseball complex; the Town's fenced dog park is also on 10th Street."
 source: "https://www.berthoud.org/Facilities/Facility/Details/Bein-Park-3"
 verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Bein Park and Dog Park facility pages and its Pets in Parks page, read 8 November 2026; Berthoud High's address (850 Spartan Ave) from the Colorado Department of Education's SchoolView"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Bein Park and Dog Park facility pages and its Pets in Parks page, read 8 November 2026; Berthoud High's address (850 Spartan Ave) from the Colorado Department of Education's SchoolView"
 added: "2026-09-17"
 ---
 

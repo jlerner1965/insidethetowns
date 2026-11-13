@@ -11,7 +11,7 @@ sourceId: "citystarbrewing-com"
 sourceUid: "12747"
 sourceHash: "c877568565d7"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: title, date and times)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (City Star's events feed: title, date and times)"
 ---
 
 Kelly Aspen and Branden Sipes at City Star Brewing, Saturday, December 19, 6 pm – 8:30 pm. Listed by City Star Brewing; the organizer's page has the details and any registration.

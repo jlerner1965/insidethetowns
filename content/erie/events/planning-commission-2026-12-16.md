@@ -9,7 +9,7 @@ category: civic
 recurring: "First and third Wednesdays"
 source: "https://www.erieco.gov/338/Planning-Commission"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Planning Commission page and the Town's calendar entry, Calendar.aspx?EID=5229: Wednesday, December 16, 6:30 pm, Council Chambers)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Planning Commission page and the Town's calendar entry, Calendar.aspx?EID=5229: Wednesday, December 16, 6:30 pm, Council Chambers)"
 ---
 
 Regular meeting of the Erie Planning Commission in the Council Chambers at Town Hall, first and third Wednesdays at 6:30 pm, on development applications, annexations and the comprehensive plan. Streamed live; agendas post 24 hours ahead.

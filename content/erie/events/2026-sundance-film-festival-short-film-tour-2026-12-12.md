@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/16923053"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 A screening of six short films selected by Sundance from the previous festival, running 99 minutes with a 15 minute intermission.

@@ -7,7 +7,7 @@ area: "Main Street, downtown"
 url: "https://www.chimneypark.com/"
 source: "https://www.chimneypark.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-10-01"
 phone: "970-686-1477"
 tags: [fine-dining, wine-list]

@@ -14,7 +14,7 @@ details:
 summary: "A barbershop for men and boys on Mountain Avenue: cuts, beard and mustache trims and straight-razor shaves, booked online or by phone, with walk-ins when a chair is free."
 source: "https://www.sixbarbershop.com/hours-info"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

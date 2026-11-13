@@ -12,7 +12,7 @@ sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10916"
 sourceHash: "5447f4d19a51"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library now titles the session Breakfast in a Jar: Pancakes; its page says registration opens November 21, 2026 at 7:00 pm and lists no price)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the library now titles the session Breakfast in a Jar: Pancakes; its page says registration opens November 21, 2026 at 7:00 pm and lists no price)"
 ---
 
 Breakfast in a Jar: Pancakes at Glenn A. Jones, M.D. Memorial Library, Saturday, December 5, 10 am – 11 am. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration.

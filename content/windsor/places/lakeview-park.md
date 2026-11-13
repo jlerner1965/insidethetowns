@@ -8,7 +8,7 @@ url: "https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-
 source: "https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4"
 verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 tags: [playground, skate park, basketball, picnic shelters, restrooms]
 status: temporarily-closed
 closed: "2026-10-10"

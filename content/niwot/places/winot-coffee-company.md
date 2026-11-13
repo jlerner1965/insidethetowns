@@ -9,7 +9,7 @@ tags: [espresso, family-owned]
 summary: "Independent, family-owned coffeehouse on the square, established 2007."
 source: "https://niwot.com/listing/winot-coffee-company/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

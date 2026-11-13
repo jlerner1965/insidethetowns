@@ -13,7 +13,7 @@ volunteerNeed: "Friendly Fork set-up, clean-up and registration; bingo callers; 
 contact: "Senior Center Coordinator, 970-587-5251"
 source: "https://johnstownco.gov/486/Volunteer-Opportunities"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Johnstown Senior Center, Volunteer Opportunities and Activities pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Johnstown Senior Center, Volunteer Opportunities and Activities pages, read November 9, 2026"
 ---
 
 The Senior Center's volunteer page is a list of jobs, and the way in is a conversation with the Senior Center Coordinator, who also takes "other ideas". The list:

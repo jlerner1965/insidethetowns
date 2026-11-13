@@ -13,7 +13,7 @@ details:
 summary: "Dr. Ashley Niles's family dental practice at 364 Second Avenue, open Monday to Thursday; new patients call (303) 518-7243."
 source: "https://www.nilesfamilydentistry.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

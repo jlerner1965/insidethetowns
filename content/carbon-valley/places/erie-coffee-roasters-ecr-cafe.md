@@ -11,7 +11,7 @@ details:
   checked: "2026-11-12"
 summary: "A micro-roaster and cafe in Frederick (the name notwithstanding), roasting fair-trade coffee on site and serving espresso, pour-overs and focaccia sandwiches made in house, weekday mornings and Saturday."
 verified: "2026-11-05"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by Lerner Works"
 added: "2026-11-05"
 ---
 

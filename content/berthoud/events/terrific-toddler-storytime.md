@@ -12,7 +12,7 @@ category: family
 recurring: "Fridays at 10:30; no storytime November 27 (library closed)"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's Events and Classes page and its November 2026 newsletter: Fridays at 10:30, the library closed and no storytime Friday, November 27)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the library's Events and Classes page and its November 2026 newsletter: Fridays at 10:30, the library closed and no storytime Friday, November 27)"
 ---
 
 A fast-paced storytime with books, songs and dancing for toddlers, every Friday morning at the library. No registration.

@@ -10,7 +10,7 @@ category: sports
 organizer: "Niwot Elementary Parent Teacher Advisory Council"
 source: "https://www.niwotptac.com/niwottrot-146424.html"
 verified: "2026-11-12"
-verifiedBy: "Claude Code, delegated by James Lerner: the PTAC's Niwot Trot page (https://www.niwotptac.com/niwottrot-146424.html: Sunday, October 4, 2026, 9:00am, Whistle Stop Park, 17th annual; no 2027 date and no entry fee stated) and the Eventbrite sign-up it links to (sales ended, no prices shown)"
+verifiedBy: "Claude Code, delegated by Lerner Works: the PTAC's Niwot Trot page (https://www.niwotptac.com/niwottrot-146424.html: Sunday, October 4, 2026, 9:00am, Whistle Stop Park, 17th annual; no 2027 date and no entry fee stated) and the Eventbrite sign-up it links to (sales ended, no prices shown)"
 ---
 
 The Niwot Trot is Niwot Elementary's 5K run and walk through downtown Niwot, and the 17th annual race was held on Sunday, October 4, 2026, at 9 am from Whistle Stop Park. The school's Parent Teacher Advisory Council (PTAC) runs it, and anyone can enter to run, walk, stroll or trot. The PTAC has not posted a date for 2027.

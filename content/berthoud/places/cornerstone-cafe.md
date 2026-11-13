@@ -15,7 +15,7 @@ details:
 summary: "Diner breakfast and lunch on the corner of Mountain and 3rd, at the heart of downtown."
 source: "https://www.newfreedomministry.com/page/cornerstone-cafe"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the cafe's page on newfreedomministry.com and Berthoud Main Street's Dine & Drink page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the cafe's page on newfreedomministry.com and Berthoud Main Street's Dine & Drink page)"
 added: "2026-09-17"
 ---
 

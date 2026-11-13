@@ -2,7 +2,7 @@
 title: "Things to do in Erie: 10 picks, and when to go"
 description: "Ten things to do in Erie, Colorado, and the season each suits: the Coal Creek Trail, a downtown history walk, the pool, the ice rink, sledding and singletrack."
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's open space, park, ice rink and Community Center pages, Downtown Erie's site, Colorado Railbike Adventures' site and the High Plains Library District's hours and holiday pages, read 11 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's open space, park, ice rink and Community Center pages, Downtown Erie's site, Colorado Railbike Adventures' site and the High Plains Library District's hours and holiday pages, read 11 November 2026"
 picks:
   - place: downtown-walking-tour
     for: "A first walk downtown"

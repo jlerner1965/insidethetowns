@@ -14,7 +14,7 @@ details:
 summary: "Dog grooming by appointment on Mountain Avenue, seven days a week from 8 am to 7 pm; the entrance is down the alley at the back."
 source: "https://muddymuttnoco.com/berthoud/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

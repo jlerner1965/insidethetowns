@@ -7,7 +7,7 @@ url: "https://houndstownusa.com/locations/erie"
 source: "https://houndstownusa.com/locations/erie"
 verified: "2026-11-06"
 added: "2026-11-06"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by Lerner Works"
 phone: "(303) 997-3838"
 hours: "Mon–Fri 6:30 am–7 pm; Sat 9 am–6 pm; Sun 10 am–noon and 4–6 pm"
 tags: [pets, dog-daycare, boarding, grooming]

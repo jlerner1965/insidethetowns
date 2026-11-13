@@ -14,7 +14,7 @@ featured: true
 organizer: "Erie Chamber of Commerce"
 source: "https://members.eriechamber.org/events/details/parade-of-lights-2026-853091"
 verified: "2026-11-12"
-verifiedBy: "Claude Code, delegated by James Lerner: the Erie Chamber's Parade of Lights 2026 page (https://members.eriechamber.org/events/details/parade-of-lights-2026-853091: Friday, December 4th, 4:30 PM - 8:30 PM, parade 6:30, route, closures, parking), its special events page (https://www.eriechamber.org/special-events/) and its 2026 parade entry form (no candy, Santa at the end of the parade); the Town's calendar at erieco.gov lists no parade or tree lighting, and the Chamber's 2026 pages do not use the name Country Christmas or mention a tree lighting"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Erie Chamber's Parade of Lights 2026 page (https://members.eriechamber.org/events/details/parade-of-lights-2026-853091: Friday, December 4th, 4:30 PM - 8:30 PM, parade 6:30, route, closures, parking), its special events page (https://www.eriechamber.org/special-events/) and its 2026 parade entry form (no candy, Santa at the end of the parade); the Town's calendar at erieco.gov lists no parade or tree lighting, and the Chamber's 2026 pages do not use the name Country Christmas or mention a tree lighting"
 ---
 
 Erie's Parade of Lights is on Friday, December 4, 2026: activities downtown run from 4:30 to 8:30 pm, and the lighted parade starts at 6:30 pm, heading north on Briggs Street from Maxwell Avenue to Cheesman Street. The Erie Chamber of Commerce runs it, and it is free.

@@ -13,7 +13,7 @@ details:
 summary: "Rustic Italian pizza and a long wine list on Fairgrounds Avenue, with a dine-in happy hour Monday to Thursday 3 to 5 and Friday to Sunday 11 to 4."
 source: "https://www.pizzavinonoco.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

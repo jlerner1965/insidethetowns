@@ -16,7 +16,7 @@ registration: { required: true, how: "One Arbiter Sports family account for all 
 contact: "Athletic director Eric Johnson, 970-686-8119; athletics office terri.archer@weldre4.org, 970-686-8104"
 source: "https://whs.weldre4.org/en-US/athletic-department-overview-9c28ce34"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source, its Winter 2026-27 registration document and the school's Winter Sports page on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source, its Winter 2026-27 registration document and the school's Winter Sports page on 10 November 2026"
 ---
 
 Windsor High's winter sports are **boys' basketball, girls' basketball, girls' swimming, unified basketball and wrestling**, and registration for 2026–27 opened October 19 at 8 am. The athletics page links everything a family needs: the winter registration instructions, the Arbiter Sports family login, the CHSAA physical (valid for a calendar year and uploaded to the student's profile), the athletic handbook and the district's refund policy. Students from another school who play for Windsor High file a non-WHS student form before their first practice. The district requires every athlete to have accident insurance and points families to K & K Insurance's student plans. The Wizards' records, scores and next games are on [this guide's Windsor High page](/sports/windsor-high/); the booster club is at [wizardboosters.com](https://www.wizardboosters.com/).

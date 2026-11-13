@@ -9,7 +9,7 @@ cost: "Free"
 category: arts
 source: "https://niwothall.org/events/21587/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the hall's page now gives 3 to 8 pm, in its text and its time line, where it gave 5 to 8)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the hall's page now gives 3 to 8 pm, in its text and its time line, where it gave 5 to 8)"
 ---
 
 A reception for Tory Cusack, Niwot Hall's artist in residence for November and December, on the afternoon and evening of the First Friday Art Walk. Cusack has painted professionally since 1975 and taught studio art in Boulder for eighteen years; her training ranges from CU and the Colorado Institute of Art to a master's in transpersonal counseling with an art therapy focus at Naropa. Free and open to the public, with drinks and light appetizers, 3 to 8 pm at the hall on Second Avenue. Her work hangs in the hall through December.

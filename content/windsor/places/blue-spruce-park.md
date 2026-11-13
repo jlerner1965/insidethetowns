@@ -8,7 +8,7 @@ url: "https://www.townofseverance.org/Facilities/Facility/Details/Blue-Spruce-Pa
 source: "https://www.townofseverance.org/Facilities/Facility/Details/Blue-Spruce-Park-1"
 verified: "2026-11-10"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 tags: [fishing, pond, picnic tables, accessible]
 details:
   source: "https://www.townofseverance.org/Facilities/Facility/Details/Blue-Spruce-Park-1"

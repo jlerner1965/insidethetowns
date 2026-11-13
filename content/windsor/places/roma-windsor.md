@@ -13,7 +13,7 @@ details:
 summary: "A full-service Italian restaurant on Main Street for pizza and pasta, with a daily drink special and delivery in Windsor."
 source: "https://romarestaurantco.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

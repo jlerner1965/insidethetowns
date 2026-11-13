@@ -14,7 +14,7 @@ registration: { required: true, how: "Print the 2026–27 application or pick on
 contact: "970-674-3500"
 source: "https://www.recreationliveshere.com/172/Reduced-Fee-Program"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The Town's reduced rates are paid for by donations, among them the Windsor Town Board's and United Way of Weld County's. **Windsor residents** qualify on income and household size, shown from the most recent IRS tax form, and prove residency with a property tax certificate, a Town of Windsor utility bill or a rental agreement. **Severance residents under 18** may get help with registration fees for youth sports only, up to $100 a person, if funds are available, through a separate Severance Youth Scholarship application on the same page. Both applications are for the 2026–27 year; the Windsor one is also in Spanish.

@@ -246,7 +246,7 @@ export const berthoud: TownConfig = {
   },
   about: {
     who: [
-      'Inside Berthoud is published by Lerner Works, the small studio James Lerner runs. James grew up in Niwot, in Boulder County, and edits this guide from the sources every listing names: the Town’s own pages, the library, the school district, and the businesses’ and organizers’ sites, checked on the dates shown. He is not a Berthoud resident and has no standing with the Town, the chamber or any organization listed here; nothing on the guide is endorsed by any of them.',
+      'Inside Berthoud is published by Lerner Works, a small studio, and edited from the sources every listing names: the Town’s own pages, the library, the school district, and the businesses’ and organizers’ sites, checked on the dates shown. Lerner Works has no standing with the Town, the chamber or any organization listed here; nothing on the guide is endorsed by any of them.',
     ],
   },
   movingHere: {

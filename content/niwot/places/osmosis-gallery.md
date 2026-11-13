@@ -14,7 +14,7 @@ details:
 summary: "Contemporary gallery in a renovated 1910 brick building, showing more than forty Colorado artists, with openings on First Fridays."
 source: "https://www.osmosisartgallery.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (its home and About pages)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (its home and About pages)"
 added: "2026-09-17"
 ---
 

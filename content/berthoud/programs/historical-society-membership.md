@@ -18,7 +18,7 @@ volunteerNeed: "The Society says volunteers are essential to its mission, at its
 contact: "970-532-2147, museumsdirector@berthoudhistoricalsociety.org"
 source: "https://berthoudhistoricalsociety.org/23-join-bhs"
 verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the Society's Join BHS, Volunteer, home, Speaker Series and November 17 event pages, read November 8, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Society's Join BHS, Volunteer, home, Speaker Series and November 17 event pages, read November 8, 2026"
 ---
 
 Membership brings four newsletters a year, free admission to the [Pioneer Museum](/places/pioneer-museum/) and the McCarty-Fickel Home, early access to event tickets and a discount on summer day camp tuition, in the Society's words. The volunteer page lists nine areas and three ways to sign up. The public way in is the free [speaker series](/events/berthoud-historical-society-fall-speaker-series-2026-11-17/): November 17, 7 to 9 pm at the [Berthoud Recreation Center](/places/berthoud-recreation-center/), is historic preservation in Berthoud, with the Town's Historic Preservation Advisory Committee and Anne Best Johnson.

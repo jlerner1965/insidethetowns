@@ -8,7 +8,7 @@ action: "Nothing to do now; the preliminary plat, with the engineering and the w
 effective: "2026-10-27"
 published: "2026-11-04"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the October 27 minutes in the November 10, 2026 Board packet and the staff report in the October 27 packet, both on the Town's CivicClerk portal; the staff report gives the size as 37.79 acres)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the October 27 minutes in the November 10, 2026 Board packet and the staff report in the October 27 packet, both on the Town's CivicClerk portal; the staff report gives the size as 37.79 acres)"
 source: "https://berthoudco.portal.civicclerk.com/event/727/files"
 sourceLabel: "Town of Berthoud: Board of Trustees packet, November 10, 2026, with the October 27 minutes"
 alsoSource: "https://berthoudco.portal.civicclerk.com/event/739/files"

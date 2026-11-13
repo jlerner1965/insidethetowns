@@ -13,7 +13,7 @@ details:
 summary: "The library district’s 2019 building: books, meeting rooms, programs most days and the Effie Banta Room for public meetings."
 source: "https://lyons.colibraries.org/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the home page, the History of the Library and About the Library pages and the events calendar)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the home page, the History of the Library and About the Library pages and the events calendar)"
 added: "2026-09-17"
 ---
 

@@ -10,7 +10,7 @@ cost: "Free"
 category: family
 source: "https://www.erieco.gov/454/Arbor-DayEarth-Day-Celebration"
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 11 November 2026 (the Town of Erie's Arbor Day/Earth Day Celebration page: Saturday, April 25, 10 a.m.-1 p.m., Erie Community Park, the 28th Arbor Day anniversary)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 11 November 2026 (the Town of Erie's Arbor Day/Earth Day Celebration page: Saturday, April 25, 10 a.m.-1 p.m., Erie Community Park, the 28th Arbor Day anniversary)"
 ---
 
 The Town's yearly Arbor Day and Earth Day morning in one, at Erie Community Park: free baby trees and plants, arborists to ask about tree care, the Tree Advisory Board and the Sustainability Board with their tables, and crafts and games for children. Free. In poor weather it moves to the Erie Community Library, 400 Powers Street.

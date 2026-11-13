@@ -14,7 +14,7 @@ details:
 summary: "Creekside beer garden at A-Lodge, just off Main Street downtown: craft beer, local spirits, food trucks, live music and a lot of outdoor seating."
 source: "https://www.rockgardenlyons.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

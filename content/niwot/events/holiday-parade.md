@@ -18,7 +18,7 @@ source: "https://niwot.com/events/niwots-annual-holiday-parade/?occurrence=2026-
 sourceId: "niwot-com"
 sourceUid: "mec:https://niwot.com/?post_type=mec-events&p=8004#2026-11-28"
 verified: "2026-11-12"
-verifiedBy: "Claude Code, delegated by James Lerner: the Niwot Business Association's event page (https://niwot.com/events/niwots-annual-holiday-parade/?occurrence=2026-11-28: Nov 28 2026, 11:00 am - 1:00 pm, its text still saying Nov 29th) and its lists at https://niwot.com/upcoming-events/annual-events-and-festivals/ and https://niwot.com/upcoming-events/holidays-and-parades/; none states a price, closures or parking"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Niwot Business Association's event page (https://niwot.com/events/niwots-annual-holiday-parade/?occurrence=2026-11-28: Nov 28 2026, 11:00 am - 1:00 pm, its text still saying Nov 29th) and its lists at https://niwot.com/upcoming-events/annual-events-and-festivals/ and https://niwot.com/upcoming-events/holidays-and-parades/; none states a price, closures or parking"
 ---
 
 Niwot's Annual Holiday Parade is on Saturday, November 28, 2026, starting at 11 am on Second Avenue, with Santa in the parade and at the Grange afterward until 1 pm. It is the morning after Enchanted Evening, when the community tree is lit.

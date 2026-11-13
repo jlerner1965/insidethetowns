@@ -16,7 +16,7 @@ nextEvent: tween-book-to-movie-club-2026-11-17
 contact: "303-823-5165"
 source: "https://lyons.librarycalendar.com/events/upcoming"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
 ---
 
 Read the book, then watch the adaptation together: the library’s fall series for 8-to-11-year-olds meets one Tuesday a month, [November 17](/events/tween-book-to-movie-club-2026-11-17/) and [December 15](/events/tween-book-to-movie-club-2026-12-15/) still to come. Space is limited and the library asks for a seat to be reserved; one registration covers the series.

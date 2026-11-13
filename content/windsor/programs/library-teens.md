@@ -16,7 +16,7 @@ registration: { required: false, note: "D&D is drop-in; Teens Cook, the cookbook
 contact: "970-686-5603"
 source: "https://clearview.libnet.info/events"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The library's teen calendar across both branches. **In Windsor**: Teen Dungeons & Dragons on Saturdays from noon to 4, no registration: a campaign with the library's Dungeon Master on November 21, then drop-in sessions on December 5 and 19, where teens form their own groups and run their own games; **Teens Cook**, making and eating something together once a month, next on December 7 from 4:30 to 6, muffins from scratch (registration required); after-hours **video gaming** on Fridays November 13 and December 11, 5 to 7 (registration required); **Common Ground**, an evening to meet other teens, with a murder mystery game on November 18 and yoga and meditation on December 3; and **Adulting 101**, a monthly workshop, on professional communication on November 12 and winter storm preparedness on December 10. **In Severance**: the **Teen Cookbook Club**, which cooks a recipe from a featured book, on Tuesdays November 10 and 17 and December 8 and 15 from 4:30 to 5:45 (registration required), and **Teen DIY** paper quilling on December 1.

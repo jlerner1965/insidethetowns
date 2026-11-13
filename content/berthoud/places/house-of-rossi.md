@@ -12,7 +12,7 @@ details:
 summary: "Women's clothing boutique on Mountain Avenue for everyday fashion and accessories."
 source: "https://www.houseofrossiboutique.com/pages/about-us"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

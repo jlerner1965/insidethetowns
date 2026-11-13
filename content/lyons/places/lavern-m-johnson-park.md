@@ -15,7 +15,7 @@ details:
 summary: "The park under the cliffs: the whitewater park, a splash pad, playgrounds, the Town campground and, in a cold January, an outdoor ice rink."
 source: "https://www.townoflyons.com/349/LaVern-M-Johnson-Park"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town's park page and its RecDesk facility record for the park, which gives 600 Park Drive)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Town's park page and its RecDesk facility record for the park, which gives 600 Park Drive)"
 access: { parking: "The park has a capacity limit: once it is reached, the Town says, the front gates close to new visitors except those with camping, shelter or picnic-table reservations, often by noon on summer weekends.", closures: "Tent camping is closed for the season (the Town lists it April 1 to October 15; RV camping with full hookups runs year-round). The splash pad is a summer feature. Read 10 November 2026.", conditionsUrl: "https://www.townoflyons.com/349/LaVern-M-Johnson-Park", conditionsLabel: "Town of Lyons park page", source: "https://www.townoflyons.com/349/LaVern-M-Johnson-Park", verified: "2026-11-10" }
 added: "2026-09-17"
 ---

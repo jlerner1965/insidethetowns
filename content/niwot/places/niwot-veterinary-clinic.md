@@ -12,7 +12,7 @@ details:
 summary: "A vet clinic on North 79th Street, open weekdays, which says it is moving to its Rock Creek Veterinary Hospital in Broomfield and will see patients in Niwot until March 15."
 source: "https://my.vetmatrix.com/0088455/contact"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (its contact page and home page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (its contact page and home page)"
 added: "2026-11-09"
 ---
 

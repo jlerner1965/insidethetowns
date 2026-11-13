@@ -11,7 +11,7 @@ category: music
 recurring: "Every Friday, 5 p.m. to midnight"
 source: "https://members.eriechamber.org/events/details/karaoke-night-10-09-2026-853720"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Chamber's listing, repeated on its calendar every Friday through December 25: Fridays 5 pm to midnight, 149 S Briggs St, free)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Chamber's listing, repeated on its calendar every Friday through December 25: Fridays 5 pm to midnight, 149 S Briggs St, free)"
 ---
 
 Karaoke and prime rib night at The Dugout on Briggs Street, running every Friday from 5 p.m. until close.

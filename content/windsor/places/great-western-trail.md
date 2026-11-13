@@ -13,7 +13,7 @@ details:
   checked: "2026-11-12"
 summary: "A 10.5-mile unpaved trail on the old Great Western Railway bed, from Windsor's trail system through Severance to Eaton. The Authority calls it open end to end since August 2023, though its map still marks the two miles east of the Severance Trailhead closed pending improvements."
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-05"
 ---
 

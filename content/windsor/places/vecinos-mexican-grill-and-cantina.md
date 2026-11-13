@@ -8,7 +8,7 @@ url: "https://vecinosmexicangrill.com/"
 source: "https://vecinosmexicangrill.com/"
 verified: "2026-10-10"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by Lerner Works"
 phone: "(970) 688-4808"
 hours: "Tue–Thu 11 am–9 pm; Fri 7 am–9 pm; Sat 8 am–9 pm; Sun 8 am–2 pm; closed Mon"
 tags: [mexican, green chile, breakfast, delivery]

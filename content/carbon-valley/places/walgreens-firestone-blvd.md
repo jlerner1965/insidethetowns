@@ -7,7 +7,7 @@ url: "https://www.walgreens.com/locator/walgreens-5962+firestone+blvd-firestone-
 source: "https://www.walgreens.com/locator/walgreens-5962+firestone+blvd-firestone-co-80504/id=9315"
 verified: "2026-11-09"
 added: "2026-11-09"
-verifiedBy: "Claude, read from the store's own page on 9 November 2026; listed at James Lerner's word the same day"
+verifiedBy: "Claude, read from the store's own page on 9 November 2026; listed at Lerner Works' word the same day"
 phone: "303-532-8069"
 hours: "Mon–Fri 7 am–11 pm; Sat–Sun 7 am–10 pm"
 tags: [pharmacy, drugstore]

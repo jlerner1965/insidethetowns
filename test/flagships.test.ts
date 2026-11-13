@@ -155,19 +155,17 @@ test('the hub routes follow the config and the content: both hubs, local changes
   );
 });
 
-test('the About page names who runs the guide, in verified words: James Lerner, Lerner Works, and Niwot as where he grew up', () => {
+test('the About page names the publisher, Lerner Works, and no person (the owner, 13 November 2026)', () => {
   const niwot = by('niwot').about!.who.join(' ');
   const berthoud = by('berthoud').about!.who.join(' ');
-  assert.match(niwot, /James Lerner/);
-  assert.match(niwot, /grew up in Niwot/);
-  assert.match(berthoud, /James Lerner/);
-  assert.match(berthoud, /not a Berthoud resident/);
-  assert.match(berthoud, /Lerner Works/);
-  // "Twenty minutes down the Diagonal" (audit, 26 October 2026): the Diagonal
-  // runs from Boulder to Longmont, not to Berthoud, and a reader new to the
-  // area cannot decode road shorthand. Where he grew up is said plainly.
+  for (const who of [niwot, berthoud]) {
+    assert.match(who, /Lerner Works/);
+    assert.doesNotMatch(who, /James|Lerner Works, the small studio .* runs|grew up/);
+  }
+  assert.match(berthoud, /no standing with the Town/);
+  // "Twenty minutes down the Diagonal" (audit, 26 October 2026): a reader new
+  // to the area cannot decode road shorthand.
   assert.doesNotMatch(berthoud, /Diagonal/);
-  assert.match(berthoud, /grew up in Niwot, in Boulder County/);
   assert.equal(by('niwot').about!.photo, undefined, 'no portrait exists; none is invented');
 });
 

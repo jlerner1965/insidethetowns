@@ -12,7 +12,7 @@ details:
 summary: "Deli counter inside the market: breakfast burritos, made-to-order sandwiches and soup made fresh daily."
 source: "https://niwotmarket.com/deli"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

@@ -9,7 +9,7 @@ category: "family"
 featured: true
 source: "https://www.townoflyons.com/354/Lyons-Holiday-Parade-of-Lights"
 verified: "2026-11-12"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's holiday page (https://www.townoflyons.com/354/Lyons-Holiday-Parade-of-Lights: Saturday, December 5th at 6:30 pm, second drone show afterwards, entry free, sign-up until November 30th) and the Town calendar (no parade entry); the route, Main Street closure, Santa, the November 25 form deadline and the ext. 35 contact appear only in a hidden comment in the page's code left from an earlier year, and are not used"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's holiday page (https://www.townoflyons.com/354/Lyons-Holiday-Parade-of-Lights: Saturday, December 5th at 6:30 pm, second drone show afterwards, entry free, sign-up until November 30th) and the Town calendar (no parade entry); the route, Main Street closure, Santa, the November 25 form deadline and the ext. 35 contact appear only in a hidden comment in the page's code left from an earlier year, and are not used"
 status: "scheduled"
 address: "Main Street, Lyons, CO 80540"
 organizer: "Town of Lyons"

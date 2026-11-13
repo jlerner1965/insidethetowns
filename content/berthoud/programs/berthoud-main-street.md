@@ -16,7 +16,7 @@ volunteerNeed: "Volunteers for A Very Merry Berthoud on December 5, through the 
 contact: "https://berthoudmainstreet.org/contact/"
 source: "https://berthoudmainstreet.org/about/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 A 501(c)(3) dedicated to downtown, in its own words an aspiring Colorado Main Street community working with local businesses, property owners and residents. Its community meeting is open to anyone: the first Monday of each month, 6 to 7 pm, at a different location each time, with December 7 at [City Star Brewing](/places/city-star-brewing/). The About page also has a committee interest form, a volunteer sign-up for [A Very Merry Berthoud](/events/a-very-merry-berthoud/) on December 5, and a link to join the board. Its calendar this fall ran from the [scarecrow contest](/events/scarecrow-contest/) and Trick or Treat Street in October to [Small Business Saturday](/events/small-business-saturday-2026/) on November 28.

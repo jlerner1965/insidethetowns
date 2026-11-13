@@ -13,7 +13,7 @@ details:
 summary: "Town Hall at the west end of Mountain Avenue: Board meetings, Planning Commission, utility billing and permits."
 source: "https://www.berthoud.org/facilities/facility/details/Berthoud-Town-Hall-15"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

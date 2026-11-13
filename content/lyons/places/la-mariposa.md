@@ -10,7 +10,7 @@ tags: [mexican, patio, margaritas]
 summary: "Classic Mexican kitchen at the east end of Main: margaritas and a patio."
 source: "https://www.lamariposarestaurants.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the site's Lyons location page, lamariposarestaurants.com/locations/lyons)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the site's Lyons location page, lamariposarestaurants.com/locations/lyons)"
 added: "2026-09-17"
 ---
 

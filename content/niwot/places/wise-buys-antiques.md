@@ -9,7 +9,7 @@ featured: true
 summary: "Thirty-five hundred square feet of restored furniture, antiques and vintage collectibles, plus furniture repair and restoration on site."
 source: "https://niwot.com/listing/wise-buys-antiques/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

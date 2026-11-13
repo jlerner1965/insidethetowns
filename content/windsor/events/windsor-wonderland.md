@@ -12,7 +12,7 @@ organizer: "Town of Windsor Parks, Recreation & Culture"
 organizerUrl: "https://www.recreationliveshere.com/"
 source: "https://www.recreationliveshere.com/227/Windsor-Wonderland"
 verified: "2026-11-12"
-verifiedBy: "Claude Code, delegated by James Lerner: read on 12 November 2026 the Town of Windsor's Windsor Wonderland page (December 5, 4 - 7 p.m., Boardwalk Community Park, with the schedule given here) and its calendar entry, which gives the year and address (December 5, 2026, 4:00 PM - 7:00 PM, 100 N 5th Street)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read on 12 November 2026 the Town of Windsor's Windsor Wonderland page (December 5, 4 - 7 p.m., Boardwalk Community Park, with the schedule given here) and its calendar entry, which gives the year and address (December 5, 2026, 4:00 PM - 7:00 PM, 100 N 5th Street)"
 annual: true
 formerSlugs: ["windsor-wonderland-2026-12-05"]
 ---

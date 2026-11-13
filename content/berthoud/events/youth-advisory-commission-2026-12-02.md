@@ -9,7 +9,7 @@ cost: "Free"
 category: civic
 source: "https://www.berthoud.org/Calendar.aspx"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town calendar and the same meeting on the Town's CivicClerk portal)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Town calendar and the same meeting on the Town's CivicClerk portal)"
 ---
 
 Morning meeting of the Town's Youth Advisory Commission at Town Hall, 7:30 to 8:30 am, as listed on the Town's calendar.

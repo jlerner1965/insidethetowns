@@ -22,7 +22,7 @@ details:
 summary: "The 1916 McCarty family home on 7th Street, a Denver Square with the doctor's office intact, kept as a museum by the Historical Society. Closed for the season since November 8; tours by appointment resume in spring 2027."
 source: "https://berthoudhistoricalsociety.org/mfh-museum/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

@@ -15,7 +15,7 @@ sourceId: "recreationliveshere-com"
 sourceUid: "1353"
 sourceHash: "05a2860eda97"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026; the Town's Veterans Day page and its calendar entry (calendar.aspx?EID=1353), which gives Wednesday, November 11, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026; the Town's Veterans Day page and its calendar entry (calendar.aspx?EID=1353), which gives Wednesday, November 11, 2026"
 ---
 
 Volunteers of all ages place American flags at the graves of veterans in the Town's cemetery at Highways 392 and 257, 10 to 11 on Veterans Day, Wednesday, November 11.

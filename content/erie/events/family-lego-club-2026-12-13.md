@@ -10,7 +10,7 @@ category: family
 recurring: "Monthly, usually third Sundays; December’s is the second"
 source: "https://highplains.libcal.com/event/16890324"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 Drop-in building session with LEGO bricks provided. An adult must stay and supervise; bricks may be a choking hazard for under-3s.

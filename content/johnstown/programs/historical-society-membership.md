@@ -15,7 +15,7 @@ nextEvent: holiday-open-house-parish-house-2026
 contact: "(970) 587-0278, jhscomuseum@gmail.com"
 source: "https://jhsco.org/get-involved/become-member/"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Johnstown Historical Society's Become a Member, About Us, Visit, Volunteer, Connect with Us and home pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Johnstown Historical Society's Become a Member, About Us, Visit, Volunteer, Connect with Us and home pages, read November 9, 2026"
 ---
 
 The Johnstown Historical Society is a 501(c)(3) nonprofit, founded in 1988, that keeps the town's history and runs the [Historic Parish House and Museum](/places/parish-house-museum/) at 701 Charlotte Street. It says it relies on fundraisers, the Town of Johnstown, grants, volunteers and donations. Membership is by the year: $20 for an individual, $30 for a family, $30 for a church or club, $100 for a business, and $15 or $25 for an individual or family at 65 and over. Join on the [Become a Member](https://jhsco.org/get-involved/become-member/) form.
