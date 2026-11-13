@@ -78,6 +78,13 @@ const subTowns = subTownsOf(getSite());
     </div>
   )}
   {filterable && <FilterBar options={options} label="Filter places" openNow subTowns={subTowns} />}
+  {/* What the label means, once, where a list carries it (the audit of 13 November 2026). */}
+  {places.some((p) => p.data.featured && isOpen(p)) && (
+    <p class="mb-5 text-[0.875rem] leading-relaxed text-ink-muted" data-pick-note>
+      <span class="mr-1 rounded-full bg-highlight px-2 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-ink">Our pick</span>
+      is the editor’s recommendation from each place’s own pages and the town’s: not a review, a visit or a paid rank. <a href="/editorial/#our-pick" class="text-primary underline">How picks are made</a>
+    </p>
+  )}
   <OpenStatus />
   {places.length === 0 ? (
     <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">{emptyMessage}</p>

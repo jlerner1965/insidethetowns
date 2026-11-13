@@ -74,3 +74,20 @@ export function directionsUrl(address: string, townName: string): string {
   const destination = /,\s*CO\b/.test(address) ? address : endsWithTown.test(address) ? `${address}, CO` : `${address}, ${townName}, CO`;
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
 }
+
+/**
+ * Whether a place's opening paragraph already says what its summary says
+ * (the audit of 13 November 2026: on 216 of 316 place pages the line under
+ * the name was said again, longer, as the description's first paragraph).
+ * Most of the summary's words of four letters or more appearing in that
+ * paragraph is a repeat; the page then lets the paragraph stand alone.
+ */
+export const SUMMARY_REPEAT_SHARE = 0.6;
+export function repeatsSummary(summary: string, body: string): boolean {
+  const words = (t: string) => new Set((t.toLowerCase().match(/[a-z0-9’'-]+/g) ?? []).filter((w) => w.length > 3));
+  const first = body.trim().split(/\n\s*\n/)[0] ?? '';
+  const s = words(summary);
+  if (s.size === 0 || !first) return false;
+  const b = words(first);
+  return [...s].filter((w) => b.has(w)).length / s.size >= SUMMARY_REPEAT_SHARE;
+}

@@ -14,7 +14,7 @@ import { subTownLabel } from '@/lib/sub-towns';
 import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
 import { hoursDataAttr, hoursLines, hoursWithMeridiem } from '@/lib/hours';
-import { byProminence, directionsUrl, isOpen } from '@/lib/places';
+import { byProminence, directionsUrl, isOpen, repeatsSummary } from '@/lib/places';
 import { countByType, placeTypePages } from '@/lib/place-types';
 import { articlesMentioning } from '@/lib/mentions';
 import { placeTitle } from '@/lib/titles';
@@ -255,7 +255,7 @@ const description = placeDescription(
   kind="Place"
   eyebrow={eyebrow}
   status={statusLabel}
-  intro={data.summary}
+  intro={repeatsSummary(data.summary, place.body ?? '') ? undefined : data.summary}
   {description}
   noindex={place.delisted}
   image={shareImage}
