@@ -1,49 +1,42 @@
 /**
- * The hub home's Guides section and feature line (src/lib/hub-home.ts):
- * the brief of 13 November 2026 asks that the three tiles work while the
- * article indexes are empty, showing "coming soon", and turn into links
- * from the content alone.
+ * The hub home's Guides section, feature line and section numbers
+ * (src/lib/hub-home.ts). The fixes brief of 13 November 2026: the Guides
+ * section is not drawn until a card links to a live page, it carries only
+ * such cards, and the sections after it are numbered from what is drawn.
  */
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { COMING_SOON, FEATURED_ARTICLE, GUIDE_INDEXES, articleHref, featuredTile, guideTiles, indexTiles, searchSuggestions, seasonFeatureLine } from '../src/lib/hub-home.ts';
+import { FEATURED_ARTICLE, articleHref, featuredTile, guideTiles, indexTiles, searchSuggestions, sectionNumbers, seasonFeatureLine, townsConfirmed } from '../src/lib/hub-home.ts';
 
-test('with no articles, every tile is "coming soon" and none is a link', () => {
-  const tiles = guideTiles([], []);
-  assert.equal(tiles.length, 3);
-  assert.deepEqual(tiles.map((t) => t.title), ['Camping', 'Ghost towns', FEATURED_ARTICLE.title]);
-  for (const t of tiles) {
-    assert.equal(t.href, undefined, `${t.title} links nowhere until its pages exist`);
-    assert.equal(t.note, COMING_SOON);
-  }
+const HUB_ROUTES = ['/', '/this-weekend', '/towns', '/[town]'];
+const sundance = { title: FEATURED_ARTICLE.title, category: 'culture', slug: 'sundance-from-the-towns-next-door', excerpt: 'The festival moves to Boulder.', domain: 'insidelyons.com' };
+
+test('with nothing published, there are no cards, so no section', () => {
+  assert.deepEqual(guideTiles([], [], HUB_ROUTES), []);
 });
 
-test('an index is a link once the hub has an article in its category', () => {
-  const tiles = indexTiles([{ category: 'camping' }, { category: 'other' }]);
-  assert.equal(tiles[0]!.href, '/camping/');
-  assert.equal(tiles[0]!.note, undefined);
-  assert.equal(tiles[1]!.href, undefined, 'no ghost-towns article, no link');
-  assert.equal(tiles[1]!.note, COMING_SOON);
+test('an index needs both its page built and an article in its category', () => {
+  assert.deepEqual(indexTiles([{ category: 'camping' }], HUB_ROUTES), [], 'an article, but no /camping/ page');
+  assert.deepEqual(indexTiles([], [...HUB_ROUTES, '/camping']), [], 'a page, but nothing in it');
+  const tiles = indexTiles([{ category: 'camping' }, { category: 'ghost-towns' }], [...HUB_ROUTES, '/camping']);
+  assert.deepEqual(tiles.map((t) => t.href), ['/camping/'], 'Ghost towns has articles and no page');
 });
 
-test('every index path has a trailing slash, as every link on the sites does', () => {
-  for (const index of GUIDE_INDEXES) assert.match(index.path, /^\/[a-z-]+\/$/);
+test('only live cards are listed, indexes first, then the feature', () => {
+  const tiles = guideTiles([{ category: 'ghost-towns' }], [sundance], [...HUB_ROUTES, '/ghost-towns/']);
+  assert.deepEqual(tiles.map((t) => t.title), ['Ghost towns', FEATURED_ARTICLE.title]);
+  for (const t of tiles) assert.ok(t.href, `${t.title} is a link`);
 });
 
-test('the featured tile finds its article by title and links to it on its guide', () => {
-  const tile = featuredTile([
-    { title: 'Carter Lake: the permit and the launch', category: 'outdoors', slug: 'carter-lake', domain: 'insideberthoud.com' },
-    { title: 'Sundance from the towns next door', category: 'culture', slug: 'sundance-from-the-towns-next-door', excerpt: 'The festival moves to Boulder.', domain: 'insidelyons.com' },
-  ]);
-  assert.equal(tile.href, 'https://insidelyons.com/articles/sundance-from-the-towns-next-door/');
-  assert.equal(tile.title, 'Sundance from the towns next door');
-  assert.equal(tile.line, 'The festival moves to Boulder.');
-  assert.equal(tile.note, undefined);
+test('the featured card finds its article by title and links to it on its guide', () => {
+  const tile = featuredTile([{ title: 'Carter Lake: the permit and the launch', category: 'outdoors', slug: 'carter-lake', domain: 'insideberthoud.com' }, sundance]);
+  assert.equal(tile?.href, 'https://insidelyons.com/articles/sundance-from-the-towns-next-door/');
+  assert.equal(tile?.line, 'The festival moves to Boulder.');
 });
 
-test('the featured tile does not match "Sundance" inside another word', () => {
-  const tile = featuredTile([{ title: 'The Sundancer bakery opens', category: 'food', slug: 'sundancer', domain: 'insideerie.com' }]);
-  assert.equal(tile.href, undefined);
+test('the featured card is not drawn for "Sundance" inside another word, or for an article with no guide page', () => {
+  assert.equal(featuredTile([{ title: 'The Sundancer bakery opens', category: 'food', slug: 'sundancer', domain: 'insideerie.com' }]), undefined);
+  assert.equal(featuredTile([{ ...sundance, domain: undefined }]), undefined);
 });
 
 test("a hub article's page is on the hub, a guide's on its domain", () => {
@@ -51,10 +44,26 @@ test("a hub article's page is on the hub, a guide's on its domain", () => {
   assert.equal(articleHref({ slug: 'carter-lake', domain: 'insideberthoud.com' }), 'https://insideberthoud.com/articles/carter-lake/');
 });
 
-test('the feature line counts dates and towns in words that agree with their numbers', () => {
-  assert.equal(seasonFeatureLine({ confirmed: 12, towns: 9 }, 'Longmont Lights · Nov 28'), '12 dates confirmed across 9 towns. Next: Longmont Lights · Nov 28.');
-  assert.equal(seasonFeatureLine({ confirmed: 1, towns: 1 }), '1 date confirmed across 1 town.');
-  assert.equal(seasonFeatureLine({ confirmed: 0, towns: 0 }), '0 dates confirmed.');
+test('the feature counts towns, not dates: a town with two rows is one town', () => {
+  const counts = townsConfirmed([
+    { town: 'Estes Park', confirmed: true },
+    { town: 'Estes Park', confirmed: false },
+    { town: 'Lyons', confirmed: false },
+    { town: 'Berthoud', confirmed: true },
+    { confirmed: true },
+  ]);
+  assert.deepEqual(counts, { confirmed: 2, towns: 3 });
+});
+
+test('the feature line reads "19 of 20 towns’ dates confirmed."', () => {
+  assert.equal(seasonFeatureLine({ confirmed: 19, towns: 20 }), '19 of 20 towns’ dates confirmed.');
+  assert.equal(seasonFeatureLine({ confirmed: 19, towns: 20 }, 'Catch the Glow Parade, Estes Park · Fri, Nov 27'), '19 of 20 towns’ dates confirmed. Next: Catch the Glow Parade, Estes Park · Fri, Nov 27.');
+  assert.equal(seasonFeatureLine({ confirmed: 1, towns: 1 }), '1 of 1 town’s dates confirmed.');
+});
+
+test('sections are numbered from what is drawn: no Guides, and the Feature is 02', () => {
+  assert.deepEqual(sectionNumbers([['towns', true], ['guides', false], ['feature', true]] as const), { towns: '01', feature: '02' });
+  assert.deepEqual(sectionNumbers([['towns', true], ['guides', true], ['feature', true]] as const), { towns: '01', guides: '02', feature: '03' });
 });
 
 test('the search suggestions are every name once, A to Z', () => {

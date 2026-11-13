@@ -178,7 +178,8 @@ function hasPublishedProfile(dir: string): boolean {
     .some((f) => /^status:\s*"?published"?\s*$/m.test(readFileSync(join(dir, f), 'utf8')));
 }
 
-const HUB_ROUTES: Array<[pattern: string, file: string]> = [
+/** Exported for the hub's home, which lists an index only once the hub builds its page (src/lib/hub-home.ts). */
+export const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
   ['/this-weekend', 'this-weekend.astro'],
   ['/moving', 'moving.astro'],

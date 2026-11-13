@@ -77,7 +77,7 @@ export const hub: HubConfig = {
   // direction the same day (the follow-up audit asked who is accountable).
   publisher: { name: 'Lerner Works', url: 'https://lernerworks.com' },
   nav: [
-    { label: 'This Weekend', href: '/this-weekend/' },
+    { label: 'This weekend', href: '/this-weekend/' },
     { label: 'Moving here', href: '/moving/' },
     { label: 'Newsletter', href: '/newsletter/' },
     { label: 'Towns', href: '/#towns' },

@@ -6,9 +6,11 @@
  *
  *   01  Town directory: the seven guides as tiles, then the way to every
  *       town page.
- *   02  Guides: the two article indexes and one featured article, each a
- *       link where its pages exist and "coming soon" where they do not
- *       yet (src/lib/hub-home.ts decides from the content).
+ *   02  Guides: the two article indexes and one featured article, only
+ *       those whose pages are live (src/lib/hub-home.ts decides from the
+ *       content), and not drawn at all until one is (the fixes brief of 13
+ *       November 2026: no "coming soon" cards). The sections after it are
+ *       numbered from what is drawn, so without it the Feature is 02.
  *   03  Feature: one wide card for a single rotating feature; for now the
  *       tradition registry's season page, the first that is built.
  *
@@ -26,12 +28,13 @@ import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getHubEntries, getNetworkEntries, getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
-import { guideTiles, searchSuggestions, seasonFeatureLine } from '@/lib/hub-home';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonCounts, seasonRows } from '@/lib/traditions';
+import { guideTiles, searchSuggestions, seasonFeatureLine, sectionNumbers, townsConfirmed } from '@/lib/hub-home';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows } from '@/lib/traditions';
 import { dayKey, formatDayShort, parseLocal } from '@/lib/dates';
 import { getHub, liveTowns, type NavItem } from '@/config';
 import { siteNav } from '@/lib/nav';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
+import { HUB_ROUTES } from '../../integrations/town-routes';
 
 const hub = getHub();
 /**
@@ -44,12 +47,6 @@ const records = await getTraditions();
 const pages = publishedHubTowns(records);
 const todayKey = dayKey(new Date());
 
-/** The masthead's three links, each to a section of this page or the weekend. */
-const nav: NavItem[] = [
-  { label: 'Towns', href: '#towns' },
-  { label: 'Guides', href: '#guides' },
-  { label: 'This weekend', href: '/this-weekend/' },
-];
 /** The hero's one line of sections: the hub's own menu, as every other page shows it. */
 const sections = siteNav(hub).filter((item) => item.href !== '/#towns');
 
@@ -57,15 +54,18 @@ const sections = siteNav(hub).filter((item) => item.href !== '/#towns');
 const names = searchSuggestions(live, pages);
 
 /**
- * 02, Guides: the hub's own articles decide whether an index is live; the
- * featured article is looked for among every guide's.
+ * 02, Guides: an index is live once the hub builds its page and has an
+ * article in its category; the featured article is looked for among every
+ * guide's published articles. No live card, no section.
  */
 const hubArticles = await getHubEntries('articles');
 const networkArticles = await getNetworkEntries('articles');
 const tiles = guideTiles(
   hubArticles.map((a) => ({ category: a.data.category })),
   networkArticles.map((a) => ({ title: a.data.title, category: a.data.category, slug: a.slug, excerpt: a.data.excerpt, domain: a.town.domain })),
+  HUB_ROUTES.map(([pattern]) => pattern),
 );
+const showGuides = tiles.length > 0;
 
 /**
  * 03, Feature: the first season page that is built, the one the hub's menu
@@ -78,6 +78,8 @@ const feature = (() => {
   const info = TRADITION_TYPE_INFO[seasonType];
   const season = CURRENT_SEASONS[seasonType]!;
   const rows = seasonRows(records, seasonType, todayKey);
+  // By town (the fixes brief): a town counts as confirmed with a date from its organizer still ahead.
+  const counts = townsConfirmed(rows.map((r) => ({ town: r.record.town?.name, confirmed: isUpcoming(r) })));
   const next = rows.filter(isUpcoming).sort((a, b) => a.entry.date!.localeCompare(b.entry.date!))[0];
   const where = next?.record.town?.name;
   const nextLine = next ? `${next.record.name}${where && !next.record.name.includes(where) ? `, ${where}` : ''} · ${formatDayShort(parseLocal(next.entry.date!))}` : undefined;
@@ -85,10 +87,27 @@ const feature = (() => {
   return {
     eyebrow: `Seasonal dates · ${dated ? `${season.season} ${season.year}` : season.season}`,
     title: dated ? `${info.plural}, town by town` : `${info.plural} in Colorado`,
-    line: seasonFeatureLine(seasonCounts(rows), nextLine),
+    line: seasonFeatureLine(counts, nextLine),
     href: info.path,
   };
 })();
+
+/** The sections' numbers, counting only those drawn. */
+const numbers = sectionNumbers([['towns', true], ['guides', showGuides], ['feature', !!feature]] as const);
+
+/**
+ * The masthead's links, to this page's sections and the weekend: Guides
+ * only while that section is drawn, so the menu never points at nothing.
+ */
+const nav: NavItem[] = [
+  { label: 'Towns', href: '#towns' },
+  ...(showGuides ? [{ label: 'Guides', href: '#guides' }] : []),
+  { label: 'This weekend', href: '/this-weekend/' },
+];
+
+/** The weekly email's schedule, as fixed words (the fixes brief: not "next issue today"). */
+const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
+const schedule = `Sent every ${sendDay}${hub.newsletter?.sendTime ? ` at ${hub.newsletter.sendTime}` : ''}.`;
 
 /** The horizon beside the hero: high country, drawn once for the network and the same at every build. */
 const ridge = ridgeline('inside-the-towns', 'Front Range cities', 'peaks');
@@ -97,9 +116,19 @@ const ridge = ridgeline('inside-the-towns', 'Front Range cities', 'peaks');
 // full stop: the longer line was cut at "what it’s…" in every result.
 const description = `${live.length} independent guides to Colorado towns and ${pages.length} town pages of dates, on the Front Range and in the mountains: the week’s events, the traditions, and the outdoor dates.`;
 
+/**
+ * The sections' two columns, title left and content right, from xl: the
+ * town tiles four across need the wider right column (the fixes brief),
+ * and below xl the title sits over the content.
+ */
+const split = 'grid gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] xl:gap-16';
 /** A section's left column: its number, its title and one short paragraph. */
 const numeral = 'font-heading text-[2rem] font-light leading-none tabular-nums text-ink-muted';
 const tile = 'group relative flex h-full flex-col rounded-lg p-4 no-underline ring-1 ring-line-soft transition hover:ring-line sm:p-5';
+/** A town tile's counties: one line, never wrapped. */
+const county = 'eyebrow block truncate text-[0.6875rem] tracking-[0.08em]';
+/** A town tile's name: a size smaller four across than two. */
+const townName = 'font-heading text-xl font-semibold leading-tight sm:text-2xl md:text-xl';
 ---
 <Base {description} {nav}>
   {/* The hero: one headline, the search, the sections in one line. From lg
@@ -150,21 +179,26 @@ const tile = 'group relative flex h-full flex-col rounded-lg p-4 no-underline ri
       and the way to every town page. A tile borrows its town's colours as
       the old cards did: a rule in its accent and its county in its primary. */}
   <section id="towns" class="band band-white" aria-labelledby="towns-h">
-    <div class="container-page grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
+    <div class:list={['container-page', split]}>
       <div>
-        <p class={numeral}>01</p>
+        <p class={numeral}>{numbers.towns}</p>
         <h2 id="towns-h" class="display-md mt-3 text-4xl md:text-5xl">Town directory</h2>
         <p class="mt-4 max-w-md text-[1.0625rem] leading-relaxed text-ink-muted">
           A <strong class="font-semibold text-ink">guide</strong> is a whole site for one town, or a few neighboring ones: its week, its places, its schools, what it is like to live there. Every other town has a <strong class="font-semibold text-ink">town page</strong> here: the events it holds every year and the outdoor dates around it.
         </p>
       </div>
-      <ul class="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-3" data-town-tiles>
+      {/* Two across on a phone, four from md: two rows of four, the seven
+          guides and the town pages. Every row the height of the tallest
+          (auto-rows-fr), and the counties on one line, set a little
+          tighter than an eyebrow and cut with an ellipsis only where even
+          that does not fit (a 320px phone). */}
+      <ul class="grid auto-rows-fr grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4 md:gap-3" data-town-tiles>
         {live.map((t) => (
           <li>
             <a href={`https://${t.domain}/`} class:list={[tile, 'border-l-4 bg-paper']} style={`border-color:${t.colors.accent}`}>
-              <span class="eyebrow" style={`color:${t.colors.primary}`}>{t.counties.join(' · ')}</span>
+              <span class={county} style={`color:${t.colors.primary}`} title={t.counties.join(' · ')}>{t.counties.join(' · ')}</span>
               <span class="mt-4 flex flex-1 items-end justify-between gap-3">
-                <span class="font-heading text-xl font-semibold leading-tight text-ink group-hover:text-primary sm:text-2xl">{t.name}</span>
+                <span class:list={[townName, 'text-ink group-hover:text-primary']}>{t.name}</span>
                 <span aria-hidden="true" class="shrink-0 text-lg leading-none" style={`color:${t.colors.primary}`}>→</span>
               </span>
             </a>
@@ -173,9 +207,9 @@ const tile = 'group relative flex h-full flex-col rounded-lg p-4 no-underline ri
         {/* `town-pages`: where the guides' About pages send a reader for "a page on Inside the Towns". */}
         <li id="town-pages">
           <a href="/towns/" class:list={[tile, 'border-l-4 border-primary bg-primary text-white']}>
-            <span class="eyebrow text-white">Every town, A to Z</span>
+            <span class:list={[county, 'text-white']}>A to Z</span>
             <span class="mt-4 flex flex-1 items-end justify-between gap-3">
-              <span class="font-heading text-xl font-semibold leading-tight sm:text-2xl">{pages.length} town pages</span>
+              <span class={townName}>{pages.length} town pages</span>
               <span aria-hidden="true" class="shrink-0 text-lg leading-none">→</span>
             </span>
           </a>
@@ -184,52 +218,44 @@ const tile = 'group relative flex h-full flex-col rounded-lg p-4 no-underline ri
     </div>
   </section>
 
-  {/* 02, the guides: the two indexes and the featured article. A tile is a
-      link once its pages exist; until then it says "coming soon" and is
-      not a link, so nothing on the page leads to a page that is not there. */}
+  {/* 02, the guides: the indexes and the featured article whose pages are
+      live, and nothing at all until one is. */}
+  {showGuides && (
   <section id="guides" class="band band-paper" aria-labelledby="guides-h">
-    <div class="container-page grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
+    <div class:list={['container-page', split]}>
       <div>
-        <p class={numeral}>02</p>
+        <p class={numeral}>{numbers.guides}</p>
         <h2 id="guides-h" class="display-md mt-3 text-4xl md:text-5xl">Guides</h2>
         <p class="mt-4 max-w-md text-[1.0625rem] leading-relaxed text-ink-muted">
-          Longer reads across the towns, by subject: an index each for camping and for the ghost towns, and one featured article.
+          Longer reads across the towns, by subject.
         </p>
       </div>
       <ul class="grid gap-3 sm:grid-cols-3 sm:gap-4" data-guide-tiles>
         {tiles.map((g) => (
           <li>
-            {g.href ? (
-              <a href={g.href} class:list={[tile, 'bg-raised']}>
-                <span class="eyebrow">{g.eyebrow}</span>
-                <span class="mt-3 font-heading text-2xl font-medium leading-tight text-ink group-hover:text-primary">{g.title}</span>
-                {g.line && <span class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">{g.line}</span>}
-                <span class="mt-5 flex flex-1 items-end text-[0.9375rem] font-semibold text-primary">Read <span aria-hidden="true" class="ml-1">→</span></span>
-              </a>
-            ) : (
-              <div class:list={[tile, 'border border-dashed border-line bg-raised/60 ring-0 hover:ring-0']} data-coming-soon>
-                <span class="eyebrow text-ink-muted">{g.eyebrow}</span>
-                <span class="mt-3 font-heading text-2xl font-medium leading-tight text-ink">{g.title}</span>
-                {g.line && <span class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">{g.line}</span>}
-                <span class="mt-5 flex flex-1 items-end">
-                  <span class="rounded-full bg-highlight-soft px-2.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink">{g.note}</span>
-                </span>
-              </div>
-            )}
+            <a href={g.href} class:list={[tile, 'bg-raised']}>
+              <span class="eyebrow">{g.eyebrow}</span>
+              <span class="mt-3 font-heading text-2xl font-medium leading-tight text-ink group-hover:text-primary">{g.title}</span>
+              {g.line && <span class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">{g.line}</span>}
+              <span class="mt-5 flex flex-1 items-end text-[0.9375rem] font-semibold text-primary">Read <span aria-hidden="true" class="ml-1">→</span></span>
+            </a>
           </li>
         ))}
       </ul>
     </div>
   </section>
+  )}
 
-  {/* 03, the feature: one wide card, the season page for now, on the
-      primary with the horizon behind it as the town pages have. */}
+  {/* The feature: one wide card, the season page for now, on the
+      primary with the horizon behind it as the town pages have. Without
+      Guides it follows the directory on the same white, so it takes no
+      second band's padding above it. */}
   {feature && (
-    <section class="band band-white" aria-labelledby="feature-h">
+    <section class:list={['band band-white', !showGuides && 'pt-0!']} aria-labelledby="feature-h">
       <div class="container-page">
-        <div class="mb-8 flex flex-wrap items-baseline gap-x-5 gap-y-2 md:mb-10">
-          <p class={numeral}>03</p>
-          <h2 id="feature-h" class="display-md text-4xl md:text-5xl">Feature</h2>
+        <div class="mb-8 md:mb-10">
+          <p class={numeral}>{numbers.feature}</p>
+          <h2 id="feature-h" class="display-md mt-3 text-4xl md:text-5xl">Feature</h2>
         </div>
         <a href={feature.href} class="on-dark relative isolate block overflow-hidden rounded-2xl bg-primary px-6 py-10 text-white no-underline sm:px-10 sm:py-14 lg:px-14 lg:py-16" data-feature>
           <svg class="pointer-events-none absolute inset-x-0 -bottom-px -z-10 h-[55%] w-full" viewBox={`0 0 ${RIDGE_WIDTH} ${RIDGE_HEIGHT}`} preserveAspectRatio="none" aria-hidden="true">
@@ -253,14 +279,24 @@ const tile = 'group relative flex h-full flex-col rounded-lg p-4 no-underline ri
   )}
 
   {/* The weekly email, the hub's own form with the town boxes, as the last
-      band before the footer. The copy says what arrives, when, for which
-      towns, that it is free and how to stop. */}
+      band before the footer. On a phone and a tablet the heading, the line
+      and the form are one card, as they always were; from xl the heading
+      and the line sit on the left and the form's card on the right, the
+      other sections' two columns (the fixes brief of 13 November 2026).
+      One form either way: the card around both is `contents` from xl. */}
   {hub.newsletter && (
     <section class="band-compact band-paper" aria-labelledby="signup-h" id="signup">
-      <div class="container-page">
-        <h2 id="signup-h" class="sr-only">The weekly email</h2>
-        <NewsletterSignup id="home" />
-        <p class="mt-4 text-[0.9375rem] text-ink-muted">
+      <div class:list={['container-page', 'xl:grid xl:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] xl:gap-x-16']}>
+        <div class="max-w-3xl rounded-lg bg-raised p-6 ring-1 ring-primary-line md:p-8 xl:contents">
+          <div class="max-w-xl pb-5 xl:pb-0">
+            <h2 id="signup-h" class="display-md text-[1.75rem] leading-tight xl:text-5xl xl:leading-none">What’s on in the towns, every {sendDay}</h2>
+            <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted xl:mt-4 xl:max-w-md xl:text-[1.0625rem]">
+              One email a week: the weekend’s events, places new to the guide or closed, and a new article when there is one. {schedule}
+            </p>
+          </div>
+          <NewsletterSignup id="home" bare class="xl:rounded-lg xl:bg-raised xl:p-8 xl:ring-1 xl:ring-primary-line" />
+        </div>
+        <p class="mt-4 text-[0.9375rem] text-ink-muted xl:col-start-2">
           <a href="/newsletter/sample/" class="font-semibold text-primary underline">See a sample issue</a>, built from this week’s listings · <a href="/privacy/" class="font-semibold text-primary underline">Privacy</a> · <a href="/newsletter/" class="font-semibold text-primary underline">Past issues</a>
         </p>
       </div>
