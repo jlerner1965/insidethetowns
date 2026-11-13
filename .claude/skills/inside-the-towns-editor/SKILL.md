@@ -113,8 +113,57 @@ related:
   - { label: "…", href: "/places/<slug>/", note: "One line." }   # only pages that exist on this guide; max 3
 ---
 
-Body in Markdown. Start with the useful thing. Length to fit the topic; do not pad.
+Body in Markdown, built to the Article structure section below.
 ```
+
+### Article structure
+
+Applies to every guide article and to the hub's event and story articles. The hub's camping and ghost-town articles keep their entry layout; this applies to their introduction only. Weekly notes and local changes keep their own formats.
+
+Readers scan, mostly on phones, and most arrive from a search with one question. Put the answer at the top and make each section readable on its own. Use plain words a ninth-grader reads easily.
+
+**Headline**
+- 6 to 11 words. The place name and the thing people search for come in the first five words: "Where to park for Folks Fest in Lyons", not "Your guide to a great festival weekend".
+- Say what the page gives. A number only when the article lists exactly that many things ("5 campgrounds within 20 minutes of Lyons"). A question only when it is the exact question people search, and the first sentence answers it.
+- No curiosity gaps, superlatives or "secrets". A colon may split place from angle ("Erie Days 2027: parking, shuttles and road closures").
+- `seoTitle` (hub articles): 60 characters or fewer, main words first, about the same thing as the headline.
+- `excerpt` or `description`: the answer itself and the date it is true for, not a teaser.
+
+**Top (first two paragraphs)**
+- Sentence one is the answer: the date, the place, the yes or no, the number.
+- The next two or three sentences say who it affects and why it matters to someone who lives here. Everything a reader needs to act sits above the first heading.
+- No anecdote, scene or rhetorical-question openings. Exception: a History or profile piece may open with one concrete sentence of scene if the point is stated by the end of the first paragraph.
+
+**Body**
+- An H2 every two to four paragraphs, written as the label or question a scanner looks for ("Parking", "When it starts", "Is it open in winter?"), never clever. H3 only to split a long H2 or for entries in a roundup.
+- One idea per section. The first sentence under each H2 must make sense if quoted alone.
+- Paragraphs of one to three sentences.
+- Three or more parallel items: a list. Steps: a numbered list. The same few facts across several places or towns: a table. Bold the lead-in label in list items that carry one.
+- Link the source in the sentence that uses it.
+- Images follow the photo and license rules. Tables and lists count as visuals; no stock or decorative images. Pull quotes only from a named person in a source read.
+
+**End**
+- No recap and no inspirational close. End with the section a reader needs last:
+  - news or anything still changing: "Not settled yet" (what isn't known, and when it will be);
+  - a visit, event or service: "Before you go" (where to check that day: the phone, the closures or road page);
+  - a list: "How we picked" (one or two lines on what was checked and when).
+- The site adds the newsletter signup; don't write one.
+
+**Templates** (name the one used in the draft's closing notes, beside the URLs read)
+
+| Template | Use for | Shape |
+|---|---|---|
+| News explainer | votes, openings, closures, projects | answer, who it affects, H2s by question, Not settled yet |
+| Service guide | parking, getting there, signing up, what's open | answer, numbered steps or an options table, Before you go |
+| Roundup | coffee, campgrounds, trails, kids' things | one-line setup, one H3 per entry with the same facts in the same order, How we picked |
+| Event guide | festivals, parades, games, seasonal dates | when and where in sentence one, schedule table, getting there and parking, Before you go |
+| History or profile | the past, people, places that are gone | one sentence of scene allowed, point by end of paragraph one, chronology, where to see it today |
+
+No opinion pieces: the network reports and doesn't editorialize.
+
+**Length:** what the template needs, usually 400 to 900 words. Never pad to a count.
+
+**Check before handing in:** read only the headline, the first paragraph and the H2s. If a reader would have the answer and know where everything else is, the structure works.
 
 ## Scope
 Do the task asked. Do not propose extra sections, features, phases or follow-ups unless asked.

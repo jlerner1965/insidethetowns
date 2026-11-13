@@ -11251,3 +11251,29 @@ source: "Colorado Sun can count, town doesn't need to publish first."
   meeting, read on 13 November 2026.
 - The editorial page on the hub says that a story may rest on a named news
   report, and that the town's own record controls where the two differ.
+
+## One article structure and five templates, 13 November 2026 (night)
+
+The owner set one structure for every article and five templates to build
+them from: readers scan, mostly on phones, and most arrive from a search
+with one question.
+
+- **Where it lives:** the "Article structure" section of
+  `.claude/skills/inside-the-towns-editor/SKILL.md`, so Claude Code and the
+  agent draft to the same rules from the same file. The article format's
+  body line now points to it.
+- **What it covers:** every guide article and the hub's event and story
+  articles. The hub's camping and ghost-town articles keep their entry
+  layout and take it for their introduction only; weekly notes and local
+  changes keep their own formats.
+- **The rules, in short:** a headline of 6 to 11 words with the place and
+  the searched thing in the first five; the answer in sentence one;
+  scannable H2s, short paragraphs, lists and tables; the source linked in
+  the sentence that uses it; no recap, an ending a reader needs last ("Not
+  settled yet", "Before you go" or "How we picked").
+- **The templates:** news explainer, service guide, roundup, event guide,
+  history or profile. The draft's closing notes name the one used. No
+  opinion pieces.
+- **Not changed:** existing articles, the agent code, the schemas and the
+  validators. The structure guides new drafts; nothing checks it by
+  machine.
