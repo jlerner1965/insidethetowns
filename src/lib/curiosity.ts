@@ -267,7 +267,7 @@ export const curiositySchema = z
     description: text.max(160),
     /** `draft` until the owner has checked it; only `verified` builds. */
     status: z.enum(['draft', 'verified']).default('draft'),
-    /** Whether the writer has been there. Unset, the page says "Not personally visited". */
+    /** Whether the writer has been there. Set, the byline line says "Visited"; unset, it says nothing (no "Not personally visited", the owner, 13 November 2026). */
     visited: z.boolean().default(false),
     /** The day the article was first written. */
     date: day,
@@ -306,8 +306,8 @@ export const curiositySchema = z
       .strict()
       .optional(),
     // An event article's own masthead and close, where the defaults (the
-    // towns by name, "Not personally visited", the note on fees and roads,
-    // the towns' links at the foot) do not fit it. The football playoffs
+    // towns by name, the note on fees and roads, the towns' links at the
+    // foot) do not fit it. The football playoffs
     // article (13 November 2026) is the first.
     /** The line over the headline, in place of the towns by name: "High school football · Colorado playoffs". */
     eyebrow: text.max(80).optional(),

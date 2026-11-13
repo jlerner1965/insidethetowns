@@ -291,8 +291,9 @@ the day moves only when the fact is read again, and the article's "Last
 verified" is the oldest of them. A field no official page gave is left out
 of the file and named in `flags`; a "skip it" note needs its source like any
 fact. A guide site is never a source. Each article prints its byline (Lerner
-Works, for these articles only; no person is named, 13 November 2026), its last verified day and "Visited" or
-"Not personally visited", the second unless the file says `visited: true`.
+Works, for these articles only; no person is named, 13 November 2026), its last verified day and, where the
+file says `visited: true`, "Visited"; an article the writer has not visited
+says nothing about it (no "Not personally visited", 13 November 2026).
 An article is a draft until its file says `status: verified`, which the
 schema refuses while a flag is open: a draft builds no page, no index row,
 no home row and no Nearby link (`npm run curiosity` lists every flagged or
