@@ -95,7 +95,7 @@ const seasonFact = fact.refine((f) => /\b(19|20)\d{2}\b/.test(f.value) || /year[
  * official page gave it, or a value the owner should look at again. One
  * line each; the report lists them (`npm run curiosity`).
  */
-const flag = z.object({ field: text.max(40), note: text.max(400) }).strict();
+const flag = z.object({ field: text.max(40), note: text.max(600) }).strict();
 
 const entryBase = {
   name: text,
@@ -192,7 +192,7 @@ export const curiositySchema = z
     campgrounds: z.array(campground).default([]),
     ghostTowns: z.array(ghostTown).default([]),
     /** Still to settle on the article as a whole, one line each. */
-    needs: z.array(text.max(400)).default([]),
+    needs: z.array(text.max(600)).default([]),
     /**
      * Read every source again from this day: an event whose plans are
      * still being published. The validator lists the article from that
