@@ -11,6 +11,7 @@ import { readFileSync } from 'node:fs';
 import { curiosityRoutes } from '../src/integrations/town-routes.ts';
 import {
   CAMPING_FIELDS,
+  ARTICLES_INDEX_PATH,
   CURIOSITY_BYLINE,
   DRAFTS_ENV,
   GHOST_FIELDS,
@@ -22,12 +23,15 @@ import {
   draftsEnabled,
   factsOf,
   isShown,
+  kindLabel,
   lastVerified,
+  newestFirst,
   openFlags,
   openItems,
   reverifyDue,
+  townsLine,
 } from '../src/lib/curiosity.ts';
-import { curiosityDates, curiosityFiles, shownArticles, topicsWithArticles } from '../src/lib/curiosity-files.ts';
+import { curiosityDates, curiosityFiles, hasArticles, shownArticles, topicsWithArticles } from '../src/lib/curiosity-files.ts';
 import { placeName } from '../src/lib/curiosity-places.ts';
 import { contentDates } from '../src/lib/lastmod.ts';
 import { isGuideSite } from '../src/lib/town-profile.ts';
@@ -216,4 +220,33 @@ test('the Nearby block is links only, on the hub town page and a guide’s thing
   assert.ok(!/description|summary|\.value/.test(block.replace(/^---[\s\S]*?---/, '')), 'no line of an article is copied onto a town page');
   assert.match(readFileSync('src/routes/hub/town.astro', 'utf8'), /<NearbyArticles place=\{town\.slug\} onHub \/>/);
   assert.match(readFileSync('src/routes/town/things-to-do.astro', 'utf8'), /<NearbyArticles place=\{nearPlace\} \/>/);
+});
+
+test('/articles/ lists every article on the site, the newest first, each with its kind and towns', () => {
+  assert.equal(ARTICLES_INDEX_PATH, '/articles/');
+  assert.deepEqual(['event', 'story', 'camping', 'ghost-towns'].map((k) => kindLabel(k as Parameters<typeof kindLabel>[0])), ['Event', 'News', 'Camping', 'Ghost towns']);
+  const list = [
+    { date: '2026-11-12', title: 'Sundance' },
+    { date: '2026-11-13', title: 'Nederland and Eldora' },
+    { date: '2026-11-13', title: 'Colorado football playoffs' },
+  ];
+  assert.deepEqual(newestFirst(list).map((a) => a.title), ['Colorado football playoffs', 'Nederland and Eldora', 'Sundance']);
+  assert.equal(list[0]!.title, 'Sundance', 'the list it is given is left as it was');
+  assert.equal(townsLine(['Nederland']), 'Nederland');
+  assert.equal(townsLine(['Niwot', 'Lyons', 'Erie']), 'Niwot · Lyons · Erie');
+  assert.equal(townsLine(['Niwot', 'Lyons', 'Erie', 'Longmont']), 'Niwot · Lyons · Erie · 1 more town');
+  assert.equal(townsLine(['A', 'B', 'C', 'D', 'E']), 'A · B · C · 2 more towns');
+});
+
+test('the index at /articles/ is built, and on the hub’s menu and home, only while an article is on the site', () => {
+  const routes = curiosityRoutes('.', {}).map(([pattern]) => pattern);
+  assert.equal(routes.includes('/articles'), shownArticles('.', {}).length > 0);
+  assert.equal(hasArticles('.', {}), shownArticles('.', {}).length > 0);
+  // Under the preview switch every draft is shown, so the index is built.
+  if (files.length > 0) assert.ok(curiosityRoutes('.', { [DRAFTS_ENV]: '1' }).some(([pattern, file]) => pattern === '/articles' && file === 'articles-index.astro'));
+  const page = readFileSync('src/routes/hub/articles-index.astro', 'utf8');
+  assert.match(page, /getCuriosity\(\)/, 'only the articles on the site');
+  assert.match(page, /newestFirst\(/);
+  assert.match(page, /' · Draft'/, 'a draft under the preview switch says so');
+  assert.match(readFileSync('src/routes/hub/index.astro', 'utf8'), /href=\{ARTICLES_INDEX_PATH\}[^>]*>All articles →</);
 });

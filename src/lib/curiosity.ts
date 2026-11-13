@@ -286,6 +286,26 @@ export function isShown(a: Pick<CuriosityArticle, 'status'>, env: Record<string,
   return a.status === 'verified' || draftsEnabled(env);
 }
 
+/** The hub's index of every article on the site: /articles/. */
+export const ARTICLES_INDEX_PATH = '/articles/';
+
+/** What an article is, in the word its row shows: "News", "Event", "Camping". */
+export function kindLabel(kind: CuriosityKind): string {
+  return kind === 'event' ? 'Event' : kind === 'story' ? 'News' : TOPIC_INFO[kind].label;
+}
+
+/** The articles in the order /articles/ lists them: the newest first, then by title. */
+export function newestFirst<A extends Pick<CuriosityArticle, 'date' | 'title'>>(articles: readonly A[]): A[] {
+  return [...articles].sort((x, y) => y.date.localeCompare(x.date) || x.title.localeCompare(y.title));
+}
+
+/** An article's towns on one line: up to `max` by name, then how many more. */
+export function townsLine(names: readonly string[], max = 3): string {
+  if (names.length <= max) return names.join(' · ');
+  const more = names.length - max;
+  return `${names.slice(0, max).join(' · ')} · ${more} more ${more === 1 ? 'town' : 'towns'}`;
+}
+
 /** The articles a place's Nearby block links to, the event articles last. */
 export function articlesFor<A extends Pick<CuriosityArticle, 'towns' | 'kind' | 'title'>>(articles: readonly A[], place: string): A[] {
   const order = (a: A) => CURIOSITY_KINDS.indexOf(a.kind);

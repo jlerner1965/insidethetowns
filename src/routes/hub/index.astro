@@ -45,7 +45,7 @@ import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { emailEditions, getHub, liveTowns } from '@/config';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
-import { articlePath, storyHomeUntil } from '@/lib/curiosity';
+import { ARTICLES_INDEX_PATH, articlePath, storyHomeUntil } from '@/lib/curiosity';
 import { placeName } from '@/lib/curiosity-places';
 import { firstSentence } from '@/lib/plain-text';
 import { shorten } from '@/lib/text';
@@ -264,8 +264,11 @@ const aside = deadline
  * (src/lib/curiosity.ts, kind `story`, verified) and the guides' current
  * local changes, the newest first, one per town, three at most
  * (src/lib/hub-home.ts, newsItems). Each leaves on its own last day.
+ * Under them, "All articles" goes to /articles/, which keeps every
+ * article on the site after it leaves this section.
  */
-const stories = (await getCuriosity()).map((a) => a.data).filter((a) => a.kind === 'story');
+const articlesOnSite = (await getCuriosity()).map((a) => a.data);
+const stories = articlesOnSite.filter((a) => a.kind === 'story');
 const changes = networkChanges(await getNetworkEntries('updates'), now, { limit: 12, perTown: 1 });
 const news = newsItems(
   [
@@ -485,6 +488,7 @@ const structured = collectionPageJsonLd(hub, {
             </a>
           ))}
         </div>
+        {articlesOnSite.length > 0 && <a class="hh-tl hh-strong hh-all-articles" href={ARTICLES_INDEX_PATH} data-track="home-news">All articles →</a>}
       </section>
     )}
 

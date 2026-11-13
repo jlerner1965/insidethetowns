@@ -16,7 +16,7 @@ import { teamsWithData } from '../lib/school-sports.ts';
 import { guidesWithTraditions, seasonTypesWithRecords } from '../lib/tradition-files.ts';
 import { TRADITION_TYPE_INFO } from '../lib/traditions.ts';
 import { TOPIC_INFO } from '../lib/curiosity.ts';
-import { hasEventArticle, topicsWithArticles } from '../lib/curiosity-files.ts';
+import { hasArticles, hasEventArticle, topicsWithArticles } from '../lib/curiosity-files.ts';
 
 /**
  * The home page: one route file for every guide (design pass, 26 October
@@ -171,8 +171,9 @@ export function seasonRoutes(root = '.'): Array<[pattern: string, file: string]>
 /**
  * The hub's town-anchored articles (src/lib/curiosity.ts): for each topic
  * with an article on the site, its index at /camping/ or /ghost-towns/
- * and its articles at /<topic>/<town>/; and /articles/<slug>/ once a
- * one-off event article is on the site. A draft is not on the site, so a
+ * and its articles at /<topic>/<town>/; /articles/<slug>/ once a
+ * one-off event article or a story is on the site; and /articles/, the
+ * index of every article, once any is. A draft is not on the site, so a
  * topic whose articles are all drafts builds nothing and nothing links to
  * it. Read from the markdown, as the season pages are.
  */
@@ -186,6 +187,7 @@ export function curiosityRoutes(root = '.', env: Record<string, string | undefin
       ];
     }),
     ...(hasEventArticle(root, env) ? ([['/articles/[slug]', 'curiosity-article.astro']] as Array<[string, string]>) : []),
+    ...(hasArticles(root, env) ? ([['/articles', 'articles-index.astro']] as Array<[string, string]>) : []),
   ];
 }
 
