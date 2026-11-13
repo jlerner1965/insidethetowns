@@ -515,12 +515,19 @@ export function newsItems(items: readonly NewsItem[], today: string, limit = 3):
 }
 
 /**
- * A story's source line: the reports and records it names, and the day the
- * oldest of them was read, so the line never claims more than every
- * source carries. "Sources: Colorado Sun and BusinessDen, read Nov 13, 2026".
+ * A story's source line: who it rests on, and the day the oldest source was
+ * read, so the line never claims more than every source carries. "Sources:
+ * Colorado Sun and BusinessDen, read Nov 13, 2026". A label written as
+ * "Publisher: document" counts by its publisher, so a story resting on six
+ * Town records and three Colorado Sun articles names each once; past three
+ * publishers the rest are counted, so one row on the home page stays a few
+ * lines (the Eldora explainer of 13 November 2026 rests on about twenty).
  */
-export function storySourceText(sources: ReadonlyArray<{ label: string; checked: string }>): string | undefined {
+export function storySourceText(sources: ReadonlyArray<{ label: string; checked: string }>, max = 3): string | undefined {
   if (sources.length === 0) return undefined;
   const oldest = [...sources].map((s) => s.checked).sort()[0]!;
-  return `${sources.length === 1 ? 'Source' : 'Sources'}: ${listWords(sources.map((s) => s.label))}, read ${formatShortDate(parseLocal(oldest))}`;
+  const publishers = [...new Set(sources.map((s) => s.label.split(':')[0]!.trim()))];
+  const more = publishers.length - max;
+  const names = more > 0 ? [...publishers.slice(0, max), `${more} more`] : publishers;
+  return `${sources.length === 1 ? 'Source' : 'Sources'}: ${listWords(names)}, read ${formatShortDate(parseLocal(oldest))}`;
 }

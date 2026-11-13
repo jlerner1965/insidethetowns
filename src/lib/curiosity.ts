@@ -222,6 +222,13 @@ export const curiositySchema = z
      * STORY_HOME_DAYS after its date. The article stays at its address.
      */
     homeUntil: day.optional(),
+    /**
+     * A substantive revision after the first version: the day it was made
+     * and one line on what changed, both printed under the byline and the
+     * day given as the page's dateModified. Not for a re-check that changed
+     * nothing a reader sees (that moves `checked`), and never to look fresh.
+     */
+    updated: z.object({ date: day, note: text.max(300) }).strict().optional(),
   })
   .strict()
   .refine((a) => isStandalone(a.kind) || a.towns.length === 1, { message: 'a topic article is anchored to one town', path: ['towns'] })
@@ -230,6 +237,7 @@ export const curiositySchema = z
   .refine((a) => !isStandalone(a.kind) || a.sources.length > 0, { message: 'an event article or a story names the source of every fact', path: ['sources'] })
   .refine((a) => a.kind === 'story' || !a.homeUntil, { message: 'only a story is shown on the hub’s home, so only a story carries homeUntil', path: ['homeUntil'] })
   .refine((a) => !a.homeUntil || a.homeUntil >= a.date, { message: 'homeUntil is on or after the story’s date', path: ['homeUntil'] })
+  .refine((a) => !a.updated || a.updated.date >= a.date, { message: 'an update is on or after the article’s date', path: ['updated', 'date'] })
   .refine((a) => a.status !== 'verified' || (a.needs.length === 0 && [...a.campgrounds, ...a.ghostTowns].every((e) => e.flags.length === 0)), {
     message: 'an article with open flags is not verified: settle each one (fill the field from its source, or delete the flag and leave the field out)',
     path: ['status'],
@@ -266,6 +274,15 @@ export function lastVerified(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTow
       .map((f) => f.checked)
       .sort()[0] ?? a.date
   );
+}
+
+/**
+ * The day the article last changed, for its dateModified and the sitemap:
+ * the latest of its first day, its last revision (`updated`) and its
+ * "Last verified" day, so it is never earlier than the day it was published.
+ */
+export function lastModified(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTowns' | 'sources' | 'date' | 'updated'>): string {
+  return [a.date, lastVerified(a), a.updated?.date ?? a.date].sort().at(-1)!;
 }
 
 /** Where the article is on the hub. */

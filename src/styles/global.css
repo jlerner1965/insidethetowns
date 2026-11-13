@@ -731,6 +731,26 @@ main:has(> :last-child.on-dark) + footer {
     color: var(--color-ink-muted);
   }
 }
+/* "At a glance": the table under a heading of that name is a box of its own,
+   white on the paper with a hairline ring, as an entry's facts are on the
+   camping and ghost-town pages. Label column on the left, read across; on a
+   phone each row stacks as the cards above do. */
+.prose #at-a-glance + table {
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--color-raised);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 1px var(--color-line-soft);
+  padding: 0.25rem 1.25rem;
+}
+.prose #at-a-glance + table td:first-child { width: 11rem; font-weight: 600; }
+.prose #at-a-glance + table tr:last-child > * { border-bottom: 0; }
+@media (width < 40rem) {
+  .prose #at-a-glance + table { padding: 0.25rem 1rem; }
+  .prose #at-a-glance + table td:first-child { width: auto; }
+  .prose #at-a-glance + table tr:last-child { border-bottom: 0; }
+}
+
 /* An empty, required date or time field shows its "mm/dd/yyyy" in the
    placeholder grey of every other field, not in full ink as if filled in. */
 input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: var(--color-ink-muted); }
