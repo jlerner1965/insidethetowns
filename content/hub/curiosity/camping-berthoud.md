@@ -65,13 +65,9 @@ campgrounds:
       checked: 2026-11-12
     flags:
       - field: sites
-        note: "The county's Carter Lake park page disagrees with its own booking site: it names a 'Sky Harbor' full-hookup campground and South Shore camper cabins, and calls Eagle seasonal. None of those is on the booking site, the cabins page or the price page. This draft follows the booking site and prints no cabins and no full hookups. Ask the county which is right."
-      - field: sites
-        note: "No count of sites per campground is printed: the county states none, and a tally of the booking list came up six rows short."
-      - field: road
-        note: "The surface of the county roads up to the lake (8E and 31), and of the roads inside South Shore and Carter Knolls, is on no official page."
+        note: "The county's Carter Lake park page disagrees with its own booking site: it names a 'Sky Harbor' full-hookup campground and South Shore camper cabins, and calls Eagle seasonal. None of those is on the booking site, the cabins page or the price page. This draft follows the booking site, by the owner's ruling, and prints no cabins and no full hookups. Open until James calls the county."
       - field: fee
-        note: "The $10 entrance permit is on the county's price page with no year. Confirm it holds for 2027."
+        note: "The $10 entrance permit is on the county's price page with no year. Open until James calls the county to confirm it holds for 2027."
   - name: "Flatiron Reservoir"
     url: "https://www.larimer.gov/naturalresources/parks/flatiron-reservoir"
     summary: "A 47-acre reservoir at 5,470 feet, a few miles northwest of Carter Lake. A quiet campground for fishing from the bank and not much else."
@@ -99,9 +95,6 @@ campgrounds:
       value: "anyone in the car wants to swim, paddle or boat: all three are prohibited. The reservoir is the afterbay of a power plant and its level rises and falls through the day. The county sends you to Carter Lake for the water."
       source: "https://www.larimer.gov/naturalresources/parks/flatiron-reservoir"
       checked: 2026-11-12
-    flags:
-      - field: road
-        note: "Two site pages give a gravel driveway; nothing official describes the road to or inside the campground. Left empty."
   - name: "Pinewood Reservoir"
     url: "https://www.larimer.gov/naturalresources/parks/pinewood-reservoir"
     summary: "The highest of the three county reservoirs, at 6,580 feet, west of Flatiron. More walk-in tent sites than the other two."
@@ -129,11 +122,6 @@ campgrounds:
       value: "you are bringing a boat on a trailer or a motor: the ramp is closed and only hand-launched craft are allowed. Swimming is prohibited, and the water level moves daily."
       source: "https://www.larimer.gov/naturalresources/parks/pinewood-reservoir"
       checked: 2026-11-12
-    flags:
-      - field: sites
-        note: "The same county page splits the 27 two ways: its site list shows 16 electric and 11 walk-to, its description says 15 and 12. Only the total is printed."
-      - field: road
-        note: "The booking site's amenity list has the tag 'Paved Roads' and one site page gives a gravel driveway. The surface of County Road 18E up to the reservoir, and winter conditions on it, are on no official page. Left empty."
   - name: "Boyd Lake State Park"
     url: "https://cpw.state.co.us/state-parks/boyd-lake-state-park/boyd-lake-state-park-camping-lodging"
     summary: "A state park in Loveland with paved pull-through sites, built for RVs."
@@ -168,14 +156,9 @@ campgrounds:
         checked: 2026-11-12
     flags:
       - field: fee
-        note: "No 2027 fee is posted. cpwshop.com, where the price by site is shown, could not be read by a machine; read it in a browser."
-      - field: more
-        note: "The low-water closure is for 2026. Check the park page for 2027 boating before this is published in spring."
+        note: "No 2027 fee is posted. cpwshop.com, where the price by site is shown, could not be read by a machine. James checks the fee himself."
 needs:
-  - "No drive time or mileage from Berthoud is printed: no manager's page gives one."
-  - "The guide's existing Carter Lake article (content/berthoud/articles/carter-lake-trail-permit-and-launch.md) says 'South Shore has camper cabins and showers' and 'Walk-up camping without a reservation is not allowed'. The county's booking site puts the shower house at Eagle, lists no cabins at Carter Lake, and takes same-day reservations online, by phone, at a park office or by QR code at the site. Recheck both lines."
-  - "St. Vrain State Park and the Boulder County Fairgrounds campground are left to the Carbon Valley article. Loveland RV Resort (private) was left out: its site posts no rates."
-  - "Town of Berthoud: no Town page offers camping, and Ordinance 1311 (2022) closes Town parks from sunset to sunrise. The draft says only that the Town's reservoir park lists no camping; the ordinance text was not read on the Town's code site."
+  - "Open until James calls Larimer County. Two lines were taken out of the guide's Carter Lake article on 13 November 2026 (content/berthoud/articles/carter-lake-trail-permit-and-launch.md): 'South Shore has camper cabins and showers' and 'Walk-up camping without a reservation is not allowed'. The county's booking site puts the shower house at Eagle, lists no cabins at Carter Lake, and takes same-day reservations. Put the corrected lines back after the call."
 ---
 
 Berthoud has no campground of its own. The Town's [reservoir park](https://berthoud.org/facilities/facility/details/Berthoud-Reservoir-Park-Open-Space-17) lists trails, fishing and parking, and no camping. What it has is three county reservoirs stacked up the foothills to the west, and a state park to the north in Loveland. All four are open every month of the year, which is not true of much camping in Colorado.

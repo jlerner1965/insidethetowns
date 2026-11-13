@@ -68,12 +68,10 @@ campgrounds:
       source: "https://www.townoflyons.com/351/Camping-at-LaVern-M-Johnson-Park"
       checked: 2026-11-12
     flags:
-      - field: road
-        note: "No Town page describes the road surface. Left empty."
       - field: season
-        note: "The Town's two pages differ on the tent season: the camping page says mid-April through mid-October, the park page says April 1 through October 15. Neither gives a year. The camping page also says some summer event dates are blocked but lists none."
+        note: "Open until James calls the Town of Lyons. The Town's two pages differ on the tent season: the camping page says mid-April through mid-October, the park page says April 1 through October 15. Neither gives a year. The camping page also says some summer event dates are blocked but lists none."
       - field: fee
-        note: "The fee table carries no year; confirm the rates are 2027's when the Town posts the season."
+        note: "Open until James calls the Town of Lyons. The fee table carries no year; confirm the rates are 2027's when the Town posts the season."
   - name: "Camp Dick Campground"
     url: "https://www.fs.usda.gov/r02/arp/recreation/camp-dick-campground"
     summary: "A Forest Service campground at 8,650 feet on the Middle St. Vrain, a mile off the Peak to Peak Highway. The larger of the two campgrounds on that road."
@@ -102,11 +100,6 @@ campgrounds:
         value: "Water in peak season, vault toilets, trash service, and a bear locker at every site with a tent pad. No showers or dump station."
         source: "https://www.fs.usda.gov/r02/arp/recreation/camp-dick-campground"
         checked: 2026-11-12
-    flags:
-      - field: road
-        note: "The Forest Service says the campground is about a mile up Middle Saint Vrain Road (County Road 92) from Colorado 72 but does not give the surface. Left empty."
-      - field: season
-        note: "The 2027 dates are from recreation.gov's season table. The Forest Service's own table still shows May 15 to November 15 with no year, and its closing dates ran a day later than recreation.gov's in 2026."
   - name: "Peaceful Valley Campground"
     url: "https://www.fs.usda.gov/r02/arp/recreation/peaceful-valley-campground"
     summary: "Camp Dick's smaller neighbor, a quarter mile off the highway on the same road, at 8,500 feet."
@@ -139,9 +132,6 @@ campgrounds:
         value: "Water, vault toilets, trash service and bear lockers. No showers or dump station."
         source: "https://www.fs.usda.gov/r02/arp/recreation/peaceful-valley-campground"
         checked: 2026-11-12
-    flags:
-      - field: season
-        note: "2027 dates are recreation.gov's; the Forest Service's own table still shows May 15 to November 15 with no year."
   - name: "Olive Ridge Campground"
     url: "https://www.fs.usda.gov/r02/arp/recreation/olive-ridge-campground"
     summary: "The big one on Colorado 7, at mile marker 14 between Allenspark and Meeker Park, 8,350 feet, near the Wild Basin corner of Rocky Mountain National Park."
@@ -171,9 +161,7 @@ campgrounds:
       checked: 2026-11-12
     flags:
       - field: water
-        note: "Whether Olive Ridge has drinking water is unsettled: the Forest Service page lists none, recreation.gov's amenity list includes it. Nothing is printed; call the Boulder Ranger District."
-      - field: booking
-        note: "The Forest Service's two lists of site numbers overlap (38 and 42 are in both), so no site numbers are printed."
+        note: "Whether Olive Ridge has drinking water is unsettled: the Forest Service page lists none, recreation.gov's amenity list includes it. Nothing is printed. Open until James calls the Boulder Ranger District."
   - name: "Meeker Park Overflow Campground"
     url: "https://www.fs.usda.gov/r02/arp/recreation/meeker-park-overflow-campground"
     summary: "A bare-bones Forest Service campground on Colorado 7 at mile marker 11, 8,600 feet. The cheapest on this page, and first-come only."
@@ -240,16 +228,7 @@ campgrounds:
       checked: 2026-11-12
     flags:
       - field: season
-        note: "The Park Service's Summer 2027 table says 'TBD: Check back in mid-November' for Longs Peak. recreation.gov shows July 1 to September 6, 2027, which is provisional until the park confirms it. In 2026 it ran July 2 to September 7. Fill this from nps.gov once the table is updated."
-      - field: sites
-        note: "The Park Service's page states no site count. recreation.gov's inventory holds 26 tent sites, which is a count of records, not a published number. Left empty."
-      - field: road
-        note: "No official page describes the approach road. Left empty."
-needs:
-  - "No drive time or mileage from Lyons is printed for any campground: no manager's page gives one, and the Forest Service's and recreation.gov's mileages from Lyons to the Colorado 7 and 72 junction disagree (21 and 12)."
-  - "Hermit Park Open Space (Larimer County, near Estes Park) was left out: larimer.gov refused a direct read, so its facts could not be read on the page. Add it after reading the page in a browser, if it belongs."
-  - "The Forest Service names no concessionaire for its four campgrounds, so 'managed by' gives the agency and district only."
-  - "The Town's overflow dry camping for campervans at the 2nd Avenue trailhead is described on its page as 'New in 2024' with no current year. Left out."
+        note: "Left empty by the owner's ruling; read nps.gov again in late November 2026. The Park Service's Summer 2027 table says 'TBD: Check back in mid-November' for Longs Peak. recreation.gov shows July 1 to September 6, 2027, which is provisional until the park confirms it. In 2026 it ran July 2 to September 7. Fill this from nps.gov once the table is updated."
 ---
 
 Lyons sits where the two St. Vrain canyons open onto the plains, and the camping follows that shape. There is one campground in town, on the river, run by the Town. Everything else is up Colorado 7 or the Peak to Peak Highway, between 8,350 and 9,500 feet, run by the Forest Service or the National Park Service, and shut by snow for half the year.

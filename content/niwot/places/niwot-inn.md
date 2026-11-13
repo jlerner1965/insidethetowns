@@ -12,7 +12,7 @@ details:
   checked: "2026-11-12"
 summary: "Thirteen rooms and an on-site spa in the middle of Old Town, the only place to stay on Second Avenue."
 source: "https://niwotinn.com/"
-verified: "2026-10-02"
+verified: "2026-11-12"
 added: "2026-09-17"
 ---
 

@@ -4,7 +4,7 @@ kind: camping
 towns: [carbon-valley]
 title: "Camping near Carbon Valley"
 seoTitle: "Camping near Frederick, Firestone and Dacono: St. Vrain State Park"
-description: "One state park in Firestone and two RV-only options in Longmont. St. Vrain's fees, booking, loops and its closed south half, from Colorado Parks and Wildlife."
+description: "One state park in Firestone and an RV-only county campground in Longmont. St. Vrain's fees, booking, loops and its closed south half."
 status: draft
 visited: false
 date: 2026-11-13
@@ -64,16 +64,8 @@ campgrounds:
       source: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
       checked: 2026-11-12
     flags:
-      - field: road
-        note: "No CPW page states the road surface. The only hint is that the current closure is a paving project. Left empty."
-      - field: sites
-        note: "CPW's page says 87 campsites; its booking site lists 81 (37 electric, 44 full hookup). The draft prints 87 as the park's count. Ask the park which is current."
-      - field: fee
-        note: "Which sites are $36 and which $41 is only in the park's March 2024 brochure (electric $36, full hookup $41). Not printed; confirm on cpwshop.com."
       - field: more
-        note: "The 'Closed now' line will go stale: read the park page again before publishing and remove it, and the skip note, once the south loops reopen."
-      - field: more
-        note: "The park's page says tent camping is offered, but the booking site lists no tent-only site. Whether a tent may take a hookup site at the hookup price was not stated in words; not printed."
+        note: "Open until the park page is read again just before publishing. The 'Closed now' line will go stale: read the park page again and remove it, and the skip note, once the south loops reopen."
   - name: "Boulder County Fairgrounds Campground"
     url: "https://bouldercounty.gov/open-space/fairgrounds/campground/"
     summary: "An in-town RV lot at the county fairgrounds in Longmont, 9595 Nelson Road. No reservations, no tents."
@@ -106,48 +98,9 @@ campgrounds:
       value: "you are in a tent or sleeping in a car: the county prohibits both here."
       source: "https://bouldercounty.gov/open-space/fairgrounds/campground/"
       checked: 2026-11-12
-    flags:
-      - field: sites
-        note: "The county's page states no site count. Its campground map (an image from March 2025) numbers sites 1 to 71 in three electric types; a count read off a picture is not printed. Left empty."
-      - field: road
-        note: "Not on the county's page. Left empty."
-  - name: "Longmont Lodge & RV Park"
-    url: "https://longmontlodgeandrvpark.com/rv-park/"
-    summary: "A privately run motel on Main Street in Longmont with 20 RV sites. A hookup for the night in town, not a campground by a lake."
-    booking:
-      value: "Booked through the park's own site or by phone. All reservations are non-refundable once made."
-      source: "https://longmontlodgeandrvpark.com/policies/"
-      checked: 2026-11-12
-    sites:
-      value: "20 full-hookup sites with water, sewer and 30- or 50-amp power, for rigs from 22 to 50 feet depending on the site."
-      source: "https://longmontlodgeandrvpark.com/rv-park/"
-      checked: 2026-11-12
-    manager:
-      value: "Privately owned and run. 1550 Main Street, Longmont."
-      source: "https://longmontlodgeandrvpark.com/rv-park/"
-      checked: 2026-11-12
-    skip:
-      value: "you want a fire: the park permits no open fires."
-      source: "https://longmontlodgeandrvpark.com/policies/"
-      checked: 2026-11-12
-    flags:
-      - field: fee
-        note: "The park publishes no nightly rate: 'Current rates depend on your dates and site availability.' Left empty."
-      - field: season
-        note: "The park's site says neither 'year-round' nor gives dates. Left empty."
-      - field: road
-        note: "Not stated. Left empty."
-      - field: manager
-        note: "This is a private business and the only source is its own website. Decide whether a private RV lot belongs in the article at all."
-needs:
-  - "No drive time or mileage from Frederick, Firestone or Dacono is printed: no manager's page gives one."
-  - "None of the three towns lists a campground or overnight RV parking on its parks pages. The towns' ordinances could not be read (their code sites refused the request), so the draft says only that none is listed, not that camping is banned."
-  - "Barr Lake State Park is left out of the 'no camping' list: CPW's page shows no campground there but never says so in words."
-  - "Standley Lake (Westminster) and Boyd Lake State Park (Loveland) were researched and left out as farther off; Boyd Lake is in the Berthoud article. Add either if you count it as near."
-  - "Nothing is said about highway or train noise at St. Vrain: no official page mentions it."
 ---
 
-The honest list of campgrounds in Carbon Valley has one name on it. St. Vrain State Park is in Firestone, it is open all year, and it is the reason this page exists. The other two entries are places to plug in an RV in Longmont, included because someone will ask.
+The honest list of campgrounds in Carbon Valley has one name on it. St. Vrain State Park is in Firestone, it is open all year, and it is the reason this page exists. The other entry is the county fairgrounds in Longmont, a place to plug in an RV.
 
 None of the three towns lists a campground or overnight RV parking in its own parks.
 
