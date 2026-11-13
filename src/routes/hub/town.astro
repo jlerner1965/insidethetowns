@@ -38,7 +38,7 @@ import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { findSiteImage } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
-import { bySeason, eventPage, lineFor, nearbyPages, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, statewideSummary, townSearchText, type ShowingContext } from '@/lib/hub-towns';
+import { bySeason, eventPage, eventPath, lineFor, nearbyPages, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, statewideSummary, townSearchText, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { FLOW_SOURCES, SNOW_SOURCE, formatCfs, percentOfMedian, riverFlow, snowpack, type FlowData, type SnowData } from '@/lib/town-signals';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
@@ -70,8 +70,10 @@ const ctx: ShowingContext = {
   guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
 };
 const alsoFor = (row: Row) => showings(row.record, ctx).filter((s) => s.key !== town.slug);
+/** The record's own page, where it has one (the brief of 13 November 2026): the row's name links to it. */
+const pageOf = (row: Row) => eventPath(row.record, ctx.published);
 /** A shared record's eyebrow on this page is its kind, never another town's name. */
-const rowProps = (row: Row) => ({ row, eyebrow: 'category' as const, line: lineFor(row.record, town.slug), also: alsoFor(row) });
+const rowProps = (row: Row) => ({ row, eyebrow: 'category' as const, href: pageOf(row), line: lineFor(row.record, town.slug), also: alsoFor(row) });
 
 const show = town.showpiece;
 const spotlight = show ? traditions.find((r) => r.record.slug === show.spotlight) : undefined;
@@ -97,13 +99,17 @@ const title = town.name;
 const { seoTitle, description } = townSearchText(town.name, traditions);
 const all = [...traditions, ...outdoor, ...statewide];
 const structured = [
-  collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: `${pageUrl}#${r.record.slug}` })) }),
+  // Each item is the record's own page where it has one, else its row here.
+  collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: pageOf(r) ? `https://${hub.domain}${pageOf(r)}` : `${pageUrl}#${r.record.slug}` })) }),
   breadcrumbJsonLd(hub, [
     { name: hub.siteTitle, path: '/' },
     { name: town.name, path },
   ]),
-  // An event is marked up on one page: here when this town is its home (eventPage).
-  ...traditions.map((r) => (r.past || eventPage(r.record, ctx) !== town.slug ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
+  // An event is marked up on one page. Since 13 November 2026 a record whose
+  // home is this town has a page of its own, which carries its Event; this
+  // page marks up none. (A record shown here with another home is marked
+  // up there.)
+  ...traditions.map((r) => (r.past || pageOf(r) || eventPage(r.record, ctx) !== town.slug ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
 ];
 // The season pages this town has a row on: each is linked from here, as
 // each row there links back (the links pass, 12 November 2026).

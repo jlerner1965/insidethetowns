@@ -27,13 +27,39 @@ going to the home page otherwise.
 | insidecastlerockco.com, insideestespark.com, insidefortcollins.com, insidegolden.com, insidelafayette.com, insideleadville.com, insidelongmontco.com, insidelovelandco.com, insidenederland.com, insidetimnath.com (folded 12 November 2026) | that town's page, `https://insidethetowns.com/<town>/` | `src/lib/fold.ts`, written into `vercel.json` by `node scripts/fold-rules.ts --write`, host-scoped; each domain stays on its own Vercel project, which still builds (status `redirect`, `hubPage`) and serves the rules |
 | insidegrandlake.com, insideevergreenco.com, insidegeorgetownco.com, insidemanitousprings.com, insidefortlupton.com, insideblackhawk.com, insideidahosprings.com (retired earlier) | the same, in place of the hub's home page | the same rules; the rows above for these five describe where they went until 12 November |
 
-On each: `/` goes to the page; `/events/`, every `/events/<slug>/`,
-`/this-week/`, `/this-weekend/`, `/traditions/` and `/events.rss` go to
-the page's `#traditions`; `/things-to-do/`, `/trails/`, `/trailheads/` and
-`/parks/` go to `#outdoor-dates`; everything else goes to the top of the
-page. All permanent. A fragment in a redirect's `Location` is kept by
-browsers; check one with `curl -sI https://insideestespark.com/events/`
-once the projects have rebuilt. insideseverance.com still goes to the
+On each: `/` goes to the page; an old event address whose event has a
+record of its own on the hub goes to that record's page,
+`https://insidethetowns.com/<town>/<event>/` (below); `/events/`, every
+other `/events/<slug>/`, `/this-week/`, `/this-weekend/`, `/traditions/`
+and `/events.rss` go to the page's `#traditions`; `/things-to-do/`,
+`/trails/`, `/trailheads/` and `/parks/` go to `#outdoor-dates`;
+everything else goes to the top of the page. All permanent. A fragment in
+a redirect's `Location` is kept by browsers and dropped by Google; check
+one with `curl -sI https://insideestespark.com/events/` once the projects
+have rebuilt.
+
+**Old event addresses, 13 November 2026.** Google drops the fragment, so
+every `/events/<slug>/` on a folded domain landed on one page that did not
+carry the event, and the rankings those addresses held (606 of the
+network's 1,088 clicks, 14 October to 10 November 2026, on Golden,
+Loveland, Longmont and Estes Park's) had nowhere to go. Each hub tradition
+record whose home is a published town page now has a page of its own,
+`/<town>/<event>/` (the record's slug without its `<town>-` prefix; no year
+in the address; `src/routes/hub/event.astro`, `hubEventPages` in
+`src/lib/hub-towns.ts`), and `data/hub/fold-events.json` maps each old
+event address that is clearly the same event (same town, same organizer or
+venue, same annual date) to its record: host, then old path (the dated
+address and the undated one with its `formerSlugs`, read from git history
+at the parent of commit `d2cc63e`) to record slug. `src/lib/fold.ts`
+(`foldEventTargets`, `foldRules`) writes one permanent rule per old
+address, `/events/<slug>{/}?` to the record's page, ahead of the
+`/events/(.*)` catch-all, so each is one hop and no rule points at a page
+that is not built (the map refuses a record with no page of its own). `node
+scripts/fold-rules.ts --write` regenerates `vercel.json`;
+`test/hub-fold.test.ts` holds the map, the records and `vercel.json` in
+step. An old address whose event has no record (not annual, or the
+organizer's page could not confirm it) stays on the catch-all. Vercel
+answers 308 for `permanent: true`. insideseverance.com still goes to the
 Windsor guide's Severance section (the owner, 12 November 2026).
 
 **Domains for towns that never had a guide** (`domain` in

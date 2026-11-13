@@ -236,3 +236,38 @@ export function annualEventTitle(title: string, town: string, date: Date, awaiti
   const named = title.includes(year) ? title : `${title} ${year}`;
   return `${named}${where} \u2014 ${weekday}, ${month} ${day}`;
 }
+
+/**
+ * "6:30 p.m." from "18:30" (certainTime, src/lib/tradition-calendar.ts), in
+ * the one shape a title uses whatever shape the organizer wrote.
+ */
+export function titleTime(hhmm: string): string {
+  const [h, m] = hhmm.split(':').map(Number) as [number, number];
+  const hour = h % 12 === 0 ? 12 : h % 12;
+  return `${hour}${m ? `:${String(m).padStart(2, '0')}` : ''} ${h < 12 ? 'a.m.' : 'p.m.'}`;
+}
+
+/**
+ * The <title> and h1 of a tradition record's own page on the hub (the brief
+ * of 13 November 2026): the town, the name and the year, then the date and
+ * time where the year shown has them: "Golden Candlelight Walk 2026: Fri,
+ * Dec 4, 6:30 p.m.". The town is not said twice when the name already
+ * carries it ("Longmont Turkey Trot 2026"). Over TITLE_LIMIT, the time goes
+ * first and then the day, so the title keeps the words people type (the
+ * name and the year) and claims nothing it cannot fit. A year with no
+ * date ("2027 date not announced yet") is the first form, which claims no
+ * date; `canceled` adds the word.
+ */
+export function traditionTitle(
+  town: string,
+  name: string,
+  year: number,
+  when?: { date?: Date; time?: string; canceled?: boolean },
+): string {
+  const named = namesTown(name, town) ? `${name} ${year}` : `${town} ${name} ${year}`;
+  if (when?.canceled) return `${named}: canceled`;
+  if (!when?.date) return named;
+  const { month, day, weekday } = monthDay(when.date);
+  const candidates = [when.time ? `${named}: ${weekday}, ${month} ${day}, ${when.time}` : undefined, `${named}: ${weekday}, ${month} ${day}`, named].filter((t): t is string => !!t);
+  return candidates.find((t) => t.length <= TITLE_LIMIT) ?? named;
+}

@@ -308,3 +308,60 @@ export function statewideSummary(rows: readonly TraditionRow[], show = 3): strin
   const more = names.length - show;
   return `${count}: ${listed}${more > 0 ? `, and ${more} more` : ''}`;
 }
+
+/**
+ * A record's own page on the hub (the brief of 13 November 2026: a page
+ * for each hub tradition record, so an event has an address of its own to
+ * rank, and a folded guide's old event address has somewhere to go). At
+ * /<town>/<event>/, where <event> is the record's slug with the leading
+ * "<town>-" taken off: golden-candlelight-walk is /golden/candlelight-walk/.
+ * No year in the address; the year is in the title. Built for every record
+ * whose home is a published hub town page (eventPage); a record whose home
+ * is a standalone guide, or that has no home, keeps its row and no page.
+ */
+export interface HubEventPage {
+  record: TraditionRecord;
+  /** The hub town's slug: the first segment of the path. */
+  town: string;
+  /** The second segment. */
+  event: string;
+  /** "/golden/candlelight-walk/". */
+  path: string;
+}
+
+/** The second segment of a record's page: its slug without its town's prefix. */
+export function eventSegment(record: Pick<TraditionRecord, 'slug'>, town: string): string {
+  const prefix = `${town}-`;
+  const rest = record.slug.startsWith(prefix) ? record.slug.slice(prefix.length) : record.slug;
+  return rest || record.slug;
+}
+
+/** The path of a record's own page, or undefined where it has none (its home is no published hub town page). */
+export function eventPath(record: TraditionRecord, published: ReadonlySet<string>): string | undefined {
+  const home = homeOf(record);
+  if (!home || !findHubTown(home) || !published.has(home)) return undefined;
+  return `/${home}/${eventSegment(record, home)}/`;
+}
+
+/**
+ * Every event page the hub builds. Fails, rather than builds two pages at
+ * one address or one that takes a route the hub already has, when two
+ * records share a path or a town's slug is a reserved first segment
+ * (`reserved`: the hub's fixed routes, src/integrations/town-routes.ts).
+ */
+export function hubEventPages(records: readonly TraditionRecord[], published: ReadonlySet<string>, reserved: Iterable<string> = []): HubEventPage[] {
+  const taken = new Set([...reserved].map((s) => s.replace(/^\/|\/$/g, '').split('/')[0]!).filter(Boolean));
+  const out: HubEventPage[] = [];
+  const seen = new Map<string, string>();
+  for (const record of records) {
+    const path = eventPath(record, published);
+    if (!path) continue;
+    const [town, event] = path.split('/').filter(Boolean) as [string, string];
+    if (taken.has(town)) throw new Error(`Event page ${path} (${record.slug}) shadows the hub's /${town}/ route.`);
+    const other = seen.get(path);
+    if (other) throw new Error(`Event page ${path} is both ${other} and ${record.slug}: two records, one address.`);
+    seen.set(path, record.slug);
+    out.push({ record, town, event, path });
+  }
+  return out;
+}

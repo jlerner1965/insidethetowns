@@ -1,0 +1,83 @@
+{
+  "insidegolden.com": {
+    "/events/olde-golden-candlelight-walk/": "golden-candlelight-walk",
+    "/events/olde-golden-candlelight-walk-2026-12-04/": "golden-candlelight-walk",
+    "/events/olde-golden-holiday-parade/": "golden-holiday-parade",
+    "/events/olde-golden-holiday-parade-2026-12-12/": "golden-holiday-parade",
+    "/events/jingle-on-the-avenue/": "golden-jingle-on-the-avenue",
+    "/events/jingle-on-the-avenue-2026-12-19/": "golden-jingle-on-the-avenue",
+    "/events/great-turkey-chase/": "golden-great-turkey-chase",
+    "/events/great-turkey-chase-2026-11-26/": "golden-great-turkey-chase",
+    "/events/harvest-haunt-express/": "golden-harvest-haunt-express",
+    "/events/harvest-haunt-2026-10-17/": "golden-harvest-haunt-express",
+    "/events/ullrgrass-music-and-beer-festival-2027-01-29/": "golden-ullrgrass"
+  },
+  "insidelongmontco.com": {
+    "/events/longmont-turkey-trot/": "longmont-turkey-trot",
+    "/events/longmont-turkey-trot-2026-11-14/": "longmont-turkey-trot",
+    "/events/longmont-lights-holiday-parade/": "longmont-lights-holiday-parade",
+    "/events/longmont-lights-holiday-parade-2026-12-12/": "longmont-lights-holiday-parade",
+    "/events/day-of-the-dead-family-celebration-2026-10-24/": "longmont-day-of-the-dead",
+    "/events/halloween-costume-parade/": "longmont-halloween-parade",
+    "/events/halloween-costume-parade-2026-10-31/": "longmont-halloween-parade",
+    "/events/feria-del-tamal/": "longmont-feria-del-tamal",
+    "/events/feria-del-tamal-2026-10-24/": "longmont-feria-del-tamal",
+    "/events/longmont-quilt-show/": "longmont-quilt-show",
+    "/events/longmont-quilt-guild-19th-annual-quilt-show-2026-10-16/": "longmont-quilt-show"
+  },
+  "insideestespark.com": {
+    "/events/catch-the-glow-parade/": "estes-park-catch-the-glow-parade",
+    "/events/catch-the-glow-parade-2026-11-27/": "estes-park-catch-the-glow-parade",
+    "/events/tardy-turkey-trot/": "estes-park-tardy-turkey-trot",
+    "/events/tardy-turkey-trot-2026-11-27/": "estes-park-tardy-turkey-trot",
+    "/events/whiskey-warm-up/": "estes-park-whiskey-warm-up",
+    "/events/whiskey-warm-up-2027-03-06/": "estes-park-whiskey-warm-up",
+    "/events/bigfoot-days-festival/": "estes-park-bigfoot-days",
+    "/events/bigfoot-days-festival-2027-04-24/": "estes-park-bigfoot-days",
+    "/events/rocky-mountain-craft-spirits-festival-2026-11-07/": "estes-park-rocky-mountain-craft-spirits-festival",
+    "/events/tree-lighting/": "estes-park-lighting-of-the-trees",
+    "/events/tree-lighting-2026-11-21/": "estes-park-lighting-of-the-trees",
+    "/events/crystal-ball-2026-12-31/": "estes-park-crystal-ball",
+    "/events/frozen-dead-guy-days-2027-04-09/": "estes-park-frozen-dead-guy-days",
+    "/events/wine-and-chocolate-festival-2027-02-06/": "estes-park-wine-and-chocolate-festival"
+  },
+  "insidecastlerockco.com": {
+    "/events/castle-rock-starlighting/": "castle-rock-starlighting",
+    "/events/castle-rock-starlighting-2026-11-21/": "castle-rock-starlighting",
+    "/events/turkey-rock-trot/": "castle-rock-turkey-rock-trot",
+    "/events/turkey-rock-trot-2026-11-26/": "castle-rock-turkey-rock-trot",
+    "/events/tree-lighting-celebration-outlets/": "castle-rock-outlets-tree-lighting",
+    "/events/tree-lighting-celebration-outlets-2026-11-14/": "castle-rock-outlets-tree-lighting"
+  },
+  "insideelizabeth.com": {
+    "/events/mayors-tree-lighting/": "elizabeth-mayors-tree-lighting",
+    "/events/mayors-tree-lighting-2026/": "elizabeth-mayors-tree-lighting"
+  },
+  "insidefortcollins.com": {
+    "/events/downtown-holiday-lighting-ceremony/": "fort-collins-downtown-holiday-lighting-ceremony",
+    "/events/downtown-holiday-lighting-ceremony-2026-11-06/": "fort-collins-downtown-holiday-lighting-ceremony",
+    "/events/tour-de-corgi-2026-10-03/": "fort-collins-tour-de-corgi"
+  },
+  "insideleadville.com": {
+    "/events/parade-of-lights/": "leadville-parade-of-lights",
+    "/events/leadville-main-street-parade-of-lights-2026-12-04/": "leadville-parade-of-lights",
+    "/events/leadville-ski-joring-2027-03-06/": "leadville-ski-joring",
+    "/events/ski-cooper-opening-day-2026-12-09/": "leadville-ski-cooper-opening-day"
+  },
+  "insidelovelandco.com": {
+    "/events/festival-of-lights-downtown-loveland/": "loveland-festival-of-lights",
+    "/events/festival-of-lights-downtown-loveland-2026-11-20/": "loveland-festival-of-lights",
+    "/events/applewood-arts-festival-fall/": "loveland-applewood-arts-festival-fall",
+    "/events/applewood-arts-festival-fall-2026-10-17/": "loveland-applewood-arts-festival-fall",
+    "/events/applewood-arts-festival-holiday/": "loveland-applewood-arts-festival-holiday",
+    "/events/applewood-arts-festival-holiday-2026-11-20/": "loveland-applewood-arts-festival-holiday"
+  },
+  "insidelafayette.com": {
+    "/events/holiday-on-the-plaza-2026-12-05/": "lafayette-holiday-on-the-plaza"
+  },
+  "insidetimnath.com": {
+    "/events/timnath-holiday-festival/": "timnath-holiday-festival",
+    "/events/timnath-holiday-festival-2026/": "timnath-holiday-festival",
+    "/events/noco-winter-wonderland-2026-11-26/": "timnath-noco-winter-wonderland"
+  }
+}

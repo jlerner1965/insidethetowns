@@ -1,0 +1,160 @@
+---
+/**
+ * A tradition record's own page on the hub: /<town>/<event>/ (the brief of
+ * 13 November 2026). Until then the hub's 591 records existed only as rows
+ * on the town and season pages, so no event had an address of its own to
+ * rank, and a folded guide's old event address could only land on its
+ * town's page, which does not carry the event. Built for every record
+ * whose home is a published town page (src/lib/hub-towns.ts,
+ * hubEventPages); the slug's "<town>-" prefix is the first segment, the
+ * rest the second, and no year is in the address.
+ *
+ * Everything on it is the record's: the current year as the town page
+ * shows it (TraditionRow, in the same four states), its details, the
+ * check line, the earlier years newest first, and the links (add to
+ * calendar, the town's page, the season page for its type). The record's
+ * Event entity is marked up here and nowhere else (eventPage), with its
+ * status; nothing when the year shown has no date. A page shows nothing
+ * its record does not hold.
+ */
+import Page from '@/layouts/Page.astro';
+import TraditionRow from '@/components/TraditionRow.astro';
+import DateCorrection from '@/components/DateCorrection.astro';
+import CheckedLine from '@/components/CheckedLine.astro';
+import { findTown, getHub } from '@/config';
+import { STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
+import { getTraditions } from '@/lib/content';
+import { dayKey, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
+import { eventPath, hubEventPages, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { googleCalendarUrl } from '@/lib/ics';
+import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, excerptDescription, traditionEventJsonLd } from '@/lib/seo';
+import { titleTime, traditionTitle } from '@/lib/titles';
+import { certainTime, traditionCalendarEvent } from '@/lib/tradition-calendar';
+import { CURRENT_SEASONS, TRADITION_TYPE_INFO, entrySource, isDated, isListed, nextRow, rowState, type TraditionYear } from '@/lib/traditions';
+import { hubReservedSegments } from '@/integrations/town-routes';
+
+export async function getStaticPaths() {
+  const records = await getTraditions();
+  const published = new Set(publishedHubTowns(records).map((t) => t.slug));
+  return hubEventPages(records, published, hubReservedSegments()).map((p) => ({ params: { town: p.town, event: p.event }, props: { slug: p.record.slug } }));
+}
+
+const hub = getHub();
+const records = await getTraditions();
+const record = records.find((r) => r.slug === Astro.props.slug)!;
+const town = findHubTown(Astro.params.town as string)!;
+const published = publishedHubTowns(records);
+const today = dayKey(new Date());
+const ctx: ShowingContext = {
+  hubDomain: hub.domain,
+  published: new Set(published.map((t) => t.slug)),
+  guideDomain: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.domain,
+  guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
+};
+const path = eventPath(record, ctx.published)!;
+const pageUrl = `https://${hub.domain}${path}`;
+const info = TRADITION_TYPE_INFO[record.type];
+
+// The year as the town page shows it: the newest entry, or, once its date
+// has passed with no later year, that the next is not announced.
+const row = nextRow(record, today);
+const { entry } = row;
+const state = rowState(row);
+const dayText = (d: string) => `${formatDayLong(parseLocal(d))}, ${d.slice(0, 4)}`;
+/** The year the title names: the next one once this year is over and nothing is announced. */
+const year = state === 'past' ? row.year + 1 : row.year;
+const time = state === 'upcoming' ? certainTime(entry.startTime) : undefined;
+const title = traditionTitle(town.name, record.name, year, {
+  date: state === 'upcoming' ? parseLocal(entry.date!) : undefined,
+  time: time ? titleTime(time) : undefined,
+  canceled: state === 'canceled',
+});
+
+const possessive = record.organizer.endsWith('s') ? `${record.organizer}’` : `${record.organizer}’s`;
+const read = `Read on ${possessive} page, checked ${formatShortDate(parseLocal(entry.checked))}.`;
+const lead =
+  state === 'upcoming'
+    ? `${record.name} in ${town.name}, Colorado: ${dayText(entry.date!)}${entry.endDate && entry.endDate !== entry.date ? ` to ${dayText(entry.endDate)}` : ''}${entry.startTime ? `, ${entry.startTime}` : ''}${entry.place ? `, ${entry.place}` : ''}.`
+    : state === 'canceled'
+      ? `${record.name} in ${town.name}, Colorado: canceled for ${row.year}, as ${possessive} page says.${entry.date ? ` It was set for ${dayText(entry.date)}.` : ''}`
+      : `${record.name} in ${town.name}, Colorado: ${year} date not announced yet${row.lastHeld ? `; last held ${dayText(row.lastHeld)}` : ''}.`;
+// The lead, and the provenance sentence where both fit the meta budget; the lead alone otherwise.
+const description = `${lead} ${read}`.length <= META_DESCRIPTION_LIMIT ? `${lead} ${read}` : excerptDescription(lead);
+
+// The record's rows elsewhere, as links. A free-admission day that has
+// passed is on no page (isListed), so nothing is linked to a row that is not there.
+const also = isListed(row) ? showings(record, ctx) : [];
+const seasonPage = CURRENT_SEASONS[record.type] ? info.path : undefined;
+const calendarEvent = traditionCalendarEvent(row, { domain: hub.domain, pageUrl });
+const calendar = calendarEvent ? { ics: `/dates/${record.slug}.ics`, google: googleCalendarUrl(calendarEvent) } : undefined;
+
+/** The other years, newest first: what each one was, in a line. */
+const earlier = record.years.filter((y) => y !== entry);
+const yearLine = (y: TraditionYear): string => {
+  if (y.status === 'canceled') return y.date ? `Canceled; was set for ${dayText(y.date)}` : 'Canceled';
+  if (y.status === 'typical') return `Typical window, not a date: ${y.typicalWindow}`;
+  if (y.status === 'not-announced') return 'Date not announced';
+  const span = y.endDate && y.endDate !== y.date ? `${formatDayLong(parseLocal(y.date!))} to ${dayText(y.endDate)}` : dayText(y.date!);
+  const held = (y.endDate ?? y.date!) < today ? 'Held ' : '';
+  return y.status === 'moved' ? `${held}${span}, moved from ${dayText(y.previousDate!)}` : `${held}${span}`;
+};
+
+const structured = [
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: town.name, path: `/${town.slug}/` },
+    { name: record.name, path },
+  ]),
+  // The record's one Event entity, here and on no other page (eventPage): nothing once its date has passed.
+  ...(row.past ? [] : [traditionEventJsonLd(record, entry, pageUrl, { own: true })].filter((e) => !!e)),
+];
+const subject = `[Correction] ${town.name}: ${record.name}`;
+const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
+const card = 'rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7';
+const pill =
+  'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary';
+---
+<Page {title} seoTitle={title} eyebrow={`${town.name}, ${hubCountyLine(town)} · ${info.label}`} {description} jsonLd={structured} kind="Annual event" narrow>
+  <nav aria-label="Breadcrumb" class="mb-6 text-sm text-ink-muted" data-breadcrumb>
+    <a href="/" class="underline">{hub.siteTitle}</a> › <a href={`/${town.slug}/`} class="underline">{town.name}</a> › <span>{record.name}</span>
+  </nav>
+
+  <section aria-labelledby="this-year-heading" class="mb-10" data-event-current data-state={state}>
+    <h2 id="this-year-heading" class="eyebrow mb-3">{state === 'past' ? `${year}: not announced yet` : `${row.year}`}</h2>
+    <div class={card}>
+      <TraditionRow {row} eyebrow="category" {also} {calendar} />
+    </div>
+    <CheckedLine dates={[entry.checked]} />
+  </section>
+
+  {earlier.length > 0 && (
+    <section aria-labelledby="earlier-heading" class="mb-10" data-earlier-years>
+      <h2 id="earlier-heading" class="eyebrow mb-3">Earlier years</h2>
+      <ol class="divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {earlier.map((y) => (
+          <li class="grid gap-y-0.5 py-3 sm:grid-cols-[4rem_minmax(0,1fr)] sm:items-baseline sm:gap-x-4" data-year={y.year}>
+            <span class="text-[0.9375rem] font-semibold tabular-nums text-ink">{y.year}</span>
+            <span class="text-[0.9375rem] leading-snug text-ink-muted">
+              {isDated(y) && y.date ? <time datetime={y.date}>{yearLine(y)}</time> : yearLine(y)}
+              {' · '}Checked <time datetime={y.checked}>{formatShortDate(parseLocal(y.checked))}</time> · <a href={entrySource(record, y)} rel="noopener" class="text-primary underline">Source</a>
+            </span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  <nav aria-labelledby="more-heading" class="mb-10">
+    <h2 id="more-heading" class="eyebrow mb-3">More</h2>
+    <ul class="flex flex-wrap gap-2" data-event-links>
+      <li><a href={`/${town.slug}/`} class={pill}>Every date in {town.name}</a></li>
+      {seasonPage && <li><a href={seasonPage} class={pill}>{info.plural} across Colorado</a></li>}
+      <li><a href={record.sourceUrl} rel="noopener" class={pill}>{record.organizer}</a></li>
+    </ul>
+  </nav>
+
+  <p class="rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
+    A date wrong, or the next one announced? <a href={mailto} class="font-semibold underline">Tell us</a>. The date links to the page it was read from.
+  </p>
+  <DateCorrection />
+</Page>

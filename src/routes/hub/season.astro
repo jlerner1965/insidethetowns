@@ -23,7 +23,7 @@ import DateCorrection from '@/components/DateCorrection.astro';
 import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
 import { findTown, getHub } from '@/config';
 import { STANDALONE_GUIDES, findHubTown } from '@/config/hub-towns';
-import { eventPage, homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { eventPage, eventPath, homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
@@ -64,8 +64,10 @@ const townLabel = (row: (typeof rows)[number]): string | undefined => {
 /** The other season pages that are built: the types with a season and a row for it. */
 const pages = TRADITION_TYPES.filter((t: TraditionType) => seasonRows(records, t, today).length > 0);
 
-/** The name links to the record's home: its town's page or guide where there is one, else the source. */
+/** The name links to the record's home: its own page on the hub where it has one (13 November 2026), else its town's page or guide, else the source. */
 const hrefFor = (row: (typeof rows)[number]): string => {
+  const own = eventPath(row.record, ctx.published);
+  if (own) return `https://${hub.domain}${own}`;
   const home = homeOf(row.record);
   return (home && alsoFor(row).find((s) => s.key === home)?.href) || row.source;
 };
