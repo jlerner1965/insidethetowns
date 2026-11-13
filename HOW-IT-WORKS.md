@@ -333,8 +333,14 @@ image. The rules are `src/lib/hub-home.ts`:
   the guide's pick, an annual event in the registry (its running where
   numbered), free admission, a run of 90 minutes or less, a playoff stage
   the title does not name, the team's league place. No field, no line.
-- Beside it, **one date**: the nearest registration deadline, else the
-  newest local change; and the schools' score pages.
+- Beside it, **one date**: the nearest registration deadline; and the
+  schools' score pages.
+- **In the towns**, after the weekend: the news worth a reader's time, the
+  newest first, one per town, three at most (`newsItems`): the hub's
+  verified stories (`kind: story` in `content/hub/curiosity/`, each for a
+  fortnight or until its `homeUntil`) and the guides' current local
+  changes. A story may rest on a named news report such as the Colorado
+  Sun; the town need not have published its own record first.
 - **This season** is the seasons opened with a year in `CURRENT_SEASONS`
   that still have a date to come, soonest first, each with its count by
   town and next date. The year-round pages are on `/towns/` ("All annual

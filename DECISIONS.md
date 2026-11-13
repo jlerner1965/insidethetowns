@@ -11227,3 +11227,27 @@ session. Decided and done:
   town pages keep the town's name alone as their heading (the title carries
   the search words); the signup keeps the browser's own check of an email
   address, which is accessible, rather than a new script in the shared form.
+
+## Stories, and "In the towns" on the hub's home, 13 November 2026 (night)
+
+The owner asked where a piece of local news worth seeing (Nederland's bid
+to buy Eldora) should go, and ruled that a named news report counts as a
+source: "Colorado Sun can count, town doesn't need to publish first."
+
+- **A story** is a new kind of hub article (`kind: story`,
+  `content/hub/curiosity/`, `scripts/templates/story-template.md`): any
+  number of towns, every fact from its listed sources, a news report
+  allowed among them, at `/articles/<slug>/`, a draft until the owner
+  marks it verified. Its page says "News", is marked up as a
+  NewsArticle, and leaves out "Visited", which means nothing for news.
+  A story about a town with its own guide can still go in that guide as a
+  local change or an article.
+- **In the towns** on the hub's home, between the weekend and the season:
+  the newest stories and the guides' local changes, one per town, three at
+  most, each with its source line, until its last day. The local change
+  leaves the deadline column, which is the deadline alone.
+- **The first story**, a draft for the owner: Nederland's bid for Eldora,
+  from the Colorado Sun's and BusinessDen's reports of the November 9 board
+  meeting, read on 13 November 2026.
+- The editorial page on the hub says that a story may rest on a named news
+  report, and that the town's own record controls where the two differ.

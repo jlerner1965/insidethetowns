@@ -25,6 +25,7 @@ import {
   guideLine,
   guideName,
   listingReasons,
+  newsItems,
   nextLine,
   numberWord,
   ordinal,
@@ -34,6 +35,7 @@ import {
   seasonFeatureLine,
   seasonsNow,
   sportsSourceText,
+  storySourceText,
   townsConfirmed,
   weekendDays,
   weekendPicks,
@@ -318,6 +320,27 @@ test('the open seasons come soonest first, and a town named in the event is not 
   assert.deepEqual(seasonsNow(records, '2026-11-13').map((s) => s.type), ['turkey-trot', 'parade-of-lights']);
   assert.equal(nextLine(records[1]!), 'Longmont Turkey Trot');
   assert.equal(nextLine({ name: 'Catch the Glow Parade', town: { name: 'Estes Park' } }), 'Catch the Glow Parade, Estes Park');
+});
+
+test('In the towns: published and not past its day, the newest first, one per town, three at most', () => {
+  const item = (town: string, title: string, date: string, until = '2026-11-30') => ({ town, label: town, title, line: '', href: '#', date, until });
+  const items = [
+    item('nederland', 'Eldora', '2026-11-13'),
+    item('nederland', 'An older Nederland item', '2026-11-10'),
+    item('berthoud', 'Ballot issue', '2026-11-05'),
+    item('erie', 'Gone', '2026-11-01', '2026-11-12'),
+    item('lyons', 'Not yet', '2026-11-20'),
+    item('windsor', 'Snow routes', '2026-11-08'),
+    item('johnstown', 'Fourth', '2026-11-02'),
+  ];
+  assert.deepEqual(newsItems(items, '2026-11-13').map((i) => i.title), ['Eldora', 'Snow routes', 'Ballot issue']);
+  assert.deepEqual(newsItems([], '2026-11-13'), []);
+});
+
+test('a story’s source line names every report and the oldest day one was read', () => {
+  assert.equal(storySourceText([{ label: 'Colorado Sun', checked: '2026-11-13' }, { label: 'BusinessDen', checked: '2026-11-12' }]), 'Sources: Colorado Sun and BusinessDen, read Nov 12, 2026');
+  assert.equal(storySourceText([{ label: 'Town of Nederland', checked: '2026-11-13' }]), 'Source: Town of Nederland, read Nov 13, 2026');
+  assert.equal(storySourceText([]), undefined);
 });
 
 test('the stylesheet declares the palette in src/config/palette.ts', () => {

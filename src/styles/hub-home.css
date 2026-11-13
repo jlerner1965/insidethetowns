@@ -94,7 +94,8 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 
 /* This season: the open seasons side by side, each a row like the weekend's. */
 .hh .hh-season-h { margin: 10px 0 16px; }
-.hh .hh-seasons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; border-bottom: 1px solid var(--hh-hairline); }
+/* Three rows side by side: this season's dates, and the news under "In the towns". */
+.hh :is(.hh-seasons, .hh-three) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; border-bottom: 1px solid var(--hh-hairline); }
 .hh .hh-all-annual { margin-top: 6px; }
 
 /* This weekend, and its column of deadlines and scores. */
@@ -156,7 +157,7 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 @media (max-width: 940px) {
   .hh .hh-hero { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 28px; }
   .hh .hh-h1 { font-size: 2.25rem; }
-  .hh .hh-seasons { grid-template-columns: minmax(0, 1fr); }
+  .hh :is(.hh-seasons, .hh-three) { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 760px) {
   .hh .hh-wrap { padding: 0 20px; }

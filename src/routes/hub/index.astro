@@ -44,7 +44,11 @@ import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { emailEditions, getHub, liveTowns } from '@/config';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
-import { getNetworkEntries, getTraditions } from '@/lib/content';
+import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
+import { articlePath, storyHomeUntil } from '@/lib/curiosity';
+import { placeName } from '@/lib/curiosity-places';
+import { firstSentence } from '@/lib/plain-text';
+import { shorten } from '@/lib/text';
 import { dayKey, formatDayRange, formatMonthDay, monthDay, parseLocal, toIsoLocal } from '@/lib/dates';
 import { clockText, displayTitle, isInProgress, lastDay, listedUntil, occurrences } from '@/lib/events';
 import { publishedHubTowns } from '@/lib/hub-towns';
@@ -63,6 +67,7 @@ import {
   listWords,
   listingKey,
   listingReasons,
+  newsItems,
   nextLine,
   numberWord,
   pickDeadline,
@@ -71,6 +76,7 @@ import {
   seasonFeatureLine,
   seasonsNow,
   sportsSourceText,
+  storySourceText,
   weekendDays,
   weekendPicks,
 } from '@/lib/hub-home';
@@ -83,7 +89,7 @@ import { currentPicks } from '@/lib/weekly';
 import { wordmarkParts } from '@/lib/titles';
 import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
 import { collectionPageJsonLd } from '@/lib/seo';
-import { expiresOn, networkChanges, timing } from '@/lib/updates';
+import { expiresOn, networkChanges } from '@/lib/updates';
 import { shownCategoryLabel } from '@/content/schemas';
 
 const hub = getHub();
@@ -226,10 +232,9 @@ const weekendRows: Row[] = days.flatMap((d): Row[] => {
 /**
  * Beside the weekend, one date to act on: the nearest registration
  * deadline (pickDeadline: the soonest that closes, else the soonest that
- * opens), or, with none, the newest local change.
+ * opens). The local changes are under "In the towns".
  */
 const deadline = pickDeadline(upcomingDeadlines(programs, { now, days: 30 }));
-const change = deadline ? undefined : networkChanges(await getNetworkEntries('updates'), now, { limit: 1 })[0];
 // The program's own listing on the deadline's day, whose title the guide's card uses.
 const deadlineListing = deadline && listings.find((e) => e.town.slug === deadline.program.town.slug && e.slug === deadline.program.data.nextEvent && dayKey(e.data.start) === dayKey(deadline.on));
 const dated = (date: Date, row: Omit<Row, 'key' | 'dayLabel' | 'dayNum'>): Row => {
@@ -252,18 +257,45 @@ const aside = deadline
         until: dayKey(deadline.on),
       }),
     }
-  : change && {
-      heading: 'Local change',
-      // The day that matters: the start of a change still ahead, else the end of one under way, else the day it took effect.
-      row: dated(timing(change, now) === 'ahead' ? change.data.effective : (change.data.effectiveEnd ?? change.data.effective), {
-        label: change.town.name,
-        title: change.data.title,
-        href: `https://${change.town.domain}/updates/#${change.slug}`,
-        meta: [],
-        check: changeSourceText(change.data),
-        until: dayKey(expiresOn(change)),
-      }),
-    };
+  : undefined;
+
+/**
+ * In the towns: the news worth a reader's time. The hub's stories
+ * (src/lib/curiosity.ts, kind `story`, verified) and the guides' current
+ * local changes, the newest first, one per town, three at most
+ * (src/lib/hub-home.ts, newsItems). Each leaves on its own last day.
+ */
+const stories = (await getCuriosity()).map((a) => a.data).filter((a) => a.kind === 'story');
+const changes = networkChanges(await getNetworkEntries('updates'), now, { limit: 12, perTown: 1 });
+const news = newsItems(
+  [
+    ...stories.map((a) => ({
+      town: a.towns[0]!,
+      label: `${a.towns.slice(0, 2).map((t) => placeName(t) ?? t).join(' · ')} · News`,
+      title: a.title,
+      line: a.description,
+      href: articlePath(a),
+      date: a.date,
+      until: storyHomeUntil(a),
+      source: storySourceText(a.sources),
+    })),
+    ...changes.map((c) => ({
+      town: c.town.slug,
+      label: `${c.town.name} · Local change`,
+      title: c.data.title,
+      // One line: the summary's first sentence, as a card shows it.
+      line: shorten(firstSentence(c.data.summary) || c.data.summary, 170),
+      href: `https://${c.town.domain}/updates/#${c.slug}`,
+      date: dayKey(c.data.published),
+      until: dayKey(expiresOn(c)),
+      source: changeSourceText(c.data),
+    })),
+  ],
+  todayKey,
+).map((i) => {
+  const md = monthDay(parseLocal(i.date));
+  return { ...i, dayLabel: md.month, dayNum: md.day };
+});
 
 /** The schools' score pages, on every guide that puts its sports in its menu (src/lib/nav.ts: not an outdoors-led guide). */
 const scoreLinks = live
@@ -328,6 +360,7 @@ const structured = collectionPageJsonLd(hub, {
   path: '/',
   items: [
     ...weekendRows.map((r) => ({ name: r.title, url: r.href })),
+    ...news.map((i) => (/^https?:/.test(i.href) ? { name: i.title, url: i.href } : { name: i.title, path: i.href })),
     ...seasons.map((r) => ({ name: r.title, path: r.href })),
     { name: 'Everything on this weekend', path: '/this-weekend/' },
   ],
@@ -432,6 +465,25 @@ const structured = collectionPageJsonLd(hub, {
               )}
             </div>
           )}
+        </div>
+      </section>
+    )}
+
+    {news.length > 0 && (
+      <section id="news" class="hh-sec" aria-labelledby="news-h" data-hide-when-empty>
+        <h2 id="news-h" class="hh-h2 hh-h2-rows">In the towns</h2>
+        <div class="hh-three">
+          {news.map((i) => (
+            <a class="hh-row" href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} data-event-day={i.until} data-track="home-news">
+              <span class="hh-day"><span class="hh-label">{i.dayLabel}</span><span class="hh-day-num">{i.dayNum}</span></span>
+              <span class="hh-stack">
+                <span class="hh-label">{i.label}</span>
+                <span class="hh-ttl hh-ttl-sm">{i.title}</span>
+                <span class="hh-meta">{i.line}</span>
+                {i.source && <span class="hh-chk">{i.source}</span>}
+              </span>
+            </a>
+          ))}
         </div>
       </section>
     )}

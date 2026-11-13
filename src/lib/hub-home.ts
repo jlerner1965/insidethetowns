@@ -475,3 +475,52 @@ export const HOME_PHOTO = {
   alt: 'The Flatirons and the foothills above Boulder from the air, with the plains and their towns beyond',
   caption: 'The Flatirons above Boulder, looking toward the plains.',
 } as const;
+
+/**
+ * One item under "In the towns" on the hub's home (13 November 2026): a
+ * story from the hub's articles (src/lib/curiosity.ts, kind `story`) or a
+ * guide's local change (content/<town>/updates/). Dates are Denver days,
+ * "2026-11-13".
+ */
+export interface NewsItem {
+  /** What keeps two items from one town: a guide's key or a town page's slug. */
+  town: string;
+  /** The small label over the headline: "Nederland · News". */
+  label: string;
+  title: string;
+  /** One line on what it means. */
+  line: string;
+  href: string;
+  /** The day it was published. */
+  date: string;
+  /** Its last day on the page. */
+  until: string;
+  /** Its source line, in the words its own page uses. */
+  source?: string;
+}
+
+/**
+ * What "In the towns" shows: the items published by today and not past
+ * their last day, the newest first, one per town so one busy town does
+ * not fill it, `limit` in all. Nothing, where nothing qualifies: the
+ * section is then not drawn.
+ */
+export function newsItems(items: readonly NewsItem[], today: string, limit = 3): NewsItem[] {
+  const towns = new Set<string>();
+  return [...items]
+    .filter((i) => i.date <= today && today <= i.until)
+    .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title))
+    .filter((i) => !towns.has(i.town) && !!towns.add(i.town))
+    .slice(0, limit);
+}
+
+/**
+ * A story's source line: the reports and records it names, and the day the
+ * oldest of them was read, so the line never claims more than every
+ * source carries. "Sources: Colorado Sun and BusinessDen, read Nov 13, 2026".
+ */
+export function storySourceText(sources: ReadonlyArray<{ label: string; checked: string }>): string | undefined {
+  if (sources.length === 0) return undefined;
+  const oldest = [...sources].map((s) => s.checked).sort()[0]!;
+  return `${sources.length === 1 ? 'Source' : 'Sources'}: ${listWords(sources.map((s) => s.label))}, read ${formatShortDate(parseLocal(oldest))}`;
+}

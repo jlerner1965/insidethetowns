@@ -2,13 +2,20 @@
  * The hub's town-anchored articles (the brief of 13 November 2026): one
  * file per article in content/hub/curiosity/, in two topics, Camping and
  * Ghost towns, each anchored to one town, and the one-off event article
- * (Sundance from the towns next door), which covers several.
+ * (Sundance from the towns next door), which covers several; and, since 13
+ * November 2026, a story: a piece of news worth a reader's time (Nederland
+ * and Eldora), shown under "In the towns" on the hub's home for a fortnight
+ * or until `homeUntil`, and kept at its address after that.
  *
  * The rule is the town profile's (src/lib/town-profile.ts): every
  * practical fact is a value with the official page it was read on
  * (`source`) and the day it was read (`checked`), and a fact nobody could
  * confirm is left out of the file and named in `flags`. A guide site is
- * never a source. `checked` moves only when the fact is read again.
+ * never a source. `checked` moves only when the fact is read again. A
+ * story may rest on a named news report (the Colorado Sun, BusinessDen):
+ * the town need not have published its own record first (the owner, 13
+ * November 2026). It names each report, links it and gives the day it was
+ * read, like any other source.
  *
  * An article is a draft until the owner sets `status: verified`. A draft
  * builds nowhere: no page, no index row, no link from a town page. The
@@ -25,9 +32,17 @@ import { isGuideSite, sourceHost } from './town-profile.ts';
 /** The topics with an index page, in the order the hub lists them. */
 export const CURIOSITY_TOPICS = ['camping', 'ghost-towns'] as const;
 export type CuriosityTopic = (typeof CURIOSITY_TOPICS)[number];
-/** What an article is: one of the topics, or a one-off event article with no index of its own. */
-export const CURIOSITY_KINDS = [...CURIOSITY_TOPICS, 'event'] as const;
+/** What an article is: one of the topics, a one-off event article, or a story (news); the last two have no index of their own. */
+export const CURIOSITY_KINDS = [...CURIOSITY_TOPICS, 'event', 'story'] as const;
 export type CuriosityKind = (typeof CURIOSITY_KINDS)[number];
+
+/** An event article or a story: at /articles/<slug>/, naming any number of towns, every fact from its listed sources. */
+export function isStandalone(kind: CuriosityKind): kind is 'event' | 'story' {
+  return kind === 'event' || kind === 'story';
+}
+
+/** How long a story is on the hub's home after its date, where it gives no `homeUntil`. */
+export const STORY_HOME_DAYS = 14;
 
 export const TOPIC_INFO: Record<CuriosityTopic, { label: string; path: string; near: (town: string) => string; intro: string; description: string }> = {
   camping: {
@@ -162,7 +177,7 @@ const placeSlug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'a town page’
 
 export const curiositySchema = z
   .object({
-    /** The file's name, and the address of an event article: /articles/<slug>/. */
+    /** The file's name, and the address of an event article or a story: /articles/<slug>/. */
     slug: placeSlug,
     kind: z.enum(CURIOSITY_KINDS),
     /**
@@ -199,12 +214,19 @@ export const curiositySchema = z
      * day until every `checked` in it is on or after it.
      */
     reverify: z.object({ from: day, why: text.max(240) }).strict().optional(),
+    /**
+     * A story's last day under "In the towns" on the hub's home; without it,
+     * STORY_HOME_DAYS after its date. The article stays at its address.
+     */
+    homeUntil: day.optional(),
   })
   .strict()
-  .refine((a) => a.kind === 'event' || a.towns.length === 1, { message: 'a topic article is anchored to one town', path: ['towns'] })
+  .refine((a) => isStandalone(a.kind) || a.towns.length === 1, { message: 'a topic article is anchored to one town', path: ['towns'] })
   .refine((a) => (a.kind === 'camping') === a.campgrounds.length > 0, { message: 'a camping article lists its campgrounds, and only a camping article does', path: ['campgrounds'] })
   .refine((a) => (a.kind === 'ghost-towns') === a.ghostTowns.length > 0, { message: 'a ghost-town article lists its ghost towns, and only a ghost-town article does', path: ['ghostTowns'] })
-  .refine((a) => a.kind !== 'event' || a.sources.length > 0, { message: 'an event article names the source of every fact', path: ['sources'] })
+  .refine((a) => !isStandalone(a.kind) || a.sources.length > 0, { message: 'an event article or a story names the source of every fact', path: ['sources'] })
+  .refine((a) => a.kind === 'story' || !a.homeUntil, { message: 'only a story is shown on the hub’s home, so only a story carries homeUntil', path: ['homeUntil'] })
+  .refine((a) => !a.homeUntil || a.homeUntil >= a.date, { message: 'homeUntil is on or after the story’s date', path: ['homeUntil'] })
   .refine((a) => a.status !== 'verified' || (a.needs.length === 0 && [...a.campgrounds, ...a.ghostTowns].every((e) => e.flags.length === 0)), {
     message: 'an article with open flags is not verified: settle each one (fill the field from its source, or delete the flag and leave the field out)',
     path: ['status'],
@@ -245,7 +267,15 @@ export function lastVerified(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTow
 
 /** Where the article is on the hub. */
 export function articlePath(a: Pick<CuriosityArticle, 'kind' | 'towns' | 'slug'>): string {
-  return a.kind === 'event' ? `/articles/${a.slug}/` : `${TOPIC_INFO[a.kind].path}${a.towns[0]}/`;
+  return isStandalone(a.kind) ? `/articles/${a.slug}/` : `${TOPIC_INFO[a.kind].path}${a.towns[0]}/`;
+}
+
+/** A story's last day on the hub's home: its `homeUntil`, else STORY_HOME_DAYS after its date. */
+export function storyHomeUntil(a: Pick<CuriosityArticle, 'date' | 'homeUntil'>): string {
+  if (a.homeUntil) return a.homeUntil;
+  const d = new Date(`${a.date}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + STORY_HOME_DAYS);
+  return d.toISOString().slice(0, 10);
 }
 
 /** Whether the article is on the site: verified, or a draft under the local preview switch. */
