@@ -70,7 +70,7 @@ Swimming is allowed only at the swim beach at Dam 2, open sunrise to sunset. The
 
 ## Camping
 
-The reservation site's loops are Carter Knolls, Eagle, North Pines, Sky View and South Shore. Walk-up camping without a reservation is not allowed; book at [larimercamping.com](https://www.larimercamping.com/campgroundDetails.do?contractCode=LARC&parkId=710102) or by phone at 1-800-397-7795, same day included. The reservation site lists 113 sites at Carter Lake: 92 standard electric, 9 standard, 8 walk-to, 3 group electric and a pavilion, in the Carter Knolls, Eagle, North Pines, Sky View and South Shore loops. South Shore has camper cabins and showers. The County shuts off the water spigots for the winter, typically November through March.
+The reservation site's loops are Carter Knolls, Eagle, North Pines, Sky View and South Shore. Book at [larimercamping.com](https://www.larimercamping.com/campgroundDetails.do?contractCode=LARC&parkId=710102) or by phone at 1-800-397-7795, same day included. The reservation site lists 113 sites at Carter Lake: 92 standard electric, 9 standard, 8 walk-to, 3 group electric and a pavilion, in the Carter Knolls, Eagle, North Pines, Sky View and South Shore loops. The County shuts off the water spigots for the winter, typically November through March.
 
 Check-in is noon, check-out 11 am. One wheeled camping unit per site, extra ground tents allowed, six to eight people maximum. Cancellation is $6.35 a site plus the reservation fee. Food and coolers go in a vehicle or a locked hard-sided container; there are bears. Quiet hours are 10 pm–6 am, alcohol is allowed only at campsites and on boats, and there is no camping or fire on the west side of the lake.
 
