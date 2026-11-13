@@ -10,7 +10,7 @@ source: "https://www.erieco.gov/Calendar.aspx?EID=5084"
 sourceId: "erieco-gov"
 sourceUid: "EID=5084"
 verified: "2026-10-11"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by Lerner Works"
 status: "scheduled"
 cost: "Free; advance registration required"
 ---

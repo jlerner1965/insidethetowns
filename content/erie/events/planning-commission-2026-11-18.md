@@ -12,7 +12,7 @@ verified: "2026-11-11"
 status: canceled
 statusNote: "Town of Erie lists this as canceled (read 2026-11-11)."
 statusSource: "https://www.erieco.gov/Calendar.aspx?EID=5224"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by Lerner Works"
 ---
 
 Regular meeting of the Erie Planning Commission in the Council Chambers at Town Hall, first and third Wednesdays at 6:30 pm, on development applications, annexations and the comprehensive plan. Streamed live; agendas post 24 hours ahead.

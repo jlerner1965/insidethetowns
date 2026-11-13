@@ -9,7 +9,7 @@ cost: "Free"
 category: family
 source: "https://jhsco.org/events/2026-holiday-open-house/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026: Holiday Open House 2026, Saturday, December 5, 2026, 1:00 pm - 4:00 pm, free to the public, at 701 Charlotte Street"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026: Holiday Open House 2026, Saturday, December 5, 2026, 1:00 pm - 4:00 pm, free to the public, at 701 Charlotte Street"
 ---
 
 The Historical Society opens the decorated Parish House for its annual holiday open house, with Handmade Holidays, an exhibit of holiday arts and crafts made by people in the community, plus refreshments, cookies and a hands-on craft for children and adults. Free, donations welcome; come and go between 1 and 4 pm. The museum's regular Saturday hours, 9 am to noon, are off that day while the Society sets up.

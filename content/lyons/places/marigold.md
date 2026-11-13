@@ -13,7 +13,7 @@ details:
 summary: "Northern Italian and southern French cooking in a small dining room; the town’s dinner-out address."
 source: "https://www.marigoldlyons.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

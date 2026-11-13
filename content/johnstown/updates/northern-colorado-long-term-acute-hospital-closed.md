@@ -8,7 +8,7 @@ action: "For copies of medical records, call Northern Colorado Rehabilitation Ho
 effective: "2026-10-01"
 published: "2026-11-01"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the notice on the hospital's home page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the notice on the hospital's home page)"
 source: "https://ncltah.ernesthealth.com/"
 sourceLabel: "Northern Colorado Long Term Acute Hospital"
 expires: "2026-12-31"

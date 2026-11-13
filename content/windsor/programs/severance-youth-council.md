@@ -17,7 +17,7 @@ registration: { required: true, how: "By application to the Town, on its Youth C
 contact: "Town Hall, 970-686-1218"
 source: "https://www.townofseverance.org/413/Youth-Council"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The Town describes the Youth Council as "an advisory body to the Town Council" that represents "the interests and perspectives of the community's youth". It recommends policies, programs and initiatives that affect young residents and promotes community service. The Town lists four goals, among them "Giving Teens a Voice in Local Government".

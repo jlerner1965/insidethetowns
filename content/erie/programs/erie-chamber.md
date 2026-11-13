@@ -15,7 +15,7 @@ volunteerNeed: "Parade of Lights, December 4, 2026, Historic Downtown Erie: 67 v
 contact: "303-828-3440, erie@eriechamber.org"
 source: "https://www.eriechamber.org/volunteer-opportunities/"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Chamber's Volunteer Opportunities, Ambassadors, Business Connections, About Us and Membership Rates pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Chamber's Volunteer Opportunities, Ambassadors, Business Connections, About Us and Membership Rates pages, read November 9, 2026"
 ---
 
 **Volunteer at an event.** The Chamber says volunteers "are an integral part of the Chamber and help to make our events successful", and that its events can count as community service hours for students. Its 2026 list covered the Erie Town Fair in May, the Erie Balloon Festival in July, two Concerts in the Park, Erie Brewfest in October and the [Parade of Lights](/events/parade-of-lights/) on December 4. For the parade it asks for 67 people: 18 from 3 to 6 pm, 34 from 5 to 8 pm and 15 from 8 to 9 pm. Call 303-828-3440 or email erie@eriechamber.org.

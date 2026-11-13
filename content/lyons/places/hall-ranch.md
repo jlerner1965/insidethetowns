@@ -19,7 +19,7 @@ details:
 summary: "The Front Range’s best-known mountain-bike climb and a fine hike: the Bitterbrush trail gains 898 feet in 3.7 miles to the Nelson Loop through ponderosa meadows."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/hall-ranch/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (Boulder County's park page and its PDF trail map)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (Boulder County's park page and its PDF trail map)"
 added: "2026-09-17"
 ---
 

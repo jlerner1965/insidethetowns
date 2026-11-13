@@ -13,7 +13,7 @@ volunteerNeed: "\"Erie Parks and Recreation's volunteer needs will only continue
 contact: "Town of Erie, 303-926-2700; Police Outreach, 303-926-2800, policeoutreach@erieco.gov"
 source: "https://www.erieco.gov/volunteer"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Volunteer Opportunities and Volunteers in Police Service pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Volunteer Opportunities and Volunteers in Police Service pages, read November 9, 2026"
 ---
 
 **Parks & Recreation.** The Town lists these roles: special events, the lunch program, drop-in activity leader, class instructor, softball and volleyball team captain, Therapeutic/Adaptive Recreation, and youth sports coach for basketball, soccer, softball and baseball, flag football and volleyball. Special event volunteers are 16 and up. Head coaches are 18 and up, and a younger helper is paired with a head coach. Start with the [online volunteer application](https://erieco-volunteer.app.transform.civicplus.com/forms/26814). The Town thanks volunteers with passes to the [Erie Community Center](/places/erie-community-center/): two day passes for each special event worked, for example, and free youth sports registration for one child for each team a head coach takes on.

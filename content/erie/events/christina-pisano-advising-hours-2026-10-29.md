@@ -12,7 +12,7 @@ sourceId: "erieco-gov"
 sourceUid: "EID=5086"
 sourceHash: "4a357dd170d4"
 verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by Lerner Works"
 ---
 
 Free one-on-one business consulting with Christina Pisano, an adviser with the Colorado Small Business Development Center. Registration is required; the Town's page links to the sign-up.

@@ -13,7 +13,7 @@ registration: { required: true, how: "The Town's Adopt-a-Road Application Form, 
 contact: "Adopt-A-Road Program Coordinator, SustainableErie@erieco.gov"
 source: "https://www.erieco.gov/1232/Adopt-a-Road-Program"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Adopt-a-Road Program and Volunteer Opportunities pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Adopt-a-Road Program and Volunteer Opportunities pages, read November 9, 2026"
 ---
 
 Adopting a road is a one-year commitment to clear the litter from both sides of a section of roughly two miles at least twice, in the spring and fall windows the Town sets; summer cleanups are optional. The Town puts up a sign naming the adopter, hands out a safety vest for each person, trash bags and advance warning signs, and collects the full bags. Its rules: work in daylight and good weather, wear the vest, stay off the pavement, split large groups into teams of 12 or fewer with a team leader, and leave pets at home. The Town discourages bringing children and asks for one adult for every five participants under 16. The [program page](https://www.erieco.gov/1232/Adopt-a-Road-Program) has the application and a map of the roads.

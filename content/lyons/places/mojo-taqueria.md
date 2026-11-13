@@ -13,7 +13,7 @@ details:
 summary: "Regional Mexican flavors, tacos and a busy bar; dinner most nights, lunch on weekends."
 source: "https://mojotaqueria.com/"
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 11 November 2026 (the home page's Lyons hours: Tuesday to Thursday 4 to 8 pm, Friday and Saturday 11 am to 8:30 pm, Sunday 11 am to 8 pm, closed Mondays)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 11 November 2026 (the home page's Lyons hours: Tuesday to Thursday 4 to 8 pm, Friday and Saturday 11 am to 8:30 pm, Sunday 11 am to 8 pm, closed Mondays)"
 added: "2026-09-17"
 ---
 

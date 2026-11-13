@@ -15,7 +15,7 @@ volunteerNeed: "\"Erie is seeking Zero Waste Champions to engage with local resi
 contact: "Town of Erie, 303-926-2700"
 source: "https://www.erieco.gov/1989/25829/Zero-Waste-Champions"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Zero Waste Champions and Volunteer Opportunities pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Zero Waste Champions and Volunteer Opportunities pages, read November 9, 2026"
 ---
 
 Zero Waste Champions work the waste stations at Town special events and at the Recycling Center. Some teach: they tell people what is recyclable, compostable or reusable. Some collect full bags with staff so bins do not overflow, and some sort what an event produced so the recycling and compost are not contaminated. Volunteers are trained first: an overview with Town staff, a training module before the first event, and the EcoCycle Eco-Leaders Training. The Town asks for volunteers who are 16 or older, can lift 15 to 20 pounds, are comfortable approaching the public and are free on evenings and weekends, and for at least two events a calendar year. Start with the [interest form](https://forms.office.com/g/M7wz1qyABd).

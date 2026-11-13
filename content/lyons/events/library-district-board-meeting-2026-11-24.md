@@ -8,7 +8,7 @@ category: civic
 recurring: "Fourth Tuesdays"
 source: "https://lyons.colibraries.org/board-of-trustees/"
 verified: "2026-11-04"
-verifiedBy: "Claude Code, delegated by James Lerner: the board page says 6 pm on the fourth Tuesday of the month"
+verifiedBy: "Claude Code, delegated by Lerner Works: the board page says 6 pm on the fourth Tuesday of the month"
 ---
 
 Regular meeting of the Lyons Regional Library District board of trustees, held in the Effie Banta Meeting Room.

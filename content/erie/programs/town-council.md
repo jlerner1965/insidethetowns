@@ -15,7 +15,7 @@ nextEvent: town-council-2026-11-10
 contact: "Town Clerk, townclerk@erieco.gov; the whole Council at council@erieco.gov or the message line, 303-926-2777"
 source: "https://www.erieco.gov/318/Town-Council"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Town Council page, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Town Council page, read November 9, 2026"
 ---
 
 **Speak to the Council.** The public comment part of the agenda is for items that have no public hearing of their own and for anything not on the agenda. The Council listens and does not discuss during it, and may put an item on a later agenda. Sign up on the [online form](https://erieco-services.app.transform.civicplus.com/forms/public-comment) or at the kiosk outside the Council Chambers at [Town Hall](/places/erie-town-hall/); speakers are called in the order they signed up. For a public hearing you can comment in person, on Zoom through the Town's [meeting page](https://www.erieco.gov/CouncilMeeting), or in writing to the Town Clerk before the meeting.

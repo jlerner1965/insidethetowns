@@ -14,7 +14,7 @@ details:
 summary: "The big park on the north side: playgrounds, a basketball court, skate park, turf fields, a miniature pump track, and the Recreation Center on the same site."
 source: "https://www.berthoud.org/Facilities/Facility/Details/Waggener-Farm-Park-19"
 verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Waggener Farm Park and Recreation Center facility pages and its Active Town Projects page, read 8 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Waggener Farm Park and Recreation Center facility pages and its Active Town Projects page, read 8 November 2026"
 added: "2026-09-17"
 ---
 

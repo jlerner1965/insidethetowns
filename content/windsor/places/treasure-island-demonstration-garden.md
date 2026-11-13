@@ -8,7 +8,7 @@ url: "https://www.recreationliveshere.com/248/Treasure-Island-Demonstration-Gard
 phone: "(970) 388-5199"
 source: "https://www.recreationliveshere.com/248/Treasure-Island-Demonstration-Garden"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-10-01"
 tags: [garden, xeriscape, volunteers, poudre-trail]
 details:

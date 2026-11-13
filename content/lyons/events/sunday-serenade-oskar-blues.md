@@ -14,7 +14,7 @@ imageAlt: "Pints on a table at Oskar Blues"
 imageCredit: "Shannon McGee, Flickr, CC BY-SA 2.0"
 source: "https://lyonsrecorder.org/events/"
 verified: "2026-10-17"
-verifiedBy: "Claude Code for James Lerner, on the Lyons Recorder's community calendar: “Sunday Serenade (Oskar Blues)” at 5 pm on 18 October, 17 October 2026"
+verifiedBy: "Claude Code for Lerner Works, on the Lyons Recorder's community calendar: “Sunday Serenade (Oskar Blues)” at 5 pm on 18 October, 17 October 2026"
 ---
 
 A gentle, all-ages early-evening concert by local musicians at Oskar Blues, every Sunday. No cover.

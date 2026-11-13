@@ -16,7 +16,7 @@ nextEvent: friends-of-the-library-monthly-meeting-2026-11-19
 contact: "lyons.library.friends@gmail.com"
 source: "https://lyons.colibraries.org/friends"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Friends page and the library's events calendar)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Friends page and the library's events calendar)"
 ---
 
 The Friends of the Lyons Regional Library District is a volunteer-run 501(c)(3) that funds library programs, events and improvements beyond the library's annual budget. Individuals, families and organizations become Friends by volunteering or making a contribution, and membership is for life; members get the Friends' email newsletter. The board takes applications from people with skills in events, fundraising, communications, finance or organization. The Friends also run the bookshelf of used books inside the library, which takes donations of one box per family a week, handed to library staff. The group's monthly meeting is on [the calendar](/events/friends-of-the-library-monthly-meeting-2026-11-19/).

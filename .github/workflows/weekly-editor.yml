@@ -11,7 +11,7 @@
 # notes, published from the Wednesday drafts in docs/agent/ with anything
 # unsourced dropped. It is Claude Code on the Anthropic API, following
 # .claude/skills/inside-the-towns-editor/SKILL.md, and it stamps what it
-# confirms `verifiedBy: "Claude Code, delegated by James Lerner"`.
+# confirms `verifiedBy: "Claude Code, delegated by Lerner Works"`.
 #
 # It reads pages on the open web, so it is fenced: it can edit only under
 # content/ and never content/hub/ (a file in content/hub/issues/ is an email

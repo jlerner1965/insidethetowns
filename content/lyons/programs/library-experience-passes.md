@@ -14,7 +14,7 @@ registration: { required: true, how: "Reserve in the online catalog or at the de
 contact: "303-823-5165 to change or cancel a reservation"
 source: "https://lyons.colibraries.org/cultural-and-educational-passes/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The library’s Experience Passes, borrowed on a Lyons Community Library adult card with no fines owing: the **Denver Botanic Gardens** (up to six, once a year per card), the **Butterfly Pavilion** (two free, up to three more at $5), **Fiske Planetarium** (up to four, Saturday or Sunday afternoon matinees), the **WOW! Children’s Museum** in Lafayette (one adult, one child) and a **Colorado State Parks** car hang-tag that checks out for a week. The Longmont Museum pass is unavailable during its construction. Reserve in the catalog or in person; a pass goes first to a household that has not used it this calendar year, and only one can be out or on hold at a time.

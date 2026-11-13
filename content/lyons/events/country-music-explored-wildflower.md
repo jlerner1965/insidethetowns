@@ -11,7 +11,7 @@ category: music
 timeNote: "Doors 6 p.m., show 7 p.m."
 source: "https://bluegrass.com/wildflower"
 verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+verifiedBy: "Claude Code for Lerner Works, against the organizer's own page, 16 October 2026"
 ---
 
 The Boulder Philharmonic closes the Wildflower Pavilion's fall series with country music explored by a string quartet. Ticketed.

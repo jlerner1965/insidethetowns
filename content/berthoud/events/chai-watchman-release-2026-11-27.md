@@ -8,7 +8,7 @@ url: "https://citystarbrewing.com/event/chai-watchman-release/"
 category: food
 source: "https://citystarbrewing.com/event/chai-watchman-release/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: title, date, times and the beer's description)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (City Star's events feed: title, date, times and the beer's description)"
 ---
 
 City Star releases Chai Watchman, a stout brewed with cinnamon, ginger, cloves, cardamom and vanilla, on draft and in 16 oz four-packs to go.

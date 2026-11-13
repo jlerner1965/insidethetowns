@@ -8,7 +8,7 @@ url: "https://windsongestate.com/"
 source: "https://windsongestate.com/"
 verified: "2026-11-10"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 phone: "970-699-4432"
 hours: "Tue 10 am–4 pm; Wed–Fri 10 am–5 pm; Sat–Sun by appointment; closed Mon"
 tags: [weddings, event venue, private events, corporate events]

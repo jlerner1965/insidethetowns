@@ -14,7 +14,7 @@ details:
 summary: "Poke bowls, Australian meat pies and desserts on Mountain Avenue, with online ordering and curbside pickup."
 source: "https://www.aussiespokepitstop.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

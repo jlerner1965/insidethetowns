@@ -10,7 +10,7 @@ category: other
 recurring: "Monthly, third Wednesdays"
 source: "https://highplains.libcal.com/event/16776754"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 Self-guided open play for mahjong players. Bring a set or National Mah Jongg card if you have one. Registration required.

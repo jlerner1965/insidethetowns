@@ -3,7 +3,7 @@ title: "Where to eat and drink in Erie: 10 picks"
 seoTitle: "Restaurants in Erie, CO: 10 local picks"
 description: "Ten places to eat and drink in Erie, Colorado, from cider and pizza on Briggs Street to pho on Mitchell Way, each checked against its own site in November 2026."
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: each pick's own site read on 11 November 2026 for hours, menu and address"
+verifiedBy: "Claude Code, delegated by Lerner Works: each pick's own site read on 11 November 2026 for hours, menu and address"
 picks:
   - place: the-old-mine
     for: "Cider and pizza"

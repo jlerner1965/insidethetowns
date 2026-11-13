@@ -8,7 +8,7 @@ url: "https://www.townofseverance.org/"
 source: "https://www.townofseverance.org/FAQ.aspx"
 verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 phone: "970-686-1218"
 hours: "Mon–Fri 8 am–12 pm & 1–5 pm"
 tags: [government, meetings]

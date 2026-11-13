@@ -10,7 +10,7 @@ url: "https://citystarbrewing.com/event/late-for-supper/"
 category: music
 source: "https://citystarbrewing.com/event/late-for-supper/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: title, date, times and description)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (City Star's events feed: title, date, times and description)"
 ---
 
 Late For Supper, the Boulder-based rotating lineup of Colorado roots players fronted by Jon Garson on upright bass, guitar and vocals, plays bluegrass, Americana, honky tonk and swing from 6 to 8:30 pm.

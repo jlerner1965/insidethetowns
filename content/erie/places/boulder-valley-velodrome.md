@@ -6,7 +6,7 @@ url: "https://bouldervalleyvelodrome.org/"
 source: "https://bouldervalleyvelodrome.org/"
 verified: "2026-11-09"
 added: "2026-11-09"
-verifiedBy: "James Lerner (the address), 9 November 2026; the rest read from the velodrome's own site the same day"
+verifiedBy: "Lerner Works (the address), 9 November 2026; the rest read from the velodrome's own site the same day"
 tags: [cycling, track, pickleball, events]
 summary: "A 250-metre wooden cycling track, one of two in the country that meet Olympic standards, restored and running again with daily training, weekly racing, pickleball courts and family events."
 ---

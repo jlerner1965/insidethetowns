@@ -13,7 +13,7 @@ registration: { required: true, how: "Register online through Scouting America's
 contact: "BerthoudPackSix@gmail.com"
 source: "https://www.berthoudpack6.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The pack meets twice a month, usually at the Berthoud United Methodist Church, to work on citizenship, character, personal fitness and the outdoors. Its site lists hiking with plant and animal identification, camping with scout-cooked meals, recognition ceremonies with potluck dinners, the Pinewood Derby, service projects, and games and crafts, and says it loves and encourages family involvement. It gives no meeting day, time or cost; email the pack to ask. Older boys move up to [Troop 6](/families/#program-scouts-troop-6).

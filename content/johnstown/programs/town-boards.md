@@ -14,7 +14,7 @@ nextEvent: planning-zoning-2026-11-18
 contact: "Town Clerk, 970-587-4664"
 source: "https://johnstownco.gov/200/Boards-Commissions"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Boards & Commissions, Planning & Zoning Commission, Cemetery Committee, Housing Authority, Board of Appeals and Public Art Committee pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Boards & Commissions, Planning & Zoning Commission, Cemetery Committee, Housing Authority, Board of Appeals and Public Art Committee pages, read November 9, 2026"
 ---
 
 The Town "invites residents to participate on Boards, Commissions, and Committees to act in an advisory capacity to the Town Council". The [application](https://johnstownco.gov/200/Boards-Commissions) is one online form; it asks which body you want, how long you have lived in Johnstown, and whether you can commit to evening meetings two to three times a month and to a full term.

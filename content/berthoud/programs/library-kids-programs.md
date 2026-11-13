@@ -15,7 +15,7 @@ contact: "970-532-2757"
 price: "Free"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The library's November calendar has **Craft & Concoct** on Thursday the 12th at 4:15 pm, a relaxed craft hour with crochet as this month's theme and no experience needed; **Donut Bug Me, I'm Reading!**, independent reading time for middle schoolers with donuts provided, on Wednesday the 18th at 4:15, by registration (in October it ran every Wednesday); and **Budding Artists: Collage** for ages 7 to 10 on Friday the 20th at 4, by registration. November's **Tinker Tots**, a science session, was on the 6th. The library is closed November 11 and 26–27. Each month's dates go up on its [events and classes page](https://www.berthoudcommunitylibrary.org/events-classes) and in its newsletter; the ones on this guide's calendar are under [Family](/events/?category=family).

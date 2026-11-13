@@ -11,7 +11,7 @@ cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/17531288"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 Bestselling author Rebecca Thorne, who wrote Can’t Spell Treason Without Tea, discusses plotting, story structure and her writing process.

@@ -13,7 +13,7 @@ timeNote: "2 to 5 pm; tree lighting 5:30"
 featured: true
 source: "https://www.visitdowntownjohnstown.com/johnstownjingle"
 verified: "2026-11-12"
-verifiedBy: "Claude Code, delegated by James Lerner: read on 12 November 2026 the Johnstown DDA's Johnstown Jingle page (Sunday, December 6, 2026, 2pm - 5pm, tree lighting at 5:30pm), its vendor page (snow or shine; vendors inside the Senior Center; $100 of each vendor fee to Christmas for Johnstown children in need), its sponsorship page and its events page"
+verifiedBy: "Claude Code, delegated by Lerner Works: read on 12 November 2026 the Johnstown DDA's Johnstown Jingle page (Sunday, December 6, 2026, 2pm - 5pm, tree lighting at 5:30pm), its vendor page (snow or shine; vendors inside the Senior Center; $100 of each vendor fee to Christmas for Johnstown children in need), its sponsorship page and its events page"
 organizer: "Johnstown Downtown Development Authority"
 ---
 

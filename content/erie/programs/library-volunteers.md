@@ -15,7 +15,7 @@ registration: { required: true, how: "Apply to the Erie opening on the Friends &
 contact: "foundation@highplains.us"
 source: "https://volunteer.hpldfriendsandfoundation.org/"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the HPLD Friends & Foundation volunteer site with its Erie Program Assistant and Erie Teen Program Assistant listings, and the Foundation's Become a Friend and What We Do pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the HPLD Friends & Foundation volunteer site with its Erie Program Assistant and Erie Teen Program Assistant listings, and the Foundation's Become a Friend and What We Do pages, read November 9, 2026"
 ---
 
 The High Plains Library District's Friends & Foundation runs the volunteer program for all the district's libraries, the [Erie Community Library](/places/erie-community-library/) among them. Its [volunteer site](https://volunteer.hpldfriendsandfoundation.org/need/) lists two Erie openings. The **Erie Teen Program Assistant** is for ages 12 and older, with an affidavit and parental permission for 12 to 17-year-olds, and is open for applications until September 30, 2027. The **Erie Program Assistant** is for 18 and older and is open until April 1, 2027; its listing says the role is "limited in scope" for now and that volunteers selected at present would water the indoor plants.

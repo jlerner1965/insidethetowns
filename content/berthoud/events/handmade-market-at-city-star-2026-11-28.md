@@ -8,7 +8,7 @@ url: "https://citystarbrewing.com/event/handmade-market-3/"
 category: market
 source: "https://citystarbrewing.com/event/handmade-market-3/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: Saturday, November 28, noon to 4 pm, the makers named)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (City Star's events feed: Saturday, November 28, noon to 4 pm, the makers named)"
 ---
 
 City Star's ninth Handmade Market fills the taproom with local makers on Small Business Saturday, noon to 4 pm: pottery from Mud Works Ceramics, fiber art from Fish Fam Alpacas, jewelry, candles, skincare, linocut prints, garlic from Sanders Farm and art pieces from Lloyd Drust, among others. A food truck parks out front, with live music to follow.

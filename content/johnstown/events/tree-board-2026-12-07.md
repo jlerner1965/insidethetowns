@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 source: "https://johnstownco.gov/Calendar.aspx"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town calendar for December 2026: Johnstown Tree Board Meeting, December 7, 7:00 PM - 8:00 PM)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Town calendar for December 2026: Johnstown Tree Board Meeting, December 7, 7:00 PM - 8:00 PM)"
 ---
 
 Meeting of the Town's Tree Board at Town Hall, listed on the Town calendar.

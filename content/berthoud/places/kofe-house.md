@@ -15,7 +15,7 @@ details:
 summary: "The family-owned coffee house on Mountain Avenue downtown: coffee, breakfast and lunch every day, and an Italian dinner on Thursday evenings."
 source: "https://kofe-house.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (kofe-house.com, the Hours list opened to show each day)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (kofe-house.com, the Hours list opened to show each day)"
 added: "2026-09-17"
 ---
 

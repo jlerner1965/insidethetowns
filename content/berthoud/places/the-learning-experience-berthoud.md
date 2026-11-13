@@ -13,7 +13,7 @@ details:
 summary: "A child care center and preschool on Lake Avenue for children from six weeks to five years, open weekdays from 6:30 am to 6 pm."
 source: "https://thelearningexperience.com/centers/berthoud-co/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

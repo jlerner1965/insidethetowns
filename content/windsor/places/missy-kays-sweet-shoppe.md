@@ -7,7 +7,7 @@ area: "5th and Main, downtown"
 url: "https://www.missykays.com/"
 source: "https://www.missykays.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-10-01"
 hours: "Mon–Thu 10–6, Fri–Sat 10 am–8 pm, Sun 11–5"
 tags: [cookies, candy, soda, gifts, kids]

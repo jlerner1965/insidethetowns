@@ -14,7 +14,7 @@ registration: { required: true, how: "Sign up on the activity sheet at the Senio
 contact: "Senior Center Coordinator, 970-587-5251"
 source: "https://johnstownco.gov/413/Activities"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Johnstown Senior Center, Activities and Membership pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Johnstown Senior Center, Activities and Membership pages, read November 9, 2026"
 ---
 
 The Town's Senior Center runs a weekly round of low-cost activities. The Town asks people to sign up on the activity sheet, in person or by phone, and to cancel if they cannot come.

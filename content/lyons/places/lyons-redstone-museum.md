@@ -21,7 +21,7 @@ details:
 summary: "Local history in the 1881 sandstone schoolhouse, run by the Lyons Historical Society since 1979. Free; open in the summer season."
 source: "https://www.lyonsredstonemuseum.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the museum's home and about pages and its Forty Years / Forty Artifacts exhibit on VirMuze)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the museum's home and about pages and its Forty Years / Forty Artifacts exhibit on VirMuze)"
 added: "2026-09-17"
 ---
 

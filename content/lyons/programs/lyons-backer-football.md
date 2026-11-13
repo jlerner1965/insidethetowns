@@ -18,7 +18,7 @@ registration: { required: true, how: "Through the Town’s recreation registrati
 contact: "lyonsbacker@gmail.com"
 source: "https://www.townoflyons.com/624/Register-for-Recreation-Programs"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 A volunteer club, not a Town program, listed on the Town’s registration page: contact football for middle-schoolers, with fifth graders admitted by prior approval. The 2026 season ran August 3 to October 7, four afternoons a week at Bohn Park with occasional Fridays. The Town’s page gives the fee as $75 and says the club’s fundraising cut the registration fee in half; the club says it offers discreet financial help to those in need. Families buy the helmet, mouthpiece, socks and cleats; the club lends the jersey and shoulder pads.

@@ -14,7 +14,7 @@ registration: { required: false, how: "Download the membership application from 
 contact: "BerthoudRotaryClub@gmail.com"
 source: "https://sites.google.com/view/berthoud-rotary-club/new-member-information"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The club's own page gives two meetings a month: a business meeting in the conference room at [Cornerstone Cafe](/places/cornerstone-cafe/) at noon on the second Wednesday, and a social in the barrel room at [City Star](/places/city-star-brewing/) at 5:30 on the fourth. Membership and dues go through the Rotary Club of Loveland; to join, fill in the application on the club's [Contact page](https://sites.google.com/view/berthoud-rotary-club/contact-us) and email it to the club. The page carries no date, so confirm the meeting before you go.

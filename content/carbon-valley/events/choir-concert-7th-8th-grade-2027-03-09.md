@@ -9,7 +9,7 @@ sourceId: "crms-svvsd-org"
 sourceUid: "7j4q6p2abdnihl30u3vhbtljv4@google.com"
 sourceHash: "8ce2c2442fd4"
 verified: "2026-11-11"
-verifiedBy: "auto-review from the Coal Ridge Middle School (school calendar) feed read 2026-11-11, Claude Code, delegated by James Lerner, under the standing review rules"
+verifiedBy: "auto-review from the Coal Ridge Middle School (school calendar) feed read 2026-11-11, Claude Code, delegated by Lerner Works, under the standing review rules"
 ---
 
 Choir Concert - 7th/8th Grade at Coal Ridge Middle School, 6201 Booth Drive, Firestone, Tuesday, March 9, 7 pm – 8 pm. Listed by Coal Ridge Middle School (school calendar); the organizer's page has the details and any registration.

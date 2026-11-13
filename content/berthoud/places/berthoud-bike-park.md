@@ -12,7 +12,7 @@ details:
 summary: "20-acre Town bike park with two jump and flow lines, a dual-slalom track, a mile of cross-country trail, a kids' bicycle playground and a 20,000 sq ft pump track. Closed when wet, icy or muddy."
 source: "https://www.berthoud.org/1465/Berthoud-Bike-Park"
 verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Berthoud Bike Park page, its facility page and its Parks page, read 8 November 2026; none of them gives hours or says whether there is a fee, so both are left off"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Berthoud Bike Park page, its facility page and its Parks page, read 8 November 2026; none of them gives hours or says whether there is a fee, so both are left off"
 added: "2026-09-17"
 ---
 

@@ -13,7 +13,7 @@ details:
 summary: "The Northern Colorado wing chain's Old Town shop on North Parish Avenue: wings in the house sauces, fries and sides, with online ordering."
 source: "https://wingshackwings.com/locations/johnstown/"
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 11 November 2026 (the Johnstown location page, which now gives 970-601-7807)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 11 November 2026 (the Johnstown location page, which now gives 970-601-7807)"
 added: "2026-10-26"
 ---
 

@@ -10,7 +10,7 @@ tags: [grocery, discount, everyday]
 summary: "A discount grocery store on Pointe Plaza Drive selling at 40 to 60 percent off retail, with new deals every day."
 source: "https://business.windsorchamber.net/list/member/esh-s-grocery-market-4055"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

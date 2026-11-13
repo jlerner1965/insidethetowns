@@ -19,7 +19,7 @@ details:
 summary: "The 1,100-acre Larimer County reservoir in the foothills northwest of town: boating, sailing, a swim beach, camping, fishing and the three-mile Sundance Trail. Entrance permit required."
 source: "https://www.larimer.gov/naturalresources/parks/carter-lake"
 verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: Larimer County's Carter Lake page, read 8 November 2026 (1,100 acres, three miles long, 1,000 acres of public land, marina at 4011 S County Rd 31, swim beach Memorial Day weekend to mid-September, permits at the entrance station and pay stations, ANS inspection, New Zealand mudsnails confirmed August 2026), and the County's Carter Lake, Flatiron and Pinewood brochure (dated 9/7/2023) for the Sundance Trail and the two reservoirs to the north"
+verifiedBy: "Claude Code, delegated by Lerner Works: Larimer County's Carter Lake page, read 8 November 2026 (1,100 acres, three miles long, 1,000 acres of public land, marina at 4011 S County Rd 31, swim beach Memorial Day weekend to mid-September, permits at the entrance station and pay stations, ANS inspection, New Zealand mudsnails confirmed August 2026), and the County's Carter Lake, Flatiron and Pinewood brochure (dated 9/7/2023) for the Sundance Trail and the two reservoirs to the north"
 added: "2026-09-17"
 ---
 

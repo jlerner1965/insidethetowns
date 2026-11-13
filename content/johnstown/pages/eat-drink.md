@@ -3,7 +3,7 @@ title: "Where to eat in Johnstown: 9 places to start"
 seoTitle: "Restaurants in Johnstown, CO: 9 picks to start with"
 description: "Nine places to eat in Johnstown, Colorado, from crepes and breakfast burritos on Parish Avenue to burgers and seafood off I-25, each checked on its own site."
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: each pick's own website or location page, and the guide's listing for each, read 11 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: each pick's own website or location page, and the guide's listing for each, read 11 November 2026"
 picks:
   - place: black-sheep-coffee-and-crepes
     for: "Coffee and crepes"

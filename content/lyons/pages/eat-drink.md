@@ -3,7 +3,7 @@ title: "Where to eat in Lyons: 10 picks, from coffee to dinner"
 seoTitle: "Restaurants and coffee in Lyons, Colorado: 10 picks"
 description: "Ten places to eat and drink in Lyons, Colorado, checked November 11, 2026: coffee, Indian, barbecue, tacos, pizza, a distillery, a wine bar and dinner out."
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: read on 11 November 2026 from each place's own website (hours, address, menu and policies pages) and the Town of Lyons's Restaurants in Lyons page"
+verifiedBy: "Claude Code, delegated by Lerner Works: read on 11 November 2026 from each place's own website (hours, address, menu and policies pages) and the Town of Lyons's Restaurants in Lyons page"
 picks:
   - place: moxie-mercantile
     for: "Breakfast before a hike"

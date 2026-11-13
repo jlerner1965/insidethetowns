@@ -14,7 +14,7 @@ performers:
   - { name: "Herman's Hermits starring Peter Noone", kind: group }
 source: "https://coloradocandlelight.com/show/hermans-hermits/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026: January 22 to 24, 2027, full price $125.00 plus a $6.00 reservation fee per ticket; the page lists no show times; box office (970) 744-3747"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026: January 22 to 24, 2027, full price $125.00 plus a $6.00 reservation fee per ticket; the page lists no show times; box office (970) 744-3747"
 ---
 
 Peter Noone brings Herman's Hermits to the Candlelight Dinner Playhouse for a concert run from January 22 to 24, 2027. Tickets are $125 plus a $6 reservation fee each, with no discounts, and the show plays without an intermission. The show page does not list curtain times; check the playhouse's showtimes page or call the box office at (970) 744-3747.

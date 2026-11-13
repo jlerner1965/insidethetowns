@@ -14,7 +14,7 @@ details:
 summary: "Family-owned brewery and taproom on 8th Street with a large covered patio, food trucks, dogs welcome, and beer to go."
 source: "https://berthoudbrewing.com/locations"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

@@ -11,7 +11,7 @@ details:
 summary: "Niwot-based mobile espresso bar for hire: coffee, tea and pastries from a restored 1969 Dodge A100 van at events."
 source: "https://www.emoryjanescoffeeco.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (its Home and About pages)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (its Home and About pages)"
 added: "2026-09-17"
 ---
 

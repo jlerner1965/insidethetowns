@@ -17,7 +17,7 @@ sourceId: "citystarbrewing-com"
 sourceUid: "13233"
 mergedUids: ["10010573"]
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (City Star's events feed: the release, 3 to 10 pm, and Sugar Britches, 6 to 8:30 pm)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (City Star's events feed: the release, 3 to 10 pm, and Sugar Britches, 6 to 8:30 pm)"
 ---
 
 City Star releases Deadwood, an imperial red ale aged nine months in Leopold Bros whiskey barrels and dry hopped with Vista, on draft and in 22 oz bottles. Sugar Britches plays from 6 to 8:30 pm.

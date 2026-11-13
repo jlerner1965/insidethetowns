@@ -13,7 +13,7 @@ details:
 summary: "A pinball hall with more than 70 machines, monthly tournaments and a Thursday-night league."
 source: "https://www.lyonsclassicpinball.com/hours"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the home, hours and events pages)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the home, hours and events pages)"
 added: "2026-09-17"
 ---
 

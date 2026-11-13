@@ -10,7 +10,7 @@ effectiveEnd: "2027-05-31"
 effectiveNote: "From Wednesday, October 28, 2026; the Town's anticipated completion is the end of May 2027, and it says all its dates are tentative and depend on the weather"
 published: "2026-11-04"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Cone Zone page still carries the road closure update for the week of October 26, 2026)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Cone Zone page still carries the road closure update for the week of October 26, 2026)"
 source: "https://johnstownco.gov/685/Cone-Zone--Johnstown-Road-Closures"
 sourceLabel: "Town of Johnstown Cone Zone: road closure update for the week of October 26, 2026"
 ---

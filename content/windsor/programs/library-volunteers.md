@@ -15,7 +15,7 @@ volunteerNeed: "If you’d like to volunteer with our youth services department,
 contact: "970-686-5603; teens amy@clearviewlibrary.org; youth services becca@clearviewlibrary.org"
 source: "https://clearviewlibrary.org/about-us/support-donate/volunteer"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The library district's volunteer page lists three ways in.

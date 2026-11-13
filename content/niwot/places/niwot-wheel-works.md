@@ -10,7 +10,7 @@ tags: [bikes, repairs]
 summary: "Bike shop: sales, tune-ups and repairs, behind Fan’s on the square."
 source: "https://www.niwotwheelworks.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (its own site for address and hours; phone as on niwot.com/listing/niwot-wheel-works/)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (its own site for address and hours; phone as on niwot.com/listing/niwot-wheel-works/)"
 added: "2026-09-17"
 ---
 

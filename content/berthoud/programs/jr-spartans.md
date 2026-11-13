@@ -20,7 +20,7 @@ volunteerNeed: "Coaches: email your contact details and a short summary of your 
 contact: "5030sportsstaff@gmail.com"
 source: "https://clubs.bluesombrero.com/5030sports"
 verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the 5030 Sports site on Blue Sombrero (home, Fall Tackle Football, Competitive Basketball, Hybrid Football and Summer Camp pages) and its basketball tryout form, read November 8, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the 5030 Sports site on Blue Sombrero (home, Fall Tackle Football, Competitive Basketball, Hybrid Football and Summer Camp pages) and its basketball tryout form, read November 8, 2026"
 ---
 
 5030 Sports is a 501(c)(3) run by volunteers, and its teams play as the Berthoud Jr. Spartans; the club says it works closely with Berthoud High School athletics and expects effort, attendance and competition for playing time. **Basketball**: tryouts for the 2026–27 boys' teams, 5th to 8th grade, are on Saturday, November 14, 9 to 11:30 am at Berthoud High School; reserve a place on the [tryout form](https://forms.gle/kVCLEdAk88QatF4w8), and the club will be in touch about a makeup date for a player who cannot make it. **Tackle football** plays in the NOCO Football League; 2026 registration is closed and the club says to check back in May 2027. **Hybrid football**, full pads with modified contact as a step between flag and tackle, reopens for registration in January 2027 and signs up through NOCO Football. The club's pages give no fees.

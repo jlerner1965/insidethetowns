@@ -23,7 +23,7 @@ contact: "303-823-5165, info@lyonslibrary.com"
 featured: true
 source: "https://lyons.librarycalendar.com/events/upcoming"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
 ---
 
 The library’s weekly sessions for the youngest children, no registration: **Baby Storytime & Stay-and-Play** on Tuesdays at 10:30, songs, rhymes and stories for babies up to 18 months and their grown-ups, then open play in the Community Room; and **Toddler & Preschool Storytime & Craft** on Wednesdays at 10:30, music, movement and stories for ages 0 to 5. Storytime is on a break from October 27 through November 11; the library's calendar lists baby storytime again on Tuesdays from November 17 to December 15, 10:30 to 11:15, and toddler and preschool storytime on Wednesdays from November 18 to December 16, 10:30 to 11. Each is on the calendar as its own listing with the next date: [baby](/events/baby-storytime-november/), [toddler and preschool](/events/toddler-storytime-library/).

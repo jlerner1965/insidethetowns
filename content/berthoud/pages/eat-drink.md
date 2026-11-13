@@ -3,7 +3,7 @@ title: "Where to eat and drink in Berthoud: 10 picks"
 seoTitle: "Restaurants in Berthoud, CO: 10 local picks"
 description: "Ten places to eat and drink in Berthoud, Colorado, from coffee on Mountain Avenue to barbecue on Welch Avenue, each checked with its own site in November 2026."
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by James Lerner: each pick's own site read on 11 November 2026 for hours, menu and address, with Berthoud Main Street's Dine & Drink page"
+verifiedBy: "Claude Code, delegated by Lerner Works: each pick's own site read on 11 November 2026 for hours, menu and address, with Berthoud Main Street's Dine & Drink page"
 picks:
   - place: kofe-house
     for: "Coffee and breakfast"

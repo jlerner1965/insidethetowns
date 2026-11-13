@@ -13,7 +13,7 @@ details:
 summary: "The Domino's on Grand Market Avenue for pizza delivery and carryout, open until 11 pm, and midnight on Friday and Saturday."
 source: "https://pizza.dominos.com/colorado/berthoud/1335-grand-market-ave-140"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

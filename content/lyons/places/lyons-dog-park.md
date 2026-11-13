@@ -14,7 +14,7 @@ details:
 summary: "The Town's fenced ten-acre dog park at the south end of Bohn Park: free, dawn to dusk, and the only place in Lyons a dog may be off the leash."
 source: "https://www.townoflyons.com/640/Dog-Park"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-09"
 ---
 

@@ -10,7 +10,7 @@ category: family
 recurring: "First and third Tuesdays"
 source: "https://highplains.libcal.com/event/16010115"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 Elementary-aged independent readers practise reading aloud to a trained Caring Canines therapy dog.

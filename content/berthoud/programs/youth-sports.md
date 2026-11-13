@@ -21,7 +21,7 @@ contact: "Berthoud Recreation, 970-532-1600; sports: Jacquelyn, jcuba@berthoud.o
 featured: true
 source: "https://www.berthoud.org/DocumentCenter/View/7956/Berthoud-Recreation-Winter-Activity-Guide-2026-27"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 The Town runs its own youth leagues, and the seasonal activity guide is the registration form: each program has a register link into the Town's DaySmart portal. The **winter 2026–27** guide lists **Little Spikers** volleyball for ages 6 to 8 (Wednesdays 4 to 4:45 pm from January 6; $69 resident, $79 non-resident); **Little Dribblers** basketball for ages 4 to 5 (Fridays 4 to 4:45 pm from January 8; $45 / $55); **Junior Nuggets** basketball, run with Thompson River Parks and Recreation, with boys' and girls' teams for 3rd–4th grade (ages 8 to 10) and 5th–6th grade (10 to 12), two one-hour evening practices a week from January 4 or 6 and six weeks of Saturday games from January 16, in Berthoud or at Thompson River ($88 / $98, with a Junior Nuggets jersey and a ticket to a Nuggets game); and **youth pickleball** for ages 8 to 11, a six-week Monday 4 pm league that starts with the basics ($45 / $55). Little Spikers, Little Dribblers and Junior Nuggets take registrations until **December 20**, pickleball until January 4.

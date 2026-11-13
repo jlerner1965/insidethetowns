@@ -18,7 +18,7 @@ nextEvent: teen-advisory-group-2026-11-12
 contact: "info@lyonsregionallibrary.com"
 source: "https://lyons.librarycalendar.com/events/upcoming"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
 ---
 
 The library’s teens decide some of what the library does: programs, the collection, events. Volunteer hours count. The group meets on Thursday evenings, [November 12](/events/teen-advisory-group-2026-11-12/) and [December 10](/events/teen-advisory-group-2026-12-10/) next; questions to info@lyonsregionallibrary.com.

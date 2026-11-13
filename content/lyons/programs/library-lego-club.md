@@ -17,7 +17,7 @@ nextEvent: lego-club-2026-12-03
 contact: "303-823-5165"
 source: "https://lyons.librarycalendar.com/events/upcoming"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
 ---
 
 The library puts out the bricks and children build; no registration, though the calendar takes an RSVP. The next session on the calendar is [December 3](/events/lego-club-2026-12-03/).

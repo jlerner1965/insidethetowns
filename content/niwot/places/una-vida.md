@@ -6,7 +6,7 @@ area: "Cottonwood Square"
 url: "https://www.unavidaniwot.com/"
 source: "https://www.unavidaniwot.com/contact"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (its contact page and home page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (its contact page and home page)"
 added: "2026-10-13"
 phone: "720-282-9988"
 tags: [yoga, meditation, qigong, dance, classes, workshops]

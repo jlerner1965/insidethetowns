@@ -10,7 +10,7 @@ category: family
 recurring: "Monthly, second Wednesdays"
 source: "https://highplains.libcal.com/event/17380773"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 ---
 
 Book club for children in grades 3 to 5, with discussion and activities. Copies of the month’s book can be collected at the library. Registration required.

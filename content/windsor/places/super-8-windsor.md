@@ -7,7 +7,7 @@ area: "west Main Street"
 url: "https://www.wyndhamhotels.com/super-8/windsor-colorado/super-8-windsor/overview"
 source: "https://www.wyndhamhotels.com/super-8/windsor-colorado/super-8-windsor/overview"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-10-01"
 phone: "970-686-5996"
 tags: [motel, budget, free-breakfast, rv-parking]

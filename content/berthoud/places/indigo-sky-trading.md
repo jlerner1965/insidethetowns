@@ -7,7 +7,7 @@ tags: [gifts, handmade, jewelry]
 summary: "Handcrafted jewelry, woodcrafts, photography, mosaics and stained glass by local artisans, on east Mountain Avenue."
 source: "https://berthoudmainstreet.org/shop-antiques-berthoud/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

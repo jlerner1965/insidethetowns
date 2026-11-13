@@ -10,7 +10,7 @@ tags: [wine, cocktails, small-plates]
 summary: "Wine and cocktail lounge with sandwiches, salads and bistro dinners, and paella on Thursdays."
 source: "https://lyonslocale.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the home page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the home page)"
 added: "2026-09-17"
 ---
 

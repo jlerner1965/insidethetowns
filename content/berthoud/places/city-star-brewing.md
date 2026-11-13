@@ -15,7 +15,7 @@ details:
 summary: "The brewery on the main block: a taproom and beer garden, weekly trivia, a Thursday social run, food trucks and live music most weekends."
 source: "https://citystarbrewing.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-09-17"
 ---
 

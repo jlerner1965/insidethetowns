@@ -11,7 +11,7 @@ organizer: "Town of Severance"
 source: "https://www.townofseverance.org/calendar.aspx?EID=773"
 sourceId: "townofseverance-org"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026; the Town of Severance's calendar entry reads 'CANCELED Town Council Work Session at 5:00 PM /Regular Meeting at 6:00 PM', Tuesday, November 24, 2026, and its December 8 entry (calendar.aspx?EID=738) stands"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026; the Town of Severance's calendar entry reads 'CANCELED Town Council Work Session at 5:00 PM /Regular Meeting at 6:00 PM', Tuesday, November 24, 2026, and its December 8 entry (calendar.aspx?EID=738) stands"
 status: canceled
 statusNote: "The Town's Town Council Meetings calendar lists the November 24 meeting as canceled."
 statusSource: "https://www.townofseverance.org/Calendar.aspx?CID=27&Keywords=&startDate=11/01/2026&enddate=11/30/2026"

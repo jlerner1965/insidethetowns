@@ -13,7 +13,7 @@ details:
 summary: "A whiskey-forward cocktail lounge on 4th Street, from the people behind Ridge River and Larado whiskeys, with a list of mocktails; open Tuesday to Saturday from 4."
 source: "https://twinstaves.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

@@ -14,7 +14,7 @@ details:
 summary: "An indoor playground for children up to 12: $15 for all-day play, one grown-up free with each child, socks required."
 source: "https://www.lilmonstersplayground.com/"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 added: "2026-11-06"
 ---
 

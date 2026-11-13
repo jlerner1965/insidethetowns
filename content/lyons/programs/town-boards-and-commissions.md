@@ -17,7 +17,7 @@ volunteerNeed: "Open seats on the Town's list of August 3, 2026: Ecology Advisor
 contact: "Town Hall, 303-823-6622"
 source: "https://www.townoflyons.com/180"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the Town's Boards & Commissions page and its Lyons Arts & Humanities Commission page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Town's Boards & Commissions page and its Lyons Arts & Humanities Commission page)"
 ---
 
 The Town's advisory boards and commissions are the Board of Adjustments, the Ecology Advisory Board, the Economic Vitality Commission, the Historic Preservation Commission, the Housing & Human Services Commission, the Lyons Arts & Humanities Commission, the Parks & Recreation Commission, the Planning & Community Development Commission, the Revolving Loan Fund Committee, the Student Advisory Commission, the Sustainable Futures Commission and the Utilities & Engineering Board. To serve on one, fill in the Town's online application; it goes to the mayor, who follows up with you. The Planning & Community Development Commission has at most seven voting members, each of whom must have lived in town for a year. Their meetings are on [the events calendar](/events/?category=civic).

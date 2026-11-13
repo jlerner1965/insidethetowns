@@ -8,7 +8,7 @@ category: civic
 recurring: "Third Tuesdays"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6511"
 verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+verifiedBy: "Claude Code for Lerner Works, against the organizer's own page, 16 October 2026"
 ---
 
 Regular meeting of the Town of Lyons Ecology Advisory Board in the library's Effie Banta Meeting Room.

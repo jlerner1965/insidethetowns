@@ -15,7 +15,7 @@ volunteerNeed: "\"The Erie Historical Society is always looking for helpful volu
 contact: "303-828-4568, info@eriehistoricalsociety.org"
 source: "https://www.eriehistoricalsociety.org/membership/"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the society's Membership, Volunteer, About Us, Contact Us and A Homestead Christmas pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the society's Membership, Volunteer, About Us, Contact Us and A Homestead Christmas pages, read November 9, 2026"
 ---
 
 The society was founded in 1984 "to preserve Erie, Colorado's history". It keeps the [Wise Homestead Museum](/places/wise-homestead-museum/), a farmhouse built by an Erie settler in 1870, holds Erie Biscuit Day each fall and hosts talks by local historians. Its next public day is [A Homestead Christmas](/events/a-homestead-christmas-wise-homestead-museum-2026-12-12/) on December 12.

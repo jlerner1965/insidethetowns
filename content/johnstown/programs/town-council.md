@@ -14,7 +14,7 @@ nextEvent: town-council-2026-11-16
 contact: "Town Clerk, 970-587-4664"
 source: "https://johnstownco.gov/311/Agendas-and-Minutes"
 verified: "2026-11-09"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Town Council, Agendas and Minutes and Town Council Vacancy pages, read November 9, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Town Council, Agendas and Minutes and Town Council Vacancy pages, read November 9, 2026"
 ---
 
 **Attend or comment.** The Council is the mayor and six members, elected from the Town at large. It meets on the first and third Mondays at 7 pm unless otherwise posted; when the Monday is a holiday, the Town says the meeting "will likely be pushed to the following Wednesday". In the Town's words, "Anyone is welcome to join the meeting in person, watch it on the website, or submit a remote public comment". Written comments go in on the [public comment form](https://johnstownco.gov/FormCenter/Town-Council-9/Online-Public-Comment-Submission-57) before 6 pm on the meeting night, and those not about a public hearing are read during the public comment period. Agendas are posted before each meeting and minutes after approval, on the Town's [CivicClerk portal](https://johnstownco.portal.civicclerk.com/). The next meeting is [November 16](/events/town-council-2026-11-16/).

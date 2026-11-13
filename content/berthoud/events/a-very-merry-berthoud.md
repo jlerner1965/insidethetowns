@@ -12,7 +12,7 @@ category: festival
 featured: true
 source: "https://berthoudmainstreet.org/averymerryberthoud/"
 verified: "2026-11-12"
-verifiedBy: "Claude Code, delegated by James Lerner: read on 12 November 2026 Berthoud Main Street's A Very Merry Berthoud page and its schedule graphic (Saturday, December 5th, 2026; craft fair 9-3, Main Street Market 10-3, Snowlympics 10-4, Santa 11-4, parade 5:00, tree lighting 6:00), its events calendar, the parade's own site and the Town of Berthoud calendar entry for the Winter Craft Fair"
+verifiedBy: "Claude Code, delegated by Lerner Works: read on 12 November 2026 Berthoud Main Street's A Very Merry Berthoud page and its schedule graphic (Saturday, December 5th, 2026; craft fair 9-3, Main Street Market 10-3, Snowlympics 10-4, Santa 11-4, parade 5:00, tree lighting 6:00), its events calendar, the parade's own site and the Town of Berthoud calendar entry for the Winter Craft Fair"
 timeNote: "Craft fair from 9 am; parade at 5 pm; tree lighting at 6 pm"
 ---
 

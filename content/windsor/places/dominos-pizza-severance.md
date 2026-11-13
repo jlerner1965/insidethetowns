@@ -8,7 +8,7 @@ url: "https://pizza.dominos.com/colorado/severance/1018-mahogany-way"
 source: "https://pizza.dominos.com/colorado/severance/1018-mahogany-way"
 verified: "2026-11-10"
 added: "2026-10-06"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
 phone: "(970) 710-6424"
 hours: "Mon–Thu 10:30 am–10 pm; Fri–Sat 10 am–11 pm; Sun 10:30 am–10 pm"
 tags: [pizza, delivery, carryout]

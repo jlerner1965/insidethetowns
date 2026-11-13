@@ -17,7 +17,7 @@ beginners: true
 contact: "303-823-5165"
 source: "https://lyons.librarycalendar.com/events/upcoming"
 verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the library's upcoming-events calendar and the event's own page)"
 ---
 
 The library opens its materials for an afternoon of making, all ages together, no sign-up. The calendar lists a Monday a month this fall; the next is December 14.

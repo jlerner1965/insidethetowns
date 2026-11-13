@@ -17,7 +17,7 @@ statusNote: "Spring 2027 registration coming soon"
 contact: "BerthoudBaseballClub@gmail.com, 720-233-6471"
 source: "https://sites.google.com/view/berthoud-baseball-club"
 verified: "2026-11-08"
-verifiedBy: "Claude Code, delegated by James Lerner: the club's Google Site (home, Teams, Make Payment and Field Reservations pages) and its 11U AA try-out, 13U AA try-out and Fall Ball 2026 forms, read November 8, 2026"
+verifiedBy: "Claude Code, delegated by Lerner Works: the club's Google Site (home, Teams, Make Payment and Field Reservations pages) and its 11U AA try-out, 13U AA try-out and Fall Ball 2026 forms, read November 8, 2026"
 ---
 
 The club's aim, in its words, is for Berthoud's youth to "play together and stay together" on long-term teams, and it welcomes players from nearby towns. Its teams page, for 2025–26, runs from 8U (1st and 2nd grade) through 10U and 12U to 14U (7th and 8th grade), recreational and intermediate, most playing a fall league and a spring and summer league with the Fort Collins Baseball Club, with optional winter workouts; a 13U AA competitive team works out at Pro Swing in Berthoud from January and plays AA tournaments in spring and summer. The 11U AA team's try-out form puts its cost at about $125 a month. Fall Ball 2026 enrollment has closed and the home page lists Spring 2027 registration as coming soon; ask the club at BerthoudBaseballClub@gmail.com or 720-233-6471.
