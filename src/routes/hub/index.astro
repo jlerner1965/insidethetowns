@@ -332,6 +332,8 @@ const nav = [
   { label: 'This weekend', href: weekendRows.length > 0 ? '#weekend' : '/this-weekend/' },
   { label: 'Annual events', href: seasons.length > 0 ? '#annual' : ALL_ANNUAL },
   { label: 'Towns', href: '#towns' },
+  // The index of every article, as on every other page's menu (src/lib/nav.ts, hubNav).
+  articlesOnSite.length > 0 && { label: 'Articles', href: ARTICLES_INDEX_PATH },
   { label: 'Moving here', href: '/moving/' },
   hub.newsletter && { label: 'Newsletter', href: '#signup' },
   { label: 'How we check', href: '/editorial/' },
@@ -589,9 +591,15 @@ const structured = collectionPageJsonLd(hub, {
         button.focus();
       }
     });
-    // Leaving it closes it: focus moving out of the masthead, or a tap anywhere else.
+    // Leaving it closes it: focus moving to something outside the masthead,
+    // or a tap anywhere else. Focus going to nothing is not leaving: Safari
+    // does not focus a link it is tapped on, so a tap on a menu link first
+    // blurs the focused one with nowhere to go, and closing then would hide
+    // the link before the tap lands on it (the owner, 13 November 2026:
+    // "home menu doesn't work").
     header.addEventListener('focusout', (event) => {
-      if (!header.contains(event.relatedTarget as Node | null)) set(false);
+      const next = event.relatedTarget as Node | null;
+      if (next && !header.contains(next)) set(false);
     });
     document.addEventListener('click', (event) => {
       if (!header.contains(event.target as Node)) set(false);
