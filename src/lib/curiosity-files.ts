@@ -8,7 +8,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseFrontmatter } from '../../scripts/lib/frontmatter.ts';
-import { CURIOSITY_DIR, CURIOSITY_TOPICS, articlePath, curiositySchema, isShown, isStandalone, lastVerified, type CuriosityArticle, type CuriosityTopic } from './curiosity.ts';
+import { CURIOSITY_DIR, CURIOSITY_TOPICS, articlePath, curiositySchema, isShown, isStandalone, lastModified, type CuriosityArticle, type CuriosityTopic } from './curiosity.ts';
 
 export interface CuriosityFile {
   file: string;
@@ -62,9 +62,9 @@ export function hasEventArticle(root = '.', env: Record<string, string | undefin
   return shownArticles(root, env).some((a) => isStandalone(a.kind));
 }
 
-/** Each shown article's path and the day its facts were last verified, for the sitemap's lastmod. */
+/** Each shown article's path and the day it last changed (lastModified), for the sitemap's lastmod. */
 export function curiosityDates(root = '.', env: Record<string, string | undefined> = process.env): Map<string, string> {
-  return new Map(shownArticles(root, env).map((a) => [articlePath(a), new Date(`${lastVerified(a)}T12:00:00Z`).toISOString()]));
+  return new Map(shownArticles(root, env).map((a) => [articlePath(a), new Date(`${lastModified(a)}T12:00:00Z`).toISOString()]));
 }
 
 /** The drafts a preview build draws, by path: each is noindex, so none belongs in that build's sitemap. */

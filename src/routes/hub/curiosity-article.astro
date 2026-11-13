@@ -34,6 +34,7 @@ import {
   articlePath,
   entriesOf,
   isStandalone,
+  lastModified,
   lastVerified,
   sourceHost,
   type CuriosityTopic,
@@ -65,7 +66,11 @@ const path = articlePath(data);
 const url = `https://${hub.domain}${path}`;
 const draft = data.status !== 'verified';
 const verified = lastVerified(data);
+const modified = lastModified(data);
 const day = (d: string) => formatDate(parseLocal(d));
+// The newest day the line already shows: "Last verified" is added only where
+// it says something new, so a page read and revised on one day shows one date.
+const shownDay = data.updated?.date ?? data.date;
 
 const withPage = new Set(publishedHubTowns(await getTraditions()).map((t) => t.slug));
 const towns = data.towns.map((t) => ({ slug: t, name: placeName(t) ?? t, link: placeLink(t, { onHub: true, withPage }) }));
@@ -87,7 +92,7 @@ const structured = [
     headline: data.title,
     description: data.description,
     datePublished: toIsoLocal(parseLocal(data.date)),
-    dateModified: toIsoLocal(parseLocal(verified)),
+    dateModified: toIsoLocal(parseLocal(modified)),
     ...(topic ? { articleSection: topic.label } : {}),
     author: { '@type': 'Organization', name: CURIOSITY_BYLINE, url: 'https://lernerworks.com' },
     publisher: { '@id': `https://${hub.domain}/#org` },
@@ -107,9 +112,16 @@ const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
   <Fragment slot="after-header">
     <p class="mt-5 text-sm text-ink-muted" data-article-meta>
       <span data-byline>By {CURIOSITY_BYLINE}</span>
-      <span> · Last verified <time datetime={verified}>{day(verified)}</time></span>
+      <span data-published> · Published <time datetime={data.date}>{day(data.date)}</time></span>
+      {data.updated && <span data-updated> · Updated <time datetime={data.updated.date}>{day(data.updated.date)}</time></span>}
+      {verified !== shownDay && <span> · Last verified <time datetime={verified}>{day(verified)}</time></span>}
       {!story && <span data-visited={data.visited ? 'yes' : 'no'}> · {data.visited ? 'Visited' : 'Not personally visited'}</span>}
     </p>
+    {data.updated && (
+      <p class="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted" data-update-note>
+        <strong class="font-semibold text-ink">Update, {day(data.updated.date)}:</strong> {data.updated.note}
+      </p>
+    )}
     {draft && (
       <p class="mt-4 rounded-lg border border-highlight bg-highlight-soft px-4 py-3 text-[0.9375rem] leading-relaxed text-ink" data-draft>
         A draft, shown by the local preview only. It is not on the site until it is marked verified.

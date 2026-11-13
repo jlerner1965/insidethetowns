@@ -24,6 +24,7 @@ import {
   factsOf,
   isShown,
   kindLabel,
+  lastModified,
   lastVerified,
   newestFirst,
   openFlags,
@@ -252,4 +253,23 @@ test('the index at /articles/ is built, and on the hub’s menu and home, only w
   assert.match(home, /href=\{ARTICLES_INDEX_PATH\}[^>]*>All articles →</);
   // The home page draws its own masthead menu; it carries Articles too, after Towns.
   assert.match(home, /label: 'Towns', href: '#towns' \},[\s\S]{0,160}articlesOnSite\.length > 0 && \{ label: 'Articles', href: ARTICLES_INDEX_PATH \}/);
+});
+
+test('an update carries its day and a line on what changed, and the page’s modified day is never before it was published', () => {
+  const base = {
+    slug: 'x', kind: 'story', towns: ['nederland'], title: 'T', description: 'D', date: '2026-11-13',
+    sources: [{ label: 'S', url: 'https://example.org/', checked: '2026-11-12' }],
+  };
+  assert.ok(curiositySchema.safeParse({ ...base, updated: { date: '2026-11-20', note: 'Rewritten with the Town’s records.' } }).success);
+  assert.ok(!curiositySchema.safeParse({ ...base, updated: { date: '2026-11-12', note: 'Before the article.' } }).success, 'not before the article’s date');
+  assert.ok(!curiositySchema.safeParse({ ...base, updated: { date: '2026-11-20' } }).success, 'an update says what changed');
+  const a = curiositySchema.parse(base);
+  // Read the day before it was written: modified is the day it was published, not earlier.
+  assert.equal(lastModified(a), '2026-11-13');
+  assert.equal(lastModified(curiositySchema.parse({ ...base, updated: { date: '2026-11-20', note: 'n' } })), '2026-11-20');
+  assert.equal(lastModified(curiositySchema.parse({ ...base, sources: [{ label: 'S', url: 'https://example.org/', checked: '2026-11-25' }] })), '2026-11-25');
+  const page = readFileSync('src/routes/hub/curiosity-article.astro', 'utf8');
+  assert.match(page, /dateModified: toIsoLocal\(parseLocal\(modified\)\)/);
+  assert.match(page, /Published <time datetime=\{data\.date\}>/);
+  assert.match(page, /Update, \{day\(data\.updated\.date\)\}:/);
 });
