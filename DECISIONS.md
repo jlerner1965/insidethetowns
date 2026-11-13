@@ -11277,3 +11277,27 @@ with one question.
 - **Not changed:** existing articles, the agent code, the schemas and the
   validators. The structure guides new drafts; nothing checks it by
   machine.
+
+## "Publish" puts an article live, 13 November 2026 (night)
+
+The owner asked for two steps and no more: "write an article and say
+publish, that's it, no having to go into the repo."
+
+- **"Write an article about X in [Town]"** runs the `research-and-write`
+  skill: research, a draft built to the Article structure, a fact-check,
+  and the draft shown in the session with its open items.
+- **"Publish"** about that draft is the owner's instruction to put it
+  live, merge included. The assistant writes the file to
+  `content/<town>/articles/`, runs `npm run validate`, `npm test`,
+  `npm run check-colors` and `astro check`, opens a pull request holding
+  that article alone, waits for CI to build every live site, and merges.
+  This is the owner's standing ask for that one article; it does not let
+  the assistant merge anything else.
+- **Held to the same rules:** nothing unverified or hedged goes into the
+  file (an open item is cut or the article is held, the owner's choice);
+  a guide that isn't live is named before merging; red CI is never merged;
+  a failure is fixed in the article, never in the tests or the validator.
+- **Also:** `HOW-IT-WORKS.md` now carries the publish rule (section 4),
+  the Lerner Works byline on the hub's articles (section 8), and a pointer
+  to the article structure (section 7); the `content` and editor skills
+  name the exception to "never publish".

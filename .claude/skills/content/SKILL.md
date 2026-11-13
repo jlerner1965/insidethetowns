@@ -31,7 +31,7 @@ Before drafting anything:
   - the repo path where it would go (follow the existing content layout)
   - any `[UNVERIFIED]` items, listed out
   - anything you changed from an existing `docs/agent/` draft and why
-- **Never write into `content/`, never commit, never push.** James publishes.
+- **Never write into `content/`, never commit, never push.** James publishes. The one exception is an article he says "publish" about in the conversation: that is handled by the `research-and-write` skill's Publish step (the owner, 13 November 2026).
 
 ## What not to do
 
