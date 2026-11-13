@@ -248,11 +248,12 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
     {soon.length > 0 ? (
       <ol class="divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {soon.map((r) => (
-          <li class="flex flex-wrap items-baseline gap-x-4 gap-y-0.5 py-3" data-event-day={r.entry.endDate ?? r.entry.date}>
-            <time datetime={r.entry.date} class="w-36 shrink-0 text-[0.9375rem] font-semibold tabular-nums text-ink">
+          <li class="grid gap-y-0.5 py-3 sm:grid-cols-[10rem_minmax(0,1fr)_auto] sm:items-baseline sm:gap-x-4" data-event-day={r.entry.endDate ?? r.entry.date}>
+            {/* Stacked on a phone (date, name, kind), three columns from sm: side by side at 390px the names were squeezed to a word a line and ran into the kind. */}
+            <time datetime={r.entry.date} class="text-[0.9375rem] font-semibold tabular-nums text-ink">
               {formatDayShort(parseLocal(r.entry.date!))}{r.entry.endDate && r.entry.endDate !== r.entry.date && ` – ${formatDayShort(parseLocal(r.entry.endDate))}`}
             </time>
-            <a href={`#${r.record.slug}`} class="min-w-0 flex-1 text-[1.0625rem] font-medium leading-snug text-primary no-underline hover:underline">{r.record.name}</a>
+            <a href={`#${r.record.slug}`} class="min-w-0 text-[1.0625rem] font-medium leading-snug text-primary no-underline hover:underline">{r.record.name}</a>
             <span class="text-[0.875rem] text-ink-muted">{TRADITION_TYPE_INFO[r.record.type].label}</span>
           </li>
         ))}
