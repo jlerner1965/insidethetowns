@@ -1,0 +1,117 @@
+{
+  "slug": "meeker",
+  "lodging": [
+    {
+      "name": "Meeker Hotel & Cafe",
+      "kind": "Hotel",
+      "url": "http://www.meekerhotel.com/",
+      "source": "http://www.meekerhotel.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "White River Inn",
+      "kind": "Hotel",
+      "url": "https://whiteriverinn.com/",
+      "source": "https://whiteriverinn.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Elk Mountain Inn",
+      "kind": "Motel",
+      "url": "https://elkmountainmeeker.com/",
+      "source": "https://elkmountainmeeker.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Trailhead Cabins and Lodging",
+      "kind": "Motel and cabins",
+      "url": "https://meekertrailhead.com/",
+      "source": "https://meekertrailhead.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Meeker Riverbend RV Park",
+      "kind": "RV park",
+      "url": "https://meekerriverbend.com/",
+      "season": "Year-round",
+      "source": "https://meekerriverbend.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The town is named for Nathan Meeker, who was appointed Indian Agent for the White River Indian Agency in 1878.",
+      "source": "https://www.historymeeker.com/basic-history.html",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1885,
+      "text": "Founded on the site of a U.S. Army post named the Camp on White River",
+      "source": "https://www.historycolorado.org/location/meeker-historic-district",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1878,
+        "text": "Nathan Meeker was appointed Indian Agent for the White River Indian Agency.",
+        "source": "https://www.historymeeker.com/basic-history.html",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1879,
+        "text": "The Hugus store, known as the earliest business in Meeker, was built.",
+        "source": "https://www.historymeeker.com/basic-history.html",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1890,
+        "text": "St. James Episcopal Church, a stone building and the first church in Meeker, was constructed.",
+        "source": "https://www.historycolorado.org/location/st-james-episcopal-church",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1896,
+        "text": "The new Meeker Hotel was constructed at the location of the present hotel.",
+        "source": "http://www.meekerhotel.com/about",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 2019,
+        "text": "The Meeker Historic District was listed in the National Register on January 28.",
+        "source": "https://www.historycolorado.org/location/meeker-historic-district",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "White River Museum",
+        "kind": "museum",
+        "url": "https://www.historymeeker.com/",
+        "hours": "Summer: Mon–Sat 9 am–5 pm, Sun 12–5 pm; winter: Mon–Sat 10 am–4 pm, Sun by appointment",
+        "source": "https://www.historymeeker.com/rbc-historical-society.html",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Hotel Meeker",
+        "kind": "landmark",
+        "url": "http://www.meekerhotel.com/",
+        "source": "https://www.historycolorado.org/location/hotel-meeker",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "St. James Episcopal Church",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/st-james-episcopal-church",
+        "source": "https://www.historycolorado.org/location/st-james-episcopal-church",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Meeker Historic District",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/meeker-historic-district",
+        "source": "https://www.historycolorado.org/location/meeker-historic-district",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

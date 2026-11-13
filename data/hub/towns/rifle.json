@@ -1,8 +1,101 @@
 {
   "slug": "rifle",
+  "transit": [
+    {
+      "name": "RFTA Hogback route",
+      "detail": "Bus between Glenwood Springs, New Castle, Silt and Rifle",
+      "url": "https://www.rfta.com/routes/hogback/",
+      "source": "https://www.rfta.com/routes/hogback/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Parachute Area Transit System (PATS)",
+      "detail": "Fixed-route buses within Rifle ($1) and between Rifle and Parachute ($4)",
+      "url": "https://ridepats.com/",
+      "source": "https://ridepats.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Gateway Lodge",
+      "kind": "Motel",
+      "url": "http://www.gatewaylodgerifle.net/",
+      "source": "http://www.gatewaylodgerifle.net/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "La Quinta Inn & Suites by Wyndham Rifle",
+      "kind": "Hotel",
+      "url": "https://www.wyndhamhotels.com/laquinta/rifle-colorado/la-quinta-rifle/overview",
+      "source": "https://www.wyndhamhotels.com/laquinta/rifle-colorado/la-quinta-rifle/overview",
+      "checked": "2026-11-13"
+    }
+  ],
   "heritage": {
     "timeline": [
-      { "year": 1938, "text": "The Garfield County Fair and Rodeo was established.", "source": "https://www.garfieldcountyfair.com/", "checked": "2026-11-12" }
+      {
+        "year": 1909,
+        "text": "Charles G. Sheely completed the steel Rifle Bridge, which joins a Pennsylvania truss and a Parker truss.",
+        "source": "https://www.historycolorado.org/location/rifle-bridge",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1938,
+        "text": "The Garfield County Fair and Rodeo was established.",
+        "source": "https://www.garfieldcountyfair.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1940,
+        "text": "The Rifle Post Office, a Colonial Revival building at Railroad Avenue and 4th Street, was constructed.",
+        "source": "https://www.historycolorado.org/location/rifle-post-office",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1947,
+        "text": "The Ute Theater was built.",
+        "source": "https://utetheater.com/about/history/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1967,
+        "text": "The museum now called the Rifle Heritage Center was founded.",
+        "source": "https://www.rifleheritagecenter.com/about-us",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Rifle Heritage Center",
+        "kind": "museum",
+        "url": "https://www.rifleheritagecenter.com/",
+        "cost": "$5 adults (20 to 61); $4 seniors 62 and over, military and teens 13 to 19; $3 children 6 to 12; free under 6",
+        "season": "Closed for the winter season; opening in spring of 2027",
+        "source": "https://www.rifleheritagecenter.com/planning-your-visit",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Ute Theater",
+        "kind": "landmark",
+        "url": "https://utetheater.com/",
+        "source": "https://utetheater.com/about/history/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Rifle Bridge",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/rifle-bridge",
+        "source": "https://www.historycolorado.org/location/rifle-bridge",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Rifle Post Office",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/rifle-post-office",
+        "source": "https://www.historycolorado.org/location/rifle-post-office",
+        "checked": "2026-11-13"
+      }
     ]
   }
 }

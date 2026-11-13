@@ -23,6 +23,20 @@
       "url": "https://www.countrylodgecolorado.com/",
       "source": "https://www.countrylodgecolorado.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "Minecart Motor Lodge",
+      "kind": "Motor lodge",
+      "url": "https://minecartmotorlodge.com/",
+      "source": "https://minecartmotorlodge.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "1st Interstate Inn",
+      "kind": "Motel",
+      "url": "https://www.1stinterstateinnmontrose.com/",
+      "source": "https://www.1stinterstateinnmontrose.com/",
+      "checked": "2026-11-13"
     }
   ],
   "heritage": {
@@ -86,8 +100,10 @@
         "name": "Museum of the Mountain West",
         "kind": "museum",
         "url": "https://www.museumofthemountainwest.org/",
-        "source": "https://www.museumofthemountainwest.org/",
-        "checked": "2026-11-12"
+        "source": "https://museumofthemountainwest.org/the-museum/tours/",
+        "checked": "2026-11-13",
+        "hours": "Winter (from November 1): Tue–Sat 10 am–4:30 pm. Summer (early March to November): Mon–Sat 8:30 am–4:30 pm",
+        "cost": "Adults $13 self-guided, $15 guided; teens 12–18 $7.50; youth 6–11 $5; under 6 free"
       }
     ],
     "makers": [

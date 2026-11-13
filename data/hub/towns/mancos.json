@@ -1,5 +1,30 @@
 {
   "slug": "mancos",
+  "transit": [
+    {
+      "name": "MoCo Public Transportation",
+      "detail": "Door-to-door, call-ahead rides within Montezuma County, serving Cortez, Mancos, Dolores and Towaoc; book by phone the business day before",
+      "url": "https://montezumacounty.gov/public-transportation/",
+      "source": "https://montezumacounty.gov/public-transportation/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Mancos Inn",
+      "kind": "Inn and hostel",
+      "url": "https://www.mancosinn.com/",
+      "source": "https://www.mancosinn.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Mesa Verde Motel",
+      "kind": "Motel",
+      "url": "https://mesaverdemotel.com/",
+      "source": "https://mesaverdemotel.com/",
+      "checked": "2026-11-13"
+    }
+  ],
   "heritage": {
     "nameOrigin": {
       "text": "The Town says the name comes from the Dominguez-Escalante Expedition of 1776, though the reason for it is unclear.",
@@ -26,10 +51,47 @@
         "checked": "2026-11-12"
       },
       {
+        "year": 1909,
+        "text": "Mancos High School, a two-story sandstone building and the first high school built in Montezuma County, went up on Grand Avenue.",
+        "source": "https://www.historycolorado.org/location/mancos-high-school",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1910,
+        "text": "The red brick Mancos Opera House was completed.",
+        "source": "https://www.historycolorado.org/location/mancos-opera-house",
+        "checked": "2026-11-13"
+      },
+      {
         "year": 1958,
         "text": "The first Mancos Days celebration took place in Boyle Park.",
         "source": "https://www.mancosdays.com/about-7",
         "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Mancos Common Press",
+        "kind": "landmark",
+        "url": "https://mancoscommonpress.org/",
+        "hours": "Tue–Thu 10 am–4 pm; Fri 10 am–2 pm; Sat 10 am–4 pm in summer",
+        "cost": "Free tours",
+        "source": "https://mancoscommonpress.org/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Mancos Opera House",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/mancos-opera-house",
+        "source": "https://www.historycolorado.org/location/mancos-opera-house",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Mancos High School",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/mancos-high-school",
+        "source": "https://www.historycolorado.org/location/mancos-high-school",
+        "checked": "2026-11-13"
       }
     ],
     "makers": [
