@@ -252,6 +252,8 @@ test('a listing’s reasons come from its fields only, and none is better than a
   assert.deepEqual(listingReasons(listing('Free to members', '2026-11-15T11:00')), []);
   assert.deepEqual(listingReasons(listing(undefined, '2026-11-14T19:00'), { pickedBy: 'Inside Berthoud', annual: { edition: 78 } }), ['Inside Berthoud’s pick this week', 'The 78th annual']);
   assert.deepEqual(listingReasons(listing(undefined, '2026-11-14T19:00'), { annual: {} }), ['Once a year']);
+  const withWhy = { data: { why: 'More than forty local vendors', cost: 'Free', start: parseLocal('2026-11-15T11:00') } } as unknown as Parameters<typeof listingReasons>[0];
+  assert.deepEqual(listingReasons(withWhy, { pickedBy: 'Inside Erie' }), ['Inside Erie’s pick this week', 'More than forty local vendors']);
   assert.equal(durationWords(45), '45 minutes');
   assert.equal(durationWords(60), 'An hour');
   assert.equal(durationWords(120), undefined);

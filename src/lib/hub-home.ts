@@ -397,18 +397,22 @@ export function annualRecordFor(e: Pick<Listing, 'town' | 'data'>, title: string
  * the listing or the registry carries, never from its prose: the guide's
  * own pick this week, an annual event (its running, where the organizer
  * numbers it), free admission (isFreeCost), and a short run time from its
- * start and end. Nothing, where none of them holds: no line is better than
- * a filler one.
+ * start and end; or, in their place, the listing's own `why`, a few words
+ * its editor read on the source. Nothing, where none of them holds: no
+ * line is better than a filler one.
  */
 export function listingReasons(
   e: Pick<Listing, 'data'>,
   { pickedBy, annual }: { pickedBy?: string; annual?: { edition?: number } } = {},
 ): string[] {
-  const { start, end, allDay, cost } = e.data;
+  const { start, end, allDay, cost, why } = e.data;
+  const pick = pickedBy ? `${pickedBy}’s pick this week` : undefined;
+  // The editor's own words, read on the source, stand in for the worked-out reasons.
+  if (why) return [pick, why].filter((s): s is string => !!s);
   const sameDay = !!end && dayKey(start) === dayKey(end);
   const length = sameDay && !allDay ? durationWords(Math.round((end!.getTime() - start.getTime()) / 60_000)) : undefined;
   return [
-    pickedBy ? `${pickedBy}’s pick this week` : undefined,
+    pick,
     annual ? (annual.edition ? `The ${ordinal(annual.edition)} annual` : 'Once a year') : undefined,
     isFreeCost(cost) ? 'Free' : undefined,
     length,
