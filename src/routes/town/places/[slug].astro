@@ -15,6 +15,7 @@ import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PL
 import { formatDate } from '@/lib/dates';
 import { hoursDataAttr, hoursLines, hoursWithMeridiem } from '@/lib/hours';
 import { byProminence, directionsUrl, isOpen } from '@/lib/places';
+import { countByType, placeTypePages } from '@/lib/place-types';
 import { articlesMentioning } from '@/lib/mentions';
 import { placeTitle } from '@/lib/titles';
 import OpenStatus from '@/components/OpenStatus.astro';
@@ -41,7 +42,13 @@ const { data } = place;
 const { Content } = await render(place);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
-const back = EAT_DRINK_TYPES.includes(data.type) || data.type === 'shop' ? { href: '/eat-drink/', label: 'Eat & drink' } : { href: '/things-to-do/', label: 'Things to do' };
+// A shop goes back to the shops, which have their own page since the audit of 13 November 2026, or to the A to Z where no page is built.
+const shopsBuilt = data.type === 'shop' && placeTypePages(countByType((await getTownEntries('places')).filter(isOpen))).includes('shop');
+const back = EAT_DRINK_TYPES.includes(data.type)
+  ? { href: '/eat-drink/', label: 'Eat & drink' }
+  : data.type === 'shop'
+    ? shopsBuilt ? { href: '/shops/', label: 'Shops' } : { href: '/directory/', label: 'Every place' }
+    : { href: '/things-to-do/', label: 'Things to do' };
 // Closed, for good or for now: said first, in the eyebrow, the description
 // and a notice above the body, so no part of the page reads as an invitation.
 const open = isOpen(place);
@@ -51,7 +58,7 @@ const eyebrow = `${PLACE_TYPE_LABELS[data.type]}${data.priceRange ? ` · ${data.
 // the way down the screen, and the other places of its kind are the obvious
 // next thing — as is anything on at this venue.
 const family: readonly string[] = EAT_DRINK_TYPES.includes(data.type)
-  ? [...EAT_DRINK_TYPES, 'shop']
+  ? EAT_DRINK_TYPES
   : THINGS_TO_DO_TYPES.includes(data.type)
     ? [...THINGS_TO_DO_TYPES, 'lodging']
     : [data.type];

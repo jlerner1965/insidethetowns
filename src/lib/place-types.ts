@@ -65,7 +65,8 @@ export const PLACE_TYPE_PAGES: Record<PlaceType, PlaceTypePage> = {
     path: '/shops/',
     heading: 'Shops',
     title: (t) => `Shops in ${where(t)}`,
-    parent: EAT_DRINK,
+    // Not under Eat & drink since the audit of 13 November 2026, which no longer lists shops; the page links there by name (places-by-type.astro).
+    parent: DIRECTORY,
     describe: (t, n) => `${n} shops and stores in ${where(t)}: what each one sells, where it is and when it is open. Listings are editorial; nobody pays to be here.`,
   },
   trail: {

@@ -65,6 +65,8 @@ const structured = [
 >
   <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
     <a href={page.parent.path} class="font-semibold text-primary underline">All of {page.parent.name}</a>
+    {/* Shops left Eat & drink (the audit of 13 November 2026); the way there stays. */}
+    {type === 'shop' && <>{' · '}<a href="/eat-drink/" class="font-semibold text-primary underline">Eat &amp; drink</a></>}
     {siblings.length > 0 && (
       <>
         {' · '}

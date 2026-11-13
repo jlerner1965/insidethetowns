@@ -75,10 +75,12 @@ const structured = [
   )}
   {/* Places to stay are one more group of the list, as the shops are on Eat
      & Drink: their own heading, count and filter button. */}
-  {guide && <PicksGuide page={guide} places={[...places, ...lodging]} />}
+  {/* Three picks, the list with its filters, then the rest of the picks (the audit of 13 November 2026). */}
+  {guide && <PicksGuide page={guide} places={[...places, ...lodging]} part="lead" />}
   <div id="directory" class="scroll-mt-6">
     <PlaceDirectory places={[...places, ...lodging]} heading={`${guide ? 'Every trail, park and venue' : 'Trails, parks and venues'}${lodging.length > 0 ? ', and places to stay' : ''}`} filterable emptyMessage="No trails, parks or venues listed yet." />
   </div>
+  {guide && <PicksGuide page={guide} places={[...places, ...lodging]} part="rest" />}
   {outdoors.length > 0 && (
     <section class="mt-20">
       <SectionHeader eyebrow="From the guide" title="Outdoors, in depth" href="/guides/" linkLabel="All guides" />

@@ -90,7 +90,7 @@ const pill =
 )}
 
 <script>
-  import { collapsePlan, emptyText, filterRows, statusText, unknownNote } from '@/lib/filters';
+  import { collapsePlan, emptyText, filterRows, statusText, openNowNote } from '@/lib/filters';
   import { initScrollRows } from '@/lib/scroll-rows';
 
   // Edge fades, and the chosen button kept in view, on a phone's one-line rows.
@@ -189,7 +189,7 @@ const pill =
       }
       const unknown = bar.querySelector<HTMLElement>('[data-filter-unknown]');
       if (unknown) {
-        unknown.textContent = openOnly ? unknownNote(result) : '';
+        unknown.textContent = openOnly ? openNowNote(result) : '';
         unknown.hidden = !unknown.textContent;
       }
       // aria-pressed reports the button; this reports the result, by name.

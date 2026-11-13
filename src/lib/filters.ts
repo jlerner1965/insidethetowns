@@ -172,6 +172,16 @@ export function filterRows(rows: readonly FilterRow[], state: FilterState): Filt
 }
 
 /** "3 places with unknown hours not shown." and its daylight counterpart, or '' when nothing was left out. */
+/**
+ * What "Open now" says while it is on: that it reads the hours each place
+ * lists, in Colorado's time, and is not a live check of the door (the
+ * audit of 13 November 2026), then what it could not place.
+ */
+export const OPEN_NOW_BASIS = 'By the hours each place lists, in Colorado time; not a live check.';
+export function openNowNote(result: Pick<FilterResult, 'unknownHours' | 'unknownLand'>): string {
+  return [OPEN_NOW_BASIS, unknownNote(result)].filter(Boolean).join(' ');
+}
+
 export function unknownNote({ unknownHours, unknownLand }: Pick<FilterResult, 'unknownHours' | 'unknownLand'>): string {
   const parts: string[] = [];
   if (unknownHours) parts.push(`${unknownHours} ${unknownHours === 1 ? 'place' : 'places'} with unknown hours not shown.`);
