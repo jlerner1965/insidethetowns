@@ -10,6 +10,10 @@ added: "2026-10-05"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-382-5805"
 tags: [park, splash-pad, playground, gazebo, downtown]
+details:
+  reservation: "Shelter reservations are closed from September 30 to February 1"
+  source: "https://www.frederickco.gov/Facilities/Facility/Details/7"
+  checked: "2026-11-12"
 summary: "The park at the entrance to downtown Frederick, with a playground, a summer splash pad, a gazebo, bocce courts, a sports field and the Miners Memorial Museum; the Festival of Lights and Music in the Park are held here."
 ---
 

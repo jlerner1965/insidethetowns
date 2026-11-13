@@ -1,0 +1,115 @@
+{
+  "slug": "telluride",
+  "transit": [
+    {
+      "name": "Galloping Goose",
+      "detail": "Free town loop run by the Town of Telluride, every 30 minutes in the off-season and every 10 to 15 minutes in peak seasons",
+      "url": "https://www.telluride.gov/255/Public-Transit",
+      "source": "https://www.telluride.gov/255/Public-Transit",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Gondola",
+      "detail": "Free gondola between downtown Telluride and Mountain Village, year-round except brief maintenance closures",
+      "url": "https://townofmountainvillage.com/gondola/",
+      "source": "https://www.telluride.gov/255/Public-Transit",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "SMART",
+      "detail": "Regional buses of the San Miguel Authority for Regional Transportation linking Telluride with Lawson Hill, Mountain Village, Norwood and Rico",
+      "url": "https://smarttelluride.colorado.gov/",
+      "source": "https://smarttelluride.colorado.gov/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "New Sheridan Hotel",
+      "kind": "Hotel",
+      "url": "https://www.newsheridan.com/",
+      "source": "https://www.newsheridan.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Hotel Telluride",
+      "kind": "Hotel",
+      "url": "https://www.thehoteltelluride.com/",
+      "source": "https://www.thehoteltelluride.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Camel's Garden Hotel",
+      "kind": "Hotel",
+      "url": "https://www.camelsgarden.com/",
+      "source": "https://www.camelsgarden.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Victorian Inn",
+      "kind": "Inn",
+      "url": "https://www.victorianinntelluride.com/",
+      "source": "https://www.victorianinntelluride.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Platted as Columbia, the town changed its name at the request of the postal service to avoid confusion with Columbia, California; it was named, reportedly, after telluride ore.",
+      "source": "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/66000256_text",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1878,
+      "text": "The mining camp, originally called Columbia, became a town in 1878.",
+      "source": "https://www.telluride.gov/566/History-of-Telluride",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1890,
+        "text": "The railroad reached Telluride.",
+        "source": "https://www.telluride.gov/566/History-of-Telluride",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1893,
+        "text": "Silver prices crashed and the mining boom began to collapse.",
+        "source": "https://www.telluride.gov/566/History-of-Telluride",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1961,
+        "text": "The core of Telluride was designated a National Historic Landmark District.",
+        "source": "https://www.telluride.gov/566/History-of-Telluride",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1972,
+        "text": "Telluride Ski Resort opened.",
+        "source": "https://www.telluride.gov/566/History-of-Telluride",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Telluride Historical Museum",
+        "kind": "museum",
+        "url": "https://www.telluridemuseum.org/",
+        "hours": "Winter season Tue–Sat 10 am–5 pm; summer season Mon–Sat 10 am–5 pm; last admission 4:30 pm",
+        "cost": "$9 general admission; $6 students (6-17) and seniors (65 and older); free for children 5 and under",
+        "season": "Closed early April through early June and mid-October through early December",
+        "source": "https://www.telluridemuseum.org/visit/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Galloping Goose #4",
+        "kind": "landmark",
+        "url": "https://www.telluride.gov/566/History-of-Telluride",
+        "season": "On display at the San Miguel County Courthouse; moved to the Ridgway Railroad Museum in winter",
+        "source": "https://www.telluride.gov/566/History-of-Telluride",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -7,6 +7,9 @@ url: "https://www.johnstownco.gov/573/Lake-Park"
 hours: "Daily 5 am–10 pm"
 tags: [fishing, walking, shelters]
 featured: true
+details:
+  source: "https://www.johnstownco.gov/573/Lake-Park"
+  checked: "2026-11-12"
 summary: "The park on the Town's reservoir off Highway 60: a walking path, shelters, a playground, restrooms, and permit fishing for bass, trout, catfish and crappie."
 source: "https://www.johnstownco.gov/573/Lake-Park"
 verified: "2026-11-03"

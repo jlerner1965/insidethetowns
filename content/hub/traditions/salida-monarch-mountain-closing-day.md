@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Monarch Mountain"
 sourceUrl: "https://www.skimonarch.com/the-mountain/hours-stats/"
+outdoor:
+  kind: ski-area
+  facility: "Monarch Mountain"
+  edge: closes
 years:
   - year: 2027
     status: not-announced

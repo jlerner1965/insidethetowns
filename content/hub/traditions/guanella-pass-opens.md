@@ -8,6 +8,10 @@ towns:
 type: outdoor
 organizer: "Clear Creek County"
 sourceUrl: "https://www.clearcreekcounty.us/689/Guanella-Pass-Information"
+outdoor:
+  kind: road
+  facility: "Guanella Pass"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

@@ -1,0 +1,21 @@
+{
+  "slug": "kremmling",
+  "lodging": [
+    { "name": "Allington Inn & Suites", "kind": "Hotel", "url": "https://www.allingtoninn.com/", "source": "https://www.allingtoninn.com/", "checked": "2026-11-12" },
+    {"name": "Super 8 by Wyndham Kremmling", "kind": "Hotel", "url": "https://www.wyndhamhotels.com/super-8/kremmling-colorado/super-8-kremmling", "source": "https://www.wyndhamhotels.com/super-8/kremmling-colorado/super-8-kremmling", "checked": "2026-11-13"}
+  ],
+  "heritage": {
+    "nameOrigin": { "text": "Kremmling started as a general merchandise store owned by Rudolph (or Kare) Kremmling; he moved it across the Muddy River to the Kinsey brothers' new town site, which took his name.", "source": "https://stories.grandcountyhistory.org/node/1815", "checked": "2026-11-12" },
+    "founded": {"year": 1888, "text": "John and Aaron Kinsey platted part of their ranch as the town site, first called Kinsey City", "source": "https://stories.grandcountyhistory.org/node/1815", "checked": "2026-11-13"},
+    "timeline": [
+      { "year": 1885, "text": "A post office was established at Kremmling as early as 1885.", "source": "https://stories.grandcountyhistory.org/node/1815", "checked": "2026-11-12" },
+      { "year": 1888, "text": "John and Aaron Kinsey platted part of their ranch as Kinsey City.", "source": "https://stories.grandcountyhistory.org/node/1815", "checked": "2026-11-12" },
+      { "year": 1904, "text": "The town was incorporated.", "source": "https://stories.grandcountyhistory.org/node/1815", "checked": "2026-11-12" },
+      { "year": 1912, "text": "The Middle Park Fair and Rodeo dates to 1912.", "source": "https://www.co.grand.co.us/1203/Middle-Park-Fair-and-Rodeo", "checked": "2026-11-12" },
+      { "year": 1994, "text": "The Fitch Homestead cabin, dated to about 1885, was moved from the Wolford Mountain Reservoir site into Kremmling.", "source": "https://grandcountyhistory.org/museums/heritage-park-museum/", "checked": "2026-11-12" }
+    ],
+    "sites": [
+      { "name": "Heritage Park Museum", "kind": "museum", "url": "https://grandcountyhistory.org/museums/heritage-park-museum/", "hours": "Friday and Saturday 10am to 4pm", "cost": "$8 adults; $7 seniors; $5 children (6-17); under 5 free", "season": "Open to Labor Day (opening date TBA); closed in winter", "source": "https://grandcountyhistory.org/museums/heritage-park-museum/", "checked": "2026-11-12" }
+    ]
+  }
+}

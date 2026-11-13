@@ -1,0 +1,113 @@
+{
+  "slug": "fort-collins",
+  "facts": {
+    "incorporated": {
+      "year": 1873,
+      "source": "https://history.fcgov.com/timeline/1870",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "Transfort",
+      "detail": "City buses, including MAX bus rapid transit; currently fare-free",
+      "url": "https://ridetransfort.com/",
+      "source": "https://ridetransfort.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "FLEX",
+      "detail": "Regional bus operated by Transfort with stops between Fort Collins, Loveland, Berthoud, Longmont and Boulder",
+      "url": "https://ridetransfort.com/routes/flex/",
+      "source": "https://ridetransfort.com/routes/flex/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "The Armstrong Hotel",
+      "kind": "Hotel",
+      "url": "https://thearmstronghotel.com/",
+      "source": "https://thearmstronghotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Elizabeth Hotel",
+      "kind": "Hotel",
+      "url": "https://www.theelizabethcolorado.com/",
+      "source": "https://www.theelizabethcolorado.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Edwards House",
+      "kind": "Inn",
+      "url": "https://edwardshouse.com/",
+      "source": "https://edwardshouse.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The army post was named Camp Collins for William O. Collins, commander of the 11th Ohio Cavalry.",
+      "source": "https://history.fcgov.com/timeline/1860",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1864,
+      "text": "The army moved its post to the present site after a flood damaged the first camp",
+      "source": "https://history.fcgov.com/timeline/1860",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1864,
+        "text": "After a flood damaged the camp, Colonel Collins approved a new site for the post in August.",
+        "source": "https://history.fcgov.com/timeline/1860",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1867,
+        "text": "The army post officially closed in March.",
+        "source": "https://history.fcgov.com/timeline/1860",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1873,
+        "text": "The county commissioners granted a petition for town government.",
+        "source": "https://history.fcgov.com/timeline/1870",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1877,
+        "text": "The Colorado Central Railroad's construction train arrived at the depot grounds.",
+        "source": "https://history.fcgov.com/timeline/1870",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1879,
+        "text": "Operations began at the college.",
+        "source": "https://history.fcgov.com/timeline/1870",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Fort Collins Museum of Discovery",
+        "kind": "museum",
+        "url": "https://fcmod.org/",
+        "hours": "Tuesday–Sunday 9 am–5 pm; closed Mondays and most major holidays",
+        "cost": "$15.50 adults; $12.75 youth 2–18, students and seniors; free under 2",
+        "source": "https://fcmod.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Avery House",
+        "kind": "landmark",
+        "url": "https://poudrelandmarks.org/avery-house/",
+        "hours": "Tours on Saturdays and Sundays",
+        "source": "https://poudrelandmarks.org/avery-house/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

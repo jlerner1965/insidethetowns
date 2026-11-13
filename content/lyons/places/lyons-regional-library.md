@@ -7,6 +7,9 @@ url: "https://lyons.colibraries.org/"
 phone: "(303) 823-5165"
 hours: "Mon–Thu 10–7, Fri 10–5, Sat 10–2; closed Sun"
 tags: [library, programs, families]
+details:
+  source: "https://lyons.colibraries.org/"
+  checked: "2026-11-12"
 summary: "The library district’s 2019 building: books, meeting rooms, programs most days and the Effie Banta Room for public meetings."
 source: "https://lyons.colibraries.org/"
 verified: "2026-11-10"

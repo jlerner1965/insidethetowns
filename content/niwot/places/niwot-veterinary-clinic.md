@@ -6,6 +6,9 @@ url: "https://my.vetmatrix.com/0088455/"
 phone: "(303) 652-2194"
 hours: "Mon–Fri 8 am–6 pm"
 tags: [vet, pets]
+details:
+  source: "https://my.vetmatrix.com/0088455/contact"
+  checked: "2026-11-12"
 summary: "A vet clinic on North 79th Street, open weekdays, which says it is moving to its Rock Creek Veterinary Hospital in Broomfield and will see patients in Niwot until March 15."
 source: "https://my.vetmatrix.com/0088455/contact"
 verified: "2026-11-10"

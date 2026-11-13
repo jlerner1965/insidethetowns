@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Ouray Ice Park"
 sourceUrl: "https://ourayicepark.com/conditions"
+outdoor:
+  kind: other
+  facility: "Ouray Ice Park"
+  edge: opens
 years:
   - year: 2026
     status: not-announced

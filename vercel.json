@@ -5578,6 +5578,138 @@
       ],
       "destination": "https://insidethetowns.com/elizabeth/",
       "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/traditions{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#traditions",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/trailheads{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/parks{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/#outdoor-dates",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemead.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/mead/",
+      "permanent": true
     }
   ]
 }

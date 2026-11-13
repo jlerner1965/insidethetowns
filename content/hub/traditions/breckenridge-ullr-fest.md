@@ -4,7 +4,7 @@ name: "Breckenridge Ullr Fest"
 town:
   name: Breckenridge
   guide: breckenridge
-type: festival
+type: winter-carnival
 organizer: "Breckenridge Tourism Office"
 sourceUrl: "https://gobreck.com/event/ullr-fest/"
 years:

@@ -11,6 +11,9 @@ phone: "1-888-861-7323"
 hours: "Mon–Thu 9 am–8 pm; Fri–Sat 10 am–5 pm; Sun 1–5 pm"
 tags: [library, storytimes, meeting-rooms, teens]
 featured: true
+details:
+  source: "https://www.mylibrary.us/locations-and-hours/"
+  checked: "2026-11-12"
 summary: "Frederick’s library, a High Plains Library District branch on Park Avenue in Firestone: open seven days, with storytimes most mornings, teen and adult clubs, two meeting rooms, four study rooms and a vending cafe."
 ---
 

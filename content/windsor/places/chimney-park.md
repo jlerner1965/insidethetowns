@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 added: "2026-10-01"
 phone: "970-674-3533"
 tags: [pool, ball-fields, playground, shelters, summer]
+details:
+  source: "https://www.recreationliveshere.com/166/Chimney-Park-Pool"
+  checked: "2026-11-12"
 summary: "The park on the east side of downtown with the Town's outdoor pool (lap lanes, a kiddie pool, a water slide coming in 2027), three ball fields, one of them synthetic turf, playgrounds, shelters and restrooms."
 ---
 

@@ -8,6 +8,9 @@ phone: "(970) 344-5292"
 hours: "Daily 11 am–8 pm"
 priceRange: "$"
 tags: [pizza, takeout, delivery]
+details:
+  source: "https://www.berthoudpizzacompany.com/"
+  checked: "2026-11-12"
 summary: "Neighborhood pizza and wings on North 4th Street, for carry-out and delivery."
 source: "https://www.berthoudpizzacompany.com/"
 verified: "2026-11-10"

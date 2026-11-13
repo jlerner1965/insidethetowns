@@ -4,7 +4,7 @@ name: "Corn Roast Festival"
 town:
   name: Loveland
   guide: loveland
-type: festival
+type: harvest-festival
 organizer: "Loveland Chamber of Commerce"
 sourceUrl: "https://loveland.org/wp-content/uploads/2026/04/2026-Corn-Roast-FOOD-Vendor-Application.pdf"
 years:

@@ -13,6 +13,9 @@ phone: "970-460-2224"
 hours: "Mon 11 am–8 pm, Tue–Thu 11 am–9 pm, Fri–Sat 11 am–10 pm, Sun 11 am–8 pm"
 tags: [brewery, patio, family-friendly, kitchen]
 featured: true
+details:
+  source: "https://peculierales.com/"
+  checked: "2026-11-12"
 summary: "Downtown Windsor's first craft brewery, in the rebuilt Windsor Mill at 3rd and Main, with a big patio, its own kitchen and a tap list that changes with the releases."
 ---
 

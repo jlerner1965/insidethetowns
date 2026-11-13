@@ -1,0 +1,115 @@
+{
+  "slug": "manitou-springs",
+  "transit": [
+    {
+      "name": "Mountain Metropolitan Transit Route 3",
+      "detail": "Colorado Avenue route between the Downtown Terminal and Manitou Springs Memorial Park",
+      "url": "https://coloradosprings.gov/busroutes",
+      "source": "https://coloradosprings.gov/busroutes",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Mountain Metropolitan Transit Route 33",
+      "detail": "Manitou Shuttle: Incline/COG, from Manitou Springs Memorial Park",
+      "url": "https://coloradosprings.gov/busroutes",
+      "source": "https://coloradosprings.gov/busroutes",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "The Cliff House at Pikes Peak",
+      "kind": "Hotel",
+      "url": "https://www.thecliffhouse.com/",
+      "source": "https://www.thecliffhouse.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Villa Motel at Manitou Springs",
+      "kind": "Motel",
+      "url": "https://www.villamotel.com/",
+      "source": "https://www.villamotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Pikes Peak Inn",
+      "kind": "Hotel",
+      "url": "https://pikespeakmanitousprings.com/",
+      "source": "https://pikespeakmanitousprings.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1876,
+      "text": "Founded as a resort community. The National Register nomination names Dr. William Bell as the town's founder.",
+      "source": "https://npgallery.nps.gov/pdfhost/docs/NRHP/Text/64000076.pdf",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1891,
+        "text": "The first passenger train reached the summit of Pikes Peak on the cog railway on June 30.",
+        "source": "https://www.cograilway.com/about-us/cog-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1892,
+        "text": "Father Jean Baptiste Francolon, the architect of Miramont Castle, moved to Manitou Springs for his health.",
+        "source": "https://www.miramontcastle.org/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1997,
+        "text": "Historic Manitou Springs, Inc. was formed as a nonprofit.",
+        "source": "https://manitouspringsheritagecenter.org/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2009,
+        "text": "The Manitou Springs Heritage Museum opened on the first floor of 517 Manitou Avenue.",
+        "source": "https://manitouspringsheritagecenter.org/about/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Manitou Springs Heritage Museum",
+        "kind": "museum",
+        "url": "https://manitouspringsheritagecenter.org/",
+        "hours": "Wednesday–Sunday noon–4 pm or by appointment",
+        "cost": "Free",
+        "source": "https://manitouspringsheritagecenter.org/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Miramont Castle",
+        "kind": "museum",
+        "url": "https://www.miramontcastle.org/",
+        "hours": "Tuesday–Sunday 10 am–3:30 pm, closing at 4 pm; Memorial Day to Labor Day, daily 9 am–4:30 pm, closing at 5 pm",
+        "cost": "Adults 13–59 $15; seniors 60+ $13; children 4–12 $10; 3 and under free",
+        "source": "https://www.miramontcastle.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Manitou Cliff Dwellings",
+        "kind": "museum",
+        "url": "https://www.cliffdwellingsmuseum.com/",
+        "hours": "May–August 9 am–5 pm; April, September and October 9 am–5 pm; March 9 am–4:30 pm; November 9 am–4 pm; December–February 10 am–4 pm",
+        "cost": "Adults (12 and over) $12.75 plus tax; children (4–11) $8; seniors (60 plus) $10; 3 and under free",
+        "season": "Open year-round, weather permitting; closed Thanksgiving and Christmas Day",
+        "source": "https://www.cliffdwellingsmuseum.com/plan-your-visit/season-hours-cost/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "The Broadmoor Manitou and Pikes Peak Cog Railway",
+        "kind": "landmark",
+        "url": "https://www.cograilway.com/",
+        "source": "https://www.cograilway.com/about-us/cog-history/",
+        "checked": "2026-11-12",
+        "cost": "Reserved admission booked online: adults starting at $67; children starting at $57",
+        "season": "Year-round operation"
+      }
+    ]
+  }
+}

@@ -11,6 +11,9 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "303-833-8915"
 hours: "Mon, Wed–Fri 6 am–8 pm; Tue 6 am–2 pm; Sat 7 am–8 pm; Sun 7 am–2 pm"
 tags: [breakfast, lunch, diner, family-owned]
+details:
+  source: "https://www.gabescafe.com/"
+  checked: "2026-11-12"
 summary: "Family-owned Fifth Street cafe, open since 2015, serving breakfast and lunch all day from 6 am most weekdays; it now serves alcohol and takes pick-up orders."
 ---
 

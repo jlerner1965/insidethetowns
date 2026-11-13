@@ -1,0 +1,118 @@
+{
+  "slug": "crested-butte",
+  "facts": {
+    "incorporated": {
+      "year": 1880,
+      "source": "https://www.historycolorado.org/location/crested-butte-historic-district",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "Mountain Express",
+      "detail": "Free bus service for Crested Butte and Mt. Crested Butte; the winter season schedule runs November 25, 2026 through April 4, 2027",
+      "url": "https://mtnexp.org/",
+      "source": "https://mtnexp.org/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Gunnison Valley RTA",
+      "detail": "Free bus between Gunnison and Crested Butte",
+      "url": "https://gunnisonvalleyrta.com/",
+      "source": "https://gunnisonvalleyrta.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Elk Mountain Lodge",
+      "kind": "Hotel",
+      "url": "https://www.elkmountainlodge.com/",
+      "source": "https://www.elkmountainlodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Cristiana Guesthaus",
+      "kind": "Bed and breakfast",
+      "url": "https://www.cristianaguesthaus.com/",
+      "source": "https://www.cristianaguesthaus.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Purple Mountain Bed & Breakfast",
+      "kind": "Bed and breakfast",
+      "url": "https://www.purplemountainlodge.com/",
+      "source": "https://www.purplemountainlodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Old Town Inn",
+      "kind": "Inn",
+      "url": "https://oldtowninn.net/",
+      "source": "https://oldtowninn.net/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The town takes its name from Crested Butte Mountain, which rises to the northeast.",
+      "source": "https://npgallery.nps.gov/GetAsset/d1c49d14-a736-4e40-a2e6-329fd28293fa",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1878,
+      "text": "Howard F. Smith established the settlement at the junction of Coal Creek and the Slate River; it was known as Crested Butte by the summer of 1878.",
+      "source": "https://npgallery.nps.gov/GetAsset/d1c49d14-a736-4e40-a2e6-329fd28293fa",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1874,
+        "text": "Settlers looking for precious metals were in the area as early as 1874.",
+        "source": "https://www.historycolorado.org/location/crested-butte-historic-district",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1880,
+        "text": "Crested Butte, a supply center for nearby mining camps, was incorporated.",
+        "source": "https://www.historycolorado.org/location/crested-butte-historic-district",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1882,
+        "text": "Coal mines and coke ovens made the Crested Butte area the state's leading mountain coal operation by 1882.",
+        "source": "https://www.historycolorado.org/location/crested-butte-historic-district",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1952,
+        "text": "The major coal mines shut down.",
+        "source": "https://www.historycolorado.org/location/crested-butte-historic-district",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1974,
+        "text": "The Crested Butte Historic District was listed on the National Register on May 29, 1974.",
+        "source": "https://www.historycolorado.org/location/crested-butte-historic-district",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Old Rock Library",
+        "kind": "landmark",
+        "url": "https://www.gunnisoncountylibraries.org/crested-butte-library/",
+        "hours": "Mon–Fri 10 am–6 pm; Sat 10 am–4 pm; Sun 1–5 pm",
+        "source": "https://www.gunnisoncountylibraries.org/crested-butte-library/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Crested Butte Denver and Rio Grande Railroad Depot",
+        "kind": "landmark",
+        "url": "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/01000444_text",
+        "source": "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/01000444_text",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

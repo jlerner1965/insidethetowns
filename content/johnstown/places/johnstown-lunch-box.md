@@ -8,6 +8,9 @@ phone: "(970) 660-0817"
 hours: "Mon–Sat 9–5, Sun 10–2"
 priceRange: "$"
 tags: [lunch, sandwiches]
+details:
+  source: "https://johnstownlunchbox.com/"
+  checked: "2026-11-12"
 summary: "Sandwich and lunch counter a block off Parish Avenue in Old Town."
 source: "https://johnstownlunchbox.com/"
 verified: "2026-11-03"

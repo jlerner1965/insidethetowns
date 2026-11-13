@@ -7,6 +7,9 @@ url: "https://www.eriegoldandsilver.com/"
 phone: "(303) 828-9999"
 hours: "Mon–Fri 10 am–5 pm; Sat 10 am–2 pm; closed Sun"
 tags: [coins, bullion, precious-metals]
+details:
+  source: "https://www.eriegoldandsilver.com/contact-us"
+  checked: "2026-11-12"
 summary: "Coin and precious-metals shop on Wells Street, a block off Briggs: gold and silver bullion, U.S. and world coins, and jewelry, bought and sold."
 source: "https://www.eriegoldandsilver.com/contact-us"
 verified: "2026-11-03"

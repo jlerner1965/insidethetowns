@@ -6,6 +6,9 @@ area: "Old Town, Second Avenue"
 url: "https://www.loveicecream.co/"
 hours: "Sun–Thu 12–8, Fri–Sat 12–9"
 tags: [ice-cream, dairy-free, families]
+details:
+  source: "https://www.loveicecream.co/"
+  checked: "2026-11-12"
 summary: "Locally sourced ice cream from High Point Creamery on the 200 block, with dairy-free flavors among the dozen or so on offer. Opened September 2024."
 source: "https://www.loveicecream.co/"
 verified: "2026-11-10"

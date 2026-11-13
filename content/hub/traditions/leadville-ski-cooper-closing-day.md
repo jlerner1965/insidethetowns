@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Ski Cooper"
 sourceUrl: "https://www.skicooper.com/mountain-stats-map/"
+outdoor:
+  kind: ski-area
+  facility: "Ski Cooper"
+  edge: closes
 years:
   - year: 2027
     status: confirmed

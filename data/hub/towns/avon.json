@@ -1,0 +1,98 @@
+{
+  "slug": "avon",
+  "facts": {
+    "incorporated": {
+      "year": 1978,
+      "source": "https://www.avon.org/history",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "Avon Transit",
+      "detail": "Free municipal buses around town and to Beaver Creek",
+      "url": "https://discoveravon.org/get_around/avon-by-bus/",
+      "source": "https://discoveravon.org/get_around/avon-by-bus/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Core Transit",
+      "detail": "Valley Route and Highway 6 Route both stop in Avon",
+      "url": "https://www.coretransit.org/",
+      "source": "https://www.coretransit.org/routes-schedules",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "The Christie Lodge",
+      "kind": "Resort",
+      "url": "https://www.christielodge.com/",
+      "source": "https://www.christielodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Beaver Creek West",
+      "kind": "Condominiums",
+      "url": "https://www.beavercreekwest.com/",
+      "source": "https://www.beavercreekwest.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Club Wyndham Resort at Avon",
+      "kind": "Resort",
+      "url": "https://clubwyndham.wyndhamdestinations.com/us/en/resorts/wyndham-hotels-resorts/united-states-of-america/colorado/avon/club-wyndham-resort-at-avon",
+      "source": "https://clubwyndham.wyndhamdestinations.com/us/en/resorts/wyndham-hotels-resorts/united-states-of-america/colorado/avon/club-wyndham-resort-at-avon",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Early settler George A. Townsend is said to have fancied the name Avondale for the area; at some point Avon became its official name.",
+      "source": "https://www.avon.org/history",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1845,
+        "text": "John Charles Fremont led his California-bound expedition down the Eagle River through present-day Avon.",
+        "source": "https://www.avon.org/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1928,
+        "text": "The Nottingham Power Plant, a wooden waterwheel, was built on the Eagle River.",
+        "source": "https://www.avon.org/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1978,
+        "text": "The Town of Avon was incorporated on February 24.",
+        "source": "https://www.avon.org/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2006,
+        "text": "The Nottingham Power Plant was designated a historical site by the Colorado Historical Society.",
+        "source": "https://www.avon.org/history",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Nottingham Power Plant water wheel",
+        "kind": "landmark",
+        "url": "https://www.avon.org/history",
+        "source": "https://www.avon.org/history",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Avon Historical Markers",
+        "kind": "landmark",
+        "url": "https://www.avon.org/2401/Avon-Historical-Markers",
+        "source": "https://www.avon.org/2401/Avon-Historical-Markers",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+---
+/**
+ * "Open now" and "Opens next" (src/lib/open-now.ts): a place's outdoor
+ * rows read as two short lists, from the records' own dates. Compact, and
+ * drawn only where at least one list has an item; each item links to its
+ * row on the same page, where the source and the check date are.
+ *
+ * The lists are the build day's; each item carries the days it turns on
+ * (`data-from`, `data-until`), and the script below drops an item whose
+ * day has gone by the reader's own Denver date and moves one whose day
+ * has come from "Opens next" to "Open now".
+ */
+import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
+import { openNow } from '@/lib/open-now';
+import type { TraditionRecord } from '@/lib/traditions';
+
+interface Props {
+  /** The place's outdoor records: its own and the shared ones that name it. */
+  records: readonly TraditionRecord[];
+  today: string;
+  class?: string;
+}
+const { records, today, class: className } = Astro.props;
+const { open, next } = openNow(records, today);
+const day = (d: string) => `${formatDayLong(parseLocal(d))}, ${d.slice(0, 4)}`;
+const lists = [
+  { key: 'open', title: 'Open now', items: open },
+  { key: 'next', title: 'Opens next', items: next.slice(0, 6) },
+];
+---
+{open.length + next.length > 0 && (
+  <section aria-labelledby="open-now-heading" class:list={['mb-8', className]} data-open-now>
+    <h3 id="open-now-heading" class="sr-only">Open now and opens next</h3>
+    <div class="grid gap-4">
+      {lists.map((list) => (
+        <div class="rounded-lg bg-raised px-5 py-4 ring-1 ring-line-soft" data-open-list={list.key} hidden={list.items.length === 0}>
+          <p class="eyebrow mb-2">{list.title}</p>
+          <ul class="space-y-2.5">
+            {list.items.map((it) => (
+              <li class="text-[0.9375rem] leading-snug" data-open-item data-from={it.from} data-until={it.until}>
+                <a href={`#${it.slug}`} class="font-semibold text-ink no-underline hover:text-primary hover:underline">{it.facility}</a>
+                <span class="block text-ink-muted">
+                  {it.kindLabel} ·
+                  <span data-when-next hidden={list.key !== 'next'}>{it.kind === 'booking' ? 'reservations open' : 'opens'} <time datetime={it.from}>{day(it.from)}</time></span>
+                  <span data-when-open hidden={list.key !== 'open'}>opened <time datetime={it.from}>{formatShortDate(parseLocal(it.from))}</time></span>
+                  {it.until && it.kind !== 'booking' && <Fragment>, until <time datetime={it.until}>{formatShortDate(parseLocal(it.until))}</time></Fragment>}
+                  {it.note && <Fragment> · “{it.note}”</Fragment>}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<script>
+  // The reader's own Denver day: an item whose last day has gone is dropped,
+  // and one whose first day has come moves from "Opens next" to "Open now".
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
+  for (const root of document.querySelectorAll<HTMLElement>('[data-open-now]')) {
+    const open = root.querySelector<HTMLElement>('[data-open-list="open"]');
+    const next = root.querySelector<HTMLElement>('[data-open-list="next"]');
+    for (const item of root.querySelectorAll<HTMLElement>('[data-open-item]')) {
+      const from = item.dataset.from ?? '';
+      const until = item.dataset.until;
+      const booking = !!item.querySelector('[data-when-next]')?.textContent?.includes('reservations');
+      if (until && until < today) item.remove();
+      else if (item.closest('[data-open-list="next"]') && from <= today) {
+        if (booking || !until) item.remove();
+        else if (open) {
+          item.querySelector<HTMLElement>('[data-when-next]')!.hidden = true;
+          item.querySelector<HTMLElement>('[data-when-open]')!.hidden = false;
+          open.querySelector('ul')!.append(item);
+        }
+      } else if (item.closest('[data-open-list="open"]') && !until) {
+        // No closing date on file: read as open for ninety days from its opening, as the build does.
+        const age = (Date.parse(`${today}T12:00:00Z`) - Date.parse(`${from}T12:00:00Z`)) / 86_400_000;
+        if (age > 90) item.remove();
+      }
+    }
+    for (const list of [open, next]) if (list) list.hidden = list.querySelectorAll('[data-open-item]').length === 0;
+    if (open?.hidden && next?.hidden) root.hidden = true;
+  }
+</script>

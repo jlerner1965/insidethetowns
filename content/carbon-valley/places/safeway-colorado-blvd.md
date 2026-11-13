@@ -11,6 +11,9 @@ verifiedBy: "Claude, read from the store's own page on 9 November 2026; listed a
 phone: "303-833-2844"
 hours: "Daily 6 am–11 pm"
 tags: [grocery, pharmacy]
+details:
+  source: "https://local.safeway.com/safeway/co/firestone/8134-colorado-blvd.html"
+  checked: "2026-11-12"
 summary: "The Safeway on Colorado Boulevard in Firestone, open daily 6 am to 11 pm, with a pharmacy."
 ---
 

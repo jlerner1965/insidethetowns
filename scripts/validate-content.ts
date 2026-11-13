@@ -44,6 +44,7 @@ import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } f
 import { nextEventIssues, retiredLedgerIssues } from '../src/lib/former-slugs.ts';
 import { STANDALONE_GUIDES, findHubTown } from '../src/config/hub-towns.ts';
 import { placeKey } from '../src/lib/hub-towns.ts';
+import { isGuideSite, townProfileSchema } from '../src/lib/town-profile.ts';
 import { STALE_CHECK_DAYS, STALE_WITHIN_DAYS, staleSoon, type TraditionRecord } from '../src/lib/traditions.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -638,6 +639,37 @@ if (!existsSync(contentDir)) {
 // file the build could not read would each make a redirect wrong or missing.
 for (const town of deployedTowns()) for (const issue of retiredLedgerIssues(town.slug, contentDir)) errors.push(issue);
 for (const town of deployedTowns()) for (const issue of nextEventIssues(town.slug, contentDir)) errors.push(`content/${issue}`);
+
+// The hub towns' profiles (data/hub/towns/<slug>.json, src/lib/town-profile.ts):
+// every value with its source and check date, no guide or booking site, the
+// file named for a town in the registry. And no tradition record read on a
+// guide site.
+{
+  const dir = 'data/hub/towns';
+  const files = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')) : [];
+  for (const f of files) {
+    const rel = `${dir}/${f}`;
+    let data: unknown;
+    try {
+      data = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8'));
+    } catch (e) {
+      errors.push(`${rel}: not JSON (${(e as Error).message})`);
+      continue;
+    }
+    const parsed = townProfileSchema.safeParse(data);
+    if (!parsed.success) {
+      for (const i of parsed.error.issues) errors.push(`${rel}: ${i.path.join('.') || '(root)'}: ${i.message}`);
+      continue;
+    }
+    if (`${parsed.data.slug}.json` !== f) errors.push(`${rel}: slug "${parsed.data.slug}" is not the file's name`);
+    if (!findHubTown(parsed.data.slug)) errors.push(`${rel}: "${parsed.data.slug}" is not a town in src/config/hub-towns.ts`);
+  }
+  for (const r of traditionRecords) {
+    for (const url of [r.sourceUrl, ...r.years.map((y) => y.sourceUrl)]) {
+      if (url && isGuideSite(url)) errors.push(`content/hub/traditions/${r.slug}.md: ${url} is a guide site, not the organizer's page`);
+    }
+  }
+}
 
 // Traditions dated in the next 30 days whose check is over 14 days old: a
 // list, never a failure (src/lib/traditions.ts, staleSoon). The date was

@@ -7,6 +7,9 @@ area: "Fairgrounds Avenue, west Windsor"
 url: "https://www.pizzavinonoco.com/"
 phone: "(970) 617-2547"
 tags: [pizza, italian, wine, happy-hour]
+details:
+  source: "https://www.pizzavinonoco.com/"
+  checked: "2026-11-12"
 summary: "Rustic Italian pizza and a long wine list on Fairgrounds Avenue, with a dine-in happy hour Monday to Thursday 3 to 5 and Friday to Sunday 11 to 4."
 source: "https://www.pizzavinonoco.com/"
 verified: "2026-11-10"

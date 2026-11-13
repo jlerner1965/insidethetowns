@@ -9,6 +9,9 @@ tags: [coffee, pottery, classes, teens, nonprofit]
 image: ../images/creative-grounds-mural.jpg
 imageAlt: "Creative Grounds at 160 E Main St on a sunny day: its sign above a blue building painted with a mural of a patterned, winged lion over a mountain, and a black iron fence along the front"
 imageCredit: "Creative Grounds"
+details:
+  source: "https://creativegroundslyons.com/contact"
+  checked: "2026-11-12"
 summary: "A nonprofit café, pottery studio and hangout for young people at the east end of Main: Ozo coffee, house-made syrups, pastries and sandwiches, and pottery classes through December."
 source: "https://creativegroundslyons.com/"
 verified: "2026-11-10"

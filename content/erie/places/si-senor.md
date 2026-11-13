@@ -5,6 +5,9 @@ address: "3120 Village Vista Dr"
 url: "https://sisenorrealmexicanfood.com/"
 phone: "(720) 890-9765"
 tags: [mexican, margaritas, breakfast, catering]
+details:
+  source: "https://sisenorrealmexicanfood.com/"
+  checked: "2026-11-12"
 summary: "Locally owned Mexican restaurant on Village Vista Drive serving breakfast, lunch and dinner, with a daily happy hour from 2 to 5."
 source: "https://sisenorrealmexicanfood.com/"
 verified: "2026-11-11"

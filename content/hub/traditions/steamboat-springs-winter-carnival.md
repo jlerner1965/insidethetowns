@@ -4,7 +4,7 @@ name: "Steamboat Springs Winter Carnival"
 town:
   name: Steamboat Springs
   guide: steamboat-springs
-type: festival
+type: winter-carnival
 organizer: "Steamboat Springs Winter Sports Club"
 sourceUrl: "https://www.sswsc.org/winter-carnival"
 firstYear: 1914

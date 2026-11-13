@@ -1,0 +1,66 @@
+{
+  "slug": "platteville",
+  "heritage": {
+    "nameOrigin": {
+      "text": "Platteville was named for the nearby South Platte River.",
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1871,
+      "text": "Founded in 1871, after the Denver Pacific Railroad reached the area.",
+      "source": "https://platteville.colorado.gov/residents/our-history",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1835,
+        "text": "Louis Vasquez and Andrew Sublette built Fort Vasquez, a fur trading post about one mile south of present-day Platteville.",
+        "source": "https://platteville.colorado.gov/residents/our-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1861,
+        "text": "St. Vrain, about four miles north of the present town, was designated the county seat when Weld County was established.",
+        "source": "https://platteville.colorado.gov/residents/our-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1870,
+        "text": "The Denver Pacific Railroad line from Evans to Denver was completed, and Johnson Station was established two miles south of the present town.",
+        "source": "https://platteville.colorado.gov/residents/our-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1871,
+        "text": "The Platte River Land Company filed a map of the Town of Platteville with the Colorado Territorial government on July 17.",
+        "source": "https://platteville.colorado.gov/residents/our-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1994,
+        "text": "The Platteville Pioneer Museum was started on the site of the previous town library.",
+        "source": "https://platteville.colorado.gov/pioneer-museum",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Platteville Pioneer Museum",
+        "kind": "museum",
+        "url": "https://platteville.colorado.gov/pioneer-museum",
+        "hours": "Mondays and Wednesdays 10:00am to 3:00 pm; Saturdays 10:00am to 2:00 pm",
+        "source": "https://platteville.colorado.gov/pioneer-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Fort Vasquez",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/fort-vasquez",
+        "hours": "Wednesday, Saturday and Sunday, 10am to 4pm",
+        "source": "https://www.historycolorado.org/fort-vasquez",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

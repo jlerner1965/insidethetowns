@@ -1,0 +1,100 @@
+{
+  "slug": "fairplay",
+  "transit": [
+    {
+      "name": "Town of Fairplay Transit",
+      "detail": "ADA accessible rides within the Fairplay and Alma areas, Monday to Thursday 7 am–5 pm and Friday to Sunday 9 am–7 pm; call to arrange a pickup",
+      "url": "https://fairplayco.us/169/Public-Transit",
+      "source": "https://fairplayco.us/169/Public-Transit",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Summit Stage Park County Commuter",
+      "detail": "Low-cost bus between Fairplay, Alma, Blue River and Breckenridge",
+      "url": "https://www.summitcountyco.gov/services/transit_summit_stage/bus_schedule/index.php",
+      "source": "https://www.summitcountyco.gov/services/transit_summit_stage/bus_schedule/index.php",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Hand Hotel",
+      "kind": "Hotel",
+      "url": "https://handhotel.com/",
+      "source": "https://handhotel.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Fairplay Beach",
+      "kind": "Campground",
+      "url": "https://fairplayco.us/224/Fairplay-Beach-Camping-Rules-and-Regulat",
+      "source": "https://fairplayco.us/224/Fairplay-Beach-Camping-Rules-and-Regulat",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Prospectors named the camp Fair Play in 1859. Local legend says a leader among the miners declared, \"in this camp we'll have fair play.\"",
+      "source": "https://southparkheritage.org/fairplay/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1859,
+      "text": "Named by prospectors as a mining camp",
+      "source": "https://southparkheritage.org/fairplay/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1861,
+        "text": "The first post office was established on August 2.",
+        "source": "https://southparkheritage.org/fairplay/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1869,
+        "text": "On March 26 the settlement voted to incorporate as a town to be known as South Park City.",
+        "source": "https://southparkheritage.org/fairplay/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1873,
+        "text": "A fire on September 26 swept through the business district and destroyed nearly fifty buildings.",
+        "source": "https://southparkheritage.org/fairplay/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1881,
+        "text": "The Denver, South Park & Pacific Railroad branch line to Fairplay was completed in the fall.",
+        "source": "https://southparkheritage.org/fairplay/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1932,
+        "text": "The Fairplay railroad station closed in April.",
+        "source": "https://southparkheritage.org/fairplay/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "South Park City Museum",
+        "kind": "museum",
+        "url": "https://www.southparkcity.org/",
+        "hours": "May 15 to Thursday of Memorial weekend 10 am to 4:30 pm; Friday of Memorial weekend through Labor Day 9 am to 5:30 pm; day after Labor Day to October 15 10 am to 4:30 pm",
+        "cost": "Adult (13 and older) $12; child $6; kids under 6 free",
+        "season": "May 15 to October 15 every year",
+        "source": "https://www.southparkcity.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Fairplay Visitor Center & Burro Race Museum",
+        "kind": "museum",
+        "url": "https://fairplayco.us/172/Special-Events",
+        "hours": "Fall hours: Tue–Sat 10 am–2 pm",
+        "source": "https://fairplayco.us/172/Special-Events",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

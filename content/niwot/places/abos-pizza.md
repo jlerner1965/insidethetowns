@@ -7,6 +7,9 @@ url: "https://abospizza.com/locations/niwot/"
 phone: "(303) 652-0830"
 hours: "Mon–Thu 10:30–7, Fri 10:30–8, Sat–Sun 11–7"
 tags: [pizza, by-the-slice, families]
+details:
+  source: "https://abospizza.com/locations/niwot/"
+  checked: "2026-11-12"
 summary: "New York-style pizza by the slice or the pie, from the Boulder original that started in 1977."
 source: "https://abospizza.com/locations/niwot/"
 verified: "2026-11-10"

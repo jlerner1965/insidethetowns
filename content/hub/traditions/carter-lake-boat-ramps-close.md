@@ -7,6 +7,10 @@ towns:
 type: outdoor
 organizer: "Larimer County Department of Natural Resources"
 sourceUrl: "https://www.larimer.gov/naturalresources/parks/boating"
+outdoor:
+  kind: other
+  facility: "Carter Lake boat ramps"
+  edge: closes
 years:
   - year: 2026
     status: confirmed

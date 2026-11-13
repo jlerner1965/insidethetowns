@@ -1,0 +1,118 @@
+{
+  "slug": "sterling",
+  "facts": {
+    "incorporated": {
+      "year": 1884,
+      "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "Prairie Express",
+      "detail": "Fixed-route buses in Sterling run by NECALG. Route 1 runs Monday through Saturday and Route 2 Monday through Friday. General public fare is $1.00.",
+      "url": "https://www.necalg.org/prairie-express",
+      "source": "https://www.necalg.org/prairie-express",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "The Crest Motel",
+      "kind": "Motel",
+      "url": "https://www.thecrestmotel.com/",
+      "source": "https://www.thecrestmotel.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "The Oakwood Inn",
+      "kind": "Inn",
+      "url": "https://www.theoakwoodinn.com/",
+      "source": "https://www.theoakwoodinn.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Riverwalk RV Park",
+      "kind": "RV park",
+      "url": "https://rvriverwalk.com/",
+      "source": "https://rvriverwalk.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Sterling RV Park",
+      "kind": "RV park",
+      "url": "https://www.sterlingrvpark.net/",
+      "source": "https://www.sterlingrvpark.net/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "David Leavitt, a railroad surveyor and Illinois native, established a post office and named it Sterling in honor of his boyhood home in Illinois.",
+      "source": "https://www.historycolorado.org/sites/default/files/media/document/2022/Downtown%20Sterling%20Historic%20District_NR.pdf",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1881,
+      "text": "The rail line was completed in 1881, and Minos C. King filed a plat for Sterling's original townsite in September of that year.",
+      "source": "https://www.historycolorado.org/sites/default/files/media/document/2022/Downtown%20Sterling%20Historic%20District_NR.pdf",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1871,
+        "text": "William Shaw Hadfield arrived and made his home on an island in the South Platte River a few miles south of present-day Sterling.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1873,
+        "text": "Settlers about four miles north of the present town site built the first irrigation ditch.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1881,
+        "text": "The Union Pacific Railroad came through, and a section house and depot were built.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1884,
+        "text": "Sterling was incorporated on December 13.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1887,
+        "text": "Sterling was made the county seat.",
+        "source": "https://www.sterlingcolo.com/our_city/about_sterling/index.php",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Overland Trail Museum",
+        "kind": "museum",
+        "url": "https://www.sterlingcolo.com/departments/parks_library_and_recreation/overland_trail_museum/index.php",
+        "hours": "April 1 to October 31: Monday through Saturday, 9:00 AM to 5:00 PM. November 1 to March 31: Tuesday through Saturday, 10:00 AM to 4:00 PM",
+        "source": "https://www.sterlingcolo.com/departments/parks_library_and_recreation/overland_trail_museum/index.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Logan County Courthouse",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/logan-county-courthouse",
+        "source": "https://www.historycolorado.org/location/logan-county-courthouse",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Downtown Sterling Historic District",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/downtown-sterling-historic-district",
+        "source": "https://www.historycolorado.org/location/downtown-sterling-historic-district",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

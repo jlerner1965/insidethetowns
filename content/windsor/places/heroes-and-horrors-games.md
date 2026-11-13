@@ -12,6 +12,10 @@ added: "2026-10-01"
 phone: "970-833-5128"
 hours: "Tue–Fri 2–9 pm, Sat–Sun 12–9 pm; closed Mon"
 tags: [games, comics, magic-the-gathering, game-nights]
+details:
+  reservation: "Game room currently available for reservations only"
+  source: "https://www.heroesandhorrorsgames.com/"
+  checked: "2026-11-12"
 summary: "Windsor's game and comic shop, next to Ace Hardware on west Main Street: Magic, Pokémon and other card games, role-playing games, Warhammer miniatures, comics and manga, with a game room and weekly events."
 ---
 

@@ -7,6 +7,10 @@ url: "https://www.sixbarbershop.com/"
 phone: "(970) 532-4091"
 hours: "Tue–Thu 10–8, Fri 10–6, Sat 9–3, Sun 10–3; closed Mon"
 tags: [barber, haircuts, walk-ins]
+details:
+  reservation: "Appointments preferred, booked online; walk-ins welcome"
+  source: "https://www.sixbarbershop.com/hours-info"
+  checked: "2026-11-12"
 summary: "A barbershop for men and boys on Mountain Avenue: cuts, beard and mustache trims and straight-razor shaves, booked online or by phone, with walk-ins when a chair is free."
 source: "https://www.sixbarbershop.com/hours-info"
 verified: "2026-11-10"

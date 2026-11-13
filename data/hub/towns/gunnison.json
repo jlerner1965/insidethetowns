@@ -1,0 +1,95 @@
+{
+  "slug": "gunnison",
+  "transit": [
+    {
+      "name": "Gunnison Valley RTA",
+      "detail": "Free bus between Gunnison and Crested Butte",
+      "url": "https://www.gunnisonvalleyrta.com/",
+      "source": "https://www.gunnisonvalleyrta.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Island Acres Resort Motel",
+      "kind": "Motel",
+      "url": "https://islandacresresort.com/",
+      "season": "Memorial Day weekend until the first week of October",
+      "source": "https://islandacresresort.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Alpine Inn & Suites",
+      "kind": "Hotel",
+      "url": "https://www.gunnisonalpineinn.com/",
+      "source": "https://www.gunnisonalpineinn.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Wanderlust Hostel",
+      "kind": "Hostel",
+      "url": "https://www.thewanderlusthostel.com/",
+      "source": "https://www.thewanderlusthostel.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Named after John W. Gunnison, a West Point graduate and U.S. Army officer who surveyed a path for the transcontinental railroad through the Rocky Mountains.",
+      "source": "https://www.gunnisonco.gov/departments/police/recruiting_.php",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1853,
+        "text": "Captain John W. Gunnison's railroad survey expedition crossed the Rocky Mountains into the Tomichi Valley.",
+        "source": "https://www.nps.gov/blca/learn/historyculture/explorer_gunnison.htm",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1877,
+        "text": "Gunnison became the county seat of Gunnison County on May 22.",
+        "source": "https://gunnisoncounty.org/DocumentCenter/View/10103/02---2020-UPDATE-Gunnison-HMP-Section-2-Community-Profile?bidId=",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1881,
+        "text": "The Denver & Rio Grande railroad reached Gunnison in August.",
+        "source": "https://www.nps.gov/cure/learn/historyculture/railroad.htm",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1882,
+        "text": "The Mechling Block, now the Gunnison Arts Center, was built at 102 South Main Street.",
+        "source": "https://www.gunnisonartscenter.org/our-historic-facility",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1901,
+        "text": "The Colorado State Normal School, now Western Colorado University, was established as the first college on the Western Slope.",
+        "source": "https://western.edu/about/",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Gunnison Pioneer Museum",
+        "kind": "museum",
+        "url": "https://www.gunnisonpioneermuseum.com/",
+        "cost": "Adults $15; children 6-12 $5; 5 and under free",
+        "source": "https://www.gunnisonpioneermuseum.com/plan-your-visit",
+        "checked": "2026-11-13",
+        "hours": "Daily 9 am–5 pm",
+        "season": "Mid May to the end of September"
+      },
+      {
+        "name": "Gunnison Arts Center",
+        "kind": "landmark",
+        "url": "https://www.gunnisonartscenter.org/",
+        "hours": "Tue–Fri noon–6 pm; Sat 10 am–2 pm; closed Sun and Mon",
+        "source": "https://www.gunnisonartscenter.org/",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

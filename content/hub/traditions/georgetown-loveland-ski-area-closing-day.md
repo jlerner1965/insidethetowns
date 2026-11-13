@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Loveland Ski Area"
 sourceUrl: "https://skiloveland.com/"
+outdoor:
+  kind: ski-area
+  facility: "Loveland Ski Area"
+  edge: closes
 years:
   - year: 2027
     status: not-announced

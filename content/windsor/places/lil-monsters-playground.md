@@ -7,6 +7,10 @@ area: "Automation Drive"
 url: "https://www.lilmonstersplayground.com/"
 phone: "(970) 795-4010"
 tags: [kids, indoor, playground, birthday-parties]
+details:
+  fees: "$15 all-day access per child (walking to 12 years old); 1 grown-up free per child, $3 per additional grown-up"
+  source: "https://www.lilmonstersplayground.com/"
+  checked: "2026-11-12"
 summary: "An indoor playground for children up to 12: $15 for all-day play, one grown-up free with each child, socks required."
 source: "https://www.lilmonstersplayground.com/"
 verified: "2026-11-10"

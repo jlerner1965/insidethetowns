@@ -1,0 +1,40 @@
+{
+  "slug": "craig",
+  "transit": [
+    {
+      "name": "Steamboat Springs Transit regional service",
+      "detail": "Daily bus between Craig, Hayden, Milner, Steamboat II and Steamboat Springs: morning departures from Craig, afternoon returns; exact fare only",
+      "url": "https://steamboatsprings.net/870/Regional-Service",
+      "source": "https://steamboatsprings.net/870/Regional-Service",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1922,
+        "text": "The State Armory, a two-story light brick building designed by John J. Huddart, was built at 590 Yampa Avenue.",
+        "source": "https://www.historycolorado.org/location/state-armory",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1992,
+        "text": "The State Armory was listed in the National Register on June 25.",
+        "source": "https://www.historycolorado.org/location/state-armory",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Museum of Northwest Colorado",
+        "kind": "museum",
+        "url": "https://museumnwco.org/",
+        "hours": "Mon–Fri 9 am–5 pm; Sat 10 am–4 pm; closed for major holidays",
+        "cost": "Free; donations appreciated",
+        "season": "Year-round",
+        "source": "https://museumnwco.org/plan-your-visit/",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

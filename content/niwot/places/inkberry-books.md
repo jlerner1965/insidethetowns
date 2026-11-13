@@ -8,6 +8,9 @@ phone: "(720) 412-1548"
 hours: "Daily 10 am–3 pm"
 tags: [books, independent, art]
 featured: true
+details:
+  source: "https://www.inkberrybooks.com"
+  checked: "2026-11-12"
 summary: "Independent bookshop, open since 2018: new, gently used and out-of-print books, with art by Boulder County artists each month."
 source: "https://www.inkberrybooks.com"
 verified: "2026-11-02"

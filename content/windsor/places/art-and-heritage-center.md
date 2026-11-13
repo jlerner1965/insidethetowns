@@ -16,6 +16,10 @@ phone: "970-674-3502"
 hours: "Fri–Sun 12–4 pm; closed Mon–Thu"
 tags: [art, history, exhibitions, free]
 featured: true
+details:
+  fees: "Admission to the Art and Heritage Center is always free"
+  source: "https://www.recreationliveshere.com/183/Art-Heritage-Center"
+  checked: "2026-11-12"
 summary: "The Town's free art and history gallery in the 1909 former Town Hall on 5th Street, with rotating exhibitions and the old fire truck out front, open Friday to Sunday."
 ---
 

@@ -7,6 +7,9 @@ url: "https://belleterrefloral.com/"
 phone: "(303) 652-0419"
 hours: "Mon–Sat 10–5; closed Sun"
 tags: [florist]
+details:
+  source: "https://belleterrefloral.com/"
+  checked: "2026-11-12"
 summary: "The florist, with a second counter inside the market."
 source: "https://niwot.com/listing/belle-terre-floral/"
 verified: "2026-11-10"

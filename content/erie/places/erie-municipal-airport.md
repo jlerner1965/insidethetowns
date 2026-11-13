@@ -10,6 +10,9 @@ image: ../images/municipal-airport.jpg
 imageAlt: "Light aircraft parked along the runway at Erie Municipal Airport"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 tags: [airport, planes]
+details:
+  source: "https://www.vectorair.net/services"
+  checked: "2026-11-12"
 summary: "The Town's general-aviation airport on Colorado 7 with a 4,700-foot runway and a fence to watch the small planes from."
 source: "https://www.vectorair.net/services"
 verified: "2026-11-02"

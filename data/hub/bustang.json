@@ -1,0 +1,438 @@
+{
+ "checked": "2026-11-12",
+ "source": {
+  "name": "Bustang, Colorado Department of Transportation",
+  "url": "https://ridebustang.com/"
+ },
+ "stops": [
+  {
+   "town": "idaho-springs",
+   "service": "Bustang West Line",
+   "detail": "Grand Junction to Denver. Stop: Idaho Springs - Idaho Springs Bus Shelter, Idaho St. and 13th Ave.",
+   "url": "https://ridebustang.com/routes/west-line/",
+   "source": "https://ridebustang.com/routes/west-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "frisco",
+   "service": "Bustang West Line",
+   "detail": "Grand Junction to Denver. Stop: Frisco Transit Center - Frisco Transfer Center, 1010 Meadow Dr.",
+   "url": "https://ridebustang.com/routes/west-line/",
+   "source": "https://ridebustang.com/routes/west-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "vail",
+   "service": "Bustang West Line",
+   "detail": "Grand Junction to Denver. Stop: Vail Transportation Center, 241 South Frontage Rd. East",
+   "url": "https://ridebustang.com/routes/west-line/",
+   "source": "https://ridebustang.com/routes/west-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "avon",
+   "service": "Bustang West Line",
+   "detail": "Grand Junction to Denver. Stop: Avon Station, 90 Benchmark Rd.",
+   "url": "https://ridebustang.com/routes/west-line/",
+   "source": "https://ridebustang.com/routes/west-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "eagle",
+   "service": "Bustang West Line",
+   "detail": "Grand Junction to Denver. Stop: Eagle - Chambers Park-n-Ride, Eco Transit Exit 147, I-70 & Eby Creek Rd.",
+   "url": "https://ridebustang.com/routes/west-line/",
+   "source": "https://ridebustang.com/routes/west-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "glenwood-springs",
+   "service": "Bustang West Line",
+   "detail": "Grand Junction to Denver. Stop: West Glenwood Park & Ride - West Glenwood Park-n-Ride, Wulfsohn Rd. - Glenwood Springs",
+   "url": "https://ridebustang.com/routes/west-line/",
+   "source": "https://ridebustang.com/routes/west-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "rifle",
+   "service": "Bustang West Line",
+   "detail": "Grand Junction to Denver. Stop: Rifle - Park-n-Ride, US 6 & CO 13",
+   "url": "https://ridebustang.com/routes/west-line/",
+   "source": "https://ridebustang.com/routes/west-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "grand-junction",
+   "service": "Bustang West Line",
+   "detail": "Grand Junction to Denver. Stop: GVT Downtown Transfer Facility, South Ave & 7th St; and Grand Junction Regional Airport, 2828 Walker Field Dr.",
+   "url": "https://ridebustang.com/routes/west-line/",
+   "source": "https://ridebustang.com/routes/west-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "fort-collins",
+   "service": "Bustang North Line",
+   "detail": "Fort Collins to Denver. Stop: Fort Collins Downtown Transit Center, 250 N. Mason St.; and Harmony Transfer Center, 4414 E. Harmony Rd., I-25 Exit 265",
+   "url": "https://ridebustang.com/routes/north-line/",
+   "source": "https://ridebustang.com/routes/north-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "loveland",
+   "service": "Bustang North Line",
+   "detail": "Fort Collins to Denver. Stop: Centerra Loveland Mobility Hub, 3020 Kendall Pkwy, I-25 Exit 257 - Loveland",
+   "url": "https://ridebustang.com/routes/north-line/",
+   "source": "https://ridebustang.com/routes/north-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "berthoud",
+   "service": "Bustang North Line",
+   "detail": "Fort Collins to Denver. Stop: Berthoud Mobility Hub, CO 56 & I-25 Exit 250 - Berthoud",
+   "url": "https://ridebustang.com/routes/north-line/",
+   "source": "https://ridebustang.com/routes/north-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "longmont",
+   "service": "Bustang North Line",
+   "detail": "Fort Collins to Denver. Stop: Firestone-Longmont Mobility Hub, CO 119 & I-25 Exit 240 - Firestone/Longmont",
+   "url": "https://ridebustang.com/routes/north-line/",
+   "source": "https://ridebustang.com/routes/north-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "carbon-valley",
+   "service": "Bustang North Line",
+   "detail": "Fort Collins to Denver. Stop: Firestone-Longmont Mobility Hub, CO 119 & I-25 Exit 240 - Firestone/Longmont",
+   "url": "https://ridebustang.com/routes/north-line/",
+   "source": "https://ridebustang.com/routes/north-line/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "avon",
+   "service": "Pegasus Denver-Avon",
+   "detail": "Denver to Avon. Stop: Avon - Avon Transportation Center, 90 Benchmark Rd.",
+   "url": "https://ridebustang.com/routes/denver-avon/",
+   "source": "https://ridebustang.com/routes/denver-avon/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "vail",
+   "service": "Pegasus Denver-Avon",
+   "detail": "Denver to Avon. Stop: Vail - Vail Transportation Center, 241 S. Frontage Rd. E.",
+   "url": "https://ridebustang.com/routes/denver-avon/",
+   "source": "https://ridebustang.com/routes/denver-avon/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "frisco",
+   "service": "Pegasus Denver-Avon",
+   "detail": "Denver to Avon. Stop: Frisco - Frisco Transfer Center, 1010 Meadow Dr.",
+   "url": "https://ridebustang.com/routes/denver-avon/",
+   "source": "https://ridebustang.com/routes/denver-avon/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "idaho-springs",
+   "service": "Pegasus Denver-Avon",
+   "detail": "Denver to Avon. Stop: Idaho Springs - Idaho Springs Bus Shelter, Idaho St. and 13th Ave.",
+   "url": "https://ridebustang.com/routes/denver-avon/",
+   "source": "https://ridebustang.com/routes/denver-avon/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "craig",
+   "service": "Bustang Outrider Craig-Denver",
+   "detail": "Craig to Denver. Stop: Craig - SST Transit, 616 E. Victory Way",
+   "url": "https://ridebustang.com/routes/craig-denver/",
+   "source": "https://ridebustang.com/routes/craig-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "steamboat-springs",
+   "service": "Bustang Outrider Craig-Denver",
+   "detail": "Craig to Denver. Stop: Steamboat Springs - Stockbridge Transit Center, 1505 Lincoln Ave",
+   "url": "https://ridebustang.com/routes/craig-denver/",
+   "source": "https://ridebustang.com/routes/craig-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "kremmling",
+   "service": "Bustang Outrider Craig-Denver",
+   "detail": "Craig to Denver. Stop: Kremmling - 605 Park Ave",
+   "url": "https://ridebustang.com/routes/craig-denver/",
+   "source": "https://ridebustang.com/routes/craig-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "granby",
+   "service": "Bustang Outrider Craig-Denver",
+   "detail": "Craig to Denver. Stop: Granby - 516 E. Agate Ave.",
+   "url": "https://ridebustang.com/routes/craig-denver/",
+   "source": "https://ridebustang.com/routes/craig-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "fraser",
+   "service": "Bustang Outrider Craig-Denver",
+   "detail": "Craig to Denver. Stop: Fraser - Amtrak Station, 205 Fraser Ave.",
+   "url": "https://ridebustang.com/routes/craig-denver/",
+   "source": "https://ridebustang.com/routes/craig-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "winter-park",
+   "service": "Bustang Outrider Craig-Denver",
+   "detail": "Craig to Denver. Stop: Winter Park - Cooper Creek Transit Center, 50 Vasquez Rd",
+   "url": "https://ridebustang.com/routes/craig-denver/",
+   "source": "https://ridebustang.com/routes/craig-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "idaho-springs",
+   "service": "Bustang Outrider Craig-Denver",
+   "detail": "Craig to Denver. Stop: Idaho Springs - Idaho Springs Bus Shelter, Idaho St. and 13th Ave.",
+   "url": "https://ridebustang.com/routes/craig-denver/",
+   "source": "https://ridebustang.com/routes/craig-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "crested-butte",
+   "service": "Bustang Outrider Crested Butte-Denver",
+   "detail": "Crested Butte to Denver. Stop: Crested Butte - 4-Way Stop, North of 6th and Elk",
+   "url": "https://ridebustang.com/routes/crested-butte-denver/",
+   "source": "https://ridebustang.com/routes/crested-butte-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "gunnison",
+   "service": "Bustang Outrider Crested Butte-Denver",
+   "detail": "Crested Butte to Denver. Stop: Gunnison - Quality Inn, 411 E. Tomichi Ave.",
+   "url": "https://ridebustang.com/routes/crested-butte-denver/",
+   "source": "https://ridebustang.com/routes/crested-butte-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "salida",
+   "service": "Bustang Outrider Crested Butte-Denver",
+   "detail": "Crested Butte to Denver. Stop: Salida - Chaffee Shuttle, 54 Jones Ave.",
+   "url": "https://ridebustang.com/routes/crested-butte-denver/",
+   "source": "https://ridebustang.com/routes/crested-butte-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "buena-vista",
+   "service": "Bustang Outrider Crested Butte-Denver",
+   "detail": "Crested Butte to Denver. Stop: Buena Vista - NE Corner of Railroad and Chestnut",
+   "url": "https://ridebustang.com/routes/crested-butte-denver/",
+   "source": "https://ridebustang.com/routes/crested-butte-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "fairplay",
+   "service": "Bustang Outrider Crested Butte-Denver",
+   "detail": "Crested Butte to Denver. Stop: Fairplay - 640 US HWY 285",
+   "url": "https://ridebustang.com/routes/crested-butte-denver/",
+   "source": "https://ridebustang.com/routes/crested-butte-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "alamosa",
+   "service": "Bustang Outrider Alamosa-Pueblo",
+   "detail": "Alamosa to Pueblo. Stop: Alamosa Stop 1 - Adams State University, 1603 First St.; Alamosa Stop 2 - Loaf 'n Jug, 102 W. U.S. Hwy 160",
+   "url": "https://ridebustang.com/routes/alamosa-pueblo/",
+   "source": "https://ridebustang.com/routes/alamosa-pueblo/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "salida",
+   "service": "Bustang Outrider Alamosa-Pueblo",
+   "detail": "Alamosa to Pueblo. Stop: Salida - Chaffee Shuttle, 54 Jones Ave.",
+   "url": "https://ridebustang.com/routes/alamosa-pueblo/",
+   "source": "https://ridebustang.com/routes/alamosa-pueblo/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "canon-city",
+   "service": "Bustang Outrider Alamosa-Pueblo",
+   "detail": "Alamosa to Pueblo. Stop: Canon City - Royal Gorge Chamber Alliance & Regional Visitors Center, 816 Royal Gorge Blvd",
+   "url": "https://ridebustang.com/routes/alamosa-pueblo/",
+   "source": "https://ridebustang.com/routes/alamosa-pueblo/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "durango",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: Durango - Durango Transit Center, 250 W. 8th St.",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "mancos",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: Mancos - 131 N Main Street",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "cortez",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: Cortez - Sligo St. & South Cactus St.",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "dolores",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: Dolores - Dolores Food, 400 Railroad Ave.",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "telluride",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: Telluride - Lawson Hill P&R, 130 Society Dr.",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "ridgway",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: Ridgway - 283 Palomino Trail",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "montrose",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: Montrose - All Point Transit Bus Shelter at Target, 3530 Wolverine Dr.",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "olathe",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: Olathe - Sinclair Gas Station, 505 S. HWY 50 Business Loop",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "delta",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: Delta - Fort Uncompahgre Interpretive Center",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "grand-junction",
+   "service": "Bustang Outrider Durango-Grand Junction",
+   "detail": "Durango to Grand Junction. Stop: GVT Downtown Transfer Facility, South Ave & 7th St; and Grand Junction Airport, 2828 Walker Field Dr.",
+   "url": "https://ridebustang.com/routes/durango-grand-junction/",
+   "source": "https://ridebustang.com/routes/durango-grand-junction/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "la-junta",
+   "service": "Bustang Outrider Lamar-Colorado Springs",
+   "detail": "Lamar to Colorado Springs. Stop: La Junta - La Junta Senior Center, 114 E 2nd St.",
+   "url": "https://ridebustang.com/routes/lamar-colorado-springs/",
+   "source": "https://ridebustang.com/routes/lamar-colorado-springs/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "rocky-ford",
+   "service": "Bustang Outrider Lamar-Colorado Springs",
+   "detail": "Lamar to Colorado Springs. Stop: Rocky Ford - Rocky Ford Senior Center, 503 North 9th St.",
+   "url": "https://ridebustang.com/routes/lamar-colorado-springs/",
+   "source": "https://ridebustang.com/routes/lamar-colorado-springs/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "sterling",
+   "service": "Bustang Outrider Sterling-Denver",
+   "detail": "Sterling to Denver. Stop: Logan County Courthouse, 315 Main St., Sterling",
+   "url": "https://ridebustang.com/routes/sterling-denver/",
+   "source": "https://ridebustang.com/routes/sterling-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "brush",
+   "service": "Bustang Outrider Sterling-Denver",
+   "detail": "Sterling to Denver. Stop: East Morgan County Library, 500 Clayton St, Brush",
+   "url": "https://ridebustang.com/routes/sterling-denver/",
+   "source": "https://ridebustang.com/routes/sterling-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "fort-morgan",
+   "service": "Bustang Outrider Sterling-Denver",
+   "detail": "Sterling to Denver. Stop: Morgan Community College, 920 Barlow Rd, Fort Morgan; and Northeast Colorado Health Department, 228 W Railroad Ave, Fort Morgan",
+   "url": "https://ridebustang.com/routes/sterling-denver/",
+   "source": "https://ridebustang.com/routes/sterling-denver/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "trinidad",
+   "service": "Bustang Outrider Trinidad-Pueblo",
+   "detail": "Trinidad to Pueblo. Stop: Trinidad - 110 Pine Street",
+   "url": "https://ridebustang.com/routes/trinidad-pueblo/",
+   "source": "https://ridebustang.com/routes/trinidad-pueblo/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "estes-park",
+   "service": "Bustang to Estes",
+   "detail": "Denver to Estes Park. Stop: Estes Park Visitor Center, 500 Big Thompson Ave. - Estes Park; and RMNP Park & Ride Transit Hub, Bear Lake Rd & Glacier Basin - Estes Park",
+   "seasonal": "Summer service on Saturdays, Sundays and holidays; the 2026 season started May 23",
+   "url": "https://ridebustang.com/routes/bustang-to-estes/",
+   "source": "https://ridebustang.com/routes/bustang-to-estes/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "lyons",
+   "service": "Bustang to Estes",
+   "detail": "Denver to Estes Park. Stop: Lyons - Park-n-Ride, US 36 & Park St. (Far side)",
+   "seasonal": "Summer service on Saturdays, Sundays and holidays; the 2026 season started May 23",
+   "url": "https://ridebustang.com/routes/bustang-to-estes/",
+   "source": "https://ridebustang.com/routes/bustang-to-estes/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "boulder",
+   "service": "Bustang to Estes",
+   "detail": "Denver to Estes Park. Stop: Boulder - Boulder Junction at Depot Square Station, Gate S3 (on Pearl Pkwy)",
+   "seasonal": "Summer service on Saturdays, Sundays and holidays; the 2026 season started May 23",
+   "url": "https://ridebustang.com/routes/bustang-to-estes/",
+   "source": "https://ridebustang.com/routes/bustang-to-estes/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "louisville",
+   "service": "Bustang to Estes",
+   "detail": "Denver to Estes Park. Stop: Louisville / Superior - US 36 & McCaslin Station (Gate D) - Louisville",
+   "seasonal": "Summer service on Saturdays, Sundays and holidays; the 2026 season started May 23",
+   "url": "https://ridebustang.com/routes/bustang-to-estes/",
+   "source": "https://ridebustang.com/routes/bustang-to-estes/",
+   "checked": "2026-11-12"
+  },
+  {
+   "town": "breckenridge",
+   "service": "Snowstang Denver-Breckenridge",
+   "detail": "Denver to Breckenridge. Stop: Breckenridge Transit Center, 150 Watson Ave",
+   "seasonal": "Winter weekends only; the 2025–26 season has ended",
+   "url": "https://ridebustang.com/routes/breckenridge/",
+   "source": "https://ridebustang.com/routes/breckenridge/",
+   "checked": "2026-11-12"
+  }
+ ]
+}

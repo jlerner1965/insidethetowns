@@ -1,0 +1,75 @@
+{
+  "slug": "rocky-ford",
+  "facts": {
+    "incorporated": {
+      "year": 1887,
+      "source": "https://www.cityofrockyfordco.gov/welcome-to-rocky-ford",
+      "checked": "2026-11-12"
+    }
+  },
+  "lodging": [
+    {
+      "name": "High Chaparral Inn",
+      "kind": "Motel",
+      "url": "https://www.highchaparralinn.com/",
+      "source": "https://www.highchaparralinn.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Kit Carson crossed the Arkansas River at a shallow, rocky spot and called it Rocky Ford Crossing Place.",
+      "source": "https://www.cityofrockyfordco.gov/welcome-to-rocky-ford",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1871,
+      "text": "G. W. Swink and Asa Russell began a small community about two miles from the present town.",
+      "source": "https://www.cityofrockyfordco.gov/welcome-to-rocky-ford",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1878,
+        "text": "G. W. Swink started the Watermelon Day tradition by sharing his melons.",
+        "source": "https://www.cityofrockyfordco.gov/welcome-to-rocky-ford",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1887,
+        "text": "The town was incorporated and Swink was elected its first mayor.",
+        "source": "https://www.cityofrockyfordco.gov/welcome-to-rocky-ford",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1908,
+        "text": "The Carnegie library that now houses the Rocky Ford Museum was built.",
+        "source": "https://www.cityofrockyfordco.gov/rocky-ford-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1988,
+        "text": "The first Arkansas Valley Balloon Festival was held.",
+        "source": "https://www.cityofrockyfordco.gov/arkansas-valley-balloon-festival",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Rocky Ford Museum",
+        "kind": "museum",
+        "url": "https://www.cityofrockyfordco.gov/rocky-ford-museum",
+        "hours": "Summer (Memorial Day to Labor Day): Tuesday to Friday 1 to 5 pm, Saturday 10 am to 2 pm. Winter: Wednesday and Friday 1 to 5 pm",
+        "source": "https://www.cityofrockyfordco.gov/rocky-ford-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Grand Theater",
+        "kind": "landmark",
+        "url": "https://www.cityofrockyfordco.gov/grand-theater",
+        "source": "https://www.cityofrockyfordco.gov/grand-theater",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -9,6 +9,9 @@ added: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-799-8684"
 tags: [coffee, drive-thru, smoothies, breakfast]
+details:
+  source: "https://ziggiscoffee.com/locations/3450-state-highway-52-frederick-co/"
+  checked: "2026-11-12"
 summary: "The Colorado coffee chain’s drive-thru on Colorado 52 west of Colorado Boulevard: espresso drinks, blenders and smoothies, teas, sodas, locally made breakfast and lunch items and a kids’ menu. Hours are not on the location page."
 ---
 

@@ -5,11 +5,15 @@ type: park
 address: "1524 7th St"
 area: "7th Street at the Poudre"
 url: "https://www.recreationliveshere.com/248/Treasure-Island-Demonstration-Garden"
+phone: "(970) 388-5199"
 source: "https://www.recreationliveshere.com/248/Treasure-Island-Demonstration-Garden"
 verified: "2026-11-10"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 tags: [garden, xeriscape, volunteers, poudre-trail]
+details:
+  source: "https://www.recreationliveshere.com/248/Treasure-Island-Demonstration-Garden"
+  checked: "2026-11-12"
 summary: "An acre of public garden on the Poudre River Trail, half growing vegetables for the food pantry and half showing water-wise plants that do well in Windsor."
 ---
 

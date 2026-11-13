@@ -4,8 +4,12 @@ type: shop
 address: "520 Mountain Ave"
 area: "Downtown, Mountain Avenue"
 url: "https://www.marleyandmoose.com/"
+phone: "(720) 634-5291"
 hours: "Tue–Fri 12–6, Sat 9–4, Sun 12–4; closed Mon"
 tags: [kids, toys]
+details:
+  source: "https://www.marleyandmoose.com/pages/contact"
+  checked: "2026-11-12"
 summary: "Children's store on Mountain Avenue with eco-friendly toys, books and clothes."
 source: "https://www.marleyandmoose.com/pages/contact"
 verified: "2026-11-10"

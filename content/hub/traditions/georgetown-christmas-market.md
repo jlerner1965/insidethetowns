@@ -12,7 +12,8 @@ years:
     status: confirmed
     date: 2026-12-05
     endDate: 2026-12-13
-    startTime: "11am-3pm"
+    edition: 66
+    closedDays: ["Monday to Friday, December 7 to 11: the market is the two weekends"]
     place: "Historic Downtown Georgetown"
     cost: "Free Admission • Free Parking & Shuttle"
     checked: 2026-11-12

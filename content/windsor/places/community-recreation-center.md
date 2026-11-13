@@ -11,6 +11,9 @@ added: "2026-10-01"
 phone: "970-674-3500"
 hours: "Mon–Fri 5 am–9 pm, Sat 8 am–6:45 pm, Sun 12–6:35 pm"
 tags: [pool, gym, fitness, track, classes, day-passes]
+details:
+  source: "https://www.recreationliveshere.com/167/Community-Recreation-Center"
+  checked: "2026-11-12"
 summary: "The Town's 85,000-square-foot recreation center on 11th Street: two gyms, fitness rooms, an indoor track and an indoor pool with lap lanes, lazy river, slide and hot tub, open from 5 am on weekdays with day passes."
 ---
 

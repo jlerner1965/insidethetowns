@@ -1,0 +1,63 @@
+{
+  "slug": "mead",
+  "facts": {
+    "incorporated": {
+      "year": 1908,
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-12"
+    }
+  },
+  "heritage": {
+    "nameOrigin": {
+      "text": "Paul Mead named the town for his father, Dr. Martin Mead.",
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1906,
+      "text": "Paul Mead platted the town beside the railroad tracks",
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1874,
+        "text": "Lorin C. Mead took up a homestead at Highland Lake.",
+        "source": "https://history.weld.gov/County-150/Your-Stories/Lorin-Cassandre-Mead",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1881,
+        "text": "The Highland Lake Congregational Church was organized with 16 charter members. It met in the schoolhouse.",
+        "source": "https://history.weld.gov/County-150/Your-Stories/Lorin-Cassandre-Mead",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1896,
+        "text": "The Highland Lake church was built. It is the only public building left from the Highlandlake farming community.",
+        "source": "https://www.historycolorado.org/location/united-church-christ-highland-lake",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1906,
+        "text": "The Great Western Railway line between Johnstown and Longmont crossed Paul Mead's land, and he platted a town beside the tracks.",
+        "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1908,
+        "text": "The first town board meeting was held on April 13 in a store.",
+        "source": "https://history.weld.gov/County-150/Your-Stories/Paul-Martin-Mead",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "United Church of Christ Highland Lake (16896 Weld County Road 5, Mead vicinity)",
+        "kind": "landmark",
+        "source": "https://www.historycolorado.org/location/united-church-christ-highland-lake",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

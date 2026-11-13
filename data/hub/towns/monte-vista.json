@@ -1,0 +1,76 @@
+{
+  "slug": "monte-vista",
+  "heritage": {
+    "nameOrigin": {
+      "text": "The town was renamed Monte Vista in 1886 for the mountain vistas surrounding it.",
+      "source": "https://www.museumtrail.org/history-of-monte-vista",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1884,
+      "text": "Incorporated and platted on May 1, 1884 as the town of Henry",
+      "source": "https://www.museumtrail.org/history-of-monte-vista",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1881,
+        "text": "The Denver & Rio Grande Railroad placed a railroad siding named Lariat here.",
+        "source": "https://www.museumtrail.org/history-of-monte-vista",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1884,
+        "text": "The town of Henry was incorporated on May 1, 1884 and platted on the Lariat town site.",
+        "source": "https://www.museumtrail.org/history-of-monte-vista",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1886,
+        "text": "The town was re-platted, renamed Monte Vista and incorporated on July 3, 1886.",
+        "source": "https://www.museumtrail.org/history-of-monte-vista",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1892,
+        "text": "Monte Vista acquired the State Soldiers' and Sailors' Home.",
+        "source": "https://www.museumtrail.org/history-of-monte-vista",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1919,
+        "text": "The Ski-Hi Stampede rodeo was established.",
+        "source": "https://www.museumtrail.org/history-of-monte-vista",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Monte Vista Historical Society Museum",
+        "kind": "museum",
+        "url": "https://www.museumtrail.org/monte-vista-historical-society-museum",
+        "cost": "Free; donations appreciated",
+        "source": "https://www.museumtrail.org/monte-vista-historical-society-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Transportation of the West Museum",
+        "kind": "museum",
+        "url": "https://www.museumtrail.org/transportation-of-the-west-museum",
+        "hours": "Tue–Fri 11 am–3 pm",
+        "cost": "No admission fee; donations appreciated",
+        "source": "https://www.museumtrail.org/transportation-of-the-west-museum",
+        "checked": "2026-11-13"
+      }
+    ]
+  },
+  "lodging": [
+    {
+      "name": "Cobblestone Hotel & Suites – Monte Vista",
+      "kind": "Hotel",
+      "url": "https://www.staycobblestone.com/co/monte-vista/",
+      "source": "https://www.staycobblestone.com/co/monte-vista/",
+      "checked": "2026-11-13"
+    }
+  ]
+}

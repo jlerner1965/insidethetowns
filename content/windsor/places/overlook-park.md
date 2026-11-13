@@ -10,6 +10,9 @@ verified: "2026-11-10"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 tags: [community events, concerts]
+details:
+  source: "https://www.townofseverance.org/209/Parks-Recreation"
+  checked: "2026-11-12"
 summary: "Town park at 650 Audubon Boulevard, where the Town held its Neighborhood Concert on October 3, 2026, in a year without Severance Days."
 ---
 

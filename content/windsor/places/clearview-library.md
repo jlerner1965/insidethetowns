@@ -12,6 +12,9 @@ added: "2026-10-01"
 phone: "970-686-5603"
 hours: "Mon–Thu 9–7, Fri–Sat 9–5, Sun 1–5"
 tags: [library, meeting-rooms, kids, 3d-printing, free]
+details:
+  source: "https://www.clearviewlibrary.org/about-us/learn-more/hours-locations"
+  checked: "2026-11-12"
 summary: "The Clearview Library District's main library on 3rd Street, open seven days: books and media, computers and 3D printing, children's programs, reservable meeting rooms, test proctoring and a notary."
 ---
 

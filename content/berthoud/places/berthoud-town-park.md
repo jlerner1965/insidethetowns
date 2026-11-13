@@ -9,6 +9,9 @@ image: ../images/berthoud-town-park-playground.webp
 imageAlt: "Families enjoying the inclusive playground at Berthoud Town Park"
 imageCredit: "Town of Berthoud"
 featured: true
+details:
+  source: "https://www.berthoud.org/1458/Berthoud-Town-Park"
+  checked: "2026-11-12"
 summary: "The town's oldest park, redeveloped with a 12,000 sq ft inclusive playground, a stone water-play feature, two pavilions, and the summer Saturday market and Oktoberfest on its lawn."
 source: "https://www.berthoud.org/1458/Berthoud-Town-Park"
 verified: "2026-11-10"

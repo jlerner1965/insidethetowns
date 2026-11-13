@@ -1,0 +1,72 @@
+{
+  "slug": "creede",
+  "facts": {
+    "incorporated": {
+      "year": 1892,
+      "source": "https://cityofcreede.gov/pages/about-us",
+      "checked": "2026-11-12"
+    }
+  },
+  "lodging": [
+    {
+      "name": "Snowshoe Lodge",
+      "kind": "Motel",
+      "url": "https://www.creedesnowshoe.com/",
+      "season": "Year-round",
+      "source": "https://www.creedesnowshoe.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The Willow Creek mining camp was renamed Creede after Nicholas C. Creede.",
+      "source": "https://www.museumtrail.org/history-of-creede",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1890,
+        "text": "Nicholas C. Creede discovered a silver deposit at the Holy Moses Mine, which set off the boom.",
+        "source": "https://cityofcreede.gov/pages/about-us",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1892,
+        "text": "Creede incorporated on June 13, 1892, eight days after a fire burned much of the town.",
+        "source": "https://cityofcreede.gov/pages/about-us",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1893,
+        "text": "Mineral County was incorporated on March 27, 1893, and in November its voters chose Creede as the county seat.",
+        "source": "https://cityofcreede.gov/pages/about-us",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1985,
+        "text": "Mining ended when the Homestake Mining Company closed its Bull Dog operation.",
+        "source": "https://www.museumtrail.org/history-of-creede",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Creede Underground Mining Museum",
+        "kind": "museum",
+        "url": "https://www.undergroundminingmuseum.com/",
+        "hours": "Memorial Day to Labor Day: daily 9 am–4 pm. Labor Day to Memorial Day: Tue–Sat 11 am–4 pm",
+        "season": "Year-round",
+        "source": "https://www.museumtrail.org/creede-underground-mining-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Creede Historical Museum",
+        "kind": "museum",
+        "url": "https://www.museumtrail.org/creede-history-museum",
+        "source": "https://www.museumtrail.org/creede-history-museum",
+        "checked": "2026-11-13",
+        "hours": "Mon–Sun 10 am–4 pm"
+      }
+    ]
+  }
+}

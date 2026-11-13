@@ -12,6 +12,9 @@ added: "2026-10-01"
 phone: "970-674-1100"
 hours: "Tue–Thu & Sun 4–9 pm, Fri–Sat 4–10 pm; closed Mon"
 tags: [dinner, patio, views, happy-hour, live-music]
+details:
+  source: "https://thelodgewindsor.com/"
+  checked: "2026-11-12"
 summary: "Dinner restaurant at Pelican Lakes in Water Valley with a patio looking over the golf course to the mountains, a daily early and late happy hour and live music on Thursdays."
 ---
 

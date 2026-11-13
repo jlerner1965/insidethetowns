@@ -11,6 +11,14 @@ status: temporarily-closed
 closed: "2026-11-08"
 statusNote: "Closed for the season since November 8, 2026; the Berthoud Historical Society says it reopens in spring 2027."
 statusSource: "https://berthoudhistoricalsociety.org/event/mccarty-fickel-home-closes-for-the-season/"
+details:
+  reservation: "Open by appointment"
+  fees: "Adults and children over 11 $5; children 11 and under free; members free"
+  tours:
+    offered: "Pre-arranged group tours"
+    reservation: "Call to reserve a date; two weeks' notice requested, advance payment required"
+  source: "https://berthoudhistoricalsociety.org/mfh-museum/"
+  checked: "2026-11-12"
 summary: "The 1916 McCarty family home on 7th Street, a Denver Square with the doctor's office intact, kept as a museum by the Historical Society. Closed for the season since November 8; tours by appointment resume in spring 2027."
 source: "https://berthoudhistoricalsociety.org/mfh-museum/"
 verified: "2026-11-10"

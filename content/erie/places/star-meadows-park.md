@@ -9,6 +9,9 @@ imageAlt: "The shelter at Star Meadows Park at dusk, with the moon-phase sundial
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [playground, kids]
+details:
+  source: "https://erieco.gov/2319/Star-Meadows-Park"
+  checked: "2026-11-12"
 summary: "Space-themed park in Flatiron Meadows with a human sundial, mister boulders for hot days and a large picnic shelter."
 source: "https://erieco.gov/2319/Star-Meadows-Park"
 verified: "2026-11-02"

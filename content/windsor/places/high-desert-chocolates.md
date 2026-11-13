@@ -12,6 +12,9 @@ added: "2026-10-01"
 phone: "970-460-0434"
 hours: "Mon–Thu 7:30 am–8 pm, Fri–Sat 7:30 am–9 pm, Sun 8:30 am–8 pm"
 tags: [coffee, chocolate, ice-cream, meeting-room]
+details:
+  source: "https://www.highdesertchocolates.com/"
+  checked: "2026-11-12"
 summary: "Coffee shop and chocolatier in one on the corner of 5th and Main: espresso drinks, hand-painted small-batch truffles, Walrus ice cream and a free back room for groups, open early to late every day."
 ---
 

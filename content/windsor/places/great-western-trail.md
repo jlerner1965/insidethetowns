@@ -8,6 +8,9 @@ source: "https://www.gwtrail.com/"
 mapUrl: "https://www.gwtrail.com/great-western-trail-map/"
 tags: [walking, biking, dogs on leash, rail trail]
 access: { closures: "The Authority's trail map lists the Severance Trailhead (County Road 74) to County Road 27 section, 2 miles, as closed pending improvements, while its home page's August 2023 update says the whole 10.5 miles is open; check the map before setting out from Severance. Read 10 November 2026.", conditionsUrl: "https://www.gwtrail.com/great-western-trail-map/", conditionsLabel: "Great Western Trail Authority map", source: "https://www.gwtrail.com/great-western-trail-map/", verified: "2026-11-10" }
+details:
+  source: "https://www.gwtrail.com/"
+  checked: "2026-11-12"
 summary: "A 10.5-mile unpaved trail on the old Great Western Railway bed, from Windsor's trail system through Severance to Eaton. The Authority calls it open end to end since August 2023, though its map still marks the two miles east of the Severance Trailhead closed pending improvements."
 verified: "2026-11-10"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"

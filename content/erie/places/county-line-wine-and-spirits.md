@@ -7,6 +7,9 @@ url: "https://www.countylinewineandspirits.com/"
 phone: "(303) 828-9010"
 hours: "Mon–Sat 8 am–10 pm, Sun 8 am–8 pm"
 tags: [liquor]
+details:
+  source: "https://www.countylinewineandspirits.com/"
+  checked: "2026-11-12"
 summary: "Liquor store on Erie Parkway."
 source: "https://www.countylinewineandspirits.com/"
 verified: "2026-11-09"

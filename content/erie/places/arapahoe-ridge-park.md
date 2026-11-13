@@ -9,6 +9,9 @@ imageAlt: "Picnic tables and a grill under the shade trees at Arapahoe Ridge Par
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [playground, shade, picnic]
+details:
+  source: "https://erieco.gov/2272/Arapahoe-Ridge-Park"
+  checked: "2026-11-12"
 summary: "Neighborhood park on Powell Street with a playground, shaded picnic tables, walking trails and drop-in pickleball and tennis."
 source: "https://erieco.gov/2272/Arapahoe-Ridge-Park"
 verified: "2026-11-02"

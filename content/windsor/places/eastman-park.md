@@ -11,6 +11,10 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 added: "2026-10-01"
 phone: "970-674-3529"
 tags: [river, tubing, kayaking, disc-golf, dog-park, skatepark, fields, playground]
+details:
+  fees: "There is no admission fee to use the river experience"
+  source: "https://www.recreationliveshere.com/260/Eastman-Park-River-Experience"
+  checked: "2026-11-12"
 summary: "Windsor's big river park south of downtown at 7th Street and the Poudre: a river-mile for tubing and kayaking, a 12-hole disc golf course, a fenced dog park, skatepark, fields, playground and the Poudre River Trail along its south edge."
 ---
 

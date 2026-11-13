@@ -4,7 +4,7 @@ name: "Winter Carnival"
 town:
   name: Grand Lake
   guide: grand-lake
-type: festival
+type: winter-carnival
 organizer: "Grand Lake Area Chamber of Commerce"
 sourceUrl: "https://gograndlake.com/winter-carnival/"
 years:

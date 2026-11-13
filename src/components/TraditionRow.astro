@@ -64,10 +64,14 @@ const spanText = (from: string, to?: string) => {
 const canceled = entry.status === 'canceled';
 const past = !!row.past;
 const dated = !past && (entry.status === 'confirmed' || entry.status === 'moved');
+/** "78th" from 78. */
+const ordinal = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th')}`;
+const subEvents = dated && !canceled ? (entry.subEvents ?? []) : [];
+const closedDays = dated && !canceled ? (entry.closedDays ?? []) : [];
 const details = dated ? [entry.note && `${record.organizer}: “${entry.note}”`, entry.startTime, entry.place, entry.cost].filter(Boolean) : [];
 const town = record.town?.name ?? townLabel ?? (record.statewide ? 'Statewide' : '');
 // "Last held" is a tradition's word; a road's last opening was not held.
-const lastWord = record.type === 'outdoor' ? 'Most recent' : 'Last held';
+const lastWord = record.type === 'outdoor' || record.type === 'free-day' ? 'Most recent' : 'Last held';
 const lastEnd = past ? entry.endDate : record.years.find((y) => y.date === row.lastHeld)?.endDate;
 // A block, not a run of inline boxes: beside the date block the words wrap on a phone, and a wrapped inline pill broke into two ragged pieces.
 const pill = 'inline-block rounded-md bg-ink px-2 py-1 text-[0.75rem] font-semibold uppercase leading-tight tracking-[0.1em] text-raised';
@@ -118,11 +122,11 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
   )}
   <div class="min-w-0">
   {eyebrow === 'town' ? (
-    <p class="eyebrow mb-1.5">{town}</p>
+    <p class="eyebrow mb-1.5">{town}{record.firstYear && <span> · Since {record.firstYear}</span>}{dated && entry.edition && <span data-when-set={expires ? '' : undefined}> · {ordinal(entry.edition)} year</span>}</p>
   ) : (
     <p class="eyebrow mb-1.5 flex flex-wrap items-center gap-2" style={`color:var(--cat-${type.category}-ink)`}>
       <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${type.category}-dot)`} aria-hidden="true"></span>
-      {type.label}{record.firstYear && <span> · Since {record.firstYear}</span>}
+      {type.label}{record.firstYear && <span> · Since {record.firstYear}</span>}{dated && entry.edition && <span data-when-set={expires ? '' : undefined}> · {ordinal(entry.edition)} year</span>}
     </p>
   )}
   <h3 class="text-xl font-medium leading-tight md:text-2xl">
@@ -176,6 +180,14 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
     </div>
   )}
   {details.length > 0 && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined}>{details.join(' · ')}</p>}
+  {closedDays.length > 0 && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined} data-closed-days>Closed: {closedDays.join(', ')}</p>}
+  {subEvents.length > 0 && (
+    <ul class="mt-2 space-y-0.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined} data-sub-events>
+      {subEvents.map((e) => (
+        <li><span class="font-semibold text-ink">{e.name}</span>{[e.date && formatDayLong(day(e.date)), e.time, e.place].filter(Boolean).map((part) => <Fragment> · {part}</Fragment>)}</li>
+      ))}
+    </ul>
+  )}
   {line && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink" data-local-line>{line}</p>}
   {calendar && expires && (
     <p class="mt-1.5 text-sm text-ink-muted" data-when-set data-add-to-calendar>

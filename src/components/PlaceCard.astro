@@ -37,7 +37,7 @@ const href = `/places/${slug}/`;
 const hue = PLACE_HUE[data.type];
 const open = isOpen(place);
 // "Open May–Oct" or "Closed for the season", where the operator gave the months or dates (src/lib/freshness.ts).
-const season = open ? seasonLabel(data.seasonal) : undefined;
+const season = open ? seasonLabel(data.seasonal, undefined, data.yearRound) : undefined;
 // Without a photograph: the facts the photograph's place would have carried.
 const panel = !data.image;
 const facts = panel ? [data.address, open ? data.hours && hoursWithMeridiem(data.hours) : data.statusNote].filter(Boolean) : [];

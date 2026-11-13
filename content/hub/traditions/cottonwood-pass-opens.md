@@ -6,9 +6,14 @@ towns:
     line: "The Chaffee County side is County Road 306 west of town; in winter it is not maintained beyond the Denny Creek Trailhead."
   - slug: leadville
   - slug: crested-butte
+  - slug: gunnison
 type: outdoor
 organizer: "Chaffee County Road and Bridge Department and Gunnison County"
 sourceUrl: "https://www.chaffeecounty.org/Road-and-Bridge"
+outdoor:
+  kind: road
+  facility: "Cottonwood Pass"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

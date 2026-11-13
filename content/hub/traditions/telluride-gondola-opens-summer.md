@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Town of Mountain Village"
 sourceUrl: "https://townofmountainvillage.com/gondola/"
+outdoor:
+  kind: other
+  facility: "Telluride gondola, summer season"
+  edge: opens
 years:
   - year: 2027
     status: confirmed

@@ -12,6 +12,9 @@ added: "2026-10-01"
 phone: "970-616-6892"
 hours: "Daily 11 am–10 pm"
 tags: [wings, takeout, family]
+details:
+  source: "https://wingshackwings.com/locations/"
+  checked: "2026-11-12"
 summary: "The Windsor branch of the northern Colorado wing chain, at the west end of Main Street, open 11 to 10 every day for dine-in, pickup and online orders."
 ---
 

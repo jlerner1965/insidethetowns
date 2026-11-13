@@ -8,6 +8,9 @@ phone: "(720) 340-2979"
 hours: "Tue–Thu 11–9, Fri 11–10, Sat 12–10, Sun 3–8; closed Mon"
 tags: [taproom, live-music, trivia, patio, bike-shop]
 featured: true
+details:
+  source: "https://www.niwotwheelhouse.com/"
+  checked: "2026-11-12"
 summary: "Neighborhood bar and taproom with a back patio and live music. Opened September 2020; its own kitchen opened in February 2026."
 source: "https://www.niwotwheelhouse.com/"
 verified: "2026-11-03"

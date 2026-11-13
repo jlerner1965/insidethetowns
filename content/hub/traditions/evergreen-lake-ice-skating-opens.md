@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Evergreen Park & Recreation District"
 sourceUrl: "https://www.evergreenrecreation.com/public-ice-skating"
+outdoor:
+  kind: other
+  facility: "Evergreen Lake ice skating"
+  edge: opens
 years:
   - year: 2026
     status: not-announced

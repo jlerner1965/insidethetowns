@@ -7,6 +7,9 @@ url: "https://haysmarket.com/"
 phone: "(970) 587-4658"
 hours: "Daily 6 am–9 pm"
 tags: [grocery, pharmacy, everyday]
+details:
+  source: "https://haysmarket.com/"
+  checked: "2026-11-12"
 summary: "Johnstown's family-run grocery store at Johnstown Center, open every day from 6 am to 9 pm, with Good Day Pharmacy in the store; closed Thanksgiving, Christmas Day and Easter."
 source: "https://haysmarket.com/"
 verified: "2026-11-09"

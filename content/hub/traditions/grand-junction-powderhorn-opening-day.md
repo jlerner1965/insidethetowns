@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Powderhorn Mountain Resort"
 sourceUrl: "https://www.powderhorn.com/"
+outdoor:
+  kind: ski-area
+  facility: "Powderhorn Mountain Resort"
+  edge: opens
 years:
   - year: 2026
     status: confirmed

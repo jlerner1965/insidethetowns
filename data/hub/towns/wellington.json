@@ -1,0 +1,65 @@
+{
+  "slug": "wellington",
+  "facts": {
+    "incorporated": {
+      "year": 1905,
+      "source": "https://wellingtoncolorado.gov/176/About-Wellington",
+      "checked": "2026-11-12"
+    }
+  },
+  "heritage": {
+    "nameOrigin": {
+      "text": "The town is named after C.L. Wellington, an employee of the Colorado and Southern Railroad.",
+      "source": "https://wellingtoncolorado.gov/176/About-Wellington",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1902,
+      "text": "The town was founded in 1902",
+      "source": "https://wellingtoncolorado.gov/176/About-Wellington",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1903,
+        "text": "The railway was completed in October and the first train carried sugar beets to the Fort Collins sugar factory.",
+        "source": "https://wellingtoncolorado.gov/DocumentCenter/View/5202/Downtown-Wellington-Historic-Tour---2024",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1904,
+        "text": "The Corbin-Black Lumber Company building, one of the oldest in town, was built.",
+        "source": "https://wellingtoncolorado.gov/DocumentCenter/View/5202/Downtown-Wellington-Historic-Tour---2024",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1922,
+        "text": "The Wellington Mill grain elevator opened for business in October.",
+        "source": "https://wellingtoncolorado.gov/DocumentCenter/View/5202/Downtown-Wellington-Historic-Tour---2024",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2005,
+        "text": "The town celebrated its centennial.",
+        "source": "https://wellingtoncolorado.gov/176/About-Wellington",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Wellington Mill (Grouse Malt House)",
+        "kind": "landmark",
+        "url": "https://wellingtoncolorado.gov/DocumentCenter/View/5202/Downtown-Wellington-Historic-Tour---2024",
+        "source": "https://wellingtoncolorado.gov/DocumentCenter/View/5202/Downtown-Wellington-Historic-Tour---2024",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Duncan & Hackleman Blacksmith Shop",
+        "kind": "landmark",
+        "url": "https://wellingtoncolorado.gov/DocumentCenter/View/5202/Downtown-Wellington-Historic-Tour---2024",
+        "source": "https://wellingtoncolorado.gov/DocumentCenter/View/5202/Downtown-Wellington-Historic-Tour---2024",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

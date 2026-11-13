@@ -7,6 +7,9 @@ url: "https://www.bridgerefill.com/"
 phone: "720-967-8633"
 hours: "Tue–Fri 10 am–6 pm; Sat 10 am–5 pm; Sun noon–4 pm; closed Mon"
 tags: [zero-waste, refill, bulk-food]
+details:
+  source: "https://www.bridgerefill.com/"
+  checked: "2026-11-12"
 summary: "A zero-waste refill shop on Cheesman Street: bring a jar for cleaning, laundry and bath products, and buy bulk spices, grains, snacks and teas by weight."
 source: "https://www.bridgerefill.com/"
 verified: "2026-10-26"

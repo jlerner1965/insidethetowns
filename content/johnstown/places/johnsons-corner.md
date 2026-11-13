@@ -8,6 +8,9 @@ phone: "(970) 667-2069"
 hours: "Daily 6 am–10 pm"
 priceRange: "$$"
 tags: [diner, truck stop, breakfast, cinnamon rolls]
+details:
+  source: "https://blackbeardiner.com/location/johnstown/"
+  checked: "2026-11-12"
 summary: "The I-25 landmark that has run as a truck stop since 1952: its famous diner reopened as a Black Bear Diner in May 2025, open 6 am to 10 pm every day."
 source: "https://blackbeardiner.com/location/johnstown/"
 verified: "2026-11-03"

@@ -4,11 +4,18 @@ type: trail
 address: "4011 S County Rd 31, Loveland"
 area: "County Road 31, northwest of town"
 url: "https://www.larimer.gov/naturalresources/parks/carter-lake"
+phone: "(970) 619-4570"
 image: ../images/carter-lake.jpg
 imageAlt: "Carter Lake from the scrub and pines of its eastern shore, a fallen pine in the foreground"
 imageCredit: "KimonBerlin, Wikimedia Commons, CC BY-SA 2.0"
 tags: [lake, boating, camping, swimming]
 featured: true
+yearRound: true
+details:
+  dogs: "Dogs must be on leashes no longer than 10 feet; not allowed at the swim beach"
+  fees: "Entrance permit required; the automated pay stations take credit and debit cards only"
+  source: "https://www.larimer.gov/naturalresources/parks/carter-lake"
+  checked: "2026-11-12"
 summary: "The 1,100-acre Larimer County reservoir in the foothills northwest of town: boating, sailing, a swim beach, camping, fishing and the three-mile Sundance Trail. Entrance permit required."
 source: "https://www.larimer.gov/naturalresources/parks/carter-lake"
 verified: "2026-11-08"

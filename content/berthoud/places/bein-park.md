@@ -5,6 +5,9 @@ address: "Spartan Ave & 10th St"
 area: "South side, by Berthoud High"
 url: "https://www.berthoud.org/Facilities/Facility/Details/Bein-Park-3"
 tags: [soccer fields, playground, dog park, ball fields, trail]
+details:
+  source: "https://www.berthoud.org/Facilities/Facility/Details/Bein-Park-3"
+  checked: "2026-11-12"
 summary: "The town's soccer park on Spartan Avenue near Berthoud High, with soccer fields, a fitness trail, a renovated playground and the Bein baseball complex; the Town's fenced dog park is also on 10th Street."
 source: "https://www.berthoud.org/Facilities/Facility/Details/Bein-Park-3"
 verified: "2026-11-08"

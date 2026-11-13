@@ -9,6 +9,9 @@ imageAlt: "Coal Miner Park's large picnic shelter: picnic tables and a charcoal 
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [shelter, sand volleyball, playground]
+details:
+  source: "https://www.erieco.gov/2292/Coal-Miner-Park"
+  checked: "2026-11-12"
 summary: "A small park near downtown on Cheesman Street with a large picnic shelter and a sand volleyball court; its playground is being replaced, with the new one due at the end of November or in early December 2026."
 source: "https://www.erieco.gov/2292/Coal-Miner-Park"
 verified: "2026-11-12"

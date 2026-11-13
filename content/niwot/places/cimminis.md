@@ -10,6 +10,9 @@ image: ../images/second-avenue-patios.jpg
 imageAlt: "The front patio of the Italian restaurant on the 300 block of Second Avenue"
 tags: [patio, italian, dinner]
 featured: true
+details:
+  source: "https://cimminisniwot.com/"
+  checked: "2026-11-12"
 summary: "Italian cooking made from scratch on the 300 block, with a heated front patio. Open since January 2022."
 source: "https://cimminisniwot.com/"
 verified: "2026-11-03"

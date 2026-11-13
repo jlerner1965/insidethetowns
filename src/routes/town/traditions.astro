@@ -14,6 +14,8 @@ import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
 import DateCorrection from '@/components/DateCorrection.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import OpenNow from '@/components/OpenNow.astro';
+import { appliesTo } from '@/lib/hub-towns';
 import { findTown, getNetworkHub, getTown } from '@/config';
 import { STANDALONE_GUIDES } from '@/config/hub-towns';
 import { getTraditions } from '@/lib/content';
@@ -109,6 +111,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${en
       <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {outdoor.map((row) => <TraditionRow {...rowProps(row)} />)}
       </div>
+      {standalone && <OpenNow records={records.filter((r) => !r.statewide && appliesTo(r, place!))} {today} class="mt-6" />}
     </section>
   )}
 

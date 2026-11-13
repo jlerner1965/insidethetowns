@@ -4,7 +4,7 @@ name: "Douglas County Fair Parade"
 town:
   name: Castle Rock
   guide: castle-rock
-type: festival
+type: rodeo-fair
 organizer: "Castle Rock Chamber of Commerce"
 sourceUrl: "https://castlerock.org/dcfairparade/"
 years:

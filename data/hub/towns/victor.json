@@ -1,0 +1,91 @@
+{
+  "slug": "victor",
+  "transit": [
+    {
+      "name": "Gold Camp Connector",
+      "detail": "Free bus between Cripple Creek (Aspen Mine Center) and Victor (3rd Street Plaza), five runs a day",
+      "url": "https://www.cityofcripplecreek.com/transportation/page/gold-camp-connector",
+      "source": "https://www.cityofcripplecreek.com/transportation/page/gold-camp-connector",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Victor Hotel",
+      "kind": "Historic hotel",
+      "url": "https://victorhotelcolorado.com/",
+      "source": "https://victorhotelcolorado.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Black Monarch Hotel",
+      "kind": "Hotel",
+      "url": "https://www.blackmonarchhotel.com/",
+      "source": "https://www.blackmonarchhotel.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "A 1933 history by school superintendent S. E. Poet says Victor was named after the Victor mine, a large producer, and that the name was selected by Mr. or Mrs. Harry Woods.",
+      "source": "https://www.victorheritagesociety.com/a-history-of-victor-colorado--the-city-of-mines-compiled-and-published-in-1933-by-s-e-poet-superintendent-of-public-schools-at-victor.html",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1893,
+      "text": "Platted in 1893",
+      "source": "https://victorgoldrushdays.com/victor-colorado-history",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1890,
+        "text": "Prospectors found significant gold deposits in the area in 1890 and 1891.",
+        "source": "https://victorgoldrushdays.com/victor-colorado-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1893,
+        "text": "The town was officially platted.",
+        "source": "https://victorgoldrushdays.com/victor-colorado-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1894,
+        "text": "By 1894 Victor had incorporated as a city, with about 8,000 residents.",
+        "source": "https://victorgoldrushdays.com/victor-colorado-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1895,
+        "text": "The first annual celebration, the \"World Celebration\", was held; it became Gold Rush Days.",
+        "source": "https://victorgoldrushdays.com/victor-colorado-history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1899,
+        "text": "A fire on August 21 destroyed the business district within five hours; it was rebuilt in brick in less than six months.",
+        "source": "https://victorgoldrushdays.com/victor-colorado-history",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Victor Lowell Thomas Museum",
+        "kind": "museum",
+        "url": "https://victormuseum.com/",
+        "hours": "10–5 daily through Oct. 4; 9:30–5 Thursday–Sunday in October; 10–4 weekends in November and December through January 2, 2027, weather allowing",
+        "cost": "$10 all ages",
+        "source": "https://victormuseum.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Victor Downtown Historic District",
+        "kind": "landmark",
+        "url": "https://www.victorheritagesociety.com/landmarks.html",
+        "source": "https://www.victorheritagesociety.com/landmarks.html",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

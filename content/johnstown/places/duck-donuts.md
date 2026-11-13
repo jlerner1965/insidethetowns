@@ -8,6 +8,9 @@ phone: "(970) 663-4652"
 hours: "Mon–Fri 6 am–12 pm, Sat–Sun 6 am–6 pm"
 priceRange: "$"
 tags: [donuts, coffee]
+details:
+  source: "https://www.duckdonuts.com/menu/4842-larimer-parkway-johnstown-co-80534"
+  checked: "2026-11-12"
 summary: "Made-to-order warm donuts and coffee near Johnstown Plaza."
 source: "https://www.duckdonuts.com/menu/4842-larimer-parkway-johnstown-co-80534"
 verified: "2026-11-02"

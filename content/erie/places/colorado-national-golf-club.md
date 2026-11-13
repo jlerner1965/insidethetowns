@@ -6,6 +6,9 @@ area: "Vista Parkway"
 url: "https://www.coloradonationalgolfclub.com/"
 phone: "(303) 926-1723"
 tags: [golf, restaurant, events]
+details:
+  source: "https://www.coloradonationalgolfclub.com/"
+  checked: "2026-11-12"
 summary: "A public championship golf course on Vista Parkway, home course of the University of Colorado's golf teams, with Master's Restaurant open for lunch and dinner seven days a week."
 source: "https://www.coloradonationalgolfclub.com/"
 verified: "2026-11-09"

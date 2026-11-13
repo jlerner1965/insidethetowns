@@ -9,6 +9,9 @@ image: ../images/anderson-farms.jpg
 imageAlt: "The red barn at Anderson Farms, where the corn maze and pumpkin patch run each autumn"
 imageCredit: "designsbykari, Flickr, CC BY 2.0"
 tags: [farm, corn maze, pumpkins, kids]
+details:
+  source: "https://andersonfarms.com/"
+  checked: "2026-11-12"
 summary: "The working farm east of town whose Fall Festival runs late September to Halloween: corn maze, pumpkin patch, barrel trains, and Terror in the Corn after dark. Closed to the public for the season since the end of October."
 source: "https://tickets.andersonfarms.com/p/fall-festival"
 verified: "2026-11-02"

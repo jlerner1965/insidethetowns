@@ -8,6 +8,10 @@ phone: "(720) 372-7860"
 hours: "Wed–Thu 4–9, Fri 3–9, Sat–Sun 12–9; closed Mon–Tue"
 priceRange: "$$"
 tags: [brewery, biergarten, sandwiches]
+details:
+  dogs: "Well-behaved, leashed dogs are welcome on the brewery patio"
+  source: "https://www.cellarwest.com/portfolio-1"
+  checked: "2026-11-12"
 summary: "The Lafayette brewery's Erie public house on Briggs Street: a kitchen, a shaded biergarten, and a Weedhart Pies sandwich counter Thursday to Sunday."
 source: "https://www.cellarwest.com/portfolio-1"
 verified: "2026-11-09"

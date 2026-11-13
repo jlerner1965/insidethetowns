@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "National Park Service, Rocky Mountain National Park"
 sourceUrl: "https://www.nps.gov/romo/planyourvisit/road_status.htm"
+outdoor:
+  kind: road
+  facility: "Old Fall River Road"
+  edge: closes
 years:
   - year: 2027
     status: not-announced

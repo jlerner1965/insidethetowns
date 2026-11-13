@@ -4,7 +4,7 @@ name: "Breckenridge Oktoberfest"
 town:
   name: Breckenridge
   guide: breckenridge
-type: festival
+type: oktoberfest
 organizer: "Breckenridge Tourism Office"
 sourceUrl: "https://gobreck.com/event/breckenridge-oktoberfest/"
 years:

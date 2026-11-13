@@ -1,0 +1,108 @@
+{
+  "slug": "georgetown",
+  "facts": {
+    "incorporated": {
+      "year": 1868,
+      "source": "https://www.townofgeorgetown.us/The%20first%20settlers%20came%20to%20the%20Georgetown%20area%20in%201859.pdf",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "Clear Creek County RoundAbout",
+      "detail": "Free county bus. The Local Route covers Georgetown, Silver Plume, Dumont and Idaho Springs, Monday to Saturday 7:20 am to 7:37 pm and Sunday 7:20 am to 2:09 pm.",
+      "url": "https://www.clearcreekcounty.us/857/RoundAbout-Bus-Service",
+      "source": "https://www.clearcreekcounty.us/857/RoundAbout-Bus-Service",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Georgetown Mountain Inn",
+      "kind": "Hotel",
+      "url": "https://www.georgetownmountaininn.com/",
+      "season": "Year-round",
+      "source": "https://www.georgetownmountaininn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Clear Creek Inn",
+      "kind": "Inn",
+      "url": "https://www.clearcreekinn.co/",
+      "season": "Weekday bookings in all seasons; summer and autumn weekends are held for weddings and events until 3 months out",
+      "source": "https://www.clearcreekinn.co/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1859,
+      "text": "The first settlers came in 1859, when a mining party that included George and David Griffith found gold in Clear Creek.",
+      "source": "https://www.townofgeorgetown.us/The%20first%20settlers%20came%20to%20the%20Georgetown%20area%20in%201859.pdf",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1859,
+        "text": "George and David Griffith and their mining party found gold in Clear Creek and settled in the valley for the summer and fall.",
+        "source": "https://www.townofgeorgetown.us/The%20first%20settlers%20came%20to%20the%20Georgetown%20area%20in%201859.pdf",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1860,
+        "text": "The Griffith Mining District was organized in June to record claims and settle disputes.",
+        "source": "https://www.townofgeorgetown.us/The%20first%20settlers%20came%20to%20the%20Georgetown%20area%20in%201859.pdf",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1864,
+        "text": "Major silver deposits were found in the Argentine and East Argentine districts along McClellan Mountain, and the valley's population grew again.",
+        "source": "https://www.townofgeorgetown.us/The%20first%20settlers%20came%20to%20the%20Georgetown%20area%20in%201859.pdf",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1868,
+        "text": "The Territorial Legislature passed a law incorporating the Town of Georgetown on January 28.",
+        "source": "https://www.townofgeorgetown.us/The%20first%20settlers%20came%20to%20the%20Georgetown%20area%20in%201859.pdf",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Hamill House Museum",
+        "kind": "museum",
+        "url": "https://historicgeorgetown.org/the-hamill-house-museum/",
+        "hours": "Summer: Thursday to Saturday, 11 am–4 pm. Tours by reservation only.",
+        "source": "https://historicgeorgetown.org/the-hamill-house-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Hotel de Paris Museum",
+        "kind": "museum",
+        "url": "https://www.hoteldeparismuseum.org/",
+        "hours": "Friday and Saturday 10 am–4 pm; Sunday until 4 pm; closed Monday",
+        "season": "Closed January",
+        "source": "https://www.hoteldeparismuseum.org/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Alpine Hose No. 2 Firefighter Museum",
+        "kind": "museum",
+        "url": "https://georgetown-colorado.org/history-and-tours/",
+        "season": "Closed for the season when checked in November 2026",
+        "source": "https://historicgeorgetown.org/about-hgi/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Georgetown Energy Museum",
+        "kind": "museum",
+        "url": "https://georgetown-colorado.org/history-and-tours/",
+        "hours": "Daily 11 am–5 pm",
+        "cost": "Free; donations appreciated",
+        "season": "Memorial Day to Labor Day",
+        "source": "https://georgetownenergymuseum.com/",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

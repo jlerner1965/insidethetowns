@@ -1,0 +1,118 @@
+{
+  "slug": "grand-junction",
+  "facts": {
+    "incorporated": {
+      "year": 1882,
+      "source": "https://trim22-web.gjcity.org/GJ_WebDrawer/Record/32550/File/document",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Grand Valley Transit",
+      "detail": "Mesa County's public bus system, with routes in Grand Junction, Palisade and Fruita",
+      "url": "https://www.mesacounty.us/gvt",
+      "source": "https://www.mesacounty.us/gvt",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Hotel Maverick",
+      "kind": "Hotel",
+      "url": "https://www.thehotelmaverick.com/",
+      "source": "https://www.thehotelmaverick.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Grand Vista Hotel",
+      "kind": "Hotel",
+      "url": "https://www.grandvistahotel.com/",
+      "source": "https://www.grandvistahotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Two Rivers Winery & Chateau",
+      "kind": "Inn",
+      "url": "https://tworiverswinery.com/chateau",
+      "source": "https://tworiverswinery.com/chateau",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The name was adopted in November 1881 because the townsite was at the junction of the two largest rivers in the state.",
+      "source": "https://trim22-web.gjcity.org/GJ_WebDrawer/Record/32550/File/document",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1881,
+      "text": "Established after the area was opened for settlement",
+      "source": "https://www.gjcity.org/514/Historic-Preservation-Board",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1881,
+        "text": "The Utes are relocated, the area is opened for settlement and the town of Grand Junction is established.",
+        "source": "https://www.gjcity.org/514/Historic-Preservation-Board",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1923,
+        "text": "Publisher Walter Walker builds the Avalon Theatre. The name was chosen in a contest.",
+        "source": "https://www.avalontheatregj.com/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1929,
+        "text": "Chet and Vernie Enstrom move to Grand Junction and open the Jones-Enstrom Ice Cream Company.",
+        "source": "https://www.enstrom.com/pages/our-story/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1996,
+        "text": "The City of Grand Junction takes over the Avalon Theatre. It was renovated in 2014.",
+        "source": "https://www.avalontheatregj.com/history",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Avalon Theatre",
+        "kind": "landmark",
+        "url": "https://www.avalontheatregj.com/",
+        "source": "https://www.avalontheatregj.com/history",
+        "checked": "2026-11-12",
+        "hours": "Box office: Thursday–Saturday noon–6 pm"
+      },
+      {
+        "name": "Western Colorado Botanical Gardens",
+        "kind": "landmark",
+        "url": "https://wcbotanic.org/",
+        "hours": "Monday and Tuesday 9 am–4 pm; Wednesday–Saturday 9 am–7 pm; closed Sunday; hours may vary with scheduled events",
+        "cost": "Adults $9; seniors, students, military and children 12 and over $6; children 3–11 $4; under 3 free",
+        "source": "https://wcbotanic.org/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "The Art Center of Western Colorado",
+        "kind": "museum",
+        "url": "https://www.gjartcenter.org/",
+        "hours": "Tuesday–Saturday 9 am–4 pm",
+        "cost": "$5; free for members and children under 12",
+        "source": "https://www.gjartcenter.org/visit",
+        "checked": "2026-11-13"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Enstrom Candies",
+        "what": "Almond toffee",
+        "url": "https://www.enstrom.com/",
+        "source": "https://www.enstrom.com/pages/our-story/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

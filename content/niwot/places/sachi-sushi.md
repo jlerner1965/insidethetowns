@@ -6,6 +6,9 @@ area: "Inside Niwot Market"
 url: "https://niwotmarket.com/sachi-sushi-1"
 phone: "(303) 652-0919"
 tags: [sushi, ramen, counter]
+details:
+  source: "https://niwotmarket.com/sachi-sushi-1"
+  checked: "2026-11-12"
 summary: "Sushi counter at the back of Niwot Market: sushi made fresh daily to go, and ramen as the Sunday special."
 source: "https://niwotmarket.com/sachi-sushi-1"
 verified: "2026-11-10"

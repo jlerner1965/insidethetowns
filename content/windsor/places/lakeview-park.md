@@ -14,6 +14,9 @@ status: temporarily-closed
 closed: "2026-10-10"
 statusNote: "The Town posted on August 19, 2026 that Lakeview Park is closed from Monday, August 17, 2026 while new playground equipment is installed, and that it will post the reopening date on its website; none had been posted when its pages were read on 10 November 2026."
 statusSource: "https://www.townofseverance.org/m/newsflash/home/detail/79"
+details:
+  source: "https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4"
+  checked: "2026-11-12"
 summary: "A large Town park at the south end of the Lakeview neighborhood, off South 1st Street, with picnic shelters, restrooms, grills, a playground, a skate park and basketball courts; closed since August 17, 2026 for new playground equipment."
 ---
 

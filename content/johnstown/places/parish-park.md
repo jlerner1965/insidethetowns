@@ -4,9 +4,13 @@ type: park
 address: "11 Raymond Pl"
 area: "Old Town, Charlotte Street"
 url: "https://johnstownco.gov/574/Parish-Park"
+phone: "(970) 587-4664"
 hours: "Daily 5 am–10 pm"
 tags: [playground, shelters, events]
 featured: true
+details:
+  source: "https://johnstownco.gov/574/Parish-Park"
+  checked: "2026-11-12"
 summary: "Old Town's park at Charlotte and Raymond, beside the Parish House Museum: shelters with power, a playground, restrooms, volleyball and walking paths. Home of BBQ Day."
 source: "https://www.johnstownco.gov/574/Parish-Park"
 verified: "2026-11-03"

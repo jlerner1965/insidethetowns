@@ -9,6 +9,9 @@ added: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-382-5805"
 tags: [park, playground, neighborhood]
+details:
+  source: "https://www.frederickco.gov/Facilities/Facility/Details/Coalridge-Park-17"
+  checked: "2026-11-12"
 summary: "A neighborhood park in the Coal Ridge subdivision west of downtown: a playground and swings, a multi-use field, benches and picnic tables. The Town publishes no park hours."
 ---
 

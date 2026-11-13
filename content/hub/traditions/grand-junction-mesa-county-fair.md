@@ -4,7 +4,7 @@ name: "Mesa County Fair"
 town:
   name: Grand Junction
   guide: grand-junction
-type: festival
+type: rodeo-fair
 organizer: "Mesa County Fair"
 sourceUrl: "https://www.mesacountyfair.org/"
 years:

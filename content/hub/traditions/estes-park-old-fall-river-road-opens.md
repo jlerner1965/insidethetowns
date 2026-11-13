@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "National Park Service, Rocky Mountain National Park"
 sourceUrl: "https://www.nps.gov/romo/learn/news/old-fall-river-road-closed-to-all-uses-july-2-through-july-3-will-open-to-vehicles-for-the-season-on-friday-july-4.htm"
+outdoor:
+  kind: road
+  facility: "Old Fall River Road"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

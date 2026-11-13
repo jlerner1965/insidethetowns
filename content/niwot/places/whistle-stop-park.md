@@ -9,6 +9,9 @@ image: ../images/whistle-stop-caboose.jpg
 imageAlt: "The red 1907 Burlington Route caboose on its short length of track at Whistle Stop Park"
 tags: [caboose, concerts, lawn]
 featured: true
+details:
+  source: "https://niwotarts.org/whistle-stop-park/"
+  checked: "2026-11-12"
 summary: "The lawn beside the 1907 caboose at Murray Street and First Avenue, where the Rock & Rails concerts happen every summer Thursday."
 source: "https://niwot.com/venues"
 verified: "2026-11-09"

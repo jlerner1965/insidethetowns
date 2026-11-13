@@ -4,7 +4,7 @@ name: "Potato Day"
 town:
   name: Carbondale
   guide: carbondale
-type: festival
+type: harvest-festival
 organizer: "Town of Carbondale Parks and Recreation"
 sourceUrl: "https://www.carbondalerec.com/programs/special-events-2/"
 years:

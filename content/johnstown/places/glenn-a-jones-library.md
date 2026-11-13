@@ -7,6 +7,9 @@ url: "https://johnstownmillikenpubliclibraries.us/"
 phone: "(970) 587-2459"
 hours: "Mon 9–5, Tue–Thu 9–8, Fri 9–5, Sat 9–1; closed Sun"
 tags: [library, kids, classes]
+details:
+  source: "https://johnstownmillikenpubliclibraries.us/"
+  checked: "2026-11-12"
 summary: "The Johnstown-Milliken library district's Johnstown branch on South Parish Avenue: storytimes, classes, a makerspace and a library of things. Open six days."
 source: "https://johnstownmillikenpubliclibraries.us/"
 verified: "2026-11-03"

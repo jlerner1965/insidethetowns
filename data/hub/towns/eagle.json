@@ -1,0 +1,73 @@
+{
+  "slug": "eagle",
+  "transit": [
+    {
+      "name": "Core Transit Valley Route",
+      "detail": "Connects Vail to Dotsero with stops in Avon, Edwards, Eagle, the airport and Gypsum",
+      "url": "https://www.coretransit.org/",
+      "source": "https://www.coretransit.org/routes-schedules",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Wingate by Wyndham Eagle Vail Valley",
+      "kind": "Hotel",
+      "url": "https://www.wyndhamhotels.com/wingate/eagle-colorado/wingate-eagle-vail-valley/overview",
+      "source": "https://www.wyndhamhotels.com/wingate/eagle-colorado/wingate-eagle-vail-valley/overview",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "GreenTree Extended Stay Eagle/Vail Valley",
+      "kind": "Extended-stay hotel",
+      "url": "https://greentreeinn.com/destinations/eagle-vail-valley/",
+      "source": "https://greentreeinn.com/destinations/eagle-vail-valley/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1882,
+      "text": "First settled in 1882 as a ranching community",
+      "source": "https://www.townofeagle.org/31/Our-Community",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1883,
+        "text": "Eagle County was formed, with Red Cliff as the first county seat.",
+        "source": "https://www.townofeagle.org/31/Our-Community",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1905,
+        "text": "After years of changing names, the name Eagle was finally chosen for the town.",
+        "source": "https://www.townofeagle.org/31/Our-Community",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1922,
+        "text": "The Flight Days celebration dates back to this year.",
+        "source": "https://eagleoutside.com/flightdays",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1939,
+        "text": "The Eagle County Fair & Rodeo began.",
+        "source": "https://www.eaglecountyfairandrodeo.com/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Eagle County Historical Society Museum",
+        "kind": "museum",
+        "url": "https://eaglecountyhistoricalsociety.com/museum/",
+        "hours": "Daily 10 am-3 pm during the summer season",
+        "season": "Summer; closed for the season, reopens Memorial Day weekend 2027",
+        "source": "https://eaglecountyhistoricalsociety.com/museum/",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

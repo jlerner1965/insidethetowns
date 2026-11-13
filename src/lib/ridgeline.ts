@@ -31,6 +31,14 @@ export const TERRAIN: Record<HubCluster, Terrain> = {
   'Roaring Fork valley': 'peaks',
   'Gunnison valley': 'peaks',
   'Southwest': 'peaks',
+  'Eastern plains': 'plains',
+  'Eagle valley': 'peaks',
+  'Grand County': 'peaks',
+  'North Park': 'foothills',
+  'South Park': 'peaks',
+  'Southern Colorado': 'foothills',
+  'San Luis Valley': 'peaks',
+  'North Fork valley': 'mesa',
 };
 
 export const RIDGE_WIDTH = 1200;

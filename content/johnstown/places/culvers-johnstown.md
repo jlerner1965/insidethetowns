@@ -7,6 +7,9 @@ url: "https://culvers.com/restaurants/johnstown"
 phone: "(970) 667-2475"
 hours: "Daily 10 am–10 pm"
 tags: [burgers, drive-thru]
+details:
+  source: "https://culvers.com/restaurants/johnstown"
+  checked: "2026-11-12"
 summary: "The Culver's on Thompson Parkway at I-25 and US 34, with a dining room open daily 10 to 10 and a drive-thru that stays open later."
 source: "https://culvers.com/restaurants/johnstown"
 verified: "2026-11-09"

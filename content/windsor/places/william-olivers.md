@@ -11,6 +11,10 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 added: "2026-10-01"
 hours: "Daily 11 am–2 am"
 tags: [whiskey, pub, biergarten, dog-friendly]
+details:
+  dogs: "Dogs are welcomed in the Biergarten; bring them in through the rear entrance"
+  source: "https://williamolivers.com/locations/windsor/"
+  checked: "2026-11-12"
 summary: "A whiskey-and-bacon pub on Main Street with no loud TVs, no reservations and no phone: a long whiskey list, Colorado-made spirits and beer, a snug for small groups and a rear biergarten where dogs are welcome."
 ---
 

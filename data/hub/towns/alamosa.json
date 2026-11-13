@@ -1,0 +1,102 @@
+{
+  "slug": "alamosa",
+  "facts": {
+    "incorporated": {
+      "year": 1878,
+      "source": "https://www.alamosa.gov/about-the-city-of-alamosa",
+      "checked": "2026-11-12"
+    }
+  },
+  "lodging": [
+    {
+      "name": "Dunes Inn",
+      "kind": "Hotel",
+      "url": "https://www.dunesinnalamosa.com/",
+      "source": "https://www.dunesinnalamosa.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Sunset Inn",
+      "kind": "Inn",
+      "url": "https://www.sunsetinns.com/",
+      "source": "https://www.sunsetinns.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Cool Sunshine RV Park",
+      "kind": "RV park",
+      "url": "https://www.coolsunshinervpark.com/",
+      "season": "Year-round",
+      "source": "https://www.coolsunshinervpark.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Alamosa means \"cottonwood\" in Spanish.",
+      "source": "https://www.alamosa.gov/about-the-city-of-alamosa",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1878,
+      "text": "Went from a tent city to a rail center for the Denver and Rio Grande Railroad in June 1878",
+      "source": "https://www.alamosa.gov/about-the-city-of-alamosa",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1878,
+        "text": "Alamosa was incorporated on August 30, 1878.",
+        "source": "https://www.alamosa.gov/about-the-city-of-alamosa",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1880,
+        "text": "On February 20, 1880, Denver and Rio Grande crews laid the first rails of the San Juan Extension from Alamosa toward Antonito.",
+        "source": "https://sangreheritage.org/railroads/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1908,
+        "text": "The present Denver & Rio Grande depot was built after a fire destroyed the earlier depot in 1907.",
+        "source": "https://sangreheritage.org/railroads/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1961,
+        "text": "The Denver and Rio Grande depot was closed and sold to Alamosa County.",
+        "source": "https://sangreheritage.org/railroads/",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "San Luis Valley Museum",
+        "kind": "museum",
+        "url": "https://slvhistory.org/",
+        "hours": "Tue–Sat 10 am–4 pm; closed Sunday, Monday and some holidays",
+        "cost": "$8 general admission; $4 veterans; free 12 and under",
+        "source": "https://slvhistory.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Luther Bean Museum",
+        "kind": "museum",
+        "url": "https://www.adams.edu/lutherbean/",
+        "hours": "Mon–Fri 1–5 pm; closed major holidays and December 25 through January 2",
+        "cost": "Free",
+        "source": "https://www.adams.edu/lutherbean/",
+        "checked": "2026-11-13"
+      }
+    ]
+  },
+  "transit": [
+    {
+      "name": "Mountain Valley Transit",
+      "detail": "Free door-to-door rides in the Antonito to Alamosa service area, Mondays and Fridays; book by phone at least two business days ahead",
+      "url": "https://mountainvalleytransit.com/antonito-to-alamosa/",
+      "source": "https://mountainvalleytransit.com/antonito-to-alamosa/",
+      "checked": "2026-11-13"
+    }
+  ]
+}

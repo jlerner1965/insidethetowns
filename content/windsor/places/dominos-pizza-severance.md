@@ -12,6 +12,9 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 phone: "(970) 710-6424"
 hours: "Mon–Thu 10:30 am–10 pm; Fri–Sat 10 am–11 pm; Sun 10:30 am–10 pm"
 tags: [pizza, delivery, carryout]
+details:
+  source: "https://pizza.dominos.com/colorado/severance/1018-mahogany-way"
+  checked: "2026-11-12"
 summary: "The Domino's store on Mahogany Way for delivery and carryout pizza, wings, pasta and oven-baked sandwiches; open to 10 pm most nights and 11 pm on Fridays and Saturdays."
 ---
 

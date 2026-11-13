@@ -15,6 +15,10 @@ imageAlt: "The Cache la Poudre River at Windsor in summer, cottonwoods on both b
 imageCredit: "Ssullivan1564, Wikimedia Commons, CC BY-SA 4.0"
 tags: [cycling, walking, running, paved, river, birding]
 featured: true
+details:
+  dogs: "Your dog is welcome on the trail with a lead attached"
+  source: "https://www.poudretrail.org/"
+  checked: "2026-11-12"
 summary: "Twenty-one miles of wide paved trail along the Cache la Poudre from Island Grove Park in Greeley to Highway 392 at Windsor, with the main Windsor trailhead at Eastman Park and a link west to Larimer County's River Bluffs Open Space."
 ---
 

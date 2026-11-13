@@ -1,0 +1,24 @@
+{
+  "slug": "fort-morgan",
+  "transit": [
+    { "name": "Amtrak Fort Morgan station", "detail": "Train station with a waiting room at South Ensign Street and Main Street", "url": "https://www.amtrak.com/stations/fmg", "source": "https://www.amtrak.com/stations/fmg", "checked": "2026-11-12" }
+  ],
+  "lodging": [
+    { "name": "Baymont by Wyndham Fort Morgan", "kind": "Hotel", "url": "https://www.wyndhamhotels.com/hotel/52240", "source": "https://www.wyndhamhotels.com/hotel/52240", "checked": "2026-11-13" }
+  ],
+  "heritage": {
+    "nameOrigin": { "text": "Fort Morgan was named after a frontier military fort that existed from 1864 to 1868.", "source": "https://www.cityoffortmorgan.com/248/About-the-Area", "checked": "2026-11-12" },
+    "founded": { "year": 1884, "text": "Founded by Abner S. Baker, a Civil War veteran from Wisconsin", "source": "https://www.cityoffortmorgan.com/248/About-the-Area", "checked": "2026-11-12" },
+    "timeline": [
+      { "year": 1882, "text": "Abner S. Baker built a canal off the South Platte River, financed by the Earl of Airlie and his son Lord Ogilvy.", "source": "https://www.cityoffortmorgan.com/248/About-the-Area", "checked": "2026-11-12" },
+      { "year": 1884, "text": "Baker founded the town.", "source": "https://www.cityoffortmorgan.com/248/About-the-Area", "checked": "2026-11-12" },
+      { "year": 1906, "text": "The Great Western Sugar Company constructed a factory.", "source": "https://www.cityoffortmorgan.com/248/About-the-Area", "checked": "2026-11-12" },
+      { "year": 1908, "text": "City Hall was built. It first housed the city offices, the municipal electric generation plant and the water pumping station.", "source": "https://www.historycolorado.org/location/fort-morgan-city-hall", "checked": "2026-11-12" },
+      { "year": 1923, "text": "The Rainbow Arch Bridge was completed by Charles Sheely's Colorado Bridge and Construction Company. It is the only Marsh arch in Colorado.", "source": "https://www.historycolorado.org/location/rainbow-arch-bridge", "checked": "2026-11-12" }
+    ],
+    "sites": [
+      { "name": "Fort Morgan Museum", "kind": "museum", "url": "https://www.cityoffortmorgan.com/238/Museum", "hours": "Monday 9 am to 6 pm; Tuesday to Thursday 9 am to 7 pm; Friday and Saturday 9 am to 5 pm", "cost": "Free", "source": "https://www.cityoffortmorgan.com/238/Museum", "checked": "2026-11-12" },
+      { "name": "Rainbow Arch Bridge", "kind": "landmark", "source": "https://www.historycolorado.org/location/rainbow-arch-bridge", "checked": "2026-11-12" }
+    ]
+  }
+}

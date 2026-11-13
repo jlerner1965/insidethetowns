@@ -6,6 +6,9 @@ url: "https://www.eriecoffeeroasters.com/"
 source: "https://www.eriecoffeeroasters.com/pages/ecr-cafe"
 hours: "Mon–Fri 6:30 am–2:30 pm; Sat 8 am–1 pm"
 tags: [coffee, roaster, cafe, sandwiches]
+details:
+  source: "https://www.eriecoffeeroasters.com/pages/ecr-cafe"
+  checked: "2026-11-12"
 summary: "A micro-roaster and cafe in Frederick (the name notwithstanding), roasting fair-trade coffee on site and serving espresso, pour-overs and focaccia sandwiches made in house, weekday mornings and Saturday."
 verified: "2026-11-05"
 verifiedBy: "Claude Code, delegated by James Lerner"

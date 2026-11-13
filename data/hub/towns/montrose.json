@@ -1,0 +1,133 @@
+{
+  "slug": "montrose",
+  "transit": [
+    {
+      "name": "Montrose Public Bus",
+      "detail": "Free local bus routes, Monday to Friday, run by All Points Transit",
+      "url": "https://www.allpointstransit.com/montrose-public-bus/",
+      "source": "https://www.allpointstransit.com/montrose-public-bus/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "All Points Transit OurWay",
+      "detail": "Commuter service connecting Montrose, Ridgway and Ouray, Monday through Saturday; $4 single ride",
+      "url": "https://www.allpointstransit.com/ourway/",
+      "source": "https://www.allpointstransit.com/ourway/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Country Lodge",
+      "kind": "Motel",
+      "url": "https://www.countrylodgecolorado.com/",
+      "source": "https://www.countrylodgecolorado.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Minecart Motor Lodge",
+      "kind": "Motor lodge",
+      "url": "https://minecartmotorlodge.com/",
+      "source": "https://minecartmotorlodge.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "1st Interstate Inn",
+      "kind": "Motel",
+      "url": "https://www.1stinterstateinnmontrose.com/",
+      "source": "https://www.1stinterstateinnmontrose.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Joseph Selig suggested the name after a favorite character in Sir Walter Scott's novel The Legend of Montrose.",
+      "source": "https://visitmontrose.com/about/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1882,
+      "text": "Officially became a town; the first stake was driven in December 1881",
+      "source": "https://visitmontrose.com/about/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1881,
+        "text": "The Ute Indians were relocated to a reservation in Utah in September, and the first stake of the town was driven in December.",
+        "source": "https://visitmontrose.com/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1882,
+        "text": "Montrose officially became a town, and the Denver and Rio Grande Railroad built its narrow gauge mainline through it.",
+        "source": "https://visitmontrose.com/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1909,
+        "text": "The Gunnison Tunnel, built to bring irrigation water to the Uncompahgre Valley, opened with a visit from President Taft.",
+        "source": "https://visitmontrose.com/about/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1956,
+        "text": "The Ute Indian Museum was built near the ranch of Uncompahgre leader Chief Ouray and his wife Chipeta.",
+        "source": "https://www.historycolorado.org/ute-indian-museum",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Ute Indian Museum",
+        "kind": "museum",
+        "url": "https://www.historycolorado.org/ute-indian-museum",
+        "hours": "Mon–Sat 9 am–4:30 pm; Sun 11 am–4 pm",
+        "source": "https://www.historycolorado.org/ute-indian-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Montrose County Historical Museum",
+        "kind": "museum",
+        "url": "https://www.montrosehistory.org/",
+        "hours": "Mon–Fri 10 am–5 pm; Sat 10 am–2 pm",
+        "cost": "Adult $8; student $4; family $25",
+        "season": "Closed for the 2026 season; reopens May 1, 2027",
+        "source": "https://www.montrosehistory.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Museum of the Mountain West",
+        "kind": "museum",
+        "url": "https://www.museumofthemountainwest.org/",
+        "source": "https://museumofthemountainwest.org/the-museum/tours/",
+        "checked": "2026-11-13",
+        "hours": "Winter (from November 1): Tue–Sat 10 am–4:30 pm. Summer (early March to November): Mon–Sat 8:30 am–4:30 pm",
+        "cost": "Adults $13 self-guided, $15 guided; teens 12–18 $7.50; youth 6–11 $5; under 6 free"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Scott Fly Rods",
+        "what": "Fly rods handcrafted in Montrose",
+        "url": "https://www.scottflyrod.com/",
+        "source": "https://www.scottflyrod.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Storm King Distilling Co.",
+        "what": "Craft spirits; tasting room at 41 W. Main St.",
+        "url": "https://www.stormkingdistilling.com/",
+        "source": "https://www.stormkingdistilling.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Secret Creek",
+        "what": "Yurts, tipis and tents handcrafted in Montrose since 1976",
+        "url": "https://secretcreek.com/",
+        "source": "https://secretcreek.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

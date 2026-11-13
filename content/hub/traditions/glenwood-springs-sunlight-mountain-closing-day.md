@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Sunlight Mountain Resort"
 sourceUrl: "https://sunlightmtn.com/faqs/"
+outdoor:
+  kind: ski-area
+  facility: "Sunlight Mountain Resort"
+  edge: closes
 years:
   - year: 2027
     status: not-announced

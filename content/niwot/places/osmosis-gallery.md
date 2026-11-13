@@ -8,6 +8,9 @@ phone: "(303) 652-2668"
 hours: "Mon–Fri 10 am–5 pm, Sat 11 am–5 pm, closed Sun"
 tags: [gallery, art, first-friday]
 featured: true
+details:
+  source: "https://www.osmosisartgallery.com/"
+  checked: "2026-11-12"
 summary: "Contemporary gallery in a renovated 1910 brick building, showing more than forty Colorado artists, with openings on First Fridays."
 source: "https://www.osmosisartgallery.com/"
 verified: "2026-11-10"

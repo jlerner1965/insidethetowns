@@ -4,7 +4,7 @@ name: "Boulder County Fair"
 town:
   name: Longmont
   guide: longmont
-type: festival
+type: rodeo-fair
 organizer: "Boulder County Fair, Livestock Show & Rodeo"
 sourceUrl: "https://www.bouldercountyfair.org/p/boulder-county-fair-tickets"
 firstYear: 1869

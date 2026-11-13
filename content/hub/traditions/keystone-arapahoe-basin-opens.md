@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Arapahoe Basin"
 sourceUrl: "https://www.arapahoebasin.com/blog/opening-day-2026/"
+outdoor:
+  kind: ski-area
+  facility: "Arapahoe Basin"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

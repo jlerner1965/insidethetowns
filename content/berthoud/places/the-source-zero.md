@@ -7,6 +7,9 @@ url: "https://thesourcezeronoco.com/"
 phone: "(970) 344-5145"
 hours: "Mon 11–3, Tue–Sat 10–5, Sun 12–4"
 tags: [refill, zero waste]
+details:
+  source: "https://thesourcezeronoco.com/pages/contact"
+  checked: "2026-11-12"
 summary: "Refill shop on Mountain Avenue for household, beauty and body products; bring your own containers."
 source: "https://thesourcezeronoco.com/pages/contact"
 verified: "2026-11-10"

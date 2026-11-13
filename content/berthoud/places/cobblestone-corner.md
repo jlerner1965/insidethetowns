@@ -7,6 +7,9 @@ url: "https://www.cobblestonecorner.org/"
 phone: "(970) 290-2098"
 hours: "Mon 12–5, Tue–Sat 10–5; closed Sun"
 tags: [antiques, vintage]
+details:
+  source: "https://www.cobblestonecorner.org/about"
+  checked: "2026-11-12"
 summary: "Vendor-booth antique and vintage market on Massachusetts Avenue, a block south of the main drag: handmade items, antiques, collectibles and jewelry."
 source: "https://www.cobblestonecorner.org/about"
 verified: "2026-11-10"

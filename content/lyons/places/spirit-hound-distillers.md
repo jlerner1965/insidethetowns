@@ -7,6 +7,9 @@ url: "https://spirithounds.com/"
 phone: "(303) 823-5696"
 hours: "Mon–Wed noon–8 pm, Thu noon–9 pm, Fri–Sat 11 am–9 pm, Sun 11 am–8 pm"
 tags: [distillery, whisky, cocktails, comedy]
+details:
+  source: "https://www.spirithounds.com/lyons-tasting-room"
+  checked: "2026-11-12"
 summary: "Grain-to-glass distillery east of town making Colorado straight malt whisky, gin and rum, with a tasting room and a patio."
 source: "https://www.spirithounds.com/lyons-tasting-room"
 verified: "2026-10-03"

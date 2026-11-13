@@ -1,0 +1,98 @@
+{
+  "slug": "trinidad",
+  "facts": {
+    "incorporated": {
+      "year": 1876,
+      "source": "https://scholar.law.colorado.edu/session-laws-1861-1900/1148",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Trinidad Trolley",
+      "detail": "City tourism trolley, Memorial Day through Labor Day. Leaves the Colorado Welcome Center at 309 Nevada Ave. at the top of each hour, Monday to Saturday 10 a.m. to 4 p.m. and Sunday 10 a.m. to 2 p.m.",
+      "url": "https://www.trinidad.co.gov/services/parks___recreation/trinidad_trolley.php",
+      "source": "https://www.trinidad.co.gov/services/parks___recreation/trinidad_trolley.php",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "The Well Hotel & Taproom",
+      "kind": "Hotel",
+      "url": "https://wellhoteltrinidad.com/",
+      "source": "https://wellhoteltrinidad.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Trails End Motel",
+      "kind": "Motel",
+      "url": "https://www.jimandmelissa.org/",
+      "source": "https://www.jimandmelissa.org/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Tower 64 Motel & RV",
+      "kind": "Motel and RV park",
+      "url": "https://tower64motelandrv.com/",
+      "source": "https://tower64motelandrv.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "La Quinta Inn & Suites by Wyndham Trinidad",
+      "kind": "Hotel",
+      "url": "https://www.wyndhamhotels.com/laquinta/trinidad-colorado/la-quinta-trinidad/overview",
+      "source": "https://www.wyndhamhotels.com/laquinta/trinidad-colorado/la-quinta-trinidad/overview",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1882,
+        "text": "The Bloom Mansion was built.",
+        "source": "https://www.historycolorado.org/trinidad-history-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1906,
+        "text": "The Barglow Building was built.",
+        "source": "https://www.historycolorado.org/trinidad-history-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1955,
+        "text": "The Trinidad Pioneer Museum opened with artist Arthur Roy Mitchell as its first curator.",
+        "source": "https://www.historycolorado.org/trinidad-history-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1961,
+        "text": "The Colorado Historical Society, now History Colorado, acquired the museum property.",
+        "source": "https://www.historycolorado.org/trinidad-history-museum",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Trinidad History Museum",
+        "kind": "museum",
+        "url": "https://www.historycolorado.org/trinidad-history-museum",
+        "hours": "Tuesday to Saturday, 10 am to 4 pm; last museum entry 3 pm",
+        "cost": "$10 adults; $8 seniors (60+); children free",
+        "season": "Open year round",
+        "source": "https://www.historycolorado.org/trinidad-history-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "A.R. Mitchell Museum",
+        "kind": "museum",
+        "url": "https://www.armitchellmuseum.com/",
+        "hours": "Tuesday to Saturday, 10 am to 4 pm",
+        "cost": "Free admission",
+        "source": "https://www.armitchellmuseum.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

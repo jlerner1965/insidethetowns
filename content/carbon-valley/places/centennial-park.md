@@ -9,6 +9,9 @@ added: "2026-10-05"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-382-5805"
 tags: [park, playground, amphitheater, fitness-loop, festivals]
+details:
+  source: "https://www.frederickco.gov/Facilities/Facility/Details/8"
+  checked: "2026-11-12"
 summary: "Frederick’s festival park on Eighth Street: an amphitheater, big open fields, a playground, picnic shelters, a five-station fitness loop, a bouldering area and mountain views; home to Miners Day, Frederick in Flight and Chainsaws & Chuckwagons."
 ---
 

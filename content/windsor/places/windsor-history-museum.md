@@ -10,6 +10,13 @@ verified: "2026-11-10"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
 added: "2026-10-01"
 tags: [history, museum, free, summer, kids]
+details:
+  fees: "Admission to Windsor History Museum is free; donations appreciated"
+  tours:
+    offered: "Group and school tours year-round for groups of five or more"
+    cost: "Free"
+  source: "https://www.recreationliveshere.com/188/Windsor-History-Museum"
+  checked: "2026-11-12"
 summary: "Five historic buildings moved to Boardwalk Park, among them the 1882 train depot, an 1885 schoolhouse, a beet shack and a chapel, open free on summer weekends from late May to early September."
 ---
 

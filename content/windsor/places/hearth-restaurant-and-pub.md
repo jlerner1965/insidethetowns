@@ -12,6 +12,9 @@ phone: "970-460-0193"
 hours: "Mon–Thu 3–8:30 pm, Fri–Sat 11 am–9 pm, Sun 11 am–8 pm"
 tags: [pizza, burgers, patio, happy-hour, cocktails]
 featured: true
+details:
+  source: "https://www.hearthrestaurantandpub.com/"
+  checked: "2026-11-12"
 summary: "Specialty pizzas, burgers and a proper dinner menu a few steps off Main Street on 4th, with a patio, house cocktails and a happy hour six days a week."
 ---
 

@@ -14,9 +14,14 @@ towns:
     line: "US 34 through the Big Thompson Canyon leads from Loveland to Estes Park, where the road begins."
   - slug: longmont
     line: "From Longmont, CO 66 and US 36 through Lyons lead to Estes Park, where the road begins."
+  - slug: granby
 type: outdoor
 organizer: "National Park Service, Rocky Mountain National Park"
 sourceUrl: "https://www.nps.gov/romo/learn/news/trail-ridge-road-is-closed-to-through-travel-for-the-winter-2025-2026-season.htm"
+outdoor:
+  kind: road
+  facility: "Trail Ridge Road"
+  edge: closes
 years:
   - year: 2026
     status: not-announced

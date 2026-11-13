@@ -1,0 +1,111 @@
+{
+  "slug": "steamboat-springs",
+  "facts": {
+    "incorporated": {
+      "year": 1900,
+      "source": "https://www.steamboatsprings.net/179/History-of-Steamboat-Springs",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Steamboat Springs Transit",
+      "detail": "Free bus system. Summer service runs April 13 through November 27, 2026, followed by the winter routes.",
+      "url": "https://www.steamboatsprings.net/166/Transit",
+      "source": "https://www.steamboatsprings.net/166/Transit",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Rabbit Ears Motel",
+      "kind": "Motel",
+      "url": "https://www.rabbitearsmotel.com/",
+      "source": "https://www.rabbitearsmotel.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Bristol Hotel",
+      "kind": "Hotel",
+      "url": "https://www.steamboathotelbristol.com/",
+      "source": "https://www.steamboathotelbristol.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Gravity Haus Steamboat",
+      "kind": "Hotel",
+      "url": "https://gravityhaus.com/locations/gravity-haus-steamboat",
+      "source": "https://gravityhaus.com/locations/gravity-haus-steamboat",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The City says French trappers in the early 1800s mistook the sound of a natural mineral spring for the chugging of a steamboat engine.",
+      "source": "https://www.steamboatsprings.net/179/History-of-Steamboat-Springs",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1875,
+      "text": "James H. Crawford filed the Steamboat Springs claim",
+      "source": "https://www.steamboatsprings.net/1510/Government---Civic-Plaza",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1909,
+        "text": "The railroad arrived, and tourism to the mineral springs grew.",
+        "source": "https://steamboathistory.org/mineral-springs",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1914,
+        "text": "Winter Carnival was established.",
+        "source": "https://www.sswsc.org/winter-carnival",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1915,
+        "text": "Howelsen Hill has operated since 1915. The City calls it Colorado's oldest continuously operated ski area.",
+        "source": "https://www.steamboatsprings.net/131/Howelsen-Hill-Ski-Area",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1959,
+        "text": "Dorothy Wither founded the town's history museum.",
+        "source": "https://steamboathistory.org/our-story",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Steamboat Springs History Museum",
+        "kind": "museum",
+        "url": "https://steamboathistory.org/",
+        "hours": "Tuesday–Saturday 11 am–5 pm; closed major national holidays",
+        "cost": "Adults $6; seniors 62 and over $5; children 6–12 $2; under 6 and Routt County residents with ID free",
+        "source": "https://steamboathistory.org/plan-your-visit",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Howelsen Hill Ski Area",
+        "kind": "landmark",
+        "url": "https://www.steamboatsprings.net/131/Howelsen-Hill-Ski-Area",
+        "source": "https://www.steamboatsprings.net/131/Howelsen-Hill-Ski-Area",
+        "checked": "2026-11-12",
+        "hours": "Monday–Friday 11 am–8 pm; Saturday and Sunday 10 am–4 pm; closed December 25; hours subject to change",
+        "cost": "2026/2027 lift tickets: adults 19–64 $55; youth 5–18 $40; seniors 65 and over $40; 4 and under free; free skiing every Sunday",
+        "season": "November 28, 2026 to March 28, 2027, conditions permitting"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Moots",
+        "what": "Handcrafted titanium bicycles, built in Steamboat Springs since 1981",
+        "url": "https://moots.com/",
+        "source": "https://moots.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

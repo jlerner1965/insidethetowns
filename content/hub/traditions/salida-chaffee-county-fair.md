@@ -4,7 +4,7 @@ name: "Chaffee County Fair & Rodeo"
 town:
   name: Salida
   guide: salida
-type: festival
+type: rodeo-fair
 organizer: "Chaffee County Fair & Rodeo"
 sourceUrl: "https://www.chaffeecountyfair.com/"
 years:

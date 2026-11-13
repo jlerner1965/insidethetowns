@@ -1,0 +1,90 @@
+{
+  "slug": "brush",
+  "facts": {
+    "incorporated": {
+      "year": 1884,
+      "source": "https://www.brushcolo.com/your_city/about_brush/history.php",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "County Express",
+      "detail": "Reservation-based, curb-to-curb rides run by NECALG. Call the Morgan County dispatcher at least 24 hours ahead for a local ride. Local general public fare is $3.00.",
+      "url": "https://www.necalg.org/county-express",
+      "source": "https://www.necalg.org/county-express",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Brush Municipal Campground",
+      "kind": "Campground",
+      "url": "https://www.brushcolo.com/your_city/departments/parks___recreation/parks/campground.php",
+      "source": "https://www.brushcolo.com/your_city/departments/parks___recreation/parks/campground.php",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Brush was named in honor of Jared L. Brush, a Colorado cattle pioneer who later served as Lieutenant Governor of Colorado.",
+      "source": "https://www.brushcolo.com/your_city/about_brush/history.php",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1882,
+      "text": "The townsite was laid out in June 1882 after the Burlington rail line reached this point.",
+      "source": "https://www.brushcolo.com/your_city/about_brush/history.php",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1882,
+        "text": "The Brush townsite was laid out in June after the Burlington rail line reached this point on its way from Chicago to Denver.",
+        "source": "https://www.brushcolo.com/your_city/about_brush/history.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1884,
+        "text": "Jared L. Brush helped organize the first rodeo in Brush on July 4, and the City was incorporated by election on October 18.",
+        "source": "https://www.brushcolo.com/your_city/about_brush/history.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1910,
+        "text": "Knearl School, which now houses the Brush Area Museum & Cultural Center, was built.",
+        "source": "https://www.brushcolo.com/community/visit/museum.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1978,
+        "text": "The Brush Area Chamber of Commerce and the City Council began placing an exclamation point after the name Brush.",
+        "source": "https://www.brushcolo.com/your_city/about_brush/history.php",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Brush Area Museum & Cultural Center",
+        "kind": "museum",
+        "url": "https://www.brushcolo.com/community/visit/museum.php",
+        "source": "https://www.brushcolo.com/community/visit/museum.php",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Knearl Block and Opera House/Desky Hotel",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/knearl-block-and-opera-housedesky-hotel",
+        "source": "https://www.historycolorado.org/location/knearl-block-and-opera-housedesky-hotel",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Emerson Theatre / Sands Theatre",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/emerson-theatre-sands-theatre",
+        "source": "https://www.historycolorado.org/location/emerson-theatre-sands-theatre",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

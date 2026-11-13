@@ -14,6 +14,10 @@ image: ../images/redstone-museum.jpg
 imageAlt: "The rusticated red sandstone schoolhouse of 1881, now the Lyons Redstone Museum"
 imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 tags: [museum, history, free]
+details:
+  fees: "Admission free; donations appreciated"
+  source: "https://www.lyonsredstonemuseum.com/"
+  checked: "2026-11-12"
 summary: "Local history in the 1881 sandstone schoolhouse, run by the Lyons Historical Society since 1979. Free; open in the summer season."
 source: "https://www.lyonsredstonemuseum.com/"
 verified: "2026-11-10"

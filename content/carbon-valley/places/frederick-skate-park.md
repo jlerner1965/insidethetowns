@@ -10,6 +10,11 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-382-5805"
 hours: "Daily, dawn to 10 pm"
 tags: [skatepark, bmx, scooters, lit, free]
+details:
+  dogs: "Pets must be kept off skate surfaces, on a leash and attended"
+  bikes: "Metal pegs on bikes are prohibited; plastic pegs are allowed"
+  source: "https://www.frederickco.gov/733/Skate-Park-at-Frederick-Recreation-Area"
+  checked: "2026-11-12"
 summary: "About 30,000 square feet of poured concrete at the south-west corner of the Frederick Recreation Area: an 18,500-square-foot street course, an egg bowl, a 10,000-square-foot flow bowl and two 12-foot full pipes, unsupervised and lit, open dawn to 10 pm."
 ---
 

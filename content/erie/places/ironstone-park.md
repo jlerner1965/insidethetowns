@@ -5,6 +5,9 @@ address: "619 Flora View Dr"
 area: "Colliers Hill"
 url: "https://www.erieco.gov/1979/Ironstone-Park"
 tags: [playground, basketball, sand volleyball]
+details:
+  source: "https://www.erieco.gov/1979/Ironstone-Park"
+  checked: "2026-11-12"
 summary: "A 9.3-acre park in Colliers Hill with a large playground, a loop trail, two shelters, a full basketball court, a sand volleyball court, lawn games and open turf fields."
 source: "https://www.erieco.gov/1979/Ironstone-Park"
 verified: "2026-11-09"

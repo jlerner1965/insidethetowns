@@ -1,0 +1,105 @@
+{
+  "slug": "basalt",
+  "facts": {
+    "incorporated": {
+      "year": 1901,
+      "source": "https://www.basalt.net/380/History-of-Basalt",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "Basalt Connect",
+      "detail": "Free on-demand rides every day in downtown Basalt, Willits and nearby neighborhoods; 7 am to 10 am and 3 pm to 10 pm, and 7 am to 10 pm in June, July and August",
+      "url": "https://www.basalt.net/basaltconnect",
+      "source": "https://www.basalt.net/basaltconnect",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Roaring Fork Transportation Authority (RFTA)",
+      "detail": "The Roaring Fork Valley Local and VelociRFTA BRT routes run year-round between Glenwood Springs and Aspen and list Basalt among their fare zones",
+      "url": "https://www.rfta.com/routes/",
+      "source": "https://www.rfta.com/routes/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Basalt Mountain Inn",
+      "kind": "Inn",
+      "url": "https://basaltmountaininn.com/",
+      "source": "https://basaltmountaininn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Aspenalt Lodge",
+      "kind": "Lodge",
+      "url": "https://aspenalt.com/",
+      "source": "https://aspenalt.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Frying Pan River Lodge",
+      "kind": "Lodge",
+      "url": "https://fryingpanriverlodge.com/",
+      "source": "https://fryingpanriverlodge.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The town was known as Aspen Junction until 1895, when it was renamed Basalt for the basaltic rock of Black Mountain, now Basalt Mountain.",
+      "source": "https://www.basalt.net/380/History-of-Basalt",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1887,
+      "text": "The railroad established a town site on the north side of the Fryingpan River, first called Aspen Junction",
+      "source": "https://www.basalt.net/380/History-of-Basalt",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1882,
+        "text": "Seven charcoal kilns were built near the confluence of the Roaring Fork and Fryingpan rivers to supply smelters in Aspen.",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1887,
+        "text": "The town of Aspen Junction was formed across the Fryingpan River from the kilns.",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1895,
+        "text": "Aspen Junction was renamed Basalt.",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1901,
+        "text": "Basalt was officially incorporated during the summer.",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Fryingpan Kilns",
+        "kind": "landmark",
+        "url": "https://www.basalt.net/380/History-of-Basalt",
+        "source": "https://www.basalt.net/380/History-of-Basalt",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Arbaney Barn",
+        "kind": "landmark",
+        "url": "https://aspenhistory.org/blog/map_pin/arbaney-barn-and-charcoal-kilns",
+        "hours": "The barn and kilns can be viewed from the exterior only",
+        "source": "https://aspenhistory.org/blog/map_pin/arbaney-barn-and-charcoal-kilns",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

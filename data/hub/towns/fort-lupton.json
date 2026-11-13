@@ -1,0 +1,21 @@
+{
+  "slug": "fort-lupton",
+  "facts": {
+    "incorporated": { "year": 1890, "source": "https://history.weld.gov/County-150/Education/Fort-Lupton-School-District", "checked": "2026-11-13" }
+  },
+  "heritage": {
+    "founded": { "year": 1881, "text": "William G. Winbourn founded the town beside a railroad sidetrack, about a mile south of the original fort", "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County", "checked": "2026-11-13" },
+    "nameOrigin": { "text": "The city bears the name of Lancaster Lupton, a former lieutenant in the U.S. Dragoons who began building a trade fort here in 1836.", "source": "https://www.spvhs.org/background.html", "checked": "2026-11-12" },
+    "timeline": [
+      { "year": 1836, "text": "Lancaster Lupton began building a trade fort for the fur and buffalo hide trade with the plains tribes. It operated as Fort Lancaster until 1844.", "source": "https://www.spvhs.org/luptons-fort.html", "checked": "2026-11-12" },
+      { "year": 1929, "text": "The Fort Lupton Library, now the Fort Lupton City Museum building, was built by architect John J. Huddart.", "source": "https://www.fortluptonco.gov/157/Museum", "checked": "2026-11-12" },
+      { "year": 1981, "text": "The last wall of the original fort was demolished by workers erecting gas and oil drilling rigs on the site.", "source": "https://www.spvhs.org/background.html", "checked": "2026-11-12" },
+      { "year": 1988, "text": "The South Platte Valley Historical Society was started with the aim of rebuilding the fort.", "source": "https://www.spvhs.org/background.html", "checked": "2026-11-12" },
+      { "year": 2011, "text": "The reconstructed Fort Lancaster was completed and dedicated.", "source": "https://www.spvhs.org/luptons-fort.html", "checked": "2026-11-12" }
+    ],
+    "sites": [
+      { "name": "Fort Lupton City Museum", "kind": "museum", "url": "https://www.fortluptonco.gov/157/Museum", "hours": "Wednesday to Friday, 10 am to 3 pm", "cost": "Free", "source": "https://www.fortluptonco.gov/157/Museum", "checked": "2026-11-12" },
+      { "name": "South Platte Valley Historic Park (reconstructed Fort Lancaster)", "kind": "landmark", "url": "https://www.spvhs.org/", "hours": "10 am to 4 pm, Saturday and Sunday of the first and third weekend of each month", "season": "May to October", "source": "https://www.spvhs.org/", "checked": "2026-11-12" }
+    ]
+  }
+}

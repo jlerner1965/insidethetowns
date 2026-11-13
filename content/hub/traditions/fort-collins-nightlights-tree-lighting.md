@@ -3,7 +3,7 @@ slug: fort-collins-nightlights-tree-lighting
 name: "NightLights Tree Lighting Celebration"
 town:
   name: Fort Collins
-  guide: fortcollins
+  guide: fort-collins
 type: tree-lighting
 organizer: "Realities For Children"
 sourceUrl: "https://www.realitiesforchildren.com/events/nightlights-2/"

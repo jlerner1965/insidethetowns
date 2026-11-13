@@ -7,6 +7,9 @@ url: "https://berthoudpetsupply.com/"
 phone: "(970) 308-7427"
 hours: "Mon–Wed 10–6, Thu–Sat 10–7, Sun 11–3"
 tags: [pets]
+details:
+  source: "https://berthoudpetsupply.com/"
+  checked: "2026-11-12"
 summary: "Independent pet supply store on Turner Avenue, the neighborhood hub for feed, treats and advice."
 source: "https://berthoudpetsupply.com/"
 verified: "2026-11-10"

@@ -1,0 +1,93 @@
+{
+  "slug": "westcliffe",
+  "facts": {
+    "incorporated": {
+      "year": 1887,
+      "source": "https://townofwestcliffe.colorado.gov/town-government",
+      "checked": "2026-11-12"
+    }
+  },
+  "lodging": [
+    {
+      "name": "Westcliffe Inn",
+      "kind": "Inn",
+      "url": "https://westcliffeinn.com/",
+      "source": "https://westcliffeinn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Westcliffe Suites on Main",
+      "kind": "Boutique hotel",
+      "url": "https://westcliffesuites.com/",
+      "source": "https://westcliffesuites.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Ravens' Lodging & Extended Stays",
+      "kind": "Suites and cottages",
+      "url": "https://ravenslodging.com/",
+      "source": "https://ravenslodging.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Dark Sky Suites",
+      "kind": "Hotel-style suites",
+      "url": "https://darkskysuites.com/",
+      "source": "https://darkskysuites.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "founded": {
+      "year": 1881,
+      "text": "Grew up around a Denver & Rio Grande Railroad depot built one mile west of Silver Cliff",
+      "source": "https://visitwetmountainvalley.com/railroad-created-westcliffe/",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1887,
+        "text": "The Town of Westcliffe was incorporated as a statutory town.",
+        "source": "https://townofwestcliffe.colorado.gov/town-government",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1937,
+        "text": "Four local ranchers founded the Wet Mountain Valley Saddle Club as a place to race horses.",
+        "source": "https://www.wmvsc.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1940,
+        "text": "Saddle Club members paid for a permanent arena on the site of the current rodeo grounds.",
+        "source": "https://www.wmvsc.com/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2015,
+        "text": "The Smokey Jack Observatory in The Bluff Park was dedicated on November 13.",
+        "source": "https://www.darkskiescolorado.org/smokey-jack-observatory",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Smokey Jack Observatory",
+        "kind": "landmark",
+        "url": "https://www.darkskiescolorado.org/smokey-jack-observatory",
+        "hours": "No operating hours; open only during public events",
+        "source": "https://www.darkskiescolorado.org/smokey-jack-observatory",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "All Aboard Westcliffe",
+        "kind": "museum",
+        "url": "https://www.allaboardwestcliffe.co/",
+        "hours": "Saturdays 10 am to 4 pm",
+        "season": "Memorial Day weekend to Labor Day weekend",
+        "source": "https://www.allaboardwestcliffe.co/",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

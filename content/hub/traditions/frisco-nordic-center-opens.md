@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Town of Frisco"
 sourceUrl: "https://www.townoffrisco.com/things-to-do/frisco-nordic-center/"
+outdoor:
+  kind: ski-area
+  facility: "Frisco Nordic Center"
+  edge: opens
 years:
   - year: 2026
     status: confirmed

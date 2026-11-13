@@ -10,6 +10,7 @@ sourceUrl: "https://www.sculptureinthepark.org/"
 years:
   - year: 2027
     status: confirmed
+    edition: 43
     date: 2027-08-13
     endDate: 2027-08-15
     place: "Benson Sculpture Garden"

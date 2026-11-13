@@ -8,6 +8,9 @@ phone: "(720) 361-2332"
 hours: "Mon–Wed 4–8:30, Thu 4–9, Fri 3:30–9, Sat 11–9, Sun 11–8"
 priceRange: "$$"
 tags: [brewery, pizza]
+details:
+  source: "https://echobrewing.com/contact/"
+  checked: "2026-11-12"
 summary: "Brewery and brick-oven pizzeria in the old downtown fire station."
 source: "https://echobrewing.com/location-and-hours/"
 verified: "2026-11-09"

@@ -5,6 +5,7 @@ type: trail
 address: "100 N 5th St (Boardwalk Park)"
 area: "Windsor Lake"
 url: "https://www.recreationliveshere.com/206/Windsor-Lake"
+phone: "(970) 674-3500"
 source: "https://www.recreationliveshere.com/206/Windsor-Lake"
 verified: "2026-11-10"
 verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
@@ -13,6 +14,10 @@ image: ../images/windsor-lake-winter.jpg
 imageAlt: "Windsor Lake frozen and snow-covered in winter from the trail on the near shore, red sandstone riprap at the water’s edge and the town’s houses, bare trees and grain elevator along the far one"
 imageCredit: "Jared Winkler, Wikimedia Commons, CC BY-SA 4.0"
 tags: [walking, running, lake, dog-park]
+details:
+  dogs: "Dogs must be leashed at all times except at the Windsor Lake Dog Park"
+  source: "https://www.recreationliveshere.com/206/Windsor-Lake"
+  checked: "2026-11-12"
 summary: "The 2.25-mile loop around Windsor Lake from Boardwalk Park, with the lake dog park on the north shore and a connection west on the #2 Ditch Trail."
 ---
 

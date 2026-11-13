@@ -7,6 +7,9 @@ url: "https://thelearningexperience.com/centers/berthoud-co/"
 phone: "(970) 746-7138"
 hours: "Mon–Fri 6:30 am–6 pm"
 tags: [childcare, preschool, kids]
+details:
+  source: "https://thelearningexperience.com/centers/berthoud-co/"
+  checked: "2026-11-12"
 summary: "A child care center and preschool on Lake Avenue for children from six weeks to five years, open weekdays from 6:30 am to 6 pm."
 source: "https://thelearningexperience.com/centers/berthoud-co/"
 verified: "2026-11-10"

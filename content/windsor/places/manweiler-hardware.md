@@ -12,6 +12,9 @@ added: "2026-10-01"
 phone: "970-686-9934"
 hours: "Mon–Fri 9–5:30, Sat 9–4; closed Sun"
 tags: [hardware, paint, keys, grills]
+details:
+  source: "https://www.manweilerhardware.com/"
+  checked: "2026-11-12"
 summary: "The family-owned downtown hardware store, on Main Street since 1946: hardware, plumbing, electrical, Benjamin Moore paint, keys cut, housewares and sporting goods, with special orders."
 ---
 

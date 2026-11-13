@@ -1,0 +1,78 @@
+{
+  "slug": "cedaredge",
+  "lodging": [
+    {
+      "name": "Cedaredge Lodge",
+      "kind": "Lodge",
+      "url": "https://www.cedaredgelodge.com/",
+      "source": "https://www.cedaredgelodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Mesa Moon Inn & Suites",
+      "kind": "Motel",
+      "url": "https://www.mesamooninn.com/",
+      "source": "https://www.mesamooninn.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Stay Wise Inns Cedaredge",
+      "kind": "Hotel",
+      "url": "https://staywisecedaredge.com/",
+      "source": "https://staywisecedaredge.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1894,
+        "text": "Mail service to Cedaredge started.",
+        "source": "https://www.pioneertown.org/historic-walking-tour",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1901,
+        "text": "The first general store opened.",
+        "source": "https://www.pioneertown.org/historic-walking-tour",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1907,
+        "text": "Cedaredge became a town on April 16, when 79 of its 115 eligible residents voted to form it at the lumberyard.",
+        "source": "https://www.pioneertown.org/historic-walking-tour",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1916,
+        "text": "Three stacked lumber silos were built in 1916 and 1917 for the Stockham Brothers, who ran the Bar I Ranch.",
+        "source": "https://www.historycolorado.org/location/surface-creek-livestock-company-silos",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1977,
+        "text": "Applefest began as an annual celebration of area fruit growers.",
+        "source": "https://www.cedaredgeapplefest.com/about",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Pioneer Town Museum",
+        "kind": "museum",
+        "url": "https://www.pioneertown.org/",
+        "hours": "Sat–Sun 10 am–2 pm (limited fall hours); closed Mon–Fri",
+        "cost": "$7 adults; $6 seniors 62 and over; $4 ages 6 to 17; $5 veterans; $20 family of up to 6",
+        "source": "https://www.pioneertown.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Surface Creek Livestock Company Silos",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/surface-creek-livestock-company-silos",
+        "source": "https://www.historycolorado.org/location/surface-creek-livestock-company-silos",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

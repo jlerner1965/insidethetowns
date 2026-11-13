@@ -4,8 +4,12 @@ type: park
 address: "2300 Cinnamon Teal Ave"
 area: "Pioneer Ridge, east side"
 url: "https://johnstownco.gov/576/Pioneer-Ridge-Park"
+phone: "(970) 587-4664"
 hours: "Daily 5 am–10 pm"
 tags: [disc golf, playground]
+details:
+  source: "https://johnstownco.gov/576/Pioneer-Ridge-Park"
+  checked: "2026-11-12"
 summary: "Park by Pioneer Ridge Elementary with a free nine-hole disc golf course, opened in June 2021."
 source: "https://www.johnstownco.gov/576/Pioneer-Ridge-Park"
 verified: "2026-11-03"

@@ -10,6 +10,9 @@ image: ../images/library.jpg
 imageAlt: "The timber-and-glass entrance of the Erie Community Library"
 imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 tags: [library, kids, programs]
+details:
+  source: "https://www.mylibrary.us/locations-and-hours/"
+  checked: "2026-11-12"
 summary: "The High Plains Library District's Erie branch on Powers Street, open seven days, with storytimes, programs and a community room."
 source: "https://www.mylibrary.us/locations-and-hours/"
 verified: "2026-11-09"

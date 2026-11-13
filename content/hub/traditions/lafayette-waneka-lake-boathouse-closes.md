@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "City of Lafayette"
 sourceUrl: "https://www.lafayetteco.gov/2647/Waneka-Lake-Boathouse"
+outdoor:
+  kind: other
+  facility: "Waneka Lake boathouse"
+  edge: closes
 years:
   - year: 2027
     status: not-announced

@@ -45,7 +45,7 @@ const hoursUnknown = open && !data.hours && !place.hoursHidden && DOOR_TYPES.inc
 // "Open May–Oct", or "Closed for the season" once the gate has taken the
 // hours away (src/lib/freshness.ts, seasonLabel). A season the block cannot
 // place on the calendar is shown on the page only.
-const season = open ? seasonLabel(data.seasonal) : undefined;
+const season = open ? seasonLabel(data.seasonal, undefined, data.yearRound) : undefined;
 ---
 <li
   class="group relative grid gap-x-10 gap-y-2 border-b border-line-soft py-6 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_minmax(10rem,14rem)] lg:grid-cols-[minmax(0,1fr)_18rem]"

@@ -10,6 +10,9 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "303-833-6626"
 hours: "Office hours Tue & Thu 9 am–3 pm"
 tags: [food-pantry, assistance, nonprofit, volunteer]
+details:
+  source: "https://carbonvalleyhelpcenter.org/"
+  checked: "2026-11-12"
 summary: "The Carbon Valley’s nonprofit food pantry and assistance office, on Buchanan Avenue in old Firestone, open to the public on Tuesdays and Thursdays from 9 to 3; it takes volunteers and donations and runs the November Empty Bowls lunch at Frederick High."
 ---
 

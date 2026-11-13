@@ -10,6 +10,9 @@ imageCredit: "Town of Erie"
 hours: "Open daily 6 am–10 pm"
 tags: [playground, pump track, skate park, fields]
 featured: true
+details:
+  source: "https://erieco.gov/2314/Erie-Community-Park"
+  checked: "2026-11-12"
 summary: "The 49-acre park beside the Community Center: ballfields, three playgrounds, the Revolution pump track, a skate park, a sledding hill and walking trails."
 source: "https://erieco.gov/2314/Erie-Community-Park"
 verified: "2026-11-09"

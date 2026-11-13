@@ -9,6 +9,9 @@ added: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-382-5805"
 tags: [park, picnic]
+details:
+  source: "https://www.frederickco.gov/Facilities/Facility/Details/Confluence-Park-14"
+  checked: "2026-11-12"
 summary: "A small park on Drake Way in the newer neighborhoods east of Colorado Boulevard, with picnic shelters and tables. The Town publishes no park hours."
 ---
 

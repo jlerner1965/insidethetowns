@@ -7,6 +7,9 @@ url: "https://nicoleswarehouse.com/"
 phone: "(970) 587-1000"
 hours: "Wed–Sat 10–5; closed Sun–Tue"
 tags: [antiques, vintage]
+details:
+  source: "https://nicoleswarehouse.com/"
+  checked: "2026-11-12"
 summary: "Multi-booth antique market at the north end of Old Town, in business for more than fifteen years."
 source: "https://nicoleswarehouse.com/"
 verified: "2026-11-03"

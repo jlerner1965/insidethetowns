@@ -1,0 +1,101 @@
+{
+  "slug": "grand-lake",
+  "lodging": [
+    {
+      "name": "Rapids Lodge",
+      "kind": "Lodge",
+      "url": "https://rapidslodge.com/",
+      "source": "https://rapidslodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Western Riviera Lakeside Lodging",
+      "kind": "Motel",
+      "url": "https://www.westernriv.com/",
+      "season": "Year-round",
+      "source": "https://www.westernriv.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Gateway Inn",
+      "kind": "Inn",
+      "url": "https://gatewayinn.com/",
+      "source": "https://gatewayinn.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Grand Lake Lodge",
+      "kind": "Lodge",
+      "url": "https://www.grandlakelodge.com/",
+      "source": "https://www.grandlakelodge.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The town is named for Grand Lake, the largest natural body of water in Colorado.",
+      "source": "https://stories.grandcountyhistory.org/node/1951",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1879,
+      "text": "Established in 1879",
+      "source": "https://stories.grandcountyhistory.org/node/1951",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1867,
+        "text": "Joseph L. Wescott, credited as the first permanent white settler at Grand Lake, built his cabin on the west shore of the lake.",
+        "source": "https://grandlakehistory.org/grand-lake-history/historic-events/the-legend-of-grand-lake/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1892,
+        "text": "The Kauffman House was built; the Kauffman family ran it as a hotel until 1946.",
+        "source": "https://grandlakehistory.org/museums/kauffman-house-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1915,
+        "text": "The Smith-Eslick Cottage Court, a motor court for automobile tourists, was built in about 1915.",
+        "source": "https://grandlakehistory.org/museums/cottage-camp/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1920,
+        "text": "Fall River Road, built from 1913 to 1920, became the first road over the Continental Divide between Estes Park and Grand Lake.",
+        "source": "https://www.nps.gov/romo/learn/historyculture/time_line_of_historic_events.htm",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1973,
+        "text": "The Grand Lake Area Historical Society bought and restored the Kauffman House.",
+        "source": "https://grandlakehistory.org/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Kauffman House Museum",
+        "kind": "museum",
+        "url": "https://grandlakehistory.org/museums/kauffman-house-museum/",
+        "hours": "Monday-Saturday 11 am-5 pm; closed Sunday",
+        "cost": "$5 adults; free 12 and under",
+        "season": "Memorial Day through August; weekends in September",
+        "source": "https://grandlakehistory.org/museums/kauffman-house-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Cottage Court Museum",
+        "kind": "museum",
+        "url": "https://grandlakehistory.org/museums/cottage-camp/",
+        "hours": "Monday-Saturday 11 am-5 pm; closed Sunday",
+        "cost": "$5 adults; free 12 and younger",
+        "season": "Memorial Day through August; Saturdays through September",
+        "source": "https://grandlakehistory.org/museums/cottage-camp/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

@@ -7,6 +7,10 @@ url: "https://www.berthoudhabitat.org/restore/restore.html"
 phone: "(970) 532-2870"
 hours: "Tue–Sat 10–5; closed Sun–Mon"
 tags: [thrift, furniture, nonprofit]
+details:
+  closedDays: "Hours subject to change on holidays"
+  source: "https://www.berthoudhabitat.org/restore/restore.html"
+  checked: "2026-11-12"
 summary: "Thrift store for furniture, home goods, clothing and tools at the east end of Mountain Avenue; proceeds build homes."
 source: "https://www.berthoudhabitat.org/restore/restore.html"
 verified: "2026-11-10"

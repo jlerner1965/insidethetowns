@@ -6,6 +6,9 @@ area: "Downtown, Mountain Avenue"
 url: "https://www.sirenhouse.com/"
 phone: "(970) 532-4091"
 tags: [salon, hair, extensions]
+details:
+  source: "https://www.sirenhouse.com/get-in-touch"
+  checked: "2026-11-12"
 summary: "A hair salon on Mountain Avenue downtown for cuts, color, extensions, curly cuts and nails, by appointment; free haircuts for anyone going through chemotherapy."
 source: "https://www.sirenhouse.com/get-in-touch"
 verified: "2026-11-06"

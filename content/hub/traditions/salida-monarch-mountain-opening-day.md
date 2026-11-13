@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Monarch Mountain"
 sourceUrl: "https://www.skimonarch.com/"
+outdoor:
+  kind: ski-area
+  facility: "Monarch Mountain"
+  edge: opens
 years:
   - year: 2026
     status: not-announced

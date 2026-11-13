@@ -1,0 +1,112 @@
+{
+  "slug": "marble",
+  "facts": {
+    "incorporated": {
+      "year": 1895,
+      "source": "https://marblehistory.org/marble-timeline/",
+      "checked": "2026-11-13"
+    }
+  },
+  "lodging": [
+    {
+      "name": "Beaver Lake Lodge & Cabins",
+      "kind": "Cabins",
+      "url": "https://www.beaverlakelodge.com/",
+      "source": "https://www.beaverlakelodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Raspberry Ridge Cafe and Inn",
+      "kind": "Inn",
+      "url": "https://www.innatraspberryridge.com",
+      "source": "https://www.innatraspberryridge.com",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Marble Hideaway",
+      "kind": "Cabins",
+      "url": "https://www.marblehideaway.com",
+      "source": "https://www.marblehideaway.com",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Marble Campground",
+      "kind": "Campground",
+      "url": "https://www.marblecampground.com/",
+      "source": "https://www.marblecampground.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The marble beds on Yule Creek were named Yule Marble in 1874; the neighboring settlements of Clarence and Marble agreed in 1890 to join as one town called Marble.",
+      "source": "https://marblehistory.org/marble-timeline/",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1881,
+      "text": "The town of Clarence was founded east of Carbonate Creek; it joined the neighboring Town of Marble in 1890",
+      "source": "https://marblehistory.org/marble-timeline/",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1882,
+        "text": "Marble was discovered on Yule Creek and John Osgood had a large block quarried.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1906,
+        "text": "The Colorado Yule Marble Company was organized and built seven miles of new track into Marble.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1915,
+        "text": "Marble's population reached 1,500.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1943,
+        "text": "The railroad tracks were taken up and the machinery sold for scrap metal.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1972,
+        "text": "The town was reincorporated.",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Marble Museum",
+        "kind": "museum",
+        "url": "https://marblehistory.org/marble-museum/",
+        "hours": "Thu–Mon 11 am–4 pm",
+        "cost": "Admission donation: adults $5; juniors and seniors $3; children free",
+        "season": "Memorial Day through mid October",
+        "source": "https://marblehistory.org/marble-museum/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Marble Mill Site",
+        "kind": "landmark",
+        "url": "https://marblehistory.org/marble-history/",
+        "hours": "Public access to the ruins of the finishing mill",
+        "source": "https://marblehistory.org/marble-history/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Marble City State Bank Building (The Marble Hub)",
+        "kind": "landmark",
+        "url": "https://marblehistory.org/projects/marble-city-state-bank-building/",
+        "source": "https://marblehistory.org/projects/marble-city-state-bank-building/",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

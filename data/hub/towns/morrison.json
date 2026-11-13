@@ -1,0 +1,89 @@
+{
+  "slug": "morrison",
+  "transit": [
+    {
+      "name": "Westracks",
+      "detail": "Free community shuttle on weekends and holidays, 9 a.m. to 5 p.m., Memorial Day to Labor Day, every 15 minutes.",
+      "url": "https://www.ridewestracks.com/",
+      "source": "https://www.morrisonco.us/425/Westracks-Shuttle",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Cliff House Lodge & Hot Tub Cottages",
+      "kind": "Bed and breakfast",
+      "url": "https://www.cliffhouselodge.net/",
+      "source": "https://www.cliffhouselodge.net/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "George Morrison, a stonemason who came to the area in 1859, platted the town that became known as Morrison.",
+      "source": "https://morrisonhistory.org/george-morrison/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1872,
+      "text": "The town got its start when Denver businessmen led by John Evans incorporated the Denver and South Park Railway.",
+      "source": "https://morrisonhistory.org/early-morrison/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1872,
+        "text": "The Denver and South Park Railway was incorporated to build a narrow gauge line toward Morrison.",
+        "source": "https://morrisonhistory.org/early-morrison/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1874,
+        "text": "The railroad to Morrison was completed.",
+        "source": "https://morrisonhistory.org/early-morrison/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1925,
+        "text": "Scheduled trains to Morrison stopped running.",
+        "source": "https://morrisonhistory.org/early-morrison/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1941,
+        "text": "Red Rocks Amphitheatre was dedicated on June 15.",
+        "source": "https://www.redrocksonline.com/our-story/history/",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Dinosaur Ridge",
+        "kind": "landmark",
+        "url": "https://dinoridge.org/",
+        "hours": "Main Visitor Center daily 9 am–4 pm Nov 1–Mar 14, 9 am–5 pm Mar 15–Oct 31; closed Thanksgiving, Christmas and New Year's Day",
+        "cost": "Guided bus tour $21 adults, $15 children 3–11, free 2 and under; parking free",
+        "season": "Year-round",
+        "source": "https://dinoridge.org/visit-dinosaur-ridge/hours-directions/",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Red Rocks Park and Amphitheatre",
+        "kind": "landmark",
+        "url": "https://www.redrocksonline.com/",
+        "hours": "Park open one hour before sunrise to one hour after sunset; amphitheatre usually closes to the public around 2 pm on concert days",
+        "cost": "Free admission and parking on non-event days",
+        "season": "Every day of the year",
+        "source": "https://www.redrocksonline.com/plan-your-visit/faq/",
+        "checked": "2026-11-13"
+      }
+    ]
+  },
+  "facts": {
+    "incorporated": {
+      "year": 1906,
+      "source": "https://morrisonhistory.org/2025/11/08/mayors-messages/",
+      "checked": "2026-11-13"
+    }
+  }
+}

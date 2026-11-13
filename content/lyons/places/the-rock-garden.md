@@ -8,6 +8,9 @@ phone: "(720) 975-8666"
 hours: "Mon & Wed–Thu 3–9 pm, Fri 3–10 pm, Sat 10 am–10 pm, Sun 10 am–9 pm; closed Tue"
 tags: [creekside, live-music, food-trucks, dogs]
 featured: true
+details:
+  source: "https://rockgardenlyons.com/"
+  checked: "2026-11-12"
 summary: "Creekside beer garden at A-Lodge, just off Main Street downtown: craft beer, local spirits, food trucks, live music and a lot of outdoor seating."
 source: "https://www.rockgardenlyons.com/"
 verified: "2026-11-10"

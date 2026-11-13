@@ -1,0 +1,65 @@
+{
+  "slug": "la-veta",
+  "lodging": [
+    {
+      "name": "La Veta Inn",
+      "kind": "Inn",
+      "url": "https://lavetainncolorado.com",
+      "source": "https://lavetainncolorado.com",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "La Veta Pines RV Park",
+      "kind": "RV park",
+      "url": "https://www.lavetapines.com/",
+      "season": "Seasonal; the 2026 season ended October 8",
+      "source": "https://www.lavetapines.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The settlement at Francisco Plaza took the new name La Veta when the Denver and Rio Grande Railroad arrived in 1876.",
+      "source": "https://www.historycolorado.org/location/francisco-plaza",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1862,
+      "text": "Col. John Francisco founded a trading post at the foot of the Spanish Peaks, and the town grew up around the fort.",
+      "source": "https://www.franciscofort.org/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1862,
+        "text": "John M. Francisco built the adobe buildings of Francisco Plaza around an open courtyard.",
+        "source": "https://www.historycolorado.org/location/francisco-plaza",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1876,
+        "text": "The Denver and Rio Grande Railroad arrived at Francisco Plaza, starting a period of growth.",
+        "source": "https://www.historycolorado.org/location/francisco-plaza",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1986,
+        "text": "Francisco Plaza was listed in the National Register of Historic Places on October 23.",
+        "source": "https://www.historycolorado.org/location/francisco-plaza",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Francisco Fort Museum",
+        "kind": "museum",
+        "url": "https://www.franciscofort.org/",
+        "hours": "Thursday to Saturday, 10 am to 4 pm",
+        "cost": "$7 per adult; children free",
+        "season": "Memorial Day to Labor Day (May 21 to September 5 in 2026)",
+        "source": "https://www.franciscofort.org/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

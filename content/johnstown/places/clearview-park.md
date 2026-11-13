@@ -4,8 +4,12 @@ type: park
 address: "3201 Silverbell Dr"
 area: "Clearview, west side"
 url: "https://johnstownco.gov/618/Clearview-Park"
+phone: "(970) 587-4664"
 hours: "Daily 5 am–10 pm"
 tags: [playground, shelter]
+details:
+  source: "https://johnstownco.gov/618/Clearview-Park"
+  checked: "2026-11-12"
 summary: "Neighborhood park in the Clearview subdivision with a playground and a reservable shelter with electricity."
 source: "https://www.johnstownco.gov/618/Clearview-Park"
 verified: "2026-11-02"

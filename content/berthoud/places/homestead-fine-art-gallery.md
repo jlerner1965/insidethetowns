@@ -6,6 +6,9 @@ area: "Downtown, Mountain Avenue"
 url: "https://berthoudart.com/"
 hours: "Tue–Sat 12–5, Sun 11–4; closed Mon"
 tags: [gallery, art]
+details:
+  source: "https://berthoudart.com/contact"
+  checked: "2026-11-12"
 summary: "Gallery on Mountain Avenue showing original paintings, prints, photography, sculpture and glass by regional artists."
 source: "https://berthoudart.com/hours"
 verified: "2026-11-10"

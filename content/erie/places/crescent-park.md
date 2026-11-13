@@ -9,6 +9,9 @@ imageAlt: "Crescent Park's playground: purple slides and yellow climbing panels 
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [playground, challenge course, field]
+details:
+  source: "https://www.erieco.gov/2313/Crescent-Park"
+  checked: "2026-11-12"
 summary: "An 8-acre park on Lombardi Street whose playground has a challenge course, with a multi-purpose field, a shelter, walking trails and a permanent restroom in season."
 source: "https://www.erieco.gov/2313/Crescent-Park"
 verified: "2026-11-09"

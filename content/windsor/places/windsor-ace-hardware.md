@@ -8,6 +8,9 @@ url: "https://www.myaceonline.com/"
 phone: "(970) 686-1470"
 hours: "Mon–Fri 7 am–8 pm, Sat 7 am–6 pm, Sun 8 am–6 pm"
 tags: [hardware, everyday]
+details:
+  source: "https://www.myaceonline.com/windsor-ace-hardware/"
+  checked: "2026-11-12"
 summary: "The locally and family-owned hardware store on west Main Street, with 45,000 items in stock; open seven days."
 source: "https://www.myaceonline.com/windsor-ace-hardware/"
 verified: "2026-11-10"

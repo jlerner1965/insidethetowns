@@ -7,6 +7,9 @@ url: "https://www.wildfirearts.org/"
 phone: "(970) 532-5497"
 hours: "Tue–Wed 9–3, Thu 9–2, Fri 10–3"
 tags: [arts, classes, kids]
+details:
+  source: "https://www.wildfirearts.org/contact-us"
+  checked: "2026-11-12"
 summary: "Community arts center on Massachusetts Avenue with classes, youth programs, summer camps, Art in the Park and the StreetFest."
 source: "https://www.wildfirearts.org/contact-us"
 verified: "2026-11-10"

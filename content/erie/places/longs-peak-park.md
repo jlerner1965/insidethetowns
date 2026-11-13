@@ -9,6 +9,9 @@ imageAlt: "The green playground at Longs Peak Park, with its scavenger-hunt pane
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [fields, playground, views]
+details:
+  source: "https://erieco.gov/2316/Longs-Peak-Park"
+  checked: "2026-11-12"
 summary: "Sports fields, a playground, a picnic shelter and walking trails on Wheat Berry Drive, with mountain views; named for the Longs Peak Coal Company."
 source: "https://erieco.gov/2316/Longs-Peak-Park"
 verified: "2026-11-02"

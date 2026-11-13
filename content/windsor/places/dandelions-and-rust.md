@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 
 added: "2026-10-01"
 phone: "970-505-9452"
 tags: [vintage, thrift, artisan, furniture]
+details:
+  source: "https://dandelionsandrust.com/"
+  checked: "2026-11-12"
 summary: "Vintage clothing, upcycled decor and local artisan goods in a shop at 5th and Main, the Windsor sister of the Old Town Fort Collins store."
 ---
 

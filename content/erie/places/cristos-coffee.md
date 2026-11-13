@@ -7,6 +7,9 @@ url: "https://www.cristoscoffeeco.com/"
 phone: "(303) 828-1380"
 hours: "Mon–Fri 6 am–5 pm; Sat 7:30 am–5 pm; Sun 7:30 am–3 pm"
 tags: [coffee, pastries, whole-bean]
+details:
+  source: "https://www.cristoscoffeeco.com/"
+  checked: "2026-11-12"
 summary: "A coffee shop on South Briggs Street that opens at 6 on weekdays, with espresso, pastries and its own whole-bean bags, roasted with Silver Canyon Coffee in Boulder."
 source: "https://www.cristoscoffeeco.com/"
 verified: "2026-10-26"

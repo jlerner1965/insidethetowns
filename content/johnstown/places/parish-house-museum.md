@@ -11,6 +11,13 @@ phone: "(970) 587-0278"
 hours: "Tue, Wed, Sat 9–12; Mon, Thu, Fri by appointment"
 tags: [museum, history, free]
 featured: true
+details:
+  fees: "Admission: FREE! Donations are always welcome."
+  tours:
+    offered: "Staff-guided tours during open hours, typically 30-60 minutes"
+    reservation: "No reservations necessary for small groups; reserve for groups of 10 or more"
+  source: "https://jhsco.org/visit/"
+  checked: "2026-11-12"
 summary: "Town founder Harvey Parish's 1914 Craftsman bungalow, kept by the Johnstown Historical Society with the family's furnishings and a piece of the 1924 Johnstown meteorite. Free; Tue, Wed and Sat mornings."
 source: "https://jhsco.org/visit/"
 verified: "2026-11-03"

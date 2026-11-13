@@ -1,0 +1,57 @@
+{
+  "slug": "crestone",
+  "heritage": {
+    "founded": {
+      "year": 1880,
+      "text": "Founded as a mining town during the gold and silver boom in the Sangre de Cristo Mountains",
+      "source": "https://townofcrestone.gov/pages/about-us",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1880,
+        "text": "Crestone was officially founded as a result of the mining boom.",
+        "source": "https://townofcrestone.gov/pages/about-us",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1881,
+        "text": "The Crestone schoolhouse was built.",
+        "source": "https://www.museumtrail.org/crestone-historical-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1900,
+        "text": "The population swelled to a peak of 2,000.",
+        "source": "https://www.museumtrail.org/crestone-historical-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2011,
+        "text": "The Crestone Historical Museum opened in July 2011.",
+        "source": "https://www.museumtrail.org/crestone-historical-museum",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Crestone Historical Museum",
+        "kind": "museum",
+        "url": "https://www.museumtrail.org/crestone-historical-museum",
+        "hours": "Fri 1–4 pm; Sat–Sun 10 am–4 pm",
+        "cost": "Free; donations welcome",
+        "season": "Memorial Day Weekend to mid-October",
+        "source": "https://www.museumtrail.org/crestone-historical-museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Crestone Cemetery",
+        "kind": "landmark",
+        "url": "https://townofcrestone.gov/pages/cemetery",
+        "hours": "Gates are kept latched but not locked; visitors are welcome",
+        "source": "https://townofcrestone.gov/pages/cemetery",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

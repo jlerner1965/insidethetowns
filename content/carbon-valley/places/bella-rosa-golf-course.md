@@ -10,6 +10,9 @@ verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "303-678-2940"
 hours: "Daily 6 am–8:30 pm; the course says it opens an hour after sunrise and closes half an hour before sunset, so shorter in winter; closed Thanksgiving, the day after, Christmas Eve, Christmas Day and New Year’s Day"
 tags: [golf, nine-hole, driving-range, town-owned, lessons]
+details:
+  source: "https://bellarosagolf.com/contact/"
+  checked: "2026-11-12"
 summary: "The Town of Frederick’s nine-hole regulation course, with a driving range, putting green and chipping area, lessons, leagues and glow-ball nights; adult walking rates start at $19."
 ---
 

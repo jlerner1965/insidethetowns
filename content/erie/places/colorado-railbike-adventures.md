@@ -6,6 +6,9 @@ area: "County Road 3"
 url: "https://www.coloradorailbikeadventures.com/"
 phone: "303-351-2800"
 tags: [railbike, family, seasonal, holiday]
+details:
+  source: "https://www.coloradorailbikeadventures.com/"
+  checked: "2026-11-12"
 summary: "Pedal-powered railbikes on the 4.2-mile Boulder Valley Mine Route, with sunset, weekday-morning and Christmas rides and a shorter Haunted History ride in the fall; booked online, priced by day and time."
 source: "https://www.coloradorailbikeadventures.com/"
 verified: "2026-11-09"

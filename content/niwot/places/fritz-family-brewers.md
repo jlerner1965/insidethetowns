@@ -8,6 +8,9 @@ phone: "(303) 834-9123"
 hours: "Mon–Thu 3–9 pm, Fri 1–10 pm, Sat noon–10 pm, Sun noon–9 pm"
 tags: [brewery, lagers, dogs, kids]
 featured: true
+details:
+  source: "https://www.fritzfamilybrewers.com/"
+  checked: "2026-11-12"
 summary: "Family-run brewery pouring German-style lagers and ales. Kids welcome; dogs on the patio."
 source: "https://www.fritzfamilybrewers.com/"
 verified: "2026-11-03"

@@ -8,6 +8,9 @@ image: ../images/apple-valley-bridge.jpg
 imageAlt: "The wooden arch of the Apple Valley Road bridge over the North St. Vrain, the long float’s put-in, with the hogback behind"
 imageCredit: "Dave Dugdale, Flickr, CC BY-SA 2.0"
 tags: [tubing, river, summer, families]
+details:
+  source: "https://townoflyons.com/794/St-Vrain-Creek-Tubing-Info"
+  checked: "2026-11-12"
 summary: "The town’s summer sport: a float from the Apple Valley Road bridge through the whitewater park when the gauge reads between about 40 and 300 cfs, usually July and August. The Town closes tubing above 450 cfs."
 source: "https://townoflyons.com/794/St-Vrain-Creek-Tubing-Info"
 verified: "2026-10-07"

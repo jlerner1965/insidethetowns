@@ -9,6 +9,9 @@ imageAlt: "Lehigh Park's playground: twin canopied towers, a spiral slide, a cli
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [playground, trail access]
+details:
+  source: "https://erieco.gov/2315/Lehigh-Park"
+  checked: "2026-11-12"
 summary: "Neighborhood park with a playground and access to the Coal Creek Open Space."
 source: "https://erieco.gov/2315/Lehigh-Park"
 verified: "2026-11-09"

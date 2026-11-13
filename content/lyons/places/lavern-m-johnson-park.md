@@ -7,6 +7,11 @@ url: "https://www.townoflyons.com/349/LaVern-M-Johnson-Park"
 hours: "Open daily, dawn to dusk"
 tags: [whitewater, tubing, playground, camping]
 featured: true
+yearRound: true
+details:
+  reservation: "Picnic table reservations highly recommended on summer weekends and holidays (May–September); otherwise first come, first served"
+  source: "https://www.townoflyons.com/349/LaVern-M-Johnson-Park"
+  checked: "2026-11-12"
 summary: "The park under the cliffs: the whitewater park, a splash pad, playgrounds, the Town campground and, in a cold January, an outdoor ice rink."
 source: "https://www.townoflyons.com/349/LaVern-M-Johnson-Park"
 verified: "2026-11-10"

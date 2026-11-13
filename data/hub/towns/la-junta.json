@@ -1,0 +1,96 @@
+{
+  "slug": "la-junta",
+  "facts": {
+    "incorporated": {
+      "year": 1881,
+      "source": "https://visitlajunta.net/history/",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "La Junta Transit",
+      "detail": "Demand-response, curb-to-curb rides within La Junta city limits and up to four miles outside. One-way fare is $1 per person.",
+      "url": "https://www.lajuntacolorado.org/221/Transit",
+      "source": "https://www.lajuntacolorado.org/221/Transit",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Amtrak Southwest Chief",
+      "detail": "Daily train on the Chicago to Los Angeles route. La Junta is a station stop.",
+      "url": "https://www.amtrak.com/southwest-chief-train",
+      "source": "https://www.amtrak.com/southwest-chief-train",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "La Junta Inn",
+      "kind": "Inn",
+      "url": "https://lajuntainn.com/",
+      "source": "https://lajuntainn.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Midtown Inn & Suites",
+      "kind": "Motel",
+      "url": "https://midtowninnandsuites.com/",
+      "source": "https://midtowninnandsuites.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "La Junta is Spanish for junction or meeting place.",
+      "source": "https://visitlajunta.net/history/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1875,
+      "text": "A settlement began on the south bank of the Arkansas River as a construction camp for the Santa Fe Railroad.",
+      "source": "https://visitlajunta.net/history/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1877,
+        "text": "The railroad moved on and the town was nearly abandoned.",
+        "source": "https://visitlajunta.net/history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1879,
+        "text": "The Santa Fe Railroad shops had been established.",
+        "source": "https://visitlajunta.net/history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1881,
+        "text": "Residents incorporated as the City of La Junta on May 15.",
+        "source": "https://visitlajunta.net/history/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Otero Museum",
+        "kind": "museum",
+        "url": "https://www.oteromuseum.org/",
+        "hours": "Monday to Friday, 1 to 4 pm",
+        "cost": "$5; 12 and under free",
+        "season": "June 1 through September 30, 2026",
+        "source": "https://www.oteromuseum.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Koshare Museum",
+        "kind": "museum",
+        "url": "https://koshares.com/",
+        "hours": "Wednesday to Sunday, 11 am to 3 pm; closed Mondays and Tuesdays",
+        "cost": "Adults $6; students (17 and under) $4",
+        "source": "https://koshares.com/",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

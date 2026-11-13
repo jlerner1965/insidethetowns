@@ -4,7 +4,7 @@ name: "Winterfest featuring Cookies & Cocoa with Santa"
 town:
   name: Fort Lupton
   guide: fort-lupton
-type: festival
+type: winter-carnival
 organizer: "City of Fort Lupton"
 sourceUrl: "https://www.fortluptonco.gov/666/Winterfest-featuring-Cookies-Cocoa-with-"
 years:

@@ -1,0 +1,62 @@
+{
+  "slug": "walden",
+  "lodging": [
+    {
+      "name": "North Park Inn & Suites",
+      "kind": "Motel",
+      "url": "https://northparkinnandsuites.com",
+      "source": "https://northparkinnandsuites.com",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The town was named after Mark S. Walden, a postmaster of the nearby settlement of Sage Hen Springs.",
+      "source": "https://www.nppioneermuseum.com/history",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1844,
+        "text": "Lt. John C. Fremont came through North Park.",
+        "source": "https://www.nppioneermuseum.com/history",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1909,
+        "text": "Jackson County gained its own jurisdiction on May 5 and was named after President Andrew Jackson.",
+        "source": "https://www.nppioneermuseum.com/history",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1911,
+        "text": "The railroad reached the county; until then teams from Laramie, Wyoming supplied it with goods.",
+        "source": "https://www.nppioneermuseum.com/history",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1926,
+        "text": "The first oil well in Jackson County was hit.",
+        "source": "https://www.nppioneermuseum.com/history",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1963,
+        "text": "The North Park Pioneer Museum opened after Vic Hans donated the building to the museum association.",
+        "source": "https://www.nppioneermuseum.com/museum",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "North Park Pioneer Museum",
+        "kind": "museum",
+        "url": "https://nppioneermuseum.com/",
+        "hours": "10:00 AM - 4:00 PM; also open by appointment",
+        "season": "Memorial Day-Labor Day",
+        "source": "https://nppioneermuseum.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

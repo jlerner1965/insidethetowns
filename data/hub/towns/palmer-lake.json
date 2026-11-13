@@ -1,0 +1,68 @@
+{
+  "slug": "palmer-lake",
+  "facts": {
+    "incorporated": {
+      "year": 1889,
+      "source": "https://www.townofpalmerlake.com/1311/About-Palmer-Lake",
+      "checked": "2026-11-13"
+    }
+  },
+  "heritage": {
+    "nameOrigin": {
+      "text": "An 1835 Army expedition mapped the lake as Summit Lake; the name later changed to Divide Lake and finally Palmer Lake. General William J. Palmer bought the land that became the town.",
+      "source": "https://palmerdividehistory.org/palmer-lake-history/",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1871,
+      "text": "Founded by General William Jackson Palmer",
+      "source": "https://www.townofpalmerlake.com/1311/About-Palmer-Lake",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1871,
+        "text": "General William J. Palmer started the Denver & Rio Grande Railroad, which stopped at the lake to take on water.",
+        "source": "https://palmerdividehistory.org/palmer-lake-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1882,
+        "text": "Dr. William Finley Thompson came to Colorado and soon platted the Town of Palmer Lake as a health and vacation resort.",
+        "source": "https://palmerdividehistory.org/palmer-lake-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1887,
+        "text": "Thompson built the Estemere mansion, and the Rocky Mountain Chautauqua began; it ran until 1910.",
+        "source": "https://palmerdividehistory.org/palmer-lake-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1935,
+        "text": "The Palmer Lake Star was built on Sundance Mountain.",
+        "source": "https://www.townofpalmerlake.com/1361/Town-of-Palmer-Lake-Star",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Lucretia Vaile Museum",
+        "kind": "museum",
+        "url": "https://palmerdividehistory.org/museum-information/",
+        "hours": "Wednesdays 1:00 pm–4:00 pm; Saturdays 10:00 am–2:00 pm",
+        "cost": "Free",
+        "source": "https://palmerdividehistory.org/museum-information/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Palmer Lake Star",
+        "kind": "landmark",
+        "url": "https://www.townofpalmerlake.com/1361/Town-of-Palmer-Lake-Star",
+        "season": "Lit nightly from the Saturday after Thanksgiving through December",
+        "source": "https://www.townofpalmerlake.com/1361/Town-of-Palmer-Lake-Star",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

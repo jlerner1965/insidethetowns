@@ -1,0 +1,108 @@
+{
+  "slug": "vail",
+  "facts": {
+    "incorporated": {
+      "year": 1966,
+      "source": "https://discovervail.com/about-us/",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Core Transit",
+      "detail": "Regional buses; every route starts or ends in Vail. Free except trips to or from Eagle County Regional Airport, Gypsum or Leadville",
+      "url": "https://www.coretransit.org/",
+      "source": "https://www.coretransit.org/routes-schedules",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Tivoli Lodge",
+      "kind": "Hotel",
+      "url": "https://tivolilodge.com/",
+      "source": "https://tivolilodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Hotel Gasthof Gramshammer",
+      "kind": "Hotel",
+      "url": "https://www.pepis.com/",
+      "source": "https://www.pepis.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Christiania at Vail",
+      "kind": "Hotel",
+      "url": "https://www.christianiaatvail.com/",
+      "source": "https://www.christianiaatvail.com/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Charlie Vail, the engineer of Highway 6, gave his name to Vail Pass and eventually to the Town of Vail.",
+      "source": "https://discovervail.com/about-us/",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1962,
+      "text": "Construction of the ski resort began in spring 1962",
+      "source": "https://discovervail.com/about-us/",
+      "checked": "2026-11-13"
+    },
+    "timeline": [
+      {
+        "year": 1939,
+        "text": "Construction began on Highway 6, running from Denver through the Gore Valley.",
+        "source": "https://discovervail.com/about-us/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1954,
+        "text": "Earl Eaton, a uranium prospector, teamed up with Pete Seibert to draw up a plan for a ski resort.",
+        "source": "https://discovervail.com/about-us/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1962,
+        "text": "Construction of the resort began in the spring.",
+        "source": "https://discovervail.com/about-us/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1966,
+        "text": "The Town of Vail was incorporated in the fall.",
+        "source": "https://discovervail.com/about-us/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1974,
+        "text": "Gerald Ford, who owned a house in Vail, became President of the United States.",
+        "source": "https://discovervail.com/about-us/",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Colorado Snowsports Museum",
+        "kind": "museum",
+        "url": "https://www.snowsportsmuseum.org/",
+        "hours": "Open daily 10 am-6 pm",
+        "cost": "Free; a $10 donation is appreciated",
+        "source": "https://www.snowsportsmuseum.org/visit",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Betty Ford Alpine Gardens",
+        "kind": "landmark",
+        "url": "https://bettyfordalpinegardens.org/",
+        "hours": "Gardens daily, dawn to dusk; Education Center Monday-Friday 10 am-4 pm",
+        "cost": "No required cost of entry; $20 donation suggested",
+        "season": "Year-round",
+        "source": "https://bettyfordalpinegardens.org/visit/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

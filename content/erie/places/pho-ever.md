@@ -8,6 +8,9 @@ phone: "(720) 900-1319"
 hours: "Daily 11–8:30"
 priceRange: "$$"
 tags: [vietnamese, pho, takeout]
+details:
+  source: "https://www.phoevererie.com/"
+  checked: "2026-11-12"
 summary: "Vietnamese pho, grilled plates, banh mi and boba on Mitchell Way, open every day."
 source: "https://www.phoevererie.com/"
 verified: "2026-11-02"

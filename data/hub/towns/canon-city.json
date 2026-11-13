@@ -1,0 +1,79 @@
+{
+  "slug": "canon-city",
+  "lodging": [
+    {
+      "name": "Hotel St. Cloud",
+      "kind": "Hotel",
+      "url": "https://www.hotelstcloud.com/",
+      "source": "https://www.hotelstcloud.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Parkview Inn",
+      "kind": "Motel",
+      "url": "https://www.parkviewinnmotel.com/",
+      "source": "https://www.parkviewinnmotel.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "A Step Back Inn",
+      "kind": "Vacation rental homes",
+      "url": "https://astepbackinn.com/",
+      "source": "https://astepbackinn.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1859,
+        "text": "Anson and Harriet Rudd arrived in Cañon City; they finished building their cabin around 1860.",
+        "source": "https://www.canoncity.gov/573/About-Us",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1872,
+        "text": "The decision that Cañon City should incorporate was made in the public hall above Murray's Saloon.",
+        "source": "https://fremontheritage.com/wp-content/uploads/2023/04/canoncityonline2.pdf",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1881,
+        "text": "The two-story stone Anson Rudd House was built next to the cabin.",
+        "source": "https://www.canoncity.gov/573/About-Us",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1918,
+        "text": "The Rudd property was given to the City on the condition that the cabin be restored.",
+        "source": "https://www.canoncity.gov/573/About-Us",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1927,
+        "text": "The Municipal Building was built, with its second floor set aside as a museum.",
+        "source": "https://www.canoncity.gov/573/About-Us",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Royal Gorge Regional Museum & History Center",
+        "kind": "museum",
+        "url": "https://www.canoncity.gov/645/Museum",
+        "hours": "Wednesday through Saturday 10 am to 4 pm",
+        "cost": "Free",
+        "source": "https://www.canoncity.gov/645/Museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Anson Rudd Cabin",
+        "kind": "landmark",
+        "url": "https://www.canoncity.gov/573/About-Us",
+        "season": "Open to view during the summer",
+        "source": "https://www.canoncity.gov/573/About-Us",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}

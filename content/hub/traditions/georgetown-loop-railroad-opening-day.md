@@ -7,6 +7,10 @@ town:
 type: outdoor
 organizer: "Georgetown Loop Railroad"
 sourceUrl: "https://www.georgetownlooprr.com/opening-day-2026-announced/"
+outdoor:
+  kind: other
+  facility: "Georgetown Loop Railroad"
+  edge: opens
 years:
   - year: 2027
     status: not-announced

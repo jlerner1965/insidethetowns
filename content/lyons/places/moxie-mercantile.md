@@ -8,6 +8,9 @@ phone: "(720) 775-5589"
 hours: "Daily 7 am–4 pm"
 tags: [bakery, coffee, bread]
 featured: true
+details:
+  source: "https://moxiebreadco.com/"
+  checked: "2026-11-12"
 summary: "Moxie Bread Co.’s Lyons outpost: coffee, pastries and loaves from the Louisville bakery."
 source: "https://moxiebreadco.com/"
 verified: "2026-11-10"

@@ -6,6 +6,9 @@ area: "Old Town, at First Avenue and Murray Street"
 url: "https://www.murraystreetflowers.com/"
 hours: "Seasonal: the cart is out April to early October; closed for regular hours since October 3, with occasional openings in the holiday season"
 tags: [flowers, seasonal]
+details:
+  source: "https://www.murraystreetflowers.com/get-in-touch"
+  checked: "2026-11-12"
 summary: "A small flower grower with a seasonal cart at First Avenue and Murray Street, across from the Children’s Park; closed for regular hours until spring."
 source: "https://www.murraystreetflowers.com/get-in-touch"
 verified: "2026-11-10"

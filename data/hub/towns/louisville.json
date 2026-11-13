@@ -1,0 +1,69 @@
+{
+  "slug": "louisville",
+  "facts": {
+    "incorporated": {
+      "year": 1882,
+      "source": "https://www.louisvilleco.gov/local-government-council/",
+      "checked": "2026-11-13"
+    }
+  },
+  "transit": [
+    {
+      "name": "Louisville FlexRide",
+      "detail": "RTD on-demand service, Monday–Friday 5:30 am–7 pm",
+      "url": "https://www.rtd-denver.com/routes-services/other-services/flexride/flexride-service-areas/louisville",
+      "source": "https://www.rtd-denver.com/routes-services/other-services/flexride/flexride-service-areas/louisville",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Louis Nawatny, a local landowner, platted his land and named the town for himself.",
+      "source": "https://www.louisvilleco.gov/local-government-council/",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1878,
+      "text": "Founded as one of the first coal mining towns in Boulder County",
+      "source": "https://www.louisvilleco.gov/departments/historical-museum/collection/local-history/historic-buildings-and-sites/",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1936,
+        "text": "An explosion at the Monarch Mine killed eight coal miners.",
+        "source": "https://www.louisvilleco.gov/departments/historical-museum/collection/local-history/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1986,
+        "text": "The Louisville Historical Museum opened in the Tomeo House, a miner's house on Main Street.",
+        "source": "https://www.louisvilleco.gov/departments/historical-museum/plan-your-visit/about-us/",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1989,
+        "text": "The Jacoe Store at 1001 Main joined the campus and became the main museum building.",
+        "source": "https://www.louisvilleco.gov/departments/historical-museum/plan-your-visit/about-us/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Louisville Historical Museum",
+        "kind": "museum",
+        "url": "https://www.louisvilleco.gov/departments/historical-museum/",
+        "hours": "Tuesday, Thursday, Friday and Saturday 10 am–3 pm; Wednesday 1–5 pm; closed Sunday and Monday",
+        "source": "https://www.louisvilleco.gov/departments/historical-museum/plan-your-visit/location-hours/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Denver Elevator (Louisville Grain Elevator)",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/denver-elevator-grain-elevator",
+        "source": "https://www.historycolorado.org/location/denver-elevator-grain-elevator",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

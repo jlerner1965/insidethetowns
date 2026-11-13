@@ -4,7 +4,7 @@ name: "Evergreen Rodeo & Parade"
 town:
   name: Evergreen
   guide: evergreen
-type: festival
+type: rodeo-fair
 organizer: "Evergreen Rodeo Association"
 sourceUrl: "https://evergreenrodeo.com/"
 years:

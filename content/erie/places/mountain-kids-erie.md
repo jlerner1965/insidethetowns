@@ -6,6 +6,9 @@ area: "County Line Road"
 url: "https://www.mountainkidslouisville.com/"
 phone: "(303) 666-5171"
 tags: [gymnastics, ninja, kids, camps]
+details:
+  source: "https://www.mountainkidslouisville.com/"
+  checked: "2026-11-12"
 summary: "The Erie gym of Mountain Kids, a Louisville gymnastics and dance school: gymnastics and ninja classes, camps and birthday parties for children."
 source: "https://www.mountainkidslouisville.com/"
 verified: "2026-11-09"

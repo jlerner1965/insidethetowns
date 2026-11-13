@@ -12,6 +12,9 @@ import { picksFirst } from '@/lib/picks';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { byProminence } from '@/lib/places';
 import { THINGS_TO_DO_TYPES } from '@/content/schemas';
+import NearThisTown from '@/components/NearThisTown.astro';
+import { placeKey } from '@/lib/hub-towns';
+import { STANDALONE_GUIDES } from '@/config/hub-towns';
 
 const town = getTown();
 const all = (await getTownEntries('places')).filter((p) => !p.delisted);
@@ -33,6 +36,9 @@ const description = guide?.data.description ?? `Trails, parks and venues in and 
  * restated. A Front Range config has none and the block is not drawn.
  */
 const conditionsLinks = town.conditionsLinks ?? [];
+// "Near this town" (src/components/NearThisTown.astro), on a standalone guide only.
+const nearKey = placeKey(town.slug);
+const nearPlace = nearKey && STANDALONE_GUIDES[nearKey] ? nearKey : undefined;
 const structured = [
   collectionPageJsonLd(town, {
     name: `Things to do in ${town.name}, Colorado`,
@@ -84,6 +90,7 @@ const structured = [
       )}
     </section>
   )}
+  {nearPlace && <NearThisTown place={nearPlace} name={town.name} class="mt-20" />}
   {/* The Thursday email, once, under the list: this page type had no form
       at all (the sweep of 10 November 2026). Nothing on a guide the email
       does not cover (NewsletterSignup). */}

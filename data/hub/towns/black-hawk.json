@@ -1,0 +1,111 @@
+{
+  "slug": "black-hawk",
+  "facts": {
+    "incorporated": {
+      "year": 1864,
+      "source": "https://discoverblackhawk.com/history",
+      "checked": "2026-11-12"
+    }
+  },
+  "transit": [
+    {
+      "name": "Black Hawk Shuttle",
+      "detail": "Free, ADA-accessible shuttle running seven days a week along Main Street and Gregory Street, with 16 stops.",
+      "url": "https://discoverblackhawk.com/getting-around",
+      "source": "https://discoverblackhawk.com/getting-around",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Monarch Casino Resort Spa",
+      "kind": "Casino resort",
+      "url": "https://monarchblackhawk.com/resort",
+      "source": "https://monarchblackhawk.com/resort",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Lodge Casino Hotel",
+      "kind": "Casino hotel",
+      "url": "https://thelodgecasino.com/hotel/",
+      "source": "https://thelodgecasino.com/hotel/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Ameristar Casino Resort Spa",
+      "kind": "Casino resort",
+      "url": "https://www.ameristarblackhawk.com/hotel",
+      "source": "https://discoverblackhawk.com/stay",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "The Nest at Black Hawk",
+      "kind": "Glamping domes",
+      "url": "https://thenestatblackhawk.com/",
+      "source": "https://discoverblackhawk.com/stay",
+      "checked": "2026-11-12"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The Gilpin Historical Society says the town, first called Black Hawk Point, took its name from the Rock Island, Illinois foundry that made one of the earliest stamp mills brought into the district.",
+      "source": "https://gilpinhistory.org/black-hawk",
+      "checked": "2026-11-13"
+    },
+    "founded": {
+      "year": 1860,
+      "text": "William L. Lee, Dr. Frederick H. Judd and Mylo Lee founded the town of Black Hawk Point in June 1860.",
+      "source": "https://discoverblackhawk.com/history",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1859,
+        "text": "Prospector John H. Gregory found lode gold in the ravine that became known as Gregory Gulch.",
+        "source": "https://discoverblackhawk.com/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1864,
+        "text": "Black Hawk was incorporated on March 11 as the second incorporated city in the Colorado Territory.",
+        "source": "https://discoverblackhawk.com/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1872,
+        "text": "The railroad arrived and linked Black Hawk to Denver.",
+        "source": "https://discoverblackhawk.com/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1990,
+        "text": "Colorado voters approved limited-stakes gaming.",
+        "source": "https://discoverblackhawk.com/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1991,
+        "text": "The first casinos opened in historic Black Hawk buildings.",
+        "source": "https://discoverblackhawk.com/history",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "1863 Black Hawk Presbyterian Church",
+        "kind": "landmark",
+        "url": "https://discoverblackhawk.com/history",
+        "source": "https://discoverblackhawk.com/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Historic Gilpin Tramway Trail (Maryland Mountain Quartz Valley Open Space Park)",
+        "kind": "landmark",
+        "url": "https://www.cityofblackhawk.org/1219/Maryland-Mountain-Quartz-Valley-Open-Spa",
+        "hours": "Dawn to dusk",
+        "source": "https://www.cityofblackhawk.org/1219/Maryland-Mountain-Quartz-Valley-Open-Spa",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

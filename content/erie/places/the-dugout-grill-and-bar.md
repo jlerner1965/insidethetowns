@@ -8,6 +8,9 @@ phone: "(720) 967-8888"
 hours: "Mon–Thu 10 am–10 pm, Fri 10 am–12 am, Sat 10 am–10 pm, Sun 10 am–9 pm"
 priceRange: "$$"
 tags: [sports bar, burgers, late]
+details:
+  source: "https://www.dugoutgrillandbarerie.com/"
+  checked: "2026-11-12"
 summary: "Sports bar with a gourmet slant on South Briggs Street: burgers, wings, crafted drinks and every game on, from 10 in the morning every day."
 source: "https://www.dugoutgrillandbarerie.com/"
 verified: "2026-11-02"

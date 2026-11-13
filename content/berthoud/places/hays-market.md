@@ -7,6 +7,10 @@ url: "https://haysmarket.com/"
 phone: "(970) 532-0257"
 hours: "Daily 6 am–9 pm"
 tags: [grocery, everyday]
+details:
+  closedDays: "Closed Thanksgiving, Christmas Day and Easter"
+  source: "https://haysmarket.com/"
+  checked: "2026-11-12"
 summary: "Berthoud's family-run grocery store on West Mountain Avenue, open every day from 6 am to 9 pm; closed Thanksgiving, Christmas Day and Easter."
 source: "https://haysmarket.com/"
 verified: "2026-11-10"

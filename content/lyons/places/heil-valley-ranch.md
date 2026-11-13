@@ -4,12 +4,18 @@ type: trail
 address: "Picture Rock Trailhead, Red Gulch Road, via Old St. Vrain Road off Highway 7"
 area: "Boulder County open space"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/heil-valley-ranch/"
+phone: "(303) 678-6200"
 mapUrl: "https://assets.bouldercounty.gov/wp-content/uploads/2022/10/heil-valley-ranch-map.pdf"
 image: ../images/heil-valley-ranch.jpg
 imageAlt: "A ponderosa leaning over the Picture Rock Trail at Heil Valley Ranch, a forested peak rising beyond the valley"
 imageCredit: "Boulder County Parks & Open Space"
 hours: "Open daily, sunrise to sunset"
 tags: [mountain-biking, hiking, no-dogs]
+details:
+  dogs: "No pets allowed"
+  bikes: "Bikes on designated trails only"
+  source: "https://bouldercounty.gov/open-space/parks-and-trails/heil-valley-ranch/"
+  checked: "2026-11-12"
 summary: "Open space trails south of town; the Picture Rock trail runs from the Lyons side into the ranch and links to Wild Turkey and Wapiti for a long loop."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/heil-valley-ranch/"
 verified: "2026-11-10"

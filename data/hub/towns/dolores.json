@@ -1,0 +1,89 @@
+{
+  "slug": "dolores",
+  "transit": [
+    {
+      "name": "MoCo Public Transportation",
+      "detail": "Door-to-door, call-ahead rides within Montezuma County, serving Cortez, Mancos, Dolores and Towaoc; book by phone the business day before",
+      "url": "https://montezumacounty.gov/public-transportation/",
+      "source": "https://montezumacounty.gov/public-transportation/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Outpost Motel, Cabins & RV Park",
+      "kind": "Motel, cabins and RV park",
+      "url": "https://www.outpostmoteldolores.com/",
+      "source": "https://www.outpostmoteldolores.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Dolores Bike Hostel",
+      "kind": "Hostel",
+      "url": "https://www.doloresbikehostel.com/",
+      "source": "https://www.doloresbikehostel.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Cozy Comfort RV Park",
+      "kind": "RV park",
+      "url": "https://www.cozycomfortrvpark.com/",
+      "season": "Year-round",
+      "source": "https://www.cozycomfortrvpark.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "timeline": [
+      {
+        "year": 1891,
+        "text": "The Rio Grande Southern Railroad reached Dolores.",
+        "source": "https://www.cortezco.gov/318/History-of-City",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1893,
+        "text": "The Southern Hotel, later the Rio Grande Southern Hotel, was built as the town's first hotel.",
+        "source": "https://www.historycolorado.org/location/southern-hotel-rio-grande-southern-hotel",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1933,
+        "text": "Galloping Goose Motor No. 5 went into service on the Rio Grande Southern on June 8.",
+        "source": "https://gallopinggoose5.org/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1952,
+        "text": "In April the Interstate Commerce Commission gave permission to abandon the entire railroad.",
+        "source": "https://gallopinggoose5.org/history",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1991,
+        "text": "The Galloping Goose Historical Society built a replica of the original Rio Grande Southern Dolores depot.",
+        "source": "https://gallopinggoose5.org/history",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Galloping Goose Historical Society Museum",
+        "kind": "museum",
+        "url": "https://gallopinggoose5.org/",
+        "hours": "Mon–Sat 10 am–5 pm",
+        "cost": "Free",
+        "season": "May 22 through October 13; in winter open only for special events or by appointment",
+        "source": "https://gallopinggoose5.org/museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Rio Grande Southern Hotel",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/southern-hotel-rio-grande-southern-hotel",
+        "source": "https://www.historycolorado.org/location/southern-hotel-rio-grande-southern-hotel",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

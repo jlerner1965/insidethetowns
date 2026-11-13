@@ -1,0 +1,104 @@
+{
+  "slug": "delta",
+  "transit": [
+    {
+      "name": "Delta Dash (All Points Transit)",
+      "detail": "Public bus route in Delta, Monday to Friday 8 am to 3 pm; leaves the Delta Hospital at the top of every hour",
+      "url": "https://www.allpointstransit.com/delta-dash/",
+      "source": "https://www.allpointstransit.com/delta-dash/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Riverwood Resort by Agora Adventure",
+      "kind": "Hotel and RV park",
+      "url": "https://agoraadventure.com/delta/",
+      "source": "https://agoraadventure.com/delta/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Four Seasons River Inn and RV Park",
+      "kind": "Inn and RV park",
+      "url": "https://www.fourseasonsriverinn.com/",
+      "source": "https://www.fourseasonsriverinn.com/",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "Days Inn by Wyndham Delta CO",
+      "kind": "Hotel",
+      "url": "https://www.wyndhamhotels.com/days-inn/delta-colorado/days-inn-delta-co/overview",
+      "source": "https://www.wyndhamhotels.com/days-inn/delta-colorado/days-inn-delta-co/overview",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "The city is named for the delta of the Uncompahgre River.",
+      "source": "https://www.cityofdelta.net/399/History-of-Delta",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1882,
+      "text": "Established as a trading post for the Ute people and early settlers",
+      "source": "https://www.cityofdelta.net/399/History-of-Delta",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1881,
+        "text": "The Uncompahgre Reservation was opened to settlers in the fall, and George A. Crawford secured a townsite at the confluence of the Gunnison and Uncompahgre rivers.",
+        "source": "https://www.deltacountyco.gov/209/Your-County",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1883,
+        "text": "Delta County was created from part of Gunnison County, with the town of Delta as the seat of government.",
+        "source": "https://www.deltacountyco.gov/209/Your-County",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1892,
+        "text": "The Delta County Bank Building, a two-story brick and stone building with a three-story corner tower, was constructed.",
+        "source": "https://www.historycolorado.org/location/delta-county-bank-building",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1903,
+        "text": "Electric lights were turned on for the first time in the City of Delta on New Year's Day.",
+        "source": "https://www.cityofdelta.net/400/History-of-Electricity",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1935,
+        "text": "The Municipal Electric Light and Power System of the city of Delta was established.",
+        "source": "https://www.cityofdelta.net/400/History-of-Electricity",
+        "checked": "2026-11-13"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Fort Uncompahgre",
+        "kind": "landmark",
+        "url": "https://www.cityofdelta.net/444/Fort-Uncompahgre",
+        "hours": "Visits and tours by arrangement",
+        "source": "https://www.cityofdelta.net/444/Fort-Uncompahgre",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Egyptian Theater",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/egyptian-theater",
+        "source": "https://www.historycolorado.org/location/egyptian-theater",
+        "checked": "2026-11-13"
+      },
+      {
+        "name": "Delta County Bank Building",
+        "kind": "landmark",
+        "url": "https://www.historycolorado.org/location/delta-county-bank-building",
+        "source": "https://www.historycolorado.org/location/delta-county-bank-building",
+        "checked": "2026-11-13"
+      }
+    ]
+  }
+}

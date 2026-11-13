@@ -9,6 +9,9 @@ added: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "303-833-2742"
 tags: [fire, ems, cpr-classes, babysitting-class, santa-run]
+details:
+  source: "https://www.fffd.us/about-us"
+  checked: "2026-11-12"
 summary: "The fire and EMS district for Frederick, Firestone and the county around them, headquartered on Kosmerl Place; non-emergency 303-833-2742. It runs CPR, car-seat and babysitting classes, firehouse story times and the December Santa Run."
 ---
 

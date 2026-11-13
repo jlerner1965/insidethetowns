@@ -1,0 +1,111 @@
+{
+  "slug": "ridgway",
+  "transit": [
+    {
+      "name": "All Points Transit OurWay",
+      "detail": "Commuter service connecting Montrose, Ridgway and Ouray, Monday through Saturday; stops at the Ridgway Visitor's Center; $4 single ride",
+      "url": "https://www.allpointstransit.com/ourway/",
+      "source": "https://www.allpointstransit.com/ourway/",
+      "checked": "2026-11-12"
+    }
+  ],
+  "lodging": [
+    {
+      "name": "Chipeta Lodge Resort + Spa",
+      "kind": "Lodge",
+      "url": "https://chipetalodge.com/",
+      "source": "https://chipetalodge.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Orvis Hot Springs",
+      "kind": "Hot springs lodging",
+      "url": "https://www.orvishotsprings.com/",
+      "source": "https://www.orvishotsprings.com/",
+      "checked": "2026-11-12"
+    },
+    {
+      "name": "Hotel Palomino",
+      "kind": "Hotel",
+      "url": "https://www.hotelpalomino.com",
+      "source": "https://www.hotelpalomino.com",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "The Adobe Inn",
+      "kind": "Inn",
+      "url": "https://www.adoberidgway.com/",
+      "source": "https://www.adoberidgway.com/",
+      "checked": "2026-11-13"
+    }
+  ],
+  "heritage": {
+    "nameOrigin": {
+      "text": "Named after Robert M. Ridgway, one of the founders of the Rio Grande Southern Railroad.",
+      "source": "https://townofridgway.colorado.gov/welcome-our-town",
+      "checked": "2026-11-12"
+    },
+    "founded": {
+      "year": 1890,
+      "text": "Laid out by the Rio Grande Southern Railroad as its headquarters town",
+      "source": "https://townofridgway.colorado.gov/welcome-our-town",
+      "checked": "2026-11-12"
+    },
+    "timeline": [
+      {
+        "year": 1889,
+        "text": "The Rio Grande Southern Railroad was incorporated to provide rail service between Ridgway and the mining districts of Ouray, Telluride, Rico and Durango.",
+        "source": "https://townofridgway.colorado.gov/welcome-our-town",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1890,
+        "text": "The railroad company laid out what became the Town of Ridgway.",
+        "source": "https://townofridgway.colorado.gov/welcome-our-town",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1891,
+        "text": "The Town was formally established and named.",
+        "source": "https://townofridgway.colorado.gov/welcome-our-town",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1987,
+        "text": "Construction of the Ridgway Reservoir, north of town, was completed; it is now part of Ridgway State Park.",
+        "source": "https://townofridgway.colorado.gov/welcome-our-town",
+        "checked": "2026-11-12"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Ridgway Railroad Museum",
+        "kind": "museum",
+        "url": "https://www.ridgwayrailroadmuseum.org/",
+        "hours": "Outdoor collection open every day",
+        "cost": "No charge; donations accepted",
+        "source": "https://www.ridgwayrailroadmuseum.org/",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "Ouray County Ranch History Museum",
+        "kind": "museum",
+        "url": "https://www.ocrhm.org/",
+        "hours": "Wed–Sat 11 am–4 pm; Sun 12 pm–4 pm",
+        "cost": "Adults $5; seniors $4; students (7-17) $3; children 6 and under free",
+        "season": "May 22 – October 11; year-round tours by appointment",
+        "source": "https://www.ocrhm.org/",
+        "checked": "2026-11-12"
+      }
+    ],
+    "makers": [
+      {
+        "name": "Billings Artworks",
+        "what": "Handcrafts the Grammy awards",
+        "url": "https://www.billingsartworks.com/",
+        "source": "https://www.billingsartworks.com/",
+        "checked": "2026-11-12"
+      }
+    ]
+  }
+}
