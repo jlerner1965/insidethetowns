@@ -70,11 +70,18 @@ interface Props {
    */
   variant?: 'card' | 'home';
   anchor?: string;
+  /**
+   * The form alone: no heading, no opening line and no card around it, for
+   * a page that sets those itself. The hub's home (the fixes brief of 13
+   * November 2026) puts its heading beside the form on a wide screen and
+   * draws the card around both on a phone, so the one form serves both.
+   */
+  bare?: boolean;
   /** The space around it, where the page has no wrapper of its own: nothing is drawn on a guide the email does not cover, so a wrapper's margin would be left standing. */
   class?: string;
 }
 
-const { town, compact = false, id, dark = false, variant, anchor, class: className } = Astro.props;
+const { town, compact = false, id, dark = false, variant, anchor, bare = false, class: className } = Astro.props;
 const hub = getNetworkHub();
 const config = hub.newsletter;
 // A to Z by name, as on the hub's home page and in the footer, so the same
@@ -150,7 +157,7 @@ const box = 'size-5 shrink-0 rounded border-line';
     Families, whose columns differ, each get the row only where it fits). */}
 {/* The updates form is the short one only: the fuller layouts list a weekly edition's towns. */}
 {config && (!town || mine || (updatesOnly && home)) && (
-  <section id={anchor} data-signup-section data-pagefind-ignore class:list={[className, home ? '@container rounded-lg px-4 py-4 sm:px-6 sm:py-5' : 'max-w-3xl rounded-lg p-6 md:p-8', 'scroll-mt-6', dark ? 'on-dark bg-primary text-white' : ['bg-raised ring-1', compact ? 'ring-line-soft' : 'ring-primary-line']]}>
+  <section id={anchor} data-signup-section data-pagefind-ignore class:list={bare ? [className, 'scroll-mt-6'] : [className, home ? '@container rounded-lg px-4 py-4 sm:px-6 sm:py-5' : 'max-w-3xl rounded-lg p-6 md:p-8', 'scroll-mt-6', dark ? 'on-dark bg-primary text-white' : ['bg-raised ring-1', compact ? 'ring-line-soft' : 'ring-primary-line']]}>
     {/*
       A new tab keeps the reader on the page they were reading, and the
       browser opens it from target="_blank" itself (src/lib/signup.ts says
@@ -194,7 +201,7 @@ const box = 'size-5 shrink-0 rounded border-line';
               everywhere. */}
           {town && mine && <input type="checkbox" name={tagField} value={town.slug} checked hidden data-towns={covers(mine)} />}
         </Fragment>
-      ) : (
+      ) : bare ? null : (
         <Fragment><h2 class="display-md text-[1.75rem] leading-tight">{dark ? `${day} email: the week, the scores, what closed.` : `What’s on in ${where}, every ${day}`}</h2>
       <p class:list={['mt-2 text-[0.9375rem] leading-relaxed', muted]}>
         {/* The same promise /advertise/, /for-businesses/ and the privacy
@@ -208,7 +215,7 @@ const box = 'size-5 shrink-0 rounded border-line';
 
       {/* On the hub the towns come first: there is no town to assume. */}
       {!town && (
-        <fieldset class="mt-5" aria-describedby={errorId}>
+        <fieldset class:list={[!bare && 'mt-5']} aria-describedby={errorId}>
           <legend class:list={['eyebrow', dark && 'text-white']}>Which towns?</legend>
           <Fragment>
             <p class="mt-1 text-[0.875rem] text-ink-muted">Pick as many as you like, or take the lot.</p>

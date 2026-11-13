@@ -19,10 +19,20 @@
  * usual way to do this and it puts every link in the page twice, which is
  * duplicate anchor text on four hundred pages and two things to keep in step.
  */
-import { editionFor, emailEditions, getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getSite, liveTowns, neighborsOf, type NavItem } from '@/config';
 import Wordmark from './Wordmark.astro';
 import { siteNav } from '@/lib/nav';
 import { wordmarkEm as titleEm } from '@/lib/titles';
+
+interface Props {
+  /**
+   * The menu's items, in place of the site's own list (src/lib/nav.ts):
+   * the hub's home page (the layout brief of 13 November 2026) carries
+   * three links to its own sections, and every other page keeps the
+   * site's menu. Everything else about the masthead is the same.
+   */
+  items?: NavItem[];
+}
 
 const site = getSite();
 const hub = getNetworkHub();
@@ -51,7 +61,7 @@ const isActive = (href: string) => {
  * global.css divides the room beside the buttons by it.
  */
 const wordmarkEm = titleEm(site.siteTitle).toFixed(1);
-const nav = siteNav(site);
+const nav = Astro.props.items ?? siteNav(site);
 // Sentence case at reading weight, the current section in the primary. In
 // the row the words are what the phone panel shows, at the row's size.
 const rowLink = (on: boolean) => [
@@ -126,7 +136,8 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
       </div>
 
       <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <ul class="site-nav-list container-page xl:gap-3 xl:px-0 2xl:gap-6">
+        {/* A page's own three links sit at the row's far end, beside search (the hub's home); the site's menu runs from the wordmark. */}
+        <ul class:list={['site-nav-list container-page xl:gap-3 xl:px-0 2xl:gap-6', Astro.props.items && 'xl:justify-end xl:pr-4']}>
           {nav.map((item) => (
             <li>
               <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class:list={rowLink(isActive(item.href))}>{item.label}</a>
