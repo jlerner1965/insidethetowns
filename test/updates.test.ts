@@ -62,3 +62,23 @@ test('a completed change published more than a month after it happened is a late
   assert.equal(isLateNotice(update('Opened', { effective: at('2026-10-15'), published: at('2026-10-21'), stage: 'complete' })), false);
   assert.equal(isLateNotice(update('Vote', { effective: at('2024-01-01'), published: at('2026-10-21'), stage: 'scheduled' })), false, 'only a finished change can be noticed late');
 });
+
+test('a change is new for a week from publication, in Denver days', async () => {
+  const { isNew } = await import('../src/lib/updates.ts');
+  const u = (published: string) => ({ data: { published: parseLocal(published), effective: parseLocal(published) } }) as never;
+  const now = parseLocal('2026-11-12T20:00');
+  assert.equal(isNew(u('2026-11-12'), now), true);
+  assert.equal(isNew(u('2026-11-06'), now), true);
+  assert.equal(isNew(u('2026-11-05'), now), false);
+});
+
+test('a change is timely when featured, starting within the fortnight, or under way and recently published', async () => {
+  const { isTimely } = await import('../src/lib/updates.ts');
+  const now = parseLocal('2026-11-12T09:00');
+  const u = (d: Record<string, unknown>) => ({ data: { featured: false, ...d } }) as never;
+  assert.equal(isTimely(u({ published: parseLocal('2026-10-01'), effective: parseLocal('2026-11-20') }), now), true, 'starts in eight days');
+  assert.equal(isTimely(u({ published: parseLocal('2026-10-01'), effective: parseLocal('2026-12-20') }), now), false, 'starts in five weeks');
+  assert.equal(isTimely(u({ published: parseLocal('2026-11-05'), effective: parseLocal('2026-11-01'), effectiveEnd: parseLocal('2026-12-01') }), now), true, 'under way, published last week');
+  assert.equal(isTimely(u({ published: parseLocal('2026-09-20'), effective: parseLocal('2026-09-20'), effectiveEnd: parseLocal('2026-12-01') }), now), false, 'under way for weeks');
+  assert.equal(isTimely(u({ published: parseLocal('2026-09-20'), effective: parseLocal('2026-09-20'), effectiveEnd: parseLocal('2026-12-01'), featured: true }), now), true, 'featured');
+});

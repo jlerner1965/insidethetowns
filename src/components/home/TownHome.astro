@@ -67,7 +67,8 @@ import { firstSentence } from '@/lib/plain-text';
 import { eventDescription } from '@/lib/seo';
 import { isOpen } from '@/lib/places';
 import { hasData, sportsDataFor } from '@/lib/school-sports';
-import { currentUpdates } from '@/lib/updates';
+import { currentUpdates, isNew, isTimely } from '@/lib/updates';
+import { formatDate } from '@/lib/dates';
 import { currentPick } from '@/lib/weekly';
 
 const town = getTown();
@@ -156,12 +157,25 @@ const thin = (tabs.find((t) => t.key === open)?.rows.length ?? 0) < THIN;
 // alone sat here and put two routine notices above Berthoud's featured
 // election result (flagship audit, 4 November 2026).
 const updates = await getTownEntries('updates');
-const know = currentUpdates(updates, now).slice(0, quietGuide ? 5 : 2);
+const current = currentUpdates(updates, now);
+/**
+ * The audit of 13 November 2026: a change that matters now (featured,
+ * starting within the fortnight, or under way and just published) goes
+ * high on the page, under the week's tabs, rather than in Worth knowing at
+ * its foot; the rest stay there. On a quiet guide every current change
+ * leads the page, the new ones first.
+ */
+const timely = quietGuide ? [] : current.filter((u) => isTimely(u, now)).slice(0, 2);
+const know = quietGuide ? current.slice(0, 5) : current.filter((u) => !timely.includes(u)).slice(0, 2);
+const fresh = quietGuide ? know.filter((u) => isNew(u, now)) : [];
+const older = quietGuide ? know.filter((u) => !fresh.includes(u)) : [];
 
 // 5. For families: the hub's three timeliest lines, where the town has them on.
 const familyRows = town.families?.onHome
   ? familyLines({ programs: await getTownEntries('programs'), breaks: town.families.breaks, events: general(10), now, isSeries: weeklyTest(allEvents) })
   : [];
+// A registration deadline within the fortnight (familyLines' 'deadline' line) brings the families block up under the tabs.
+const familiesFirst = familyRows.some((r) => r.kind === 'deadline');
 
 // 6. The places with a photograph, for the three tiles; a closed place is not a next stop.
 const places = (await getTownEntries('places')).filter(isOpen);
@@ -174,7 +188,7 @@ const places = (await getTownEntries('places')).filter(isOpen);
 // link was the page's only one (the owner, 9 November 2026).
 const linked = new Set<string>([
   ...(familyRows.length > 0 ? ['/families/'] : []),
-  ...(know.length > 0 ? ['/updates/'] : []),
+  ...(know.length > 0 || timely.length > 0 ? ['/updates/'] : []),
 ]);
 const hasGuides = (await getTownEntries('articles')).length > 0;
 
@@ -205,18 +219,7 @@ if (featured) {
   };
 }
 ---
-<Hero compact pick={!quietGuide && !!pick} changes={know.length > 0} />
-
-{/* An outdoors-led guide (Lyons): its dates lead the page, the outdoor
-    ones first when two or more have a date set, else its traditions. */}
-{outdoorsLed && anyDates && (
-  <section class="band-compact band-paper" aria-labelledby="outdoor-lead" data-outdoor-lead>
-    <div class="container-page">
-      <h2 id="outdoor-lead" class="display-md text-[2rem] md:text-[2.5rem]">{dates.lead === 'outdoor' ? 'Outdoor dates' : `Every year in ${town.name}`}</h2>
-      <HomeDates {dates} town={town.name} lines={localLines} track="outdoor-lead" firstLabelled />
-    </div>
-  </section>
-)}
+<Hero compact pick={!quietGuide && !!pick} changes={know.length > 0 || timely.length > 0} />
 
 {/* A quiet guide (Niwot): Updates, only when there is one, then Things to
     know. No events, so no tabs and no empty week. */}
@@ -224,11 +227,24 @@ if (featured) {
   <section class="band-compact band-paper" aria-labelledby="updates-home" data-quiet-updates>
     <div class="container-page">
       <h2 id="updates-home" class="display-md text-[2rem] md:text-[2.5rem]">Updates</h2>
-      <ul class="mt-3 divide-y divide-line-soft">
-        {know.map((u) => (
-          <li class="py-3 text-[1.0625rem] leading-snug"><a href={`/updates/#${u.slug}`} class="font-medium text-primary no-underline hover:underline">{u.data.title}</a></li>
-        ))}
-      </ul>
+      {/* Each with its date and its summary, the new ones apart from the
+          older notices still in effect (the audit of 13 November 2026). */}
+      {[{ label: 'New this week', list: fresh }, { label: 'Still in effect', list: older }].filter((g) => g.list.length > 0).map((g, i, groups) => (
+        <div class:list={[i > 0 && 'mt-6']} data-updates-group={g.label}>
+          {groups.length > 1 && <h3 class="eyebrow mt-4">{g.label}</h3>}
+          <ul class="mt-2 divide-y divide-line-soft">
+            {g.list.map((u) => (
+              <li class="py-3">
+                <a href={`/updates/#${u.slug}`} class="text-[1.0625rem] font-medium leading-snug text-primary no-underline hover:underline">{u.data.title}</a>
+                <p class="mt-1 text-[0.9375rem] leading-snug">{u.data.summary}</p>
+                <p class="mt-1 text-[0.875rem] text-ink-muted">
+                  Published <time datetime={dayKey(u.data.published)}>{formatDate(u.data.published)}</time>{u.data.verified && dayKey(u.data.verified) !== dayKey(u.data.published) && <Fragment> · checked <time datetime={dayKey(u.data.verified)}>{formatDate(u.data.verified)}</time></Fragment>}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
       <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every local change →</a></p>
     </div>
   </section>
@@ -259,6 +275,53 @@ if (featured) {
   </WhatsHappening>
 )}
 
+{/* An outdoors-led guide (Lyons): its dates follow the week's tabs (the
+    audit of 13 November 2026: festivals months away led the page, ahead of
+    what is on this week), the outdoor ones first when two or more have a
+    date set, else its traditions; the statewide ones last (HomeDates). */}
+{outdoorsLed && anyDates && (
+  <section class="band-compact band-paper" aria-labelledby="outdoor-lead" data-outdoor-lead>
+    <div class="container-page">
+      <h2 id="outdoor-lead" class="display-md text-[2rem] md:text-[2.5rem]">{dates.lead === 'outdoor' ? 'Outdoor dates' : `Every year in ${town.name}`}</h2>
+      <HomeDates {dates} town={town.name} lines={localLines} track="outdoor-lead" firstLabelled />
+    </div>
+  </section>
+)}
+{/* Timely local changes, under the tabs (the audit of 13 November 2026). */}
+{timely.length > 0 && (
+  <section class="band-compact band-paper" aria-labelledby="timely-h" data-timely-changes>
+    <div class="container-page">
+      <h2 id="timely-h" class="display-md text-[2rem] md:text-[2.5rem]">Worth knowing now</h2>
+      <ul class="mt-3 divide-y divide-line-soft">
+        {timely.map((u) => (
+          <li class="py-3">
+            <a href={`/updates/#${u.slug}`} class="text-[1.0625rem] font-medium leading-snug text-primary no-underline hover:underline">{u.data.title}</a>
+            <p class="mt-1 line-clamp-2 text-[0.9375rem] leading-snug text-ink-muted">{u.data.summary}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every local change →</a></p>
+    </div>
+  </section>
+)}
+{familyRows.length > 0 && familiesFirst && (
+  <section class="band-compact band-paper" aria-labelledby="families-home" data-hide-when-empty>
+    <div class="container-page">
+      <h2 id="families-home" class="display-md text-[2rem] md:text-[2.5rem]">For families</h2>
+      <ul class="mt-3 divide-y divide-line-soft">
+        {familyRows.map((r) => (
+          <li class="py-3" data-event-day={r.day} data-end={r.end}>
+            <p class="text-[0.9375rem] font-semibold text-ink-muted">{r.when}</p>
+            <p class="text-[1.0625rem] leading-snug"><a href={r.href} class="font-medium no-underline hover:text-primary hover:underline" data-track="family-home">{r.title}</a></p>
+            {r.facts.length > 0 && <p class="mt-0.5 text-[0.9375rem] leading-snug text-ink-muted">{r.facts.join(' · ')}</p>}
+          </li>
+        ))}
+      </ul>
+      <p class="mt-3 text-[1.0625rem]"><a href="/families/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Everything for families →</a></p>
+    </div>
+  </section>
+)}
+
 <QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} />
 
 {/* A guide that follows several schools: the week's games, under the
@@ -278,7 +341,7 @@ if (featured) {
   </section>
 )}
 
-{familyRows.length > 0 && (
+{familyRows.length > 0 && !familiesFirst && (
   <section class="band-compact band-paper" aria-labelledby="families-home" data-hide-when-empty>
     <div class="container-page">
       <h2 id="families-home" class="display-md text-[2rem] md:text-[2.5rem]">For families</h2>

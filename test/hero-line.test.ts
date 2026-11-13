@@ -119,6 +119,7 @@ test('the hero uses the line, and the home tells it whether this week has a pick
   const home = readFileSync('src/components/home/TownHome.astro', 'utf8');
   // A quiet guide (`lead: 'updates'`, Niwot, 12 November 2026) lists no
   // events, so it never promises a pick.
-  assert.match(home, /<Hero compact pick=\{!quietGuide && !!pick\} changes=\{know\.length > 0\} \/>/);
+  // A timely change sits higher on the page than Worth knowing (audit, 13 November 2026); either is a change the line may promise.
+  assert.match(home, /<Hero compact pick=\{!quietGuide && !!pick\} changes=\{know\.length > 0 \|\| timely\.length > 0\} \/>/);
   assert.match(home, /const quietGuide = [^\n]*lead === 'updates'/);
 });
