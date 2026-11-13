@@ -18,15 +18,15 @@
     {
       "name": "Raspberry Ridge Cafe and Inn",
       "kind": "Inn",
-      "url": "http://innatraspberryridge.com",
-      "source": "http://innatraspberryridge.com",
+      "url": "https://www.innatraspberryridge.com",
+      "source": "https://www.innatraspberryridge.com",
       "checked": "2026-11-13"
     },
     {
       "name": "Marble Hideaway",
       "kind": "Cabins",
-      "url": "http://marblehideaway.com",
-      "source": "http://marblehideaway.com",
+      "url": "https://www.marblehideaway.com",
+      "source": "https://www.marblehideaway.com",
       "checked": "2026-11-13"
     },
     {

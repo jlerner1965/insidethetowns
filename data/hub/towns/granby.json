@@ -19,7 +19,7 @@
     ],
     "sites": [
       { "name": "Emily Warner Field Aviation Museum", "kind": "museum", "url": "https://grandcountyhistory.org/museums/emily-warner-field-aviation-museum/", "hours": "Friday & Saturday 11am-2pm; can open by appointment", "cost": "Free", "season": "May 29 thru August 29, 2026; closed in winter", "source": "https://grandcountyhistory.org/museums/emily-warner-field-aviation-museum/", "checked": "2026-11-12" },
-      {"name": "Moffat Road Railroad Museum", "kind": "museum", "url": "http://moffatroadrailroadmuseum.org/", "hours": "Wednesday to Sunday 10 am to 4 pm in the holiday season; closed Mondays, Tuesdays and December 25", "cost": "$10 adults (17 and older); $7 seniors and military; $4 children 3 to 16; under 3 free", "season": "Holiday season November 27, 2026 to January 3; summer from the Friday of Memorial Weekend through August; weekends in September", "source": "http://moffatroadrailroadmuseum.org/", "checked": "2026-11-13"}
+      {"name": "Moffat Road Railroad Museum", "kind": "museum", "url": "https://moffatroadrailroadmuseum.org/", "hours": "Wednesday to Sunday 10 am to 4 pm in the holiday season; closed Mondays, Tuesdays and December 25", "cost": "$10 adults (17 and older); $7 seniors and military; $4 children 3 to 16; under 3 free", "season": "Holiday season November 27, 2026 to January 3; summer from the Friday of Memorial Weekend through August; weekends in September", "source": "https://moffatroadrailroadmuseum.org/", "checked": "2026-11-13"}
     ]
   }
 }

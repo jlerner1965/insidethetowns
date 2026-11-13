@@ -20,23 +20,23 @@
     {
       "name": "Cortez Cozy Inn",
       "kind": "Motel",
-      "url": "http://www.cortezcozyinn.com/",
-      "source": "http://www.cortezcozyinn.com/",
+      "url": "https://www.cortezcozyinn.com/",
+      "source": "https://www.cortezcozyinn.com/",
       "checked": "2026-11-13"
     },
     {
       "name": "Sundance RV Park",
       "kind": "RV park",
-      "url": "http://www.sundancervpark.com/",
+      "url": "https://sundancervpark.com/",
       "season": "Year-round",
-      "source": "http://www.sundancervpark.com/",
+      "source": "https://sundancervpark.com/",
       "checked": "2026-11-13"
     },
     {
       "name": "La Mesa RV Park",
       "kind": "RV park",
-      "url": "http://lamesarvpark.com/",
-      "source": "http://lamesarvpark.com/",
+      "url": "https://lamesarvpark.com/",
+      "source": "https://lamesarvpark.com/",
       "checked": "2026-11-13"
     }
   ],

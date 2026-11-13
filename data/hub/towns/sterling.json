@@ -20,15 +20,15 @@
     {
       "name": "The Crest Motel",
       "kind": "Motel",
-      "url": "http://www.thecrestmotel.com/",
-      "source": "http://www.thecrestmotel.com/",
+      "url": "https://www.thecrestmotel.com/",
+      "source": "https://www.thecrestmotel.com/",
       "checked": "2026-11-13"
     },
     {
       "name": "The Oakwood Inn",
       "kind": "Inn",
-      "url": "http://www.theoakwoodinn.com/",
-      "source": "http://www.theoakwoodinn.com/",
+      "url": "https://www.theoakwoodinn.com/",
+      "source": "https://www.theoakwoodinn.com/",
       "checked": "2026-11-13"
     },
     {
