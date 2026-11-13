@@ -22,7 +22,7 @@ import '@/styles/global.css';
 import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
 import instrumentLatin from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
 import Analytics from '@vercel/analytics/astro';
-import { getNetworkHub, getSite, listsEvents } from '@/config';
+import { getNetworkHub, getSite, listsEvents, type NavItem } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
@@ -45,12 +45,14 @@ interface Props {
   noindex?: boolean;
   /** What the page is, for the site search's result list: "Event", "Place", "Guide". */
   kind?: string;
+  /** The masthead's menu, where a page has its own (Header.astro `items`): the hub's home. */
+  nav?: NavItem[];
 }
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
 const plausible = site.kind === 'town' && site.plausible === true;
-const { jsonLd, kind, ...props } = Astro.props;
+const { jsonLd, kind, nav, ...props } = Astro.props;
 // A town that has not launched serves a holding page; nothing on it, nor the
 // shared pages around it, should be indexed before the guide exists.
 const seo = site.kind === 'town' && site.status !== 'live' ? { ...props, noindex: true } : props;
@@ -103,7 +105,7 @@ const cssVars = [
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-raised focus:px-4 focus:py-2">
       Skip to content
     </a>
-    <Header />
+    <Header items={nav} />
     <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined}>
       <slot />
     </main>
