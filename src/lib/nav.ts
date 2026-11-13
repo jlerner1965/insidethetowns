@@ -45,6 +45,8 @@
 import { schoolsFor } from '../config/school-sports.ts';
 import { openPlaceTypeCounts } from './raw-places.ts';
 import { seasonTypesWithRecords } from './tradition-files.ts';
+import { hasArticles } from './curiosity-files.ts';
+import { ARTICLES_INDEX_PATH } from './curiosity.ts';
 import { TRADITION_TYPE_INFO } from './traditions.ts';
 import type { NavItem, SiteConfig, TownConfig } from '../config/towns/types.ts';
 
@@ -101,9 +103,18 @@ export const ANNUAL_EVENTS_HREF = '/towns/#seasons-heading';
  * "Seasonal dates", to the first season page). It goes to the list of every
  * season page on /towns/; the home page's own link goes to its section of
  * the seasons now on. No season page, no entry.
+ *
+ * And "Articles" after Towns, to the index of every article on the site
+ * (/articles/, src/lib/curiosity.ts), so a news story or an event brief is
+ * one click from any page (the owner, 13 November 2026). No article on the
+ * site, no entry.
  */
-export function hubNav(nav: readonly NavItem[], seasons: readonly NavItem[] = seasonLinks()): NavItem[] {
-  if (!seasons[0]) return [...nav];
-  const at = nav.findIndex((n) => n.href === '/this-weekend/') + 1;
-  return [...nav.slice(0, at), { label: 'Annual events', href: ANNUAL_EVENTS_HREF }, ...nav.slice(at)];
+export function hubNav(nav: readonly NavItem[], seasons: readonly NavItem[] = seasonLinks(), articles: boolean = hasArticles()): NavItem[] {
+  const items = [...nav];
+  if (seasons[0]) items.splice(items.findIndex((n) => n.href === '/this-weekend/') + 1, 0, { label: 'Annual events', href: ANNUAL_EVENTS_HREF });
+  if (articles) {
+    const towns = items.findIndex((n) => n.href === '/#towns');
+    items.splice(towns === -1 ? items.length : towns + 1, 0, { label: 'Articles', href: ARTICLES_INDEX_PATH });
+  }
+  return items;
 }

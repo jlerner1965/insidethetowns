@@ -52,6 +52,11 @@ export function topicsWithArticles(root = '.', env: Record<string, string | unde
   return CURIOSITY_TOPICS.filter((t) => shown.some((a) => a.kind === t));
 }
 
+/** Whether any article is shown: the index at /articles/ and its menu entry exist only then. */
+export function hasArticles(root = '.', env: Record<string, string | undefined> = process.env): boolean {
+  return shownArticles(root, env).length > 0;
+}
+
 /** Whether an event article or a story is shown: /articles/<slug>/ is built only then. */
 export function hasEventArticle(root = '.', env: Record<string, string | undefined> = process.env): boolean {
   return shownArticles(root, env).some((a) => isStandalone(a.kind));

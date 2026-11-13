@@ -96,7 +96,8 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 .hh .hh-season-h { margin: 10px 0 16px; }
 /* Three rows side by side: this season's dates, and the news under "In the towns". */
 .hh :is(.hh-seasons, .hh-three) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; border-bottom: 1px solid var(--hh-hairline); }
-.hh .hh-all-annual { margin-top: 6px; }
+.hh .hh-all-annual,
+.hh .hh-all-articles { margin-top: 6px; }
 
 /* This weekend, and its column of deadlines and scores. */
 .hh .hh-now { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 64px; align-items: start; }

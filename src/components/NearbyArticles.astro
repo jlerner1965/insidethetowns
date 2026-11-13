@@ -9,7 +9,7 @@
  */
 import { getNetworkHub } from '@/config';
 import { getCuriosity } from '@/lib/content';
-import { TOPIC_INFO, articlePath, articlesFor, type CuriosityTopic } from '@/lib/curiosity';
+import { articlePath, articlesFor, kindLabel } from '@/lib/curiosity';
 
 interface Props {
   /** A hub town's slug or a standalone guide's key. */
@@ -26,7 +26,7 @@ const articles = articlesFor(
 ).map((a) => ({
   title: a.title,
   href: `${onHub ? '' : `https://${hub.domain}`}${articlePath(a)}`,
-  label: a.kind === 'event' ? 'Event' : a.kind === 'story' ? 'News' : TOPIC_INFO[a.kind as CuriosityTopic].label,
+  label: kindLabel(a.kind),
 }));
 ---
 {articles.length > 0 && (
