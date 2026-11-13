@@ -15,9 +15,21 @@
       "url": "https://www.redstonecliffs.com/",
       "source": "https://www.redstonecliffs.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "Avalanche Ranch",
+      "kind": "Cabins",
+      "url": "https://www.avalancheranch.com/",
+      "source": "https://www.avalancheranch.com/",
+      "checked": "2026-11-13"
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "Named for the deep red canyon walls that rise behind the village.",
+      "source": "https://www.historycolorado.org/story/2022/04/15/lion-winter",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1902,
       "text": "John C. Osgood's planned coal town was completed",
@@ -62,7 +74,8 @@
         "kind": "landmark",
         "url": "https://www.redstoneinn.com/about",
         "source": "https://www.redstoneinn.com/about",
-        "checked": "2026-11-12"
+        "checked": "2026-11-13",
+        "hours": "Redstone Grill open daily to the public 11 am–8 pm"
       },
       {
         "name": "Redstone Castle",

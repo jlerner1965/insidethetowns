@@ -80,7 +80,9 @@
         "url": "https://www.sanjuancountyhistoricalsociety.org/mining-heritage-museum.html",
         "season": "Closed for the 2026 season; opens around Memorial Weekend 2027",
         "source": "https://www.sanjuancountyhistoricalsociety.org/",
-        "checked": "2026-11-12"
+        "checked": "2026-11-13",
+        "hours": "2026 season: daily 10 am–5 pm, last admission 4:30 pm",
+        "cost": "Adults $15; seniors and veterans $14; children 8-12 $5; under 8 free"
       },
       {
         "name": "Mayflower Mill",
@@ -88,7 +90,9 @@
         "url": "https://www.sanjuancountyhistoricalsociety.org/mayflower-mill.html",
         "season": "Self-guided tours in the summer months; opens around Memorial Weekend 2027",
         "source": "https://www.sanjuancountyhistoricalsociety.org/mayflower-mill.html",
-        "checked": "2026-11-12"
+        "checked": "2026-11-13",
+        "hours": "2026 season: daily 12–4:30 pm",
+        "cost": "Adults $19; seniors 60+ and veterans $18; kids through age 14 free"
       }
     ],
     "ghostTowns": [

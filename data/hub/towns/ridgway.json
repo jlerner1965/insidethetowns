@@ -23,6 +23,20 @@
       "url": "https://www.orvishotsprings.com/",
       "source": "https://www.orvishotsprings.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "Hotel Palomino",
+      "kind": "Hotel",
+      "url": "https://www.hotelpalomino.com",
+      "source": "https://www.hotelpalomino.com",
+      "checked": "2026-11-13"
+    },
+    {
+      "name": "The Adobe Inn",
+      "kind": "Inn",
+      "url": "https://www.adoberidgway.com/",
+      "source": "https://www.adoberidgway.com/",
+      "checked": "2026-11-13"
     }
   ],
   "heritage": {

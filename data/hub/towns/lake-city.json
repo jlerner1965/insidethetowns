@@ -31,6 +31,11 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "Named for nearby Lake San Cristobal.",
+      "source": "https://www.townoflakecityco.gov/walking-tour",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1874,
       "text": "Lake City was platted after the Hotchkiss Mine was discovered at Lake San Cristobal",
@@ -84,7 +89,8 @@
         "kind": "landmark",
         "url": "https://www.townoflakecityco.gov/lake-city-historic-district",
         "source": "https://www.townoflakecityco.gov/lake-city-historic-district",
-        "checked": "2026-11-12"
+        "checked": "2026-11-13",
+        "hours": "Self-guided walking tour of 34 sites with interpretive plaques"
       }
     ]
   }
