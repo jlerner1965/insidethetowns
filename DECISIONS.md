@@ -11064,3 +11064,13 @@ against the code and the live sites before anything was changed.*
 - **The email.** One description everywhere; "today" ends at the 7 am
   send; Niwot's form has no weekly-issue link, and the hub's form points
   to Niwot's occasional updates.
+- **Redirect-only projects no longer build on every push.** Consolidating
+  their domains onto the hub's project and pausing them was the first
+  plan; detaching a domain is a shell call to Vercel's API that this
+  session's permission rules refuse, and the account has no deployment
+  policy to switch off Git builds. So the Ignored Build Step script skips
+  a site whose config says `status: 'redirect'` unless `vercel.json`, its
+  config or the script itself changed. Same result, no hosting change, and
+  it corrects itself the day a rule changes. The consolidation stays
+  worth doing by hand (Settings → Domains on each project) when the owner
+  has a moment; DEPLOY.md says how.
