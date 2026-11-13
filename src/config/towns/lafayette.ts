@@ -327,9 +327,9 @@ export const lafayette: TownConfig = {
           { label: 'Lafayette Listens: City projects open for comment', url: 'https://lafayette-listens.com/', note: 'The City’s engagement site: the recreation center renovation, the Land Use Code and other projects, with sign-ups for updates', track: 'participation' },
           { label: 'Volunteer with the City (Engage)', url: 'https://engage.lafayetteco.gov/GetInvolved', note: 'Open Space trail ambassadors, stewards, naturalists and Shack volunteers, library Teen Team and adult roles, Snow Angels and event help, all through the City’s Engage site', track: 'participation' },
           // The Issue 2A count is Boulder County's unofficial result as last
-          // updated 11:05 pm on 6 November 2026 (electionresults.bouldercounty.gov),
-          // read 9 November 2026 for the Lafayette gap report of 8 November.
-          { label: 'City of Lafayette elections', url: 'https://www.lafayetteco.gov/424/Elections', note: 'Council elections are in odd-numbered years, by mail ballot with Boulder County; Issue 2A, extending the Lamont Does Park tax through 2046, passed on November 3, 2026, 10,429 to 5,176 in the county’s unofficial count as of 11:05 pm on November 6; City Clerk Lynnette Beck, clerks@lafayetteco.gov' },
+          // updated 1:32 pm on 13 November 2026 (electionresults.bouldercounty.gov),
+          // read that afternoon; the county certifies on 24 November.
+          { label: 'City of Lafayette elections', url: 'https://www.lafayetteco.gov/424/Elections', note: 'Council elections are in odd-numbered years, by mail ballot with Boulder County; Issue 2A, extending the Lamont Does Park tax through 2046, passed on November 3, 2026, 10,642 to 5,251 in the county’s unofficial count as of 1:32 pm on November 13; City Clerk Lynnette Beck, clerks@lafayetteco.gov' },
           { label: 'Boulder County Elections', url: 'https://www.bouldercounty.gov/elections/', note: 'Runs every election by mail ballot: a 24-hour drop box at the library, 775 W Baseline Rd, and a vote center and drive-up box at the Southeast County Community Hub, 1755 S Public Rd, in election season; 1750 33rd St, Suite 200, Boulder, 303-413-7740' },
         ],
       },

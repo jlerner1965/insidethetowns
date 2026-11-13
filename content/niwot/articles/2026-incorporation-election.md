@@ -2,21 +2,21 @@
 title: "The 2026 Niwot incorporation election, plainly"
 seoTitle: "The 2026 Niwot incorporation election: the ballot and the count"
 date: "2026-09-17"
-updated: "2026-11-10"
-verified: "2026-11-10"
-excerpt: "Voters inside the proposed boundary turned incorporation down on November 3, 2026: 697 for and 2,047 against in Boulder County's unofficial count. What each of the three questions and five fiscal issues asked, how each stands in that count, and what happens next."
+updated: "2026-11-13"
+verified: "2026-11-13"
+excerpt: "Voters inside the proposed boundary turned incorporation down on November 3, 2026: 738 for and 2,121 against in Boulder County's unofficial count. What each of the three questions and five fiscal issues asked, how each stands in that count, and what happens next."
 category: "Civic"
 tags: [civic, election]
-# The figures below are the county's unofficial count of November 6. The county
-# posts its next count by mid-day on the 13th and certifies on the 24th, so from
-# the 13th the page says at the top which count it carries, whether or not a
-# rebuild happened that day.
-supersededAfter: "2026-11-13"
-supersededNote: "The figures below are Boulder County's unofficial count as last updated on November 6, 2026. The county scheduled a further count for November 13 and certification for November 24; its results page carries the current figures."
+# The figures below are the county's unofficial count of November 13, after
+# which, its schedule says, results typically do not change. The canvass board
+# certifies on the 24th, so from then the page says at the top which count it
+# carries, whether or not a rebuild happened that day.
+supersededAfter: "2026-11-24"
+supersededNote: "The figures below are Boulder County's unofficial count as last updated on November 13, 2026. The canvass board was scheduled to certify the result on November 24; the county's results page carries the certified figures."
 supersededSource: "https://electionresults.bouldercounty.gov/"
 supersededSourceLabel: "Boulder County Elections: current results"
 sources:
-  - { label: "Boulder County Elections: unofficial results, last updated November 6, 2026 at 11:05 pm", url: "https://electionresults.bouldercounty.gov/" }
+  - { label: "Boulder County Elections: unofficial results, last updated November 13, 2026 at 1:32 pm", url: "https://electionresults.bouldercounty.gov/" }
   - { label: "Boulder County Elections: results posting schedule, audit and certification", url: "https://bouldercounty.gov/elections/election-night-and-beyond/" }
   - { label: "Niwot Election Commission: what is on the ballot", url: "https://niwotelection.org/ballot" }
   - { label: "Niwot Election Commission: frequently asked questions", url: "https://niwotelection.org/faq" }
@@ -26,29 +26,29 @@ related:
   - { label: "Moving to Niwot", href: "/moving-here/", note: "Water, sewer, fire and schools as they stand, for anyone deciding whether to buy here." }
 ---
 
-**Updated November 10, 2026:** the election was held on November 3. In [Boulder County's unofficial results](https://electionresults.bouldercounty.gov/), last updated at 11:05 pm on November 6, the incorporation question has 697 votes for and 2,047 against, and the charter commission question and all five fiscal issues are also behind. The count is unofficial until the county's canvass board certifies it on November 24. Niwot is unincorporated today, as it was before the vote.
+**Updated November 13, 2026:** the election was held on November 3. In [Boulder County's unofficial results](https://electionresults.bouldercounty.gov/), last updated at 1:32 pm on November 13, the incorporation question has 738 votes for and 2,121 against, and the charter commission question and all five fiscal issues are also behind. The count is unofficial until the county's canvass board certifies it on November 24. Niwot is unincorporated today, as it was before the vote.
 
 This guide describes the measures as they were certified, without commentary on whether they were advisable. The [Niwot Election Commission](https://niwotelection.org/ballot) certified the ballot titles on September 11, 2026 (Resolution 2026-07), and the certified ballot language controls; everything here is a plain-language summary of it. Campaign material is labeled as advocacy wherever it appears, and the commission is never presented as an advocate.
 
 ## The count
 
-Boulder County's unofficial results, last updated November 6, 2026 at 11:05 pm. The county numbers the measures 300 to 306; the commission's ballot page calls the same measures Questions 1 and 2 and Issues 1 to 5.
+Boulder County's unofficial results, last updated November 13, 2026 at 1:32 pm. The county numbers the measures 300 to 306; the commission's ballot page calls the same measures Questions 1 and 2 and Issues 1 to 5.
 
 | Measure | For | Against |
 |---|---|---|
-| Question 300 · Incorporation (the commission's Question 1) | 697 | 2,047 |
-| Question 301 · Forming a home rule charter commission (Question 2) | 872 | 1,750 |
-| Issue 302 · Sales and use tax (Issue 1) | 706 | 1,968 |
-| Issue 303 · Property tax (Issue 2) | 675 | 2,006 |
-| Issue 304 · Marijuana special sales tax (Issue 3) | 990 | 1,710 |
-| Issue 305 · Retain and spend all revenues (Issue 4) | 863 | 1,795 |
-| Issue 306 · Debt authorization (Issue 5) | 772 | 1,908 |
+| Question 300 · Incorporation (the commission's Question 1) | 738 | 2,121 |
+| Question 301 · Forming a home rule charter commission (Question 2) | 916 | 1,813 |
+| Issue 302 · Sales and use tax (Issue 1) | 743 | 2,045 |
+| Issue 303 · Property tax (Issue 2) | 715 | 2,080 |
+| Issue 304 · Marijuana special sales tax (Issue 3) | 1,052 | 1,766 |
+| Issue 305 · Retain and spend all revenues (Issue 4) | 911 | 1,861 |
+| Issue 306 · Debt authorization (Issue 5) | 820 | 1,973 |
 
 The county's page also carries the votes for each of the 28 charter commission candidates, the commission's Question 3.
 
 ## What happens next
 
-1. Boulder County updates the unofficial results by mid-day on Friday, November 13, after the deadline for curing ballots and for military and overseas ballots. Its [posting schedule](https://bouldercounty.gov/elections/election-night-and-beyond/) says results typically do not change after that date.
+1. Boulder County posted its last scheduled unofficial update at 1:32 pm on Friday, November 13. Its [posting schedule](https://bouldercounty.gov/elections/election-night-and-beyond/) says results typically do not change after that date.
 2. The county runs its risk-limiting audit on Tuesday, November 17.
 3. The canvass board certifies the results at its meeting on Tuesday, November 24.
 4. The commission then certifies the canvassed results to the Boulder County District Court, as its [FAQ](https://niwotelection.org/faq) describes. If incorporation is not approved, the FAQ says, the process ends and no municipality is created; the fiscal authorizations then have nothing to apply to, and the charter commission has no charter to write.
