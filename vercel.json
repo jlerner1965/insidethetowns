@@ -2236,6 +2236,28 @@
       "permanent": true
     },
     {
+      "source": "/events/trick-or-treat-street{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/trick-or-treat-street/",
+      "permanent": true
+    },
+    {
+      "source": "/events/trick-or-treat-street-2026-10-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/trick-or-treat-street/",
+      "permanent": true
+    },
+    {
       "source": "/events/great-turkey-chase{/}?",
       "has": [
         {

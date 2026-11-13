@@ -200,7 +200,7 @@ test('an old event address with a record of its own goes to that record’s page
       assert.equal(rules[at]!.permanent, true);
     }
   }
-  assert.ok(count >= 60, `${count} old addresses mapped`);
+  assert.ok(count >= 63, `${count} old addresses mapped`);
   // The ones the brief names first.
   const to = (host: string, slug: string) => eventMap[host]?.[`/events/${slug}/`];
   assert.equal(to('insidegolden.com', 'olde-golden-candlelight-walk'), 'golden-candlelight-walk');
