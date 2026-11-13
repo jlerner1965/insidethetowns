@@ -5,7 +5,7 @@ towns: [nederland]
 title: "Nederland’s bid to buy Eldora: where the deal stands"
 seoTitle: "Nederland’s Eldora purchase: costs, bonds and the next vote"
 description: "Two years into buying the Eldora ski area, Nederland is weighing how to cover about $2 million in costs. A vote on limiting spending comes at a later meeting."
-status: draft
+status: verified
 date: 2026-11-13
 sources:
   - label: "Colorado Sun"
