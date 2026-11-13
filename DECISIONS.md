@@ -11301,3 +11301,45 @@ publish, that's it, no having to go into the repo."
   the Lerner Works byline on the hub's articles (section 8), and a pointer
   to the article structure (section 7); the `content` and editor skills
   name the exception to "never publish".
+
+## The football playoffs article, verified and rebuilt around the games, 13 November 2026 (night)
+
+The owner asked for the playoffs article to help a reader find their team,
+understand the matchup and come back for verified results, at the same
+address, fonts and colours. The reporting was checked first, against
+CHSAA's brackets and game pages, the host schools' GoFan listings and
+Roosevelt High's own calendar, read on 13 November.
+
+- **Corrected:** Severance started 1-3, not 1-2 (losses to Wellington,
+  Timnath and Mead), which is what makes 8-3 and a seven-game streak add
+  up. Roosevelt allowed 27 points over its last seven games (34 over its
+  last eight; the Coloradoan's "34 in the last seven" does not match
+  CHSAA's results, so the page follows CHSAA) and beat six playoff teams,
+  not four. Loveland started 7-0, not 6-0. Palisade opened against
+  Resurrection Christian, not Lewis-Palmer. Golden plays at Mesa Ridge.
+  Monarch's home game is at Spangenberg Field in Lafayette, per its ticket
+  listing. Elizabeth's game is a 2A quarterfinal; the rest are second-round
+  games. Fort Collins' quarterfinal opponent is settled: Grandview beat
+  Regis Jesuit 19-13 on 12 November.
+- **Coverage stated, not implied:** "every eligible team" was not true
+  (Silver Creek of Longmont was alive with no section, and Resurrection
+  Christian of Loveland was missing from the losses). The page now names
+  its 23 towns, gives every one of their teams a section or a line, and
+  says it is not a statewide list. Teams from other towns with hub pages
+  (Wellington, Brush, Delta, Fairview, Rifle, Alamosa, Basalt, Meeker, West
+  Grand) are left to the owner to add.
+- **Players:** September rankings came out. A player is named only with a
+  current figure (MaxPreps numbers on CHSAA's game page, dated) or a dated,
+  attributed game or quote.
+- **The page:** the games come first, as `games` in the file (see
+  HOW-IT-WORKS); "Updated … MT", a reporting note in place of "Not
+  personally visited", jump links, the schedule's school names linked to
+  their sections, one consistent section per team, the losses as a table
+  and the schools that did not qualify as a list, a football note in place
+  of the one about roads and fees, each section linking its own town in
+  place of the towns' links at the foot, and one closing invitation to the
+  Thursday email. Last season's ticket rules came out.
+- **One `updated`:** the hub's articles gained `updated` (a day and a line
+  on what changed, with "Published" beside it) the same evening. This page
+  uses it, with an optional `time`, so a schedule taking results can say
+  "Updated … MT" and give that instant as its dateModified.

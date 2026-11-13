@@ -13,6 +13,15 @@
  * the day it was read; the sources of what the prose says; the town's own
  * page. A field nobody confirmed is not drawn: there is no "unknown".
  *
+ * An event article that follows games (the football playoffs, 13 November
+ * 2026) may set its own masthead line, an "Updated … MT" time in place of
+ * the verified day, a reporting note in place of the visited label and
+ * jump links; its games come first, a table on a wide screen and a card
+ * per game on a phone, by weekend with the newest on top; and it may end
+ * on its own note, without the towns' links (each section links its town)
+ * and with one invitation. Every one of those is optional, so the other
+ * articles read as before.
+ *
  * A draft reaches here only under the local preview switch, and says so
  * on its face and to a crawler (noindex).
  */
@@ -20,7 +29,7 @@ import { render, type CollectionEntry } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getHub } from '@/config';
 import { getCuriosity, getTraditions } from '@/lib/content';
-import { formatDate, parseLocal, toIsoLocal } from '@/lib/dates';
+import { formatDate, formatDayLong, formatDayShort, formatTime, formatWeekday, parseLocal, toIsoLocal } from '@/lib/dates';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import {
@@ -33,12 +42,15 @@ import {
   TOPIC_INFO,
   articlePath,
   entriesOf,
+  finalLine,
+  gamesByWeek,
   isStandalone,
   lastModified,
   lastVerified,
   sourceHost,
   type CuriosityTopic,
   type Fact,
+  type GameWeek,
 } from '@/lib/curiosity';
 import { placeLink, placeName } from '@/lib/curiosity-places';
 
@@ -66,11 +78,31 @@ const path = articlePath(data);
 const url = `https://${hub.domain}${path}`;
 const draft = data.status !== 'verified';
 const verified = lastVerified(data);
-const modified = lastModified(data);
 const day = (d: string) => formatDate(parseLocal(d));
 // The newest day the line already shows: "Last verified" is added only where
 // it says something new, so a page read and revised on one day shows one date.
 const shownDay = data.updated?.date ?? data.date;
+// An update with a time, for a page that changes more than once a day (a
+// playoff schedule taking results): "November 13, 2026, 4:10 pm MT" on the
+// page, and the same instant as the dateModified where it is the latest change.
+const updatedAt = data.updated?.time ? parseLocal(`${data.updated.date}T${data.updated.time}`) : undefined;
+const updatedLine = data.updated ? (updatedAt ? `${formatDate(updatedAt)}, ${formatTime(updatedAt)} MT` : day(data.updated.date)) : undefined;
+const modified = updatedAt && lastModified(data) === data.updated!.date ? `${data.updated!.date}T${data.updated!.time}` : lastModified(data);
+
+// The schedule, by weekend, the newest first (src/lib/curiosity.ts, GAME_STATUSES).
+const weeks = gamesByWeek(data.games);
+const weekLabel = (w: GameWeek): string => {
+  const a = parseLocal(w.first);
+  const b = parseLocal(w.last);
+  if (w.first === w.last) return formatDayLong(a);
+  if (w.first.slice(0, 7) !== w.last.slice(0, 7)) return `${formatDayLong(a)}, to ${formatDayLong(b)}`;
+  // "Friday and Saturday, November 13–14"; "Thursday to Saturday, November 19–21".
+  const month = formatDate(a).split(' ')[0];
+  const [d1, d2] = [Number(w.first.slice(8)), Number(w.last.slice(8))];
+  return `${formatWeekday(a)} ${d2 - d1 > 1 ? 'to' : 'and'} ${formatWeekday(b)}, ${month} ${d1}–${d2}`;
+};
+const STATUS_WORD = { scheduled: 'Scheduled', postponed: 'Postponed', final: 'Final' } as const;
+const cell = 'flex flex-col gap-0.5 sm:table-cell sm:border-b sm:border-line-soft sm:py-3.5 sm:pr-4 sm:align-top';
 
 const withPage = new Set(publishedHubTowns(await getTraditions()).map((t) => t.slug));
 const towns = data.towns.map((t) => ({ slug: t, name: placeName(t) ?? t, link: placeLink(t, { onHub: true, withPage }) }));
@@ -108,19 +140,31 @@ const structured = [
 ];
 const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
 ---
-<Page title={data.title} seoTitle={data.seoTitle} kind="Article" eyebrow={topic ? `${topic.label} · ${towns[0]!.name}` : `${story ? 'News · ' : ''}${towns.map((t) => t.name).join(' · ')}`} status={draft ? 'Draft' : undefined} intro={data.description} description={data.description} type="article" noindex={draft} jsonLd={structured}>
+<Page title={data.title} seoTitle={data.seoTitle} kind="Article" eyebrow={data.eyebrow ?? (topic ? `${topic.label} · ${towns[0]!.name}` : `${story ? 'News · ' : ''}${towns.map((t) => t.name).join(' · ')}`)} status={draft ? 'Draft' : undefined} intro={data.description} description={data.description} type="article" noindex={draft} jsonLd={structured}>
   <Fragment slot="after-header">
     <p class="mt-5 text-sm text-ink-muted" data-article-meta>
       <span data-byline>By {CURIOSITY_BYLINE}</span>
       <span data-published> · Published <time datetime={data.date}>{day(data.date)}</time></span>
-      {data.updated && <span data-updated> · Updated <time datetime={data.updated.date}>{day(data.updated.date)}</time></span>}
+      {data.updated && <span data-updated> · Updated <time datetime={updatedAt ? toIsoLocal(updatedAt) : data.updated.date}>{updatedLine}</time></span>}
       {verified !== shownDay && <span> · Last verified <time datetime={verified}>{day(verified)}</time></span>}
-      {!story && <span data-visited={data.visited ? 'yes' : 'no'}> · {data.visited ? 'Visited' : 'Not personally visited'}</span>}
+      {!story && !data.reportingNote && <span data-visited={data.visited ? 'yes' : 'no'}> · {data.visited ? 'Visited' : 'Not personally visited'}</span>}
     </p>
     {data.updated && (
       <p class="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted" data-update-note>
         <strong class="font-semibold text-ink">Update, {day(data.updated.date)}:</strong> {data.updated.note}
       </p>
+    )}
+    {data.reportingNote && <p class="mt-2 text-sm text-ink-muted" data-reporting-note>{data.reportingNote}</p>}
+    {data.jump.length > 0 && (
+      <nav aria-label="On this page" class="mt-4" data-jump>
+        <ul class="flex flex-wrap gap-2">
+          {data.jump.map((j) => (
+            <li>
+              <a href={j.href} class="inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink no-underline transition-colors hover:border-primary hover:text-primary">{j.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     )}
     {draft && (
       <p class="mt-4 rounded-lg border border-highlight bg-highlight-soft px-4 py-3 text-[0.9375rem] leading-relaxed text-ink" data-draft>
@@ -128,6 +172,68 @@ const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
       </p>
     )}
   </Fragment>
+
+  {weeks.length > 0 && (
+      <section id="games" aria-labelledby="games-h" class="mb-12 max-w-5xl scroll-mt-6" data-games>
+        <h2 id="games-h" class="font-heading text-[1.75rem] font-medium leading-tight">Games</h2>
+        <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">Times are Mountain Time. The home team is listed second. A score is added once CHSAA posts the final.</p>
+        {weeks.map((w) => (
+          <div class="mt-6" data-game-week={w.first}>
+            <h3 class="font-heading text-[1.3rem] leading-snug">{weekLabel(w)}</h3>
+            {/* A table on a wide screen; on a phone each row is a card of its own, its class and round on top. */}
+            <table class="mt-3 block w-full text-[0.9375rem] leading-snug sm:table sm:border-collapse">
+              <thead class="sr-only sm:not-sr-only sm:table-header-group">
+                <tr class="text-left text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink-muted">
+                  <th scope="col" class="pb-2 pr-4 font-semibold">Matchup</th>
+                  <th scope="col" class="pb-2 pr-4 font-semibold">Class and round</th>
+                  <th scope="col" class="pb-2 pr-4 font-semibold">Date/time MT</th>
+                  <th scope="col" class="pb-2 pr-4 font-semibold">Venue</th>
+                  <th scope="col" class="pb-2 font-semibold">Status/result</th>
+                </tr>
+              </thead>
+              <tbody class="flex flex-col gap-3 sm:table-row-group">
+                {w.games.map((g) => {
+                  const kickoff = parseLocal(g.kickoff);
+                  const result = finalLine(g);
+                  return (
+                    <tr class="flex flex-col gap-2 rounded-lg bg-raised px-4 py-4 ring-1 ring-line-soft sm:table-row sm:rounded-none sm:bg-transparent sm:p-0 sm:ring-0" data-game data-status={g.status}>
+                      <td class={cell}>
+                        {[g.away, g.home].map((t, i) => (
+                          <span class="block font-semibold text-ink">
+                            {i === 1 && <span class="font-normal text-ink-muted">at </span>}
+                            No. {t.seed} {t.section ? <a href={t.section} class="text-primary underline underline-offset-2">{t.name}</a> : t.name}
+                            {t.score !== undefined && <span class="tabular-nums"> {t.score}</span>}
+                            {i === 1 && <span class="ml-1.5 align-[0.1em] text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-ink-muted" data-home>Home</span>}
+                          </span>
+                        ))}
+                      </td>
+                      <td class={`${cell} order-first text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-ink-muted sm:order-none sm:text-[0.9375rem] sm:font-normal sm:normal-case sm:tracking-normal sm:text-ink`}>
+                        <span class="block">{g.class} · {g.round}</span>
+                      </td>
+                      <td class={cell}>
+                        <time datetime={toIsoLocal(kickoff)} class="text-ink sm:whitespace-nowrap">{formatDayShort(kickoff)}, {formatTime(kickoff)}<span class="sm:hidden"> MT</span></time>
+                      </td>
+                      <td class={cell}>
+                        {g.venue
+                          ? <span class="block text-ink" data-venue>{g.venue}</span>
+                          : <span class="block text-ink" data-venue="unconfirmed">Venue not yet confirmed. <a href={g.url} rel="noopener" class="text-primary underline underline-offset-2">Official schedule</a></span>}
+                        {g.tickets && <a href={g.tickets} rel="noopener" class="block self-start text-primary underline underline-offset-2">Tickets ({sourceHost(g.tickets)})</a>}
+                        {g.stream && <a href={g.stream.url} rel="noopener" class="block self-start text-primary underline underline-offset-2">Stream: {g.stream.label}{g.stream.paid ? ' (paid)' : ''}</a>}
+                      </td>
+                      <td class={`${cell} sm:pr-0`}>
+                        <span class={g.status === 'postponed' ? 'block self-start rounded bg-highlight-soft px-1.5 font-semibold text-ink' : 'block font-semibold text-ink'} data-result>{STATUS_WORD[g.status]}{result && `: ${result}`}</span>
+                        {g.next && <span class="block text-ink" data-next>{g.next}</span>}
+                        <a href={g.url} rel="noopener" class="block self-start text-primary underline underline-offset-2">CHSAA game page</a>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </section>
+    )}
 
   <div class="max-w-3xl">
     <div class="prose">
@@ -185,12 +291,14 @@ const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
       </aside>
     )}
 
-    <p class="mt-8 text-[0.9375rem] leading-relaxed text-ink-muted">
-      {story
-        ? 'A summary of the reports and records named above, each linked with the day it was read. Where the town’s own record differs, the record controls.'
-        : 'Fees, seasons, roads and rules change. Each fact above links to the page it was read on and carries the day it was read; that page is the record.'}
+    <p class="mt-8 text-[0.9375rem] leading-relaxed text-ink-muted" data-footnote>
+      {data.footnote ??
+        (story
+          ? 'A summary of the reports and records named above, each linked with the day it was read. Where the town’s own record differs, the record controls.'
+          : 'Fees, seasons, roads and rules change. Each fact above links to the page it was read on and carries the day it was read; that page is the record.')}
     </p>
 
+    {data.townsNav && (
     <nav aria-labelledby="towns-h" class="mt-10 border-t border-line-soft pt-6" data-article-towns>
       <h2 id="towns-h" class="eyebrow mb-3">{towns.length > 1 ? 'The towns' : 'The town'}</h2>
       <ul class="flex flex-wrap gap-2">
@@ -206,5 +314,12 @@ const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
         )}
       </ul>
     </nav>
+    )}
+
+    {data.invite && (
+      <p class="mt-10 border-t border-line-soft pt-6 text-[1.0625rem] font-semibold leading-relaxed" data-invite>
+        <a href={data.invite.href} class="text-primary underline underline-offset-2">{data.invite.text}</a>
+      </p>
+    )}
   </div>
 </Page>
