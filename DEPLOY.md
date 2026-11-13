@@ -163,6 +163,15 @@ its domain attached before the guide is ready. Flip the status and push.
   Anything the script cannot work out builds, and a rebuild (the nightly deploy
   hook, the dashboard's Redeploy) always builds: see the script's header for how
   it tells a rebuild from a push.
+  **A project whose every deployment is Canceled, rebuilds included, is not
+  running this script**: the script never skips a rebuild or a push that
+  touches `src/`. On 13 November 2026 `carbonvalleyguide` and seven retired
+  domains' projects had skipped every deployment since 11 November, so
+  carbonvalleyguide.com still served the build that sent every path to
+  insidefrederickco.com, a redirect loop. Each was set back to
+  `bash scripts/vercel-ignore.sh <slug>` and redeployed (DECISIONS.md, "The
+  network audit"). Check a project's latest production deployment after
+  changing its settings.
 - **Preview deployments** are off on every project except `insidelyons`
   (Settings → Git → "Preview deployments" disabled), so a branch push builds one
   Lyons preview, subject to the same Ignored Build Step. Branches are checked by

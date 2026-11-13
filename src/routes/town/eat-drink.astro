@@ -10,14 +10,21 @@ import { getTownEntries, getTownEntry } from '@/lib/content';
 import PicksGuide from '@/components/PicksGuide.astro';
 import { picksFirst } from '@/lib/picks';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
-import { byProminence } from '@/lib/places';
+import { byProminence, isOpen } from '@/lib/places';
+import { countByType, placeTypePages } from '@/lib/place-types';
 import { EAT_DRINK_TYPES } from '@/content/schemas';
 
 const town = getTown();
 const all = (await getTownEntries('places')).filter((p) => !p.delisted);
 const places = all.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).sort(byProminence);
-const shops = all.filter((p) => p.data.type === 'shop').sort(byProminence);
-const listing = [...places, ...shops].map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` }));
+/**
+ * Shops are on their own page, not here (the audit of 13 November 2026:
+ * Berthoud's Eat & drink listed fourteen stores beside a Shops page of its
+ * own). The page links to it where it is built, and it links back here.
+ */
+const shopCount = all.filter((p) => p.data.type === 'shop' && isOpen(p)).length;
+const shopsPage = placeTypePages(countByType(all.filter(isOpen))).includes('shop');
+const listing = places.map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` }));
 // The picks guide above the directory, where the guide has one
 // (content/<town>/pages/eat-drink.md; PicksGuide.astro).
 const guide = await getTownEntry('pages', 'eat-drink');
@@ -36,7 +43,7 @@ const articles = (await getTownEntries('articles'))
  * told a searcher nothing the title had not already said; a snippet is the
  * one chance to say what the page holds, so it says it.
  */
-const description = guide?.data.description ?? `Restaurants, bars, coffee shops and stores in ${town.name}, ${town.state}: what each one is, where to find it and what it is known for. Nobody pays to be listed.`;
+const description = guide?.data.description ?? `Restaurants, bars and coffee shops in ${town.name}, ${town.state}: what each one is, where to find it and what it is known for. Nobody pays to be listed.`;
 const structured = [
   collectionPageJsonLd(town, {
     name: `Where to eat & drink in ${town.name}, Colorado`,
@@ -53,19 +60,20 @@ const structured = [
 {/* The town's name in the heading (see /things-to-do/): "Eat & drink" alone
     ranked on page three or worse for "restaurants in <town>" on every guide
     but Johnstown (the search audit of 7 November 2026). */}
-<Page title={`Eat & drink in ${town.name}`} jsonLd={structured} seoTitle={guide?.data.seoTitle ?? `Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`${places.length + shops.length} places to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
+<Page title={`Eat & drink in ${town.name}`} jsonLd={structured} seoTitle={guide?.data.seoTitle ?? `Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`${places.length} places to eat and drink in ${town.name}. Listings are editorial; nobody pays to be here.`}>
   <SubTownLinks slot="after-header" class="mt-5" />
-  {/* The shops are one more group of the same list, with its own heading,
-     count and filter button. As a separate section under a small label they
-     were a third style of header, and the filters above left them alone. */}
-  {guide && <PicksGuide page={guide} places={[...places, ...shops]} />}
+  {/* The way to the list and to the shops, before anything else (the audit of 13 November 2026). */}
+  <p slot="after-header" class="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-[0.9375rem]">
+    <a href="#directory" class="-my-2.5 inline-block py-2.5 font-semibold text-primary underline">Every place, with filters ↓</a>
+    {shopsPage && <a href="/shops/" class="-my-2.5 inline-block py-2.5 font-semibold text-primary underline">Shops: {shopCount} on their own page →</a>}
+  </p>
+  {/* Three picks, then the list with its filters, then the rest of the
+      picks and the articles: the practical controls before the reading. */}
+  {guide && <PicksGuide page={guide} places={places} part="lead" />}
   <div id="directory" class="scroll-mt-6">
-    <PlaceDirectory places={[...places, ...shops]} heading={guide ? 'Every place to eat, drink and shop' : 'Places to eat, drink and shop'} filterable emptyMessage="No places listed yet." />
+    <PlaceDirectory places={places} heading={guide ? 'Every place to eat and drink' : 'Places to eat and drink'} filterable emptyMessage="No places listed yet." />
   </div>
-  {/* The Thursday email, once, under the list: this page type had no form
-      at all (the sweep of 10 November 2026). Nothing on a guide the email
-      does not cover (NewsletterSignup). */}
-  <NewsletterSignup town={town} id="eat-drink" variant="home" class="mt-14" />
+  {guide && <PicksGuide page={guide} places={places} part="rest" />}
   {articles.length > 0 && (
     <section class="mt-20">
       <SectionHeader eyebrow="From the guide" title="Eating out, in depth" href="/guides/" linkLabel="All guides" />
@@ -78,4 +86,8 @@ const structured = [
       )}
     </section>
   )}
+  {/* The Thursday email, once, at the foot: this page type had no form at
+      all (the sweep of 10 November 2026). Nothing on a guide the email does
+      not cover (NewsletterSignup). */}
+  <NewsletterSignup town={town} id="eat-drink" variant="home" class="mt-14" />
 </Page>

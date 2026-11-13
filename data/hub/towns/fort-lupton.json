@@ -1,10 +1,10 @@
 {
   "slug": "fort-lupton",
   "facts": {
-    "incorporated": { "year": 1890, "source": "https://history.weld.gov/County-150/Education/Fort-Lupton-School-District", "checked": "2026-11-13" }
+    "incorporated": { "year": 1890, "source": "https://history.weld.gov/County-150/Education/Fort-Lupton-School-District", "checked": "2026-11-12" }
   },
   "heritage": {
-    "founded": { "year": 1881, "text": "William G. Winbourn founded the town beside a railroad sidetrack, about a mile south of the original fort", "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County", "checked": "2026-11-13" },
+    "founded": { "year": 1881, "text": "William G. Winbourn founded the town beside a railroad sidetrack, about a mile south of the original fort", "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County", "checked": "2026-11-12" },
     "nameOrigin": { "text": "The city bears the name of Lancaster Lupton, a former lieutenant in the U.S. Dragoons who began building a trade fort here in 1836.", "source": "https://www.spvhs.org/background.html", "checked": "2026-11-12" },
     "timeline": [
       { "year": 1836, "text": "Lancaster Lupton began building a trade fort for the fur and buffalo hide trade with the plains tribes. It operated as Fort Lancaster until 1844.", "source": "https://www.spvhs.org/luptons-fort.html", "checked": "2026-11-12" },

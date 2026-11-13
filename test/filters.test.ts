@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { collapsePlan, emptyText, filterRows, normalizeName, statusText, unknownNote, type FilterRow, type FilterState } from '../src/lib/filters.ts';
+import { OPEN_NOW_BASIS, collapsePlan, emptyText, filterRows, normalizeName, openNowNote, statusText, unknownNote, type FilterRow, type FilterState } from '../src/lib/filters.ts';
 import { parseFrontmatter } from '../scripts/lib/frontmatter.ts';
 
 const all: FilterState = { value: 'all', openOnly: false, where: 'all', query: '' };
@@ -119,4 +119,11 @@ test('the weekend page: Free and Live music combine with the town, and the line 
   assert.equal(statusText(2, { openOnly: false, query: '', onlyLabels: ['Free'] }), '2 results, free only', 'no comma left hanging');
   assert.equal(statusText(1, { label: 'Erie', openOnly: false, query: '', onlyLabels: ['Free', 'Live music'] }), '1 result, free and live music only, in Erie');
   assert.equal(emptyText({ label: 'Windsor', openOnly: false, query: '', onlyLabels: ['Live music'] }), 'Nothing marked live music in Windsor.');
+});
+
+test('"Open now" says it goes by listed hours in Colorado time, not a live check (audit, 13 November 2026)', () => {
+  assert.equal(openNowNote({ unknownHours: 0, unknownLand: 0 }), OPEN_NOW_BASIS);
+  assert.equal(openNowNote({ unknownHours: 2, unknownLand: 0 }), `${OPEN_NOW_BASIS} 2 places with unknown hours not shown.`);
+  assert.match(OPEN_NOW_BASIS, /hours each place lists/);
+  assert.match(OPEN_NOW_BASIS, /not a live check/);
 });

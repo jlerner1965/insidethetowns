@@ -37,26 +37,26 @@
       "year": 1894,
       "text": "Benton Canon platted the Town of Palisade",
       "source": "https://www.historicpalisade.org/wp-content/uploads/2012/09/TIMELINE_small.pdf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
         "year": 1882,
         "text": "The first settler, J.P. Harlow, establishes a farm.",
         "source": "https://www.historicpalisade.org/wp-content/uploads/2012/09/TIMELINE_small.pdf",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1894,
         "text": "Benton Canon plats the Town of Palisade.",
         "source": "https://www.historicpalisade.org/wp-content/uploads/2012/09/TIMELINE_small.pdf",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1904,
         "text": "The Town of Palisade incorporates on April 4. It was previously called Palisades.",
         "source": "https://www.historicpalisade.org/wp-content/uploads/2012/09/TIMELINE_small.pdf",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1955,
@@ -97,7 +97,7 @@
     "incorporated": {
       "year": 1904,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

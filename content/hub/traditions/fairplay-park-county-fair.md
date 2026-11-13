@@ -10,7 +10,7 @@ sourceUrl: "https://parkcofair.com/"
 years:
   - year: 2027
     status: not-announced
-    checked: 2026-11-13
+    checked: 2026-11-12
   - year: 2026
     status: confirmed
     date: 2026-07-10
@@ -20,5 +20,5 @@ years:
       - name: "Junior Livestock Auction"
         date: 2026-07-18
         time: "3 pm"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

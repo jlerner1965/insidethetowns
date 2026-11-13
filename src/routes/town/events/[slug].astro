@@ -392,6 +392,10 @@ const facts: Fact[] = [
               <a href={`/events/${shown.slug}.ics`} class="btn btn-outline min-h-11 text-primary">Apple, Outlook</a>
               <a href={googleUrl} rel="noopener" class="btn btn-outline min-h-11 text-primary">Google</a>
             </div>
+            {/* No end published: say so, since Google's entry takes an hour as a placeholder (src/lib/ics.ts). */}
+            {!exportWhen(next).allDay && !exportWhen(next).end && (
+              <p class="mt-2 text-[0.875rem] text-ink-muted">No end time is published. Google’s entry is one hour long as a placeholder.</p>
+            )}
           </div>
         )}
       </aside>

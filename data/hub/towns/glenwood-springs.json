@@ -37,27 +37,27 @@
       "kind": "Hotel",
       "url": "https://maxwellandersonhotel.com/",
       "source": "https://maxwellandersonhotel.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Hotel Glenwood Springs",
       "kind": "Hotel",
       "url": "https://www.thehotelglenwoodsprings.com/",
       "source": "https://www.thehotelglenwoodsprings.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
     "nameOrigin": {
       "text": "The town was first known as Defiance; founder Isaac Cooper's wife Sarah persuaded the founders to rename it after her hometown of Glenwood, Iowa.",
       "source": "https://cogs.us/DocumentCenter/View/1199/Glenwood-Springs-Municipal-Water-Efficiency-Plan-PDF",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "founded": {
       "year": 1883,
       "text": "Established as Defiance in 1883, a camp of tents, saloons, cabins and lodging establishments.",
       "source": "https://www.historycolorado.org/location/glenwood-springs-downtown-commercial-district",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
@@ -76,7 +76,7 @@
         "year": 1892,
         "text": "The Hotel Colorado, a four-story building of brick and stone around a courtyard, dates from 1892.",
         "source": "https://www.historycolorado.org/location/hotel-colorado",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1963,
@@ -132,7 +132,7 @@
     "incorporated": {
       "year": 1885,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

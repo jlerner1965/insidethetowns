@@ -15,5 +15,5 @@ years:
     endDate: 2026-12-05
     place: "Participating businesses in Eagle"
     note: "Voter cards are turned in at the Eagle Chamber tent at 215 Broadway at 3:00 pm on Saturday, December 5th"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

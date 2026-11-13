@@ -42,7 +42,7 @@ const glance: Array<[string, string]> = data.glance
     ).filter((pair): pair is [string, string] => !!pair[1])
   : [];
 ---
-<Page title={data.title} seoTitle={data.seoTitle} kind="Guide" eyebrow={data.category} intro={data.excerpt} description={excerptDescription(data.excerpt)} image={shareImage} imageAlt={data.imageAlt} type="article"
+<Page title={data.title} seoTitle={data.seoTitle} kind="Article" eyebrow={data.category} intro={data.excerpt} description={excerptDescription(data.excerpt)} image={shareImage} imageAlt={data.imageAlt} type="article"
   jsonLd={[
     articleJsonLd(town, article, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined),
     breadcrumbJsonLd(town, [

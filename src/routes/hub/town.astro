@@ -42,8 +42,8 @@ import { bySeason, eventPage, lineFor, nearbyPages, nextUp as nextRowUp, placeRo
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { FLOW_SOURCES, SNOW_SOURCE, formatCfs, percentOfMedian, riverFlow, snowpack, type FlowData, type SnowData } from '@/lib/town-signals';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
-import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
+import { formatDayLong, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, rowsByState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
 import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
 import NearThisTown from '@/components/NearThisTown.astro';
 import OpenNow from '@/components/OpenNow.astro';
@@ -125,6 +125,31 @@ const ridge = hero ? undefined : ridgeline(town.slug, town.cluster, town.terrain
  * nextUp); nothing where no date ahead has been published.
  */
 const nextUp = nextRowUp(traditions, outdoor);
+
+/**
+ * The next 90 days (the audit of 13 November 2026): every date set within
+ * them among the town's traditions and its own outdoor dates, soonest
+ * first, before the year and the full lists. The statewide dates stay in
+ * their fold below. Each carries its last day, so a stale build drops it
+ * once it has passed (Freshness.astro).
+ */
+const NEXT_DAYS = 90;
+const horizon = dayKey(new Date(parseLocal(today).getTime() + NEXT_DAYS * 86_400_000));
+const soon = [...traditions, ...outdoor]
+  .filter((r) => isUpcoming(r) && r.entry.date! <= horizon)
+  .sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || a.record.name.localeCompare(b.record.name));
+/**
+ * The town's annual events by state (src/lib/traditions.ts, rowState):
+ * dates set and ahead; no date yet; held, the next date not announced;
+ * canceled. One list for a page with one state, as before.
+ */
+const traditionStates = rowsByState(traditions);
+const traditionGroups = [
+  { key: 'upcoming', label: 'Coming up', rows: traditionStates.upcoming },
+  { key: 'waiting', label: 'Date not announced yet', rows: traditionStates.waiting },
+  { key: 'past', label: 'Held; next date not announced', rows: traditionStates.past },
+  { key: 'canceled', label: 'Canceled', rows: traditionStates.canceled },
+].filter((g) => g.rows.length > 0);
 const nextDay = nextUp ? `${formatDayLong(parseLocal(nextUp.entry.date!))}, ${nextUp.entry.date!.slice(0, 4)}` : undefined;
 
 /**
@@ -171,7 +196,7 @@ const measuredAt = (iso: string) =>
   new Date(iso).toLocaleString('en-US', { timeZone: 'America/Denver', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
 const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
 ---
-<Page {title} {seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt}>
+<Page {title} {seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual dates">
   <header slot="header" class="on-dark relative isolate overflow-hidden bg-primary text-white" data-town-hero={hero ? 'photo' : ridge!.terrain}>
     {hero ? (
       <Fragment>
@@ -203,9 +228,10 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
         <path d={ridge!.layers[2]} fill="var(--color-paper)" />
       </svg>
     )}
-    <div class:list={['container-page', hero ? 'pb-10 pt-40 sm:pt-56 md:pb-14 md:pt-72' : 'pb-24 pt-10 sm:pb-28 md:pb-36 md:pt-16']}>
+    {/* Less height than before the audit of 13 November 2026 (it was up to 18rem above the name), so the next 90 days start sooner. */}
+    <div class:list={['container-page', hero ? 'pb-8 pt-28 sm:pt-36 md:pb-10 md:pt-44' : 'pb-16 pt-8 sm:pb-20 md:pb-24 md:pt-12']}>
       <p class="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/85">{county} · Colorado</p>
-      <h1 class="display mt-3 text-[3rem] leading-[0.95] sm:text-7xl lg:text-8xl">{title}</h1>
+      <h1 class="display mt-3 text-[3rem] leading-[0.95] sm:text-7xl">{title}</h1>
       <p class="mt-4 max-w-2xl text-[1.0625rem] leading-relaxed text-white/90 md:text-xl md:leading-relaxed">{intro}</p>
       {nextUp && (
         <p class="mt-6 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-lg bg-white/12 px-4 py-2.5 text-[0.9375rem] ring-1 ring-white/25 backdrop-blur-sm" data-next-up>
@@ -216,6 +242,26 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
       )}
     </div>
   </header>
+
+  <section aria-labelledby="next90-heading" class="mb-12 md:mb-14" data-next-90>
+    <h2 id="next90-heading" class="eyebrow mb-3">The next {NEXT_DAYS} days</h2>
+    {soon.length > 0 ? (
+      <ol class="divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {soon.map((r) => (
+          <li class="grid gap-y-0.5 py-3 sm:grid-cols-[10rem_minmax(0,1fr)_auto] sm:items-baseline sm:gap-x-4" data-event-day={r.entry.endDate ?? r.entry.date}>
+            {/* Stacked on a phone (date, name, kind), three columns from sm: side by side at 390px the names were squeezed to a word a line and ran into the kind. */}
+            <time datetime={r.entry.date} class="text-[0.9375rem] font-semibold tabular-nums text-ink">
+              {formatDayShort(parseLocal(r.entry.date!))}{r.entry.endDate && r.entry.endDate !== r.entry.date && ` – ${formatDayShort(parseLocal(r.entry.endDate))}`}
+            </time>
+            <a href={`#${r.record.slug}`} class="min-w-0 text-[1.0625rem] font-medium leading-snug text-primary no-underline hover:underline">{r.record.name}</a>
+            <span class="text-[0.875rem] text-ink-muted">{TRADITION_TYPE_INFO[r.record.type].label}</span>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <p class="rounded-lg border border-dashed border-line px-5 py-4 text-[0.9375rem] text-ink-muted">No date in the next {NEXT_DAYS} days has been published yet. The year, and every event with its last date, are below.</p>
+    )}
+  </section>
 
   {marks.length > 0 && (
     <section aria-labelledby="year-heading" class="mb-12 md:mb-16" data-year-strip>
@@ -348,6 +394,13 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
           </div>
         )}
       </Fragment>
+    ) : traditionGroups.length > 1 ? (
+      traditionGroups.map((g) => (
+        <div class="mb-8" data-tradition-group={g.key}>
+          <h3 class="eyebrow mb-3">{g.label}</h3>
+          <div class={card}>{g.rows.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
+        </div>
+      ))
     ) : traditions.length > 0 ? (
       <div class={card}>{traditions.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
     ) : (

@@ -43,7 +43,7 @@
         "year": 1888,
         "text": "The Midland Railroad began running through Ute Pass, bringing the tourism and commerce that let Woodland Park incorporate as a town.",
         "source": "https://woodlandpark.gov/518/History-of-the-UPCC",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1890,
@@ -61,7 +61,7 @@
         "year": 1996,
         "text": "The former schoolhouse reopened as a community center, the Ute Pass Cultural Center, on August 28.",
         "source": "https://woodlandpark.gov/518/History-of-the-UPCC",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "sites": [
@@ -80,7 +80,7 @@
         "kind": "landmark",
         "url": "https://woodlandpark.gov/494/UPCC",
         "source": "https://woodlandpark.gov/518/History-of-the-UPCC",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -88,7 +88,7 @@
     "incorporated": {
       "year": 1891,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

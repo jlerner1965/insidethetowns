@@ -10,7 +10,7 @@
       "year": 1886,
       "text": "The City says Monte Vista was founded in 1886.",
       "source": "https://www.cityofmontevista.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
@@ -54,7 +54,7 @@
         "hours": "Tue–Fri 11 am–3 pm",
         "cost": "No admission fee; donations appreciated",
         "source": "https://www.museumtrail.org/transportation-of-the-west-museum",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -64,14 +64,14 @@
       "kind": "Hotel",
       "url": "https://www.staycobblestone.com/co/monte-vista/",
       "source": "https://www.staycobblestone.com/co/monte-vista/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "facts": {
     "incorporated": {
       "year": 1886,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

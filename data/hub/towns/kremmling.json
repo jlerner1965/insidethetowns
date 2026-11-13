@@ -13,7 +13,7 @@
       "kind": "Hotel",
       "url": "https://www.wyndhamhotels.com/super-8/kremmling-colorado/super-8-kremmling",
       "source": "https://www.wyndhamhotels.com/super-8/kremmling-colorado/super-8-kremmling",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -26,7 +26,7 @@
       "year": 1888,
       "text": "John and Aaron Kinsey platted part of their ranch as the town site, first called Kinsey City",
       "source": "https://stories.grandcountyhistory.org/node/1815",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
@@ -77,7 +77,7 @@
     "incorporated": {
       "year": 1904,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

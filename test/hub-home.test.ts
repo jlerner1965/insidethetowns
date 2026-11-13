@@ -8,7 +8,7 @@
  */
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { FEATURED_ARTICLE, featuredTile, guideTiles, indexTiles, searchSuggestions, sectionNumbers, seasonFeatureLine, townsConfirmed, type ArticleOnSite } from '../src/lib/hub-home.ts';
+import { FEATURED_ARTICLE, featuredTile, guideTiles, indexTiles, pickDeadline, searchSuggestions, sectionNumbers, seasonFeatureLine, townsConfirmed, type ArticleOnSite } from '../src/lib/hub-home.ts';
 
 const article = (kind: ArticleOnSite['kind'], slug: string, towns: string[], title = `Article ${slug}`): ArticleOnSite => ({ kind, slug, towns, title, description: `About ${slug}.` });
 const sundance = article('event', 'sundance-from-the-towns-next-door', ['lyons', 'niwot'], FEATURED_ARTICLE.title);
@@ -61,4 +61,11 @@ test('sections are numbered from what is drawn: no Guides, and the Feature is 02
 
 test('the search suggestions are every name once, A to Z', () => {
   assert.deepEqual(searchSuggestions([{ name: 'Lyons' }, { name: 'Berthoud' }], [{ name: 'Berthoud' }, { name: 'Estes Park' }]), ['Berthoud', 'Estes Park', 'Lyons']);
+});
+
+test('the registration item is the soonest that closes, else the soonest that opens, else nothing', () => {
+  const d = (what: 'opens' | 'closes', on: string) => ({ what, on: new Date(`${on}T12:00:00-07:00`) });
+  assert.deepEqual(pickDeadline([d('opens', '2026-11-15'), d('closes', '2026-11-20'), d('closes', '2026-11-18')]), d('closes', '2026-11-18'));
+  assert.deepEqual(pickDeadline([d('opens', '2026-11-25'), d('opens', '2026-11-15')]), d('opens', '2026-11-15'));
+  assert.equal(pickDeadline([]), undefined);
 });

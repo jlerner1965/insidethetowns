@@ -4,7 +4,7 @@
     "incorporated": {
       "year": 1864,
       "source": "https://scholar.law.colorado.edu/session-laws-1951-2000/4182",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   },
   "transit": [
@@ -13,7 +13,7 @@
       "detail": "Free shuttle; the Central City route links three stops in town with Black Hawk. Runs from 10 am to 2 am Monday to Thursday and to 3 am Friday to Sunday, every 20 to 30 minutes.",
       "url": "http://signage.cityofblackhawk.org/",
       "source": "http://signage.cityofblackhawk.org/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "lodging": [
@@ -22,7 +22,7 @@
       "kind": "Casino hotel",
       "url": "https://www.grandzcasinohotel.com/",
       "source": "https://www.grandzcasinohotel.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -77,7 +77,7 @@
         "hours": "Tours from the Washington Hall Tour Office, 117 Eureka St.: daily 10 am to 4 pm Memorial Day weekend through September; Tuesday to Sunday 10 am to 4 pm the rest of the year",
         "cost": "Tours $10 per person per building; children 12 and under free",
         "source": "https://www.gilpinhistory.org/hours-and-locations",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Gilpin History Museum",
@@ -87,7 +87,7 @@
         "cost": "$10 adults; children 12 and under free",
         "season": "Closed for the winter; access by appointment or through the Tour Office",
         "source": "https://www.gilpinhistory.org/hours-and-locations",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   }

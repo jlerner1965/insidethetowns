@@ -29,14 +29,14 @@
       "kind": "Hotel",
       "url": "https://www.hotelpalomino.com",
       "source": "https://www.hotelpalomino.com",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "The Adobe Inn",
       "kind": "Inn",
       "url": "https://www.adoberidgway.com/",
       "source": "https://www.adoberidgway.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -112,7 +112,7 @@
     "incorporated": {
       "year": 1891,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

@@ -17,10 +17,12 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { parseStockingReport, STOCKING_SOURCE, type StockingData } from '../src/lib/fish-stocking.ts';
 import { HUB_TOWNS } from '../src/config/hub-towns.ts';
+import { dayKey } from '../src/lib/dates.ts';
 
 const FILE = 'data/hub/fish-stocking.json';
 const write = process.argv.includes('--write');
-const today = new Date().toISOString().slice(0, 10);
+// The day as Colorado has it (dayKey): a run in the evening, already tomorrow in UTC, stamped every read a day ahead (audit, 13 November 2026).
+const today = dayKey(new Date());
 
 function keep(why: string): never {
   console.log(`fish-stocking: ${why}; ${existsSync(FILE) ? `keeping ${FILE} as it is` : 'no file written'}`);

@@ -6,7 +6,7 @@
       "detail": "Door-to-door, call-ahead rides within Montezuma County, serving Cortez, Mancos, Dolores and Towaoc; book by phone the business day before",
       "url": "https://montezumacounty.gov/public-transportation/",
       "source": "https://montezumacounty.gov/public-transportation/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "lodging": [
@@ -22,7 +22,7 @@
       "kind": "Motel",
       "url": "https://www.cortezcozyinn.com/",
       "source": "https://www.cortezcozyinn.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Sundance RV Park",
@@ -30,14 +30,14 @@
       "url": "https://sundancervpark.com/",
       "season": "Year-round",
       "source": "https://sundancervpark.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "La Mesa RV Park",
       "kind": "RV park",
       "url": "https://lamesarvpark.com/",
       "source": "https://lamesarvpark.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -86,21 +86,21 @@
         "url": "https://cortezculturalcenter.org/",
         "hours": "Tue–Sat 10 am–7 pm (posted as summer 2026 hours)",
         "source": "https://cortezculturalcenter.org/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Montezuma Valley National Bank and Store",
         "kind": "landmark",
         "url": "https://www.historycolorado.org/location/montezuma-valley-national-bank-and-store",
         "source": "https://www.historycolorado.org/location/montezuma-valley-national-bank-and-store",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Cortez High School (Calkins School)",
         "kind": "landmark",
         "url": "https://www.historycolorado.org/location/cortez-high-school",
         "source": "https://www.historycolorado.org/location/cortez-high-school",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "makers": [
@@ -117,7 +117,7 @@
     "incorporated": {
       "year": 1902,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

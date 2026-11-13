@@ -30,7 +30,7 @@
         "year": 2022,
         "text": "The Crestone Museum and Welcome Center opened in the Old Schoolhouse on May 20, 2022.",
         "source": "https://townofcrestone.gov/pages/museum",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "sites": [
@@ -50,7 +50,7 @@
         "url": "https://townofcrestone.gov/pages/cemetery",
         "hours": "Gates are kept latched but not locked; visitors are welcome",
         "source": "https://townofcrestone.gov/pages/cemetery",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -58,7 +58,7 @@
     "incorporated": {
       "year": 1902,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

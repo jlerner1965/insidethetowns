@@ -30,7 +30,7 @@
       "kind": "RV resort and cabins",
       "url": "https://monumentrvresort.com/",
       "source": "https://monumentrvresort.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -57,19 +57,19 @@
         "year": 1912,
         "text": "The yellow brick New Central School is built at Elm and Aspen. Today it is Fruita's Civic Center.",
         "source": "https://www.fruita.org/DocumentCenter/View/3119/Historic-Walking-Tour-Brochure-PDF",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1922,
         "text": "Stonemason Nunzio Grasso builds Sacred Heart Catholic Church of sandstone.",
         "source": "https://www.fruita.org/DocumentCenter/View/3119/Historic-Walking-Tour-Brochure-PDF",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1938,
         "text": "WPA workers build a stone building at 432 E. Aspen to house the Fruita museum, with rocks, minerals and fossils set in the walls.",
         "source": "https://www.fruita.org/DocumentCenter/View/3119/Historic-Walking-Tour-Brochure-PDF",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "sites": [
@@ -78,21 +78,21 @@
         "kind": "landmark",
         "url": "https://www.fruita.org/DocumentCenter/View/3119/Historic-Walking-Tour-Brochure-PDF",
         "source": "https://www.fruita.org/DocumentCenter/View/3119/Historic-Walking-Tour-Brochure-PDF",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "WPA stone museum building, 432 E. Aspen",
         "kind": "landmark",
         "url": "https://www.fruita.org/DocumentCenter/View/3119/Historic-Walking-Tour-Brochure-PDF",
         "source": "https://www.fruita.org/DocumentCenter/View/3119/Historic-Walking-Tour-Brochure-PDF",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Fruita Civic Center (former New Central School)",
         "kind": "landmark",
         "url": "https://www.fruita.org/DocumentCenter/View/3119/Historic-Walking-Tour-Brochure-PDF",
         "source": "https://www.fruita.org/DocumentCenter/View/3119/Historic-Walking-Tour-Brochure-PDF",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -100,7 +100,7 @@
     "incorporated": {
       "year": 1894,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

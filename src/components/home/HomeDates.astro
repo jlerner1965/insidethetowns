@@ -21,11 +21,15 @@ interface Props {
   firstLabelled?: boolean;
 }
 const { dates, town, lines = {}, track, firstLabelled = false } = Astro.props;
+// The statewide dates (a free day at every state park, a meteor shower) go
+// last, under their own label, after the town's own (the audit of 13
+// November 2026: generic dates are secondary to the town's).
 const lists = {
-  outdoor: { rows: dates.outdoor, label: 'Outdoor dates' },
+  outdoor: { rows: dates.outdoor.filter((r) => !r.record.statewide), label: 'Outdoor dates' },
   traditions: { rows: dates.traditions, label: `Every year in ${town}` },
+  statewide: { rows: dates.outdoor.filter((r) => r.record.statewide), label: 'Across Colorado' },
 };
-const order = (dates.lead === 'outdoor' ? [lists.outdoor, lists.traditions] : [lists.traditions, lists.outdoor]).filter((l) => l.rows.length > 0);
+const order = [...(dates.lead === 'outdoor' ? [lists.outdoor, lists.traditions] : [lists.traditions, lists.outdoor]), lists.statewide].filter((l) => l.rows.length > 0);
 ---
 <div data-home-dates data-lead={dates.lead}>
   {order.map((list, i) => (

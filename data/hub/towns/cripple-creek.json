@@ -36,27 +36,27 @@
       "kind": "Casino hotel",
       "url": "https://chamonixco.com/",
       "source": "https://chamonixco.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Double Eagle Hotel & Casino",
       "kind": "Casino hotel",
       "url": "https://www.decasino.com/",
       "source": "https://www.decasino.com/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
     "nameOrigin": {
       "text": "The townsite was first platted as Fremont; postal officials refused that name because Colorado already had a Fremont, and the name Cripple Creek was then suggested and approved.",
       "source": "https://npgallery.nps.gov/GetAsset/1112bbfe-3339-43ca-ba65-200e62a03d69",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "founded": {
       "year": 1891,
       "text": "A settlement of tents and cabins grew up in the fall of 1891 and the landowners platted 80 acres as a townsite",
       "source": "https://npgallery.nps.gov/GetAsset/1112bbfe-3339-43ca-ba65-200e62a03d69",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     "timeline": [
       {
@@ -125,7 +125,7 @@
     "incorporated": {
       "year": 1892,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

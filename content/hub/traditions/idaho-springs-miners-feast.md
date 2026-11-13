@@ -11,7 +11,7 @@ firstYear: 2026
 years:
   - year: 2027
     status: not-announced
-    checked: 2026-11-13
+    checked: 2026-11-12
   - year: 2026
     status: confirmed
     date: 2026-10-02
@@ -23,5 +23,5 @@ years:
       - name: "Taste of Idaho Springs"
         date: 2026-10-03
         time: "12 to 3 PM"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

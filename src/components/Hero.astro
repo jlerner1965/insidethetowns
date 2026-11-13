@@ -44,7 +44,7 @@ const site = getSite();
 // What the two section pages list, closed places left out as they are there.
 const listed = site.kind === 'town' ? (await getTownEntries('places')).filter((p) => !p.delisted) : [];
 const second: NonNullable<Props['links']>[number] = heroSecondLink({
-  eatDrink: listed.filter((p) => EAT_DRINK_TYPES.includes(p.data.type) || p.data.type === 'shop').length,
+  eatDrink: listed.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).length,
   thingsToDo: listed.filter((p) => THINGS_TO_DO_TYPES.includes(p.data.type) || p.data.type === 'lodging').length,
 });
 const {

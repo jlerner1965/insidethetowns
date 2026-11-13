@@ -1,7 +1,9 @@
 ---
 /**
  * "Every year in <Town>": the guide's traditions (src/lib/traditions.ts),
- * in the guide's own palette. Two groups: "Date confirmed", soonest first,
+ * in the guide's own palette. Three groups, one state each
+ * (src/lib/traditions.ts, rowState): "Date confirmed", soonest first;
+ * "Canceled", never among the dates to come (audit, 13 November 2026);
  * and "Not announced yet". Rows as on the hub's season page, with the
  * category dot and the type's label where the hub has the town.
  *
@@ -22,7 +24,7 @@ import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { eventPage, lineFor, placeKey, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
-import { TRADITION_TYPE_INFO, isUpcoming, nextRow, type TraditionRow as Row } from '@/lib/traditions';
+import { TRADITION_TYPE_INFO, nextRow, rowsByState, type TraditionRow as Row } from '@/lib/traditions';
 
 const town = getTown();
 const hub = getNetworkHub();
@@ -39,10 +41,12 @@ const standalone = !!place && !!STANDALONE_GUIDES[place];
 const mine = standalone
   ? placeRows(records, place!, today)
   : { traditions: records.filter((r) => r.town?.guide === town.slug).map((r) => nextRow(r, today)), outdoor: [], statewide: [] };
-const dated = mine.traditions.filter((r) => isUpcoming(r) || r.entry.status === 'canceled');
-const waiting = mine.traditions.filter((r) => !dated.includes(r));
+const states = rowsByState(mine.traditions);
+const dated = states.upcoming;
+const canceled = states.canceled;
+const waiting = [...states.waiting, ...states.past];
 const outdoor = [...mine.outdoor, ...mine.statewide];
-const rows = [...dated, ...waiting, ...outdoor];
+const rows = [...dated, ...canceled, ...waiting, ...outdoor];
 const ctx: ShowingContext = {
   hubDomain: hub.domain,
   published: new Set(publishedHubTowns(records).map((t) => t.slug)),
@@ -94,6 +98,14 @@ const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${en
       <h2 id="confirmed-heading" class="mb-6 border-b-2 border-accent pb-3 text-3xl font-medium">Date confirmed</h2>
       <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {dated.map((row) => <TraditionRow {...rowProps(row)} />)}
+      </div>
+    </section>
+  )}
+  {canceled.length > 0 && (
+    <section aria-labelledby="canceled-heading" class="mb-14 md:mb-16" data-tradition-group="canceled">
+      <h2 id="canceled-heading" class="mb-6 border-b-2 border-accent pb-3 text-3xl font-medium">Canceled</h2>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {canceled.map((row) => <TraditionRow {...rowProps(row)} />)}
       </div>
     </section>
   )}

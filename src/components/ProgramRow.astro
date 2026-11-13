@@ -26,7 +26,7 @@
  */
 import type { TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayShort, formatShortDate, toIsoLocal } from '@/lib/dates';
-import { ageText, breakAhead, deadlinePassed, programStatus } from '@/lib/programs';
+import { ageKeys, ageText, breakAhead, deadlinePassed, factParts, programStatus } from '@/lib/programs';
 import { PROGRAM_ACCESS_LABELS, PROGRAM_KIND_LABELS } from '@/content/schemas';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, upcoming } from '@/lib/events';
@@ -78,7 +78,15 @@ const facts: Array<[string, string | undefined]> = [
   ['Bring', data.equipment],
   ['Access', data.access !== 'public' ? PROGRAM_ACCESS_LABELS[data.access] : undefined],
 ];
-const shown = facts.filter((f): f is [string, string] => !!f[1]);
+/**
+ * Who and Cost stay in view on every screen, above the fold-out (the audit
+ * of 13 November 2026: on a phone they were inside "Who, when and cost",
+ * closed); the rest of the facts fold out. A fact that answers for more
+ * than one program is shown part by part (factParts).
+ */
+const KEY_FACTS = ['Who', 'Cost'];
+const key = facts.filter((f): f is [string, string] => !!f[1] && KEY_FACTS.includes(f[0]));
+const shown = facts.filter((f): f is [string, string] => !!f[1] && !KEY_FACTS.includes(f[0]));
 const reg = data.registration;
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
 const canRegister = !['closed', 'full', 'ended'].includes(status?.state ?? '');
@@ -87,7 +95,7 @@ const canRegister = !['closed', 'full', 'ended'].includes(status?.state ?? '');
 const opened = !!data.registration?.opens && dayKey(data.registration.opens) <= dayKey(now);
 const track = data.kind === 'league' || data.kind === 'class' || data.kind === 'program' ? 'registration' : 'participation';
 ---
-<article id={`program-${program.slug}`} data-status={status?.state} class="min-w-0 scroll-mt-20 border-t border-line-soft py-5 first:border-t-0 md:py-6 [overflow-wrap:anywhere]">
+<article id={`program-${program.slug}`} data-status={status?.state} data-ages={ageKeys(data.audience).join(' ')} class="min-w-0 scroll-mt-20 border-t border-line-soft py-5 first:border-t-0 md:py-6 [overflow-wrap:anywhere]">
   {showKind && (
     <p class="eyebrow text-ink-muted">{PROGRAM_KIND_LABELS[data.kind]} · {data.organizer}</p>
   )}
@@ -104,8 +112,26 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     <p class="mt-2 rounded-md bg-highlight-soft px-3 py-1.5 text-[0.9375rem] ring-1 ring-highlight">{pause}</p>
   )}
   <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
+  {key.length > 0 && (
+    <dl class="mt-3 grid gap-x-6 gap-y-1 text-[0.9375rem] leading-snug sm:grid-cols-[6rem_1fr] sm:gap-y-2.5" data-key-facts>
+      {key.map(([k, v]) => {
+        const parts = factParts(v);
+        return (
+          <Fragment>
+            <dt class:list={[label, 'sm:pt-0.5']}>{k}</dt>
+            <dd class:list={['mb-3 last:mb-0 sm:mb-0', v === NOT_STATED && 'text-ink-muted']}>
+              {parts.length > 1 ? (
+                <ul class="space-y-1">{parts.map((p) => <li><span class="font-semibold text-title">{p.label}:</span> {p.text}</li>)}</ul>
+              ) : v}
+            </dd>
+          </Fragment>
+        );
+      })}
+    </dl>
+  )}
+  {shown.length > 0 || reg?.how || reg?.note || data.volunteerNeed ? (
   <details class="program-more group/more mt-3" data-program-more>
-  <summary class="-my-1 inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-[0.9375rem] font-semibold text-primary underline decoration-primary-line underline-offset-4 [&::-webkit-details-marker]:hidden list-none"><span class="group-open/more:hidden">Who, when and cost</span><span class="hidden group-open/more:inline">Hide the details</span></summary>
+  <summary class="-my-1 inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-[0.9375rem] font-semibold text-primary underline decoration-primary-line underline-offset-4 [&::-webkit-details-marker]:hidden list-none"><span class="group-open/more:hidden">When, where and how to sign up</span><span class="hidden group-open/more:inline">Hide the details</span></summary>
   {shown.length > 0 && (
     <dl class="mt-4 grid gap-x-6 gap-y-1 text-[0.9375rem] leading-snug sm:grid-cols-[6rem_1fr] sm:gap-y-2.5">
       {shown.map(([k, v]) => (
@@ -114,7 +140,11 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
           {/* The days and hours in the When line in bold, what a parent
               scans the row for (src/lib/when-marks.ts; the owner, 9
               November 2026). */}
-          <dd class:list={['mb-3 last:mb-0 sm:mb-0', v === NOT_STATED && 'text-ink-muted']}>{k === 'When' ? whenMarks(v).map((s) => (s.mark ? <strong class="font-semibold text-title">{s.text}</strong> : s.text)) : v}</dd>
+          <dd class:list={['mb-3 last:mb-0 sm:mb-0', v === NOT_STATED && 'text-ink-muted']}>
+            {factParts(v).length > 1 ? (
+              <ul class="space-y-1">{factParts(v).map((p) => <li><span class="font-semibold text-title">{p.label}:</span> {k === 'When' ? whenMarks(p.text).map((s) => (s.mark ? <strong class="font-semibold text-title">{s.text}</strong> : s.text)) : p.text}</li>)}</ul>
+            ) : k === 'When' ? whenMarks(v).map((s) => (s.mark ? <strong class="font-semibold text-title">{s.text}</strong> : s.text)) : v}
+          </dd>
         </Fragment>
       ))}
     </dl>
@@ -127,6 +157,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
   )}
   {data.volunteerNeed && <p class="mt-4 text-[0.9375rem]"><span class={label}>Volunteer need</span> <span class="block">{data.volunteerNeed}</span></p>}
   </details>
+  ) : null}
   <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
     {reg && (
       <li class:list={[passed && 'text-ink-muted']}>

@@ -6,7 +6,7 @@
       "detail": "Free county buses between the towns and resorts of Summit County",
       "url": "https://www.summitcountyco.gov/services/transit_summit_stage/index.php",
       "source": "https://www.summitcountyco.gov/services/transit_summit_stage/about.php",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -15,7 +15,7 @@
         "year": 1882,
         "text": "The Denver & Rio Grande railroad arrived.",
         "source": "https://summithistorical.org/colorado-150/april/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1883,
@@ -27,7 +27,7 @@
         "year": 1883,
         "text": "Dillon was incorporated on January 26.",
         "source": "https://summithistorical.org/colorado-150/april/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "year": 1956,
@@ -39,7 +39,7 @@
         "year": 1961,
         "text": "Residents had relocated and the old townsite was cleared by April 1 for the Dillon Reservoir.",
         "source": "https://summithistorical.org/colorado-150/april/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ],
     "sites": [
@@ -56,14 +56,14 @@
         "kind": "landmark",
         "url": "https://summithistorical.org/sites-collections/",
         "source": "https://summithistorical.org/sites-collections/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       },
       {
         "name": "Honeymoon Cabin",
         "kind": "landmark",
         "url": "https://summithistorical.org/sites-collections/",
         "source": "https://summithistorical.org/sites-collections/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -71,7 +71,7 @@
     "incorporated": {
       "year": 1883,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

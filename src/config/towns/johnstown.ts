@@ -39,7 +39,7 @@ export const johnstown: TownConfig = {
   },
   // The line under each Find your next stop tile (TownConfig.nextStop), from what
   // the three pages list, 9 November 2026.
-  nextStop: { eatDrink: 'Restaurants, coffee, shops', thingsToDo: 'Parks, Old Town, a dinner theater', living: 'Utilities, schools, who to call' },
+  nextStop: { eatDrink: 'Restaurants and coffee', thingsToDo: 'Parks, Old Town, a dinner theater', living: 'Utilities, schools, who to call' },
   hero: {
     // The Charlotte Street sidewalk in Old Town, in place of the Brush Barn
     // a mile out of town (the reader pass, 1 November 2026: the barn said

@@ -108,3 +108,31 @@ export function networkChanges<T extends UpdateLike & { town: { slug: string } }
   }
   return out;
 }
+
+/** How many days a change counts as new, and how far ahead a start counts as timely (the audit of 13 November 2026). */
+export const NEW_DAYS = 7;
+export const TIMELY_DAYS = 14;
+
+const dayNumber = (key: string) => Date.UTC(Number(key.slice(0, 4)), Number(key.slice(5, 7)) - 1, Number(key.slice(8, 10))) / 86_400_000;
+const daysFrom = (from: Date, to: Date) => dayNumber(dayKey(to)) - dayNumber(dayKey(from));
+
+/** Published within the last week, in Denver days: "New" on a guide's updates list. */
+export function isNew(u: UpdateLike, now = new Date()): boolean {
+  const age = daysFrom(u.data.published, now);
+  return age >= 0 && age < NEW_DAYS;
+}
+
+/**
+ * Whether a current change belongs high on a guide's home page now, rather
+ * than in Worth knowing at its foot: the editor featured it, it starts
+ * within the fortnight, or it is under way and was published within the
+ * fortnight. Routine notices that have run for weeks stay below.
+ */
+export function isTimely(u: UpdateLike, now = new Date()): boolean {
+  if (!isCurrent(u, now)) return false;
+  if (u.data.featured) return true;
+  const when = timing(u, now);
+  if (when === 'ahead') return daysFrom(now, u.data.effective) <= TIMELY_DAYS;
+  if (when === 'now') return daysFrom(u.data.published, now) <= TIMELY_DAYS;
+  return false;
+}

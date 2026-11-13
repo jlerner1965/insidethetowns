@@ -223,3 +223,20 @@ test('the days of a schedule, without the hours', () => {
   assert.equal(scheduleDays('Weekday mornings'), undefined, 'no day named');
   assert.equal(scheduleDays(undefined), undefined);
 });
+
+test('a fact holding two programs’ answers splits into labelled parts; a plain fact does not (audit, 13 November 2026)', async () => {
+  const { factParts } = await import('../src/lib/programs.ts');
+  assert.deepEqual(factParts('Museum: all ages, free 11 and under; card contest: K–5th grade (ages 5–10) and 6th–8th grade (ages 11–15)'), [
+    { label: 'Museum', text: 'all ages, free 11 and under' },
+    { label: 'Card contest', text: 'K–5th grade (ages 5–10) and 6th–8th grade (ages 11–15)' },
+  ]);
+  assert.deepEqual(factParts('Tue and Thu; 4 to 5 pm'), [{ text: 'Tue and Thu; 4 to 5 pm' }]);
+  assert.deepEqual(factParts('Ages 5 to 12'), [{ text: 'Ages 5 to 12' }]);
+});
+
+test('a program’s age keys: its groups, or "all" when it is for families or everyone', async () => {
+  const { ageKeys } = await import('../src/lib/programs.ts');
+  assert.deepEqual(ageKeys(['elementary', 'teens']), ['elementary', 'teens']);
+  assert.deepEqual(ageKeys(['babies', 'preschool', 'families']), ['all']);
+  assert.deepEqual(ageKeys(['adults']), []);
+});

@@ -27,7 +27,7 @@ import { eventPage, homeOf, placeKey, publishedHubTowns, showings, type ShowingC
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonCounts, seasonRows, type TraditionType } from '@/lib/traditions';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, rowsByState, seasonCounts, seasonRows, type TraditionType } from '@/lib/traditions';
 import { googleCalendarUrl } from '@/lib/ics';
 import { traditionCalendarEvent } from '@/lib/tradition-calendar';
 
@@ -100,19 +100,23 @@ const structured = [
 const subject = `[Correction] ${info.plural}, ${when}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 /**
- * The page in three groups (the reviews of 12 November 2026): the dates
- * still to come, soonest first; the ones not announced yet; and the ones
- * already past this season. A canceled row sits with the dates to come
- * while its day is ahead, where the reader who planned on it will look.
+ * The page in four groups, one state each (src/lib/traditions.ts,
+ * rowState): the dates still to come, soonest first; the ones not
+ * announced yet; the ones canceled this season; and the ones already held.
+ * A canceled row is never with the dates to come or the ones awaiting a
+ * date (the audit of 13 November 2026: Wellington's canceled parade sat
+ * under "Not announced yet"); it has a group of its own, with its pill.
  */
 const byDate = (a: (typeof rows)[number], b: (typeof rows)[number]) =>
   (a.entry.date ?? '9999').localeCompare(b.entry.date ?? '9999') || (a.record.town?.name ?? '').localeCompare(b.record.town?.name ?? '') || a.record.name.localeCompare(b.record.name);
-const ahead = (r: (typeof rows)[number]) => isUpcoming(r) || (r.entry.status === 'canceled' && !!r.entry.date && r.entry.date >= today);
-const upcoming = rows.filter(ahead).sort(byDate);
+const byTown = (a: (typeof rows)[number], b: (typeof rows)[number]) => (a.record.town?.name ?? a.record.name).localeCompare(b.record.town?.name ?? b.record.name) || a.record.name.localeCompare(b.record.name);
+const states = rowsByState(rows);
+const upcoming = states.upcoming.sort(byDate);
 // A free-admission day that has passed drops off the page (the brief of 12 November 2026).
-const gone = rows.filter((r) => r.past).sort((a, b) => byDate(b, a));
-const waiting = rows.filter((r) => !ahead(r) && !r.past);
-const shown = upcoming.length + waiting.length + gone.length;
+const gone = states.past.sort((a, b) => byDate(b, a));
+const waiting = states.waiting;
+const canceled = states.canceled.sort(byTown);
+const shown = upcoming.length + waiting.length + canceled.length + gone.length;
 /** "Add to calendar" for a date still ahead: the entry's file on this site, and the same entry as a Google link. */
 const calendarFor = (row: (typeof rows)[number]) => {
   const event = traditionCalendarEvent(row, { domain: hub.domain, pageUrl });
@@ -124,7 +128,7 @@ const sortButton =
 const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary aria-[current=page]:border-primary aria-[current=page]:bg-primary aria-[current=page]:text-white';
 ---
-<Page title={title} {seoTitle} eyebrow={`Colorado · ${when}`} {description} jsonLd={structured}>
+<Page title={title} {seoTitle} eyebrow={`Colorado · ${when}`} {description} jsonLd={structured} kind="Seasonal dates">
   {/* The count line, with the number of dates still to come in a span the
       page corrects for the reader's own day (DateCorrection). */}
   <p slot="after-header" class="mt-3 max-w-2xl text-[1.0625rem] leading-relaxed text-ink-muted md:text-lg" data-count-line>
@@ -180,6 +184,16 @@ const pill =
       <h2 id="waiting-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">Not announced yet</h2>
       <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
         {waiting.map((row) => <TraditionRow {...rowProps(row)} />)}
+      </div>
+    </section>
+  )}
+
+  {canceled.length > 0 && (
+    <section aria-labelledby="canceled-heading" class="mb-12" data-season-group="canceled">
+      <h2 id="canceled-heading" class="mb-2 border-b border-line-soft pb-3 text-2xl font-medium">{dated ? 'Canceled this season' : 'Canceled'}</h2>
+      <p class="mb-6 text-[0.9375rem] text-ink-muted">Called off, as the organizer’s own page says.</p>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
+        {canceled.map((row) => <TraditionRow {...rowProps(row)} />)}
       </div>
     </section>
   )}

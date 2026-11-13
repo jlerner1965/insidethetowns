@@ -39,6 +39,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { allTowns } from '../src/config/index.ts';
+import { dayKey } from '../src/lib/dates.ts';
 
 const run = promisify(execFile);
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -292,7 +293,8 @@ writeFileSync(
         ? `OpenStreetMap contributors, ODbL (streets, buildings, parks, water and the pins marked osm; extract as edited to ${osm.newest}); U.S. Census geocoder, public domain (the pins marked geocoder)`
         : 'U.S. Census Bureau: TIGERweb (roads and railroads) and the Census geocoder (addresses); public domain',
       credit: osm ? 'osm' : 'census',
-      read: new Date().toISOString().slice(0, 10),
+      // Colorado's day, not UTC's (audit, 13 November 2026).
+      read: dayKey(new Date()),
       // What the town calls a road the Census names by its number; kept by hand, and kept across runs.
       aliases: before.aliases ?? {},
       // Pins corrected by hand, with the reason in docs or the commit; these win over the geocoder on every run.

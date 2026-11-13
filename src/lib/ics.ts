@@ -21,6 +21,24 @@ export type IcsEvent = {
   cancelled?: boolean;
 };
 
+/**
+ * What a timed entry with no published end says (the audit of 13 November
+ * 2026). The .ics leaves DTEND out, which RFC 5545 reads as an entry of
+ * no length at its start: valid, and nothing invented. Google's template
+ * needs an end, and an end equal to the start (what it was given until
+ * then) made an entry of no length that it does not handle well, so a
+ * Google link takes one hour as a placeholder and says so in the details.
+ */
+export const NO_END_NOTE = 'The organizer has not published an end time.';
+export const GOOGLE_PLACEHOLDER_NOTE = 'The organizer has not published an end time; this calendar entry is one hour long as a placeholder.';
+const HOUR = 3_600_000;
+
+/** A description with the no-end note first, for a timed entry that has no end. */
+function withNoEndNote(e: Pick<IcsEvent, 'allDay' | 'end' | 'description'>, note: string): string | undefined {
+  if (e.allDay || e.end) return e.description;
+  return [note, e.description].filter(Boolean).join('\n');
+}
+
 function pad(n: number): string {
   return String(n).padStart(2, '0');
 }
@@ -127,7 +145,8 @@ export function buildIcs(
     lines.push(`SUMMARY:${escapeText(e.title)}`);
     if (e.cancelled) lines.push('STATUS:CANCELLED');
     if (e.location) lines.push(`LOCATION:${escapeText(e.location)}`);
-    if (e.description) lines.push(`DESCRIPTION:${escapeText(e.description)}`);
+    const description = withNoEndNote(e, NO_END_NOTE);
+    if (description) lines.push(`DESCRIPTION:${escapeText(description)}`);
     if (e.url) lines.push(`URL:${e.url}`);
     lines.push('END:VEVENT');
   }
@@ -156,18 +175,19 @@ export function occurrenceUid(slug: string, data: { start: Date; performances?: 
  * Google's template URL takes the same fields the .ics carries, as Denver
  * wall-clock times with `ctz` naming the zone.
  *
- * Google's template wants an end. A listing with none goes with its start
- * as its end: an entry of no length, at the right time, rather than an hour
- * we made up, which put a guessed end in the reader's calendar that the .ics
- * and the page did not have.
+ * Google's template wants an end. A timed listing with none takes one
+ * hour as a placeholder, and the details say first that the organizer
+ * published no end (NO_END_NOTE above): until 13 November 2026 the end was
+ * the start, an entry of no length, which the audit found Google showing
+ * with identical start and end times. A cancelled entry gets no link.
  */
 export function googleCalendarUrl(e: Omit<IcsEvent, 'uid'>): string {
   const dates = e.allDay
     ? `${icsDate(e.start)}/${icsDate(addDays(startOfDay(e.end ?? e.start), 1))}`
-    : `${icsLocal(e.start)}/${icsLocal(e.end ?? e.start)}`;
+    : `${icsLocal(e.start)}/${icsLocal(e.end ?? new Date(e.start.getTime() + HOUR))}`;
   const params = new URLSearchParams({ action: 'TEMPLATE', text: e.title, dates, ctz: TIME_ZONE });
   if (e.location) params.set('location', e.location);
-  const details = [e.description, e.url].filter(Boolean).join('\n');
+  const details = [withNoEndNote(e, GOOGLE_PLACEHOLDER_NOTE), e.url].filter(Boolean).join('\n');
   if (details) params.set('details', details);
   return `https://calendar.google.com/calendar/render?${params}`;
 }

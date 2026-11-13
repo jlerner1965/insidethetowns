@@ -14,76 +14,76 @@ reverify:
 sources:
   - label: "Sundance Film Festival: tickets and dates"
     url: "https://festival.sundance.org/tickets/in-person"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Sundance Film Festival: key dates"
     url: "https://festival.sundance.org/how-to-fest/welcome"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Sundance Film Festival: venues"
     url: "https://festival.sundance.org/venues/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Sundance Film Festival: attending in person (buses, parking, lodging)"
     url: "https://festival.sundance.org/how-to-fest/attend-in-person"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: service for the Sundance Film Festival"
     url: "https://www.rtd-denver.com/sundance"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: fares"
     url: "https://www.rtd-denver.com/fares-passes/fares"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: parking at Park-n-Rides"
     url: "https://www.rtd-denver.com/how-to-ride/parking"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: Downtown Boulder Station"
     url: "https://app.rtd-denver.com/facilities/downtown-boulder-station"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: 8th and Coffman Park-n-Ride, Longmont"
     url: "https://app.rtd-denver.com/facilities/8th-coffman"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: Lafayette Park-n-Ride"
     url: "https://app.rtd-denver.com/facilities/lafayette"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "RTD: Nederland Park-n-Ride"
     url: "https://app.rtd-denver.com/facilities/nederland"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "City of Boulder: getting around during the festival"
     url: "https://bouldercolorado.gov/getting-around-boulder-sundance-film-festival"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "City of Boulder: 2027 Sundance Film Festival guide"
     url: "https://bouldercolorado.gov/guide/2027-sundance-film-festival"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Boulder County: Sundance Film Festival resources for unincorporated Boulder County"
     url: "https://bouldercounty.gov/departments/community-planning-permitting/sundance-film-festival/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Boulder County: Lyons Flyer"
     url: "https://bouldercounty.gov/transportation/multimodal/lyons-flyer/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Boulder County: Ride SouthEast"
     url: "https://bouldercounty.gov/transportation/multimodal/ride-southeast/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Boulder County: Ride Free Lafayette"
     url: "https://bouldercounty.gov/transportation/multimodal/ride-free-lafayette/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Town of Erie: transit services"
     url: "https://www.erieco.gov/2513/Transit-Services"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "City of Lafayette: 2027 Sundance Film Festival"
     url: "https://www.lafayetteco.gov/4365/2027-Sundance-Film-Festival"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "City of Longmont: bus and transit services"
     url: "https://longmontcolorado.gov/transportation/modes-of-travel/bus-transit-services/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "Transfort: FLEX"
     url: "https://ridetransfort.com/routes/flex/"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "CDOT: CO 119 Safety, Mobility and Bikeway project"
     url: "https://www.codot.gov/projects/co119mobility"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "CDOT: CO 7 intersection improvements in Lafayette"
     url: "https://www.codot.gov/projects/co7intersectionlafayette"
-    checked: 2026-11-13
+    checked: 2026-11-12
   - label: "CDOT: travel and road conditions"
     url: "https://www.codot.gov/travel"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---
 
 The Sundance Film Festival's first year in Boulder runs Thursday, January 21, to Sunday, January 31, 2027. [The festival says](https://festival.sundance.org/how-to-fest/attend-in-person) there is no public parking at its Boulder venues, and both it and [the City of Boulder](https://bouldercolorado.gov/getting-around-boulder-sundance-film-festival) ask anyone coming from outside the city to park once at a Park-n-Ride and ride in. That makes the towns around Boulder a workable base, if you know which bus runs, how late, and on which days. This is that, town by town.

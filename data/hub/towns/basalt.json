@@ -13,14 +13,14 @@
       "detail": "Free on-demand rides every day in downtown Basalt, Willits and nearby neighborhoods; 7 am to 10 am and 3 pm to 10 pm, and 7 am to 10 pm in June, July and August",
       "url": "https://www.basalt.net/basaltconnect",
       "source": "https://www.basalt.net/basaltconnect",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "Roaring Fork Transportation Authority (RFTA)",
       "detail": "The Roaring Fork Valley Local and VelociRFTA BRT routes run year-round between Glenwood Springs and Aspen and list Basalt among their fare zones",
       "url": "https://www.rfta.com/routes/",
       "source": "https://www.rfta.com/routes/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "lodging": [
@@ -98,7 +98,7 @@
         "url": "https://aspenhistory.org/blog/map_pin/arbaney-barn-and-charcoal-kilns",
         "hours": "The barn and kilns can be viewed from the exterior only",
         "source": "https://aspenhistory.org/blog/map_pin/arbaney-barn-and-charcoal-kilns",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   }

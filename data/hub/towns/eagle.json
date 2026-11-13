@@ -15,14 +15,14 @@
       "kind": "Hotel",
       "url": "https://www.wyndhamhotels.com/wingate/eagle-colorado/wingate-eagle-vail-valley/overview",
       "source": "https://www.wyndhamhotels.com/wingate/eagle-colorado/wingate-eagle-vail-valley/overview",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     },
     {
       "name": "GreenTree Extended Stay Eagle/Vail Valley",
       "kind": "Extended-stay hotel",
       "url": "https://greentreeinn.com/destinations/eagle-vail-valley/",
       "source": "https://greentreeinn.com/destinations/eagle-vail-valley/",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   ],
   "heritage": {
@@ -66,7 +66,7 @@
         "hours": "Daily 10 am-3 pm during the summer season",
         "season": "Summer; closed for the season, reopens Memorial Day weekend 2027",
         "source": "https://eaglecountyhistoricalsociety.com/museum/",
-        "checked": "2026-11-13"
+        "checked": "2026-11-12"
       }
     ]
   },
@@ -74,7 +74,7 @@
     "incorporated": {
       "year": 1905,
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
-      "checked": "2026-11-13"
+      "checked": "2026-11-12"
     }
   }
 }

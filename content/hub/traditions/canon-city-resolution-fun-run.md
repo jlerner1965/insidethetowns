@@ -14,5 +14,5 @@ years:
     startTime: "9:30"
     place: "Pueblo Community College Fremont Campus"
     cost: "$15 early bird; $20 from November 27; $25 race day; under 18 $5"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

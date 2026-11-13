@@ -52,7 +52,7 @@ import { schoolAthletics, schoolsFor, sportsPath } from '@/config/school-sports'
 import { familyGlance } from '@/lib/family-home';
 import { forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
 import { dayKey, formatDayRange, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
-import { SOON_DAYS, byActionable, byTopic, familySection, freePrograms, isDropIn, isEnded, isForFamilies, isStorytimeProgram, programStatus, scheduleDays, splitDeadlines } from '@/lib/programs';
+import { AGE_FILTERS, SOON_DAYS, ageKeys, byActionable, byTopic, familySection, freePrograms, isDropIn, isEnded, isForFamilies, isStorytimeProgram, programStatus, scheduleDays, splitDeadlines } from '@/lib/programs';
 import { PROGRAM_TOPIC_LABELS, type ProgramTopic } from '@/content/schemas';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
@@ -143,6 +143,12 @@ const structured = [
 // A pill in the bar on a phone and a tablet; a plain line in the side column from lg.
 const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[0.9375rem] font-semibold no-underline ring-1 ring-line transition-colors hover:bg-raised lg:min-h-0 lg:w-full lg:rounded-none lg:px-0 lg:py-1.5 lg:font-medium lg:text-ink lg:ring-0 lg:hover:bg-transparent lg:hover:text-primary lg:hover:underline';
 const card = 'flex h-full flex-col rounded-lg bg-raised p-4 no-underline ring-1 ring-line-soft hover:ring-primary-line';
+/**
+ * The age filter (the audit of 13 November 2026), from the programs'
+ * audiences: a button for each group present, where there are two or
+ * more. A program for families or for everyone shows under every age.
+ */
+const ageFilters = AGE_FILTERS.filter((f) => programs.some((p) => ageKeys(p.data.audience).includes(f.key)));
 /** "Drop in", "Sign up", or nothing where the organizer's page did not say. */
 const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in' : isDropIn(p) === false ? 'Sign up' : undefined);
 ---
@@ -209,8 +215,21 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
     </section>
   )}
 
+  {ageFilters.length > 1 && (
+    <div data-age-filter hidden class="mt-8 filter-row" role="group" aria-label="Show programs for one age group">
+      <span class="eyebrow text-ink-muted">Ages</span>
+      <div class="filter-pills">
+        <button type="button" data-age="" aria-pressed="true" class="min-h-11 rounded-full border border-primary-line bg-raised px-4 py-2 text-sm font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white sm:min-h-0 sm:py-1.5">All ages</button>
+        {ageFilters.map((f) => (
+          <button type="button" data-age={f.key} aria-pressed="false" class="min-h-11 rounded-full border border-primary-line bg-raised px-4 py-2 text-sm font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white sm:min-h-0 sm:py-1.5">{f.label}</button>
+        ))}
+      </div>
+      <p class="sr-only" role="status" data-age-status></p>
+    </div>
+  )}
+
   {closingSoon.length > 0 && (
-    <section id="closing" class="mt-10 scroll-mt-20" aria-labelledby="closing-h">
+    <section id="closing" class="mt-10 scroll-mt-20" aria-labelledby="closing-h" data-age-section>
       <SectionHeader id="closing-h" title="Closing soon" eyebrow={`Deadlines in the next ${SOON_DAYS} days`} />
       <div class="space-y-4">
         {closingSoon.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} />)}
@@ -219,22 +238,13 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
   )}
 
   {openingSoon.length > 0 && (
-    <section id="opening" class="mt-10 scroll-mt-20" aria-labelledby="opening-h">
+    <section id="opening" class="mt-10 scroll-mt-20" aria-labelledby="opening-h" data-age-section>
       <SectionHeader id="opening-h" title="Opening soon" eyebrow={`Registration opens in the next ${SOON_DAYS} days`} />
       <div class="space-y-4">
         {openingSoon.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} />)}
       </div>
     </section>
   )}
-
-  {/* The Thursday email, once, after the deadlines and before the long
-      part of the page, in the home page's short form, the town pre-ticked
-      and no town picker (the owner's brief, 6 November 2026: the signup sat
-      at the foot of a page few reach the foot of). The full form at the
-      foot went on 8 November 2026: two forms on one page. */}
-  <div class="mt-10">
-    <NewsletterSignup town={town} id="families-mid" variant="home" />
-  </div>
 
   {/* The school days off, where the chips put them: after the deadlines,
       before the subjects (the Johnstown audit, 26 October 2026, and the
@@ -261,7 +271,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
                 link says what it is: the family listings, not an answer
                 to what is open that week. */}
             {b.open ? (
-              <a href={`#program-${b.open.program.slug}`} class="inline-flex min-h-11 shrink-0 items-center rounded-full bg-accent-soft px-3 py-2 text-[0.875rem] font-semibold text-ink no-underline ring-1 ring-primary-line hover:bg-raised">{b.open.note}</a>
+              <a href={`#program-${b.open.program.slug}`} class="inline-flex min-h-11 max-w-full items-center rounded-full bg-accent-soft px-3 py-2 text-[0.875rem] font-semibold text-ink no-underline ring-1 ring-primary-line hover:bg-raised">{b.open.note}</a>
             ) : listsEvents(town) ? (
               <a href="/events/?category=family" class="inline-block -my-3 shrink-0 py-3 text-[0.875rem] font-semibold text-primary underline">Browse family events →</a>
             ) : null}
@@ -271,12 +281,22 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
     </section>
   )}
 
+  {/* The Thursday email, once, after the deadlines and the school days off
+      (moved below the days off in the audit of 13 November 2026: the
+      urgent answers first) and before the long part of the page, in the home page's short form, the town pre-ticked
+      and no town picker (the owner's brief, 6 November 2026: the signup sat
+      at the foot of a page few reach the foot of). The full form at the
+      foot went on 8 November 2026: two forms on one page. */}
+  <div class="mt-10">
+    <NewsletterSignup town={town} id="families-mid" variant="home" />
+  </div>
+
   {groups.map(({ topic, programs: list }) => {
     const full = list.filter((p) => !isStorytimeProgram(p) && !isClosed(p));
     const stories = list.filter(isStorytimeProgram);
     const closed = list.filter((p) => !isStorytimeProgram(p) && isClosed(p));
     return (
-    <section id={`topic-${topic}`} class="mt-12 scroll-mt-20" aria-labelledby={`topic-${topic}-h`}>
+    <section id={`topic-${topic}`} class="mt-12 scroll-mt-20" aria-labelledby={`topic-${topic}-h`} data-age-section>
       <SectionHeader id={`topic-${topic}-h`} title={TOPIC_HEADING[topic] ?? PROGRAM_TOPIC_LABELS[topic]} />
       {full.length > 0 && (
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
@@ -288,7 +308,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       {stories.length > 0 && (
         <ul class:list={['divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7', full.length > 0 && 'mt-3']}>
           {stories.map((p) => (
-            <li id={`program-${p.slug}`} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
+            <li id={`program-${p.slug}`} data-ages={ageKeys(p.data.audience).join(' ')} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
               <span class="font-semibold text-title">{p.data.title}</span>
               <span class="block text-ink-muted">
                 {[p.data.organizer, storytimeLine(p)].filter(Boolean).join(' · ')}
@@ -305,7 +325,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
           <p class="eyebrow pt-3.5 text-ink-muted">Sign-ups closed</p>
           <ul class="divide-y divide-line-soft">
             {closed.map((p) => (
-              <li id={`program-${p.slug}`} data-status="closed" class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
+              <li id={`program-${p.slug}`} data-status="closed" data-ages={ageKeys(p.data.audience).join(' ')} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
                 {p.data.url ? <a href={p.data.url} rel="noopener" class="font-semibold text-primary underline">{p.data.title}</a> : <span class="font-semibold text-title">{p.data.title}</span>}
                 <span class="block text-ink-muted">{[p.data.organizer, programStatus(p, now)?.detail, p.data.contact && `ask ${p.data.contact} about the next session`].filter(Boolean).join(' · ')}</span>
               </li>
@@ -362,7 +382,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
   )}
 
   {organizations.length > 0 && (
-    <section id="organizations" class="mt-12 scroll-mt-20" aria-labelledby="organizations-h">
+    <section id="organizations" class="mt-12 scroll-mt-20" aria-labelledby="organizations-h" data-age-section>
       <SectionHeader id="organizations-h" title="Organizations a family can join" />
       <p class="-mt-4 mb-4 text-[0.9375rem] text-ink-muted">Memberships and their prices are the organization's; what a membership includes is on its row.</p>
       <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
@@ -377,7 +397,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       <p class="-mt-4 mb-4 text-[0.9375rem] text-ink-muted">What costs nothing to take part in, by the organizer's pages. "Drop in" means no sign-up; the rest take one, or the page did not say.</p>
       <ul class="grid grid-cols-2 gap-3">
         {free.map((p) => (
-          <li>
+          <li data-ages={ageKeys(p.data.audience).join(' ')}>
             <a href={`#program-${p.slug}`} class={card}>
               <span class="font-semibold leading-snug text-title">{p.data.title}</span>
               <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">{[howIn(p), isStorytimeProgram(p) ? scheduleDays(p.data.schedule) : p.data.schedule].filter(Boolean).join(' · ')}</span>
@@ -423,11 +443,11 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
   )}
 
   {ended.length > 0 && (
-    <section id="ended" class="mt-12 scroll-mt-20" aria-labelledby="ended-h">
+    <section id="ended" class="mt-12 scroll-mt-20" aria-labelledby="ended-h" data-age-section>
       <SectionHeader id="ended-h" title="Ended for now" eyebrow="The season is over; the next is not posted yet" />
       <ul class="divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {ended.map((p) => (
-          <li id={`program-${p.slug}`} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
+          <li id={`program-${p.slug}`} data-ages={ageKeys(p.data.audience).join(' ')} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
             {p.data.url ? <a href={p.data.url} rel="noopener" class="font-semibold text-primary underline">{p.data.title}</a> : <span class="font-semibold text-title">{p.data.title}</span>}
             <span class="block text-ink-muted">{[p.data.organizer, programStatus(p, now)?.detail].filter(Boolean).join(' · ')}</span>
           </li>
@@ -450,4 +470,37 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
 
   // The edge fades on the chip row while it scrolls sideways.
   initScrollRows();
+</script>
+
+<script>
+  /*
+   * The age filter (the audit of 13 November 2026): shows the rows for one
+   * age group, and those for families or everyone, and hides a section
+   * left with none. Hidden until this runs, so without the script the page
+   * is the whole list.
+   */
+  const bar = document.querySelector<HTMLElement>('[data-age-filter]');
+  if (bar) {
+    bar.hidden = false;
+    const buttons = [...bar.querySelectorAll<HTMLButtonElement>('[data-age]')];
+    const status = bar.querySelector<HTMLElement>('[data-age-status]');
+    const rows = [...document.querySelectorAll<HTMLElement>('[data-ages]')];
+    const sections = [...document.querySelectorAll<HTMLElement>('[data-age-section]')];
+    const apply = (age: string) => {
+      for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.age === age));
+      let shown = 0;
+      for (const row of rows) {
+        const ages = (row.dataset.ages ?? '').split(' ');
+        row.hidden = !!age && !ages.includes('all') && !ages.includes(age);
+        if (!row.hidden) shown++;
+      }
+      for (const section of sections) {
+        const own = [...section.querySelectorAll<HTMLElement>('[data-ages]')];
+        section.hidden = own.length > 0 && own.every((r) => r.hidden);
+      }
+      const label = buttons.find((b) => b.dataset.age === age)?.textContent?.trim() ?? 'All ages';
+      if (status) status.textContent = age ? `${shown} for ${label.toLowerCase()} and for every age` : '';
+    };
+    for (const b of buttons) b.addEventListener('click', () => apply(b.dataset.age ?? ''));
+  }
 </script>

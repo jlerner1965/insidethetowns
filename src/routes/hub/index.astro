@@ -11,7 +11,7 @@
  *       content), and not drawn at all until one is (the fixes brief of 13
  *       November 2026: no "coming soon" cards). The sections after it are
  *       numbered from what is drawn, so without it the Feature is 02.
- *   03  Feature: one wide card for a single rotating feature; for now the
+ *   03  This season (it was "Feature" until the audit of 13 November 2026): one wide card for a single rotating feature; for now the
  *       tradition registry's season page, the first that is built.
  *
  * No photograph (the brief: no photos or illustrations): beside the hero
@@ -26,12 +26,17 @@
  */
 import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { getCuriosity, getTraditions } from '@/lib/content';
+import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
-import { guideTiles, searchSuggestions, seasonFeatureLine, sectionNumbers, townsConfirmed } from '@/lib/hub-home';
+import { guideTiles, pickDeadline, searchSuggestions, seasonFeatureLine, sectionNumbers, townsConfirmed } from '@/lib/hub-home';
 import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows } from '@/lib/traditions';
-import { dayKey, formatDayShort, parseLocal } from '@/lib/dates';
-import { getHub, liveTowns, type NavItem } from '@/config';
+import { dayKey, formatDayLong, formatDayRange, formatDayShort, formatTimeRange, parseLocal, toIsoLocal } from '@/lib/dates';
+import { forGeneralReaders, highlights, isMultiDay, lastDay, listedUntil, occurrences, oneOffs } from '@/lib/events';
+import { expiresOn, networkChanges } from '@/lib/updates';
+import { upcomingDeadlines } from '@/lib/programs';
+import { STANDALONE_GUIDES } from '@/config/hub-towns';
+import { coveredTowns } from '@/lib/town-search-index';
+import { getHub, liveTowns, type NavItem, type TownConfig } from '@/config';
 import { siteNav } from '@/lib/nav';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
 
@@ -86,8 +91,80 @@ const feature = (() => {
   };
 })();
 
+/**
+ * Now in the towns (the audit of 13 November 2026): one date coming up,
+ * one local change and one registration deadline, each from the guides'
+ * own published, checked listings and each only where there is one, so a
+ * quiet week shows two or one and never a filler. Chosen at the build,
+ * which runs every morning, and each carries its last day for the page's
+ * own script to drop once it has passed (Freshness.astro).
+ */
+const now = new Date();
+const eventEntries = await getNetworkEntries('events');
+const eventPool = forGeneralReaders(occurrences(eventEntries, { now, horizonDays: 21 }), eventEntries);
+// The best of the one-offs coming up, as a town's home page ranks them; never a regular, a canceled or an unconfirmed listing,
+// and not a run already under way ("coming up" is a start still ahead).
+const notStarted = eventPool.filter((e) => e.data.start.getTime() > now.getTime());
+const nextEvent = highlights(oneOffs(notStarted, eventPool), { now, limit: 1 })[0];
+const change = networkChanges(await getNetworkEntries('updates'), now, { limit: 1 })[0];
+const deadline = pickDeadline(upcomingDeadlines(await getNetworkEntries('programs'), { now, days: 30 }));
+const nowItems = [
+  nextEvent && {
+    key: 'event',
+    eyebrow: `Coming up · ${nextEvent.town.name}`,
+    title: nextEvent.data.title,
+    href: `https://${nextEvent.town.domain}/events/${nextEvent.slug}/`,
+    line: isMultiDay(nextEvent)
+      ? `${formatDayRange(nextEvent.data.start, nextEvent.data.end!)} · ${nextEvent.data.venue}`
+      : `${formatDayLong(nextEvent.data.start)}, ${nextEvent.data.timeNote ?? formatTimeRange(nextEvent.data.start, nextEvent.data.end, nextEvent.data.allDay)} · ${nextEvent.data.venue}`,
+    day: lastDay(nextEvent),
+    end: toIsoLocal(listedUntil(nextEvent)),
+  },
+  change && {
+    key: 'change',
+    eyebrow: `Local change · ${change.town.name}`,
+    title: change.data.title,
+    href: `https://${change.town.domain}/updates/#${change.slug}`,
+    line: change.data.summary,
+    day: dayKey(expiresOn(change)),
+  },
+  deadline && {
+    key: 'deadline',
+    eyebrow: `Registration · ${deadline.program.town.name}`,
+    title: deadline.program.data.title,
+    href: deadline.program.data.registration?.url ?? deadline.program.data.url ?? deadline.program.data.organizerUrl,
+    line: `Registration ${deadline.what} ${formatDayLong(deadline.on)}. ${deadline.program.data.organizer}.`,
+    day: dayKey(deadline.on),
+  },
+].filter((i) => !!i);
+
+/**
+ * The bands alternate white and paper whatever is drawn: the directory is
+ * white, Now in the towns paper, Guides the other of what comes before it,
+ * and This season white, closing up to the band above when that is white
+ * too, so two white bands do not stack their padding.
+ */
+const bands = (() => {
+  const guides = nowItems.length > 0 ? 'band-white' : 'band-paper';
+  const before = showGuides ? guides : nowItems.length > 0 ? 'band-paper' : 'band-white';
+  return { guides, featureClose: before === 'band-white' };
+})();
+
 /** The sections' numbers, counting only those drawn. */
-const numbers = sectionNumbers([['towns', true], ['guides', showGuides], ['feature', !!feature]] as const);
+const numbers = sectionNumbers([['towns', true], ['now', nowItems.length > 0], ['guides', showGuides], ['feature', !!feature]] as const);
+
+/**
+ * The other towns a guide covers, on its tile (the audit of 13 November
+ * 2026: "Carbon Valley" alone does not say Frederick, Firestone and
+ * Dacono). A guide named for a region lists its towns; one named for its
+ * own town adds the others ("With Severance").
+ */
+const coversLine = (t: TownConfig): string | undefined => {
+  const towns = STANDALONE_GUIDES[t.slug]?.towns;
+  if (towns?.length) return towns.join(', ');
+  const others = coveredTowns(t);
+  return others.length ? `With ${others.join(', ')}` : undefined;
+};
 
 /**
  * The masthead's links, to this page's sections and the weekend: Guides
@@ -108,7 +185,7 @@ const ridge = ridgeline('inside-the-towns', 'Front Range cities', 'peaks');
 
 // Under 155 characters with a two-digit count, so the snippet ends at its
 // full stop: the longer line was cut at "what it’s…" in every result.
-const description = `${live.length} independent guides to Colorado towns and ${pages.length} town pages of dates, on the Front Range and in the mountains: the week’s events, the traditions, and the outdoor dates.`;
+const description = `${live.length} independent community guides to Colorado towns, and the annual events and seasonal dates of ${pages.length} more, from the Front Range to the mountains.`;
 
 /**
  * The sections' two columns, title left and content right, from xl: the
@@ -134,10 +211,14 @@ const townName = 'font-heading text-xl font-semibold leading-tight sm:text-2xl m
       <h1 id="hero-h" class="display mt-4 max-w-3xl text-[2.5rem] sm:text-5xl xl:text-6xl">
         Independent guides to the towns worth knowing.
       </h1>
+      {/* What the site holds, in a reader's words (the audit of 13 November 2026). */}
+      <p class="mt-4 max-w-2xl text-[1.0625rem] leading-relaxed text-ink-muted md:text-lg">
+        Local changes, dates coming up and the practical details of each town, every one checked against the page it came from.
+      </p>
       {/* The site's search (src/pages/search.astro), which on the hub holds
           every guide's places, guides and events as well as the town pages;
           the names of the towns are offered as they are typed. */}
-      <form role="search" action="/search/" method="get" class="mt-7 max-w-xl" data-home-search>
+      <form role="search" action="/search/" method="get" class="mt-6 max-w-xl" data-home-search>
         <label for="home-q" class="eyebrow mb-2 block">Search towns and guides</label>
         <div class="flex gap-2 sm:gap-3">
           <input
@@ -177,8 +258,10 @@ const townName = 'font-heading text-xl font-semibold leading-tight sm:text-2xl m
       <div>
         <p class={numeral}>{numbers.towns}</p>
         <h2 id="towns-h" class="display-md mt-3 text-4xl md:text-5xl">Town directory</h2>
+        {/* What each destination offers, not how the network is built (the audit of 13 November 2026). */}
         <p class="mt-4 max-w-md text-[1.0625rem] leading-relaxed text-ink-muted">
-          A <strong class="font-semibold text-ink">guide</strong> is a whole site for one town, or a few neighboring ones: its week, its places, its schools, what it is like to live there. Every other town has a <strong class="font-semibold text-ink">town page</strong> here: the events it holds every year and the outdoor dates around it.
+          <strong class="font-semibold text-ink">Community guides</strong> cover a town’s week, its places and services, and what is changing.
+          For {pages.length} more Colorado towns, a page of <strong class="font-semibold text-ink">annual events and seasonal dates</strong>.
         </p>
       </div>
       {/* Two across on a phone, four from md: two rows of four, the seven
@@ -192,7 +275,10 @@ const townName = 'font-heading text-xl font-semibold leading-tight sm:text-2xl m
             <a href={`https://${t.domain}/`} class:list={[tile, 'border-l-4 bg-paper']} style={`border-color:${t.colors.accent}`}>
               <span class={county} style={`color:${t.colors.primary}`} title={t.counties.join(' · ')}>{t.counties.join(' · ')}</span>
               <span class="mt-4 flex flex-1 items-end justify-between gap-3">
-                <span class:list={[townName, 'text-ink group-hover:text-primary']}>{t.name}</span>
+                <span class="min-w-0">
+                  <span class:list={[townName, 'block text-ink group-hover:text-primary']}>{t.name}</span>
+                  {coversLine(t) && <span class="mt-1 block text-[0.8125rem] leading-snug text-ink-muted" data-covers>{coversLine(t)}</span>}
+                </span>
                 <span aria-hidden="true" class="shrink-0 text-lg leading-none" style={`color:${t.colors.primary}`}>→</span>
               </span>
             </a>
@@ -201,9 +287,9 @@ const townName = 'font-heading text-xl font-semibold leading-tight sm:text-2xl m
         {/* `town-pages`: where the guides' About pages send a reader for "a page on Inside the Towns". */}
         <li id="town-pages">
           <a href="/towns/" class:list={[tile, 'border-l-4 border-primary bg-primary text-white']}>
-            <span class:list={[county, 'text-white']}>A to Z</span>
+            <span class:list={[county, 'text-white']}>Annual dates</span>
             <span class="mt-4 flex flex-1 items-end justify-between gap-3">
-              <span class={townName}>{pages.length} town pages</span>
+              <span class={townName}>{pages.length} more towns, A to Z</span>
               <span aria-hidden="true" class="shrink-0 text-lg leading-none">→</span>
             </span>
           </a>
@@ -212,10 +298,36 @@ const townName = 'font-heading text-xl font-semibold leading-tight sm:text-2xl m
     </div>
   </section>
 
+  {/* Now in the towns: a date, a change and a deadline, from the guides. */}
+  {nowItems.length > 0 && (
+    <section id="now" class="band band-paper" aria-labelledby="now-h">
+      <div class:list={['container-page', split]}>
+        <div>
+          <p class={numeral}>{numbers.now}</p>
+          <h2 id="now-h" class="display-md mt-3 text-4xl md:text-5xl">Now in the towns</h2>
+          <p class="mt-4 max-w-md text-[1.0625rem] leading-relaxed text-ink-muted">
+            From the guides’ checked listings: {nowItems.map((i) => ({ event: 'a date coming up', change: 'a local change', deadline: 'a registration deadline' })[i.key]).join(nowItems.length === 2 ? ' and ' : ', ').replace(/, ([^,]*)$/, ', and $1')}. Each leaves this page once it has passed.
+          </p>
+        </div>
+        <ul class:list={['grid gap-3 sm:gap-4', nowItems.length > 1 && 'md:grid-cols-2', nowItems.length > 2 && 'lg:grid-cols-3']} data-now-items>
+          {nowItems.map((i) => (
+            <li data-event-day={i.day} data-end={'end' in i ? i.end : undefined} data-now={i.key}>
+              <a href={i.href} rel={/^https?:/.test(i.href ?? '') ? 'noopener' : undefined} class:list={[tile, 'bg-raised']}>
+                <span class="eyebrow">{i.eyebrow}</span>
+                <span class="mt-2 font-heading text-xl font-medium leading-snug text-ink group-hover:text-primary">{i.title}</span>
+                <span class="mt-2 line-clamp-3 text-[0.9375rem] leading-snug text-ink-muted">{i.line}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
   {/* 02, the guides: the indexes and the featured article whose pages are
       live, and nothing at all until one is. */}
   {showGuides && (
-  <section id="guides" class="band band-paper" aria-labelledby="guides-h">
+  <section id="guides" class:list={['band', bands.guides]} aria-labelledby="guides-h">
     <div class:list={['container-page', split]}>
       <div>
         <p class={numeral}>{numbers.guides}</p>
@@ -245,11 +357,11 @@ const townName = 'font-heading text-xl font-semibold leading-tight sm:text-2xl m
       Guides it follows the directory on the same white, so it takes no
       second band's padding above it. */}
   {feature && (
-    <section class:list={['band band-white', !showGuides && 'pt-0!']} aria-labelledby="feature-h">
+    <section class:list={['band band-white', bands.featureClose && 'pt-0!']} aria-labelledby="feature-h">
       <div class="container-page">
         <div class="mb-8 md:mb-10">
           <p class={numeral}>{numbers.feature}</p>
-          <h2 id="feature-h" class="display-md mt-3 text-4xl md:text-5xl">Feature</h2>
+          <h2 id="feature-h" class="display-md mt-3 text-4xl md:text-5xl">This season</h2>
         </div>
         <a href={feature.href} class="on-dark relative isolate block overflow-hidden rounded-2xl bg-primary px-6 py-10 text-white no-underline sm:px-10 sm:py-14 lg:px-14 lg:py-16" data-feature>
           <svg class="pointer-events-none absolute inset-x-0 -bottom-px -z-10 h-[55%] w-full" viewBox={`0 0 ${RIDGE_WIDTH} ${RIDGE_HEIGHT}`} preserveAspectRatio="none" aria-hidden="true">
@@ -285,7 +397,7 @@ const townName = 'font-heading text-xl font-semibold leading-tight sm:text-2xl m
           <div class="max-w-xl pb-5 xl:pb-0">
             <h2 id="signup-h" class="display-md text-[1.75rem] leading-tight xl:text-5xl xl:leading-none">What’s on in the towns, every {sendDay}</h2>
             <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted xl:mt-4 xl:max-w-md xl:text-[1.0625rem]">
-              One email a week: the weekend’s events, places new to the guide or closed, and a new article when there is one. {schedule}
+              One email a week: the weekend’s events, places that opened or closed, and a new article when there is one. {schedule}
             </p>
           </div>
           <NewsletterSignup id="home" bare class="xl:rounded-lg xl:bg-raised xl:p-8 xl:ring-1 xl:ring-primary-line" />

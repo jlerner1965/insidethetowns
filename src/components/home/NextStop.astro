@@ -60,12 +60,12 @@ const photo = (p: Place | undefined, key: TileKey) => (p?.data.image ? { src: p.
 // The generic lines say what every guide's page holds and name nothing in
 // it: the two directories' own headings, and what each residents' page is for.
 const lines = town.nextStop ?? {
-  eatDrink: 'Places to eat, drink and shop',
+  eatDrink: 'Places to eat and drink',
   thingsToDo: 'Trails, parks and venues',
   living: town.livingHere ? 'Who handles what in town' : 'What it’s like to live here',
 };
 const tiles = [
-  { label: 'Eat & drink', line: lines.eatDrink, href: '/eat-drink/', ...photo(best([...EAT_DRINK_TYPES, 'shop']), 'eatDrink') },
+  { label: 'Eat & drink', line: lines.eatDrink, href: '/eat-drink/', ...photo(best([...EAT_DRINK_TYPES]), 'eatDrink') },
   { label: 'Things to do', line: lines.thingsToDo, href: '/things-to-do/', ...photo(best(LAND_TYPES), 'thingsToDo') },
   town.livingHere
     ? { label: 'Living here', line: lines.living, href: '/living-here/', ...photo(best(['venue']), 'living') }

@@ -10,7 +10,7 @@ sourceUrl: "https://www.meekermustangmakeover.org/2026-events-schedule"
 years:
   - year: 2027
     status: not-announced
-    checked: 2026-11-13
+    checked: 2026-11-12
   - year: 2026
     status: confirmed
     date: 2026-09-18
@@ -24,5 +24,5 @@ years:
       - name: "Mustang Mingle"
         date: 2026-09-18
         time: "6:30 PM"
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

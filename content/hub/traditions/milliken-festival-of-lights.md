@@ -17,5 +17,5 @@ years:
       - name: "Parade of Lights"
         date: 2026-12-04
         time: "6 p.m."
-    checked: 2026-11-13
+    checked: 2026-11-12
 ---

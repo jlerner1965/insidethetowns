@@ -24,6 +24,8 @@ import {
   seasonRows,
   staleSoon,
   townGroups,
+  rowState,
+  rowsByState,
   type TraditionRecord,
 } from '../src/lib/traditions.ts';
 import { STANDALONE_GUIDES, findHubTown } from '../src/config/hub-towns.ts';
@@ -144,7 +146,23 @@ test('a guide’s page: dated soonest first, then not announced; other guides’
   const { dated, waiting } = townGroups(RECORDS, 'berthoud', TODAY);
   assert.deepEqual(dated.map((x) => x.record.slug), ['berthoud-t', 'berthoud-p']);
   assert.deepEqual(waiting.map((x) => x.record.slug), ['berthoud-t2']);
-  assert.deepEqual(townGroups(RECORDS, 'lyons', TODAY), { dated: [], waiting: [] });
+  assert.deepEqual(townGroups(RECORDS, 'lyons', TODAY), { dated: [], canceled: [], waiting: [] });
+});
+
+test('a canceled year is its own state: never upcoming, never waiting for a date (audit, 13 November 2026)', () => {
+  const canceled = (date?: string) =>
+    r('w-p', 'Wellington', 'wellington', 'parade-of-lights', [{ year: 2026, status: 'canceled', ...(date ? { date } : {}), checked: TODAY }]);
+  // No date had been set, as Wellington's record has it.
+  const [undated] = seasonRows([canceled()], 'parade-of-lights', TODAY);
+  assert.equal(rowState(undated!), 'canceled');
+  // A date had been set and is still ahead: still canceled, not upcoming.
+  const [ahead] = seasonRows([canceled('2026-12-20')], 'parade-of-lights', TODAY);
+  assert.equal(rowState(ahead!), 'canceled');
+  const groups = rowsByState(seasonRows(RECORDS, 'parade-of-lights', TODAY));
+  assert.deepEqual(groups.canceled.map((x) => x.record.slug), ['aspen-p']);
+  assert.ok(!groups.waiting.some((x) => x.record.slug === 'aspen-p'));
+  const guide = townGroups([canceled('2026-12-20')], 'wellington', TODAY);
+  assert.deepEqual([guide.dated.length, guide.canceled.length, guide.waiting.length], [0, 1, 0]);
 });
 
 test('"Last held" is an earlier year the organizer dated and that has passed; never a canceled or future one', () => {
