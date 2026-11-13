@@ -11158,3 +11158,34 @@ on seasons that are not on. All three, without a new section:
   Vercel Web Analytics counts clicks by section. Compare each section's
   share over three or four weeks; a before-and-after against the first
   layout would be muddied by Thanksgiving.
+
+## The hub home, after four audits, 13 November 2026 (evening)
+
+Four read-only audits of the reordered home (search, design, content
+accuracy, navigation). Fixed on the home; the rest is listed in the pull
+request for the owner.
+
+- **A listing's `why`:** an optional few words on an event, read on its
+  source, shown on the home's weekend picks in place of the worked-out
+  reasons; refused without a source and a check date.
+- **Promises the page could not keep.** "Final score here Saturday
+  morning" is "on Saturday": the scores run is at 7 am and the hub's
+  rebuild follows mid-morning. The game's record is marked as MaxPreps's.
+- **The season counts** are of dates the organizer set, held or to come,
+  so they no longer fall as a season is played out, and a canceled date is
+  counted apart ("19 of 19 towns' dates confirmed, 1 canceled").
+- **The weekend's picks:** the best listing of the whole weekend is placed
+  first, so a town's lesser Friday listing cannot take the town from its
+  Saturday pick; a run of days counts on each day it is on. A run time is
+  a reason only in round figures; a first running is not "1st annual";
+  an annual event is matched on whole words.
+- **Words:** "from seven local guides" (Niwot lists no events), "six
+  weekly editions" (not towns).
+- **Design:** the menu button from 860px and the hero stacked from 940px
+  (the row of links wrapped and the headline ran to four lines on a
+  tablet); the scores as a list; the seasons three across or one; square
+  focus outlines; a hover and a forced-colours edge on the two buttons;
+  the phone menu closes when focus or a tap leaves it.
+- **The hero photograph** is cut once to the 2:1 band the page shows
+  (`front-range-flatirons-hero.jpg`), so no reader downloads the rest;
+  the whole photograph stays the share image.

@@ -47,7 +47,9 @@ test('the feature counts towns, not dates: a town with two rows is one town', ()
     { town: 'Berthoud', confirmed: true },
     { confirmed: true },
   ]);
-  assert.deepEqual(counts, { confirmed: 2, towns: 3 });
+  assert.deepEqual(counts, { confirmed: 2, towns: 3, canceled: 0 });
+  assert.deepEqual(townsConfirmed([{ town: 'A', confirmed: true }, { town: 'Wellington', confirmed: false, canceled: true }]), { confirmed: 1, towns: 1, canceled: 1 });
+  assert.equal(seasonFeatureLine({ confirmed: 19, towns: 19, canceled: 1 }), '19 of 19 towns’ dates confirmed, 1 canceled.');
 });
 
 test('the feature line reads "19 of 20 towns’ dates confirmed."', () => {
@@ -245,6 +247,20 @@ test('a guide editor’s pick comes before the plan-your-day rule', () => {
   assert.equal(picks.get('2026-11-14')?.data.title, 'Blues Bash');
 });
 
+test('the weekend’s best listing is placed first, and a run of days counts on each day it is on', () => {
+  // Berthoud's lesser Friday listing does not take the town from its Saturday pick.
+  const picks = weekendPicks(
+    [ev('berthoud', 'Friday duo', '2026-11-13T18:00', { category: 'music' }), ev('berthoud', 'Blues Bash', '2026-11-14T12:00', { category: 'music', slug: 'blues-bash' })],
+    days,
+    { now, picked: new Set(['berthoud/blues-bash']) },
+  );
+  assert.deepEqual([...picks].map(([d, e]) => [d, e.data.title]), [['2026-11-14', 'Blues Bash']]);
+  const run = ev('lyons', 'Three-day festival', '2026-11-13T10:00', { category: 'festival' });
+  (run.data as { end?: Date }).end = parseLocal('2026-11-15T17:00');
+  const taken = weekendPicks([run], days.slice(1), { now });
+  assert.deepEqual([...taken.keys()], ['2026-11-14']);
+});
+
 test('a listing’s reasons come from its fields only, and none is better than a filler', () => {
   const listing = (cost: string | undefined, start: string, end?: string, allDay = false) => ({ data: { cost, start: parseLocal(start), end: end ? parseLocal(end) : undefined, allDay } }) as unknown as Parameters<typeof listingReasons>[0];
   assert.deepEqual(listingReasons(listing('Free', '2026-11-14T10:30', '2026-11-14T11:00')), ['Free', 'Half an hour']);
@@ -257,6 +273,9 @@ test('a listing’s reasons come from its fields only, and none is better than a
   assert.equal(durationWords(45), '45 minutes');
   assert.equal(durationWords(60), 'An hour');
   assert.equal(durationWords(120), undefined);
+  assert.equal(durationWords(61), undefined);
+  assert.equal(durationWords(1), undefined);
+  assert.deepEqual(listingReasons(listing(undefined, '2026-11-14T19:00'), { annual: { edition: 1 } }), ['Once a year']);
   assert.deepEqual([1, 2, 3, 11, 12, 13, 21, 78, 101].map(ordinal), ['1st', '2nd', '3rd', '11th', '12th', '13th', '21st', '78th', '101st']);
 });
 
@@ -276,6 +295,8 @@ test('an annual event is a record at home in the listing’s guide, on its day, 
   assert.equal(annualRecordFor(listing, 'Berthoud Parade of Lights', [parade])?.entry.edition, 30);
   assert.equal(annualRecordFor(ev('erie', 'Erie Parade of Lights', '2026-12-05T18:00'), 'Erie Parade of Lights', [parade]), undefined);
   assert.equal(annualRecordFor(ev('berthoud', 'Parade of Lights', '2026-12-06T18:00'), 'Parade of Lights', [parade]), undefined);
+  const walk = record({ slug: 'w', name: 'Art Walk', type: 'festival', years: [year('2026-12-05')] });
+  assert.equal(annualRecordFor(ev('berthoud', 'Heart Walk for Berthoud', '2026-12-05T10:00'), 'Heart Walk for Berthoud', [walk]), undefined);
 });
 
 test('this season is the seasons opened with a year that still have a date to come', () => {
@@ -286,7 +307,7 @@ test('this season is the seasons opened with a year that still have a date to co
     record({ slug: 'd', name: 'Trot', type: 'turkey-trot', years: [year('2026-11-10')] }),
   ];
   const now = seasonsNow(records, '2026-11-13');
-  assert.deepEqual(now.map((s) => [s.type, s.next.record.slug, s.counts]), [['parade-of-lights', 'a', { confirmed: 1, towns: 2 }]]);
+  assert.deepEqual(now.map((s) => [s.type, s.next.record.slug, s.counts]), [['parade-of-lights', 'a', { confirmed: 1, towns: 2, canceled: 0 }]]);
 });
 
 test('the open seasons come soonest first, and a town named in the event is not named twice', () => {
