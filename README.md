@@ -73,11 +73,19 @@ nothing.
 
 ## The town-anchored articles
 
-Camping and Ghost towns by town, and the one-off event article
-(`src/lib/curiosity.ts`; HOW-IT-WORKS.md, section 8). One file an article
-in `content/hub/curiosity/`; the hub builds `/camping/`, `/ghost-towns/`,
-`/<topic>/<town>/` and `/articles/<slug>/` only for articles whose file
-says `status: verified`.
+Camping and Ghost towns by town, the one-off event article, and the
+story (`src/lib/curiosity.ts`; HOW-IT-WORKS.md, section 8). One file an
+article in `content/hub/curiosity/`; the hub builds `/camping/`,
+`/ghost-towns/`, `/<topic>/<town>/` and `/articles/<slug>/` only for
+articles whose file says `status: verified`.
+
+- **A story** is news worth a reader's time in a town (Nederland and
+  Eldora): copy `scripts/templates/story-template.md`. It is on the hub's
+  home under "In the towns" for a fortnight (or until `homeUntil`), and on
+  each town's page under Nearby. A named news report counts as a source;
+  the town need not publish first. A story about a town with its own guide
+  can go in that guide's `content/<town>/updates/` (a local change) or
+  `articles/` instead.
 
 - `npm run curiosity` lists, by article, every flagged or empty field
   (`-- --md` for a pull request). An article with an open flag cannot be

@@ -15,6 +15,8 @@ import {
   DRAFTS_ENV,
   GHOST_FIELDS,
   articlePath,
+  isStandalone,
+  storyHomeUntil,
   articlesFor,
   curiositySchema,
   draftsEnabled,
@@ -86,6 +88,19 @@ test('a topic article is anchored to one town and carries its own kind of entry;
   const event = { slug: 'x', kind: 'event', towns: ['niwot', 'lyons'], title: 'X', description: 'X.', date: '2026-11-13' };
   assert.ok(issues(event).some((i) => /source/.test(i)));
   assert.deepEqual(issues({ ...event, sources: [{ label: 'The festival', url: 'https://festival.sundance.org/', checked: '2026-11-13' }] }), []);
+});
+
+test('a story names several towns or one, rests on its sources, which may be news reports, and only it carries homeUntil', () => {
+  const sun = { label: 'Colorado Sun', url: 'https://coloradosun.com/2026/11/11/eldora-mountain-acquisition-investigation/', checked: '2026-11-13' };
+  const story = { slug: 'nederland-eldora', kind: 'story', towns: ['nederland'], title: 'X', description: 'X.', date: '2026-11-13' };
+  assert.ok(issues(story).some((i) => /source/.test(i)), 'a story without sources');
+  assert.deepEqual(issues({ ...story, sources: [sun] }), [], 'a news report is a source');
+  assert.deepEqual(issues({ ...story, towns: ['nederland', 'lyons'], sources: [sun], homeUntil: '2026-11-30' }), []);
+  assert.ok(issues({ ...story, sources: [sun], homeUntil: '2026-11-01' }).some((i) => /homeUntil/.test(i)), 'not before its date');
+  assert.ok(issues(camping({ homeUntil: '2026-11-30' })).some((i) => /homeUntil/.test(i)), 'only a story');
+  assert.equal(articlePath({ kind: 'story', towns: ['nederland'], slug: 'nederland-eldora' }), '/articles/nederland-eldora/');
+  assert.equal(storyHomeUntil({ date: '2026-11-13' }), '2026-11-27');
+  assert.equal(storyHomeUntil({ date: '2026-11-13', homeUntil: '2026-12-01' }), '2026-12-01');
 });
 
 test('an article with an open flag cannot be marked verified; an empty field with no flag can', () => {
@@ -166,7 +181,7 @@ test('a draft builds nothing: no route, no index, no sitemap date, without the p
   const dates = curiosityDates('.', {});
   for (const d of drafts) {
     assert.ok(!dates.has(articlePath(d)), d.slug);
-    if (d.kind !== 'event' && !shown.some((a) => a.kind === d.kind)) assert.ok(!routes.some((r) => articlePath(d).startsWith(`${r}/`)), `${d.slug}: ${routes.join(' ')}`);
+    if (!isStandalone(d.kind) && !shown.some((a) => a.kind === d.kind)) assert.ok(!routes.some((r) => articlePath(d).startsWith(`${r}/`)), `${d.slug}: ${routes.join(' ')}`);
   }
   if (shown.length === 0) {
     assert.deepEqual(routes, []);
@@ -174,8 +189,9 @@ test('a draft builds nothing: no route, no index, no sitemap date, without the p
   }
   // With the switch, every draft has its page and its topic its index.
   const preview = curiosityRoutes('.', { [DRAFTS_ENV]: '1' }).map(([pattern]) => pattern);
-  for (const d of drafts) assert.ok(preview.includes(d.kind === 'event' ? '/articles/[slug]' : `/${d.kind}/[town]`), d.slug);
-  for (const d of drafts) if (d.kind !== 'event') assert.ok(preview.includes(`/${d.kind}`), d.slug);
+  // An event article and a story share /articles/<slug>/; a topic has its index and its town pages.
+  for (const d of drafts) assert.ok(preview.includes(isStandalone(d.kind) ? '/articles/[slug]' : `/${d.kind}/[town]`), d.slug);
+  for (const d of drafts) if (!isStandalone(d.kind)) assert.ok(preview.includes(`/${d.kind}`), d.slug);
 });
 
 test('the hub’s sitemap dates take in only the articles on the site', () => {

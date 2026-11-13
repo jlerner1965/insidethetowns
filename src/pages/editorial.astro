@@ -48,6 +48,15 @@ const live = liveTowns();
       carries the date; a listing that does not say so is a sourced summary, checked on the date shown, and not a
       review. A recommendation is an editorial choice from the sources, never a paid rank.
     </p>
+    {/* The hub's stories (13 November 2026): news may rest on a named report before the town publishes. */}
+    {site.kind === 'hub' && (
+      <p data-news-sources>
+        A story about a town’s news may rest on a named news report, such as the Colorado Sun’s, before the town
+        has published its own record. The story names each report, links it and gives the day it was read, and
+        says which report a fact comes from where only one carries it. Where the town’s own record later differs,
+        the record controls and the story is corrected.
+      </p>
+    )}
 
     <h2 id="our-pick">What “Our pick” means</h2>
     <p>

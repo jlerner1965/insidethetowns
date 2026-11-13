@@ -2,7 +2,8 @@
 /**
  * One town-anchored article on the hub (src/lib/curiosity.ts): Camping
  * near a town at /camping/<town>/, Ghost towns near a town at
- * /ghost-towns/<town>/, and a one-off event article at /articles/<slug>/.
+ * /ghost-towns/<town>/, and a one-off event article or a story (news) at
+ * /articles/<slug>/.
  * One file at three patterns, each asked for only once an article of its
  * kind is on the site (src/integrations/town-routes.ts).
  *
@@ -32,6 +33,7 @@ import {
   TOPIC_INFO,
   articlePath,
   entriesOf,
+  isStandalone,
   lastVerified,
   sourceHost,
   type CuriosityTopic,
@@ -42,7 +44,7 @@ import { placeLink, placeName } from '@/lib/curiosity-places';
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const articles = await getCuriosity();
   if (routePattern.startsWith('/articles')) {
-    return articles.filter((a) => a.data.kind === 'event').map((article) => ({ params: { slug: article.data.slug }, props: { article } }));
+    return articles.filter((a) => isStandalone(a.data.kind)).map((article) => ({ params: { slug: article.data.slug }, props: { article } }));
   }
   const topic = CURIOSITY_TOPICS.find((t) => routePattern.startsWith(TOPIC_INFO[t].path.replace(/\/$/, '')));
   return articles.filter((a) => a.data.kind === topic).map((article) => ({ params: { town: article.data.towns[0] }, props: { article } }));
@@ -56,7 +58,9 @@ const hub = getHub();
 const { article } = Astro.props;
 const { data } = article;
 const { Content } = await render(article);
-const topic = data.kind === 'event' ? undefined : TOPIC_INFO[data.kind as CuriosityTopic];
+const topic = isStandalone(data.kind) ? undefined : TOPIC_INFO[data.kind as CuriosityTopic];
+// A story is news: the page says so, and "visited" means nothing for it.
+const story = data.kind === 'story';
 const path = articlePath(data);
 const url = `https://${hub.domain}${path}`;
 const draft = data.status !== 'verified';
@@ -79,7 +83,7 @@ const entries = entriesOf(data).map((e) => ({
 const structured = [
   {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': story ? 'NewsArticle' : 'Article',
     headline: data.title,
     description: data.description,
     datePublished: toIsoLocal(parseLocal(data.date)),
@@ -99,12 +103,12 @@ const structured = [
 ];
 const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
 ---
-<Page title={data.title} seoTitle={data.seoTitle} kind="Article" eyebrow={topic ? `${topic.label} · ${towns[0]!.name}` : towns.map((t) => t.name).join(' · ')} status={draft ? 'Draft' : undefined} intro={data.description} description={data.description} type="article" noindex={draft} jsonLd={structured}>
+<Page title={data.title} seoTitle={data.seoTitle} kind="Article" eyebrow={topic ? `${topic.label} · ${towns[0]!.name}` : `${story ? 'News · ' : ''}${towns.map((t) => t.name).join(' · ')}`} status={draft ? 'Draft' : undefined} intro={data.description} description={data.description} type="article" noindex={draft} jsonLd={structured}>
   <Fragment slot="after-header">
     <p class="mt-5 text-sm text-ink-muted" data-article-meta>
       <span data-byline>By {CURIOSITY_BYLINE}</span>
       <span> · Last verified <time datetime={verified}>{day(verified)}</time></span>
-      <span data-visited={data.visited ? 'yes' : 'no'}> · {data.visited ? 'Visited' : 'Not personally visited'}</span>
+      {!story && <span data-visited={data.visited ? 'yes' : 'no'}> · {data.visited ? 'Visited' : 'Not personally visited'}</span>}
     </p>
     {draft && (
       <p class="mt-4 rounded-lg border border-highlight bg-highlight-soft px-4 py-3 text-[0.9375rem] leading-relaxed text-ink" data-draft>
@@ -170,7 +174,9 @@ const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
     )}
 
     <p class="mt-8 text-[0.9375rem] leading-relaxed text-ink-muted">
-      Fees, seasons, roads and rules change. Each fact above links to the page it was read on and carries the day it was read; that page is the record.
+      {story
+        ? 'A summary of the reports and records named above, each linked with the day it was read. Where the town’s own record differs, the record controls.'
+        : 'Fees, seasons, roads and rules change. Each fact above links to the page it was read on and carries the day it was read; that page is the record.'}
     </p>
 
     <nav aria-labelledby="towns-h" class="mt-10 border-t border-line-soft pt-6" data-article-towns>

@@ -8,7 +8,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseFrontmatter } from '../../scripts/lib/frontmatter.ts';
-import { CURIOSITY_DIR, CURIOSITY_TOPICS, articlePath, curiositySchema, isShown, lastVerified, type CuriosityArticle, type CuriosityTopic } from './curiosity.ts';
+import { CURIOSITY_DIR, CURIOSITY_TOPICS, articlePath, curiositySchema, isShown, isStandalone, lastVerified, type CuriosityArticle, type CuriosityTopic } from './curiosity.ts';
 
 export interface CuriosityFile {
   file: string;
@@ -52,9 +52,9 @@ export function topicsWithArticles(root = '.', env: Record<string, string | unde
   return CURIOSITY_TOPICS.filter((t) => shown.some((a) => a.kind === t));
 }
 
-/** Whether a one-off event article is shown: /articles/<slug>/ is built only then. */
+/** Whether an event article or a story is shown: /articles/<slug>/ is built only then. */
 export function hasEventArticle(root = '.', env: Record<string, string | undefined> = process.env): boolean {
-  return shownArticles(root, env).some((a) => a.kind === 'event');
+  return shownArticles(root, env).some((a) => isStandalone(a.kind));
 }
 
 /** Each shown article's path and the day its facts were last verified, for the sitemap's lastmod. */
