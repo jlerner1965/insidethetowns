@@ -7,6 +7,15 @@
       "checked": "2026-11-12"
     }
   },
+  "lodging": [
+    {
+      "name": "High Chaparral Inn",
+      "kind": "Motel",
+      "url": "https://www.highchaparralinn.com/",
+      "source": "https://www.highchaparralinn.com/",
+      "checked": "2026-11-13"
+    }
+  ],
   "heritage": {
     "nameOrigin": {
       "text": "Kit Carson crossed the Arkansas River at a shallow, rocky spot and called it Rocky Ford Crossing Place.",

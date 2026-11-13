@@ -1,6 +1,11 @@
 {
   "slug": "platteville",
   "heritage": {
+    "nameOrigin": {
+      "text": "Platteville was named for the nearby South Platte River.",
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1871,
       "text": "Founded in 1871, after the Denver Pacific Railroad reached the area.",
