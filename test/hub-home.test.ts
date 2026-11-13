@@ -341,6 +341,10 @@ test('a story’s source line names every report and the oldest day one was read
   assert.equal(storySourceText([{ label: 'Colorado Sun', checked: '2026-11-13' }, { label: 'BusinessDen', checked: '2026-11-12' }]), 'Sources: Colorado Sun and BusinessDen, read Nov 12, 2026');
   assert.equal(storySourceText([{ label: 'Town of Nederland', checked: '2026-11-13' }]), 'Source: Town of Nederland, read Nov 13, 2026');
   assert.equal(storySourceText([]), undefined);
+  // "Publisher: document" counts by publisher; past three, the rest are counted.
+  const s = (label: string) => ({ label, checked: '2026-11-13' });
+  assert.equal(storySourceText([s('Town of Nederland: Sept. 30 statement'), s('Town of Nederland: Nov. 9 packet'), s('Colorado Sun: Nov. 11 article')]), 'Sources: Town of Nederland and Colorado Sun, read Nov 13, 2026');
+  assert.equal(storySourceText([s('Town of Nederland: a'), s('Colorado Sun: b'), s('BusinessDen: c'), s('Bond Buyer: d'), s('KUNC: e')]), 'Sources: Town of Nederland, Colorado Sun, BusinessDen and 2 more, read Nov 13, 2026');
 });
 
 test('the stylesheet declares the palette in src/config/palette.ts', () => {
