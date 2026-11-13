@@ -96,3 +96,14 @@ export function sectionNumbers<K extends string>(shown: ReadonlyArray<readonly [
   for (const [key, drawn] of shown) if (drawn) numbers[key] = String(++n).padStart(2, '0');
   return numbers;
 }
+
+/**
+ * The registration item for the hub's "Now in the towns": the soonest
+ * deadline that closes, since that is the one a reader can miss; where
+ * none closes within the window, the soonest that opens. Nothing where
+ * there is neither (the audit of 13 November 2026: omit, never fill).
+ */
+export function pickDeadline<T extends { what: 'opens' | 'closes'; on: Date }>(deadlines: readonly T[]): T | undefined {
+  const byDate = [...deadlines].sort((a, b) => a.on.getTime() - b.on.getTime());
+  return byDate.find((d) => d.what === 'closes') ?? byDate[0];
+}
