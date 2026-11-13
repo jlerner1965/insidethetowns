@@ -71,6 +71,26 @@ nothing.
   (`TRADITIONS_FIXTURES=1 TOWN=hub npm run build`). That switch throws on
   Vercel. The site check fails any build without it that carries one.
 
+## The town-anchored articles
+
+Camping and Ghost towns by town, and the one-off event article
+(`src/lib/curiosity.ts`; HOW-IT-WORKS.md, section 8). One file an article
+in `content/hub/curiosity/`; the hub builds `/camping/`, `/ghost-towns/`,
+`/<topic>/<town>/` and `/articles/<slug>/` only for articles whose file
+says `status: verified`.
+
+- `npm run curiosity` lists, by article, every flagged or empty field
+  (`-- --md` for a pull request). An article with an open flag cannot be
+  marked verified: fill the field from its official source, or delete the
+  flag and leave the field out.
+- To read the drafts as pages: `CURIOSITY_DRAFTS=1 TOWN=hub npm run dev`
+  (or `build`). Each draft is marked and noindex. That switch throws on
+  Vercel, and the site check fails any build without it that carries a
+  draft.
+- To publish one: settle its flags, set `status: verified`, and set
+  `visited: true` if you have been there. Every `checked` is the day that
+  fact was read on its source and moves only when it is read again.
+
 ## The resident hubs and the flagship layout
 
 Berthoud and Niwot (21 October 2026) and Lyons (22 October) carry the

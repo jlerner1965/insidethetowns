@@ -9,6 +9,7 @@ import { isExcluded } from '@/content/schemas';
 import { eventExclusion, hubExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
 import { eventPresentation, type Confidence } from '@/lib/confidence';
 import { FIXTURES_ENV, fixturesEnabled, type TraditionRecord } from '@/lib/traditions';
+import { isShown } from '@/lib/curiosity';
 
 export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & {
   slug: string;
@@ -234,4 +235,16 @@ export async function getTraditions(): Promise<TraditionRecord[]> {
     }
     return record;
   });
+}
+
+/**
+ * The hub's town-anchored articles that are on the site
+ * (content/hub/curiosity/, src/lib/curiosity.ts): the verified ones, and
+ * the drafts only under the local preview switch. Read whole by the hub
+ * and by each guide, as the traditions are: an article names its towns
+ * and the pages pick by them. The one place a draft is dropped, so no
+ * page can list one by forgetting to ask.
+ */
+export async function getCuriosity(): Promise<CollectionEntry<'curiosity'>[]> {
+  return (await getCollection('curiosity')).filter((entry) => isShown(entry.data));
 }

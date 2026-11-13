@@ -62,6 +62,12 @@ export interface SiteInput {
    * carrying a sample record (`data-fixture`) is a problem: fixtures never ship.
    */
   fixtures?: boolean;
+  /**
+   * Whether the draft articles were switched on for this build
+   * (CURIOSITY_DRAFTS=1, src/lib/curiosity.ts). Without it, a page carrying
+   * a draft article (`data-draft`) is a problem: a draft never ships.
+   */
+  drafts?: boolean;
 }
 
 export interface Manifest {
@@ -461,6 +467,9 @@ export function checkSite(input: SiteInput): { problems: Problem[]; manifest: Ma
     const { scan, path } = page;
     if (!input.fixtures && scan.tags.some((t) => 'data-fixture' in t.attrs)) {
       add('fixture-shipped', path, 'carries a sample tradition record (data-fixture) in a build without TRADITIONS_FIXTURES=1; fixtures never ship');
+    }
+    if (!input.drafts && scan.tags.some((t) => 'data-draft' in t.attrs)) {
+      add('draft-shipped', path, 'carries a draft article (data-draft) in a build without CURIOSITY_DRAFTS=1; nothing publishes until it is marked verified');
     }
     if (page.refresh !== undefined) {
       // A former slug's redirect page: where it goes has to be there, and be the end of the road.

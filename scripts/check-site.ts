@@ -23,6 +23,7 @@ import { allSites } from '../src/config/index.ts';
 import { checkSite, formatProblems, isBuilt, manifestName, type VercelRedirect } from './lib/site-check.ts';
 import { MANIFESTS, networkDomains, SENT_ISSUE, vercelRedirects } from './lib/network.ts';
 import { fixturesEnabled } from '../src/lib/traditions.ts';
+import { draftsEnabled } from '../src/lib/curiosity.ts';
 
 const args = process.argv.slice(2);
 const option = (name: string): string | undefined => args.find((a) => a.startsWith(`--${name}=`))?.slice(name.length + 3);
@@ -47,6 +48,7 @@ const { problems, manifest, pages } = checkSite({
   // The hub's archive of sent Thursday emails: /newsletter/2026-10-22-lyons/.
   archive: site.kind === 'hub' ? SENT_ISSUE : undefined,
   fixtures: fixturesEnabled(),
+  drafts: draftsEnabled(),
 });
 
 const to = option('manifest') ?? MANIFESTS;

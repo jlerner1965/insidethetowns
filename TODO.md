@@ -91,6 +91,8 @@ refuses automated reads (Niwot Hall's `/events/lindy-b-dance/` page is the
 
 | By | Decision | Who |
 |---|---|---|
+| Before any goes live | The six draft articles in `content/hub/curiosity/` (Sundance from the towns next door; Camping near Lyons, Berthoud and Carbon Valley; Ghost towns near Nederland and Leadville): read each as a page (`CURIOSITY_DRAFTS=1 TOWN=hub npm run dev`), settle every line `npm run curiosity` lists, then set `status: verified`, and `visited: true` where you have been | Owner |
+| Week of 11 January 2027 | Sundance from the towns next door: read every source again (the festival's venue, transit and parking pages, RTD's January service change, the City of Boulder's festival page) and move each `checked`; the validator lists the article from 11 January until that is done. The festival is 21 to 31 January 2027 | Assistant, owner approves |
 | Now | A scheduled assistant session for the weekly audit: yes or no (the scorecard's was set up 27 October) | Owner |
 | Now | Search Console for the scorecard: GSC Wizard is renewed on the Starter plan (10 properties), but its 10 slots are held by the aragonite sites and townofniwot.com, so it refuses Niwot, Lyons and Berthoud. In Dashboard Management, hide three of those and show the three guides (or upgrade); the weeks of 26 October and 2 November then get filled | Owner |
 | Now | Buttondown: is open tracking on? No open has been counted on 24 deliveries since 22 October | Owner |

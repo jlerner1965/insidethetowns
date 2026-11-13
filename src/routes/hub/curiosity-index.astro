@@ -1,0 +1,47 @@
+---
+/**
+ * A topic's index on the hub: /camping/ and /ghost-towns/
+ * (src/lib/curiosity.ts). One component at fixed paths, reading the topic
+ * off its own URL, as the season pages do. Each row is one article: the
+ * town it is anchored to, how many places it covers, and the day its facts
+ * were last verified. Built only for a topic with an article on the site.
+ */
+import Page from '@/layouts/Page.astro';
+import { getHub } from '@/config';
+import { getCuriosity } from '@/lib/content';
+import { formatDate, parseLocal } from '@/lib/dates';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { CURIOSITY_TOPICS, TOPIC_INFO, articlePath, entriesOf, lastVerified } from '@/lib/curiosity';
+import { placeName } from '@/lib/curiosity-places';
+
+const hub = getHub();
+const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const topic = CURIOSITY_TOPICS.find((t) => TOPIC_INFO[t].path === pathname)!;
+const info = TOPIC_INFO[topic];
+const articles = (await getCuriosity())
+  .filter((a) => a.data.kind === topic)
+  .map((a) => ({ data: a.data, town: placeName(a.data.towns[0]!) ?? a.data.towns[0]!, path: articlePath(a.data), count: entriesOf(a.data).length, verified: lastVerified(a.data) }))
+  .sort((a, b) => a.town.localeCompare(b.town));
+const noun = topic === 'camping' ? ['campground', 'campgrounds'] : ['place', 'places'];
+const structured = [
+  collectionPageJsonLd(hub, { name: info.label, description: info.description, path: info.path, items: articles.map((a) => ({ name: a.data.title, path: a.path })) }),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: info.label, path: info.path },
+  ]),
+];
+---
+<Page title={info.label} seoTitle={`${info.label} near Colorado towns`} eyebrow="By town" intro={info.intro} description={info.description} jsonLd={structured}>
+  <ul class="max-w-3xl divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-curiosity-index={topic}>
+    {articles.map((a) => (
+      <li class="py-5">
+        <p class="eyebrow text-ink-muted">{a.town}{a.data.status !== 'verified' && ' · Draft'}</p>
+        <h2 class="mt-1 font-heading text-2xl font-medium leading-tight"><a href={a.path} class="text-ink no-underline hover:text-primary hover:underline">{a.data.title}</a></h2>
+        <p class="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-muted">{a.data.description}</p>
+        <p class="mt-1.5 text-sm text-ink-muted">
+          {a.count} {a.count === 1 ? noun[0] : noun[1]} · Last verified <time datetime={a.verified}>{formatDate(parseLocal(a.verified))}</time>
+        </p>
+      </li>
+    ))}
+  </ul>
+</Page>
