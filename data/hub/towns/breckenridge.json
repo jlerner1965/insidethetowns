@@ -38,12 +38,42 @@
       "source": "https://breckhistory.org/discover/breckenridge-history/",
       "checked": "2026-11-12"
     },
+    "founded": {
+      "year": 1859,
+      "text": "Founded as a gold mining town in 1859 by General George Spencer, who led miners to the area after gold was found in the Blue River.",
+      "source": "https://summithistorical.org/landscapes/townsites/breckenridge/",
+      "checked": "2026-11-13"
+    },
     "timeline": [
       {
         "year": 1859,
         "text": "Prospectors first found gold in the spring, starting the first of three local mining booms.",
         "source": "https://breckhistory.org/discover/breckenridge-history/",
         "checked": "2026-11-12"
+      },
+      {
+        "year": 1860,
+        "text": "By 1860 Breckenridge had a post office and a population of 75 to 100 people.",
+        "source": "https://summithistorical.org/landscapes/townsites/breckenridge/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1880,
+        "text": "By 1880 the town had about 2,000 people, established businesses and a fire department.",
+        "source": "https://summithistorical.org/landscapes/townsites/breckenridge/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1943,
+        "text": "Gold dredging was halted because of World War II, and the population fell.",
+        "source": "https://summithistorical.org/landscapes/townsites/breckenridge/",
+        "checked": "2026-11-13"
+      },
+      {
+        "year": 1961,
+        "text": "Breckenridge Ski Area opened on Peak 8.",
+        "source": "https://summithistorical.org/landscapes/townsites/breckenridge/",
+        "checked": "2026-11-13"
       }
     ],
     "sites": [

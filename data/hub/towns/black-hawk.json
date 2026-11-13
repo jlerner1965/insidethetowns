@@ -47,6 +47,11 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "The Gilpin Historical Society says the town, first called Black Hawk Point, took its name from the Rock Island, Illinois foundry that made one of the earliest stamp mills brought into the district.",
+      "source": "https://gilpinhistory.org/black-hawk",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1860,
       "text": "William L. Lee, Dr. Frederick H. Judd and Mylo Lee founded the town of Black Hawk Point in June 1860.",
@@ -92,6 +97,14 @@
         "url": "https://discoverblackhawk.com/history",
         "source": "https://discoverblackhawk.com/history",
         "checked": "2026-11-12"
+      },
+      {
+        "name": "Historic Gilpin Tramway Trail (Maryland Mountain Quartz Valley Open Space Park)",
+        "kind": "landmark",
+        "url": "https://www.cityofblackhawk.org/1219/Maryland-Mountain-Quartz-Valley-Open-Spa",
+        "hours": "Dawn to dusk",
+        "source": "https://www.cityofblackhawk.org/1219/Maryland-Mountain-Quartz-Valley-Open-Spa",
+        "checked": "2026-11-13"
       }
     ]
   }

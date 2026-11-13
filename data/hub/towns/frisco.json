@@ -33,6 +33,11 @@
     }
   ],
   "heritage": {
+    "nameOrigin": {
+      "text": "The Town's history sheet says Frisco was not named for San Francisco: the name joins letters from the St. Louis-San Francisco Railway Company, known as the Frisco Line, and Captain Henry Learned put a \"Frisco City\" sign on a cabin here in 1875.",
+      "source": "https://www.townoffrisco.com/wp-content/uploads/2021/04/Friscos-History-One-Sheet.pdf",
+      "checked": "2026-11-13"
+    },
     "founded": {
       "year": 1873,
       "text": "Founded in 1873 by Henry Recen and officially chartered in 1879.",

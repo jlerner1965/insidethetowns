@@ -24,6 +24,14 @@
       "season": "Year-round",
       "source": "https://www.georgetownmountaininn.com/",
       "checked": "2026-11-12"
+    },
+    {
+      "name": "Clear Creek Inn",
+      "kind": "Inn",
+      "url": "https://www.clearcreekinn.co/",
+      "season": "Weekday bookings in all seasons; summer and autumn weekends are held for weddings and events until 3 months out",
+      "source": "https://www.clearcreekinn.co/",
+      "checked": "2026-11-13"
     }
   ],
   "heritage": {
@@ -72,23 +80,28 @@
         "name": "Hotel de Paris Museum",
         "kind": "museum",
         "url": "https://www.hoteldeparismuseum.org/",
+        "hours": "Friday and Saturday 10 am–4 pm; Sunday until 4 pm; closed Monday",
         "season": "Closed January",
         "source": "https://www.hoteldeparismuseum.org/",
-        "checked": "2026-11-12"
+        "checked": "2026-11-13"
       },
       {
         "name": "Alpine Hose No. 2 Firefighter Museum",
         "kind": "museum",
         "url": "https://georgetown-colorado.org/history-and-tours/",
-        "source": "https://georgetown-colorado.org/history-and-tours/",
-        "checked": "2026-11-12"
+        "season": "Closed for the season when checked in November 2026",
+        "source": "https://historicgeorgetown.org/about-hgi/",
+        "checked": "2026-11-13"
       },
       {
         "name": "Georgetown Energy Museum",
         "kind": "museum",
         "url": "https://georgetown-colorado.org/history-and-tours/",
-        "source": "https://georgetown-colorado.org/history-and-tours/",
-        "checked": "2026-11-12"
+        "hours": "Daily 11 am–5 pm",
+        "cost": "Free; donations appreciated",
+        "season": "Memorial Day to Labor Day",
+        "source": "https://georgetownenergymuseum.com/",
+        "checked": "2026-11-13"
       }
     ]
   }
