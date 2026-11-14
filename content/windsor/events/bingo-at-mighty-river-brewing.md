@@ -11,7 +11,7 @@ url: "https://mightyriverbrewing.com/events-calendar/"
 category: other
 recurring: "Every Wednesday, 6:30 to 8:30 pm"
 source: "https://tockify.com/api/feeds/ics/mighty.river.brewing"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Bingo night at Mighty River Brewing\" at 6:30 pm on 18 November on the Mighty River Brewing feed"
 ---
 

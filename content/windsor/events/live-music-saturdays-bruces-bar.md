@@ -11,8 +11,8 @@ url: "https://brucesbar123.com/severance-bruce-s-bar-live-music"
 category: music
 recurring: "Every Saturday night, 7 to 10 pm"
 source: "https://brucesbar123.com/severance-bruce-s-bar-live-music"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026; Bruce's Bar's Live Music & Other Events page: 'Live music every Saturday night 7-10PM', running until Thursday, March 11th, 2027; the address is from brucesbar123.com"
+verified: "2026-11-14"
+verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 7 pm on the page"
 ---
 
 Bruce's Bar on 1st Street in Severance has a band every Saturday night, 7 to 10. The bar's live-music page lists the Saturday music as a standing event running through March 11, 2027, with music bingo every other Monday at 6:30, karaoke on Wednesdays 7 to 10 and line dancing on the last Thursday of the month. It does not name the bands or post a cover; the week's act is on the bar's social pages.

@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/makesgiving-holiday-p
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10703"
 sourceHash: "747d167651ac"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Makesgiving: Holiday Placemats\" at 11 am on 23 November in the page's structured data"
 ---
 

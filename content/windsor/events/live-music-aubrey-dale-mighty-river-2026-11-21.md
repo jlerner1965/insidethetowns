@@ -11,7 +11,7 @@ url: "https://mightyriverbrewing.com/events-calendar/"
 cost: "Free"
 category: music
 source: "https://tockify.com/api/feeds/ics/mighty.river.brewing"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Free Live Music at Mighty River Brewing with Aubrey Dale\" at 6 pm on 21 November on the Mighty River Brewing feed"
 ---
 

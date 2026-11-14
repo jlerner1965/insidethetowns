@@ -7,7 +7,7 @@ url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free"
 category: family
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 4 pm on the page"
 ---
 

@@ -11,7 +11,7 @@ organizer: "American Red Cross with the Carbon Valley Parks and Recreation Distr
 organizerUrl: "https://www.redcrossblood.org/"
 source: "https://www.cvprd.com/blood-drive"
 sourceId: "cvprd-com"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): 25 November and 9 am on the page"
 ---
 

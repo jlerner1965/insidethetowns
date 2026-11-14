@@ -13,7 +13,7 @@ organizer: "Johnstown Milliken Public Libraries"
 source: "https://johnstownmillikenpubliclibraries.us/event/music-movement-storytime-10/2026-10-26/2/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 status: "scheduled"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): 16 November and 1 pm on the page"
 ---
 

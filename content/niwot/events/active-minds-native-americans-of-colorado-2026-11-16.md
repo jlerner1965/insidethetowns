@@ -8,7 +8,7 @@ source: "https://calendar.boulderlibrary.org/events"
 sourceId: "boulderlibrary-libnet-info"
 sourceUid: "17494819"
 sourceHash: "8cb92b8eacec"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Active Minds: Native Americans of Colorado\" at 2 pm on 16 November on the Boulder Public Library District - Gunbarrel Library events feed"
 ---
 

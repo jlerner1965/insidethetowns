@@ -14,7 +14,7 @@ source: "https://www.theoldmine.com/events"
 verified: "2026-11-11"
 verifiedBy: "Claude Code, delegated by Lerner Works"
 changeFlag: true
-changeNote: "recheck 2026-11-13: not on the theoldmine.com feed on 15 November; it has \"Night Class LIVE MUSIC\" on 16 December, 2 December, 25 November, 30 December, 3 February, 10 December, 14 January, 11 February, 11 March, 8 April, 6 January, 18 November, 13 January"
+changeNote: "recheck 2026-11-14: not on the theoldmine.com feed on 15 November; it has \"Matt Adams LIVE MUSIC\" on 18 November, 30 December, 10 December, 14 January, 11 February, 11 March, 8 April, 16 December, 13 January, 2 December, 25 November, 6 January, 3 February"
 ---
 
 Sunday-evening live music at the Old Mine, 6 to 8. No cover.

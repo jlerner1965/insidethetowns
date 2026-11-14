@@ -8,7 +8,7 @@ address: "228 Mountain Ave, Berthoud, CO 80513"
 url: "https://berthoudhistoricalsociety.org/event/holiday-card-art-contest-artwork-due/"
 category: arts
 source: "https://berthoudhistoricalsociety.org/event/holiday-card-art-contest-artwork-due/"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Card Art Contest – Artwork Due\" on 14 November in the page's structured data"
 ---
 

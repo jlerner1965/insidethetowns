@@ -9,7 +9,7 @@ source: "https://www.fritzfamilybrewers.com/calendar"
 sourceId: "fritzfamilybrewers-com"
 sourceUid: "5oev156abjro9eguh778iriq98@google.com"
 sourceHash: "155726d37814"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"The Maine Event Food Truck\" on 19 November on the Fritz Family Brewers feed"
 ---
 

@@ -8,7 +8,7 @@ url: "https://johnstownco.gov/Calendar.aspx"
 cost: "Free"
 category: civic
 source: "https://johnstownco.gov/Calendar.aspx"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning and Zoning Commission Meeting\" at 6 pm on 18 November on the johnstownco.gov feed"
 ---
 

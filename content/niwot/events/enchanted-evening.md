@@ -15,8 +15,8 @@ imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 featured: true
 organizer: "Niwot Business Association"
 source: "https://niwot.com/events/enchanted-evening/"
-verified: "2026-11-12"
-verifiedBy: "Claude Code, delegated by Lerner Works: the Niwot Business Association's event page (https://niwot.com/events/enchanted-evening/: Nov 27 2026, 6:00 pm - 9:00 pm, downtown Niwot, 2nd Ave & Cottonwood Square) and its list at https://niwot.com/upcoming-events/annual-events-and-festivals/; neither states a price, the time of the tree lighting, closures or parking"
+verified: "2026-11-14"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Enchanted Evening\" at 6 pm on 27 November on the Niwot Business Association (niwot.com) feed"
 ---
 
 Enchanted Evening, Niwot's tree lighting and the start of its holiday season, is on Friday, November 27, 2026, from 6 to 9 pm in Old Town and Cottonwood Square. It is held every year on the day after Thanksgiving: the community tree is lit, Santa comes to town, there are carols, and the shops and vendors are open for the evening.

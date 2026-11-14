@@ -9,7 +9,7 @@ source: "https://highplains.libcal.com/event/17698158"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17698158"
 sourceHash: "95eae7ea272b"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Luggage Tag 3D Design\" at 12 pm on 18 November on the highplains.libcal.com feed"
 ---
 
