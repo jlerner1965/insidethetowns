@@ -329,8 +329,8 @@ const ALL_ANNUAL = ANNUAL_EVENTS_HREF;
 
 /** The masthead's links, in the page's order, each to something on the page or a page that exists. */
 const nav = [
-  { label: 'This weekend', href: weekendRows.length > 0 ? '#weekend' : '/this-weekend/' },
   { label: 'Annual events', href: seasons.length > 0 ? '#annual' : ALL_ANNUAL },
+  { label: 'This weekend', href: weekendRows.length > 0 ? '#weekend' : '/this-weekend/' },
   { label: 'Towns', href: '#towns' },
   // The index of every article, as on every other page's menu (src/lib/nav.ts, hubNav).
   articlesOnSite.length > 0 && { label: 'Articles', href: ARTICLES_INDEX_PATH },
@@ -387,9 +387,9 @@ const structured = collectionPageJsonLd(hub, {
   <div class="hh-wrap">
     <section class="hh-hero" aria-labelledby="hero-h">
       <div>
-        <p class="hh-label hh-kicker">Plains to peaks · Colorado</p>
+        <p class="hh-label hh-kicker">Colorado, plains to peaks</p>
         <h1 id="hero-h" class="hh-h1">What’s happening in Colorado’s towns</h1>
-        <p class="hh-intro">This weekend from {guideCount} local guides, and annual dates across Colorado, each checked against its source.</p>
+        <p class="hh-intro">Find Colorado’s town traditions, this weekend’s events and local stories — from parades of lights to Friday night games.</p>
         {/* The site's search (src/pages/search.astro), which on the hub holds
             every guide's places, guides and events as well as the town pages;
             the names of the towns are offered as they are typed. */}
@@ -417,6 +417,26 @@ const structured = collectionPageJsonLd(hub, {
       {live.map((t) => <a class="hh-tl" href={guideUrl(t)} data-track="home-guides">{t.name}</a>)}
       {moreTowns > 0 && <a class="hh-tl hh-strong" href="/towns/" data-track="home-guides">{moreTowns} more towns, A to Z →</a>}
     </nav>
+
+    {seasons.length > 0 && (
+      <section id="annual" class="hh-sec" aria-labelledby="annual-h">
+        <p class="hh-label hh-label-pine hh-kicker">Annual events</p>
+        <h2 id="annual-h" class="hh-h2 hh-season-h">This season</h2>
+        <div class="hh-seasons" data-hide-when-empty>
+          {seasons.map((r) => (
+            <a class="hh-row" href={r.href} data-event-day={r.until} data-track="home-season">
+              <span class="hh-day"><span class="hh-label">{r.dayLabel}</span><span class="hh-day-num">{r.dayNum}</span><span class="hh-chk">{r.weekday}</span></span>
+              <span class="hh-stack">
+                <span class="hh-ttl">{r.title}</span>
+                <span class="hh-meta">Next: {r.next}</span>
+                {r.line && <span class="hh-chk">{r.line}</span>}
+              </span>
+            </a>
+          ))}
+        </div>
+        <a class="hh-tl hh-strong hh-all-annual" href={ALL_ANNUAL} data-track="home-season">All annual events →</a>
+      </section>
+    )}
 
     {(weekendRows.length > 0 || aside || scoreLinks.length > 0) && (
       <section id="weekend" class="hh-sec" aria-labelledby={weekendRows.length > 0 ? 'weekend-h' : undefined} aria-label={weekendRows.length > 0 ? undefined : 'Dates and scores'}>
@@ -491,26 +511,6 @@ const structured = collectionPageJsonLd(hub, {
           ))}
         </div>
         {articlesOnSite.length > 0 && <a class="hh-tl hh-strong hh-all-articles" href={ARTICLES_INDEX_PATH} data-track="home-news">All articles →</a>}
-      </section>
-    )}
-
-    {seasons.length > 0 && (
-      <section id="annual" class="hh-sec" aria-labelledby="annual-h">
-        <p class="hh-label hh-label-pine hh-kicker">Annual events</p>
-        <h2 id="annual-h" class="hh-h2 hh-season-h">This season</h2>
-        <div class="hh-seasons" data-hide-when-empty>
-          {seasons.map((r) => (
-            <a class="hh-row" href={r.href} data-event-day={r.until} data-track="home-season">
-              <span class="hh-day"><span class="hh-label">{r.dayLabel}</span><span class="hh-day-num">{r.dayNum}</span><span class="hh-chk">{r.weekday}</span></span>
-              <span class="hh-stack">
-                <span class="hh-ttl">{r.title}</span>
-                <span class="hh-meta">Next: {r.next}</span>
-                {r.line && <span class="hh-chk">{r.line}</span>}
-              </span>
-            </a>
-          ))}
-        </div>
-        <a class="hh-tl hh-strong hh-all-annual" href={ALL_ANNUAL} data-track="home-season">All annual events →</a>
       </section>
     )}
 
