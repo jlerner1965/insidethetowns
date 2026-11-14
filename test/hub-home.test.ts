@@ -31,11 +31,11 @@ import {
   ordinal,
   pickDeadline,
   provenanceText,
-  searchSuggestions,
   seasonFeatureLine,
   seasonsNow,
   sportsSourceText,
   storySourceText,
+  townFinder,
   townsConfirmed,
   weekendDays,
   weekendPicks,
@@ -52,16 +52,31 @@ test('the feature counts towns, not dates: a town with two rows is one town', ()
   ]);
   assert.deepEqual(counts, { confirmed: 2, towns: 3, canceled: 0 });
   assert.deepEqual(townsConfirmed([{ town: 'A', confirmed: true }, { town: 'Wellington', confirmed: false, canceled: true }]), { confirmed: 1, towns: 1, canceled: 1 });
-  assert.equal(seasonFeatureLine({ confirmed: 19, towns: 19, canceled: 1 }), '19 of 19 towns’ dates confirmed, 1 canceled.');
+  assert.equal(seasonFeatureLine({ confirmed: 19, towns: 19, canceled: 1 }), 'In 19 towns; 1 more canceled this year.');
 });
 
-test('the feature line reads "19 of 20 towns’ dates confirmed."', () => {
-  assert.equal(seasonFeatureLine({ confirmed: 19, towns: 20 }), '19 of 20 towns’ dates confirmed.');
-  assert.equal(seasonFeatureLine({ confirmed: 1, towns: 1 }), '1 of 1 town’s dates confirmed.');
+test('the feature line says where it is held, and how many dates are set only while some are not', () => {
+  assert.equal(seasonFeatureLine({ confirmed: 25, towns: 25 }), 'In 25 towns.');
+  assert.equal(seasonFeatureLine({ confirmed: 19, towns: 20 }), 'In 20 towns; 19 dates set so far.');
+  assert.equal(seasonFeatureLine({ confirmed: 1, towns: 2 }), 'In 2 towns; 1 date set so far.');
+  assert.equal(seasonFeatureLine({ confirmed: 0, towns: 3 }), 'In 3 towns; no dates set yet.');
+  assert.equal(seasonFeatureLine({ confirmed: 1, towns: 1 }), 'In 1 town.');
+  assert.equal(seasonFeatureLine({ confirmed: 4, towns: 5, canceled: 2 }), 'In 5 towns; 4 dates set so far, 2 more canceled this year.');
 });
 
-test('the search suggestions are every name once, A to Z', () => {
-  assert.deepEqual(searchSuggestions([{ name: 'Lyons' }, { name: 'Berthoud' }], [{ name: 'Berthoud' }, { name: 'Estes Park' }]), ['Berthoud', 'Estes Park', 'Lyons']);
+test('the town box sends a guide’s towns to the guide, every other town to its page, A to Z, no name twice', () => {
+  const guides = [
+    { name: 'Windsor', href: 'https://insidewindsor.com/', covered: [{ name: 'Severance', href: 'https://insidewindsor.com/severance/' }] },
+    { name: 'Carbon Valley', href: 'https://insidecarbonvalley.com/', covered: [{ name: 'Frederick', href: 'https://insidecarbonvalley.com/' }] },
+  ];
+  const pages = [{ name: 'Salida', slug: 'salida' }, { name: 'Severance', slug: 'severance' }, { name: 'windsor', slug: 'windsor' }];
+  assert.deepEqual(townFinder(guides, pages), [
+    { name: 'Carbon Valley', href: 'https://insidecarbonvalley.com/' },
+    { name: 'Frederick', href: 'https://insidecarbonvalley.com/' },
+    { name: 'Salida', href: '/salida/' },
+    { name: 'Severance', href: 'https://insidewindsor.com/severance/' },
+    { name: 'Windsor', href: 'https://insidewindsor.com/' },
+  ]);
 });
 
 test('the registration deadline is the soonest that closes, else the soonest that opens, else nothing', () => {

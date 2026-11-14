@@ -11602,3 +11602,46 @@ Below 900px the pages are the phone's.*
   row fits on a 360px phone; at 320px "Find your town" wraps to a second
   row. Above 900px nothing changed: the label shows, the jumps keep their
   16px and their arrows, and the photograph stays 400px beside the words.
+
+## The hub home after a viewer's read, 14 November 2026 (later)
+
+The owner asked for the home read as a first-time visitor on a phone would
+read it, and then for the fixes that read turned up.
+
+- **This weekend leads, This season follows.** The headline promises
+  what is happening; the weekend was two screens down, under the season.
+  On a phone the weekend is now the first band under the hero, on white,
+  and the season follows on paper; the hero's jumps run in the same
+  order. From 900px nothing moved: the two still share a band with the
+  season in the narrow column on the left (grid placement, not the order
+  in the page).
+- **Friday's game leaves the weekend when Friday is over.** It used to
+  stay through Sunday with its final, so on a Saturday the weekend opened
+  on a game already played. The final is under High school scores, so
+  from Saturday the game is gone and its town's slot goes to a listing.
+- **No check line on the home's weekend rows.** "Checked November 14,
+  2026 against citystarbrewing.com" under every listing made each a
+  quarter longer and was the line a reader skipped. The subhead says it
+  once ("Each opens on that town's page, with the source it was checked
+  against") and each listing's own page carries its line, as before.
+  `provenanceText` and `sportsSourceText` are kept for that use.
+- **A season's line says where it is held.** "24 of 25 towns' dates
+  confirmed" became "In 25 towns; 24 dates set so far." ("In 7 towns."
+  when every date is set; "1 more canceled this year" where one was
+  called off). The subhead is "Annual events coming up, and how many
+  towns hold them."
+- **A town box in place of the twenty areas.** "Town pages by area" asked
+  a reader to know whether their town was in "Park gateway towns" or
+  "Front Range and plains towns". Under "Every other town" there is now
+  a "Type your town" box: a name from its list goes straight to the one
+  page for it (`townFinder`: a guide's name and the towns it covers to
+  the guide, a covered town with a section of its own to that section,
+  as /towns/ links it, every other town to its page); anything else, or
+  a reader without script, goes on to the search. The hero's box
+  suggests the same names. "95 more towns, A to Z" stays under it, with
+  its `town-pages` anchor. The areas are still a town page's "More in …".
+- **A team's town where its name does not carry it.** High school scores
+  reads "Johnstown Roosevelt Roughriders", as the team's page titles do
+  (`place`); every other school's name already says its town.
+
+On a 393px phone the home is 7,511px where it was 8,161px.
