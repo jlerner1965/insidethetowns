@@ -1222,6 +1222,31 @@ export const sourceSchema = z
       )
       .optional(),
     /**
+     * Where set, only feed items whose title matches one of these are
+     * staged, in the same form as `excludeTitles` (a piece of the title, or
+     * `^` and a regular expression), and `excludeTitles` still applies to
+     * what is left. For a calendar that is mostly a building's day, where an
+     * exclusion list cannot keep up with free-text titles: Erie High's lists
+     * "Busy", a recruiter's lunch visit and an outreach table among the
+     * concerts (the owner, 13 November 2026: publish only the public events).
+     */
+    includeTitles: z
+      .array(
+        z
+          .string()
+          .min(1)
+          .refine((t) => {
+            if (!t.startsWith('^')) return true;
+            try {
+              new RegExp(t, 'i');
+              return true;
+            } catch {
+              return false;
+            }
+          }, 'an entry starting with ^ must be a valid regular expression'),
+      )
+      .optional(),
+    /**
      * Keep only feed items carrying one of these feed categories (case-
      * insensitive, exact), or drop items carrying one of these. A hall's
      * rental calendar marks its public events "Featured Event" among the

@@ -549,6 +549,12 @@ test('categories are guessed from the feed\'s words and never asserted', () => {
   assert.equal(guessCategory({ title: 'Baby Storytime', categories: ['Storytime'] }).category, 'family');
   assert.equal(guessCategory({ title: 'Blood drive', categories: [] }).category, 'other');
   assert.equal(guessCategory({ title: 'Blood drive', categories: [] }).guessed, true);
+  // A dangling separator after a branch's name is not part of the venue.
+  assert.equal(venueFrom('Windsor Library - ', {}).venue, 'Windsor Library');
+  // A band's fundraiser is not a concert (the Erie High listing of 15 November 2026).
+  assert.equal(guessCategory({ title: 'EHS Band Mattress Sale Fund Raiser in main gym', categories: [] }).category, 'other');
+  assert.equal(guessCategory({ title: 'Choir Bake Sale', categories: [] }).category, 'other');
+  assert.equal(guessCategory({ title: 'Winter Bands Concert', categories: [] }).category, 'music');
 });
 
 test('matching: the feed id first, then the same day and nearly the same title, and a different time is a different session', () => {
@@ -705,4 +711,17 @@ test('a source can name the venue for a title the feed gives no place', () => {
   // Another sport with no venue still has none.
   assert.equal(venueOf({ title: "Colorado State University Men's Basketball vs Wyoming", location: 'Fort Collins, CO' }, source).venue, undefined);
   assert.equal(venueOf({ title: 'Volleyball', location: undefined }, {}).venue, undefined);
+});
+
+test('Erie High: only the public events pass the school calendar (the owner, 13 November 2026)', async () => {
+  const { readFileSync } = await import('node:fs');
+  const raw = JSON.parse(readFileSync(new URL('../content/erie/sources.json', import.meta.url), 'utf8'));
+  const ehs = (Array.isArray(raw) ? raw : raw.sources).find((s: { id: string }) => s.id === 'calendar-google-com-eriehighschool');
+  const kept = (title: string) => !excludedTitle({ title }, ehs);
+  for (const title of ['Busy', 'Marines visit during lunch', 'Erie Parks and Rec Outreach table', 'RHES Choir Concert (7-9:30pm)', 'Football Practice', 'B Day', 'EHS Band Mattress Sale Fund Raiser in main gym']) {
+    assert.equal(kept(title), false, title);
+  }
+  for (const title of ['EHS Winter Bands Concert', 'EHS Choir Concert in auditorium', 'Winter Showcase (Showtimes 10:30 am, 12:30 pm, 4 pm)', 'One Act Performances (doors at 5, show starts at 5:30)', 'Winter Orchestra Concert', 'Varsity Football vs Mead']) {
+    assert.equal(kept(title), true, title);
+  }
 });
