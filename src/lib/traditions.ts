@@ -201,6 +201,8 @@ export interface TraditionRecord {
   organizer: string;
   sourceUrl: string;
   firstYear?: number;
+  /** What the event is and where, from the organizer's page, with that page and the day it was read (src/content/schemas.ts). */
+  about?: { text: string; source: string; checked: string };
   /** On an outdoor date: what it is the date of (OUTDOOR_KINDS, src/lib/open-now.ts). */
   outdoor?: { kind: OutdoorKind; facility: string; edge: OutdoorEdge };
   years: TraditionYear[];
