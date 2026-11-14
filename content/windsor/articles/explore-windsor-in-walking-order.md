@@ -2,6 +2,9 @@
 title: "Explore Windsor: five places in walking order"
 date: "2026-10-07"
 excerpt: "The lake and Boardwalk Park first, then the 1909 town hall and the Main Street blocks, with Main Park at the end. Four stops from one parking spot. The river trail is a drive away, if there is time."
+image: ../images/windsor-art-and-heritage-center.jpg
+imageAlt: "The tan-brick 1909 former Windsor City Hall on 5th Street, now the Art & Heritage Center, with CITY HALL lettered above its columned facade and pickup trucks parked out front."
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-11-10"

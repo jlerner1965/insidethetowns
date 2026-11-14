@@ -1,0 +1,970 @@
+{
+  "note": "The hub town pages' photographs from Wikimedia Commons (14 November 2026). scripts/fetch-hub-heroes.ts reads this: per town, the files to try in order (searched on Commons from a sandbox that could read titles only, so most were chosen unseen; `fallback` ones are tried after Wikipedia's lead photograph), then Wikipedia's lead photograph and the town's Commons category. Every licence, size and author is checked against the live Commons API before anything is saved. `alt` is a draft from the title, never shown: the alt in src/config/hub-towns.ts is written from the photograph. `rejected` lists files looked at and turned down.",
+  "towns": [
+    {
+      "slug": "louisville",
+      "name": "Louisville",
+      "candidates": [],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. Nothing acceptable found in 6 searches. Commons titles found for Louisville CO are single NRHP houses (File:LaSalla House.JPG, File:Ginacci House.JPG) - private homes, not the town. Traps: File:Buildings at 900-906 East Main Street, Louisville.jpg and File:Louisville - Hamilton Brothers Warehouse.jpg are Louisville, Kentucky. Wikipedia's lead image is the Louisville Public Library (built 2006); its file was not located. Worth a follow-up browse of Category:Louisville, Colorado for a Main Street shot."
+    },
+    {
+      "slug": "timnath",
+      "name": "Timnath",
+      "candidates": [],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. Category:Timnath, Colorado only surfaced the 2005 snapshots (File:Timnath-Downtown.JPG, 717 px per IMAGE_LICENSES.csv; File:Timnath-PostOffice.JPG, same series) - rejected as too small per the task note. The current site hero (Fossil Creek Reservoir) is a reservoir, not the town. No other town photo found."
+    },
+    {
+      "slug": "mead",
+      "name": "Mead",
+      "candidates": [
+        {
+          "file": "File:Mead, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Mead,_Colorado.JPG",
+          "alt": "The town of Mead, Colorado",
+          "why": "Only town photo found in Category:Mead, Colorado; very likely the Wikipedia infobox image captioned 'Main Street in Mead.'"
+        }
+      ],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. Pick inferred from title + Wikipedia caption ('Main Street in Mead.'); not confirmed to be the same file. Rejected: File:United Church of Christ of Highlandlake.JPG (Highlandlake, outside town), File:Mead Johnson River-Rail-Truck Terminal.jpg (unrelated), Category:Mead substation (unrelated). No backup found."
+    },
+    {
+      "slug": "fort-morgan",
+      "name": "Fort Morgan",
+      "candidates": [
+        {
+          "file": "File:Aerial view of Fort Morgan, Colorado, June 2017.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Fort_Morgan,_Colorado,_June_2017.JPG",
+          "alt": "Aerial view of Fort Morgan, Colorado, June 2017",
+          "why": "Overview of the whole town; matches the Wikipedia infobox caption 'Aerial view of Fort Morgan (2017)'."
+        },
+        {
+          "file": "File:Sherman Street Historic Residential District.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Sherman_Street_Historic_Residential_District.JPG",
+          "alt": "Sherman Street Historic Residential District in Fort Morgan, Colorado",
+          "why": "A street view inside town (NRHP district in Fort Morgan); no Main Street shot surfaced.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. Other Fort Morgan files seen: City Hall, Farmers State Bank Building, Morgan County Courthouse and Jail, Lincoln School, Amtrak station (single buildings); File:Rainbow Arch Bridge (Fort Morgan, Colorado).JPG is a bridge over the South Platte, not the town. Check the aerial is not shot through a hazy plane window."
+    },
+    {
+      "slug": "boulder",
+      "name": "Boulder",
+      "candidates": [
+        {
+          "file": "File:Pearl Street - Downtown Boulder - Colorado in Winter (52878129986).jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Pearl_Street_-_Downtown_Boulder_-_Colorado_in_Winter_(52878129986).jpg",
+          "alt": "Pearl Street in downtown Boulder, Colorado, in winter",
+          "why": "Pearl Street downtown, named as Boulder in the title; Flickr import (Flickr ID suggests a 2023 upload), so likely recent and full-size."
+        },
+        {
+          "file": "File:Pearl Street Mall Boulder Colorado USA.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Pearl_Street_Mall_Boulder_Colorado_USA.jpg",
+          "alt": "Pearl Street Mall in Boulder, Colorado",
+          "why": "Pearl Street Mall, with Boulder, Colorado in the title."
+        }
+      ],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. Other options seen: File:Pearl Street Mall.jpg (possibly the Wikipedia infobox image 'Pearl Street Mall in downtown Boulder, 2009'), File:DSCN5800 bouderbelowflatirons e.jpg and File:Boulder Pano from Fairview HS.jpg (town under the Flatirons - may suit a hero better if large). Old: File:Pearl Street Mall (Boulder, CO - 2004).jpg (served at File:Boulder.jpg). Avoid flatirons-only shots (File:Boulder Flatirons.jpg etc.) and 29th Street Mall. Check the winter pick for crowds/identifiable people."
+    },
+    {
+      "slug": "greeley",
+      "name": "Greeley",
+      "candidates": [
+        {
+          "file": "File:Downtown Greeley Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Downtown_Greeley_Colorado.JPG",
+          "alt": "Downtown Greeley, Colorado",
+          "why": "Downtown street view with Greeley, Colorado in the title."
+        },
+        {
+          "file": "File:Downtown Greeley Colorado Spring.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Downtown_Greeley_Colorado_Spring.JPG",
+          "alt": "Downtown Greeley, Colorado, in spring",
+          "why": "Same subject, Colorado named in the title; season given as spring."
+        }
+      ],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. Third option: File:Greeley Downtown.JPG (no state in title, but surfaced only with Greeley CO files). Rejected: Weld County Courthouse / City Hall / Tribune Building (single buildings), File:Welcome to Greeley, Colorado.jpg (sign), File:Greeley colorado 1950.jpg (old), Greeley Square (New York)."
+    },
+    {
+      "slug": "milliken",
+      "name": "Milliken",
+      "candidates": [
+        {
+          "file": "File:Milliken, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Milliken,_Colorado.JPG",
+          "alt": "The town of Milliken, Colorado",
+          "why": "Only town photo found in Category:Milliken, Colorado; very likely the Wikipedia infobox image captioned 'Broad Street in Milliken.'"
+        }
+      ],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. Pick inferred from title + Wikipedia caption; not confirmed to be the same file. Other files: File:Milliken Park picnic pavilion, September 2018.jpg (a park pavilion - not the town, so not offered as backup), File:Daniels School.JPG, Milliken GO Station (bus stop). Traps: Milliken Brothers catalogue, Robert Millikan."
+    },
+    {
+      "slug": "wellington",
+      "name": "Wellington",
+      "candidates": [
+        {
+          "file": "File:Wellington, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Wellington,_Colorado.JPG",
+          "alt": "The town of Wellington, Colorado",
+          "why": "Only town photo found; very likely the Wikipedia infobox image captioned 'Looking west on Cleveland Avenue in Wellington.'"
+        },
+        {
+          "file": "File:First National Bank Building Wellington CO.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:First_National_Bank_Building_Wellington_CO.jpg",
+          "alt": "First National Bank Building in Wellington, Colorado",
+          "why": "Single historic building in town; Colorado named in the title.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. Pick inferred from title + Wikipedia caption. Rejected: File:Wellington Colorado Banner.JPG (banner/sign). Trap: Wellington NZ files and categories."
+    },
+    {
+      "slug": "platteville",
+      "name": "Platteville",
+      "candidates": [
+        {
+          "file": "File:Platteville, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Platteville,_Colorado.JPG",
+          "alt": "The town of Platteville, Colorado",
+          "why": "Only file with Platteville, Colorado in the title; may be the Wikipedia infobox image, captioned 'Platteville Town Hall'."
+        }
+      ],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. This may show only the Town Hall (a single building) - reviewer to check. TRAP: File:Platteville Main Street.JPG, File:Platteville's Main Street.JPG and File:2nd main platt.JPG surface in Platteville, Wisconsin searches (Main Street Commercial Historic District, Historic Second Street) - do not use them unless the file page says Colorado."
+    },
+    {
+      "slug": "brush",
+      "name": "Brush",
+      "candidates": [],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. No street or overview found in 4 searches before the search budget ran out. Wikipedia's lead image is captioned 'Brush, Colorado.' but its file was not located. Single-building fallbacks seen: File:Brush, Colorado Carnegie Library.JPG, Rankin Presbyterian Church, Knearl School, Central Platoon School. File:08 Brush (7766009106).jpg is unidentified (could be anywhere). Traps: Jared L. Brush Barn (Johnstown), Brush Traction (locomotives)."
+    },
+    {
+      "slug": "sterling",
+      "name": "Sterling",
+      "candidates": [],
+      "notes": "Search results in this session returned file titles and URLs only (no page text), so size, licence, author, date and description could not be read; width/height are null and licence is 'unconfirmed' - the licence/size re-check must run before use. No street or overview found in 4 searches. Wikipedia's lead image is 'Main Street in Sterling (2006)' but its file was not located. Single-building fallbacks seen: File:Sterling Colorado US Post Office.JPG, File:US Post Office (Sterling, Colorado) P6060492.jpg, File:Sterling Colorado Union Pacific Railroad Depot.JPG, File:Saint Anthony's Roman Catholic Church.JPG, Category:Logan County Courthouse, Colorado."
+    },
+    {
+      "slug": "rocky-ford",
+      "name": "Rocky Ford",
+      "candidates": [],
+      "notes": "The shared WebSearch budget (200 calls per turn) ran out before this town could be searched on Commons, so no file title could be confirmed. Lead: Wikipedia's infobox image is 'Rocky Ford City Hall (2010)' (single building). Search Category:Rocky Ford, Colorado and 'Rocky Ford Colorado Main Street'."
+    },
+    {
+      "slug": "la-junta",
+      "name": "La Junta",
+      "candidates": [],
+      "notes": "The shared WebSearch budget (200 calls per turn) ran out before this town could be searched on Commons, so no file title could be confirmed. Lead: Wikipedia's infobox image is 'Looking west along East 1st Street (2021)' - a recent street view, likely a good hero once its Commons file is found."
+    },
+    {
+      "slug": "morrison",
+      "name": "Morrison",
+      "candidates": [],
+      "notes": "The shared WebSearch budget (200 calls per turn) ran out before this town could be searched on Commons, so no file title could be confirmed. Lead: Wikipedia's infobox image is 'Town of Morrison with Red Rocks Amphitheatre in background' - shows the town itself, a good candidate once its Commons file is found."
+    },
+    {
+      "slug": "central-city",
+      "name": "Central City",
+      "candidates": [],
+      "notes": "The shared WebSearch budget (200 calls per turn) ran out before this town could be searched on Commons, so no file title could be confirmed. Leads: Wikipedia's header image is 'The Teller House in Central City'; gallery has the Central City Opera House. Look for a Main Street / Eureka Street view (Gilpin County). Trap: Central City KY/NE; note the Black Hawk hero already uses a Lace House photo."
+    },
+    {
+      "slug": "palmer-lake",
+      "name": "Palmer Lake",
+      "candidates": [],
+      "notes": "The shared WebSearch budget (200 calls per turn) ran out before this town could be searched on Commons, so no file title could be confirmed. Lead: Wikipedia's infobox image is 'Palmer Lake Town Hall' (single building). Search for a view of the town (not just the lake itself)."
+    },
+    {
+      "slug": "frisco",
+      "name": "Frisco",
+      "candidates": [
+        {
+          "file": "File:Frisco CO school.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Frisco_CO_school.JPG",
+          "alt": "School building in Frisco, Colorado",
+          "why": "Only Frisco, CO photo found that isn't a map or interior; single-building last resort",
+          "fallback": true
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. No Main Street or town overview of Frisco turned up in 5 searches. This is a single building, allowed only as a last resort. The en.wikipedia gallery caption 'Frisco Schoolhouse in the Frisco Historic Park' suggests it's the historic schoolhouse; confirm before use, or leave Frisco without a hero. Rejected: Trappers Cabin interior; county locator map. Trap: Frisco, Texas."
+    },
+    {
+      "slug": "breckenridge",
+      "name": "Breckenridge",
+      "candidates": [
+        {
+          "file": "File:Breckenridge Main Street.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Breckenridge_Main_Street.jpg",
+          "alt": "Main Street in Breckenridge, Colorado",
+          "why": "Main Street view; matches the en.wikipedia infobox caption 'Main Street in Breckenridge'; top result for every Colorado Main Street query"
+        },
+        {
+          "file": "File:Breckenridge Colorado from the Summit County Courthouse.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Breckenridge_Colorado_from_the_Summit_County_Courthouse.jpg",
+          "alt": "View over Breckenridge, Colorado, from the Summit County Courthouse",
+          "why": "Title ties it to Breckenridge, Colorado; a town view from the courthouse"
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. The pick's title does not say Colorado (Breckenridge TX and MI exist); confirm it is in Category:Breckenridge, Colorado. The backup's title is unambiguous, but check that it shows the town, not mainly the ski runs. Other options: 'View of Breckenridge, Colorado.jpeg' and 'Breckenridge, CO 80424, USA - panoramio.jpg' (content unknown); Heritage Alliance and cookie-shop photos are single buildings."
+    },
+    {
+      "slug": "keystone",
+      "name": "Keystone",
+      "candidates": [
+        {
+          "file": "File:Keystone Lake and Resort.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Keystone_Lake_and_Resort.jpg",
+          "alt": "Keystone Lake and the Keystone Resort village, Colorado",
+          "why": "Keystone Lake sits in Lakeside Village, so this is likely the village rather than a ski run; it surfaced in the Category:Keystone, Colorado searches",
+          "fallback": true
+        },
+        {
+          "file": "File:Keystone-winter.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Keystone-winter.jpg",
+          "alt": "Keystone, Colorado, in winter",
+          "why": "Probably the en.wikipedia lead ('Keystone in January 2011'); content unknown",
+          "fallback": true
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. Traps: Keystone Lake in Oklahoma and Keystone, SD; confirm the pick is in a Keystone, Colorado or Keystone Resort category. Check that both photos show the village (Lakeside / River Run), not a ski run. Rejected: snow-tubing family (people), Outpost Mountain Lodge (on-mountain), Unsplash ski-mountain photo, logo, maps."
+    },
+    {
+      "slug": "dillon",
+      "name": "Dillon",
+      "candidates": [
+        {
+          "file": "File:Dillon Amphitheater, 2022.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Dillon_Amphitheater,_2022.jpg",
+          "alt": "Dillon Amphitheater in Dillon, Colorado, 2022",
+          "why": "Recent; the amphitheater is in Dillon's town park on the lake shore; no street or overview found",
+          "fallback": true
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. A single-venue last resort; no street or town overview found. Confirm it is in Category:Dillon, Colorado (traps: Dillon MT and SC). Rejected: 'Dillon reservoir.JPG' (lake only); 'Dillon IMG 20180417 113840.jpg' (appeared in a Dillon, Colorado category search, but nothing ties the title to Colorado or a street view; worth a look); Dillon County Courthouse (South Carolina)."
+    },
+    {
+      "slug": "silverthorne",
+      "name": "Silverthorne",
+      "candidates": [
+        {
+          "file": "File:Silverthorne, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Silverthorne,_Colorado.JPG",
+          "alt": "Silverthorne, Colorado",
+          "why": "The only Silverthorne, Colorado file whose title names the town without a single business"
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. Content unknown; check that it shows the town. The en.wikipedia lead is 'A view of Silverthorne from Ptarmigan Peak, with Buffalo Mountain...'; that may be this file or '2011-07-07 10.18.17.jpg' (in a Category:Silverthorne search, content unknown, worth a look). Rejected: 'Target in Silverthorne, CO.jpg' (a chain store), maps."
+    },
+    {
+      "slug": "vail",
+      "name": "Vail",
+      "candidates": [
+        {
+          "file": "File:Gore Creek Drive - Vail, CO.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Gore_Creek_Drive_-_Vail,_CO.jpg",
+          "alt": "Gore Creek Drive in Vail Village, Colorado",
+          "why": "A Vail Village street, named in the title; matches the ski-town rule (village, not slopes)"
+        },
+        {
+          "file": "File:Vail, Colorado - street view.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Vail,_Colorado_-_street_view.jpg",
+          "alt": "A street in Vail, Colorado",
+          "why": "Street view in Vail; equal alternative to the pick"
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. The pick and backup are interchangeable; the reviewer should keep whichever looks better. Also possible: 'Lionshead Vail Colorado.JPG' (Lionshead village; may show the gondola). Rejected: 1974 Flickr scan 'In the Village of Vail 02-1974' (old), Vail Mountain Haus (single building), 'Lionshead Gondola, 1983'."
+    },
+    {
+      "slug": "minturn",
+      "name": "Minturn",
+      "candidates": [
+        {
+          "file": "File:Town of Minturn.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Town_of_Minturn.JPG",
+          "alt": "The town of Minturn, Colorado",
+          "why": "Top result for every Minturn, Colorado query; probably the en.wikipedia lead 'Looking northwest along Pine Street'",
+          "fallback": true
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. Confirm it is in Category:Minturn, Colorado (trap: Minturn, Arkansas). No second town or street photo found. Rejected: Tigiwon Community House and Lionshead Rock Trail (outside town)."
+    },
+    {
+      "slug": "eagle",
+      "name": "Eagle",
+      "candidates": [],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. No acceptable pick. 'DSCN3010 downtowneagle e 600.jpg' is downtown Eagle, but the '600' in the name suggests a 600 px web copy, under the 1600 px minimum; check its size, and it is the pick if larger. 'Eagle River in Eagle Colorado.JPG' shows the river (the en.wikipedia lead is the river in Chambers Park), not the town. 'Old Eagle County Court House.JPG' may be the Red Cliff courthouse (Red Cliff was county seat until 1921). 'Eagle County Justice Center.JPG' is one government building. Traps: Eagle ID, Eagle-Vail."
+    },
+    {
+      "slug": "avon",
+      "name": "Avon",
+      "candidates": [
+        {
+          "file": "File:Nottingham Lake in Avon, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Nottingham_Lake_in_Avon,_Colorado.JPG",
+          "alt": "Nottingham Lake in Avon, Colorado",
+          "why": "Nottingham Lake is in the town-centre park; probably the en.wikipedia lead ('Nottingham Lake in Avon'); no street view found",
+          "fallback": true
+        },
+        {
+          "file": "File:Avon, Colorado town hall.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Avon,_Colorado_town_hall.JPG",
+          "alt": "Avon Town Hall, Avon, Colorado",
+          "why": "Single civic building; last resort",
+          "fallback": true
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. Use the pick only if the town's buildings are visible around the lake; if it is just water, use the backup or leave Avon without a hero. Trap: Avon in other states and England."
+    },
+    {
+      "slug": "winter-park",
+      "name": "Winter Park",
+      "candidates": [
+        {
+          "file": "File:Downtown Winter Park, Colorado 2005.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Downtown_wip.JPG",
+          "alt": "Downtown Winter Park, Colorado, 2005",
+          "why": "Downtown view, title names Colorado; matches the en.wikipedia lead 'Part of downtown Winter Park with the Continental Divide in the background'"
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. The pick's search URL is the old name 'Downtown_wip.JPG', which redirects to the title above; use the title for the API check. 2005 is older than ideal. The backup's title does not name Colorado; confirm it is not Winter Park, Florida. Rejected: 'Winter Park base 2.JPG' and 'Mary Jane base.JPG' (ski-area bases, not the town). File:WPDowntown.jpeg dropped: ambiguous: Winter Park (FL or CO) or Woodland Park"
+    },
+    {
+      "slug": "fraser",
+      "name": "Fraser",
+      "candidates": [
+        {
+          "file": "File:Saint Bernard of Montjoux Church (Fraser, Colorado).JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Saint_Bernard_of_Montjoux_Church_(Fraser,_Colorado).JPG",
+          "alt": "Saint Bernard of Montjoux Church in Fraser, Colorado",
+          "why": "Single landmark in town; no street or overview found",
+          "fallback": true
+        },
+        {
+          "file": "File:Copzens Ranch Museum, Fraser, CO IMG 5409.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Copzens_Ranch_Museum,_Fraser,_CO_IMG_5409.JPG",
+          "alt": "Cozens Ranch Museum near Fraser, Colorado",
+          "why": "The en.wikipedia lead image ('Cozens Ranch Museum (1874)'); single historic building",
+          "fallback": true
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. Both are single buildings (last resort). Cozens Ranch sits on US 40 between Fraser and Winter Park, so it is weaker as 'the town'. 'Copzens' is a typo in the Commons title; keep it exactly. Trap: Fraser in other states and in Canada."
+    },
+    {
+      "slug": "granby",
+      "name": "Granby",
+      "candidates": [
+        {
+          "file": "File:Granby, CO, Town Hall IMG 5402.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Granby,_CO,_Town_Hall_IMG_5402.JPG",
+          "alt": "Granby Town Hall, Granby, Colorado",
+          "why": "The en.wikipedia lead image ('Granby Town Hall'); no downtown street file found",
+          "fallback": true
+        },
+        {
+          "file": "File:Longbranch Restaurant, Granby CO IMG 5400.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Longbranch_Restaurant,_Granby_CO_IMG_5400.JPG",
+          "alt": "Longbranch Restaurant in Granby, Colorado",
+          "why": "Downtown business building from the same set; may show the street",
+          "fallback": true
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. Both are single buildings (last resort). 'Granby during the winter.jpg' could be a town view but its title does not name Colorado (Granby, Quebec and Granby, CT are traps); check its category, and it would beat both if it is Granby, CO. Also: 'Polhamus Park, Granby, CO IMG 5406.JPG' (park)."
+    },
+    {
+      "slug": "kremmling",
+      "name": "Kremmling",
+      "candidates": [],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. Only one Kremmling search ran before the shared search budget ran out. The only photo found, 'DSCN1888 danhoarekremmling e 600.jpg', is likely a 600 px copy with unknown content. The en.wikipedia lead is 'Tourist-oriented wooden structure in Kremmling'. Re-search: Category:Kremmling, Colorado; 'Kremmling Colorado Park Avenue'."
+    },
+    {
+      "slug": "steamboat-springs",
+      "name": "Steamboat Springs",
+      "candidates": [
+        {
+          "file": "File:Steamboat Springs downtown.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Steamboat_Springs_downtown.jpg",
+          "alt": "Downtown Steamboat Springs, Colorado",
+          "why": "Downtown view; probably the en.wikipedia lead ('Downtown Steamboat Springs in May 2006 with the ski area in the background')"
+        },
+        {
+          "file": "File:Steamboat Springs Downtown Historic District.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Steamboat_Springs_Downtown_Historic_District.JPG",
+          "alt": "Steamboat Springs Downtown Historic District, Colorado",
+          "why": "Downtown historic district street; equally strong"
+        }
+      ],
+      "notes": "Title only: the Commons search returned no page text, so size, author, licence, date and description were not visible. Both are downtown (Lincoln Avenue) views, so they suit the ski-town rule. Rejected: 'Steamboat springs ski resort.jpg' (ski area), 'Winter Carnival in Steamboat Springs.jpg' (festival crowd), City Hall."
+    },
+    {
+      "slug": "craig",
+      "name": "Craig",
+      "candidates": [],
+      "notes": "Not searched: the shared web-search budget ran out before Craig. The en.wikipedia lead is 'Entering Craig from the south on South Ranney Street' (a drive-in view). Re-search: Category:Craig, Colorado; 'Craig Colorado Victory Way'; 'Craig Colorado downtown'. Trap: Craig, Alaska."
+    },
+    {
+      "slug": "walden",
+      "name": "Walden",
+      "candidates": [],
+      "notes": "Not searched: the shared web-search budget ran out before Walden. The en.wikipedia lead is 'Main Street in Walden, July 2010', so a good Commons candidate exists; find its file name with Category:Walden, Colorado or 'Walden Colorado Main Street'. Trap: Walden, NY and VT."
+    },
+    {
+      "slug": "aspen",
+      "name": "Aspen",
+      "candidates": [
+        {
+          "file": "File:Downtown Aspen, CO, with view to ski slopes.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Downtown_Aspen,_CO,_with_view_to_ski_slopes.jpg",
+          "alt": "Downtown Aspen, Colorado, with a view to the ski slopes",
+          "why": "Title describes the hero composition directly (downtown blocks plus the ski mountain) and names Aspen, CO."
+        },
+        {
+          "file": "File:Downtown of Aspen, Colorado.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Downtown_of_Aspen,_Colorado.jpg",
+          "alt": "Downtown Aspen, Colorado",
+          "why": "Top hit for Category:Aspen, Colorado; probably the Wikipedia infobox photo (caption 'Downtown Aspen (April 2005)'), but older."
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. Other Aspen street files seen, not ranked: 'File:Main Street, Aspen, CO.jpg' (Main Street is the Hwy 82 residential stretch, not the commercial core), 'File:Aspen south Galena street.jpg', 'File:Aspen CO downton.jpg'. Avoid 'File:RFTA buses at Main St & Garmisch St, Aspen, 2010.jpg' (buses are the subject). Not yet used on the network."
+    },
+    {
+      "slug": "basalt",
+      "name": "Basalt",
+      "candidates": [
+        {
+          "file": "File:Midland Avenue, Basalt, 2009.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Midland_Avenue,_Basalt,_2009.jpg",
+          "alt": "Midland Avenue in Basalt, Colorado, 2009",
+          "why": "Only street-level file found for the town; title names Midland Avenue (the downtown street) and the year; surfaced in the Category:Basalt, Colorado search."
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. Name trap: most 'Basalt' hits are rock/geology files; the pick is the one that names the town's street. Wikipedia's infobox caption is 'Downtown Basalt with Basalt Mountain in the background' (file name hidden); it may be the pick or 'File:Basalt Mountain.JPG'. The latter was not used as backup because it may show only the mountain. No backup found."
+    },
+    {
+      "slug": "carbondale",
+      "name": "Carbondale",
+      "candidates": [
+        {
+          "file": "File:Highway 133, Carbondale, Colorado (28784913905).jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Highway_133,_Carbondale,_Colorado_(28784913905).jpg",
+          "alt": "Colorado State Highway 133 in Carbondale, Colorado",
+          "why": "Only file found whose title confirms Carbondale, Colorado and shows the town rather than a peak; a Flickr import, so probably CC licensed and from around 2016.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. LOW CONFIDENCE: Highway 133 is the commercial corridor on the west side of town, not historic Main Street, so this may be a plain road shot; the reviewer should reject it if no town buildings are in the frame. Same-name traps: 'File:Carbondale City Hall pa.JPG' and Category:Carbondale City Hall and Courthouse are Carbondale, Pennsylvania; 'Birds eye view of Carbondale, Pa.' is Pennsylvania too. 'File:Carbondale.JPG' turned up in Colorado searches but its location (CO, PA or IL) and subject (possibly Mount Sopris; Wikipedia's lead caption is 'Mount Sopris, south of the town, looms close by') are unconfirmed, so it was not used. No Main Street file found."
+    },
+    {
+      "slug": "glenwood-springs",
+      "name": "Glenwood Springs",
+      "candidates": [
+        {
+          "file": "File:Glenwood Springs city view.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Glenwood_Springs_city_view.jpg",
+          "alt": "View over the city of Glenwood Springs, Colorado",
+          "why": "Top hit for both the overview and 'Drone view of Glenwood Springs' searches (the Wikipedia infobox caption), so it is probably the article's lead aerial view of the town."
+        },
+        {
+          "file": "File:Glenwood Springs Colorado.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Glenwood_Springs_Colorado.jpg",
+          "alt": "Glenwood Springs, Colorado",
+          "why": "Generic town-titled file that also surfaced for the drone-view search; content unknown."
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. Backup is low confidence and could be the hot springs pool or the canyon rather than the town. Other leads: 'File:Glenwood springs co.jpg', 'File:Glenwood Springs, CO, Red Mountain (6002855585).jpg' (Flickr), 'File:Glenwood Springs,Colorado,USA. - panoramio.jpg'. No Grand Avenue street file found, only bridge-construction shots ('New Grand Avenue bridges…'), which are not suitable."
+    },
+    {
+      "slug": "redstone",
+      "name": "Redstone",
+      "candidates": [
+        {
+          "file": "File:Redstone Historic District.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Redstone_Historic_District.JPG",
+          "alt": "Redstone Historic District in Redstone, Colorado",
+          "why": "The historic district is the village core along Redstone Boulevard; top hit for 'Redstone Boulevard view north', which is the Wikipedia infobox caption."
+        },
+        {
+          "file": "File:REDSTONE INN, REDSTONE, COLORADO.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:REDSTONE_INN,_REDSTONE,_COLORADO.jpg",
+          "alt": "The Redstone Inn in Redstone, Colorado",
+          "why": "Single landmark building in the village (the all-caps title style suggests a Library of Congress import); use only if the pick fails.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. Backup is a single building, below the street-scene bar. Avoid the coke-oven, Osgood Castle and Crystal River files as heroes because they show sites, not the village street. If the pick turns out to be a single house, check 'File:Crystal River at Redstone, CO.jpg' for town buildings."
+    },
+    {
+      "slug": "marble",
+      "name": "Marble",
+      "candidates": [
+        {
+          "file": "File:Marble City State Bank Building.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Marble_City_State_Bank_Building.JPG",
+          "alt": "Marble City State Bank Building in Marble, Colorado",
+          "why": "No street or overview file of the town was found; this in-town landmark is used on the Wikipedia Marble, Colorado article, which confirms the place.",
+          "fallback": true
+        },
+        {
+          "file": "File:Marble Community Church.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Marble_Community_Church.JPG",
+          "alt": "Marble Community Church in Marble, Colorado",
+          "why": "Second in-town landmark; surfaced in the Category:Marble, Colorado search.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. Both choices are single buildings and may be portrait, so check the shape. Traps: the Wikipedia lead is 'Blocks of cut marble at the historic quarry', which shows the quarry, not the town; the Crystal Mill is in Crystal, outside town; most 'marble' hits are rock specimens; 'File:Colorado Building.JPG', 'File:Margery Building.JPG' and 'File:Mechanics Building - Masonic Building.JPG' are not in Marble. Another option: 'File:Marble High School.JPG', which is also used on the Wikipedia article."
+    },
+    {
+      "slug": "rifle",
+      "name": "Rifle",
+      "candidates": [
+        {
+          "file": "File:Rifle, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Rifle,_Colorado.JPG",
+          "alt": "Rifle, Colorado",
+          "why": "Top hit for 'Railroad Avenue Rifle looking north', the Wikipedia infobox caption, so it is probably the article's lead street photo."
+        },
+        {
+          "file": "File:US Post Office-Rifle Main.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:US_Post_Office-Rifle_Main.JPG",
+          "alt": "U.S. Post Office in Rifle, Colorado",
+          "why": "Single downtown landmark (an NRHP post office); fallback only.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. If the pick is confirmed as the infobox image, a better alt is 'Railroad Avenue in Rifle, Colorado, looking north'. Name trap: 'rifle' as a word; the picks name Rifle, Colorado or come from its category. Rifle Creek, Rifle Bridge, Rifle Gap and Grand Hogback files are outside the downtown and not suitable."
+    },
+    {
+      "slug": "meeker",
+      "name": "Meeker",
+      "candidates": [
+        {
+          "file": "File:2010-1101-MeekerCO.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:2010-1101-MeekerCO.jpg",
+          "alt": "View over Meeker, Colorado, November 2010",
+          "why": "In Category:Meeker, Colorado, and the top hit for 'Meeker seen from Highland Cemetery'; the date in the file name matches the Wikipedia collage label 'Aerial view of Meeker, November 2010', so it is probably a town overview."
+        },
+        {
+          "file": "File:Hotel Meeker.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Hotel_Meeker.JPG",
+          "alt": "Hotel Meeker in Meeker, Colorado",
+          "why": "Main Street landmark building (NRHP); fallback only.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. The date 2010-11-01 is read from the file name, not the page; November light may be bare and brown. Traps: Mount Meeker (Front Range peak) and Meeker Massacre site files are not the town. No downtown street file found."
+    },
+    {
+      "slug": "grand-junction",
+      "name": "Grand Junction",
+      "candidates": [
+        {
+          "file": "File:Grand-junction-skyline.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Grand-junction-skyline.jpg",
+          "alt": "Grand Junction, Colorado skyline",
+          "why": "Matches the Wikipedia infobox caption 'Grand Junction skyline' and surfaced for every overview search; shows the city itself."
+        },
+        {
+          "file": "File:Hotel St. Regis (Grand Junction, Colorado).JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Hotel_St._Regis_(Grand_Junction,_Colorado).JPG",
+          "alt": "Hotel St. Regis in Grand Junction, Colorado",
+          "why": "Downtown landmark whose title confirms Grand Junction, Colorado; fallback only.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. No Main Street (downtown) street-scene file found. Other leads: 'File:North Seventh Street Historic Residential District.JPG' (a residential street; title does not name the city), 'File:Margery Building.JPG' (location not confirmed by title). Trap: Category:Grand Junction, Iowa. Book Cliffs and Colorado National Monument files are outside town."
+    },
+    {
+      "slug": "palisade",
+      "name": "Palisade",
+      "candidates": [
+        {
+          "file": "File:Main Street Palisade Colorado USA.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Main_Street_Palisade_Colorado_USA.JPG",
+          "alt": "Main Street in Palisade, Colorado",
+          "why": "Main Street file named for the town; it matches the Wikipedia infobox caption 'Main Street in Palisade' and tops Category:Palisade, Colorado."
+        }
+      ],
+      "notes": "Search results gave file titles and URLs only, no page text, so width, height, author, licence, date and description could not be read; licence left 'unconfirmed' for the API re-check, and landscape shape / 1600 px minimum are NOT verified. Search budget ran out before a backup search (an orchard edge or town overview) could be run. Trap: Category:The Palisade (Colorado) is a cliff landform, not the town."
+    },
+    {
+      "slug": "fruita",
+      "name": "Fruita",
+      "candidates": [],
+      "notes": "Not searched: the shared web-search budget for this run (200 calls across all agents) ran out before this town was reached, so no Commons file was identified. Lead: the Wikipedia infobox photo is 'Interstate 70 sign at Fruita exit', which is a sign and not acceptable. Search next for Category:Fruita, Colorado and Aspen Avenue downtown."
+    },
+    {
+      "slug": "delta",
+      "name": "Delta",
+      "candidates": [],
+      "notes": "Not searched: the shared web-search budget for this run (200 calls across all agents) ran out before this town was reached, so no Commons file was identified. Lead: the Wikipedia infobox photo is captioned 'Main Street in Delta (2005)', so a Main Street file exists; find it via Category:Delta, Colorado. Name trap: 'Delta' as a common word."
+    },
+    {
+      "slug": "cedaredge",
+      "name": "Cedaredge",
+      "candidates": [],
+      "notes": "Not searched: the shared web-search budget for this run (200 calls across all agents) ran out before this town was reached, so no Commons file was identified. Lead: the Wikipedia infobox photo is captioned 'Cedaredge as seen from Cedar Mesa', a town overview that is promising; find it via Category:Cedaredge, Colorado."
+    },
+    {
+      "slug": "olathe",
+      "name": "Olathe",
+      "candidates": [],
+      "notes": "Not searched: the shared web-search budget for this run (200 calls across all agents) ran out before this town was reached, so no Commons file was identified. Lead: the Wikipedia infobox photo is captioned 'Olathe in 2014'; find it via Category:Olathe, Colorado. Name trap: Olathe, Kansas."
+    },
+    {
+      "slug": "paonia",
+      "name": "Paonia",
+      "candidates": [],
+      "notes": "Not searched: the shared web-search budget for this run (200 calls across all agents) ran out before this town was reached, so no Commons file was identified. Lead: the Wikipedia infobox photo is captioned \"Paonia's Grand Avenue, looking south\", a main-street shot that is promising; find it via Category:Paonia, Colorado."
+    },
+    {
+      "slug": "hotchkiss",
+      "name": "Hotchkiss",
+      "candidates": [],
+      "notes": "Not searched: the shared web-search budget for this run (200 calls across all agents) ran out before this town was reached, so no Commons file was identified. Lead: the Wikipedia infobox photo is captioned 'East Bridge Street in Hotchkiss, looking towards Mount Lamborn', a main-street shot that is promising; find it via Category:Hotchkiss, Colorado."
+    },
+    {
+      "slug": "telluride",
+      "name": "Telluride",
+      "candidates": [
+        {
+          "file": "File:Telluride's main street.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Telluride's_main_street.jpg",
+          "alt": "The main street of Telluride, Colorado",
+          "why": "Title names the main street; it ranked first for every Colorado Avenue / main street query; the brief's own example uses this file"
+        },
+        {
+          "file": "File:Telluride from gondola.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Telluride_from_gondola.jpg",
+          "alt": "Telluride, Colorado, seen from the gondola",
+          "why": "Title says it is a view of the town from the gondola, so likely the town in its box canyon"
+        }
+      ],
+      "notes": "UNVERIFIED: in this run the Commons search returned titles and URLs only (no size, author, date, licence, description or categories), and commons/upload are blocked, so width/height/author/date are null and licence is 'unconfirmed'. Before use, check on the live file page: width >= 1600 and landscape, licence, date, that the frame shows the town, and rewrite the alt from the real description. The brief's example lists this pick as Woody Hibbard, CC BY 2.0, 2279x1393, 2014-08-01; I could not confirm those values. Wikipedia's infobox caption is 'Colorado Avenue: As seen from The New Sheridan Hotel' (file not identified). Other titles seen, content unknown: 'Telluride from the ski hill.jpg', 'Telluride Colorado USA.jpg', 'Telluride Colorado.jpg', 'Telluride, Colorado (7235118708).jpg', '(7235121004)', '(14180596846)', '(14203735045)' (Flickr imports). Skipped: 'Box Canyon Telluride, Colorado 2023.jpg' (likely canyon/falls), 'New Sheridan Hotel, Telluride.jpg' (single building), festival shots, Kia Telluride car files."
+    },
+    {
+      "slug": "ouray",
+      "name": "Ouray",
+      "candidates": [
+        {
+          "file": "File:Ouray, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Ouray,_Colorado.JPG",
+          "alt": "Ouray, Colorado, looking north from Highway 550",
+          "why": "Ranked first for the Wikipedia infobox caption 'Ouray looking north from Highway 550', so probably the article's lead image of the town in its valley (inference from search ranking)"
+        },
+        {
+          "file": "File:Ouray, Colorado from Perimeter Trail.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Ouray,_Colorado_from_Perimeter_Trail.JPG",
+          "alt": "Ouray, Colorado, seen from the Perimeter Trail",
+          "why": "Title says it is a view of the town from the Perimeter Trail above it"
+        }
+      ],
+      "notes": "UNVERIFIED: in this run the Commons search returned titles and URLs only (no size, author, date, licence, description or categories), and commons/upload are blocked, so width/height/author/date are null and licence is 'unconfirmed'. Before use, check on the live file page: width >= 1600 and landscape, licence, date, that the frame shows the town, and rewrite the alt from the real description. The pick's match to the Wikipedia lead photo is inferred from search ranking, not confirmed. Other titles seen: 'Ouray, Colorado (14017071779).jpg' (Flickr import, c. 2014 by ID), 'Ouray CO.jpg', 'Ouray CO East Side of Downtown 2006 09 13.jpg' (downtown street but 2006, likely smaller), 'Beaumont Hotel Ouray,CO.jpg' (single building). Trap: Ouray, Utah; every title above says Colorado or CO."
+    },
+    {
+      "slug": "ridgway",
+      "name": "Ridgway",
+      "candidates": [
+        {
+          "file": "File:Ridgway, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Ridgway,_Colorado.JPG",
+          "alt": "Ridgway, Colorado, approached on Highway 62",
+          "why": "Ranked first for the Wikipedia infobox caption 'Approaching Ridgway on Highway 62', so probably the article's lead image (inference); low confidence as a hero"
+        }
+      ],
+      "notes": "UNVERIFIED: in this run the Commons search returned titles and URLs only (no size, author, date, licence, description or categories), and commons/upload are blocked, so width/height/author/date are null and licence is 'unconfirmed'. Before use, check on the live file page: width >= 1600 and landscape, licence, date, that the frame shows the town, and rewrite the alt from the real description. Low confidence: if this is the Wikipedia lead it is a road-approach view, which the brief counts as a minus; the reviewer should drop it if the town is small in the frame or it was shot from a car. No main street or downtown file for Ridgway turned up. 'Ouray and Ridgway, Colorado (14017068158).jpg' was seen but its subject is ambiguous (two towns), so not used as backup."
+    },
+    {
+      "slug": "silverton",
+      "name": "Silverton",
+      "candidates": [
+        {
+          "file": "File:Downtown Silverton, Colorado.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Downtown_Silverton,_Colorado.jpg",
+          "alt": "Downtown Silverton, Colorado",
+          "why": "Title names downtown Silverton, Colorado; ranked first for the Greene Street storefronts query"
+        },
+        {
+          "file": "File:Main Street, Silverton, Colorado.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Main_Street,_Silverton,_Colorado.jpg",
+          "alt": "Main street of Silverton, Colorado",
+          "why": "Title names the main street and Colorado; ranked first for the Greene Street / main street query"
+        }
+      ],
+      "notes": "UNVERIFIED: in this run the Commons search returned titles and URLs only (no size, author, date, licence, description or categories), and commons/upload are blocked, so width/height/author/date are null and licence is 'unconfirmed'. Before use, check on the live file page: width >= 1600 and landscape, licence, date, that the frame shows the town, and rewrite the alt from the real description. Silverton's main street is Greene Street; the backup's title says 'Main Street', so confirm it is Silverton CO (not Silverton OR, which has a Main Street) from its categories. Check neither frame is dominated by the Durango & Silverton train. Wikipedia's infobox has no town photo (locator map only). Skipped: 'Silverton.jpg' (title alone does not say which Silverton), 'Sultan Mountain from Silverton.jpg' (peak), 'Silverton City Hall' and 'SilvertonHotel.jpg' (single buildings), 'Highland Mary Lakes' (outside town). Also seen, content unknown: 'Colorado - Silverton 01.jpg'."
+    },
+    {
+      "slug": "durango",
+      "name": "Durango",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Lead: Wikipedia infobox lead is 'Aerial view (2025)'; search Commons for that and for Main Avenue. Trap: Durango, Mexico (city and state) and Durango, Spain."
+    },
+    {
+      "slug": "pagosa-springs",
+      "name": "Pagosa Springs",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Lead: Wikipedia infobox lead is 'Aerial view of west Pagosa Springs' (west side may be newer development rather than the historic downtown on the San Juan River; check)."
+    },
+    {
+      "slug": "cortez",
+      "name": "Cortez",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Lead: Wikipedia infobox lead is 'Cortez city hall, built in 2017' (single building; prefer a Main Street view if one exists)."
+    },
+    {
+      "slug": "mancos",
+      "name": "Mancos",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Lead: Wikipedia infobox lead is 'The 1905 Bauer Bank Block building in Mancos' (single building; prefer Grand Avenue / Main Street if available)."
+    },
+    {
+      "slug": "dolores",
+      "name": "Dolores",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Leads: Wikipedia infobox lead is 'Aerial photo of Dolores'. 'File:Dolores, Colorado.JPG' turned up incidentally in another search (content unknown). Trap: Dolores is also a common place name (Uruguay, Argentina, Spain, Philippines)."
+    },
+    {
+      "slug": "montrose",
+      "name": "Montrose",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Lead: Wikipedia infobox lead is 'South Townsend Avenue in Montrose' (a commercial highway strip; Main Street downtown may be better). Trap: Montrose, Scotland and others."
+    },
+    {
+      "slug": "crested-butte",
+      "name": "Crested Butte",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Lead: Wikipedia caption 'Crested Butte – the town and mountain'. Elk Avenue is the main street. Keep apart from Mount Crested Butte (the separate ski town) and from shots of the peak alone."
+    },
+    {
+      "slug": "gunnison",
+      "name": "Gunnison",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Lead: Wikipedia infobox lead is 'Storefronts along Main Street in Gunnison'. Trap: Gunnison, Utah; Gunnison River and Black Canyon of the Gunnison are not the town."
+    },
+    {
+      "slug": "lake-city",
+      "name": "Lake City",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Lead: Wikipedia infobox lead is 'Baptist Church in Lake City, Colorado' (single building). Trap: Lake City, Florida and several others; Lake San Cristobal is outside town."
+    },
+    {
+      "slug": "creede",
+      "name": "Creede",
+      "candidates": [],
+      "notes": "NOT SEARCHED: the shared WebSearch budget for this turn (200 calls across all agents) ran out before this town was reached. Needs a follow-up run. Lead: Wikipedia infobox lead is 'Downtown Creede in 2005' (downtown view, but 2005). Avoid the 1942 Feininger photo and the Bachelor Loop mine shot."
+    },
+    {
+      "slug": "buena-vista",
+      "name": "Buena Vista",
+      "candidates": [
+        {
+          "file": "File:Downtown Buena Vista Colorado USA.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Downtown_Buena_Vista_Colorado_USA.JPG",
+          "alt": "Downtown Buena Vista, Colorado",
+          "why": "Only file whose title names downtown Buena Vista, Colorado; came up for main-street and downtown searches."
+        },
+        {
+          "file": "File:Buena Vista, Colorado (9179294197).jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Buena_Vista,_Colorado_(9179294197).jpg",
+          "alt": "Buena Vista, Colorado",
+          "why": "Flickr import titled with the town; came up for main-street, overview and downtown searches. What it shows is not known from the title."
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. The pick was moved from the old Wikivoyage site (it showed up next to 'Category:Files moved from wts.oldwikivoyage to Commons requiring review'), so its licence may still need review and it may be small. A second Flickr file, 'File:Buena Vista, Colorado (9179293411).jpg', is another option. The Wikipedia lead image is the Town Hall (single building). Avoid the Collegiate Peaks Overlook files (outside town)."
+    },
+    {
+      "slug": "canon-city",
+      "name": "Cañon City",
+      "candidates": [
+        {
+          "file": "File:ChrisLitherlandCanonCity.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:ChrisLitherlandCanonCity.jpg",
+          "alt": "Cañon City, Colorado",
+          "why": "In Category:Cañon City, Colorado and top result for 'Downtown Canon City 2010' and 'Cañon City Downtown Historic District'; probably the Wikipedia lead image captioned 'Downtown Cañon City, 2010'."
+        },
+        {
+          "file": "File:Cañon City Municipal Building.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Ca%C3%B1on_City_Municipal_Building.JPG",
+          "alt": "Cañon City Municipal Building, Cañon City, Colorado",
+          "why": "Title confirms Cañon City; one landmark building, used only as a fallback.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. The pick's title says nothing about what it shows. That it is the 'Downtown Cañon City, 2010' Wikipedia lead image is an inference from search ranking; confirm on the file page and rewrite the alt. Other options: 'File:Skyline Drive (Cañon City, Colorado)—1.JPG' and '—3.JPG' (the ridge road above town; these may show the city below). Avoid the Royal Gorge Bridge files (outside town)."
+    },
+    {
+      "slug": "florence",
+      "name": "Florence",
+      "candidates": [
+        {
+          "file": "File:Florence, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Florence,_Colorado.JPG",
+          "alt": "Florence, Colorado",
+          "why": "Title confirms Colorado; probably the Wikipedia lead image ('Entering Florence from the east on Colorado State Highway 115')."
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. WRONG-TOWN TRAP: the pick's title does not say Colorado. Florence, Alabama and Florence, SC also have downtown historic districts. A 'Category:Downtown Florence Historic District' came up next to the Alabama 'Rogers Department Store' files. Use the pick only if its categories include Florence, Colorado; if not, use the backup. Ignore 'Rogers Department Store in Florence.jpg' (Alabama) and the ADX Florence prison files. File:Downtown Florence Historic District.JPG dropped: Florence, Alabama has a district of this name; the Colorado file is listed instead"
+    },
+    {
+      "slug": "westcliffe",
+      "name": "Westcliffe",
+      "candidates": [],
+      "notes": "No street or overview file found. The Wikipedia article uses a photo captioned 'Shopping lane in downtown Westcliffe' (file name not found before the search budget ran out); that is the one to look for. Single-building fallbacks in Category:Westcliffe, Colorado: 'File:Custer County (Colorado) Court House.JPG', 'File:Westcliffe—Silver Cliff Post Office.JPG', 'File:Westcliffe Jail.JPG'. Not suitable: 'File:Hornpeak.JPG' (the Wikipedia lead image, Horn Peak seen from town) and 'File:Sangre de Cristo Mtns., Westcliffe, Colorado - panoramio.jpg' (mountains). Trap: Westcliff-on-Sea, England."
+    },
+    {
+      "slug": "cripple-creek",
+      "name": "Cripple Creek",
+      "candidates": [
+        {
+          "file": "File:Panorama view of Cripple Creek, CO overlook - panoramio.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Panorama_view_of_Cripple_Creek,_CO_overlook_-_panoramio.jpg",
+          "alt": "Panoramic view of Cripple Creek, Colorado, from an overlook",
+          "why": "The only recent-looking overview of the town itself; a panorama should be wide."
+        },
+        {
+          "file": "File:Cripple Creek, Colorado, 1957, Kodachrome by Chalmers Butterfield.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Cripple_Creek,_Colorado,_1957,_Kodachrome_by_Chalmers_Butterfield.jpg",
+          "alt": "Cripple Creek, Colorado, in 1957, Kodachrome photograph by Chalmers Butterfield",
+          "why": "Top result for 'Bennett Avenue', so probably a street scene, but it dates from 1957.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. No modern Bennett Avenue street file was found. Panoramio files are often small; check the pick's width. Other in-town options: 'File:Double Eagle Casino Cripple Creek.jpg' and 'File:Outlaws & Lawmen Jail Museum.JPG' (single buildings). Avoid the mine, ore, rock and railroad files (Cresson Mine, Trachyte Knob, CC&V narrow gauge)."
+    },
+    {
+      "slug": "victor",
+      "name": "Victor",
+      "candidates": [
+        {
+          "file": "File:Victorhotel.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Victorhotel.jpg",
+          "alt": "The Victor Hotel, Victor, Colorado",
+          "why": "No street or overview file found; the Victor Hotel is the Wikipedia lead image and a downtown landmark.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. Single-building pick, used because no street or overview file turned up. The title does not say Colorado; confirm the file is in 'Category:Victor Hotel (Victor, Colorado)' (that category exists). Old-style file name, so it may be small. Avoid 'Cripple Creek and Victor Mine - Victor Colorado.JPG' (mine outside town) and 'Victor Avenue, Kemps Creek' (Australia). The Wikipedia article also shows Victor City Hall in downtown Victor, a possible lead."
+    },
+    {
+      "slug": "woodland-park",
+      "name": "Woodland Park",
+      "candidates": [],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. No second street or overview file found; the other files in the category are the high school, dinosaur-centre images and maps. The Wikipedia article also has 'Woodland Park as viewed from the summit of Pikes Peak' (too distant for a hero). File:WPDowntown.jpeg dropped: ambiguous: Winter Park (FL or CO) or Woodland Park"
+    },
+    {
+      "slug": "green-mountain-falls",
+      "name": "Green Mountain Falls",
+      "candidates": [
+        {
+          "file": "File:Green Mtn Falls landoffice.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Green_Mtn_Falls_landoffice.JPG",
+          "alt": "Old land office building in the park, Green Mountain Falls, Colorado",
+          "why": "Only file whose title confirms the town; it is the Wikipedia lead image ('Old land office in the park').",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. Single-building pick, kept only because nothing else was found. 'File:Lake Gazebo (51288808412).jpg' and '(51290275834).jpg' came up for a Green Mountain Falls gazebo search, and the town has a well-known lake gazebo. Their titles do not name a place, so they are not recorded as picks; check their categories, as one could be a better hero. The truck photos in the category are not suitable."
+    },
+    {
+      "slug": "fairplay",
+      "name": "Fairplay",
+      "candidates": [
+        {
+          "file": "File:Historic Park County Courthouse and Jail in Fairplay, Colorado.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Historic_Park_County_Courthouse_and_Jail_in_Fairplay,_Colorado.jpg",
+          "alt": "Historic Park County Courthouse and Jail in Fairplay, Colorado",
+          "why": "The overview that exists looks too small (see notes), so the town's main landmark is used, with a title that confirms Fairplay.",
+          "fallback": true
+        },
+        {
+          "file": "File:Historic Park County Courthouse in Fairplay, Colorado.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Historic_Park_County_Courthouse_in_Fairplay,_Colorado.jpg",
+          "alt": "Historic Park County Courthouse in Fairplay, Colorado",
+          "why": "Same building, different file; title confirms Fairplay.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. The Wikipedia lead image ('View of Fairplay and South Park looking south from State Highway 9', with South Park City in the foreground) is probably 'File:DSCN3327 fairplayandsouthparkcity e 600.jpg'. The '600' in its name suggests it is about 600 px wide, so it is not used; use it if it turns out to be at least 1600 px. Other options: 'File:Summer Saloon.JPG' and 'File:South Park Community Church.JPG' (single buildings; titles do not name the town). Avoid 'Front Range, Near Fairplay' (outside town) and the inside-Subway photo. 'Park County Courthouse and Jail.JPG' does not name the state (there are Park Counties in MT and WY)."
+    },
+    {
+      "slug": "alma",
+      "name": "Alma",
+      "candidates": [
+        {
+          "file": "File:Main Street Alma Colorado.jpg",
+          "page": "https://commons.wikimedia.org/wiki/File:Main_Street_Alma_Colorado.jpg",
+          "alt": "Main Street in Alma, Colorado",
+          "why": "Title confirms Main Street in Alma, Colorado; it is the Wikipedia lead image ('Main Street in Alma (2010)')."
+        },
+        {
+          "file": "File:Alma Town Hall.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Alma_Town_Hall.JPG",
+          "alt": "Alma Town Hall, Alma, Colorado",
+          "why": "Came up in the Category:Alma, Colorado search; a single building, used only as a fallback.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. The Wikipedia caption dates the pick to 2010. The backup's title does not say Colorado (there are towns named Alma in MI, KS, AR, WI and elsewhere); confirm its category. Alma Junction is a different place."
+    },
+    {
+      "slug": "alamosa",
+      "name": "Alamosa",
+      "candidates": [
+        {
+          "file": "File:Alamosa, Colorado.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Alamosa,_Colorado.JPG",
+          "alt": "Alamosa, Colorado",
+          "why": "Town-named file in Category:Alamosa, Colorado; probably the Wikipedia lead image (captioned 'Downtown'). The naming matches the series of Colorado town street photos (e.g. Florence, Colorado.JPG; Silver Cliff, Colorado.JPG)."
+        },
+        {
+          "file": "File:Alamosa County Courthouse.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Alamosa_County_Courthouse.JPG",
+          "alt": "Alamosa County Courthouse, Alamosa, Colorado",
+          "why": "Title confirms the place; a single landmark building, used only as a fallback.",
+          "fallback": true
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. What the pick shows is not confirmed. Avoid 'Alamosa East, Colorado.JPG' (a separate place) and the Great Sand Dunes and wildlife-refuge files. 'File:American National Bank Building.JPG' (a downtown landmark) came up for the Alamosa Main Street search, but its title does not name the town. 'File:Denver and Rio Grande Railroad Depot (Alamosa, Colorado).JPG' is another fallback."
+    },
+    {
+      "slug": "monte-vista",
+      "name": "Monte Vista",
+      "candidates": [
+        {
+          "file": "File:Monte Vista Downtown Historic District.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:Monte_Vista_Downtown_Historic_District.JPG",
+          "alt": "Monte Vista Downtown Historic District, Monte Vista, Colorado",
+          "why": "Title names the downtown historic district, and Monte Vista is the only US city by that name with such a district; top result for the downtown search."
+        },
+        {
+          "file": "File:MVdowntown.JPG",
+          "page": "https://commons.wikimedia.org/wiki/File:MVdowntown.JPG",
+          "alt": "Downtown Monte Vista, Colorado",
+          "why": "Probably the Wikipedia lead image ('Downtown Monte Vista in late 2012'); came up in the Monte Vista downtown search."
+        }
+      ],
+      "notes": "Search results in this session showed only file titles and URLs (no page text), so size, author, date, licence and description were not visible for any file: width/height are null and licence is 'unconfirmed'. Check size (>=1600 px wide, landscape) along with the licence. Avoid the Monte Vista National Wildlife Refuge files (outside town). The Wikipedia caption dates the backup to late 2012."
+    },
+    {
+      "slug": "del-norte",
+      "name": "Del Norte",
+      "candidates": [],
+      "notes": "Not searched on Commons: the shared WebSearch budget (200 calls per turn across all agents) ran out before this town. Lead from the Wikipedia article: the lead image is 'Del Norte from the summit of Lookout Mountain with the Sangre de Cristo Range in the background', an overview and the ideal type of hero; find its Commons file name. Grande Avenue is the main street. Traps: Del Norte County, CA, and Rio Grande del Norte."
+    },
+    {
+      "slug": "crestone",
+      "name": "Crestone",
+      "candidates": [],
+      "notes": "Not searched on Commons: the shared WebSearch budget ran out before this town. Wikipedia leads: the lead image is a welcome sign on Birch Street (a sign, not usable). Other captions: 'Kit Carson Mountain from Crestone in November 2010' (shows the peak; check whether the town is in the frame), 'Galena Avenue about 1910' (historic) and some single shops. Traps: Crestone Peak, Crestone Needle and 'Crestone Conglomerate' files are mountains or rock, not the town."
+    },
+    {
+      "slug": "trinidad",
+      "name": "Trinidad",
+      "candidates": [],
+      "notes": "Not searched on Commons: the shared WebSearch budget ran out before this town. Leads: a Commons category 'Category:Corazón de Trinidad (historic district)' exists (it came up in another search); this is downtown Trinidad's historic district and the best place to look for a Main Street or Commercial Street view. The Wikipedia montage captions are 'Downtown', 'Corazón de Trinidad' and 'Simpson's Rest'. Traps: Trinidad (the country / Trinidad and Tobago) and Trinidad, Cuba; confirm 'Trinidad, Colorado' in the category."
+    },
+    {
+      "slug": "la-veta",
+      "name": "La Veta",
+      "candidates": [],
+      "notes": "Not searched on Commons: the shared WebSearch budget ran out before this town. Lead from the Wikipedia article: the lead image is 'La Veta from the east, looking towards Mount Mestas', a town-in-its-setting overview and the ideal type; find its Commons file name. Avoid Spanish Peaks and Cuchara files (outside town)."
+    }
+  ]
+}

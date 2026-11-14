@@ -31,7 +31,7 @@ import { googleCalendarUrl } from '@/lib/ics';
 import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, excerptDescription, traditionEventJsonLd } from '@/lib/seo';
 import { titleTime, traditionTitle } from '@/lib/titles';
 import { hostOf } from '@/lib/hub-home';
-import { findSiteImage } from '@/lib/images';
+import { hubTownPhoto } from '@/lib/images';
 import { certainTime, traditionCalendarEvent } from '@/lib/tradition-calendar';
 import { CURRENT_SEASONS, TRADITION_TYPE_INFO, entrySource, isDated, isListed, nextRow, rowState, type TraditionYear } from '@/lib/traditions';
 import { hubReservedSegments } from '@/integrations/town-routes';
@@ -104,13 +104,12 @@ const yearLine = (y: TraditionYear): string => {
   return y.status === 'moved' ? `${held}${span}, moved from ${dayText(y.previousDate!)}` : `${held}${span}`;
 };
 
-// The town's photograph where it has one (a showpiece's hero), else its
+// The town's photograph where it has one (HubTown.hero), else its
 // share card (src/routes/hub/town-share.png.ts): the page's share image and
 // the Event's image, since a record has no photograph of its own.
-const show = town.showpiece;
-const heroFile = show?.hero && show.hero.alt.trim() ? findSiteImage('hub', show.hero.image) : undefined;
-const shareImage = heroFile ? (await getImage({ src: heroFile, width: 1200, height: 630, format: 'jpg' })).src : `/share/${town.slug}.png`;
-const shareAlt = heroFile ? show!.hero!.alt : `${town.name}, Colorado: annual events and outdoor dates`;
+const photo = hubTownPhoto(town);
+const shareImage = photo ? (await getImage({ src: photo.src, width: 1200, height: 630, format: 'jpg' })).src : `/share/${town.slug}.png`;
+const shareAlt = photo ? photo.alt : `${town.name}, Colorado: annual events and outdoor dates`;
 
 const structured = [
   breadcrumbJsonLd(hub, [
