@@ -11587,3 +11587,18 @@ Below 900px the pages are the phone's.*
   guide's Every year page say the same in their own words, as a plain
   line where they had a yellow box. Corrections go through the footer's
   "Report a correction", on every page.
+
+## The hub home's hero on a phone, 14 November 2026
+
+- **The hero gives the phone's first screen back to the sections.** On a
+  393px iPhone the hero was 765px tall, so "This season" started at
+  893px, below the first screen (the owner, 14 November 2026). Below
+  900px, and only there: the search's label is for screen readers (the
+  box's "A town or an event" and its Search button say what it is); the
+  three jumps are one row between two hairlines, at the meta size and
+  without their arrows, spread to the column's edges, where they had been
+  three 46px rows; and the Flatirons photograph is a 3:1 strip where it
+  was 2:1. The hero is now 580px and "This season" starts at 709px. The
+  row fits on a 360px phone; at 320px "Find your town" wraps to a second
+  row. Above 900px nothing changed: the label shows, the jumps keep their
+  16px and their arrows, and the photograph stays 400px beside the words.
