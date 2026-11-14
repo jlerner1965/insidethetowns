@@ -124,6 +124,14 @@ const gone = states.past.sort((a, b) => byDate(b, a));
 const waiting = states.waiting;
 const canceled = states.canceled.sort(byTown);
 const shown = upcoming.length + waiting.length + canceled.length + gone.length;
+/**
+ * A group of more than this many rows with no date to come is folded under
+ * its heading, the dates to come staying open above it: /outdoor-dates/ ran
+ * to about 61 phone screens, 85 of its 123 rows with nothing coming up (the
+ * owner's hub review, 13 November 2026). Every row is still on the page.
+ */
+const FOLD_AFTER = 12;
+const summary = 'flex min-h-12 cursor-pointer list-none items-center rounded-lg bg-raised px-5 py-3 text-[0.9375rem] font-semibold text-primary ring-1 ring-line-soft sm:px-7 [&::-webkit-details-marker]:hidden';
 /** "Add to calendar" for a date still ahead: the entry's file on this site, and the same entry as a Google link. */
 const calendarFor = (row: (typeof rows)[number]) => {
   const event = traditionCalendarEvent(row, { domain: hub.domain, pageUrl });
@@ -189,9 +197,18 @@ const pill =
   {waiting.length > 0 && (
     <section aria-labelledby="waiting-heading" class="mb-12" data-season-group="waiting">
       <h2 id="waiting-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">Not announced yet</h2>
-      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
-        {waiting.map((row) => <TraditionRow {...rowProps(row)} />)}
-      </div>
+      {waiting.length > FOLD_AFTER ? (
+        <details class="group/fold" data-season-fold>
+          <summary class={summary}><span class="group-open/fold:hidden">Show all {waiting.length}</span><span class="hidden group-open/fold:inline">Hide them</span></summary>
+          <div class="mt-4 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
+            {waiting.map((row) => <TraditionRow {...rowProps(row)} />)}
+          </div>
+        </details>
+      ) : (
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
+          {waiting.map((row) => <TraditionRow {...rowProps(row)} />)}
+        </div>
+      )}
     </section>
   )}
 
@@ -208,9 +225,18 @@ const pill =
   {gone.length > 0 && (
     <section aria-labelledby="gone-heading" class="mb-12" data-season-group="past">
       <h2 id="gone-heading" class="mb-6 border-b border-line-soft pb-3 text-2xl font-medium">{dated ? 'Already held this season' : agency ? 'Passed; the next date is not announced' : 'Held; the next date is not announced'}</h2>
-      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
-        {gone.map((row) => <TraditionRow {...rowProps(row)} />)}
-      </div>
+      {gone.length > FOLD_AFTER ? (
+        <details class="group/fold" data-season-fold>
+          <summary class={summary}><span class="group-open/fold:hidden">Show all {gone.length}</span><span class="hidden group-open/fold:inline">Hide them</span></summary>
+          <div class="mt-4 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
+            {gone.map((row) => <TraditionRow {...rowProps(row)} />)}
+          </div>
+        </details>
+      ) : (
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-town-rows>
+          {gone.map((row) => <TraditionRow {...rowProps(row)} />)}
+        </div>
+      )}
     </section>
   )}
 
@@ -280,4 +306,26 @@ const pill =
       });
     }
   }
+</script>
+
+<script>
+  // A link to a row inside a folded group (another page's "Also on") opens
+  // the fold and brings the row into view, on load and on every hash change,
+  // as the town pages' statewide fold does (src/routes/hub/town.astro); and a
+  // town typed in the filter opens the folds, so a match is never hidden.
+  const reveal = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    const target = document.getElementById(id);
+    const fold = target?.closest('details');
+    if (target && fold && !fold.open) {
+      fold.open = true;
+      target.scrollIntoView();
+    }
+  };
+  reveal();
+  window.addEventListener('hashchange', reveal);
+  document.querySelector<HTMLInputElement>('[data-town-filter-input]')?.addEventListener('input', (e) => {
+    if ((e.target as HTMLInputElement).value.trim()) for (const fold of document.querySelectorAll<HTMLDetailsElement>('[data-season-fold]')) fold.open = true;
+  });
 </script>
