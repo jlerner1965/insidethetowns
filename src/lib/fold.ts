@@ -78,27 +78,16 @@ export function foldEventTargets(
   });
 }
 
-/**
- * The query every rule's destination carries: the domain the reader came
- * from (the review of 14 November 2026: a closed guide's readers landed on
- * a page of dates with a different masthead and no word of why). The hub's
- * pages read it and say, in one line, that the guide has closed and which
- * full guide is nearest (src/components/FromClosedGuide.astro), then take
- * it off the address. Each hub page names its own canonical, without it.
- */
-export const FROM_PARAM = 'from';
-
 export function foldRules(domain: string, hubDomain: string, town: string, events: readonly FoldEvent[] = []): FoldRule[] {
   const page = `https://${hubDomain}/${town}/`;
-  const from = `?${FROM_PARAM}=${domain}`;
   const has: FoldRule['has'] = [{ type: 'host', value: domain }];
   const rule = (source: string, destination: string): FoldRule => ({ source, has, destination, permanent: true });
   return [
-    rule('/', `${page}${from}`),
+    rule('/', page),
     // Each old event address with a page of its own, before the events catch-all.
-    ...events.map((e) => rule(eventSource(e.path), `${page}${e.event}/${from}`)),
-    ...TO_TRADITIONS.map((s) => rule(s, `${page}${from}#${TRADITIONS_ANCHOR}`)),
-    ...TO_OUTDOOR.map((s) => rule(s, `${page}${from}#${OUTDOOR_ANCHOR}`)),
-    rule('/(.*)', `${page}${from}`),
+    ...events.map((e) => rule(eventSource(e.path), `${page}${e.event}/`)),
+    ...TO_TRADITIONS.map((s) => rule(s, `${page}#${TRADITIONS_ANCHOR}`)),
+    ...TO_OUTDOOR.map((s) => rule(s, `${page}#${OUTDOOR_ANCHOR}`)),
+    rule('/(.*)', page),
   ];
 }

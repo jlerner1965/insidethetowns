@@ -117,15 +117,13 @@ test("every path on a retired guide's domain redirects to its town's page on the
       assert.deepEqual(rules, foldRules(t.domain, hub.domain, t.hubPage.town), `${t.domain}: the rules src/lib/fold.ts writes`);
       assert.ok(rules.every((r) => r.permanent === true && r.destination.startsWith(page)), `${t.domain}: permanent, to ${page}`);
       const to = (source: string) => rules.find((r) => r.source === source)?.destination;
-      // Each says where the reader came from, for the page's closed-guide line (review of 14 November 2026).
-      const from = `?from=${t.domain}`;
-      assert.equal(to('/'), `${page}${from}`, `${t.domain}: the home page`);
-      assert.equal(to('/events{/}?'), `${page}${from}#${TRADITIONS_ANCHOR}`, `${t.domain}: the events list goes to the page's traditions`);
-      assert.equal(to('/events/(.*)'), `${page}${from}#${TRADITIONS_ANCHOR}`, `${t.domain}: every event goes to the page's traditions`);
-      assert.equal(to('/things-to-do{/}?'), `${page}${from}#${OUTDOOR_ANCHOR}`, `${t.domain}: things to do goes to the page's outdoor dates`);
+      assert.equal(to('/'), page, `${t.domain}: the home page`);
+      assert.equal(to('/events{/}?'), `${page}#${TRADITIONS_ANCHOR}`, `${t.domain}: the events list goes to the page's traditions`);
+      assert.equal(to('/events/(.*)'), `${page}#${TRADITIONS_ANCHOR}`, `${t.domain}: every event goes to the page's traditions`);
+      assert.equal(to('/things-to-do{/}?'), `${page}#${OUTDOOR_ANCHOR}`, `${t.domain}: things to do goes to the page's outdoor dates`);
       assert.equal(rules[0]?.source, '/', `${t.domain}: the home page first`);
       assert.equal(rules.at(-1)?.source, '/(.*)', `${t.domain}: the catch-all last`);
-      assert.equal(rules.at(-1)?.destination, `${page}${from}`, `${t.domain}: the catch-all goes to the top of the page`);
+      assert.equal(rules.at(-1)?.destination, page, `${t.domain}: the catch-all goes to the top of the page`);
       continue;
     }
     const successor = t.retired!.successor ? findTown(t.retired!.successor) : undefined;

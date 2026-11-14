@@ -311,7 +311,7 @@ test('the scanner reads attributes however they are quoted, and decodes them', (
 });
 
 test('an inline script is refused, since the CSP never runs one; a bundled script and JSON-LD are not', () => {
-  // The hub's closed-guide line was an inline script on 663 pages and never showed on the live site (14 November 2026).
+  // The hub's closed-guide line (since removed) was an inline script on 663 pages and never showed on the live site (14 November 2026).
   const files = { ...sound(), '/about/index.html': page('/about/', { body: '<a href="/">Home</a><h2 id="who">Who</h2><script>(function(){const notes = {};})();</script>' }) };
   assert.deepEqual(rules(files), ['inline-script']);
   const scan = (body: string) => scanHtml(`<html><head><title>T</title></head><body>${body}</body></html>`).inlineScripts;

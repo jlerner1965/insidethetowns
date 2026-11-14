@@ -34,13 +34,3 @@ test('the hub’s address for each live guide’s town goes to the guide, and Ca
     for (const name of g.towns ?? []) assert.equal(HUB_MOVED[`/${name.toLowerCase()}`], `https://${guide.domain}/`, `${key}: /${name.toLowerCase()}/`);
   }
 });
-
-test('a closed guide’s readers are told it closed, with the nearest full guide where one is within reach', async () => {
-  const { closedGuideNotes } = await import('../src/lib/closed-guides.ts');
-  const golden = { slug: 'golden', name: 'Golden', siteTitle: 'Inside Golden', domain: 'insidegolden.com', lat: 39.7533, lng: -105.2153 };
-  const leadville = { slug: 'leadville', name: 'Leadville', siteTitle: 'Inside Leadville', domain: 'insideleadville.com', lat: 39.2508, lng: -106.2925 };
-  const erie = { slug: 'erie', name: 'Erie', siteTitle: 'Inside Erie', domain: 'insideerie.com', lat: 40.0503, lng: -105.0499 };
-  const notes = closedGuideNotes([golden, leadville], [erie]);
-  assert.deepEqual(notes['insidegolden.com'], { guide: 'Inside Golden', town: 'Golden', nearest: { name: 'Inside Erie', url: 'https://insideerie.com/' } });
-  assert.equal(notes['insideleadville.com']?.nearest, undefined, 'two hours away is not nearby');
-});
