@@ -254,8 +254,11 @@ test('every approved record is valid, named for its slug, real, and names places
       assert.ok(key, `${file}: ${rec.town.guide} is not a hub town or a standalone guide`);
       // The town is the page's or the guide's own, or, on the one guide to
       // three towns, the town of the three the event is held in: Frederick's
-      // Festival of Lights says Frederick, not "Carbon Valley".
-      const names = STANDALONE_GUIDES[key!]?.towns ?? [findHubTown(key!)?.name ?? findTown(STANDALONE_GUIDES[key!]!.guide)!.name];
+      // Festival of Lights says Frederick, not "Carbon Valley"; or one of a
+      // guide's sections (Windsor's Severance, since 13 November 2026).
+      const guide = findTown(STANDALONE_GUIDES[key!]?.guide ?? '');
+      const sections = (guide?.subTowns ?? []).map((t) => t.charAt(0).toUpperCase() + t.slice(1));
+      const names = [...(STANDALONE_GUIDES[key!]?.towns ?? [findHubTown(key!)?.name ?? guide!.name]), ...sections];
       assert.ok(names.includes(rec.town.name), `${file}: ${rec.town.name}`);
     }
     for (const t of rec.towns ?? []) assert.ok(placeKey(t.slug), `${file}: towns names ${t.slug}`);
