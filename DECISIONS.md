@@ -11575,3 +11575,15 @@ Below 900px the pages are the phone's.*
   generic checked line, so the page states its source once in the card
   and once here rather than three times. The mailto keeps the event in
   its subject.
+- **No page asks "a date wrong?"** Even in grey, the words under a
+  confirmed date read as the site unsure of its own date (the owner, 14
+  November 2026). A hub event page's line now states its source and
+  stops: "From Town of Estes Park's page, checked November 12, 2026."
+  Only where there is no date yet (this year's over with the next not
+  announced, or not yet announced) does it ask, and it asks the
+  organizer: "Organizing it? Send us the 2027 date." The hub's town page
+  closes with "Every date links to the page it was read from. Organizing
+  an event in Estes Park? Send us your dates."; the season pages and a
+  guide's Every year page say the same in their own words, as a plain
+  line where they had a yellow box. Corrections go through the footer's
+  "Report a correction", on every page.

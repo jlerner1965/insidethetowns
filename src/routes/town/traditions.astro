@@ -168,8 +168,9 @@ const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${en
     </section>
   )}
 
-  <p class="mb-12 rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
-    Run one of these, or found a date wrong? <a href={mailto} class="font-semibold underline">Tell us</a>. Every date links to the page it was read from.
+  {/* Where the dates come from, and an ask to the organizers; no yellow box and no "a date wrong?" (the owner, 14 November 2026). */}
+  <p class="mb-12 text-[0.9375rem] leading-relaxed text-ink-muted">
+    Every date links to the page it was read from. Organizing one of these, or one we don’t list? <a href={mailto} class="underline">Send us your dates</a>.
   </p>
 
   <NewsletterSignup town={town} />

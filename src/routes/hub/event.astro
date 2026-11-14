@@ -123,6 +123,11 @@ const structured = [
 ];
 const subject = `[Correction] ${town.name}: ${record.name}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
+/** "checked November 12, 2026", or "checked by James, November 12, 2026" with an editor set. */
+const checked = checkedBy(formatDate(parseLocal(entry.checked)));
+const checkedText = checked.charAt(0).toLowerCase() + checked.slice(1);
+/** No date to doubt yet: this year's is over with the next not announced, or this year's is still to come. */
+const awaiting = state === 'past' || state === 'waiting';
 const card = 'rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7';
 const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary';
@@ -138,13 +143,15 @@ const pill =
       <TraditionRow {row} eyebrow="category" {also} {calendar} />
     </div>
     {/*
-      Where the date was read, and the ask to correct it, in one plain line
-      (the owner, 14 November 2026: the yellow box that closed the page read
-      as a warning about the date just confirmed above it, and said "the
-      date links" where the date is not a link).
+      Where the date was read, stated as a source and nothing more (the
+      owner, 14 November 2026: a yellow "A date wrong?" box under a
+      confirmed date, and then the same words in grey, read as the site
+      unsure of its own date). Corrections go through the footer's "Report
+      a correction". Only where there is no date yet does the line ask, and
+      it asks the organizer for the date.
     */}
     <p class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted" data-event-checked>
-      {checkedBy(formatDate(parseLocal(entry.checked)))} against {possessive} page. A date wrong, or the next one announced? <a href={mailto} class="underline">Tell us</a>.
+      From {possessive} page, {checkedText}.{awaiting && <Fragment>{' '}Organizing it? <a href={mailto} class="underline">Send us the {year} date</a>.</Fragment>}
     </p>
   </section>
 
