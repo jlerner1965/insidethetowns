@@ -74,6 +74,17 @@
   --text-sub: 1.2353rem;
   --text-date: 1.6471rem;
   --text-section: 1.8235rem;
+
+  /* The hub's desktop layout starts here (the owner's desktop boards of 14
+     November 2026): `desk:`. In rem so Tailwind orders it among its own
+     breakpoints, between md and lg; a media query's rem is the browser's
+     16px, so this is 900px. */
+  --breakpoint-desk: 56.25rem;
+  /* The hub masthead's row of text links (Header.astro): from 1060px, the
+     first width at which the five links at 16px, 26px apart, the wordmark
+     and search fit the 1200px column's 40px sides. Below it the phone's
+     masthead, over the desktop page from 900px. */
+  --breakpoint-masthead: 66.25rem;
 }
 
 :root {
@@ -391,6 +402,49 @@
   .site-nav li:first-child .site-nav-link { border-block-start: 0; }
   /* The switcher's list opens in place under its row, indented a step. */
   .site-nav-panel { padding: 0 0 1rem 1rem; }
+}
+
+/*
+ * The hub's masthead (Header.astro; the owner's desktop boards of 14
+ * November 2026): from 1060px (--breakpoint-masthead, the first width the
+ * row fits) the menu is a row of text links in the ink, 16px and 600, 44px
+ * tall and 26px apart, pushed to the right of the wordmark with search
+ * after it. Below it, the phone's panel above.
+ * After the panel's rules, so an open panel widened past 900px takes the
+ * row's shape until the script closes it.
+ */
+@media (width >= 66.25rem) {
+  .site-nav.hub-row {
+    position: static;
+    display: block;
+    flex: none;
+    margin-inline-start: auto;
+    max-block-size: none;
+    overflow: visible;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    clip-path: none;
+  }
+  .hub-row .site-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    max-inline-size: none;
+    margin: 0;
+    padding: 0;
+  }
+  .hub-row .site-nav-link {
+    display: flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding: 0;
+    border: 0;
+    font-size: 0.9412rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .hub-row .site-nav-link:hover { color: var(--color-primary); }
 }
 
 /*

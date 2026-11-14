@@ -11494,3 +11494,41 @@ headings and a contents list, dates first, confirmed dates first.*
   town's weekend events, the scores, and what opened or closed", which is
   what an edition holds (NewsletterSignup's `what`). No change to the
   provider, its lists or the function.
+
+## The hub's publication pages on a desktop, 14 November 2026 (later)
+
+*The owner approved a desktop layout for the town page and the home. Sections,
+order, copy, colours and type stay; only the layout above 900px changes.
+Below 900px the pages are the phone's.*
+
+- **One breakpoint for the pages**, `desk:` at 900px (`--breakpoint-desk`,
+  56.25rem so Tailwind orders it among its own; an arbitrary `min-[900px]`
+  was written before `sm:` and `md:` and lost to them). The column is
+  1200px with 40px sides; bands stay full width.
+- **The masthead** on every hub page: 72px from 900px, in the same column.
+  Its menu is Annual events, This weekend, Towns A to Z, Articles and The
+  Thursday email (`hubNav` now puts Annual events first), as a row of 16px
+  links 26px apart from **1060px**, the first width at which that row, the
+  wordmark and search fit the column: at 900px it ran 146px off the page.
+  Between 900 and 1060px the phone's masthead stands over the desktop page.
+  Moving here and How we check left the menu; both are in the footer.
+- **The home:** the hero 7 to 5 with the photograph about 400px tall
+  beside it; This season beside This weekend (4 to 8), each weekend
+  listing what it is on the left and when, where and its check on the
+  right; the email's form on one line; the scores beside In the towns,
+  the lead story's headline at 32px and the next two side by side; the
+  guides and the areas four across. A pair stays a band of its own each on
+  a phone.
+- **The town page:** the hero 7 to 5, the name at 84px and the next date
+  beside it, the horizon 96px; On this page in a 240px rail that stays in
+  view, 88px from a 720px column of the sections, whose paper still runs
+  the full width (a spread shadow cut at the section's top and foot). The
+  year in one row of twelve, the towns near it three across, the figures
+  four across, the facts' labels 200px (120px in History and a museum's
+  rows), the dates' column 104px.
+- **Not taken from the desktop boards:** "Every Thursday at 7 am." under
+  the email, "posted by Saturday morning" under the scores, and the scores'
+  placeholders. The brief has the first two as unconfirmed and forbids a
+  placeholder for a score; the page keeps "Each team's last result." and
+  each school's result from the scores files.
+

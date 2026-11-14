@@ -23,6 +23,12 @@
  *      first and set larger.
  *   7. Find your town: the guides, and the town pages by area.
  *
+ * Above 900px (the owner's desktop boards, 14 November 2026) the column is
+ * 1200px, the hero's photograph sits beside its words, This season and This
+ * weekend share a band, as do the scores and In the towns, the email's form
+ * is one line, and the guides and the areas run four across. Below it each
+ * section is the phone's band of its own.
+ *
  * Every list reads what the rest of the hub reads: liveTowns() for the
  * guides, publishedHubTowns() for the town pages, the tradition records,
  * the guides' listings, weekly notes and changes, and the scores files.
@@ -349,163 +355,210 @@ const more = 'mt-2.5 flex min-h-11 items-center text-base font-[650] text-primar
 const lnk = 'flex min-h-[46px] items-center border-b border-hairline text-[0.9412rem] leading-[1.3]';
 const dateMonth = `${pub.cap} text-primary`;
 const dateDay = 'mt-0.5 whitespace-nowrap font-heading text-date leading-none tracking-[-0.02em] text-primary [font-variation-settings:normal]';
+/*
+ * The layout above 900px (the owner's desktop boards, 14 November 2026):
+ * the column is 1200px with 40px sides, a band has 64px over it and 72px
+ * under it, and the sections pair up, 56px apart. Below 900px every grid is
+ * one column and each section is the phone's band of its own.
+ */
+const band = 'px-[20px] pb-[48px] pt-[36px] desk:px-0 desk:pb-[72px] desk:pt-[64px]';
+const wide = 'mx-auto w-full max-w-[720px] desk:max-w-[1200px] desk:px-[40px]';
+/** A section that shares a band from 900px: its own band on a phone, a column of the shared one above. */
+const half = 'px-[20px] pb-[48px] pt-[36px] desk:bg-transparent desk:p-0';
+const halfCol = 'mx-auto w-full max-w-[720px] desk:max-w-none';
+/** The shared band's padding and its grid: 4fr beside 8fr. */
+const pairBand = 'desk:pb-[72px] desk:pt-[64px]';
+const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr] desk:items-start desk:gap-x-[56px] desk:px-[40px]';
 ---
 <Base {fullTitle} {description} image={shareImage} imageAlt={HOME_PHOTO.alt} jsonLd={structured} closedGuideBanner={false}>
-  {/* The hero: what the page is, the search, and the way to the sections below. */}
-  <section class="bg-paper px-[20px] pb-[30px] pt-6" aria-labelledby="hero-h" data-band>
-    <div class={pub.col}>
-      <p class:list={[pub.cap, 'text-ink-muted']}>Colorado, plains to peaks</p>
-      <h1 id="hero-h" class="mt-2.5 text-[2.2353rem] font-medium leading-[1.04] tracking-[-0.025em] text-ink [font-variation-settings:normal]">What’s happening in Colorado’s towns</h1>
-      <p class="mt-2 font-heading text-[1.1176rem] font-normal italic leading-[1.45] text-ink [font-variation-settings:normal]">Find Colorado’s town traditions, this weekend’s events and local stories — from parades of lights to Friday night games.</p>
-      {/* The site's search (src/pages/search.astro), which on the hub holds every guide's places, guides and events as well as the town pages; the towns' names are offered as they are typed. */}
-      <form role="search" action="/search/" method="get" class="mt-[22px]">
-        <label for="home-q" class="block text-[0.9412rem] font-[650] text-ink">Search towns and events</label>
-        <div class="mt-2 flex">
-          <input id="home-q" name="q" type="search" list="home-names" autocomplete="off" placeholder="A town or an event" class="block h-12 min-w-0 flex-1 rounded-l-[2px] border border-r-0 border-ink-muted bg-raised px-3.5 text-[0.9412rem] text-ink placeholder:text-ink-muted" />
-          <button type="submit" class="h-12 shrink-0 cursor-pointer rounded-r-[2px] border-0 bg-primary px-[18px] text-base font-semibold text-white hover:bg-primary-hover">Search</button>
-        </div>
-        <datalist id="home-names">
-          {names.map((name) => <option value={name} />)}
-        </datalist>
-      </form>
-      <ul class="mt-2.5 border-t border-hairline" data-jumps>
-        {jumps.map((j) => (
-          <li><a href={j.href} class:list={[lnk, 'text-base font-[650] text-primary underline decoration-1 underline-offset-[3px]']} data-jump={j.href.slice(1)}>{j.label} →</a></li>
-        ))}
-      </ul>
-      <figure class="mt-5">
-        <div class="aspect-[2/1] overflow-hidden bg-hairline">
-          <Image src={photo} alt={HOME_PHOTO.alt} widths={[480, 640, 800, 960, 1280]} sizes="(max-width: 760px) 100vw, 720px" layout="full-width" quality={78} priority class="block h-full w-full object-cover" />
+  {/* The hero: what the page is, the search, and the way to the sections below; the photograph beside it from 900px. */}
+  <section class="bg-paper px-[20px] pb-[30px] pt-6 desk:px-0 desk:pb-[64px] desk:pt-[56px]" aria-labelledby="hero-h" data-band>
+    <div class:list={[wide, 'desk:grid desk:grid-cols-[7fr_5fr] desk:items-start desk:gap-x-[56px]']}>
+      <div class="min-w-0">
+        <p class:list={[pub.cap, 'text-ink-muted']}>Colorado, plains to peaks</p>
+        <h1 id="hero-h" class="mt-2.5 text-[2.2353rem] font-medium leading-[1.04] tracking-[-0.025em] text-ink [font-variation-settings:normal] desk:max-w-[12em] desk:text-[3.4118rem] desk:leading-[1.02]">What’s happening in Colorado’s towns</h1>
+        <p class="mt-2 font-heading text-[1.1176rem] font-normal italic leading-[1.45] text-ink [font-variation-settings:normal] desk:text-[1.2353rem]">Find Colorado’s town traditions, this weekend’s events and local stories — from parades of lights to Friday night games.</p>
+        {/* The site's search (src/pages/search.astro), which on the hub holds every guide's places, guides and events as well as the town pages; the towns' names are offered as they are typed. */}
+        <form role="search" action="/search/" method="get" class="mt-[22px] desk:max-w-[560px]">
+          <label for="home-q" class="block text-[0.9412rem] font-[650] text-ink">Search towns and events</label>
+          <div class="mt-2 flex">
+            <input id="home-q" name="q" type="search" list="home-names" autocomplete="off" placeholder="A town or an event" class="block h-12 min-w-0 flex-1 rounded-l-[2px] border border-r-0 border-ink-muted bg-raised px-3.5 text-[0.9412rem] text-ink placeholder:text-ink-muted" />
+            <button type="submit" class="h-12 shrink-0 cursor-pointer rounded-r-[2px] border-0 bg-primary px-[18px] text-base font-semibold text-white hover:bg-primary-hover">Search</button>
+          </div>
+          <datalist id="home-names">
+            {names.map((name) => <option value={name} />)}
+          </datalist>
+        </form>
+        <ul class="mt-2.5 border-t border-hairline desk:flex desk:flex-wrap desk:gap-x-7 desk:border-b" data-jumps>
+          {jumps.map((j) => (
+            <li><a href={j.href} class:list={[lnk, 'text-base font-[650] text-primary underline decoration-1 underline-offset-[3px] desk:border-b-0']} data-jump={j.href.slice(1)}>{j.label} →</a></li>
+          ))}
+        </ul>
+      </div>
+      <figure class="mt-5 desk:mt-0">
+        <div class="aspect-[2/1] overflow-hidden bg-hairline desk:aspect-auto desk:h-[400px]">
+          <Image src={photo} alt={HOME_PHOTO.alt} widths={[480, 640, 800, 960, 1280, 1600]} sizes="(min-width: 900px) 800px, (max-width: 760px) 100vw, 720px" layout="full-width" quality={78} priority class="block h-full! w-full object-cover" />
         </div>
         <figcaption class:list={['mt-2 italic', pub.meta]}>{HOME_PHOTO.caption}</figcaption>
       </figure>
     </div>
   </section>
 
-  {seasons.length > 0 && (
-    <section id="season" aria-labelledby="season-heading" data-band data-hide-when-empty class:list={[pub.band, pub.white]}>
-      <div class={pub.col}>
-        <div class={pub.open}>
-          <h2 id="season-heading" class={pub.h2}>This season</h2>
-          <p class={dek}>Annual events, and how many towns have set their dates.</p>
-        </div>
-        {seasons.map((r) => (
-          <article class:list={['grid grid-cols-[58px_minmax(0,1fr)] gap-x-3.5 py-4', pub.rule]} data-event-day={r.until} data-season-row data-starts={r.starts} data-ends={r.until}>
-            <div aria-hidden="true">
-              <p class={dateMonth}>{r.month.toUpperCase()}</p>
-              <p class={dateDay}>{r.day}</p>
-              <p class:list={['mt-1', pub.meta]}>{r.weekday}</p>
+  {(seasons.length > 0 || weekend.length > 0) && (
+    <div data-hide-when-empty class:list={['desk:bg-raised', pairBand]}>
+      <div class={pair}>
+        {seasons.length > 0 && (
+          <section id="season" aria-labelledby="season-heading" data-band data-hide-when-empty class:list={[half, pub.white, weekend.length === 0 && 'desk:col-span-2']}>
+            <div class={halfCol}>
+              <div class={pub.open}>
+                <h2 id="season-heading" class={pub.h2}>This season</h2>
+                <p class={dek}>Annual events, and how many towns have set their dates.</p>
+              </div>
+              {seasons.map((r) => (
+                <article class:list={['grid grid-cols-[58px_minmax(0,1fr)] gap-x-3.5 py-4', pub.rule]} data-event-day={r.until} data-season-row data-starts={r.starts} data-ends={r.until}>
+                  <div aria-hidden="true">
+                    <p class={dateMonth}>{r.month.toUpperCase()}</p>
+                    <p class={dateDay}>{r.day}</p>
+                    <p class:list={['mt-1', pub.meta]}>{r.weekday}</p>
+                  </div>
+                  <div class="min-w-0">
+                    <h3 class:list={[hl, 'mt-0']}><a href={r.href} class={pub.titleLink} data-track="home-season">{r.title}</a></h3>
+                    <p class:list={['mt-1', pub.t]}><span data-next-word>Next: </span>{r.next}</p>
+                    {r.line && <p class:list={['mt-1', pub.meta]}>{r.line}</p>}
+                  </div>
+                </article>
+              ))}
+              <a href={ANNUAL_EVENTS_HREF} class={more} data-track="home-season">All annual events →</a>
             </div>
-            <div class="min-w-0">
-              <h3 class:list={[hl, 'mt-0']}><a href={r.href} class={pub.titleLink} data-track="home-season">{r.title}</a></h3>
-              <p class:list={['mt-1', pub.t]}><span data-next-word>Next: </span>{r.next}</p>
-              {r.line && <p class:list={['mt-1', pub.meta]}>{r.line}</p>}
-            </div>
-          </article>
-        ))}
-        <a href={ANNUAL_EVENTS_HREF} class={more} data-track="home-season">All annual events →</a>
-      </div>
-    </section>
-  )}
+          </section>
+        )}
 
-  {weekend.length > 0 && (
-    <section id="weekend" aria-labelledby="weekend-heading" data-band data-hide-when-empty class:list={[pub.band, pub.paper]}>
-      <div class={pub.col}>
-        <div class={pub.open}>
-          <h2 id="weekend-heading" class={pub.h2}>This weekend</h2>
-          <p class={dek}>Each listing opens on that town’s page.</p>
-        </div>
-        {weekend.map((d) => (
-          <div data-day={d.key}>
-            <h3 class={pub.h3}>{d.heading}</h3>
-            {d.items.map((r) => (
-              <article class:list={['py-4', pub.rule]} data-event-day={r.until} data-end={r.end}>
-                <p class={by}>{r.label}</p>
-                <h4 class={hl}><a href={r.href} class={pub.titleLink} data-track="home-weekend">{r.title}</a></h4>
-                {r.reasons.length > 0 && <p class:list={['mt-1.5', pub.t]}>{r.reasons.join(' · ')}</p>}
-                {r.meta.length > 0 && <p class={pub.t}>{r.meta.join(' · ')}</p>}
-                {r.check && <p class:list={['mt-1.5', pub.meta]}>{r.check}</p>}
-              </article>
-            ))}
-          </div>
-        ))}
-        <a href="/this-weekend/" class={more} data-track="home-weekend">Everything on this weekend →</a>
+        {weekend.length > 0 && (
+          <section id="weekend" aria-labelledby="weekend-heading" data-band data-hide-when-empty class:list={[half, pub.paper, seasons.length === 0 && 'desk:col-span-2']}>
+            <div class={halfCol}>
+              <div class={pub.open}>
+                <h2 id="weekend-heading" class={pub.h2}>This weekend</h2>
+                <p class={dek}>Each listing opens on that town’s page.</p>
+              </div>
+              {weekend.map((d) => (
+                <div data-day={d.key}>
+                  <h3 class={pub.h3}>{d.heading}</h3>
+                  {d.items.map((r) => (
+                    <article class:list={['py-4 desk:grid desk:grid-cols-[1.35fr_1fr] desk:gap-x-7', pub.rule]} data-event-day={r.until} data-end={r.end}>
+                      {/* What it is; from 900px, when and where with its check beside it. */}
+                      <div class="min-w-0">
+                        <p class={by}>{r.label}</p>
+                        <h4 class={hl}><a href={r.href} class={pub.titleLink} data-track="home-weekend">{r.title}</a></h4>
+                        {r.reasons.length > 0 && <p class:list={['mt-1.5', pub.t]}>{r.reasons.join(' · ')}</p>}
+                      </div>
+                      <div class="min-w-0">
+                        {r.meta.length > 0 && <p class={pub.t}>{r.meta.join(' · ')}</p>}
+                        {r.check && <p class:list={['mt-1.5', pub.meta]}>{r.check}</p>}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              ))}
+              <a href="/this-weekend/" class={more} data-track="home-weekend">Everything on this weekend →</a>
+            </div>
+          </section>
+        )}
       </div>
-    </section>
+    </div>
   )}
 
   {hub.newsletter && (
-    <section id="signup" aria-labelledby="signup-heading" data-band class:list={['on-dark', pub.band, 'bg-primary text-white']}>
-      <div class={pub.col}>
+    <section id="email" aria-labelledby="signup-heading" data-band class:list={['on-dark bg-primary text-white', band]}>
+      <div class:list={[wide, 'desk:grid desk:grid-cols-[5fr_7fr] desk:items-start desk:gap-x-[56px]']}>
         <div class="border-t-2 border-white pt-3">
           <h2 id="signup-heading" class:list={[pub.h2, 'mt-0 text-white']}>The {sendDay} email</h2>
           {/* What an edition holds (NewsletterSignup.astro, `what`): the town's weekend events, the scores, what opened or closed. */}
           <p class:list={[dek, 'text-white']}>Your town’s weekend events, the scores, and what opened or closed.</p>
         </div>
-        <NewsletterSignup variant="hub" id="home">
+        {/* `signup`: the form's own anchor, where the masthead's email link lands (Header.astro). */}
+        <NewsletterSignup variant="hub" id="home" anchor="signup">
           <p class="mt-3 text-meta leading-[1.5] text-white">One town to start; add others any time.{noWeeklyLine} Free, unsubscribe any time · <a class="text-white underline decoration-1 underline-offset-[3px]" href="/privacy/">Privacy</a></p>
         </NewsletterSignup>
       </div>
     </section>
   )}
 
-  {scores.length > 0 && (
-    <section id="scores" aria-labelledby="scores-heading" data-band class:list={[pub.band, pub.white]}>
-      <div class={pub.col}>
-        <div class={pub.open}>
-          <h2 id="scores-heading" class={pub.h2}>High school scores</h2>
-          <p class={dek}>Each team’s last result.</p>
-        </div>
-        <ul class="mt-2">
-          {scores.map((s) => (
-            <li class:list={['grid min-h-[50px] grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] items-center gap-x-3 py-2', pub.rule]}>
-              <a href={s.href} class={pub.link} data-track="home-scores">{s.name}</a>
-              <span class:list={['text-right', pub.meta]}>{s.result}, <time datetime={s.date}>{s.day}</time></span>
-            </li>
-          ))}
-        </ul>
+  {(scores.length > 0 || news.length > 0) && (
+    <div class:list={['desk:bg-paper', pairBand]}>
+      <div class={pair}>
+        {scores.length > 0 && (
+          <section id="scores" aria-labelledby="scores-heading" data-band class:list={[half, pub.white, news.length === 0 && 'desk:col-span-2']}>
+            <div class={halfCol}>
+              <div class={pub.open}>
+                <h2 id="scores-heading" class={pub.h2}>High school scores</h2>
+                <p class={dek}>Each team’s last result.</p>
+              </div>
+              <ul class="mt-2">
+                {scores.map((s) => (
+                  <li class:list={['grid min-h-[50px] grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] items-center gap-x-3 py-2', pub.rule]}>
+                    <a href={s.href} class={pub.link} data-track="home-scores">{s.name}</a>
+                    <span class:list={['text-right', pub.meta]}>{s.result}, <time datetime={s.date}>{s.day}</time></span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
+        {news.length > 0 && (
+          <section id="news" aria-labelledby="news-heading" data-band data-hide-when-empty class:list={[half, pub.paper, scores.length === 0 && 'desk:col-span-2']}>
+            <div class={halfCol}>
+              <div class={pub.open}>
+                <h2 id="news-heading" class={pub.h2}>In the towns</h2>
+                <p class={dek}>News and changes, each with its sources.</p>
+              </div>
+              {news.slice(0, 1).map((i) => (
+                <article class:list={['py-[18px]', pub.rule]} data-event-day={i.until}>
+                  <p class={by}>{i.byline}</p>
+                  <h3 class:list={[hl, 'text-[1.5294rem] leading-[1.15] desk:text-[1.8824rem]']}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{i.title}</a></h3>
+                  <p class:list={['mt-2', pub.t]}>{i.line}</p>
+                  {i.source && <p class:list={['mt-2', pub.meta]}>{i.source}</p>}
+                </article>
+              ))}
+              {news.length > 1 && (
+                <div class="desk:grid desk:grid-cols-2 desk:gap-x-8">
+                  {news.slice(1).map((i) => (
+                    <article class:list={['py-4', pub.rule]} data-event-day={i.until}>
+                      <p class={by}>{i.byline}</p>
+                      <h3 class={hl}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{i.title}</a></h3>
+                      {i.source && <p class:list={['mt-1.5', pub.meta]}>{i.source}</p>}
+                    </article>
+                  ))}
+                </div>
+              )}
+              {articlesOnSite.length > 0 && <a href={ARTICLES_INDEX_PATH} class={more} data-track="home-news">All articles →</a>}
+            </div>
+          </section>
+        )}
       </div>
-    </section>
+    </div>
   )}
 
-  {news.length > 0 && (
-    <section id="news" aria-labelledby="news-heading" data-band data-hide-when-empty class:list={[pub.band, pub.paper]}>
-      <div class={pub.col}>
-        <div class={pub.open}>
-          <h2 id="news-heading" class={pub.h2}>In the towns</h2>
-          <p class={dek}>News and changes, each with its sources.</p>
-        </div>
-        {news.map((i, n) => (
-          <article class:list={[n === 0 ? 'py-[18px]' : 'py-4', pub.rule]} data-event-day={i.until}>
-            <p class={by}>{i.byline}</p>
-            <h3 class:list={[hl, n === 0 && 'text-[1.5294rem] leading-[1.15]']}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{i.title}</a></h3>
-            {n === 0 && <p class:list={['mt-2', pub.t]}>{i.line}</p>}
-            {i.source && <p class:list={[n === 0 ? 'mt-2' : 'mt-1.5', pub.meta]}>{i.source}</p>}
-          </article>
-        ))}
-        {articlesOnSite.length > 0 && <a href={ARTICLES_INDEX_PATH} class={more} data-track="home-news">All articles →</a>}
-      </div>
-    </section>
-  )}
-
-  <section id="towns" aria-labelledby="towns-heading" data-band class:list={[pub.band, 'pb-[56px]', pub.white]}>
-    <div class={pub.col}>
+  <section id="towns" aria-labelledby="towns-heading" data-band class="bg-raised px-[20px] pb-[56px] pt-[36px] desk:px-0 desk:pb-[72px] desk:pt-[64px]">
+    <div class={wide}>
       <div class={pub.open}>
         <h2 id="towns-heading" class={pub.h2}>Find your town</h2>
         <p class={dek}>{capitalized(guideCount)} full local guides, and a page of annual dates for every other town.</p>
       </div>
       <h3 class={pub.h3}>{capitalized(guideCount)} local guides</h3>
-      {guides.map((g) => (
-        <div class:list={['py-4', pub.rule]}>
-          <h4 class:list={[hl, 'mt-0']}><a href={g.href} class={pub.titleLink} data-track="home-index">{g.name}</a></h4>
-          <p class:list={['mt-0.5', pub.meta]}>{g.line}</p>
-        </div>
-      ))}
+      <div class="sm:grid sm:grid-cols-2 sm:gap-x-8 desk:grid-cols-4">
+        {guides.map((g) => (
+          <div class:list={['py-4', pub.rule]}>
+            <h4 class:list={[hl, 'mt-0']}><a href={g.href} class={pub.titleLink} data-track="home-index">{g.name}</a></h4>
+            <p class:list={['mt-0.5', pub.meta]}>{g.line}</p>
+          </div>
+        ))}
+      </div>
       {areas.length > 0 && (
         <Fragment>
           <h3 class={pub.h3}>Town pages by area</h3>
           {/* Each area opens in place on its towns: no address of its own, so none changes. */}
-          <ul class={pub.linkGrid} data-areas>
+          <ul class="grid grid-cols-2 gap-x-[18px] desk:grid-cols-4 desk:gap-x-8" data-areas>
             {areas.map((a) => (
               <li>
                 <details class="group">

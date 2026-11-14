@@ -76,18 +76,32 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
  * 60px with the wordmark at 24px. A guide's is as it was.
  */
 const rule = site.kind === 'hub' ? 'h-1.5 bg-accent' : 'h-1.5 bg-gradient-to-r from-primary to-accent';
-const masthead = site.kind === 'hub' ? 'flex min-h-[60px] items-center justify-between gap-4 py-2 sm:gap-6 md:py-6' : 'flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-6';
+const masthead = site.kind === 'hub' ? 'flex min-h-[60px] items-center justify-between gap-4 py-2 sm:gap-6 desk:min-h-[72px] desk:gap-[26px] desk:py-0' : 'flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-6';
+/**
+ * The hub's desktop masthead (the owner's desktop boards, 14 November
+ * 2026): the pages' 1200px column with 40px sides and 72px tall from
+ * 900px, and from 1060px, where it first fits, the menu as a row of text
+ * links, 16px, between the wordmark and search; below that, the phone's
+ * masthead. A guide keeps its row from 80rem (global.css, .hub-row, sets
+ * the hub's row).
+ */
+const hubRow = site.kind === 'hub';
+const container = hubRow ? 'mx-auto w-full max-w-[1200px] px-[20px] desk:px-[40px]' : 'container-page';
+const tools = hubRow ? 'flex items-center gap-1 masthead:order-last' : 'flex items-center gap-1 xl:order-last xl:gap-2';
+const toggle = hubRow ? 'nav-toggle -mr-2 masthead:hidden' : 'nav-toggle -mr-2 xl:hidden';
+const navClass = hubRow ? 'site-nav hub-row' : 'site-nav';
+const wide = hubRow ? '(min-width: 66.25rem)' : undefined;
 ---
 {/* The first thing on every page is a band of the town's colours, the
    primary running into the accent. It costs six pixels and it is what stops
    the site opening on plain paper. A rule, so the accent may be in it. */}
 <div class={rule}></div>
 <header class="relative bg-paper" data-pagefind-ignore>
-  <div class="container-page">
+  <div class={container}>
     <div class={masthead} style={`--wordmark-em:${wordmarkEm}${emailOn ? ';--masthead-reserve:11.5rem' : ''}${site.kind === 'hub' ? ';--wordmark-max:1.4118rem' : ''}`}>
       <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" tone="ink" />
 
-      <div class="flex items-center gap-1 xl:order-last xl:gap-2">
+      <div class={tools}>
         {/* The email, one tap from every page on a phone or a tablet (the
             sweep of 10 November 2026): below the row's breakpoint the only
             way to it was the last line of a closed menu, and a third of
@@ -123,21 +137,22 @@ const masthead = site.kind === 'hub' ? 'flex min-h-[60px] items-center justify-b
         </a>
         <button
           type="button"
-          class="nav-toggle -mr-2 xl:hidden"
+          class={toggle}
           aria-expanded="false"
           aria-controls="site-nav"
           aria-label="Menu"
           data-nav-toggle
+          data-wide={wide}
         >
           <span class="nav-toggle-bars" aria-hidden="true"></span>
         </button>
       </div>
 
-      <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <nav id="site-nav" class={navClass} aria-label="Primary">
         <ul class="site-nav-list container-page xl:gap-3 xl:px-0 2xl:gap-6">
           {nav.map((item) => (
             <li>
-              <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class:list={rowLink(isActive(item.href))}>{item.label}</a>
+              <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class:list={rowLink(isActive(item.href))} data-email-link={hubRow && item.href === '/newsletter/' ? '' : undefined}>{item.label}</a>
             </li>
           ))}
           {site.kind === 'town' && (
@@ -191,7 +206,8 @@ const masthead = site.kind === 'hub' ? 'flex min-h-[60px] items-center justify-b
       link.href = `#${signup.id}`;
       link.addEventListener('click', () => {
         // After the jump, so the browser's own scroll to the anchor wins.
-        setTimeout(() => signup.querySelector<HTMLInputElement>('input[type="email"]')?.focus({ preventScroll: true }), 0);
+        // The first field: the hub home's town list, else the address.
+        setTimeout(() => signup.querySelector<HTMLElement>('select, input[type="email"]')?.focus({ preventScroll: true }), 0);
       });
     }
   }
@@ -235,7 +251,8 @@ const masthead = site.kind === 'hub' ? 'flex min-h-[60px] items-center justify-b
       }
     });
     // Rotating to a width that shows the row must not leave the page locked.
-    const wide = window.matchMedia('(min-width: 80rem)');
+    // The hub's row starts at 900px (data-wide); a guide's at 80rem.
+    const wide = window.matchMedia(button.dataset.wide ?? '(min-width: 80rem)');
     wide.addEventListener('change', (event) => {
       if (event.matches) set(false);
     });

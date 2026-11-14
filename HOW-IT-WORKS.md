@@ -250,6 +250,8 @@ outdoor dates are among its dates under Events; the statewide ones have
 their section. The look: a 2px ink rule, the number and a serif heading
 open each section; italic subheads over a thin ink rule; rows parted by
 hairlines; no rounded cards, pills or shadows (`src/components/hub/`).
+From 900px (`desk:`) the sections sit in a 720px column beside a rail
+holding On this page, which stays in view; below it, the phone's page.
 Every dated row, there and on the season pages and a guide's
 `/traditions/`, carries a date block: month, day and year where the
 organizer has set a date, "TBA" where it has not, never last year's date.
@@ -370,7 +372,10 @@ Top to bottom: the hero (the headline, the search, the way to the sections
 below, the owner's Flatirons photograph, which is also its share image),
 this season, this weekend, the Thursday email on the hub's blue, the high
 school scores, in the towns, and find your town (the guides from their
-config, and the town pages by area). The rules are `src/lib/hub-home.ts`:
+config, and the town pages by area). From 900px (`desk:`) the column is
+1200px and the sections pair up (season beside weekend, scores beside the
+news); below it, each is a band of its own. The hub's masthead shows its
+menu as a row from 1060px, where it fits, and the phone's below. The rules are `src/lib/hub-home.ts`:
 
 - **This weekend** is a heading a day and up to three listings under it
   (`weekendPicksByDay`), never two from one town across the weekend. Friday's is the high-school

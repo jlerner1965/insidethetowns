@@ -78,7 +78,7 @@ const note = `mt-1.5 ${pub.meta}`;
 ---
 <article
   id={record.slug}
-  class:list={['grid scroll-mt-4 grid-cols-[88px_minmax(0,1fr)] gap-x-3 py-[18px]', pub.rule]}
+  class:list={['grid scroll-mt-4 grid-cols-[88px_minmax(0,1fr)] gap-x-3 py-[18px] desk:grid-cols-[104px_minmax(0,1fr)] desk:gap-x-4', pub.rule]}
   data-tradition-row
   data-town={record.town?.name ?? (record.statewide ? 'Statewide' : '')}
   data-status={past ? 'not-announced' : entry.status}

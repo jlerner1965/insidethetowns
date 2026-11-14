@@ -10,12 +10,16 @@
  * Tailwind finds each class in the source.
  */
 export const pub = {
-  /** A full-width band, on paper or white; the content sits in `col`. */
-  band: 'scroll-mt-4 px-[20px] pb-[48px] pt-[36px]',
+  /** A town page's section: a full-width band on a phone; from 900px (the desktop boards of 14 November 2026) a run of the 720px column, 56px over and 64px under. */
+  band: 'scroll-mt-4 px-[20px] pb-[48px] pt-[36px] desk:px-0 desk:pb-[64px] desk:pt-[56px]',
   paper: 'bg-paper',
+  /** Paper that still runs the full width from 900px, where the section sits in a column: a spread shadow, cut off at the section's top and foot. */
+  paperBleed: 'bg-paper desk:[box-shadow:0_0_0_100vmax_var(--color-paper)] desk:[clip-path:inset(0_-100vmax)]',
   white: 'bg-raised',
-  /** The centred column, about 720px wide on a wide screen. */
+  /** The centred column, about 720px wide on a phone or a tablet. */
   col: 'mx-auto w-full max-w-[720px]',
+  /** The page's column from 900px: 1200px with 40px sides. */
+  wide: 'mx-auto w-full max-w-[720px] desk:max-w-[1200px] desk:px-[40px]',
   /** A section's opening: the 2px ink rule. */
   open: 'border-t-2 border-ink pt-3',
   /** "01", "02". */
@@ -39,8 +43,11 @@ export const pub = {
   titleLink: '-my-[10px] inline-block py-[10px] text-primary underline decoration-1 underline-offset-[3px]',
   /** A row parted from the next by a hairline. */
   rule: 'border-b border-hairline',
-  /** A definition row: the term in a narrow column, the value beside it. */
-  dl: 'grid grid-cols-[104px_minmax(0,1fr)] gap-x-3 border-b border-hairline py-[13px]',
+  /** A definition row: the term in a narrow column, the value beside it; from 900px the term's column is 200px, or 120px in History and a museum's rows. */
+  dl: 'grid grid-cols-[104px_minmax(0,1fr)] gap-x-3 border-b border-hairline py-[13px] desk:grid-cols-[200px_minmax(0,1fr)]',
+  dlHistory: 'grid grid-cols-[104px_minmax(0,1fr)] gap-x-3 border-b border-hairline py-[13px] desk:grid-cols-[120px_minmax(0,1fr)]',
+  dlYear: 'grid grid-cols-[60px_minmax(0,1fr)] gap-x-3 border-b border-hairline py-[13px] desk:grid-cols-[120px_minmax(0,1fr)]',
+  dlMuseum: 'grid grid-cols-[72px_minmax(0,1fr)] gap-x-3 border-b border-hairline py-[13px] desk:grid-cols-[120px_minmax(0,1fr)]',
   dt: 'text-meta font-[650] leading-[1.7] text-ink',
   /** A link that is a whole row, at least 44px tall: "Trinidad →", "Back to contents ↑". */
   go: 'flex min-h-11 items-center text-base font-[650] text-primary underline decoration-1 underline-offset-[3px]',

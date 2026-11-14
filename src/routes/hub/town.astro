@@ -28,6 +28,12 @@
  * outdoor sections keep their anchors, #traditions and #outdoor-dates,
  * where a folded guide's old addresses land (vercel.json).
  *
+ * Above 900px (the owner's desktop boards, 14 November 2026) the hero's
+ * words and the next date sit side by side, On this page moves into a rail
+ * that stays in view beside a 720px column of the sections, and the year,
+ * the towns near it and the figures use the width. Below it, the phone's
+ * page.
+ *
  * The showpiece towns (Estes Park, and Salida once its picture comes) keep
  * their photograph behind the name and their own line under it; their
  * dates take the same layout as every other town's.
@@ -159,6 +165,8 @@ const roads = files.roads;
 const withPage = new Set([...published.map((t) => t.slug), ...Object.keys(STANDALONE_GUIDES)]);
 const { near, passes } = nearView(town.slug, roads, withPage, true);
 const short = (d: string) => formatShortDate(parseLocal(d));
+/** The figures at a glance: two across on a phone, all of them in one row from 900px (four at most). Written out so Tailwind sees each class. */
+const figureColumns: Record<number, string> = { 2: 'desk:grid-cols-2', 3: 'desk:grid-cols-3', 4: 'desk:grid-cols-4' };
 
 /* The town's signature: the waters stocked lately, the river at its gauge, or the snow at its station, only while the reading is fresh. */
 const stockingFiles = import.meta.glob<StockingData>('../../../data/hub/fish-stocking.json', { eager: true, import: 'default' });
@@ -220,21 +228,24 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
         <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black/45 to-transparent" aria-hidden="true"></div>
       </Fragment>
     ) : (
-      <svg class="pointer-events-none absolute inset-x-0 -bottom-px -z-10 h-[72px] w-full md:h-[96px]" viewBox={`0 0 ${RIDGE_WIDTH} ${RIDGE_HEIGHT}`} preserveAspectRatio="none" aria-hidden="true">
+      <svg class="pointer-events-none absolute inset-x-0 -bottom-px -z-10 h-[72px] w-full desk:h-[96px]" viewBox={`0 0 ${RIDGE_WIDTH} ${RIDGE_HEIGHT}`} preserveAspectRatio="none" aria-hidden="true">
         <path d={ridge!.layers[1]} class="fill-hero-mountain" />
-        {/* The nearest line is the white of the band below, so the hero ends on the land. */}
-        <path d={ridge!.layers[2]} class="fill-raised" />
+        {/* The nearest line is the band below, so the hero ends on the land: the contents' white on a phone, the first section's paper from 900px. */}
+        <path d={ridge!.layers[2]} class="fill-raised desk:fill-paper" />
       </svg>
     )}
-    <div class:list={['px-[20px]', hero ? 'pb-[40px] pt-[120px] md:pt-[176px]' : 'pb-[76px] pt-[30px] md:pb-[104px]']}>
-      <div class={pub.col}>
-        <p class:list={[pub.cap, 'text-white']}>{county} · Colorado</p>
-        <h1 id="town-name" class="mt-3 text-[3.5294rem] font-medium leading-[0.95] tracking-[-0.03em] text-white [font-variation-settings:normal]">{town.name}</h1>
-        <p class="mt-3.5 max-w-[40rem] text-base leading-[1.55] text-white">{intro}</p>
+    {/* From 900px the words take 7 parts and the next date 5, their feet aligned, in the 1200px column. */}
+    <div class:list={['px-[20px] desk:px-0', hero ? 'pb-[40px] pt-[120px] md:pt-[176px] desk:pb-[56px]' : 'pb-[76px] pt-[30px] desk:pb-[128px] desk:pt-[56px]']}>
+      <div class:list={[pub.wide, 'desk:grid desk:grid-cols-[7fr_5fr] desk:items-end desk:gap-x-[56px]']}>
+        <div class="min-w-0">
+          <p class:list={[pub.cap, 'text-white']}>{county} · Colorado</p>
+          <h1 id="town-name" class="mt-3 text-[3.5294rem] font-medium leading-[0.95] tracking-[-0.03em] text-white [font-variation-settings:normal] desk:text-[4.9412rem]">{town.name}</h1>
+          <p class="mt-3.5 max-w-[40rem] text-base leading-[1.55] text-white">{intro}</p>
+        </div>
         {nextUp && (
-          <div class="mt-5 border-t border-white/50 pt-3" data-next-up>
+          <div class="mt-5 min-w-0 border-t border-white/50 pt-3 desk:mt-0" data-next-up>
             <p class:list={[pub.cap, 'text-white']}>Next {town.name} date</p>
-            <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal]"><a href={`#${nextUp.record.slug}`} class="text-white underline decoration-1 underline-offset-[3px]">{nextUp.record.name}</a></p>
+            <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal] desk:text-[1.4118rem]"><a href={`#${nextUp.record.slug}`} class="text-white underline decoration-1 underline-offset-[3px]">{nextUp.record.name}</a></p>
             <p class="mt-1 text-base text-white" data-next-day>{nextDay}</p>
           </div>
         )}
@@ -242,11 +253,18 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     </div>
   </section>
 
-  {/* On this page: a link to each section drawn, numbered as they are. */}
-  <nav aria-labelledby="otp" class="scroll-mt-4 bg-raised px-[20px] pb-6 pt-3.5" id="contents" data-band>
+  {/*
+    The body. On a phone, On this page and then each section, a band of its
+    own. From 900px (the desktop boards) a 240px rail holds On this page,
+    kept in view as the page scrolls and above the paper bands, beside a
+    720px column of the sections, 88px apart, in the 1200px column.
+  */}
+  <div class="bg-raised" data-band>
+    <div class="desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[240px_minmax(0,720px)] desk:items-start desk:gap-x-[88px] desk:px-[40px]">
+  <nav aria-labelledby="otp" class="scroll-mt-4 bg-raised px-[20px] pb-6 pt-3.5 desk:sticky desk:top-[24px] desk:z-[1] desk:self-start desk:bg-transparent desk:px-0 desk:pb-6 desk:pt-[56px]" id="contents">
     <div class={pub.col}>
       <div class={pub.open}><h2 id="otp" class={pub.h2s}>On this page</h2></div>
-      <ol class={pub.linkGrid}>
+      <ol class="grid grid-cols-2 gap-x-[18px] sm:grid-cols-3 desk:grid-cols-1">
         {sections.map((s, i) => (
           <li>
             <a href={`#${s.id}`} class="flex min-h-12 items-center gap-2.5 border-b border-hairline font-heading text-[1.1176rem] font-medium leading-tight text-primary [font-variation-settings:normal]">
@@ -258,6 +276,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       </ol>
     </div>
   </nav>
+  <div class="min-w-0">
 
   {section.events && (
     <PubSection id={section.events.id} number={section.events.number} title={section.events.title} tone={section.events.tone}>
@@ -362,7 +381,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       {near.length > 0 && roads && (
         <div data-near-town>
           <h3 class={pub.h3}>Near {town.name}</h3>
-          <ul class={pub.linkGrid}>
+          <ul class="grid grid-cols-2 gap-x-[18px] desk:grid-cols-3 desk:gap-x-[28px]">
             {near.map((n) => (
               <li data-near={n.place} data-miles={n.miles}>
                 <a href={n.href} class="flex min-h-12 items-center justify-between gap-2 border-b border-hairline text-base text-primary no-underline">
@@ -406,9 +425,9 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       {profile.strip.length > 0 && (
         <Fragment>
           <h3 class:list={[pub.h3, 'mt-[22px]']}>At a glance</h3>
-          <dl class="grid grid-cols-2">
+          <dl class:list={['grid grid-cols-2', figureColumns[profile.strip.length]]}>
             {profile.strip.map((f, i) => (
-              <div class:list={['border-b border-hairline pb-3.5 pt-3', i % 2 === 0 ? 'border-r pr-3.5' : 'pl-3.5', profile.strip.length % 2 === 1 && i === profile.strip.length - 1 && 'col-span-2 border-r-0']}>
+              <div class:list={['border-b border-hairline pb-3.5 pt-3 desk:col-span-1', i % 2 === 0 ? 'border-r pr-3.5' : 'pl-3.5', profile.strip.length % 2 === 1 && i === profile.strip.length - 1 && 'col-span-2 border-r-0', i < profile.strip.length - 1 ? 'desk:border-r desk:pr-3.5' : 'desk:border-r-0 desk:pr-0', i > 0 ? 'desk:pl-3.5' : 'desk:pl-0']}>
                 <dt class={pub.meta}>{f.label}</dt>
                 <dd class="mt-1 font-heading text-date leading-[1.05] text-ink [font-variation-settings:normal]">{f.value}</dd>
               </div>
@@ -480,10 +499,10 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
             <Fragment>
               <h3 class={pub.h3}>History</h3>
               <dl>
-                {profile.heritage.nameOrigin && <div class={pub.dl}><dt class={pub.dt}>The name</dt><dd class={pub.t}>{profile.heritage.nameOrigin.text}</dd></div>}
-                {profile.heritage.founded && <div class={pub.dl}><dt class={pub.dt}>Founded</dt><dd class={pub.t}>{profile.heritage.founded.year}{profile.heritage.founded.text && <Fragment>: {profile.heritage.founded.text}</Fragment>}</dd></div>}
+                {profile.heritage.nameOrigin && <div class={pub.dlHistory}><dt class={pub.dt}>The name</dt><dd class={pub.t}>{profile.heritage.nameOrigin.text}</dd></div>}
+                {profile.heritage.founded && <div class={pub.dlHistory}><dt class={pub.dt}>Founded</dt><dd class={pub.t}>{profile.heritage.founded.year}{profile.heritage.founded.text && <Fragment>: {profile.heritage.founded.text}</Fragment>}</dd></div>}
                 {profile.heritage.timeline.map((t) => (
-                  <div class:list={[pub.dl, 'grid-cols-[60px_minmax(0,1fr)]']}><dt class="font-heading text-sub leading-[1.35] text-primary tabular-nums [font-variation-settings:normal]">{t.year}</dt><dd class={pub.t}>{t.text}</dd></div>
+                  <div class={pub.dlYear}><dt class="font-heading text-sub leading-[1.35] text-primary tabular-nums [font-variation-settings:normal]">{t.year}</dt><dd class={pub.t}>{t.text}</dd></div>
                 ))}
               </dl>
             </Fragment>
@@ -496,9 +515,9 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
                   <h4 class:list={['mt-3.5', pub.title]}>{s.url ? <a href={s.url} rel="noopener" class={pub.titleLink}>{s.name}</a> : s.name}</h4>
                   {(s.hours || s.cost || s.season) && (
                     <dl class="mt-2 border-t border-hairline">
-                      {s.hours && <div class:list={[pub.dl, 'grid-cols-[72px_minmax(0,1fr)]']}><dt class={pub.dt}>Hours</dt><dd class={pub.t}>{s.hours}</dd></div>}
-                      {s.cost && <div class:list={[pub.dl, 'grid-cols-[72px_minmax(0,1fr)]']}><dt class={pub.dt}>Cost</dt><dd class={pub.t}>{s.cost}</dd></div>}
-                      {s.season && <div class:list={[pub.dl, 'grid-cols-[72px_minmax(0,1fr)]']}><dt class={pub.dt}>Season</dt><dd class={pub.t}>{s.season}</dd></div>}
+                      {s.hours && <div class={pub.dlMuseum}><dt class={pub.dt}>Hours</dt><dd class={pub.t}>{s.hours}</dd></div>}
+                      {s.cost && <div class={pub.dlMuseum}><dt class={pub.dt}>Cost</dt><dd class={pub.t}>{s.cost}</dd></div>}
+                      {s.season && <div class={pub.dlMuseum}><dt class={pub.dt}>Season</dt><dd class={pub.t}>{s.season}</dd></div>}
                     </dl>
                   )}
                 </Fragment>
@@ -540,7 +559,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   <DateCorrection />
 
   {/* The close: the next town in the area, the way back up, and the correction line. */}
-  <section id="more" aria-labelledby={nextTown ? 'more-heading' : undefined} aria-label={nextTown ? undefined : 'Contents and corrections'} data-band class:list={['scroll-mt-4 px-[20px] pb-[56px] pt-[36px]', closingTone === 'paper' ? pub.paper : pub.white]}>
+  <section id="more" aria-labelledby={nextTown ? 'more-heading' : undefined} aria-label={nextTown ? undefined : 'Contents and corrections'} data-band class:list={['scroll-mt-4 px-[20px] pb-[56px] pt-[36px] desk:px-0 desk:pb-[64px] desk:pt-[56px]', closingTone === 'paper' ? pub.paperBleed : pub.white]}>
     <div class={pub.col}>
       <div class={pub.open}>
         {nextTown && <h2 id="more-heading" class={pub.h2s}>More in {clusterName(town.cluster)}</h2>}
@@ -552,6 +571,9 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       </p>
     </div>
   </section>
+  </div>
+    </div>
+  </div>
 </Base>
 
 <script>
