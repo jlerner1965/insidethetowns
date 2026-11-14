@@ -35,7 +35,7 @@ interface Props {
   row: TraditionRow;
   /** 'town' on the hub (the town is the eyebrow), 'category' on a guide. */
   eyebrow: 'town' | 'category';
-  /** Where the name links: the town's guide, or the organizer's page. None on the guide's own page. */
+  /** Where the name links: the town's guide, or the organizer's page on the hub; the guide's own event page for it on a guide's /traditions/ (src/lib/annual-pages.ts). */
   href?: string;
   /** The eyebrow's words where the record has no home town: "Statewide", "Estes Park, Grand Lake". */
   townLabel?: string;
