@@ -54,14 +54,43 @@ export function townsConfirmed(rows: ReadonlyArray<{ town?: string; confirmed: b
   return { confirmed: confirmed.size, towns: live.size, canceled };
 }
 
-/** "19 of 20 towns’ dates confirmed." */
+/**
+ * A season's line on the home, in a reader's words: "In 25 towns; 24 dates
+ * set so far." Until the viewer review of 14 November 2026 it read "24 of
+ * 25 towns’ dates confirmed", which was the count the hub keeps, not
+ * something a reader asks. Every town's date set says only where it is
+ * held; a town whose only date was called off is counted apart.
+ */
 export function seasonFeatureLine(counts: { confirmed: number; towns: number; canceled?: number }): string {
-  return `${counts.confirmed} of ${counts.towns} ${counts.towns === 1 ? 'town’s' : 'towns’'} dates confirmed${counts.canceled ? `, ${counts.canceled} canceled` : ''}.`;
+  const notes = [
+    counts.confirmed >= counts.towns ? undefined : counts.confirmed === 0 ? 'no dates set yet' : `${counts.confirmed} ${counts.confirmed === 1 ? 'date' : 'dates'} set so far`,
+    counts.canceled ? `${counts.canceled} more canceled this year` : undefined,
+  ].filter((n): n is string => !!n);
+  return `In ${counts.towns} ${counts.towns === 1 ? 'town' : 'towns'}${notes.length > 0 ? `; ${notes.join(', ')}` : ''}.`;
 }
 
-/** The names the home's search box suggests as they are typed: the guides and the town pages, A to Z, no name twice. */
-export function searchSuggestions(...lists: ReadonlyArray<ReadonlyArray<{ name: string }>>): string[] {
-  return [...new Set(lists.flat().map((t) => t.name))].sort((a, b) => a.localeCompare(b));
+/**
+ * Every name the home's town box knows, each with the one page it goes to
+ * (the viewer review of 14 November 2026, in place of the twenty areas a
+ * reader had to place their town in): a guide's own name and the towns it
+ * covers go to the guide, since its pages are the fuller ones; every other
+ * town to its page of annual dates. The first place a name is given wins,
+ * so the guides come first. A to Z, no name twice. The hero's search box
+ * suggests the same names.
+ */
+export function townFinder(
+  guides: ReadonlyArray<{ name: string; href: string; covered: ReadonlyArray<{ name: string; href: string }> }>,
+  pages: ReadonlyArray<{ name: string; slug: string }>,
+): Array<{ name: string; href: string }> {
+  const found = new Map<string, { name: string; href: string }>();
+  const add = (name: string, href: string) => {
+    const key = name.trim().toLowerCase();
+    if (key && !found.has(key)) found.set(key, { name, href });
+  };
+  for (const g of guides) add(g.name, g.href);
+  for (const g of guides) for (const c of g.covered) add(c.name, c.href);
+  for (const p of pages) add(p.name, `/${p.slug}/`);
+  return [...found.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**

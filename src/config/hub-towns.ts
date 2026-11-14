@@ -51,7 +51,8 @@ export type HubCluster = (typeof HUB_CLUSTERS)[number];
 
 /**
  * Each cluster as a reader sees it (the publication redesign of 14 November
- * 2026): the home's "Town pages by area" and a town page's "More in …".
+ * 2026): a town page's "More in …" (the home's "Town pages by area" used
+ * them too, until the viewer review of 14 November 2026 put a town box there).
  * Display only. The keys above stay as they are, since every town names
  * its cluster by key, the drawn horizons are chosen by it and the search's
  * regions are matched on it; nothing here is in an address.
