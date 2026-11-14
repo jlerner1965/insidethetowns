@@ -236,6 +236,20 @@
   line-height: 1;
 }
 
+/* A headline in a list of articles (/articles/). The headings' base setting
+   is the hairline display cut, opsz 144, with tight tracking: at a list's
+   20 to 26px its thin strokes faded and the letters ran together (the owner,
+   14 November 2026: "the articles titles are hard to read"). This is the
+   text cut, a step heavier, at normal tracking. */
+@utility headline {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-variation-settings: "opsz" 30;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-wrap: pretty;
+}
+
 /*
  * A labelled row of filter buttons: "When", "What", "Where", "Jump to".
  *
