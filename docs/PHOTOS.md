@@ -170,3 +170,20 @@ from the row fails. The row's licence field must start with the licence name
 and the author in brackets, e.g. `CC BY-SA 4.0 (Erie Bard; 2019); resized to
 1600px`, because `/credits/` is built from it; a written permission needs its
 grant added to `GRANTS` in `src/lib/credits.ts`.
+
+## The hub's town pages (14 November 2026)
+
+Every town page on the hub can carry a photograph behind its name
+(`hero` in `src/config/hub-towns.ts`). Seventeen towns that had a guide show
+that guide's own licensed hero from its folder (`folder: '<guide>'`), so no
+file or ledger row is copied. The other 78 wait for a Commons photograph:
+`scripts/hub-heroes.json` lists, per town, the files picked for it by
+searching Commons, and `node scripts/fetch-hub-heroes.ts` checks each against
+the live Commons API (licence, JPEG, landscape, at least 1600px, not already
+in the ledger), falls back to Wikipedia's lead photograph and the town's
+Commons category, saves Commons' 2400px rendition to
+`content/hub/images/<slug>.jpg` and writes its ledger row. It never writes the
+alt text: a photograph shows only once someone has looked at it and written
+what is in the frame, and `npm test` fails until then. One that is not the
+town comes out with `--reject <slug>`; `--list` and `--take` choose by hand.
+Salida waits for the owner's own photograph, as before.

@@ -116,10 +116,11 @@ export interface HubTown {
   /** Clusters whose pages this one also links to, beside its own. */
   alsoLinks?: readonly HubCluster[];
   /**
-   * The richer page (Estes Park and Salida only): a hero photograph and a
-   * line of its own under the name. The photograph is a file in
-   * content/hub/images/ with its row in IMAGE_LICENSES.csv; a showpiece
-   * without one draws the town's horizon rather than borrow one. `intro` is
+   * The richer page (Estes Park and Salida only): a line of its own under
+   * the name, and its photograph here (any town may now have one, as
+   * `hero` below). The photograph is a file in content/hub/images/ with
+   * its row in IMAGE_LICENSES.csv; a showpiece without one draws the town's
+   * horizon rather than borrow one. `intro` is
    * one line on what the page is. Since the publication redesign of 14
    * November 2026 the dates take every town's layout: the spotlight and the
    * year by season are not drawn, and the intros no longer say "season by
@@ -136,8 +137,22 @@ export interface HubTown {
      * there and the alt is written the page draws the town's horizon
      * (src/routes/hub/town.astro), so the entry can wait for the picture.
      */
-    hero?: { image: string; alt: string; position?: string };
+    hero?: HubTownHero;
   };
+  /**
+   * The town page's photograph, for any town (14 November 2026): behind the
+   * name, in place of the drawn horizon, and the page's share image. Three
+   * things and no code: the file, the alt text here, and the file's row in
+   * IMAGE_LICENSES.csv. The file is in content/hub/images/ unless `folder`
+   * names another content folder: a town that had a guide shows that
+   * guide's own licensed hero from where it already is (content/golden/
+   * images/), so the picture and its ledger row are not copied. Until the
+   * file is on disk and the alt is written, the page draws the horizon, so
+   * an entry can wait for its picture (`alt: ''`), as Salida's does. The
+   * alt is written from the photograph once it is here, never before.
+   * A showpiece's `showpiece.hero` still works; this wins where both are set.
+   */
+  hero?: HubTownHero;
   /**
    * The one thing this page has that no other kind of page does (the
    * owner, 12 November 2026): a block drawn from a public source, shown
@@ -162,6 +177,18 @@ export interface HubTown {
     | { kind: 'fish-stocking'; waters: readonly StockedWater[] }
     | { kind: 'river-flow'; gauge: RiverGauge }
     | { kind: 'snowpack'; station: SnotelStation };
+}
+
+/** A town page's photograph (HubTown.hero). */
+export interface HubTownHero {
+  /** The file name, in content/<folder>/images/. */
+  image: string;
+  /** What is in the frame, where and when; '' while the file is awaited. */
+  alt: string;
+  /** CSS object-position, where the middle of the picture is the wrong crop for the band. */
+  position?: string;
+  /** The content folder the file is in, when not `hub`: a former guide's, for its own hero. */
+  folder?: string;
 }
 
 /** A stream gauge a town page reads its river at. */
@@ -231,106 +258,106 @@ export const HUB_TOWNS: readonly HubTown[] = [
       hero: { image: 'salida.jpg', alt: '' },
     },
   },
-  { slug: 'grand-lake', name: 'Grand Lake', counties: ['Grand'], cluster: 'Park gateway', guide: 'grand-lake', signature: { kind: 'fish-stocking', waters: [{ name: 'Grand Lake', ids: [83] }] } },
-  { slug: 'nederland', name: 'Nederland', counties: ['Boulder'], cluster: 'Park gateway', guide: 'nederland', signature: { kind: 'snowpack', station: { triplet: '564:CO:SNTL', name: 'Lake Eldora', elevationFt: 9700, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=564' } } },
-  { slug: 'fort-collins', name: 'Fort Collins', counties: ['Larimer'], cluster: 'Front Range cities', guide: 'fortcollins', signature: { kind: 'fish-stocking', waters: [{ name: 'Sheldon Lake', ids: [550] }, { name: 'Prospect Ponds', ids: [444] }, { name: 'Riverbend Ponds', ids: [437] }] } },
-  { slug: 'longmont', name: 'Longmont', counties: ['Boulder', 'Weld'], cluster: 'Front Range cities', guide: 'longmont', terrain: 'plains', signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'SVCLOPCO', river: 'St. Vrain Creek', where: 'below Ken Pratt Boulevard at Longmont', page: 'https://dwr.state.co.us/Tools/Stations/SVCLOPCO' } } },
-  { slug: 'loveland', name: 'Loveland', counties: ['Larimer'], cluster: 'Front Range cities', guide: 'loveland', signature: { kind: 'fish-stocking', waters: [{ name: 'North Lake Park Pond', ids: [794] }, { name: 'Lon Hagler Reservoir', ids: [450] }, { name: 'Jayhawker Ponds', ids: [1342] }] } },
-  { slug: 'castle-rock', name: 'Castle Rock', counties: ['Douglas'], cluster: 'Front Range cities', guide: 'castle-rock', terrain: 'mesa' },
-  { slug: 'golden', name: 'Golden', counties: ['Jefferson'], cluster: 'Front Range cities', guide: 'golden', signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '06719505', river: 'Clear Creek', where: 'at Golden', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-06719505/' } } },
-  { slug: 'lafayette', name: 'Lafayette', counties: ['Boulder'], cluster: 'Front Range cities', guide: 'lafayette', signature: { kind: 'fish-stocking', waters: [{ name: 'Waneka Lake', ids: [410] }] } },
-  { slug: 'louisville', name: 'Louisville', counties: ['Boulder'], cluster: 'Front Range cities', terrain: 'plains', signature: { kind: 'fish-stocking', waters: [{ name: 'Harper Lake', ids: [523] }] } },
-  { slug: 'timnath', name: 'Timnath', counties: ['Larimer', 'Weld'], cluster: 'Front Range and plains towns', guide: 'timnath', signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '06752280', river: 'Cache la Poudre River', where: 'above Boxelder Creek near Timnath', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-06752280/' } } },
-  { slug: 'elizabeth', name: 'Elizabeth', counties: ['Elbert'], cluster: 'Front Range and plains towns', guide: 'elizabeth' },
-  { slug: 'severance', name: 'Severance', counties: ['Weld'], cluster: 'Front Range and plains towns', guide: 'severance', signature: { kind: 'fish-stocking', waters: [{ name: 'Severance City Pond', ids: [824] }] } },
-  { slug: 'mead', name: 'Mead', counties: ['Weld'], cluster: 'Front Range and plains towns', domain: 'insidemead.com' },
-  { slug: 'fort-lupton', name: 'Fort Lupton', counties: ['Weld'], cluster: 'Front Range and plains towns', guide: 'fort-lupton', signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '06721000', river: 'South Platte River', where: 'at Fort Lupton', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-06721000/' } } },
-  { slug: 'fort-morgan', name: 'Fort Morgan', counties: ['Morgan'], cluster: 'Front Range and plains towns', domain: 'insidefortmorgan.com', signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '06759500', river: 'South Platte River', where: 'at Fort Morgan', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-06759500/' } } },
-  { slug: 'evergreen', name: 'Evergreen', counties: ['Jefferson'], cluster: 'I-70 mountain', guide: 'evergreen', terrain: 'foothills', signature: { kind: 'fish-stocking', waters: [{ name: 'Evergreen Lake', ids: [548] }] } },
-  { slug: 'idaho-springs', name: 'Idaho Springs', counties: ['Clear Creek'], cluster: 'I-70 mountain', guide: 'idaho-springs' },
-  { slug: 'georgetown', name: 'Georgetown', counties: ['Clear Creek'], cluster: 'I-70 mountain', guide: 'georgetown', signature: { kind: 'fish-stocking', waters: [{ name: 'Georgetown Lake', ids: [469] }] } },
-  { slug: 'black-hawk', name: 'Black Hawk', counties: ['Gilpin'], cluster: 'I-70 mountain', guide: 'black-hawk' },
-  { slug: 'frisco', name: 'Frisco', counties: ['Summit'], cluster: 'Summit County', signature: { kind: 'fish-stocking', waters: [{ name: 'Dillon Reservoir', ids: [39] }] } },
-  { slug: 'breckenridge', name: 'Breckenridge', counties: ['Summit'], cluster: 'Summit County', signature: { kind: 'snowpack', station: { triplet: '415:CO:SNTL', name: 'Copper Mountain', elevationFt: 10500, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=415' } } },
-  { slug: 'keystone', name: 'Keystone', counties: ['Summit'], cluster: 'Summit County' },
-  { slug: 'buena-vista', name: 'Buena Vista', counties: ['Chaffee'], cluster: 'Arkansas valley', domain: 'insidebuenavista.com', signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'ARKGRNCO', river: 'Arkansas River', where: 'at Granite, about 16 miles upstream', page: 'https://dwr.state.co.us/Tools/Stations/ARKGRNCO' } } },
-  { slug: 'leadville', name: 'Leadville', counties: ['Lake'], cluster: 'Arkansas valley', guide: 'leadville', signature: { kind: 'snowpack', station: { triplet: '485:CO:SNTL', name: 'Fremont Pass', elevationFt: 11310, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=485' } } },
-  { slug: 'manitou-springs', name: 'Manitou Springs', counties: ['El Paso'], cluster: 'Pikes Peak', guide: 'manitou-springs' },
-  { slug: 'steamboat-springs', name: 'Steamboat Springs', counties: ['Routt'], cluster: 'Yampa valley', domain: 'insidesteamboatsprings.com', signature: { kind: 'fish-stocking', waters: [{ name: 'Casey’s Pond', ids: [18] }, { name: 'Fetcher Pond', ids: [201] }, { name: 'Stagecoach Reservoir', ids: [362] }] } },
-  { slug: 'grand-junction', name: 'Grand Junction', counties: ['Mesa'], cluster: 'Western Slope', domain: 'insidegrandjunction.com', signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '09106485', river: 'Colorado River', where: 'at Grand Junction, above the Gunnison', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-09106485/' } } },
-  { slug: 'palisade', name: 'Palisade', counties: ['Mesa'], cluster: 'Western Slope' },
-  { slug: 'fruita', name: 'Fruita', counties: ['Mesa'], cluster: 'Western Slope', signature: { kind: 'fish-stocking', waters: [{ name: 'Fruita Red Rocks Lake', ids: [1611] }, { name: 'Snooks Bottom Lake', ids: [1615] }] } },
-  { slug: 'carbondale', name: 'Carbondale', counties: ['Garfield'], cluster: 'Roaring Fork valley', signature: { kind: 'fish-stocking', waters: [{ name: 'Crystal River', ids: [1441] }] } },
-  { slug: 'glenwood-springs', name: 'Glenwood Springs', counties: ['Garfield'], cluster: 'Roaring Fork valley' },
-  { slug: 'crested-butte', name: 'Crested Butte', counties: ['Gunnison'], cluster: 'Gunnison valley', signature: { kind: 'snowpack', station: { triplet: '380:CO:SNTL', name: 'Butte', elevationFt: 10190, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=380' } } },
-  { slug: 'telluride', name: 'Telluride', counties: ['San Miguel'], cluster: 'Southwest' },
-  { slug: 'ouray', name: 'Ouray', counties: ['Ouray'], cluster: 'Southwest', signature: { kind: 'fish-stocking', waters: [{ name: 'Ridgway Reservoir', ids: [62] }] } },
-  { slug: 'durango', name: 'Durango', counties: ['La Plata'], cluster: 'Southwest', signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '09361500', river: 'Animas River', where: 'at Durango', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-09361500/' } } },
+  { slug: 'grand-lake', name: 'Grand Lake', counties: ['Grand'], cluster: 'Park gateway', guide: 'grand-lake', hero: { image: 'hero.jpg', folder: 'grand-lake', alt: 'A rainbow over the forested mountains above Grand Lake, with cabins and moored boats along the shore below' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Grand Lake', ids: [83] }] } },
+  { slug: 'nederland', name: 'Nederland', counties: ['Boulder'], cluster: 'Park gateway', guide: 'nederland', hero: { image: 'hero.jpg', folder: 'nederland', alt: 'Mountain People’s Co-op and the Rustic Moose on East First Street in Nederland, under a grey mountain sky', position: '50% 80%' }, signature: { kind: 'snowpack', station: { triplet: '564:CO:SNTL', name: 'Lake Eldora', elevationFt: 9700, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=564' } } },
+  { slug: 'fort-collins', name: 'Fort Collins', counties: ['Larimer'], cluster: 'Front Range cities', guide: 'fortcollins', hero: { image: 'AdobeStock_419314122.jpeg', folder: 'fortcollins', alt: 'Old Town Square in Fort Collins on a summer afternoon in 2020: sandstone and brick buildings, string lights overhead, orange and blue café umbrellas, a flower bed, and children running through the splash pad', position: '50% 55%' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Sheldon Lake', ids: [550] }, { name: 'Prospect Ponds', ids: [444] }, { name: 'Riverbend Ponds', ids: [437] }] } },
+  { slug: 'longmont', name: 'Longmont', counties: ['Boulder', 'Weld'], cluster: 'Front Range cities', guide: 'longmont', hero: { image: 'main-street-at-third-avenue.jpg', folder: 'longmont', alt: 'Main Street at Third Avenue in downtown Longmont: the three-storey brick Imperial block on the corner, the Dickens Opera House on the right and the storefronts running north under a spring sky', position: '50% 45%' }, terrain: 'plains', signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'SVCLOPCO', river: 'St. Vrain Creek', where: 'below Ken Pratt Boulevard at Longmont', page: 'https://dwr.state.co.us/Tools/Stations/SVCLOPCO' } } },
+  { slug: 'loveland', name: 'Loveland', counties: ['Larimer'], cluster: 'Front Range cities', guide: 'loveland', hero: { image: 'AdobeStock_412335350.jpeg', folder: 'loveland', alt: 'Downtown Loveland from the air on a clear winter day: the brick blocks and new apartment buildings along the downtown streets, houses and bare trees all around, Lake Loveland beyond the rooftops and the foothills on the horizon', position: '50% 22%' }, signature: { kind: 'fish-stocking', waters: [{ name: 'North Lake Park Pond', ids: [794] }, { name: 'Lon Hagler Reservoir', ids: [450] }, { name: 'Jayhawker Ponds', ids: [1342] }] } },
+  { slug: 'castle-rock', name: 'Castle Rock', counties: ['Douglas'], cluster: 'Front Range cities', guide: 'castle-rock', hero: { image: 'hero.jpg', folder: 'castle-rock', alt: 'Wilcox Street in downtown Castle Rock in winter: brick storefronts, parked cars and strings of lights crossing the street' }, terrain: 'mesa' },
+  { slug: 'golden', name: 'Golden', counties: ['Jefferson'], cluster: 'Front Range cities', guide: 'golden', hero: { image: 'AdobeStock_504466744.jpeg', folder: 'golden', alt: 'Downtown Golden from the air on a hazy August morning in 2021: Washington Avenue running through the brick blocks under the Welcome to Golden arch, the rimrock of North Table Mountain above the town on the right, and the foothills beyond', position: '50% 15%' }, signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '06719505', river: 'Clear Creek', where: 'at Golden', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-06719505/' } } },
+  { slug: 'lafayette', name: 'Lafayette', counties: ['Boulder'], cluster: 'Front Range cities', guide: 'lafayette', hero: { image: 'hero.jpg', folder: 'lafayette', alt: 'East Simpson Street in Old Town Lafayette under snow in February 2018: a white wooden storefront with a bracketed cornice and a hanging sign on the right, cars parked along the plowed street, bare cottonwoods, and new brick-and-white townhouses on the left' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Waneka Lake', ids: [410] }] } },
+  { slug: 'louisville', name: 'Louisville', counties: ['Boulder'], cluster: 'Front Range cities', terrain: 'plains', hero: { image: 'louisville.jpg', alt: '' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Harper Lake', ids: [523] }] } },
+  { slug: 'timnath', name: 'Timnath', counties: ['Larimer', 'Weld'], cluster: 'Front Range and plains towns', guide: 'timnath', hero: { image: 'timnath.jpg', alt: '' }, signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '06752280', river: 'Cache la Poudre River', where: 'above Boxelder Creek near Timnath', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-06752280/' } } },
+  { slug: 'elizabeth', name: 'Elizabeth', counties: ['Elbert'], cluster: 'Front Range and plains towns', guide: 'elizabeth', hero: { image: 'hero.jpg', folder: 'elizabeth', alt: 'Main Street in Elizabeth, Colorado: the 1907 First National Bank building with its arched openings and the white false-front store beyond, under a clear winter sky' } },
+  { slug: 'severance', name: 'Severance', counties: ['Weld'], cluster: 'Front Range and plains towns', guide: 'severance', hero: { image: 'hero.jpg', folder: 'severance', alt: 'Blue Spruce Pond in Severance at sunset: a fountain on the water, cottonwoods along the far bank and a pink and orange sky' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Severance City Pond', ids: [824] }] } },
+  { slug: 'mead', name: 'Mead', counties: ['Weld'], cluster: 'Front Range and plains towns', domain: 'insidemead.com', hero: { image: 'mead.jpg', alt: '' } },
+  { slug: 'fort-lupton', name: 'Fort Lupton', counties: ['Weld'], cluster: 'Front Range and plains towns', guide: 'fort-lupton', hero: { image: 'hero.jpg', folder: 'fort-lupton', alt: 'Denver Avenue in Fort Lupton looking west, a Fort Lupton banner over the road and the snow-covered Front Range beyond the rooftops' }, signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '06721000', river: 'South Platte River', where: 'at Fort Lupton', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-06721000/' } } },
+  { slug: 'fort-morgan', name: 'Fort Morgan', counties: ['Morgan'], cluster: 'Front Range and plains towns', domain: 'insidefortmorgan.com', hero: { image: 'fort-morgan.jpg', alt: '' }, signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '06759500', river: 'South Platte River', where: 'at Fort Morgan', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-06759500/' } } },
+  { slug: 'evergreen', name: 'Evergreen', counties: ['Jefferson'], cluster: 'I-70 mountain', guide: 'evergreen', hero: { image: 'hero.jpg', folder: 'evergreen', alt: 'Downtown Evergreen on Highway 74: wooden storefronts with tin roofs and awnings, pickups parked along the boardwalk' }, terrain: 'foothills', signature: { kind: 'fish-stocking', waters: [{ name: 'Evergreen Lake', ids: [548] }] } },
+  { slug: 'idaho-springs', name: 'Idaho Springs', counties: ['Clear Creek'], cluster: 'I-70 mountain', guide: 'idaho-springs', hero: { image: 'AdobeStock_413103868.jpeg', folder: 'idaho-springs', alt: 'Idaho Springs from the air on a January morning in 2021: the red Argo Gold Mine and Mill on the hillside at the right, Clear Creek and a riverside park below it, the town’s streets and houses climbing the canyon at the left, and dry, pine-dotted mountainsides all around', position: '50% 45%' } },
+  { slug: 'georgetown', name: 'Georgetown', counties: ['Clear Creek'], cluster: 'I-70 mountain', guide: 'georgetown', hero: { image: 'hero.jpg', folder: 'georgetown', alt: 'Looking north over Georgetown from the hillside: the town fills the valley floor, with Georgetown Lake and Interstate 70 beyond between steep mountainsides' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Georgetown Lake', ids: [469] }] } },
+  { slug: 'black-hawk', name: 'Black Hawk', counties: ['Gilpin'], cluster: 'I-70 mountain', guide: 'black-hawk', hero: { image: 'hero.jpg', folder: 'black-hawk', alt: 'The Lace House in Black Hawk: a small Carpenter Gothic house with lacy white trim along its steep gable and porch, a flag on the porch and pines on the slope behind' } },
+  { slug: 'frisco', name: 'Frisco', counties: ['Summit'], cluster: 'Summit County', hero: { image: 'frisco.jpg', alt: '' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Dillon Reservoir', ids: [39] }] } },
+  { slug: 'breckenridge', name: 'Breckenridge', counties: ['Summit'], cluster: 'Summit County', hero: { image: 'breckenridge.jpg', alt: '' }, signature: { kind: 'snowpack', station: { triplet: '415:CO:SNTL', name: 'Copper Mountain', elevationFt: 10500, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=415' } } },
+  { slug: 'keystone', name: 'Keystone', counties: ['Summit'], cluster: 'Summit County', hero: { image: 'keystone.jpg', alt: '' } },
+  { slug: 'buena-vista', name: 'Buena Vista', counties: ['Chaffee'], cluster: 'Arkansas valley', domain: 'insidebuenavista.com', hero: { image: 'buena-vista.jpg', alt: '' }, signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'ARKGRNCO', river: 'Arkansas River', where: 'at Granite, about 16 miles upstream', page: 'https://dwr.state.co.us/Tools/Stations/ARKGRNCO' } } },
+  { slug: 'leadville', name: 'Leadville', counties: ['Lake'], cluster: 'Arkansas valley', guide: 'leadville', hero: { image: 'AdobeStock_1111460584.jpeg', folder: 'leadville', alt: 'Harrison Avenue in Leadville from above on an October morning in 2023, looking up the street past a green copper cupola: Victorian brick and painted storefronts, aspens turning gold among the houses, and bare mountains on the horizon under white cloud', position: '50% 20%' }, signature: { kind: 'snowpack', station: { triplet: '485:CO:SNTL', name: 'Fremont Pass', elevationFt: 11310, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=485' } } },
+  { slug: 'manitou-springs', name: 'Manitou Springs', counties: ['El Paso'], cluster: 'Pikes Peak', guide: 'manitou-springs', hero: { image: 'AdobeStock_357829842.jpeg', folder: 'manitou-springs', alt: 'Downtown Manitou Springs from the air on a June day in 2020: Manitou Avenue curving between brick and stone blocks and a church, houses among green trees on the slopes, red rock and a highway bridge above, and the mountains under summer cloud', position: '50% 66%' } },
+  { slug: 'steamboat-springs', name: 'Steamboat Springs', counties: ['Routt'], cluster: 'Yampa valley', domain: 'insidesteamboatsprings.com', hero: { image: 'steamboat-springs.jpg', alt: '' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Casey’s Pond', ids: [18] }, { name: 'Fetcher Pond', ids: [201] }, { name: 'Stagecoach Reservoir', ids: [362] }] } },
+  { slug: 'grand-junction', name: 'Grand Junction', counties: ['Mesa'], cluster: 'Western Slope', domain: 'insidegrandjunction.com', hero: { image: 'grand-junction.jpg', alt: '' }, signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '09106485', river: 'Colorado River', where: 'at Grand Junction, above the Gunnison', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-09106485/' } } },
+  { slug: 'palisade', name: 'Palisade', counties: ['Mesa'], cluster: 'Western Slope', hero: { image: 'palisade.jpg', alt: '' } },
+  { slug: 'fruita', name: 'Fruita', counties: ['Mesa'], cluster: 'Western Slope', hero: { image: 'fruita.jpg', alt: '' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Fruita Red Rocks Lake', ids: [1611] }, { name: 'Snooks Bottom Lake', ids: [1615] }] } },
+  { slug: 'carbondale', name: 'Carbondale', counties: ['Garfield'], cluster: 'Roaring Fork valley', hero: { image: 'carbondale.jpg', alt: '' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Crystal River', ids: [1441] }] } },
+  { slug: 'glenwood-springs', name: 'Glenwood Springs', counties: ['Garfield'], cluster: 'Roaring Fork valley', hero: { image: 'glenwood-springs.jpg', alt: '' } },
+  { slug: 'crested-butte', name: 'Crested Butte', counties: ['Gunnison'], cluster: 'Gunnison valley', hero: { image: 'crested-butte.jpg', alt: '' }, signature: { kind: 'snowpack', station: { triplet: '380:CO:SNTL', name: 'Butte', elevationFt: 10190, page: 'https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=380' } } },
+  { slug: 'telluride', name: 'Telluride', counties: ['San Miguel'], cluster: 'Southwest', hero: { image: 'telluride.jpg', alt: '' } },
+  { slug: 'ouray', name: 'Ouray', counties: ['Ouray'], cluster: 'Southwest', hero: { image: 'ouray.jpg', alt: '' }, signature: { kind: 'fish-stocking', waters: [{ name: 'Ridgway Reservoir', ids: [62] }] } },
+  { slug: 'durango', name: 'Durango', counties: ['La Plata'], cluster: 'Southwest', hero: { image: 'durango.jpg', alt: '' }, signature: { kind: 'river-flow', gauge: { agency: 'USGS', id: '09361500', river: 'Animas River', where: 'at Durango', page: 'https://waterdata.usgs.gov/monitoring-location/USGS-09361500/' } } },
   // The towns of the owner's brief of 12 November 2026 (docs/additions-report.md):
   // each is a page from the day one named annual event of its own has a date
   // read on its organizer's page, and builds nothing until then. Counties are
   // the Census Bureau's (Vintage 2025 subcounty file, the county parts of each
   // place, the most populous first); Redstone is a census-designated place.
-  { slug: 'vail', name: 'Vail', counties: ['Eagle'], cluster: 'Eagle valley' },
-  { slug: 'minturn', name: 'Minturn', counties: ['Eagle'], cluster: 'Eagle valley' },
-  { slug: 'eagle', name: 'Eagle', counties: ['Eagle'], cluster: 'Eagle valley' },
-  { slug: 'avon', name: 'Avon', counties: ['Eagle'], cluster: 'Eagle valley' },
-  { slug: 'dillon', name: 'Dillon', counties: ['Summit'], cluster: 'Summit County' },
-  { slug: 'silverthorne', name: 'Silverthorne', counties: ['Summit'], cluster: 'Summit County' },
-  { slug: 'winter-park', name: 'Winter Park', counties: ['Grand'], cluster: 'Grand County' },
-  { slug: 'fraser', name: 'Fraser', counties: ['Grand'], cluster: 'Grand County' },
-  { slug: 'granby', name: 'Granby', counties: ['Grand'], cluster: 'Grand County' },
-  { slug: 'kremmling', name: 'Kremmling', counties: ['Grand'], cluster: 'Grand County' },
-  { slug: 'aspen', name: 'Aspen', counties: ['Pitkin'], cluster: 'Roaring Fork valley' },
-  { slug: 'basalt', name: 'Basalt', counties: ['Eagle', 'Pitkin'], cluster: 'Roaring Fork valley' },
-  { slug: 'redstone', name: 'Redstone', counties: ['Pitkin'], cluster: 'Roaring Fork valley' },
-  { slug: 'marble', name: 'Marble', counties: ['Gunnison'], cluster: 'Roaring Fork valley' },
-  { slug: 'gunnison', name: 'Gunnison', counties: ['Gunnison'], cluster: 'Gunnison valley' },
-  { slug: 'lake-city', name: 'Lake City', counties: ['Hinsdale'], cluster: 'Gunnison valley' },
-  { slug: 'silverton', name: 'Silverton', counties: ['San Juan'], cluster: 'Southwest' },
-  { slug: 'ridgway', name: 'Ridgway', counties: ['Ouray'], cluster: 'Southwest' },
-  { slug: 'pagosa-springs', name: 'Pagosa Springs', counties: ['Archuleta'], cluster: 'Southwest' },
-  { slug: 'montrose', name: 'Montrose', counties: ['Montrose'], cluster: 'Southwest', terrain: 'mesa' },
-  { slug: 'cortez', name: 'Cortez', counties: ['Montezuma'], cluster: 'Southwest', terrain: 'mesa' },
-  { slug: 'mancos', name: 'Mancos', counties: ['Montezuma'], cluster: 'Southwest', terrain: 'mesa' },
-  { slug: 'dolores', name: 'Dolores', counties: ['Montezuma'], cluster: 'Southwest', terrain: 'mesa' },
-  { slug: 'paonia', name: 'Paonia', counties: ['Delta'], cluster: 'North Fork valley' },
-  { slug: 'hotchkiss', name: 'Hotchkiss', counties: ['Delta'], cluster: 'North Fork valley' },
-  { slug: 'cedaredge', name: 'Cedaredge', counties: ['Delta'], cluster: 'Western Slope' },
-  { slug: 'delta', name: 'Delta', counties: ['Delta'], cluster: 'Western Slope' },
-  { slug: 'olathe', name: 'Olathe', counties: ['Montrose'], cluster: 'Western Slope' },
-  { slug: 'rifle', name: 'Rifle', counties: ['Garfield'], cluster: 'Western Slope' },
-  { slug: 'meeker', name: 'Meeker', counties: ['Rio Blanco'], cluster: 'Western Slope', terrain: 'foothills' },
-  { slug: 'craig', name: 'Craig', counties: ['Moffat'], cluster: 'Yampa valley' },
-  { slug: 'creede', name: 'Creede', counties: ['Mineral'], cluster: 'San Luis Valley' },
-  { slug: 'alamosa', name: 'Alamosa', counties: ['Alamosa'], cluster: 'San Luis Valley' },
-  { slug: 'monte-vista', name: 'Monte Vista', counties: ['Rio Grande'], cluster: 'San Luis Valley' },
-  { slug: 'del-norte', name: 'Del Norte', counties: ['Rio Grande'], cluster: 'San Luis Valley' },
-  { slug: 'crestone', name: 'Crestone', counties: ['Saguache'], cluster: 'San Luis Valley' },
-  { slug: 'fairplay', name: 'Fairplay', counties: ['Park'], cluster: 'South Park' },
-  { slug: 'alma', name: 'Alma', counties: ['Park'], cluster: 'South Park' },
-  { slug: 'canon-city', name: 'Cañon City', counties: ['Fremont'], cluster: 'Arkansas valley', terrain: 'foothills' },
-  { slug: 'florence', name: 'Florence', counties: ['Fremont'], cluster: 'Arkansas valley', terrain: 'foothills' },
-  { slug: 'westcliffe', name: 'Westcliffe', counties: ['Custer'], cluster: 'Arkansas valley' },
-  { slug: 'cripple-creek', name: 'Cripple Creek', counties: ['Teller'], cluster: 'Pikes Peak' },
-  { slug: 'victor', name: 'Victor', counties: ['Teller'], cluster: 'Pikes Peak' },
-  { slug: 'woodland-park', name: 'Woodland Park', counties: ['Teller'], cluster: 'Pikes Peak', terrain: 'foothills' },
-  { slug: 'green-mountain-falls', name: 'Green Mountain Falls', counties: ['El Paso', 'Teller'], cluster: 'Pikes Peak' },
-  { slug: 'palmer-lake', name: 'Palmer Lake', counties: ['El Paso'], cluster: 'Pikes Peak', terrain: 'foothills' },
-  { slug: 'trinidad', name: 'Trinidad', counties: ['Las Animas'], cluster: 'Southern Colorado', terrain: 'mesa' },
-  { slug: 'la-veta', name: 'La Veta', counties: ['Huerfano'], cluster: 'Southern Colorado', terrain: 'peaks' },
-  { slug: 'central-city', name: 'Central City', counties: ['Gilpin', 'Clear Creek'], cluster: 'I-70 mountain' },
-  { slug: 'morrison', name: 'Morrison', counties: ['Jefferson'], cluster: 'I-70 mountain', terrain: 'foothills' },
-  { slug: 'walden', name: 'Walden', counties: ['Jackson'], cluster: 'North Park' },
-  { slug: 'boulder', name: 'Boulder', counties: ['Boulder'], cluster: 'Front Range cities' },
-  { slug: 'greeley', name: 'Greeley', counties: ['Weld'], cluster: 'Front Range cities', terrain: 'plains' },
-  { slug: 'milliken', name: 'Milliken', counties: ['Weld'], cluster: 'Front Range and plains towns' },
-  { slug: 'wellington', name: 'Wellington', counties: ['Larimer'], cluster: 'Front Range and plains towns' },
-  { slug: 'platteville', name: 'Platteville', counties: ['Weld'], cluster: 'Front Range and plains towns' },
-  { slug: 'brush', name: 'Brush', counties: ['Morgan'], cluster: 'Front Range and plains towns' },
-  { slug: 'sterling', name: 'Sterling', counties: ['Logan'], cluster: 'Front Range and plains towns' },
-  { slug: 'rocky-ford', name: 'Rocky Ford', counties: ['Otero'], cluster: 'Eastern plains' },
-  { slug: 'la-junta', name: 'La Junta', counties: ['Otero'], cluster: 'Eastern plains' },
+  { slug: 'vail', name: 'Vail', counties: ['Eagle'], cluster: 'Eagle valley', hero: { image: 'vail.jpg', alt: '' } },
+  { slug: 'minturn', name: 'Minturn', counties: ['Eagle'], cluster: 'Eagle valley', hero: { image: 'minturn.jpg', alt: '' } },
+  { slug: 'eagle', name: 'Eagle', counties: ['Eagle'], cluster: 'Eagle valley', hero: { image: 'eagle.jpg', alt: '' } },
+  { slug: 'avon', name: 'Avon', counties: ['Eagle'], cluster: 'Eagle valley', hero: { image: 'avon.jpg', alt: '' } },
+  { slug: 'dillon', name: 'Dillon', counties: ['Summit'], cluster: 'Summit County', hero: { image: 'dillon.jpg', alt: '' } },
+  { slug: 'silverthorne', name: 'Silverthorne', counties: ['Summit'], cluster: 'Summit County', hero: { image: 'silverthorne.jpg', alt: '' } },
+  { slug: 'winter-park', name: 'Winter Park', counties: ['Grand'], cluster: 'Grand County', hero: { image: 'winter-park.jpg', alt: '' } },
+  { slug: 'fraser', name: 'Fraser', counties: ['Grand'], cluster: 'Grand County', hero: { image: 'fraser.jpg', alt: '' } },
+  { slug: 'granby', name: 'Granby', counties: ['Grand'], cluster: 'Grand County', hero: { image: 'granby.jpg', alt: '' } },
+  { slug: 'kremmling', name: 'Kremmling', counties: ['Grand'], cluster: 'Grand County', hero: { image: 'kremmling.jpg', alt: '' } },
+  { slug: 'aspen', name: 'Aspen', counties: ['Pitkin'], cluster: 'Roaring Fork valley', hero: { image: 'aspen.jpg', alt: '' } },
+  { slug: 'basalt', name: 'Basalt', counties: ['Eagle', 'Pitkin'], cluster: 'Roaring Fork valley', hero: { image: 'basalt.jpg', alt: '' } },
+  { slug: 'redstone', name: 'Redstone', counties: ['Pitkin'], cluster: 'Roaring Fork valley', hero: { image: 'redstone.jpg', alt: '' } },
+  { slug: 'marble', name: 'Marble', counties: ['Gunnison'], cluster: 'Roaring Fork valley', hero: { image: 'marble.jpg', alt: '' } },
+  { slug: 'gunnison', name: 'Gunnison', counties: ['Gunnison'], cluster: 'Gunnison valley', hero: { image: 'gunnison.jpg', alt: '' } },
+  { slug: 'lake-city', name: 'Lake City', counties: ['Hinsdale'], cluster: 'Gunnison valley', hero: { image: 'lake-city.jpg', alt: '' } },
+  { slug: 'silverton', name: 'Silverton', counties: ['San Juan'], cluster: 'Southwest', hero: { image: 'silverton.jpg', alt: '' } },
+  { slug: 'ridgway', name: 'Ridgway', counties: ['Ouray'], cluster: 'Southwest', hero: { image: 'ridgway.jpg', alt: '' } },
+  { slug: 'pagosa-springs', name: 'Pagosa Springs', counties: ['Archuleta'], cluster: 'Southwest', hero: { image: 'pagosa-springs.jpg', alt: '' } },
+  { slug: 'montrose', name: 'Montrose', counties: ['Montrose'], cluster: 'Southwest', terrain: 'mesa', hero: { image: 'montrose.jpg', alt: '' } },
+  { slug: 'cortez', name: 'Cortez', counties: ['Montezuma'], cluster: 'Southwest', terrain: 'mesa', hero: { image: 'cortez.jpg', alt: '' } },
+  { slug: 'mancos', name: 'Mancos', counties: ['Montezuma'], cluster: 'Southwest', terrain: 'mesa', hero: { image: 'mancos.jpg', alt: '' } },
+  { slug: 'dolores', name: 'Dolores', counties: ['Montezuma'], cluster: 'Southwest', terrain: 'mesa', hero: { image: 'dolores.jpg', alt: '' } },
+  { slug: 'paonia', name: 'Paonia', counties: ['Delta'], cluster: 'North Fork valley', hero: { image: 'paonia.jpg', alt: '' } },
+  { slug: 'hotchkiss', name: 'Hotchkiss', counties: ['Delta'], cluster: 'North Fork valley', hero: { image: 'hotchkiss.jpg', alt: '' } },
+  { slug: 'cedaredge', name: 'Cedaredge', counties: ['Delta'], cluster: 'Western Slope', hero: { image: 'cedaredge.jpg', alt: '' } },
+  { slug: 'delta', name: 'Delta', counties: ['Delta'], cluster: 'Western Slope', hero: { image: 'delta.jpg', alt: '' } },
+  { slug: 'olathe', name: 'Olathe', counties: ['Montrose'], cluster: 'Western Slope', hero: { image: 'olathe.jpg', alt: '' } },
+  { slug: 'rifle', name: 'Rifle', counties: ['Garfield'], cluster: 'Western Slope', hero: { image: 'rifle.jpg', alt: '' } },
+  { slug: 'meeker', name: 'Meeker', counties: ['Rio Blanco'], cluster: 'Western Slope', terrain: 'foothills', hero: { image: 'meeker.jpg', alt: '' } },
+  { slug: 'craig', name: 'Craig', counties: ['Moffat'], cluster: 'Yampa valley', hero: { image: 'craig.jpg', alt: '' } },
+  { slug: 'creede', name: 'Creede', counties: ['Mineral'], cluster: 'San Luis Valley', hero: { image: 'creede.jpg', alt: '' } },
+  { slug: 'alamosa', name: 'Alamosa', counties: ['Alamosa'], cluster: 'San Luis Valley', hero: { image: 'alamosa.jpg', alt: '' } },
+  { slug: 'monte-vista', name: 'Monte Vista', counties: ['Rio Grande'], cluster: 'San Luis Valley', hero: { image: 'monte-vista.jpg', alt: '' } },
+  { slug: 'del-norte', name: 'Del Norte', counties: ['Rio Grande'], cluster: 'San Luis Valley', hero: { image: 'del-norte.jpg', alt: '' } },
+  { slug: 'crestone', name: 'Crestone', counties: ['Saguache'], cluster: 'San Luis Valley', hero: { image: 'crestone.jpg', alt: '' } },
+  { slug: 'fairplay', name: 'Fairplay', counties: ['Park'], cluster: 'South Park', hero: { image: 'fairplay.jpg', alt: '' } },
+  { slug: 'alma', name: 'Alma', counties: ['Park'], cluster: 'South Park', hero: { image: 'alma.jpg', alt: '' } },
+  { slug: 'canon-city', name: 'Cañon City', counties: ['Fremont'], cluster: 'Arkansas valley', terrain: 'foothills', hero: { image: 'canon-city.jpg', alt: '' } },
+  { slug: 'florence', name: 'Florence', counties: ['Fremont'], cluster: 'Arkansas valley', terrain: 'foothills', hero: { image: 'florence.jpg', alt: '' } },
+  { slug: 'westcliffe', name: 'Westcliffe', counties: ['Custer'], cluster: 'Arkansas valley', hero: { image: 'westcliffe.jpg', alt: '' } },
+  { slug: 'cripple-creek', name: 'Cripple Creek', counties: ['Teller'], cluster: 'Pikes Peak', hero: { image: 'cripple-creek.jpg', alt: '' } },
+  { slug: 'victor', name: 'Victor', counties: ['Teller'], cluster: 'Pikes Peak', hero: { image: 'victor.jpg', alt: '' } },
+  { slug: 'woodland-park', name: 'Woodland Park', counties: ['Teller'], cluster: 'Pikes Peak', terrain: 'foothills', hero: { image: 'woodland-park.jpg', alt: '' } },
+  { slug: 'green-mountain-falls', name: 'Green Mountain Falls', counties: ['El Paso', 'Teller'], cluster: 'Pikes Peak', hero: { image: 'green-mountain-falls.jpg', alt: '' } },
+  { slug: 'palmer-lake', name: 'Palmer Lake', counties: ['El Paso'], cluster: 'Pikes Peak', terrain: 'foothills', hero: { image: 'palmer-lake.jpg', alt: '' } },
+  { slug: 'trinidad', name: 'Trinidad', counties: ['Las Animas'], cluster: 'Southern Colorado', terrain: 'mesa', hero: { image: 'trinidad.jpg', alt: '' } },
+  { slug: 'la-veta', name: 'La Veta', counties: ['Huerfano'], cluster: 'Southern Colorado', terrain: 'peaks', hero: { image: 'la-veta.jpg', alt: '' } },
+  { slug: 'central-city', name: 'Central City', counties: ['Gilpin', 'Clear Creek'], cluster: 'I-70 mountain', hero: { image: 'central-city.jpg', alt: '' } },
+  { slug: 'morrison', name: 'Morrison', counties: ['Jefferson'], cluster: 'I-70 mountain', terrain: 'foothills', hero: { image: 'morrison.jpg', alt: '' } },
+  { slug: 'walden', name: 'Walden', counties: ['Jackson'], cluster: 'North Park', hero: { image: 'walden.jpg', alt: '' } },
+  { slug: 'boulder', name: 'Boulder', counties: ['Boulder'], cluster: 'Front Range cities', hero: { image: 'boulder.jpg', alt: '' } },
+  { slug: 'greeley', name: 'Greeley', counties: ['Weld'], cluster: 'Front Range cities', terrain: 'plains', hero: { image: 'greeley.jpg', alt: '' } },
+  { slug: 'milliken', name: 'Milliken', counties: ['Weld'], cluster: 'Front Range and plains towns', hero: { image: 'milliken.jpg', alt: '' } },
+  { slug: 'wellington', name: 'Wellington', counties: ['Larimer'], cluster: 'Front Range and plains towns', hero: { image: 'wellington.jpg', alt: '' } },
+  { slug: 'platteville', name: 'Platteville', counties: ['Weld'], cluster: 'Front Range and plains towns', hero: { image: 'platteville.jpg', alt: '' } },
+  { slug: 'brush', name: 'Brush', counties: ['Morgan'], cluster: 'Front Range and plains towns', hero: { image: 'brush.jpg', alt: '' } },
+  { slug: 'sterling', name: 'Sterling', counties: ['Logan'], cluster: 'Front Range and plains towns', hero: { image: 'sterling.jpg', alt: '' } },
+  { slug: 'rocky-ford', name: 'Rocky Ford', counties: ['Otero'], cluster: 'Eastern plains', hero: { image: 'rocky-ford.jpg', alt: '' } },
+  { slug: 'la-junta', name: 'La Junta', counties: ['Otero'], cluster: 'Eastern plains', hero: { image: 'la-junta.jpg', alt: '' } },
 ];
 
 /**
@@ -372,6 +399,16 @@ export const STANDALONE_GUIDES: Readonly<
 
 export function findHubTown(slug: string): HubTown | undefined {
   return HUB_TOWNS.find((t) => t.slug === slug);
+}
+
+/** A town page's photograph entry: its own `hero`, else a showpiece's. Whether the file is there is the caller's question. */
+export function heroOf(town: HubTown): HubTownHero | undefined {
+  return town.hero ?? town.showpiece?.hero;
+}
+
+/** Where a town page's photograph is in the repository, as IMAGE_LICENSES.csv names it. */
+export function heroPath(hero: HubTownHero): string {
+  return `content/${hero.folder ?? 'hub'}/images/${hero.image}`;
 }
 
 /** The hub town a guide's config belongs to: `fortcollins` is Fort Collins' page, `fort-collins`. */

@@ -4,6 +4,9 @@ seoTitle: "Erie, CO holiday hours 2026: rec center, library and ice rink"
 slug: erie-holiday-hours-2026
 date: "2026-11-10"
 excerpt: "The Community Center opens 6 am to 1 pm on Thanksgiving, Christmas Eve and New Year's Eve and closes on Christmas and New Year's Day. The library closes on Veterans Day, Thanksgiving, Christmas Eve and Christmas Day. The ice rink opens November 27."
+image: ../images/library.jpg
+imageAlt: "The timber-and-glass entrance of the Erie Community Library"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 category: "Families"
 tags: [living-here, holidays, hours, families, guide]
 verified: "2026-11-12"

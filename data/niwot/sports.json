@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-11T19:43:49.572Z",
+  "generated": "2026-11-14T18:56:16.891Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/football/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T16:38:10",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T15:30:11",
       "overall": "3-7",
       "league": {
         "record": "1-5",
@@ -135,8 +135,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/soccer/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T19:43:58",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T18:00:32",
       "overall": "2-7-6",
       "league": {
         "record": "0-5-2",
@@ -320,15 +320,57 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/volleyball/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T17:50:07",
-      "overall": "18-7",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T18:45:17",
+      "overall": "19-9",
       "league": {
         "record": "12-2",
         "name": "5A/4A/3A Granite Peaks",
         "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-11-13",
+          "opponent": "Mullen",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mullen-denver-vs-niwot/11-13-2026/?c=4e59ae37-7f38-4c13-8b13-d1795e547e31",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          },
+          "venue": "Denver Coliseum"
+        },
+        {
+          "date": "2026-11-12",
+          "opponent": "Mead",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mead-longmont-vs-niwot/11-12-2026/?c=91bdf849-0316-483b-b8f7-d78a4dcfe36c",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          },
+          "venue": "Denver Coliseum"
+        },
+        {
+          "date": "2026-11-12",
+          "opponent": "Rampart",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/niwot-vs-rampart-colorado-springs/11-12-2026/?c=4218726b-385e-4dc2-a433-4a0db60ae226",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          },
+          "venue": "Denver Coliseum"
+        },
         {
           "date": "2026-11-07",
           "opponent": "Fruita Monument",
@@ -623,18 +665,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-11-12",
-          "opponent": "Mead",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/mead-longmont-vs-niwot/11-12-2026/?c=91bdf849-0316-483b-b8f7-d78a4dcfe36c",
-          "stage": "State Volleyball Championships",
-          "neutral": true,
-          "time": "11:00",
-          "venue": "Denver Coliseum"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -644,8 +675,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/softball/fall/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T16:20:18",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T18:30:04",
       "overall": "15-11",
       "league": {
         "record": "9-5",
@@ -977,8 +1008,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T16:35:11",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T18:56:52",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -991,8 +1022,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/girls/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T19:44:30",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T17:30:57",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1005,8 +1036,8 @@
       "key": "girls-gymnastics",
       "name": "Girls gymnastics",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/gymnastics/fall/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T19:44:34",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T18:57:01",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1019,8 +1050,8 @@
       "key": "boys-golf",
       "name": "Boys golf",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/golf/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T17:31:18",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T15:10:23",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1033,8 +1064,8 @@
       "key": "boys-tennis",
       "name": "Boys tennis",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/tennis/fall/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T16:10:47",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T16:21:42",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1047,8 +1078,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/basketball/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T19:44:47",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T18:57:14",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1207,8 +1238,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/basketball/girls/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T17:01:00",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T17:45:06",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1330,6 +1361,13 @@
           "time": "17:30"
         },
         {
+          "date": "2027-02-06",
+          "opponent": "The Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/niwot-vs-the-academy-westminster/2-6-2027/?c=de92a740-2b3c-4684-86b5-1a7994239b96",
+          "time": "11:00"
+        },
+        {
           "date": "2027-02-09",
           "opponent": "Holy Family",
           "site": "home",
@@ -1367,8 +1405,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/wrestling/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T19:45:05",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T18:57:32",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1381,8 +1419,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/swimming/girls/",
-      "fetched": "2026-11-11T19:43:49.572Z",
-      "maxprepsUpdated": "2026-11-11T17:01:03",
+      "fetched": "2026-11-14T18:56:16.891Z",
+      "maxprepsUpdated": "2026-11-14T15:53:19",
       "results": [],
       "upcoming": [],
       "held": [],

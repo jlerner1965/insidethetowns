@@ -12,6 +12,13 @@
  * owner's hub review, 13 November 2026): the headline, the town and the
  * day, linking to the article on its own guide. No line of an article is
  * copied onto the hub.
+ *
+ * Laid out in two parts (the owner, 14 November 2026: the titles were hard
+ * to read and the page "could be organized in a better way"; it was one
+ * list of fifty by date). First the newest few, with their lines. Then
+ * every article under its subject (Outdoors, History, Families), the
+ * newest first in each, with links at the top to jump to a subject. The
+ * headlines are set in the `headline` utility (src/styles/global.css).
  */
 import Page from '@/layouts/Page.astro';
 import { getHub } from '@/config';
@@ -23,26 +30,43 @@ import { placeName } from '@/lib/curiosity-places';
 
 const hub = getHub();
 const title = 'Articles';
-const intro = 'News, event briefs and guides from the towns and from each town’s own guide, the newest first. Every fact in them links to the page it was read on.';
+const intro = 'News, event briefs and guides from the towns and from each town’s own guide: the newest first, then all of them by subject. Every fact in them links to the page it was read on.';
 const description = 'Articles from Inside the Towns and its town guides: news, event briefs, history and local guides for Colorado towns, each fact linked to its source.';
-type Row = { title: string; href: string; eyebrow: string; date: string; description?: string; verified?: string; draft?: boolean; guide?: string };
-const hubArticles: Row[] = newestFirst((await getCuriosity()).map((a) => a.data)).map((a) => ({
-  title: a.title,
-  href: articlePath(a),
-  eyebrow: `${kindLabel(a.kind)} · ${townsLine(a.towns.map((t) => placeName(t) ?? t))}`,
-  date: a.date,
-  description: a.description,
-  verified: lastVerified(a),
-  draft: a.status !== 'verified',
-}));
+/** How many articles the "Latest" list at the top holds. */
+const LATEST = 6;
+const NEWS = 'News and events';
+type Row = { title: string; href: string; eyebrow: string; place: string; subject: string; date: string; description?: string; verified?: string; draft?: boolean; guide?: string };
+const hubArticles: Row[] = newestFirst((await getCuriosity()).map((a) => a.data)).map((a) => {
+  const place = townsLine(a.towns.map((t) => placeName(t) ?? t));
+  return {
+    title: a.title,
+    href: articlePath(a),
+    eyebrow: `${kindLabel(a.kind)} · ${place}`,
+    place,
+    subject: a.kind === 'event' || a.kind === 'story' ? NEWS : kindLabel(a.kind),
+    date: a.date,
+    description: a.description,
+    verified: lastVerified(a),
+    draft: a.status !== 'verified',
+  };
+});
 const guideArticles: Row[] = (await getNetworkEntries('articles')).map((a) => ({
   title: a.data.title,
   href: `https://${a.town.domain}/articles/${a.slug}/`,
   eyebrow: [a.town.name, a.data.category].filter(Boolean).join(' · '),
+  place: a.town.name,
+  subject: a.data.category || 'More',
   date: dayKey(a.data.date),
   guide: a.town.siteTitle,
 }));
 const articles = [...hubArticles, ...guideArticles].sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+const latest = articles.slice(0, LATEST);
+// The subjects: the hub's news first, then the one with the most articles.
+const bySubject = new Map<string, Row[]>();
+for (const a of articles) bySubject.set(a.subject, [...(bySubject.get(a.subject) ?? []), a]);
+const subjects = [...bySubject.entries()]
+  .map(([name, rows]) => ({ name, rows, id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') }))
+  .sort((a, b) => Number(b.name === NEWS) - Number(a.name === NEWS) || b.rows.length - a.rows.length || a.name.localeCompare(b.name));
 const structured = [
   collectionPageJsonLd(hub, { name: title, description, path: ARTICLES_INDEX_PATH, items: articles.map((a) => (/^https?:/.test(a.href) ? { name: a.title, url: a.href } : { name: a.title, path: a.href })) }),
   breadcrumbJsonLd(hub, [
@@ -50,20 +74,49 @@ const structured = [
     { name: title, path: ARTICLES_INDEX_PATH },
   ]),
 ];
+const link = 'text-ink no-underline hover:text-primary hover:underline';
 ---
 <Page title={title} seoTitle="Articles from Colorado towns" eyebrow="Inside the Towns" intro={intro} description={description} jsonLd={structured}>
-  <ul class="max-w-3xl divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-articles-index>
-    {articles.map((a) => (
-      <li class="py-5">
-        <p class="eyebrow text-ink-muted">{a.eyebrow}{a.draft && ' · Draft'}</p>
-        <h2 class="mt-1 font-heading text-2xl font-medium leading-tight"><a href={a.href} class="text-ink no-underline hover:text-primary hover:underline">{a.title}</a></h2>
-        {a.description && <p class="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-muted">{a.description}</p>}
-        <p class="mt-1.5 text-sm text-ink-muted">
-          <time datetime={a.date}>{formatDate(parseLocal(a.date))}</time>
-          {a.verified && a.verified > a.date && <> · Last verified <time datetime={a.verified}>{formatDate(parseLocal(a.verified))}</time></>}
-          {a.guide && <> · on {a.guide}</>}
-        </p>
-      </li>
+  <div data-articles-index>
+    <nav aria-label="Subjects" class="flex flex-wrap gap-2">
+      {subjects.map((s) => (
+        <a href={`#${s.id}`} class="inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 py-2 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary sm:min-h-0 sm:py-1.5">
+          {s.name} <span class="ml-1.5 tabular-nums text-ink-muted">{s.rows.length}</span>
+        </a>
+      ))}
+    </nav>
+
+    <section aria-labelledby="latest" class="mt-10">
+      <h2 id="latest" class="eyebrow">Latest</h2>
+      <ul class="mt-3 grid gap-x-10 border-t-2 border-primary md:grid-cols-2">
+        {latest.map((a) => (
+          <li class="border-b border-line-soft py-5">
+            <p class="eyebrow text-ink-muted">{a.eyebrow}{a.draft && ' · Draft'}</p>
+            <h3 class="headline mt-1.5 text-[1.375rem]"><a href={a.href} class={link}>{a.title}</a></h3>
+            {a.description && <p class="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-muted">{a.description}</p>}
+            <p class="mt-1.5 text-sm text-ink-muted">
+              <time datetime={a.date}>{formatDate(parseLocal(a.date))}</time>
+              {a.verified && a.verified > a.date && <> · Last verified <time datetime={a.verified}>{formatDate(parseLocal(a.verified))}</time></>}
+              {a.guide && <> · on {a.guide}</>}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    {subjects.map((s) => (
+      <section aria-labelledby={s.id} class="mt-14 scroll-mt-6" id={s.id}>
+        <h2 class="display-md text-3xl text-ink">{s.name}</h2>
+        <ul class="mt-4 grid gap-x-10 border-t-2 border-primary md:grid-cols-2 lg:grid-cols-3">
+          {s.rows.map((a) => (
+            <li class="border-b border-line-soft py-4">
+              <p class="eyebrow text-ink-muted">{a.place}{a.draft && ' · Draft'}</p>
+              <h3 class="headline mt-1 text-lg"><a href={a.href} class={link}>{a.title}</a></h3>
+              <p class="mt-1 text-sm text-ink-muted"><time datetime={a.date}>{formatDate(parseLocal(a.date))}</time></p>
+            </li>
+          ))}
+        </ul>
+      </section>
     ))}
-  </ul>
+  </div>
 </Page>

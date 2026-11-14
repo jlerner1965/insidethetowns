@@ -3,6 +3,9 @@ title: "Breakfast in Erie: beignets, burritos, brunch and the 6 am window"
 seoTitle: "Breakfast in Erie, CO: cafés, burritos, brunch and the 6 am window"
 date: "2026-09-27"
 excerpt: "Five places for breakfast or brunch in Erie that this guide has checked, from the Creole cafe with the famous weekend line to the two that open at six."
+image: ../images/old-city-hall.jpg
+imageAlt: "The old Erie City Hall, a small brick building with a bell tower"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 category: "Food & drink"
 tags: [breakfast, brunch, coffee, guide]
 verified: "2026-11-10"
