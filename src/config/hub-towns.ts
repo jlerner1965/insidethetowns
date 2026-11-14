@@ -116,14 +116,17 @@ export interface HubTown {
   /** Clusters whose pages this one also links to, beside its own. */
   alsoLinks?: readonly HubCluster[];
   /**
-   * The richer layout (Estes Park and Salida only): a hero photograph, one
-   * tradition spotlighted, and the year laid out by season. The photograph
-   * is a file in content/hub/images/ with its row in IMAGE_LICENSES.csv; a
-   * showpiece without one builds the layout without the picture rather
-   * than borrow one. `intro` is one line on what the page is.
+   * The richer page (Estes Park and Salida only): a hero photograph and a
+   * line of its own under the name. The photograph is a file in
+   * content/hub/images/ with its row in IMAGE_LICENSES.csv; a showpiece
+   * without one draws the town's horizon rather than borrow one. `intro` is
+   * one line on what the page is. Since the publication redesign of 14
+   * November 2026 the dates take every town's layout: the spotlight and the
+   * year by season are not drawn, and the intros no longer say "season by
+   * season". `spotlight` stays on file, unused.
    */
   showpiece?: {
-    /** The record the spotlight block shows. */
+    /** The record the spotlight block showed, before the redesign of 14 November 2026; not drawn now. */
     spotlight: string;
     intro: string;
     /**
@@ -203,7 +206,7 @@ export const HUB_TOWNS: readonly HubTown[] = [
     signature: { kind: 'fish-stocking', waters: [{ name: 'Lake Estes', ids: [795] }] },
     showpiece: {
       spotlight: 'estes-park-frozen-dead-guy-days',
-      intro: 'What Estes Park puts on through the year, season by season, and the dates Rocky Mountain National Park sets beside it.',
+      intro: 'What Estes Park puts on through the year, and the dates Rocky Mountain National Park sets beside it.',
       hero: {
         // The Estes Park guide's hero, bought from Adobe Stock on 30 October
         // 2026 (PERMISSIONS.md, Stock licences); the same file, on the hub.
@@ -221,7 +224,7 @@ export const HUB_TOWNS: readonly HubTown[] = [
     signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'ARKSALCO', river: 'Arkansas River', where: 'at Salida', page: 'https://dwr.state.co.us/Tools/Stations/ARKSALCO' } },
     showpiece: {
       spotlight: 'salida-fibark',
-      intro: 'Salida’s year on the Arkansas River, season by season: the festivals, the races and the dates the mountains set.',
+      intro: 'Salida’s year on the Arkansas River: the festivals, the races and the dates the mountains set.',
       // Waiting for the owner's licensed photograph (12 November 2026): put
       // the file at content/hub/images/salida.jpg, write the alt here, add
       // its row to IMAGE_LICENSES.csv. Until then the page draws its peaks.

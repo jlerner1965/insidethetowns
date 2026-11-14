@@ -11532,3 +11532,21 @@ Below 900px the pages are the phone's.*
   placeholder for a score; the page keeps "Each team's last result." and
   each school's result from the scores files.
 
+## The closed-guide line runs, and the showpieces' intros, 14 November 2026 (evening)
+
+- **The closed-guide line never showed on the live hub.** FromClosedGuide's
+  script was inline (`define:vars`), and the CSP allows `script-src 'self'`
+  only, so the browser refused it on all 663 hub pages that carry it: a
+  reader sent from a closed guide saw no line and kept `?from=` in the
+  address. The notes now ride on the line as a `data-` attribute and the
+  script is bundled, as Plausible's already was. Checked in a browser
+  under the production CSP: the line shows for a known guide, the
+  parameter comes off the address, and nothing is refused.
+- **The site check refuses an inline script** (`inline-script`), on every
+  site, so the next one fails the build instead of failing silently.
+  JSON-LD is data and is not counted.
+- **Estes Park's and Salida's intros** lose "season by season": since the
+  publication redesign their dates take every town's layout. Nothing else
+  in either line changed. The showpieces' `spotlight` stays on file,
+  unused.
+
