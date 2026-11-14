@@ -310,6 +310,17 @@ test('the scanner reads attributes however they are quoted, and decodes them', (
   assert.ok(scan.ids.has('one'));
 });
 
+test('an inline script is refused, since the CSP never runs one; a bundled script and JSON-LD are not', () => {
+  // The hub's closed-guide line was an inline script on 663 pages and never showed on the live site (14 November 2026).
+  const files = { ...sound(), '/about/index.html': page('/about/', { body: '<a href="/">Home</a><h2 id="who">Who</h2><script>(function(){const notes = {};})();</script>' }) };
+  assert.deepEqual(rules(files), ['inline-script']);
+  const scan = (body: string) => scanHtml(`<html><head><title>T</title></head><body>${body}</body></html>`).inlineScripts;
+  assert.equal(scan('<script type="module" src="/_astro/page.js"></script>'), 0, 'a file');
+  assert.equal(scan('<script type="application/ld+json">{"@type":"Thing"}</script>'), 0, 'data, not a script');
+  assert.equal(scan('<script type="module">import "/x.js";</script>'), 1);
+  assert.equal(scan('<script type="text/javascript">x()</script><script>y()</script>'), 2);
+});
+
 test('a draft article in a build without the preview switch is refused', () => {
   const files = { ...sound(), '/about/index.html': page('/about/', { body: '<a href="/">Home</a><h2 id="who">Who</h2><p data-draft>A draft</p>' }) };
   assert.deepEqual(rules(files), ['draft-shipped']);
