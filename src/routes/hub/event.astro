@@ -21,11 +21,11 @@ import { getImage } from 'astro:assets';
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
 import DateCorrection from '@/components/DateCorrection.astro';
-import CheckedLine from '@/components/CheckedLine.astro';
 import { findTown, getHub } from '@/config';
 import { STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getTraditions } from '@/lib/content';
-import { dayKey, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
+import { dayKey, formatDate, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
+import { checkedBy } from '@/lib/editor';
 import { eventPath, hubEventPages, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { googleCalendarUrl } from '@/lib/ics';
 import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, excerptDescription, traditionEventJsonLd } from '@/lib/seo';
@@ -137,7 +137,15 @@ const pill =
     <div class={card}>
       <TraditionRow {row} eyebrow="category" {also} {calendar} />
     </div>
-    <CheckedLine dates={[entry.checked]} />
+    {/*
+      Where the date was read, and the ask to correct it, in one plain line
+      (the owner, 14 November 2026: the yellow box that closed the page read
+      as a warning about the date just confirmed above it, and said "the
+      date links" where the date is not a link).
+    */}
+    <p class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted" data-event-checked>
+      {checkedBy(formatDate(parseLocal(entry.checked)))} against {possessive} page. A date wrong, or the next one announced? <a href={mailto} class="underline">Tell us</a>.
+    </p>
   </section>
 
   {/* What it is and where, from the organizer's own page (`about`; the owner's review, 13 November 2026). */}
@@ -175,8 +183,5 @@ const pill =
     </ul>
   </nav>
 
-  <p class="rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
-    A date wrong, or the next one announced? <a href={mailto} class="font-semibold underline">Tell us</a>. The date links to the page it was read from.
-  </p>
   <DateCorrection />
 </Page>
