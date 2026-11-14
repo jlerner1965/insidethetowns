@@ -1880,8 +1880,10 @@ export function traditionSchema() {
        * not say what the event was or where). The date, time and cost are
        * the years' own fields; where the text repeats them, as the owner's
        * line for Dolores's Santa at the Galloping Goose does, they match.
+       * At most 500 characters: raised from 300 on the owner's request of
+       * 14 November 2026, so Crestone's Trunk or Treat line (464) shows whole.
        */
-      about: z.object({ text: z.string().min(1).max(300), source: httpUrl, checked: isoDay }).strict().optional(),
+      about: z.object({ text: z.string().min(1).max(500), source: httpUrl, checked: isoDay }).strict().optional(),
       /** On an outdoor date: what it is the date of (src/lib/traditions.ts, OUTDOOR_KINDS; src/lib/open-now.ts). */
       outdoor: z.object({ kind: z.enum(OUTDOOR_KINDS), facility: z.string().min(1), edge: z.enum(OUTDOOR_EDGES) }).strict().optional(),
       years: z.array(year).min(1),
