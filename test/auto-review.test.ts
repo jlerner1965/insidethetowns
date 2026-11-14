@@ -273,3 +273,15 @@ test('a board the owner lets through publishes its listings, but not on top of o
   // An organizer's own feed is not held to the hour: a library runs two rooms at ten.
   assert.equal(decideEvent(staged(), ctx({ published: [{ file: 'x.md', title: 'Seed swap', start: new Date('2026-11-07T17:00:00Z') }] })).approve, true);
 });
+
+test('a school’s dress-up day, and anything on a school calendar during the school day, waits for a person (Carbon Valley, review of 14 November 2026)', () => {
+  const school = { ...library, id: 'crms', name: 'Coal Ridge Middle School (school calendar)', category: 'venue' } as Source;
+  const at = (title: string, start: string, end: string) => staged({ title: `"${title}"`, start: `"${start}"`, end: `"${end}"`, sourceId: '"crms"' });
+  // A Thursday morning in November.
+  refused(at('Grinch Day - wear green or dress like a Whoville character', '2026-11-12T08:00', '2026-11-12T10:00'), ctx({ source: school }), /dress-up or spirit day/);
+  refused(at('Tinsel & Bling - Sparkles, Sequins & anything that shines', '2026-11-12T08:00', '2026-11-12T09:00'), ctx({ source: school }), /during the school day/);
+  // The winter concert, a weekday evening: the public comes.
+  assert.equal(decideEvent(at('Coal Ridge Middle School Winter Band Concert', '2026-11-12T18:00', '2026-11-12T20:00'), ctx({ source: school })).approve, true);
+  // A library's weekday morning storytime is not a school's day.
+  assert.equal(decideEvent(at('Toddler Storytime', '2026-11-12T10:00', '2026-11-12T11:00'), ctx()).approve, true);
+});
