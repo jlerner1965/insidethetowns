@@ -558,8 +558,8 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   {/* The page's dates put right to the reader's own day (src/lib/tradition-expiry.ts). Before the close, so the close is the last band and the footer meets it. */}
   <DateCorrection />
 
-  {/* The close: the next town in the area, the way back up, and the correction line. */}
-  <section id="more" aria-labelledby={nextTown ? 'more-heading' : undefined} aria-label={nextTown ? undefined : 'Contents and corrections'} data-band class:list={['scroll-mt-4 px-[20px] pb-[56px] pt-[36px] desk:px-0 desk:pb-[64px] desk:pt-[56px]', closingTone === 'paper' ? pub.paperBleed : pub.white]}>
+  {/* The close: the next town in the area, the way back up, and where the dates come from. */}
+  <section id="more" aria-labelledby={nextTown ? 'more-heading' : undefined} aria-label={nextTown ? undefined : 'Contents'} data-band class:list={['scroll-mt-4 px-[20px] pb-[56px] pt-[36px] desk:px-0 desk:pb-[64px] desk:pt-[56px]', closingTone === 'paper' ? pub.paperBleed : pub.white]}>
     <div class={pub.col}>
       <div class={pub.open}>
         {nextTown && <h2 id="more-heading" class={pub.h2s}>More in {clusterName(town.cluster)}</h2>}
@@ -567,7 +567,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
         <a href="#contents" class={pub.go}>Back to contents ↑</a>
       </div>
       <p class:list={['mt-3', pub.meta]}>
-        Something missing, or a date wrong? <a href={mailto} class={pub.link}>Tell us</a>. Every date links to the page it was read from.
+        Every date links to the page it was read from. Organizing an event in {town.name}? <a href={mailto} class={pub.link}>Send us your dates</a>.
       </p>
     </div>
   </section>

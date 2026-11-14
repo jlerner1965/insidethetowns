@@ -11564,3 +11564,26 @@ Below 900px the pages are the phone's.*
   November (`src/lib/fold.ts`; `vercel.json` rewritten by
   `scripts/fold-rules.ts`). The hub's `/erie/`-style redirect pages to the
   live guides stay. The site check's `inline-script` rule stays.
+- **A hub event page asks for corrections in its checked line, not a
+  yellow box.** The box that closed each of the 606 event pages ("A date
+  wrong, or the next one announced? Tell us. The date links to the page
+  it was read from.") was the loudest thing on the page, in the colour
+  the site uses to flag things, under a date just marked Confirmed; and
+  the date on those pages is not a link. The line under the card now
+  reads "Checked November 12, 2026 against Town of Estes Park's page. A
+  date wrong, or the next one announced? Tell us.", in place of the
+  generic checked line, so the page states its source once in the card
+  and once here rather than three times. The mailto keeps the event in
+  its subject.
+- **No page asks "a date wrong?"** Even in grey, the words under a
+  confirmed date read as the site unsure of its own date (the owner, 14
+  November 2026). A hub event page's line now states its source and
+  stops: "From Town of Estes Park's page, checked November 12, 2026."
+  Only where there is no date yet (this year's over with the next not
+  announced, or not yet announced) does it ask, and it asks the
+  organizer: "Organizing it? Send us the 2027 date." The hub's town page
+  closes with "Every date links to the page it was read from. Organizing
+  an event in Estes Park? Send us your dates."; the season pages and a
+  guide's Every year page say the same in their own words, as a plain
+  line where they had a yellow box. Corrections go through the footer's
+  "Report a correction", on every page.
