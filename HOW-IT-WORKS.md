@@ -460,7 +460,9 @@ are dated by the newest check of the records they show
   never in code forks. Adding a town is a config file, a content folder
   and a Vercel project.
 - Scripts ship as files (`script-src 'self'`); no inline script, no
-  framework on the page.
+  framework on the page. Data a script needs goes in a `data-` attribute.
+  The site check refuses a page with an inline script (`inline-script`),
+  since the browser would never run it.
 - `npm test`, `npm run validate`, `npm run check-colors` and `astro check`
   pass before anything is pushed, and CI builds every live site on every
   pull request. The tests are the rules that cannot drift.

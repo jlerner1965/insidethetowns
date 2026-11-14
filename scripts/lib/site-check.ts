@@ -109,6 +109,14 @@ export interface Scan {
   ids: Set<string>;
   /** Words inside a hidden after-the-date face: none may ship (hiddenFaceWords). */
   hiddenWords: string[];
+  /**
+   * Scripts with their code in the page rather than in a file. The CSP in
+   * vercel.json allows script-src 'self' only, so a browser runs none of
+   * them: the hub's closed-guide line was one, and never showed on the
+   * live site (found 14 November 2026). JSON-LD is data, not a script, and
+   * is not counted.
+   */
+  inlineScripts: number;
 }
 
 /**
@@ -136,12 +144,14 @@ const ATTR = /([^\s"'<>/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?/g
 export function scanHtml(html: string): Scan {
   const jsonLd: string[] = [];
   const titles: string[] = [];
+  let inlineScripts = 0;
   // Script and style bodies are not markup: a "<a href" inside one is text.
   // The opening tag is kept, for a script's src.
   const markup = html
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/(<script\b[^>]*>)([\s\S]*?)<\/script>/gi, (_, open: string, body: string) => {
       if (/type\s*=\s*["']?application\/ld\+json/i.test(open)) jsonLd.push(body);
+      else if (body.trim() && !/\ssrc\s*=/i.test(open) && isExecutable(open)) inlineScripts += 1;
       return open;
     })
     .replace(/(<style\b[^>]*>)[\s\S]*?<\/style>/gi, '$1')
@@ -164,7 +174,13 @@ export function scanHtml(html: string): Scan {
     if (attrs.id) ids.add(attrs.id);
     if (name === 'a' && attrs.name) ids.add(attrs.name);
   }
-  return { tags, titles, jsonLd, ids, hiddenWords: hiddenFaceWords(markup) };
+  return { tags, titles, jsonLd, ids, hiddenWords: hiddenFaceWords(markup), inlineScripts };
+}
+
+/** A script element a browser would run: no type, or a JavaScript or module type. A data block (JSON, a template) is not run. */
+function isExecutable(open: string): boolean {
+  const type = open.match(/\stype\s*=\s*["']?([^"'\s>]+)/i)?.[1]?.toLowerCase();
+  return !type || type === 'module' || /^(?:text|application)\/(?:x-)?(?:java|ecma)script$/.test(type);
 }
 
 /** The URLs a page asks a browser or a crawler to fetch or follow. */
@@ -487,6 +503,9 @@ export function checkSite(input: SiteInput): { problems: Problem[]; manifest: Ma
     const { scan, path } = page;
     if (!input.fixtures && scan.tags.some((t) => 'data-fixture' in t.attrs)) {
       add('fixture-shipped', path, 'carries a sample tradition record (data-fixture) in a build without TRADITIONS_FIXTURES=1; fixtures never ship');
+    }
+    if (scan.inlineScripts > 0) {
+      add('inline-script', path, `${scan.inlineScripts} inline ${scan.inlineScripts === 1 ? 'script' : 'scripts'}: the CSP (script-src 'self') refuses them, so they never run on the live site; ship the code as a bundled <script> (Astro writes it to a file) and pass data in data- attributes`);
     }
     if (scan.hiddenWords.length > 0) {
       add('hidden-face-words', path, `a hidden after-the-date face carries words ("${scan.hiddenWords[0]!.slice(0, 60)}"); they belong in data-past-text, written in by the script (src/lib/tradition-expiry.ts)`);
