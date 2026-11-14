@@ -98,7 +98,8 @@ export function seasonLinks(root = '.'): NavItem[] {
 }
 
 /** Where every annual-events page is listed: the section of /towns/ that names them all. */
-export const ANNUAL_EVENTS_HREF = '/towns/#seasons-heading';
+/** Every round-up of annual dates with what is next (src/routes/hub/annual-events.astro; until 13 November 2026, a heading on /towns/). */
+export const ANNUAL_EVENTS_HREF = '/annual-events/';
 
 /**
  * The hub's menu: its own list, with "Annual events" after the weekend,
@@ -116,7 +117,7 @@ export function hubNav(nav: readonly NavItem[], seasons: readonly NavItem[] = se
   const items = [...nav];
   if (seasons[0]) items.splice(items.findIndex((n) => n.href === '/this-weekend/') + 1, 0, { label: 'Annual events', href: ANNUAL_EVENTS_HREF });
   if (articles) {
-    const towns = items.findIndex((n) => n.href === '/#towns');
+    const towns = items.findIndex((n) => n.href === '/towns/');
     items.splice(towns === -1 ? items.length : towns + 1, 0, { label: 'Articles', href: ARTICLES_INDEX_PATH });
   }
   return items;

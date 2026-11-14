@@ -86,7 +86,8 @@ export const hub: HubConfig = {
   // Contact are in the footer of every page.
   nav: [
     { label: 'This weekend', href: '/this-weekend/' },
-    { label: 'Towns', href: '/#towns' },
+    // The A to Z of every guide and town page, not a section of the home (the owner, 13 November 2026).
+    { label: 'Towns', href: '/towns/' },
     { label: 'Moving here', href: '/moving/' },
     { label: 'Newsletter', href: '/newsletter/' },
     { label: 'How we check', href: '/editorial/' },
