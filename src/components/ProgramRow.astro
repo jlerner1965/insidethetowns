@@ -181,7 +181,10 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
       organizer's page in outline, not a filled "Register". */}
   {reg?.url && (
     <p class="mt-5">
-      <a href={reg.url} rel="noopener" data-track={track} class:list={['btn', canRegister ? 'btn-primary' : 'btn-outline text-primary']}>{canRegister ? 'Register' : 'Organizer’s page'}</a>
+      {/* "Register" only where there is registering to do: Niwot's Rotary card
+          said "No registration" beside a filled "Register" (the review of 14
+          November 2026). */}
+      <a href={reg.url} rel="noopener" data-track={track} class:list={['btn', canRegister && reg.required ? 'btn-primary' : 'btn-outline text-primary']}>{canRegister && reg.required ? 'Register' : 'Organizer’s page'}</a>
     </p>
   )}
   <p class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-[0.875rem] text-ink-muted">

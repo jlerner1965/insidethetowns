@@ -17,9 +17,11 @@ import { hoursWithMeridiem } from '@/lib/hours';
 
 interface Props {
   place: TownEntry<'places'>;
+  /** The page's first photograph, near the top: loaded at once, not lazily (the review of 14 November 2026). */
+  eager?: boolean;
 }
 
-const { place } = Astro.props;
+const { place, eager = false } = Astro.props;
 const { data, slug } = place;
 const href = `/places/${slug}/`;
 const open = isOpen(place);
@@ -33,6 +35,8 @@ const hue = PLACE_HUE[data.type];
       alt={data.imageAlt ?? ''}
       width={880}
       height={660}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : undefined}
       class="aspect-[4/3] w-full object-cover md:aspect-auto md:h-full!"
     />
   )}

@@ -56,7 +56,9 @@ const indexable = (/** @type {string} */ url) => {
 // addresses are vercel.json's to send home, not redirect pages to /events/.
 const formerRedirects = site.kind === 'town' ? Object.fromEntries(Object.entries(formerSlugRedirects(site.slug)).filter(([from]) => site.lead !== 'updates' || !from.startsWith('/events'))) : {};
 // The hub's pages that moved to a guide (src/lib/hub-moved.ts): Severance's, to the Windsor guide.
-const redirects = site.kind === 'town' ? { ...formerRedirects, '/places': '/directory/' } : { ...HUB_MOVED };
+// /articles/ on a guide: every article lives under it and the index is
+// /guides/ (the review of 14 November 2026 found /articles/ a 404).
+const redirects = site.kind === 'town' ? { ...formerRedirects, '/places': '/directory/', '/articles': '/guides/' } : { ...HUB_MOVED };
 
 export default defineConfig({
   site: `https://${site.domain}`,

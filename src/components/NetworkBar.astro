@@ -55,9 +55,10 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
       </nav>
     ) : (
       <Fragment>
+        {/* White, underlined: the highlight's amber was 3.25:1 on Niwot's bar (the review of 14 November 2026). */}
         <p class="w-full">
           Part of
-          <a href={`https://${hub.domain}/`} class="font-semibold text-highlight-ink no-underline hover:underline"
+          <a href={`https://${hub.domain}/`} class="font-semibold text-white underline"
             >{hub.siteTitle}</a
           >: {liveTowns().length} Colorado town guides.
         </p>

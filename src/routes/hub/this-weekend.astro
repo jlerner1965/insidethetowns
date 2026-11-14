@@ -95,7 +95,7 @@ const seasons = seasonLinks();
   seoTitle={`This weekend across Colorado’s towns: ${formatDayRange(weekendStart, sunday)}, ${dayKey(sunday).slice(0, 4)}`}
   eyebrow="Across the network"
   description={`Every event across ${towns.length} Colorado town guides this weekend: markets, music, festivals and trails, each opening on its town’s own guide.`}
-  intro={`Everything on across all ${towns.length} guides, ${weekendLabel}, and the two weeks after it. Each listing opens on that town’s own site.`}
+  intro={`Everything on across ${towns.length === liveTowns().length ? `all ${towns.length}` : `the ${towns.length}`} guides that list events, ${weekendLabel}, and the two weeks after it. Each listing opens on that town’s own site.`}
   jsonLd={structured}
 >
   <SponsorLine slot="after-header" sponsor={hub.sponsors?.network} label="This weekend, presented by" />

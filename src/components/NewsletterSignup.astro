@@ -468,13 +468,28 @@ const box = 'size-5 shrink-0 rounded border-line';
       done.hidden = false;
       done.focus();
     };
+    // An error is said, not only shown: a live region that goes from hidden
+    // to shown with its words already in it is not read out by most screen
+    // readers (the review of 14 November 2026), so the words go in after.
+    const say = (el: HTMLElement | null, show: boolean) => {
+      if (!el) return;
+      if (!show) {
+        el.hidden = true;
+        return;
+      }
+      const words = (el.dataset.words ??= el.textContent?.trim() ?? '');
+      el.textContent = '';
+      el.hidden = false;
+      setTimeout(() => (el.textContent = words), 50);
+    };
     for (const box of boxes()) {
       box.addEventListener('change', () => {
-        if (error && boxes().some((b) => b.checked)) error.hidden = true;
+        if (error && boxes().some((b) => b.checked)) say(error, false);
       });
     }
     email?.addEventListener('input', () => {
-      if (emailError) emailError.hidden = true;
+      say(emailError, false);
+      email.removeAttribute('aria-invalid');
     });
     form.addEventListener('submit', async (event) => {
       const outcome = signupOutcome({ towns: boxes().filter((b) => b.checked).map((b) => b.value), sending });
@@ -482,7 +497,7 @@ const box = 'size-5 shrink-0 rounded border-line';
         event.preventDefault();
         return;
       }
-      if (error) error.hidden = outcome !== 'need-town';
+      say(error, outcome === 'need-town');
       if (outcome === 'need-town') {
         event.preventDefault();
         showForm();
@@ -518,7 +533,8 @@ const box = 'size-5 shrink-0 rounded border-line';
         }
         report(answer);
         if (answer === 'invalid') {
-          if (emailError) emailError.hidden = false;
+          say(emailError, true);
+          email?.setAttribute('aria-invalid', 'true');
           email?.focus();
           return;
         }
