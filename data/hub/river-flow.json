@@ -1,59 +1,59 @@
 {
- "fetched": "2026-11-13",
+ "fetched": "2026-11-14",
  "readings": [
   {
    "agency": "DWR",
    "id": "ARKSALCO",
    "cfs": 245,
-   "measured": "2026-11-13T19:15:00.000Z"
+   "measured": "2026-11-14T17:15:00.000Z"
   },
   {
    "agency": "DWR",
    "id": "SVCLOPCO",
-   "cfs": 20.9,
-   "measured": "2026-11-13T19:30:00.000Z"
+   "cfs": 17.1,
+   "measured": "2026-11-14T17:30:00.000Z"
   },
   {
    "agency": "USGS",
    "id": "06719505",
-   "cfs": 35.7,
-   "measured": "2026-11-13T18:45:00.000Z"
+   "cfs": 35,
+   "measured": "2026-11-14T17:45:00.000Z"
   },
   {
    "agency": "USGS",
    "id": "06752280",
    "cfs": 6.78,
-   "measured": "2026-11-13T19:00:00.000Z"
+   "measured": "2026-11-14T18:00:00.000Z"
   },
   {
    "agency": "USGS",
    "id": "06721000",
-   "cfs": 281,
-   "measured": "2026-11-13T19:00:00.000Z"
+   "cfs": 302,
+   "measured": "2026-11-14T18:00:00.000Z"
   },
   {
    "agency": "USGS",
    "id": "06759500",
-   "cfs": 243,
-   "measured": "2026-11-13T19:30:00.000Z"
+   "cfs": 224,
+   "measured": "2026-11-14T17:30:00.000Z"
   },
   {
    "agency": "DWR",
    "id": "ARKGRNCO",
-   "cfs": 74,
-   "measured": "2026-11-13T18:45:00.000Z"
+   "cfs": 70.3,
+   "measured": "2026-11-14T17:45:00.000Z"
   },
   {
    "agency": "USGS",
    "id": "09106485",
-   "cfs": 1340,
-   "measured": "2026-11-13T18:45:00.000Z"
+   "cfs": 1330,
+   "measured": "2026-11-14T17:45:00.000Z"
   },
   {
    "agency": "USGS",
    "id": "09361500",
-   "cfs": 1190,
-   "measured": "2026-11-13T19:30:00.000Z"
+   "cfs": 1250,
+   "measured": "2026-11-14T17:30:00.000Z"
   }
  ]
 }
