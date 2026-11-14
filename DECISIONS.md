@@ -11550,3 +11550,17 @@ Below 900px the pages are the phone's.*
   in either line changed. The showpieces' `spotlight` stays on file,
   unused.
 
+## No closed-guide line on the hub, 14 November 2026 (night)
+
+- **The closed-guide line is gone.** "Inside Estes Park has closed. Estes
+  Park's annual events and outdoor dates are kept here; the nearest full
+  guide is Inside Lyons." showed across the top of a hub town page for a
+  reader a closed guide's redirect sent there. The owner, seeing it on
+  Estes Park's page on a phone: it should not be on any of the old guides
+  or towns. `FromClosedGuide.astro`, `src/lib/closed-guides.ts` and
+  Base's `closedGuideBanner` are removed, and with nothing left to read
+  it, the redirects' `?from=<domain>` comes off too: every closed guide's
+  rules go to the plain town page again, as before the review of 14
+  November (`src/lib/fold.ts`; `vercel.json` rewritten by
+  `scripts/fold-rules.ts`). The hub's `/erie/`-style redirect pages to the
+  live guides stay. The site check's `inline-script` rule stays.

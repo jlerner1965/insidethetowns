@@ -38,17 +38,15 @@ a redirect's `Location` is kept by browsers and dropped by Google; check
 one with `curl -sI https://insideestespark.com/events/` once the projects
 have rebuilt.
 
-**Where the reader came from, 14 November 2026.** Every rule above now
-ends its destination with `?from=<the old domain>` (before any
-`#traditions` or `#outdoor-dates`): `src/lib/fold.ts`, `FROM_PARAM`. The
-hub's pages read it and show one line, "Inside Golden has closed.
-Golden's annual events and outdoor dates are kept here; the nearest full
-guide is Inside Erie." (`src/components/FromClosedGuide.astro`,
-`src/lib/closed-guides.ts`; a guide within 60 km is named, none further),
-then take it off the address. Only a closed guide's domain is ever named;
-any other value is ignored. Each hub page's canonical is its own address
-without the query. The site review of 14 November 2026 found the 18
-closed guides' readers landing on a page of dates with no word of why.
+**Where the reader came from: added and removed, 14 November 2026.**
+For part of the day every rule above ended its destination with
+`?from=<the old domain>`, and the hub's pages read it to show a line,
+"Inside Estes Park has closed. Estes Park's annual events and outdoor
+dates are kept here; the nearest full guide is Inside Lyons." The owner
+asked for that line to come off every closed guide's town, so the line,
+`src/components/FromClosedGuide.astro` and `src/lib/closed-guides.ts`
+are gone and the destinations are plain addresses again
+(`src/lib/fold.ts`; `vercel.json` rewritten by `scripts/fold-rules.ts`).
 
 **The hub's address for a live guide's town, 14 November 2026.**
 `insidethetowns.com/erie/`, `/berthoud/`, `/niwot/` and `/frederick/`

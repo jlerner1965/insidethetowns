@@ -112,8 +112,8 @@ export interface Scan {
   /**
    * Scripts with their code in the page rather than in a file. The CSP in
    * vercel.json allows script-src 'self' only, so a browser runs none of
-   * them: the hub's closed-guide line was one, and never showed on the
-   * live site (found 14 November 2026). JSON-LD is data, not a script, and
+   * them: the hub's closed-guide line (since removed) was one, and never
+   * showed on the live site (found 14 November 2026). JSON-LD is data, not a script, and
    * is not counted.
    */
   inlineScripts: number;

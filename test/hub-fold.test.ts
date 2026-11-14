@@ -91,15 +91,13 @@ test('vercel.json holds exactly the rules src/lib/fold.ts writes for each domain
 test('each old address lands on the matching place on the page: the events on Traditions, the outdoors on Outdoor dates, the rest at the top', () => {
   for (const t of withPage) {
     const page = `https://insidethetowns.com/${t.hubPage!.town}/`;
-    // Every destination says where the reader came from, so the page can say the guide has closed (review of 14 November 2026).
-    const from = `?from=${t.domain}`;
     const to = (source: string) => rulesFor(t.domain).find((r) => r.source === source)?.destination;
-    assert.equal(to('/'), `${page}${from}`, `${t.domain}: the home page`);
-    assert.equal(to('/(.*)'), `${page}${from}`, `${t.domain}: everything else`);
-    for (const source of TO_TRADITIONS) assert.equal(to(source), `${page}${from}#${TRADITIONS_ANCHOR}`, `${t.domain}${source}`);
-    for (const source of TO_OUTDOOR) assert.equal(to(source), `${page}${from}#${OUTDOOR_ANCHOR}`, `${t.domain}${source}`);
-    const own = new Set(eventsFor(t.domain, t.hubPage!.town).map((e) => `${page}${e.event}/${from}`));
-    for (const r of rulesFor(t.domain)) assert.ok(r.destination === `${page}${from}` || r.destination.startsWith(`${page}${from}#`) || own.has(r.destination), `${t.domain}${r.source}: goes to ${r.destination}, off the town's page`);
+    assert.equal(to('/'), page, `${t.domain}: the home page`);
+    assert.equal(to('/(.*)'), page, `${t.domain}: everything else`);
+    for (const source of TO_TRADITIONS) assert.equal(to(source), `${page}#${TRADITIONS_ANCHOR}`, `${t.domain}${source}`);
+    for (const source of TO_OUTDOOR) assert.equal(to(source), `${page}#${OUTDOOR_ANCHOR}`, `${t.domain}${source}`);
+    const own = new Set(eventsFor(t.domain, t.hubPage!.town).map((e) => `${page}${e.event}/`));
+    for (const r of rulesFor(t.domain)) assert.ok(r.destination === page || r.destination.startsWith(`${page}#`) || own.has(r.destination), `${t.domain}${r.source}: goes to ${r.destination}, off the town's page`);
   }
   // The addresses a guide's readers hold are among them.
   for (const source of ['/events{/}?', '/events/(.*)', '/this-week{/}?', '/this-weekend{/}?']) assert.ok((TO_TRADITIONS as readonly string[]).includes(source), source);
@@ -198,7 +196,7 @@ test('an old event address with a record of its own goes to that record’s page
       assert.equal(page.town, town, `${host}${path} → ${slug}: another town's record`);
       const at = rules.findIndex((r) => r.source === eventSource(path));
       assert.ok(at > 0 && at < catchAll, `${host}${path}: rule at ${at}, catch-all at ${catchAll}`);
-      assert.equal(rules[at]!.destination, `https://insidethetowns.com/${town}/${page.event}/?from=${host}`, `${host}${path}: one hop to the page`);
+      assert.equal(rules[at]!.destination, `https://insidethetowns.com/${town}/${page.event}/`, `${host}${path}: one hop to the page`);
       assert.equal(rules[at]!.permanent, true);
     }
   }
