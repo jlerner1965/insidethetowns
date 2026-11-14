@@ -11423,3 +11423,64 @@ which also lists what is left for the owner). What changed as a rule:*
   read as an unfinished block beside two photographs.
 - **The root size is 106.25%**, not 17px, so the reader's own text size
   counts; the phone menu makes the page under it inert.
+
+## The hub's publication redesign: its town pages and its home, 14 November 2026
+
+*The owner's two boards (the town page, on La Veta, and the home), approved
+on the design canvas and sent to code as one pull request. Goals: sections
+easy to tell apart, a publication's look rather than an app's, scannable
+headings and a contents list, dates first, confirmed dates first.*
+
+- **One look for the hub's two busiest page types** (`src/components/hub/`):
+  full-width bands in paper and white about a 720px column; each section
+  opened by a 2px ink rule, its number and a Fraunces heading; italic
+  subheads over a 1px ink rule; rows parted by a hairline (#DAD7D0); dates
+  set in type; links underlined; no rounded cards, pills, shadows or icon
+  rows. Two tokens are new (`--color-hairline`, `--color-hero-mountain`,
+  `HUB_PUBLICATION` in `src/config/palette.ts`) and a rem type scale. The
+  board's "now" wash, #FCEFD8, is the existing `--color-highlight-soft`
+  (#FDF0D8).
+- **The town page** (`src/routes/hub/town.astro`): the hero, "On this
+  page", then Events, Where to stay, Getting here, Outdoor dates and About,
+  each drawn only where the files have something for it and numbered over
+  the ones drawn (`src/lib/hub-town-page.ts`). Every entry is one layout
+  (`DateEntry.astro`): the date in type, the kind in its category's ink,
+  the name, a status line led by a blue (set) or amber (not announced)
+  square, and the check line. The facts, sources and check dates are the
+  same files' as before; TownProfile.astro's reading of them moved to
+  `profileView`, and NearThisTown's to `src/lib/near-view.ts`, which the
+  guides' /things-to-do/ still use. The town's own outdoor dates are among
+  its dates under Events, the statewide ones in their section, where the
+  next two show and the rest wait behind a button that only the script
+  draws. The year at a glance links each month to the list its entries
+  are under and says what it holds (`src/lib/year-grid.ts`); the reader's
+  browser turns a passed date's dot to a ring and moves "now". The anchors
+  #traditions and #outdoor-dates are kept for the folded guides' redirects.
+  "More in <area>" names the next town in the area. Gone: the showpiece's
+  spotlight and its by-season lists (Estes Park and Salida take the one
+  layout and keep their photograph and line).
+- **The home** (`src/routes/hub/index.astro`) takes the hub's masthead and
+  footer and the network's faces: Newsreader, Inter, the pine and
+  `src/styles/hub-home.css` are gone, and with them the two font packages.
+  This weekend is a heading a day with up to three listings under it
+  (`weekendPicksByDay`, the one-a-day rules otherwise unchanged); the high
+  school scores show each school's last result from the scores files; "In
+  the towns" sets the newest larger; "Find your town" lists the guides from
+  their config and the town pages by area. The registration deadline beside
+  the weekend is not on the board and left the home. "Today" beside a
+  season's next date is written in the reader's browser, never in the built
+  page. The closed-guide line is not drawn on the home, where no closed
+  guide's redirect lands.
+- **The areas' names**, as a reader sees them (`CLUSTER_NAMES`): "Arkansas
+  Valley", "I-70 mountain towns", "Park gateway towns" and the like, on the
+  home and in "More in …". The keys, which every town names and the search
+  matches, are as they were; no address changed.
+- **The hub's masthead** on every hub page: the rule is the accent alone,
+  the wordmark all in the blue, and the bar 60px on a phone. The guides'
+  mastheads are as they were (a guide's build compared before and after:
+  the same pages, timestamps aside).
+- **Copy:** only the boards' headings and labels and the brief's lines. Two
+  board lines were not confirmed and are not used: "Every Thursday at 7 am"
+  and "posted by Saturday morning" (the scores line is "Each team's last
+  result."). "Every town we cover" over the weekend is not used either: the
+  weekend's listings come from the six guides that list events.

@@ -49,6 +49,41 @@ export const HUB_CLUSTERS = [
 ] as const;
 export type HubCluster = (typeof HUB_CLUSTERS)[number];
 
+/**
+ * Each cluster as a reader sees it (the publication redesign of 14 November
+ * 2026): the home's "Town pages by area" and a town page's "More in …".
+ * Display only. The keys above stay as they are, since every town names
+ * its cluster by key, the drawn horizons are chosen by it and the search's
+ * regions are matched on it; nothing here is in an address.
+ */
+export const CLUSTER_NAMES: Readonly<Record<HubCluster, string>> = {
+  'Park gateway': 'Park gateway towns',
+  'Front Range cities': 'Front Range cities',
+  'Front Range and plains towns': 'Front Range and plains towns',
+  'Eastern plains': 'Eastern Plains',
+  'I-70 mountain': 'I-70 mountain towns',
+  'Summit County': 'Summit County',
+  'Eagle valley': 'Eagle Valley',
+  'Grand County': 'Grand County',
+  'North Park': 'North Park',
+  'South Park': 'South Park',
+  'Arkansas valley': 'Arkansas Valley',
+  'Pikes Peak': 'Pikes Peak',
+  'Southern Colorado': 'Southern Colorado',
+  'San Luis Valley': 'San Luis Valley',
+  'Yampa valley': 'Yampa Valley',
+  'Western Slope': 'Western Slope',
+  'North Fork valley': 'North Fork Valley',
+  'Roaring Fork valley': 'Roaring Fork Valley',
+  'Gunnison valley': 'Gunnison Valley',
+  Southwest: 'Southwest',
+};
+
+/** A cluster's name for the page: "Arkansas valley" reads "Arkansas Valley". */
+export function clusterName(cluster: HubCluster): string {
+  return CLUSTER_NAMES[cluster];
+}
+
 /** The country a town page's drawn horizon is in (src/lib/ridgeline.ts). */
 export type Terrain = 'peaks' | 'foothills' | 'mesa' | 'plains';
 

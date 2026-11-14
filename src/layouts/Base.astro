@@ -49,18 +49,24 @@ interface Props {
   kind?: string;
   /**
    * The fonts to preload, where a page is set in other faces than the
-   * network's: the hub's home (the redesign of 13 November 2026), in
-   * Newsreader and Inter. Every other page preloads the two below.
+   * network's. Every page preloads the two below; since the publication
+   * redesign of 14 November 2026 the hub's home is in them too.
    */
   preload?: string[];
-  /** A class on <body>, for a page with a stylesheet of its own: the hub's home. */
+  /** A class on <body>, for a page with a stylesheet of its own. */
   bodyClass?: string;
+  /**
+   * The hub's line for a reader a closed guide sent here (FromClosedGuide).
+   * Off where no closed guide's redirect lands, so the page carries no
+   * hidden banner it can never show: the hub's home.
+   */
+  closedGuideBanner?: boolean;
 }
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
 const plausible = site.kind === 'town' && site.plausible === true;
-const { jsonLd, kind, preload = [frauncesLatin, instrumentLatin], bodyClass, ...props } = Astro.props;
+const { jsonLd, kind, preload = [frauncesLatin, instrumentLatin], bodyClass, closedGuideBanner = true, ...props } = Astro.props;
 // A town that has not launched serves a holding page; nothing on it, nor the
 // shared pages around it, should be indexed before the guide exists.
 const seo = site.kind === 'town' && site.status !== 'live' ? { ...props, noindex: true } : props;
@@ -115,7 +121,7 @@ const cssVars = [
     {/* A page may draw its own masthead and footer (the hub's home); every other page has the site's. */}
     {Astro.slots.has('header') ? <slot name="header" /> : <Header />}
     {/* A closed guide's readers, sent here by its redirects: one line saying so (src/lib/closed-guides.ts). */}
-    {site.kind === 'hub' && <FromClosedGuide />}
+    {site.kind === 'hub' && closedGuideBanner && <FromClosedGuide />}
     {/* The kind labels a result ("Place · Niwot"); the filter puts it under the search page's type buttons (src/lib/network-search.ts). */}
     <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined} data-pagefind-filter={searchable && searchType(kind) ? `type:${searchType(kind)}` : undefined}>
       <slot />

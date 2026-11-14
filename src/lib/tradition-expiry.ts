@@ -25,6 +25,8 @@
  * is what keeps it. Pure over a small view of the DOM, like
  * src/lib/expiry.ts, so the cases can be replayed in a test.
  */
+import { monthLabel } from './year-grid.ts';
+
 export interface DateNode {
   dataset: Record<string, string | undefined>;
   hidden: boolean | string;
@@ -95,6 +97,35 @@ export function correctDates(root: DateNode, today: string): void {
       }
     }
   }
+  // The year at a glance on a hub town page (src/routes/hub/town.astro, the
+  // publication redesign of 14 November 2026): a passed date's dot becomes a
+  // ring, last held that year, and every month with marks says again what
+  // it holds (src/lib/year-grid.ts), the current month as this month.
+  const thisMonth = Number(today.slice(5, 7)) - 1;
+  for (const grid of root.querySelectorAll('[data-year-grid]')) {
+    for (const mark of grid.querySelectorAll('[data-mark]')) {
+      if (mark.dataset.mark !== 'set' || !expired.has(mark.dataset.slug ?? '')) continue;
+      mark.dataset.mark = 'held';
+      mark.dataset.heldYear = mark.dataset.year;
+      mark.dataset.nextYear = '';
+    }
+    for (const cell of grid.querySelectorAll('[data-month-cell]')) {
+      const index = Number(cell.dataset.monthCell);
+      const now = index === thisMonth;
+      cell.dataset.now = String(now);
+      const label = cell.querySelector('[data-now-label]');
+      if (label) {
+        label.textContent = now ? 'now' : '';
+        label.hidden = !now;
+      }
+      const link = cell.querySelector('a');
+      if (link) {
+        const marks = [...cell.querySelectorAll('[data-mark]')].map((m) => ({ set: m.dataset.mark === 'set', heldYear: m.dataset.heldYear, nextYear: m.dataset.nextYear || undefined }));
+        link.setAttribute('aria-label', monthLabel(index, marks, now));
+      }
+    }
+  }
+
   // "Now" is this month, not the build's.
   const month = MONTHS[Number(today.slice(5, 7)) - 1];
   for (const cell of root.querySelectorAll('[data-year-strip] [data-month]')) {
@@ -115,7 +146,8 @@ export function correctDates(root: DateNode, today: string): void {
   if (next) {
     const ahead = [...root.querySelectorAll('[data-tradition-row][data-starts]')]
       .filter((r) => r.dataset.expired === undefined && !r.closest('[data-statewide]'))
-      .map((r, i) => ({ r, i, outdoor: r.closest('#outdoor-dates') ? 1 : 0 }))
+      // An outdoor date is the agency's, wherever its section is: under its own heading, or among a hub town page's dates (`data-agency`).
+      .map((r, i) => ({ r, i, outdoor: r.closest('#outdoor-dates') || r.dataset.agency !== undefined ? 1 : 0 }))
       .sort((a, b) => a.r.dataset.starts!.localeCompare(b.r.dataset.starts!) || a.outdoor - b.outdoor || a.i - b.i)[0]?.r;
     const link = next.querySelector('a');
     const day = next.querySelector('[data-next-day]');

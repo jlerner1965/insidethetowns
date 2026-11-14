@@ -21,7 +21,11 @@ interface Props {
 
 const site = getSite();
 const { class: className = '', tone = 'ink' } = Astro.props;
-const first = tone === 'light' ? 'text-white/70' : 'text-ink';
+// The hub's masthead sets the whole name in its blue, "Inside" in the
+// regular italic (the publication redesign of 14 November 2026); a guide's
+// keeps the light italic in the ink.
+const hubInk = site.kind === 'hub' && tone === 'ink';
+const first = tone === 'light' ? 'text-white/70' : hubInk ? 'text-primary' : 'text-ink';
 const second = tone === 'light' ? 'text-white' : 'text-primary';
 // The smaller second line is body-size, so it needs 4.5:1, not the display
 // 3:1: full white in the footer (white/70 on Longmont's primary is 4.09:1).
@@ -31,7 +35,7 @@ const parts = wordmarkParts(site.siteTitle);
 <a href="/" class:list={['-my-2 py-2 font-heading tracking-tight no-underline', className]} aria-label={`${site.siteTitle} home`}>
   {parts.before && (
     <Fragment>
-      <span class:list={['font-light italic', first]}>{parts.before}</span>{' '}
+      <span class:list={[hubInk ? 'font-normal italic' : 'font-light italic', first]}>{parts.before}</span>{' '}
     </Fragment>
   )}
   <span class:list={['font-semibold', second]}>{parts.name}</span>

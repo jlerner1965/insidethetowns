@@ -69,14 +69,22 @@ const summaryClass = 'site-nav-link cursor-pointer whitespace-nowrap text-ink-mu
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const emailOn = site.kind === 'town' && !!hub.newsletter && !!editionFor(site.slug, emailEditions());
 const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?towns=${site.slug}` : '/newsletter/';
+/**
+ * The hub's masthead is the boards' (the publication redesign of 14 November
+ * 2026): the rule is the accent alone, one sage line over the paper with the
+ * blue kept for the links and the dates under it, and on a phone the bar is
+ * 60px with the wordmark at 24px. A guide's is as it was.
+ */
+const rule = site.kind === 'hub' ? 'h-1.5 bg-accent' : 'h-1.5 bg-gradient-to-r from-primary to-accent';
+const masthead = site.kind === 'hub' ? 'flex min-h-[60px] items-center justify-between gap-4 py-2 sm:gap-6 md:py-6' : 'flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-6';
 ---
 {/* The first thing on every page is a band of the town's colours, the
    primary running into the accent. It costs six pixels and it is what stops
    the site opening on plain paper. A rule, so the accent may be in it. */}
-<div class="h-1.5 bg-gradient-to-r from-primary to-accent"></div>
+<div class={rule}></div>
 <header class="relative bg-paper" data-pagefind-ignore>
   <div class="container-page">
-    <div class="flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-6" style={`--wordmark-em:${wordmarkEm}${emailOn ? ';--masthead-reserve:11.5rem' : ''}`}>
+    <div class={masthead} style={`--wordmark-em:${wordmarkEm}${emailOn ? ';--masthead-reserve:11.5rem' : ''}${site.kind === 'hub' ? ';--wordmark-max:1.4118rem' : ''}`}>
       <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" tone="ink" />
 
       <div class="flex items-center gap-1 xl:order-last xl:gap-2">

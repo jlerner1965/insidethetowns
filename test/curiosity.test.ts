@@ -272,7 +272,7 @@ test('the Nearby block is links only, on the hub town page and a guide’s thing
   const block = readFileSync('src/components/NearbyArticles.astro', 'utf8');
   assert.match(block, /getCuriosity\(\)/, 'only the articles on the site');
   assert.ok(!/description|summary|\.value/.test(block.replace(/^---[\s\S]*?---/, '')), 'no line of an article is copied onto a town page');
-  assert.match(readFileSync('src/routes/hub/town.astro', 'utf8'), /<NearbyArticles place=\{town\.slug\} onHub \/>/);
+  assert.match(readFileSync('src/routes/hub/town.astro', 'utf8'), /<NearbyArticles place=\{town\.slug\} onHub(?: variant="pub")? \/>/);
   assert.match(readFileSync('src/routes/town/things-to-do.astro', 'utf8'), /<NearbyArticles place=\{nearPlace\} \/>/);
 });
 
@@ -304,8 +304,8 @@ test('the index at /articles/ is built, and on the hub’s menu and home, only w
   assert.match(page, /' · Draft'/, 'a draft under the preview switch says so');
   const home = readFileSync('src/routes/hub/index.astro', 'utf8');
   assert.match(home, /href=\{ARTICLES_INDEX_PATH\}[^>]*>All articles →</);
-  // The home page draws its own masthead menu; it carries Articles too, after Towns.
-  assert.match(home, /label: 'Towns', href: '\/towns\/' \},[\s\S]{0,160}articlesOnSite\.length > 0 && \{ label: 'Articles', href: ARTICLES_INDEX_PATH \}/);
+  // Since the publication redesign of 14 November 2026 the home has the hub's own masthead, whose menu carries Articles after Towns (hubNav, test/search-and-feeds.test.ts).
+  assert.doesNotMatch(home, /slot="header"/);
 });
 
 test('an update carries its day and a line on what changed, and the page’s modified day is never before it was published', () => {

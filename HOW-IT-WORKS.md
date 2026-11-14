@@ -232,18 +232,29 @@ for each season page, `/dates/<record>.ics` for one date, and
 `/share/<town>.png`, the share card of a town with no photograph. `/towns/`
 is the A to Z index of every guide, town page and season page.
 
-**A town page on the hub** (12 November 2026) opens on the town's name over
-its landscape: the photograph where one is licensed (Estes Park), otherwise a
-drawn horizon for the country it is in (peaks, foothills, mesas or plains,
-`src/lib/ridgeline.ts`), with the next date set under the name. Then the
-year at a glance, twelve months with a mark for each tradition; Traditions
-beside Outdoor dates from the lg breakpoint; the statewide dates folded
-under a summary. Every dated row, there and on the season pages and a
-guide's `/traditions/`, carries a date block: month, day and year where the
-organizer has set a date, "TBA" in outline where it has not, never last
-year's date. A showpiece's photograph needs the file in
-`content/hub/images/`, its alt text in the config and its licence row, and
-no code. A town may carry one **signature** (`signature` in
+**A town page on the hub** (12 November 2026; on the publication design of
+14 November 2026, `src/routes/hub/town.astro`) opens on the town's name on
+the hub's blue over its landscape: the photograph where one is licensed
+(Estes Park), otherwise a drawn horizon for the country it is in (peaks,
+foothills, mesas or plains, `src/lib/ridgeline.ts`), with the next date the
+town has under the name. Then "On this page" and numbered sections, each a
+full-width band, paper and white in turn: Events (the dates set, soonest
+first; those not yet announced, with when each was last held; what is open
+now; the year at a glance; the calendar links), Where to stay, Getting here
+(with the towns near it by road), Outdoor dates (the statewide ones: the
+next two, the rest behind a button and all on the page without the script)
+and About; then "More in <area>" with the next town in the area. A section
+or a block with nothing in the files is not drawn, and the rest are
+numbered and listed in order (`src/lib/hub-town-page.ts`). The town's own
+outdoor dates are among its dates under Events; the statewide ones have
+their section. The look: a 2px ink rule, the number and a serif heading
+open each section; italic subheads over a thin ink rule; rows parted by
+hairlines; no rounded cards, pills or shadows (`src/components/hub/`).
+Every dated row, there and on the season pages and a guide's
+`/traditions/`, carries a date block: month, day and year where the
+organizer has set a date, "TBA" where it has not, never last year's date.
+A showpiece's photograph needs the file in `content/hub/images/`, its alt
+text in the config and its licence row, and no code. A town may carry one **signature** (`signature` in
 `src/config/hub-towns.ts`): a block from a public source with its source
 link and checked date, read by a scheduled job into `data/hub/` and never
 at build time; the first is "Recently stocked near <Town>" from Colorado
@@ -252,8 +263,9 @@ are the river at the town's gauge (USGS or Colorado DWR) and the snowpack
 at its SNOTEL station (`src/lib/town-signals.ts`), each shown only while
 its reading is fresh.
 
-**The additions of 12 November 2026** (`docs/additions-report.md`). Below
-what a town page already had, in this order: Near <Town>, the nearest four
+**The additions of 12 November 2026** (`docs/additions-report.md`), laid
+out since 14 November 2026 under Getting here, Where to stay and About:
+Near <Town>, the nearest four
 to six towns with a page by road miles, and the passes and named routes
 between them with the usual seasonal closure where the road's agency gives
 one and the road's COtrip page (`data/hub/road-miles.json`,
@@ -351,17 +363,17 @@ outdoor dates lead when two or more of the guide's own local ones qualify
 traditions lead and the outdoor dates come second (`guideHomeDates`). The
 rest are on `/traditions/`.
 
-**The hub's home page** (13 November 2026) is the approved design in
-`docs/design/hub-home-mockup.html`, reordered the same day to lead with
-what changes: a compact hero, the guides, this weekend, this season, the
-guides' index, the email. It has its own masthead, footer, type
-(Newsreader, Inter, the Fraunces wordmark, all self-hosted) and palette
-(`HUB_HOME`, one accent, pine), in `src/styles/hub-home.css`; the guides
-and the hub's other pages keep theirs. The owner's Flatirons photograph
-sits beside the headline (under it on a phone) and is the page's share
-image. The rules are `src/lib/hub-home.ts`:
+**The hub's home page** (13 November 2026; on the publication design of 14
+November 2026) is in the hub's own masthead, footer, colours and the
+network's faces, Fraunces and Instrument Sans, like every other hub page.
+Top to bottom: the hero (the headline, the search, the way to the sections
+below, the owner's Flatirons photograph, which is also its share image),
+this season, this weekend, the Thursday email on the hub's blue, the high
+school scores, in the towns, and find your town (the guides from their
+config, and the town pages by area). The rules are `src/lib/hub-home.ts`:
 
-- **This weekend** is one listing a day. Friday's is the high-school
+- **This weekend** is a heading a day and up to three listings under it
+  (`weekendPicksByDay`), never two from one town across the weekend. Friday's is the high-school
   football game where the scores data has one (the guide's featured
   listing first, then a playoff game), its final once posted. Otherwise a
   guide editor's pick for the week comes first (the weekly notes'
@@ -371,8 +383,12 @@ image. The rules are `src/lib/hub-home.ts`:
   the guide's pick, an annual event in the registry (its running where
   numbered), free admission, a run of 90 minutes or less, a playoff stage
   the title does not name, the team's league place. No field, no line.
-- Beside it, **one date**: the nearest registration deadline; and the
-  schools' score pages.
+- **High school scores**: each school a guide follows in its menu, with
+  its last result in its sports page's words; a school with no result read
+  has no row. (The nearest registration deadline left the home with the
+  redesign of 14 November 2026; it stays on the guides' family pages.)
+- **"Today"** beside a season's next date is the reader's own day, written
+  in the browser and never in the built page.
 - **In the towns**, after the weekend: the news worth a reader's time, the
   newest first, one per town, three at most (`newsItems`): the hub's
   verified stories (`kind: story` in `content/hub/curiosity/`, each for a
@@ -390,8 +406,8 @@ image. The rules are `src/lib/hub-home.ts`:
   the organizer's own note where the guide's card does.
 - Each row's check line is in its guide page's words. Dated rows leave the
   page once past, and an emptied block goes with them. The sections' links
-  carry `data-track` (`home-weekend`, `home-season`, `home-deadline`,
-  `home-scores`, `home-guides`, `home-index`), counted by TrackClicks.
+  carry `data-track` (`home-weekend`, `home-season`, `home-scores`,
+  `home-news`, `home-index`), counted by TrackClicks.
 
 **The hub's other pages** share the home's menu (This weekend, Annual
 events, Towns, Moving here, Newsletter, How we check; `src/lib/nav.ts`,

@@ -71,23 +71,19 @@ export function primaryHover(primary: string): string {
 }
 
 /**
- * The hub's home page and nothing else (the redesign of 13 November 2026,
- * docs/design/hub-home-mockup.html): its own page, inks and hairline, and
- * one accent, pine, for "the Towns" in the wordmark, the two buttons, the
- * "Annual events" label and a link's hover and focus. The guides keep their
- * palettes, and the hub's other pages keep the hub's. The stylesheet
- * (src/styles/hub-home.css) declares the same values; test/hub-home.test.ts
- * holds the two together and scripts/check-colors.ts proves the text pairs.
+ * The hub's publication pages, its town pages and its home (the redesign
+ * of 14 November 2026, which replaced the home's own palette of 13
+ * November): the hub's own primary, accent, warm paper, white and the two
+ * inks above, plus these two. The hairline parts rows; the mountain is the
+ * far ridge under a town page's name, on the primary. Neither carries text.
+ * src/styles/global.css declares the same values as --color-hairline and
+ * --color-hero-mountain, and test/hub-pages.test.ts holds the two together.
+ * The amber (HIGHLIGHT) fills an entry's "not yet announced" square, and
+ * its wash (--color-highlight-soft) marks the current month and "Today".
  */
-export const HUB_HOME = {
-  page: '#FCFBF8',
-  ink: '#161A18',
-  secondary: '#4D5350',
-  meta: '#6A706C',
-  hairline: '#DAD7CF',
-  /** A link's underline at rest: decoration, never text. */
-  underline: '#9CA39F',
-  pine: '#1E4D3A',
+export const HUB_PUBLICATION = {
+  hairline: '#DAD7D0',
+  heroMountain: '#3B5C74',
 } as const;
 
 /**

@@ -1,55 +1,66 @@
 ---
 /**
  * A town's page on the hub: /<town>/ (the restructure of 12 November 2026;
- * src/config/hub-towns.ts, src/lib/hub-towns.ts). Dates only: the town's
- * traditions and its outdoor dates, every row from one record with the
- * page it was read from and the day it was read. No listings, no weekly
- * events.
+ * src/config/hub-towns.ts, src/lib/hub-towns.ts), on the publication
+ * design the owner approved on 14 November 2026 (the town page board).
+ * Every non-guide town on the hub has this page, about ninety-five of them.
  *
- * Top to bottom, phone first: the county and the town's name, Traditions,
- * Outdoor dates (the town's own and the shared ones that name it, then
- * the statewide ones), the nearby pages in its cluster, and the
- * correction line. Built only for a town with three verified dated items
- * of its own; any other town has no page and nothing links to one.
+ * Top to bottom: the hero (the county, the town's name, one line and the
+ * next date the town has), "On this page", then the numbered sections,
+ * each a full-width band on paper or white:
  *
- * The showpiece layout (Estes Park and Salida) is this page with three
- * things more: a hero photograph, one tradition spotlighted, and the
- * year's traditions laid out by season in place of the one list.
+ *   Events      the town's dates: the ones set, soonest first; the ones
+ *               not yet announced, with when each was last held; what is
+ *               open now; the year at a glance; the calendar links.
+ *   Where to stay, Getting here (with the towns near it, by road),
+ *   Outdoor dates (the statewide ones, the next two and the rest behind a
+ *   button), and About (the figures, the town's live signature, its
+ *   history, museums and landmarks, and the articles that name it);
  *
- * The look (the design pass of 12 November 2026): the name sits on the
- * town's own landscape, a photograph where one is licensed and otherwise
- * a drawn horizon for the country it is in (src/lib/ridgeline.ts); under
- * it the year at a glance, twelve months with a mark for each tradition
- * in the month it falls; then Traditions beside Outdoor dates from the lg
- * breakpoint, one column below it. The statewide dates, the same six on
- * every page, are folded under a summary so the town's own lead.
+ * and last "More in <area>", the way back to the contents and the
+ * correction line. A section or a block with nothing in the town's files
+ * is not drawn, and the sections drawn are numbered and listed in order
+ * (src/lib/hub-town-page.ts). Every fact is the files' own, in the words
+ * the page used before the redesign, with its source and its check date.
  *
- * The two section ids, #traditions and #outdoor-dates, are where a folded
- * guide's old addresses land (vercel.json), so they are on every page
- * even when a section is empty.
+ * Built only for a town with a dated item of its own (publishedHubTowns);
+ * any other town has no page and nothing links to one. The events and
+ * outdoor sections keep their anchors, #traditions and #outdoor-dates,
+ * where a folded guide's old addresses land (vercel.json).
+ *
+ * The showpiece towns (Estes Park, and Salida once its picture comes) keep
+ * their photograph behind the name and their own line under it; their
+ * dates take the same layout as every other town's.
  */
 import { Image, getImage } from 'astro:assets';
-import Page from '@/layouts/Page.astro';
-import TraditionRow from '@/components/TraditionRow.astro';
+import Base from '@/layouts/Base.astro';
+import PubSection from '@/components/hub/PubSection.astro';
+import DateEntry from '@/components/hub/DateEntry.astro';
+import YearGrid from '@/components/hub/YearGrid.astro';
+import { pub } from '@/components/hub/pub';
 import DateCorrection from '@/components/DateCorrection.astro';
+import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
+import OpenNow from '@/components/OpenNow.astro';
+import NearbyArticles from '@/components/NearbyArticles.astro';
 import { findTown, getHub } from '@/config';
-import { HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
-import { getTraditions } from '@/lib/content';
-import { dayKey } from '@/lib/dates';
+import { STANDALONE_GUIDES, clusterName, findHubTown, hubCountyLine } from '@/config/hub-towns';
+import { getCuriosity, getTraditions } from '@/lib/content';
+import { articlesFor } from '@/lib/curiosity';
+import { dayKey, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { findSiteImage } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
-import { bySeason, eventPage, eventPath, lineFor, nearbyPages, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, statewideSummary, townSearchText, type ShowingContext } from '@/lib/hub-towns';
+import { appliesTo, eventPage, eventPath, lineFor, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
+import { milesShort, nextInCluster, pageSections, profileView, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
+import { formatDrive, formatMiles, type Airports, type RoadMiles, type TownFacts } from '@/lib/near';
+import { nearView } from '@/lib/near-view';
+import { openNow } from '@/lib/open-now';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { FLOW_SOURCES, SNOW_SOURCE, formatCfs, percentOfMedian, riverFlow, snowpack, type FlowData, type SnowData } from '@/lib/town-signals';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
-import { formatDayLong, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, rowsByState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
-import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
-import NearThisTown from '@/components/NearThisTown.astro';
-import OpenNow from '@/components/OpenNow.astro';
-import TownProfile from '@/components/TownProfile.astro';
-import NearbyArticles from '@/components/NearbyArticles.astro';
-import { appliesTo } from '@/lib/hub-towns';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isAgencyDate, isUpcoming, rowState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
+import type { TownProfile } from '@/lib/town-profile';
+// The italic of the heading face, for the subheads and the decks: the guides' pages do not use it, so it is loaded here only.
+import '@fontsource-variable/fraunces/opsz-italic.css';
 
 export async function getStaticPaths() {
   return publishedHubTowns(await getTraditions()).map((t) => ({ params: { town: t.slug } }));
@@ -61,7 +72,6 @@ const records = await getTraditions();
 const published = publishedHubTowns(records);
 const today = dayKey(new Date());
 const { traditions, outdoor, statewide } = placeRows(records, town.slug, today);
-const nearby = nearbyPages(town, published);
 
 const ctx: ShowingContext = {
   hubDomain: hub.domain,
@@ -69,128 +79,91 @@ const ctx: ShowingContext = {
   guideDomain: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.domain,
   guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
 };
-const alsoFor = (row: Row) => showings(row.record, ctx).filter((s) => s.key !== town.slug);
-/** The record's own page, where it has one (the brief of 13 November 2026): the row's name links to it. */
+/** The record's own page, where it has one: the entry's name links to it. */
 const pageOf = (row: Row) => eventPath(row.record, ctx.published);
-/** A shared record's eyebrow on this page is its kind, never another town's name. */
-const rowProps = (row: Row) => ({ row, eyebrow: 'category' as const, href: pageOf(row), line: lineFor(row.record, town.slug), also: alsoFor(row) });
+/** A shared record's other showings, as links; never another town's name as the label over it. */
+const entryProps = (row: Row) => ({
+  row,
+  href: pageOf(row),
+  line: lineFor(row.record, town.slug),
+  also: showings(row.record, ctx).filter((s) => s.key !== town.slug),
+  agency: isAgencyDate(row.record.type),
+});
 
 const show = town.showpiece;
-const spotlight = show ? traditions.find((r) => r.record.slug === show.spotlight) : undefined;
-const year = show ? bySeason(traditions.filter((r) => r !== spotlight)) : undefined;
 // The photograph, where the file is in content/hub/images/ and its alt is
-// written (HubTown.showpiece.hero): Salida's entry waits for the owner's
-// picture, and until it arrives the page draws the town's horizon.
+// written (HubTown.showpiece.hero); until then the page draws the town's horizon.
 const heroFile = show?.hero && show.hero.alt.trim() ? findSiteImage('hub', show.hero.image) : undefined;
 const hero = heroFile ? { src: heroFile, ...show!.hero! } : undefined;
+const ridge = hero ? undefined : ridgeline(town.slug, town.cluster, town.terrain);
 
-// What a shared link shows: the town's own photograph where it has one,
-// else its text card (src/routes/hub/town-share.png.ts). Before this every
-// town page shared the hub's one picture.
+// What a shared link shows: the town's own photograph where it has one, else its text card (town-share.png.ts).
 const shareImage = hero ? (await getImage({ src: hero.src, width: 1200, height: 630, format: 'jpg' })).src : `/share/${town.slug}.png`;
 const shareAlt = hero ? hero.alt : `${town.name}, Colorado: annual events and outdoor dates`;
 const path = `/${town.slug}/`;
 const pageUrl = `https://${hub.domain}${path}`;
 const county = hubCountyLine(town);
-const title = town.name;
-// What a search result says: the town, the year, and the next two or three
-// traditions with a date set, by name and day (src/lib/hub-towns.ts,
-// townSearchText). A town with none ahead keeps the plain line.
 const { seoTitle, description } = townSearchText(town.name, traditions);
 const all = [...traditions, ...outdoor, ...statewide];
 const structured = [
-  // Each item is the record's own page where it has one, else its row here.
   collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: pageOf(r) ? `https://${hub.domain}${pageOf(r)}` : `${pageUrl}#${r.record.slug}` })) }),
   breadcrumbJsonLd(hub, [
     { name: hub.siteTitle, path: '/' },
     { name: town.name, path },
   ]),
-  // An event is marked up on one page. Since 13 November 2026 a record whose
-  // home is this town has a page of its own, which carries its Event; this
-  // page marks up none. (A record shown here with another home is marked
-  // up there.)
+  // An event is marked up on one page: a record whose home is this town has a page of its own since 13 November 2026.
   ...traditions.map((r) => (r.past || pageOf(r) || eventPage(r.record, ctx) !== town.slug ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
 ];
-// The season pages this town has a row on: each is linked from here, as
-// each row there links back (the links pass, 12 November 2026).
-const seasonPages = TRADITION_TYPES.filter((t) => CURRENT_SEASONS[t] && seasonRows(records, t, today).some((r) => all.some((mine) => mine.record.slug === r.record.slug && !mine.record.statewide)));
-const subject = `[Correction] ${town.name}`;
-const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
-const card = 'rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7';
-const h2 = 'mb-6 border-b-2 border-accent pb-3 text-3xl font-medium';
-const pill =
-  'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary';
-const clusterNote = HUB_TOWNS.length;
 const intro = show?.intro ?? 'The events this town holds every year and the outdoor dates around it, each with the page it was read from.';
-const ridge = hero ? undefined : ridgeline(town.slug, town.cluster, town.terrain);
 
-/**
- * The first line of facts under the name: what is next, from the rows the
- * page already lists. The soonest date set among the traditions and the
- * town's outdoor dates, whichever kind it is (src/lib/hub-towns.ts,
- * nextUp); nothing where no date ahead has been published.
- */
+/* ------------------------------------------------------------ 01 Events */
+
+/** The town's own dates: its events and the outdoor dates that name it (not the statewide ones, which have their section). */
+const own = [...traditions, ...outdoor];
+/** The next date the town has, under its name: the soonest set, an event before an outdoor date on the same day. */
 const nextUp = nextRowUp(traditions, outdoor);
-
-/**
- * The next 90 days (the audit of 13 November 2026): every date set within
- * them among the town's traditions and its own outdoor dates, soonest
- * first, before the year and the full lists. The statewide dates stay in
- * their fold below. Each carries its last day, so a stale build drops it
- * once it has passed (Freshness.astro).
- */
+const nextDay = nextUp ? `${formatDayLong(parseLocal(nextUp.entry.date!))}, ${nextUp.entry.date!.slice(0, 4)}` : undefined;
+/** No date set in the next 90 days: the page says so, above the lists. */
 const NEXT_DAYS = 90;
 const horizon = dayKey(new Date(parseLocal(today).getTime() + NEXT_DAYS * 86_400_000));
-const soon = [...traditions, ...outdoor]
-  .filter((r) => isUpcoming(r) && r.entry.date! <= horizon)
-  .sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || a.record.name.localeCompare(b.record.name));
-/**
- * The town's annual events by state (src/lib/traditions.ts, rowState):
- * dates set and ahead; no date yet; held, the next date not announced;
- * canceled. One list for a page with one state, as before.
- */
-const traditionStates = rowsByState(traditions);
-const traditionGroups = [
-  { key: 'upcoming', label: 'Coming up', rows: traditionStates.upcoming },
-  { key: 'waiting', label: 'Date not announced yet', rows: traditionStates.waiting },
-  { key: 'past', label: 'Held; next date not announced', rows: traditionStates.past },
-  { key: 'canceled', label: 'Canceled', rows: traditionStates.canceled },
-].filter((g) => g.rows.length > 0);
-const nextDay = nextUp ? `${formatDayLong(parseLocal(nextUp.entry.date!))}, ${nextUp.entry.date!.slice(0, 4)}` : undefined;
+const quiet = !own.some((r) => isUpcoming(r) && r.entry.date! <= horizon);
+/** Set dates, soonest first; then those not yet announced, in the order of the year they were last held; then any canceled. */
+const comingUp = own.filter((r) => rowState(r) === 'upcoming').sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || a.record.name.localeCompare(b.record.name));
+const waiting = own
+  .filter((r) => rowState(r) === 'waiting' || rowState(r) === 'past')
+  .sort((a, b) => (a.lastHeld?.slice(5) ?? '99').localeCompare(b.lastHeld?.slice(5) ?? '99') || a.record.name.localeCompare(b.record.name));
+const canceled = own.filter((r) => rowState(r) === 'canceled');
+const groupOf = (r: Row) => (rowState(r) === 'upcoming' ? 'coming-up' : rowState(r) === 'canceled' ? 'canceled' : 'not-announced');
+const cells = yearGrid(yearMarks(traditions, groupOf), Number(today.slice(5, 7)) - 1);
+const marked = cells.some((c) => c.marks.length > 0);
+const openRecords = records.filter((r) => !r.statewide && appliesTo(r, town.slug));
+const hasOpen = (() => {
+  const { open, next } = openNow(openRecords, today);
+  return open.length + next.length > 0;
+})();
+/** The season pages this town has a row on, each linked from here as each row there links back. */
+const seasonPages = TRADITION_TYPES.filter((t) => CURRENT_SEASONS[t] && seasonRows(records, t, today).some((r) => all.some((mine) => mine.record.slug === r.record.slug && !mine.record.statewide)));
 
-/**
- * The year at a glance: each tradition in the month of its date. A date
- * set is a filled mark; a tradition whose next date is not announced sits
- * in the month it was last held, as a ring, and the legend says which is
- * which in words (visual rule 5). One with no date in any year is left
- * off the strip and stays in the list.
- */
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const thisMonth = Number(today.slice(5, 7)) - 1;
-const marks = traditions.flatMap((r) => {
-  const set = isUpcoming(r);
-  const date = set ? r.entry.date : r.lastHeld;
-  if (!date) return [];
-  const label = `${r.record.name}: ${set ? '' : 'last held '}${formatDayLong(parseLocal(date))}, ${date.slice(0, 4)}${set ? '' : '; next date not yet announced'}`;
-  // What the mark says once its date has passed, for the reader's own day (DateCorrection).
-  const labelPast = `${r.record.name}: last held ${formatDayLong(parseLocal(date))}, ${date.slice(0, 4)}; next date not yet announced`;
-  return [{ slug: r.record.slug, month: Number(date.slice(5, 7)) - 1, set, label, labelPast, name: r.record.name }];
-});
-const months = MONTHS.map((name, i) => ({ name, now: i === thisMonth, marks: marks.filter((m) => m.month === i) }));
-const hasRings = marks.some((m) => !m.set);
+/* ---------------------------------------- the profile: stay, getting, about */
 
-/**
- * The page's signature (HubTown.signature): the town's waters on CPW's
- * stocking report lately, from the file the scheduled job writes. Nothing
- * out of season, when no water matches, or when the file is missing or old
- * (src/lib/fish-stocking.ts); a build never reads the network for it.
- */
+const one = <T,>(files: Record<string, T>) => Object.values(files)[0];
+const files: ProfileFiles = {
+  facts: one(import.meta.glob<TownFacts>('../../../data/hub/town-facts.json', { eager: true, import: 'default' })),
+  roads: one(import.meta.glob<RoadMiles>('../../../data/hub/road-miles.json', { eager: true, import: 'default' })),
+  airports: one(import.meta.glob<Airports>('../../../data/hub/airports.json', { eager: true, import: 'default' })),
+  bustang: one(import.meta.glob<NonNullable<ProfileFiles['bustang']>>('../../../data/hub/bustang.json', { eager: true, import: 'default' })),
+  profile: Object.entries(import.meta.glob<TownProfile>('../../../data/hub/towns/*.json', { eager: true, import: 'default' })).find(([file]) => file.endsWith(`/${town.slug}.json`))?.[1],
+};
+const profile = profileView(town, files);
+const roads = files.roads;
+const withPage = new Set([...published.map((t) => t.slug), ...Object.keys(STANDALONE_GUIDES)]);
+const { near, passes } = nearView(town.slug, roads, withPage, true);
+const short = (d: string) => formatShortDate(parseLocal(d));
+
+/* The town's signature: the waters stocked lately, the river at its gauge, or the snow at its station, only while the reading is fresh. */
 const stockingFiles = import.meta.glob<StockingData>('../../../data/hub/fish-stocking.json', { eager: true, import: 'default' });
 const stocking = Object.values(stockingFiles)[0];
 const stocked = town.signature?.kind === 'fish-stocking' ? recentlyStocked(town.signature.waters, stocking, today) : [];
-// The river at the town's gauge, or the snowpack at its station, the same
-// way: from the file the daily job writes, and only while the reading is
-// fresh (src/lib/town-signals.ts).
 const flowFiles = import.meta.glob<FlowData>('../../../data/hub/river-flow.json', { eager: true, import: 'default' });
 const snowFiles = import.meta.glob<SnowData>('../../../data/hub/snowpack.json', { eager: true, import: 'default' });
 const gauge = town.signature?.kind === 'river-flow' ? town.signature.gauge : undefined;
@@ -201,9 +174,34 @@ const snowPercent = snow ? percentOfMedian(snow) : undefined;
 const measuredAt = (iso: string) =>
   new Date(iso).toLocaleString('en-US', { timeZone: 'America/Denver', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
 const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
+const hasSignature = stocked.length > 0 || (!!gauge && !!flow) || (!!station && !!snow);
+const hasArticles = articlesFor((await getCuriosity()).map((a) => a.data), town.slug).length > 0;
+
+/* ------------------------------------------------------------- sections */
+
+const sections = pageSections(town.name, {
+  events: own.length > 0 || hasOpen,
+  stay: profile.lodging.length > 0,
+  getting: !!profile.fromDenver || profile.transit.length > 0 || !!profile.airport || passes.length > 0 || near.length > 0,
+  outdoor: statewide.length > 0,
+  about: profile.strip.length > 0 || hasSignature || !!profile.heritage || hasArticles,
+});
+const section = Object.fromEntries(sections.map((s, i) => [s.key, { ...s, tone: (i % 2 === 0 ? 'paper' : 'white') as 'paper' | 'white' }]));
+const closingTone = sections.length % 2 === 0 ? 'paper' : 'white';
+
+/** The statewide dates: the next two, and the rest behind a button (shown in full without the script). */
+const STATEWIDE_SHOWN = 2;
+const statewideFirst = statewide.slice(0, STATEWIDE_SHOWN);
+const statewideRest = statewide.slice(STATEWIDE_SHOWN);
+
+/** The one town after this one in its area, coming round to the first, and the area's name as a reader sees it. */
+const nextTown = nextInCluster(town, published);
+const subject = `[Correction] ${town.name}`;
+const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 ---
-<Page {title} {seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual dates">
-  <header slot="header" class="on-dark relative isolate overflow-hidden bg-primary text-white" data-town-hero={hero ? 'photo' : ridge!.terrain}>
+<Base title={seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual dates">
+  {/* The hero: the name on the primary, over the town's own horizon or its photograph. */}
+  <section class="on-dark relative isolate overflow-hidden bg-primary text-white" data-town-hero={hero ? 'photo' : ridge!.terrain} data-band aria-labelledby="town-name">
     {hero ? (
       <Fragment>
         <Image
@@ -217,276 +215,371 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
           style={hero.position ? `object-position:${hero.position}` : undefined}
           data-showpiece-hero
         />
-        {/* Shade only where the words are: the foot and the left, the picture clear above and to the right. */}
+        {/* Shade only where the words are: the foot and the left. */}
         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/30 to-transparent" aria-hidden="true"></div>
         <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black/45 to-transparent" aria-hidden="true"></div>
       </Fragment>
     ) : (
-      <svg
-        class="pointer-events-none absolute inset-x-0 -bottom-px -z-10 h-[62%] w-full sm:h-[70%]"
-        viewBox={`0 0 ${RIDGE_WIDTH} ${RIDGE_HEIGHT}`}
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path d={ridge!.layers[0]} fill="#fff" fill-opacity="0.07" />
-        <path d={ridge!.layers[1]} fill="#fff" fill-opacity="0.11" />
-        {/* The nearest line is the page's own paper, so the band ends on the land and not on a rule. */}
-        <path d={ridge!.layers[2]} fill="var(--color-paper)" />
+      <svg class="pointer-events-none absolute inset-x-0 -bottom-px -z-10 h-[72px] w-full md:h-[96px]" viewBox={`0 0 ${RIDGE_WIDTH} ${RIDGE_HEIGHT}`} preserveAspectRatio="none" aria-hidden="true">
+        <path d={ridge!.layers[1]} class="fill-hero-mountain" />
+        {/* The nearest line is the white of the band below, so the hero ends on the land. */}
+        <path d={ridge!.layers[2]} class="fill-raised" />
       </svg>
     )}
-    {/* Less height than before the audit of 13 November 2026 (it was up to 18rem above the name), so the next 90 days start sooner. */}
-    <div class:list={['container-page', hero ? 'pb-8 pt-28 sm:pt-36 md:pb-10 md:pt-44' : 'pb-16 pt-8 sm:pb-20 md:pb-24 md:pt-12']}>
-      <p class="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/85">{county} · Colorado</p>
-      <h1 class="display mt-3 text-[3rem] leading-[0.95] sm:text-7xl">{title}</h1>
-      <p class="mt-4 max-w-2xl text-[1.0625rem] leading-relaxed text-white/90 md:text-xl md:leading-relaxed">{intro}</p>
-      {nextUp && (
-        <p class="mt-6 inline-flex max-w-full flex-wrap items-baseline gap-x-2 gap-y-1 rounded-lg bg-white/12 px-4 py-2.5 text-[0.9375rem] ring-1 ring-white/25 backdrop-blur-sm" data-next-up>
-          <span class="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/85">Next</span>
-          <a href={`#${nextUp.record.slug}`} class="font-semibold text-white underline decoration-white/50 underline-offset-4 hover:decoration-white">{nextUp.record.name}</a>
-          <span class="text-white/90" data-next-day>{nextDay}</span>
-        </p>
-      )}
-    </div>
-  </header>
-
-  <section aria-labelledby="next90-heading" class="mb-12 md:mb-14" data-next-90>
-    <h2 id="next90-heading" class="eyebrow mb-3">The next {NEXT_DAYS} days</h2>
-    {soon.length > 0 ? (
-      <ol class="divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-        {soon.map((r) => (
-          <li class="grid gap-y-0.5 py-3 sm:grid-cols-[10rem_minmax(0,1fr)_auto] sm:items-baseline sm:gap-x-4" data-event-day={r.entry.endDate ?? r.entry.date}>
-            {/* Stacked on a phone (date, name, kind), three columns from sm: side by side at 390px the names were squeezed to a word a line and ran into the kind. */}
-            <time datetime={r.entry.date} class="text-[0.9375rem] font-semibold tabular-nums text-ink">
-              {formatDayShort(parseLocal(r.entry.date!))}{r.entry.endDate && r.entry.endDate !== r.entry.date && ` – ${formatDayShort(parseLocal(r.entry.endDate))}`}
-            </time>
-            <a href={`#${r.record.slug}`} class="min-w-0 text-[1.0625rem] font-medium leading-snug text-primary no-underline hover:underline">{r.record.name}</a>
-            <span class="text-[0.875rem] text-ink-muted">{TRADITION_TYPE_INFO[r.record.type].label}</span>
-          </li>
-        ))}
-      </ol>
-    ) : (
-      <p class="rounded-lg border border-dashed border-line px-5 py-4 text-[0.9375rem] text-ink-muted">No date in the next {NEXT_DAYS} days has been published yet. The year, and every event with its last date, are below.</p>
-    )}
-  </section>
-
-  {marks.length > 0 && (
-    <section aria-labelledby="year-heading" class="mb-12 md:mb-16" data-year-strip>
-      <div class="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-        <h2 id="year-heading" class="eyebrow">The year at a glance</h2>
-        <p class="text-sm text-ink-muted">
-          {marks.some((m) => m.set) && (
-            <span class="mr-4 inline-block"><span class="mr-1 inline-block size-2.5 rounded-full bg-primary align-baseline" aria-hidden="true"></span>Date set</span>
-          )}
-          {hasRings && (
-            <span class="inline-block"><span class="mr-1 inline-block size-2.5 rounded-full border-2 border-primary align-baseline" aria-hidden="true"></span>Last held; next date not yet announced</span>
-          )}
-        </p>
-      </div>
-      <ol class="grid grid-cols-6 gap-px overflow-hidden rounded-lg bg-line-soft ring-1 ring-line-soft md:grid-cols-12">
-        {months.map((m) => (
-          <li class:list={['flex min-h-24 flex-col items-center gap-2 px-1 pb-3 pt-2.5 md:min-h-28', m.now ? 'bg-highlight-soft' : 'bg-raised']} data-month={m.name} data-now={m.now ? '' : undefined}>
-            <span class:list={['text-[0.75rem] font-semibold uppercase tracking-[0.12em]', m.now ? 'text-ink' : 'text-ink-muted']}>{m.name}</span>
-            <span class="-mt-1.5 text-[0.75rem] leading-none text-ink" data-now-label hidden={!m.now}>{m.now ? 'now' : ''}</span>
-            {/* Each mark is a 24px target around a 16px dot (the dot alone was under the minimum for a thumb). */}
-            <span class="flex flex-wrap justify-center">
-              {m.marks.map((k) => (
-                <a href={`#${k.slug}`} title={k.label} aria-label={k.label} data-mark={k.set ? 'set' : 'held'} data-label-past={k.set ? k.labelPast : undefined} class="group/mark flex size-6 items-center justify-center">
-                  <span data-dot class:list={['block size-4 rounded-full transition-transform group-hover/mark:scale-125', k.set ? 'bg-primary' : 'border-2 border-primary bg-raised']}></span>
-                </a>
-              ))}
-            </span>
-          </li>
-        ))}
-      </ol>
-      {/* A dot's name was a hover title, which a thumb never sees: where
-          there is no hover, and on a narrow screen, the same marks as
-          words, by month, each a link to its row. */}
-      <ul class="mt-4 space-y-1.5 text-[0.9375rem] leading-snug text-ink-muted md:hidden pointer-coarse:block" data-year-list>
-        {months.filter((m) => m.marks.length > 0).map((m) => (
-          <li>
-            <span class="mr-1.5 inline-block w-9 text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink">{m.name}</span>
-            {m.marks.map((k, i) => (
-              <span data-mark-name={k.slug}>{i > 0 && ' · '}<a href={`#${k.slug}`} class="inline-block py-1.5 text-primary underline">{k.name}</a>{k.set ? <span data-held-note hidden data-past-text=" (last held)"></span> : <span data-held-note> (last held)</span>}</span>
-            ))}
-          </li>
-        ))}
-      </ul>
-    </section>
-  )}
-
-  {stocked.length > 0 && (
-    <section aria-labelledby="stocked-heading" class="mb-12 md:mb-16" data-signature="fish-stocking">
-      <h2 id="stocked-heading" class="eyebrow mb-3">Recently stocked near {town.name}</h2>
-      <div class="rounded-lg bg-raised px-5 py-1 ring-1 ring-line-soft sm:px-7">
-        <ul class="divide-y divide-line-soft">
-          {stocked.map((w) => (
-            <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3.5">
-              <a href={w.atlas} rel="noopener" class="font-heading text-xl font-medium text-ink no-underline hover:text-primary hover:underline">{w.name}</a>
-              <span class="text-[0.9375rem] text-ink-muted">Added to the report <time datetime={w.added}>{formatDayLong(parseLocal(w.added))}, {w.added.slice(0, 4)}</time></span>
-            </li>
-          ))}
-        </ul>
-        <p class="border-t border-line-soft py-3.5 text-sm leading-relaxed text-ink-muted">
-          Catchable trout, about ten inches. The date is the day the water was added to the report; the stocking may have been earlier that week.
-          Checked <time datetime={stocking!.fetched}>{formatShortDate(parseLocal(stocking!.fetched))}</time> · Source:
-          <a href={STOCKING_SOURCE} rel="noopener" class="text-primary underline">{STOCKING_SOURCE_NAME}, stocking report</a>
-        </p>
-      </div>
-    </section>
-  )}
-
-  {spotlight && (
-    <section aria-labelledby="spotlight-heading" class="mb-14 md:mb-16" data-spotlight>
-      <h2 id="spotlight-heading" class="eyebrow mb-3">The one to know</h2>
-      <div class="rounded-lg border-2 border-primary bg-raised px-5 shadow-[0_18px_40px_-24px_rgb(0_0_0/0.35)] sm:px-7">
-        <TraditionRow {...rowProps(spotlight)} />
-      </div>
-    </section>
-  )}
-
-  {gauge && flow && (
-    <section aria-labelledby="flow-heading" class="mb-12 md:mb-16" data-signature="river-flow" data-measured={flow.measured}>
-      <h2 id="flow-heading" class="eyebrow mb-3">The {gauge.river} {gauge.where}</h2>
-      <div class="rounded-lg bg-raised px-5 py-5 ring-1 ring-line-soft sm:px-7">
-        <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <span class="font-heading text-[2.5rem] font-medium leading-none text-ink">{formatCfs(flow.cfs)}</span>
-          <span class="text-[1.0625rem] text-ink">cubic feet a second</span>
-        </p>
-        <p class="mt-2 text-[0.9375rem] text-ink-muted">Measured <time datetime={flow.measured}>{measuredAt(flow.measured)}</time>. Provisional, and subject to revision by the agency.</p>
-        <p class="mt-3 border-t border-line-soft pt-3 text-sm text-ink-muted">
-          Checked <time datetime={Object.values(flowFiles)[0]!.fetched}>{formatShortDate(parseLocal(Object.values(flowFiles)[0]!.fetched))}</time> · Source:
-          <a href={gauge.page} rel="noopener" class="text-primary underline">{FLOW_SOURCES[gauge.agency].name}, gauge {gauge.id}</a>
-        </p>
-      </div>
-    </section>
-  )}
-
-  {station && snow && (
-    <section aria-labelledby="snow-heading" class="mb-12 md:mb-16" data-signature="snowpack" data-day={snow.date}>
-      <h2 id="snow-heading" class="eyebrow mb-3">Snowpack at {station.name}, {station.elevationFt.toLocaleString('en-US')} feet</h2>
-      <div class="rounded-lg bg-raised px-5 py-5 ring-1 ring-line-soft sm:px-7">
-        <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <span class="font-heading text-[2.5rem] font-medium leading-none text-ink">{inches(snow.swe)}</span>
-          <span class="text-[1.0625rem] text-ink">of water in the snow (snow water equivalent)</span>
-        </p>
-        <p class="mt-2 text-[0.9375rem] text-ink-muted">
-          On <time datetime={snow.date}>{formatDayLong(parseLocal(snow.date))}, {snow.date.slice(0, 4)}</time>.
-          {snow.median !== undefined && <Fragment> The station’s median for the date, 1991 to 2020, is {inches(snow.median)}{snowPercent !== undefined && <Fragment>: this is {snowPercent}% of it</Fragment>}.</Fragment>}
-          {' '}Provisional, and subject to revision.
-        </p>
-        <p class="mt-3 border-t border-line-soft pt-3 text-sm text-ink-muted">
-          Checked <time datetime={Object.values(snowFiles)[0]!.fetched}>{formatShortDate(parseLocal(Object.values(snowFiles)[0]!.fetched))}</time> · Source:
-          <a href={station.page} rel="noopener" class="text-primary underline">{SNOW_SOURCE}, station {station.triplet.split(':')[0]}</a>
-        </p>
-      </div>
-    </section>
-  )}
-
-  <div class="lg:grid lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] lg:items-start lg:gap-x-12">
-  <section id="traditions" aria-labelledby="traditions-heading" class="mb-14 scroll-mt-4 md:mb-16">
-    <h2 id="traditions-heading" class={h2}>{show ? `The year in ${town.name}` : `Annual events in ${town.name}`}</h2>
-    {year ? (
-      <Fragment>
-        {year.seasons.map((group) => (
-          <div class="mb-8" data-season={group.season}>
-            <h3 class="eyebrow mb-3">{group.season}</h3>
-            <div class={card}>{group.rows.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
-          </div>
-        ))}
-        {year.undated.length > 0 && (
-          <div class="mb-8">
-            <h3 class="eyebrow mb-3">No date published yet</h3>
-            <div class={card}>{year.undated.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
+    <div class:list={['px-[20px]', hero ? 'pb-[40px] pt-[120px] md:pt-[176px]' : 'pb-[76px] pt-[30px] md:pb-[104px]']}>
+      <div class={pub.col}>
+        <p class:list={[pub.cap, 'text-white']}>{county} · Colorado</p>
+        <h1 id="town-name" class="mt-3 text-[3.5294rem] font-medium leading-[0.95] tracking-[-0.03em] text-white [font-variation-settings:normal]">{town.name}</h1>
+        <p class="mt-3.5 max-w-[40rem] text-base leading-[1.55] text-white">{intro}</p>
+        {nextUp && (
+          <div class="mt-5 border-t border-white/50 pt-3" data-next-up>
+            <p class:list={[pub.cap, 'text-white']}>Next {town.name} date</p>
+            <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal]"><a href={`#${nextUp.record.slug}`} class="text-white underline decoration-1 underline-offset-[3px]">{nextUp.record.name}</a></p>
+            <p class="mt-1 text-base text-white" data-next-day>{nextDay}</p>
           </div>
         )}
-      </Fragment>
-    ) : traditionGroups.length > 1 ? (
-      traditionGroups.map((g) => (
-        <div class="mb-8" data-tradition-group={g.key}>
-          <h3 class="eyebrow mb-3">{g.label}</h3>
-          <div class={card}>{g.rows.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
+      </div>
+    </div>
+  </section>
+
+  {/* On this page: a link to each section drawn, numbered as they are. */}
+  <nav aria-labelledby="otp" class="scroll-mt-4 bg-raised px-[20px] pb-6 pt-3.5" id="contents" data-band>
+    <div class={pub.col}>
+      <div class={pub.open}><h2 id="otp" class={pub.h2s}>On this page</h2></div>
+      <ol class={pub.linkGrid}>
+        {sections.map((s, i) => (
+          <li>
+            <a href={`#${s.id}`} class="flex min-h-12 items-center gap-2.5 border-b border-hairline font-heading text-[1.1176rem] font-medium leading-tight text-primary [font-variation-settings:normal]">
+              <span class="inline-block w-3.5 shrink-0 font-normal no-underline" aria-hidden="true">{i + 1}</span>
+              <span class="underline decoration-1 underline-offset-[3px]">{s.label}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </nav>
+
+  {section.events && (
+    <PubSection id={section.events.id} number={section.events.number} title={section.events.title} tone={section.events.tone}>
+      {quiet && <p class:list={['mt-3 italic', pub.meta]} data-quiet>No {town.name} event date in the next {NEXT_DAYS} days has been published yet.</p>}
+      {comingUp.length > 0 && (
+        <Fragment>
+          <h3 id="coming-up" class:list={[pub.h3, 'mt-[22px]']}>Coming up</h3>
+          {comingUp.map((r) => <DateEntry {...entryProps(r)} />)}
+        </Fragment>
+      )}
+      {waiting.length > 0 && (
+        <Fragment>
+          <h3 id="not-announced" class:list={[pub.h3, comingUp.length === 0 && 'mt-[22px]']}>Date not yet announced</h3>
+          {waiting.map((r) => <DateEntry {...entryProps(r)} />)}
+        </Fragment>
+      )}
+      {canceled.length > 0 && (
+        <Fragment>
+          <h3 id="canceled" class={pub.h3}>Canceled</h3>
+          {canceled.map((r) => <DateEntry {...entryProps(r)} />)}
+        </Fragment>
+      )}
+      <OpenNow records={openRecords} {today} variant="pub" />
+      {marked && (
+        <Fragment>
+          <h3 class={pub.h3}>The year at a glance</h3>
+          <YearGrid {cells} />
+        </Fragment>
+      )}
+      <CalendarSubscribe name={town.slug} what={`${town.name}’s dates`} size="text" class="mt-[22px]" />
+      {seasonPages.length > 0 && (
+        <nav aria-labelledby="seasons-heading">
+          <h3 id="seasons-heading" class={pub.h3}>{town.name} and the other towns</h3>
+          <ul class={pub.linkGrid} data-season-links>
+            {seasonPages.map((t) => (
+              <li><a href={TRADITION_TYPE_INFO[t].path} class:list={[pub.link, 'flex min-h-12 items-center border-b border-hairline text-base no-underline']}><span class="underline decoration-1 underline-offset-[3px]">{TRADITION_TYPE_INFO[t].plural} across Colorado</span></a></li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </PubSection>
+  )}
+
+  {section.stay && (
+    <PubSection id={section.stay.id} number={section.stay.number} title={section.stay.title} tone={section.stay.tone} data={{ 'where-to-stay': '' }}>
+      <ul class="mt-3.5 border-t border-hairline">
+        {profile.lodging.map((l) => (
+          <li class:list={['py-3.5', pub.rule]}>
+            <h3 class={pub.title}><a href={l.url} rel="noopener" class={pub.titleLink}>{l.name}</a></h3>
+            {(l.kind || l.season) && <p class:list={['mt-0.5', pub.meta]}>{[l.kind, l.season].filter(Boolean).join(' · ')}</p>}
+          </li>
+        ))}
+      </ul>
+      <p class:list={['mt-3', pub.meta]}>Each links to the property’s own site; none is a paid or affiliate link.{profile.lodgingChecked && <Fragment> Checked <time datetime={profile.lodgingChecked}>{short(profile.lodgingChecked)}</time> against each property’s site.</Fragment>}</p>
+    </PubSection>
+  )}
+
+  {section.getting && (
+    <PubSection id={section.getting.id} number={section.getting.number} title={section.getting.title} tone={section.getting.tone} data={{ 'getting-there': '' }}>
+      {(profile.fromDenver || profile.transit.length > 0 || profile.airport || passes.length > 0) && (
+        <dl class="mt-3.5 border-t border-hairline">
+          {profile.fromDenver && (
+            <div class={pub.dl}><dt class={pub.dt}>From Denver</dt><dd class={pub.t}>{formatMiles(profile.fromDenver.miles)} by road, {formatDrive(profile.fromDenver.minutes)} without traffic or stops</dd></div>
+          )}
+          {profile.transit.length > 0 && (
+            <div class={pub.dl}>
+              <dt class={pub.dt}>Bus and transit</dt>
+              <dd class="space-y-1.5">
+                {profile.transit.map((t) => <p class={pub.t}><a href={t.url} rel="noopener" class={pub.link}>{t.name}</a>{t.detail && <Fragment>: {t.detail}</Fragment>}</p>)}
+              </dd>
+            </div>
+          )}
+          {profile.airport && (
+            <div class={pub.dl}>
+              <dt class={pub.dt}>Nearest commercial airport</dt>
+              <dd class={pub.t}>{profile.airport.url ? <a href={profile.airport.url} rel="noopener" class={pub.link}>{profile.airport.name}</a> : profile.airport.name} ({profile.airport.code}), {profile.airport.city}: {formatMiles(profile.airport.miles)} by road</dd>
+            </div>
+          )}
+          {passes.length > 0 && (
+            <div class={pub.dl} data-passes>
+              <dt class={pub.dt}>Passes and routes</dt>
+              <dd class="space-y-2.5">
+                {passes.map(({ pass, ends }) => (
+                  <p class={pub.t} data-pass={pass.slug}>
+                    {pass.name}{pass.highway && <Fragment> · {pass.highway}</Fragment>}
+                    {ends.length === 2 && <Fragment> · between {ends.map((e, i) => (<Fragment>{i > 0 && ' and '}<a href={e.href} class={pub.link}>{e.name}</a></Fragment>))}</Fragment>}
+                    {pass.seasonalClosure && <span class:list={['block', pub.meta]}>Usual seasonal closure: {pass.seasonalClosure}</span>}
+                    {pass.statusUrl && <span class:list={['block', pub.meta]}><a href={pass.statusUrl} rel="noopener" class={pub.link}>{pass.statusLabel ?? 'COtrip'}</a> for today’s status · checked <time datetime={pass.checked}>{short(pass.checked)}</time></span>}
+                  </p>
+                ))}
+              </dd>
+            </div>
+          )}
+        </dl>
+      )}
+      {roads && (profile.fromDenver || profile.transit.length > 0 || profile.airport) && (
+        <p class:list={['mt-2.5', pub.meta]}>
+          Checked <time datetime={roads.checked}>{short(roads.checked)}</time> · Sources:
+          <a href={roads.source.url} rel="noopener" class={pub.link}>{roads.source.name}</a> for the miles and the time{profile.transit.length > 0 && <Fragment>; the operator’s own page for each service</Fragment>}{profile.airport && profile.airportList && <Fragment>; <a href={profile.airportList} rel="noopener" class={pub.link}>Federal Aviation Administration, commercial service airports</a></Fragment>}
+        </p>
+      )}
+      {near.length > 0 && roads && (
+        <div data-near-town>
+          <h3 class={pub.h3}>Near {town.name}</h3>
+          <ul class={pub.linkGrid}>
+            {near.map((n) => (
+              <li data-near={n.place} data-miles={n.miles}>
+                <a href={n.href} class="flex min-h-12 items-center justify-between gap-2 border-b border-hairline text-base text-primary no-underline">
+                  <span class="underline decoration-1 underline-offset-[3px]">{n.name}</span>
+                  <span class="shrink-0 text-ink-muted" aria-label={`${formatMiles(n.miles)} by road`}>{milesShort(n.miles)}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p class:list={['mt-3', pub.meta]}>
+            Road miles between town centers, every pair from one router. A road shut for the season is not taken out of the miles.
+            Checked <time datetime={roads.checked}>{short(roads.checked)}</time> · Source:
+            <a href={roads.source.url} rel="noopener" class={pub.link}>{roads.source.name}</a>
+          </p>
         </div>
-      ))
-    ) : traditions.length > 0 ? (
-      <div class={card}>{traditions.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
-    ) : (
-      <p class="text-ink-muted">No tradition here has a date we have read on its organizer’s page yet.</p>
-    )}
-  </section>
-
-  <section id="outdoor-dates" aria-labelledby="outdoor-heading" class="mb-14 scroll-mt-4 md:mb-16">
-    <h2 id="outdoor-heading" class={h2}>Outdoor dates near {town.name}</h2>
-    {outdoor.length > 0 && <div class={card}>{outdoor.map((row) => <TraditionRow {...rowProps(row)} />)}</div>}
-    {statewide.length > 0 && (
-      <details class:list={['group rounded-lg bg-raised ring-1 ring-line-soft', outdoor.length > 0 && 'mt-6']} data-statewide>
-        <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-5 py-3 sm:px-7 [&::-webkit-details-marker]:hidden">
-          <span>
-            <span class="eyebrow block">Across Colorado</span>
-            <span class="mt-0.5 block text-[0.9375rem] text-ink-muted">{statewideSummary(statewide)}</span>
-          </span>
-          <span class="shrink-0 text-sm font-semibold text-primary underline group-open:hidden">Show</span>
-          <span class="hidden shrink-0 text-sm font-semibold text-primary underline group-open:inline">Hide</span>
-        </summary>
-        <div class="border-t border-line-soft px-5 sm:px-7">{statewide.map((row) => <TraditionRow {...rowProps(row)} />)}</div>
-      </details>
-    )}
-    {outdoor.length === 0 && statewide.length === 0 && <p class="text-ink-muted">No outdoor date for this town has been read on its agency’s page yet.</p>}
-    <OpenNow records={records.filter((r) => !r.statewide && appliesTo(r, town.slug))} {today} class="mt-6" />
-  </section>
-  </div>
-
-  <CalendarSubscribe name={town.slug} what={`${town.name}’s dates`} class="mb-10" />
-
-  {seasonPages.length > 0 && (
-    <nav aria-labelledby="seasons-heading" class="mb-12">
-      <h2 id="seasons-heading" class="mb-4 text-2xl font-medium">{town.name} and the other towns</h2>
-      <ul class="flex flex-wrap gap-2" data-season-links>
-        {seasonPages.map((t) => (
-          <li><a href={TRADITION_TYPE_INFO[t].path} class={pill}>{TRADITION_TYPE_INFO[t].plural} across Colorado</a></li>
-        ))}
-      </ul>
-    </nav>
+      )}
+    </PubSection>
   )}
 
-  {/* The additions of 12 November 2026, below what the page had, in the brief's order. */}
-  <NearThisTown place={town.slug} name={town.name} onHub />
-  {/* The hub's articles anchored to this town, as links only (the brief of 13 November 2026). */}
-  <NearbyArticles place={town.slug} onHub />
-  <TownProfile {town} />
-
-  {nearby.length > 0 && (
-    <nav aria-labelledby="nearby-heading" class="mb-12">
-      <h2 id="nearby-heading" class="mb-4 text-2xl font-medium">More in {town.cluster}</h2>
-      <ul class="flex flex-wrap gap-2" data-nearby data-of={clusterNote}>
-        {nearby.map((t) => (
-          <li><a href={`/${t.slug}/`} class={pill}>{t.name}</a></li>
-        ))}
-      </ul>
-    </nav>
+  {section.outdoor && (
+    <PubSection id={section.outdoor.id} number={section.outdoor.number} title={section.outdoor.title} tone={section.outdoor.tone}>
+      <p class:list={['mt-3', pub.meta]}>These are statewide dates, not {town.name} events.</p>
+      <div data-statewide>
+        <h3 id="next-two" class:list={[pub.h3, 'mt-5']}>The next two</h3>
+        {statewideFirst.map((r) => <DateEntry {...entryProps(r)} />)}
+        {statewideRest.length > 0 && (
+          <Fragment>
+            <div id="statewide-rest" data-statewide-rest>
+              {statewideRest.map((r) => <DateEntry {...entryProps(r)} />)}
+            </div>
+            {/* Shown by the script, which folds the rest away behind it; without the script every date is on the page and the button is not. */}
+            <button type="button" hidden aria-expanded="true" aria-controls="statewide-rest" data-statewide-toggle data-more={`Show all ${statewide.length} statewide dates`} data-less="Show fewer statewide dates" class="mt-1.5 min-h-11 cursor-pointer border-0 bg-transparent p-0 text-left text-base font-[650] text-primary underline decoration-1 underline-offset-[3px]">Show all {statewide.length} statewide dates</button>
+          </Fragment>
+        )}
+      </div>
+    </PubSection>
   )}
 
-  <p class="rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
-    Something missing, or a date wrong? <a href={mailto} class="font-semibold underline">Tell us</a>. Every date links to the page it was read from.
-  </p>
+  {section.about && (
+    <PubSection id={section.about.id} number={section.about.number} title={section.about.title} tone={section.about.tone} data={{ 'town-facts': '' }}>
+      {profile.strip.length > 0 && (
+        <Fragment>
+          <h3 class:list={[pub.h3, 'mt-[22px]']}>At a glance</h3>
+          <dl class="grid grid-cols-2">
+            {profile.strip.map((f, i) => (
+              <div class:list={['border-b border-hairline pb-3.5 pt-3', i % 2 === 0 ? 'border-r pr-3.5' : 'pl-3.5', profile.strip.length % 2 === 1 && i === profile.strip.length - 1 && 'col-span-2 border-r-0']}>
+                <dt class={pub.meta}>{f.label}</dt>
+                <dd class="mt-1 font-heading text-date leading-[1.05] text-ink [font-variation-settings:normal]">{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+          {profile.stripSources.length > 0 && profile.factsChecked && (
+            <p class:list={['mt-2.5', pub.meta]}>
+              Checked <time datetime={profile.factsChecked}>{short(profile.factsChecked)}</time> · Sources:
+              {profile.stripSources.map((s, i) => (<Fragment>{i > 0 && '; '}<a href={s.url} rel="noopener" class={pub.link}>{s.name}</a></Fragment>))}
+            </p>
+          )}
+        </Fragment>
+      )}
+
+      {stocked.length > 0 && (
+        <div data-signature="fish-stocking">
+          <h3 class={pub.h3}>Recently stocked near {town.name}</h3>
+          <ul>
+            {stocked.map((w) => (
+              <li class:list={['py-3', pub.rule]}>
+                <a href={w.atlas} rel="noopener" class:list={[pub.title, pub.titleLink, 'font-heading']}>{w.name}</a>
+                <p class:list={['mt-0.5', pub.meta]}>Added to the report <time datetime={w.added}>{formatDayLong(parseLocal(w.added))}, {w.added.slice(0, 4)}</time></p>
+              </li>
+            ))}
+          </ul>
+          <p class:list={['mt-2.5', pub.meta]}>
+            Catchable trout, about ten inches. The date is the day the water was added to the report; the stocking may have been earlier that week.
+            Checked <time datetime={stocking!.fetched}>{short(stocking!.fetched)}</time> · Source:
+            <a href={STOCKING_SOURCE} rel="noopener" class={pub.link}>{STOCKING_SOURCE_NAME}, stocking report</a>
+          </p>
+        </div>
+      )}
+      {gauge && flow && (
+        <div data-signature="river-flow" data-measured={flow.measured}>
+          <h3 class={pub.h3}>The {gauge.river} {gauge.where}</h3>
+          <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span class="font-heading text-date leading-none text-ink [font-variation-settings:normal]">{formatCfs(flow.cfs)}</span>
+            <span class={pub.t}>cubic feet a second</span>
+          </p>
+          <p class:list={['mt-2', pub.meta]}>Measured <time datetime={flow.measured}>{measuredAt(flow.measured)}</time>. Provisional, and subject to revision by the agency.</p>
+          <p class:list={['mt-1', pub.meta]}>
+            Checked <time datetime={Object.values(flowFiles)[0]!.fetched}>{short(Object.values(flowFiles)[0]!.fetched)}</time> · Source:
+            <a href={gauge.page} rel="noopener" class={pub.link}>{FLOW_SOURCES[gauge.agency].name}, gauge {gauge.id}</a>
+          </p>
+        </div>
+      )}
+      {station && snow && (
+        <div data-signature="snowpack" data-day={snow.date}>
+          <h3 class={pub.h3}>Snowpack at {station.name}, {station.elevationFt.toLocaleString('en-US')} feet</h3>
+          <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span class="font-heading text-date leading-none text-ink [font-variation-settings:normal]">{inches(snow.swe)}</span>
+            <span class={pub.t}>of water in the snow (snow water equivalent)</span>
+          </p>
+          <p class:list={['mt-2', pub.meta]}>
+            On <time datetime={snow.date}>{formatDayLong(parseLocal(snow.date))}, {snow.date.slice(0, 4)}</time>.
+            {snow.median !== undefined && <Fragment> The station’s median for the date, 1991 to 2020, is {inches(snow.median)}{snowPercent !== undefined && <Fragment>: this is {snowPercent}% of it</Fragment>}.</Fragment>}
+            {' '}Provisional, and subject to revision.
+          </p>
+          <p class:list={['mt-1', pub.meta]}>
+            Checked <time datetime={Object.values(snowFiles)[0]!.fetched}>{short(Object.values(snowFiles)[0]!.fetched)}</time> · Source:
+            <a href={station.page} rel="noopener" class={pub.link}>{SNOW_SOURCE}, station {station.triplet.split(':')[0]}</a>
+          </p>
+        </div>
+      )}
+
+      {profile.heritage && (
+        <div data-heritage>
+          {(profile.heritage.nameOrigin || profile.heritage.founded || profile.heritage.timeline.length > 0) && (
+            <Fragment>
+              <h3 class={pub.h3}>History</h3>
+              <dl>
+                {profile.heritage.nameOrigin && <div class={pub.dl}><dt class={pub.dt}>The name</dt><dd class={pub.t}>{profile.heritage.nameOrigin.text}</dd></div>}
+                {profile.heritage.founded && <div class={pub.dl}><dt class={pub.dt}>Founded</dt><dd class={pub.t}>{profile.heritage.founded.year}{profile.heritage.founded.text && <Fragment>: {profile.heritage.founded.text}</Fragment>}</dd></div>}
+                {profile.heritage.timeline.map((t) => (
+                  <div class:list={[pub.dl, 'grid-cols-[60px_minmax(0,1fr)]']}><dt class="font-heading text-sub leading-[1.35] text-primary tabular-nums [font-variation-settings:normal]">{t.year}</dt><dd class={pub.t}>{t.text}</dd></div>
+                ))}
+              </dl>
+            </Fragment>
+          )}
+          {profile.heritage.sites.length > 0 && (
+            <Fragment>
+              <h3 class={pub.h3}>Museums and landmarks</h3>
+              {profile.heritage.sites.map((s) => (
+                <Fragment>
+                  <h4 class:list={['mt-3.5', pub.title]}>{s.url ? <a href={s.url} rel="noopener" class={pub.titleLink}>{s.name}</a> : s.name}</h4>
+                  {(s.hours || s.cost || s.season) && (
+                    <dl class="mt-2 border-t border-hairline">
+                      {s.hours && <div class:list={[pub.dl, 'grid-cols-[72px_minmax(0,1fr)]']}><dt class={pub.dt}>Hours</dt><dd class={pub.t}>{s.hours}</dd></div>}
+                      {s.cost && <div class:list={[pub.dl, 'grid-cols-[72px_minmax(0,1fr)]']}><dt class={pub.dt}>Cost</dt><dd class={pub.t}>{s.cost}</dd></div>}
+                      {s.season && <div class:list={[pub.dl, 'grid-cols-[72px_minmax(0,1fr)]']}><dt class={pub.dt}>Season</dt><dd class={pub.t}>{s.season}</dd></div>}
+                    </dl>
+                  )}
+                </Fragment>
+              ))}
+            </Fragment>
+          )}
+          {profile.heritage.ghostTowns.length > 0 && (
+            <Fragment>
+              <h3 class={pub.h3}>Ghost towns nearby</h3>
+              <ul>
+                {profile.heritage.ghostTowns.map((g) => (
+                  <li class:list={['py-3', pub.rule, pub.t]}>{g.url ? <a href={g.url} rel="noopener" class={pub.link}>{g.name}</a> : <span class="font-semibold">{g.name}</span>}{g.text && <Fragment>: {g.text}</Fragment>}</li>
+                ))}
+              </ul>
+            </Fragment>
+          )}
+          {profile.heritage.makers.length > 0 && (
+            <Fragment>
+              <h3 class={pub.h3}>Made in {town.name}</h3>
+              <ul>
+                {profile.heritage.makers.map((m) => (
+                  <li class:list={['py-3', pub.rule, pub.t]}><a href={m.url} rel="noopener" class={pub.link}>{m.name}</a>: {m.what}</li>
+                ))}
+              </ul>
+            </Fragment>
+          )}
+          <p class:list={['mt-3.5', pub.meta]}>
+            {profile.heritageChecked && <Fragment>Checked <time datetime={profile.heritageChecked}>{short(profile.heritageChecked)}</time> · </Fragment>}Sources:
+            {profile.heritageSources.map(([host, url], i) => (<Fragment>{i > 0 && ', '}<a href={url} rel="noopener" class={pub.link}>{host}</a></Fragment>))}
+          </p>
+        </div>
+      )}
+      {/* The hub's articles that name this town, as links only (the brief of 13 November 2026). */}
+      <NearbyArticles place={town.slug} onHub variant="pub" />
+    </PubSection>
+  )}
+
+  {/* The page's dates put right to the reader's own day (src/lib/tradition-expiry.ts). Before the close, so the close is the last band and the footer meets it. */}
   <DateCorrection />
-</Page>
+
+  {/* The close: the next town in the area, the way back up, and the correction line. */}
+  <section id="more" aria-labelledby={nextTown ? 'more-heading' : undefined} aria-label={nextTown ? undefined : 'Contents and corrections'} data-band class:list={['scroll-mt-4 px-[20px] pb-[56px] pt-[36px]', closingTone === 'paper' ? pub.paper : pub.white]}>
+    <div class={pub.col}>
+      <div class={pub.open}>
+        {nextTown && <h2 id="more-heading" class={pub.h2s}>More in {clusterName(town.cluster)}</h2>}
+        {nextTown && <a href={`/${nextTown.slug}/`} class:list={[pub.go, 'mt-2']} data-nearby>{nextTown.name} →</a>}
+        <a href="#contents" class={pub.go}>Back to contents ↑</a>
+      </div>
+      <p class:list={['mt-3', pub.meta]}>
+        Something missing, or a date wrong? <a href={mailto} class={pub.link}>Tell us</a>. Every date links to the page it was read from.
+      </p>
+    </div>
+  </section>
+</Base>
 
 <script>
-  // A link to a row inside the folded "Across Colorado" list (from another
-  // page's "Also on", or the year strip) has to open the fold: Chrome does
-  // that on its own, and Safari on an iPhone is not relied on to. On load
-  // and on every hash change: find the row, open the fold it is in, and
-  // bring it into view.
-  const reveal = () => {
-    const id = decodeURIComponent(location.hash.slice(1));
-    if (!id) return;
-    const target = document.getElementById(id);
-    const fold = target?.closest('details');
-    if (target && fold && !fold.open) {
-      fold.open = true;
-      target.scrollIntoView();
-    }
-  };
-  reveal();
-  window.addEventListener('hashchange', reveal);
+  // The statewide dates past the next two fold away behind a button. Without
+  // this script they are all on the page and the button stays hidden.
+  const toggle = document.querySelector<HTMLButtonElement>('[data-statewide-toggle]');
+  const rest = document.getElementById('statewide-rest');
+  if (toggle && rest) {
+    const set = (open: boolean) => {
+      rest.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = (open ? toggle.dataset.less : toggle.dataset.more) ?? '';
+    };
+    set(false);
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => set(toggle.getAttribute('aria-expanded') !== 'true'));
+    // A link to a date inside the fold (another page's "Also on", an
+    // "Open now" item) opens it and brings the date into view, on load and
+    // on every hash change.
+    const reveal = () => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const target = id ? document.getElementById(id) : null;
+      if (target && rest.contains(target) && rest.hidden) {
+        set(true);
+        target.scrollIntoView();
+      }
+    };
+    reveal();
+    window.addEventListener('hashchange', reveal);
+  }
 </script>
