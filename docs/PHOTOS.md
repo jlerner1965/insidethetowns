@@ -221,9 +221,11 @@ guide's hero is `src/components/Hero.astro` and has its own.
   `src/config/hub-towns.ts` is a CSS `object-position` for this band, not
   the guide's value: a guide's hero is a different shape. Leave it out
   (centre) unless the centre is wrong. The second number decides which
-  strip shows on a desktop: lower shows more of the street, higher more of
-  the sky. Nederland's is `50% 60%`; the guide's `50% 80%` cut the Co-op's
-  sign off at 1,920px.
+  strip shows on a desktop, as CSS reads it: `0%` is the top edge of the
+  photograph and `100%` the bottom, so a higher number shows more of the
+  foot (the street) and a lower one more of the top (the sky). Nederland's
+  is `50% 60%`; the guide's `50% 80%` showed too much street and cut the
+  Co-op's sign off the top at 1,920px.
 - **Look before it ships.** Run `TOWN=hub npx astro dev` and open
   `/<slug>/` at 390, 768, 1,024, 1,440 and 1,920px wide. At each: the
   subject in frame, every line of white type readable, nothing hidden
