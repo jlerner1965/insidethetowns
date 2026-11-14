@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/naughty-bingo-6-yr-anniversary-tickets-200
 sourceId: "eventbrite-com-o-34459838072"
 sourceUid: "2003986020132"
 sourceHash: "04e2386bbda2"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Naughty bingo 6 yr anniversary\" at 8 pm on 19 November in the page's structured data"
 ---
 

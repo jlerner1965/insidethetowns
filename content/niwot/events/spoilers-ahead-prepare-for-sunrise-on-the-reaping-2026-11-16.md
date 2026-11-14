@@ -8,7 +8,7 @@ source: "https://calendar.boulderlibrary.org/events"
 sourceId: "boulderlibrary-libnet-info"
 sourceUid: "17531030"
 sourceHash: "5eeabc9473fc"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Spoilers Ahead: Prepare for Sunrise on the Reaping\" at 5 pm on 16 November on the Boulder Public Library District - Gunbarrel Library events feed"
 ---
 

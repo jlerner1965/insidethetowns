@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/intro-to-branch-weaving-tickets-1993487761
 sourceId: "eventbrite-com-lyons"
 sourceUid: "1993487761558"
 sourceHash: "d6d735c36264"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Intro to Branch Weaving\" at 1 pm on 15 November in the page's structured data"
 ---
 

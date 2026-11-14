@@ -8,7 +8,7 @@ source: "https://theoldmine.com/"
 sourceId: "theoldmine-com"
 sourceUid: "5s71q227a4vavitjsvfb7a02ts@google.com"
 sourceHash: "d299d90cc5c7"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Hoss & The Hangman LIVE MUSIC\" at 6 pm on 25 November on the theoldmine.com feed"
 ---
 

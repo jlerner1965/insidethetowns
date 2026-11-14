@@ -10,7 +10,7 @@ category: food
 organizer: "Carbon Valley Parks and Recreation District"
 organizerUrl: "https://www.cvprd.com/"
 source: "https://www.cvprd.com/active-adults-special-events"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 1 pm on the page"
 ---
 

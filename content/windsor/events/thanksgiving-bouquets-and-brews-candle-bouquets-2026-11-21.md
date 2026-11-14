@@ -11,7 +11,7 @@ source: "https://www.eventbrite.com/e/thanksgiving-bouquets-and-brews-candle-bou
 sourceId: "eventbrite-com-windsor"
 sourceUid: "2003425980037"
 sourceHash: "6c116363f0ab"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Thanksgiving Bouquets and Brews - Candle Bouquets\" at 10:30 am on 21 November in the page's structured data"
 ---
 

@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/colorado-ghosts-vampire-tours-under-18-yea
 sourceId: "eventbrite-com-frederick"
 sourceUid: "2004506405619"
 sourceHash: "1aaca033f97a"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado Ghosts & Vampire Tours - Under 18 years old Free with Gaurdian\" at 7 pm on 14 November in the page's structured data"
 ---
 

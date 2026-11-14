@@ -10,7 +10,7 @@ source: "https://weldre4.revtrak.net/high-schools/severance-high-school/severanc
 sourceId: "shs-weldre4-org"
 sourceUid: "6ftqctiafdtoigpheaekg4r3mr@google.com/2026-11-21"
 sourceHash: "e879739fddde"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"SHS Musical - Les Misérables\" at 2 pm on 21 November on the Severance High School feed"
 ---
 

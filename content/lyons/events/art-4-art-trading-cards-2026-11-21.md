@@ -7,7 +7,7 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: arts
 recurring: "Third Saturdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Art 4 Art Trading Cards\" at 12:30 pm on 21 November on the lyons.librarycalendar.com feed"
 ---
 

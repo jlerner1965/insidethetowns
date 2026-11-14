@@ -9,7 +9,7 @@ category: civic
 organizer: "Carbon Valley Help Center and Weld Food Bank"
 organizerUrl: "https://carbonvalleyhelpcenter.org/"
 source: "https://carbonvalleyhelpcenter.org/event/holiday-food-drive/"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 9 am on the page"
 ---
 

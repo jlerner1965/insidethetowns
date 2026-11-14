@@ -12,7 +12,7 @@ cost: "Free"
 category: family
 recurring: "Thursdays at 11; no Babytime November 26"
 source: "https://johnstownmillikenpubliclibraries.us/"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 11 am on the page"
 ---
 

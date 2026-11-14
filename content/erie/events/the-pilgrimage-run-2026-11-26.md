@@ -9,7 +9,7 @@ cost: "$40 through November 10, $45 November 11–24, $50 on November 25, plus a
 category: sports
 timeNote: "Waves at 9:00, 9:01 and 9:02"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5197"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"The Pilgrimage Run\" at 9 am on 26 November on the erieco.gov feed"
 ---
 

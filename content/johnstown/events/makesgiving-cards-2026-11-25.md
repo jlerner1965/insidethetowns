@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/makesgiving-cards/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10820"
 sourceHash: "40a793a5d18d"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Makesgiving: Cards\" at 11 am on 25 November in the page's structured data"
 ---
 

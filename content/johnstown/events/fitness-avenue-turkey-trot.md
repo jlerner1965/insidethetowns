@@ -11,7 +11,7 @@ category: sports
 timeNote: "Kids' 1K 7:45 am; 5K 8 am"
 organizer: "Fitness Avenue"
 source: "https://runsignup.com/Race/CO/Johnstown/FitnessAvenueTurkeyTrot"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Fitness Avenue Turkey Trot 5K\" at 7:45 am on 26 November in the page's structured data"
 ---
 

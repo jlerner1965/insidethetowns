@@ -11,7 +11,7 @@ category: food
 organizer: "Stepping Stones of Windsor"
 organizerUrl: "https://steppingstonesofwindsor.com/"
 source: "https://steppingstonesofwindsor.com/november-15th-soup-luncheon-charity-fundraiser/"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): 15 November and 11 am on the page"
 ---
 

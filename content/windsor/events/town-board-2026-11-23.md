@@ -11,7 +11,7 @@ recurring: "Second and fourth Mondays at 7 pm"
 organizer: "Town of Windsor"
 organizerUrl: "https://www.windsorco.gov/"
 source: "https://www.windsorco.gov/81/Town-Board"
-verified: "2026-11-13"
+verified: "2026-11-14"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Town Board Regular Meeting\" at 7 pm on 23 November on the Town of Windsor: town events feed"
 ---
 
