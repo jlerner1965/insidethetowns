@@ -235,9 +235,17 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           style={hero.position ? `object-position:${hero.position}` : undefined}
           data-showpiece-hero
         />
-        {/* Shade only where the words are: a light one along the foot, and a pool behind the words that is gone before the middle of the picture. */}
-        <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.4)_0%,transparent_45%)]" aria-hidden="true"></div>
-        <div class="pointer-events-none absolute bottom-0 -left-[17rem] -z-10 h-full w-[64rem] max-desk:-left-[24rem]" aria-hidden="true" style="background: radial-gradient(ellipse 50% 72% at 50% 70%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.42) 48%, rgba(0, 0, 0, 0.18) 76%, rgba(0, 0, 0, 0) 100%)"></div>
+        {/*
+          Shade only where the words are. From 900px, where the words sit at
+          the left and the picture runs beside them: a light shade along the
+          foot and a pool behind the words, gone before the middle of the
+          picture and kept low, so a pale sky above the name stays pale.
+          Below 900px the words run the width of the band, so the shade
+          does too: a gradient up from the foot, under the words only.
+        */}
+        <div class="absolute inset-0 -z-10 max-desk:hidden bg-[linear-gradient(to_top,rgba(0,0,0,0.4)_0%,transparent_45%)]" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute bottom-0 -left-[17rem] -z-10 h-full w-[64rem] max-desk:hidden" aria-hidden="true" style="background: radial-gradient(ellipse 50% 62% at 50% 76%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.42) 48%, rgba(0, 0, 0, 0.18) 76%, rgba(0, 0, 0, 0) 100%)"></div>
+        <div class="absolute inset-0 -z-10 desk:hidden bg-[linear-gradient(to_top,rgba(0,0,0,0.62)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.12)_82%,transparent_100%)]" aria-hidden="true"></div>
       </Fragment>
     ) : (
       <svg class="pointer-events-none absolute inset-x-0 -bottom-px -z-10 h-[72px] w-full desk:h-[96px]" viewBox={`0 0 ${RIDGE_WIDTH} ${RIDGE_HEIGHT}`} preserveAspectRatio="none" aria-hidden="true">
@@ -254,9 +262,9 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <h1 id="town-name" class="mt-3 text-[3.5294rem] font-medium leading-[0.95] tracking-[-0.03em] text-white [font-variation-settings:normal] desk:text-[4.9412rem]">{town.name}</h1>
           <p class="mt-3.5 max-w-[40rem] text-base leading-[1.55] text-white">{intro}</p>
         </div>
-        {/* Over a photograph, the next date has a soft shade the size of the block (the guides' lineShade, Hero.astro), so a bright roof behind it cannot wash it out. */}
+        {/* Over a photograph from 900px, the next date has a soft shade the size of the block (the guides' lineShade, Hero.astro), so a bright roof behind it cannot wash it out. */}
         {nextUp && (
-          <div class:list={['mt-5 min-w-0 border-t border-white/50 pt-3 desk:mt-0', hero && 'relative before:pointer-events-none before:absolute before:-inset-x-8 before:-inset-y-4 before:-z-10 before:rounded-[2rem] before:bg-black/40 before:blur-[22px]']} data-next-up>
+          <div class:list={['mt-5 min-w-0 border-t border-white/50 pt-3 desk:mt-0', hero && 'relative desk:before:pointer-events-none desk:before:absolute desk:before:-inset-x-8 desk:before:-inset-y-4 desk:before:-z-10 desk:before:rounded-[2rem] desk:before:bg-black/40 desk:before:blur-[22px]']} data-next-up>
             <p class:list={[pub.cap, 'text-white']}>Next {town.name} date</p>
             <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal] desk:text-[1.4118rem]"><a href={`#${nextUp.record.slug}`} class="text-white underline decoration-1 underline-offset-[3px]">{nextUp.record.name}</a></p>
             <p class="mt-1 text-base text-white" data-next-day>{nextDay}</p>
