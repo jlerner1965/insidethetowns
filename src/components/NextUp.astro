@@ -21,6 +21,8 @@ interface Props {
   then: TeamGame[];
   /** The latest result, for when nothing is to come. */
   latest?: TeamGame;
+  /** A game newer than the latest result whose day has passed with no score read yet (latestAwaiting): it takes the band, "result to come". */
+  pending?: TeamGame;
   /** Every game played and none to come (seasonComplete). */
   complete: boolean;
   /** Where "The … season" button goes: the team's article on the school page, the season on its own. */
@@ -28,7 +30,7 @@ interface Props {
 }
 
 // "Today" on a date is the reader's, not the build's: data-relday (src/lib/relative-days.ts).
-const { school, mascot, next, then, latest, complete, seasonHref } = Astro.props;
+const { school, mascot, next, then, latest, pending, complete, seasonHref } = Astro.props;
 ---
 {next ? (
   <section class="on-dark bg-primary text-white" aria-labelledby="next-up">
@@ -70,6 +72,21 @@ const { school, mascot, next, then, latest, complete, seasonHref } = Astro.props
           </ol>
         </div>
       )}
+    </div>
+  </section>
+) : pending ? (
+  <section class="on-dark bg-primary text-white" aria-labelledby="last-out">
+    <div class="container-page py-14 md:py-20">
+      <p class="eyebrow text-white">Last time out · {pending.team.name}{pending.game.stage && ` · ${pending.game.stage}`}</p>
+      <h2 id="last-out" class="display mt-4 text-[2.75rem] sm:text-6xl lg:text-7xl">
+        {school} {where(pending.game)} {pending.game.opponent}
+      </h2>
+      <p class="mt-5 text-xl leading-snug md:text-2xl">
+        <time datetime={pending.game.date}>{formatDayLong(day(pending.game))}</time><span class="text-white"> · {placeText(pending.game)} · result to come</span>
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href={pending.game.url} rel="noopener" class="btn btn-light">{pending.game.chsaa && !pending.game.url.includes('maxpreps.com') ? 'The bracket on CHSAANow' : 'The game on MaxPreps'}</a>
+      </div>
     </div>
   </section>
 ) : latest ? (

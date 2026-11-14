@@ -16,7 +16,7 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
 import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { dayKey, formatShortDate, parseLocal } from '@/lib/dates';
-import { coming, hasData, leaguePlace, postseasonSource, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, sportsFullTitle, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
+import { coming, hasData, leaguePlace, postseasonSource, schoolCssVars, latestAwaiting, seasonComplete, seasonOf, sportsDataFor, sportsFullTitle, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -48,6 +48,7 @@ const ahead = coming(own).filter((c) => c.game.date >= today);
 const next = ahead[0];
 const then = ahead.slice(1);
 const latest = team.results[0] ? { team, game: team.results[0] } : undefined;
+const pending = latestAwaiting(own, now);
 const read = team.fetched ? new Date(team.fetched) : undefined;
 // A postseason game from CHSAA's bracket rather than MaxPreps (src/config/postseason.ts) names its source too.
 const bracket = postseasonSource([team]);
@@ -109,7 +110,7 @@ const jsonLd = [
     </div>
   </header>
 
-  <NextUp school={cfg.maxprepsName} {mascot} {next} {then} {latest} complete={seasonComplete(own, now)} seasonHref={() => '#season'} />
+  <NextUp school={cfg.maxprepsName} {mascot} {next} {then} {latest} {pending} complete={seasonComplete(own, now)} seasonHref={() => '#season'} />
 
   <section class="band band-paper" id="season">
     <div class="container-page">

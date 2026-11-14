@@ -378,37 +378,74 @@ export function season(team: SportData): SportGame[] {
   return [...dedupeResults(team.results)].reverse().concat(team.upcoming);
 }
 
-/**
- * Every team's season is played out: no game to come from today on, and at
- * least one result. The sports page's band then says "Regular season
- * complete" rather than "nothing scheduled yet": a team with nine results
- * and no tenth game listed has finished its regular season (Elizabeth
- * football, 9-0, 25 October 2026); a playoff round not yet on MaxPreps is
- * the same from here. Nothing is said about a team with no results at all.
- */
 /** The last result more than this many days behind, with nothing to come: the season is over (seasonOver). */
 export const SEASON_OVER_DAYS = 7;
 
 /**
+ * Games listed to come whose day has passed with no score read yet: the
+ * result is still to come, not missing. Scores are read a few times a week
+ * (sports-maxpreps.yml), so a state game on a Thursday sits in `upcoming`
+ * until the next read (Berthoud volleyball at state, 12 November 2026, read
+ * on the 11th). Newest first.
+ */
+export function awaitingResult(team: Pick<SportData, 'upcoming'>, today: string): SportGame[] {
+  return team.upcoming.filter((g) => g.date < today).sort((a, b) => b.date.localeCompare(a.date));
+}
+
+/** The newest game a team has played or was listed to play before `today`: its last result, or a game still waiting on its score. */
+function lastGameDate(team: Pick<SportData, 'results' | 'upcoming'>, today: string): string | undefined {
+  return [...team.results.map((g) => g.date), ...awaitingResult(team, today).map((g) => g.date)].sort().at(-1);
+}
+
+/**
  * One team's season is over: at least one result, no game to come, and the
- * last result more than SEASON_OVER_DAYS behind `today` (a day key), so a
+ * last game more than SEASON_OVER_DAYS behind `today` (a day key), so a
  * team waiting on a playoff draw is not called finished the morning after
- * a win. The team cards and the team page then say "Season over · final
- * record" rather than leaving the next game blank (the owner's brief, 6
- * November 2026).
+ * a win. A game listed whose day has passed without a score counts as the
+ * last game (awaitingResult): a team that played at state yesterday is not
+ * "season over" on the strength of last week's regional (the review of 14
+ * November 2026). The team cards and the team page then say "Season over ·
+ * final record" rather than leaving the next game blank (the owner's brief,
+ * 6 November 2026).
  */
 export function seasonOver(team: Pick<SportData, 'results' | 'upcoming' | 'overall'>, today: string): boolean {
-  if (!team.overall || team.results.length === 0) return false;
+  return Boolean(team.overall) && playedOut(team, today);
+}
+
+/** At least one result, nothing to come, and the last game more than SEASON_OVER_DAYS behind. */
+function playedOut(team: Pick<SportData, 'results' | 'upcoming'>, today: string): boolean {
+  if (team.results.length === 0) return false;
   if (team.upcoming.some((g) => g.date >= today)) return false;
-  const last = [...team.results].map((g) => g.date).sort().at(-1)!;
+  const last = lastGameDate(team, today)!;
   const gap = (Date.parse(`${today}T12:00:00Z`) - Date.parse(`${last}T12:00:00Z`)) / 86_400_000;
   return gap > SEASON_OVER_DAYS;
 }
 
+/**
+ * Every team with a result has finished (seasonOver, with its week's
+ * guard): the sports page's band then says "season over" rather than
+ * "nothing scheduled yet". It once asked only that nothing was to come, and
+ * four volleyball pages read "season over · final record 19–6" the day
+ * after their state game (the review of 14 November 2026).
+ */
 export function seasonComplete(data: SportsData, now = new Date()): boolean {
   const today = dayKey(now);
   const played = data.sports.filter((t) => t.results.length > 0);
-  return played.length > 0 && !data.sports.some((t) => t.upcoming.some((g) => g.date >= today));
+  return played.length > 0 && played.every((t) => playedOut(t, today)) && !data.sports.some((t) => t.upcoming.some((g) => g.date >= today));
+}
+
+/**
+ * The newest game across the teams whose day has passed with no score yet
+ * (awaitingResult), when it is newer than every result: the band above the
+ * season says "result to come" for it rather than calling the season over.
+ */
+export function latestAwaiting(data: SportsData, now = new Date()): TeamGame | undefined {
+  const today = dayKey(now);
+  const newestResult = data.sports.flatMap((t) => t.results.map((g) => g.date)).sort().at(-1) ?? '';
+  return data.sports
+    .flatMap((team) => awaitingResult(team, today).slice(0, 1).map((game) => ({ team, game })))
+    .filter((c) => c.game.date >= newestResult)
+    .sort((a, b) => b.game.date.localeCompare(a.game.date))[0];
 }
 
 /**
