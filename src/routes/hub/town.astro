@@ -223,14 +223,24 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   <section class:list={['on-dark relative isolate overflow-hidden bg-primary text-white', hero && 'desk:flex desk:min-h-[min(52vh,480px)] desk:flex-col desk:justify-end']} data-town-hero={hero ? 'photo' : ridge!.terrain} data-band aria-labelledby="town-name">
     {hero ? (
       <Fragment>
+        {/*
+          Loaded as the guides' hero is (Hero.astro): up to 1920px at
+          quality 72, and `priority` (eager, high fetch priority, decoded
+          with the page). Until 14 November 2026 it went to 2400px at the
+          default quality and decoded apart from the page, and the
+          photograph came in a beat after the words: about 640 KB on a
+          laptop against 340 KB now, averaged over the hub's photographs.
+          The band is at most 480px tall on a desktop, so the 2400px
+          picture showed nothing the 1920px one does not.
+        */}
         <Image
           src={hero.src}
           alt={hero.alt}
-          widths={[640, 960, 1280, 1920, 2400]}
+          widths={[640, 960, 1280, 1920]}
           sizes="100vw"
           layout="full-width"
-          loading="eager"
-          fetchpriority="high"
+          quality={72}
+          priority
           class="absolute inset-0 -z-20 h-full! w-full object-cover"
           style={hero.position ? `object-position:${hero.position}` : undefined}
           data-showpiece-hero
