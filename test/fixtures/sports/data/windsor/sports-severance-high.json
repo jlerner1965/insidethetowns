@@ -1,0 +1,159 @@
+{
+  "generated": "2026-11-11T19:50:30.102Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/football/",
+      "fetched": "2026-11-11T19:50:30.102Z",
+      "maxprepsUpdated": "2026-11-11T19:48:12",
+      "overall": "8-3",
+      "league": {
+        "record": "6-0",
+        "name": "3A Cache la Poudre",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Lewis-Palmer",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/football/game/lewis-palmer-monument-vs-severance/11-6-2026/?c=603bf737-f32c-48dc-99ab-700c307e7177",
+          "stage": "State Football Playoffs",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 47,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-severance/10-30-2026/?c=44ee4e4d-38a3-4422-89a5-a346fd2f328c",
+          "result": "W",
+          "score": {
+            "us": 32,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Skyline",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-skyline-longmont/10-23-2026/?c=68091a01-16b3-4b20-9ba9-88b20f65bc22",
+          "result": "W",
+          "score": {
+            "us": 47,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-thompson-valley-loveland/10-16-2026/?c=c26afbbd-a3cf-4081-a6a0-4043762721b1",
+          "result": "W",
+          "score": {
+            "us": 51,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-severance/10-9-2026/?c=b4b917a2-22f5-4e50-831b-d07ca59dfbe9",
+          "result": "W",
+          "score": {
+            "us": 53,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/greeley-central-vs-severance/10-1-2026/?c=830f62d0-16a6-4e32-b4bd-4470aebce485",
+          "result": "W",
+          "score": {
+            "us": 40,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-windsor/9-25-2026/?c=cd54dcc4-3095-4cb4-9b1a-0eb8b978a336",
+          "result": "W",
+          "score": {
+            "us": 34,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/mead-longmont-vs-severance/9-18-2026/?c=666a6b1d-b0b9-4a67-b72f-f370ec7ddfbf",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-timnath/9-4-2026/?c=c6f4cd19-6925-4818-b0fb-25e9deee7443",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 19
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Wellington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/severance-vs-wellington/8-28-2026/?c=c2bfe183-24f4-40fb-8977-5532fdd0b77c",
+          "result": "L",
+          "score": {
+            "us": 13,
+            "them": 20
+          }
+        },
+        {
+          "date": "2026-08-21",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/poudre-fort-collins-vs-severance/8-21-2026/?c=ac23b5d2-4529-4dec-8d75-e00d6cc7b87b",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 13
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-11-13",
+          "opponent": "Pueblo East",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/football/game/pueblo-east-vs-severance/11-13-2026/?c=fd75e3bc-5732-4c30-a391-0aade7b068f1",
+          "stage": "State Football Playoffs",
+          "neutral": true,
+          "venue": "Dutch Clark",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    }
+  ]
+}

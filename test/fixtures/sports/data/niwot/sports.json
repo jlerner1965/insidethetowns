@@ -1,0 +1,329 @@
+{
+  "generated": "2026-11-11T19:43:49.572Z",
+  "sports": [
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/volleyball/",
+      "fetched": "2026-11-11T19:43:49.572Z",
+      "maxprepsUpdated": "2026-11-11T17:50:07",
+      "overall": "18-7",
+      "league": {
+        "record": "12-2",
+        "name": "5A/4A/3A Granite Peaks",
+        "place": "2nd"
+      },
+      "results": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Fruita Monument",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fruita-monument-vs-niwot/11-7-2026/?c=f920a539-db22-4be6-a77e-fa0c00c11ad2",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Conifer",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/conifer-vs-niwot/11-7-2026/?c=6d123202-0e75-4a36-a151-1e45121d750d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Lutheran",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lutheran-parker-vs-niwot/10-31-2026/?c=fe505bce-d285-4393-bb09-96994ab70a60",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Legend",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/legend-parker-vs-niwot/10-31-2026/?c=91c8bbb4-7887-4e39-b627-e7e0c6b79806",
+          "neutral": true,
+          "venue": "Cheyenne Mtn Tournament - World Arena - Colo Spgs",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Fossil Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fossil-ridge-fort-collins-vs-niwot/10-30-2026/?c=0d7c07ea-2c1b-4531-b375-39e2c7952727",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "The Broadmoor World Arena",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Eaton",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/eaton-fightin-reds-vs-niwot/10-30-2026/?c=cef49504-7d7b-4e01-bde5-c6b199cdbf9b",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Colorado Invite in Colorado Springs",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Holy Family",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/holy-family-broomfield-vs-niwot/10-27-2026/?c=aa912df5-c7e1-44b0-9d13-7456ad916a13",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mead-longmont-vs-niwot/10-22-2026/?c=c81298d1-7ba6-4b62-ba5d-7e2f37dffd52",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/niwot-vs-silver-creek-longmont/10-20-2026/?c=5450d115-1ec9-4d32-817d-38376070f8e8",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-niwot/10-15-2026/?c=52cbd6df-596d-4482-97c2-f6091e300335",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-niwot/10-13-2026/?c=2bda518d-fd71-4c99-8e73-6669031db467",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Longmont",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-niwot/10-8-2026/?c=88d1eefa-d6fe-405c-943e-c30109700dfa",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/monarch-louisville-vs-niwot/10-6-2026/?c=38346c10-08c7-4724-9607-e15b9112ea5d",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/holy-family-broomfield-vs-niwot/10-1-2026/?c=5b7bcf57-fa99-44e0-9808-1f0fd199061d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mead-longmont-vs-niwot/9-29-2026/?c=e04c24e1-b470-41d3-81e8-d352c1f7d29b",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-23",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/niwot-vs-silver-creek-longmont/9-23-2026/?c=6b61904e-b164-4aec-ba0c-c5494db05b9c",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-niwot/9-22-2026/?c=1bf38ec9-99b7-4108-ad4c-a4f042161ede",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-niwot/9-17-2026/?c=cd6ca3c2-0b75-4234-ae21-32685d4fbde4",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Longmont",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-niwot/9-15-2026/?c=f6f26da3-6a8c-4c37-97a4-fe77c8d1a2b1",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/monarch-louisville-vs-niwot/9-10-2026/?c=bb5abc67-1e54-4d8e-a2df-0172658f0960",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Cheyenne Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/cheyenne-mountain-colorado-springs-vs-niwot/9-4-2026/?c=743fc1d1-35f2-433c-9a84-49e3af9d5e38",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Alamosa",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/alamosa-vs-niwot/8-29-2026/?c=5fc3460d-4b51-4b9b-b714-6711cddb19dc",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Eaton Tournament",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "The Classical Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/niwot-vs-the-classical-academy-colorado-springs/8-29-2026/?c=f8e577fc-16a4-4ba2-891c-97aa246c31f5",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Mountain View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-niwot/8-28-2026/?c=aca1873d-c40c-4c4b-93d6-4d29e5634304",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Berthoud",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-niwot/8-28-2026/?c=ee987482-2209-45b2-abac-78f19b653450",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-11-12",
+          "opponent": "Mead",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mead-longmont-vs-niwot/11-12-2026/?c=91bdf849-0316-483b-b8f7-d78a4dcfe36c",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "time": "11:00",
+          "venue": "Denver Coliseum"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    }
+  ]
+}

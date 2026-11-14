@@ -1018,7 +1018,10 @@ test('a state game whose day has passed with no score read is "result to come", 
 test('what CHSAA settles is applied over MaxPreps: the volleyball state openers at the Denver Coliseum, Berthoud’s hosted regional at home, one spelling of the league (audit of 8 November 2026)', async () => {
   const { correctedData, sportsDataFor } = await import('../src/lib/school-sports.ts');
   // Windsor follows two schools since 9 November 2026; Windsor High's file is sports-windsor-high.json.
-  const fileOf = (town: string) => (town === 'windsor' ? 'data/windsor/sports-windsor-high.json' : `data/${town}/sports.json`);
+  // The files as the run of 11 November 2026 wrote them (test/fixtures/sports/_README.md): the live
+  // ones are rewritten after every run, and once the state openers were played they carried them as
+  // results and this failed with nothing wrong (14 November 2026).
+  const fileOf = (town: string) => `test/fixtures/sports/${town === 'windsor' ? 'data/windsor/sports-windsor-high.json' : `data/${town}/sports.json`}`;
   const schoolOf = (town: string) => schoolSportsFor(town, town === 'windsor' ? 'windsor-high' : undefined)!;
   const read = (town: string) => JSON.parse(readFileSync(fileOf(town), 'utf8')) as SportsData;
   const files = Object.fromEntries(['berthoud', 'niwot', 'windsor'].map((town) => [`/${fileOf(town)}`, read(town)]));
@@ -1054,9 +1057,8 @@ test('what CHSAA settles is applied over MaxPreps: the volleyball state openers 
   assert.equal(berthoud.league?.name, '4A/3A Patriot Peaks');
 
   // Twice is once; the file read as-is is untouched. Checked against the file's own
-  // text, not a value in it: the nightly run rewrites data/berthoud/sports.json, and
-  // the day MaxPreps itself filed the state opener as neutral this failed on main
-  // (9 November 2026) with nothing wrong.
+  // text, not a value in it: the day MaxPreps itself filed the state opener as
+  // neutral this failed on main (9 November 2026) with nothing wrong.
   const raw = read('berthoud');
   const asRead = JSON.stringify(raw);
   const once = correctedData(raw, schoolSportsFor('berthoud')!);
