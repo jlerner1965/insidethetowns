@@ -14,6 +14,19 @@
  * fails if the guide does not build it.
  */
 export const HUB_MOVED: Readonly<Record<string, string>> = {
+  // A live guide's town at the hub's address for a town: the guide itself
+  // (the review of 14 November 2026: insidethetowns.com/erie/ was "page not
+  // found" while /golden/ worked). Carbon Valley's three towns go to its home.
+  '/berthoud': 'https://insideberthoud.com/',
+  '/erie': 'https://insideerie.com/',
+  '/johnstown': 'https://insidejohnstown.com/',
+  '/windsor': 'https://insidewindsorco.com/',
+  '/carbon-valley': 'https://carbonvalleyguide.com/',
+  '/frederick': 'https://carbonvalleyguide.com/',
+  '/firestone': 'https://carbonvalleyguide.com/',
+  '/dacono': 'https://carbonvalleyguide.com/',
+  '/lyons': 'https://insidelyons.com/',
+  '/niwot': 'https://insideniwot.com/',
   '/severance': 'https://insidewindsorco.com/severance/',
   '/severance/trick-or-treat-parade': 'https://insidewindsorco.com/events/trick-or-treat-parade/',
   // The guide's Town Christmas page carries its date (/events/town-christmas-2026-12-12/);

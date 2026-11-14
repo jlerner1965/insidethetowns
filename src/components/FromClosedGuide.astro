@@ -1,0 +1,46 @@
+---
+/**
+ * One line on a hub page for a reader a closed guide sent here (the review
+ * of 14 November 2026; src/lib/closed-guides.ts): "Inside Golden has
+ * closed. Golden's annual events and outdoor dates are kept here; the
+ * nearest full guide is Inside Erie." Hidden until the script finds a
+ * `?from=` it knows, which it then takes off the address, so a shared or
+ * bookmarked link is the page's own.
+ */
+import { allTowns, liveTowns } from '@/config';
+import { closedGuideNotes } from '@/lib/closed-guides';
+import { FROM_PARAM } from '@/lib/fold';
+
+const notes = closedGuideNotes(
+  allTowns.filter((t) => t.hubPage),
+  liveTowns(),
+);
+---
+<div data-from-closed-guide hidden class="border-b border-line-soft bg-highlight-soft">
+  <p class="container-page py-3 text-[0.9375rem] leading-snug text-ink">
+    <strong class="font-semibold" data-guide></strong> has closed. <span data-town></span>’s annual events and outdoor dates are kept here<span data-nearest hidden>; the nearest full guide is <a class="font-semibold underline" href="/"></a></span>.
+  </p>
+</div>
+<script is:inline define:vars={{ notes, param: FROM_PARAM }}>
+  (() => {
+    let url;
+    try { url = new URL(location.href); } catch { return; }
+    const from = url.searchParams.get(param);
+    if (!from) return;
+    url.searchParams.delete(param);
+    try { history.replaceState(history.state, '', url.pathname + (url.search || '') + url.hash); } catch {}
+    const note = Object.prototype.hasOwnProperty.call(notes, from) ? notes[from] : undefined;
+    const box = document.querySelector('[data-from-closed-guide]');
+    if (!note || !box) return;
+    box.querySelector('[data-guide]').textContent = note.guide;
+    box.querySelector('[data-town]').textContent = note.town;
+    if (note.nearest) {
+      const near = box.querySelector('[data-nearest]');
+      const link = near.querySelector('a');
+      link.textContent = note.nearest.name;
+      link.href = note.nearest.url;
+      near.hidden = false;
+    }
+    box.hidden = false;
+  })();
+</script>

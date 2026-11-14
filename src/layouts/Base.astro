@@ -28,6 +28,7 @@ import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
 import Plausible from '@/components/Plausible.astro';
 import TrackClicks from '@/components/TrackClicks.astro';
+import FromClosedGuide from '@/components/FromClosedGuide.astro';
 import SEO from '@/components/SEO.astro';
 import { siteJsonLd } from '@/lib/seo';
 import { searchType } from '@/lib/network-search';
@@ -113,6 +114,8 @@ const cssVars = [
     </a>
     {/* A page may draw its own masthead and footer (the hub's home); every other page has the site's. */}
     {Astro.slots.has('header') ? <slot name="header" /> : <Header />}
+    {/* A closed guide's readers, sent here by its redirects: one line saying so (src/lib/closed-guides.ts). */}
+    {site.kind === 'hub' && <FromClosedGuide />}
     {/* The kind labels a result ("Place · Niwot"); the filter puts it under the search page's type buttons (src/lib/network-search.ts). */}
     <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined} data-pagefind-filter={searchable && searchType(kind) ? `type:${searchType(kind)}` : undefined}>
       <slot />

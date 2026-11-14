@@ -137,6 +137,8 @@ test('the links into folded guides and to Niwot’s events are among those check
   for (const l of folded) {
     const town = config(l.town);
     const page = `https://insidethetowns.com/${town.hubPage!.town}/`;
+    // Each destination says where the reader came from (review of 14 November 2026).
+    const from = `?from=${l.domain}`;
     const rule = hostRule(l.domain, `/${l.collection}/${l.slug}/`);
     assert.ok(rule, `${l.domain}: no rule takes /${l.collection}/${l.slug}/`);
     assert.equal(rule.permanent, true);
@@ -144,9 +146,9 @@ test('the links into folded guides and to Niwot’s events are among those check
     // page of its own on the hub (data/hub/fold-events.json, 13 November
     // 2026), to that page under the town's: /golden/trick-or-treat-street/.
     if (l.collection === 'events' && rule.source !== '/events/(.*)') {
-      assert.match(rule.destination, new RegExp(`^${page.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[a-z0-9-]+/$`), `${l.domain}/${l.collection}/${l.slug}/`);
+      assert.match(rule.destination, new RegExp(`^${page.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[a-z0-9-]+/\\?from=${l.domain.replace(/\./g, '\\.')}$`), `${l.domain}/${l.collection}/${l.slug}/`);
     } else {
-      assert.equal(rule.destination, l.collection === 'events' ? `${page}#traditions` : page, `${l.domain}/${l.collection}/${l.slug}/`);
+      assert.equal(rule.destination, l.collection === 'events' ? `${page}${from}#traditions` : `${page}${from}`, `${l.domain}/${l.collection}/${l.slug}/`);
     }
   }
   const quietEvents = links.filter((l) => liveSlugs.has(l.town) && !listsEvents(config(l.town)) && l.collection === 'events');
