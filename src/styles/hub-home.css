@@ -45,10 +45,10 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 /* The full width up to 1120px: the body is a flex column (global.css), where an auto margin alone would shrink the footer to its content. */
 .hh .hh-wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; }
 .hh .hh-nr { font-family: 'Newsreader Variable', Georgia, serif; font-weight: 500; }
-.hh .hh-label { font-size: 0.75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--hh-meta); }
+.hh .hh-label { font-size: 0.8125rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--hh-meta); }
 .hh .hh-label-pine { color: var(--hh-pine); }
-.hh .hh-meta { font-size: 0.875rem; line-height: 1.45; color: var(--hh-secondary); }
-.hh .hh-chk { font-size: 0.8125rem; line-height: 1.45; color: var(--hh-meta); }
+.hh .hh-meta { font-size: 1rem; line-height: 1.45; color: var(--hh-secondary); }
+.hh .hh-chk { font-size: 0.875rem; line-height: 1.45; color: var(--hh-meta); }
 /* A text link's tap target: 44px tall, and 8px wider each side than its words (the margin keeps the words where they were), so even "Erie" is 44px across. */
 .hh .hh-tl { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 8px; margin-inline: -8px; }
 .hh .hh-strong { font-weight: 600; }
@@ -112,7 +112,7 @@ body.hh > a[href="#main"]:focus { border-radius: 0; background: var(--hh-page); 
 .hh .hh-ttl-sm { font-size: 1.125rem; }
 .hh .hh-stack { display: flex; flex-direction: column; gap: 4px; }
 /* Why a weekend listing earned the space ("Free · Half an hour"), from its fields. */
-.hh .hh-why { font-size: 0.8125rem; line-height: 1.45; font-weight: 600; color: var(--hh-ink); }
+.hh .hh-why { font-size: 0.9375rem; line-height: 1.45; font-weight: 600; color: var(--hh-ink); }
 .hh .hh-all-weekend { margin-top: 6px; }
 .hh .hh-h3 { margin: 4px 0 16px; font-size: 1.25rem; line-height: 1.2; }
 .hh .hh-h3-scores { margin: 28px 0 8px; }
