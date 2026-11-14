@@ -208,9 +208,9 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
   )}
   <div data-events-empty hidden={!quiet || later.length > 0} class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
     {/* "Nothing listed" is a fact about this guide; "nothing happening" would be a claim about the town. */}
-    <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
+    <p>Nothing listed in {town.name} for the rest of this week yet.</p>
     <p class="mt-2 text-[0.9375rem]">
-      Know something that should be here? <a href="/submit-event/" class="inline-block -my-3 py-3 text-primary underline">Send it in</a> and it goes up once it is checked.
+      Know of something? <a href="/submit-event/" class="inline-block -my-3 py-3 text-primary underline">Add it here</a>.
     </p>
   </div>
   {pick && (
@@ -347,9 +347,9 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
   <div data-events-scope>
   <div data-events-empty hidden={!quiet || later.length > 0} class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
     {/* "Nothing listed" is a fact about this guide; "nothing happening" would be a claim about the town. */}
-    <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
+    <p>Nothing listed in {town.name} for the rest of this week yet.</p>
     <p class="mt-2 text-[0.9375rem]">
-      Know something that should be here? <a href="/submit-event/" class="inline-block -my-3 py-3 text-primary underline">Send it in</a> and it goes up once it is checked.
+      Know of something? <a href="/submit-event/" class="inline-block -my-3 py-3 text-primary underline">Add it here</a>.
     </p>
   </div>
   {pick && (

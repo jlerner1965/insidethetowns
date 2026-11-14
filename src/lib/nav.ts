@@ -37,9 +37,11 @@
  *   writing two clicks down, reached from a tile or the footer, and a visitor
  *   who left from the first screen never learned it was there.
  *
- * Every other section (This weekend, the directory, Get involved, Updates,
- * and whichever of the pairs above is not in the menu) is in the footer on
- * every page. Sentence case throughout, in the row and in the
+ * Every other section (the full events calendar, This weekend, Every year,
+ * Athletics, the directory, Get involved, Updates, and whichever of the
+ * pairs above is not in the menu) is in the footer on every page
+ * (src/components/Footer.astro; the calendar, Every year and Athletics since
+ * the review of 14 November 2026). Sentence case throughout, in the row and in the
  * phone panel alike (design pass, 26 October 2026: the row was set in small
  * capitals, and the flagship home page ran a second menu of its own).
  */

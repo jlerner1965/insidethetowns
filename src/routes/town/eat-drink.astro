@@ -71,7 +71,7 @@ const structured = [
       picks and the articles: the practical controls before the reading. */}
   {guide && <PicksGuide page={guide} places={places} part="lead" />}
   <div id="directory" class="scroll-mt-6">
-    <PlaceDirectory places={places} heading={guide ? 'Every place to eat and drink' : 'Places to eat and drink'} filterable emptyMessage="No places listed yet." />
+    <PlaceDirectory places={places} heading={guide ? 'Every place to eat and drink' : 'Places to eat and drink'} filterable emptyMessage="No places listed yet." eagerLead />
   </div>
   {guide && <PicksGuide page={guide} places={places} part="rest" />}
   {articles.length > 0 && (

@@ -21,19 +21,26 @@
  */
 import { quickAnswerLinks, type QuickAnswerInputs } from '@/lib/quick-answers';
 
-type Props = QuickAnswerInputs;
+type Props = QuickAnswerInputs & {
+  /** Right under What's happening, white on white: take back most of its closing padding. */
+  tuck?: boolean;
+};
 
+const { tuck = false } = Astro.props;
 const links = quickAnswerLinks(Astro.props);
 ---
 {/* On the page, not in a band of its own: a stacked list on white, in the
     guide's colour, the width of What's happening above it, as the owner's
     mock-up had it. A full-width paper stripe with the links in one row read
     as a stray band between two white sections (the owner, 8 November 2026,
-    on the live page). It sits close under All events (the negative margin
-    takes back most of What's happening's closing padding) and leaves the
-    space below to the next band's own. */}
+    on the live page). Right under What's happening (`tuck`) it sits close
+    under All events, the negative margin taking back most of that band's
+    closing padding. Anywhere else it keeps a compact band's own spacing
+    (the review of 14 November 2026: once paper bands such as Worth knowing
+    and For families came between, the margin pulled the list up over them,
+    cutting off Niwot's email signup text by 34px). */}
 {links.length >= 2 && (
-  <section class="band-white -mt-8 md:-mt-14" aria-label="Quick answers">
+  <section class:list={['band-white', tuck ? '-mt-8 md:-mt-14' : 'band-compact']} aria-label="Quick answers">
     <div class="container-page">
       <ul class="max-w-3xl divide-y divide-line-soft border-y border-line-soft">
         {links.map((l) => (

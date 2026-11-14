@@ -58,6 +58,31 @@ const CLOSURE_RE = /\b(closed|closure|no (?:storytime|story time|class|school|me
 /** A calendar entry that is a service schedule, not something to attend. */
 const SERVICE_RE = /\b(trash|recycling|garbage|street sweeping|snow removal|hydrant flushing|water shut-?off|leaf pickup|bulk pickup)\b/i;
 
+/**
+ * A school's dress-up or spirit day: something the students do, not an
+ * event the public can attend. Coal Ridge Middle School's calendar put
+ * fifteen on Carbon Valley in one run ("Grinch Day - wear green or dress
+ * like a Whoville character"; the review of 14 November 2026).
+ */
+const DRESS_UP_RE = /\b(?:wear (?:your|you|a|an|white|green|red|pink|blue|black|orange|purple|gold|silver|pajamas|pjs|team colors)\b|dress (?:like|up as|as) |dress[- ]up day|spirit (?:day|week)|pajama day|pj day|crazy (?:hair|socks?|hat) day|ugly sweater day|color wars|picture day|go all out with your)/i;
+
+/** A source that is a school's own calendar, by its name: "Coal Ridge Middle School (school calendar)", "Thunder Valley K-8". */
+const SCHOOL_SOURCE_RE = /\b(?:school|k-?8|academy)\b/i;
+
+/**
+ * Starts on a weekday before 3 pm, Denver time: a school's day. The rest of
+ * the fifteen ("Tinsel & Bling - Sparkles, Sequins & anything that
+ * shines", 8 to 9 am on a Wednesday) name no clothes a pattern can catch;
+ * a concert or a game the public comes to is in the evening or at the
+ * weekend.
+ */
+function duringSchoolHours(start: Date): boolean {
+  const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', weekday: 'short', hour: 'numeric', hourCycle: 'h23' }).formatToParts(start);
+  const weekday = parts.find((p) => p.type === 'weekday')?.value ?? '';
+  const hour = Number(parts.find((p) => p.type === 'hour')?.value ?? '0');
+  return !['Sat', 'Sun'].includes(weekday) && hour < 15;
+}
+
 /** What a feed puts in "location" when the event is a call or a mailing address, not a place. */
 const NOT_A_PLACE_RE = /https?:|www\.|@|\b(?:microsoft teams|zoom|webex|google meet|meeting id|passcode|dial in|conference id|online|virtual|tbd|tba|p\.?o\.? box)\b|_{3,}/i;
 
@@ -144,6 +169,8 @@ export function decideEvent(text: string, ctx: EventContext): Verdict {
   const said = `${d.title}\n${body.replace(/<!--[\s\S]*?-->/g, '')}`.match(CALLED_OFF_RE);
   if (said) reasons.push(`the organizer's text says "${said[0]}"; the status is a person's call`);
   if (SERVICE_RE.test(d.title)) reasons.push('title reads as a service schedule, not an event');
+  if (DRESS_UP_RE.test(d.title)) reasons.push('title reads as a school dress-up or spirit day, not a public event');
+  else if (source && SCHOOL_SOURCE_RE.test(source.name) && !d.allDay && duringSchoolHours(d.start)) reasons.push('on a school calendar during the school day: a school-day activity, not a public event');
   const startDay = dayKey(d.start);
   if (startDay < ctx.today) reasons.push(`starts ${startDay}, already past`);
   const daysAhead = Math.round((d.start.getTime() - new Date(`${ctx.today}T12:00:00Z`).getTime()) / 86_400_000);

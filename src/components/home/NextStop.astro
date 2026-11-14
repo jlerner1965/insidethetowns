@@ -72,6 +72,11 @@ const tiles = [
     ? { label: 'Living here', line: lines.living, href: '/living-here/', ...photo(best(['venue']), 'living') }
     : { label: 'Moving here', line: lines.living, href: '/moving-here/', ...photo(best(['venue']), 'living') },
 ];
+// A tile with no photograph was a flat block of the guide's colour beside
+// two photographs (Carbon Valley, the review of 14 November 2026). Unless
+// all three have one, the tiles are the plain link rows at every width,
+// as on a phone.
+const cards = tiles.every((t) => !!t.src);
 ---
 <section class="band-compact band-white" aria-labelledby="next-stop">
   <div class="container-page">
@@ -79,11 +84,26 @@ const tiles = [
     {/* A phone's row is a plain link, a tap target tall. From 640px the
         card's gradient runs from the bottom, under the words, never lighter
         than 60% black there, so white reads at 5:1 or better on any photograph. */}
+    {!cards ? (
+      <ul class="mt-4 grid border-t border-line-soft sm:mt-5 sm:grid-cols-3 sm:gap-x-6 sm:border-0">
+        {tiles.map((t) => (
+          <li>
+            <a href={t.href} class="flex min-h-[44px] flex-col justify-center border-b border-line-soft py-2.5 no-underline sm:border-t-2 sm:border-b-0 sm:border-t-primary sm:py-3">
+              <span class="block text-[1rem] font-semibold leading-tight text-primary sm:text-xl">{t.label} <span aria-hidden="true">→</span></span>
+              <span class="mt-0.5 block text-[0.9375rem] leading-snug text-ink-muted">{t.line}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
     <ul class="mt-4 grid border-t border-line-soft sm:mt-5 sm:grid-cols-3 sm:gap-4 sm:border-0 md:gap-6">
       {tiles.map((t) => (
         <li>
           <a href={t.href} class:list={['group relative isolate flex min-h-[44px] flex-col justify-center border-b border-line-soft py-2.5 no-underline sm:block sm:aspect-[4/3] sm:min-h-0 sm:overflow-hidden sm:rounded-lg sm:border-0 sm:bg-primary sm:p-0']}>
-            {t.src && <Image src={t.src} alt={t.alt} width={720} height={720} sizes="(min-width: 640px) 400px, 1px" class="absolute inset-0 -z-20 hidden h-full! w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:block" />}
+            {/* Empty alt: the photograph is decoration inside a link whose
+                words say where it goes; its description made the link's name
+                230 characters long (the review of 14 November 2026). */}
+            {t.src && <Image src={t.src} alt="" width={720} height={720} sizes="(min-width: 640px) 400px, 1px" class="absolute inset-0 -z-20 hidden h-full! w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:block" />}
             {t.src && <span class="absolute inset-0 -z-10 hidden bg-[linear-gradient(to_top,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.35)_45%,transparent_100%)] sm:block" aria-hidden="true"></span>}
             {/* A stock photograph's licence wants its credit beside the
                 picture: the hero's 8px credit, in the card's top corner,
@@ -97,5 +117,6 @@ const tiles = [
         </li>
       ))}
     </ul>
+    )}
   </div>
 </section>

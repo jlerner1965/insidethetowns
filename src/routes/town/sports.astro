@@ -40,7 +40,7 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown, listsEvents } from '@/config';
 import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, pageSeasonLabel, postseasonSource, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
+import { bigGame, coming, gameDay as day, latestResult, pageSeasonLabel, postseasonSource, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, latestAwaiting, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -77,6 +77,7 @@ const schoolStyle = schools.length === 1 ? schoolCssVars(cfg) : undefined;
 const next = bigGame(data, now);
 const then = coming(data).filter((c) => c.game.date >= today && c.game.url !== next?.game.url);
 const latest = latestResult(data);
+const pending = latestAwaiting(data, now);
 const board = recentResults(data, 6);
 // A postseason game from CHSAA's bracket rather than MaxPreps (src/config/postseason.ts) names its source too.
 const bracket = postseasonSource(sports);
@@ -205,7 +206,7 @@ const jsonLd = [
   {/* The one thing most readers came for: the next game, big, in the
       school's colour, with the rest of the week beside it; off season, the
       last result (NextUp). */}
-  <NextUp school={cfg.maxprepsName} {mascot} {next} {then} {latest} complete={seasonComplete(data, now)} seasonHref={(t) => `#${t.key}`} />
+  <NextUp school={cfg.maxprepsName} {mascot} {next} {then} {latest} {pending} complete={seasonComplete(data, now)} seasonHref={(t) => `#${t.key}`} />
 
   {/* The scoreboard: the latest scores across the teams, each as the two
       lines a scores ticker shows, the winner in the heavier ink. */}
@@ -263,7 +264,7 @@ const jsonLd = [
       <NewsletterSignup town={town} id="sports" variant="home" class="mb-12" />
       <SectionHeader eyebrow="Every team" title={`The ${mascot} this season`} />
       {sports.length === 0 ? (
-        <p class="text-ink-muted">No scores yet: the first read has not run.</p>
+        <p class="text-ink-muted">No scores yet. They appear here once the season’s first games are played.</p>
       ) : (
         <div class="space-y-6">
           {/* Each team's season, its heading a link to the team's own page (/sports/<team>/). */}

@@ -32,9 +32,11 @@ interface Props {
   heading?: string;
   /** A name search above the filters, part of the same filter (FilterBar.astro). */
   search?: boolean;
+  /** The lead's first photograph is the page's largest image near the top: load it at once (eat-drink; the review of 14 November 2026). */
+  eagerLead?: boolean;
 }
 
-const { places, filterable = false, emptyMessage = 'Nothing listed yet.', lead = 3, heading, search = false } = Astro.props;
+const { places, filterable = false, emptyMessage = 'Nothing listed yet.', lead = 3, heading, search = false, eagerLead = false } = Astro.props;
 
 // PLACE_TYPES order, not the order the files happen to load in, so every town
 // lists restaurants before bars before coffee.
@@ -58,10 +60,10 @@ const subTowns = subTownsOf(getSite());
 ---
 <div data-filter-root>
   {heading && <h2 class="sr-only">{heading}</h2>}
-  {withPhoto.length === 1 && <div class="mb-12"><PlaceFeature place={withPhoto[0]} /></div>}
+  {withPhoto.length === 1 && <div class="mb-12"><PlaceFeature place={withPhoto[0]} eager={eagerLead} /></div>}
   {withPhoto.length > 1 && (
     <div class:list={['mb-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-8', withPhoto.length > 2 && 'lg:grid-cols-3']}>
-      {withPhoto.map((place) => <PlaceCard place={place} />)}
+      {withPhoto.map((place, i) => <PlaceCard place={place} eager={eagerLead && i === 0} />)}
     </div>
   )}
   {search && (

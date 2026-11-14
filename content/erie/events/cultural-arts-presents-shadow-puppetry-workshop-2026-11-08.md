@@ -11,7 +11,7 @@ source: "https://www.erieco.gov/Calendar.aspx?EID=5249"
 verified: "2026-11-02"
 verifiedBy: "auto-review from the erieco.gov feed read 2026-11-02, the weekly ingest workflow"
 status: canceled
-statusNote: "erieco.gov lists this as canceled (read 2026-11-02)."
+statusNote: "erieco.gov lists this as canceled."
 statusSource: "https://www.erieco.gov/Calendar.aspx?EID=5249"
 ---
 

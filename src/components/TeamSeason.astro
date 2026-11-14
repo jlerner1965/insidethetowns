@@ -12,7 +12,7 @@ import { seasonOver } from '@/lib/school-sports';
 import { dashed } from '@/lib/flagship-home';
 import type { SportData } from '@/config/school-sports';
 import { formatDayShort, formatShortDate } from '@/lib/dates';
-import { dedupeResults, gameDay as day, leaguePlace, outcome, RESULT_WORD, season } from '@/lib/school-sports';
+import { awaitingResult, dedupeResults, gameDay as day, leaguePlace, outcome, RESULT_WORD, season } from '@/lib/school-sports';
 
 interface Props {
   team: SportData;
@@ -38,7 +38,10 @@ const games = season(s);
 const form = [...results].reverse();
 const wins = results.filter((g) => g.result === 'W').length;
 const ahead = s.upcoming.filter((g) => g.date >= today);
-const lead = ahead.length > 0 ? ahead.slice(0, 5) : results.slice(0, 3);
+// A game whose day has passed with no score yet leads the latest results,
+// marked "Result to come" (the review of 14 November 2026).
+const awaiting = awaitingResult(s, today);
+const lead = ahead.length > 0 ? ahead.slice(0, 5) : [...awaiting, ...results].slice(0, 3);
 // Nothing left to play and the last game more than a week behind: the
 // season is over, and the card says so with the final record instead of a
 // "next game" that is blank (the owner's brief, 6 November 2026). A week,
@@ -89,8 +92,9 @@ const over = seasonOver(s, today);
   {lead.length > 0 && (
     <SeasonTable
       games={lead}
-      caption={ahead.length > 0 ? (ahead.length === 1 ? 'Next game' : `Next ${lead.length} games`) : 'Latest results'}
+      caption={ahead.length > 0 ? (ahead.length === 1 ? 'Next game' : `Next ${lead.length} games`) : awaiting.length > 0 ? 'Latest games' : 'Latest results'}
       next={ahead[0]?.url}
+      {today}
       last={ahead.length > 0 ? 'Time' : 'Result'}
     />
   )}
@@ -101,7 +105,7 @@ const over = seasonOver(s, today);
         <span class="hidden group-open:inline">Hide the season</span>
       </summary>
       <div class="mt-2">
-        <SeasonTable games={games} caption={`${s.name}, every game this season, oldest first`} hideCaption next={ahead[0]?.url} />
+        <SeasonTable games={games} caption={`${s.name}, every game this season, oldest first`} hideCaption next={ahead[0]?.url} {today} />
       </div>
     </details>
   )}

@@ -593,20 +593,23 @@ test('a playoff or tournament game carries the stage MaxPreps labels it with, an
   assert.deepEqual(p.warnings, []);
 });
 
-test('with every game played and none listed to come, the band says the regular season is complete: Elizabeth football', async () => {
+test('with every game played, none listed to come and the last more than a week behind, the band says the season is over: Elizabeth football', async () => {
   const { seasonComplete } = await import('../src/lib/school-sports.ts');
-  const now = new Date('2026-10-25T15:00:00Z');
+  const now = new Date('2026-11-02T15:00:00Z');
   const tca = { date: '2026-10-23', opponent: 'The Classical Academy', site: 'home' as const, result: 'W' as const, score: { us: 27, them: 17 }, url: 'u1' };
   const team = (key: string, results: typeof tca[], upcoming: Array<{ date: string; opponent: string; site: 'home' | 'away'; url: string }>) => ({ key, name: key, maxprepsUrl: '', fetched: '2026-10-24T17:09:58.516Z', overall: '9-0', results, upcoming, held: [], notes: [] });
   // data/elizabeth/sports.json, 24 October 2026: nine results, nothing to come, on every team.
   const elizabeth: SportsData = { generated: '2026-10-24T17:09:58.516Z', sports: [team('football', [tca], []), team('volleyball', [{ ...tca, opponent: 'Ponderosa', url: 'u2' }], [])] };
   assert.equal(seasonComplete(elizabeth, now), true);
+  // Two days after the last game a playoff draw may still name a date: not over yet (the week's guard, seasonOver).
+  assert.equal(seasonComplete(elizabeth, new Date('2026-10-25T15:00:00Z')), false);
   // Berthoud the same day: football at Severance on the Friday, so the season is not complete.
   const berthoud: SportsData = { generated: '', sports: [team('football', [tca], [{ date: '2026-10-30', opponent: 'Severance', site: 'away', url: 'u3' }])] };
-  assert.equal(seasonComplete(berthoud, now), false);
+  const oct25 = new Date('2026-10-25T15:00:00Z');
+  assert.equal(seasonComplete(berthoud, oct25), false);
   // A game listed for today still counts as to come.
   const today: SportsData = { generated: '', sports: [team('football', [tca], [{ date: '2026-10-25', opponent: 'X', site: 'away', url: 'u4' }])] };
-  assert.equal(seasonComplete(today, now), false);
+  assert.equal(seasonComplete(today, oct25), false);
   // Nothing played yet: nothing to say.
   assert.equal(seasonComplete({ generated: '', sports: [team('football', [], [])] }, now), false);
 });
@@ -992,6 +995,24 @@ test('a team’s season is over once nothing is to come and the last result is m
   assert.equal(seasonOver(soccer, '2026-10-26'), false, 'four days on: a playoff draw may still name a date');
   assert.equal(seasonOver({ ...soccer, upcoming: [{ date: '2026-11-10', opponent: 'Y', site: 'away' as const, url: '' }] }, '2026-11-06'), false, 'a game to come');
   assert.equal(seasonOver({ overall: undefined, results: [], upcoming: [] }, '2026-11-06'), false, 'no record, nothing to say');
+});
+
+test('a state game whose day has passed with no score read is "result to come", not "season over": Berthoud volleyball, 13 November 2026 (review of 14 November)', async () => {
+  const { awaitingResult, latestAwaiting, seasonComplete, seasonOver } = await import('../src/lib/school-sports.ts');
+  const g = (date: string) => ({ date, opponent: 'X', site: 'home' as const, url: `u-${date}`, result: 'W' as const });
+  // data/berthoud/sports.json as read on 11 November: the regional won on the 7th, the state game against Eaton on the 12th.
+  const state = { date: '2026-11-12', opponent: 'Eaton', site: 'away' as const, url: 'u-state', stage: 'State Volleyball Championships' };
+  const volleyball = { key: 'volleyball', name: 'Volleyball', maxprepsUrl: '', fetched: '2026-11-11T19:42:11.883Z', overall: '19-6', results: [g('2026-11-07'), g('2026-10-29')], upcoming: [state], held: [], notes: [] };
+  const data: SportsData = { generated: '', sports: [volleyball] };
+  assert.equal(seasonOver(volleyball, '2026-11-13'), false, 'the day after the state game');
+  assert.equal(seasonComplete(data, new Date('2026-11-13T15:00:00Z')), false);
+  assert.deepEqual(awaitingResult(volleyball, '2026-11-13').map((x) => x.opponent), ['Eaton']);
+  assert.equal(latestAwaiting(data, new Date('2026-11-13T15:00:00Z'))?.game.opponent, 'Eaton');
+  // Once the score is read the game is a result, and nothing waits.
+  const scored = { ...volleyball, results: [{ ...state, result: 'L' as const }, ...volleyball.results], upcoming: [] };
+  assert.equal(latestAwaiting({ generated: '', sports: [scored] }, new Date('2026-11-14T15:00:00Z')), undefined);
+  // A week and more after the state game, with no score ever read, the season is over.
+  assert.equal(seasonOver(volleyball, '2026-11-21'), true);
 });
 
 test('what CHSAA settles is applied over MaxPreps: the volleyball state openers at the Denver Coliseum, Berthoud’s hosted regional at home, one spelling of the league (audit of 8 November 2026)', async () => {

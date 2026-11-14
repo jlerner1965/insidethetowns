@@ -25,6 +25,11 @@ on:
     # out after Sunday's read (1 November 2026: Johnstown, 9-1, and Lyons
     # had empty football lists until Wednesday).
     - cron: '0 14 * 11,12 1'
+    # Thursday and Friday 14:00 UTC in November: the state volleyball
+    # tournament plays Thursday to Saturday, and the 12 November 2026 state
+    # games waited for Saturday's read while four pages called the season
+    # over (the review of 14 November 2026).
+    - cron: '0 14 * 11 4,5'
   workflow_dispatch:
     inputs:
       town:

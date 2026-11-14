@@ -19,10 +19,12 @@ interface Props {
   next?: string;
   /** The last column's heading: "Time" for games to come, "Result" for a season. */
   last?: string;
+  /** Today's day key: a game before it with no score reads "Result to come", not a start time. */
+  today?: string;
 }
 
 // "Today" in place of a date is the reader's, not the build's: data-relday (src/lib/relative-days.ts).
-const { games, caption, hideCaption = false, next, last = 'Result' } = Astro.props;
+const { games, caption, hideCaption = false, next, last = 'Result', today } = Astro.props;
 /** The pill's colours: a win in the primary, a loss in the ink, a tie in the soft accent. */
 const PILL = {
   W: 'bg-primary text-white',
@@ -66,6 +68,8 @@ const scoreline = (g: SportGame) => (g.score ? `${g.score.us}–${g.score.them}`
                 {g.result && <span class:list={['inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.75rem] font-bold', PILL[g.result]]} aria-hidden="true">{g.result}</span>}
                 <span class="font-semibold tabular-nums">{g.result ? <span class="sr-only">{RESULT_WORD[g.result]} </span> : null}{scoreline(g)}</span>
               </span>
+            ) : today && g.date < today ? (
+              <span class="text-ink-muted">Result to come</span>
             ) : g.time ? (
               <span class="text-ink">{formatTime(day(g))}</span>
             ) : (

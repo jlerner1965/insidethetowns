@@ -8,9 +8,15 @@
  * category dot and the type's label where the hub has the town.
  *
  * Built only on a guide that a record names (src/integrations/town-routes.ts,
- * traditionRoutes), and linked from the guide's events page and nowhere
- * else: not the menu, not the home page. The Thursday signup closes it, as
- * it is everywhere else (it is dark on a quiet or visitor guide, as there).
+ * traditionRoutes), and linked from the guide's events page and the footer
+ * of every page. The Thursday signup closes it, as it is everywhere else (it
+ * is dark on a quiet or visitor guide, as there).
+ *
+ * The guide's full annual index since the review of 14 November 2026: each
+ * tradition's name links the guide's own page for it where there is one,
+ * and every annual event page (`annual: true`) no record names is listed
+ * under "More every year" (src/lib/annual-pages.ts). Erie's Balloon
+ * Festival and Berthoud Day had pages linked from nowhere.
  */
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
@@ -20,8 +26,10 @@ import OpenNow from '@/components/OpenNow.astro';
 import { appliesTo } from '@/lib/hub-towns';
 import { findTown, getNetworkHub, getTown } from '@/config';
 import { STANDALONE_GUIDES } from '@/config/hub-towns';
-import { getTraditions } from '@/lib/content';
-import { dayKey } from '@/lib/dates';
+import { getTownEntries, getTraditions } from '@/lib/content';
+import { dayKey, formatDayLong, parseLocal } from '@/lib/dates';
+import { annualPageFor, unmatchedAnnualPages, type AnnualPage } from '@/lib/annual-pages';
+import { subTownsOf } from '@/lib/sub-towns';
 import { eventPage, lineFor, placeKey, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { TRADITION_TYPE_INFO, nextRow, rowsByState, type TraditionRow as Row } from '@/lib/traditions';
@@ -54,8 +62,19 @@ const ctx: ShowingContext = {
   guideDomain: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.domain,
   guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
 };
+// The guide's annual event pages: each tradition links its own, and the rest are listed.
+const annualPages: AnnualPage[] = (await getTownEntries('events'))
+  .filter((e) => e.data.annual)
+  .map((e) => ({ slug: e.slug, title: e.data.title, start: dayKey(e.data.start) }));
+const guideTowns = [town.name, ...subTownsOf(town).map((t) => t.label)];
+const pageHref = (row: Row) => {
+  const page = annualPageFor(row.record, annualPages, guideTowns);
+  return page ? `/events/${page.slug}/` : undefined;
+};
+const moreAnnual = unmatchedAnnualPages(rows.map((row) => row.record), annualPages, guideTowns);
 const rowProps = (row: Row) => ({
   row,
+  href: pageHref(row),
   eyebrow: 'category' as const,
   line: place ? lineFor(row.record, place) : undefined,
   also: standalone ? showings(row.record, ctx).filter((s) => s.key !== place) : [],
@@ -122,6 +141,21 @@ const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${en
       <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {waiting.map((row) => <TraditionRow {...rowProps(row)} />)}
       </div>
+    </section>
+  )}
+  {moreAnnual.length > 0 && (
+    <section aria-labelledby="more-heading" class="mb-14 md:mb-16" data-annual-pages>
+      <h2 id="more-heading" class="mb-6 border-b-2 border-accent pb-3 text-3xl font-medium">More every year</h2>
+      <ul class="divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {moreAnnual.map((p) => (
+          <li class="py-4">
+            <a href={`/events/${p.slug}/`} class="text-xl font-medium leading-tight no-underline hover:text-primary hover:underline">{p.title}</a>
+            <p class="mt-1 text-[0.9375rem] text-ink-muted">
+              {p.start >= today ? 'Next' : 'Last held'} <time datetime={p.start}>{formatDayLong(parseLocal(p.start))}, {p.start.slice(0, 4)}</time>
+            </p>
+          </li>
+        ))}
+      </ul>
     </section>
   )}
   {outdoor.length > 0 && (

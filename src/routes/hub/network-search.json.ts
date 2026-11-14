@@ -111,9 +111,13 @@ function eventRecord(event: NetworkEntry<'events'>): NetworkRecord {
   const { data, town } = event;
   // The day line the event page leads with, from the occurrence a reader can still attend.
   const next = nextOccurrence(event);
-  const day = isMultiDay(next)
-    ? isInProgress(next) ? `Now through ${formatMonthDay(next.data.end!)}` : formatDayRange(next.data.start, next.data.end!)
-    : formatDayLong(next.data.start);
+  // An annual event's permanent page whose date has passed: once a year, and when it was last held.
+  const lastHeld = data.annual && isOver(event);
+  const day = lastHeld
+    ? `Every year · last held ${formatDayLong(next.data.start)}, ${dayKey(next.data.start).slice(0, 4)}`
+    : isMultiDay(next)
+      ? isInProgress(next) ? `Now through ${formatMonthDay(next.data.end!)}` : formatDayRange(next.data.start, next.data.end!)
+      : formatDayLong(next.data.start);
   const status = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.status] : undefined;
   return {
     url: `https://${town.domain}/events/${event.slug}/`,
@@ -158,7 +162,12 @@ function sportsRecords(town: TownConfig, now = new Date()): NetworkRecord[] {
   return out;
 }
 
-/** The events whose own page is indexed, per town, as the event page decides it. */
+/**
+ * The events whose own page is indexed, per town, as the event page decides
+ * it. An annual event's permanent page (`annual: true`) is never over: it
+ * stays indexed between runnings, so the hub finds "balloon festival" in
+ * January (the review of 14 November 2026: hub search missed it).
+ */
 function indexedEvents(events: NetworkEntry<'events'>[]): NetworkEntry<'events'>[] {
   const today = dayKey(new Date());
   const byTown = new Map<string, NetworkEntry<'events'>[]>();
@@ -166,10 +175,10 @@ function indexedEvents(events: NetworkEntry<'events'>[]): NetworkEntry<'events'>
   const out: NetworkEntry<'events'>[] = [];
   for (const list of byTown.values()) {
     const canonical = pickCanonical(
-      list.map((e) => ({ slug: e.slug, key: `${e.data.title}|${e.data.venue}`, startDay: dayKey(e.data.start), lastDay: finalDay(e), canceled: isCanceled(e) })),
+      list.map((e) => ({ slug: e.slug, key: `${e.data.title}|${e.data.venue}`, startDay: dayKey(e.data.start), lastDay: finalDay(e), canceled: isCanceled(e), annual: !!e.data.annual })),
       today,
     );
-    out.push(...list.filter((e) => canonical.get(`${e.data.title}|${e.data.venue}`) === e.slug && !isOver(e)));
+    out.push(...list.filter((e) => canonical.get(`${e.data.title}|${e.data.venue}`) === e.slug && (!isOver(e) || !!e.data.annual)));
   }
   return out;
 }

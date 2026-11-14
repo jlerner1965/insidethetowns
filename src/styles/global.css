@@ -75,7 +75,10 @@
     background-color: var(--color-paper);
     color: var(--color-ink);
     font-family: var(--font-body);
-    font-size: 17px;
+    /* 17px at the browser's default of 16px, and larger with the reader's
+       own font-size setting (WCAG 1.4.12; the review of 14 November 2026:
+       17px in pixels ignored it). */
+    font-size: 106.25%;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;

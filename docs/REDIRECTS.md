@@ -38,6 +38,24 @@ a redirect's `Location` is kept by browsers and dropped by Google; check
 one with `curl -sI https://insideestespark.com/events/` once the projects
 have rebuilt.
 
+**Where the reader came from, 14 November 2026.** Every rule above now
+ends its destination with `?from=<the old domain>` (before any
+`#traditions` or `#outdoor-dates`): `src/lib/fold.ts`, `FROM_PARAM`. The
+hub's pages read it and show one line, "Inside Golden has closed.
+Golden's annual events and outdoor dates are kept here; the nearest full
+guide is Inside Erie." (`src/components/FromClosedGuide.astro`,
+`src/lib/closed-guides.ts`; a guide within 60 km is named, none further),
+then take it off the address. Only a closed guide's domain is ever named;
+any other value is ignored. Each hub page's canonical is its own address
+without the query. The site review of 14 November 2026 found the 18
+closed guides' readers landing on a page of dates with no word of why.
+
+**The hub's address for a live guide's town, 14 November 2026.**
+`insidethetowns.com/erie/`, `/berthoud/`, `/niwot/` and `/frederick/`
+were "page not found" while `/golden/` worked. `src/lib/hub-moved.ts`
+now makes each live guide's slug, and Carbon Valley's three towns, a
+redirect page to the guide's home, as Severance's are.
+
 **Old event addresses, 13 November 2026.** Google drops the fragment, so
 every `/events/<slug>/` on a folded domain landed on one page that did not
 carry the event, and the rankings those addresses held (606 of the
