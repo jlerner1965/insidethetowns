@@ -264,7 +264,7 @@ const jsonLd = [
       <NewsletterSignup town={town} id="sports" variant="home" class="mb-12" />
       <SectionHeader eyebrow="Every team" title={`The ${mascot} this season`} />
       {sports.length === 0 ? (
-        <p class="text-ink-muted">No scores yet: the first read has not run.</p>
+        <p class="text-ink-muted">No scores yet. They appear here once the season’s first games are played.</p>
       ) : (
         <div class="space-y-6">
           {/* Each team's season, its heading a link to the team's own page (/sports/<team>/). */}

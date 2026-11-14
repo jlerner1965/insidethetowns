@@ -10,7 +10,7 @@ recurring: "First and third Wednesdays"
 source: "https://www.erieco.gov/338/Planning-Commission"
 verified: "2026-11-11"
 status: canceled
-statusNote: "Town of Erie lists this as canceled (read 2026-11-11)."
+statusNote: "Town of Erie lists this as canceled."
 statusSource: "https://www.erieco.gov/Calendar.aspx?EID=5224"
 verifiedBy: "Claude Code, delegated by Lerner Works"
 ---
