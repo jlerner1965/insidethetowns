@@ -29,6 +29,7 @@ import { eventPath, hubEventPages, publishedHubTowns, showings, type ShowingCont
 import { googleCalendarUrl } from '@/lib/ics';
 import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, excerptDescription, traditionEventJsonLd } from '@/lib/seo';
 import { titleTime, traditionTitle } from '@/lib/titles';
+import { hostOf } from '@/lib/hub-home';
 import { certainTime, traditionCalendarEvent } from '@/lib/tradition-calendar';
 import { CURRENT_SEASONS, TRADITION_TYPE_INFO, entrySource, isDated, isListed, nextRow, rowState, type TraditionYear } from '@/lib/traditions';
 import { hubReservedSegments } from '@/integrations/town-routes';
@@ -79,7 +80,9 @@ const lead =
       ? `${record.name} in ${town.name}, Colorado: canceled for ${row.year}, as ${possessive} page says.${entry.date ? ` It was set for ${dayText(entry.date)}.` : ''}`
       : `${record.name} in ${town.name}, Colorado: ${year} date not announced yet${row.lastHeld ? `; last held ${dayText(row.lastHeld)}` : ''}.`;
 // The lead, and the provenance sentence where both fit the meta budget; the lead alone otherwise.
-const description = `${lead} ${read}`.length <= META_DESCRIPTION_LIMIT ? `${lead} ${read}` : excerptDescription(lead);
+// Where the record says what the event is (`about`), that goes after the lead instead, where it fits.
+const description =
+  [record.about ? `${lead} ${record.about.text}` : undefined, `${lead} ${read}`].find((d) => !!d && d.length <= META_DESCRIPTION_LIMIT) ?? excerptDescription(lead);
 
 // The record's rows elsewhere, as links. A free-admission day that has
 // passed is on no page (isListed), so nothing is linked to a row that is not there.
@@ -126,6 +129,15 @@ const pill =
     </div>
     <CheckedLine dates={[entry.checked]} />
   </section>
+
+  {/* What it is and where, from the organizer's own page (`about`; the owner's review, 13 November 2026). */}
+  {record.about && (
+    <section aria-labelledby="about-heading" class="mb-10" data-event-about>
+      <h2 id="about-heading" class="eyebrow mb-3">What it is</h2>
+      <p class="text-[1.0625rem] leading-relaxed text-ink">{record.about.text}</p>
+      <p class="mt-2 text-[0.875rem] text-ink-muted">From <a href={record.about.source} rel="noopener" class="underline">{hostOf(record.about.source)}</a>, read <time datetime={record.about.checked}>{formatShortDate(parseLocal(record.about.checked))}</time>.</p>
+    </section>
+  )}
 
   {earlier.length > 0 && (
     <section aria-labelledby="earlier-heading" class="mb-10" data-earlier-years>

@@ -1872,6 +1872,15 @@ export function traditionSchema() {
       sourceUrl: httpUrl,
       /** Only when the organizer states it. */
       firstYear: z.number().int().min(1800).max(2100).optional(),
+      /**
+       * What the event is and where in the town it is held, in one or two
+       * plain sentences, every word from `source` (the organizer's own page),
+       * read on `checked`. The hub's record page prints it under the date
+       * line (the owner's review, 13 November 2026: most record pages did
+       * not say what the event was or where). No dates or prices: those are
+       * the years' own fields.
+       */
+      about: z.object({ text: z.string().min(1).max(300), source: httpUrl, checked: isoDay }).strict().optional(),
       /** On an outdoor date: what it is the date of (src/lib/traditions.ts, OUTDOOR_KINDS; src/lib/open-now.ts). */
       outdoor: z.object({ kind: z.enum(OUTDOOR_KINDS), facility: z.string().min(1), edge: z.enum(OUTDOOR_EDGES) }).strict().optional(),
       years: z.array(year).min(1),

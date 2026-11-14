@@ -7,6 +7,10 @@ town:
 type: harvest-festival
 organizer: "Palisade Chamber of Commerce"
 sourceUrl: "https://palisadecoc.com/events/palisadepeachfest/"
+about:
+  text: "A festival of Palisade's peaches, with a vendor market, food trucks, live music, peach cooking demonstrations and a peach eating contest, at Riverbend Park."
+  source: "https://palisadecoc.com/events/palisadepeachfest/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: not-announced

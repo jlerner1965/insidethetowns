@@ -7,6 +7,10 @@ town:
 type: festival
 organizer: "Longs Peak Scottish Irish Highland Festival"
 sourceUrl: "https://www.scotfest.com/"
+about:
+  text: "A festival of Scottish and Irish heritage with Celtic music, massed pipe bands, Highland athletics, dancing, clan gatherings and the Estes Park International Tattoo, on the Festival Field in Estes Park."
+  source: "https://www.scotfest.com/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: confirmed

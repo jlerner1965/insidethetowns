@@ -7,6 +7,10 @@ town:
 type: festival
 organizer: "FIBArk Community Paddling Center"
 sourceUrl: "https://fibark.com/"
+about:
+  text: "A festival of whitewater races, among them the Classic Downriver Race, and live music. Riverside Park and its amphitheater, on the Arkansas River downtown, are the center of the festival."
+  source: "https://www.fibark.com/spectator"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: not-announced

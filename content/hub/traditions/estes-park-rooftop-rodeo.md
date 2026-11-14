@@ -7,6 +7,10 @@ town:
 type: rodeo-fair
 organizer: "Rooftop Rodeo (Town of Estes Park)"
 sourceUrl: "https://eventsinestes.com/rooftop-rodeo/"
+about:
+  text: "A rodeo at the Rodeo Grounds, 1125 Rooftop Way, in Estes Park, with a Rooftop Rodeo Parade."
+  source: "https://eventsinestes.com/rooftop-rodeo/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: confirmed
