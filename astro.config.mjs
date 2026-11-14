@@ -12,6 +12,7 @@ import { closedPlaceSlugs } from './src/lib/raw-places.ts';
 import { contentDates, lastmodFor } from './src/lib/lastmod.ts';
 import { formerSlugRedirects } from './src/lib/former-slugs.ts';
 import { draftPaths } from './src/lib/curiosity-files.ts';
+import { HUB_MOVED } from './src/lib/hub-moved.ts';
 import vercelConfig from './vercel.json' with { type: 'json' };
 
 // Which site to build is decided by the TOWN env var (see src/config/index.ts).
@@ -54,7 +55,8 @@ const indexable = (/** @type {string} */ url) => {
 // A quiet guide (`lead: 'updates'`) builds no events pages: its old event
 // addresses are vercel.json's to send home, not redirect pages to /events/.
 const formerRedirects = site.kind === 'town' ? Object.fromEntries(Object.entries(formerSlugRedirects(site.slug)).filter(([from]) => site.lead !== 'updates' || !from.startsWith('/events'))) : {};
-const redirects = site.kind === 'town' ? { ...formerRedirects, '/places': '/directory/' } : {};
+// The hub's pages that moved to a guide (src/lib/hub-moved.ts): Severance's, to the Windsor guide.
+const redirects = site.kind === 'town' ? { ...formerRedirects, '/places': '/directory/' } : { ...HUB_MOVED };
 
 export default defineConfig({
   site: `https://${site.domain}`,

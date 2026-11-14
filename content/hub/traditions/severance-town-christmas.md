@@ -3,7 +3,7 @@ slug: severance-town-christmas
 name: "Town Christmas"
 town:
   name: Severance
-  guide: severance
+  guide: windsor
 type: festival
 organizer: "Town of Severance"
 sourceUrl: "https://www.townofseverance.org/calendar.aspx?month=12&year=2026"
