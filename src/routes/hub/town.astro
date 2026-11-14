@@ -286,7 +286,7 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
         {months.map((m) => (
           <li class:list={['flex min-h-24 flex-col items-center gap-2 px-1 pb-3 pt-2.5 md:min-h-28', m.now ? 'bg-highlight-soft' : 'bg-raised']} data-month={m.name} data-now={m.now ? '' : undefined}>
             <span class:list={['text-[0.75rem] font-semibold uppercase tracking-[0.12em]', m.now ? 'text-ink' : 'text-ink-muted']}>{m.name}</span>
-            <span class="-mt-1.5 text-[0.75rem] leading-none text-ink" data-now-label hidden={!m.now}>now</span>
+            <span class="-mt-1.5 text-[0.75rem] leading-none text-ink" data-now-label hidden={!m.now}>{m.now ? 'now' : ''}</span>
             {/* Each mark is a 24px target around a 16px dot (the dot alone was under the minimum for a thumb). */}
             <span class="flex flex-wrap justify-center">
               {m.marks.map((k) => (
@@ -306,7 +306,7 @@ const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
           <li>
             <span class="mr-1.5 inline-block w-9 text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-ink">{m.name}</span>
             {m.marks.map((k, i) => (
-              <span data-mark-name={k.slug}>{i > 0 && ' · '}<a href={`#${k.slug}`} class="inline-block py-1.5 text-primary underline">{k.name}</a><span data-held-note hidden={k.set}> (last held)</span></span>
+              <span data-mark-name={k.slug}>{i > 0 && ' · '}<a href={`#${k.slug}`} class="inline-block py-1.5 text-primary underline">{k.name}</a>{k.set ? <span data-held-note hidden data-past-text=" (last held)"></span> : <span data-held-note> (last held)</span>}</span>
             ))}
           </li>
         ))}

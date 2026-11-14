@@ -115,9 +115,11 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
     <span class:list={['font-heading', block.set ? (block.main.length > 3 ? 'mt-1 text-[1.25rem] sm:text-[1.625rem]' : 'mt-0.5 text-[1.875rem] sm:text-[2.375rem]') : 'text-[0.8125rem] font-semibold uppercase tracking-[0.12em] font-body']}>{block.main}</span>
     {block.foot && <span class:list={['mt-1 text-[0.6875rem] sm:text-[0.75rem]', block.set ? 'opacity-80' : '']}>{block.foot}</span>}
   </div>
+  {/* The face for after the date: no words in the HTML, only in
+      data-past-text, written in when the faces swap (src/lib/tradition-expiry.ts). */}
   {pastBlock && (
     <div aria-hidden="true" data-date-block="open" data-when-past hidden class="flex aspect-square w-full flex-col items-center justify-center self-start rounded-lg border border-dashed border-line text-center leading-none text-ink-muted">
-      <span class="font-body text-[0.8125rem] font-semibold uppercase tracking-[0.12em]">{pastBlock.main}</span>
+      <span class="font-body text-[0.8125rem] font-semibold uppercase tracking-[0.12em]" data-past-text={pastBlock.main}></span>
     </div>
   )}
   <div class="min-w-0">
@@ -173,10 +175,14 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
     </Fragment>
   )}
 
+  {/* After the date, in the reader's browser only: the words wait in
+      data-past-text so the page as built says one thing about the date
+      (the owner, 14 November 2026: a fetched parade page read
+      "Confirmed", "Next date not yet announced" and "Last held" at once). */}
   {expires && (
     <div data-when-past hidden>
-      <p class="mt-2"><span class={pill}>Next date not yet announced</span></p>
-      <p class="mt-1.5 text-[0.9375rem] text-ink-muted">{lastWord} <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time></p>
+      <p class="mt-2"><span class={pill} data-past-text="Next date not yet announced"></span></p>
+      <p class="mt-1.5 text-[0.9375rem] text-ink-muted" data-past-text={`${lastWord} ${spanText(entry.date!, entry.endDate)}`}></p>
     </div>
   )}
   {details.length > 0 && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined}>{details.join(' · ')}</p>}
