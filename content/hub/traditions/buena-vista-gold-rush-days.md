@@ -7,6 +7,10 @@ town:
 type: festival
 organizer: "Buena Vista Chamber of Commerce"
 sourceUrl: "https://buenavistacolorado.org/gold-rush-days/"
+about:
+  text: "A festival with a pack burro race, vendor fairs, live music, a street dance and beer gardens, at McPhelemy Park and the Buena Vista Heritage Museum on East Main Street."
+  source: "https://www.buenavistacolorado.org/gold-rush-days/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: not-announced

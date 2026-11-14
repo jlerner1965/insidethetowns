@@ -28,7 +28,7 @@ export const windsor: TownConfig = {
   // "Colorado" spelled out: Windsor is the most ambiguous name in the network
   // (Ontario, Berkshire, California, Connecticut, Vermont), and "CO" is too
   // weak a signal. test/towns.test.ts holds this name to it.
-  seoTagline: 'Events, the lake and trails in Windsor, Colorado',
+  seoTagline: 'Windsor, Colorado events this weekend & things to do',
   counties: ['Weld', 'Larimer'],
   countySplit: {
     note: 'Most of Windsor, including Main Street, Windsor Lake and Town Hall, is in Weld County; the neighborhoods west of the county line are in Larimer. The Town’s own page lists three school districts inside the town limits because of it: Weld RE-4 for most of town, Poudre and Thompson on the Larimer County side.',

@@ -120,6 +120,7 @@ test('the hero uses the line, and the home tells it whether this week has a pick
   // A quiet guide (`lead: 'updates'`, Niwot, 12 November 2026) lists no
   // events, so it never promises a pick.
   // A timely change sits higher on the page than Worth knowing (audit, 13 November 2026); either is a change the line may promise.
-  assert.match(home, /<Hero compact pick=\{!quietGuide && !!pick\} changes=\{know\.length > 0 \|\| timely\.length > 0\} \/>/);
+  // The H1 is the guide's name as the hub gives it ("Windsor and Severance"; the owner, 13 November 2026).
+  assert.match(home, /<Hero compact title=\{guideName\(town, coveredTowns\(town\)\)\} pick=\{!quietGuide && !!pick\} changes=\{know\.length > 0 \|\| timely\.length > 0\} \/>/);
   assert.match(home, /const quietGuide = [^\n]*lead === 'updates'/);
 });

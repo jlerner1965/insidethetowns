@@ -18,6 +18,12 @@ import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 interface Props {
   event: NetworkEntry<'events'>;
   /**
+   * The title's heading level: 4 under a day's own h3 (NetworkDayList), so
+   * the days and the listings are not one level (the owner's review of the
+   * hub, 13 November 2026); 3 where the card sits straight under an h2.
+   */
+  level?: 3 | 4;
+  /**
    * Say which day, for a list that is not under day headings: "Sat, Oct 10 ·
    * 10 am – 2 pm". A run already on still says "Now through…".
    */
@@ -41,7 +47,8 @@ interface Props {
   neutral?: boolean;
 }
 
-const { event, showDay = false, showTagline = false, query, track, neutral = false } = Astro.props;
+const { event, showDay = false, showTagline = false, query, track, neutral = false, level = 3 } = Astro.props;
+const Heading = level === 4 ? 'h4' : 'h3';
 const { data, slug, town } = event;
 const href = `https://${town.domain}/events/${slug}/${query ? `?${query}` : ''}`;
 const canceled = isCanceled(event);
@@ -66,7 +73,7 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} �
   class="group relative grid grid-cols-1 gap-x-7 border-t border-line-soft py-5 first:border-t-0 sm:grid-cols-[9rem_1fr] md:py-6"
   data-filter-item
   data-category={town.slug}
-  data-tags={[isFreeCost(data.cost) && 'free', data.category === 'music' && 'music'].filter(Boolean).join(' ') || undefined}
+  data-tags={[isFreeCost(data.cost) && 'free', data.category === 'music' && 'music', data.category !== 'civic' && 'outing'].filter(Boolean).join(' ') || undefined}
   data-event-day={lastDay(event)}
   data-start={toIsoLocal(data.start)}
   data-end={toIsoLocal(listedUntil(event))}
@@ -94,9 +101,9 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} �
         )}
       </p>
     )}
-    <h3 class="text-xl font-medium leading-tight md:text-2xl">
+    <Heading class="text-xl font-medium leading-tight md:text-2xl">
       <a href={href} data-track={track} data-track-town={track ? town.slug : undefined} class:list={['stretch no-underline group-hover:text-primary', canceled && 'line-through decoration-ink-muted decoration-2']}>{displayTitle(event)}</a>
-    </h3>
+    </Heading>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
       <time datetime={toIsoLocal(data.start)}>{time}</time> · {data.venue}{data.cost && <span> · {data.cost}</span>}
     </p>

@@ -271,10 +271,15 @@ export function timeText(event: EventLike, now = new Date()): string {
  * event's own page keeps the whole title.
  */
 export function displayTitle(event: { data: { title: string; venue: string } }): string {
-  const { title, venue } = event.data;
+  const { venue } = event.data;
+  // A feed's shouting is not the name (the owner's review of the hub, 13
+  // November 2026): "Matt Adams LIVE MUSIC" reads "Matt Adams live music".
+  const title = event.data.title.replace(/\bLIVE MUSIC\b/g, 'live music');
   const m = /^(.{3,})\s+at\s+(.+)$/i.exec(title);
   if (!m) return title;
-  const bare = (s: string) => s.trim().toLowerCase().replace(/^the\s+/, '').replace(/[’']/g, "'");
+  // "Craft & Sip - Glass Suncatcher Workshop - at Peculier Ales!": the venue's
+  // name with an exclamation mark after it is still the venue's name.
+  const bare = (s: string) => s.trim().toLowerCase().replace(/^the\s+/, '').replace(/[’']/g, "'").replace(/[!.]+$/, '');
   const place = bare(m[2]!);
   const where = bare(venue);
   if (!place || !(where === place || where.startsWith(`${place} `) || where.startsWith(`${place},`))) return title;

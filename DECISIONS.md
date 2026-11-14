@@ -11353,3 +11353,42 @@ The negative label is gone: an article prints "Visited" where its file says
 so and nothing about it otherwise. The `visited` field stays, and
 `npm run curiosity` still reports it for the owner. HOW-IT-WORKS section 8
 says the same.
+
+## The network review: the owner's live-page decisions, 14 November 2026
+
+*The owner's review brief (one pass, measured before and after, report in
+the pull request), with three sets of decisions from his read of all 1,633
+live pages on 13 November folded in. The pull request carries the numbers,
+the competitor tables and the open questions.*
+
+- **Titles run to 60 characters**, not 70 (27 October): the guide's or the
+  network's name goes on only where the whole fits. A guide's home title
+  leads with the town and what people search for ("Berthoud, CO events this
+  weekend & things to do"; Colorado spelled out for Erie, Johnstown and
+  Windsor). An event title that stands alone says its town where it fits; a
+  past annual event reads "<Event>, <Town>: 2027 dates"; Roosevelt's sports
+  titles name Johnstown first; a record's title does not repeat a town its
+  name carries (BOLDERBoulder).
+- **Erie High's calendar** passes only concerts, performances, showcases,
+  plays and games (`includeTitles`, new on a source); five internal
+  entries came off. A sale or a fundraiser is never filed Music.
+- **Seven guides, six weekly editions, six that list events**: the counts
+  say which they count.
+- **Guide homes**: one Worth knowing; the next-stop tiles are plain links on
+  a phone; the H1 is the guide's name as the hub gives it ("Windsor and
+  Severance"); "Athletics" on every menu; the footer strip fully opaque.
+- **Severance belongs to the Windsor and Severance guide.** Its three
+  records are at home there, the hub builds no Severance page, and the
+  four old hub addresses are redirect pages (meta refresh, noindex,
+  canonical) to the guide. A server 301 needs four rules in `vercel.json`,
+  deploy configuration this pass did not touch; they are in the pull
+  request.
+- **The hub**: `/annual-events/` (the menu's Annual events), Towns to
+  `/towns/`, the guides' articles on `/articles/` (owner-approved
+  features); "Hide meetings" on `/this-weekend/`; long undated groups
+  folded on season pages; a record says what the event is and where
+  (`about`, from the organizer's page, 28 records so far) and its Event
+  markup carries the town's image.
+- **Not decided here**: everything listed under the pull request's
+  decisions, among them restructuring the 48 guide articles to the
+  13 November Article structure (audited, not rewritten).

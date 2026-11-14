@@ -84,6 +84,10 @@ test('toIsoLocal carries the Denver offset for JSON-LD', () => {
 test('all-day ranges read as "All day" rather than a bogus time', () => {
   const start = parseLocal('2026-09-20');
   assert.equal(formatTimeRange(start, undefined, true), 'All day');
+  // A feed's whole day as clock times (Clearview's kits): not "12 am – 11:59 pm".
+  assert.equal(formatTimeRange(parseLocal('2026-12-01'), parseLocal('2026-12-01T23:59')), 'All day');
+  // A real midnight start is still a time.
+  assert.match(formatTimeRange(parseLocal('2026-12-01'), parseLocal('2026-12-01T02:00')), /12.am/);
 });
 
 test('daysBetween counts Denver midnights, whatever the hour and across both clock changes', () => {

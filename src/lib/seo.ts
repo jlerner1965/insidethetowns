@@ -820,7 +820,7 @@ export function traditionEventJsonLd(
   record: { slug: string; name: string; organizer: string; town?: { name: string }; type?: string; firstYear?: number },
   entry: { status: string; date?: string; endDate?: string; place?: string; startTime?: string; cost?: string; previousDate?: string },
   pageUrl: string,
-  { own = false }: { own?: boolean } = {},
+  { own = false, image }: { own?: boolean; image?: string } = {},
 ) {
   // An outdoor date (a road opening, a licence window) is not an event to
   // attend, and a record with no town has no place to give one.
@@ -854,6 +854,10 @@ export function traditionEventJsonLd(
       address: { '@type': 'PostalAddress', addressLocality: record.town.name, addressRegion: 'CO', addressCountry: 'US' },
     },
     organizer: { '@type': 'Organization', name: record.organizer },
+    // The town's photograph, or its share card where it has none: a record
+    // has no photograph of its own, and an Event without an image is
+    // ineligible for Google's event results (the owner, 13 November 2026).
+    ...(image ? { image: [image] } : {}),
     url: own ? pageUrl : `${pageUrl}#${record.slug}`,
   };
 }

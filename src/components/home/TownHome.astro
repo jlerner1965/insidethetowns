@@ -23,9 +23,11 @@
  *    cost, and one link to /families/ (src/lib/family-home.ts).
  * 6. Find your next stop (NextStop): Eat & drink, Things to do and Living
  *    here (or Moving here) as three photographs, each with a line of what
- *    its page lists; full-width rows on a phone.
- * 7. Worth knowing: the two newest local changes as links, and the rest on
- *    the updates page. Hidden where there are none.
+ *    its page lists; plain link rows on a phone.
+ * 7. Worth knowing (WorthKnowing): the local changes as links, the timely
+ *    ones first with their summaries, and the rest on the updates page;
+ *    one section, under the tabs when a change is timely and here
+ *    otherwise. Hidden where there are none.
  * 8. The footer every page has (Footer; one block of its own here from 27
  *    October to 9 November 2026).
  *
@@ -43,6 +45,9 @@
  * count is the data's, and an empty tab says so.
  */
 import Hero from '@/components/Hero.astro';
+import WorthKnowing from '@/components/home/WorthKnowing.astro';
+import { guideName } from '@/lib/hub-home';
+import { coveredTowns } from '@/lib/town-search-index';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import SportsStrip from '@/components/SportsStrip.astro';
 import NextStop from './NextStop.astro';
@@ -93,6 +98,8 @@ const records = standalone ? await getTraditions() : [];
 const dates = standalone ? guideHomeDates(records, place!, today) : { lead: 'outdoor' as const, outdoor: [], traditions: [] };
 const anyDates = dates.outdoor.length + dates.traditions.length > 0;
 const localLines = Object.fromEntries(dates.outdoor.map((r) => [r.record.slug, place ? lineFor(r.record, place) : undefined]));
+/** The guide's dates under Worth knowing, on a sports-led guide; an outdoors-led one has them at the top of the page. */
+const worthDates = !outdoorsLed && anyDates ? { dates, town: town.name, lines: localLines } : undefined;
 
 // 2. The school. One school: its strip. Several: the shared one. None on
 // an outdoors-led guide, whose home page carries no sports.
@@ -168,6 +175,8 @@ const current = currentUpdates(updates, now);
 const timely = quietGuide ? [] : current.filter((u) => isTimely(u, now)).slice(0, 2);
 const know = quietGuide ? current.slice(0, 5) : current.filter((u) => !timely.includes(u)).slice(0, 2);
 const fresh = quietGuide ? know.filter((u) => isNew(u, now)) : [];
+/** Worth knowing is one section: high on the page when a change is timely, lower otherwise (WorthKnowing.astro). */
+const knowHigh = timely.length > 0;
 const older = quietGuide ? know.filter((u) => !fresh.includes(u)) : [];
 
 // 5. For families: the hub's three timeliest lines, where the town has them on.
@@ -219,7 +228,10 @@ if (featured) {
   };
 }
 ---
-<Hero compact pick={!quietGuide && !!pick} changes={know.length > 0 || timely.length > 0} />
+{/* The guide's name as the hub's index gives it: a guide named for its own
+    town adds the others it covers ("Windsor and Severance"; the owner,
+    13 November 2026). Carbon Valley, named for a region, stays as it is. */}
+<Hero compact title={guideName(town, coveredTowns(town))} pick={!quietGuide && !!pick} changes={know.length > 0 || timely.length > 0} />
 
 {/* A quiet guide (Niwot): Updates, only when there is one, then Things to
     know. No events, so no tabs and no empty week. */}
@@ -287,23 +299,9 @@ if (featured) {
     </div>
   </section>
 )}
-{/* Timely local changes, under the tabs (the audit of 13 November 2026). */}
-{timely.length > 0 && (
-  <section class="band-compact band-paper" aria-labelledby="timely-h" data-timely-changes>
-    <div class="container-page">
-      <h2 id="timely-h" class="display-md text-[2rem] md:text-[2.5rem]">Worth knowing now</h2>
-      <ul class="mt-3 divide-y divide-line-soft">
-        {timely.map((u) => (
-          <li class="py-3">
-            <a href={`/updates/#${u.slug}`} class="text-[1.0625rem] font-medium leading-snug text-primary no-underline hover:underline">{u.data.title}</a>
-            <p class="mt-1 line-clamp-2 text-[0.9375rem] leading-snug text-ink-muted">{u.data.summary}</p>
-          </li>
-        ))}
-      </ul>
-      <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every local change →</a></p>
-    </div>
-  </section>
-)}
+{/* Worth knowing, one section: under the tabs when a change matters now
+    (the audit of 13 November 2026), else lower down (WorthKnowing.astro). */}
+{knowHigh && <WorthKnowing {timely} {know} dates={worthDates} />}
 {familyRows.length > 0 && familiesFirst && (
   <section class="band-compact band-paper" aria-labelledby="families-home" data-hide-when-empty>
     <div class="container-page">
@@ -369,27 +367,4 @@ if (featured) {
   </section>
 )}
 
-{!quietGuide && (know.length > 0 || (!outdoorsLed && anyDates)) && (
-  <section class="band-compact band-paper" aria-labelledby="know">
-    <div class="container-page">
-      <h2 id="know" class="display-md text-[2rem] md:text-[2.5rem]">Worth knowing</h2>
-      {know.length > 0 && (
-        <Fragment>
-          <ul class="mt-3 divide-y divide-line-soft">
-            {know.map((u) => (
-              <li class="py-3 text-[1.0625rem] leading-snug"><a href={`/updates/#${u.slug}`} class="font-medium text-primary no-underline hover:underline">{u.data.title}</a></li>
-            ))}
-          </ul>
-          <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every local change →</a></p>
-        </Fragment>
-      )}
-      {/* The guide's dates, one line each, on a sports-led guide; an
-          outdoors-led one has them at the top of the page. */}
-      {!outdoorsLed && anyDates && (
-        <div class:list={[know.length > 0 && 'mt-6']} data-shared-dates>
-          <HomeDates {dates} town={town.name} lines={localLines} track="worth-knowing-date" />
-        </div>
-      )}
-    </div>
-  </section>
-)}
+{!quietGuide && !knowHigh && (know.length > 0 || worthDates) && <WorthKnowing timely={[]} {know} dates={worthDates} />}

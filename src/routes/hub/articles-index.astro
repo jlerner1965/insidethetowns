@@ -7,27 +7,44 @@
  * kind and towns, its headline, its line and the day it was published,
  * with the day its facts were last verified where that is later. Built
  * only while an article is on the site; the hub's menu links here then.
+ *
+ * The guides' articles are listed here too, by date with the hub's (the
+ * owner's hub review, 13 November 2026): the headline, the town and the
+ * day, linking to the article on its own guide. No line of an article is
+ * copied onto the hub.
  */
 import Page from '@/layouts/Page.astro';
 import { getHub } from '@/config';
-import { getCuriosity } from '@/lib/content';
-import { formatDate, parseLocal } from '@/lib/dates';
+import { getCuriosity, getNetworkEntries } from '@/lib/content';
+import { dayKey, formatDate, parseLocal } from '@/lib/dates';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { ARTICLES_INDEX_PATH, articlePath, kindLabel, lastVerified, newestFirst, townsLine } from '@/lib/curiosity';
 import { placeName } from '@/lib/curiosity-places';
 
 const hub = getHub();
 const title = 'Articles';
-const intro = 'News, event briefs and guides from the towns, the newest first. Every fact in them links to the page it was read on.';
-const description = 'Articles from Inside the Towns: news, event briefs and camping and ghost-town guides for Colorado towns, each fact linked to its source.';
-const articles = newestFirst((await getCuriosity()).map((a) => a.data)).map((a) => ({
-  data: a,
-  path: articlePath(a),
+const intro = 'News, event briefs and guides from the towns and from each town’s own guide, the newest first. Every fact in them links to the page it was read on.';
+const description = 'Articles from Inside the Towns and its town guides: news, event briefs, history and local guides for Colorado towns, each fact linked to its source.';
+type Row = { title: string; href: string; eyebrow: string; date: string; description?: string; verified?: string; draft?: boolean; guide?: string };
+const hubArticles: Row[] = newestFirst((await getCuriosity()).map((a) => a.data)).map((a) => ({
+  title: a.title,
+  href: articlePath(a),
   eyebrow: `${kindLabel(a.kind)} · ${townsLine(a.towns.map((t) => placeName(t) ?? t))}`,
+  date: a.date,
+  description: a.description,
   verified: lastVerified(a),
+  draft: a.status !== 'verified',
 }));
+const guideArticles: Row[] = (await getNetworkEntries('articles')).map((a) => ({
+  title: a.data.title,
+  href: `https://${a.town.domain}/articles/${a.slug}/`,
+  eyebrow: [a.town.name, a.data.category].filter(Boolean).join(' · '),
+  date: dayKey(a.data.date),
+  guide: a.town.siteTitle,
+}));
+const articles = [...hubArticles, ...guideArticles].sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 const structured = [
-  collectionPageJsonLd(hub, { name: title, description, path: ARTICLES_INDEX_PATH, items: articles.map((a) => ({ name: a.data.title, path: a.path })) }),
+  collectionPageJsonLd(hub, { name: title, description, path: ARTICLES_INDEX_PATH, items: articles.map((a) => (/^https?:/.test(a.href) ? { name: a.title, url: a.href } : { name: a.title, path: a.href })) }),
   breadcrumbJsonLd(hub, [
     { name: hub.siteTitle, path: '/' },
     { name: title, path: ARTICLES_INDEX_PATH },
@@ -38,12 +55,13 @@ const structured = [
   <ul class="max-w-3xl divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-articles-index>
     {articles.map((a) => (
       <li class="py-5">
-        <p class="eyebrow text-ink-muted">{a.eyebrow}{a.data.status !== 'verified' && ' · Draft'}</p>
-        <h2 class="mt-1 font-heading text-2xl font-medium leading-tight"><a href={a.path} class="text-ink no-underline hover:text-primary hover:underline">{a.data.title}</a></h2>
-        <p class="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-muted">{a.data.description}</p>
+        <p class="eyebrow text-ink-muted">{a.eyebrow}{a.draft && ' · Draft'}</p>
+        <h2 class="mt-1 font-heading text-2xl font-medium leading-tight"><a href={a.href} class="text-ink no-underline hover:text-primary hover:underline">{a.title}</a></h2>
+        {a.description && <p class="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-muted">{a.description}</p>}
         <p class="mt-1.5 text-sm text-ink-muted">
-          <time datetime={a.data.date}>{formatDate(parseLocal(a.data.date))}</time>
-          {a.verified > a.data.date && <> · Last verified <time datetime={a.verified}>{formatDate(parseLocal(a.verified))}</time></>}
+          <time datetime={a.date}>{formatDate(parseLocal(a.date))}</time>
+          {a.verified && a.verified > a.date && <> · Last verified <time datetime={a.verified}>{formatDate(parseLocal(a.verified))}</time></>}
+          {a.guide && <> · on {a.guide}</>}
         </p>
       </li>
     ))}

@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 13 November 2026.
+Last revised: 14 November 2026.
 
 ## 1. What this is
 
@@ -68,6 +68,10 @@ named annual event of its own has its next date, or the date it was last
 held, read on its organizer's own page (the owner's brief of 12 November
 2026; the bar had been three dates of any kind); a live guide is folded
 into it only then. Elizabeth's was the last, folded on 12 November 2026.
+A town a guide covers as a section has no page on the hub (Severance, the
+Windsor and Severance guide's, 14 November 2026): its records are at home on
+that guide (`town.guide`), `/towns/` links the guide's section, and the
+hub's old addresses are redirect pages to the guide (`src/lib/hub-moved.ts`).
 
 The hub lists the seven guides, in that order on every page that lists them
 (`liveTowns()`, from `STANDALONE_GUIDES`), and every town page by cluster, and
@@ -179,9 +183,11 @@ market or music; under the tabs, the quick answers where the config has them,
 none repeating a link the page has (src/lib/quick-answers.ts); the Thursday
 signup; three photo tiles (Eat & drink, Things to do, Living here or Moving
 here), each with one line of what its page lists (`nextStop` on the config),
-three across and full-width rows on a phone, the tiles before the signup on a
-thin day (the tab that opens has fewer than three rows at the build); Worth
-knowing, two links; the footer every page has. A listing's title and a Worth
+three across, and plain link rows with no photograph on a phone, the tiles
+before the signup on a thin day (the tab that opens has fewer than three rows
+at the build); Worth knowing, one section and one "Every local change" link,
+the timely changes first with their summaries, placed under the tabs when one
+is timely (14 November 2026); the footer every page has. A listing's title and a Worth
 knowing headline are links in the primary, not underlined. Sections with no
 data hide. On a phone
 the sports strip shows the latest result only, except when the next game is
@@ -209,7 +215,8 @@ venue, lodging or a landmark. A resident guide's About calls it a
 community guide; the other town guides are community and visitor guides.
 
 **A season page** (12 November 2026) lists dates to come first, in date
-order or A to Z, then "Not announced yet", then what has passed. Each dated
+order or A to Z, then "Not announced yet", then what has passed, each of
+the last two folded under its heading past 12 rows (14 November 2026). Each dated
 row has "Add to calendar": a one-event file at `/dates/<record>.ics` and a
 Google link, all-day unless the record's start time parses with certainty
 (`src/lib/tradition-calendar.ts`). The hub's home page shows a collection
@@ -388,9 +395,15 @@ image. The rules are `src/lib/hub-home.ts`:
 
 **The hub's other pages** share the home's menu (This weekend, Annual
 events, Towns, Moving here, Newsletter, How we check; `src/lib/nav.ts`,
-`hubNav`, "Annual events" going to the list on `/towns/`) and call the
-editorial page "How we check listings" in the footer. Their share image is
-the same Flatirons photograph. In the sitemap a town page and a season page
+`hubNav`; "Annual events" goes to `/annual-events/`, every round-up with
+what is next, and "Towns" to `/towns/`, the A to Z, 14 November 2026) and
+call the editorial page "How we check listings" in the footer. Their share
+image is the same Flatirons photograph; a record's own page shares its
+town's photograph or share card, which its Event markup also carries.
+`/articles/` lists the guides' articles with the hub's, each linking to
+its guide, with no article text copied. A `<title>` runs to 60 characters
+at most; the site's name follows only where the whole fits
+(`TITLE_LIMIT`, src/lib/titles.ts). In the sitemap a town page and a season page
 are dated by the newest check of the records they show
 (`src/lib/lastmod.ts`), and every dated town page title says "events".
 

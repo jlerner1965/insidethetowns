@@ -11,12 +11,14 @@ export interface TitleSite {
 }
 
 /**
- * The <title> for a site's home page.
- *
- * Search results cut a title around 60 characters and several taglines are a
- * full sentence, so the tagline is trimmed at a clause or word boundary rather
- * than the copy being shortened — the tagline is written for the hero, not for
- * the search result.
+ * The <title> for a site's home page: the town and what people search for
+ * first, then the guide's name where the whole fits in TITLE_LIMIT
+ * ("Erie, CO events this weekend & things to do | Inside Erie"), else the
+ * words alone ("Berthoud, CO events this weekend & things to do"). The
+ * owner, 13 November 2026: a title that opened on the brand ("Inside
+ * Berthoud — Main Street and the lakes…") led with the one word nobody
+ * types. `seoTagline` is written for this; a site without one falls back to
+ * its tagline, trimmed at a clause or a word.
  *
  * The trim is why this is worth testing rather than eyeballing. It used to cut
  * Erie's tagline at the comma immediately before "Colorado", producing
@@ -24,17 +26,24 @@ export interface TitleSite {
  * says which Erie is meant.
  */
 export function homeTitle(site: TitleSite): string {
-  const line = site.seoTagline ?? site.tagline;
-  const full = `${site.siteTitle} \u2014 ${line}`;
-  if (full.length <= 65) return full;
-  const room = 65 - site.siteTitle.length - 3;
+  if (site.seoTagline) {
+    const line = site.seoTagline.length <= TITLE_LIMIT ? site.seoTagline : trimAt(site.seoTagline, TITLE_LIMIT);
+    return fitTitle(line, site.siteTitle);
+  }
+  const room = TITLE_LIMIT - site.siteTitle.length - 3;
+  return `${site.siteTitle} \u2014 ${trimAt(site.tagline, room)}`;
+}
+
+/** A line cut to `room` characters at a clause, else a word, with no dangling stop word. */
+function trimAt(line: string, room: number): string {
+  if (line.length <= room) return line;
   let tail = line.slice(0, room);
   const cut = Math.max(tail.lastIndexOf(','), tail.lastIndexOf(';'));
   tail = cut > room * 0.5 ? tail.slice(0, cut) : tail.slice(0, tail.lastIndexOf(' '));
   // A cut that lands on a stop word reads as a sentence chopped in half.
   const stop = /\s+(a|an|the|to|of|and|in|on|for|with|from|at|by|that|its)$/i;
   while (stop.test(tail)) tail = tail.replace(stop, '');
-  return `${site.siteTitle} \u2014 ${tail.replace(/[.,;:\s]+$/, '')}`;
+  return tail.replace(/[.,;:\s]+$/, '');
 }
 
 /**
@@ -72,11 +81,12 @@ export function wordmarkEm(siteTitle: string): number {
  * characters, and a page's own words come before the guide's name: a title
  * that fits with " | Inside [Town]" keeps it, one that does not stands
  * alone (the sports pages' rule since 21 October 2026, SPORTS_TITLE_LIMIT,
- * applied everywhere on 27 October: 163 of 531 event titles and 31 of 259
- * place titles ran past 70 with the suffix). The guide's name is still in
- * og:site_name and the wordmark.
+ * applied everywhere on 27 October at 70: 163 of 531 event titles and 31 of
+ * 259 place titles ran past 70 with the suffix). 60 since the owner's review
+ * of 13 November 2026: about 590 titles ran past 60, mostly for the ending.
+ * The guide's name is still in og:site_name and the wordmark.
  */
-export const TITLE_LIMIT = 70;
+export const TITLE_LIMIT = 60;
 
 /** "[Page] | Inside [Town]" where that fits in TITLE_LIMIT, else "[Page]". */
 export function fitTitle(title: string, siteTitle: string): string {
@@ -167,7 +177,10 @@ export function namesTown(name: string, town: string): boolean {
 
 export function placeTitle(name: string, kind: string, town: { name: string; state: string; siteTitle?: string }, facts?: PlacePageFacts): string {
   const named = namesTown(name, town.name);
-  const plain = named ? `${name} — ${kind}` : `${name} — ${kind} in ${town.name}, ${town.state}`;
+  const kindAndTown = named ? `${name} — ${kind}` : `${name} — ${kind} in ${town.name}, ${town.state}`;
+  // Over the limit the kind gives way before the town does: "Penelope's
+  // World Famous Burgers & Fries, Estes Park, CO", not a 70-character title.
+  const plain = kindAndTown.length <= TITLE_LIMIT || named ? kindAndTown : `${name}, ${town.name}, ${town.state}`;
   if (!facts) return plain;
   const fits = (t: string) => t.length <= TITLE_LIMIT;
   /*
@@ -222,8 +235,8 @@ export function placeTitle(name: string, kind: string, town: { name: string; sta
  * The <title> of an annual event's permanent page: the year beside the
  * name, where people type it ("niwot trot 2026", "boo on briggs 2026"),
  * then the day. "Olde Golden Holiday Parade 2026 — Sat, Dec 12"; once the
- * year's edition is over and no later listing exists, "Niwot Trot 5K —
- * held Oct 4, 2026; 2027 date to come". The town is added where the title
+ * year's edition is over and no later listing exists, "Niwot Trot 5K:
+ * 2027 dates". The town is added where the title
  * does not already name it, and a year already in the title is not said
  * twice (the owner's brief, 11 November 2026: date and year in the title
  * tag of every date-bound page).
@@ -232,9 +245,41 @@ export function annualEventTitle(title: string, town: string, date: Date, awaiti
   const year = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, year: 'numeric' }).format(date);
   const { month, day, weekday } = monthDay(date);
   const where = title.toLowerCase().includes(town.toLowerCase()) ? '' : ` in ${town}`;
-  if (awaiting) return `${title}${where} \u2014 held ${month} ${day}, ${year}; ${Number(year) + 1} date to come`;
+  // Over TITLE_LIMIT the weekday goes first, then the town, then (for a
+  // year that is over) what was held; the name and the year stay (the
+  // owner's review, 13 November 2026: titles in 60).
+  // A year that is over leads with the event, the town and the next year,
+  // not last year's date ("Terror in the Corn, Erie: 2027 dates"; the owner,
+  // 13 November 2026). The page still says when it was last held. A title
+  // that names its venue drops it ("at Anderson Farms") before the town goes.
+  if (awaiting) {
+    const next = `${Number(year) + 1} dates`;
+    const short = title.replace(/\s+at\s+.+$/i, '');
+    const place = (t: string) => (namesTown(t, town) ? t : `${t}, ${town}`);
+    const candidates = [`${place(title)}: ${next}`, `${place(short)}: ${next}`, `${short}: ${next}`];
+    return candidates.find((t) => t.length <= TITLE_LIMIT) ?? candidates[candidates.length - 1]!;
+  }
   const named = title.includes(year) ? title : `${title} ${year}`;
-  return `${named}${where} \u2014 ${weekday}, ${month} ${day}`;
+  const candidates = [`${named}${where} \u2014 ${weekday}, ${month} ${day}`, `${named}${where} \u2014 ${month} ${day}`, `${named} \u2014 ${month} ${day}`, named];
+  return candidates.find((t) => t.length <= TITLE_LIMIT) ?? named;
+}
+
+/**
+ * The <title> of a one-off event's page, before the guide's name is added:
+ * "[Status: ]Title — Nov 7[, 7 pm]". The guide's name follows where the
+ * whole fits in TITLE_LIMIT (fitTitle), and it says where the event is.
+ * Where it will not fit and the title does not name the town, the town goes
+ * before the date where that fits ("Hoss and the Hangman at City Star —
+ * Berthoud, Nov 7"), as a place title does: at 60 characters most event
+ * titles stand alone (the owner's review, 13 November 2026). `town` is
+ * where the event is (a Severance listing on Inside Windsor: Severance).
+ */
+export function eventTitle(lead: string, when: string, town: string, siteTitle: string): string {
+  const dated = `${lead} \u2014 ${when}`;
+  if (namesTown(dated, town)) return dated;
+  if (namesTown(siteTitle, town) && fitTitle(dated, siteTitle) !== dated) return dated;
+  const placed = `${lead} \u2014 ${town}, ${when}`;
+  return placed.length <= TITLE_LIMIT ? placed : dated;
 }
 
 /**
@@ -258,13 +303,26 @@ export function titleTime(hhmm: string): string {
  * date ("2027 date not announced yet") is the first form, which claims no
  * date; `canceled` adds the word.
  */
+/**
+ * Whether an event's own name already says its town, so a title need not
+ * put the town in front of it: as a word ("Longmont Turkey Trot"), inside
+ * a word ("BOLDERBoulder", "Trinidaddio Blues Fest"), or by the short name
+ * a "Springs" town goes by ("Steamboat OktoberWest" in Steamboat Springs).
+ * "Boulder BOLDERBoulder 2027" said it twice (the owner, 13 November 2026).
+ */
+export function nameCarriesTown(name: string, town: string): boolean {
+  if (namesTown(name, town) || name.toLowerCase().includes(town.toLowerCase())) return true;
+  const short = /^(\S+) Springs$/.exec(town)?.[1];
+  return !!short && short !== 'Colorado' && namesTown(name, short);
+}
+
 export function traditionTitle(
   town: string,
   name: string,
   year: number,
   when?: { date?: Date; time?: string; canceled?: boolean },
 ): string {
-  const named = namesTown(name, town) ? `${name} ${year}` : `${town} ${name} ${year}`;
+  const named = nameCarriesTown(name, town) ? `${name} ${year}` : `${town} ${name} ${year}`;
   if (when?.canceled) return `${named}: canceled`;
   if (!when?.date) return named;
   const { month, day, weekday } = monthDay(when.date);

@@ -7,6 +7,10 @@ town:
 type: parade-of-lights
 organizer: "Town of Estes Park"
 sourceUrl: "https://eventsinestes.com/catch-the-glow-parade/"
+about:
+  text: "A holiday parade of floats from the Town and local nonprofits, marching bands, fire trucks and specialty vehicles. Spectators watch along Elkhorn Avenue in downtown Estes Park."
+  source: "https://eventsinestes.com/catch-the-glow-parade/"
+  checked: 2026-11-13
 years:
   - year: 2026
     status: confirmed

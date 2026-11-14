@@ -25,6 +25,7 @@ import { dayKey } from '@/lib/dates';
 import { eventPage, lineFor, placeKey, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { TRADITION_TYPE_INFO, nextRow, rowsByState, type TraditionRow as Row } from '@/lib/traditions';
+import { TITLE_LIMIT } from '@/lib/titles';
 
 const town = getTown();
 const hub = getNetworkHub();
@@ -66,7 +67,13 @@ const kindText = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kind
 
 const path = '/traditions/';
 const pageUrl = `https://${town.domain}${path}`;
-const seoTitle = `${town.name}, Colorado ${kindText}${yearText ? ` ${yearText}` : ''}`;
+// Within TITLE_LIMIT: the kinds by name while they fit, else the plain
+// "annual events" (Windsor's listed seven kinds in 149 characters; the
+// owner's review, 13 November 2026). A year range in the short form.
+const yearShort = years.length > 1 ? `${years[0]}–${String(years.at(-1)).slice(2)}` : yearText;
+const seoTitle =
+  [`${town.name}, Colorado ${kindText}${yearText ? ` ${yearText}` : ''}`, `${town.name}, Colorado ${kindText}${yearShort ? ` ${yearShort}` : ''}`].find((t) => t.length <= TITLE_LIMIT) ??
+  `${town.name}, Colorado annual events and dates${yearShort ? ` ${yearShort}` : ''}`;
 const description = `${town.name}, Colorado’s ${kindText}${yearText ? ` for ${yearText}` : ''}: the date each organizer has published, or that it has not yet, and the page it was read from.`;
 const structured = [
   collectionPageJsonLd(town, {

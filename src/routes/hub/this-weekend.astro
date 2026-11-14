@@ -34,7 +34,7 @@ import NetworkDayList from '@/components/NetworkDayList.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import SponsorLine from '@/components/SponsorLine.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { getHub, liveTowns } from '@/config';
+import { getHub, listsEvents, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { groupByDay, occurrences, weekendSections, weekendWindow } from '@/lib/events';
 import { dayKey, formatDate, formatDayRange, formatTime } from '@/lib/dates';
@@ -42,7 +42,9 @@ import { collectionPageJsonLd } from '@/lib/seo';
 import { seasonLinks } from '@/lib/nav';
 
 const hub = getHub();
-const towns = liveTowns();
+// The guides that list events: Niwot posts updates and lists none, so the
+// page counts six, not seven (the owner, 13 November 2026).
+const towns = liveTowns().filter(listsEvents);
 
 // The moment the data behind this page was last read, which the foot of the
 // page states plainly. Not "today" — the actual refresh.
@@ -107,10 +109,13 @@ const seasons = seasonLinks();
   </p>
 
   <div data-filter-root>
+    {/* "Hide meetings" keeps every listing that is not a public meeting
+        (each card's `outing` tag: category civic is the councils, boards and
+        study sessions; the owner, 13 November 2026). */}
     {/* Free and Live music combine with the town; the town is kept in the
         address (?town=erie) and remembered for the next visit. No Kids &
         families toggle: an event has no audience field to read it from. */}
-    <FilterBar options={options} label="Filter by town" rowLabel="Town" toggles={[{ key: 'free', label: 'Free' }, { key: 'music', label: 'Live music' }]} remember="town" />
+    <FilterBar options={options} label="Filter by town" rowLabel="Town" toggles={[{ key: 'free', label: 'Free' }, { key: 'music', label: 'Live music' }, { key: 'outing', label: 'Hide meetings' }]} remember="town" />
     {/* What the filters left, and which days it covers: counted from the rows shown, after every filter. */}
     <p class="mb-6 text-[0.9375rem] text-ink-muted" data-filter-summary aria-hidden="true"></p>
     {/* Straight to a day, as on a town's events page. */}

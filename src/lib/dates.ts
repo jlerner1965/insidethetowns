@@ -183,6 +183,9 @@ export function formatTime(date: Date): string {
 export function formatTimeRange(start: Date, end?: Date, allDay = false): string {
   if (allDay) return 'All day';
   if (!end) return formatTime(start);
+  // A feed's whole day written as clock times, midnight to 11:59 pm
+  // (Clearview's take-home kits), printed as "12 am – 11:59 pm".
+  if (dayKey(start) === dayKey(end) && toWallClock(start).length === 10 && toWallClock(end).endsWith('T23:59')) return 'All day';
   if (dayKey(start) === dayKey(end)) return `${formatTime(start)} – ${formatTime(end)}`;
   return `${formatDayShort(start)} ${formatTime(start)} – ${formatDayShort(end)} ${formatTime(end)}`;
 }

@@ -13,6 +13,7 @@
 import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide, type HubTown } from '../config/hub-towns.ts';
 import { formatMonthDay, parseLocal } from './dates.ts';
 import { CURRENT_SEASONS, TRADITION_TYPE_INFO, byNextDate, countsAsVerified, hasVerifiedDate, isAgencyDate, isListed, isUpcoming, nextRow, type TraditionRecord, type TraditionRow } from './traditions.ts';
+import { TITLE_LIMIT } from './titles.ts';
 
 /**
  * A town page is published once the town has one named annual event of
@@ -219,7 +220,7 @@ export function townSearchText(name: string, traditions: readonly TraditionRow[]
   return {
     seoTitle:
       // "events" in every shape, the word people search with (the search audit of 13 November 2026).
-      [named, `${name}, Colorado events ${years}: ${next[0]!.record.name}`, `${name}, CO events ${years}: ${next[0]!.record.name}`].find((t) => t.length <= 65) ??
+      [named, `${name}, Colorado events ${years}: ${next[0]!.record.name}`, `${name}, CO events ${years}: ${next[0]!.record.name}`].find((t) => t.length <= TITLE_LIMIT) ??
       `${name}, Colorado events and annual dates, ${years}`,
     description: `${name}, Colorado in ${years}: ${words}. Every annual event and outdoor date, with the date its organizer has published and the page it was read from.`,
   };

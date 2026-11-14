@@ -11,7 +11,8 @@
  */
 import Page from '@/layouts/Page.astro';
 import { getHub, liveTowns } from '@/config';
-import { hubCountyLine } from '@/config/hub-towns';
+import { findHubTown, hubCountyLine } from '@/config/hub-towns';
+import { subTownsOf } from '@/lib/sub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { publishedHubTowns } from '@/lib/hub-towns';
@@ -23,6 +24,21 @@ const records = await getTraditions();
 const today = dayKey(new Date());
 const guides = liveTowns();
 const pages = [...publishedHubTowns(records)].sort((a, b) => a.name.localeCompare(b.name));
+/**
+ * A town a guide covers as a section of its own (Windsor's Severance) is
+ * listed A to Z with the town pages and links to the guide's section, not
+ * to a hub page: the guide owns it (the owner's Severance decision, 13
+ * November 2026). Not counted as a town page.
+ */
+const sections = guides.flatMap((g) =>
+  subTownsOf(g)
+    .filter((s) => s.slug !== g.slug && !pages.some((p) => p.slug === s.slug))
+    .map((s) => ({ name: s.label, href: `https://${g.domain}/${s.slug}/`, note: `on ${g.siteTitle}`, county: findHubTown(s.slug) ? hubCountyLine(findHubTown(s.slug)!) : undefined })),
+);
+const aToZ = [
+  ...pages.map((t) => ({ name: t.name, href: `/${t.slug}/`, note: undefined as string | undefined, county: hubCountyLine(t) as string | undefined })),
+  ...sections,
+].sort((a, b) => a.name.localeCompare(b.name));
 const seasons = TRADITION_TYPES.filter((t) => seasonRows(records, t, today).length > 0);
 const path = '/towns/';
 const description = `Every Colorado town on ${hub.siteTitle}, A to Z: ${guides.length} full guides and ${pages.length} town pages with each town’s annual events and outdoor dates.`;
@@ -56,8 +72,8 @@ const link = 'font-semibold text-primary underline';
     <h2 id="pages-heading" class={h2}>Town pages</h2>
     <p class="mb-4 max-w-2xl text-[0.9375rem] text-ink-muted">A town page lists the town’s annual events and the outdoor dates around it, each with the page it was read from.</p>
     <ul class="grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3" data-index="town-pages">
-      {pages.map((t) => (
-        <li><a href={`/${t.slug}/`} class={link}>{t.name}</a> <span class="text-[0.875rem] text-ink-muted">{hubCountyLine(t)}</span></li>
+      {aToZ.map((t) => (
+        <li><a href={t.href} class={link}>{t.name}</a> <span class="text-[0.875rem] text-ink-muted">{[t.county, t.note].filter(Boolean).join(' · ')}</span></li>
       ))}
     </ul>
   </section>

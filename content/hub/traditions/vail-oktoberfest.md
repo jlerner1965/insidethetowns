@@ -7,6 +7,10 @@ town:
 type: oktoberfest
 organizer: "Vail Oktoberfest"
 sourceUrl: "https://www.oktoberfestvail.com/"
+about:
+  text: "An Oktoberfest held in two parts, first in Lionshead Village and then in Vail Village."
+  source: "https://www.oktoberfestvail.com/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: not-announced

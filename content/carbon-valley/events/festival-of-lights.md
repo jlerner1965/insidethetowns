@@ -3,7 +3,8 @@ title: "Festival of Lights"
 annual: true
 formerSlugs: [festival-of-lights-2026-12-05]
 start: "2026-12-05"
-end: "2026-12-05T20:00"
+allDay: true
+timeNote: "5:30 to 8 pm"
 venue: "Crist Park"
 address: "105 5th St, Frederick, CO 80530"
 url: "https://www.frederickco.gov/237/Festival-of-Lights"
@@ -16,7 +17,7 @@ sourceId: "frederickco-gov"
 sourceUid: "4287"
 sourceHash: "8f48148b7d85"
 verified: "2026-11-13"
-verifiedBy: "auto-review from the Town of Frederick: Frederick Events Calendar feed read 2026-11-13, the weekly ingest workflow"
+verifiedBy: "auto-review from the Town of Frederick: Frederick Events Calendar feed read 2026-11-13, the weekly ingest workflow; the time read on 13 November 2026 (Denver) on the Town's Festival of Lights page (When: Saturday, December 5, 2026; Where: Crist Park, 105 Fifth Street; Time: 5:30 to 8 pm) by the network review, and written as the all-day entry the Town's feed carries with its times as the note, since the start had printed as 12 am"
 ---
 
 Frederick's Festival of Lights is Saturday, December 5, 2026, from 5:30 to 8 pm at Crist Park, 105 Fifth Street, with a lighted parade at 5:30 and a countdown to the tree lighting.
