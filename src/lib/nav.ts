@@ -18,8 +18,9 @@
  *   November 2026: one word in the menu, the same on every guide; it was
  *   "<School> athletics" that day and "<Mascot> sports" before, and the
  *   school's name still heads the strip, the band and the share image,
- *   src/config/school-sports.ts schoolAthletics); "High school sports"
- *   where it follows several; a school's `navLabel` where neither would do.
+ *   src/config/school-sports.ts schoolAthletics), whether it follows one
+ *   school or several ("High school sports" on Windsor's until 13 November
+ *   2026); a school's `navLabel` where it would not do.
  * - "Shops" only where the guide lists MIN_SHOPS_FOR_MENU open shops or
  *   more (the owner, 7 November 2026, after reading niwot.com, whose menu
  *   leads with shopping: Niwot's downtown is its shops, and /shops/ was
@@ -54,7 +55,9 @@ import type { NavItem, SiteConfig, TownConfig } from '../config/towns/types.ts';
 export function sportsNavLabel(town: string): string | undefined {
   const schools = schoolsFor(town);
   if (schools.length === 0) return undefined;
-  if (schools.length > 1) return 'High school sports';
+  // One word on every guide, whether it follows one school or two (the
+  // owner, 13 November 2026: Windsor's "High school sports" was the odd one).
+  if (schools.length > 1) return 'Athletics';
   const [school] = schools;
   return school!.navLabel ?? 'Athletics';
 }

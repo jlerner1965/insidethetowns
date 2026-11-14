@@ -474,7 +474,7 @@ test('every school is one entry with its own file, and its town’s menu carries
       assert.ok(!nav.some((n) => n.href === '/sports/'), `${town}: an outdoors-led guide has no sports item in its menu`);
     } else {
       assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third menu item`);
-      assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? 'Athletics') : 'High school sports', `${town}: the label says athletics`);
+      assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? 'Athletics') : 'Athletics', `${town}: the label says athletics`);
     }
     for (const s of schools) assert.ok(s.calendar || s.calendarNote, `${s.school}: a calendar to check against, or a note saying why not`);
   }

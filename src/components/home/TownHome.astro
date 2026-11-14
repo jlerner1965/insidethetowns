@@ -43,6 +43,8 @@
  * count is the data's, and an empty tab says so.
  */
 import Hero from '@/components/Hero.astro';
+import { guideName } from '@/lib/hub-home';
+import { coveredTowns } from '@/lib/town-search-index';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import SportsStrip from '@/components/SportsStrip.astro';
 import NextStop from './NextStop.astro';
@@ -219,7 +221,10 @@ if (featured) {
   };
 }
 ---
-<Hero compact pick={!quietGuide && !!pick} changes={know.length > 0 || timely.length > 0} />
+{/* The guide's name as the hub's index gives it: a guide named for its own
+    town adds the others it covers ("Windsor and Severance"; the owner,
+    13 November 2026). Carbon Valley, named for a region, stays as it is. */}
+<Hero compact title={guideName(town, coveredTowns(town))} pick={!quietGuide && !!pick} changes={know.length > 0 || timely.length > 0} />
 
 {/* A quiet guide (Niwot): Updates, only when there is one, then Things to
     know. No events, so no tabs and no empty week. */}

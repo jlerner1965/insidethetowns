@@ -51,7 +51,7 @@ const jsonLd = [
   ]),
 ];
 ---
-<Page title="High school sports" seoTitle={`${town.name} high-school scores and schedules`} eyebrow={`${town.name} · ${seasonLabel}`} {description} intro={`Scores, schedules and records for ${town.name}’s ${COUNT[schools.length] ?? schools.length} high schools this ${seasonWord}.`} {jsonLd}>
+<Page title="High school sports" seoTitle={`${town.name} high-school scores and schedules`} eyebrow={`${town.name} · ${seasonLabel}`} {description} intro={`Scores, schedules and records for ${town.name}’s ${COUNT[schools.length] ?? schools.length} high schools, season by season.`} {jsonLd}>
   {newest && <p slot="after-header" class="mt-3 text-[0.9375rem] text-ink-muted">Scores from MaxPreps, read {formatShortDate(newest)}.</p>}
   <ul class="divide-y divide-line-soft border-y border-line-soft">
     {rows.map(({ school, teams, next, last }) => (
