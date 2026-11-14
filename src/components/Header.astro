@@ -192,11 +192,18 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
   const nav = document.getElementById('site-nav');
   if (button && nav) {
     const open = () => button.getAttribute('aria-expanded') === 'true';
+    const header = button.closest('header');
     const set = (next: boolean) => {
       button.setAttribute('aria-expanded', String(next));
       // The lock lives on <html> so the panel's own rules and the scroll lock
       // are one state, not two that can disagree.
       document.documentElement.classList.toggle('nav-open', next);
+      // Everything outside the masthead is out of reach while the panel is
+      // open, so Tab stays in the menu rather than walking into the dimmed
+      // page under it (WCAG 2.4.3, 2.4.11; the review of 14 November 2026).
+      for (const el of document.body.children) {
+        if (el !== header && !el.contains(header) && el instanceof HTMLElement && !(el instanceof HTMLScriptElement)) el.inert = next;
+      }
     };
     button.addEventListener('click', () => {
       const next = !open();
@@ -207,6 +214,11 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
     // it came from rather than at the top of the document.
     nav.addEventListener('click', (event) => {
       if ((event.target as HTMLElement).closest('a')) set(false);
+    });
+    // A tap on the dimmed page closes it, as a menu is expected to.
+    document.addEventListener('click', (event) => {
+      const target = event.target as Node;
+      if (open() && !nav.contains(target) && !button.contains(target)) set(false);
     });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && open()) {
@@ -234,6 +246,8 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
     });
     switcher.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && switcher.open) {
+        // Escape closes "Other towns" only, not the phone menu around it.
+        event.stopPropagation();
         close();
         switcher.querySelector<HTMLElement>('summary')?.focus();
       }

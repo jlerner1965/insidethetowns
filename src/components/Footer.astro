@@ -14,7 +14,8 @@
  */
 import { getNetworkHub, getSite, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { seasonLinks, siteNav } from '@/lib/nav';
+import { seasonLinks, siteNav, sportsNavLabel } from '@/lib/nav';
+import { guidesWithTraditions } from '@/lib/tradition-files';
 import NetworkBar from './NetworkBar.astro';
 import Wordmark from './Wordmark.astro';
 
@@ -31,9 +32,18 @@ const linkClass = 'inline-block -my-1.5 py-2.5 no-underline text-white hover:und
 // is one click from any page and none is reachable only from an aside.
 const inMenu = new Set(siteNav(site).map((n) => n.href));
 const hasUpdates = site.kind === 'town' && (await getTownEntries('updates')).length > 0;
+// The full calendar, the annual events and the school's teams are here on
+// every guide (the review of 14 November 2026): /events/, the only page with
+// the date and category filters, was reachable from the home page alone once
+// Families took its menu slot; Erie's Balloon Festival and Berthoud Day were
+// linked from nowhere; and Lyons keeps Athletics out of its menu.
+const sportsLabel = site.kind === 'town' ? sportsNavLabel(site.slug) : undefined;
+const hasTraditions = site.kind === 'town' && guidesWithTraditions().has(site.slug);
 const sections = site.kind === 'town'
   ? [
-      ...(listsEvents(site) ? [{ label: 'This weekend', href: '/this-weekend/' }] : []),
+      ...(listsEvents(site) ? [{ label: 'All events', href: '/events/' }, { label: 'This weekend', href: '/this-weekend/' }] : []),
+      ...(hasTraditions ? [{ label: 'Every year', href: '/traditions/' }] : []),
+      ...(sportsLabel ? [{ label: sportsLabel, href: '/sports/' }] : []),
       { label: 'Things to do', href: '/things-to-do/' },
       { label: 'Guides', href: '/guides/' },
       { label: 'Every place, A to Z', href: '/directory/' },
@@ -94,8 +104,12 @@ const sections = site.kind === 'town'
             to, the same as every town page's correction line
             (src/routes/hub/town.astro). */}
         <li><a href="/editorial/" class={linkClass}>{site.kind === 'hub' ? 'How we check listings' : 'Editorial policy'}</a></li>
-        {site.kind === 'hub' && (
+        {/* On a guide, the corrections form (the review of 14 November
+            2026: from the home page a reader found only a mailto link). */}
+        {site.kind === 'hub' ? (
           <li><a href={`mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(`[Correction] ${site.siteTitle}`)}`} class={linkClass}>Report a correction</a></li>
+        ) : (
+          <li><a href="/correct/" class={linkClass}>Report a correction</a></li>
         )}
         <li><a href="/credits/" class={linkClass}>Photo credits</a></li>
         <li><a href="/privacy/" class={linkClass}>Privacy</a></li>

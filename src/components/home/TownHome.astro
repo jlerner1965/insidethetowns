@@ -320,7 +320,10 @@ if (featured) {
   </section>
 )}
 
-<QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} />
+{/* Tucked under What's happening only when nothing comes between (the
+    review of 14 November 2026: its negative margin pulled it over the paper
+    bands that now can). */}
+<QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} tuck={!quietGuide && !(outdoorsLed && anyDates) && !knowHigh && !(familyRows.length > 0 && familiesFirst)} />
 
 {/* A guide that follows several schools: the week's games, under the
     events (the owner, 10 November 2026). Above them, Loveland's four
