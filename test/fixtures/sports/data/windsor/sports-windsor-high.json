@@ -1,0 +1,331 @@
+{
+  "generated": "2026-11-11T19:49:07.357Z",
+  "sports": [
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/volleyball/",
+      "fetched": "2026-11-11T19:49:07.357Z",
+      "maxprepsUpdated": "2026-11-11T16:16:15",
+      "overall": "17-8",
+      "league": {
+        "record": "9-1",
+        "name": "4A/3A Northern",
+        "place": "2nd"
+      },
+      "results": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Highlands Ranch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/highlands-ranch-vs-windsor/11-7-2026/?c=bbecfc20-887d-4c7c-a599-fd31e92d8bf7",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/monarch-louisville-vs-windsor/11-7-2026/?c=ad972a33-7e9f-4628-bc4d-17bd7310c691",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Resurrection Christian",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/resurrection-christian-loveland-vs-windsor/10-31-2026/?c=2aa12183-81df-4116-a54e-1625b32868d0",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-31",
+          "opponent": "Cherry Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/cherry-creek-greenwood-village-vs-windsor/10-31-2026/?c=3eaf257f-236f-4a11-a172-a6157e6df15d",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Valor Christian",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/valor-christian-highlands-ranch-vs-windsor/10-30-2026/?c=be4df3e3-4dde-4814-993c-607f3d8844bb",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Colorado invite",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Legend",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/legend-parker-vs-windsor/10-30-2026/?c=384f8698-abd4-4f21-a52a-1f5b21e0190b",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Cheyenne Mtn Tournament - World Arena - Colo Spgs",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-windsor/10-27-2026/?c=c4bdc5c3-c390-4daf-93fc-d7f3eb6c9643",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/roosevelt-johnstown-vs-windsor/10-22-2026/?c=afccab1f-78d9-460e-b707-9775cd70aabb",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-windsor/10-20-2026/?c=030d434d-4efd-483b-ac4b-5ccf22e73f09",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/poudre-fort-collins-vs-windsor/10-15-2026/?c=97081161-6ae0-4cf1-81cc-9ee1ca889471",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/greeley-west-vs-windsor/10-13-2026/?c=a966bdea-5b90-443f-ba38-a6014d5e4c6d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-windsor/10-8-2026/?c=af47a078-12f1-497b-a057-5aba6df3d908",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/timnath-vs-windsor/10-1-2026/?c=19f09d57-c499-4fd0-a4ac-528c329f4245",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/northridge-greeley-vs-windsor/9-29-2026/?c=8c1c327e-446a-4d9b-9dfe-aa8b42ad43ca",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/greeley-central-vs-windsor/9-24-2026/?c=a6a6a718-4fd5-4212-b6b1-2dd94d41a23d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/thompson-valley-loveland-vs-windsor/9-22-2026/?c=3a02d450-2df3-4a32-aa0a-1c3141ccc639",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Garden City",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/inter-state/volleyball/match/garden-city-ks-vs-windsor-co/9-12-2026/?c=3f31b2f3-5c6c-4250-bcba-182a464f6bcb",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Lewis Palmer Invitational",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Durango",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/durango-vs-windsor/9-12-2026/?c=27a03c88-3b9e-4e42-a89d-582e311e061f",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Lewis Palmer Tournament",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Middle Park",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/middle-park-granby-vs-windsor/9-12-2026/?c=52ea4c11-a3b1-4dbd-9448-aabc57b42d14",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Lewis Palmer Invitational",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Lewis-Palmer",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lewis-palmer-monument-vs-windsor/9-12-2026/?c=55b7e119-9da8-45af-9435-451ad5e07bad",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Chaparral",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/chaparral-parker-vs-windsor/9-10-2026/?c=995bca9f-e858-4b09-91e5-93b38e481434",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fossil-ridge-fort-collins-vs-windsor/9-3-2026/?c=7b4a302c-15bf-4e23-a99d-f5d1fc1a3a27",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/university-greeley-vs-windsor/9-1-2026/?c=0b57d67e-6ed7-4c87-a7c8-6ea438896d4f",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Resurrection Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/resurrection-christian-loveland-vs-windsor/8-27-2026/?c=d4fc732a-d5f0-4e44-8012-12e7691e932a",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Eaton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/eaton-fightin-reds-vs-windsor/8-25-2026/?c=e51551a8-d566-4c07-8d37-ffa4cbd707ba",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-11-12",
+          "opponent": "Battle Mountain",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/battle-mountain-edwards-vs-windsor/11-12-2026/?c=5975af98-39ea-410b-ab03-94a8ffbc1dd8",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "venue": "Denver Coliseum",
+          "time": "12:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    }
+  ]
+}

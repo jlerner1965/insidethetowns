@@ -12,8 +12,17 @@ import { POSTSEASON, type PostseasonGame } from '../src/config/postseason.ts';
 import { schoolSportsFor, type SportData, type SportsData } from '../src/config/school-sports.ts';
 import { seasonOver, withPostseason } from '../src/lib/school-sports.ts';
 import { readSportsData } from '../scripts/lib/sports-data.ts';
+import { fileURLToPath } from 'node:url';
 
 const SUNDAY = new Date('2026-11-08T19:00:00Z');
+/**
+ * The sports files as the run of 11 November 2026 wrote them
+ * (test/fixtures/sports/_README.md). The live files are rewritten after
+ * every run: once Severance's game with Pueblo East was played, the live
+ * file carried it as a result and this read failed with nothing wrong (14
+ * November 2026).
+ */
+const FROZEN = fileURLToPath(new URL('./fixtures/sports/', import.meta.url));
 
 function team(key: string, over: Partial<SportData> = {}): SportData {
   return { key, name: key, maxprepsUrl: 'https://www.maxpreps.com/x/', fetched: '2026-11-08T18:00:00Z', overall: '19-6', results: [], upcoming: [], held: [], notes: [], ...over };
@@ -103,8 +112,8 @@ test('a team with a first-round bye is not called finished while its playoff gam
 });
 
 test('the data files as the pages read them carry the postseason rows of the schools still followed', () => {
-  // Severance High's football file and CHSAA's row for Pueblo East at Dutch Clark on 13 November 2026.
-  const severance = readSportsData({ town: 'windsor', slug: 'severance-high' }, undefined, SUNDAY);
+  // Severance High's football file as of 11 November and CHSAA's row for Pueblo East at Dutch Clark on 13 November 2026.
+  const severance = readSportsData({ town: 'windsor', slug: 'severance-high' }, FROZEN, SUNDAY);
   const football = severance?.sports.find((t) => t.key === 'football');
   assert.ok(football, 'Severance’s football data');
   assert.equal(football.upcoming[0]?.opponent, 'Pueblo East');

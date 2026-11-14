@@ -1,0 +1,318 @@
+{
+  "generated": "2026-11-11T19:42:11.883Z",
+  "sports": [
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
+      "fetched": "2026-11-11T19:42:11.883Z",
+      "maxprepsUpdated": "2026-11-11T15:49:33",
+      "overall": "19-6",
+      "league": {
+        "record": "4-2",
+        "name": "4A/3A Patriot Peaks",
+        "place": "3rd"
+      },
+      "results": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Delta",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-delta/11-7-2026/?c=7d501a06-c9bb-4327-b90e-accb3d374059",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          },
+          "stage": "Regionals"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Prospect Ridge Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-prospect-ridge-academy-broomfield/11-7-2026/?c=7f9976a6-a165-4018-ae5a-06f1468f9db3",
+          "stage": "Regionals",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-frederick/10-29-2026/?c=c77b92ce-5eb0-4ac2-8391-1ca60a73fed6",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Windsor Charter Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-windsor-charter-academy/10-27-2026/?c=7555ad87-213e-42ff-8a28-305f9430ee51",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-university-greeley/10-26-2026/?c=fd847ab3-d7b0-4f9e-ae1a-fb432644e7af",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Liberty Common",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-liberty-common-fort-collins/10-22-2026/?c=3daefabd-0b15-47b4-a98e-39388164f36f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Fort Morgan",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-fort-morgan/10-20-2026/?c=66c16769-4861-41ee-9b10-e15f0e1e68be",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Wellington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-wellington/10-13-2026/?c=63f05dd9-8f19-473b-afdf-41b935e35844",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Resurrection Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-resurrection-christian-loveland/10-8-2026/?c=4bcc5078-0e84-4d88-aedb-d57e31cdc64a",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Eaton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-eaton-fightin-reds/10-6-2026/?c=e6d1ea56-bab7-47cc-8be6-306301e508de",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Northfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-northfield-denver/9-24-2026/?c=80887728-531a-4815-a670-d4c6c041f808",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Standley Lake",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-standley-lake-westminster/9-22-2026/?c=74962cdf-f72f-4e09-988b-bdc9562dcd6b",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Regis Groff",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-regis-groff-denver/9-19-2026/?c=abc60703-8ec8-4b10-8ac0-9f01d1738500",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-loveland/9-17-2026/?c=f8cfda19-2670-4327-aee8-c1cf1e4e30d1",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Sterling",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-sterling/9-15-2026/?c=25785ae3-5816-49ed-bcde-5f8fd79b9e04",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Erie",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-erie/9-12-2026/?c=de5294bb-52d8-4db3-b795-fe16a581a0d7",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-severance/9-10-2026/?c=c7ea9524-e1ad-44c0-aecc-6191e909647e",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-timnath/9-1-2026/?c=9cc1becd-a033-403c-8533-9e39491403d6",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Peak to Peak",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-peak-to-peak-lafayette/8-29-2026/?c=4ee4df42-32d8-4354-a9e1-9b6c0633cedc",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Longmont",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-longmont/8-29-2026/?c=d97b6676-bf9d-4c0c-96d6-709050a41e00",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Mountain View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-mountain-view-loveland/8-28-2026/?c=f1b2b182-b14b-42f7-a791-9c6ea995280d",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Niwot",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-niwot/8-28-2026/?c=ee987482-2209-45b2-abac-78f19b653450",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-thompson-valley-loveland/8-27-2026/?c=b5bd3a5e-f47d-4fb4-a1e3-64e28b6e9945",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Longmont",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-longmont/8-25-2026/?c=ec27bc45-fe81-4607-95ed-42e3a6af5ccb",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-poudre-fort-collins/8-20-2026/?c=a7174d10-8ec3-4de6-84a7-f39aba619fff",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-11-12",
+          "opponent": "Eaton",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-eaton-fightin-reds/11-12-2026/?c=8e201a18-71e3-4732-8889-9f52db6a4f61",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "venue": "Denver Coliseum",
+          "time": "08:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "2026-11-12 at Eaton: a game at Denver Coliseum, which the school calendar files as away (\"Girls Varsity Volleyball @ Eaton High School\")"
+      ]
+    }
+  ]
+}
