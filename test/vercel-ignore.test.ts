@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -154,4 +154,13 @@ test('a redirect-only site skips shared code and other content, and builds for i
   assert.equal(decide('lyons', config, rules), 'build', 'every town config still builds every live site');
   // A rebuild (the same commit again) still builds it.
   assert.equal(decide('golden', config, config), 'build');
+});
+
+test('a build and a dev server parse every content file afresh (astro --force), so a schema change cannot meet a cached entry', () => {
+  // Vercel carries node_modules/.astro between builds; on 13 November 2026 a
+  // cached Eldora article without the new `games` default failed every hub
+  // deploy while CI, starting clean, passed.
+  const run = readFileSync('scripts/run.ts', 'utf8');
+  assert.match(run, /\(command === 'build' \|\| command === 'dev'\) && !args\.includes\('--force'\) \? \['--force'\] : \[\]/);
+  assert.match(run, /spawnSync\('astro', \[command, \.\.\.args, \.\.\.forced\]/);
 });

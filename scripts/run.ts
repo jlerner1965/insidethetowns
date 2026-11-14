@@ -37,7 +37,16 @@ if (command === 'build') {
   if (v.status !== 0) process.exit(v.status ?? 1);
 }
 
-const result = spawnSync('astro', [command, ...args], { stdio: 'inherit', env, shell: true });
+// `--force` on build and dev: Astro keeps each parsed content entry in a cache
+// (node_modules/.astro/data-store.json), which Vercel carries from one build
+// to the next, and re-parses only the files that changed. A schema change in a
+// module the collection imports (src/lib/curiosity.ts) does not invalidate it,
+// so an untouched file keeps the shape it had: on 13 November 2026 the field
+// `games` and its default reached the football article but not the Eldora one
+// left in the cache, and every hub deploy failed on "games is not iterable"
+// while CI, which starts clean, passed. Parsing everything costs a few seconds.
+const forced = (command === 'build' || command === 'dev') && !args.includes('--force') ? ['--force'] : [];
+const result = spawnSync('astro', [command, ...args, ...forced], { stdio: 'inherit', env, shell: true });
 if (result.status !== 0) process.exit(result.status ?? 1);
 
 // The site search's index; on the hub it also takes in the town pages
