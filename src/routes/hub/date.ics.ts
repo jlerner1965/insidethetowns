@@ -11,14 +11,19 @@ import { dayKey } from '@/lib/dates';
 import { buildIcs } from '@/lib/ics';
 import { traditionCalendarEvent } from '@/lib/tradition-calendar';
 import { TRADITION_TYPE_INFO, CURRENT_SEASONS, nextRow } from '@/lib/traditions';
+import { eventPath, publishedHubTowns } from '@/lib/hub-towns';
 
 export async function getStaticPaths() {
   const hub = getHub();
   const today = dayKey(new Date());
-  return (await getTraditions()).flatMap((record) => {
+  const records = await getTraditions();
+  const published = new Set(publishedHubTowns(records).map((t) => t.slug));
+  return records.flatMap((record) => {
     const row = nextRow(record, today);
     const info = TRADITION_TYPE_INFO[record.type];
-    const page = CURRENT_SEASONS[record.type] ? `https://${hub.domain}${info.path}` : row.source;
+    // "More:" in the entry: the record's own page where it has one, else its season page, else its source.
+    const own = eventPath(record, published);
+    const page = own ? `https://${hub.domain}${own}` : CURRENT_SEASONS[record.type] ? `https://${hub.domain}${info.path}` : row.source;
     const event = traditionCalendarEvent(row, { domain: hub.domain, pageUrl: page });
     return event ? [{ params: { slug: record.slug }, props: { event, name: record.name } }] : [];
   });

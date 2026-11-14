@@ -8,8 +8,9 @@
  * on its send day; a sports page (the school's, each team's, and the index
  * of a town's several schools) when the run last wrote its data file
  * (`generated`); on the hub, a town page and a season page when the
- * newest of their records was last read on its source (`checked`). Every
- * other page is as new as the build.
+ * newest of their records was last read on its source (`checked`), and a
+ * record's own page when the record was. Every other page is as new as the
+ * build.
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -17,7 +18,7 @@ import { parseLocal } from './dates.ts';
 import { schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } from '../config/school-sports.ts';
 import { teamsWithData } from './school-sports.ts';
 import { curiosityDates } from './curiosity-files.ts';
-import { appliesTo, publishedHubTowns } from './hub-towns.ts';
+import { appliesTo, hubEventPages, publishedHubTowns } from './hub-towns.ts';
 import { rawRecords } from './tradition-files.ts';
 import { CURRENT_SEASONS, TRADITION_TYPE_INFO, type TraditionRecord } from './traditions.ts';
 
@@ -113,9 +114,15 @@ function newestCheck(records: readonly TraditionRecord[]): string | undefined {
  */
 function traditionDates(repoRoot: string, out: Map<string, string>): void {
   const records = rawRecords(repoRoot);
-  for (const town of publishedHubTowns(records)) {
+  const published = publishedHubTowns(records);
+  for (const town of published) {
     const iso = newestCheck(records.filter((r) => appliesTo(r, town.slug)));
     if (iso) out.set(`/${town.slug}/`, iso);
+  }
+  // A record's own page: the newest day any of its years was read.
+  for (const page of hubEventPages(records, new Set(published.map((t) => t.slug)))) {
+    const iso = newestCheck([page.record]);
+    if (iso) out.set(page.path, iso);
   }
   for (const [type, info] of Object.entries(TRADITION_TYPE_INFO) as Array<[keyof typeof TRADITION_TYPE_INFO, (typeof TRADITION_TYPE_INFO)[keyof typeof TRADITION_TYPE_INFO]]>) {
     if (!CURRENT_SEASONS[type]) continue;

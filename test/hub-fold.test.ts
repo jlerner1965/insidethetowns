@@ -26,8 +26,10 @@ import { emailTowns, findTown, LIVE_TOWNS, liveTowns } from '../src/config/index
 import { towns } from '../src/config/towns/registry.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide } from '../src/config/hub-towns.ts';
-import { foldRules, OUTDOOR_ANCHOR, TO_OUTDOOR, TO_TRADITIONS, TRADITIONS_ANCHOR } from '../src/lib/fold.ts';
-import { publishedHubTownSlugs } from '../src/lib/tradition-files.ts';
+import { eventSource, foldEventTargets, foldRules, OUTDOOR_ANCHOR, TO_OUTDOOR, TO_TRADITIONS, TRADITIONS_ANCHOR, type FoldEventMap } from '../src/lib/fold.ts';
+import { hubEventPages, publishedHubTowns } from '../src/lib/hub-towns.ts';
+import { rawRecords } from '../src/lib/tradition-files.ts';
+import foldEvents from '../data/hub/fold-events.json' with { type: 'json' };
 
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
   redirects: Array<{ source: string; destination: string; permanent?: boolean; has?: Array<{ type: string; value?: string }> }>;
@@ -37,7 +39,12 @@ const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some(
 const withPage = towns.filter((t) => t.hubPage);
 /** Folded on 12 November 2026, as distinct from a guide retired earlier whose town has since got its page. */
 const folded = withPage.filter((t) => !t.retired);
-const published = new Set(publishedHubTownSlugs());
+const records = rawRecords();
+const published = new Set(publishedHubTowns(records).map((t) => t.slug));
+/** A record's own page on the hub, by slug (src/lib/hub-towns.ts): where an old event address goes. */
+const pages = new Map(hubEventPages(records, published).map((p) => [p.record.slug, { town: p.town, event: p.event }]));
+const eventMap = foldEvents as FoldEventMap;
+const eventsFor = (domain: string, town: string) => foldEventTargets(eventMap, domain, town, (slug) => pages.get(slug));
 const standaloneConfigs = Object.values(STANDALONE_GUIDES).map((g) => g.guide);
 
 test('eleven guides were folded into their hub pages on 12 November 2026, and seven retired earlier forward to theirs', () => {
@@ -68,7 +75,7 @@ test('no fold without a page: a config with `hubPage` redirects, names its own h
 test('vercel.json holds exactly the rules src/lib/fold.ts writes for each domain: permanent, the home page first, the catch-all last', () => {
   for (const t of withPage) {
     const rules = rulesFor(t.domain);
-    const expected = foldRules(t.domain, 'insidethetowns.com', t.hubPage!.town);
+    const expected = foldRules(t.domain, 'insidethetowns.com', t.hubPage!.town, eventsFor(t.domain, t.hubPage!.town));
     assert.deepEqual(rules, expected, `${t.domain}: vercel.json and foldRules disagree; run "node scripts/fold-rules.ts --write"`);
     assert.ok(rules.length > 0, `${t.domain}: no rules`);
     for (const r of rules) {
@@ -89,7 +96,8 @@ test('each old address lands on the matching place on the page: the events on Tr
     assert.equal(to('/(.*)'), page, `${t.domain}: everything else`);
     for (const source of TO_TRADITIONS) assert.equal(to(source), `${page}#${TRADITIONS_ANCHOR}`, `${t.domain}${source}`);
     for (const source of TO_OUTDOOR) assert.equal(to(source), `${page}#${OUTDOOR_ANCHOR}`, `${t.domain}${source}`);
-    for (const r of rulesFor(t.domain)) assert.ok(r.destination === page || r.destination.startsWith(`${page}#`), `${t.domain}${r.source}: goes to ${r.destination}, off the town's page`);
+    const own = new Set(eventsFor(t.domain, t.hubPage!.town).map((e) => `${page}${e.event}/`));
+    for (const r of rulesFor(t.domain)) assert.ok(r.destination === page || r.destination.startsWith(`${page}#`) || own.has(r.destination), `${t.domain}${r.source}: goes to ${r.destination}, off the town's page`);
   }
   // The addresses a guide's readers hold are among them.
   for (const source of ['/events{/}?', '/events/(.*)', '/this-week{/}?', '/this-weekend{/}?']) assert.ok((TO_TRADITIONS as readonly string[]).includes(source), source);
@@ -169,4 +177,53 @@ test('the seven standalone guides are live, each from its own config, and none i
   // A site that is deployed and not one of the seven is listed nowhere.
   // (Elizabeth was that site until it was folded on 12 November 2026: what is deployed is now exactly the seven.)
   assert.deepEqual([...LIVE_TOWNS].sort(), [...standaloneConfigs].sort());
+});
+
+test('an old event address with a record of its own goes to that record’s page in one hop, ahead of the events catch-all (the brief of 13 November 2026)', () => {
+  const domains = new Map(withPage.map((t) => [t.domain, t.hubPage!.town]));
+  let count = 0;
+  for (const [host, paths] of Object.entries(eventMap)) {
+    const town = domains.get(host);
+    assert.ok(town, `${host}: not a folded guide's domain`);
+    const rules = rulesFor(host);
+    const catchAll = rules.findIndex((r) => r.source === '/events/(.*)');
+    assert.ok(catchAll > 0, `${host}: no events catch-all`);
+    for (const [path, slug] of Object.entries(paths)) {
+      count++;
+      assert.match(path, /^\/events\/[a-z0-9-]+\/$/, `${host}${path}`);
+      const page = pages.get(slug);
+      assert.ok(page, `${host}${path} → ${slug}: no record with a page of its own`);
+      assert.equal(page.town, town, `${host}${path} → ${slug}: another town's record`);
+      const at = rules.findIndex((r) => r.source === eventSource(path));
+      assert.ok(at > 0 && at < catchAll, `${host}${path}: rule at ${at}, catch-all at ${catchAll}`);
+      assert.equal(rules[at]!.destination, `https://insidethetowns.com/${town}/${page.event}/`, `${host}${path}: one hop to the page`);
+      assert.equal(rules[at]!.permanent, true);
+    }
+  }
+  assert.ok(count >= 63, `${count} old addresses mapped`);
+  // The ones the brief names first.
+  const to = (host: string, slug: string) => eventMap[host]?.[`/events/${slug}/`];
+  assert.equal(to('insidegolden.com', 'olde-golden-candlelight-walk'), 'golden-candlelight-walk');
+  assert.equal(to('insidegolden.com', 'olde-golden-holiday-parade'), 'golden-holiday-parade');
+  assert.equal(to('insidegolden.com', 'jingle-on-the-avenue'), 'golden-jingle-on-the-avenue');
+  assert.equal(to('insidelongmontco.com', 'longmont-turkey-trot'), 'longmont-turkey-trot');
+  assert.equal(to('insidelongmontco.com', 'longmont-lights-holiday-parade'), 'longmont-lights-holiday-parade');
+  assert.equal(to('insidelongmontco.com', 'day-of-the-dead-family-celebration-2026-10-24'), 'longmont-day-of-the-dead');
+  for (const slug of ['catch-the-glow-parade', 'tardy-turkey-trot', 'whiskey-warm-up']) assert.equal(to('insideestespark.com', slug), `estes-park-${slug}`);
+  assert.equal(to('insideestespark.com', 'bigfoot-days-festival'), 'estes-park-bigfoot-days');
+  assert.equal(to('insideestespark.com', 'rocky-mountain-craft-spirits-festival-2026-11-07'), 'estes-park-rocky-mountain-craft-spirits-festival');
+  // An old address carries its date; the page it goes to carries none.
+  for (const host of Object.keys(eventMap)) {
+    for (const rule of rulesFor(host).filter((r) => /^\/events\/[a-z0-9-]+\{\/\}\?$/.test(r.source))) assert.doesNotMatch(rule.destination, /(?:^|-)(?:19|20)\d\d(?:-|\/|$)/, rule.destination);
+  }
+});
+
+test('the event map refuses a record with no page of its own, another town’s record, and an address that is not an event’s', () => {
+  const pageFor = (slug: string) => (slug === 'golden-candlelight-walk' ? { town: 'golden', event: 'candlelight-walk' } : undefined);
+  assert.deepEqual(foldEventTargets({ 'insidegolden.com': { '/events/x/': 'golden-candlelight-walk' } }, 'insidegolden.com', 'golden', pageFor), [{ path: '/events/x/', event: 'candlelight-walk' }]);
+  assert.deepEqual(foldEventTargets({}, 'insidegolden.com', 'golden', pageFor), []);
+  assert.throws(() => foldEventTargets({ 'insidegolden.com': { '/events/x/': 'nope' } }, 'insidegolden.com', 'golden', pageFor), /no such record/);
+  assert.throws(() => foldEventTargets({ 'insidelongmontco.com': { '/events/x/': 'golden-candlelight-walk' } }, 'insidelongmontco.com', 'longmont', pageFor), /not this domain's town/);
+  assert.throws(() => foldEventTargets({ 'insidegolden.com': { '/places/x/': 'golden-candlelight-walk' } }, 'insidegolden.com', 'golden', pageFor), /not an event address/);
+  assert.equal(eventSource('/events/olde-golden-candlelight-walk/'), '/events/olde-golden-candlelight-walk{/}?');
 });

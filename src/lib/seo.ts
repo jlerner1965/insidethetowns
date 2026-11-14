@@ -808,28 +808,24 @@ export function localBusinessJsonLd(
 }
 
 /**
- * A tradition's year as an Event. Only a confirmed year: a date the
- * organizer has not published, or one that moved or was called off, is not
- * offered to a search engine as a scheduled event. The start carries its
- * time and Denver's offset where the record's time is one certain clock
- * time (src/lib/tradition-calendar.ts), and is the day alone otherwise;
- * no end time is ever given, since no record has one. The place is the
- * venue the organizer names, and the town where it names none, which is a
- * fact of the record and not a guess. The description is made of the
- * record's own facts and nothing else.
- *
- * One Event sits on one page (`eventPage` in src/lib/hub-towns.ts says
- * which): the same event marked up on a town page, a season page and a
- * guide is three claims to be the event's page.
+ * A tradition's one Event entity, on one page only across the network
+ * (eventPage, src/lib/hub-towns.ts). `own` is that page: the record's own
+ * page on the hub, whose URL is the event's; anywhere else the URL is the
+ * record's row on the page. The status follows the entry: scheduled,
+ * rescheduled (with the day it was set for), or cancelled where a date had
+ * been set. Nothing without a date: an entry not announced, a typical
+ * window, or a cancellation with no date was never an event to mark up.
  */
 export function traditionEventJsonLd(
   record: { slug: string; name: string; organizer: string; town?: { name: string }; type?: string; firstYear?: number },
-  entry: { status: string; date?: string; endDate?: string; place?: string; startTime?: string; cost?: string },
+  entry: { status: string; date?: string; endDate?: string; place?: string; startTime?: string; cost?: string; previousDate?: string },
   pageUrl: string,
+  { own = false }: { own?: boolean } = {},
 ) {
   // An outdoor date (a road opening, a licence window) is not an event to
   // attend, and a record with no town has no place to give one.
-  if (entry.status !== 'confirmed' || !entry.date || !record.town || record.type === 'outdoor' || record.type === 'free-day') return undefined;
+  if (!entry.date || !record.town || record.type === 'outdoor' || record.type === 'free-day') return undefined;
+  if (entry.status !== 'confirmed' && entry.status !== 'moved' && entry.status !== 'canceled') return undefined;
   const span = !!entry.endDate && entry.endDate !== entry.date;
   const time = span ? undefined : certainTime(entry.startTime);
   const description = [
@@ -840,6 +836,8 @@ export function traditionEventJsonLd(
   ]
     .filter(Boolean)
     .join(' ');
+  const eventStatus =
+    entry.status === 'canceled' ? 'https://schema.org/EventCancelled' : entry.status === 'moved' ? 'https://schema.org/EventRescheduled' : 'https://schema.org/EventScheduled';
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -847,7 +845,8 @@ export function traditionEventJsonLd(
     description,
     startDate: time ? toIsoLocal(parseLocal(`${entry.date}T${time}`)) : entry.date,
     ...(entry.endDate ? { endDate: entry.endDate } : {}),
-    eventStatus: 'https://schema.org/EventScheduled',
+    eventStatus,
+    ...(entry.status === 'moved' && entry.previousDate ? { previousStartDate: entry.previousDate } : {}),
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
@@ -855,6 +854,6 @@ export function traditionEventJsonLd(
       address: { '@type': 'PostalAddress', addressLocality: record.town.name, addressRegion: 'CO', addressCountry: 'US' },
     },
     organizer: { '@type': 'Organization', name: record.organizer },
-    url: `${pageUrl}#${record.slug}`,
+    url: own ? pageUrl : `${pageUrl}#${record.slug}`,
   };
 }

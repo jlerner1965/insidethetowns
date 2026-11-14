@@ -203,7 +203,7 @@ function hasPublishedProfile(dir: string): boolean {
     .some((f) => /^status:\s*"?published"?\s*$/m.test(readFileSync(join(dir, f), 'utf8')));
 }
 
-const HUB_ROUTES: Array<[pattern: string, file: string]> = [
+export const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
   ['/this-weekend', 'this-weekend.astro'],
   ['/moving', 'moving.astro'],
@@ -219,6 +219,11 @@ const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   // A town's page, built only for a town with three dated items of its own
   // (src/lib/hub-towns.ts); the file's getStaticPaths names them.
   ['/[town]', 'town.astro'],
+  // A record's own page, /<town>/<event>/, for every record whose home is a
+  // published town page (src/lib/hub-towns.ts, hubEventPages); the file's
+  // getStaticPaths names them and fails the build on a duplicate or a path
+  // that shadows one of these routes.
+  ['/[town]/[event]', 'event.astro'],
   // Its share card, where the town has no photograph (src/lib/share-image.ts).
   ['/share/[town].png', 'town-share.png.ts'],
   // One date as a calendar entry (src/lib/tradition-calendar.ts).
@@ -228,6 +233,16 @@ const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   // Read and deleted by the indexing step; never deployed (src/lib/network-search.ts).
   ['/network-search.json', 'network-search.json.ts'],
 ];
+
+/**
+ * The first path segments the hub's fixed routes take, so an event page's
+ * town segment can be refused when it would shadow one (hubEventPages):
+ * the fixed routes above, the season pages and the article topics.
+ */
+export function hubReservedSegments(root = '.', env: Record<string, string | undefined> = process.env): string[] {
+  const first = (pattern: string) => pattern.replace(/^\//, '').split('/')[0] ?? '';
+  return [...new Set([...HUB_ROUTES, ...seasonRoutes(root), ...curiosityRoutes(root, env)].map(([pattern]) => first(pattern)).filter((s) => s && !s.startsWith('[')))];
+}
 
 export function townRoutes(site: SiteConfig): AstroIntegration {
   return {

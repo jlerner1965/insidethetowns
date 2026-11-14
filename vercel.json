@@ -1268,6 +1268,39 @@
       "permanent": true
     },
     {
+      "source": "/events/timnath-holiday-festival{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/holiday-festival/",
+      "permanent": true
+    },
+    {
+      "source": "/events/timnath-holiday-festival-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/holiday-festival/",
+      "permanent": true
+    },
+    {
+      "source": "/events/noco-winter-wonderland-2026-11-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/timnath/noco-winter-wonderland/",
+      "permanent": true
+    },
+    {
       "source": "/events{/}?",
       "has": [
         {
@@ -2134,6 +2167,149 @@
         }
       ],
       "destination": "https://insidethetowns.com/golden/",
+      "permanent": true
+    },
+    {
+      "source": "/events/olde-golden-candlelight-walk{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/candlelight-walk/",
+      "permanent": true
+    },
+    {
+      "source": "/events/olde-golden-candlelight-walk-2026-12-04{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/candlelight-walk/",
+      "permanent": true
+    },
+    {
+      "source": "/events/olde-golden-holiday-parade{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/holiday-parade/",
+      "permanent": true
+    },
+    {
+      "source": "/events/olde-golden-holiday-parade-2026-12-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/holiday-parade/",
+      "permanent": true
+    },
+    {
+      "source": "/events/jingle-on-the-avenue{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/jingle-on-the-avenue/",
+      "permanent": true
+    },
+    {
+      "source": "/events/jingle-on-the-avenue-2026-12-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/jingle-on-the-avenue/",
+      "permanent": true
+    },
+    {
+      "source": "/events/trick-or-treat-street{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/trick-or-treat-street/",
+      "permanent": true
+    },
+    {
+      "source": "/events/trick-or-treat-street-2026-10-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/trick-or-treat-street/",
+      "permanent": true
+    },
+    {
+      "source": "/events/great-turkey-chase{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/great-turkey-chase/",
+      "permanent": true
+    },
+    {
+      "source": "/events/great-turkey-chase-2026-11-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/great-turkey-chase/",
+      "permanent": true
+    },
+    {
+      "source": "/events/harvest-haunt-express{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/harvest-haunt-express/",
+      "permanent": true
+    },
+    {
+      "source": "/events/harvest-haunt-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/harvest-haunt-express/",
+      "permanent": true
+    },
+    {
+      "source": "/events/ullrgrass-music-and-beer-festival-2027-01-29{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/golden/ullrgrass/",
       "permanent": true
     },
     {
@@ -3743,6 +3919,39 @@
       "permanent": true
     },
     {
+      "source": "/events/downtown-holiday-lighting-ceremony{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/downtown-holiday-lighting-ceremony/",
+      "permanent": true
+    },
+    {
+      "source": "/events/downtown-holiday-lighting-ceremony-2026-11-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/downtown-holiday-lighting-ceremony/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tour-de-corgi-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortcollins.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/fort-collins/tour-de-corgi/",
+      "permanent": true
+    },
+    {
       "source": "/events{/}?",
       "has": [
         {
@@ -3875,6 +4084,127 @@
       "permanent": true
     },
     {
+      "source": "/events/longmont-turkey-trot{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/turkey-trot/",
+      "permanent": true
+    },
+    {
+      "source": "/events/longmont-turkey-trot-2026-11-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/turkey-trot/",
+      "permanent": true
+    },
+    {
+      "source": "/events/longmont-lights-holiday-parade{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/lights-holiday-parade/",
+      "permanent": true
+    },
+    {
+      "source": "/events/longmont-lights-holiday-parade-2026-12-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/lights-holiday-parade/",
+      "permanent": true
+    },
+    {
+      "source": "/events/day-of-the-dead-family-celebration-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/day-of-the-dead/",
+      "permanent": true
+    },
+    {
+      "source": "/events/halloween-costume-parade{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/halloween-parade/",
+      "permanent": true
+    },
+    {
+      "source": "/events/halloween-costume-parade-2026-10-31{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/halloween-parade/",
+      "permanent": true
+    },
+    {
+      "source": "/events/feria-del-tamal{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/feria-del-tamal/",
+      "permanent": true
+    },
+    {
+      "source": "/events/feria-del-tamal-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/feria-del-tamal/",
+      "permanent": true
+    },
+    {
+      "source": "/events/longmont-quilt-show{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/quilt-show/",
+      "permanent": true
+    },
+    {
+      "source": "/events/longmont-quilt-guild-19th-annual-quilt-show-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelongmontco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/longmont/quilt-show/",
+      "permanent": true
+    },
+    {
       "source": "/events{/}?",
       "has": [
         {
@@ -4007,6 +4337,72 @@
       "permanent": true
     },
     {
+      "source": "/events/festival-of-lights-downtown-loveland{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/festival-of-lights/",
+      "permanent": true
+    },
+    {
+      "source": "/events/festival-of-lights-downtown-loveland-2026-11-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/festival-of-lights/",
+      "permanent": true
+    },
+    {
+      "source": "/events/applewood-arts-festival-fall{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/applewood-arts-festival-fall/",
+      "permanent": true
+    },
+    {
+      "source": "/events/applewood-arts-festival-fall-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/applewood-arts-festival-fall/",
+      "permanent": true
+    },
+    {
+      "source": "/events/applewood-arts-festival-holiday{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/applewood-arts-festival-holiday/",
+      "permanent": true
+    },
+    {
+      "source": "/events/applewood-arts-festival-holiday-2026-11-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelovelandco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/loveland/applewood-arts-festival-holiday/",
+      "permanent": true
+    },
+    {
       "source": "/events{/}?",
       "has": [
         {
@@ -4139,6 +4535,72 @@
       "permanent": true
     },
     {
+      "source": "/events/castle-rock-starlighting{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/starlighting/",
+      "permanent": true
+    },
+    {
+      "source": "/events/castle-rock-starlighting-2026-11-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/starlighting/",
+      "permanent": true
+    },
+    {
+      "source": "/events/turkey-rock-trot{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/turkey-rock-trot/",
+      "permanent": true
+    },
+    {
+      "source": "/events/turkey-rock-trot-2026-11-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/turkey-rock-trot/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tree-lighting-celebration-outlets{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/outlets-tree-lighting/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tree-lighting-celebration-outlets-2026-11-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidecastlerockco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/castle-rock/outlets-tree-lighting/",
+      "permanent": true
+    },
+    {
       "source": "/events{/}?",
       "has": [
         {
@@ -4271,6 +4733,160 @@
       "permanent": true
     },
     {
+      "source": "/events/catch-the-glow-parade{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/catch-the-glow-parade/",
+      "permanent": true
+    },
+    {
+      "source": "/events/catch-the-glow-parade-2026-11-27{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/catch-the-glow-parade/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tardy-turkey-trot{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/tardy-turkey-trot/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tardy-turkey-trot-2026-11-27{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/tardy-turkey-trot/",
+      "permanent": true
+    },
+    {
+      "source": "/events/whiskey-warm-up{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/whiskey-warm-up/",
+      "permanent": true
+    },
+    {
+      "source": "/events/whiskey-warm-up-2027-03-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/whiskey-warm-up/",
+      "permanent": true
+    },
+    {
+      "source": "/events/bigfoot-days-festival{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/bigfoot-days/",
+      "permanent": true
+    },
+    {
+      "source": "/events/bigfoot-days-festival-2027-04-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/bigfoot-days/",
+      "permanent": true
+    },
+    {
+      "source": "/events/rocky-mountain-craft-spirits-festival-2026-11-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/rocky-mountain-craft-spirits-festival/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tree-lighting{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/lighting-of-the-trees/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tree-lighting-2026-11-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/lighting-of-the-trees/",
+      "permanent": true
+    },
+    {
+      "source": "/events/crystal-ball-2026-12-31{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/crystal-ball/",
+      "permanent": true
+    },
+    {
+      "source": "/events/frozen-dead-guy-days-2027-04-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/frozen-dead-guy-days/",
+      "permanent": true
+    },
+    {
+      "source": "/events/wine-and-chocolate-festival-2027-02-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideestespark.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/estes-park/wine-and-chocolate-festival/",
+      "permanent": true
+    },
+    {
       "source": "/events{/}?",
       "has": [
         {
@@ -4535,6 +5151,50 @@
       "permanent": true
     },
     {
+      "source": "/events/parade-of-lights{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/parade-of-lights/",
+      "permanent": true
+    },
+    {
+      "source": "/events/leadville-main-street-parade-of-lights-2026-12-04{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/parade-of-lights/",
+      "permanent": true
+    },
+    {
+      "source": "/events/leadville-ski-joring-2027-03-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/ski-joring/",
+      "permanent": true
+    },
+    {
+      "source": "/events/ski-cooper-opening-day-2026-12-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideleadville.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/leadville/ski-cooper-opening-day/",
+      "permanent": true
+    },
+    {
       "source": "/events{/}?",
       "has": [
         {
@@ -4664,6 +5324,17 @@
         }
       ],
       "destination": "https://insidethetowns.com/lafayette/",
+      "permanent": true
+    },
+    {
+      "source": "/events/holiday-on-the-plaza-2026-12-05{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelafayette.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/lafayette/holiday-on-the-plaza/",
       "permanent": true
     },
     {
@@ -5456,6 +6127,28 @@
         }
       ],
       "destination": "https://insidethetowns.com/elizabeth/",
+      "permanent": true
+    },
+    {
+      "source": "/events/mayors-tree-lighting{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/mayors-tree-lighting/",
+      "permanent": true
+    },
+    {
+      "source": "/events/mayors-tree-lighting-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/elizabeth/mayors-tree-lighting/",
       "permanent": true
     },
     {
