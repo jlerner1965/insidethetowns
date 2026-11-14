@@ -7,7 +7,15 @@
  * A row with a date set carries `data-ends` (the last day of it) and both
  * of its faces (src/components/TraditionRow.astro): `data-when-set`, shown,
  * and `data-when-past`, hidden. Once the reader's Denver date is past the
- * end, the faces swap and the row's status becomes not-announced. What
+ * end, the faces swap and the row's status becomes not-announced.
+ *
+ * The hidden face carries no words in the HTML. Its text waits in
+ * `data-past-text` attributes and is written in only when the faces swap
+ * (fillPastText): a page read without its script, by a search engine, a
+ * reader view or a fetch, said "Confirmed · Saturday, December 5" and
+ * "Next date not yet announced · Last held Saturday, December 5" of the
+ * same parade (the owner, 14 November 2026). The year list's "(last
+ * held)" and the month strip's "now" are written the same way. What
  * hangs off the rows is then put right from what is left: the year
  * strip's mark for it becomes a ring, the month marked "now" is this
  * month, "Next" under a town's name is the soonest date still ahead or
@@ -37,13 +45,22 @@ export function datePassed(ends: string | undefined, today: string): boolean {
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+/** Write in the words a hidden face waits with: the element's own, and every one inside it. */
+export function fillPastText(el: DateNode): void {
+  if (el.dataset.pastText !== undefined) el.textContent = el.dataset.pastText;
+  for (const inner of el.querySelectorAll('[data-past-text]')) inner.textContent = inner.dataset.pastText ?? '';
+}
+
 /** Swap every passed row to its past face. Returns the rows' ids. */
 export function expireRows(root: DateNode, today: string): string[] {
   const expired: string[] = [];
   for (const row of root.querySelectorAll('[data-tradition-row][data-ends]')) {
     if (row.dataset.expired !== undefined || !datePassed(row.dataset.ends, today)) continue;
     for (const el of row.querySelectorAll('[data-when-set]')) el.hidden = true;
-    for (const el of row.querySelectorAll('[data-when-past]')) el.hidden = false;
+    for (const el of row.querySelectorAll('[data-when-past]')) {
+      fillPastText(el);
+      el.hidden = false;
+    }
     row.dataset.expired = '';
     row.dataset.status = 'not-announced';
     const id = row.getAttribute('id');
@@ -72,7 +89,10 @@ export function correctDates(root: DateNode, today: string): void {
   for (const item of root.querySelectorAll('[data-year-list] [data-mark-name]')) {
     if (expired.has(item.dataset.markName ?? '')) {
       const note = item.querySelector('[data-held-note]');
-      if (note) note.hidden = false;
+      if (note) {
+        fillPastText(note);
+        note.hidden = false;
+      }
     }
   }
   // "Now" is this month, not the build's.
@@ -82,7 +102,10 @@ export function correctDates(root: DateNode, today: string): void {
     cell.classList.remove(now ? 'bg-raised' : 'bg-highlight-soft');
     cell.classList.add(now ? 'bg-highlight-soft' : 'bg-raised');
     const label = cell.querySelector('[data-now-label]');
-    if (label) label.hidden = !now;
+    if (label) {
+      label.textContent = now ? 'now' : '';
+      label.hidden = !now;
+    }
   }
 
   // "Next" under a town's name: the soonest date still ahead among the

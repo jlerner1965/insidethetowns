@@ -107,6 +107,26 @@ export interface Scan {
   /** The text of each JSON-LD script, as written. */
   jsonLd: string[];
   ids: Set<string>;
+  /** Words inside a hidden after-the-date face: none may ship (hiddenFaceWords). */
+  hiddenWords: string[];
+}
+
+/**
+ * The words inside a hidden after-the-date face (`data-when-past`, or a
+ * hidden `data-held-note`). The page's script writes them in when a date
+ * passes (src/lib/tradition-expiry.ts); in the HTML as built the face is
+ * empty, so a page read without the script says one thing about a date. A
+ * fetched parade page once said "Confirmed", "Next date not yet announced"
+ * and "Last held" of the same upcoming date (the owner, 14 November 2026).
+ */
+export function hiddenFaceWords(html: string): string[] {
+  const out: string[] = [];
+  for (const m of html.matchAll(/<(div|span|p)\b([^>]*\bdata-(?:when-past|held-note)\b[^>]*)>([\s\S]*?)<\/\1>/g)) {
+    if (!/\shidden(?:[\s=>]|$)/.test(m[2]!)) continue;
+    const text = decodeEntities(m[3]!.replace(/<[^>]+>/g, '')).trim();
+    if (text) out.push(text);
+  }
+  return out;
 }
 
 const TAG = /<([a-zA-Z][\w:-]*)((?:\s+[^\s"'<>/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>`]+))?)*)\s*\/?>/g;
@@ -144,7 +164,7 @@ export function scanHtml(html: string): Scan {
     if (attrs.id) ids.add(attrs.id);
     if (name === 'a' && attrs.name) ids.add(attrs.name);
   }
-  return { tags, titles, jsonLd, ids };
+  return { tags, titles, jsonLd, ids, hiddenWords: hiddenFaceWords(markup) };
 }
 
 /** The URLs a page asks a browser or a crawler to fetch or follow. */
@@ -467,6 +487,9 @@ export function checkSite(input: SiteInput): { problems: Problem[]; manifest: Ma
     const { scan, path } = page;
     if (!input.fixtures && scan.tags.some((t) => 'data-fixture' in t.attrs)) {
       add('fixture-shipped', path, 'carries a sample tradition record (data-fixture) in a build without TRADITIONS_FIXTURES=1; fixtures never ship');
+    }
+    if (scan.hiddenWords.length > 0) {
+      add('hidden-face-words', path, `a hidden after-the-date face carries words ("${scan.hiddenWords[0]!.slice(0, 60)}"); they belong in data-past-text, written in by the script (src/lib/tradition-expiry.ts)`);
     }
     if (!input.drafts && scan.tags.some((t) => 'data-draft' in t.attrs)) {
       add('draft-shipped', path, 'carries a draft article (data-draft) in a build without CURIOSITY_DRAFTS=1; nothing publishes until it is marked verified');
