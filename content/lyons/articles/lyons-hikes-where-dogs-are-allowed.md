@@ -3,6 +3,9 @@ title: "Lyons hikes: where dogs are allowed, and where they are not"
 seoTitle: "Dog-friendly hikes near Lyons, CO: the rules, trail by trail"
 date: "2026-10-07"
 excerpt: "Rabbit Mountain is the one trail area near Lyons that takes dogs, on a leash; Hall Ranch, Heil Valley Ranch and Button Rock do not. In town, Bohn Park has a ten-acre off-leash area. Each manager's rule, with distances, hours and parking from its own page."
+image: ../images/rabbit-mountain.jpg
+imageAlt: "Two walkers on the trail at Rabbit Mountain, dry grass either side and snow on the peaks along the horizon"
+imageCredit: "Boulder County Parks & Open Space"
 category: "Outdoors"
 tags: [outdoors, trails, dogs, guide]
 verified: "2026-10-07"

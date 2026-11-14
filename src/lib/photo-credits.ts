@@ -10,8 +10,9 @@
 import { readFileSync } from 'node:fs';
 import type { ImageMetadata } from 'astro';
 import { getSite } from '@/config';
-import { getHubEntries, getTownEntries } from '@/lib/content';
-import { resolveSiteImage } from '@/lib/images';
+import { getHubEntries, getTownEntries, getTraditions } from '@/lib/content';
+import { publishedHubTowns } from '@/lib/hub-towns';
+import { hubTownPhoto, resolveSiteImage } from '@/lib/images';
 import { creditBeside, parseLedger, publicCredit, type LedgerRow, type PublicCredit } from '@/lib/credits';
 
 export interface PhotoUsage {
@@ -50,14 +51,17 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
   );
   const photos = new Map<string, CreditedPhoto>();
 
-  const use = (file: string, alt: string, usage: PhotoUsage) => {
-    let photo = photos.get(file);
+  // `folder` is the content folder the file is in: this site's own, except a
+  // hub town page showing its former guide's hero (HubTown.hero.folder).
+  const use = (file: string, alt: string, usage: PhotoUsage, folder: string = site.slug) => {
+    const path = `content/${folder}/images/${file}`;
+    let photo = photos.get(path);
     if (!photo) {
-      const row = ledger.get(`content/${site.slug}/images/${file}`);
+      const row = ledger.get(path);
       // The validator guarantees a row for every file; this guards the build.
-      if (!row) throw new Error(`content/${site.slug}/images/${file} has no row in IMAGE_LICENSES.csv`);
-      photo = { file, image: resolveSiteImage(site.slug, file), alt, credit: publicCredit(row), usedOn: [] };
-      photos.set(file, photo);
+      if (!row) throw new Error(`${path} has no row in IMAGE_LICENSES.csv`);
+      photo = { file, image: resolveSiteImage(folder, file), alt, credit: publicCredit(row), usedOn: [] };
+      photos.set(path, photo);
     }
     if (!photo.usedOn.some((u) => u.href === usage.href)) photo.usedOn.push(usage);
   };
@@ -67,6 +71,15 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
   // without a photograph of its own falls back to, on the link preview of
   // all of them.
   use(site.hero.image, site.hero.alt, { title: 'the home page, and the link preview of every page without its own photograph', href: '/' });
+
+  // The hub's town pages: a photograph behind the name is also the link
+  // preview of the page and of its dates' pages.
+  if (site.kind === 'hub') {
+    for (const town of publishedHubTowns(await getTraditions())) {
+      const photo = hubTownPhoto(town);
+      if (photo) use(photo.image, photo.alt, { title: `the ${town.name} page`, href: `/${town.slug}/` }, photo.folder);
+    }
+  }
 
   const read = site.kind === 'hub' ? getHubEntries : getTownEntries;
   for (const collection of Object.keys(COLLECTION_PATHS) as Collection[]) {

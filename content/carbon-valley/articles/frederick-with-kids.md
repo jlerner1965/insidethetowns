@@ -3,6 +3,9 @@ title: "Frederick with kids: a lazy river, a foam pit, a 30,000-square-foot skat
 seoTitle: "Frederick with kids: lazy river, skate park, storytimes"
 date: "2026-11-02"
 excerpt: "The rec center pools and their rules, Kid Zone, gymnastics open gym, the winter basketball and swim-lesson dates, the library's storytimes and clubs, the playgrounds, the skate park and Milavec Lake, and this fall's dates from Empty Bowls to the Festival of Lights. Where to go with children in Frederick."
+image: ../images/carbon-valley-regional-library.jpg
+imageAlt: "The Carbon Valley Regional Library at 7 Park Avenue, Firestone, its name across the front below a round stone-and-glass tower, a flagpole on the forecourt and benches beside the walk, under an overcast sky, 2019"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 category: "Families"
 tags: [families, kids, playgrounds, guide]
 verified: "2026-11-02"

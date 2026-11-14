@@ -2,6 +2,9 @@
 title: "Explore Johnstown: five places in walking order"
 date: "2026-10-07"
 excerpt: "Crepes on Parish Avenue, the Parish House on a morning it is open, the Historical Society's 25-stop walk and the park next door, all from one parking spot in Old Town. Then a booked evening at the dinner theater out at 2534."
+image: ../images/parish-house.jpg
+imageAlt: "The 1914 Craftsman bungalow at 701 Charlotte Street behind its iron fence, with the Historic Parish House and Museum sign in the front garden"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"

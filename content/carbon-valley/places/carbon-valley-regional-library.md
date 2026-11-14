@@ -15,6 +15,9 @@ details:
   source: "https://www.mylibrary.us/locations-and-hours/"
   checked: "2026-11-12"
 summary: "Frederick’s library, a High Plains Library District branch on Park Avenue in Firestone: open seven days, with storytimes most mornings, teen and adult clubs, two meeting rooms, four study rooms and a vending cafe."
+image: ../images/carbon-valley-regional-library.jpg
+imageAlt: "The Carbon Valley Regional Library at 7 Park Avenue, Firestone, its name across the front below a round stone-and-glass tower, a flagpole on the forecourt and benches beside the walk, under an overcast sky, 2019"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 The High Plains Library District's Carbon Valley branch serves Frederick, Firestone and Dacono from 7 Park Avenue in Firestone, open until 8 pm Monday to Thursday, 10 to 5 Friday and Saturday and 1 to 5 on Sunday. The district's page lists two meeting rooms residents can reserve, four study rooms, a vending cafe and patio, a Spanish-language collection and large print, storytimes for children from birth to six, a Teen Advisory Board, book groups, job-search help and adult computer classes. Its events are on the district's [LibCal calendar](https://highplains.libcal.com/calendar/hpld?cid=8181&t=d&d=0000-00-00&cal=8181&cm=4554&inc=0), and this guide's [Families](/families/) pages list the regular programs.

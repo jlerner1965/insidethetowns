@@ -235,7 +235,10 @@ is the A to Z index of every guide, town page and season page.
 **A town page on the hub** (12 November 2026; on the publication design of
 14 November 2026, `src/routes/hub/town.astro`) opens on the town's name on
 the hub's blue over its landscape: the photograph where one is licensed
-(Estes Park), otherwise a drawn horizon for the country it is in (peaks,
+and its alt written (`hero` in `src/config/hub-towns.ts`, any town since 14
+November 2026: a former guide's own hero from its folder, or a Commons
+photograph that `scripts/fetch-hub-heroes.ts` brings in), otherwise a drawn
+horizon for the country it is in (peaks,
 foothills, mesas or plains, `src/lib/ridgeline.ts`), with the next date the
 town has under the name. Then "On this page" and numbered sections, each a
 full-width band, paper and white in turn: Events (the dates set, soonest
@@ -255,8 +258,9 @@ holding On this page, which stays in view; below it, the phone's page.
 Every dated row, there and on the season pages and a guide's
 `/traditions/`, carries a date block: month, day and year where the
 organizer has set a date, "TBA" where it has not, never last year's date.
-A showpiece's photograph needs the file in `content/hub/images/`, its alt
-text in the config and its licence row, and no code. A town may carry one **signature** (`signature` in
+A town page's photograph needs the file in `content/hub/images/` (or, for
+a former guide's hero, `folder` naming where it already is), its alt text in
+the config and its licence row, and no code; /credits/ lists it. A town may carry one **signature** (`signature` in
 `src/config/hub-towns.ts`): a block from a public source with its source
 link and checked date, read by a scheduled job into `data/hub/` and never
 at build time; the first is "Recently stocked near <Town>" from Colorado

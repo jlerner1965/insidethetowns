@@ -4,6 +4,9 @@ seoTitle: "Windsor and Severance holiday closures and events, 2026"
 slug: holiday-closures-and-events-2026
 date: "2026-11-10"
 excerpt: "The library's early closings, the Town of Severance's office closures, the recreation center's two closed days, the Weld RE-4 school breaks and the holiday events, with the dates each of them publishes."
+image: ../images/windsor-lake-winter.jpg
+imageAlt: "Windsor Lake frozen and snow-covered in winter from the trail on the near shore, red sandstone riprap at the water’s edge and the town’s houses, bare trees and grain elevator along the far one"
+imageCredit: "Jared Winkler, Wikimedia Commons, CC BY-SA 4.0"
 category: "Families"
 tags: [families, living-here, schools, holidays]
 verified: "2026-11-10"
