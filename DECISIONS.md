@@ -11392,3 +11392,34 @@ the competitor tables and the open questions.*
 - **Not decided here**: everything listed under the pull request's
   decisions, among them restructuring the 48 guide articles to the
   13 November Article structure (audited, not rewritten).
+
+## The site review of 14 November 2026: the code-side fixes
+
+*Six reviewers read the live sites and the code (`docs/audits/2026-11-14/_network.md`,
+which also lists what is left for the owner). What changed as a rule:*
+
+- **A season is over only a week after its last game**, and a game whose
+  day has passed with no score read counts as that last game. Four
+  volleyball pages read "season over · final record 19–6" the day after
+  their state game; the band and the tables now say "result to come".
+  MaxPreps is read Thursday and Friday in November for the state rounds.
+- **The guide footer carries every section the menu leaves out**, now
+  including All events, Every year and Athletics, and "Report a
+  correction" goes to the form on every guide.
+- **Every year is the guide's full annual index**: each tradition links
+  the guide's own event page where there is one (`src/lib/annual-pages.ts`),
+  and every annual event page no tradition names is listed under it. Hub
+  search keeps annual event pages between runnings.
+- **A closed guide's redirects say where the reader came from**
+  (`?from=<domain>`), and the hub page says, in one line, that the guide
+  has closed and which full guide is nearest within 60 km. The hub's
+  address for a live guide's town (`/erie/`, `/frederick/`) is a redirect
+  page to the guide.
+- **Auto-review holds a school's dress-up day**, by its title, and
+  anything on a school's own calendar that starts on a weekday before
+  3 pm; the fifteen Coal Ridge dress-up days came off Carbon Valley.
+- **Find your next stop is three plain links** unless all three tiles have
+  a photograph. This replaces the guide-colour tile of 10 November, which
+  read as an unfinished block beside two photographs.
+- **The root size is 106.25%**, not 17px, so the reader's own text size
+  counts; the phone menu makes the page under it inert.
