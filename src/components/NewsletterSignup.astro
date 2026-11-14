@@ -42,7 +42,7 @@ import { inlineSignup, SIGNUP_MESSAGES } from '@/lib/signup';
 import { EMAIL_PROMISE, PRIVACY_LINE } from '@/lib/privacy';
 import { nextSendDay } from '@/lib/newsletter';
 import { latestIssueFor } from '@/lib/issues';
-import { dayKey } from '@/lib/dates';
+import { dayKey, formatMonthDay, parseLocal } from '@/lib/dates';
 import { nextIssueWords, sendInstant } from '@/lib/next-issue';
 
 interface Props {
@@ -167,6 +167,14 @@ const what = `the weekend’s events${town?.school ? ', the scores' : ''}, place
  */
 const occasional = town ? [] : liveTowns().filter((t) => t.lead === 'updates' && !editionFor(t.slug, editions));
 const lastIssueHref = lastIssue ? `https://${hub.domain}/newsletter/${lastIssue.slug}/` : undefined;
+// "Last Thursday's" only when it was: Carbon Valley's form said it of the
+// 29 October issue on 14 November (the review of that day). An older one
+// is named by its date.
+const lastIssueWords = lastIssue
+  ? (Date.parse(`${dayKey(now)}T12:00:00Z`) - Date.parse(`${lastIssue.date}T12:00:00Z`)) / 86_400_000 <= 7
+    ? `Read last ${day}’s issue`
+    : `Read the ${formatMonthDay(parseLocal(lastIssue.date))} issue`
+  : undefined;
 const link = dark ? 'text-white underline' : 'text-primary underline';
 // Every row a full 44px to tap, the box itself 20px.
 const row = 'flex min-h-11 items-center gap-2.5 text-[0.9375rem]';
@@ -369,13 +377,13 @@ const box = 'size-5 shrink-0 rounded border-line';
       {home ? (
         <p class:list={['mt-2 text-[0.875rem] leading-relaxed @3xl:col-start-2', muted]}>
           Free. Unsubscribe anytime. <a href={`https://${hub.domain}/privacy/`} class:list={['inline-block -my-3 py-3', link]}>Privacy</a>.
-          {lastIssueHref && <Fragment>{' '}<a href={lastIssueHref} class:list={['inline-block -my-3 py-3', link]}>Read last {day}’s issue</a>.</Fragment>}
+          {lastIssueHref && <Fragment>{' '}<a href={lastIssueHref} class:list={['inline-block -my-3 py-3', link]}>{lastIssueWords}</a>.</Fragment>}
         </p>
       ) : (
         <p class:list={['mt-3 text-[0.875rem] leading-relaxed', muted]}>
           Free. One email a week. Unsubscribe any time. {PRIVACY_LINE} See the
           <a href={`https://${hub.domain}/privacy/`} class:list={['inline-block -my-3 py-3', link]}>privacy page</a>.
-          {lastIssueHref && <Fragment>{' '}<a href={lastIssueHref} class:list={['inline-block -my-3 py-3', link]}>Read last {day}’s issue</a>.</Fragment>}
+          {lastIssueHref && <Fragment>{' '}<a href={lastIssueHref} class:list={['inline-block -my-3 py-3', link]}>{lastIssueWords}</a>.</Fragment>}
         </p>
       )}
       {/* A page's own line about the email (the hub's "See a sample issue"),
