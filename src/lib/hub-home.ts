@@ -473,7 +473,7 @@ export const HOME_PHOTO = {
   /** The 2:1 band of it the page shows, cut once so no reader downloads the rest. */
   hero: 'front-range-flatirons-hero.jpg',
   alt: 'The Flatirons and the foothills above Boulder from the air, with the plains and their towns beyond',
-  caption: 'The Flatirons above Boulder, looking toward the plains.',
+  caption: 'The Flatirons above Boulder, looking across the Front Range.',
 } as const;
 
 /**
