@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-11T19:42:11.883Z",
+  "generated": "2026-11-14T18:54:38.493Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T16:42:19",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T15:22:04",
       "overall": "7-4",
       "league": {
         "record": "4-2",
@@ -147,8 +147,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T17:51:20",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T15:47:48",
       "overall": "8-7",
       "league": {
         "record": "6-2",
@@ -330,15 +330,57 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T15:49:33",
-      "overall": "19-6",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T17:42:50",
+      "overall": "21-7",
       "league": {
         "record": "4-2",
         "name": "4A/3A Patriot Peaks",
         "place": "3rd"
       },
       "results": [
+        {
+          "date": "2026-11-13",
+          "opponent": "The Village",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-the-village-colorado-springs/11-13-2026/?c=323e39f0-eaa5-4312-b0b0-99a232fb395d",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          },
+          "venue": "Denver Coliseum"
+        },
+        {
+          "date": "2026-11-12",
+          "opponent": "University",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-university-greeley/11-12-2026/?c=d2fb74f1-a681-4f58-acc6-4be3fc17141d",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          },
+          "venue": "Denver Coliseum"
+        },
+        {
+          "date": "2026-11-12",
+          "opponent": "Eaton",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-eaton-fightin-reds/11-12-2026/?c=8e201a18-71e3-4732-8889-9f52db6a4f61",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "venue": "Denver Coliseum",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
         {
           "date": "2026-11-07",
           "opponent": "Delta",
@@ -624,27 +666,26 @@
       ],
       "upcoming": [
         {
-          "date": "2026-11-12",
-          "opponent": "Eaton",
+          "date": "2026-11-14",
+          "opponent": "Forge Christian",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-eaton-fightin-reds/11-12-2026/?c=8e201a18-71e3-4732-8889-9f52db6a4f61",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-forge-christian-eagles-arvada/11-14-2026/?c=31f5deec-adff-437b-b491-b543a316f835",
           "stage": "State Volleyball Championships",
           "neutral": true,
-          "venue": "Denver Coliseum",
-          "time": "08:00"
+          "venue": "Denver Coliseum"
         }
       ],
       "held": [],
       "notes": [
-        "2026-11-12 at Eaton: a game at Denver Coliseum, which the school calendar files as away (\"Girls Varsity Volleyball @ Eaton High School\")"
+        "2026-11-14 at Forge Christian: a neutral-site game, which the school calendar files as away (\"Girls Varsity Volleyball @ Forge Christian High School\")"
       ]
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T18:49:42",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T18:23:42",
       "overall": "17-10",
       "league": {
         "record": "2-7",
@@ -979,8 +1020,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T19:43:04",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T15:54:45",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -993,8 +1034,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T19:43:09",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T17:31:33",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1007,8 +1048,8 @@
       "key": "girls-flag-football",
       "name": "Girls flag football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/flag-football/girls/fall/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T16:38:56",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T18:55:41",
       "overall": "6-9",
       "league": {
         "record": "4-6",
@@ -1190,8 +1231,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T15:56:01",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T15:28:44",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1316,8 +1357,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/girls/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T19:43:31",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T17:42:18",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1326,13 +1367,6 @@
       },
       "results": [],
       "upcoming": [
-        {
-          "date": "2026-11-24",
-          "opponent": "Silver Creek",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-silver-creek-longmont/11-24-2026/?c=9af657c3-d0f4-4bd5-b7a1-ea1242455ef1",
-          "time": "11:30"
-        },
         {
           "date": "2026-11-30",
           "opponent": "Mountain View",
@@ -1475,8 +1509,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/wrestling/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T19:43:40",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T18:56:08",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1489,8 +1523,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/swimming/girls/",
-      "fetched": "2026-11-11T19:42:11.883Z",
-      "maxprepsUpdated": "2026-11-11T19:43:45",
+      "fetched": "2026-11-14T18:54:38.493Z",
+      "maxprepsUpdated": "2026-11-14T18:56:12",
       "results": [],
       "upcoming": [],
       "held": [],

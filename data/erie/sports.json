@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-11T19:58:14.521Z",
+  "generated": "2026-11-14T19:03:11.675Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/football/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T19:46:39",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T15:43:21",
       "overall": "0-10",
       "league": {
         "record": "0-6",
@@ -135,8 +135,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/soccer/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T18:29:09",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T16:59:54",
       "overall": "13-2-2",
       "league": {
         "record": "5-1-1",
@@ -347,8 +347,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/volleyball/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T16:57:52",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T19:03:29",
       "overall": "10-15",
       "league": {
         "record": "7-7",
@@ -657,8 +657,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/softball/fall/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T16:29:14",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T16:38:41",
       "overall": "22-6",
       "league": {
         "record": "12-2",
@@ -1004,8 +1004,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T19:58:51",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T19:03:47",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1018,8 +1018,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/girls/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T19:58:55",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T19:03:52",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1032,8 +1032,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T17:57:01",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T17:24:35",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1198,8 +1198,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/girls/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T19:42:10",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T17:49:25",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1281,6 +1281,13 @@
           "time": "17:30"
         },
         {
+          "date": "2027-01-14",
+          "opponent": "Broomfield",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/broomfield-bald-eagle-vs-erie/1-14-2027/?c=c50c4bcb-242d-4057-865f-560aa7491073",
+          "time": "18:30"
+        },
+        {
           "date": "2027-01-15",
           "opponent": "Horizon",
           "site": "away",
@@ -1300,13 +1307,6 @@
           "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-rocky-mountain-fort-collins/1-22-2027/?c=379d6327-e87f-4539-b203-8525daa618c8",
           "time": "18:00"
-        },
-        {
-          "date": "2027-01-23",
-          "opponent": "Broomfield",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/broomfield-bald-eagle-vs-erie/1-23-2027/?c=c50c4bcb-242d-4057-865f-560aa7491073",
-          "time": "12:00"
         },
         {
           "date": "2027-01-26",
@@ -1381,8 +1381,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/wrestling/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T17:43:12",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T19:04:15",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1395,8 +1395,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/swimming/girls/",
-      "fetched": "2026-11-11T19:58:14.521Z",
-      "maxprepsUpdated": "2026-11-11T19:59:21",
+      "fetched": "2026-11-14T19:03:11.675Z",
+      "maxprepsUpdated": "2026-11-14T19:04:19",
       "results": [],
       "upcoming": [],
       "held": [],

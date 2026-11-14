@@ -1,19 +1,31 @@
 {
-  "generated": "2026-11-11T19:47:32.243Z",
+  "generated": "2026-11-14T18:57:41.505Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/football/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T15:52:18",
-      "overall": "9-1",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T17:42:02",
+      "overall": "10-1",
       "league": {
         "record": "7-0",
         "name": "4A Northern",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-11-13",
+          "opponent": "Montbello",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/montbello-denver-vs-roosevelt-johnstown/11-13-2026/?c=90440352-8b97-4629-bf29-91f5361f8761",
+          "stage": "State Football Playoffs",
+          "result": "W",
+          "score": {
+            "us": 53,
+            "them": 10
+          }
+        },
         {
           "date": "2026-10-30",
           "opponent": "Grand Junction",
@@ -125,27 +137,18 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-11-13",
-          "opponent": "Montbello",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/football/game/montbello-denver-vs-roosevelt-johnstown/11-13-2026/?c=90440352-8b97-4629-bf29-91f5361f8761",
-          "stage": "State Football Playoffs",
-          "time": "19:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
-        "2026-11-13 at Montbello: a neutral-site game, which the school calendar files as home (\"Boys Varsity Football vs Montbello High School - MHS\")"
+        "MaxPreps page: a Class 4A bracket game with its date and opponent still to be set"
       ]
     },
     {
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/soccer/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T16:20:20",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T16:57:55",
       "overall": "3-11-1",
       "league": {
         "record": "2-7-1",
@@ -327,8 +330,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/volleyball/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T19:33:53",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T15:32:33",
       "overall": "12-13",
       "league": {
         "record": "5-5",
@@ -638,8 +641,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/softball/fall/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T16:03:40",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T17:15:23",
       "overall": "19-7",
       "league": {
         "record": "8-2",
@@ -969,8 +972,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/cross-country/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T19:48:23",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T18:58:32",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -983,8 +986,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/cross-country/girls/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T19:48:27",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T18:58:36",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -997,8 +1000,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/basketball/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T17:19:48",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T16:22:02",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1015,10 +1018,10 @@
           "time": "18:00"
         },
         {
-          "date": "2026-12-02",
+          "date": "2026-12-03",
           "opponent": "DSST: Green Valley Ranch",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/basketball/game/dsst-green-valley-ranch-denver-vs-roosevelt-johnstown/12-2-2026/?c=e9a722d7-7c78-4d78-beb4-453fca10f107",
+          "url": "https://www.maxpreps.com/co/basketball/game/dsst-green-valley-ranch-denver-vs-roosevelt-johnstown/12-3-2026/?c=e9a722d7-7c78-4d78-beb4-453fca10f107",
           "stage": "Tournament",
           "neutral": true,
           "venue": "Kent Denver Tournament",
@@ -1160,7 +1163,7 @@
       ],
       "held": [],
       "notes": [
-        "2026-12-02 at DSST: Green Valley Ranch is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-03 at DSST: Green Valley Ranch is not on the school calendar (published on MaxPreps's word alone)",
         "2026-12-07 at Longmont is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-05 vs Vista PEAK Prep is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-07 at Denver North is not on the school calendar (published on MaxPreps's word alone)",
@@ -1182,8 +1185,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/basketball/girls/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T17:18:37",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T16:30:45",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1353,8 +1356,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/wrestling/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T16:11:57",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T18:05:24",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1367,8 +1370,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/swimming/girls/",
-      "fetched": "2026-11-11T19:47:32.243Z",
-      "maxprepsUpdated": "2026-11-11T17:43:41",
+      "fetched": "2026-11-14T18:57:41.505Z",
+      "maxprepsUpdated": "2026-11-14T15:54:38",
       "results": [],
       "upcoming": [],
       "held": [],
