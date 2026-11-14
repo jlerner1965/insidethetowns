@@ -11484,3 +11484,13 @@ headings and a contents list, dates first, confirmed dates first.*
   and "posted by Saturday morning" (the scores line is "Each team's last
   result."). "Every town we cover" over the weekend is not used either: the
   weekend's listings come from the six guides that list events.
+- **The home's sign-up starts with one town** (its own commit): a list of
+  the weekly editions, "One town to start; add others any time", and the
+  guides with no weekly issue named from the config ("Niwot has no weekly
+  issue"). It was every edition by default. The endpoint takes one town's
+  tag as a guide's form already posts, and an address on the list has a
+  new town added (`existing`, Buttondown's collision behaviour `add`), so
+  "add others any time" holds from any form. The dek is the board's, "Your
+  town's weekend events, the scores, and what opened or closed", which is
+  what an edition holds (NewsletterSignup's `what`). No change to the
+  provider, its lists or the function.

@@ -70,11 +70,13 @@ interface Props {
    * the privacy paragraph is the privacy page's.
    *
    * `hub` (the hub home's redesign, 13 November 2026; on its blue band
-   * since the publication redesign of 14 November): the field and "Sign
-   * up" alone, subscribing to every town (the all-towns tag, ticked and
-   * not shown), white on the hub's primary; the page sets the heading
-   * above it, and its line about the towns goes in the slot. The full town
-   * picker stays on /newsletter/.
+   * since the publication redesign of 14 November): one town from a list
+   * of the weekly editions, the address and "Sign up", white on the hub's
+   * primary. Until 14 November it subscribed to every town by default;
+   * the owner's board has a reader start with one and add others from any
+   * form, which adds towns to an address already on the list. The page
+   * sets the heading above it, and its line about the towns goes in the
+   * slot. The full town picker stays on /newsletter/.
    */
   variant?: 'card' | 'home' | 'hub';
   anchor?: string;
@@ -102,8 +104,6 @@ const covers = (e: (typeof editions)[number]) => e.towns.map((t) => t.slug).join
 const day = config?.sendDay ?? 'Thursday';
 const card = variant === 'card' || variant === 'home';
 const hubHome = variant === 'hub' && !town;
-// Every town, as the all-towns tag, or each edition's own tag where the account has no such tag.
-const allTags = config?.allTag ? [config.allTag] : editions.map((e) => e.towns[0]!.slug);
 const home = variant === 'home';
 const sendTime = config?.sendTime;
 const emailField = config?.emailField ?? 'email';
@@ -124,6 +124,7 @@ const fieldKey = id ?? (compact ? 'compact' : 'main');
 const inputId = `newsletter-email-${fieldKey}-${town?.slug ?? 'network'}`;
 const errorId = `newsletter-towns-${fieldKey}-${town?.slug ?? 'network'}`;
 const emailErrorId = `newsletter-email-error-${fieldKey}-${town?.slug ?? 'network'}`;
+const selectId = `newsletter-town-${fieldKey}-${town?.slug ?? 'network'}`;
 // Sign up from the page where the build has a Buttondown key; only whether
 // it is set is read here (src/lib/signup.ts). From the build's own
 // environment: Astro's import.meta.env carries only the variables it knows
@@ -195,8 +196,21 @@ const box = 'size-5 shrink-0 rounded border-line';
 {config && hubHome && (
   <section id={anchor} data-signup-section data-pagefind-ignore class={className}>
     <form action={config.action} method="POST" target="_blank" data-signup data-hub="" data-inline={inline ? '' : undefined} data-send-day={day}>
-      {allTags.map((tag) => <input type="checkbox" name={tagField} value={tag} checked hidden />)}
-      <label for={inputId} class="mt-5 block text-[0.9412rem] font-[650] text-white">Your email</label>
+      {/* One town to start (the owner's home board, 14 November 2026): each
+          edition once, posting its lead town's tag as the hub's full picker
+          does. An address already on the list has the new town added, never
+          one taken away (src/lib/subscribe.ts, existing), so a reader adds
+          the others from any form, /newsletter/'s picker or a guide's. */}
+      <label for={selectId} class="mt-5 block text-[0.9412rem] font-[650] text-white">Your town</label>
+      <div class="relative mt-2">
+        <select id={selectId} name={tagField} required aria-describedby={errorId} class="block h-12 w-full cursor-pointer appearance-none rounded-[2px] border-0 bg-raised pl-3.5 pr-10 text-[0.9412rem] text-ink">
+          <option value="">Choose a town</option>
+          {[...editions].sort((a, b) => a.name.localeCompare(b.name)).map((e) => <option value={e.towns[0]!.slug} data-towns={covers(e)}>{e.name}</option>)}
+        </select>
+        <svg class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink" width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 1.5l5 5 5-5"></path></svg>
+      </div>
+      <p id={errorId} data-towns-error hidden aria-live="polite" class="mt-2 text-base font-semibold text-white">{SIGNUP_MESSAGES['need-town']}</p>
+      <label for={inputId} class="mt-3.5 block text-[0.9412rem] font-[650] text-white">Your email</label>
       <div class="mt-2 flex">
         <input id={inputId} type="email" name={emailField} required autocomplete="email" placeholder="you@example.com" aria-describedby={emailErrorId} class="block h-12 min-w-0 flex-1 rounded-l-[2px] border-0 bg-raised px-3.5 text-[0.9412rem] text-ink placeholder:text-ink-muted" />
         <button type="submit" data-signup-button class="h-12 shrink-0 cursor-pointer rounded-r-[2px] border-0 bg-paper px-[18px] text-base font-[650] text-primary hover:bg-raised">Sign up</button>
@@ -435,6 +449,9 @@ const box = 'size-5 shrink-0 rounded border-line';
   // through, the browser posts the form to Buttondown's page in a new tab.
   for (const form of document.querySelectorAll<HTMLFormElement>('form[data-signup]')) {
     const boxes = () => [...form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+    // The hub home's form names one town from a list rather than ticking boxes.
+    const lists = () => [...form.querySelectorAll<HTMLSelectElement>('select[name]')];
+    const towns = () => [...boxes().filter((b) => b.checked).map((b) => b.value), ...lists().map((l) => l.value).filter(Boolean)];
     const email = form.querySelector<HTMLInputElement>('input[type="email"]');
     const button = form.querySelector<HTMLButtonElement>('[data-signup-button]');
     const error = form.querySelector<HTMLElement>('[data-towns-error]');
@@ -482,9 +499,9 @@ const box = 'size-5 shrink-0 rounded border-line';
       el.hidden = false;
       setTimeout(() => (el.textContent = words), 50);
     };
-    for (const box of boxes()) {
+    for (const box of [...boxes(), ...lists()]) {
       box.addEventListener('change', () => {
-        if (error && boxes().some((b) => b.checked)) say(error, false);
+        if (error && towns().length > 0) say(error, false);
       });
     }
     email?.addEventListener('input', () => {
@@ -492,7 +509,7 @@ const box = 'size-5 shrink-0 rounded border-line';
       email.removeAttribute('aria-invalid');
     });
     form.addEventListener('submit', async (event) => {
-      const outcome = signupOutcome({ towns: boxes().filter((b) => b.checked).map((b) => b.value), sending });
+      const outcome = signupOutcome({ towns: towns(), sending });
       if (outcome === 'busy') {
         event.preventDefault();
         return;
@@ -501,7 +518,7 @@ const box = 'size-5 shrink-0 rounded border-line';
       if (outcome === 'need-town') {
         event.preventDefault();
         showForm();
-        boxes()[0]?.focus();
+        (lists()[0] ?? boxes()[0])?.focus();
         return;
       }
       sending = true;

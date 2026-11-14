@@ -55,8 +55,8 @@ test('the page never claims a subscription it cannot see, and keeps the way back
 
 test('every form carries the town rule, not only the hub’s', () => {
   const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
-  // One error line per branch: the town's form and the hub's.
-  assert.equal(component.match(/data-towns-error/g)?.length, 3, 'two in the markup, one in the script');
+  // One error line per branch: the hub home's, the town's form and the hub's.
+  assert.equal(component.match(/data-towns-error/g)?.length, 4, 'three in the markup, one in the script');
   assert.doesNotMatch(component, /form\.dataset\.hub !== undefined && !boxes/, 'the check is no longer hub-only');
 });
 
@@ -127,11 +127,16 @@ test('each panel says only what Buttondown’s answer supports', () => {
 
 test('on a guide the address comes before the towns; on the hub the towns come first', () => {
   const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
-  // The hub home's short form (variant="hub") has no towns to pick: it
-  // posts the all-towns tag, ticked and unseen. The other forms follow it.
+  // The hub home's short form (variant="hub") names one town, from the
+  // weekly editions, before the address (the owner's board, 14 November
+  // 2026); it no longer posts every town by default. The other forms follow it.
   const full = component.indexOf('{config && !hubHome');
   assert.ok(full > 0);
-  assert.match(component.slice(0, full), /allTags\.map\(\(tag\) => <input type="checkbox" name=\{tagField\} value=\{tag\} checked hidden \/>\)/);
+  const short = component.slice(0, full);
+  assert.match(short, /<select id=\{selectId\} name=\{tagField\} required/);
+  assert.match(short, /\.map\(\(e\) => <option value=\{e\.towns\[0\]!\.slug\}/);
+  assert.ok(short.indexOf('<select') < short.indexOf('type="email"'), 'hub home: the town, then the address');
+  assert.doesNotMatch(short, /checked hidden/, 'no town is chosen for the reader');
   const email = component.indexOf('type="email"', full);
   // The home page's card has no towns to pick (variant="card"); every other guide's form does.
   const townFieldset = component.indexOf('{town && !card && (\n        <fieldset');

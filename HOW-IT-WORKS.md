@@ -389,6 +389,11 @@ config, and the town pages by area). The rules are `src/lib/hub-home.ts`:
   redesign of 14 November 2026; it stays on the guides' family pages.)
 - **"Today"** beside a season's next date is the reader's own day, written
   in the browser and never in the built page.
+- **The Thursday email** on the home starts a reader on one town, chosen
+  from the weekly editions (14 November 2026; it was every edition by
+  default). An address already on the list has the new town added, never
+  one taken away (`src/lib/subscribe.ts`), so a reader adds the others from
+  any form; `/newsletter/` keeps the full picker.
 - **In the towns**, after the weekend: the news worth a reader's time, the
   newest first, one per town, three at most (`newsItems`): the hub's
   verified stories (`kind: story` in `content/hub/curiosity/`, each for a
