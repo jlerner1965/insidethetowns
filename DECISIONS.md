@@ -11645,3 +11645,36 @@ read it, and then for the fixes that read turned up.
   (`place`); every other school's name already says its town.
 
 On a 393px phone the home is 7,511px where it was 8,161px.
+
+## The hub home's weekend picks, prices and counts, 14 November 2026 (night)
+
+- **No errands among the weekend picks.** The home's weekend picked
+  "Community Meeting for Prescribed Fire Projects" (Boulder County's feed
+  files it under Outdoors) and "Erie High School Band Mattress Sale
+  Fundraiser" (Other), which the category rules could not see.
+  `isErrand` (src/lib/hub-home.ts) reads the title, narrowly: a meeting,
+  a hearing, a town hall, an information or listening session, a
+  webinar, public comment, a mattress sale, a car wash, a blood drive or
+  a food, coat, toy, book, diaper or school-supply drive. A gala, a
+  pancake breakfast or a fun run that raises money is still an outing,
+  and "Meet the artist" is not a meeting. Such a listing stays on its
+  guide's events page and the hub's /this-weekend/; the home just does
+  not recommend it. A town with nothing else that qualifies has no pick
+  that weekend, which is better than a mattress sale.
+- **A short cost on the home's rows.** `shortCost` (src/lib/cost.ts)
+  keeps a cost line of up to 42 characters as written; a longer one with
+  prices is its lowest ticket price, "From $70", leaving out asides in
+  brackets and the parts about fees, add-ons, members', designated
+  drivers' and later prices, and keeping an age limit of 21. Checked
+  against every long cost line in the guides' event files of 14
+  November. The listing's own page has the whole line.
+- **The home counts its new parts.** The hero's three jumps are
+  `home-jump`, the hero's search `home-search` (a form with `data-track`,
+  counted by TrackClicks.astro when sent) and the town box
+  `home-town-box`, with `result` "town" (and the town, a name from its
+  own list) or "search": never the words a reader typed. The sending is
+  one function now, `sendEvent` in src/lib/track.ts. The week before the
+  changes, 7–14 November, the home had 91 phone visitors (240 views) and
+  432 desktop visitors (526 views), and its sections' links were used 36
+  times by about 20 visitors: home-guides 8, home-index 7, home-news 6,
+  home-weekend 6, home-season 6, home-scores 3.

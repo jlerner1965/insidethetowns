@@ -216,6 +216,24 @@ type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: 
 type Listing = EventLike & { town: { slug: string }; confidence?: Confidence };
 
 /**
+ * A listing a reader goes to on an errand, not for an outing, whatever its
+ * category: a meeting or a hearing, or a sale or a drive that raises money
+ * or collects things. The viewer review of 14 November 2026 found the
+ * home's weekend picking "Community Meeting for Prescribed Fire Projects"
+ * (filed under Outdoors by Boulder County's feed) and "Erie High School
+ * Band Mattress Sale Fundraiser" (Other), where the category rules could
+ * not see what they were. Read from the title, narrowly: a gala, a
+ * pancake breakfast or a fun run that raises money is still an outing, and
+ * "Meet the artist" is not a meeting. Such a listing is still on its
+ * guide's events page and on the hub's /this-weekend/; the home's weekend
+ * just does not recommend it.
+ */
+const ERRAND_RE = /\b(?:meeting|hearing|town hall|listening session|info(?:rmation(?:al)?)? session|webinar|public comment|mattress sale|car wash|blood drive|(?:food|coat|toy|book|diaper|school supply) drive|shred(?:ding)? (?:day|event))\b/i;
+export function isErrand(e: { data: { title: string } }): boolean {
+  return ERRAND_RE.test(e.data.title);
+}
+
+/**
  * One listing for each day of the weekend that is not already taken (by
  * Friday's game), never two from one town and never one from a town in
  * `taken`. A listing qualifies when it starts that day and has not
@@ -223,8 +241,9 @@ type Listing = EventLike & { town: { slug: string }; confidence?: Confidence };
  * `confirmed` level, src/lib/confidence.ts), or it is a run of days still
  * on that day, and it is a one-off for a
  * general reader: no regular, no standing children's program, nothing
- * civic, canceled or flagged by the re-check, and not a program's own
- * deadline listing (`exclude`). The best is one its guide's editor picked
+ * civic, canceled or flagged by the re-check, not a program's own
+ * deadline listing (`exclude`), and not an errand (`isErrand`: a meeting,
+ * a mattress sale, a blood drive). The best is one its guide's editor picked
  * for the week or featured (the guides' rule: nothing is picked by a
  * machine where an editor has picked), then a plan-your-day one (a
  * festival, a market, music, a game, the arts), then the rest; within
@@ -267,7 +286,7 @@ export function weekendPicksByDay<T extends Listing>(
   { now = new Date(), taken = new Set<string>(), order = [], exclude = new Set<string>(), picked = new Set<string>(), perDay = 1 }: WeekendPickOptions & { perDay?: number } = {},
 ): Map<string, T[]> {
   const general = forGeneralReaders(all, all);
-  const pool = oneOffs(general, all).filter((e) => !isPast(e, now) && !isFlagged(e) && !isTentative(e) && e.confidence?.level === 'confirmed' && !exclude.has(listingKey(e)));
+  const pool = oneOffs(general, all).filter((e) => !isPast(e, now) && !isFlagged(e) && !isTentative(e) && e.confidence?.level === 'confirmed' && !exclude.has(listingKey(e)) && !isErrand(e));
   // A guide editor's pick or featured listing first, then a plan-your-day category, then the rest.
   const rank = (e: T) => (picked.has(listingKey(e)) || e.data.featured ? 0 : PLAN_YOUR_DAY.has(e.data.category) ? 1 : 2);
   const place = (slug: string) => order.indexOf(slug) + 1 || order.length + 1;

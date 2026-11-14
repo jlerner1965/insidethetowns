@@ -7,30 +7,23 @@
  * are no-ops where their script is not on the page. The newsletter form's
  * own submit is counted the same way from NewsletterSignup.astro, and so is
  * what became of it (`newsletter-result`, src/lib/signup.ts): Buttondown's
- * answer and the page, never the address.
+ * answer and the page, never the address. A form marked `data-track` (the
+ * hub home's search) is counted when it is sent, by its page alone: what
+ * was typed is never sent. The sending itself is src/lib/track.ts.
  */
 ---
 <script>
-  import { track as vercel } from '@vercel/analytics';
-  import { track as plausible } from '@plausible-analytics/tracker';
   import { SIGNUP_RESULT_EVENT, signupResultProps, type SignupResult } from '@/lib/signup';
+  import { sendEvent as send } from '@/lib/track';
 
-  const send = (name: string, props: Record<string, string>) => {
-    try {
-      vercel(name, props);
-    } catch {
-      /* analytics off */
-    }
-    try {
-      plausible(name, { props });
-    } catch {
-      /* no plausible here */
-    }
-  };
   document.addEventListener('click', (event) => {
     const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[data-track]');
     if (!link || !link.dataset.track) return;
     send(link.dataset.track, { href: link.href, from: location.pathname });
+  });
+  document.addEventListener('submit', (event) => {
+    const form = (event.target as HTMLElement).closest<HTMLFormElement>('form[data-track]');
+    if (form?.dataset.track) send(form.dataset.track, { from: location.pathname });
   });
   for (const form of document.querySelectorAll<HTMLFormElement>('form[data-signup]')) {
     form.addEventListener('submit', () => send('newsletter-signup', { from: location.pathname }));
