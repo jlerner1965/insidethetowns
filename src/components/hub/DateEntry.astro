@@ -1,0 +1,187 @@
+---
+/**
+ * One date on a hub town page (the publication redesign of 14 November
+ * 2026), every entry in the one layout: the date set in type, the kind in
+ * its category's ink, the name, a status line led by its square, and the
+ * check line with the source. Under the status line, what the organizer
+ * published with the date (time, place, cost, a note in their words), what
+ * the date means in this town, and the record's other pages: the same
+ * facts the row showed before the redesign (TraditionRow.astro, which the
+ * guides keep), in the same words.
+ *
+ * The statuses, each a word as well as a look (visual rule 5):
+ * - confirmed: a blue square, "Confirmed." and the date in words.
+ * - not announced: an amber square, "Not yet announced." and, where an
+ *   earlier year has a date, "Last held …". Never a predicted date.
+ * - moved: a blue square, "Moved." and the new date; the old one and the
+ *   organizer's reason under it, quoted and attributed.
+ * - canceled: a grey square, "Canceled." and the date it had; the name
+ *   struck through.
+ *
+ * "Today" is the build's. A date set carries the day it ends (`data-ends`)
+ * and, hidden and with its words in `data-past-text` only, what it reads
+ * once that day has passed; the page's script swaps the two by the
+ * reader's Denver date (src/lib/tradition-expiry.ts), so a page read a
+ * week after its build never calls a past date "Confirmed", and a page
+ * read without the script says one thing about each date.
+ */
+import { pub } from './pub';
+import { dateBlock } from '@/lib/date-block';
+import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
+import { TRADITION_TYPE_INFO, type TraditionRow } from '@/lib/traditions';
+
+interface Props {
+  row: TraditionRow;
+  /** The record's own page, where it has one: the name links to it. */
+  href?: string;
+  /** What the date means in this place (src/lib/hub-towns.ts, lineFor). */
+  line?: string;
+  /** The record's other showings, as links. */
+  also?: ReadonlyArray<{ label: string; href: string }>;
+  /** An agency's date (a road, a park, a free day), for the script's tie-break with an event on the same day. */
+  agency?: boolean;
+}
+
+const { row, href, line, also = [], agency = false } = Astro.props;
+const { record, entry, source } = row;
+const type = TRADITION_TYPE_INFO[record.type];
+const day = (d: string) => parseLocal(d);
+/** "Saturday, December 5, 2026": always with the year, since a page lists this winter's dates beside next summer's. */
+const dayText = (d: string) => `${formatDayLong(day(d))}, ${d.slice(0, 4)}`;
+/** "Friday, June 18 to Sunday, June 21, 2027", the year once where both share it. */
+const spanText = (from: string, to?: string) => {
+  if (!to || to === from) return dayText(from);
+  return from.slice(0, 4) === to.slice(0, 4) ? `${formatDayLong(day(from))} to ${dayText(to)}` : `${dayText(from)} to ${dayText(to)}`;
+};
+const canceled = entry.status === 'canceled';
+const past = !!row.past;
+const dated = !past && (entry.status === 'confirmed' || entry.status === 'moved');
+const notAnnounced = !canceled && !dated;
+/** "78th" from 78. */
+const ordinal = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th')}`;
+const subEvents = dated && !canceled ? (entry.subEvents ?? []) : [];
+const closedDays = dated && !canceled ? (entry.closedDays ?? []) : [];
+const details = dated ? [entry.note && `${record.organizer}: “${entry.note}”`, entry.startTime, entry.place, entry.cost].filter(Boolean) : [];
+// "Last held" is a tradition's word; a road's last opening was not held.
+const lastWord = record.type === 'outdoor' || record.type === 'free-day' ? 'Most recent' : 'Last held';
+const lastEnd = past ? entry.endDate : record.years.find((y) => y.date === row.lastHeld)?.endDate;
+const block = dateBlock(row);
+const expires = dated && !canceled ? (entry.endDate ?? entry.date) : undefined;
+const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
+const square = 'mr-2 inline-block size-2 align-[2px]';
+const blockMonth = `${pub.cap} text-primary`;
+const blockDay = 'mt-0.5 whitespace-nowrap font-heading text-date leading-none tracking-[-0.02em] text-primary [font-variation-settings:normal]';
+const blockOpen = 'whitespace-nowrap font-heading text-sub leading-[1.3] text-ink-muted [font-variation-settings:normal]';
+const blockFoot = 'mt-1 text-meta leading-tight text-ink-muted';
+const status = 'mt-2 text-base leading-[1.5] text-ink';
+const note = `mt-1.5 ${pub.meta}`;
+---
+<article
+  id={record.slug}
+  class:list={['grid scroll-mt-4 grid-cols-[88px_minmax(0,1fr)] gap-x-3 py-[18px] desk:grid-cols-[104px_minmax(0,1fr)] desk:gap-x-4', pub.rule]}
+  data-tradition-row
+  data-town={record.town?.name ?? (record.statewide ? 'Statewide' : '')}
+  data-status={past ? 'not-announced' : entry.status}
+  data-agency={agency ? '' : undefined}
+  data-fixture={record.fixture ? '' : undefined}
+  data-starts={expires ? entry.date : undefined}
+  data-ends={expires}
+  data-name={expires ? record.name : undefined}
+  data-day-text={expires ? dayText(entry.date!) : undefined}
+>
+  {/* The date in type. It repeats the status line, so a screen reader hears the line and not this. */}
+  <div aria-hidden="true" data-date-block={block.set ? 'set' : 'open'} data-when-set={expires ? '' : undefined}>
+    {block.set ? (
+      <Fragment>
+        <p class:list={[blockMonth, canceled && 'line-through']}>{block.top.toUpperCase()}</p>
+        <p class:list={[blockDay, canceled && 'text-ink-muted line-through']}>{block.main}</p>
+        {block.foot && <p class={blockFoot}>{block.foot}</p>}
+      </Fragment>
+    ) : (
+      <Fragment>
+        <p class={blockOpen}>{block.main}</p>
+        {block.foot && <p class={blockFoot}>{block.foot}</p>}
+      </Fragment>
+    )}
+  </div>
+  {pastBlock && (
+    <div aria-hidden="true" data-date-block="open" data-when-past hidden>
+      <p class={blockOpen} data-past-text={pastBlock.main}></p>
+    </div>
+  )}
+
+  <div class="min-w-0">
+    <p class="text-cap leading-[1.4]">
+      <span class:list={[pub.cap]} style={`color:var(--cat-${type.category}-ink)`}>{type.label}</span>
+      {record.firstYear && <span class="text-meta text-ink-muted"> · Since {record.firstYear}</span>}
+      {/* The edition belongs to the date: it goes when the date has passed. */}
+      {dated && entry.edition && <span class="text-meta text-ink-muted" data-when-set={expires ? '' : undefined}> · {ordinal(entry.edition)} year</span>}
+    </p>
+    <h4 class:list={['mt-1', pub.title]}>
+      {href ? (
+        <a href={href} class:list={[pub.titleLink, canceled && 'line-through']}>{record.name}</a>
+      ) : (
+        <span class:list={[canceled && 'line-through decoration-ink-muted']}>{record.name}</span>
+      )}
+    </h4>
+
+    {dated && entry.status === 'confirmed' && (
+      <p class={status} data-when-set={expires ? '' : undefined}>
+        <span class:list={[square, 'bg-primary']} aria-hidden="true"></span><strong class="font-semibold">Confirmed.</strong> <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time>.
+      </p>
+    )}
+    {dated && entry.status === 'moved' && (
+      <Fragment>
+        <p class={status} data-when-set={expires ? '' : undefined}>
+          <span class:list={[square, 'bg-primary']} aria-hidden="true"></span><strong class="font-semibold">Moved.</strong> <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time>.
+        </p>
+        <p class={note} data-when-set={expires ? '' : undefined}>Was <time datetime={entry.previousDate}>{dayText(entry.previousDate!)}</time>. {record.organizer}: “{entry.reason}”</p>
+      </Fragment>
+    )}
+    {notAnnounced && (
+      <p class={status}>
+        <span class:list={[square, 'bg-highlight']} aria-hidden="true"></span><strong class="font-semibold">Not yet announced.</strong>{row.lastHeld && <Fragment>{` ${lastWord} `}<time datetime={row.lastHeld}>{spanText(row.lastHeld, lastEnd)}</time>.</Fragment>}
+      </p>
+    )}
+    {entry.continues && entry.status === 'not-announced' && <p class={note}>{record.organizer}: “{entry.continues}”</p>}
+    {entry.typicalWindow && (entry.status === 'typical' || entry.status === 'not-announced') && (
+      <p class={note}><span class="font-semibold text-ink">Typical window, not a date:</span> {entry.typicalWindow}</p>
+    )}
+    {canceled && (
+      <Fragment>
+        <p class={status}>
+          <span class:list={[square, 'bg-ink-muted']} aria-hidden="true"></span><strong class="font-semibold">Canceled.</strong>{entry.date && <Fragment> Was set for <time datetime={entry.date}>{dayText(entry.date)}</time>.</Fragment>}
+        </p>
+        {entry.reason && <p class={note}>{record.organizer}: “{entry.reason}”</p>}
+      </Fragment>
+    )}
+
+    {/* After the date, in the reader's browser only: the words wait in data-past-text. */}
+    {expires && (
+      <div data-when-past hidden>
+        <p class={status}>
+          <span class:list={[square, 'bg-highlight']} aria-hidden="true"></span><strong class="font-semibold" data-past-text="Not yet announced."></strong><span data-past-text={` ${lastWord} ${spanText(entry.date!, entry.endDate)}.`}></span>
+        </p>
+      </div>
+    )}
+    {details.length > 0 && <p class={note} data-when-set={expires ? '' : undefined}>{details.join(' · ')}</p>}
+    {closedDays.length > 0 && <p class={note} data-when-set={expires ? '' : undefined} data-closed-days>Closed: {closedDays.join(', ')}</p>}
+    {subEvents.length > 0 && (
+      <ul class:list={['mt-1.5 space-y-0.5', pub.meta]} data-when-set={expires ? '' : undefined} data-sub-events>
+        {subEvents.map((e) => (
+          <li><span class="font-semibold text-ink">{e.name}</span>{[e.date && formatDayLong(day(e.date)), e.time, e.place].filter(Boolean).map((part) => <Fragment> · {part}</Fragment>)}</li>
+        ))}
+      </ul>
+    )}
+    {line && <p class="mt-1.5 text-meta leading-[1.5] text-ink" data-local-line>{line}</p>}
+    <p class:list={['mt-2', pub.meta]}>
+      Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · Source: <a href={source} rel="noopener" class={pub.link}>{record.organizer}</a>
+    </p>
+    {also.length > 0 && (
+      <p class:list={['mt-1', pub.meta]} data-also-on>
+        Also on: {also.map((a, i) => (<Fragment>{i > 0 && ' · '}<a href={a.href} class={pub.link}>{a.label}</a></Fragment>))}
+      </p>
+    )}
+    {record.fixture && <p class="mt-1.5 text-meta font-semibold text-ink">Sample record (test fixture): not a real event, never on the live site.</p>}
+  </div>
+</article>

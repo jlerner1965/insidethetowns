@@ -15,12 +15,14 @@ interface Props {
   /** What the calendar holds, after "Subscribe to": "Salida’s dates", "every tree lighting". */
   what: string;
   class?: string;
+  /** `text`: at reading size, on the hub's town pages (the publication redesign of 14 November 2026); `small` elsewhere. */
+  size?: 'small' | 'text';
 }
-const { name, what, class: className } = Astro.props;
+const { name, what, class: className, size = 'small' } = Astro.props;
 const path = `/calendars/${name}.ics`;
 const links = subscribeLinks(`https://${getHub().domain}${path}`);
-const link = 'font-semibold text-primary underline';
+const link = size === 'text' ? 'text-primary underline decoration-1 underline-offset-[3px]' : 'font-semibold text-primary underline';
 ---
-<p class:list={['text-[0.875rem] leading-relaxed text-ink-muted', className]} data-calendar-subscribe-line>
+<p class:list={[size === 'text' ? 'text-base leading-[1.55] text-ink' : 'text-[0.875rem] leading-relaxed text-ink-muted', className]} data-calendar-subscribe-line>
   Subscribe to {what}: <a href={links.webcal} class={link} data-calendar-subscribe>in your calendar</a>, <a href={links.google} rel="noopener" class={link} data-calendar-google>in Google Calendar</a>, or <a href={path} class={link}>as a file</a>. A date is added when its organizer sets it.
 </p>

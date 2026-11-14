@@ -94,15 +94,15 @@ test('the hub’s local changes are current ones only, newest first, two a town 
   assert.deepEqual(networkChanges(list, now).map((u) => u.slug), ['e1', 'e2', 'b1']);
 });
 
-test('the hub’s menu gains Annual events after the weekend only while a season page is built', () => {
+test('the hub’s menu opens on Annual events only while a season page is built', () => {
   const nav = [{ label: 'This Weekend', href: '/this-weekend/' }, { label: 'Towns', href: '/towns/' }];
-  assert.deepEqual(hubNav(nav, [{ label: 'Tree lightings', href: '/tree-lightings/' }], false).map((n) => [n.label, n.href]), [['This Weekend', '/this-weekend/'], ['Annual events', '/annual-events/'], ['Towns', '/towns/']]);
+  assert.deepEqual(hubNav(nav, [{ label: 'Tree lightings', href: '/tree-lightings/' }], false).map((n) => [n.label, n.href]), [['Annual events', '/annual-events/'], ['This Weekend', '/this-weekend/'], ['Towns', '/towns/']]);
   assert.deepEqual(hubNav(nav, [], false), nav);
 });
 
 test('the hub’s menu gains Articles after Towns only while an article is on the site', () => {
   const nav = [{ label: 'This Weekend', href: '/this-weekend/' }, { label: 'Towns', href: '/towns/' }, { label: 'Newsletter', href: '/newsletter/' }];
-  assert.deepEqual(hubNav(nav, [{ label: 'Tree lightings', href: '/tree-lightings/' }], true).map((n) => n.label), ['This Weekend', 'Annual events', 'Towns', 'Articles', 'Newsletter']);
+  assert.deepEqual(hubNav(nav, [{ label: 'Tree lightings', href: '/tree-lightings/' }], true).map((n) => n.label), ['Annual events', 'This Weekend', 'Towns', 'Articles', 'Newsletter']);
   assert.deepEqual(hubNav(nav, [], true).map((n) => [n.label, n.href]), [['This Weekend', '/this-weekend/'], ['Towns', '/towns/'], ['Articles', '/articles/'], ['Newsletter', '/newsletter/']]);
   assert.deepEqual(hubNav([{ label: 'Newsletter', href: '/newsletter/' }], [], true).map((n) => n.label), ['Newsletter', 'Articles'], 'with no Towns entry it goes last');
   assert.deepEqual(hubNav(nav, [], false), nav);

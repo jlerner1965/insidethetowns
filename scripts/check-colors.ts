@@ -27,7 +27,7 @@
 import { allSites } from '../src/config/index.ts';
 import { SCHOOL_SPORTS } from '../src/config/school-sports.ts';
 import { schoolTheme } from '../src/config/school-colors.ts';
-import { CATEGORY_COLORS, HIGHLIGHT, HUB_HOME, INK, INK_MUTED, PAPERS, PLACE_TYPE_COLORS, TITLE_INK, primaryHover } from '../src/config/palette.ts';
+import { CATEGORY_COLORS, HIGHLIGHT, HUB_PUBLICATION, INK, INK_MUTED, PAPERS, PLACE_TYPE_COLORS, TITLE_INK, primaryHover } from '../src/config/palette.ts';
 
 const WHITE = '#ffffff';
 const HIGHLIGHT_SOFT = '#fdf0d8';
@@ -169,14 +169,10 @@ for (const [name, ink] of [['ink', INK], ['ink-muted', INK_MUTED], ['title', TIT
   want(`${name} on the highlight wash`, ratio(ink, HIGHLIGHT_SOFT), 4.5);
   for (const [paper, hex] of papers) want(`${name} on ${paper} paper`, ratio(ink, hex), 4.5);
 }
-// The hub's home page (src/config/palette.ts, HUB_HOME): every ink on its
-// page and on the white of its fields, the pine label, and white on the pine
-// buttons.
-for (const [name, ink] of [['ink', HUB_HOME.ink], ['secondary', HUB_HOME.secondary], ['meta', HUB_HOME.meta], ['pine', HUB_HOME.pine]] as const) {
-  want(`hub home ${name} on its page`, ratio(ink, HUB_HOME.page), 4.5);
-  want(`hub home ${name} on white`, ratio(ink, WHITE), 4.5);
-}
-want('hub home white on pine', ratio(WHITE, HUB_HOME.pine), 4.5);
+// The hub's publication pages (src/config/palette.ts, HUB_PUBLICATION): no
+// text sits on the far ridge under a town's name, but the hero's white words
+// end just above it, so it is held to the same 4.5:1 as the primary it is on.
+want('white on the hub hero mountain', ratio(WHITE, HUB_PUBLICATION.heroMountain), 4.5);
 // The status pills ("Canceled", "Permanently closed"): white on the body ink.
 want('white on ink', ratio(WHITE, INK), 4.5);
 // "Our pick": ink on the amber.

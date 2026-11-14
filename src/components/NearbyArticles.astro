@@ -10,6 +10,7 @@
 import { getNetworkHub } from '@/config';
 import { getCuriosity } from '@/lib/content';
 import { articlePath, articlesFor, kindLabel } from '@/lib/curiosity';
+import { pub } from '@/components/hub/pub';
 
 interface Props {
   /** A hub town's slug or a standalone guide's key. */
@@ -17,8 +18,13 @@ interface Props {
   /** On the hub a link is a path; on a guide it is the hub's full address. */
   onHub?: boolean;
   class?: string;
+  /**
+   * `pub`: a subhead and hairline rows inside the hub town page's About
+   * (the publication redesign of 14 November 2026), its heading an h3.
+   */
+  variant?: 'card' | 'pub';
 }
-const { place, onHub = false, class: className } = Astro.props;
+const { place, onHub = false, class: className, variant = 'card' } = Astro.props;
 const hub = getNetworkHub();
 const articles = articlesFor(
   (await getCuriosity()).map((a) => a.data),
@@ -29,7 +35,20 @@ const articles = articlesFor(
   label: kindLabel(a.kind),
 }));
 ---
-{articles.length > 0 && (
+{articles.length > 0 && variant === 'pub' && (
+  <nav aria-labelledby="nearby-articles-h" class={className} data-nearby-articles>
+    <h3 id="nearby-articles-h" class={pub.h3}>Nearby</h3>
+    <ul>
+      {articles.map((a) => (
+        <li class:list={['py-3.5', pub.rule]}>
+          <a href={a.href} class:list={[pub.title, pub.titleLink, 'font-heading']}>{a.title}</a>
+          <p class:list={['mt-0.5', pub.meta]}>{a.label}{!onHub && ` · ${hub.siteTitle}`}</p>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+{articles.length > 0 && variant === 'card' && (
   <nav aria-labelledby="nearby-articles-h" class:list={['mb-12 md:mb-16', className]} data-nearby-articles>
     <h2 id="nearby-articles-h" class="eyebrow mb-3">Nearby</h2>
     <ul class="divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">

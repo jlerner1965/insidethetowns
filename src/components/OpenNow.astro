@@ -13,14 +13,21 @@
 import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { openNow } from '@/lib/open-now';
 import type { TraditionRecord } from '@/lib/traditions';
+import { pub } from '@/components/hub/pub';
 
 interface Props {
   /** The place's outdoor records: its own and the shared ones that name it. */
   records: readonly TraditionRecord[];
   today: string;
   class?: string;
+  /**
+   * `pub`: on the hub's town page (the publication redesign of 14 November
+   * 2026), each list under its own italic subhead with hairline rows, so a
+   * list the script empties takes its heading with it.
+   */
+  variant?: 'card' | 'pub';
 }
-const { records, today, class: className } = Astro.props;
+const { records, today, class: className, variant = 'card' } = Astro.props;
 const { open, next } = openNow(records, today);
 const day = (d: string) => `${formatDayLong(parseLocal(d))}, ${d.slice(0, 4)}`;
 const lists = [
@@ -28,7 +35,30 @@ const lists = [
   { key: 'next', title: 'Opens next', items: next.slice(0, 6) },
 ];
 ---
-{open.length + next.length > 0 && (
+{open.length + next.length > 0 && variant === 'pub' && (
+  <div class={className} data-open-now>
+    {lists.map((list) => (
+      <div data-open-list={list.key} hidden={list.items.length === 0}>
+        <h3 class={pub.h3}>{list.title}</h3>
+        <ul>
+          {list.items.map((it) => (
+            <li class:list={['py-3', pub.rule]} data-open-item data-from={it.from} data-until={it.until}>
+              <a href={`#${it.slug}`} class:list={[pub.link, 'text-base font-semibold']}>{it.facility}</a>
+              <span class:list={['block', pub.meta]}>
+                {it.kindLabel} ·
+                <span data-when-next hidden={list.key !== 'next'}>{it.kind === 'booking' ? 'reservations open' : 'opens'} <time datetime={it.from}>{day(it.from)}</time></span>
+                <span data-when-open hidden={list.key !== 'open'}>opened <time datetime={it.from}>{formatShortDate(parseLocal(it.from))}</time></span>
+                {it.until && it.kind !== 'booking' && <Fragment>, until <time datetime={it.until}>{formatShortDate(parseLocal(it.until))}</time></Fragment>}
+                {it.note && <Fragment> · “{it.note}”</Fragment>}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+)}
+{open.length + next.length > 0 && variant === 'card' && (
   <section aria-labelledby="open-now-heading" class:list={['mb-8', className]} data-open-now>
     <h3 id="open-now-heading" class="sr-only">Open now and opens next</h3>
     <div class="grid gap-4">

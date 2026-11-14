@@ -3,21 +3,21 @@
  * "Near this town" (the additions of 12 November 2026): the nearest four
  * to six other towns with a page, by road, each linked to its page, and
  * the passes and named routes that connect them (src/lib/near.ts,
- * src/config/passes.ts). On every hub town page and on each guide's
- * /things-to-do/, from the one shared file, so two pages never print
- * different miles for the same pair.
+ * src/config/passes.ts). On each guide's /things-to-do/; the hub's town
+ * pages lay out the same rows under "Getting here" (src/lib/near-view.ts),
+ * from the one shared file, so two pages never print different miles for
+ * the same pair.
  *
  * Nothing is drawn where the file has no pair for the place. A pass shows
  * its usual seasonal closure only where the agency that keeps the road
  * gives one, and its COtrip link only where one was read.
  */
-import { findTown, getNetworkHub } from '@/config';
-import { STANDALONE_GUIDES, findHubTown } from '@/config/hub-towns';
-import { PASSES } from '@/config/passes';
+import { STANDALONE_GUIDES } from '@/config/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { formatShortDate, parseLocal } from '@/lib/dates';
 import { publishedHubTowns } from '@/lib/hub-towns';
-import { formatMiles, nearestPlaces, passesFor, type RoadMiles } from '@/lib/near';
+import { formatMiles, type RoadMiles } from '@/lib/near';
+import { nearView } from '@/lib/near-view';
 
 interface Props {
   /** The place the block is for: a hub town's slug or a standalone guide's key. */
@@ -30,20 +30,10 @@ interface Props {
 const { place, name, onHub = false, class: className } = Astro.props;
 const files = import.meta.glob<RoadMiles>('../../data/hub/road-miles.json', { eager: true, import: 'default' });
 const roads = Object.values(files)[0];
-const hub = getNetworkHub();
 const published = publishedHubTowns(await getTraditions()).map((t) => t.slug);
 const withPage = new Set([...published, ...Object.keys(STANDALONE_GUIDES)]);
-const link = (slug: string): { name: string; href: string } | undefined => {
-  const hubTown = findHubTown(slug);
-  if (hubTown) return { name: hubTown.name, href: onHub ? `/${slug}/` : `https://${hub.domain}/${slug}/` };
-  const guide = findTown(STANDALONE_GUIDES[slug]?.guide ?? '');
-  return guide ? { name: guide.name, href: `https://${guide.domain}/` } : undefined;
-};
-const near = roads ? nearestPlaces(roads, place, withPage).flatMap((n) => { const l = link(n.place); return l ? [{ ...n, ...l }] : []; }) : [];
-const passes = passesFor(PASSES, place, withPage).map(({ pass }) => ({
-  pass,
-  ends: pass.connects.map((s) => link(s)).filter((l): l is { name: string; href: string } => !!l),
-}));
+// The same rows the hub's town page lays out (src/lib/near-view.ts).
+const { near, passes } = nearView(place, roads, withPage, onHub);
 ---
 {near.length > 0 && roads && (
   <section aria-labelledby="near-heading" class:list={['mb-12 md:mb-16', className]} data-near-town>

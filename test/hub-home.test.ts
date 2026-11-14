@@ -2,12 +2,12 @@
  * The hub's home page (src/lib/hub-home.ts), on the redesign of 13 November
  * 2026 (docs/design/hub-home-mockup.html): the season's count, the
  * weekend's one listing a day and Friday's game, every row's check line in
- * its guide's words, the guides' index, and the page's palette.
+ * its guide's words, and the guides' index. Since the publication redesign
+ * of 14 November 2026 the page is in the hub's own colours and faces, held
+ * by test/hub-pages.test.ts, and lists up to three listings a day.
  */
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
-import { HUB_HOME } from '../src/config/palette.ts';
 import type { SportData, SportGame } from '../src/config/school-sports.ts';
 import type { TraditionRecord } from '../src/lib/traditions.ts';
 import { parseLocal } from '../src/lib/dates.ts';
@@ -39,6 +39,7 @@ import {
   townsConfirmed,
   weekendDays,
   weekendPicks,
+  weekendPicksByDay,
 } from '../src/lib/hub-home.ts';
 
 test('the feature counts towns, not dates: a town with two rows is one town', () => {
@@ -347,19 +348,22 @@ test('a story’s source line names every report and the oldest day one was read
   assert.equal(storySourceText([s('Town of Nederland: a'), s('Colorado Sun: b'), s('BusinessDen: c'), s('Bond Buyer: d'), s('KUNC: e')]), 'Sources: Town of Nederland, Colorado Sun, BusinessDen and 2 more, read Nov 13, 2026');
 });
 
-test('the stylesheet declares the palette in src/config/palette.ts', () => {
-  const css = readFileSync('src/styles/hub-home.css', 'utf8');
-  for (const [name, hex] of Object.entries(HUB_HOME)) assert.match(css, new RegExp(`--hh-${name}:\\s*${hex};`, 'i'), `--hh-${name}`);
-});
-
-test('the phone menu closes when focus moves elsewhere, not when it goes to nothing (a tap in Safari)', () => {
-  const page = readFileSync('src/routes/hub/index.astro', 'utf8');
-  const handler = page.match(/header\.addEventListener\('focusout', \(event\) => \{([\s\S]*?)\n    \}\);/);
-  assert.ok(handler, 'the masthead has a focusout handler');
-  // Safari does not focus a tapped link, so relatedTarget is null on a tap
-  // inside the menu; closing then would hide the link before the tap lands.
-  assert.match(handler[1]!, /if \(next && !header\.contains\(next\)\) set\(false\);/);
-  assert.ok(!/if \(!header\.contains\(event\.relatedTarget/.test(handler[1]!), 'a null relatedTarget must not close the menu');
-  // A tap anywhere else still closes it.
-  assert.match(page, /document\.addEventListener\('click', \(event\) => \{\s*if \(!header\.contains\(event\.target as Node\)\) set\(false\);/);
+test('up to three a day: every rule of the one-a-day pick holds, never two from one town across the weekend', () => {
+  const all = [
+    ev('erie', 'Nutcracker excerpts', '2026-11-14T10:30'),
+    ev('erie', 'Erie market', '2026-11-15T10:00', { category: 'market' }),
+    ev('carbon-valley', 'Harvest and Holly Market', '2026-11-15T11:00', { category: 'market' }),
+    ev('johnstown', 'Johnstown concert', '2026-11-14T19:00', { category: 'music' }),
+    ev('lyons', 'Lyons gallery walk', '2026-11-14T17:00', { category: 'arts' }),
+    ev('berthoud', 'Berthoud lecture', '2026-11-14T18:00'),
+  ];
+  const byDay = weekendPicksByDay(all, days.slice(1), { now, taken: new Set(['johnstown']), perDay: 3 });
+  assert.deepEqual([...byDay].map(([day, list]) => [day, list.map((e) => e.data.title)]), [
+    // One rank, so the earlier start first; Erie is Saturday's, so Sunday's market is Carbon Valley's, not Erie's.
+    ['2026-11-14', ['Nutcracker excerpts', 'Lyons gallery walk', 'Berthoud lecture']],
+    ['2026-11-15', ['Harvest and Holly Market']],
+  ]);
+  // One a day is the one-a-day pick exactly.
+  const one = weekendPicksByDay(all, days.slice(1), { now, taken: new Set(['johnstown']), perDay: 1 });
+  assert.deepEqual([...one].map(([d, l]) => [d, l[0]!.data.title]), [...weekendPicks(all, days.slice(1), { now, taken: new Set(['johnstown']) })].map(([d, e]) => [d, e.data.title]));
 });

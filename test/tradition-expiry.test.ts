@@ -5,7 +5,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { datePassed, expireRows, fillPastText, type DateNode } from '../src/lib/tradition-expiry.ts';
+import { correctDates, datePassed, expireRows, fillPastText, type DateNode } from '../src/lib/tradition-expiry.ts';
 import { hiddenFaceWords } from '../scripts/lib/site-check.ts';
 import { isUpcoming, seasonCounts, seasonRows, townGroups, type TraditionRecord } from '../src/lib/traditions.ts';
 
@@ -92,6 +92,35 @@ test('a row as built says one thing about its date; the after-the-date words are
   const note = node({ 'data-held-note': '', hidden: '', 'data-past-text': ' (last held)' });
   fillPastText(note);
   assert.equal(note.textContent, ' (last held)');
+});
+
+test('a hub town page’s year grid: a passed date’s dot turns to a ring, and each month says so again (the publication redesign of 14 November 2026)', () => {
+  const row = node({ 'data-tradition-row': '', 'data-ends': '2027-09-26', id: 'celtic' }, [node({ 'data-when-set': '' }), node({ 'data-when-past': '', hidden: '' })]);
+  const dot = node({ 'data-mark': 'set', 'data-slug': 'celtic', 'data-year': '2027' });
+  const sepLink = node({ href: '#coming-up', 'aria-label': 'September: 1 event, date set' }, [dot]);
+  const sepNow = node({ 'data-now-label': '', hidden: '' });
+  const sep = node({ 'data-month-cell': '8', 'data-now': 'false' }, [sepLink, sepNow]);
+  const novNow = node({ 'data-now-label': '' }, [], 'now');
+  const nov = node({ 'data-month-cell': '10', 'data-now': 'true' }, [novNow]);
+  const grid = node({ 'data-year-grid': '' }, [sep, nov]);
+  const page = node({}, [row, grid]);
+
+  // Before the date, in November: as built.
+  correctDates(page, '2026-11-20');
+  assert.equal(dot.dataset.mark, 'set');
+  assert.equal(sepLink.getAttribute('aria-label'), 'September: 1 event, date set');
+  assert.equal(nov.dataset.now, 'true');
+
+  // Read in September 2027, after the festival: a ring, last held that year, and "now" has moved.
+  correctDates(page, '2027-09-27');
+  assert.equal(dot.dataset.mark, 'held');
+  assert.equal(sepLink.getAttribute('aria-label'), 'September, this month: 1 event last held in September 2027, next date not yet announced');
+  assert.equal(sep.dataset.now, 'true');
+  assert.equal(sepNow.textContent, 'now');
+  assert.equal(sepNow.hidden, false);
+  assert.equal(nov.dataset.now, 'false');
+  assert.equal(novNow.textContent, '');
+  assert.equal(novNow.hidden, true);
 });
 
 test('the site check refuses a hidden after-the-date face that carries words, and passes an empty one', () => {

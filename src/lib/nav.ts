@@ -104,11 +104,11 @@ export function seasonLinks(root = '.'): NavItem[] {
 export const ANNUAL_EVENTS_HREF = '/annual-events/';
 
 /**
- * The hub's menu: its own list, with "Annual events" after the weekend,
- * the home page's word for the season pages (13 November 2026; it was
- * "Seasonal dates", to the first season page). It goes to the list of every
- * season page on /towns/; the home page's own link goes to its section of
- * the seasons now on. No season page, no entry.
+ * The hub's menu: its own list, with "Annual events" first, the home
+ * page's word for the season pages (13 November 2026; it was "Seasonal
+ * dates", to the first season page; first since the desktop boards of 14
+ * November 2026, after the weekend before). It goes to the list of every
+ * season page, /annual-events/. No season page, no entry.
  *
  * And "Articles" after Towns, to the index of every article on the site
  * (/articles/, src/lib/curiosity.ts), so a news story or an event brief is
@@ -117,7 +117,7 @@ export const ANNUAL_EVENTS_HREF = '/annual-events/';
  */
 export function hubNav(nav: readonly NavItem[], seasons: readonly NavItem[] = seasonLinks(), articles: boolean = hasArticles()): NavItem[] {
   const items = [...nav];
-  if (seasons[0]) items.splice(items.findIndex((n) => n.href === '/this-weekend/') + 1, 0, { label: 'Annual events', href: ANNUAL_EVENTS_HREF });
+  if (seasons[0]) items.unshift({ label: 'Annual events', href: ANNUAL_EVENTS_HREF });
   if (articles) {
     const towns = items.findIndex((n) => n.href === '/towns/');
     items.splice(towns === -1 ? items.length : towns + 1, 0, { label: 'Articles', href: ARTICLES_INDEX_PATH });

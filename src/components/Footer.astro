@@ -51,8 +51,9 @@ const sections = site.kind === 'town'
       ...(site.participation ? [{ label: 'Get involved', href: '/get-involved/' }] : []),
       ...(hasUpdates ? [{ label: 'Local changes', href: '/updates/' }] : []),
     ].filter((l) => !inMenu.has(l.href))
-  : // The hub: each season page by name, and the index of every town page.
-    [...seasonLinks(), { label: 'Every town, A to Z', href: '/towns/' }];
+  : // The hub: each season page by name, the index of every town page, and
+    // Moving here, which left the hub's menu with the desktop boards of 14 November 2026.
+    [...seasonLinks(), { label: 'Every town, A to Z', href: '/towns/' }, { label: 'Moving here', href: '/moving/' }];
 ---
 <footer class:list={['on-dark bg-primary text-white', !home && 'mt-24']} data-pagefind-ignore>
   <div class="container-page grid gap-10 py-14 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] lg:gap-12">

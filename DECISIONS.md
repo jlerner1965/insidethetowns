@@ -11423,3 +11423,112 @@ which also lists what is left for the owner). What changed as a rule:*
   read as an unfinished block beside two photographs.
 - **The root size is 106.25%**, not 17px, so the reader's own text size
   counts; the phone menu makes the page under it inert.
+
+## The hub's publication redesign: its town pages and its home, 14 November 2026
+
+*The owner's two boards (the town page, on La Veta, and the home), approved
+on the design canvas and sent to code as one pull request. Goals: sections
+easy to tell apart, a publication's look rather than an app's, scannable
+headings and a contents list, dates first, confirmed dates first.*
+
+- **One look for the hub's two busiest page types** (`src/components/hub/`):
+  full-width bands in paper and white about a 720px column; each section
+  opened by a 2px ink rule, its number and a Fraunces heading; italic
+  subheads over a 1px ink rule; rows parted by a hairline (#DAD7D0); dates
+  set in type; links underlined; no rounded cards, pills, shadows or icon
+  rows. Two tokens are new (`--color-hairline`, `--color-hero-mountain`,
+  `HUB_PUBLICATION` in `src/config/palette.ts`) and a rem type scale. The
+  board's "now" wash, #FCEFD8, is the existing `--color-highlight-soft`
+  (#FDF0D8).
+- **The town page** (`src/routes/hub/town.astro`): the hero, "On this
+  page", then Events, Where to stay, Getting here, Outdoor dates and About,
+  each drawn only where the files have something for it and numbered over
+  the ones drawn (`src/lib/hub-town-page.ts`). Every entry is one layout
+  (`DateEntry.astro`): the date in type, the kind in its category's ink,
+  the name, a status line led by a blue (set) or amber (not announced)
+  square, and the check line. The facts, sources and check dates are the
+  same files' as before; TownProfile.astro's reading of them moved to
+  `profileView`, and NearThisTown's to `src/lib/near-view.ts`, which the
+  guides' /things-to-do/ still use. The town's own outdoor dates are among
+  its dates under Events, the statewide ones in their section, where the
+  next two show and the rest wait behind a button that only the script
+  draws. The year at a glance links each month to the list its entries
+  are under and says what it holds (`src/lib/year-grid.ts`); the reader's
+  browser turns a passed date's dot to a ring and moves "now". The anchors
+  #traditions and #outdoor-dates are kept for the folded guides' redirects.
+  "More in <area>" names the next town in the area. Gone: the showpiece's
+  spotlight and its by-season lists (Estes Park and Salida take the one
+  layout and keep their photograph and line).
+- **The home** (`src/routes/hub/index.astro`) takes the hub's masthead and
+  footer and the network's faces: Newsreader, Inter, the pine and
+  `src/styles/hub-home.css` are gone, and with them the two font packages.
+  This weekend is a heading a day with up to three listings under it
+  (`weekendPicksByDay`, the one-a-day rules otherwise unchanged); the high
+  school scores show each school's last result from the scores files; "In
+  the towns" sets the newest larger; "Find your town" lists the guides from
+  their config and the town pages by area. The registration deadline beside
+  the weekend is not on the board and left the home. "Today" beside a
+  season's next date is written in the reader's browser, never in the built
+  page. The closed-guide line is not drawn on the home, where no closed
+  guide's redirect lands.
+- **The areas' names**, as a reader sees them (`CLUSTER_NAMES`): "Arkansas
+  Valley", "I-70 mountain towns", "Park gateway towns" and the like, on the
+  home and in "More in …". The keys, which every town names and the search
+  matches, are as they were; no address changed.
+- **The hub's masthead** on every hub page: the rule is the accent alone,
+  the wordmark all in the blue, and the bar 60px on a phone. The guides'
+  mastheads are as they were (a guide's build compared before and after:
+  the same pages, timestamps aside).
+- **Copy:** only the boards' headings and labels and the brief's lines. Two
+  board lines were not confirmed and are not used: "Every Thursday at 7 am"
+  and "posted by Saturday morning" (the scores line is "Each team's last
+  result."). "Every town we cover" over the weekend is not used either: the
+  weekend's listings come from the six guides that list events.
+- **The home's sign-up starts with one town** (its own commit): a list of
+  the weekly editions, "One town to start; add others any time", and the
+  guides with no weekly issue named from the config ("Niwot has no weekly
+  issue"). It was every edition by default. The endpoint takes one town's
+  tag as a guide's form already posts, and an address on the list has a
+  new town added (`existing`, Buttondown's collision behaviour `add`), so
+  "add others any time" holds from any form. The dek is the board's, "Your
+  town's weekend events, the scores, and what opened or closed", which is
+  what an edition holds (NewsletterSignup's `what`). No change to the
+  provider, its lists or the function.
+
+## The hub's publication pages on a desktop, 14 November 2026 (later)
+
+*The owner approved a desktop layout for the town page and the home. Sections,
+order, copy, colours and type stay; only the layout above 900px changes.
+Below 900px the pages are the phone's.*
+
+- **One breakpoint for the pages**, `desk:` at 900px (`--breakpoint-desk`,
+  56.25rem so Tailwind orders it among its own; an arbitrary `min-[900px]`
+  was written before `sm:` and `md:` and lost to them). The column is
+  1200px with 40px sides; bands stay full width.
+- **The masthead** on every hub page: 72px from 900px, in the same column.
+  Its menu is Annual events, This weekend, Towns A to Z, Articles and The
+  Thursday email (`hubNav` now puts Annual events first), as a row of 16px
+  links 26px apart from **1060px**, the first width at which that row, the
+  wordmark and search fit the column: at 900px it ran 146px off the page.
+  Between 900 and 1060px the phone's masthead stands over the desktop page.
+  Moving here and How we check left the menu; both are in the footer.
+- **The home:** the hero 7 to 5 with the photograph about 400px tall
+  beside it; This season beside This weekend (4 to 8), each weekend
+  listing what it is on the left and when, where and its check on the
+  right; the email's form on one line; the scores beside In the towns,
+  the lead story's headline at 32px and the next two side by side; the
+  guides and the areas four across. A pair stays a band of its own each on
+  a phone.
+- **The town page:** the hero 7 to 5, the name at 84px and the next date
+  beside it, the horizon 96px; On this page in a 240px rail that stays in
+  view, 88px from a 720px column of the sections, whose paper still runs
+  the full width (a spread shadow cut at the section's top and foot). The
+  year in one row of twelve, the towns near it three across, the figures
+  four across, the facts' labels 200px (120px in History and a museum's
+  rows), the dates' column 104px.
+- **Not taken from the desktop boards:** "Every Thursday at 7 am." under
+  the email, "posted by Saturday morning" under the scores, and the scores'
+  placeholders. The brief has the first two as unconfirmed and forbids a
+  placeholder for a score; the page keeps "Each team's last result." and
+  each school's result from the scores files.
+

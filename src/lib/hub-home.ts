@@ -208,22 +208,35 @@ type Listing = EventLike & { town: { slug: string }; confidence?: Confidence };
 export function weekendPicks<T extends Listing>(
   all: readonly T[],
   days: ReadonlyArray<{ key: string }>,
-  {
-    now = new Date(),
-    taken = new Set<string>(),
-    order = [],
-    exclude = new Set<string>(),
-    picked = new Set<string>(),
-  }: {
-    now?: Date;
-    taken?: ReadonlySet<string>;
-    order?: readonly string[];
-    /** Listings, as `listingKey`, that are something else on the page: a program's deadline (`deadlineListings`). */
-    exclude?: ReadonlySet<string>;
-    /** Listings, as `listingKey`, a guide's editor picked for the week (src/lib/weekly.ts, currentPicks): these come first. */
-    picked?: ReadonlySet<string>;
-  } = {},
+  options: WeekendPickOptions = {},
 ): Map<string, T> {
+  const picks = new Map<string, T>();
+  for (const [key, list] of weekendPicksByDay(all, days, { ...options, perDay: 1 })) picks.set(key, list[0]!);
+  return picks;
+}
+
+export interface WeekendPickOptions {
+  now?: Date;
+  taken?: ReadonlySet<string>;
+  order?: readonly string[];
+  /** Listings, as `listingKey`, that are something else on the page: a program's deadline (`deadlineListings`). */
+  exclude?: ReadonlySet<string>;
+  /** Listings, as `listingKey`, a guide's editor picked for the week (src/lib/weekly.ts, currentPicks): these come first. */
+  picked?: ReadonlySet<string>;
+}
+
+/**
+ * The same choice as `weekendPicks`, up to `perDay` listings a day (the
+ * home's "This weekend" under the publication redesign of 14 November
+ * 2026, a heading a day with its listings under it). Every rule holds: the
+ * best listing of the whole weekend placed first, never two from one town
+ * across the weekend, a day's listings in that order.
+ */
+export function weekendPicksByDay<T extends Listing>(
+  all: readonly T[],
+  days: ReadonlyArray<{ key: string }>,
+  { now = new Date(), taken = new Set<string>(), order = [], exclude = new Set<string>(), picked = new Set<string>(), perDay = 1 }: WeekendPickOptions & { perDay?: number } = {},
+): Map<string, T[]> {
   const general = forGeneralReaders(all, all);
   const pool = oneOffs(general, all).filter((e) => !isPast(e, now) && !isFlagged(e) && !isTentative(e) && e.confidence?.level === 'confirmed' && !exclude.has(listingKey(e)));
   // A guide editor's pick or featured listing first, then a plan-your-day category, then the rest.
@@ -240,19 +253,20 @@ export function weekendPicks<T extends Listing>(
     .flatMap(({ key }, day) => pool.filter((e) => !taken.has(e.town.slug) && onDay(e, key)).map((e) => ({ e, key, day })))
     .sort((a, b) => rank(a.e) - rank(b.e) || a.day - b.day || a.e.data.start.getTime() - b.e.data.start.getTime() || place(a.e.town.slug) - place(b.e.town.slug));
   const towns = new Set<string>();
-  const chosen = new Map<string, T>();
-  for (const { e, key } of candidates) {
-    if (chosen.has(key) || towns.has(e.town.slug)) continue;
-    chosen.set(key, e);
+  const chosen = new Map<string, Array<{ e: T; at: number }>>();
+  candidates.forEach(({ e, key }, at) => {
+    const list = chosen.get(key) ?? [];
+    if (list.length >= perDay || towns.has(e.town.slug)) return;
+    list.push({ e, at });
+    chosen.set(key, list);
     towns.add(e.town.slug);
-  }
-  // In the days' own order.
-  const picks = new Map<string, T>();
-  for (const { key } of days) if (chosen.has(key)) picks.set(key, chosen.get(key)!);
+  });
+  // In the days' own order, each day's listings best first.
+  const picks = new Map<string, T[]>();
+  for (const { key } of days) if (chosen.has(key)) picks.set(key, chosen.get(key)!.sort((a, b) => a.at - b.at).map((c) => c.e));
   return picks;
 }
 
-/** A listing as one key across the network: "berthoud/holiday-card-art-contest-deadline-2026-11-14". */
 export function listingKey(e: { town: { slug: string }; slug?: string; id?: string }): string {
   return `${e.town.slug}/${e.slug ?? e.id ?? ''}`;
 }

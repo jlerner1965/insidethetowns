@@ -84,13 +84,14 @@ export const hub: HubConfig = {
   // change under a reader between the home and any other page; "Annual
   // events" is added after the weekend (src/lib/nav.ts, hubNav). About and
   // Contact are in the footer of every page.
+  // The desktop boards of 14 November 2026: "Annual events" first, then
+  // these, with "Articles" after the towns (src/lib/nav.ts, hubNav). Moving
+  // here and How we check are in the footer of every page.
   nav: [
     { label: 'This weekend', href: '/this-weekend/' },
     // The A to Z of every guide and town page, not a section of the home (the owner, 13 November 2026).
-    { label: 'Towns', href: '/towns/' },
-    { label: 'Moving here', href: '/moving/' },
-    { label: 'Newsletter', href: '/newsletter/' },
-    { label: 'How we check', href: '/editorial/' },
+    { label: 'Towns A to Z', href: '/towns/' },
+    { label: 'The Thursday email', href: '/newsletter/' },
   ],
   towns,
   formspreeId: 'xeaoakgg',

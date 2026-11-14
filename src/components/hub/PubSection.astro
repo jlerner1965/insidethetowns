@@ -1,0 +1,36 @@
+---
+/**
+ * One numbered section of a hub publication page (src/components/hub/pub.ts):
+ * a full-width band on paper or white, and in its centred column the 2px
+ * ink rule, the section's number where it has one, and its heading. The
+ * page decides the number and the band, counting only the sections it
+ * draws, so a section left out closes the gap (src/lib/hub-town-page.ts).
+ * From 900px it sits in the page's 720px column beside the contents, and a
+ * paper band still runs the full width (pub.paperBleed).
+ */
+import { pub } from './pub';
+
+interface Props {
+  id: string;
+  title: string;
+  /** "01": the section's number, where the page numbers its sections. */
+  number?: string;
+  tone: 'paper' | 'white';
+  /** The italic line under the heading, on the home. */
+  dek?: string;
+  /** What the page's own script and checks find it by. */
+  data?: Record<string, string>;
+}
+const { id, title, number, tone, dek, data = {} } = Astro.props;
+const headingId = `${id}-heading`;
+---
+<section id={id} aria-labelledby={headingId} data-band class:list={[pub.band, tone === 'paper' ? pub.paperBleed : pub.white]} {...Object.fromEntries(Object.entries(data).map(([k, v]) => [`data-${k}`, v]))}>
+  <div class={pub.col}>
+    <div class={pub.open}>
+      {number && <p class={pub.num} aria-hidden="true">{number}</p>}
+      <h2 id={headingId} class={pub.h2}>{title}</h2>
+      {dek && <p class="mt-2 font-heading text-[1.0588rem] font-normal italic leading-[1.45] text-ink-muted [font-variation-settings:normal]">{dek}</p>}
+    </div>
+    <slot />
+  </div>
+</section>
