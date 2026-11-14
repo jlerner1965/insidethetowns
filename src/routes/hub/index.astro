@@ -86,7 +86,7 @@ import { FLAGSHIP_TEAM, hasData, sportsDataFor } from '@/lib/school-sports';
 import { coveredTowns } from '@/lib/town-search-index';
 import { TRADITION_TYPE_INFO } from '@/lib/traditions';
 import { currentPicks } from '@/lib/weekly';
-import { wordmarkParts } from '@/lib/titles';
+import { fitTitle, wordmarkParts } from '@/lib/titles';
 import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
 import { collectionPageJsonLd } from '@/lib/seo';
 import { expiresOn, networkChanges } from '@/lib/updates';
@@ -365,7 +365,8 @@ const correction = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=$
  * The description names the seasons now on, and is the longest of its
  * forms that fits 155 characters, so a result shows it whole.
  */
-const fullTitle = `Colorado events this weekend, town by town | ${hub.siteTitle}`;
+// The guide's name after it only where the whole fits in 60 (the owner's review, 13 November 2026).
+const fullTitle = fitTitle('Colorado events this weekend, town by town', hub.siteTitle);
 const seasonWords = seasons.length > 0 ? `: ${listWords(seasons.map((r) => r.title.toLowerCase()))}` : '';
 const description = [
   `This weekend’s events from ${eventGuideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}, each checked against its source.`,

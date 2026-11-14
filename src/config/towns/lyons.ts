@@ -12,7 +12,7 @@ export const lyons: TownConfig = {
   siteTitle: 'Inside Lyons',
   tagline: 'An independent guide to Lyons, Colorado: the river, the trails, the music, and what it’s like to live at the canyon mouth.',
   shortTagline: 'Sandstone, the river, and a music festival',
-  seoTagline: 'River, trails, music and events in Lyons, Colorado',
+  seoTagline: 'Lyons, CO events this weekend & things to do',
   counties: ['Boulder'],
   state: 'CO',
   lat: 40.2247,

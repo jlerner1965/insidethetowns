@@ -16,7 +16,7 @@ export const erie: TownConfig = {
   siteTitle: 'Inside Erie',
   tagline: 'An independent guide to Erie, Colorado: Briggs Street, the trails, the coal-town history, and what it’s like to move to a town that grew by two-thirds.',
   shortTagline: 'Briggs Street, the trails, and a coal town that grew by two-thirds',
-  seoTagline: 'Briggs Street, trails and events in Erie, Colorado',
+  seoTagline: 'Erie, Colorado events this weekend & things to do',
   // 2020 census: 17,387 residents (58 per cent) in Weld, 12,651 (42 per cent) in Boulder.
   counties: ['Weld', 'Boulder'],
   countySplit: {

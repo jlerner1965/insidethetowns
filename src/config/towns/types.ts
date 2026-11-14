@@ -319,7 +319,7 @@ export interface TownConfig {
    * guide does this week instead (src/lib/hero-line.ts).
    */
   shortTagline?: string;
-  /** Used in <title> when the full tagline would be truncated mid-phrase. */
+  /** The home page's <title>: the town and what people search for first, 60 characters at most (src/lib/titles.ts, homeTitle). */
   seoTagline?: string;
   /**
    * Every county the municipal boundary falls in, the one holding most of the
@@ -535,7 +535,7 @@ export interface HubConfig {
   domain: string;
   siteTitle: string;
   tagline: string;
-  /** Used in <title> when the full tagline would be truncated mid-phrase. */
+  /** The home page's <title>: the town and what people search for first, 60 characters at most (src/lib/titles.ts, homeTitle). */
   seoTagline?: string;
   colors: TownColors;
   fonts?: { heading?: string; body?: string };

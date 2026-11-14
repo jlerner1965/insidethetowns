@@ -8,6 +8,7 @@ import { POSTSEASON, type PostseasonGame } from '../config/postseason.ts';
 import { primaryHover } from '../config/palette.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock, TIME_ZONE } from './dates.ts';
 import { addFirstFitting } from './plain-text.ts';
+import { TITLE_LIMIT } from './titles.ts';
 
 /**
  * The school's colour as the page's primary, for a `style` on the element
@@ -466,8 +467,12 @@ export function schoolShortName(school: string): string {
  * (audit, 26 October 2026); each sport's own page carries its name, and the
  * description lists them.
  */
-export function schoolPageTitle(school: Pick<SchoolSports, 'school' | 'mascot'>): string {
-  return `${school.school} ${school.mascot} Scores & Schedules`;
+export function schoolPageTitle(school: Pick<SchoolSports, 'school' | 'mascot' | 'maxprepsName' | 'place'>): string {
+  const full = `${school.school} ${school.mascot} Scores & Schedules`;
+  if (!school.place) return full;
+  // The town first, where the school's name does not carry it, within the limit.
+  const candidates = [`${school.place} ${full}`, `${school.place} ${school.maxprepsName} ${school.mascot} Scores & Schedules`];
+  return candidates.find((t) => t.length <= TITLE_LIMIT) ?? full;
 }
 
 /**
@@ -476,16 +481,25 @@ export function schoolPageTitle(school: Pick<SchoolSports, 'school' | 'mascot'>)
  * ("Schedule, Scores & Record") that pushed it past 70 characters with the
  * guide's name; the record is the page's first line and the description's.
  */
-export function teamPageTitle(school: Pick<SchoolSports, 'maxprepsName' | 'mascot'>, team: Pick<SportData, 'name'>, years: string): string {
-  return `${schoolTeamName(school)} ${titleCase(team.name)} Scores & Schedule ${years}`;
+export function teamPageTitle(school: Pick<SchoolSports, 'maxprepsName' | 'mascot' | 'place'>, team: Pick<SportData, 'name'>, years: string): string {
+  const name = schoolTeamName(school);
+  const sport = titleCase(team.name);
+  const plain = `${name} ${sport} Scores & Schedule ${years}`;
+  // The town first where the school's name does not carry it (the owner's
+  // review, 13 November 2026), giving way in this order to stay within
+  // TITLE_LIMIT: "& Schedule", then the mascot, then the town.
+  const candidates = school.place
+    ? [`${school.place} ${plain}`, `${school.place} ${name} ${sport} Scores ${years}`, `${school.place} ${school.maxprepsName} ${sport} Scores ${years}`, plain, `${name} ${sport} Scores ${years}`]
+    : [plain, `${name} ${sport} Scores ${years}`];
+  return candidates.find((t) => t.length <= TITLE_LIMIT) ?? plain;
 }
 
-/** Past this a result cuts the title, wherever the cut falls. */
-export const SPORTS_TITLE_LIMIT = 70;
+/** Past this a result cuts the title, wherever the cut falls: the network's one limit (src/lib/titles.ts). */
+export const SPORTS_TITLE_LIMIT = TITLE_LIMIT;
 
 /**
  * The whole <title> of a sports page: the page's title and the guide's name
- * ("… · Inside Berthoud") where both fit in 70 characters, else the page's
+ * ("… · Inside Berthoud") where both fit in SPORTS_TITLE_LIMIT, else the page's
  * title alone. Loveland's and Carbon Valley's long school names ("Mountain
  * View Mountain Lions Girls Basketball …") ran to 90 with the guide's name,
  * and it is the team, not the guide, that a reader searched for; the guide

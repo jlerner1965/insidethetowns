@@ -101,10 +101,17 @@ test('the title names the town, the event, the year and the day, and the town on
   assert.equal(traditionTitle('Longmont', 'Longmont Turkey Trot', 2026, { date: new Date('2026-11-14T12:00:00-07:00') }), 'Longmont Turkey Trot 2026: Sat, Nov 14');
   // Over the limit the time goes first, then the day; the name and the year stay.
   const nov7 = new Date('2026-11-07T12:00:00-07:00');
-  assert.equal(traditionTitle('Estes Park', 'Rocky Mountain Craft Spirits Festival', 2026, { date: nov7, time: '12 p.m.' }), 'Estes Park Rocky Mountain Craft Spirits Festival 2026: Sat, Nov 7');
+  assert.equal(traditionTitle('Estes Park', 'Craft Spirits & Brew Festival', 2026, { date: nov7, time: '12 p.m.' }), 'Estes Park Craft Spirits & Brew Festival 2026: Sat, Nov 7');
+  assert.equal(traditionTitle('Estes Park', 'Rocky Mountain Craft Spirits Festival', 2026, { date: nov7, time: '12 p.m.' }), 'Estes Park Rocky Mountain Craft Spirits Festival 2026');
   const t = traditionTitle('Estes Park', 'Rocky Mountain Craft Spirits (& Brew) Festival', 2026, { date: nov7, time: '12 p.m.' });
   assert.equal(t, 'Estes Park Rocky Mountain Craft Spirits (& Brew) Festival 2026');
-  assert.ok(t.length <= TITLE_LIMIT, t);
+  // A name and year longer than TITLE_LIMIT by themselves are kept whole, never cut mid-name.
+  assert.ok(t.length > TITLE_LIMIT, t);
+  // The town is not said twice: inside a word, or by a Springs town's short name (the owner, 13 November 2026).
+  assert.equal(traditionTitle('Boulder', 'BOLDERBoulder', 2027), 'BOLDERBoulder 2027');
+  assert.equal(traditionTitle('Steamboat Springs', 'Steamboat OktoberWest', 2027), 'Steamboat OktoberWest 2027');
+  assert.equal(traditionTitle('Green Mountain Falls', 'Green Box Arts Festival', 2027), 'Green Mountain Falls Green Box Arts Festival 2027');
+  assert.equal(traditionTitle('Colorado Springs', 'Colorado State Fair', 2027), 'Colorado Springs Colorado State Fair 2027');
   // No date: the next year, and no day claimed.
   assert.equal(traditionTitle('Golden', 'Candlelight Walk', 2027), 'Golden Candlelight Walk 2027');
   assert.equal(traditionTitle('Wellington', 'Parade of Lights', 2026, { date: dec4, canceled: true }), 'Wellington Parade of Lights 2026: canceled');

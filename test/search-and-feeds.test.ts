@@ -19,7 +19,8 @@ const row = (name: string, date?: string) =>
 
 test('a town page’s title and description name its next dated traditions and the year', () => {
   const t = townSearchText('Golden', [row('Candlelight Walk', '2026-12-04'), row('Buffalo Bill Days'), row('Golden Holiday Parade', '2026-12-12'), row('Jingle on the Avenue', '2026-12-19'), row('Fourth', '2027-07-04')]);
-  assert.equal(t.seoTitle, 'Golden, Colorado events 2026: Candlelight Walk and annual dates');
+  // 60 characters since 13 November 2026: "and annual dates" no longer fits.
+  assert.equal(t.seoTitle, 'Golden, Colorado events 2026: Candlelight Walk');
   assert.match(t.description, /^Golden, Colorado in 2026: Candlelight Walk \(December 4\), Golden Holiday Parade \(December 12\) and Jingle on the Avenue \(December 19\)\./);
   assert.doesNotMatch(t.description, /Buffalo Bill|Fourth/, 'three at most, and none without a date');
 
@@ -28,8 +29,9 @@ test('a town page’s title and description name its next dated traditions and t
   assert.match(across.description, /County Fair \(July 30, 2027\)/, 'a date in the next year says its year');
 
   const long = townSearchText('Salida', [row('Christmas Mountain 5 Mile & 1 Mile Run', '2026-11-27')]);
-  assert.ok(long.seoTitle.length <= 65, long.seoTitle);
-  assert.match(long.seoTitle, /Christmas Mountain/);
+  assert.ok(long.seoTitle.length <= 60, long.seoTitle);
+  // At 60 the long name no longer fits in any form; the plain dated title stands.
+  assert.equal(long.seoTitle, 'Salida, Colorado events and annual dates, 2026');
   assert.match(long.seoTitle, /events/, 'every dated title says events');
 
   const none = townSearchText('Ouray', [row('Ice Festival')]);

@@ -785,8 +785,9 @@ test('titles and descriptions come from the data: the school, the mascot, the sp
   assert.equal(shortWhen({ date: '2026-11-07', opponent: 'x', site: 'home', url: 'u' }), 'Saturday Nov 7', 'no time, no comma');
   // The school's title names the school, not every sport: each has its own page (audit, 26 October 2026).
   assert.equal(schoolPageTitle(berthoud), 'Berthoud High School Spartans Scores & Schedules');
-  // The guide's name goes on where the whole fits in 70; the longest school and sport names go without it.
-  assert.equal(sportsFullTitle('Berthoud Spartans Football Scores & Schedule 2026', 'Inside Berthoud'), 'Berthoud Spartans Football Scores & Schedule 2026 · Inside Berthoud');
+  // The guide's name goes on where the whole fits in 60 (70 until 13 November 2026); the longer school and sport names go without it.
+  assert.equal(sportsFullTitle('Berthoud Spartans Scores & Schedules', 'Inside Berthoud'), 'Berthoud Spartans Scores & Schedules · Inside Berthoud');
+  assert.equal(sportsFullTitle('Berthoud Spartans Football Scores & Schedule 2026', 'Inside Berthoud'), 'Berthoud Spartans Football Scores & Schedule 2026');
   assert.equal(sportsFullTitle('Mountain View Mountain Lions Girls Basketball Scores & Schedule 2026–27', 'Inside Loveland'), 'Mountain View Mountain Lions Girls Basketball Scores & Schedule 2026–27');
   // Every school and team title in the network, as the pages write it, stays inside 75 characters (it ran to 91).
   for (const school of SCHOOL_SPORTS) {
@@ -1094,4 +1095,16 @@ test('the school page’s eyebrow is the school year while it lays out fall and 
   ] };
   assert.equal(pageSeasonLabel(march, withSpring, new Date('2027-03-05T15:00:00Z')), '2026–27');
   assert.equal(pageSeasonLabel({ ...march, sports: [march.sports[1]!] }, withSpring, new Date('2027-03-05T15:00:00Z')), 'Spring 2027');
+});
+
+test('every sports title fits in 60 and names its town first where the school’s name does not (the owner, 13 November 2026)', async () => {
+  const { schoolPageTitle, teamPageTitle } = await import('../src/lib/school-sports.ts');
+  for (const school of SCHOOL_SPORTS) {
+    const titles = [schoolPageTitle(school), ...school.teams.map((t) => teamPageTitle(school, t, t.season === 'winter' ? '2026–27' : '2026'))];
+    for (const title of titles) {
+      assert.ok(title.length <= 60, title);
+      if (school.place) assert.ok(title.startsWith(school.place), title);
+    }
+  }
+  assert.equal(schoolPageTitle(SCHOOL_SPORTS.find((s) => s.school === 'Roosevelt High School')!), 'Johnstown Roosevelt Roughriders Scores & Schedules');
 });

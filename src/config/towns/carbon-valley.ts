@@ -58,7 +58,7 @@ export const carbonValley: TownConfig = {
   shortTagline: 'Frederick, Firestone and Dacono on one guide',
   // Short enough that the state survives the search-result trim (test/towns.test.ts).
   // The three towns by name, as the guide had it until 2 November 2026.
-  seoTagline: 'Frederick, Firestone and Dacono, Colorado',
+  seoTagline: 'Frederick, Firestone & Dacono, CO events & things to do',
   // One line for the comparison table, as the three-town guide had it until
   // 2 November 2026, less its census years: the flagship test keeps the one
   // line enduring.
