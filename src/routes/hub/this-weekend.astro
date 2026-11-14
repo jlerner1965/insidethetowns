@@ -109,10 +109,13 @@ const seasons = seasonLinks();
   </p>
 
   <div data-filter-root>
+    {/* "Hide meetings" keeps every listing that is not a public meeting
+        (each card's `outing` tag: category civic is the councils, boards and
+        study sessions; the owner, 13 November 2026). */}
     {/* Free and Live music combine with the town; the town is kept in the
         address (?town=erie) and remembered for the next visit. No Kids &
         families toggle: an event has no audience field to read it from. */}
-    <FilterBar options={options} label="Filter by town" rowLabel="Town" toggles={[{ key: 'free', label: 'Free' }, { key: 'music', label: 'Live music' }]} remember="town" />
+    <FilterBar options={options} label="Filter by town" rowLabel="Town" toggles={[{ key: 'free', label: 'Free' }, { key: 'music', label: 'Live music' }, { key: 'outing', label: 'Hide meetings' }]} remember="town" />
     {/* What the filters left, and which days it covers: counted from the rows shown, after every filter. */}
     <p class="mb-6 text-[0.9375rem] text-ink-muted" data-filter-summary aria-hidden="true"></p>
     {/* Straight to a day, as on a town's events page. */}

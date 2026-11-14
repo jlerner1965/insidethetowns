@@ -4,7 +4,7 @@ start: "2026-11-15T13:30"
 end: "2026-11-15T15:30"
 venue: "Carbon Valley Regional Library"
 url: "https://highplains.libcal.com/event/17304129"
-category: outdoors
+category: food
 source: "https://highplains.libcal.com/event/17304129"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17304129"
