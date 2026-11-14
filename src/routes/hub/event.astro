@@ -17,6 +17,7 @@
  * status; nothing when the year shown has no date. A page shows nothing
  * its record does not hold.
  */
+import { getImage } from 'astro:assets';
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
 import DateCorrection from '@/components/DateCorrection.astro';
@@ -30,6 +31,7 @@ import { googleCalendarUrl } from '@/lib/ics';
 import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, excerptDescription, traditionEventJsonLd } from '@/lib/seo';
 import { titleTime, traditionTitle } from '@/lib/titles';
 import { hostOf } from '@/lib/hub-home';
+import { findSiteImage } from '@/lib/images';
 import { certainTime, traditionCalendarEvent } from '@/lib/tradition-calendar';
 import { CURRENT_SEASONS, TRADITION_TYPE_INFO, entrySource, isDated, isListed, nextRow, rowState, type TraditionYear } from '@/lib/traditions';
 import { hubReservedSegments } from '@/integrations/town-routes';
@@ -102,6 +104,14 @@ const yearLine = (y: TraditionYear): string => {
   return y.status === 'moved' ? `${held}${span}, moved from ${dayText(y.previousDate!)}` : `${held}${span}`;
 };
 
+// The town's photograph where it has one (a showpiece's hero), else its
+// share card (src/routes/hub/town-share.png.ts): the page's share image and
+// the Event's image, since a record has no photograph of its own.
+const show = town.showpiece;
+const heroFile = show?.hero && show.hero.alt.trim() ? findSiteImage('hub', show.hero.image) : undefined;
+const shareImage = heroFile ? (await getImage({ src: heroFile, width: 1200, height: 630, format: 'jpg' })).src : `/share/${town.slug}.png`;
+const shareAlt = heroFile ? show!.hero!.alt : `${town.name}, Colorado: annual events and outdoor dates`;
+
 const structured = [
   breadcrumbJsonLd(hub, [
     { name: hub.siteTitle, path: '/' },
@@ -109,7 +119,7 @@ const structured = [
     { name: record.name, path },
   ]),
   // The record's one Event entity, here and on no other page (eventPage): nothing once its date has passed.
-  ...(row.past ? [] : [traditionEventJsonLd(record, entry, pageUrl, { own: true })].filter((e) => !!e)),
+  ...(row.past ? [] : [traditionEventJsonLd(record, entry, pageUrl, { own: true, image: new URL(shareImage, pageUrl).toString() })].filter((e) => !!e)),
 ];
 const subject = `[Correction] ${town.name}: ${record.name}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
@@ -117,7 +127,7 @@ const card = 'rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7';
 const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary';
 ---
-<Page {title} seoTitle={title} eyebrow={`${town.name}, ${hubCountyLine(town)} · ${info.label}`} {description} jsonLd={structured} kind="Annual event" narrow>
+<Page {title} seoTitle={title} eyebrow={`${town.name}, ${hubCountyLine(town)} · ${info.label}`} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual event" narrow>
   <nav aria-label="Breadcrumb" class="mb-6 text-sm text-ink-muted" data-breadcrumb>
     <a href="/" class="underline">{hub.siteTitle}</a> › <a href={`/${town.slug}/`} class="underline">{town.name}</a> › <span>{record.name}</span>
   </nav>

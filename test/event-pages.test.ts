@@ -123,6 +123,10 @@ test('the Event entity: the page’s own URL on its page, the row elsewhere; the
   assert.equal(own.url, 'https://insidethetowns.com/golden/candlelight-walk/');
   assert.equal(own.eventStatus, 'https://schema.org/EventScheduled');
   assert.equal(own.startDate, '2026-12-04T18:30:00-07:00');
+  // An image where the page gives one: the town's photograph or its share card (the owner, 13 November 2026).
+  assert.equal('image' in own, false);
+  const withImage = traditionEventJsonLd(rec, rec.years[0]!, 'https://insidethetowns.com/golden/candlelight-walk/', { own: true, image: 'https://insidethetowns.com/share/golden.png' })!;
+  assert.deepEqual(withImage.image, ['https://insidethetowns.com/share/golden.png']);
   const row = traditionEventJsonLd(rec, rec.years[0]!, 'https://insidethetowns.com/golden/')!;
   assert.equal(row.url, 'https://insidethetowns.com/golden/#golden-candlelight-walk');
   const moved = traditionEventJsonLd(rec, { status: 'moved', date: '2026-12-05', previousDate: '2026-12-04', reason: 'snow' }, 'https://x/', { own: true })!;
