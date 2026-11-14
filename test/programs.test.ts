@@ -240,3 +240,12 @@ test('a program’s age keys: its groups, or "all" when it is for families or ev
   assert.deepEqual(ageKeys(['babies', 'preschool', 'families']), ['all']);
   assert.deepEqual(ageKeys(['adults']), []);
 });
+
+test('a deadline shows through its own Denver day and is gone the next (Camp Erie, 13 November 2026)', () => {
+  // The hub home's Deadline card read Camp Erie's November 13 deadline on the
+  // 13th; it must leave the build on the 14th, Denver's day, not UTC's.
+  const camp = [program('Camp Erie school-break camps', { registration: { required: true, deadline: at('2026-11-13') } })];
+  assert.equal(upcomingDeadlines(camp, { now: at('2026-11-13T21:30'), days: 30 }).length, 1, 'the evening of the 13th in Denver, already the 14th in UTC');
+  assert.equal(upcomingDeadlines(camp, { now: at('2026-11-14T00:05'), days: 30 }).length, 0);
+  assert.equal(deadlinePassed(camp[0]!, at('2026-11-14T00:05')), true);
+});

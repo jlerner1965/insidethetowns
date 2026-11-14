@@ -8,6 +8,10 @@ type: festival
 organizer: "Visit Manitou Springs"
 sourceUrl: "https://emmacrawford.coffinraces.com/"
 firstYear: 1995
+about:
+  text: "A coffin race held in memory of Manitou Springs resident Emma Crawford, in which teams compete on speed, coffin design, team names and costumes, on the 900 block of Manitou Avenue."
+  source: "https://emmacrawford.coffinraces.com/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,10 @@ town:
 type: festival
 organizer: "Golden Buffalo Bill Days"
 sourceUrl: "https://www.goldenbuffalobilldays.com/"
+about:
+  text: "A community festival with a parade, live music, and arts and crafts, at Parfet Park, 719 10th Street, in Golden."
+  source: "https://www.goldenbuffalobilldays.com/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: confirmed

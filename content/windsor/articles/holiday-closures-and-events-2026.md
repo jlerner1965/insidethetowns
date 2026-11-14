@@ -78,7 +78,7 @@ This is Weld RE-4's calendar; a family in another district should check its own.
 ## What is on
 
 - **Thursday, November 26:** the [Windsor Turkey Trot 5K](/events/windsor-turkey-trot/) at Pelican Lakes Golf Course, 1600 Pelican Lakes Point. The run starts at 9 am and the walk at 9:05. Entry is $43.40 through November 20 and $48.70 after, and $22.20 for ages 1 to 12.
-- **Saturday, November 28:** the Severance High School Key Club's first [Winter Market](/events/severance-high-school-winter-market-2026-11-28/), 9 am to 3 pm at the school, 1200 Hidden Valley Parkway, with more than 50 vendors and Santa from 11 am to 3 pm.
+- **Saturday, November 28:** the Severance High School Key Club's first [Winter Market](/events/shs-key-club-hosts-the-1st-annual-winter-market-2026-11-28/), 9 am to 3 pm at the school, 1200 Hidden Valley Parkway, with more than 50 vendors and Santa from 11 am to 3 pm.
 - **Saturday, December 5:** [Windsor Wonderland](/events/windsor-wonderland/) at Boardwalk Park, 4 to 7 pm. Santa arrives by train at 4, the Mayor lights the tree at the depot at 4:15, and the parade goes at 6:30.
 - **Saturday, December 12:** the [Santa Catch 5K and 10K](/events/santa-catch-5k-10k-2026-12-12/) from Boardwalk Park; the 10K starts at 9 am and the 5K at 9:30.
 - **Saturday, December 12:** Severance's [Town Christmas](/events/town-christmas-2026-12-12/) at Community Park, 2 to 5 pm, with Santa and Ms. Claus, horse-drawn carriage rides and fireworks planned to close.

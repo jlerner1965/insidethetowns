@@ -143,24 +143,32 @@ export function passesCategoryFilter(item: Pick<FeedEvent, 'categories'>, source
  * Until 31 October 2026 the patterns four sources carried were read as
  * pieces and matched nothing.
  */
-export function excludedTitle(item: Pick<FeedEvent, 'title'>, source: Pick<Source, 'excludeTitles'>): boolean {
+export function excludedTitle(item: Pick<FeedEvent, 'title'>, source: Pick<Source, 'excludeTitles' | 'includeTitles'>): boolean {
   return !!excludingEntry(item, source);
 }
 
-/** The entry that excludes this title, for the report, or undefined. */
-export function excludingEntry(item: Pick<FeedEvent, 'title'>, source: Pick<Source, 'excludeTitles'>): string | undefined {
-  if (!source.excludeTitles?.length) return undefined;
-  const title = item.title.replace(/\s+/g, ' ');
-  return source.excludeTitles.find((t) => {
-    if (t.startsWith('^')) {
-      try {
-        return new RegExp(t, 'i').test(title);
-      } catch {
-        return false;
-      }
+/** Whether one `excludeTitles` or `includeTitles` entry matches a title. */
+function titleMatches(title: string, entry: string): boolean {
+  if (entry.startsWith('^')) {
+    try {
+      return new RegExp(entry, 'i').test(title);
+    } catch {
+      return false;
     }
-    return title.toLowerCase().includes(t.replace(/\s+/g, ' ').toLowerCase());
-  });
+  }
+  return title.toLowerCase().includes(entry.replace(/\s+/g, ' ').toLowerCase());
+}
+
+/**
+ * The entry that excludes this title, for the report, or undefined: a title
+ * that matches none of the source's `includeTitles` is out first, then one
+ * that matches an `excludeTitles` entry.
+ */
+export function excludingEntry(item: Pick<FeedEvent, 'title'>, source: Pick<Source, 'excludeTitles' | 'includeTitles'>): string | undefined {
+  const title = item.title.replace(/\s+/g, ' ');
+  if (source.includeTitles?.length && !source.includeTitles.some((t) => titleMatches(title, t))) return '(not in includeTitles)';
+  if (!source.excludeTitles?.length) return undefined;
+  return source.excludeTitles.find((t) => titleMatches(title, t));
 }
 
 /**
@@ -173,9 +181,12 @@ export function excludingEntry(item: Pick<FeedEvent, 'title'>, source: Pick<Sour
  * with a number.
  */
 export function venueFrom(location: string | undefined, source: Pick<Source, 'venueAliases' | 'defaultVenue'>): { venue?: string; address?: string; guessed: boolean; silent?: boolean } {
+  // A dangling separator is the feed's, not the place's: Clearview writes
+  // "Windsor Library - " before an empty room, which printed as the venue
+  // "Windsor Library -" (the network review, 13 November 2026).
   const parts = (location ?? '')
     .split(/\s*,\s*/)
-    .map((p) => p.trim())
+    .map((p) => p.trim().replace(/\s*[-–—:]+$/, ''))
     .filter(Boolean);
   const alias = source.venueAliases ?? {};
   for (const part of parts) {
@@ -233,6 +244,12 @@ function addressIn(parts: string[]): string | undefined {
  */
 export function guessCategory(item: Pick<FeedEvent, 'title' | 'categories'>): { category: string; guessed: boolean } {
   const text = `${item.categories.join(' ')} ${item.title}`.toLowerCase();
+  // A sale or a fundraiser is what it is whoever runs it: "EHS Band
+  // Mattress Sale Fund Raiser" is not a concert because a band sells the
+  // mattresses (the hub's home printed it as Music, 13 November 2026). It
+  // is filed as `other`, which prints no label, before any word below can
+  // claim it.
+  if (/\b(fund ?-?raiser|fundraising|(mattress|bake|book|garage|yard|rummage|plant|tree|wreath|poinsettia) sale)\b/.test(text)) return { category: 'other', guessed: true };
   const rules: Array<[RegExp, string]> = [
     [/\b(council|trustees?|board|commission|committee|hearing|town hall meeting|planning|work ?session|election|ballot|budget)\b/, 'civic'],
     [/\b(storytime|story time|toddler|baby|preschool|kids?|children|family|teen|tween|lego|craft|playgroup)\b/, 'family'],

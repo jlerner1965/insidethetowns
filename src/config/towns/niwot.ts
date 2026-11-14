@@ -18,7 +18,7 @@ export const niwot: TownConfig = {
   // coverage instead (the election explainer, the local-changes notice and
   // the home page's dated line), where it can be retired the morning after.
   shortTagline: 'Old Town, the trails, and the people who run the place',
-  seoTagline: 'Old Town, trails and updates in Niwot, Colorado',
+  seoTagline: 'Niwot, CO local updates & things to know',
   counties: ['Boulder'],
   state: 'CO',
   lat: 40.1039,

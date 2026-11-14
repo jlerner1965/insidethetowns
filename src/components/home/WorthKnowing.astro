@@ -1,0 +1,54 @@
+---
+/**
+ * Worth knowing on a guide's home page: one section, one "Every local
+ * change" link. The audit of 13 November 2026 brought a change that matters
+ * now (featured, starting within the fortnight, under way and just
+ * published) up under the week's tabs as "Worth knowing now", and left the
+ * rest in "Worth knowing" at the foot, so a page could carry both headings
+ * and two links to the same page (the owner's review, 13 November 2026).
+ * Now the timely changes come first, with their summaries, then the others
+ * by title, then a sports-led guide's dates; TownHome places the whole
+ * section high when it has a timely change, and lower otherwise.
+ */
+import type { ComponentProps } from 'astro/types';
+import HomeDates from '@/components/home/HomeDates.astro';
+import type { TownEntry } from '@/lib/content';
+
+type DatesProps = ComponentProps<typeof HomeDates>;
+
+interface Props {
+  timely: TownEntry<'updates'>[];
+  know: TownEntry<'updates'>[];
+  /** The guide's dates, one line each, on a sports-led guide (HomeDates). */
+  dates?: { dates: DatesProps['dates']; town: string; lines: DatesProps['lines'] };
+}
+
+const { timely, know, dates } = Astro.props;
+const changes = timely.length + know.length > 0;
+---
+<section class="band-compact band-paper" aria-labelledby="know" data-worth-knowing>
+  <div class="container-page">
+    <h2 id="know" class="display-md text-[2rem] md:text-[2.5rem]">Worth knowing</h2>
+    {changes && (
+      <Fragment>
+        <ul class="mt-3 divide-y divide-line-soft">
+          {timely.map((u) => (
+            <li class="py-3" data-timely-change>
+              <a href={`/updates/#${u.slug}`} class="text-[1.0625rem] font-medium leading-snug text-primary no-underline hover:underline">{u.data.title}</a>
+              <p class="mt-1 line-clamp-2 text-[0.9375rem] leading-snug text-ink-muted">{u.data.summary}</p>
+            </li>
+          ))}
+          {know.map((u) => (
+            <li class="py-3 text-[1.0625rem] leading-snug"><a href={`/updates/#${u.slug}`} class="font-medium text-primary no-underline hover:underline">{u.data.title}</a></li>
+          ))}
+        </ul>
+        <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Every local change →</a></p>
+      </Fragment>
+    )}
+    {dates && (
+      <div class:list={[changes && 'mt-6']} data-shared-dates>
+        <HomeDates dates={dates.dates} town={dates.town} lines={dates.lines} track="worth-knowing-date" />
+      </div>
+    )}
+  </div>
+</section>

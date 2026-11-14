@@ -1,0 +1,64 @@
+---
+/**
+ * /annual-events/ on the hub: every round-up of annual dates in one list,
+ * each with what is next (the owner's hub review, 13 November 2026: the
+ * menu's "Annual events" went to a heading on /towns/). Built from the
+ * records alone, as the season pages are (seasonRows): a type with no row
+ * has no page and no line here. "Next" is the soonest date to come that an
+ * organizer has set, as the home page's This season says it (nextLine);
+ * a type with none says so, and never guesses one.
+ */
+import Page from '@/layouts/Page.astro';
+import { getHub } from '@/config';
+import { getTraditions } from '@/lib/content';
+import { dayKey, formatDate, parseLocal } from '@/lib/dates';
+import { nextLine } from '@/lib/hub-home';
+import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows } from '@/lib/traditions';
+
+const hub = getHub();
+const records = await getTraditions();
+const today = dayKey(new Date());
+const roundUps = TRADITION_TYPES.flatMap((type) => {
+  const rows = seasonRows(records, type, today);
+  if (rows.length === 0) return [];
+  const coming = rows.filter(isUpcoming).sort((a, b) => a.entry.date!.localeCompare(b.entry.date!));
+  const next = coming[0];
+  const towns = new Set(coming.map((r) => r.record.town?.name).filter(Boolean)).size;
+  const info = TRADITION_TYPE_INFO[type];
+  return [{ title: info.plural, href: info.path, next: next ? { what: nextLine(next.record), day: next.entry.date! } : undefined, coming: coming.length, towns }];
+}).sort((a, b) => (a.next && b.next ? a.next.day.localeCompare(b.next.day) : a.next ? -1 : b.next ? 1 : a.title.localeCompare(b.title)));
+
+const path = ANNUAL_EVENTS_HREF;
+const lower = (i: number) => roundUps[i]?.title.toLowerCase() ?? '';
+const description =
+  roundUps.length >= 3
+    ? `Colorado's annual events in ${roundUps.length} lists, from ${lower(0)} and ${lower(1)} to ${lower(roundUps.length - 1)}, each with the next date an organizer has set.`
+    : `Colorado's annual events, each list with the next date an organizer has set.`;
+const structured = [
+  collectionPageJsonLd(hub, { name: 'Annual events', description, path, items: roundUps.map((r) => ({ name: r.title, path: r.href })) }),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: 'Annual events', path },
+  ]),
+];
+const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
+---
+<Page title="Annual events" seoTitle="Colorado annual events by kind: what's next" eyebrow="Colorado" {description} intro="Every list of annual dates on Inside the Towns, soonest first, each with the next date an organizer has set." jsonLd={structured}>
+  <ul class="grid gap-4 sm:grid-cols-2" data-annual-index>
+    {roundUps.map((r) => (
+      <li class="rounded-lg bg-raised px-5 py-4 ring-1 ring-line-soft">
+        <h2 class="font-heading text-2xl font-medium leading-tight"><a href={r.href} class="text-ink no-underline hover:text-primary hover:underline">{r.title}</a></h2>
+        {r.next ? (
+          <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink">
+            Next: {r.next.what}, <time datetime={r.next.day}>{formatDate(parseLocal(r.next.day))}</time>
+          </p>
+        ) : (
+          <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">No date to come has been announced yet.</p>
+        )}
+        {r.coming > 0 && <p class="mt-1 text-sm text-ink-muted">{plural(r.coming, 'date', 'dates')} to come{r.towns > 0 ? `, in ${plural(r.towns, 'town', 'towns')}` : ''}</p>}
+      </li>
+    ))}
+  </ul>
+</Page>

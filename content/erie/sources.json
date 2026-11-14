@@ -154,6 +154,15 @@
       "category": "venue",
       "status": "confirmed",
       "robots": "subscribe",
+      "includeTitles": [
+        "Concert",
+        "Performance",
+        "Showcase",
+        "One Act",
+        "Musical",
+        "Recital",
+        "^.*\\bvs\\.?\\s"
+      ],
       "excludeTitles": [
         "^[AB] Day",
         "meets",
@@ -234,10 +243,11 @@
         "Easter",
         "Good Friday",
         "Spring Break",
-        "Graduation Practice"
+        "Graduation Practice",
+        "^(RHES|BRES|SHES|EES|EMS)\\b"
       ],
       "defaultVenue": "Erie High School, 3180 County Road 5",
-      "notes": "Found and read 10 November 2026. Erie High School is at 3180 County Road 5, Erie (St. Vrain Valley Schools). The home page ehs.svvsd.org embeds a Google Calendar agenda naming four calendars. The first, 'School Event Calendar' (svvsd.org_27ajla9cn99nv52ectmgs1i33k@group.calendar.google.com), is the feedUrl: fetched once, 200, 2,548 items with no repeating rules, entered into 2028. About 170 are dated 10 November to 10 December 2026 and nearly all are the school's day: A Day and B Day markers, club meetings by room, detention, practices, rehearsals, college visits, faculty meetings. Worth a row, 6: One Act Performances (13 November, doors 5 pm, show 5:30), SVVSD High School Honor Orchestra & Mariachi Festival Performance (19 November, 7 pm), EHS Winter Bands Concert (3 December, 7 pm), Winter Showcase (5 December, shows at 10:30 am, 12:30 pm and 4 pm), Winter Choir Concert (8 December), Winter Orchestra Concert (10 December). Also there and the editor's call: the feeder elementary choir concerts in the auditorium (Black Rock 10 November, Soaring Heights 2 December, Red Hawk 9 December), the EHS Band Mattress Sale fund raiser (15 November) and the school's Open House (18 November). Games are not on this calendar; the guide has athletics as a program. The exclusions listed keep the performances and drop the rest as read today; a first dry run should be looked at, since titles are free text. Of the other three calendars in the embed, two answer 404 as public iCal (c_mm55cdu30ih6er3ns1moer3i18@group and an imported one) and the third is the district calendar with nothing after December 2024. Robots: ehs.svvsd.org allows the page; calendar.google.com's robots.txt is 'Allow: /$, Disallow: /', so reading the feed weekly needs the editor's robots: subscribe, as the Frederick, Windsor and Severance high school calendars did. 12 November 2026: title exclusions tightened to concerts, plays and showcases at the school (religious and public holidays, theatre black-out and tech days, testing, conferences, registration, other schools' concerts, items marked TBD or tentative and away honor festivals are out), dry-run checked, and confirmed with robots: subscribe on the owner's word.",
+      "notes": "Found and read 10 November 2026. Erie High School is at 3180 County Road 5, Erie (St. Vrain Valley Schools). The home page ehs.svvsd.org embeds a Google Calendar agenda naming four calendars. The first, 'School Event Calendar' (svvsd.org_27ajla9cn99nv52ectmgs1i33k@group.calendar.google.com), is the feedUrl: fetched once, 200, 2,548 items with no repeating rules, entered into 2028. About 170 are dated 10 November to 10 December 2026 and nearly all are the school's day: A Day and B Day markers, club meetings by room, detention, practices, rehearsals, college visits, faculty meetings. Worth a row, 6: One Act Performances (13 November, doors 5 pm, show 5:30), SVVSD High School Honor Orchestra & Mariachi Festival Performance (19 November, 7 pm), EHS Winter Bands Concert (3 December, 7 pm), Winter Showcase (5 December, shows at 10:30 am, 12:30 pm and 4 pm), Winter Choir Concert (8 December), Winter Orchestra Concert (10 December). Also there and the editor's call: the feeder elementary choir concerts in the auditorium (Black Rock 10 November, Soaring Heights 2 December, Red Hawk 9 December), the EHS Band Mattress Sale fund raiser (15 November) and the school's Open House (18 November). Games are not on this calendar; the guide has athletics as a program. The exclusions listed keep the performances and drop the rest as read today; a first dry run should be looked at, since titles are free text. Of the other three calendars in the embed, two answer 404 as public iCal (c_mm55cdu30ih6er3ns1moer3i18@group and an imported one) and the third is the district calendar with nothing after December 2024. Robots: ehs.svvsd.org allows the page; calendar.google.com's robots.txt is 'Allow: /$, Disallow: /', so reading the feed weekly needs the editor's robots: subscribe, as the Frederick, Windsor and Severance high school calendars did. 12 November 2026: title exclusions tightened to concerts, plays and showcases at the school (religious and public holidays, theatre black-out and tech days, testing, conferences, registration, other schools' concerts, items marked TBD or tentative and away honor festivals are out), dry-run checked, and confirmed with robots: subscribe on the owner's word. 13 November 2026, the owner after a review of the live pages: publish only the real public events (concerts, games). Three internal entries had reached event pages (\"Busy\" on 8 December and 4 January, \"Marines visit during lunch\", \"Erie Parks and Rec Outreach table\"), and \"RHES Choir Concert (7-9:30pm)\" passed the \"Red Hawk\" exclusion under its initials with a 4:45 pm room booking for its time. So the source now keeps only what `includeTitles` names (concerts, performances, showcases, one-act plays, musicals, recitals and a game written \"vs\"), and the feeder schools' initials are excluded; the five came off by retired.json.",
       "lastChecked": "2026-11-13",
       "lastStatus": "ok"
     },

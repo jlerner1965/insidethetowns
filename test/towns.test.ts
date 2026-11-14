@@ -11,7 +11,7 @@ import { towns } from '../src/config/towns/registry.ts';
 import { TOWN_REGIONS, censusGrowth, countiesCovered, countyLabel, countyShort } from '../src/config/towns/types.ts';
 import { LIVE_TOWNS, liveTowns } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
-import { homeTitle, wordmarkEm, wordmarkParts } from '../src/lib/titles.ts';
+import { homeTitle, TITLE_LIMIT, wordmarkEm, wordmarkParts } from '../src/lib/titles.ts';
 import { groupByRegion } from '../src/lib/regions.ts';
 
 const by = (slug: string) => {
@@ -168,7 +168,7 @@ test('every town home title names the state after the search-result trim', () =>
   // nothing. Berthoud's first fix passed that way and still shipped truncated.
   for (const t of [...towns, hub]) {
     const title = homeTitle(t);
-    assert.ok(title.length <= 65, `${t.slug}: home title is ${title.length} chars`);
+    assert.ok(title.length <= TITLE_LIMIT, `${t.slug}: home title is ${title.length} chars`);
     assert.match(title, /Colorado|,\s*CO\b/, `${t.slug}: trimmed home title names no state — "${title}"`);
   }
 });
@@ -179,11 +179,22 @@ test('a tagline whose comma sits before the state is not cut at that comma', () 
     siteTitle: 'Inside Erie',
     tagline: 'An independent guide to Erie, Colorado: Briggs Street, the trails, the coal-town history, and what it is like to move to a town that doubled.',
   });
-  assert.ok(cut.length <= 65);
+  assert.ok(cut.length <= TITLE_LIMIT);
   // With no seoTagline there is genuinely no room for the state, which is
   // exactly why every town sets one; the guard above is what enforces that.
-  assert.equal(homeTitle({ siteTitle: 'Inside Erie', tagline: 'x', seoTagline: 'Briggs Street, trails and events in Erie, Colorado' }),
-    'Inside Erie \u2014 Briggs Street, trails and events in Erie, Colorado');
+  // The town and the searched words lead; the guide's name follows where it fits (the owner, 13 November 2026).
+  assert.equal(homeTitle({ siteTitle: 'Inside Erie', tagline: 'x', seoTagline: 'Erie, CO events this weekend & things to do' }),
+    'Erie, CO events this weekend & things to do | Inside Erie');
+  assert.equal(homeTitle({ siteTitle: 'Inside Berthoud', tagline: 'x', seoTagline: 'Berthoud, CO events this weekend & things to do' }),
+    'Berthoud, CO events this weekend & things to do');
+});
+
+test('every guide’s home title opens with its town, not the brand', () => {
+  for (const t of liveTowns()) {
+    const title = homeTitle(t);
+    const first = t.slug === 'carbon-valley' ? 'Frederick' : t.name;
+    assert.ok(title.startsWith(first), `${t.slug}: "${title}"`);
+  }
 });
 
 test('the wordmark sets the town name apart on either side of the network name', () => {

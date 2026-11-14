@@ -7,6 +7,10 @@ town:
 type: festival
 organizer: "Food & Wine"
 sourceUrl: "https://classic.foodandwine.com/"
+about:
+  text: "The Food & Wine Classic holds wine and cocktail tasting seminars and cooking demonstrations in hotels and tents in Aspen's city parks. Its Grand Tasting Pavilion is in Wagner Park."
+  source: "https://classic.foodandwine.com/faq/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: confirmed

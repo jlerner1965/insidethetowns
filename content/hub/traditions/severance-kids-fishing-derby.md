@@ -3,7 +3,7 @@ slug: severance-kids-fishing-derby
 name: "Kids Fishing Derby (residents only)"
 town:
   name: Severance
-  guide: severance
+  guide: windsor
 type: festival
 organizer: "Town of Severance"
 sourceUrl: "https://townofseverance.org/284/Kids-Fishing-Derby"

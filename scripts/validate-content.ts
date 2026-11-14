@@ -44,6 +44,7 @@ import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } f
 import { nextEventIssues, retiredLedgerIssues } from '../src/lib/former-slugs.ts';
 import { STANDALONE_GUIDES, findHubTown } from '../src/config/hub-towns.ts';
 import { placeKey } from '../src/lib/hub-towns.ts';
+import { subTownLabel } from '../src/lib/sub-towns.ts';
 import { isGuideSite, townProfileSchema } from '../src/lib/town-profile.ts';
 import { STALE_CHECK_DAYS, STALE_WITHIN_DAYS, staleSoon, type TraditionRecord } from '../src/lib/traditions.ts';
 import { openItems, reverifyDue } from '../src/lib/curiosity.ts';
@@ -153,8 +154,12 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     const guide = record.town?.guide;
     if (guide && !placeKey(guide) && !deployedTowns().some((t) => t.slug === guide)) errors.push(`${rel}: town.guide "${guide}" is not a hub town, a standalone guide or a live guide`);
     const named = guide ? (findHubTown(placeKey(guide) ?? '')?.name ?? findTown(guide)?.name) : undefined;
-    // A guide to several towns: the record names the one its event is in.
-    const covered = guide ? STANDALONE_GUIDES[placeKey(guide) ?? '']?.towns : undefined;
+    // A guide to several towns: the record names the one its event is in,
+    // a town the guide names (Carbon Valley's Frederick) or one of its
+    // sections (Windsor's Severance, whose records are the guide's since 13
+    // November 2026).
+    const key = guide ? placeKey(guide) ?? '' : '';
+    const covered = guide ? [...(STANDALONE_GUIDES[key]?.towns ?? []), ...(findTown(key)?.subTowns ?? []).map(subTownLabel)] : undefined;
     if (named && named !== record.town!.name && !covered?.includes(record.town!.name)) errors.push(`${rel}: town.name "${record.town!.name}" is not ${guide}'s name, "${named}"`);
     for (const t of record.towns ?? []) if (!placeKey(t.slug)) errors.push(`${rel}: towns names "${t.slug}", which is not a hub town or a standalone guide`);
   }

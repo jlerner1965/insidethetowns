@@ -305,7 +305,7 @@ test('the index at /articles/ is built, and on the hub’s menu and home, only w
   const home = readFileSync('src/routes/hub/index.astro', 'utf8');
   assert.match(home, /href=\{ARTICLES_INDEX_PATH\}[^>]*>All articles →</);
   // The home page draws its own masthead menu; it carries Articles too, after Towns.
-  assert.match(home, /label: 'Towns', href: '#towns' \},[\s\S]{0,160}articlesOnSite\.length > 0 && \{ label: 'Articles', href: ARTICLES_INDEX_PATH \}/);
+  assert.match(home, /label: 'Towns', href: '\/towns\/' \},[\s\S]{0,160}articlesOnSite\.length > 0 && \{ label: 'Articles', href: ARTICLES_INDEX_PATH \}/);
 });
 
 test('an update carries its day and a line on what changed, and the page’s modified day is never before it was published', () => {

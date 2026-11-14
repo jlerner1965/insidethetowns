@@ -73,7 +73,7 @@ test('every guide has the same menu, built from what it has: the week (Updates o
   assert.equal(townNav(towns.find((t) => t.slug === 'johnstown')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
   assert.equal(townNav(towns.find((t) => t.slug === 'carbon-valley')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
   // A guide that follows several schools says so: Windsor's two (Windsor High and Severance High), as Loveland's four did until that guide was folded on 12 November 2026.
-  assert.equal(townNav(towns.find((t) => t.slug === 'windsor')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
+  assert.equal(townNav(towns.find((t) => t.slug === 'windsor')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
   // Erie follows Erie High since 25 October 2026, so its menu carries Erie High in the third slot.
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
   // A guide without the family hub or Living here keeps Events and Moving here, and one without a school has no sports item: Elizabeth's config, folded into its hub page on 12 November 2026 (its school left the sports run), is the shape still on file.

@@ -42,7 +42,7 @@ import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal
 import { Image, getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { emailEditions, getHub, liveTowns } from '@/config';
+import { emailEditions, getHub, listsEvents, liveTowns } from '@/config';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
 import { ARTICLES_INDEX_PATH, articlePath, storyHomeUntil } from '@/lib/curiosity';
@@ -86,7 +86,7 @@ import { FLAGSHIP_TEAM, hasData, sportsDataFor } from '@/lib/school-sports';
 import { coveredTowns } from '@/lib/town-search-index';
 import { TRADITION_TYPE_INFO } from '@/lib/traditions';
 import { currentPicks } from '@/lib/weekly';
-import { wordmarkParts } from '@/lib/titles';
+import { fitTitle, wordmarkParts } from '@/lib/titles';
 import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
 import { collectionPageJsonLd } from '@/lib/seo';
 import { expiresOn, networkChanges } from '@/lib/updates';
@@ -312,6 +312,12 @@ const span = ['Estes Park', 'Durango'].every((n) => pages.some((p) => p.name ===
 const pagesLine = `${span ? 'Estes Park to Durango: p' : 'P'}arades, festivals, outdoor dates`;
 const guideCount = numberWord(live.length);
 /**
+ * "This weekend's events from six guides", not seven: Niwot lists no events
+ * (`lead: 'updates'`), so the weekend comes from the six that do. "Seven
+ * local guides" stays where it means the guides (the owner, 13 November 2026).
+ */
+const eventGuideCount = numberWord(live.filter(listsEvents).length);
+/**
  * "N more towns": the town pages for towns no guide covers. Severance has a
  * page of its own and is in "Windsor and Severance" too, so it is not
  * counted twice (the content audit of 13 November 2026). /towns/ still
@@ -323,6 +329,15 @@ const moreTowns = pages.filter((p) => !guideTowns.has(p.name)).length;
 /** 7. The email: every edition, by default. */
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const editionCount = emailEditions().length;
+/**
+ * The guides with no weekly edition, named beside the count: "Seven local
+ * guides" over the index and "All six weekly editions" in the form read as a
+ * contradiction on the live page (13 November 2026). Both are right; Niwot
+ * lists no events, so it has no weekly issue (src/config/index.ts, emailTowns).
+ */
+const emailed = new Set(emailEditions().flatMap((e) => e.towns.map((t) => t.slug)));
+const noWeekly = live.filter((t) => !emailed.has(t.slug)).map((t) => t.name);
+const noWeeklyNote = noWeekly.length > 0 ? ` (${listWords(noWeekly)} ${noWeekly.length === 1 ? 'has' : 'have'} no weekly issue)` : '';
 
 /** Every annual-events page, as /towns/ lists them. */
 const ALL_ANNUAL = ANNUAL_EVENTS_HREF;
@@ -331,7 +346,7 @@ const ALL_ANNUAL = ANNUAL_EVENTS_HREF;
 const nav = [
   { label: 'Annual events', href: seasons.length > 0 ? '#annual' : ALL_ANNUAL },
   { label: 'This weekend', href: weekendRows.length > 0 ? '#weekend' : '/this-weekend/' },
-  { label: 'Towns', href: '#towns' },
+  { label: 'Towns', href: '/towns/' },
   // The index of every article, as on every other page's menu (src/lib/nav.ts, hubNav).
   articlesOnSite.length > 0 && { label: 'Articles', href: ARTICLES_INDEX_PATH },
   { label: 'Moving here', href: '/moving/' },
@@ -350,12 +365,13 @@ const correction = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=$
  * The description names the seasons now on, and is the longest of its
  * forms that fits 155 characters, so a result shows it whole.
  */
-const fullTitle = `Colorado events this weekend, town by town | ${hub.siteTitle}`;
+// The guide's name after it only where the whole fits in 60 (the owner's review, 13 November 2026).
+const fullTitle = fitTitle('Colorado events this weekend, town by town', hub.siteTitle);
 const seasonWords = seasons.length > 0 ? `: ${listWords(seasons.map((r) => r.title.toLowerCase()))}` : '';
 const description = [
-  `This weekend’s events from ${guideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}, each checked against its source.`,
-  `This weekend’s events from ${guideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}.`,
-  `This weekend’s events from ${guideCount} Colorado town guides, and annual dates for ${moreTowns} more towns, each checked against its source.`,
+  `This weekend’s events from ${eventGuideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}, each checked against its source.`,
+  `This weekend’s events from ${eventGuideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}.`,
+  `This weekend’s events from ${eventGuideCount} Colorado town guides, and annual dates for ${moreTowns} more towns, each checked against its source.`,
 ].find((d) => d.length <= 155)!;
 
 /** What the page lists, for search engines: the weekend's picks and the seasons now on. Their Event markup stays on the pages that own them. */
@@ -541,7 +557,7 @@ const structured = collectionPageJsonLd(hub, {
             <p class="hh-signup-line">The weekend’s events, the scores, and what opened or closed. Every {sendDay}.</p>
           </div>
           <NewsletterSignup variant="hub" id="home">
-            <p class="hh-chk hh-fine">All {numberWord(editionCount)} weekly editions by default. <a class="hh-tap" href="/newsletter/">Choose towns</a> · Free, unsubscribe any time · <a class="hh-tap" href="/privacy/">Privacy</a></p>
+            <p class="hh-chk hh-fine">All {numberWord(editionCount)} weekly editions by default{noWeeklyNote}. <a class="hh-tap" href="/newsletter/">Choose towns</a> · Free, unsubscribe any time · <a class="hh-tap" href="/privacy/">Privacy</a></p>
           </NewsletterSignup>
         </div>
       </section>

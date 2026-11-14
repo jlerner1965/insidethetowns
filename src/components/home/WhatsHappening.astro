@@ -99,7 +99,10 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
     {feature && (
       <aside aria-labelledby="dont-miss" data-hide-when-empty class="mb-6 lg:col-start-2 lg:row-start-1 lg:mb-0">
         <a href={feature.href} data-event-day={feature.eventDay} data-end={feature.end} class:list={['group overflow-hidden rounded-lg bg-raised no-underline ring-1 ring-line-soft hover:ring-primary-line lg:block', feature.image ? 'grid grid-cols-[6.5rem_minmax(0,1fr)] items-stretch gap-x-4 sm:grid-cols-[10rem_minmax(0,1fr)]' : 'block']} data-track="dont-miss">
-          {feature.image && <Image src={feature.image} alt={feature.alt} width={720} loading="eager" class="h-full min-h-28 w-full object-cover lg:aspect-[16/9] lg:h-auto lg:min-h-0" />}
+          {/* A square thumbnail on a phone (104px) and a tablet (160px), 16:9 in
+              the desktop column (to 368px), each from a srcset: one 720px file
+              went into the 104px box (the owner's review, 13 November 2026). */}
+          {feature.image && <Image src={feature.image} alt={feature.alt} width={736} widths={[160, 320, 480, 736]} sizes="(min-width: 1024px) 368px, (min-width: 640px) 240px, 160px" loading="eager" class="aspect-square h-auto w-full self-start object-cover lg:aspect-[16/9]" />}
           <div class:list={['py-3 pr-3 lg:px-5 lg:py-4', !feature.image && 'pl-4']}>
             <p id="dont-miss" class="eyebrow text-primary">Don’t miss</p>
             <p class="mt-1 text-[0.875rem] font-semibold leading-snug text-ink">{feature.when}</p>

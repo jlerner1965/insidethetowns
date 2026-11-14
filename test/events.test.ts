@@ -301,3 +301,11 @@ test('a listing marked topOfDay comes first on its own day and nowhere else', ()
     [['Friday show'], ['Wellness social', 'Early market'], ['Sunday brunch']],
   );
 });
+
+test('a row’s title drops a feed’s shouting and a trailing "- at <venue>!" (the owner, 13 November 2026)', async () => {
+  const { displayTitle } = await import('../src/lib/events.ts');
+  assert.equal(displayTitle({ data: { title: 'Matt Adams LIVE MUSIC', venue: 'Peculier Ales' } }), 'Matt Adams live music');
+  assert.equal(displayTitle({ data: { title: 'Craft & Sip - Glass Suncatcher Workshop - at Peculier Ales!', venue: 'Peculier Ales' } }), 'Craft & Sip - Glass Suncatcher Workshop');
+  // Another venue's name stays: it says something the row does not.
+  assert.equal(displayTitle({ data: { title: 'Murder at Shade Hallow Manor', venue: 'Berthoud Community Library' } }), 'Murder at Shade Hallow Manor');
+});

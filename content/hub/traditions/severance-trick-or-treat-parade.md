@@ -3,7 +3,7 @@ slug: severance-trick-or-treat-parade
 name: "Trick or Treat Parade"
 town:
   name: Severance
-  guide: severance
+  guide: windsor
 type: trick-or-treat
 organizer: "Town of Severance"
 sourceUrl: "https://www.townofseverance.org/calendar.aspx?EID=1323"

@@ -118,6 +118,13 @@ export interface SchoolSports {
   /** "Berthoud High School". */
   school: string;
   /**
+   * The town a page title names first where the school's own name does not:
+   * Roosevelt High is Johnstown's ("Johnstown Roosevelt Roughriders Scores &
+   * Schedules"; the owner's review, 13 November 2026). Every other school's
+   * name carries its town.
+   */
+  place?: string;
+  /**
    * One line the page says once, under its introduction, where the school
    * serves more than the town the guide is named for: Frederick High takes
    * Dacono's and Firestone's students too.
@@ -400,6 +407,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     town: 'johnstown',
     // CHSAANow: Roosevelt High School, Johnstown-Milliken RE-5J; football 4A, 4A Northern (2026–28).
     school: 'Roosevelt High School',
+    place: 'Johnstown',
     // "Roughriders", one word, as MaxPreps and the school write it.
     mascot: 'Roughriders',
     maxpreps: 'https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/',

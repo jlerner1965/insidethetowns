@@ -7,6 +7,10 @@ town:
 type: harvest-festival
 organizer: "Glenwood Springs Chamber Foundation"
 sourceUrl: "https://glenwoodchamber.com/strawberry-days/"
+about:
+  text: "Strawberry Days has a parade that heads south down Pitkin Avenue. After it, free strawberries and ice cream are served at Two Rivers Park."
+  source: "https://www.glenwoodchamber.com/strawberry-days-parade/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: not-announced

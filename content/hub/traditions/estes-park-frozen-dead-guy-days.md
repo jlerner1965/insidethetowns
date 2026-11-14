@@ -10,6 +10,10 @@ towns:
 type: festival
 organizer: "Frozen Dead Guy Days (Bosco Consulting & Productions LLC)"
 sourceUrl: "https://frozendeadguydays.com/"
+about:
+  text: "A festival built around a frozen Norwegian grandfather, with coffin races, games and live music. It is held at the Estes Park Events Complex, 1125 Rooftop Way."
+  source: "https://frozendeadguydays.com/"
+  checked: 2026-11-13
 years:
   - year: 2027
     status: confirmed
