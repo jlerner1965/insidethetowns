@@ -187,3 +187,47 @@ alt text: a photograph shows only once someone has looked at it and written
 what is in the frame, and `npm test` fails until then. One that is not the
 town comes out with `--reject <slug>`; `--list` and `--take` choose by hand.
 Salida waits for the owner's own photograph, as before.
+
+### How the town page frames its photograph (rules, 14 November 2026)
+
+The owner's review of 14 November 2026: the town pages' photographs were
+"cropped completely wrong" under "a dark shadow", while the guides' were
+right. The fix is in `src/routes/hub/town.astro`; these are the rules a new
+photograph has to work within. They are for the hub's town pages only; a
+guide's hero is `src/components/Hero.astro` and has its own.
+
+- **The band's shape is fixed; do not make it taller.** From 900px it is
+  the full width and `min(52vh, 480px)` tall: about 2.5:1 at 1,024px, 3:1
+  at 1,440px and 4:1 at 1,920px. On a phone it is about 390 by 460 to 520px,
+  nearly square, and about 1.6:1 on a tablet. The owner asked that it not
+  take up more of the page.
+- **So a photograph has to survive both a wide strip and a near-square
+  crop.** Landscape, at least 1,600px wide (the fetch script checks), with
+  what matters (the sign, the main street, the peak) in the middle third
+  across and the middle band down. A picture whose point is at an edge, or
+  in a thin strip at the top or bottom, will be cut on one screen or another.
+- **The words sit low and to the left.** On a desktop the county, the name
+  and the line take the left seven-twelfths of the lower half, and the next
+  date the lower right; on a phone the words cover the lower two-thirds. Keep
+  the subject out from under them: the upper half, or right of centre.
+- **No extra shade.** The page shades only where the words are: a light
+  gradient along the foot and a soft pool behind the words on a desktop, a
+  gradient up from the foot under the words below 900px, and a faint text
+  shadow. Do not add a scrim, a darker gradient or a colour overlay, for
+  one town or for all. A photograph too pale to read white type over
+  (fog, snow, white sky filling the lower half) is the wrong photograph;
+  choose another rather than darken it.
+- **`position` is the hub's own.** `hero.position` in
+  `src/config/hub-towns.ts` is a CSS `object-position` for this band, not
+  the guide's value: a guide's hero is a different shape. Leave it out
+  (centre) unless the centre is wrong. The second number decides which
+  strip shows on a desktop, as CSS reads it: `0%` is the top edge of the
+  photograph and `100%` the bottom, so a higher number shows more of the
+  foot (the street) and a lower one more of the top (the sky). Nederland's
+  is `50% 60%`; the guide's `50% 80%` showed too much street and cut the
+  Co-op's sign off the top at 1,920px.
+- **Look before it ships.** Run `TOWN=hub npx astro dev` and open
+  `/<slug>/` at 390, 768, 1,024, 1,440 and 1,920px wide. At each: the
+  subject in frame, every line of white type readable, nothing hidden
+  under the words. Then the alt text (what is in the frame, written by
+  someone who looked), the ledger row, and `npm test`.
