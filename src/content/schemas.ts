@@ -841,6 +841,13 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
        * runs — is only worth reading if a reader can see what it rests on.
        */
       sources: z.array(z.object({ label: z.string().min(1), url: httpUrl })).default([]),
+      /**
+       * Where the sources disagree on a date or figure the article states:
+       * one or two sentences naming them and which one it follows, shown
+       * under the sources, as on the hub's stories (the history-story
+       * template of 15 November 2026). Left out where they agree.
+       */
+      footnote: z.string().min(1).max(400).optional(),
       /** The day the guide's facts were last checked, shown beside the date. */
       verified: localDate.optional(),
       /**

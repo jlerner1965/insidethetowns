@@ -89,7 +89,7 @@ Horace died nearly penniless in 1899, and Baby Doe spent much of her last 35 yea
 
 She left the marriage with a small share of the fortune, invested it in Colorado and New Mexico property, and stayed active in business and charity in Denver. When she died in Pasadena, California, on January 30, 1895, her estate was worth at least $1 million, which made her one of Denver's wealthiest women. In 1991 she was inducted into the Colorado Women's Hall of Fame and into the National Mining Hall of Fame, the museum that now owns the Matchless.
 
-The romance became an opera, *The Ballad of Baby Doe*. Augusta's business sense is the part of the story that is easiest to miss.
+The romance became an opera, *The Ballad of Baby Doe*.
 
 ## Visit these places
 

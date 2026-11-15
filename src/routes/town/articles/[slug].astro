@@ -114,6 +114,7 @@ const glance: Array<[string, string]> = data.glance
               <li><a href={s.url} rel="noopener" class="inline-block -my-3 py-3 underline">{s.label}</a></li>
             ))}
           </ul>
+          {data.footnote && <p class="mt-3" data-footnote>{data.footnote}</p>}
           {data.verified && <p class="mt-3">{checkedBy(formatDate(data.verified))}. Hours, prices and seasons change; the sources above are the record.</p>}
         </aside>
       )}

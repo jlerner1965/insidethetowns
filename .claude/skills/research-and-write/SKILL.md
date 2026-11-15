@@ -36,7 +36,7 @@ The house rules always win. `inside-the-towns-editor` sets the voice, the accura
 
 ## 3. Brief
 
-Pick the template from the editor skill's **Article structure** section (news explainer, service guide, roundup, event guide, history or profile). Then run `content-strategy:content-brief` on the topic, giving it the reader's question, the template, the claims register and the list of existing pages to link to. Keep only these parts of what comes back: one angle, a question-led outline that fits the template, and which internal pages to link. Drop its conversion point, distribution plan and metrics; the guide doesn't sell anything in an article.
+Pick the template from the editor skill's **Article structure** section (news explainer, service guide, roundup, event guide, history story; a history story follows that skill's **History stories** section). Then run `content-strategy:content-brief` on the topic, giving it the reader's question, the template, the claims register and the list of existing pages to link to. Keep only these parts of what comes back: one angle, a question-led outline that fits the template, and which internal pages to link. Drop its conversion point, distribution plan and metrics; the guide doesn't sell anything in an article.
 
 ## 4. Draft
 

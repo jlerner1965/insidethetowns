@@ -162,10 +162,16 @@ The guide never passes an organizer's copy off as its own; quoted text
 names who said it. Every page says what it is and when it was checked.
 
 Every article is built to one structure and one of five templates (news
-explainer, service guide, roundup, event guide, history or profile): the
+explainer, service guide, roundup, event guide, history story): the
 answer in the first sentence, headings a scanner looks for, and an ending
 a reader needs last. The rules are in the "Article structure" section of
 `.claude/skills/inside-the-towns-editor/SKILL.md` (13 November 2026).
+Every history article, on the hub and on the guides, is a history story,
+the shape of the hub's Creede and Leadville stories (15 November 2026): a
+concrete moment, the point and what is still there; four to seven sections
+in date order with each source named in its sentence; then "Visit these
+places" and "More on the town". The rules are its "History stories"
+section.
 
 ## 8. The pages and the design
 

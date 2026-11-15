@@ -11796,3 +11796,35 @@ change a rule:
 - **The hub's footer is on its masthead's column** (1200px with 40px
   sides from 900px, 20px below), and the email is "The Thursday email"
   wherever the hub names it.
+
+## One template for every history article (15 November 2026)
+
+The owner named the hub's Creede and Leadville stories as the history
+template and asked for every history article to match. The rules are
+written down in the editor skill's "History stories" section and apply on
+the hub and the guides alike: a concrete moment, the point and what is
+still there, before any heading; four to seven sections in date order,
+with plain labels (a year where the year is the point, no ranges or
+questions); each source named in the sentence that uses it; no section
+ends on a reflection; then "Visit these places" (the places the story
+names, linked to their pages) and "More on the town". Sources live in the
+front matter, never in a "Sources" section of the body.
+
+- **All eleven history articles now follow it**: Creede and Leadville on
+  the hub; Berthoud, Erie (and the Old Erie photo essay, one section per
+  photograph), Frederick, Johnstown, Lyons, Niwot, Severance and Windsor
+  on the guides. No fact, date, figure, name, quotation, source or link
+  was changed; a script compared each article before and after.
+  Sentences that only summed up or reflected came out (Creede's last two,
+  Leadville's last, Windsor's "remaining furniture"); the "Sources",
+  "Before you go" and "Who keeps the record" sections moved into the
+  front matter, Visit these places and the footnote.
+- **Headlines that broke the headline rules** were shortened from their
+  own words: Frederick's (16 words), Windsor's (15) and Erie's ("the
+  greatest coal town in Colorado", a superlative, kept in the body as the
+  town's own description).
+- **Guide articles can carry a `footnote`**, as hub stories do: a sentence
+  or two on the sources as a whole (where most of the story comes from,
+  or which source a disputed date follows), shown under the sources.
+- **test/history-template.test.ts** checks every history article for the
+  parts a file can be checked for, so a new one cannot drift.
