@@ -339,9 +339,13 @@ const jumps = [
 /**
  * The title and description say what the page is: this weekend's events
  * and the annual dates, the words people search with, the longest form
- * that fits 155 characters.
+ * that fits 155 characters. The title is short enough to keep the site's
+ * name (fitTitle drops it past 60 characters) and says "town" once:
+ * "Colorado events this weekend, town by town" ran 61 with the name, so
+ * it went out without it, and a checker counts the repeated word
+ * (the Seobility check of 15 November 2026).
  */
-const fullTitle = fitTitle('Colorado events this weekend, town by town', hub.siteTitle);
+const fullTitle = fitTitle('Colorado town events this weekend', hub.siteTitle);
 const seasonWords = seasons.length > 0 ? `: ${listWords(seasons.map((r) => r.title.toLowerCase()))}` : '';
 const description = [
   `This weekend’s events from ${eventGuideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}, each checked against its source.`,
