@@ -1,49 +1,113 @@
 ---
-title: "How Niwot got here: a railroad and no town hall"
+title: "Niwot, Colorado history: the railroad town that never incorporated"
+seoTitle: "History of Niwot, Colorado: Chief Niwot, the railroad, today"
+slug: how-niwot-got-here
 date: "2026-09-17"
-updated: "2026-11-10"
-excerpt: "A rail line, an 1875 plat, a preserved main street, and a century and a half without a municipal government. The short history, with its sources."
+updated: "2026-11-14"
+verified: "2026-11-14"
+excerpt: "Niwot was platted on March 30, 1875, on both sides of the Colorado Central tracks and named for the Arapaho leader Niwot, or Left Hand. The Diagonal Highway took its west side in 1958 and 1959, Second Avenue became a county historic district in 1993, and in 2026 voters kept Niwot unincorporated."
 category: "History"
-tags: [history]
+tags: [history, railroad, historic-district]
 image: ../images/niwot-tribune-storefront.jpg
 imageAlt: "The Niwot Tribune false-front building on Second Avenue, a survivor of the railroad period"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
+sources:
+  - { label: "Niwot Historical Society: History of Niwot (timeline)", url: "https://niwothistoricalsociety.org/history/" }
+  - { label: "Niwot Historical Society: The Niwot Depot", url: "https://niwothistoricalsociety.org/stories/the-niwot-depot/" }
+  - { label: "Niwot Historical Society: Niwot Tribune collection", url: "https://niwothistoricalsociety.org/collections_tag/niwot-tribune" }
+  - { label: "Niwot Historical Society: Self-guided walking tour of the Niwot Historic District, sesquicentennial edition (text by Anne Quinby Dyni)", url: "https://niwothistoricalsociety.org/master-niwot-walking-tour-brochure-_-sesquicentennial-2025" }
+  - { label: "Anne Dyni: Niwot, Colorado (Colorado Magazine Online)", url: "https://coloradomagazineonline.com/Cities%20_%20Towns/Niwot-2/Niwot-2.htm" }
+  - { label: "Anne Quinby Dyni: Around Niwot (Images of America), book preview", url: "https://www.everand.com/book/275216491/Around-Niwot" }
+  - { label: "Niwot Business Association: Birth of a Railroad Town", url: "https://niwot.com/niwot-history/" }
+  - { label: "Colorado Encyclopedia: Niwot (Left Hand)", url: "https://coloradoencyclopedia.org/article/niwot-left-hand" }
+  - { label: "National Park Service, Sand Creek Massacre National Historic Site: History and culture", url: "https://www.nps.gov/sand/learn/historyculture/index.htm" }
+  - { label: "Sand Creek Massacre Foundation: Sand Creek Massacre Memorial moves forward with statue unveiling and site dedication (October 9, 2026)", url: "https://www.sandcreekmassacrefoundation.org/news" }
+  - { label: "Colorado General Assembly: HJR25-1024, Sand Creek Massacre Memorial", url: "https://leg.colorado.gov/bills/hjr25-1024" }
+  - { label: "Colorado Sun: History Colorado offers sneak peek of first of 3 statues that will create Sand Creek Massacre memorial (October 12, 2026)", url: "https://coloradosun.com/2026/10/12/history-colorado-sand-creek-massacre-memorial-statue-chief-black-kettle/" }
+  - { label: "Visit Longmont: Chief Niwot, the story of Left Hand and the Boulder Valley curse", url: "https://www.visitlongmont.org/chief-niwot-the-story-of-left-hand-and-the-boulder-valley-curse/" }
+  - { label: "Left Hand Valley Courier: The legacy of Chief Nowoo3, building relationships (March 26, 2025)", url: "https://lhvc.com/story/2025/03/26/news/the-legacy-of-chief-nowoo3-building-relationships/10365.html" }
+  - { label: "Left Hand Valley Courier: The story behind the name, Murray Street (June 15, 2022)", url: "https://www.lhvc.com/story/2022/06/15/news/the-story-behind-the-name-murray-street/7023.html" }
+  - { label: "Left Hand Valley Courier: How does Niwot work? Part 7, Left Hand Grange No. 9 (April 21, 2021)", url: "https://lhvc.com/story/2021/04/21/news/how-does-niwot-work-part-7/6174.html" }
+  - { label: "Left Hand Valley Courier: Niwot Historical Spotlight, residential Old Town Niwot (March 6, 2024)", url: "https://lhvc.com/story/2024/03/06/news/niwot-historical-spotlight-residential-old-town-niwot/8927.html" }
+  - { label: "Left Hand Valley Courier: Niwot Historic District marks 30-year anniversary (March 8, 2023)", url: "https://lhvc.com/story/2023/03/08/news/niwot-historic-district-marks-30-year-anniversary/7785.html" }
+  - { label: "Left Hand Valley Courier: Left Hand Grange building now owned by a nonprofit (April 3, 2024)", url: "https://lhvc.com/story/2024/04/03/news/left-hand-grange-building-now-owned-by-a-nonprofit/9029.html" }
+  - { label: "Left Hand Valley Courier: Left Hand Grange building renamed Niwot Hall (November 13, 2024)", url: "https://lhvc.com/story/2024/11/13/news/left-hand-grange-building-renamed-niwot-hall/9877.html" }
+  - { label: "Boulder County Elections: unofficial results, local measures, last updated November 13, 2026", url: "https://electionresults.bouldercounty.gov/Home/IndexCategory/58.html" }
+  - { label: "U.S. Census Bureau: Niwot CDP, Colorado profile (2020 Census)", url: "https://data.census.gov/profile/Niwot_CDP,_Colorado?g=160XX00US0853780" }
 related:
-  - { label: "Old Fire House Museum", href: "/places/old-fire-house-museum/", note: "The 1910 fire shed and chemical fire cart the Historical Society keeps on the Grange lot." }
-  - { label: "Old Town, Second Avenue", href: "/places/old-town-second-avenue/", note: "The brick and false-front block from the railroad period, still where the community gathers." }
-  - { label: "The 2026 Niwot incorporation election, plainly", href: "/articles/2026-incorporation-election/", note: "The November 2026 vote on whether the unincorporated town would become one, and the count." }
+  - { label: "Old Town, Second Avenue", href: "/places/old-town-second-avenue/", note: "The first block of the 1993 historic district, still where the community gathers." }
+  - { label: "Old Fire House Museum", href: "/places/old-fire-house-museum/", note: "The 1910 fire shed and chemical fire cart the Historical Society keeps beside Niwot Hall." }
+  - { label: "The 2026 Niwot incorporation election, plainly", href: "/articles/2026-incorporation-election/", note: "What the November 2026 ballot asked about becoming a town, and the count." }
 ---
+On March 30, 1875, Porter T. Hinman and Ambrose S. Murray filed the plat of Niwot with Boulder County: a town on both sides of the new Colorado Central Railroad, halfway between Boulder and Longmont, named for the Arapaho leader Niwot. That filing still shapes the town. The streets run at an angle because they follow the tracks, the business district sits on one side of the rails, and more than 150 years later Niwot has never incorporated as a town.
 
-Niwot exists because a rail line was built through the Left Hand valley in the 1870s. The town plat was recorded in 1875, and the street grid still follows the tracks rather than the county roads that came later. The brick block on Second Avenue is what remains of that decision.
+## What "Niwot" means
 
-It has never been an incorporated municipality. There is no mayor and no town hall, which is part of why the place feels the way it does: what happens here is organized by the people who live here, through the business association, the arts groups and the neighbors who show up. On November 3, 2026 voters inside the proposed boundary turned incorporation down in Boulder County's unofficial count, so Niwot stays unincorporated ([the result](/updates/#incorporation-vote-result)); [the election guide](/articles/2026-incorporation-election/) explains what was on the ballot.
+Niwot is the Arapaho name of the leader English speakers called Left Hand. Arapaho names often describe the person, and he was most likely left-handed ([Colorado Encyclopedia](https://coloradoencyclopedia.org/article/niwot-left-hand)). His name runs across the county: Left Hand Creek, Left Hand Canyon, Niwot Ridge and Niwot Mountain all honor him ([Visit Longmont](https://www.visitlongmont.org/chief-niwot-the-story-of-left-hand-and-the-boulder-valley-curse/)).
 
-## 1870s: the railroad, and the 1875 plat
+## Who was Chief Niwot?
 
-A rail line built through the valley set the location of the town site. The plat was recorded in 1875 by Porter T. Hinman and Ambrose S. Murray, laid out on a diagonal grid straddling the tracks. That survey is why the street grid runs as it does, at an angle to the later county road pattern. *Source: [Niwot Historical Society, history timeline](https://niwothistoricalsociety.org/history/).*
+Niwot was born in the 1820s, and his band spent its winters around Boulder. He learned English as a boy from John Poisal, a trader who married his sister, and worked as an interpreter ([Colorado Encyclopedia](https://coloradoencyclopedia.org/article/niwot-left-hand)). The 1851 Fort Laramie Treaty recognized the Boulder and St. Vrain valleys as Arapaho and Cheyenne territory ([Niwot Historical Society](https://niwothistoricalsociety.org/history/)).
 
-## 1905 to 1915: the commercial district takes shape
+When gold seekers poured into the region in 1858 and 1859, Niwot argued for peace. He met with territorial governor John Evans, and in 1864 he helped ransom white captives alongside the Cheyenne leader Black Kettle.
 
-The first business district stood on the west side of town, behind the railroad depot. After the turn of the century it moved to Second Avenue: John Nelson, a local carpenter, is credited with the first commercial building there in 1905, and most of the other shops in the first block were finished by 1915. Boulder County designated the block the Niwot Historic District in 1993. The Niwot Tribune building is among the survivors of that period and still anchors the block. *Source: [Niwot Business Association, Birth of a Railroad Town](https://niwot.com/niwot-history/); [Niwot Historical Society](https://niwothistoricalsociety.org/history/).*
+The line known as Niwot's curse, that people who see the valley's beauty will stay and their staying will undo it, is local legend.
 
-## 1907, arriving later: the caboose
+## Sand Creek, 1864
 
-CB&Q 14649, a Burlington Route caboose built in 1907, stands on a short length of track at [Whistle Stop Park](/places/whistle-stop-park/), the park the Cultural Arts Association built at the south-west corner of Murray Street and First Avenue. The park’s lawn is where the summer concert series is held. *Source: [Niwot Cultural Arts Association, Whistle Stop Park](https://niwotarts.org/whistle-stop-park/).*
+On November 29, 1864, Niwot, Black Kettle, White Antelope and about 750 Arapaho and Cheyenne people were camped on Big Sandy Creek when Colorado volunteer troops under Colonel John Chivington attacked. About 230 people were killed, most of them women, children and elders ([National Park Service](https://www.nps.gov/sand/learn/historyculture/index.htm)). Niwot was mortally wounded and died within days.
 
-## Twentieth century: growth, and a preserved main street
+The town that carries his name was platted eleven years later. At a talk at Niwot Hall in March 2025, Chester Whiteman of the Cheyenne Tribe told the audience, "We never came back to this area after 1864" ([Left Hand Valley Courier](https://lhvc.com/story/2025/03/26/news/the-legacy-of-chief-nowoo3-building-relationships/10365.html)).
 
-Residential development spread around the original plat while the historic commercial buildings on Second Avenue were retained rather than replaced. Cottonwood Square later added a second cluster of shops and everyday services. Governance stayed with Boulder County and the special districts throughout. *Source: [Niwot Historical Society](https://niwothistoricalsociety.org/history/).*
+Niwot is one of three figures in *Peace Keepers*, the Sand Creek Massacre memorial approved in 2025 for the west grounds of the State Capitol in Denver ([HJR25-1024](https://leg.colorado.gov/bills/hjr25-1024)). Its first statue, of Black Kettle, was unveiled at the History Colorado Center in October 2026. Representatives of the Cheyenne and Arapaho Tribes of Oklahoma, the Northern Arapaho Tribe and the Northern Cheyenne Tribe dedicate the Capitol site on November 29, 2026, the 162nd anniversary of the massacre ([Sand Creek Massacre Foundation](https://www.sandcreekmassacrefoundation.org/news); [Colorado Sun](https://coloradosun.com/2026/10/12/history-colorado-sand-creek-massacre-memorial-statue-chief-black-kettle/)).
 
-## Today: about four thousand people, still unincorporated
+## 1873 to 1875: from section house to town
 
-The census designated place recorded a population of 4,306 in 2020. Niwot remains unincorporated, with county and district services: on November 3, 2026 voters inside the proposed boundary voted against incorporation in Boulder County's unofficial count ([the result](/updates/#incorporation-vote-result)). *Source: U.S. Census Bureau, 2020 Census, Niwot CDP.*
+The Colorado Central Railroad reached Boulder from Golden in 1873 and by that fall ran twelve miles on to Longmont ([Anne Dyni](https://coloradomagazineonline.com/Cities%20_%20Towns/Niwot-2/Niwot-2.htm)). Halfway along stood a section house, the base for the crew that kept up the track. A depot opened there the same year, with George W. Wilson as its first agent ([Niwot Historical Society](https://niwothistoricalsociety.org/stories/the-niwot-depot/)).
 
-## Still visible today
+Hinman, who had come to the area in 1860, and Murray, a Boulder resident, each gave 20 acres just north of the section house for the town ([*Around Niwot*](https://www.everand.com/book/275216491/Around-Niwot)). Their plat laid out streets, alleys and lots on both sides of the tracks, on a grid set at an angle to follow the rails ([Left Hand Valley Courier](https://www.lhvc.com/story/2022/06/15/news/the-story-behind-the-name-murray-street/7023.html)).
 
-- The Niwot Tribune building on Second Avenue, a surviving railroad-period false front.
-- CB&Q 14649, built in 1907 and now at Whistle Stop Park.
-- The diagonal street grid beside the rail corridor.
+The town was built for shipping. From the depot, farmers sent cattle to the Denver stockyards and produce to Boulder and Longmont. Left Hand Grange No. 9, the farmers' organization that still meets in Niwot, was organized in December 1873 ([Left Hand Valley Courier](https://lhvc.com/story/2021/04/21/news/how-does-niwot-work-part-7/6174.html)).
 
-## Standards
+## 1900 to 1921: the move to Second Avenue
 
-Population is the 2020 census figure for the Niwot census designated place. Historical dates come from the Niwot Historical Society’s timeline, the Niwot Business Association’s history page and the recorded town plat; the caboose’s identity and date from the Niwot Cultural Arts Association’s Whistle Stop Park page. If something here is wrong, it is corrected with the date and a note describing what changed; a claim that cannot be supported is removed rather than softened. [Report a correction](/contact/).
+Niwot's first business district stood west of the tracks: a blacksmith shop, a feed mill and general stores behind the depot and its loading pens ([Niwot Business Association](https://niwot.com/niwot-history/)). Most homes were on the east side.
+
+After 1900 the stores moved east to Second Avenue. John Nelson, a Swedish-born wagon maker who turned to building as cars replaced wagons, finished Nelson Hall at Second Avenue and Franklin Street in 1907, with a store downstairs and a meeting hall upstairs ([Niwot Historical Society walking tour](https://niwothistoricalsociety.org/master-niwot-walking-tour-brochure-_-sesquicentennial-2025)). Most of the first block was complete by 1915, and the weekly Niwot Tribune printed its first issue in August 1921 ([Niwot Historical Society](https://niwothistoricalsociety.org/collections_tag/niwot-tribune)).
+
+## Sugar beets, baseball and 200 residents
+
+Sugar beets arrived in 1903. In 1916 the Great Western Sugar Company built a ramp on Murray Street, across from the depot, where horses hauled loaded wagons to the top and farmers tipped the beets straight into open railcars.
+
+In 1914 local fans asked the Northern Colorado Baseball League to add a Niwot Farmers team. By 1946 Niwot had about 200 residents ([Niwot Historical Society](https://niwothistoricalsociety.org/history/)).
+
+## 1932 to 1959: the trains stop and the Diagonal Highway arrives
+
+Trains stopped calling at Niwot for passengers, freight and mail in 1932. The passenger half of the depot came down in 1943, and the rest was gone by 1958 ([Niwot Historical Society](https://niwothistoricalsociety.org/stories/the-niwot-depot/)).
+
+The Diagonal Highway between Boulder and Longmont was built along the tracks, and it took the old west side of town. Hinman Street was removed starting in 1958 ([Left Hand Valley Courier](https://www.lhvc.com/story/2022/06/15/news/the-story-behind-the-name-murray-street/7023.html)), and every building left west of the tracks was razed or moved by 1959, when construction began ([Niwot Historical Society walking tour](https://niwothistoricalsociety.org/master-niwot-walking-tour-brochure-_-sesquicentennial-2025)). The depot and the old brick elementary school went in the same decade, and none of the original west-side businesses survived ([Anne Dyni](https://coloradomagazineonline.com/Cities%20_%20Towns/Niwot-2/Niwot-2.htm)).
+
+## 1961 to 1993: suburban growth and a protected main street
+
+In 1961 the Left Hand Water Company, now the Left Hand Water District, formed to deal with wells and cisterns contaminated by septic systems. The IBM plant that came to the area in 1965 brought workers and new homes, and the Niwot Sanitation District followed ([Left Hand Valley Courier](https://lhvc.com/story/2024/03/06/news/niwot-historical-spotlight-residential-old-town-niwot/8927.html)).
+
+In late 1992, property owners and residents of Old Town and Cottonwood Square approved a half-cent sales tax for drainage, sidewalks and street lights, and Boulder County covered a third of the $757,000 cost ([Left Hand Valley Courier](https://lhvc.com/story/2023/03/08/news/niwot-historic-district-marks-30-year-anniversary/7785.html)).
+
+In 1993 the Boulder County commissioners created the Niwot Historic District, protecting eight commercial buildings on Second Avenue and one house on Franklin Street. Changes to those buildings go through a Design Review Committee the commissioners appoint.
+
+## Why Niwot has no town hall
+
+The 1875 plat made Niwot a town on the map, but it was never incorporated under state law. The Census Bureau counts it as a census-designated place, with 4,306 residents in 2020 ([U.S. Census Bureau](https://data.census.gov/profile/Niwot_CDP,_Colorado?g=160XX00US0853780)). Boulder County governs it, and [Who runs what in Niwot](/articles/who-runs-what-in-niwot/) lists the county offices and districts behind each service. On November 3, 2026, voters inside the proposed town boundary rejected incorporation by nearly three to one ([Boulder County Elections](https://electionresults.bouldercounty.gov/Home/IndexCategory/58.html)); [the election guide](/articles/2026-incorporation-election/) has the full results.
+
+## Where to see Niwot's history today
+
+- **[Second Avenue](/places/old-town-second-avenue/), Murray Street to Franklin Street:** the first block of the 1993 historic district.
+- **[Niwot Hall](/places/niwot-hall/), 195 Second Avenue:** John Nelson's 1907 hall. The Grange bought it from his estate in 1945, it was renamed Niwot Hall in 2024, and the Grange still meets there ([Left Hand Valley Courier](https://lhvc.com/story/2024/11/13/news/left-hand-grange-building-renamed-niwot-hall/9877.html)).
+- **[Old Fire House Museum](/places/old-fire-house-museum/):** the town's 1910 fire shed, rebuilt beside Niwot Hall.
+- **[Whistle Stop Park](/places/whistle-stop-park/), Murray Street and First Avenue:** CB&Q caboose 14649, built in 1907 and donated in 2003 by the Boulder County Railroad Historical Society.
+- **Murray Street and the Hinman Ditch:** the two founders' names, still on the map.
+- **The Diagonal Highway:** the strip where the west side of town stood.
+
+## Before you go
+
+The Niwot Historical Society's [self-guided walking tour](https://niwothistoricalsociety.org/explore/) maps the historic district building by building. Check [the Society's site](https://niwothistoricalsociety.org/) before visiting the Fire House Museum.
