@@ -11727,3 +11727,28 @@ was the flat primary colour.
 - **Not changed:** the hour's cache on `/_astro/` (8 October), which still
   makes a returning visitor's browser ask once an hour; that stays the
   owner's call.
+
+## The hub's town pages open with their photograph, like a guide's, 15 November 2026
+
+*15 November 2026, later.* The owner did not want the blur: the town pages
+should open as Inside Berthoud does, the photograph simply there. The guide
+is not faster; its photograph is in the reader's browser from the last
+visit. Each of the hub's 89 towns has a photograph of its own that a reader
+has almost never fetched, so the blur only showed the wait.
+
+- **The blur is off the town pages.** The hero is the photograph over the
+  band's colour again, as on the guides (`Hero.astro`). The hub home keeps
+  its stand-in for now.
+- **The link starts the photograph** (`src/components/HeroWarm.astro`, on
+  every hub page). A finger landing on a link to a town page, the pointer
+  resting on it for 65 ms, or the keyboard reaching it starts that town's
+  photograph with the page's own srcset and sizes, so the browser picks the
+  width the page will ask for and the page finds it in the cache. At most
+  five per page, and none with Save-Data on.
+- **The list is read from the built pages** (`src/integrations/hero-map.ts`,
+  `/hero-map.json`): each `/<slug>/` page's `data-showpiece-hero` image, so
+  a link never fetches a file the page does not use. The hub's pages fetch
+  it when idle, or at the first touch.
+- **What it does not cover:** a reader who arrives on a town page straight
+  from a search engine or a shared link still waits for the photograph, as
+  a first-time visitor to a guide does.

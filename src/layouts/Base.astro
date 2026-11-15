@@ -28,6 +28,7 @@ import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
 import Plausible from '@/components/Plausible.astro';
 import TrackClicks from '@/components/TrackClicks.astro';
+import HeroWarm from '@/components/HeroWarm.astro';
 import SEO from '@/components/SEO.astro';
 import { siteJsonLd } from '@/lib/seo';
 import { searchType } from '@/lib/network-search';
@@ -122,5 +123,7 @@ const cssVars = [
     {analytics && <Analytics />}
     {plausible && <Plausible domain={site.domain} />}
     <TrackClicks />
+    {/* The hub's town pages open with their photograph in the cache (src/components/HeroWarm.astro). */}
+    {site.kind === 'hub' && <HeroWarm />}
   </body>
 </html>

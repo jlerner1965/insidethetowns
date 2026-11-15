@@ -1,0 +1,77 @@
+---
+/**
+ * On the hub, a link to a town page starts that town's photograph as soon
+ * as a finger lands on it, the pointer rests on it for a moment, or the
+ * keyboard reaches it, so the page opens with its photograph already in
+ * the browser, as a guide's home does (the owner, 15 November 2026; see
+ * src/lib/hero-map.ts).
+ *
+ * The photograph is asked for with the page's own srcset and sizes, so the
+ * browser picks the width it will pick on the page. The list of photographs
+ * (/hero-map.json) is fetched once the page is idle, or at the first touch
+ * if that comes sooner. Nothing is fetched with Save-Data on, and no more
+ * than five photographs per page, so a thumb scrolling down the town list
+ * does not download the network.
+ */
+---
+<script>
+  import { HERO_MAP_FILE, type HeroSources } from '@/lib/hero-map';
+
+  type Heroes = Record<string, HeroSources>;
+
+  /** At most this many photographs started from one page. */
+  const MOST = 5;
+  /** How long the pointer rests on a link before its photograph starts: a pass over the list starts nothing. */
+  const REST_MS = 65;
+
+  const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+
+  if (!saveData) {
+    const none: Heroes = {};
+    let map: Promise<Heroes> | undefined;
+    const heroes = (): Promise<Heroes> =>
+      (map ??= fetch(`/${HERO_MAP_FILE}`)
+        .then((r): Promise<Heroes> | Heroes => (r.ok ? r.json() : none))
+        .catch(() => none));
+    const started = new Set<string>();
+    // Held so a started photograph is not collected before it lands in the cache.
+    const held: HTMLImageElement[] = [];
+
+    const warm = (target: EventTarget | null) => {
+      if (!(target instanceof Element) || started.size >= MOST) return;
+      const link = target.closest('a[href]');
+      if (!(link instanceof HTMLAnchorElement) || link.origin !== location.origin) return;
+      const path = link.pathname;
+      if (path === location.pathname || started.has(path)) return;
+      void heroes().then((all) => {
+        const hero = all[path];
+        if (!hero || started.has(path) || started.size >= MOST) return;
+        started.add(path);
+        const img = new Image();
+        img.fetchPriority = 'high';
+        // sizes before srcset, so the browser chooses the width once, with both.
+        img.sizes = hero.sizes;
+        img.srcset = hero.srcset;
+        held.push(img);
+      });
+    };
+
+    let resting: number | undefined;
+    document.addEventListener('touchstart', (e) => warm(e.target), { passive: true, capture: true });
+    document.addEventListener('mousedown', (e) => warm(e.target), { passive: true });
+    document.addEventListener('focusin', (e) => warm(e.target));
+    document.addEventListener(
+      'mouseover',
+      (e) => {
+        window.clearTimeout(resting);
+        const target = e.target;
+        resting = window.setTimeout(() => warm(target), REST_MS);
+      },
+      { passive: true },
+    );
+    document.addEventListener('mouseout', () => window.clearTimeout(resting), { passive: true });
+
+    if (typeof requestIdleCallback === 'function') requestIdleCallback(() => void heroes(), { timeout: 2000 });
+    else setTimeout(() => void heroes(), 500);
+  }
+</script>

@@ -6,6 +6,7 @@ import { satteri } from '@astrojs/markdown-satteri';
 import { getSite } from './src/config/index.ts';
 import { townRoutes } from './src/integrations/town-routes.ts';
 import { hostFiles } from './src/integrations/host-files.ts';
+import { heroMap } from './src/integrations/hero-map.ts';
 import { tableLabels } from './src/integrations/table-labels.ts';
 import { pastEventSlugs, repeatOccurrenceSlugs } from './src/lib/series.ts';
 import { closedPlaceSlugs } from './src/lib/raw-places.ts';
@@ -77,7 +78,8 @@ export default defineConfig({
   markdown: {
     processor: satteri({ hastPlugins: [tableLabels] }),
   },
-  integrations: [townRoutes(site), sitemap({ filter: indexable, serialize: (item) => ({ ...item, lastmod: lastmodFor(item.url, dates, buildDate) }) }), hostFiles(vercelConfig, site.domain)],
+  // On the hub, /hero-map.json: each town page's photograph, for the links to start early (src/integrations/hero-map.ts).
+  integrations: [townRoutes(site), sitemap({ filter: indexable, serialize: (item) => ({ ...item, lastmod: lastmodFor(item.url, dates, buildDate) }) }), hostFiles(vercelConfig, site.domain), ...(site.kind === 'hub' ? [heroMap()] : [])],
   vite: {
     plugins: [tailwindcss()],
     build: {

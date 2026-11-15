@@ -55,7 +55,6 @@ import { getCuriosity, getTraditions } from '@/lib/content';
 import { articlesFor } from '@/lib/curiosity';
 import { dayKey, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { hubTownPhoto } from '@/lib/images';
-import { photoPlaceholder, placeholderStyle } from '@/lib/placeholder';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
 import { appliesTo, eventPage, eventPath, lineFor, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
 import { milesShort, nextInCluster, pageSections, profileView, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
@@ -103,8 +102,8 @@ const show = town.showpiece;
 // (HubTown.hero, or a showpiece's); until then the page draws the town's horizon.
 const hero = hubTownPhoto(town);
 const ridge = hero ? undefined : ridgeline(town.slug, town.cluster, town.terrain);
-// The photograph blurred, in the page, until the photograph itself arrives (src/lib/placeholder.ts).
-const heroStyle = hero ? placeholderStyle(await photoPlaceholder(hero.folder, hero.image), hero.position) : undefined;
+// No blurred stand-in (the owner, 15 November 2026: "like Inside Berthoud"); the hub's links start the photograph before the page (src/components/HeroWarm.astro).
+const heroStyle = hero?.position ? `object-position: ${hero.position}` : undefined;
 
 // What a shared link shows: the town's own photograph where it has one, else its text card (town-share.png.ts).
 const shareImage = hero ? (await getImage({ src: hero.src, width: 1200, height: 630, format: 'jpg' })).src : `/share/${town.slug}.png`;
@@ -241,10 +240,15 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           The band is at most 480px tall on a desktop, so the 2400px
           picture showed nothing the 1920px one does not.
           It still came a beat after the words now and then (the owner, 15
-          November 2026), most of all to the first visitor after a deploy,
-          so the band now shows the photograph blurred from the first
-          paint, a few hundred bytes in the page (src/lib/placeholder.ts),
-          and the photograph sharpens over it.
+          November 2026), most of all to the first visitor after a deploy.
+          A blurred stand-in that sharpened as it came (src/lib/placeholder.ts)
+          only showed the wait; the owner wanted the page to open as Inside
+          Berthoud's does, the photograph simply there. A guide's photograph
+          is in the browser from the last visit, and each town here has its
+          own, so the hub's links now start the photograph when a finger or
+          the pointer reaches them (src/components/HeroWarm.astro), and this
+          page finds it in the cache. `data-showpiece-hero` is how the build
+          finds it for that list (src/integrations/hero-map.ts).
         */}
         <Image
           src={hero.src}

@@ -13,6 +13,10 @@
  * the words on it, and the picture popped in a beat later. Now the band is
  * the picture, blurred, from the first paint.
  *
+ * The hub's home only, since the same day: the owner did not want the blur
+ * on the town pages ("like Inside Berthoud"), which start their photograph
+ * from the link instead (src/components/HeroWarm.astro).
+ *
  * Read from the original in content/<folder>/images/ at build, oriented as
  * Astro's image service orients it (sharp's rotate), so the stand-in and
  * the photograph line up under the same object-position.
