@@ -24,6 +24,7 @@ import {
   gameRow,
   guideLine,
   guideName,
+  isErrand,
   listingReasons,
   newsItems,
   nextLine,
@@ -361,6 +362,28 @@ test('a story’s source line names every report and the oldest day one was read
   const s = (label: string) => ({ label, checked: '2026-11-13' });
   assert.equal(storySourceText([s('Town of Nederland: Sept. 30 statement'), s('Town of Nederland: Nov. 9 packet'), s('Colorado Sun: Nov. 11 article')]), 'Sources: Town of Nederland and Colorado Sun, read Nov 13, 2026');
   assert.equal(storySourceText([s('Town of Nederland: a'), s('Colorado Sun: b'), s('BusinessDen: c'), s('Bond Buyer: d'), s('KUNC: e')]), 'Sources: Town of Nederland, Colorado Sun, BusinessDen and 2 more, read Nov 13, 2026');
+});
+
+test('an errand is never a weekend pick, whatever its category: a meeting, a mattress sale, a drive', () => {
+  assert.equal(isErrand({ data: { title: 'Community Meeting for Prescribed Fire Projects' } }), true);
+  assert.equal(isErrand({ data: { title: 'Erie High School Band Mattress Sale Fundraiser' } }), true);
+  assert.equal(isErrand({ data: { title: 'Town Board public hearing on the budget' } }), true);
+  assert.equal(isErrand({ data: { title: 'Holiday Coat Drive' } }), true);
+  // A fundraiser a reader goes to for the evening is still an outing; meeting the artist is not a meeting.
+  assert.equal(isErrand({ data: { title: 'Snowflake Gala Fundraiser' } }), false);
+  assert.equal(isErrand({ data: { title: 'Pancake Breakfast Fundraiser' } }), false);
+  assert.equal(isErrand({ data: { title: 'Meet the Artist: Jan Ruiz' } }), false);
+  assert.equal(isErrand({ data: { title: 'Holiday Bake Sale and Craft Fair' } }), false);
+  const picks = weekendPicksByDay(
+    [
+      ev('lyons', 'Community Meeting for Prescribed Fire Projects', '2026-11-14T15:00', { category: 'outdoors' }),
+      ev('lyons', 'Intro to Branch Weaving', '2026-11-14T13:00', { category: 'arts' }),
+      ev('erie', 'Erie High School Band Mattress Sale Fundraiser', '2026-11-15T10:00', { category: 'other' }),
+    ],
+    days.slice(1),
+    { now, perDay: 3 },
+  );
+  assert.deepEqual([...picks].map(([d, l]) => [d, l.map((e) => e.data.title)]), [['2026-11-14', ['Intro to Branch Weaving']]]);
 });
 
 test('up to three a day: every rule of the one-a-day pick holds, never two from one town across the weekend', () => {

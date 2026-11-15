@@ -11645,3 +11645,63 @@ read it, and then for the fixes that read turned up.
   (`place`); every other school's name already says its town.
 
 On a 393px phone the home is 7,511px where it was 8,161px.
+
+## The hub home's weekend picks, prices and counts, 14 November 2026 (night)
+
+- **No errands among the weekend picks.** The home's weekend picked
+  "Community Meeting for Prescribed Fire Projects" (Boulder County's feed
+  files it under Outdoors) and "Erie High School Band Mattress Sale
+  Fundraiser" (Other), which the category rules could not see.
+  `isErrand` (src/lib/hub-home.ts) reads the title, narrowly: a meeting,
+  a hearing, a town hall, an information or listening session, a
+  webinar, public comment, a mattress sale, a car wash, a blood drive or
+  a food, coat, toy, book, diaper or school-supply drive. A gala, a
+  pancake breakfast or a fun run that raises money is still an outing,
+  and "Meet the artist" is not a meeting. Such a listing stays on its
+  guide's events page and the hub's /this-weekend/; the home just does
+  not recommend it. A town with nothing else that qualifies has no pick
+  that weekend, which is better than a mattress sale.
+- **A short cost on the home's rows.** `shortCost` (src/lib/cost.ts)
+  keeps a cost line of up to 42 characters as written; a longer one with
+  prices is its lowest ticket price, "From $70", leaving out asides in
+  brackets and the parts about fees, add-ons, members', designated
+  drivers' and later prices, and keeping an age limit of 21. Checked
+  against every long cost line in the guides' event files of 14
+  November. The listing's own page has the whole line.
+- **The home counts its new parts.** The hero's three jumps are
+  `home-jump`, the hero's search `home-search` (a form with `data-track`,
+  counted by TrackClicks.astro when sent) and the town box
+  `home-town-box`, with `result` "town" (and the town, a name from its
+  own list) or "search": never the words a reader typed. The sending is
+  one function now, `sendEvent` in src/lib/track.ts. The week before the
+  changes, 7–14 November, the home had 91 phone visitors (240 views) and
+  432 desktop visitors (526 views), and its sections' links were used 36
+  times by about 20 visitors: home-guides 8, home-index 7, home-news 6,
+  home-weekend 6, home-season 6, home-scores 3.
+
+## Fixes from the hub's audit of 14 November 2026 (evening)
+
+The audit is docs/audits/2026-11-14/hub.md. The fixes that were code, or
+facts checked again against the source the same evening:
+
+- **A played game is not "Scheduled".** The playoff article
+  (src/routes/hub/curiosity-article.astro) reads "Result to come" for a
+  scheduled game whose kickoff has passed, as the school sports pages
+  do. The finals themselves are the article's re-check's to enter, from
+  CHSAA's game pages.
+- **A run under way is "On now, through …".** A town page's "Next …
+  date" and /annual-events/'s "Next:" gave a run's first day, so
+  Durango's hero said "Friday, April 10, 2026" in November.
+  `isUnderWay` (src/lib/traditions.ts): a run that began before today
+  and is still on is given by the day it ends. One that begins today is
+  today's.
+- **The network's event cards carry the short cost** (`shortCost`, as
+  the home's rows): /this-weekend/'s Les Misérables card is "From $70".
+  The event's page has the whole line.
+- **Trail Ridge Road's 2026 closing**: 13 November 2026, from the NPS
+  release of that day ("On Nov. 13, 2026, Trail Ridge Road … closed to
+  through vehicle travel for the winter season"). The 2026 opening is
+  left for the owner: the release of 29 May 2026 says the road "is open
+  for the season" but not the day it opened.
+- **Kremmling's Super 8 link** gained `/overview`; the old address is a
+  404 in a browser, the new one the hotel's page (checked 14 November).
