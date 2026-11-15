@@ -9,7 +9,7 @@ source: "https://highplains.libcal.com/event/17304129"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17304129"
 sourceHash: "2f60005f1dc7"
-verified: "2026-11-14"
+verified: "2026-11-15"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Sweet Traditions: Holiday Candy Making Workshop\" at 1:30 pm on 15 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

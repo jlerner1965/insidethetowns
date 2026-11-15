@@ -9,7 +9,7 @@ source: "https://theoldmine.com/"
 sourceId: "theoldmine-com"
 sourceUid: "46viobebu3usu14mda2rdogno6@google.com"
 sourceHash: "50a3def7f428"
-verified: "2026-11-14"
+verified: "2026-11-15"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Vanilla Bourbon Release Day!\" on 27 November on the theoldmine.com feed"
 ---
 
