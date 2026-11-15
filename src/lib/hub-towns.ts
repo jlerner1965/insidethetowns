@@ -283,17 +283,18 @@ export function guideHomeDates(
 }
 
 /**
- * What is next on a town page: the soonest row with a date set among its
- * traditions and its own outdoor dates, whichever kind it is. (Until 12
- * November 2026 an outdoor date was only looked at when no tradition had
- * a date, so a ski area opening in three weeks lost to a festival in
- * July.) A tie goes to the tradition.
+ * What is next on a town page, under its name: the soonest date set among
+ * the town's own events, which is every type but an outdoor date and a
+ * free-admission day; an outdoor or free-admission date only where no
+ * event of the town's has a date set; nothing where neither has (the
+ * review of 14 November 2026: fourteen heroes showed a boat ramp closing
+ * or a ski area opening while the town's own event was coming up, Fort
+ * Collins' a Horsetooth Reservoir ramp under a title naming NoCo Winter
+ * Wonderland). From 12 November 2026 until then the sooner of the two
+ * kinds had won. The lists below the hero are not changed by this.
  */
 export function nextUp(traditions: readonly TraditionRow[], outdoor: readonly TraditionRow[]): TraditionRow | undefined {
-  const a = traditions.find(isUpcoming);
-  const b = outdoor.find(isUpcoming);
-  if (!a || !b) return a ?? b;
-  return b.entry.date! < a.entry.date! ? b : a;
+  return traditions.find(isUpcoming) ?? outdoor.find(isUpcoming);
 }
 
 /**

@@ -56,7 +56,7 @@ import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
 import { ARTICLES_INDEX_PATH, articlePath, storyHomeUntil } from '@/lib/curiosity';
 import { placeName } from '@/lib/curiosity-places';
 import { firstSentence } from '@/lib/plain-text';
-import { shorten } from '@/lib/text';
+import { shorten, typeset } from '@/lib/text';
 import { dayKey, formatDayLong, formatDayRange, formatDayShort, formatMonthDay, monthDay, parseLocal, toIsoLocal } from '@/lib/dates';
 import { clockText, displayTitle, isInProgress, lastDay, listedUntil, occurrences } from '@/lib/events';
 import { publishedHubTowns } from '@/lib/hub-towns';
@@ -452,11 +452,11 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
                       {/* What it is; from 900px, when and where beside it. */}
                       <div class="min-w-0">
                         <p class={by}>{r.label}</p>
-                        <h4 class={hl}><a href={r.href} class={pub.titleLink} data-track="home-weekend">{r.title}</a></h4>
-                        {r.reasons.length > 0 && <p class:list={['mt-1.5', pub.t]}>{r.reasons.join(' · ')}</p>}
+                        <h4 class={hl}><a href={r.href} class={pub.titleLink} data-track="home-weekend">{typeset(r.title)}</a></h4>
+                        {r.reasons.length > 0 && <p class:list={['mt-1.5', pub.t]}>{typeset(r.reasons.join(' · '))}</p>}
                       </div>
                       <div class="min-w-0">
-                        {r.meta.length > 0 && <p class={pub.t}>{r.meta.join(' · ')}</p>}
+                        {r.meta.length > 0 && <p class={pub.t}>{typeset(r.meta.join(' · '))}</p>}
                       </div>
                     </article>
                   ))}
@@ -483,7 +483,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
                   </div>
                   <div class="min-w-0">
                     <h3 class:list={[hl, 'mt-0']}><a href={r.href} class={pub.titleLink} data-track="home-season">{r.title}</a></h3>
-                    <p class:list={['mt-1', pub.t]}><span data-next-word>Next: </span>{r.next}</p>
+                    <p class:list={['mt-1', pub.t]}><span data-next-word>Next: </span>{typeset(r.next)}</p>
                     {r.line && <p class:list={['mt-1', pub.meta]}>{r.line}</p>}
                   </div>
                 </article>
@@ -501,8 +501,8 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
       <div class:list={[wide, 'desk:grid desk:grid-cols-[5fr_7fr] desk:items-start desk:gap-x-[56px]']}>
         <div class="border-t-2 border-white pt-3">
           <h2 id="signup-heading" class:list={[pub.h2, 'mt-0 text-white']}>The {sendDay} email</h2>
-          {/* What an edition holds (NewsletterSignup.astro, `what`): the town's weekend events, the scores, what opened or closed. */}
-          <p class:list={[dek, 'text-white']}>Your town’s weekend events, the scores, and what opened or closed.</p>
+          {/* What an edition holds and when it goes, in the words the owner confirmed on 14 November 2026; "7 am" kept on one line. */}
+          <p class:list={[dek, 'text-white']}>Your town’s weekend events, the scores, and what opened or closed. Every Thursday at 7&nbsp;am.</p>
         </div>
         {/* `signup`: the form's own anchor, where the masthead's email link lands (Header.astro). */}
         <NewsletterSignup variant="hub" id="home" anchor="signup">
@@ -520,13 +520,19 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
             <div class={halfCol}>
               <div class={pub.open}>
                 <h2 id="scores-heading" class={pub.h2}>High school scores</h2>
-                <p class={dek}>Each team’s last result.</p>
+                <p class={dek}>Each team’s last result, posted by Saturday morning.</p>
               </div>
+              {/*
+                * The team's name, the link, and its result on its own line under
+                * it (the review of 14 November 2026: beside it, a name like
+                * "Johnstown Roosevelt Roughriders" wrapped to three lines in the
+                * rail and on a phone). One hairline under each row.
+                */}
               <ul class="mt-2">
                 {scores.map((s) => (
-                  <li class:list={['grid min-h-[50px] grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] items-center gap-x-3 py-2', pub.rule]}>
+                  <li class:list={['py-2.5', pub.rule]} data-score-row>
                     <a href={s.href} class={pub.link} data-track="home-scores">{s.name}</a>
-                    <span class:list={['text-right', pub.meta]}>{s.result}, <time datetime={s.date}>{s.day}</time></span>
+                    <p class:list={['mt-0.5', pub.meta]}>{s.result}, <time datetime={s.date}>{s.day}</time></p>
                   </li>
                 ))}
               </ul>
@@ -544,8 +550,8 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
               {news.slice(0, 1).map((i) => (
                 <article class:list={['py-[18px]', pub.rule]} data-event-day={i.until}>
                   <p class={by}>{i.byline}</p>
-                  <h3 class:list={[hl, 'text-[1.5294rem] leading-[1.15] desk:text-[1.8824rem]']}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{i.title}</a></h3>
-                  <p class:list={['mt-2', pub.t]}>{i.line}</p>
+                  <h3 class:list={[hl, 'text-[1.5294rem] leading-[1.15] desk:text-[1.8824rem]']}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{typeset(i.title)}</a></h3>
+                  <p class:list={['mt-2', pub.t]}>{typeset(i.line)}</p>
                   {i.source && <p class:list={['mt-2', pub.meta]}>{i.source}</p>}
                 </article>
               ))}
@@ -554,7 +560,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
                   {news.slice(1).map((i) => (
                     <article class:list={['py-4', pub.rule]} data-event-day={i.until}>
                       <p class={by}>{i.byline}</p>
-                      <h3 class={hl}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{i.title}</a></h3>
+                      <h3 class={hl}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{typeset(i.title)}</a></h3>
                       {i.source && <p class:list={['mt-1.5', pub.meta]}>{i.source}</p>}
                     </article>
                   ))}

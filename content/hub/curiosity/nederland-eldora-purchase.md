@@ -2,7 +2,7 @@
 slug: nederland-eldora-purchase
 kind: story
 towns: [nederland]
-title: "Nederland’s Eldora Purchase Explained: Cost, Funding and What Happens Next"
+title: "Nederland’s Eldora purchase explained: cost, funding and what happens next"
 seoTitle: "Nederland Eldora Purchase: Cost, Funding & Latest Status"
 description: "Understand Nederland’s proposed Eldora purchase, how financing would work, the costs already incurred, and what still needs to happen."
 status: verified

@@ -17,3 +17,35 @@ export function shorten(text: string, budget: number): string {
   const end = phrase >= budget * 0.5 ? phrase : /\s/.test(text[budget] ?? '') ? budget : cut.lastIndexOf(' ');
   return `${cut.slice(0, end > 0 ? end : budget).replace(/[\s,;:.]+$/, '')}…`;
 }
+
+/**
+ * Typographic quotes and apostrophes for words a data file wrote with
+ * straight ones (the review of 14 November 2026: "Santa's Lighted Forest",
+ * "America's Mountain" and "Mary's Lake" on 64 town pages, and the home's
+ * "Leadville's Tabors"): ’ in a word, ‘ ’ and “ ” around a quotation. For a
+ * string where it is shown as text only; never a slug, a URL or an
+ * attribute, which keep the file's characters. `inner` is for words the
+ * page itself sets inside “ ” (an organizer's note): their own double
+ * quotes become single ones, as a quotation inside a quotation is set.
+ * Nothing else in the string changes.
+ */
+export function typeset(text: string, options?: { inner?: boolean }): string;
+export function typeset(text: string | undefined, options?: { inner?: boolean }): string | undefined;
+export function typeset(text: string | undefined, options: { inner?: boolean } = {}): string | undefined {
+  if (!text || !/['"]/.test(text)) return text;
+  const inner = options.inner ?? false;
+  const open = inner ? '‘' : '“';
+  const close = inner ? '’' : '”';
+  return (
+    text
+      // An apostrophe for a missing letter or the century: "Loaf 'n Jug", "Beef 'N Bean Day", "the '27 festival".
+      .replace(/(^|[\s(])'(?=(?:n|N)'?(?:\s|$)|\d\d\b)/g, '$1’')
+      // Inside a word, or after one: "Santa's", "Miners' Day", "Rock 'n' roll".
+      .replace(/(?<=[\p{L}\p{N}.])'/gu, '’')
+      // What is left opens a quotation at the start or after a space or an opening mark, and closes one elsewhere.
+      .replace(/(^|[\s(\[{“‘—–-])'/g, '$1‘')
+      .replace(/'/g, '’')
+      .replace(/(^|[\s(\[{‘—–-])"/g, `$1${open}`)
+      .replace(/"/g, close)
+  );
+}

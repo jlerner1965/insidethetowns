@@ -321,6 +321,20 @@ test('an inline script is refused, since the CSP never runs one; a bundled scrip
   assert.equal(scan('<script type="text/javascript">x()</script><script>y()</script>'), 2);
 });
 
+test('a hub town page’s words: no space before a comma and no straight quote; attributes and scripts are not words', () => {
+  // A town page is the one with the hero (data-town-hero); the words as the review of 14 November 2026 found them.
+  const town = (words: string) => ({ ...sound(), '/about/index.html': page('/about/', { body: `<a href="/">Home</a><h2 id="who">Who</h2><section data-town-hero="peaks">${words}</section>` }) });
+  assert.deepEqual(rules(town('<p>Ski area · opened <time datetime="2026-11-26">Nov 26, 2026</time>, until Apr 18, 2027</p>')), []);
+  assert.deepEqual(rules(town('<p>opened <time>Nov 26, 2026</time>\n , until Apr 18, 2027</p>')), ['text-space-before-comma']);
+  assert.deepEqual(rules(town('<h4>Santa’s Lighted Forest</h4><p>Alamosa means “cottonwood”.</p>')), []);
+  assert.deepEqual(rules(town("<h4>Santa's Lighted Forest</h4>")), ['text-straight-quote']);
+  assert.deepEqual(rules(town('<p>Alamosa means &quot;cottonwood&quot;.</p>')), ['text-straight-quote'], 'an entity is the character it stands for');
+  // In an attribute, a script or the head, the file's characters stay and are not counted.
+  assert.deepEqual(rules(town(`<article data-name="Santa's Lighted Forest" title='a "b"'>Santa’s</article><script type="application/ld+json">{"@context":"https://schema.org","@type":"Thing","name":"Santa's"}</script>`)), []);
+  // Another page is not held to it.
+  assert.deepEqual(rules({ ...sound(), '/about/index.html': page('/about/', { body: "<a href=\"/\">Home</a><h2 id=\"who\">Who</h2><p>Santa's , here</p>" }) }), []);
+});
+
 test('a draft article in a build without the preview switch is refused', () => {
   const files = { ...sound(), '/about/index.html': page('/about/', { body: '<a href="/">Home</a><h2 id="who">Who</h2><p data-draft>A draft</p>' }) };
   assert.deepEqual(rules(files), ['draft-shipped']);

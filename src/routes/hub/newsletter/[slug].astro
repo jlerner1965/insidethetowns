@@ -34,18 +34,20 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
 const towns = data.towns.map((slug) => findTown(slug)).filter(Boolean);
 // A one-line excerpt ("1 thing on in Niwot this weekend…") says which email it is, where it is short.
 // Three lengths, since the Thursday script writes the excerpt and a 118-character one left no room for the first two (5 November 2026).
+// The email by the name the masthead, the home and the footer give it.
+const emailName = `The ${hub.newsletter?.sendDay ?? 'Thursday'} email`;
 const description = fillDescription(data.excerpt, [`The weekly email from ${hub.siteTitle}, ${formatDate(data.date)}.`, `From the ${hub.siteTitle} weekly email.`, 'From the weekly email.']);
 ---
 <Page
   title={data.title}
-  eyebrow={`The weekly email · ${formatDate(data.date)}`}
+  eyebrow={`${emailName} · ${formatDate(data.date)}`}
   intro={data.excerpt}
   {description}
   type="article"
   jsonLd={[
     articleJsonLd(hub, issue as never, url),
     breadcrumbJsonLd(hub, [
-      { name: 'The weekly email', path: '/newsletter/' },
+      { name: emailName, path: '/newsletter/' },
       { name: data.title, path: `/newsletter/${issue.slug}/` },
     ]),
   ]}

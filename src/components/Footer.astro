@@ -16,6 +16,7 @@ import { getNetworkHub, getSite, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { seasonLinks, siteNav, sportsNavLabel } from '@/lib/nav';
 import { guidesWithTraditions } from '@/lib/tradition-files';
+import { HUB_COLUMN } from './hub/pub';
 import NetworkBar from './NetworkBar.astro';
 import Wordmark from './Wordmark.astro';
 
@@ -28,6 +29,12 @@ const home = Astro.url.pathname === '/';
 // A phone gets a 44px line to tap (cleanup pass, 9 November 2026; it was 34px):
 // the padding is the target and the negative margin keeps the rows where they were.
 const linkClass = 'inline-block -my-1.5 py-2.5 no-underline text-white hover:underline sm:my-0 sm:py-0';
+// The hub's footer is on its pages' column, the masthead's (Header.astro): 1200px with
+// 40px sides from 900px, 20px sides below (the review of 14 November 2026: at 1280px
+// its text began at 43px, the header and every band at 73px). A guide keeps its own.
+const column = site.kind === 'hub' ? HUB_COLUMN : 'container-page';
+// The email by the name the masthead and the home give it: "The Thursday email".
+const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 // Every section of the guide the menu leaves out (src/lib/nav.ts), so each
 // is one click from any page and none is reachable only from an aside.
 const inMenu = new Set(siteNav(site).map((n) => n.href));
@@ -56,7 +63,7 @@ const sections = site.kind === 'town'
     [...seasonLinks(), { label: 'Every town, A to Z', href: '/towns/' }, { label: 'Moving here', href: '/moving/' }];
 ---
 <footer class:list={['on-dark bg-primary text-white', !home && 'mt-24']} data-pagefind-ignore>
-  <div class="container-page grid gap-10 py-14 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] lg:gap-12">
+  <div class:list={[column, 'grid gap-10 py-14 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] lg:gap-12']}>
     <div>
       <Wordmark class="text-3xl leading-none" tone="light" />
       <p class="mt-4 max-w-sm text-[0.9375rem] leading-relaxed">{site.tagline}</p>
@@ -82,7 +89,7 @@ const sections = site.kind === 'town'
         )}
         {/* Not on a guide that lists no events (Niwot): the email is the week's events, and it has no edition. */}
         {hub.newsletter && (site.kind !== 'town' || listsEvents(site)) && (
-          <li><a href={`https://${hub.domain}/newsletter/`} class={linkClass}>Weekly email</a></li>
+          <li><a href={`https://${hub.domain}/newsletter/`} class={linkClass}>The {sendDay} email</a></li>
         )}
         <li>
           <a href={site.kind === 'hub' ? '/advertise/' : `https://${hub.domain}/advertise/`} class={linkClass}>

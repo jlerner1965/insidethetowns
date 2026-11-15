@@ -42,7 +42,7 @@ const noEvents = liveTowns().filter((t) => t.lead === 'updates');
 const uncovered = liveTowns().length - towns.length - noEvents.length;
 ---
 <Page
-  title="The weekly email"
+  title={`The ${day} email`}
   seoTitle={`What’s on across Colorado’s towns, every ${day}`}
   eyebrow="Inside the Towns"
   description={`One email a week: what’s on in ${towns.map((t) => t.name).join(', ')}. Pick your towns or take them all.`}

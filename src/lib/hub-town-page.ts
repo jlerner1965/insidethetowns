@@ -11,10 +11,10 @@
  * redesign, from the same files, with the same sources and check dates:
  * the layout changed, not a figure.
  */
-import { hubCountyLine, type HubTown } from '../config/hub-towns.ts';
+import { clusterName, hubCountyLine, type HubTown } from '../config/hub-towns.ts';
 import { BLOCK_MONTHS } from './date-block.ts';
 import { monthLabel, type YearMark } from './year-grid.ts';
-import type { Airports, RoadMiles, TownFacts } from './near.ts';
+import { roadLeg, type Airports, type RoadMiles, type TownFacts } from './near.ts';
 import { newestCheck, sourceHost, type TownProfile } from './town-profile.ts';
 import { isUpcoming, type TraditionRow } from './traditions.ts';
 
@@ -139,11 +139,13 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
   const lodging = profile?.lodging ?? [];
   const h = profile?.heritage;
   const sites = h?.sites ?? [];
-  const timeline = [...(h?.timeline ?? [])].sort((a, b) => a.year - b.year);
+  const dated = [...(h?.timeline ?? [])].sort((a, b) => a.year - b.year);
+  const timeline = sameYearJoined(dated);
   const ghostTowns = h?.ghostTowns ?? [];
   const makers = h?.makers ?? [];
   const hasHeritage = !!h && (!!h.nameOrigin || !!h.founded || timeline.length > 0 || sites.length > 0 || ghostTowns.length > 0 || makers.length > 0);
-  const heritageItems = h ? [h.nameOrigin, h.founded, ...timeline, ...sites, ...ghostTowns, ...makers] : [];
+  // Every row the file has, joined or not, so each one's source and check date are still counted.
+  const heritageItems = h ? [h.nameOrigin, h.founded, ...dated, ...sites, ...ghostTowns, ...makers] : [];
   const heritageSources = [...new Map(heritageItems.filter((i) => !!i).map((i) => [sourceHost(i!.source), i!.source])).entries()];
 
   return {
@@ -164,18 +166,62 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
   };
 }
 
+/**
+ * History's rows with one year each (the review of 14 November 2026: Del
+ * Norte had two rows for 1874, Dillon two for 1883, Elizabeth two for
+ * 1890): rows of the same year become one, their sentences joined in the
+ * file's order, with a full stop between them where the first has none.
+ * Nothing is reworded. The joined row keeps the first row's source; the
+ * page's sources line still names every row's (profileView).
+ */
+export function sameYearJoined<T extends { year: number; text: string }>(rows: readonly T[]): T[] {
+  const out: T[] = [];
+  for (const row of rows) {
+    const last = out[out.length - 1];
+    if (last && last.year === row.year) {
+      const lead = last.text.trimEnd();
+      out[out.length - 1] = { ...last, text: `${lead}${/[.!?…”’)]$/.test(lead) ? '' : '.'} ${row.text.trim()}` };
+    } else out.push(row);
+  }
+  return out;
+}
+
 /* ------------------------------------------------------------ the closing */
 
+/** "More in …" lists at least this many other town pages where there are that many, and at most MORE_MAX. */
+export const MORE_MIN = 3;
+export const MORE_MAX = 5;
+
 /**
- * The next town in the same cluster, in the hub's order, coming round to
- * the first after the last: the one link under "More in …". None where the
- * town is the cluster's only page.
+ * The other town pages under "More in …" (the review of 14 November 2026:
+ * the block linked one town, and Walden's none). The town's own area
+ * first, nearest by road (the miles the "Near" list prints,
+ * data/hub/road-miles.json), then any of the area's pages with no miles
+ * on file, in the hub's order; five at most. Where the area has fewer than
+ * three other pages, the nearest pages by road from the areas around it
+ * make up three, and the heading names those areas too (moreHeading). Only
+ * published pages are passed in, so nothing links to a page not built.
  */
-export function nextInCluster<T extends Pick<HubTown, 'slug' | 'cluster'>>(town: T, published: readonly T[]): T | undefined {
-  const mates = published.filter((t) => t.cluster === town.cluster);
-  if (mates.length < 2) return undefined;
-  const i = mates.findIndex((t) => t.slug === town.slug);
-  return mates[(i + 1) % mates.length];
+export function moreInRegion<T extends Pick<HubTown, 'slug' | 'cluster'>>(town: T, published: readonly T[], roads?: Pick<RoadMiles, 'pairs'>): T[] {
+  const miles = (other: T) => (roads ? roadLeg(roads, town.slug, other.slug)?.miles : undefined);
+  const byRoad = (list: readonly T[]) =>
+    list
+      .map((t, i) => ({ t, i, m: miles(t) }))
+      .sort((a, b) => (a.m ?? Infinity) - (b.m ?? Infinity) || a.i - b.i)
+      .map((x) => x.t);
+  const others = published.filter((t) => t.slug !== town.slug);
+  const out = byRoad(others.filter((t) => t.cluster === town.cluster)).slice(0, MORE_MAX);
+  if (out.length < MORE_MIN) {
+    const around = byRoad(others.filter((t) => t.cluster !== town.cluster && miles(t) !== undefined));
+    out.push(...around.slice(0, MORE_MIN - out.length));
+  }
+  return out;
+}
+
+/** "Grand County", or "Yampa Valley and Grand County": every area the list holds, in its order, as a reader sees each. */
+export function moreHeading(list: ReadonlyArray<Pick<HubTown, 'cluster'>>): string {
+  const names = [...new Set(list.map((t) => clusterName(t.cluster)))];
+  return names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
 }
 
 /** "53 mi": the miles formatMiles prints, rounded the same way, in the short unit. */

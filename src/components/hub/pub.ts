@@ -9,6 +9,14 @@
  * the type in rem so a reader's own text size applies. Written out whole so
  * Tailwind finds each class in the source.
  */
+/**
+ * The hub's page column as the masthead draws it on every hub page
+ * (Header.astro): 1200px with 40px sides from 900px, 20px sides below. The
+ * footer and its guides bar sit on it too (Footer.astro, NetworkBar.astro),
+ * so their text starts where the masthead's and the bands' does.
+ */
+export const HUB_COLUMN = 'mx-auto w-full max-w-[1200px] px-[20px] desk:px-[40px]';
+
 export const pub = {
   /** A town page's section: a full-width band on a phone; from 900px (the desktop boards of 14 November 2026) a run of the 720px column, 56px over and 64px under. */
   band: 'scroll-mt-4 px-[20px] pb-[48px] pt-[36px] desk:px-0 desk:pb-[64px] desk:pt-[56px]',

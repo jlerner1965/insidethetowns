@@ -21,6 +21,7 @@
  */
 import { editionFor, emailEditions, getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
 import Wordmark from './Wordmark.astro';
+import { HUB_COLUMN } from './hub/pub';
 import { siteNav } from '@/lib/nav';
 import { wordmarkEm as titleEm } from '@/lib/titles';
 
@@ -86,7 +87,7 @@ const masthead = site.kind === 'hub' ? 'flex min-h-[60px] items-center justify-b
  * the hub's row).
  */
 const hubRow = site.kind === 'hub';
-const container = hubRow ? 'mx-auto w-full max-w-[1200px] px-[20px] desk:px-[40px]' : 'container-page';
+const container = hubRow ? HUB_COLUMN : 'container-page';
 const tools = hubRow ? 'flex items-center gap-1 masthead:order-last' : 'flex items-center gap-1 xl:order-last xl:gap-2';
 const toggle = hubRow ? 'nav-toggle -mr-2 masthead:hidden' : 'nav-toggle -mr-2 xl:hidden';
 const navClass = hubRow ? 'site-nav hub-row' : 'site-nav';
