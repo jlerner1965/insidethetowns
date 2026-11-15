@@ -11737,8 +11737,7 @@ visit. Each of the hub's 89 towns has a photograph of its own that a reader
 has almost never fetched, so the blur only showed the wait.
 
 - **The blur is off the town pages.** The hero is the photograph over the
-  band's colour again, as on the guides (`Hero.astro`). The hub home keeps
-  its stand-in for now.
+  band's colour again, as on the guides (`Hero.astro`).
 - **The link starts the photograph** (`src/components/HeroWarm.astro`, on
   every hub page). A finger landing on a link to a town page, the pointer
   resting on it for 65 ms, or the keyboard reaching it starts that town's
@@ -11752,3 +11751,6 @@ has almost never fetched, so the blur only showed the wait.
 - **What it does not cover:** a reader who arrives on a town page straight
   from a search engine or a shared link still waits for the photograph, as
   a first-time visitor to a guide does.
+- **The hub home's blur is off too** (the owner, the same evening). Its
+  Flatirons photograph is the plain `<Image>` again, and
+  `src/lib/placeholder.ts`, with nothing left using it, is gone.

@@ -7,7 +7,7 @@
  * photograph is in the browser from the last visit; each of the hub's 89
  * towns has a photograph of its own that a reader has almost never fetched
  * before, about 160 KB on a phone and up to 500 KB on a retina laptop, and
- * the band showed it blurred until it came (src/lib/placeholder.ts). Now the
+ * the band showed it blurred until it came (a stand-in since removed). Now the
  * download starts when a finger or the pointer reaches the link, and the
  * page finds the photograph in the browser's cache, as the guide does.
  *
