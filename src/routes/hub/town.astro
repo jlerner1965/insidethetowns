@@ -223,6 +223,8 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   <section class:list={['on-dark relative isolate overflow-hidden bg-primary text-white', hero && 'desk:flex desk:min-h-[min(52vh,480px)] desk:flex-col desk:justify-end']} data-town-hero={hero ? 'photo' : ridge!.terrain} data-band aria-labelledby="town-name">
     {hero ? (
       <Fragment>
+        {/* Without JavaScript nothing would show the band, so it is not hidden (the <style> at the foot). */}
+        <noscript><style is:inline>[data-town-hero='photo'] { visibility: visible !important; animation: none !important; }</style></noscript>
         {/*
           Loaded as the guides' hero is (Hero.astro): up to 1920px at
           quality 72, and `priority` (eager, high fetch priority, decoded
@@ -607,7 +609,42 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   </div>
 </Base>
 
+<style>
+  /*
+    The photograph band is seen once, whole: until its photograph is in, the
+    band keeps its space but is hidden, and the script below shows it when
+    the photograph has decoded (the owner, 15 November 2026: the photograph
+    came a beat after the words, then a blurred stand-in was tried and
+    turned down, "people look one time"). Over Wi-Fi that is about a tenth
+    of a second after the page; over 4G, half a second. A photograph that
+    is slow or never comes cannot hold the band back: it shows after three
+    seconds all the same, and at once without JavaScript (the <noscript>).
+  */
+  [data-town-hero='photo']:not([data-ready]) {
+    visibility: hidden;
+    animation: town-hero-show 0s 3s forwards;
+  }
+  @keyframes town-hero-show {
+    to {
+      visibility: visible;
+    }
+  }
+</style>
+
 <script>
+  // The photograph band shows when its photograph has decoded, or failed
+  // (the <style> above hides it until then).
+  const band = document.querySelector<HTMLElement>('[data-town-hero="photo"]');
+  const photo = band?.querySelector<HTMLImageElement>('[data-showpiece-hero]');
+  if (band && photo) {
+    photo
+      .decode()
+      .catch(() => undefined)
+      .finally(() => {
+        band.dataset.ready = '';
+      });
+  }
+
   // The statewide dates past the next two fold away behind a button. Without
   // this script they are all on the page and the button stays hidden.
   const toggle = document.querySelector<HTMLButtonElement>('[data-statewide-toggle]');
