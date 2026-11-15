@@ -132,7 +132,7 @@ Readers scan, mostly on phones, and most arrive from a search with one question.
 **Top (first two paragraphs)**
 - Sentence one is the answer: the date, the place, the yes or no, the number.
 - The next two or three sentences say who it affects and why it matters to someone who lives here. Everything a reader needs to act sits above the first heading.
-- No anecdote, scene or rhetorical-question openings. Exception: a History or profile piece may open with one concrete sentence of scene if the point is stated by the end of the first paragraph.
+- No anecdote, scene or rhetorical-question openings. Exception: a history story opens on a concrete moment (see **History stories** below).
 
 **Body**
 - An H2 every two to four paragraphs, written as the label or question a scanner looks for ("Parking", "When it starts", "Is it open in winter?"), never clever. H3 only to split a long H2 or for entries in a roundup.
@@ -157,11 +157,39 @@ Readers scan, mostly on phones, and most arrive from a search with one question.
 | Service guide | parking, getting there, signing up, what's open | answer, numbered steps or an options table, Before you go |
 | Roundup | coffee, campgrounds, trails, kids' things | one-line setup, one H3 per entry with the same facts in the same order, How we picked |
 | Event guide | festivals, parades, games, seasonal dates | when and where in sentence one, schedule table, getting there and parking, Before you go |
-| History or profile | the past, people, places that are gone | one sentence of scene allowed, point by end of paragraph one, chronology, where to see it today |
+| History story | the past, people, places that are gone | the **History stories** section below: a concrete moment, the point, what is still there; four to seven sections in date order; Visit these places; More on the town |
 
 No opinion pieces: the network reports and doesn't editorialize.
 
-**Length:** what the template needs, usually 400 to 900 words. Never pad to a count.
+**Length:** what the template needs, usually 400 to 900 words (a history story, 700 to 1,500). Never pad to a count.
+
+### History stories
+
+One template for every history article on the network: a guide's article in the History category and a hub story about the past. The hub's Creede and Leadville stories are the model (the owner, 15 November 2026), and every history article follows it, on the hub and on the guides alike. A hub news explainer (the Eldora purchase) is not a history story.
+
+**Front matter**
+- `title`: sentence case, 6 to 11 words, the town's name in the first five words. A colon may split place from angle ("Leadville's Tabors: a silver fortune, a scandal and the crash").
+- `seoTitle`: 60 characters or fewer.
+- `excerpt` (guide) or `description` (hub): the story in one or two sentences with its key dates. Not a teaser, and not "with sources".
+- One photograph at the top, of the town or a place in the story, with its alt and credit, where a licensed one exists (the photo rules); none is better than a stock image. A second may sit in a section when it shows a place that section names. A photo essay ("Old Erie in photographs") has one section per photograph and is otherwise this template.
+- `sources`: every page the story rests on, "Who: what page"; on the hub each with `checked`. Sources live in the front matter, never in a "Sources" section of the body: the page lists them at its foot.
+- `footnote`: one or two sentences about the sources as a whole, only when there is something to say: where most of the story comes from, or, where sources disagree on a date or figure the story states, which one it follows. On a guide it sits under the sources.
+- A guide's article: `category: "History"`. A hub story: `kind: story` and `eyebrow: "History · <Town>"`.
+
+**Body**
+1. **Opening**, before any heading: two or three short paragraphs. Sentence one is a concrete moment: who, what, where and when. By the end of the opening, one sentence says what the story explains. The opening ends on what is still there today.
+2. **Four to seven sections, in date order.** Each heading is a plain label: a short phrase, with a year where the year is the point ("Sand Creek, 1864", "1893: the crash"). No year ranges ("1873 to 1875: …"), no questions, nothing clever. The last section may bring the story to the present ("Severance today").
+3. Paragraphs of one to three sentences.
+4. **Each source named in the sentence that uses it**, the link on the attribution: "according to the National Park Service", "the Courier reported", "Dyni writes". Link a source at its first use in a section; after that, name it without a link. Never a bare link in parentheses after a sentence.
+5. Legend is called legend. Where sources disagree, the sentence or the footnote says so.
+6. Quotes only from a named person in a source read, with the source in the sentence.
+7. Each section, and the story, ends on a fact: no moral, reflection or summing up.
+8. **The ending, always these two, in this order:**
+   - `## Visit these places`: two to seven bullets, each a place the story names that a reader can still see: `**Name**, where it is: what it is, in one line.`, then a link to its page on the same site where there is one, else to its own site from the sources. Opening days and "check before you go" belong in that bullet.
+   - The last line: `More on the town: [Town](…)`. On the hub, the town's page (`/creede/`); on a guide, its home (`/`), or the section for a town it covers (`/severance/`, `/windsor/`).
+9. No "Sources", "Before you go" or "Who keeps the record" section of its own, and no newsletter line.
+
+**Bringing an existing article to the template:** every fact, date, figure, name, quote, source and link stays as it was. Sentences move and join; wording changes only to put a source's name into the sentence, to fit a heading, or to join two sentences. Nothing is added that the article and its sources did not already say.
 
 **Check before handing in:** read only the headline, the first paragraph and the H2s. If a reader would have the answer and know where everything else is, the structure works.
 

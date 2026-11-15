@@ -79,14 +79,12 @@ The theater did not make Creede big. The Chamber puts Mineral County's full-time
 
 ## The old movie house today
 
-The Mainstage on Main Street is the 1930s movie house the Jaycees chose for their experiment in 1966, now a 230-seat theater. Anyone who takes a seat there is sitting in the building Creede picked when it went looking for a new reason for people to come to town.
-
-The theater still depends on people making that trip. What began as a summer invitation to a dozen students is something each new season has to earn again.
+The Mainstage on Main Street is the 1930s movie house the Jaycees chose for their experiment in 1966, now a 230-seat theater.
 
 ## Visit these places
 
-- **Creede Repertory Theatre**, on Main Street. Plays run in summer; [season and tickets](https://creederep.org/).
-- **Underground Mining Museum**, at the north end of town, blasted out of the canyon wall by Creede miners starting in 1990. [Hours and tours](https://undergroundminingmuseum.com/museum).
-- **Bachelor Loop**, a 17-mile self-guided drive through the old mining district, open in summer until the snow comes. [Forest Service page](https://www.fs.usda.gov/r02/riogrande/recreation/bachelor-loop-interpretive-tour).
+- **Creede Repertory Theatre**, on Main Street: plays run in summer. [Season and tickets](https://creederep.org/).
+- **Underground Mining Museum**, at the north end of town: blasted out of the canyon wall by Creede miners starting in 1990. [Hours and tours](https://undergroundminingmuseum.com/museum).
+- **Bachelor Loop**: a 17-mile self-guided drive through the old mining district, open in summer until the snow comes. [Forest Service page](https://www.fs.usda.gov/r02/riogrande/recreation/bachelor-loop-interpretive-tour).
 
 More on the town: [Creede](/creede/).

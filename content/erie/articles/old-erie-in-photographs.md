@@ -1,6 +1,8 @@
 ---
 title: "Old Erie in photographs, from the Erie Historical Society"
+seoTitle: "Old Erie photographs from the Erie Historical Society"
 date: "2026-11-11"
+updated: "2026-11-15"
 excerpt: "A bank teller's cage, a general store, the Lincoln School when it was a school, two coal mine postcards and a first-aid team in white: seven pictures from the Erie Historical Society's collection, and what is known about each."
 category: "History"
 tags: [history, photographs, coal mining]
@@ -20,16 +22,22 @@ sources:
   - { label: "Wikipedia: Erie, Colorado (the Eagle Mine, the last to close, in 1978)", url: "https://en.wikipedia.org/wiki/Erie,_Colorado" }
   - { label: "City of Lafayette photo gallery: National Fuel Company, Eagle Mine, Erie, Colorado", url: "https://www.lafayetteco.gov/gallery.aspx?PID=544" }
 related:
-  - { label: "Erie history: the greatest coal town in Colorado", href: "/articles/erie-history/", note: "The short history of the town these pictures come from." }
+  - { label: "Erie history: a century of coal, then a farm town", href: "/articles/erie-history/", note: "The short history of the town these pictures come from." }
   - { label: "Wise Homestead Museum", href: "/places/wise-homestead-museum/", note: "The Erie Historical Society's 1870 farmhouse museum on Jasper Road." }
   - { label: "Erie Town Hall", href: "/places/erie-town-hall/", note: "The Lincoln School building, a school until 1966 and Town Hall today." }
 ---
 
-The Erie Historical Society keeps a gallery of old Erie photographs online, most of them without dates. These seven show the town's main street businesses, its school and the coal mines it was built on. Where a picture has a caption from the society, or lettering on the print, that is what we go by; we have not guessed at dates the society does not give.
+James Brennan, the cashier, is the man behind the barred window inside the Erie Bank in the photograph at the top of this page, [the Erie Historical Society's caption says](https://photos.eriehistoricalsociety.org/History/Eriehistoricalphotos). It is one of seven old pictures of Erie here from the society's online gallery, where most of the photographs are without dates.
+
+These seven show the town's main street businesses, its school and the coal mines it was built on. Where a picture has a caption from the society, or lettering on the print, that is what we go by; we have not guessed at dates the society does not give.
+
+The Lincoln School, in one of them, is Erie Town Hall today.
 
 ## The Erie Bank
 
-The photograph at the top of this page is the inside of the Erie Bank. The society's caption says the bank was established in 1903, on the same site as the present bank, that it survived the Depression while banks around the country were closing, and that the man pictured is James Brennan, the cashier. It comes from the Mary Young collection.
+The photograph at the top of this page is the inside of the Erie Bank. [The Erie Historical Society's caption](https://photos.eriehistoricalsociety.org/History/Eriehistoricalphotos) says the bank was established in 1903, on the same site as the present bank, and that it survived the Depression while banks around the country were closing.
+
+The man pictured, the caption says, is James Brennan, the cashier. The photograph comes from the Mary Young collection.
 
 ## A general store
 
@@ -37,7 +45,7 @@ The photograph at the top of this page is the inside of the Erie Bank. The socie
 
 *Thomas Richards's general merchandise store, date unknown. DeWitt Brennan collection; courtesy of the Erie Historical Society.*
 
-Thomas Richards, the society's caption says, sold farm equipment and general merchandise to the early citizens of Erie.
+Thomas Richards sold farm equipment and general merchandise to the early citizens of Erie, [the Erie Historical Society's caption says](https://photos.eriehistoricalsociety.org/History/Eriehistoricalphotos).
 
 ## The Lincoln School
 
@@ -45,7 +53,11 @@ Thomas Richards, the society's caption says, sold farm equipment and general mer
 
 *The Lincoln School, date unknown. Courtesy of the Erie Historical Society.*
 
-The two-story brick school on Holbrook Street was built in 1906 and was a school until 1966, according to History Colorado, which describes its hip roof, flared eaves and the bell tower over the entry. It was listed on the National Register on July 22, 1981. The building is [Erie Town Hall](/places/erie-town-hall/) today.
+The two-story brick school on Holbrook Street was built in 1906 and was a school until 1966, [according to History Colorado](https://www.historycolorado.org/location/lincoln-school-erie-town-hall), which describes its hip roof, flared eaves and the bell tower over the entry.
+
+It was listed on the National Register on July 22, 1981. The building is [Erie Town Hall](/places/erie-town-hall/) today.
+
+## Erie schoolchildren
 
 ![About twenty schoolchildren on and around a wooden porch, boys in overalls and caps on the left, girls in white dresses seated along the edge, a young woman standing among them](../images/erie-school-children.jpg)
 
@@ -57,7 +69,7 @@ The two-story brick school on Holbrook Street was built in 1906 and was a school
 
 *A postcard lettered "Clayton Mine – Erie, Colo." Courtesy of the Erie Historical Society.*
 
-Boulder Weekly lists the Clayton among the Weld County mines of the northern coal field, which once had more than a hundred mines from the southern edge of Boulder east to Dacono.
+[Boulder Weekly](https://archives.boulderweekly.com/news/the-coal-mines-of-colorados-northern-fields/) lists the Clayton among the Weld County mines of the northern coal field, which once had more than a hundred mines from the southern edge of Boulder east to Dacono.
 
 ## The Columbine Mine at Serene
 
@@ -65,7 +77,13 @@ Boulder Weekly lists the Clayton among the Weld County mines of the northern coa
 
 *A postcard lettered "Columbine Mine Camp – Serene, Colo. near Erie." Courtesy of the Erie Historical Society.*
 
-The Columbine was the Rocky Mountain Fuel Company's mine, and Serene was its company town, with a post office from 1923 to 1942, a dance hall, a bandstand and a schoolhouse. The Town of Erie says the mine ran from 1920 to 1946, employed about 350 men and produced 7,316,275 tons of coal; a 1973 history of the 1927 strike by Perry Eberhart says it opened in 1914 and closed in 1945. On November 21, 1927, during the statewide coal strike, state police fired on striking miners at the camp's gate and six strikers were killed. The town site is inside Erie's limits and is now a landfill. Two Erie parks carry the names: [Columbine Mine Park](/places/columbine-mine-park/) on Skyline Drive and [Serene Park](/places/serene-park/) on Colliers Boulevard.
+The Columbine was the Rocky Mountain Fuel Company's mine, and Serene was its company town, with a post office from 1923 to 1942, [according to Wikipedia](https://en.wikipedia.org/wiki/Serene,_Colorado). Serene also had a dance hall, a bandstand and a schoolhouse, [the Town of Erie's Serene Park page says](https://erieco.gov/2318/Serene-Park).
+
+[The Town of Erie says](https://www.erieco.gov/2311/Columbine-Mine-Park) the mine ran from 1920 to 1946, employed about 350 men and produced 7,316,275 tons of coal; a 1973 history of the 1927 strike [by Perry Eberhart](https://www.lafayettehistory.com/the-1927-columbine-mine-massacre-trouble-in-serene/) says it opened in 1914 and closed in 1945.
+
+On November 21, 1927, during the statewide coal strike, state police fired on striking miners at the camp's gate and six strikers were killed, [Wikipedia's article on the Columbine Mine massacre](https://en.wikipedia.org/wiki/Columbine_Mine_massacre) records.
+
+The town site is inside Erie's limits and is now a landfill, Wikipedia's article on Serene says. Two Erie parks carry the names: [Columbine Mine Park](/places/columbine-mine-park/) on Skyline Drive and [Serene Park](/places/serene-park/) on Colliers Boulevard.
 
 ## National Fuel First Aid Team Number 13
 
@@ -73,8 +91,16 @@ The Columbine was the Rocky Mountain Fuel Company's mine, and Serene was its com
 
 *"National Fuel First Aid Team Number 13," lettered on the print by the Mile High Photo Co. of Denver: McCarthy, captain; Regnier; Heaton; Swallow; Tierney; Hewlett. Courtesy of the Erie Historical Society.*
 
-The National Fuel Company ran the Eagle Mine in Erie, the last mine in town to close, and the Puritan Mine, according to photographs in the City of Lafayette's collection. The print does not say when this team was photographed or which of the company's mines its six men worked.
+The National Fuel Company ran the Eagle Mine in Erie and the Puritan Mine, [according to photographs in the City of Lafayette's collection](https://www.lafayetteco.gov/gallery.aspx?PID=544). The Eagle was the last mine in town to close, [according to Wikipedia](https://en.wikipedia.org/wiki/Erie,_Colorado).
 
-## See more
+The print does not say when this team was photographed or which of the company's mines its six men worked.
 
-The full gallery is at [photos.eriehistoricalsociety.org](https://photos.eriehistoricalsociety.org/History/Eriehistoricalphotos). The society's own museum is the [Wise Homestead](/places/wise-homestead-museum/) on Jasper Road, open Saturdays 10 to 2 from May through September and by appointment.
+## Visit these places
+
+- **Erie Town Hall**, on Holbrook Street: the 1906 Lincoln School building, a school until 1966. [Town Hall on this guide](/places/erie-town-hall/).
+- **Columbine Mine Park**, on Skyline Drive: an Erie park that carries the Columbine Mine's name. [Park page](/places/columbine-mine-park/).
+- **Serene Park**, on Colliers Boulevard: an Erie park that carries the name of the Columbine's company town. [Park page](/places/serene-park/).
+- **Wise Homestead Museum**, on Jasper Road: the Erie Historical Society's own museum, open Saturdays 10 to 2 from May through September and by appointment. [Museum page](/places/wise-homestead-museum/).
+- **The Erie Historical Society's photo gallery**, online: the full gallery these pictures come from. [photos.eriehistoricalsociety.org](https://photos.eriehistoricalsociety.org/History/Eriehistoricalphotos).
+
+More on the town: [Erie](/).

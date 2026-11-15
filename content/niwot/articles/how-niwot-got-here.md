@@ -82,7 +82,7 @@ Most of the first block was complete by 1915. The weekly Niwot Tribune printed i
 
 Sugar beets arrived in 1903. In 1916 the Great Western Sugar Company built a ramp on Murray Street, across from the depot, where horses hauled loaded wagons to the top and farmers tipped the beets straight into open railcars.
 
-In 1914 local fans asked the Northern Colorado Baseball League to add a Niwot Farmers team. By 1946 Niwot had about 200 residents, the Society's timeline records.
+In 1914 local fans asked the Northern Colorado Baseball League to add a Niwot Farmers team. By 1946 Niwot had about 200 residents, [the Society's timeline records](https://niwothistoricalsociety.org/history/).
 
 ## The trains stop, and the Diagonal takes the west side
 
@@ -109,7 +109,7 @@ On November 3, 2026, voters inside the proposed town boundary rejected incorpora
 ## Visit these places
 
 - **Second Avenue**, from Murray Street to Franklin Street: the first block of the 1993 historic district. [Old Town on this guide](/places/old-town-second-avenue/).
-- **The Historical Society's walking tour**, a self-guided map of the historic district, building by building. [Walking tour](https://niwothistoricalsociety.org/explore/).
+- **The Historical Society's walking tour**: a self-guided map of the historic district, building by building. [Walking tour](https://niwothistoricalsociety.org/explore/).
 - **Niwot Hall**, at 195 Second Avenue: John Nelson's 1907 hall. [Niwot Hall on this guide](/places/niwot-hall/).
 - **Old Fire House Museum**, beside Niwot Hall: the town's 1910 fire shed, rebuilt there. [Museum page](/places/old-fire-house-museum/); check [the Historical Society's site](https://niwothistoricalsociety.org/) before visiting.
 - **Whistle Stop Park**, at Murray Street and First Avenue: CB&Q caboose 14649, built in 1907 and donated in 2003 by the Boulder County Railroad Historical Society. [Park page](/places/whistle-stop-park/).
