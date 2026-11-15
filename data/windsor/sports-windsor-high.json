@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-14T18:59:16.699Z",
+  "generated": "2026-11-15T19:36:47.015Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/football/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T18:27:17",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T17:14:09",
       "overall": "5-6",
       "league": {
         "record": "5-1",
@@ -149,8 +149,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/soccer/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T18:44:15",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T17:18:53",
       "overall": "11-2-4",
       "league": {
         "record": "8-1-1",
@@ -361,9 +361,9 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/volleyball/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T17:57:15",
-      "overall": "20-9",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T18:29:24",
+      "overall": "21-11",
       "league": {
         "record": "9-1",
         "name": "4A/3A Northern",
@@ -383,6 +383,34 @@
             "them": 0
           },
           "venue": "Denver Coliseum"
+        },
+        {
+          "date": "2026-11-14",
+          "opponent": "Golden",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-windsor/11-14-2026/?c=0c3c6566-fa93-49bb-b81e-7d25cf8eb1b6",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "venue": "Denver Coliseum",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-11-14",
+          "opponent": "Rampart",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/rampart-colorado-springs-vs-windsor/11-14-2026/?c=9ab344c7-6d79-4325-bf28-2d0787987333",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          },
+          "neutral": true,
+          "venue": "Denver Coliseum",
+          "stage": "State Championships"
         },
         {
           "date": "2026-11-13",
@@ -722,18 +750,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-11-14",
-          "opponent": "Golden",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-windsor/11-14-2026/?c=0c3c6566-fa93-49bb-b81e-7d25cf8eb1b6",
-          "stage": "State Volleyball Championships",
-          "neutral": true,
-          "venue": "Denver Coliseum",
-          "time": "12:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -743,8 +760,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/softball/fall/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T18:59:43",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T18:16:26",
       "overall": "29-0",
       "league": {
         "record": "10-0",
@@ -1116,8 +1133,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/cross-country/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T18:59:52",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T18:31:59",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1130,8 +1147,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/cross-country/girls/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T18:59:57",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T19:37:28",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1144,8 +1161,8 @@
       "key": "boys-golf",
       "name": "Boys golf",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/golf/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T19:00:01",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T19:37:32",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1158,8 +1175,8 @@
       "key": "boys-tennis",
       "name": "Boys tennis",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/tennis/fall/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T16:00:09",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T18:13:48",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1172,8 +1189,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/basketball/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T17:47:18",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T17:18:42",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1349,8 +1366,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/basketball/girls/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T15:01:34",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T17:16:19",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1487,8 +1504,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/wrestling/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T17:59:31",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T17:29:39",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1501,8 +1518,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/swimming/girls/",
-      "fetched": "2026-11-14T18:59:16.699Z",
-      "maxprepsUpdated": "2026-11-14T16:30:39",
+      "fetched": "2026-11-15T19:36:47.015Z",
+      "maxprepsUpdated": "2026-11-15T17:46:14",
       "results": [],
       "upcoming": [],
       "held": [],

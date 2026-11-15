@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-14T18:54:38.493Z",
+  "generated": "2026-11-15T19:32:06.353Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T15:22:04",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T17:10:30",
       "overall": "7-4",
       "league": {
         "record": "4-2",
@@ -147,8 +147,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T15:47:48",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T17:16:45",
       "overall": "8-7",
       "league": {
         "record": "6-2",
@@ -330,15 +330,29 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T17:42:50",
-      "overall": "21-7",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T17:07:11",
+      "overall": "21-8",
       "league": {
         "record": "4-2",
         "name": "4A/3A Patriot Peaks",
         "place": "3rd"
       },
       "results": [
+        {
+          "date": "2026-11-14",
+          "opponent": "Forge Christian",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-forge-christian-eagles-arvada/11-14-2026/?c=31f5deec-adff-437b-b491-b543a316f835",
+          "stage": "State Volleyball Championships",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          },
+          "venue": "Denver Coliseum"
+        },
         {
           "date": "2026-11-13",
           "opponent": "The Village",
@@ -664,28 +678,16 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-11-14",
-          "opponent": "Forge Christian",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-forge-christian-eagles-arvada/11-14-2026/?c=31f5deec-adff-437b-b491-b543a316f835",
-          "stage": "State Volleyball Championships",
-          "neutral": true,
-          "venue": "Denver Coliseum"
-        }
-      ],
+      "upcoming": [],
       "held": [],
-      "notes": [
-        "2026-11-14 at Forge Christian: a neutral-site game, which the school calendar files as away (\"Girls Varsity Volleyball @ Forge Christian High School\")"
-      ]
+      "notes": []
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T18:23:42",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T17:25:18",
       "overall": "17-10",
       "league": {
         "record": "2-7",
@@ -1020,8 +1022,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T15:54:45",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T19:32:57",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1034,8 +1036,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T17:31:33",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T19:33:02",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1048,8 +1050,8 @@
       "key": "girls-flag-football",
       "name": "Girls flag football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/flag-football/girls/fall/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T18:55:41",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T18:19:05",
       "overall": "6-9",
       "league": {
         "record": "4-6",
@@ -1231,8 +1233,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T15:28:44",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T17:12:30",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1246,7 +1248,7 @@
           "opponent": "Mountain View",
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-mountain-view-loveland/11-30-2026/?c=21c75107-9795-47ab-b032-c43a12008dd0",
-          "time": "19:00"
+          "time": "17:30"
         },
         {
           "date": "2026-12-01",
@@ -1357,8 +1359,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/girls/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T17:42:18",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T18:10:23",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1509,8 +1511,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/wrestling/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T18:56:08",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T19:33:34",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1523,8 +1525,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/swimming/girls/",
-      "fetched": "2026-11-14T18:54:38.493Z",
-      "maxprepsUpdated": "2026-11-14T18:56:12",
+      "fetched": "2026-11-15T19:32:06.353Z",
+      "maxprepsUpdated": "2026-11-15T19:33:38",
       "results": [],
       "upcoming": [],
       "held": [],
