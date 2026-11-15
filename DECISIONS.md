@@ -11705,3 +11705,25 @@ facts checked again against the source the same evening:
   for the season" but not the day it opened.
 - **Kremmling's Super 8 link** gained `/overview`; the old address is a
   404 in a browser, the new one the hotel's page (checked 14 November).
+
+## The hub's photographs show blurred from the first paint, 15 November 2026
+
+*15 November 2026.* The owner saw the photograph on the hub's town pages
+come in a beat after the page now and then. The hero was already eager,
+first in line and down to 1920px at quality 72 (14 November), but it is
+still about 160 KB on a phone and up to 500 KB on a retina laptop, and the
+first visitor in a region after a deploy fetches it past Vercel's edge
+cache (a MISS measured on the live Boulder page). Until it arrived the band
+was the flat primary colour.
+
+- **A stand-in in the page** (`src/lib/placeholder.ts`): each photograph
+  at 32px wide, a WebP of a few hundred bytes, written into the `<img>`'s
+  own style as a covering background at the photograph's object-position.
+  The browser smooths it into a blur of the picture; the photograph paints
+  over it in place, so nothing moves. CSP already allows `data:` images and
+  inline styles.
+- **Where:** the town page hero (all 89 with a photograph) and the hub
+  home's Flatirons photograph. The guides' hero (`Hero.astro`) is unchanged.
+- **Not changed:** the hour's cache on `/_astro/` (8 October), which still
+  makes a returning visitor's browser ask once an hour; that stays the
+  owner's call.
