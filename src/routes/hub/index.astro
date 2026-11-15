@@ -85,6 +85,7 @@ import {
 } from '@/lib/hub-home';
 import { shortCost } from '@/lib/cost';
 import { resolveSiteImage } from '@/lib/images';
+import { photoPlaceholder, placeholderStyle } from '@/lib/placeholder';
 import { FLAGSHIP_TEAM, RESULT_WORD, gameDay, hasData, latestResult, outcome, sportsDataFor } from '@/lib/school-sports';
 import { coveredTowns } from '@/lib/town-search-index';
 import { subTownsOf } from '@/lib/sub-towns';
@@ -131,6 +132,8 @@ const finder = townFinder(
 
 /** The photograph under the hero, and the same picture as the page's share image. */
 const photo = resolveSiteImage('hub', HOME_PHOTO.hero);
+// The photograph blurred, in the page, until the photograph itself arrives (src/lib/placeholder.ts).
+const photoStyle = placeholderStyle(await photoPlaceholder('hub', HOME_PHOTO.hero));
 const shareImage = (await getImage({ src: resolveSiteImage('hub', HOME_PHOTO.file), width: 1200, height: 630, format: 'jpg' })).src;
 
 /**
@@ -421,7 +424,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
       {/* On a phone a 3:1 strip of the photograph, so it does not push the sections below the first screen; beside the words from 900px. */}
       <figure class="mt-5 desk:mt-0">
         <div class="aspect-[3/1] overflow-hidden bg-hairline desk:aspect-auto desk:h-[400px]">
-          <Image src={photo} alt={HOME_PHOTO.alt} widths={[480, 640, 800, 960, 1280, 1600]} sizes="(min-width: 900px) 800px, (max-width: 760px) 100vw, 720px" layout="full-width" quality={78} priority class="block h-full! w-full object-cover" />
+          <Image src={photo} alt={HOME_PHOTO.alt} widths={[480, 640, 800, 960, 1280, 1600]} sizes="(min-width: 900px) 800px, (max-width: 760px) 100vw, 720px" layout="full-width" quality={78} priority class="block h-full! w-full object-cover" style={photoStyle} />
         </div>
         <figcaption class:list={['mt-2 italic', pub.meta]}>{HOME_PHOTO.caption}</figcaption>
       </figure>
