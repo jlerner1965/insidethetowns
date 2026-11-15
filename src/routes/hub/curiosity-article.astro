@@ -22,15 +22,22 @@
  * and with one invitation. Every one of those is optional, so the other
  * articles read as before.
  *
+ * An article may carry one photograph (`image`, the Creede and Leadville
+ * stories, 15 November 2026): drawn once under the masthead at text width,
+ * its credit under it, and used as the page's share image. Without one the
+ * page is as it was.
+ *
  * A draft reaches here only under the local preview switch, and says so
  * on its face and to a crawler (noindex).
  */
+import { Image, getImage } from 'astro:assets';
 import { render, type CollectionEntry } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getHub } from '@/config';
 import { getCuriosity, getTraditions } from '@/lib/content';
 import { formatDate, formatDayLong, formatDayShort, formatTime, formatWeekday, parseLocal, toIsoLocal } from '@/lib/dates';
 import { publishedHubTowns } from '@/lib/hub-towns';
+import { resolveSiteImage } from '@/lib/images';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import {
   CAMPING_FIELDS,
@@ -88,6 +95,14 @@ const shownDay = data.updated?.date ?? data.date;
 const updatedAt = data.updated?.time ? parseLocal(`${data.updated.date}T${data.updated.time}`) : undefined;
 const updatedLine = data.updated ? (updatedAt ? `${formatDate(updatedAt)}, ${formatTime(updatedAt)} MT` : day(data.updated.date)) : undefined;
 const modified = updatedAt && lastModified(data) === data.updated!.date ? `${data.updated!.date}T${data.updated!.time}` : lastModified(data);
+
+// The article's photograph, where it has one: content/<imageFolder>/images/<image>,
+// the folder `hub` unless the file says otherwise. It is also what a shared
+// link shows, cut as the town pages cut their hero (town.astro); without it
+// the share image is the hub's own, as before.
+const photo = data.image ? resolveSiteImage(data.imageFolder ?? 'hub', data.image) : undefined;
+const shareImage = photo ? (await getImage({ src: photo, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+const shareAlt = photo ? data.imageAlt : undefined;
 
 // The schedule, by weekend, the newest first (src/lib/curiosity.ts, GAME_STATUSES).
 const weeks = gamesByWeek(data.games);
@@ -148,7 +163,7 @@ const structured = [
 ];
 const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
 ---
-<Page title={data.title} seoTitle={data.seoTitle} kind="Article" eyebrow={data.eyebrow ?? (topic ? `${topic.label} · ${towns[0]!.name}` : `${story ? 'News · ' : ''}${towns.map((t) => t.name).join(' · ')}`)} status={draft ? 'Draft' : undefined} intro={data.description} description={data.description} type="article" noindex={draft} jsonLd={structured}>
+<Page title={data.title} seoTitle={data.seoTitle} kind="Article" eyebrow={data.eyebrow ?? (topic ? `${topic.label} · ${towns[0]!.name}` : `${story ? 'News · ' : ''}${towns.map((t) => t.name).join(' · ')}`)} status={draft ? 'Draft' : undefined} intro={data.description} description={data.description} image={shareImage} imageAlt={shareAlt} type="article" noindex={draft} jsonLd={structured}>
   <Fragment slot="after-header">
     <p class="mt-5 text-sm text-ink-muted" data-article-meta>
       <span data-byline>By {CURIOSITY_BYLINE}</span>
@@ -181,6 +196,14 @@ const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
       </p>
     )}
   </Fragment>
+
+  {/* The photograph, once, between the masthead and the article, as wide as the text (.prose, 40rem) and whole (not cropped); the credit under it. */}
+  {photo && (
+    <figure class="mb-10 max-w-[40rem]" data-article-photo>
+      <Image src={photo} alt={data.imageAlt!} widths={[640, 960, 1280, 1536]} sizes="(min-width: 40rem) 40rem, 100vw" priority class="w-full rounded-lg" />
+      {data.imageCredit && <figcaption class="mt-1 text-[0.75rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>}
+    </figure>
+  )}
 
   {weeks.length > 0 && (
       <section id="games" aria-labelledby="games-h" class="mb-12 max-w-5xl scroll-mt-6" data-games>

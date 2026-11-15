@@ -323,8 +323,20 @@ export const curiositySchema = z
     invite: z.object({ text: text.max(120), href: z.string().regex(/^\/[a-z0-9/-]*$/, 'a page on the hub: "/newsletter/"') }).strict().optional(),
     /** The games an event article follows, drawn first (see GAME_STATUSES). */
     games: z.array(game).default([]),
+    // One photograph, drawn under the masthead at text width and used as the
+    // share image (the Creede and Leadville stories, 15 November 2026). The
+    // file is content/<imageFolder>/images/<image> and has its row in
+    // IMAGE_LICENSES.csv; the validator holds it to both.
+    /** The photograph's file name: "creede.jpg". */
+    image: text.optional(),
+    /** The content folder the file is in: `hub` or a guide's folder. Left out, `hub`. */
+    imageFolder: text.optional(),
+    imageAlt: text.optional(),
+    /** Shown under the photograph. */
+    imageCredit: text.optional(),
   })
   .strict()
+  .refine((a) => !a.image || !!a.imageAlt, { message: 'imageAlt is required when image is set', path: ['imageAlt'] })
   .refine((a) => isStandalone(a.kind) || a.towns.length === 1, { message: 'a topic article is anchored to one town', path: ['towns'] })
   .refine((a) => (a.kind === 'camping') === a.campgrounds.length > 0, { message: 'a camping article lists its campgrounds, and only a camping article does', path: ['campgrounds'] })
   .refine((a) => (a.kind === 'ghost-towns') === a.ghostTowns.length > 0, { message: 'a ghost-town article lists its ghost towns, and only a ghost-town article does', path: ['ghostTowns'] })
