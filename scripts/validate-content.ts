@@ -681,15 +681,23 @@ for (const town of deployedTowns()) for (const issue of nextEventIssues(town.slu
 
 // The hub's town-anchored articles (content/hub/curiosity/, src/lib/curiosity.ts):
 // every fact with its official source and check date, the file named for
-// its slug, every town one the network has. A draft is counted, never
-// built; an article due to be read again is listed, never a failure.
+// its slug, every town one the network has, its photograph on disk and in
+// the image register. A draft is counted, never built; an article due to
+// be read again is listed, never a failure.
 {
   const today = dayKey(new Date());
   const files = curiosityFiles(root);
+  const ledgerPath = join(root, 'IMAGE_LICENSES.csv');
+  const ledger = new Set(existsSync(ledgerPath) ? parseLedger(readFileSync(ledgerPath, 'utf8')).map((row) => row.path) : []);
   for (const f of files) {
     for (const issue of f.issues) errors.push(`${f.file}: ${issue}`);
     if (!f.article) continue;
     for (const t of f.article.towns) if (!placeName(t)) errors.push(`${f.file}: "${t}" is not a town page or a guide in src/config/hub-towns.ts`);
+    if (f.article.image) {
+      const path = `content/${f.article.imageFolder ?? 'hub'}/images/${f.article.image}`;
+      if (!existsSync(join(root, path))) errors.push(`${f.file}: image "${f.article.image}" is not at ${path}`);
+      else if (!ledger.has(path)) errors.push(`${f.file}: ${path} has no row in IMAGE_LICENSES.csv`);
+    }
     if (reverifyDue(f.article, today)) warnings.push(`${f.file}: due to be read again since ${f.article.reverify!.from} (${f.article.reverify!.why}); read each source and move its \`checked\``);
   }
   const drafts = files.filter((f) => f.article?.status === 'draft');
