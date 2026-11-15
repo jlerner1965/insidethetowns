@@ -27,7 +27,8 @@
  */
 import { pub } from './pub';
 import { dateBlock } from '@/lib/date-block';
-import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
+import { formatDayLong, formatShortDate, parseLocal, publishedTime } from '@/lib/dates';
+import { typeset } from '@/lib/text';
 import { TRADITION_TYPE_INFO, type TraditionRow } from '@/lib/traditions';
 
 interface Props {
@@ -44,6 +45,10 @@ interface Props {
 
 const { row, href, line, also = [], agency = false } = Astro.props;
 const { record, entry, source } = row;
+/** The record's words as they are shown: typographic quotes (src/lib/text.ts, typeset); an organizer's own words set inside “ ” have theirs as single quotes. Attributes keep the file's. */
+const name = typeset(record.name);
+const organizer = typeset(record.organizer);
+const quoted = (words: string | undefined) => typeset(words, { inner: true });
 const type = TRADITION_TYPE_INFO[record.type];
 const day = (d: string) => parseLocal(d);
 /** "Saturday, December 5, 2026": always with the year, since a page lists this winter's dates beside next summer's. */
@@ -61,7 +66,8 @@ const notAnnounced = !canceled && !dated;
 const ordinal = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th')}`;
 const subEvents = dated && !canceled ? (entry.subEvents ?? []) : [];
 const closedDays = dated && !canceled ? (entry.closedDays ?? []) : [];
-const details = dated ? [entry.note && `${record.organizer}: “${entry.note}”`, entry.startTime, entry.place, entry.cost].filter(Boolean) : [];
+// The time in the site's style, as formatTime prints it (src/lib/dates.ts, publishedTime): "7:30 am", not the source's "7:30AM".
+const details = dated ? [entry.note && `${organizer}: “${quoted(entry.note)}”`, publishedTime(entry.startTime), typeset(entry.place), typeset(entry.cost)].filter(Boolean) : [];
 // "Last held" is a tradition's word; a road's last opening was not held.
 const lastWord = record.type === 'outdoor' || record.type === 'free-day' ? 'Most recent' : 'Last held';
 const lastEnd = past ? entry.endDate : record.years.find((y) => y.date === row.lastHeld)?.endDate;
@@ -119,9 +125,9 @@ const note = `mt-1.5 ${pub.meta}`;
     </p>
     <h4 class:list={['mt-1', pub.title]}>
       {href ? (
-        <a href={href} class:list={[pub.titleLink, canceled && 'line-through']}>{record.name}</a>
+        <a href={href} class:list={[pub.titleLink, canceled && 'line-through']}>{name}</a>
       ) : (
-        <span class:list={[canceled && 'line-through decoration-ink-muted']}>{record.name}</span>
+        <span class:list={[canceled && 'line-through decoration-ink-muted']}>{name}</span>
       )}
     </h4>
 
@@ -135,7 +141,7 @@ const note = `mt-1.5 ${pub.meta}`;
         <p class={status} data-when-set={expires ? '' : undefined}>
           <span class:list={[square, 'bg-primary']} aria-hidden="true"></span><strong class="font-semibold">Moved.</strong> <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time>.
         </p>
-        <p class={note} data-when-set={expires ? '' : undefined}>Was <time datetime={entry.previousDate}>{dayText(entry.previousDate!)}</time>. {record.organizer}: “{entry.reason}”</p>
+        <p class={note} data-when-set={expires ? '' : undefined}>Was <time datetime={entry.previousDate}>{dayText(entry.previousDate!)}</time>. {organizer}: “{quoted(entry.reason)}”</p>
       </Fragment>
     )}
     {notAnnounced && (
@@ -143,16 +149,16 @@ const note = `mt-1.5 ${pub.meta}`;
         <span class:list={[square, 'bg-highlight']} aria-hidden="true"></span><strong class="font-semibold">Not yet announced.</strong>{row.lastHeld && <Fragment>{` ${lastWord} `}<time datetime={row.lastHeld}>{spanText(row.lastHeld, lastEnd)}</time>.</Fragment>}
       </p>
     )}
-    {entry.continues && entry.status === 'not-announced' && <p class={note}>{record.organizer}: “{entry.continues}”</p>}
+    {entry.continues && entry.status === 'not-announced' && <p class={note}>{organizer}: “{quoted(entry.continues)}”</p>}
     {entry.typicalWindow && (entry.status === 'typical' || entry.status === 'not-announced') && (
-      <p class={note}><span class="font-semibold text-ink">Typical window, not a date:</span> {entry.typicalWindow}</p>
+      <p class={note}><span class="font-semibold text-ink">Typical window, not a date:</span> {typeset(entry.typicalWindow)}</p>
     )}
     {canceled && (
       <Fragment>
         <p class={status}>
           <span class:list={[square, 'bg-ink-muted']} aria-hidden="true"></span><strong class="font-semibold">Canceled.</strong>{entry.date && <Fragment> Was set for <time datetime={entry.date}>{dayText(entry.date)}</time>.</Fragment>}
         </p>
-        {entry.reason && <p class={note}>{record.organizer}: “{entry.reason}”</p>}
+        {entry.reason && <p class={note}>{organizer}: “{quoted(entry.reason)}”</p>}
       </Fragment>
     )}
 
@@ -165,17 +171,17 @@ const note = `mt-1.5 ${pub.meta}`;
       </div>
     )}
     {details.length > 0 && <p class={note} data-when-set={expires ? '' : undefined}>{details.join(' · ')}</p>}
-    {closedDays.length > 0 && <p class={note} data-when-set={expires ? '' : undefined} data-closed-days>Closed: {closedDays.join(', ')}</p>}
+    {closedDays.length > 0 && <p class={note} data-when-set={expires ? '' : undefined} data-closed-days>Closed: {typeset(closedDays.join(', '))}</p>}
     {subEvents.length > 0 && (
       <ul class:list={['mt-1.5 space-y-0.5', pub.meta]} data-when-set={expires ? '' : undefined} data-sub-events>
         {subEvents.map((e) => (
-          <li><span class="font-semibold text-ink">{e.name}</span>{[e.date && formatDayLong(day(e.date)), e.time, e.place].filter(Boolean).map((part) => <Fragment> · {part}</Fragment>)}</li>
+          <li><span class="font-semibold text-ink">{typeset(e.name)}</span>{[e.date && formatDayLong(day(e.date)), publishedTime(e.time), typeset(e.place)].filter(Boolean).map((part) => <Fragment> · {part}</Fragment>)}</li>
         ))}
       </ul>
     )}
-    {line && <p class="mt-1.5 text-meta leading-[1.5] text-ink" data-local-line>{line}</p>}
+    {line && <p class="mt-1.5 text-meta leading-[1.5] text-ink" data-local-line>{typeset(line)}</p>}
     <p class:list={['mt-2', pub.meta]}>
-      Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · Source: <a href={source} rel="noopener" class={pub.link}>{record.organizer}</a>
+      Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · Source: <a href={source} rel="noopener" class={pub.link}>{organizer}</a>
     </p>
     {also.length > 0 && (
       <p class:list={['mt-1', pub.meta]} data-also-on>

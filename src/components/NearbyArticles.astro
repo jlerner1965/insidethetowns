@@ -7,6 +7,7 @@
  * opens. Nothing is drawn for a place no article on the site names; a
  * draft is not on the site.
  */
+import { typeset } from '@/lib/text';
 import { getNetworkHub } from '@/config';
 import { getCuriosity } from '@/lib/content';
 import { articlePath, articlesFor, kindLabel } from '@/lib/curiosity';
@@ -30,7 +31,8 @@ const articles = articlesFor(
   (await getCuriosity()).map((a) => a.data),
   place,
 ).map((a) => ({
-  title: a.title,
+  // Shown as text only: typographic quotes (src/lib/text.ts).
+  title: typeset(a.title),
   href: `${onHub ? '' : `https://${hub.domain}`}${articlePath(a)}`,
   label: kindLabel(a.kind),
 }));

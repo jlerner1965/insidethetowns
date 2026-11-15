@@ -240,13 +240,18 @@ November 2026: a former guide's own hero from its folder, or a Commons
 photograph that `scripts/fetch-hub-heroes.ts` brings in), otherwise a drawn
 horizon for the country it is in (peaks,
 foothills, mesas or plains, `src/lib/ridgeline.ts`), with the next date the
-town has under the name. Then "On this page" and numbered sections, each a
+town has under the name: its own events' soonest date set, and an outdoor or
+free-admission date only where no event of its has one (since 15 November
+2026; the page's script re-reads it by the reader's day the same way). Then "On this page" and numbered sections, each a
 full-width band, paper and white in turn: Events (the dates set, soonest
 first; those not yet announced, with when each was last held; what is open
 now; the year at a glance; the calendar links), Where to stay, Getting here
 (with the towns near it by road), Outdoor dates (the statewide ones: the
 next two, the rest behind a button and all on the page without the script)
-and About; then "More in <area>" with the next town in the area. A section
+and About; then "More in <area>": three to five other town pages, the
+area's own nearest by road first (`moreInRegion`), topped up to three from
+the nearest around it where the area has fewer, the heading naming every
+area listed; and, on a phone, "Back to contents". A section
 or a block with nothing in the files is not drawn, and the rest are
 numbered and listed in order (`src/lib/hub-town-page.ts`). The town's own
 outdoor dates are among its dates under Events; the statewide ones have
@@ -254,7 +259,14 @@ their section. The look: a 2px ink rule, the number and a serif heading
 open each section; italic subheads over a thin ink rule; rows parted by
 hairlines; no rounded cards, pills or shadows (`src/components/hub/`).
 From 900px (`desk:`) the sections sit in a 720px column beside a rail
-holding On this page, which stays in view; below it, the phone's page.
+holding On this page, which stays in view and marks the section in view
+(`aria-current="location"`: ink, with a 2px ink rule at its left; without
+the script, the plain list); below it, the phone's page. Data strings are
+set with typographic quotes (`typeset`, `src/lib/text.ts`) and an
+organizer's times in the site's style (`publishedTime`, `src/lib/dates.ts`)
+where they are shown, never in a slug, an address or an attribute; the
+built site's check refuses a straight quote or a space before a comma in a
+town page's words.
 Every dated row, there and on the season pages and a guide's
 `/traditions/`, carries a date block: month, day and year where the
 organizer has set a date, "TBA" where it has not, never last year's date.
@@ -281,7 +293,8 @@ latest estimate with its year, county, the year of incorporation); Getting
 there (miles and drive time from Denver, the Bustang family's stops, the
 nearest commercial airport by road); Where to stay (the property's own
 site, never a booking or affiliate link); and the history card (the name,
-the founding, three to five dated facts, museums and landmarks with hours,
+the founding, three to five dated facts, one row a year and none that only
+repeats the name or the founding, museums and landmarks with hours,
 cost and season, ghost towns and makers where they apply). The bulk facts
 are written by `scripts/town-facts.ts`, run by hand, never at build time;
 the rest is one file a town, `data/hub/towns/<slug>.json`, every value with

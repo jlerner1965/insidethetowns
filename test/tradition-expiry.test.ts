@@ -5,7 +5,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { correctDates, datePassed, expireRows, fillPastText, type DateNode } from '../src/lib/tradition-expiry.ts';
+import { correctDates, datePassed, expireRows, fillPastText, nextRowIndex, type DateNode } from '../src/lib/tradition-expiry.ts';
 import { hiddenFaceWords } from '../scripts/lib/site-check.ts';
 import { isUpcoming, seasonCounts, seasonRows, townGroups, type TraditionRecord } from '../src/lib/traditions.ts';
 
@@ -135,4 +135,19 @@ test('the site check refuses a hidden after-the-date face that carries words, an
   assert.equal(found[1], '(last held)');
   // A note shown on purpose (a date already held) is not a hidden face.
   assert.deepEqual(hiddenFaceWords('<span data-held-note> (last held)</span>'), []);
+});
+
+test('the hero’s next date, re-read in the browser, keeps the build’s rule: the town’s own event before an outdoor date', () => {
+  // Fort Collins on 15 November 2026: the boat ramps close on the 23rd, NoCo Winter Wonderland opens on the 26th.
+  const rows = [
+    { starts: '2026-11-23', agency: true },
+    { starts: '2026-11-26', agency: false },
+    { starts: '2026-12-05', agency: false },
+  ];
+  assert.equal(nextRowIndex(rows), 1, 'the event, not the boat ramps');
+  // Once every event has passed, the soonest outdoor date.
+  assert.equal(nextRowIndex([{ starts: '2026-12-20', agency: true }, { starts: '2026-11-23', agency: true }]), 1);
+  // The same day: the page's order.
+  assert.equal(nextRowIndex([{ starts: '2026-11-26', agency: false }, { starts: '2026-11-26', agency: false }]), 0);
+  assert.equal(nextRowIndex([]), -1);
 });

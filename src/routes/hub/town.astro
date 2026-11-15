@@ -17,8 +17,8 @@
  *   button), and About (the figures, the town's live signature, its
  *   history, museums and landmarks, and the articles that name it);
  *
- * and last "More in <area>", the way back to the contents and the
- * correction line. A section or a block with nothing in the town's files
+ * and last "More in <area>" (three to five town pages, nearest by road),
+ * the way back to the contents on a phone and the correction line. A section or a block with nothing in the town's files
  * is not drawn, and the sections drawn are numbered and listed in order
  * (src/lib/hub-town-page.ts). Every fact is the files' own, in the words
  * the page used before the redesign, with its source and its check date.
@@ -50,20 +50,21 @@ import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
 import OpenNow from '@/components/OpenNow.astro';
 import NearbyArticles from '@/components/NearbyArticles.astro';
 import { findTown, getHub } from '@/config';
-import { STANDALONE_GUIDES, clusterName, findHubTown, hubCountyLine } from '@/config/hub-towns';
+import { STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getCuriosity, getTraditions } from '@/lib/content';
 import { articlesFor } from '@/lib/curiosity';
 import { dayKey, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { hubTownPhoto } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
 import { appliesTo, eventPage, eventPath, lineFor, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
-import { milesShort, nextInCluster, pageSections, profileView, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
+import { milesShort, moreHeading, moreInRegion, pageSections, profileView, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
 import { formatDrive, formatMiles, type Airports, type RoadMiles, type TownFacts } from '@/lib/near';
 import { nearView } from '@/lib/near-view';
 import { openNow } from '@/lib/open-now';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { FLOW_SOURCES, SNOW_SOURCE, formatCfs, percentOfMedian, riverFlow, snowpack, type FlowData, type SnowData } from '@/lib/town-signals';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
+import { typeset } from '@/lib/text';
 import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isAgencyDate, isUnderWay, isUpcoming, rowState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
 import type { TownProfile } from '@/lib/town-profile';
 // The italic of the heading face, for the subheads and the decks: the guides' pages do not use it, so it is loaded here only.
@@ -128,7 +129,7 @@ const intro = show?.intro ?? 'The events this town holds every year and the outd
 
 /** The town's own dates: its events and the outdoor dates that name it (not the statewide ones, which have their section). */
 const own = [...traditions, ...outdoor];
-/** The next date the town has, under its name: the soonest set, an event before an outdoor date on the same day. */
+/** The next date the town has, under its name: its own events' soonest date set; an outdoor date only where no event of its has one (src/lib/hub-towns.ts, nextUp). */
 const nextUp = nextRowUp(traditions, outdoor);
 /** Its day, or for a run already under way the day it ends: "On now, through Saturday, October 31, 2026" (src/lib/traditions.ts, isUnderWay). */
 const nextDay = nextUp
@@ -209,8 +210,9 @@ const STATEWIDE_SHOWN = 2;
 const statewideFirst = statewide.slice(0, STATEWIDE_SHOWN);
 const statewideRest = statewide.slice(STATEWIDE_SHOWN);
 
-/** The one town after this one in its area, coming round to the first, and the area's name as a reader sees it. */
-const nextTown = nextInCluster(town, published);
+/** The other town pages in its area, nearest by road first (src/lib/hub-town-page.ts, moreInRegion), and the areas they are in. */
+const more = moreInRegion(town, published, roads);
+const moreIn = moreHeading(more);
 const subject = `[Correction] ${town.name}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 ---
@@ -287,13 +289,13 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
         <div class="min-w-0">
           <p class:list={[pub.cap, 'text-white']}>{county} · Colorado</p>
           <h1 id="town-name" class="mt-3 text-[3.5294rem] font-medium leading-[0.95] tracking-[-0.03em] text-white [font-variation-settings:normal] desk:text-[4.9412rem]">{town.name}</h1>
-          <p class="mt-3.5 max-w-[40rem] text-base leading-[1.55] text-white">{intro}</p>
+          <p class="mt-3.5 max-w-[40rem] text-base leading-[1.55] text-white">{typeset(intro)}</p>
         </div>
         {/* Over a photograph from 900px, the next date has a soft shade the size of the block (the guides' lineShade, Hero.astro), so a bright roof behind it cannot wash it out. */}
         {nextUp && (
           <div class:list={['mt-5 min-w-0 border-t border-white/50 pt-3 desk:mt-0', hero && 'relative desk:before:pointer-events-none desk:before:absolute desk:before:-inset-x-8 desk:before:-inset-y-4 desk:before:-z-10 desk:before:rounded-[2rem] desk:before:bg-black/40 desk:before:blur-[22px]']} data-next-up>
             <p class:list={[pub.cap, 'text-white']}>Next {town.name} date</p>
-            <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal] desk:text-[1.4118rem]"><a href={`#${nextUp.record.slug}`} class="text-white underline decoration-1 underline-offset-[3px]">{nextUp.record.name}</a></p>
+            <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal] desk:text-[1.4118rem]"><a href={`#${nextUp.record.slug}`} class="text-white underline decoration-1 underline-offset-[3px]">{typeset(nextUp.record.name)}</a></p>
             <p class="mt-1 text-base text-white" data-next-day>{nextDay}</p>
           </div>
         )}
@@ -315,7 +317,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       <ol class="grid grid-cols-2 gap-x-[18px] sm:grid-cols-3 desk:grid-cols-1">
         {sections.map((s, i) => (
           <li>
-            <a href={`#${s.id}`} class="flex min-h-12 items-center gap-2.5 border-b border-hairline font-heading text-[1.1176rem] font-medium leading-tight text-primary [font-variation-settings:normal]">
+            <a href={`#${s.id}`} class="relative flex min-h-12 items-center gap-2.5 border-b border-hairline font-heading text-[1.1176rem] font-medium leading-tight text-primary [font-variation-settings:normal] aria-[current=location]:text-ink aria-[current=location]:before:absolute aria-[current=location]:before:inset-y-0 aria-[current=location]:before:-left-3 aria-[current=location]:before:w-[2px] aria-[current=location]:before:bg-ink aria-[current=location]:before:content-['']" data-otp-link>
               <span class="inline-block w-3.5 shrink-0 font-normal no-underline" aria-hidden="true">{i + 1}</span>
               <span class="underline decoration-1 underline-offset-[3px]">{s.label}</span>
             </a>
@@ -373,8 +375,8 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       <ul class="mt-3.5 border-t border-hairline">
         {profile.lodging.map((l) => (
           <li class:list={['py-3.5', pub.rule]}>
-            <h3 class={pub.title}><a href={l.url} rel="noopener" class={pub.titleLink}>{l.name}</a></h3>
-            {(l.kind || l.season) && <p class:list={['mt-0.5', pub.meta]}>{[l.kind, l.season].filter(Boolean).join(' · ')}</p>}
+            <h3 class={pub.title}><a href={l.url} rel="noopener" class={pub.titleLink}>{typeset(l.name)}</a></h3>
+            {(l.kind || l.season) && <p class:list={['mt-0.5', pub.meta]}>{typeset([l.kind, l.season].filter(Boolean).join(' · '))}</p>}
           </li>
         ))}
       </ul>
@@ -393,14 +395,14 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
             <div class={pub.dl}>
               <dt class={pub.dt}>Bus and transit</dt>
               <dd class="space-y-1.5">
-                {profile.transit.map((t) => <p class={pub.t}><a href={t.url} rel="noopener" class={pub.link}>{t.name}</a>{t.detail && <Fragment>: {t.detail}</Fragment>}</p>)}
+                {profile.transit.map((t) => <p class={pub.t}><a href={t.url} rel="noopener" class={pub.link}>{typeset(t.name)}</a>{t.detail && <Fragment>: {typeset(t.detail)}</Fragment>}</p>)}
               </dd>
             </div>
           )}
           {profile.airport && (
             <div class={pub.dl}>
               <dt class={pub.dt}>Nearest commercial airport</dt>
-              <dd class={pub.t}>{profile.airport.url ? <a href={profile.airport.url} rel="noopener" class={pub.link}>{profile.airport.name}</a> : profile.airport.name} ({profile.airport.code}), {profile.airport.city}: {formatMiles(profile.airport.miles)} by road</dd>
+              <dd class={pub.t}>{profile.airport.url ? <a href={profile.airport.url} rel="noopener" class={pub.link}>{typeset(profile.airport.name)}</a> : typeset(profile.airport.name)} ({profile.airport.code}), {typeset(profile.airport.city)}: {formatMiles(profile.airport.miles)} by road</dd>
             </div>
           )}
           {passes.length > 0 && (
@@ -409,9 +411,9 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               <dd class="space-y-2.5">
                 {passes.map(({ pass, ends }) => (
                   <p class={pub.t} data-pass={pass.slug}>
-                    {pass.name}{pass.highway && <Fragment> · {pass.highway}</Fragment>}
+                    {typeset(pass.name)}{pass.highway && <Fragment> · {typeset(pass.highway)}</Fragment>}
                     {ends.length === 2 && <Fragment> · between {ends.map((e, i) => (<Fragment>{i > 0 && ' and '}<a href={e.href} class={pub.link}>{e.name}</a></Fragment>))}</Fragment>}
-                    {pass.seasonalClosure && <span class:list={['block', pub.meta]}>Usual seasonal closure: {pass.seasonalClosure}</span>}
+                    {pass.seasonalClosure && <span class:list={['block', pub.meta]}>Usual seasonal closure: {typeset(pass.seasonalClosure)}</span>}
                     {pass.statusUrl && <span class:list={['block', pub.meta]}><a href={pass.statusUrl} rel="noopener" class={pub.link}>{pass.statusLabel ?? 'COtrip'}</a> for today’s status · checked <time datetime={pass.checked}>{short(pass.checked)}</time></span>}
                   </p>
                 ))}
@@ -433,7 +435,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
             {near.map((n) => (
               <li data-near={n.place} data-miles={n.miles}>
                 <a href={n.href} class="flex min-h-12 items-center justify-between gap-2 border-b border-hairline text-base text-primary no-underline">
-                  <span class="underline decoration-1 underline-offset-[3px]">{n.name}</span>
+                  <span class="underline decoration-1 underline-offset-[3px]">{typeset(n.name)}</span>
                   <span class="shrink-0 text-ink-muted" aria-label={`${formatMiles(n.miles)} by road`}>{milesShort(n.miles)}</span>
                 </a>
               </li>
@@ -476,7 +478,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <dl class:list={['grid grid-cols-2', figureColumns[profile.strip.length]]}>
             {profile.strip.map((f, i) => (
               <div class:list={['border-b border-hairline pb-3.5 pt-3 desk:col-span-1', i % 2 === 0 ? 'border-r pr-3.5' : 'pl-3.5', profile.strip.length % 2 === 1 && i === profile.strip.length - 1 && 'col-span-2 border-r-0', i < profile.strip.length - 1 ? 'desk:border-r desk:pr-3.5' : 'desk:border-r-0 desk:pr-0', i > 0 ? 'desk:pl-3.5' : 'desk:pl-0']}>
-                <dt class={pub.meta}>{f.label}</dt>
+                <dt class={pub.meta}>{typeset(f.label)}</dt>
                 <dd class="mt-1 font-heading text-date leading-[1.05] text-ink [font-variation-settings:normal]">{f.value}</dd>
               </div>
             ))}
@@ -484,7 +486,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           {profile.stripSources.length > 0 && profile.factsChecked && (
             <p class:list={['mt-2.5', pub.meta]}>
               Checked <time datetime={profile.factsChecked}>{short(profile.factsChecked)}</time> · Sources:
-              {profile.stripSources.map((s, i) => (<Fragment>{i > 0 && '; '}<a href={s.url} rel="noopener" class={pub.link}>{s.name}</a></Fragment>))}
+              {profile.stripSources.map((s, i) => (<Fragment>{i > 0 && '; '}<a href={s.url} rel="noopener" class={pub.link}>{typeset(s.name)}</a></Fragment>))}
             </p>
           )}
         </Fragment>
@@ -496,7 +498,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <ul>
             {stocked.map((w) => (
               <li class:list={['py-3', pub.rule]}>
-                <a href={w.atlas} rel="noopener" class:list={[pub.title, pub.titleLink, 'font-heading']}>{w.name}</a>
+                <a href={w.atlas} rel="noopener" class:list={[pub.title, pub.titleLink, 'font-heading']}>{typeset(w.name)}</a>
                 <p class:list={['mt-0.5', pub.meta]}>Added to the report <time datetime={w.added}>{formatDayLong(parseLocal(w.added))}, {w.added.slice(0, 4)}</time></p>
               </li>
             ))}
@@ -510,7 +512,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       )}
       {gauge && flow && (
         <div data-signature="river-flow" data-measured={flow.measured}>
-          <h3 class={pub.h3}>The {gauge.river} {gauge.where}</h3>
+          <h3 class={pub.h3}>The {typeset(gauge.river)} {typeset(gauge.where)}</h3>
           <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <span class="font-heading text-date leading-none text-ink [font-variation-settings:normal]">{formatCfs(flow.cfs)}</span>
             <span class={pub.t}>cubic feet a second</span>
@@ -524,7 +526,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       )}
       {station && snow && (
         <div data-signature="snowpack" data-day={snow.date}>
-          <h3 class={pub.h3}>Snowpack at {station.name}, {station.elevationFt.toLocaleString('en-US')} feet</h3>
+          <h3 class={pub.h3}>Snowpack at {typeset(station.name)}, {station.elevationFt.toLocaleString('en-US')} feet</h3>
           <p class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <span class="font-heading text-date leading-none text-ink [font-variation-settings:normal]">{inches(snow.swe)}</span>
             <span class={pub.t}>of water in the snow (snow water equivalent)</span>
@@ -547,10 +549,10 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
             <Fragment>
               <h3 class={pub.h3}>History</h3>
               <dl>
-                {profile.heritage.nameOrigin && <div class={pub.dlHistory}><dt class={pub.dt}>The name</dt><dd class={pub.t}>{profile.heritage.nameOrigin.text}</dd></div>}
-                {profile.heritage.founded && <div class={pub.dlHistory}><dt class={pub.dt}>Founded</dt><dd class={pub.t}>{profile.heritage.founded.year}{profile.heritage.founded.text && <Fragment>: {profile.heritage.founded.text}</Fragment>}</dd></div>}
+                {profile.heritage.nameOrigin && <div class={pub.dlHistory}><dt class={pub.dt}>The name</dt><dd class={pub.t}>{typeset(profile.heritage.nameOrigin.text)}</dd></div>}
+                {profile.heritage.founded && <div class={pub.dlHistory}><dt class={pub.dt}>Founded</dt><dd class={pub.t}>{profile.heritage.founded.year}{profile.heritage.founded.text && <Fragment>: {typeset(profile.heritage.founded.text)}</Fragment>}</dd></div>}
                 {profile.heritage.timeline.map((t) => (
-                  <div class={pub.dlYear}><dt class="font-heading text-sub leading-[1.35] text-primary tabular-nums [font-variation-settings:normal]">{t.year}</dt><dd class={pub.t}>{t.text}</dd></div>
+                  <div class={pub.dlYear}><dt class="font-heading text-sub leading-[1.35] text-primary tabular-nums [font-variation-settings:normal]">{t.year}</dt><dd class={pub.t}>{typeset(t.text)}</dd></div>
                 ))}
               </dl>
             </Fragment>
@@ -560,12 +562,12 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               <h3 class={pub.h3}>Museums and landmarks</h3>
               {profile.heritage.sites.map((s) => (
                 <Fragment>
-                  <h4 class:list={['mt-3.5', pub.title]}>{s.url ? <a href={s.url} rel="noopener" class={pub.titleLink}>{s.name}</a> : s.name}</h4>
+                  <h4 class:list={['mt-3.5', pub.title]}>{s.url ? <a href={s.url} rel="noopener" class={pub.titleLink}>{typeset(s.name)}</a> : typeset(s.name)}</h4>
                   {(s.hours || s.cost || s.season) && (
                     <dl class="mt-2 border-t border-hairline">
-                      {s.hours && <div class={pub.dlMuseum}><dt class={pub.dt}>Hours</dt><dd class={pub.t}>{s.hours}</dd></div>}
-                      {s.cost && <div class={pub.dlMuseum}><dt class={pub.dt}>Cost</dt><dd class={pub.t}>{s.cost}</dd></div>}
-                      {s.season && <div class={pub.dlMuseum}><dt class={pub.dt}>Season</dt><dd class={pub.t}>{s.season}</dd></div>}
+                      {s.hours && <div class={pub.dlMuseum}><dt class={pub.dt}>Hours</dt><dd class={pub.t}>{typeset(s.hours)}</dd></div>}
+                      {s.cost && <div class={pub.dlMuseum}><dt class={pub.dt}>Cost</dt><dd class={pub.t}>{typeset(s.cost)}</dd></div>}
+                      {s.season && <div class={pub.dlMuseum}><dt class={pub.dt}>Season</dt><dd class={pub.t}>{typeset(s.season)}</dd></div>}
                     </dl>
                   )}
                 </Fragment>
@@ -577,7 +579,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               <h3 class={pub.h3}>Ghost towns nearby</h3>
               <ul>
                 {profile.heritage.ghostTowns.map((g) => (
-                  <li class:list={['py-3', pub.rule, pub.t]}>{g.url ? <a href={g.url} rel="noopener" class={pub.link}>{g.name}</a> : <span class="font-semibold">{g.name}</span>}{g.text && <Fragment>: {g.text}</Fragment>}</li>
+                  <li class:list={['py-3', pub.rule, pub.t]}>{g.url ? <a href={g.url} rel="noopener" class={pub.link}>{typeset(g.name)}</a> : <span class="font-semibold">{typeset(g.name)}</span>}{g.text && <Fragment>: {typeset(g.text)}</Fragment>}</li>
                 ))}
               </ul>
             </Fragment>
@@ -587,7 +589,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               <h3 class={pub.h3}>Made in {town.name}</h3>
               <ul>
                 {profile.heritage.makers.map((m) => (
-                  <li class:list={['py-3', pub.rule, pub.t]}><a href={m.url} rel="noopener" class={pub.link}>{m.name}</a>: {m.what}</li>
+                  <li class:list={['py-3', pub.rule, pub.t]}><a href={m.url} rel="noopener" class={pub.link}>{typeset(m.name)}</a>: {typeset(m.what)}</li>
                 ))}
               </ul>
             </Fragment>
@@ -606,13 +608,19 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   {/* The page's dates put right to the reader's own day (src/lib/tradition-expiry.ts). Before the close, so the close is the last band and the footer meets it. */}
   <DateCorrection />
 
-  {/* The close: the next town in the area, the way back up, and where the dates come from. */}
-  <section id="more" aria-labelledby={nextTown ? 'more-heading' : undefined} aria-label={nextTown ? undefined : 'Contents'} data-band class:list={['scroll-mt-4 px-[20px] pb-[56px] pt-[36px] desk:px-0 desk:pb-[64px] desk:pt-[56px]', closingTone === 'paper' ? pub.paperBleed : pub.white]}>
+  {/* The close: more town pages in the area, the way back up (on a phone; from 900px the rail is always in view), and where the dates come from. */}
+  <section id="more" aria-labelledby={more.length > 0 ? 'more-heading' : undefined} aria-label={more.length > 0 ? undefined : 'Contents'} data-band class:list={['scroll-mt-4 px-[20px] pb-[56px] pt-[36px] desk:px-0 desk:pb-[64px] desk:pt-[56px]', closingTone === 'paper' ? pub.paperBleed : pub.white]}>
     <div class={pub.col}>
       <div class={pub.open}>
-        {nextTown && <h2 id="more-heading" class={pub.h2s}>More in {clusterName(town.cluster)}</h2>}
-        {nextTown && <a href={`/${nextTown.slug}/`} class:list={[pub.go, 'mt-2']} data-nearby>{nextTown.name} →</a>}
-        <a href="#contents" class={pub.go}>Back to contents ↑</a>
+        {more.length > 0 && <h2 id="more-heading" class={pub.h2s}>More in {moreIn}</h2>}
+        {more.length > 0 && (
+          <ul class:list={[pub.linkGrid, 'mt-2']} data-more-in>
+            {more.map((t) => (
+              <li><a href={`/${t.slug}/`} class:list={[pub.link, 'flex min-h-12 items-center border-b border-hairline text-base no-underline']} data-nearby={t.slug}><span class="underline decoration-1 underline-offset-[3px]">{t.name}</span></a></li>
+            ))}
+          </ul>
+        )}
+        <a href="#contents" class:list={[pub.go, more.length > 0 && 'mt-2', 'desk:hidden']} data-back-to-contents>Back to contents ↑</a>
       </div>
       <p class:list={['mt-3', pub.meta]}>
         Every date links to the page it was read from. Organizing an event in {town.name}? <a href={mailto} class={pub.link}>Send us your dates</a>.
@@ -625,6 +633,36 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
 </Base>
 
 <script>
+  // "On this page" marks the section in view (aria-current="location"):
+  // the last one whose top has passed a third of the way down the window,
+  // and the last of all once the page is scrolled to its foot. Without this
+  // script the rail is the plain list of links it was.
+  const railLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-otp-link]')];
+  const railTargets = railLinks.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))));
+  if (railLinks.length > 0) {
+    let queued = false;
+    const mark = () => {
+      queued = false;
+      const line = window.innerHeight / 3;
+      let current = -1;
+      railTargets.forEach((t, i) => {
+        if (t && t.getBoundingClientRect().top <= line) current = i;
+      });
+      const atFoot = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atFoot && current >= 0) current = railTargets.length - 1;
+      railLinks.forEach((a, i) => (i === current ? a.setAttribute('aria-current', 'location') : a.removeAttribute('aria-current')));
+    };
+    const queue = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(mark);
+    };
+    mark();
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    window.addEventListener('hashchange', queue);
+  }
+
   // The statewide dates past the next two fold away behind a button. Without
   // this script they are all on the page and the button stays hidden.
   const toggle = document.querySelector<HTMLButtonElement>('[data-statewide-toggle]');

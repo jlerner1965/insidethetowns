@@ -26,6 +26,7 @@
  * src/lib/expiry.ts, so the cases can be replayed in a test.
  */
 import { monthLabel } from './year-grid.ts';
+import { typeset } from './text.ts';
 
 export interface DateNode {
   dataset: Record<string, string | undefined>;
@@ -72,6 +73,21 @@ export function expireRows(root: DateNode, today: string): string[] {
 }
 
 /** The whole correction for one page. */
+/**
+ * Which of a town page's rows still ahead is its next date, by the rule
+ * the build uses (src/lib/hub-towns.ts, nextUp): the soonest event, and an
+ * agency's date (an outdoor or free-admission date) only where no event is
+ * left; the page's order breaks a tie. -1 where none is ahead.
+ */
+export function nextRowIndex(rows: ReadonlyArray<{ starts: string; agency: boolean }>): number {
+  let best = -1;
+  rows.forEach((r, i) => {
+    const b = rows[best];
+    if (!b || Number(r.agency) < Number(b.agency) || (r.agency === b.agency && r.starts < b.starts)) best = i;
+  });
+  return best;
+}
+
 export function correctDates(root: DateNode, today: string): void {
   const expired = new Set(expireRows(root, today));
 
@@ -139,22 +155,22 @@ export function correctDates(root: DateNode, today: string): void {
     }
   }
 
-  // "Next" under a town's name: the soonest date still ahead among the
-  // page's own rows (not the folded statewide ones), a tradition before an
-  // outdoor date on the same day, as the build chooses it.
+  // "Next" under a town's name, as the build chooses it (src/lib/hub-towns.ts,
+  // nextUp): the soonest of the town's own events still ahead among the
+  // page's own rows (not the folded statewide ones); an outdoor or
+  // free-admission date only where no event is ahead.
   const next = root.querySelector('[data-next-up]');
   if (next) {
-    const ahead = [...root.querySelectorAll('[data-tradition-row][data-starts]')]
-      .filter((r) => r.dataset.expired === undefined && !r.closest('[data-statewide]'))
-      // An outdoor date is the agency's, wherever its section is: under its own heading, or among a hub town page's dates (`data-agency`).
-      .map((r, i) => ({ r, i, outdoor: r.closest('#outdoor-dates') || r.dataset.agency !== undefined ? 1 : 0 }))
-      .sort((a, b) => a.r.dataset.starts!.localeCompare(b.r.dataset.starts!) || a.outdoor - b.outdoor || a.i - b.i)[0]?.r;
+    const rows = [...root.querySelectorAll('[data-tradition-row][data-starts]')].filter((r) => r.dataset.expired === undefined && !r.closest('[data-statewide]'));
+    // An outdoor date is the agency's, wherever its section is: under its own heading, or among a hub town page's dates (`data-agency`).
+    const ahead = rows[nextRowIndex(rows.map((r) => ({ starts: r.dataset.starts!, agency: !!r.closest('#outdoor-dates') || r.dataset.agency !== undefined })))];
     const link = next.querySelector('a');
     const day = next.querySelector('[data-next-day]');
     if (!ahead || !link || !day) next.remove();
     else if (link.getAttribute('href') !== `#${ahead.getAttribute('id')}`) {
       link.setAttribute('href', `#${ahead.getAttribute('id')}`);
-      link.textContent = ahead.dataset.name ?? '';
+      // The name as the page sets it: typographic quotes (src/lib/text.ts); the attribute keeps the file's.
+      link.textContent = typeset(ahead.dataset.name ?? '');
       day.textContent = ahead.dataset.dayText ?? '';
     }
   }

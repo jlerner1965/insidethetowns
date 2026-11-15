@@ -51,7 +51,7 @@ const builtAt = new Date();
 ---
 <Page
   title="A sample issue"
-  eyebrow="The weekly email"
+  eyebrow={`The ${sendDay} email`}
   description={`What the ${sendDay} email would contain this week, built from the listings.`}
   intro={`What the email would say if it went out on ${sendDay}, ${formatDate(send)}: the weekend town by town, from the same listings the guides show.`}
   noindex

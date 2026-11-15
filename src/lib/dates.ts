@@ -179,6 +179,38 @@ export function formatTime(date: Date): string {
   return s.replace(':00', '').replace(' AM', ' am').replace(' PM', ' pm').replace(' ', ' ');
 }
 
+/**
+ * A time as an organizer wrote it ("7:30AM", "5PM", "7:00 PM", "10 a.m.",
+ * "3PM-6PM"), in the style formatTime prints ("7:30 am", "5 pm", "3 pm –
+ * 6 pm"): the hour and minutes as written, ":00" dropped, "am" and "pm" in
+ * lower case after a space, and a hyphen or dash between two times as a
+ * spaced en dash (the review of 14 November 2026: eighteen town pages
+ * printed times as each source wrote them). The times themselves never
+ * change, and nothing is added: "5-9pm" is "5 – 9 pm", with no "pm" given
+ * to the 5. Words around the times ("Doors 8 p.m., show 9 p.m.", "around
+ * 5:00pm", "Noon-3pm") are kept as they are.
+ */
+export function publishedTime(text: string): string;
+export function publishedTime(text: string | undefined): string | undefined;
+export function publishedTime(text: string | undefined): string | undefined {
+  if (!text) return text;
+  const time = (h: string, m: string | undefined) => `${Number(h)}${m && m !== '00' ? `:${m}` : ''}`;
+  return (
+    text
+      // "7:30AM", "7:00 PM", "10 a.m.", "5pm": the hour, its minutes unless ":00", and "am" or "pm".
+      // A dotted "p.m." loses its dots, but one that also ends a sentence keeps the full stop ("9 a.m. Bring water." is "9 am. Bring water.").
+      .replace(/\b(\d{1,2})(?::(\d{2}))?\s*(?:([AaPp])\.\s?[Mm]\.?|([AaPp])\s?[Mm]\b)/g, (whole: string, h: string, m: string | undefined, dotted: string | undefined, plain: string | undefined, at: number, all: string) => {
+        const stop = whole.endsWith('.') && /^\s+[A-Z]/.test(all.slice(at + whole.length)) ? '.' : '';
+        return `${time(h, m)} ${(dotted ?? plain)!.toLowerCase()}m${stop}`;
+      })
+      // A range: "3 pm-6 pm", "5:00-7 pm", "3:30-5:30 pm", "Noon-3 pm", "9 am–12 pm", with the time after the dash in that style now.
+      .replace(/(\b\d{1,2}(?::\d{2})?(?: [ap]m)?|\b[Nn]oon)\s*[-–]\s*(?=\d{1,2}(?::\d{2})? [ap]m\b)/g, (_, from: string) => {
+        const m = from.match(/^(\d{1,2})(?::(\d{2}))?( [ap]m)?$/);
+        return `${m ? `${time(m[1]!, m[2])}${m[3] ?? ''}` : from} – `;
+      })
+  );
+}
+
 /** "10 am – 2 pm" or "All day" or "6:30 pm" */
 export function formatTimeRange(start: Date, end?: Date, allDay = false): string {
   if (allDay) return 'All day';

@@ -14,6 +14,7 @@ import { formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { openNow } from '@/lib/open-now';
 import type { TraditionRecord } from '@/lib/traditions';
 import { pub } from '@/components/hub/pub';
+import { typeset } from '@/lib/text';
 
 interface Props {
   /** The place's outdoor records: its own and the shared ones that name it. */
@@ -43,13 +44,12 @@ const lists = [
         <ul>
           {list.items.map((it) => (
             <li class:list={['py-3', pub.rule]} data-open-item data-from={it.from} data-until={it.until}>
-              <a href={`#${it.slug}`} class:list={[pub.link, 'text-base font-semibold']}>{it.facility}</a>
+              <a href={`#${it.slug}`} class:list={[pub.link, 'text-base font-semibold']}>{typeset(it.facility)}</a>
               <span class:list={['block', pub.meta]}>
                 {it.kindLabel} ·
-                <span data-when-next hidden={list.key !== 'next'}>{it.kind === 'booking' ? 'reservations open' : 'opens'} <time datetime={it.from}>{day(it.from)}</time></span>
-                <span data-when-open hidden={list.key !== 'open'}>opened <time datetime={it.from}>{formatShortDate(parseLocal(it.from))}</time></span>
-                {it.until && it.kind !== 'booking' && <Fragment>, until <time datetime={it.until}>{formatShortDate(parseLocal(it.until))}</time></Fragment>}
-                {it.note && <Fragment> · “{it.note}”</Fragment>}
+                {/* The comma follows the date with no space before it: "opened Nov 26, 2026, until Apr 18, 2027" (a line break between these spans put one there, the review of 14 November 2026); the hidden one of the two takes no space either. */}
+                <span data-when-next hidden={list.key !== 'next'}>{it.kind === 'booking' ? 'reservations open' : 'opens'} <time datetime={it.from}>{day(it.from)}</time></span><span data-when-open hidden={list.key !== 'open'}>opened <time datetime={it.from}>{formatShortDate(parseLocal(it.from))}</time></span>{it.until && it.kind !== 'booking' && <Fragment>, until <time datetime={it.until}>{formatShortDate(parseLocal(it.until))}</time></Fragment>}
+                {it.note && <Fragment> · “{typeset(it.note, { inner: true })}”</Fragment>}
               </span>
             </li>
           ))}
@@ -68,13 +68,12 @@ const lists = [
           <ul class="space-y-2.5">
             {list.items.map((it) => (
               <li class="text-[0.9375rem] leading-snug" data-open-item data-from={it.from} data-until={it.until}>
-                <a href={`#${it.slug}`} class="font-semibold text-ink no-underline hover:text-primary hover:underline">{it.facility}</a>
+                <a href={`#${it.slug}`} class="font-semibold text-ink no-underline hover:text-primary hover:underline">{typeset(it.facility)}</a>
                 <span class="block text-ink-muted">
                   {it.kindLabel} ·
-                  <span data-when-next hidden={list.key !== 'next'}>{it.kind === 'booking' ? 'reservations open' : 'opens'} <time datetime={it.from}>{day(it.from)}</time></span>
-                  <span data-when-open hidden={list.key !== 'open'}>opened <time datetime={it.from}>{formatShortDate(parseLocal(it.from))}</time></span>
-                  {it.until && it.kind !== 'booking' && <Fragment>, until <time datetime={it.until}>{formatShortDate(parseLocal(it.until))}</time></Fragment>}
-                  {it.note && <Fragment> · “{it.note}”</Fragment>}
+                  {/* The comma follows the date with no space before it: "opened Nov 26, 2026, until Apr 18, 2027" (a line break between these spans put one there, the review of 14 November 2026); the hidden one of the two takes no space either. */}
+                  <span data-when-next hidden={list.key !== 'next'}>{it.kind === 'booking' ? 'reservations open' : 'opens'} <time datetime={it.from}>{day(it.from)}</time></span><span data-when-open hidden={list.key !== 'open'}>opened <time datetime={it.from}>{formatShortDate(parseLocal(it.from))}</time></span>{it.until && it.kind !== 'booking' && <Fragment>, until <time datetime={it.until}>{formatShortDate(parseLocal(it.until))}</time></Fragment>}
+                  {it.note && <Fragment> · “{typeset(it.note, { inner: true })}”</Fragment>}
                 </span>
               </li>
             ))}

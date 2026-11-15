@@ -11754,3 +11754,45 @@ has almost never fetched, so the blur only showed the wait.
 - **The hub home's blur is off too** (the owner, the same evening). Its
   Flatirons photograph is the plain `<Image>` again, and
   `src/lib/placeholder.ts`, with nothing left using it, is gone.
+
+## The fifteen fixes from the walk of 14 November 2026
+
+The owner walked the hub's home, La Veta and every town page at 1280, 1024
+and 390 wide, and approved fifteen fixes as one pull request. The ones that
+change a rule:
+
+- **The hero's next date is the town's own event's.** `nextUp`
+  (src/lib/hub-towns.ts): the soonest date set among the town's events
+  (every type but an outdoor date and a free-admission day); an outdoor or
+  free-admission date only where no event has one. Since 12 November the
+  sooner of the two kinds had won, so fourteen heroes showed a boat ramp
+  closing or a ski area opening under a title naming the town's festival.
+  The page's script (src/lib/tradition-expiry.ts, `nextRowIndex`) re-reads
+  it by the reader's day with the same rule; it had kept the old one. The
+  lists below the hero did not change.
+- **"More in <area>" lists three to five town pages** (`moreInRegion`,
+  src/lib/hub-town-page.ts): the area's own, nearest by the road miles the
+  "Near" list prints, then any with no miles in the hub's order. Where the
+  area has fewer than three other pages (Walden alone in North Park; the
+  five two-town areas; Park gateway and Gunnison Valley, three towns
+  each), the nearest
+  pages by road from around it make up three, and the heading names every
+  area listed ("More in Yampa Valley and Grand County"), so it stays true.
+- **On this page marks the section in view** (`aria-current="location"`,
+  ink with a 2px ink rule), and "Back to contents" is a phone's only: from
+  900px the rail is always on screen.
+- **History has one row a year.** Rows of one year are joined when the
+  page is drawn (`sameYearJoined`), so each keeps its own source on the
+  sources line; 23 timeline rows that only repeated their town's Founded
+  or The name row, with nothing added, came out of the files. A row that
+  adds a fact stays (La Veta's 1876, "starting a period of growth").
+- **Words from the files are set as type** where they are shown:
+  typographic quotes (`typeset`, src/lib/text.ts) and an organizer's times
+  in the site's style (`publishedTime`, src/lib/dates.ts: "7:30AM" is
+  "7:30 am", "11:00 AM - 3:00 PM" is "11 am – 3 pm"; no time changes and
+  none is added: "5-9pm" is "5 – 9 pm"). Words quoted from an organizer
+  keep theirs. scripts/lib/site-check.ts now refuses a straight quote or a
+  space before a comma in a hub town page's words.
+- **The hub's footer is on its masthead's column** (1200px with 40px
+  sides from 900px, 20px below), and the email is "The Thursday email"
+  wherever the hub names it.

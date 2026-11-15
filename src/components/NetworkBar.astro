@@ -24,6 +24,7 @@
  * sees the list as before.
  */
 import { getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
+import { HUB_COLUMN } from './hub/pub';
 
 const site = getSite();
 const hub = getNetworkHub();
@@ -43,7 +44,8 @@ const link = 'inline-block py-2 no-underline hover:text-white hover:underline sm
 const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white';
 ---
 <div class="border-t border-white/15 bg-black/30 text-[0.875rem] text-white">
-  <div class="container-page flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5">
+  {/* On the hub, its pages' column, as the footer above it (Footer.astro). */}
+  <div class:list={[site.kind === 'hub' ? HUB_COLUMN : 'container-page', 'flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5']}>
     {site.kind === 'hub' ? (
       <nav aria-label="The guides" class="flex flex-col sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-4">
         <span class={label}>The guides</span>

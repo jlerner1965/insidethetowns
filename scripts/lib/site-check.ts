@@ -117,6 +117,12 @@ export interface Scan {
    * is not counted.
    */
   inlineScripts: number;
+  /**
+   * The words of the page's body as a reader gets them: tags taken out with
+   * nothing put in their place, entities decoded; no head, script or style.
+   * Attributes are not in it.
+   */
+  bodyText: string;
 }
 
 /**
@@ -174,7 +180,9 @@ export function scanHtml(html: string): Scan {
     if (attrs.id) ids.add(attrs.id);
     if (name === 'a' && attrs.name) ids.add(attrs.name);
   }
-  return { tags, titles, jsonLd, ids, hiddenWords: hiddenFaceWords(markup), inlineScripts };
+  const body = markup.match(/<body\b[^>]*>([\s\S]*)<\/body>/i)?.[1] ?? markup.replace(/<head\b[\s\S]*?<\/head>/i, '');
+  const bodyText = decodeEntities(body.replace(/<[^>]*>/g, ''));
+  return { tags, titles, jsonLd, ids, hiddenWords: hiddenFaceWords(markup), inlineScripts, bodyText };
 }
 
 /** A script element a browser would run: no type, or a JavaScript or module type. A data block (JSON, a template) is not run. */
@@ -509,6 +517,19 @@ export function checkSite(input: SiteInput): { problems: Problem[]; manifest: Ma
     }
     if (scan.hiddenWords.length > 0) {
       add('hidden-face-words', path, `a hidden after-the-date face carries words ("${scan.hiddenWords[0]!.slice(0, 60)}"); they belong in data-past-text, written in by the script (src/lib/tradition-expiry.ts)`);
+    }
+    // A hub town page's words as they are set (the review of 14 November
+    // 2026): a space before a comma ("Nov 26, 2026 , until"), where a
+    // template's line break fell before one, and a straight quote or
+    // apostrophe from a data file ("Santa's"), which src/lib/text.ts
+    // (typeset) sets as ’ ‘ “ ”. Attributes, addresses and slugs are not
+    // words on the page and keep the file's characters.
+    if (scan.tags.some((t) => 'data-town-hero' in t.attrs)) {
+      const near = (i: number) => scan.bodyText.slice(Math.max(0, i - 40), i + 20).replace(/\s+/g, ' ').trim();
+      const comma = scan.bodyText.search(/\s,/);
+      if (comma >= 0) add('text-space-before-comma', path, `a space before a comma: "${near(comma)}"`);
+      const quote = scan.bodyText.search(/['"]/);
+      if (quote >= 0) add('text-straight-quote', path, `a straight quote or apostrophe in the page's words: "${near(quote)}"; set it with typeset (src/lib/text.ts) where the data string is shown`);
     }
     if (!input.drafts && scan.tags.some((t) => 'data-draft' in t.attrs)) {
       add('draft-shipped', path, 'carries a draft article (data-draft) in a build without CURIOSITY_DRAFTS=1; nothing publishes until it is marked verified');

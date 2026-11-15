@@ -2,12 +2,12 @@
  * A guide's dates on its home page (src/lib/hub-towns.ts): only dates that
  * are set; the outdoor dates lead when two or more qualify, otherwise the
  * guide's traditions lead and the outdoor dates follow. And the next date
- * on a town page is the sooner of a tradition and an outdoor date.
+ * on a town page is its own event's, an outdoor date only where it has none.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { MIN_OUTDOOR_TO_LEAD, guideHomeDates, guideLines, nextUp, placeRows, statewideSummary } from '../src/lib/hub-towns.ts';
-import { isUpcoming, type TraditionRecord } from '../src/lib/traditions.ts';
+import { MIN_OUTDOOR_TO_LEAD, guideHomeDates, guideLines, nextUp, placeRows, publishedHubTowns, statewideSummary } from '../src/lib/hub-towns.ts';
+import { isAgencyDate, isUpcoming, type TraditionRecord } from '../src/lib/traditions.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
 import { STANDALONE_GUIDES } from '../src/config/hub-towns.ts';
 
@@ -71,23 +71,34 @@ test('the rule holds for every guide on the records as they are: nothing unannou
   }
 });
 
-test('next on a town page is the sooner of a tradition and an outdoor date', () => {
+test('next on a town page: the town’s own event first; an outdoor or free-admission date only where no event has a date set', () => {
   const rows = (records: TraditionRecord[]) => placeRows(records, 'salida', TODAY);
   const salida = { town: { name: 'Salida', guide: 'salida' } };
   const fest = rec('fest', { ...salida, type: 'festival' }, set('2027-07-10'));
   const ski = rec('ski-opens', salida, set('2026-12-04'));
-  let r = rows([fest, ski]);
-  assert.equal(nextUp(r.traditions, r.outdoor)?.record.slug, 'ski-opens', 'the outdoor date three weeks out, not the festival in July');
-  r = rows([rec('run', { ...salida, type: 'race' }, set('2026-11-27')), ski]);
-  assert.equal(nextUp(r.traditions, r.outdoor)?.record.slug, 'run');
-  // The same day: the tradition.
-  r = rows([rec('run', { ...salida, type: 'race' }, set('2026-12-04')), ski]);
-  assert.equal(nextUp(r.traditions, r.outdoor)?.record.slug, 'run');
-  // Only one kind has a date; neither has.
-  r = rows([rec('fest', { ...salida, type: 'festival' }, open), ski]);
-  assert.equal(nextUp(r.traditions, r.outdoor)?.record.slug, 'ski-opens');
+  const free = rec('free-day', { ...salida, type: 'free-day' }, set('2026-11-20'));
+  let r = rows([fest, ski, free]);
+  // The review of 14 November 2026: a ski area opening three weeks out no longer wins over the town's own festival in July.
+  assert.equal(nextUp(r.traditions, r.outdoor)?.record.slug, 'fest', 'the festival in July, not the ski area or the free day');
+  r = rows([rec('run', { ...salida, type: 'race' }, set('2026-11-27')), rec('parade', { ...salida, type: 'parade-of-lights' }, set('2026-12-05')), ski]);
+  assert.equal(nextUp(r.traditions, r.outdoor)?.record.slug, 'run', 'the soonest of the town’s own events');
+  // No event of the town's has a date set: the soonest outdoor or free-admission date.
+  r = rows([rec('fest', { ...salida, type: 'festival' }, open), ski, free]);
+  assert.equal(nextUp(r.traditions, r.outdoor)?.record.slug, 'free-day');
+  // Neither has one: no block.
   r = rows([rec('fest', { ...salida, type: 'festival' }, open)]);
   assert.equal(nextUp(r.traditions, r.outdoor), undefined);
+});
+
+test('the rule holds for every town page on the records as they are', () => {
+  const records = rawRecords();
+  for (const town of publishedHubTowns(records)) {
+    const { traditions, outdoor } = placeRows(records, town.slug, TODAY);
+    const next = nextUp(traditions, outdoor);
+    const ownSet = traditions.some(isUpcoming);
+    if (ownSet) assert.ok(next && !isAgencyDate(next.record.type), `${town.slug}: ${next?.record.slug} is not one of its own events`);
+    else assert.equal(next, outdoor.find(isUpcoming), town.slug);
+  }
 });
 
 test('the statewide fold’s summary is built from the records', () => {
