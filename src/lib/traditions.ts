@@ -331,6 +331,17 @@ export function isUpcoming(row: TraditionRow): boolean {
 }
 
 /**
+ * Whether a run of days began before `today` and is still on: its next
+ * date is the day it ends, "On now, through …", not the day it began. The
+ * hub's audit of 14 November 2026 found Durango's hero giving "Friday,
+ * April 10, 2026", the first day of a season still under way, as its next
+ * date. A run that begins today is today's, by its first day.
+ */
+export function isUnderWay(entry: { date?: string; endDate?: string }, today: string): boolean {
+  return !!entry.date && !!entry.endDate && entry.date < today && entry.endDate >= today;
+}
+
+/**
  * Whether a row is listed at all. Every row is, but a free-admission day:
  * a day that has passed drops off every page (the brief of 12 November
  * 2026), so one shows only with a date ahead, or with the window its

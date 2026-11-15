@@ -24,9 +24,10 @@ outdoor:
   edge: closes
 years:
   - year: 2026
-    status: not-announced
-    typicalWindow: "normally closes in mid-October"
-    checked: 2026-11-12
+    status: confirmed
+    date: 2026-11-13
+    sourceUrl: "https://www.nps.gov/romo/learn/news/trail-ridge-road-closes-to-through-travel-for-winter-2026-2027-season.htm"
+    checked: 2026-11-14
   - year: 2025
     status: confirmed
     date: 2025-11-14

@@ -102,6 +102,14 @@ const weekLabel = (w: GameWeek): string => {
   return `${formatWeekday(a)} ${d2 - d1 > 1 ? 'to' : 'and'} ${formatWeekday(b)}, ${month} ${d1}–${d2}`;
 };
 const STATUS_WORD = { scheduled: 'Scheduled', postponed: 'Postponed', final: 'Final' } as const;
+/**
+ * A game's status word. A scheduled game whose kickoff has passed reads
+ * "Result to come" until its final is entered, as the school sports pages
+ * have it (SeasonTable.astro): the hub's audit of 14 November 2026 found
+ * the playoff article calling thirteen played games "Scheduled".
+ */
+const now = new Date();
+const statusWord = (status: keyof typeof STATUS_WORD, kickoff: Date) => (status === 'scheduled' && kickoff.getTime() <= now.getTime() ? 'Result to come' : STATUS_WORD[status]);
 const cell = 'flex flex-col gap-0.5 sm:table-cell sm:border-b sm:border-line-soft sm:py-3.5 sm:pr-4 sm:align-top';
 
 const withPage = new Set(publishedHubTowns(await getTraditions()).map((t) => t.slug));
@@ -222,7 +230,7 @@ const sourced = 'mt-1 text-[0.8125rem] leading-snug text-ink-muted';
                         {g.stream && <a href={g.stream.url} rel="noopener" class="block self-start text-primary underline underline-offset-2">Stream: {g.stream.label}{g.stream.paid ? ' (paid)' : ''}</a>}
                       </td>
                       <td class={`${cell} sm:pr-0`}>
-                        <span class={g.status === 'postponed' ? 'block self-start rounded bg-highlight-soft px-1.5 font-semibold text-ink' : 'block font-semibold text-ink'} data-result>{STATUS_WORD[g.status]}{result && `: ${result}`}</span>
+                        <span class={g.status === 'postponed' ? 'block self-start rounded bg-highlight-soft px-1.5 font-semibold text-ink' : 'block font-semibold text-ink'} data-result>{statusWord(g.status, kickoff)}{result && `: ${result}`}</span>
                         {g.next && <span class="block text-ink" data-next>{g.next}</span>}
                         <a href={g.url} rel="noopener" class="block self-start text-primary underline underline-offset-2">CHSAA game page</a>
                       </td>

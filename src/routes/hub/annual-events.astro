@@ -15,7 +15,7 @@ import { dayKey, formatDate, parseLocal } from '@/lib/dates';
 import { nextLine } from '@/lib/hub-home';
 import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
-import { TRADITION_TYPES, TRADITION_TYPE_INFO, isUpcoming, seasonRows } from '@/lib/traditions';
+import { TRADITION_TYPES, TRADITION_TYPE_INFO, isUnderWay, isUpcoming, seasonRows } from '@/lib/traditions';
 
 const hub = getHub();
 const records = await getTraditions();
@@ -27,7 +27,7 @@ const roundUps = TRADITION_TYPES.flatMap((type) => {
   const next = coming[0];
   const towns = new Set(coming.map((r) => r.record.town?.name).filter(Boolean)).size;
   const info = TRADITION_TYPE_INFO[type];
-  return [{ title: info.plural, href: info.path, next: next ? { what: nextLine(next.record), day: next.entry.date! } : undefined, coming: coming.length, towns }];
+  return [{ title: info.plural, href: info.path, next: next ? { what: nextLine(next.record), day: next.entry.date!, through: isUnderWay(next.entry, today) ? next.entry.endDate : undefined } : undefined, coming: coming.length, towns }];
 }).sort((a, b) => (a.next && b.next ? a.next.day.localeCompare(b.next.day) : a.next ? -1 : b.next ? 1 : a.title.localeCompare(b.title)));
 
 const path = ANNUAL_EVENTS_HREF;
@@ -52,7 +52,8 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
         <h2 class="font-heading text-2xl font-medium leading-tight"><a href={r.href} class="text-ink no-underline hover:text-primary hover:underline">{r.title}</a></h2>
         {r.next ? (
           <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink">
-            Next: {r.next.what}, <time datetime={r.next.day}>{formatDate(parseLocal(r.next.day))}</time>
+            {/* A run already under way by the day it ends, not the day it began (the audit of 14 November 2026). */}
+            Next: {r.next.what}, {r.next.through ? <Fragment>on now, through <time datetime={r.next.through}>{formatDate(parseLocal(r.next.through))}</time></Fragment> : <time datetime={r.next.day}>{formatDate(parseLocal(r.next.day))}</time>}
           </p>
         ) : (
           <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">No date to come has been announced yet.</p>

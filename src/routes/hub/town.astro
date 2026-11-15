@@ -64,7 +64,7 @@ import { openNow } from '@/lib/open-now';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { FLOW_SOURCES, SNOW_SOURCE, formatCfs, percentOfMedian, riverFlow, snowpack, type FlowData, type SnowData } from '@/lib/town-signals';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isAgencyDate, isUpcoming, rowState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isAgencyDate, isUnderWay, isUpcoming, rowState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
 import type { TownProfile } from '@/lib/town-profile';
 // The italic of the heading face, for the subheads and the decks: the guides' pages do not use it, so it is loaded here only.
 import '@fontsource-variable/fraunces/opsz-italic.css';
@@ -128,7 +128,12 @@ const intro = show?.intro ?? 'The events this town holds every year and the outd
 const own = [...traditions, ...outdoor];
 /** The next date the town has, under its name: the soonest set, an event before an outdoor date on the same day. */
 const nextUp = nextRowUp(traditions, outdoor);
-const nextDay = nextUp ? `${formatDayLong(parseLocal(nextUp.entry.date!))}, ${nextUp.entry.date!.slice(0, 4)}` : undefined;
+/** Its day, or for a run already under way the day it ends: "On now, through Saturday, October 31, 2026" (src/lib/traditions.ts, isUnderWay). */
+const nextDay = nextUp
+  ? isUnderWay(nextUp.entry, today)
+    ? `On now, through ${formatDayLong(parseLocal(nextUp.entry.endDate!))}, ${nextUp.entry.endDate!.slice(0, 4)}`
+    : `${formatDayLong(parseLocal(nextUp.entry.date!))}, ${nextUp.entry.date!.slice(0, 4)}`
+  : undefined;
 /** No date set in the next 90 days: the page says so, above the lists. */
 const NEXT_DAYS = 90;
 const horizon = dayKey(new Date(parseLocal(today).getTime() + NEXT_DAYS * 86_400_000));

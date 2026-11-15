@@ -19,6 +19,7 @@ import {
   TRADITION_STATUSES,
   TRADITION_TYPE_INFO,
   fixturesEnabled,
+  isUnderWay,
   lastHeld,
   seasonCounts,
   seasonRows,
@@ -285,4 +286,12 @@ test('the research agent writes under docs/agent/ only, never to the collection'
   assert.ok(!agent.includes(TRADITIONS_DIR), 'agent.mjs never names content/hub/traditions');
   for (const m of agent.matchAll(/outFile:\s*path\.join\((\w+)/g)) assert.equal(m[1], 'outDir');
   assert.match(agent, /const outDir = path\.join\(root, 'docs', 'agent'/);
+});
+
+test('a run already under way is "on now" through its last day; one that begins today is today’s', () => {
+  assert.equal(isUnderWay({ date: '2026-04-10', endDate: '2026-11-30' }, '2026-11-14'), true);
+  assert.equal(isUnderWay({ date: '2026-11-14', endDate: '2026-11-30' }, '2026-11-14'), false);
+  assert.equal(isUnderWay({ date: '2026-11-06', endDate: '2026-11-14' }, '2026-11-14'), true);
+  assert.equal(isUnderWay({ date: '2026-11-06', endDate: '2026-11-13' }, '2026-11-14'), false);
+  assert.equal(isUnderWay({ date: '2026-11-06' }, '2026-11-14'), false);
 });
