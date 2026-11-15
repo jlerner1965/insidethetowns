@@ -12,7 +12,7 @@ recurring: "Mondays at 10"
 organizer: "Johnstown Milliken Public Libraries"
 source: "https://johnstownmillikenpubliclibraries.us/"
 sourceId: "johnstownmillikenpubliclibraries-us"
-verified: "2026-11-14"
+verified: "2026-11-15"
 verifiedBy: "recheck-events (the nightly re-check workflow): 16 November and 10 am on the page"
 ---
 

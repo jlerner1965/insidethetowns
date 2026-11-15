@@ -8,8 +8,8 @@ url: "https://highplains.libcal.com/event/16070718"
 cost: "Free"
 category: family
 source: "https://highplains.libcal.com/event/16070718"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
+verified: "2026-11-15"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Pokemon Hang Out!\" at 2 pm on 28 November on the highplains.libcal.com feed"
 ---
 
 An unstructured drop-in for elementary school children to trade Pokemon cards, play and talk about the game. No guidance on trading is provided.
