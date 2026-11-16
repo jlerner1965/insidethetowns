@@ -19,7 +19,7 @@
  *   4. The Thursday email, on the hub's blue.
  *   5. High school scores: each school the guides follow, with its last
  *      result from the scores files.
- *   6. In the towns: the newest stories and local changes, the newest
+ *   6. In the towns: the newest articles and local changes, the newest
  *      first and set larger.
  *   7. Find your town: the guides, and a box that takes any other town's
  *      name to its page.
@@ -53,7 +53,7 @@ import { emailEditions, getHub, listsEvents, liveTowns } from '@/config';
 import { hubCountyLine } from '@/config/hub-towns';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
-import { ARTICLES_INDEX_PATH, articlePath, storyHomeUntil } from '@/lib/curiosity';
+import { ARTICLES_INDEX_PATH, articlePath, kindLabel, storyHomeUntil } from '@/lib/curiosity';
 import { placeName } from '@/lib/curiosity-places';
 import { firstSentence } from '@/lib/plain-text';
 import { shorten, typeset } from '@/lib/text';
@@ -270,19 +270,25 @@ const scores = live
   );
 
 /**
- * In the towns: the hub's stories and the guides' current local changes,
- * the newest first, one per town, three at most (src/lib/hub-home.ts,
- * newsItems). Each leaves on its own last day; "All articles" keeps every
- * article on the site after it leaves here.
+ * In the towns: every article on the hub (stories, event articles and the
+ * topic articles alike) and the guides' current local changes, the newest
+ * first, one per town, five at most (src/lib/hub-home.ts, newsItems), so a
+ * new article is on the home page from the day it is published, without a
+ * click on "All articles" (the owner, 15 November 2026). An article stays
+ * a fortnight, or until a story's `homeUntil`. One that covers several
+ * towns counts as its own, so it never takes the place of a town's own
+ * change. Its label is its eyebrow where it has one ("News · Front Range",
+ * "History · Creede"), else its towns and its kind. Each leaves on its own
+ * last day; "All articles" keeps every article on the site after that.
  */
+const HOME_NEWS_LIMIT = 5;
 const articlesOnSite = (await getCuriosity()).map((a) => a.data);
-const stories = articlesOnSite.filter((a) => a.kind === 'story');
 const changes = networkChanges(await getNetworkEntries('updates'), now, { limit: 12, perTown: 1 });
 const news = newsItems(
   [
-    ...stories.map((a) => ({
-      town: a.towns[0]!,
-      label: `${a.towns.slice(0, 2).map((t) => placeName(t) ?? t).join(' · ')} · News`,
+    ...articlesOnSite.map((a) => ({
+      town: a.towns.length === 1 ? a.towns[0]! : `article:${a.slug}`,
+      label: a.eyebrow ?? `${a.towns.slice(0, 2).map((t) => placeName(t) ?? t).join(' · ')} · ${kindLabel(a.kind)}`,
       title: a.title,
       line: a.description,
       href: articlePath(a),
@@ -303,6 +309,7 @@ const news = newsItems(
     })),
   ],
   todayKey,
+  HOME_NEWS_LIMIT,
 ).map((i) => {
   const md = monthDay(parseLocal(i.date));
   return { ...i, byline: `${i.label} · ${md.month} ${md.day}` };
