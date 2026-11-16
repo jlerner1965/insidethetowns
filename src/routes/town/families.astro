@@ -232,7 +232,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
     <section id="closing" class="mt-10 scroll-mt-20" aria-labelledby="closing-h" data-age-section>
       <SectionHeader id="closing-h" title="Closing soon" eyebrow={`Deadlines in the next ${SOON_DAYS} days`} />
       <div class="space-y-4">
-        {closingSoon.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} />)}
+        {closingSoon.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} listed={isForFamilies(d.program)} />)}
       </div>
     </section>
   )}
@@ -241,7 +241,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
     <section id="opening" class="mt-10 scroll-mt-20" aria-labelledby="opening-h" data-age-section>
       <SectionHeader id="opening-h" title="Opening soon" eyebrow={`Registration opens in the next ${SOON_DAYS} days`} />
       <div class="space-y-4">
-        {openingSoon.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} />)}
+        {openingSoon.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} listed={isForFamilies(d.program)} />)}
       </div>
     </section>
   )}

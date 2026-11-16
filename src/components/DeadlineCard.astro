@@ -19,9 +19,18 @@ interface Props {
   /** The listing the program points at, when it is the deadline's own day. */
   event?: TownEntry<'events'>;
   now: Date;
+  /**
+   * The program has a row of its own further down the hub, which the title
+   * links to. The hub lists only programs for families (isForFamilies), and
+   * its deadlines come from every program: Erie's recreation scholarship,
+   * for every age, came within the fortnight on 16 November 2026 and its
+   * title linked to a row the page never drew. Without one the title goes
+   * to the organizer's page.
+   */
+  listed?: boolean;
 }
 
-const { deadline, event, now } = Astro.props;
+const { deadline, event, now, listed = true } = Astro.props;
 const { program, on, what } = deadline;
 const { data } = program;
 const badge = monthDay(on);
@@ -37,6 +46,8 @@ const reg = data.registration;
 // The button's name is the organizer's own "how", where it is short enough to be one.
 const how = reg?.how && reg.how.length <= 28 ? reg.how : what === 'opens' ? 'Registration' : 'Register';
 const listing = event && dayKey(event.data.start) === dayKey(on) ? event : undefined;
+const title = listing ? listing.data.title.replace(/\s*[:·-]\s*(?:\w+\s+)?due\s*$/i, '') : data.title;
+const titleHref = listed ? `#program-${program.slug}` : data.url;
 // "Free" only where the activity itself is (src/lib/programs.ts, isFree).
 const free = isFree(program) ? 'Free' : undefined;
 const track = data.kind === 'league' || data.kind === 'class' || data.kind === 'program' ? 'registration' : 'participation';
@@ -48,7 +59,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
       <span class="mt-0.5 text-[0.9375rem] font-bold">{badge.day}</span>
     </time>
     <div class="min-w-0">
-      <h3 class="text-lg font-semibold leading-snug"><a href={`#program-${program.slug}`} class="-my-3 inline-block py-3 no-underline hover:text-primary hover:underline">{listing ? listing.data.title.replace(/\s*[:·-]\s*(?:\w+\s+)?due\s*$/i, '') : data.title}</a></h3>
+      <h3 class="text-lg font-semibold leading-snug">{titleHref ? <a href={titleHref} rel={listed ? undefined : 'noopener'} class="-my-3 inline-block py-3 no-underline hover:text-primary hover:underline">{title}</a> : title}</h3>
       <p class="mt-0.5 text-[0.875rem] leading-snug text-ink-muted">
         {[data.organizer, free, leftText].filter(Boolean).join(' · ')}
       </p>

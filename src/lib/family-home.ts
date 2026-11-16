@@ -24,7 +24,7 @@ import { dayKey, daysBetween, formatDayRange, formatDayShort, formatTime, parseL
 import { listedUntil, weekendWindow } from './events.ts';
 import type { EventLike } from './flagship-home.ts';
 import { isFreeCost } from './cost.ts';
-import { ageText, deadlineAction, isFree, programStatus, splitDeadlines, type ProgramLike } from './programs.ts';
+import { ageText, deadlineAction, isForFamilies, isFree, programStatus, splitDeadlines, type ProgramLike } from './programs.ts';
 
 /** How far ahead a school break is worth a line on the home page. */
 export const BREAK_DAYS = 42;
@@ -60,7 +60,14 @@ function districtList(names: string[]): string {
   return names.length <= 2 ? names.join(' and ') : `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`;
 }
 
-const href = (p: ProgramLike) => `/families/#program-${p.slug ?? p.id ?? ''}`;
+/**
+ * Where a program is on the family hub: its row, which the hub draws only
+ * for a program for families (isForFamilies); else its deadline's card
+ * (DeadlineCard.astro, `deadline-<slug>`), since the hub's deadlines come
+ * from every program. Erie's recreation scholarship, for every age, has a
+ * card and no row (16 November 2026).
+ */
+const href = (p: ProgramLike) => `/families/#${isForFamilies(p) ? 'program' : 'deadline'}-${p.slug ?? p.id ?? ''}`;
 
 /** "Ages 6–14 on the day of camp" before a number; "Erie Middle School students" as the organizer wrote it. */
 export function agesFact(ages: string | undefined): string | undefined {
@@ -98,7 +105,9 @@ export function familyLines<P extends ProgramLike, E extends EventLike>({
   const lines: FamilyLine[] = [];
 
   // 1. The next school break a program keeps hours on.
+  // Only a program the hub lists: its school days off name no other (families.astro, breaks).
   const windows = live
+    .filter(isForFamilies)
     .filter((p) => {
       const deadline = p.data.registration?.deadline;
       return !deadline || dayKey(deadline) >= today;
