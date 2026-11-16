@@ -2,15 +2,15 @@
 title: "Threads needlecraft group"
 start: "2026-12-16T16:00"
 end: "2026-12-16T17:00"
-venue: "Erie Community Library living room"
+venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/14510617"
 cost: "Free"
 category: arts
 recurring: "First and third Wednesdays"
 source: "https://highplains.libcal.com/event/14510617"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
+verified: "2026-11-16"
+verifiedBy: "auto-review from the highplains.libcal.com feed read 2026-11-16, the weekly ingest workflow"
 ---
 
 Drop-in group for knitting, crochet, cross-stitch, embroidery, latch hook and hand sewing in the library living room. Bring your own supplies; all ages and levels welcome.

@@ -11,7 +11,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
@@ -33,7 +33,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "subscribe",
       "notes": "Found and read on 10 November 2026 by the sources agent. Firestone is one of the three towns this guide covers; its CivicPlus site offers two calendars on /iCalendar.aspx: \"Town of Firestone Special Events\" (catID 26, this feed) and \"Town of Firestone\" (catID 33). The Special Events iCal answered 200 with 1 VEVENT: the Carbon Valley Holiday Festival, 5 December 2026, 12 pm, Miners Park, 170 Grant Avenue, so 1 event in the next 30 days. The Town's Programs & Events page lists fourteen 2026 event dates from 18 April to 5 December (4 July, the August and September Fridays), each with its own page, and they reach this calendar as the date nears, as Frederick's do; expect one to three a month from April to October. The catID 33 calendar had 34 VEVENTs to August 2027, 13 in the next 30 days, of which only the same festival and a Chat with a Trustee (2 December) are not meetings, Municipal Court, office closures or Leaf Drop-Off days; it is not proposed. The site's robots.txt (CivicPlus's standard file, read 10 November 2026) disallows /common/modules/icalendar/, /calendar.aspx and /RSSFeed.aspx for every agent, as it has on every CivicPlus site since 20-21 October, so under robots: honor ingest will not read this; it is the feed the site offers residents as a calendar subscription, and robots: subscribe is the editor's call, as it was for frederickco-gov. Staged items should carry subTown firestone. America/Denver times; LOCATION is \"<place> - <address>\". robots: subscribe from 10 November 2026, the owner's call: the host's robots.txt disallows the path, and this is the calendar the organization publishes for subscription; one weekly read is what a subscribed calendar does (DECISIONS.md, \"The owner subscribes to the calendar feeds\")."
@@ -48,7 +48,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "subscribe",
       "notes": "Found and read once on 5 October 2026. CivicPlus, like Lyons, Berthoud, Erie and Johnstown. The Town keeps two public calendars; this is \"Frederick Events Calendar\" (CID 34), the Town-run community events: 2 items on 5 October (Frights on Fifth, 17 October, Downtown Frederick; Festival of Lights, 5 December, Crist Park, 105 Fifth Street), both all-day in the feed where the event pages give times. The iCal reaches further than the CivicPlus RSS (RSSFeed.aspx?ModID=58&CID=34, 1 item, current month only). The Town's signature events (Miners Day in September, Frederick in Flight in June, Chainsaws & Chuckwagons in July, Music in the Park on summer second Wednesdays, the Memorial Day ceremony) each have a page under /234/Events and reach the calendar only as the date nears, so the events page is read by hand as well. www.frederickco.gov/robots.txt is a Cloudflare content-signals stub with no rules; frederickco.gov's (CivicPlus) disallows /RSS.aspx and /CurrentEvents*.aspx, neither of which this reads. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. robots: subscribe from 29 October 2026, the editor's call delegated by the owner: CivicPlus added `Disallow: /common/modules/icalendar/` to every site it hosts on 20-21 October, which the check now reads case-blind, and this feed is the one the site offers residents as a calendar subscription; one nightly read is what a subscribed calendar does (DECISIONS.md, \"CivicPlus's calendar feeds\"). Found and read on 2 November 2026 by the Frederick build agent for the Frederick flagship build: the catID=34 feed carried one item, Festival of Lights (UID 4287, 5 December, all-day in the feed); the event page now gives 5:30 to 8 pm, and the listing was updated. The Events page (/234/Events) lists the 2026 season's seven Town events, all past but the Festival, and links the Frederick Market (four market dates a year), Music in the Park and the Memorial Day ceremony. The Town's news feed (/civicalerts.aspx) is registered separately below. The museum's first-Friday openings (6 November, 4 December) come from /717, not the feed."
@@ -63,7 +63,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
@@ -89,7 +89,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Found and read once on 5 October 2026. Granicus OpenCities (weldgov.com redirects here). The county's events listing filters by location, with Dacono, Firestone and Frederick each a choice, but only through an ASP.NET form post, and neither it, the County Calendar nor an event's own page offers iCal, RSS or JSON. Its 614-line robots.txt disallows several of the sub-calendars (holiday closures, the Health and Environment calendar, the commissioners' hearings calendar, job-seeker events) and allows the listing and the County Calendar. On 5 October the first page (5 to 15 October) had nothing in the three towns. Core as Boulder County is for Niwot and Lyons, but read by a person who sets the location filter; the county's offices and fairgrounds are in Greeley, thirty miles off. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read 2 November 2026 by the Frederick build agent: page 1 of the events listing (10 of 33) had nothing in Frederick (job-seeker classes in Greeley and Fort Lupton, a mobile health unit in Dacono on 5 November). The county's Elections Department page and its 2026 General Election voting and drop-box locations PDF were read for the Election Day listing (the rec center is a Voter Service and Polling Center on 2 and 3 November and a 24-hour drop box); the PDF answered 403 to curl but was read through WebFetch, and apps.weld.gov (wait times, maps) answers 403."
@@ -102,7 +102,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Found and read once on 5 October 2026: not readable. Every path on carbonvalleychamber.com, robots.txt included, answers automated requests with HTTP 202 and a SiteGround captcha page, so neither the site's robots rules nor its calendar could be read, and its CMS is unknown; the old GrowthZone calendar at business.carbonvalleychamber.com answers 410 Gone. The chamber is real (Firestone's History page and the Carbon Valley Parks and Recreation District both name it; CVPRD lists its Chamber Open golf tournament on 17 August). The host name is the obvious one and was not confirmed from an official page. Read by a person in a browser, or ask the chamber for its calendar. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. A manual source: confirming it puts it on the weekly check, where it will report blocked until the chamber's site admits readers. Read 2 November 2026 by the Frederick build agent: the home page now answers 200 and lists three events without venues (Business After Hours 5 November 5 pm, a Panda Express ribbon cutting 6 November 9 am, Business Connectors 10 November 8:30 am), phone 303-833-5933 and info@carbonvalleychamber.com; /about-us/ came back empty; the calendar and member directory on cca.carbonvalleychamber.com (EvtListingMainSearch.aspx, businesssearch.aspx) answer 403. Still read by a person. Checked for a feed on 10 November 2026 by the sources agent: carbonvalleychamber.com (WordPress, Divi) answers 200 and its robots.txt allows everything; the home page listed Business Connectors (10 November, 8:30 am), a Marketing and Events Committee meeting (10 November, 11 am) and the Monthly Business Luncheon (12 November, 11:30 am). There is no calendar on the WordPress site (/events/ and the Tribe REST path are 404); every Events link goes to cca.carbonvalleychamber.com/EvtListingMainSearch.aspx, which still answers 403 with a Cloudflare challenge, and business.carbonvalleychamber.com now fails on an expired certificate. No feed; still read by a person."
@@ -117,7 +117,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -160,7 +160,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Found and read once on 5 October 2026. The special district (established 1983, 45 square miles: Dacono, Firestone, Frederick and the country between) that runs the Carbon Valley Recreation Center, 701 Fifth Street, Frederick, the Community (Active Adults) Center and the Gymnastics Center, and the recreation programming for all three towns. Streamline (CivicPlus) site with no events module, no calendar page and no feed; the Special Events page is a hand-written list (\"2026 Schedule of Events\": Carbon Valley Kids Day 6 June in Firestone, Boot Scoot'n Bash 12 June in Dacono, the Chamber Open 17 August, Miners Day 19 September in Frederick, Zumba Glow Party 16 October, Eye of Freedom Encounter 28 October, Harvest & Holly Market 15 November 11 am to 3 pm at the Recreation Center, Burn the Bird Fitness Party 27 November) and the Active Adults page another (Senior Resource Fair, Empty Bowls Painting Party 12 October). Programs register through CivicRec (secure.rec1.com), which has no feed. The monthly Rec Connect newsletter PDF (/rec-connect-newsletter) is the fullest schedule. robots.txt allows everything but the SEO bots. Read by hand; each event's subTown is where it is held, not the district. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read 2 November 2026 by the Frederick build agent: Special Events still lists Harvest & Holly Market (15 November, 11 to 3, now with Wichita Run, the Legacy Dancers and a sold-out vendor list) and Burn the Bird (27 November, date only; the Fitness & Wellness page it links does not mention it, so it stays staged). The home page added a Red Cross blood drive on 25 November (9 to 2), listed. The district's program pages (youth basketball, swim lessons, camps, gymnastics, open gym, Kid Zone, toddler social time, adult sports, active adults, volunteer coaches, residency, rates, hours, pool schedule and rules) were read for the programs and places."
@@ -174,7 +174,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Found and read once on 5 October 2026. The Town's Parks, Open Space and Trails Division (Town-owned parks, open space, trails) and Golf Division (Bella Rosa Golf Course, the Frederick Recreation Area). No calendar of its own: park events go on the Frederick Events Calendar above, and recreation programming for Frederick is the Carbon Valley Parks and Recreation District's (cvprd-com). The facilities directory lists the parks (Centennial Park, 630 Eighth Street; Crist Park, 105 Fifth Street; Coalridge, Confluence, Countryside, Bulrush Open Space, the skate park at the Frederick Recreation Area); its later pages load by script, so read it in a browser. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read 2 November 2026 by the Frederick build agent: the department page names no parks (it gives the three divisions, the staff and 7301 Eagle Boulevard); /Facilities lists five (Bulrush, Centennial, Coalridge at 301 Warwick St, Confluence at 5549 Drake Way, Countryside at 7244 Forest Dr) and ?page=2 repeats page 1, so Crist Park (7), the Frederick Recreation Area (2) and the skate park (/733) were read by id. The four existing park listings were re-checked and three parks and the skate park added. The demographics page counts 26 developed parks, 594 acres of open space and 21 miles of trails."
@@ -188,7 +188,7 @@
       "category": "other",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Found and read on 2 November 2026 by the Frederick build agent. Streamline site, like CVPRD's; the calendar is a month grid (?month=YYYY-MM) with each event on its own page, no feed. November 2026: a CPR/AED/first-aid class (4 November, 6 pm, no price), Story Time at the Firehouse (5 November, Station 4, full), a babysitting class (7 November, 9:30-3:30, $50) and a board meeting; December: a board meeting only; January 2027 empty. The Santa Run page (three evenings in December from about 5 pm) promises the 2026 routes in late November. The district office is at 8426 Kosmerl Place, Frederick, 303-833-2742. Confirmed as a core official source: the district's classes and story times are Frederick events."
@@ -203,7 +203,7 @@
       "priority": "core",
       "status": "confirmed",
       "checkFrequency": "monthly",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Found and read on 2 November 2026 by the Frederick build agent. The district's calendar page links only the 2026-27 PDF (dated 8 April 2026, one landscape page), which gives every no-school day: 23-27 November, 21 December-1 January, 4 January (non-student contact, split day), 18 January, 12 February (non-student), 15 February, 15-19 March, 26-27 April, last day 27 May 2027, Frederick High graduation 29 May. The school-feeders page lists the Frederick feeder (Frederick High, Coal Ridge Middle, Thunder Valley K-8, Centennial, Legacy and Prairie Ridge elementaries, Spark! Discovery Preschool); the maps-boundaries page links the ArcGIS address lookup; open enrollment for 2027-28 is 1-15 December 2026. Each school's site gave its address. Carbon Valley Academy is not in the district directory; its address came from CDE's SchoolView profile (its own site answered 503). Frederick High's calendar page is 404; athletics schedules are on ArbiterLive, which this network does not read. Used for the families config, not for events."
@@ -217,7 +217,7 @@
       "category": "other",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Found and read on 2 November 2026 by the Frederick build agent. The Town's CivicPlus news list: four items on 2 November, one since September (Election Day Is November 3, posted 21 October, the source for the ballot deadline), plus the CDOT Highway 52 resurfacing notice (9 April 2026), Construction & Roadwork Updates (a standing page, /716) and the Water Use Guidance update (21 May 2026, Stage 1). The home page also carried the Thanksgiving Dinner in a Box and Santa Cops promotions. The CivicPlus RSS at /RSS.aspx is disallowed by frederickco.gov's robots.txt, so the list page is read by hand. Confirmed as a core official source for the Updates collection."
@@ -276,6 +276,8 @@
       "type": "ical",
       "category": "venue",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
         "Practice",
@@ -311,9 +313,7 @@
         "^Holiday$"
       ],
       "defaultVenue": "Coal Ridge Middle School, 6201 Booth Drive, Firestone",
-      "notes": "Found and read 10 November 2026. Coal Ridge Middle School, 6201 Booth Drive, Firestone (address from the school's home page and this guide's families config), the middle school of the Frederick feeder. Its home page embeds a public Google Calendar named \"CRMS Building Calendar\" (id svvsd.org_2d3139363534373231313035@resource.calendar.google.com); the public iCal for that id answered 200 text/calendar with 4,394 VEVENTs (309 recurring) from July 2011 to 20 May 2027. 48 items fall between 10 November and 10 December 2026; nearly all are practices, clubs, auditions, basketball and breaks. Worth a row: 6 concerts on 3 evenings, the Choir Winter Concert (1 December, 6th grade at 6 pm, 7th and 8th grade at 7 pm), the Winter Orchestra Concert (3 December, 6 pm and 7 pm) and the Winter Band Concert (10 December, 6 pm and 7 pm). The combined Frederick/TVMS/CRMS band concert of 8 December is the one Frederick High's feed already carries, so \"Combined\" is excluded here. Regulars and never-list items (about 40) are excluded by title as a first pass; a spring musical (Willy Wonka auditions are on 16 and 18 November) should arrive later. No item carries a LOCATION, so the school is the default venue. These are school concerts with an audience of families: whether they belong in the guide is the editor's call, as it was for the high school. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this feed; it is a public calendar the school embeds on its own site, and robots: subscribe is the owner's call, as it was for Frederick High. It was fetched once on 10 November 2026 to count it. crms.svvsd.org/robots.txt disallows only /wp-admin/ and a forms folder. Staged items should carry subTown firestone. 11 November 2026: the owner accepted public Google Calendar feeds as a source (\"I'm good with Google Calendar if the system works and provides more events\"), so this is confirmed with robots: subscribe and ingest reads it.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "ok"
+      "notes": "Found and read 10 November 2026. Coal Ridge Middle School, 6201 Booth Drive, Firestone (address from the school's home page and this guide's families config), the middle school of the Frederick feeder. Its home page embeds a public Google Calendar named \"CRMS Building Calendar\" (id svvsd.org_2d3139363534373231313035@resource.calendar.google.com); the public iCal for that id answered 200 text/calendar with 4,394 VEVENTs (309 recurring) from July 2011 to 20 May 2027. 48 items fall between 10 November and 10 December 2026; nearly all are practices, clubs, auditions, basketball and breaks. Worth a row: 6 concerts on 3 evenings, the Choir Winter Concert (1 December, 6th grade at 6 pm, 7th and 8th grade at 7 pm), the Winter Orchestra Concert (3 December, 6 pm and 7 pm) and the Winter Band Concert (10 December, 6 pm and 7 pm). The combined Frederick/TVMS/CRMS band concert of 8 December is the one Frederick High's feed already carries, so \"Combined\" is excluded here. Regulars and never-list items (about 40) are excluded by title as a first pass; a spring musical (Willy Wonka auditions are on 16 and 18 November) should arrive later. No item carries a LOCATION, so the school is the default venue. These are school concerts with an audience of families: whether they belong in the guide is the editor's call, as it was for the high school. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this feed; it is a public calendar the school embeds on its own site, and robots: subscribe is the owner's call, as it was for Frederick High. It was fetched once on 10 November 2026 to count it. crms.svvsd.org/robots.txt disallows only /wp-admin/ and a forms folder. Staged items should carry subTown firestone. 11 November 2026: the owner accepted public Google Calendar feeds as a source (\"I'm good with Google Calendar if the system works and provides more events\"), so this is confirmed with robots: subscribe and ingest reads it."
     },
     {
       "id": "coloradospeedway-com",
@@ -337,7 +337,7 @@
       "type": "ical",
       "category": "venue",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
@@ -420,6 +420,8 @@
       "type": "ical",
       "category": "venue",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
         "Practice",
@@ -437,9 +439,7 @@
         "Non-Student Contact"
       ],
       "defaultVenue": "Thunder Valley K-8, 600 5th Street, Frederick",
-      "notes": "Found and read 10 November 2026. Thunder Valley K-8, 600 5th Street, Frederick (address from this guide's families config; the school's home page was fetched and did not print it). The home page embeds a public Google Calendar named \"Thunder Valley Website Calendar\" (id c_umjia982kts6g0otn74ad8jekc@group.calendar.google.com); the public iCal answered 200 text/calendar with 559 VEVENTs (76 recurring) from November 2022 to 27 May 2027. 16 items touch 10 November to 10 December 2026, and 1 is worth a row: the Soaring Singers Concert (7 December, 6 pm). The rest are regulars or never-list: the weekly clubs and band and choir sessions, basketball practice and a home game (16 November), a booster fundraiser (11 November), an after-school Sip & Draw (17 November, 4 December) and the Thanksgiving break; excluded by title. No LOCATION on the items, so the school is the default venue. Expect one or two concerts or performances a month in term, fewer than the high school. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this feed; it is a public calendar the school embeds on its own site, and robots: subscribe is the owner's call, as it was for Frederick High. It was fetched once on 10 November 2026 to count it. tvk8.svvsd.org is the same district WordPress as crms.svvsd.org, whose robots.txt disallows only /wp-admin/ and a forms folder; its own robots.txt was not fetched separately. 11 November 2026: the owner accepted public Google Calendar feeds as a source (\"I'm good with Google Calendar if the system works and provides more events\"), so this is confirmed with robots: subscribe and ingest reads it.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "ok"
+      "notes": "Found and read 10 November 2026. Thunder Valley K-8, 600 5th Street, Frederick (address from this guide's families config; the school's home page was fetched and did not print it). The home page embeds a public Google Calendar named \"Thunder Valley Website Calendar\" (id c_umjia982kts6g0otn74ad8jekc@group.calendar.google.com); the public iCal answered 200 text/calendar with 559 VEVENTs (76 recurring) from November 2022 to 27 May 2027. 16 items touch 10 November to 10 December 2026, and 1 is worth a row: the Soaring Singers Concert (7 December, 6 pm). The rest are regulars or never-list: the weekly clubs and band and choir sessions, basketball practice and a home game (16 November), a booster fundraiser (11 November), an after-school Sip & Draw (17 November, 4 December) and the Thanksgiving break; excluded by title. No LOCATION on the items, so the school is the default venue. Expect one or two concerts or performances a month in term, fewer than the high school. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this feed; it is a public calendar the school embeds on its own site, and robots: subscribe is the owner's call, as it was for Frederick High. It was fetched once on 10 November 2026 to count it. tvk8.svvsd.org is the same district WordPress as crms.svvsd.org, whose robots.txt disallows only /wp-admin/ and a forms folder; its own robots.txt was not fetched separately. 11 November 2026: the owner accepted public Google Calendar feeds as a source (\"I'm good with Google Calendar if the system works and provides more events\"), so this is confirmed with robots: subscribe and ingest reads it."
     },
     {
       "id": "wildcider-com",
@@ -525,6 +525,9 @@
       "type": "eventbrite",
       "category": "other",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "blocked",
+      "lastNote": "unexpected status",
       "robots": "honor",
       "locationFilter": [
         "Frederick, CO",
@@ -561,10 +564,7 @@
         "Reservations"
       ],
       "autoApprove": true,
-      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Frederick, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Frederick, Firestone, Dacono. Read that day: 90 events in five pages, 3 of them in town: Colorado Ghosts & Vampire Tours - Under 18 years old Free with Gaurdian (2026-11-14, Meco Coffee Collection); Dec 3 Broker Education: NEW vs RESALE - 2 CE Credits (2026-12-03, Red Barn Meadows by Century Communities); Holiday Princess Tea & Concert (2026-12-12, Magical Moments). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "blocked",
-      "lastNote": "unexpected status"
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Frederick, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Frederick, Firestone, Dacono. Read that day: 90 events in five pages, 3 of them in town: Colorado Ghosts & Vampire Tours - Under 18 years old Free with Gaurdian (2026-11-14, Meco Coffee Collection); Dec 3 Broker Education: NEW vs RESALE - 2 CE Credits (2026-12-03, Red Barn Meadows by Century Communities); Holiday Princess Tea & Concert (2026-12-12, Magical Moments). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home."
     }
   ]
 }
