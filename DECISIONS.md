@@ -11828,19 +11828,3 @@ front matter, never in a "Sources" section of the body.
   or which source a disputed date follows), shown under the sources.
 - **test/history-template.test.ts** checks every history article for the
   parts a file can be checked for, so a new one cannot drift.
-
-## Nothing from NoCo Tutoring & Enrichment, 16 November 2026
-
-NoCo Tutoring & Enrichment sent its Make & Take Holiday Art Class (23
-November, Windsor Vineyard Church) in a second time, through the
-insidewindsorco.com event form. The owner's word on it: "Don't list
-anywhere. I don't want anything from that published."
-
-- **The live listing came off.** Windsor's
-  `make-and-take-holiday-art-2026-11-23`, filed from the organizer's
-  first submission (insidefortcollins.com form, 6 November), is deleted
-  and named in `content/windsor/retired.json` with null, so its URL goes
-  to Windsor's events page rather than a 404.
-- **Nothing from the organizer is listed, staged or proposed on any
-  guide**: its submissions, its events and a place page for the business.
-  The editor skill carries the rule beside the six chains.

@@ -199,8 +199,6 @@ Do the task asked. Do not propose extra sections, features, phases or follow-ups
 ## Chains
 A chain is listed like any other business, checked on its own store page. Six are never listed, on any guide: McDonald's, Burger King, Wendy's, Carl's Jr., Taco Bell and Subway. Do not draft, stage or propose them; naming one as a landmark in directions ("behind the Taco Bell") is fine (the owner, 6 November 2026).
 
-NoCo Tutoring & Enrichment (noco-tutoringandenrichment.com) is not listed on any guide either: not its events, not a submission from it, not a place page. Do not draft, stage or propose anything from it (the owner, 16 November 2026).
-
 ## Re-filing a listing
 
 When a published event or place is merged into another or moved to a new slug, the surviving file carries every old slug in `formerSlugs:` (a YAML list), and the build turns each into a redirect to it. A published listing is never deleted only because its date passed: the build hides, noindexes and drops it from the sitemap, and search engines keep sending readers to the URL for weeks (nine 404s with traffic, 5 November 2026).
