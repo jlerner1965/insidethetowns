@@ -7,7 +7,7 @@ url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free; register at (970) 532-2757"
 category: other
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-11-15"
+verified: "2026-11-16"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November and 10:30 am on the page"
 ---
 
