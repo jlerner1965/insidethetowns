@@ -57,6 +57,19 @@ test('the deadline line is another program, so the same camp is not named twice'
   assert.equal(lines[1]!.day, '2026-11-16');
 });
 
+test('a program the hub has no row for links to its deadline card, and names no school break the hub does not', () => {
+  // Erie's recreation scholarship, 16 November 2026: for every age, a service,
+  // closing on the 30th. The hub's "Closing soon" card for it is
+  // #deadline-<slug>; there is no #program-<slug> on the page.
+  const scholarship = program('recreation-scholarship', { title: 'Recreation scholarships', kind: 'service', audience: ['everyone'], registration: { required: true, deadline: at('2026-11-30') } });
+  const now = at('2026-11-16T09:00');
+  const [due] = familyLines({ programs: [scholarship], breaks: BREAKS, events: [], now });
+  assert.equal(due!.kind, 'deadline');
+  assert.equal(due!.href, '/families/#deadline-recreation-scholarship');
+  const adults = program('open-gym', { title: 'Open gym', audience: ['adults'], openOn: [{ from: at('2026-11-23'), to: at('2026-11-25'), note: '' }] });
+  assert.deepEqual(familyLines({ programs: [adults], breaks: BREAKS, events: [], now }), [], 'the hub’s days off list only family programs');
+});
+
 test('a camp a reader can no longer join is not offered: deadline gone, or full on the organizer’s word', () => {
   const after = familyLines({ programs: [camp], breaks: BREAKS, events: [], now: at('2026-11-14T09:00') });
   assert.deepEqual(after, [], 'the deadline is behind, and nothing else is due');
