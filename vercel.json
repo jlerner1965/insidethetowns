@@ -9183,6 +9183,17 @@
       "statusCode": 301
     },
     {
+      "source": "/events/bluegrass-jam-live-music-2026-12-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/bluegrass-jam-old-mine-2026-12-10/",
+      "statusCode": 301
+    },
+    {
       "source": "/events/boo-on-briggs-street-2026{/}?",
       "has": [
         {
@@ -9359,6 +9370,17 @@
       "statusCode": 301
     },
     {
+      "source": "/events/hoss-and-the-hangman-live-music-2026-11-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/live-music-wednesdays-old-mine/",
+      "statusCode": 301
+    },
+    {
       "source": "/events/i-am-a-gondola-with-kelly-phares-zook-2026-09-25{/}?",
       "has": [
         {
@@ -9403,6 +9425,17 @@
       "statusCode": 301
     },
     {
+      "source": "/events/matt-adams-live-music-2026-11-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/live-music-wednesdays-old-mine/",
+      "statusCode": 301
+    },
+    {
       "source": "/events/medicare-changes-seminar-2026-09-28{/}?",
       "has": [
         {
@@ -9411,6 +9444,17 @@
         }
       ],
       "destination": "/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/events/night-class-live-music-2026-12-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/live-music-wednesdays-old-mine/",
       "statusCode": 301
     },
     {
@@ -9469,6 +9513,17 @@
       "statusCode": 301
     },
     {
+      "source": "/events/r-and-d-radio-live-music-2026-12-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/live-music-wednesdays-old-mine/",
+      "statusCode": 301
+    },
+    {
       "source": "/events/rhes-choir-concert-7-9-30pm-2026-12-09{/}?",
       "has": [
         {
@@ -9510,6 +9565,17 @@
         }
       ],
       "destination": "/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/events/shawn-cunnane-live-music-2026-12-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/live-music-wednesdays-old-mine/",
       "statusCode": 301
     },
     {
