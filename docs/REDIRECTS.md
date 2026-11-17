@@ -6,8 +6,8 @@ going to the home page otherwise.
 
 | From | To | Where the rules live | State on 5 October 2026 |
 |---|---|---|---|
-| townofniwot.com | insideniwot.com | the `cityofniwot.com` repo's `vercel.json`, Vercel project `cityofniwot-com` | Live. `/events/` keeps its path; an unknown path goes to the home page. Vercel answers 308 for `permanent: true`, which search engines treat as 301. |
-| explorelyons.com | insidelyons.com | the `explorelyons` repo's `vercel.json`, Vercel project `explorelyons-com` | Live. Apex 308s to `www`, then to insidelyons.com with the path kept; `/civic/` maps to `/articles/who-governs-lyons/`. An unknown path is passed through and 404s on insidelyons.com rather than going home, the one departure from the rule; fixing it is a one-line change in that repo's `vercel.json`. |
+| townofniwot.com | insideniwot.com | the `cityofniwot.com` repo's `vercel.json`, Vercel project `cityofniwot-com` | Live. `/contact/`, `/privacy/` and `/community/` are mapped; every other path, including ones insideniwot.com has a page for (`/about/`, `/directory/`, `/eat-drink/` and 19 more on 17 November 2026), goes to the home page. `/events/` keeps its path and is sent on by insideniwot.com's own rule (to `/traditions/` since 17 November 2026), two hops; passing paths through and sending `/events*` straight on are changes in that repo. Vercel answers 308 for `permanent: true`, which search engines treat as 301. |
+| explorelyons.com | insidelyons.com | the domain and `www` are on the Vercel project `insidelyons` since 4 October 2026 (DEPLOY.md), each a domain-level 308 to insidelyons.com with the path kept; the renamed paths are answered by the insidelyons.com rules in this repo's `vercel.json` | Live, one hop from either host for a path insidelyons.com has (`/stay/`, `/events/`, `/eat-drink/`, `/things-to-do/`). The eight renamed paths (`/explore/`, `/eat-shop/`, `/outdoors/`, `/itineraries/`, `/plan-a-visit/`, `/our-story/`, `/civic/`, `/community/`) take two: the domain's 308, then the insidelyons.com rule. The domain-level redirect answers before any rule in `vercel.json`, so a rule scoped to explorelyons.com here would never run; one hop needs the domain served by the project (not redirected) in the Vercel dashboard, with host rules for it. An unknown path is passed through and 404s on insidelyons.com. |
 | insidefirestone.com | carbonvalleyguide.com, the home page (insidefrederickco.com from 8 to 12 November 2026; the hub's from 2 to 8 November; carbonvalleyguide.com's Firestone section until 2 November 2026) | this repo's `vercel.json`, host-scoped to `insidefirestone.com`; the domain and `www` are on the Vercel project `carbonvalleyguide`, with DNS at Cloudflare | Rewritten 12 November 2026 (the restructure brief: Firestone is covered by the Carbon Valley guide): `/` and everything else to the guide's home page, in one step. The closed guide's Firestone section page is gone, so there is no `/firestone/` to send it to. |
 | insideseverance.com | insidewindsorco.com, Severance section | this repo's `vercel.json`, host-scoped to `insideseverance.com`; the domain stays on its own Vercel project `insideseverance`, which still builds (`TOWN=severance`, status `redirect`) so it keeps serving the rules; `www` 308s to the apex at the domain level | Written 12 October 2026; live once the branch merges and the project rebuilds. Severance's content moved to the Windsor guide with the same slugs, so the path is kept: `/events/<slug>/`, `/places/<slug>/` and `/articles/<slug>/` go to the same path on insidewindsorco.com; `/events/`, `/eat-drink/`, `/things-to-do/` and `/directory/` go to the Windsor page filtered `?where=severance`; `/moving-here/` goes to `/articles/moving-to-severance/`; the calendar feed and the two RSS feeds go to Windsor's; `/` and everything else go to `/severance/`. `test/folded-towns.test.ts` holds the rules to the config. |
 | insidegeorgetownco.com | insidethetowns.com, the home page (insideidahosprings.com's Georgetown section from 20 October to 3 November 2026) | this repo's `vercel.json`, host-scoped to `insidegeorgetownco.com`; the domain stays on its own Vercel project `insidegeorgetownco`, which still builds (`TOWN=georgetown`, status `redirect`, `retired`); `www` 308s to the apex at the domain level | Rewritten 3 November 2026 when the owner retired the Clear Creek guide: `/` and everything else to the hub's home page, since the section it pointed at closed with the guide. From 20 October it had the thirteen section rules, as Severance's, with `georgetown` and insideidahosprings.com. |
@@ -25,7 +25,8 @@ going to the home page otherwise.
 | From | To | Rules |
 |---|---|---|
 | insidecastlerockco.com, insideestespark.com, insidefortcollins.com, insidegolden.com, insidelafayette.com, insideleadville.com, insidelongmontco.com, insidelovelandco.com, insidenederland.com, insidetimnath.com (folded 12 November 2026) | that town's page, `https://insidethetowns.com/<town>/` | `src/lib/fold.ts`, written into `vercel.json` by `node scripts/fold-rules.ts --write`, host-scoped; each domain stays on its own Vercel project, which still builds (status `redirect`, `hubPage`) and serves the rules |
-| insidegrandlake.com, insideevergreenco.com, insidegeorgetownco.com, insidemanitousprings.com, insidefortlupton.com, insideblackhawk.com, insideidahosprings.com (retired earlier) | the same, in place of the hub's home page | the same rules; the rows above for these five describe where they went until 12 November |
+| insidegrandlake.com, insideevergreenco.com, insidegeorgetownco.com, insidemanitousprings.com, insidefortlupton.com, insideblackhawk.com, insideidahosprings.com (retired earlier) | the same, in place of the hub's home page | the same rules; the rows above for these seven say "the home page", which is where they went until 12 November. Live, each goes to its town's page |
+| insideelizabeth.com (folded 12 November 2026) | `https://insidethetowns.com/elizabeth/` | the same rules, with its two old event addresses in `data/hub/fold-events.json` |
 
 On each: `/` goes to the page; an old event address whose event has a
 record of its own on the hub goes to that record's page,
@@ -81,18 +82,69 @@ Windsor guide's Severance section (the owner, 12 November 2026).
 **Domains for towns that never had a guide** (`domain` in
 `src/config/hub-towns.ts`, the owner's, 12 November 2026): insidesalida.com,
 insidesteamboatsprings.com, insidebuenavista.com, insidegrandjunction.com
-and insidefortmorgan.com carry the same rules to their town's page.
-insidemead.com has no rule until Mead's page is published; `node
-scripts/fold-rules.ts` says so. These domains are on no Vercel project in
-this repo yet: add each to the hub's project (`insidethetowns`) in the
-Vercel dashboard, with DNS at Cloudflare as for the others, and the host
-rules in the deployed `vercel.json` answer from there. Until a domain is
-attached, nothing serves it.
+and insidefortmorgan.com carry the same rules to their town's page, and
+insidemead.com since Mead's page was published. None of the six resolves
+(17 November 2026: Cloudflare nameservers, no A record, `www` NXDOMAIN),
+so their 72 rules are served by nothing: add each to the hub's project
+(`insidethetowns`) in the Vercel dashboard, with DNS at Cloudflare as for
+the others, and the host rules in the deployed `vercel.json` answer from
+there.
 
-insideniwot.com (a quiet guide from 12 November 2026, no events):
-`/events/`, every `/events/<slug>/`, `/this-week/`, `/this-weekend/`,
-`/submit-event/` and `/events.rss` go to its home page, host-scoped in
-`vercel.json`.
+insideniwot.com (a quiet guide from 12 November 2026, no events): from 17
+November 2026 `/events/` and each annual event's address (the five files
+with `annual: true` and their `formerSlugs`) go to `/traditions/`,
+`/this-week/` and `/this-weekend/` to `/updates/`, `/events.rss` to
+`/updates.rss`; every other `/events/<slug>/`, `/submit-event/` and
+`/thanks/` go to its home page. Host-scoped in `vercel.json`; the annual
+events' rules are written by `scripts/fold-rules.ts`.
+
+### A guide's own old addresses, and the hub's, 17 November 2026
+
+The builds answer a former slug (`formerSlugs`), a retired one
+(`content/<town>/retired.json`), `/places/`, `/articles/` and the hub's
+address for a guide's town (`src/lib/hub-moved.ts`) with a redirect page:
+HTTP 200, a meta refresh, noindex. The audit of 17 November 2026 found
+238 of them with no rule here, and Google filing the dated address of an
+annual event under "excluded by noindex" while it still held the ranking.
+Now `node scripts/fold-rules.ts --write` writes one rule for each
+(`scripts/lib/redirect-rules.ts`), host-scoped, `"statusCode": 301`, ahead
+of the host's other rules, and the page is only the fallback:
+
+- each live guide: its former and retired slugs and the two index pages,
+  to the destination the build's page has (`formerSlugRedirects`). An
+  event that is over gives way to `/events/`, a repeat of a series to the
+  series' indexed page, a closed place to `/directory/`, so no rule lands
+  on a noindex page;
+- an event that is over and held back by the publish gate (the file is
+  kept, no page is built): to `/events/` (two of Lyons' were 404s with
+  impressions);
+- insidefrederickco.com and insideseverance.com: the same addresses of the
+  guide each forwards to, straight to the destination, so an old address
+  there is one hop, not two;
+- insidethetowns.com: the 14 addresses in `HUB_MOVED`, to the guide.
+
+Run it after a listing is retired, merged or re-filed.
+`test/guide-redirects.test.ts` fails when a rule is missing, is not the
+first to answer, or goes somewhere else, and when any rule lands on
+another rule. A destination settled on the day the rules were written
+stays accepted after the event passes; the next `--write` moves it to the
+list. The other rules in the file keep `permanent: true`, which Vercel
+answers as 308; both are permanent to a search engine. Vercel allows 2,048
+redirects in one `vercel.json`; the file holds 870, and the script and the
+test refuse more.
+
+Also on 17 November 2026: `/sitemap.xml` to `/sitemap-index.xml` is a 301
+(it was a 307); `/index.html` and `/<path>/index.html` go to the directory
+address, the last two rules in the file so a redirect-only domain's own
+catch-all still answers first; Lyons' six `/sports/` pages, removed that
+day, go to `/families/#program-high-school-athletics`.
+
+Not changed, because they are Vercel's own behaviour and not rules in this
+file: an address without its trailing slash gets the slash first and the
+rule second (two hops); `http://www.` takes two hops to the apex on a live
+domain and three on a redirect-only one; an upper-case path is a 404; and a
+made-up slug on insidefrederickco.com or insideseverance.com is passed
+through to the guide's 404.
 
 Only Niwot's lives outside this repository, in its own Vercel project, so
 the redirects and the search rankings they preserve do not depend on this
