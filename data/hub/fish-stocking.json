@@ -1,6 +1,6 @@
 {
  "source": "https://cpw.state.co.us/fishing/stocking-report",
- "fetched": "2026-11-14",
+ "fetched": "2026-11-17",
  "rows": [
   {
    "id": 852,
@@ -18,6 +18,12 @@
    "id": 134,
    "name": "Ordway Reservoir",
    "region": "southeast",
+   "added": "2026-11-13"
+  },
+  {
+   "id": 433,
+   "name": "McCall Lake",
+   "region": "northeast",
    "added": "2026-11-13"
   },
   {
