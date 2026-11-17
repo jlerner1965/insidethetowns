@@ -14,7 +14,7 @@ source: "https://www.theoldmine.com/events"
 verified: "2026-11-11"
 verifiedBy: "Claude Code, delegated by Lerner Works"
 changeFlag: true
-changeNote: "recheck 2026-11-16: not on the theoldmine.com feed on 22 November; it has \"Bryan Dubrow LIVE MUSIC\" on 6 January, 2 December, 13 January, 30 December, 16 December, 3 February, 18 November, 25 November, 10 December, 14 January, 11 February, 11 March, 8 April, 13 May"
+changeNote: "recheck 2026-11-17: not on the theoldmine.com feed on 22 November; it has \"Night Class LIVE MUSIC\" on 16 December, 25 November, 30 December, 3 February, 2 December, 18 November, 13 January, 6 January, 10 December, 14 January, 11 February, 11 March, 8 April, 13 May"
 ---
 
 Sunday-evening live music at the Old Mine, 6 to 8. No cover.
