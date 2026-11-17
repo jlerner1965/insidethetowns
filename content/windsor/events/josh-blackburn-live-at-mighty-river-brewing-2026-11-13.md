@@ -4,9 +4,9 @@ subTown: windsor
 start: "2026-11-13T18:00"
 end: "2026-11-13T21:00"
 venue: "Mighty River Brewing"
-url: "https://tockify.com/mighty.river.brewing/detail/1881/1794618000000"
+url: "https://tockify.com/mighty.river.brewing"
 category: music
-source: "https://tockify.com/mighty.river.brewing/detail/1881/1794618000000"
+source: "https://tockify.com/mighty.river.brewing"
 sourceId: "tockify-com"
 sourceUid: "TKF/5c61e317df82fe11bcca77eb/1881/29910300/0/0"
 sourceHash: "f2fe5dd61ec8"

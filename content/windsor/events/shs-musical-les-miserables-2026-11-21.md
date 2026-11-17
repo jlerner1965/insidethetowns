@@ -4,9 +4,9 @@ subTown: severance
 start: "2026-11-21T19:00"
 end: "2026-11-21T21:30"
 venue: "Severance High School, 1200 Hidden Valley Parkway, Severance"
-url: "https://weldre4.revtrak.net/high-schools/severance-high-school/severance-high-school-fine-arts/#/v/Performing-Arts-Ticket\""
+url: "https://weldre4.revtrak.net/high-schools/severance-high-school/severance-high-school-fine-arts/#/v/Performing-Arts-Ticket"
 category: other
-source: "https://weldre4.revtrak.net/high-schools/severance-high-school/severance-high-school-fine-arts/#/v/Performing-Arts-Ticket\""
+source: "https://weldre4.revtrak.net/high-schools/severance-high-school/severance-high-school-fine-arts/#/v/Performing-Arts-Ticket"
 sourceId: "shs-weldre4-org"
 sourceUid: "5o838alri3hr35gb24t8onsc01_R20261121T020000@google.com/2026-11-21"
 sourceHash: "775b21c943e1"

@@ -13,7 +13,7 @@ schedule: "Practices from the week of January 18 (subject to change); games on S
 season: "Winter 2027 for boys; the girls' fall season runs October 19 to December 12"
 price: "$140 resident / $165 non-resident"
 equipment: "A reversible Denver Nuggets jersey, the game jersey, comes with registration"
-registration: { required: true, how: "Online through the Town's RecTrac site, by phone at 970-674-3500 or at the Community Recreation Center; 4th to 8th graders answer a few questions on experience and height so teams can be balanced", url: "https://cowindsorweb.myvscloud.com/webtrac/web/splash.html?ccode=Youth%20Sports", note: "The Town's basketball page says boys' registration opens in mid-October and closes in late December" }
+registration: { required: true, how: "Online through the Town's RecTrac site, by phone at 970-674-3500 or at the Community Recreation Center; 4th to 8th graders answer a few questions on experience and height so teams can be balanced", url: "https://cowindsorweb.myvscloud.com/webtrac/web/splash.html?ccode=Youth%20Sports", note: "The Town's basketball page says boys' registration closes in late December" }
 contact: "970-674-3500"
 featured: true
 source: "https://www.recreationliveshere.com/199/Basketball"
