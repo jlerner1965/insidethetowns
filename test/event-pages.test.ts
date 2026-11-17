@@ -55,6 +55,11 @@ test('the build fails on two records at one address, or on a town slug that is o
   assert.doesNotThrow(() => hubEventPages([record(), record({ slug: 'golden-candlelight-walk-2' })], published), 'a different slug is a different path');
   assert.throws(() => hubEventPages([record({ slug: 'golden-walk' }), record({ slug: 'golden-walk', name: 'Other' })], published), /two records, one address/);
   assert.throws(() => hubEventPages([record()], published, ['/golden', '/moving/[pair]']), /shadows/);
+  // A free-admission day that has passed is on no page, so it has none of its own until its next date is on file (the audit of 17 November 2026).
+  const freeDay = record({ slug: 'golden-free-day', type: 'free-day', years: [{ year: 2026, status: 'confirmed', date: '2026-11-07', checked: '2026-11-12' }] });
+  assert.equal(hubEventPages([freeDay], published, [], '2026-11-06').length, 1);
+  assert.equal(hubEventPages([freeDay], published, [], '2026-11-17').length, 0);
+  assert.equal(hubEventPages([record()], published, [], '2026-12-31').length, 1, 'any other record keeps its page after its date');
   assert.doesNotThrow(() => hubEventPages([record()], published, hubReservedSegments()));
 });
 
@@ -112,6 +117,11 @@ test('the title names the town, the event, the year and the day, and the town on
   assert.equal(traditionTitle('Steamboat Springs', 'Steamboat OktoberWest', 2027), 'Steamboat OktoberWest 2027');
   assert.equal(traditionTitle('Green Mountain Falls', 'Green Box Arts Festival', 2027), 'Green Mountain Falls Green Box Arts Festival 2027');
   assert.equal(traditionTitle('Colorado Springs', 'Colorado State Fair', 2027), 'Colorado Springs Colorado State Fair 2027');
+  // The town goes after a name that opens with another place, a county, "The" or its initials; and off a title past 65 (the audit of 17 November 2026).
+  assert.equal(traditionTitle('Georgetown', 'Loveland Ski Area opening day', 2027), 'Loveland Ski Area opening day, Georgetown 2027');
+  assert.equal(traditionTitle('Longmont', 'Boulder County Fair', 2027), 'Boulder County Fair, Longmont 2027');
+  assert.equal(traditionTitle('Buena Vista', 'BV Hometown Holidays Parade of Lights & Tree Lighting', 2026), 'BV Hometown Holidays Parade of Lights & Tree Lighting 2026');
+  assert.equal(traditionTitle('Silverthorne', 'Fourth of July Concert with the National Repertory Orchestra', 2027), 'Fourth of July Concert with the National Repertory Orchestra 2027');
   // No date: the next year, and no day claimed.
   assert.equal(traditionTitle('Golden', 'Candlelight Walk', 2027), 'Golden Candlelight Walk 2027');
   assert.equal(traditionTitle('Wellington', 'Parade of Lights', 2026, { date: dec4, canceled: true }), 'Wellington Parade of Lights 2026: canceled');

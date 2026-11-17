@@ -37,7 +37,10 @@
  * Any town may have a photograph behind the name (HubTown.hero, 14
  * November 2026); the rest draw their horizon. The showpiece towns (Estes
  * Park, and Salida once its picture comes) also keep their own line under
- * the name; their dates take the same layout as every other town's.
+ * the name; their dates take the same layout as every other town's. Their
+ * spotlight (Estes Park: Frozen Dead Guy Days) is back since the audit of
+ * 17 November 2026, as the first subhead of Events: the same entry, first
+ * and once, with what the record says the event is.
  */
 import { Image, getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
@@ -112,7 +115,7 @@ const shareAlt = hero ? hero.alt : `${town.name}, Colorado: annual events and ou
 const path = `/${town.slug}/`;
 const pageUrl = `https://${hub.domain}${path}`;
 const county = hubCountyLine(town);
-const { seoTitle, description } = townSearchText(town.name, traditions);
+const { seoTitle, description } = townSearchText(town.name, traditions, show?.spotlight);
 const all = [...traditions, ...outdoor, ...statewide];
 const structured = [
   collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: pageOf(r) ? `https://${hub.domain}${pageOf(r)}` : `${pageUrl}#${r.record.slug}` })) }),
@@ -129,6 +132,9 @@ const intro = show?.intro ?? 'The events this town holds every year and the outd
 
 /** The town's own dates: its events and the outdoor dates that name it (not the statewide ones, which have their section). */
 const own = [...traditions, ...outdoor];
+/** A showpiece's one to know (HubTown.showpiece.spotlight): drawn first under Events, and left out of the lists below it. */
+const spotlight = show ? own.find((r) => r.record.slug === show.spotlight) : undefined;
+const listed = own.filter((r) => r !== spotlight);
 /** The next date the town has, under its name: its own events' soonest date set; an outdoor date only where no event of its has one (src/lib/hub-towns.ts, nextUp). */
 const nextUp = nextRowUp(traditions, outdoor);
 /** Its day, or for a run already under way the day it ends: "On now, through Saturday, October 31, 2026" (src/lib/traditions.ts, isUnderWay). */
@@ -142,12 +148,12 @@ const NEXT_DAYS = 90;
 const horizon = dayKey(new Date(parseLocal(today).getTime() + NEXT_DAYS * 86_400_000));
 const quiet = !own.some((r) => isUpcoming(r) && r.entry.date! <= horizon);
 /** Set dates, soonest first; then those not yet announced, in the order of the year they were last held; then any canceled. */
-const comingUp = own.filter((r) => rowState(r) === 'upcoming').sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || a.record.name.localeCompare(b.record.name));
-const waiting = own
+const comingUp = listed.filter((r) => rowState(r) === 'upcoming').sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || a.record.name.localeCompare(b.record.name));
+const waiting = listed
   .filter((r) => rowState(r) === 'waiting' || rowState(r) === 'past')
   .sort((a, b) => (a.lastHeld?.slice(5) ?? '99').localeCompare(b.lastHeld?.slice(5) ?? '99') || a.record.name.localeCompare(b.record.name));
-const canceled = own.filter((r) => rowState(r) === 'canceled');
-const groupOf = (r: Row) => (rowState(r) === 'upcoming' ? 'coming-up' : rowState(r) === 'canceled' ? 'canceled' : 'not-announced');
+const canceled = listed.filter((r) => rowState(r) === 'canceled');
+const groupOf = (r: Row) => (r === spotlight ? 'one-to-know' : rowState(r) === 'upcoming' ? 'coming-up' : rowState(r) === 'canceled' ? 'canceled' : 'not-announced');
 const cells = yearGrid(yearMarks(traditions, groupOf), Number(today.slice(5, 7)) - 1);
 const marked = cells.some((c) => c.marks.length > 0);
 const openRecords = records.filter((r) => !r.statewide && appliesTo(r, town.slug));
@@ -331,15 +337,22 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   {section.events && (
     <PubSection id={section.events.id} number={section.events.number} title={section.events.title} tone={section.events.tone}>
       {quiet && <p class:list={['mt-3 italic', pub.meta]} data-quiet>No {town.name} event date in the next {NEXT_DAYS} days has been published yet.</p>}
+      {spotlight && (
+        <Fragment>
+          <h3 id="one-to-know" class:list={[pub.h3, 'mt-[22px]']} data-spotlight>The one to know</h3>
+          {spotlight.record.about && <p class:list={['mt-3', pub.t]}>{typeset(spotlight.record.about.text)}</p>}
+          <DateEntry {...entryProps(spotlight)} />
+        </Fragment>
+      )}
       {comingUp.length > 0 && (
         <Fragment>
-          <h3 id="coming-up" class:list={[pub.h3, 'mt-[22px]']}>Coming up</h3>
+          <h3 id="coming-up" class:list={[pub.h3, !spotlight && 'mt-[22px]']}>Coming up</h3>
           {comingUp.map((r) => <DateEntry {...entryProps(r)} />)}
         </Fragment>
       )}
       {waiting.length > 0 && (
         <Fragment>
-          <h3 id="not-announced" class:list={[pub.h3, comingUp.length === 0 && 'mt-[22px]']}>Date not yet announced</h3>
+          <h3 id="not-announced" class:list={[pub.h3, comingUp.length === 0 && !spotlight && 'mt-[22px]']}>Date not yet announced</h3>
           {waiting.map((r) => <DateEntry {...entryProps(r)} />)}
         </Fragment>
       )}

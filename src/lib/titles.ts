@@ -2,6 +2,7 @@
  * Page titles. Pure string work, no config lookup, so it can be unit-tested.
  */
 import { monthDay, TIME_ZONE } from './dates.ts';
+import { HUB_TOWNS } from '../config/hub-towns.ts';
 
 /** Just enough of a site config to title its home page. */
 export interface TitleSite {
@@ -316,13 +317,33 @@ export function nameCarriesTown(name: string, town: string): boolean {
   return !!short && short !== 'Colorado' && namesTown(name, short);
 }
 
+/** The longest a record's title runs with its town in front (the audit of 17 November 2026 counted 19 past it). */
+const TOWN_PREFIX_LIMIT = 65;
+
+/**
+ * Whether a name opens with something the town cannot sit in front of:
+ * another town's name or a county's ("Loveland Ski Area" in Georgetown,
+ * "Boulder County Fair" in Longmont, which read as two towns), "The", or
+ * the town's own initials ("BV Hometown Holidays" in Buena Vista).
+ */
+export function nameOpensElsewhere(name: string, town: string): boolean {
+  if (/^(The\s|\S+ County\b)/.test(name)) return true;
+  const initials = town.split(/\s+/).map((w) => w[0]).join('');
+  if (initials.length > 1 && name.startsWith(`${initials} `)) return true;
+  return HUB_TOWNS.some((t) => t.name !== town && new RegExp(`^${t.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`).test(name));
+}
+
 export function traditionTitle(
   town: string,
   name: string,
   year: number,
   when?: { date?: Date; time?: string; canceled?: boolean },
 ): string {
-  const named = nameCarriesTown(name, town) ? `${name} ${year}` : `${town} ${name} ${year}`;
+  const plain = `${name} ${year}`;
+  const before = `${town} ${plain}`;
+  // The town after the name where it cannot go in front; no town where either form runs past the limit (the page's label and description name it).
+  const after = `${name}, ${town} ${year}`;
+  const named = nameCarriesTown(name, town) ? plain : nameOpensElsewhere(name, town) ? (after.length <= TOWN_PREFIX_LIMIT ? after : plain) : before.length <= TOWN_PREFIX_LIMIT ? before : plain;
   if (when?.canceled) return `${named}: canceled`;
   if (!when?.date) return named;
   const { month, day, weekday } = monthDay(when.date);

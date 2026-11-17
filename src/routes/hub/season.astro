@@ -23,7 +23,7 @@ import DateCorrection from '@/components/DateCorrection.astro';
 import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
 import { findTown, getHub } from '@/config';
 import { STANDALONE_GUIDES, findHubTown } from '@/config/hub-towns';
-import { eventPage, eventPath, homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { eventPage, eventPath, firstFitting, homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
@@ -80,13 +80,31 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
 const title = dated ? `${info.plural}, town by town` : `${info.plural} in Colorado`;
 const seoTitle = `${info.plural} in Colorado, ${when}`;
 const agency = type === 'outdoor' || type === 'free-day';
-const description = dated
-  ? `Colorado ${info.plural.toLowerCase()} for ${when}, town by town: the date each organizer has published, or that it has not yet, with the page it was read from.`
-  : type === 'outdoor'
-    ? `Colorado ${info.plural.toLowerCase()} ${when}: road and pass openings, park entry seasons, campgrounds, ski areas and licence windows, each with the date its agency has published, or that it has not yet.`
-    : type === 'free-day'
-      ? 'Free-admission days in Colorado: state parks, national parks and public lands, and museums, each a dated day read on the agency’s or the museum’s own page. A day that has passed drops off.'
-      : `${info.plural} in Colorado, town by town: the next date each organizer has published, or that it has not yet and when it was last held, with the page it was read from.`;
+// Each the first wording that fits whole (firstFitting): six of these ended on an ellipsis (the audit of 17 November 2026).
+const lower = info.plural.toLowerCase();
+const description = firstFitting(
+  dated
+    ? [
+        `Colorado ${lower} for ${when}, town by town: the date each organizer has published, or that it has not yet, with the page it was read from.`,
+        `Colorado ${lower} for ${when}, town by town: the date each organizer has published, or that it has not yet.`,
+      ]
+    : type === 'outdoor'
+      ? [
+          `Colorado ${lower} ${when}: road and pass openings, park entry seasons, campgrounds, ski areas and licence windows, each with the date its agency has published, or that it has not yet.`,
+          `Colorado ${lower} ${when}: road and pass openings, park seasons, campgrounds, ski areas and licence windows, each with the date its agency has published.`,
+          `Colorado ${lower} ${when}: road openings, park seasons, campgrounds, ski areas and licence windows, each with its agency’s date.`,
+        ]
+      : type === 'free-day'
+        ? [
+            'Free-admission days in Colorado: state parks, national parks and public lands, and museums, each a dated day read on the agency’s or the museum’s own page. A day that has passed drops off.',
+            'Free-admission days in Colorado: state parks, national parks, public lands and museums, each a dated day read on the agency’s or the museum’s own page.',
+          ]
+        : [
+            `${info.plural} in Colorado, town by town: the next date each organizer has published, or that it has not yet and when it was last held, with the page it was read from.`,
+            `${info.plural} in Colorado, town by town: the next date each organizer has published, or that it has not yet and when it was last held.`,
+            `${info.plural} in Colorado, town by town: the next date each organizer has published, or that it has not yet.`,
+          ],
+);
 const pageUrl = `https://${hub.domain}${path}`;
 const structured = [
   breadcrumbJsonLd(hub, [
