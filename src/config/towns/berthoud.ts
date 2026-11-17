@@ -150,7 +150,7 @@ export const berthoud: TownConfig = {
         items: [
           { label: 'Berthoud Recreation: registration', url: 'https://apps.daysmartrecreation.com/dash/x/berthoud/', note: 'Leagues, classes, swim lessons and passes; the activity guide links into it', track: 'registration' },
           { label: 'Recreation Center facility schedules', url: 'https://www.berthoud.org/1521/Facility-Schedules', note: 'Pool, gym and holiday hours' },
-          { label: 'Activity guides and registration dates', url: 'https://www.berthoud.org/1598/Activity-Guide', note: 'Winter opened November 1 (early-bird prices for registrations by November 14); spring opens February 1, summer April 1, fall July 1', track: 'registration' },
+          { label: 'Activity guides and registration dates', url: 'https://www.berthoud.org/1598/Activity-Guide', note: 'Winter opened November 1; spring opens February 1, summer April 1, fall July 1', track: 'registration' },
           { label: 'Town parks', url: 'https://www.berthoud.org/219/Parks', note: 'Town Park’s rentable pavilions and the Town’s park pages' },
         ],
       },
