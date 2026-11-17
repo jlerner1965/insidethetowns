@@ -697,20 +697,6 @@
       "results": [
         {
           "date": "2026-10-23",
-          "opponent": "Delta",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/?c=2824efb1-a490-4092-8967-075ee31246dd",
-          "stage": "State Softball Tournaments",
-          "neutral": true,
-          "venue": "Aurora Sports Park",
-          "result": "W",
-          "score": {
-            "us": 12,
-            "them": 0
-          }
-        },
-        {
-          "date": "2026-10-23",
           "opponent": "Lyons",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-lyons/10-23-2026/?c=cabb6773-afd8-4d13-a6e7-f16bbb13652f",
@@ -721,6 +707,20 @@
           "score": {
             "us": 2,
             "them": 3
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Delta",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/?c=2824efb1-a490-4092-8967-075ee31246dd",
+          "stage": "State Softball Tournaments",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 0
           }
         },
         {

@@ -6,6 +6,7 @@
  * about. It carries the same UID the feed gives that occurrence, so a reader
  * who has both does not get the event twice.
  */
+import { eventWhere } from '@/lib/seo';
 import type { APIRoute } from 'astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
@@ -29,7 +30,7 @@ export const GET: APIRoute = async ({ props, site }) => {
         uid: occurrenceUid(event.slug, data, town.domain),
         title: data.title,
         ...exportWhen(next),
-        location: [data.venue, data.address, `${town.name}, CO`].filter(Boolean).join(', '),
+        location: eventWhere(data, town),
         description: [data.timeNote ?? (data.timeTbd ? 'Time not yet announced.' : undefined), data.cost ? `Cost: ${data.cost}` : undefined, data.recurring, `More: ${pageUrl}`]
           .filter(Boolean)
           .join('\n'),

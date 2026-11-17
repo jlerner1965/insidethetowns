@@ -5,6 +5,7 @@
  * production lists gets a file of its own, named by its key
  * ("20261017T1300"). It carries the UID the feed gives that show.
  */
+import { eventWhere } from '@/lib/seo';
 import type { APIRoute } from 'astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
@@ -34,7 +35,7 @@ export const GET: APIRoute = async ({ props, params, site }) => {
         uid: occurrenceUid(event.slug, data, town.domain),
         title: data.title,
         ...exportWhen(show),
-        location: [data.venue, data.address, `${town.name}, CO`].filter(Boolean).join(', '),
+        location: eventWhere(data, town),
         description: [data.timeNote, data.cost ? `Cost: ${data.cost}` : undefined, `More: ${pageUrl}`].filter(Boolean).join('\n'),
         url: data.url ?? pageUrl,
       },
