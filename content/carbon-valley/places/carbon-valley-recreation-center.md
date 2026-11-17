@@ -3,8 +3,8 @@ title: "Carbon Valley Recreation Center"
 type: venue
 address: "701 5th St, Frederick, CO 80530"
 area: "Fifth Street"
-url: "https://www.cvprd.com/carbon-valley-recreation-center"
-source: "https://www.cvprd.com/hours-of-operation"
+url: "https://www.carbonvalleyrec.gov/carbon-valley-recreation-center"
+source: "https://www.carbonvalleyrec.gov/hours-of-operation"
 verified: "2026-11-02"
 added: "2026-10-05"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
@@ -13,7 +13,7 @@ hours: "Mon–Fri 5:30 am–9 pm; Sat 7:30 am–5 pm; Sun 10 am–5 pm"
 tags: [rec-center, pool, gym, indoor-track, fitness]
 featured: true
 details:
-  source: "https://www.cvprd.com/carbon-valley-recreation-center"
+  source: "https://www.carbonvalleyrec.gov/carbon-valley-recreation-center"
   checked: "2026-11-12"
 summary: "The three towns’ recreation center, run by the Carbon Valley Parks and Recreation District: a lap pool with diving board and climbing wall, an activity pool, a gym, an elevated indoor track and fitness rooms."
 ---
