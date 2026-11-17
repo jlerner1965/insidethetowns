@@ -7,6 +7,7 @@ import { getSite } from './src/config/index.ts';
 import { townRoutes } from './src/integrations/town-routes.ts';
 import { hostFiles } from './src/integrations/host-files.ts';
 import { heroMap } from './src/integrations/hero-map.ts';
+import { siteImages } from './src/integrations/site-images.ts';
 import { tableLabels } from './src/integrations/table-labels.ts';
 import { pastEventSlugs, repeatOccurrenceSlugs } from './src/lib/series.ts';
 import { closedPlaceSlugs } from './src/lib/raw-places.ts';
@@ -72,14 +73,17 @@ export default defineConfig({
   image: {
     layout: 'constrained',
     responsiveStyles: true,
+    // Sharp, with the box, the fallback `src` and the quality set in src/lib/image-service.ts.
+    service: { entrypoint: './src/lib/image-service.ts', config: { jpeg: { mozjpeg: true } } },
   },
   // Column names on table cells, for the stacked phone layout (table-labels.ts).
   // Sätteri is Astro's default processor; this only adds a plugin to it.
   markdown: {
     processor: satteri({ hastPlugins: [tableLabels] }),
   },
+  // siteImages: the photographs this build may see, and no original left in /_astro/ (src/integrations/site-images.ts).
   // On the hub, /hero-map.json: each town page's photograph, for the links to start early (src/integrations/hero-map.ts).
-  integrations: [townRoutes(site), sitemap({ filter: indexable, serialize: (item) => ({ ...item, lastmod: lastmodFor(item.url, dates, buildDate) }) }), hostFiles(vercelConfig, site.domain), ...(site.kind === 'hub' ? [heroMap()] : [])],
+  integrations: [townRoutes(site), siteImages(site), sitemap({ filter: indexable, serialize: (item) => ({ ...item, lastmod: lastmodFor(item.url, dates, buildDate) }) }), hostFiles(vercelConfig, site.domain), ...(site.kind === 'hub' ? [heroMap()] : [])],
   vite: {
     plugins: [tailwindcss()],
     build: {
