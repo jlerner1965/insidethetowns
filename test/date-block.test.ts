@@ -33,7 +33,7 @@ test('a moved date shows the new day', () => {
 
 test('a canceled date keeps its numbers and says it is canceled; with no date it is an outline', () => {
   assert.deepEqual(dateBlock(row({ status: 'canceled', date: '2027-06-05' })), { set: true, canceled: true, top: 'Jun', main: '5', foot: '2027' });
-  assert.deepEqual(dateBlock(row({ status: 'canceled' })), { set: false, canceled: true, top: '', main: 'TBA', foot: '2027' });
+  assert.deepEqual(dateBlock(row({ status: 'canceled' })), { set: false, canceled: true, top: '', main: 'Off', foot: '2027' });
 });
 
 test('no date set is TBA with the year awaited, and never last year’s date', () => {

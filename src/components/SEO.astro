@@ -7,7 +7,7 @@ import { getImage } from 'astro:assets';
 import { getSite } from '@/config';
 import { resolveSiteImage } from '@/lib/images';
 import { pageTitle } from '@/lib/titles';
-import { clampText, markdownToText } from '@/lib/plain-text';
+import { clampSnippet, markdownToText } from '@/lib/plain-text';
 
 interface Props {
   title?: string;
@@ -34,13 +34,14 @@ const fullTitle = Astro.props.fullTitle ?? pageTitle(site, title);
  * Search results cut a description around 155 characters. Page copy is written
  * for the page, not for the snippet, so clamp here rather than shortening the
  * copy itself: at the end of a sentence when one closes past the halfway
- * mark, so the snippet reads as a whole thought, else at a word with an
- * ellipsis (network audit, 14 October 2026). A description is plain text:
+ * mark, so the snippet reads as a whole thought, else at the end of a
+ * clause, with no ellipsis (clampSnippet; network audit, 14 October 2026,
+ * and the audit of 17 November 2026). A description is plain text:
  * some pages build theirs from a listing's Markdown (an event's first
  * sentence), so any link, emphasis or escape in it becomes its words first
  * (src/lib/plain-text.ts; audit, 26 October 2026).
  */
-const metaDescription = clampText(markdownToText(description), 155);
+const metaDescription = clampSnippet(markdownToText(description), 155);
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 let ogImage = Astro.props.image;

@@ -273,8 +273,16 @@ export function annualEventTitle(title: string, town: string, date: Date, awaiti
  * Berthoud, Nov 7"), as a place title does: at 60 characters most event
  * titles stand alone (the owner's review, 13 November 2026). `town` is
  * where the event is (a Severance listing on Inside Windsor: Severance).
+ * `venue` is the listing's, for a title that ends with it and runs long.
  */
-export function eventTitle(lead: string, when: string, town: string, siteTitle: string): string {
+export function eventTitle(lead: string, when: string, town: string, siteTitle: string, venue?: string): string {
+  // A title that ends "at <venue>" and runs past what a result shows loses
+  // the venue, which the page's Where row and description give: "Gratitude
+  // of Presence sound journey at Wildfire Arts Center — Nov 20" was 68.
+  const tail = venue ? ` at ${venue}`.toLowerCase() : '';
+  const full = `${lead} \u2014 ${when}`;
+  const atVenue = tail && full.length > TITLE_LIMIT + 5 && [tail, tail.replace(' at ', ' at the ')].find((t) => lead.toLowerCase().endsWith(t));
+  if (atVenue && lead.length - atVenue.length >= 12) lead = lead.slice(0, lead.length - atVenue.length);
   const dated = `${lead} \u2014 ${when}`;
   if (namesTown(dated, town)) return dated;
   if (namesTown(siteTitle, town) && fitTitle(dated, siteTitle) !== dated) return dated;

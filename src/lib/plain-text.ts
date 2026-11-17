@@ -186,6 +186,32 @@ export function clampText(text: string, limit: number): string {
   return clampAtWord(flat, limit);
 }
 
+/**
+ * Text cut to a search snippet's budget so that it ends where a thought
+ * does, with no ellipsis: 207 descriptions ended "…and the…" (the audit of
+ * 17 November 2026). In order: the last whole sentence, when it reaches
+ * `min` (half the budget unless the caller asks for more); else the last
+ * clause that closes past `clauseMin` (half the budget likewise), at its comma, semicolon, colon
+ * or dash, with a full stop in its place; else an earlier whole sentence;
+ * else, with nothing to cut at, the last word and an ellipsis (clampAtWord).
+ */
+export function clampSnippet(text: string, limit: number, min = limit * 0.5, clauseMin = limit * 0.5): string {
+  const flat = text.replace(/\s+/g, ' ').trim();
+  if (flat.length <= limit) return flat;
+  const cut = flat.slice(0, limit);
+  let sentence = -1;
+  for (const m of cut.matchAll(/[.!?]["'”’)]?(?= )/g)) {
+    if (m[0] === '.' && ABBREVIATION.test(cut.slice(0, m.index))) continue;
+    sentence = m.index + m[0].length;
+  }
+  if (sentence >= min) return cut.slice(0, sentence);
+  let clause = -1;
+  for (const m of cut.matchAll(/[,;:](?= )| [—–](?= )/g)) clause = m.index;
+  if (clause > Math.max(sentence, clauseMin)) return `${cut.slice(0, clause).replace(/[\s,;:([{“‘"'–—-]+$/, '')}.`;
+  if (sentence > 0) return cut.slice(0, sentence);
+  return clampAtWord(flat, limit);
+}
+
 /** Text cut to the budget at the last whole word, with an ellipsis; text within the budget as it is. */
 export function clampAtWord(text: string, limit: number): string {
   const flat = text.replace(/\s+/g, ' ').trim();
