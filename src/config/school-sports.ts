@@ -421,6 +421,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     hosted: [
       // CHSAANow's game page for the 4A second round, read 9 November 2026: "Montbello at Roosevelt", Roosevelt the home team, Fri, Nov 13, 7 pm. MaxPreps filed it as a neutral site.
       { team: 'football', date: '2026-11-13', stage: 'State Football Playoffs', source: 'https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-roosevelt' },
+      // CHSAANow's game page for the 4A quarterfinal, read 17 November 2026: "Mesa Ridge at Roosevelt", Roosevelt the home team, Fri, Nov 20, 7 pm. MaxPreps filed it as a neutral site.
+      { team: 'football', date: '2026-11-20', stage: 'State Football Playoffs', source: 'https://chsaanow.com/sports/football/games/2026/11/20/mesa-ridge-at-roosevelt' },
     ],
     // Baseball and girls' soccer in the spring, on the owner's word (9 November 2026).
     teams: TEAMS(FALL(), WINTER(), [SPRING_BASEBALL, SPRING_GIRLS_SOCCER]),

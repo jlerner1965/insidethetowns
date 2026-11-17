@@ -7,7 +7,7 @@ seoTitle: "Colorado High School Football Playoffs 2026: Local Scores"
 description: "Final scores from the Nov. 13–14 games for 16 local teams, and when and whom the 10 still playing meet next, Nov. 20–21."
 eyebrow: "High school football · Colorado playoffs"
 reportingNote: "Compiled from CHSAA brackets, school athletics updates and attributed reporting."
-updated: { date: 2026-11-14, time: "22:14", note: "Finals from all 14 of the Nov. 13–14 games, read on CHSAA's game pages; each team still playing has its next opponent and date, and the six that lost moved to Out of the playoffs." }
+updated: { date: 2026-11-17, time: "15:45", note: "Quarterfinal days and kickoff times from CHSAA's brackets, read Nov. 17: Monarch–Loveland, Montrose–Pueblo West, Mead–Evergreen and Palisade–Pueblo East are Saturday, Nov. 21, not Friday; Roosevelt is at home Friday at 7 pm." }
 jump:
   - { label: "Games", href: "#games" }
   - { label: "Find your team", href: "#find-your-team" }
@@ -31,8 +31,8 @@ games:
     url: "https://chsaanow.com/sports/football/games/2026/11/13/fort-morgan-at-palisade"
     tickets: "https://gofan.co/event/7060710"
     stream: { url: "https://www.nfhsnetwork.com/events/mesa-county-valley-school-district-grand-junction-co/gamfc4cb11d33", label: "NFHS Network", paid: true }
-    next: "Palisade plays No. 6 Pueblo East in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Palisade plays No. 6 Pueblo East in the quarterfinals on Saturday, Nov. 21, at 1 pm at Stocker Stadium."
+    checked: 2026-11-17
   - class: 3A
     round: Second round
     kickoff: "2026-11-13T18:00"
@@ -42,8 +42,8 @@ games:
     status: final
     url: "https://chsaanow.com/sports/football/games/2026/11/13/pomona-at-evergreen"
     tickets: "https://gofan.co/event/7060637"
-    next: "Evergreen plays at No. 4 Mead in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Evergreen plays at No. 4 Mead in the quarterfinals on Saturday, Nov. 21, at 1 pm."
+    checked: 2026-11-17
   - class: 3A
     round: Second round
     kickoff: "2026-11-13T18:00"
@@ -51,8 +51,8 @@ games:
     home: { name: Holy Family, seed: 2, score: 56 }
     status: final
     url: "https://chsaanow.com/sports/football/games/2026/11/13/silver-creek-at-holy-family"
-    next: "Holy Family plays No. 7 Timnath in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Holy Family plays No. 7 Timnath in the quarterfinals on Friday, Nov. 20, at 6 pm."
+    checked: 2026-11-17
   - class: 3A
     round: Second round
     kickoff: "2026-11-13T18:00"
@@ -61,8 +61,8 @@ games:
     status: final
     url: "https://chsaanow.com/sports/football/games/2026/11/13/eagle-valley-vs-timnath"
     stream: { url: "https://www.nfhsnetwork.com/events/timnath-high-school-fort-collins-co/gam8cccc0ad90", label: "NFHS Network", paid: true }
-    next: "Timnath plays No. 2 Holy Family in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Timnath plays No. 2 Holy Family in the quarterfinals on Friday, Nov. 20, at 6 pm."
+    checked: 2026-11-17
   - class: 5A
     round: Second round
     kickoff: "2026-11-13T19:00"
@@ -85,8 +85,8 @@ games:
     url: "https://chsaanow.com/sports/football/games/2026/11/13/northfield-vs-fort-collins"
     tickets: "https://gofan.co/event/7052319"
     stream: { url: "https://www.nfhsnetwork.com/events/fort-collins-high-school-fort-collins-co/gam012542f1f1", label: "NFHS Network", paid: true }
-    next: "Fort Collins plays No. 5 Grandview in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Fort Collins plays No. 5 Grandview in the quarterfinals on Friday, Nov. 20, at 6:30 pm at French Field."
+    checked: 2026-11-17
   - class: 4A
     round: Second round
     kickoff: "2026-11-13T19:00"
@@ -94,8 +94,8 @@ games:
     home: { name: Roosevelt, seed: 1, section: "#roosevelt-high-school-johnstown", score: 53 }
     status: final
     url: "https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-roosevelt"
-    next: "Roosevelt plays No. 8 Mesa Ridge in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Roosevelt plays No. 8 Mesa Ridge at home in the quarterfinals on Friday, Nov. 20, at 7 pm."
+    checked: 2026-11-17
   - class: 4A
     round: Second round
     kickoff: "2026-11-13T19:00"
@@ -105,8 +105,8 @@ games:
     status: final
     url: "https://chsaanow.com/sports/football/games/2026/11/13/columbine-at-loveland"
     tickets: "https://gofan.co/event/7051514"
-    next: "Loveland plays No. 4 Monarch in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Loveland plays No. 4 Monarch in the quarterfinals on Saturday, Nov. 21, at 2 pm."
+    checked: 2026-11-17
   - class: 4A
     round: Second round
     kickoff: "2026-11-13T19:00"
@@ -117,8 +117,8 @@ games:
     url: "https://chsaanow.com/sports/football/games/2026/11/13/douglas-county-at-monarch"
     tickets: "https://gofan.co/event/7049726"
     stream: { url: "https://www.nfhsnetwork.com/events/centaurus-high-school-lafayette-co/gam1cb16df53a", label: "NFHS Network", paid: true }
-    next: "Monarch plays No. 5 Loveland in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Monarch plays No. 5 Loveland in the quarterfinals on Saturday, Nov. 21, at 2 pm."
+    checked: 2026-11-17
   - class: 3A
     round: Second round
     kickoff: "2026-11-13T19:00"
@@ -127,8 +127,8 @@ games:
     venue: "Dutch Clark Stadium, Pueblo"
     status: final
     url: "https://chsaanow.com/sports/football/games/2026/11/13/severance-at-pueblo-east"
-    next: "Pueblo East plays No. 3 Palisade in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Pueblo East plays No. 3 Palisade in the quarterfinals on Saturday, Nov. 21, at 1 pm at Stocker Stadium."
+    checked: 2026-11-17
   - class: 4A
     round: Second round
     kickoff: "2026-11-14T13:00"
@@ -137,8 +137,8 @@ games:
     status: final
     url: "https://chsaanow.com/sports/football/games/2026/11/14/air-academy-vs-montrose"
     stream: { url: "https://www.nfhsnetwork.com/events/montrose-high-school-montrose-co/gam9815705214", label: "NFHS Network", paid: true }
-    next: "Montrose plays No. 7 Pueblo West in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Montrose plays No. 7 Pueblo West in the quarterfinals on Saturday, Nov. 21, at 1 pm."
+    checked: 2026-11-17
   - class: 3A
     round: Second round
     kickoff: "2026-11-14T13:00"
@@ -146,8 +146,8 @@ games:
     home: { name: Mead, seed: 4, section: "#mead-high-school-mead", score: 56 }
     status: final
     url: "https://chsaanow.com/sports/football/games/2026/11/14/rifle-vs-mead"
-    next: "Mead plays No. 5 Evergreen at home in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Mead plays No. 5 Evergreen at home in the quarterfinals on Saturday, Nov. 21, at 1 pm."
+    checked: 2026-11-17
   - class: 2A
     round: Quarterfinal
     kickoff: "2026-11-14T13:00"
@@ -166,8 +166,8 @@ games:
     status: final
     url: "https://chsaanow.com/sports/football/games/2026/11/14/golden-at-mesa-ridge"
     stream: { url: "https://www.nfhsnetwork.com/events/mesa-ridge-high-school-colorado-springs-co/gam0dbfe6ca81", label: "NFHS Network", paid: true }
-    next: "Mesa Ridge plays No. 1 Roosevelt in the quarterfinals on Friday, Nov. 20."
-    checked: 2026-11-14
+    next: "Mesa Ridge plays at No. 1 Roosevelt in the quarterfinals on Friday, Nov. 20, at 7 pm."
+    checked: 2026-11-17
 sources:
   - label: "CHSAA: 2026 5A football bracket"
     url: "https://chsaanow.com/brackets/football/2026/state/5a"
@@ -257,7 +257,7 @@ No. 5 seed · 11-0 · Class 3A
 
 **Last game:** beat No. 12 Pomona, the defending 3A champion, 21-7 on Friday, November 13. It was Evergreen's second win over Pomona this season and its first postseason win since 2022, and Grady White's interception return for a touchdown with 3:40 left sealed it, [per CHSAA](https://chsaanow.com/news/2026/11/14/football-second-round-quarterfinals-results-2026).
 
-**Next game:** at No. 4 Mead (9-2), quarterfinal, Friday, November 20. Evergreen is the away team: [CHSAA reported](https://chsaanow.com/news/2026/11/13/evergreen-football-remains-perfect-in-knocking-out-defending-3a-state-champs) that Evergreen would be on the road if Mead beat Rifle, and Mead won 56-7. CHSAA has not posted the time or site.
+**Next game:** at No. 4 Mead (9-2), quarterfinal, Saturday, November 21, at 1 pm. Evergreen is the away team: [CHSAA reported](https://chsaanow.com/news/2026/11/13/evergreen-football-remains-perfect-in-knocking-out-defending-3a-state-champs) that Evergreen would be on the road if Mead beat Rifle, and Mead won 56-7. The day and time are from CHSAA's [3A bracket](https://chsaanow.com/brackets/football/2026/state/3a), which names no venue.
 
 **Why this matchup matters:** Evergreen has allowed 35 points in 11 games, 3.2 a game, with six shutouts, [per CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/13/pomona-at-evergreen). Mead has won six straight since a 37-28 loss at Holy Family on September 25; its other loss was 21-0 at Lutheran on September 11.
 
@@ -275,7 +275,7 @@ No. 4 seed · 11-0 · Class 5A
 
 **Last game:** beat No. 13 Northfield 39-34 at French Field on Friday, November 13. The teams traded the lead five times in the first half, and Northfield scored with 4:08 left to get within five, [per CHSAA](https://chsaanow.com/news/2026/11/14/football-second-round-quarterfinals-results-2026).
 
-**Next game:** No. 5 Grandview (8-3), quarterfinal, Friday, November 20. As the higher seed, Fort Collins would stay home, [the Coloradoan reports](https://sports.yahoo.com/articles/fort-collins-football-could-stay-224710600.html); CHSAA has not posted the time or site.
+**Next game:** No. 5 Grandview (8-3), quarterfinal, Friday, November 20. As the higher seed, Fort Collins would stay home, [the Coloradoan reports](https://sports.yahoo.com/articles/fort-collins-football-could-stay-224710600.html); CHSAA's [5A bracket](https://chsaanow.com/brackets/football/2026/state/5a) lists the game for 6:30 pm at French Field.
 
 **Why this matchup matters:** Fort Collins is the only unbeaten team left in 5A. Grandview beat No. 12 Regis Jesuit 19-13 on November 12, three weeks after losing to it 24-21. Its other losses were 10-6 to Northfield on September 25 and 17-0 to Cherry Creek on October 30, [per CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/12/regis-jesuit-at-grandview).
 
@@ -293,7 +293,7 @@ No. 1 seed · 10-1 · Class 4A
 
 **Last game:** beat No. 17 Montbello 53-10 on Friday, November 13, after leading 35-10 at halftime, [per CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-roosevelt).
 
-**Next game:** No. 8 Mesa Ridge (9-2), quarterfinal, Friday, November 20. CHSAA has not posted the time or site.
+**Next game:** No. 8 Mesa Ridge (9-2), quarterfinal, Friday, November 20, at 7 pm. Roosevelt is the home team on [CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/20/mesa-ridge-at-roosevelt).
 
 **Why this matchup matters:** Mesa Ridge beat No. 9 Golden 35-15, scoring four straight touchdowns after Golden pulled within 7-6 in the first quarter, [per CHSAA](https://chsaanow.com/news/2026/11/14/football-second-round-quarterfinals-results-2026). Both played Pueblo West: Roosevelt won 28-27 on September 4, and Mesa Ridge lost 35-7 on October 16. Mesa Ridge's other loss was 35-12 at Palmer Ridge.
 
@@ -311,7 +311,7 @@ No. 4 seed · 10-1 · Class 4A
 
 **Last game:** beat No. 13 Douglas County 50-0 on Friday, November 13, [per CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/13/douglas-county-at-monarch).
 
-**Next game:** No. 5 Loveland (10-1), quarterfinal, Friday, November 20. CHSAA has not posted the time or site.
+**Next game:** No. 5 Loveland (10-1), quarterfinal, Saturday, November 21, at 2 pm, per CHSAA's [4A bracket](https://chsaanow.com/brackets/football/2026/state/4a), which names no venue.
 
 **Why this matchup matters:** each team has lost once: Monarch 24-18 at Broomfield on September 4, Loveland 43-14 to Roosevelt on October 16. Both beat Fossil Ridge, Monarch 44-37 on September 10 and Loveland 21-18 on August 28.
 
@@ -329,7 +329,7 @@ No. 5 seed · 10-1 · Class 4A
 
 **Last game:** beat No. 12 Columbine 22-17 at Ray Patterson Stadium on Friday, November 13. Columbine went ahead 17-16 with 3:36 left, and Loveland scored with 1:26 left to win, [per CHSAA](https://chsaanow.com/news/2026/11/14/football-second-round-quarterfinals-results-2026).
 
-**Next game:** No. 4 Monarch (10-1), quarterfinal, Friday, November 20. CHSAA has not posted the time or site.
+**Next game:** No. 4 Monarch (10-1), quarterfinal, Saturday, November 21, at 2 pm, per CHSAA's [4A bracket](https://chsaanow.com/brackets/football/2026/state/4a), which names no venue.
 
 **Why this matchup matters:** each team has lost once: Loveland 43-14 to Roosevelt on October 16, Monarch 24-18 at Broomfield on September 4. Both beat Fossil Ridge, Loveland 21-18 on August 28 and Monarch 44-37 on September 10.
 
@@ -347,7 +347,7 @@ No. 4 seed · 9-2 · Class 3A
 
 **Last game:** beat No. 13 Rifle 56-7 on Saturday, November 14, [per CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/14/rifle-vs-mead).
 
-**Next game:** No. 5 Evergreen (11-0), quarterfinal, Friday, November 20. Mead is the home team, [per CHSAA](https://chsaanow.com/news/2026/11/13/evergreen-football-remains-perfect-in-knocking-out-defending-3a-state-champs), which has not posted the time or site.
+**Next game:** No. 5 Evergreen (11-0), quarterfinal, Saturday, November 21, at 1 pm. Mead is the home team, [per CHSAA](https://chsaanow.com/news/2026/11/13/evergreen-football-remains-perfect-in-knocking-out-defending-3a-state-champs); the day and time are from its [3A bracket](https://chsaanow.com/brackets/football/2026/state/3a), which names no venue.
 
 **Why this matchup matters:** Evergreen is unbeaten and has allowed 35 points all season, with six shutouts, and it beat Pomona, the defending 3A champion, 21-7 in the second round. Mead has won six straight since a 37-28 loss at Holy Family on September 25.
 
@@ -365,7 +365,7 @@ No. 2 seed · 9-2 · Class 4A
 
 **Last game:** beat No. 18 Air Academy 49-0 on Saturday, November 14, scoring 42 points in the first half, [per CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/14/air-academy-vs-montrose).
 
-**Next game:** No. 7 Pueblo West (9-2), quarterfinal, Friday, November 20, per CHSAA's weekend results. CHSAA has not posted the time or site.
+**Next game:** No. 7 Pueblo West (9-2), quarterfinal, Saturday, November 21, at 1 pm, per CHSAA's [4A bracket](https://chsaanow.com/brackets/football/2026/state/4a), which names no venue.
 
 **Why this matchup matters:** Pueblo West beat No. 10 Lutheran 38-35 in a game with three lead changes in the fourth quarter, [per CHSAA](https://chsaanow.com/news/2026/11/14/football-second-round-quarterfinals-results-2026). Both teams lost to Palmer Ridge, the 3A top seed: Montrose 56-28 and Pueblo West 42-7. Pueblo West's other loss was 28-27 at Roosevelt.
 
@@ -381,7 +381,7 @@ No. 3 seed · 10-1 · Class 3A
 
 **Last game:** beat No. 14 Fort Morgan 49-26 at Stocker Stadium on Friday, November 13, [per CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/13/fort-morgan-at-palisade).
 
-**Next game:** No. 6 Pueblo East (10-1), quarterfinal, Friday, November 20. CHSAA has not posted the time or site.
+**Next game:** No. 6 Pueblo East (10-1), quarterfinal, Saturday, November 21, at 1 pm at Stocker Stadium, per CHSAA's [3A bracket](https://chsaanow.com/brackets/football/2026/state/3a).
 
 **Why this matchup matters:** Pueblo East has won 10 straight since a 35-14 loss to Palmer Ridge, the 3A top seed, in its opener, and beat No. 11 Severance 10-7 in the second round. Palisade has won eight straight since its only loss, 21-12 at Montrose on September 4. Both beat Lewis-Palmer and Resurrection Christian: Palisade 45-20 and 34-8, Pueblo East 44-6 and 23-15.
 
@@ -397,7 +397,7 @@ No. 7 seed · 8-3 · Class 3A
 
 **Last game:** beat No. 10 Eagle Valley 42-7 on Friday, November 13, [per CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/13/eagle-valley-vs-timnath), in what [the Coloradoan reported](https://sports.yahoo.com/articles/northern-colorado-teams-could-win-112929041.html) was Timnath's first home playoff game.
 
-**Next game:** No. 2 Holy Family (10-1), quarterfinal, Friday, November 20. CHSAA has not posted the time or site.
+**Next game:** No. 2 Holy Family (10-1), quarterfinal, Friday, November 20, at 6 pm, per CHSAA's [3A bracket](https://chsaanow.com/brackets/football/2026/state/3a), which names no venue.
 
 **Why this matchup matters:** it is a rematch of October 23, when Holy Family won 36-35 at Timnath. Holy Family's only loss was 62-43 to Broomfield in its opener, and it averages 52.6 points a game, [per CHSAA's game page](https://chsaanow.com/sports/football/games/2026/11/13/silver-creek-at-holy-family). It beat No. 18 Silver Creek 56-14 in the second round.
 
@@ -418,7 +418,7 @@ More: [Timnath town page](/timnath/)
 | 4A | Saturday, December 5 | 2 pm | Canvas Stadium, CSU, Fort Collins |
 | 5A | Saturday, December 5 | 6 pm | Canvas Stadium, CSU, Fort Collins |
 
-Dates and stadiums are from [CHSAA's championship announcement](https://chsaanow.com/news/2026/09/09/fall-2026-state-championship-dates-locations-announced); kickoff times are from its brackets. Before the finals, the 3A to 5A quarterfinals are Friday, November 20, and the semifinals Saturday, November 28; the 2A semifinals are Saturday, November 21. [CHSAA's tickets page](https://chsaanow.com/tickets), where it sells state championship tickets, listed no football games on November 14.
+Dates and stadiums are from [CHSAA's championship announcement](https://chsaanow.com/news/2026/09/09/fall-2026-state-championship-dates-locations-announced); kickoff times are from its brackets. Before the finals, the 3A to 5A quarterfinals are Friday and Saturday, November 20 and 21, and the semifinals Saturday, November 28; the 2A semifinals are Saturday, November 21. [CHSAA's tickets page](https://chsaanow.com/tickets), where it sells state championship tickets, listed no football games on November 14.
 
 ## Out of the playoffs
 

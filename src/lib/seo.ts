@@ -1,6 +1,7 @@
 /**
  * JSON-LD builders. Keep these pure so they are easy to eyeball in tests.
  */
+import { subTownLabel } from './sub-towns.ts';
 import { isFreeCost } from './cost.ts';
 import { hhmm, hoursWithMeridiem, openingHoursOf, parseOpeningHours } from './hours.ts';
 import { namesTown } from './titles.ts';
@@ -481,6 +482,31 @@ export function placeLocality(place: { address?: string; subTown?: string }, tow
   return postalAddress(place.address, town).addressLocality;
 }
 
+/**
+ * The town an event is in, read the way a place's is (placeLocality): its
+ * section's on a guide that covers several, else the town its own address
+ * names, else the guide's. Every line that says where an event is goes
+ * through here: the description, the structured data, the calendar exports,
+ * the directions and the "held every year" sentence. Before, each wrote the
+ * guide's own name, so a Severance event on the Windsor guide was "at
+ * Severance Town Hall, Windsor" in 78 places (the audit of 17 November 2026).
+ */
+export function eventLocality(event: { address?: string; subTown?: string }, town: { name: string; state: string }): string {
+  if (event.subTown) return subTownLabel(event.subTown);
+  return postalAddress(event.address, town).addressLocality;
+}
+
+/**
+ * Where an event is, on one line, for a calendar entry: the venue, the
+ * address, and the town and state only when the address does not already end
+ * with them ("3 S Timber Ridge Parkway, Severance, CO 80550" needs nothing
+ * after it).
+ */
+export function eventWhere(event: { venue?: string; address?: string; subTown?: string }, town: { name: string; state: string }): string {
+  const complete = /,\s*(?:CO|Colorado)\b/.test(event.address ?? '');
+  return [event.venue, event.address, complete ? undefined : `${eventLocality(event, town)}, CO`].filter(Boolean).join(', ');
+}
+
 export function postalAddress(address: string | undefined, town: { name: string; state: string }) {
   const parts = address?.match(/^(.+),\s*([A-Za-z][A-Za-z .'-]*),\s*(?:CO|Colorado),?(?:\s+(\d{5}(?:-\d{4})?))?\s*$/);
   if (parts) {
@@ -530,7 +556,7 @@ export function eventJsonLd(
     location: {
       '@type': 'Place',
       name: data.venue,
-      address: postalAddress(data.address, town),
+      address: postalAddress(data.address, { ...town, name: eventLocality(data, town) }),
     },
     ...(imageUrl ? { image: [imageUrl] } : {}),
     // Only when the listing records who is running it. The venue is not

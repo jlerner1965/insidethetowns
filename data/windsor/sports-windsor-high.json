@@ -372,15 +372,15 @@
       "results": [
         {
           "date": "2026-11-14",
-          "opponent": "Lewis-Palmer",
+          "opponent": "Rampart",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/lewis-palmer-monument-vs-windsor/11-14-2026/?c=b667f808-9145-419e-8e0c-c54610c0165d",
+          "url": "https://www.maxpreps.com/co/volleyball/match/rampart-colorado-springs-vs-windsor/11-14-2026/?c=e95eeae5-44dc-43f0-b969-b7389e04bea3",
           "stage": "State Volleyball Championships",
           "neutral": true,
-          "result": "W",
+          "result": "L",
           "score": {
-            "us": 3,
-            "them": 0
+            "us": 2,
+            "them": 3
           },
           "venue": "Denver Coliseum"
         },
@@ -400,15 +400,15 @@
         },
         {
           "date": "2026-11-14",
-          "opponent": "Rampart",
+          "opponent": "Lewis-Palmer",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/rampart-colorado-springs-vs-windsor/11-14-2026/?c=e95eeae5-44dc-43f0-b969-b7389e04bea3",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lewis-palmer-monument-vs-windsor/11-14-2026/?c=b667f808-9145-419e-8e0c-c54610c0165d",
           "stage": "State Volleyball Championships",
           "neutral": true,
-          "result": "L",
+          "result": "W",
           "score": {
-            "us": 2,
-            "them": 3
+            "us": 3,
+            "them": 0
           },
           "venue": "Denver Coliseum"
         },

@@ -11,7 +11,7 @@ import { subTownLabel } from '@/lib/sub-towns';
 import { exportWhen, finalDay, isCanceled, isInProgress, isMultiDay, isOver, lastDay, listedUntil, nextOccurrence, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { googleCalendarUrl, showKey } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
-import { breadcrumbJsonLd, eventImage, eventJsonLd, eventMetaDescription } from '@/lib/seo';
+import { breadcrumbJsonLd, eventImage, eventJsonLd, eventLocality, eventMetaDescription, eventWhere } from '@/lib/seo';
 import { firstSentence as firstSentenceOf, markdownToText } from '@/lib/plain-text';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import Provenance from '@/components/Provenance.astro';
@@ -165,10 +165,13 @@ const dayText = isMultiDay(next)
  */
 // An annual event's page says the year: it is read, and searched for, across
 // years ("held October 4" on a page found the next spring said nothing).
+// The town the event is in, which on a guide that covers two is not always
+// the guide's own (src/lib/seo.ts, eventLocality).
+const locality = eventLocality(data, town);
 const yearText = annual ? `, ${formatDate(when.start).slice(-4)}` : '';
 const particulars = awaitingDate
-  ? `Held ${dayText}${yearText}, ${timeText} at ${data.venue}, ${town.name}; the next date is to be announced.`
-  : `${statusLabel ? `${statusLabel}. ` : ''}${dayText}${yearText}, ${timeText} at ${data.venue}, ${town.name}.`;
+  ? `Held ${dayText}${yearText}, ${timeText} at ${data.venue}, ${locality}; the next date is to be announced.`
+  : `${statusLabel ? `${statusLabel}. ` : ''}${dayText}${yearText}, ${timeText} at ${data.venue}, ${locality}.`;
 const firstSentence = firstSentenceOf(markdownToText(event.body));
 /**
  * Two ways into a reader's own calendar, neither needing a script: the
@@ -180,7 +183,7 @@ const googleFor = (occurrence: typeof next) =>
   googleCalendarUrl({
     title: data.title,
     ...exportWhen(occurrence),
-    location: [data.venue, data.address, `${town.name}, CO`].filter(Boolean).join(', '),
+    location: eventWhere(data, town),
     description: firstSentence,
     url,
   });
@@ -228,7 +231,7 @@ const alsoOn = [...soon.filter((e) => e.data.venue === data.venue), ...soon.filt
 // Directions as the place page gives them (src/lib/places.ts, directionsUrl):
 // a visitor from a search wants the way there from the event itself (the
 // reader pass, 1 November 2026).
-const directions = data.address ? directionsUrl(data.address, town.name) : undefined;
+const directions = data.address ? directionsUrl(data.address, locality) : undefined;
 // The particulars and the body's first sentence; where that is short, the
 // next sentence, the event's name and what the page offers (eventMetaDescription).
 const description = eventMetaDescription({ title: data.title, lead: particulars, body: event.body, directions: !!directions, calendar: !offList });
@@ -317,7 +320,7 @@ const facts: Fact[] = [
       <div class="max-w-[40rem] rounded-r-lg border-l-4 border-accent bg-raised p-5 ring-1 ring-line-soft lg:col-start-1 lg:row-start-1 lg:mb-10" role="note">
         <p class="eyebrow text-ink">This year’s edition has passed</p>
         <p class="mt-2 leading-relaxed">
-          {data.title} was held on {formatDayLong(data.start)}. {town.name} holds it every year; the next date has not been announced, and this page is updated when the organizer posts it.
+          {data.title} was held on {formatDayLong(data.start)}. {locality} holds it every year; the next date has not been announced, and this page is updated when the organizer posts it.
           {organizerHref && (
             <Fragment>
               {' '}<a href={organizerHref} rel="noopener" class="text-primary underline">Organizer’s page →</a>

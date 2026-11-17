@@ -161,6 +161,21 @@ function ordinal(n: number): string {
   return `${n}${s[(v - 20) % 10] ?? s[v] ?? s[0]}`;
 }
 
+/**
+ * When each game read here started, as MaxPreps gives it. Kept beside the
+ * game rather than on it: a played game shows no time, but two games on one
+ * day still have an order, and "the last game" has to be the later one
+ * (Berthoud softball's state day, 23 October 2026: the first-round win over
+ * Delta was listed after the quarterfinal loss to Lyons that ended the
+ * season; the audit of 17 November 2026).
+ */
+const KICKOFF = new WeakMap<SportGame, string>();
+
+/** Newest first; on one day, the later start first. */
+function newestFirst(a: SportGame, b: SportGame): number {
+  return b.date.localeCompare(a.date) || (KICKOFF.get(b) ?? '').localeCompare(KICKOFF.get(a) ?? '');
+}
+
 function toGame(c: MpContest, us: Team, kickoff?: string): SportGame | undefined {
   const mine = c.teams?.find((t) => t.teamCanonicalUrl?.startsWith(us.url) || t.schoolName === us.schoolName);
   const theirs = c.teams?.find((t) => t !== mine);
@@ -172,6 +187,8 @@ function toGame(c: MpContest, us: Team, kickoff?: string): SportGame | undefined
   // differ only in that contest id (Niwot softball at Falcon, 17 October
   // 2026, lost 4-15 and 9-17), and it is what tells one from the other.
   const game: SportGame = { date, opponent, site: site(c.homeAwayType), url: c.canonicalUrl };
+  const started = kickoff ?? c.timestamp;
+  if (started) KICKOFF.set(game, started);
   if (c.homeAwayType === 2) game.neutral = true;
   const stage = stageName(c.tournament?.tournamentName);
   if (stage) game.stage = stage;
@@ -261,7 +278,7 @@ export function parseTeamPage(html: string, us: Team): TeamPage {
   for (const g of page.glance) {
     if ((g.result || g.place) && !page.results.some((r) => r.url === g.url)) page.results.push(g);
   }
-  page.results.sort((a, b) => b.date.localeCompare(a.date));
+  page.results.sort(newestFirst);
 
   // The glance card's played games must be among the results, with the same score.
   for (const g of page.glance.filter((x) => x.result)) {
@@ -524,9 +541,10 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
       }
       if (!unreported && !/\bTBA\b/i.test(sentence) && time !== '00:00') game.time = time;
     }
+    KICKOFF.set(game, kickoff);
     page.games.push(game);
   }
-  page.games.sort((a, b) => a.date.localeCompare(b.date));
+  page.games.sort((a, b) => a.date.localeCompare(b.date) || (KICKOFF.get(a) ?? '').localeCompare(KICKOFF.get(b) ?? ''));
   return page;
 }
 
@@ -551,7 +569,9 @@ export function applySchedule(page: TeamPage, schedule: SchedulePage): string | 
     // except for a game the schedule knows to be a playoff or tournament.
     if (!g.neutral) g.site = known.site;
   }
-  page.results = schedule.games.filter((g) => g.result || g.place).sort((a, b) => b.date.localeCompare(a.date));
+  // The schedule lists a day's games in the order they were played; reversed
+  // first, so two games with the same start (or none) still come out later first.
+  page.results = schedule.games.filter((g) => g.result || g.place).reverse().sort(newestFirst);
   page.schedule = schedule.games;
   return undefined;
 }
