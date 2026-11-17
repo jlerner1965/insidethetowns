@@ -28,8 +28,15 @@
  *
  * Nothing here changes the guide's own palette (TownConfig.colors), which
  * every other page and every other part of the home page keeps.
+ *
+ * One source (17 November 2026): a school the guides follow keeps its
+ * colours in the sports config (SchoolSports.colors) and the strip reads
+ * them there (stripColors), as its sports pages do (schoolTrim); the two
+ * files had drifted apart on Erie, Lyons and Niwot. TownConfig.school's
+ * colours stand only for a guide whose school has no sports entry.
  */
 import { INK, PAPERS } from './palette.ts';
+import { SCHOOL_SPORTS, type SchoolColors } from './school-sports.ts';
 import type { SchoolConfig } from './towns/types.ts';
 
 export const WHITE = '#ffffff';
@@ -53,6 +60,41 @@ function luminance(hex: string): number {
 export function contrast(a: string, b: string): number {
   const [x, y] = [luminance(a), luminance(b)].sort((m, n) => n - m);
   return (x! + 0.05) / (y! + 0.05);
+}
+
+type Pair = Pick<SchoolConfig, 'primary' | 'secondary'>;
+
+/** The two colours the home strip is drawn from: the published main colour (or the band's darker step) and the second, white where none is recorded. */
+export function schoolPair(colors: SchoolColors): Pair {
+  return { primary: colors.band ?? colors.brand ?? colors.primary, secondary: colors.secondary ?? WHITE };
+}
+
+/** The strip's colours for a guide: its one followed school's from the sports config, else TownConfig.school's. */
+export function stripColors(town: { slug: string; school?: Pair }): Pair | undefined {
+  const followed = SCHOOL_SPORTS.filter((s) => s.town === town.slug);
+  const colors = followed.length === 1 ? followed[0]!.colors : undefined;
+  return colors ? schoolPair(colors) : town.school;
+}
+
+/** A line of the trim has to be seen on white: under this the second colour (a white) gives way to the primary. */
+export const TRIM_MIN = 1.3;
+/** White on the loss pill, at least. */
+export const LOSS_MIN = 7;
+
+/**
+ * The trim of a school's sports pages, in place of the guide's accent: the
+ * header rules and the tie pill's wash in the published main colour where
+ * the pages are set in a darker step of it (Erie's orange), else the second
+ * colour, else (a white) the primary; and the loss pill in the second colour
+ * where it is dark (Roosevelt's and Erie's black). Nothing where the school
+ * has neither recorded: the guide's accent stays.
+ */
+export function schoolTrim(colors: SchoolColors): { accent: string; loss?: string } | undefined {
+  const { primary, brand, secondary } = colors;
+  if (!brand && !secondary) return undefined;
+  const accent = brand ?? (contrast(secondary!, WHITE) >= TRIM_MIN ? secondary! : primary);
+  const loss = secondary && contrast(WHITE, secondary) >= LOSS_MIN ? secondary : undefined;
+  return { accent, ...(loss ? { loss } : {}) };
 }
 
 export interface SchoolTheme {

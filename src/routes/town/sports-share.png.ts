@@ -7,6 +7,7 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getTown } from '@/config';
 import { schoolAthletics, schoolsFor, shareImageName, type SchoolSports, type SportData, type SportsData } from '@/config/school-sports';
+import { schoolTrim } from '@/config/school-colors';
 import { seasonOf, sportsDataFor, teamsWithData } from '@/lib/school-sports';
 import { renderShareCard } from '@/lib/share-image';
 
@@ -38,6 +39,8 @@ export const GET: APIRoute = async ({ props }) => {
   const teams = teamsWithData(data);
   const body = await renderShareCard({
     color: school.colors?.primary ?? town.colors.primary,
+    // The second colour as a bar, unless it is the ground's own (a white second colour gives the primary).
+    trim: [school.colors && schoolTrim(school.colors)?.accent].find((c) => c && c.toLowerCase() !== school.colors!.primary.toLowerCase()),
     title: team ? `${school.maxprepsName} ${team.name.toLowerCase()}` : schoolAthletics(school),
     record: team ? recordLine(team, seasonWord) : teams.filter((t) => t.overall).slice(0, 4).map((t) => `${t.name} ${t.overall}`).join(' · ') || undefined,
     footer: `Scores and schedules · ${town.siteTitle}`,

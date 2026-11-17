@@ -6,6 +6,7 @@
 import { LEAGUE_SPELLINGS, schoolsFor, schoolTeamName, sportsDataFile, type HostedRound, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { POSTSEASON, type PostseasonGame } from '../config/postseason.ts';
 import { primaryHover } from '../config/palette.ts';
+import { schoolTrim } from '../config/school-colors.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock, TIME_ZONE } from './dates.ts';
 import { addFirstFitting } from './plain-text.ts';
 import { TITLE_LIMIT } from './titles.ts';
@@ -15,13 +16,17 @@ import { TITLE_LIMIT } from './titles.ts';
  * that wraps the sports page or the home page's game strip. Base.astro sets
  * the town's on <html>; a custom property is computed where it is declared,
  * so the line colour derived from it in global.css is set here again, or it
- * would stay the town's. Nothing where the school has no colour.
+ * would stay the town's. Nothing where the school has no colour. The trim
+ * (schoolTrim) takes the accent's place the same way, and `--school-loss`
+ * is the loss pill's fill where the school's second colour is dark.
  */
 export function schoolCssVars(school: SchoolSports | undefined): string | undefined {
   const primary = school?.colors?.primary;
   if (!primary) return undefined;
   const hover = primaryHover(primary);
   const line = `color-mix(in srgb, ${primary} 25%, #ffffff)`;
+  const trim = schoolTrim(school!.colors!);
+  const soft = trim && `color-mix(in srgb, ${trim.accent} 16%, #ffffff)`;
   // Both names: Tailwind's utilities read the town's (`bg-primary` is
   // `var(--town-primary)`), the stylesheet's own rules (.btn-primary,
   // .eyebrow) read the theme's, which the root resolved to the town's.
@@ -32,6 +37,8 @@ export function schoolCssVars(school: SchoolSports | undefined): string | undefi
     `--color-primary:${primary}`,
     `--color-primary-hover:${hover}`,
     `--color-primary-line:${line}`,
+    ...(trim ? [`--town-accent:${trim.accent}`, `--t-accent-soft:${soft}`, `--color-accent:${trim.accent}`, `--color-accent-soft:${soft}`] : []),
+    ...(trim?.loss ? [`--school-loss:${trim.loss}`] : []),
   ].join(';');
 }
 
