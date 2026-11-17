@@ -69,8 +69,8 @@ towns: [windsor, timnath]
 
 ---
 
-This week in Windsor: https://insidewindsorco.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22  
-This week in Timnath: https://insidetimnath.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22  
-Know of something missing? https://insidewindsorco.com/submit-event/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22
+[This week in Windsor](https://insidewindsorco.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)  
+[This week in Timnath](https://insidetimnath.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)  
+[Know of something missing?](https://insidewindsorco.com/submit-event/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)
 
 _The weekly email for Windsor, Severance and Timnath, from Inside Windsor and Inside Timnath, part of Inside the Towns. Listings are editorial; nobody pays to be in them._

@@ -7,7 +7,7 @@ import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { latestIssueFor } from '../src/lib/issues.ts';
+import { archiveTitle, latestIssueFor, movedGuides, movedIn } from '../src/lib/issues.ts';
 
 function archive(files: Record<string, string>): string {
   const root = mkdtempSync(join(tmpdir(), 'issues-'));
@@ -49,4 +49,18 @@ test('every live archive file is read: each email-covered guide has an issue to 
   // The real archive: Berthoud has been in the email since October.
   const found = latestIssueFor('berthoud', '2099-01-01');
   assert.ok(found && /^\d{4}-\d{2}-\d{2}-/.test(found.slug));
+});
+
+test('an archived issue of a closed guide is titled as its edition, and says where the town is now', () => {
+  const towns = [
+    { status: 'redirect', name: 'Golden', siteTitle: 'Inside Golden', domain: 'insidegolden.com', hubPage: { town: 'golden' } },
+    { status: 'redirect', name: 'Frederick', siteTitle: 'Inside Frederick', domain: 'insidefrederickco.com', retired: { successor: 'carbon-valley' } },
+    { status: 'redirect', name: 'Mead', siteTitle: 'Inside Mead', domain: 'insidemead.com', hubPage: { town: 'mead' } },
+    { status: 'live', name: 'Carbon Valley', siteTitle: 'Inside Carbon Valley', domain: 'carbonvalleyguide.com' },
+  ];
+  const moved = movedGuides(towns, 'Inside the Towns', new Set(['golden']), (slug) => (slug === 'carbon-valley' ? towns[3] : undefined));
+  assert.deepEqual(moved.map((m) => [m.now, m.href]), [['Golden on Inside the Towns', '/golden/'], ['Inside Carbon Valley', 'https://carbonvalleyguide.com/']], 'a closed guide with no page to point to is left out');
+  assert.equal(archiveTitle('Inside Golden, the weekend of November 6–8', moved), 'Golden edition, the weekend of November 6–8');
+  assert.equal(archiveTitle('Inside Erie, the weekend of November 6–8', moved), 'Inside Erie, the weekend of November 6–8');
+  assert.deepEqual(movedIn('Everything on: [insidegolden.com/events](https://insidegolden.com/events/)', moved).map((m) => m.siteTitle), ['Inside Golden']);
 });

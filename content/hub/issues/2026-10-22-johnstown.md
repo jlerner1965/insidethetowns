@@ -47,8 +47,8 @@ towns: [johnstown]
 
 ---
 
-This week in Johnstown: https://insidejohnstown.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22  
-Everything on in Johnstown: https://insidejohnstown.com/events/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22  
-Know of something missing? https://insidejohnstown.com/submit-event/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22
+[This week in Johnstown](https://insidejohnstown.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)  
+[Everything on in Johnstown](https://insidejohnstown.com/events/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)  
+[Know of something missing?](https://insidejohnstown.com/submit-event/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)
 
 _The weekly email from Inside Johnstown, part of Inside the Towns. Listings are editorial; nobody pays to be in them._

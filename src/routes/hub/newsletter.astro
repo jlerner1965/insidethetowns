@@ -9,8 +9,10 @@
 import Page from '@/layouts/Page.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { emailEditions, emailTowns, getHub, liveTowns } from '@/config';
-import { getHubEntries } from '@/lib/content';
+import { allTowns, emailEditions, emailTowns, findTown, getHub, liveTowns } from '@/config';
+import { getHubEntries, getTraditions } from '@/lib/content';
+import { publishedHubTowns } from '@/lib/hub-towns';
+import { archiveTitle, movedGuides } from '@/lib/issues';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 
 const hub = getHub();
@@ -23,6 +25,8 @@ const config = hub.newsletter;
 const issues = config
   ? (await getHubEntries('issues')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   : [];
+// A closed guide's issue is listed as its edition (src/lib/issues.ts, archiveTitle).
+const moved = issues.length > 0 ? movedGuides(allTowns, hub.siteTitle, new Set(publishedHubTowns(await getTraditions()).map((t) => t.slug)), findTown) : [];
 const day = config?.sendDay ?? 'Thursday';
 /**
  * The live guides the email does not cover, so the page says so rather than
@@ -107,7 +111,7 @@ const uncovered = liveTowns().length - towns.length - noEvents.length;
             </p>
             <h3 class="mt-1.5 text-[1.25rem] font-medium leading-tight">
               <a href={`/newsletter/${issue.slug}/`} class="stretch no-underline group-hover:text-primary">
-                {issue.data.title}
+                {archiveTitle(issue.data.title, moved)}
               </a>
             </h3>
             <p class="mt-1.5 max-w-[68ch] text-[0.9375rem] leading-relaxed text-ink-muted">{issue.data.excerpt}</p>
