@@ -105,6 +105,27 @@ export interface HostedRound {
   source: string;
 }
 
+/**
+ * A school's colours, each read from the school's own site (or MaxPreps's
+ * team page) with a comment saying where and when.
+ */
+export interface SchoolColors {
+  /**
+   * The colour the school's pages are set in. It does every job a guide's
+   * primary does there (the records, the dark band, the pills, the links,
+   * with white on it), so it clears what a primary clears: where the
+   * school's published colour does not, this is a darker step of it and
+   * `brand` is the published one.
+   */
+  primary: string;
+  /** The school's main colour as published, where `primary` is a darker step of it: a line with no words on it. */
+  brand?: string;
+  /** The school's second colour, as published: the trim (header rules, tie pills) and, where it is dark, the loss pill. */
+  secondary?: string;
+  /** A darker step for the home strip's band, where white must clear 7:1 and does on neither colour. */
+  band?: string;
+}
+
 export interface SchoolSports {
   /** The town's slug. */
   town: string;
@@ -154,15 +175,14 @@ export interface SchoolSports {
   calendar?: { kind: 'finalsite'; url: string; label: string };
   calendarNote?: string;
   /**
-   * The school's own colour, for the sports page and the home page's game
-   * strip: those are the Spartans' and the Cougars' pages, not the town's,
-   * and a maroon-and-white school in a green guide reads wrong. Inside those
-   * two it does every job the town's primary does (the records, the dark
-   * band, the pills, the links, with white on it), so it has to clear what
-   * a primary clears; `npm run check-colors` proves it. Absent, the guide's
-   * primary stays.
+   * The school's own colours, and the one place they are kept: the sports
+   * pages, the share cards, the home page's strip, a multi-school guide's
+   * rows and the hub's score rows all read them here (SchoolColors).
+   * Those are the Spartans' and the Cougars' pages, not the town's, and a
+   * maroon-and-white school in a green guide reads wrong. `npm run
+   * check-colors` proves each pair. Absent, the guide's primary stays.
    */
-  colors?: { primary: string };
+  colors?: SchoolColors;
   /** The postseason rounds the school hosted (HostedRound). */
   hosted?: HostedRound[];
   teams: SportConfig[];
@@ -375,8 +395,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     maxpreps: 'https://www.maxpreps.com/co/berthoud/berthoud-spartans/',
     maxprepsName: 'Berthoud',
     // Spartan maroon, the shade Berthoud High's own site brands with
-    // (bhs.tsd.org, 22 October 2026); MaxPreps's 8F0018 read as red.
-    colors: { primary: '#572932' },
+    // (bhs.tsd.org, 22 October 2026; `--primary-color: #572932` there 17
+    // November); MaxPreps's 8F0018 read as red. Maroon and white on MaxPreps.
+    colors: { primary: '#572932', secondary: '#FFFFFF' },
     // Thompson School District's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://bhs.tsd.org/family/calendar', label: 'the Berthoud High calendar' },
     hosted: [
@@ -394,7 +415,10 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // Cougar green, as MaxPreps's team data gives it (00824B, 21 October
     // 2026), darkened 5%: the exact shade is 4.49:1 on the warm paper and
     // the records are set in it there. The guide's own green is #355E46.
-    colors: { primary: '#007C47' },
+    // White is 5.3:1 on it, short of the home band's 7:1, so the band is the
+    // 700 step of the green Niwot High's own site publishes (nhs.svvsd.org,
+    // `--color-primary-700: #126637`, read 17 November 2026).
+    colors: { primary: '#007C47', band: '#126637' },
     // St. Vrain Valley keeps Niwot's schedules on ArbiterLive
     // (arbiterlive.com/School/Calendar/16031), whose robots.txt disallows
     // every automated reader, so there is nothing to check against.
@@ -414,8 +438,10 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     maxprepsName: 'Roosevelt',
     // Roughrider red, Roosevelt High's own site theme (hsl 350 83% 42%, 22
     // October 2026); MaxPreps's team data carries only a placeholder black.
-    // The guide's primary is the same.
-    colors: { primary: '#C41230' },
+    // The guide's primary is the same. Black is the site's second colour
+    // (rhs.weldre5j.org, `--primary-color: #c41230`, `--secondary-color:
+    // #000000`, read 17 November 2026).
+    colors: { primary: '#C41230', secondary: '#000000' },
     // Weld RE-5J's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://rhs.weldre5j.org/calendar', label: 'the Roosevelt High calendar' },
     hosted: [
@@ -441,11 +467,17 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     maxpreps: 'https://www.maxpreps.com/co/windsor/windsor-wizards/',
     maxprepsName: 'Windsor',
     // Wizard maroon, the shade Windsor High's own site brands with (MaxPreps's
-    // 8F0018 is Berthoud's too); the guide's primary is the same.
-    colors: { primary: '#6A1B32' },
+    // 8F0018 is Berthoud's too); the guide's primary is the same. Gold is
+    // the site's accent (whs.weldre4.org, theme-color #6a1b32, accent
+    // #ffc900, read 17 November 2026).
+    colors: { primary: '#6A1B32', secondary: '#FFC900' },
     // Windsor High posts each team's schedule on its own site
     // (whs.weldre4.org, one page per sport), not in a calendar this reader reads.
     calendarNote: 'Windsor High posts its schedules team by team on its own site, in a form this site does not read yet, so games to come are published on MaxPreps’s word alone.',
+    hosted: [
+      // CHSAANow's game page for the 3A first round, read 17 November 2026: "Silver Creek at Windsor", Windsor the home team, Fri, Nov 6. MaxPreps filed it as a neutral site named "State Playoffs Round 1".
+      { team: 'football', date: '2026-11-06', stage: 'State Football Playoffs', source: 'https://chsaanow.com/sports/football/games/2026/11/06/silver-creek-at-windsor' },
+    ],
     // Boys' golf and tennis from 9 November 2026 (the owner). Its flag
     // football and ice hockey are co-ops with Poudre School District, not
     // teams of its own (CHSAANow), and its spring teams (girls' soccer,
@@ -468,8 +500,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     maxprepsName: 'Severance',
     // Silver Knight navy, the theme colour of Severance High's own site
     // (shs.weldre4.org, read 9 November 2026); MaxPreps's 022C66 is Lyons'
-    // and Frederick's too.
-    colors: { primary: '#1C3C6D' },
+    // and Frederick's too. Silver is the site's accent (theme-color #1c3c6d,
+    // accent #8f8c88, read 17 November 2026).
+    colors: { primary: '#1C3C6D', secondary: '#8F8C88' },
     // Severance High's athletics page links each season's sports pages and
     // ArbiterSports, and keeps no calendar of games this reader reads.
     calendarNote: 'Severance High’s own site has no calendar of games this site can read, so games to come are published on MaxPreps’s word alone.',
@@ -495,7 +528,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     maxprepsName: 'Frederick',
     // Golden Eagle navy, the shade Frederick High's own site brands with
     // (MaxPreps's 022C66 is Lyons' too); the guide's primary is the same.
-    colors: { primary: '#1C2550' },
+    // Gold is the site's second colour (fhs.svvsd.org, `--color-primary:
+    // #1c2550`, `--color-secondary: #efc867`, read 17 November 2026).
+    colors: { primary: '#1C2550', secondary: '#EFC867' },
     // St. Vrain Valley keeps its schools' schedules on ArbiterLive, as it
     // does Niwot's, whose robots.txt disallows every automated reader;
     // Frederick High's own site links no calendar of games.
@@ -514,8 +549,11 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // brand shade is 2.85:1 on the paper and cannot carry text, so this is
     // the site's own darkest step of it (`--color-primary-700: #983c0e`),
     // 6.6:1 on the paper. MaxPreps's D5350B is 4.5:1 and was not used. The
-    // guide's primary is the same (src/config/towns/erie.ts).
-    colors: { primary: '#983C0E' },
+    // guide's primary is the same (src/config/towns/erie.ts). Both values
+    // were on the school's stylesheet again on 17 November 2026. The orange
+    // itself is the trim, and the school's black (#231F20, read 25 October
+    // 2026; MaxPreps lists Orange and Black) the loss pill and the home band.
+    colors: { primary: '#983C0E', brand: '#F26B21', secondary: '#231F20' },
     // St. Vrain Valley keeps Erie's schedules on ArbiterLive
     // (arbiterlive.com/Teams?entityId=7041, linked from the school's
     // athletics page), whose robots.txt disallows every automated reader,
@@ -534,6 +572,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     maxpreps: 'https://www.maxpreps.com/co/lyons/lyons-lions/',
     maxprepsName: 'Lyons',
     // Lion navy, as MaxPreps's team data gives it (022C66 on white, 22 October 2026).
+    // The school's own site themes in a brighter blue (lmshs.svvsd.org,
+    // `--color-primary: #0054a6`, 17 November 2026): the owner's to choose.
     colors: { primary: '#022C66' },
     // The school posts each team's schedule as a Google Sheet
     // (lmshs.svvsd.org/activities-arts-athletics/athletics/high-school-athletics/,

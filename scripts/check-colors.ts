@@ -18,15 +18,19 @@
  *   inks        body and supporting text 4.5:1 on white, on both papers and
  *               on the amber wash.
  *   category    dot 3:1 on both papers and white; ink 4.5:1 on all three.
- *   school      the flagship home page's band (TownConfig.school,
- *               src/config/school-colors.ts): white 7:1 on it; the
+ *   school      the sports pages' colour (SchoolSports.colors): what a
+ *               primary clears, on every paper (the hub's score rows name
+ *               the school in it); ink 4.5:1 on the trim's wash, white
+ *               4.5:1 on the loss pill. The home page's band (the same
+ *               colours, stripColors in src/config/school-colors.ts;
+ *               TownConfig.school's where no school is followed): white 7:1 on it; the
  *               secondary 4.5:1 on it, or the eyebrows and pills are white;
  *               ink 4.5:1 on a pill; the losing score, white at 72%,
  *               display size, 3:1.
  */
 import { allSites } from '../src/config/index.ts';
 import { SCHOOL_SPORTS } from '../src/config/school-sports.ts';
-import { schoolTheme } from '../src/config/school-colors.ts';
+import { schoolTheme, schoolTrim, stripColors } from '../src/config/school-colors.ts';
 import { CATEGORY_COLORS, HIGHLIGHT, HUB_PUBLICATION, INK, INK_MUTED, PAPERS, PLACE_TYPE_COLORS, TITLE_INK, primaryHover } from '../src/config/palette.ts';
 
 const WHITE = '#ffffff';
@@ -101,6 +105,12 @@ for (const site of allSites) {
     want(`white on ${who}`, ratio(WHITE, school), 4.5);
     want(`white on ${who} hover`, ratio(WHITE, primaryHover(school)), 4.5);
     want(`white/70 display text on ${who}`, ratio(mix(WHITE, 0.7, school), school), 3);
+    // The hub's score rows and a multi-school guide's rows set the school's name in it, on white or a paper.
+    for (const [name, hex] of papers) want(`${who} on ${name} paper`, ratio(school, hex), 4.5);
+    // The trim (schoolTrim): the tie pill is ink on its wash, the loss pill white on the dark second colour.
+    const trim = schoolTrim(s.colors!);
+    if (trim) want(`${who}: ink on the trim wash (${trim.accent})`, ratio(INK, mix(trim.accent, 0.16, WHITE)), 4.5);
+    if (trim?.loss) want(`${who}: white on the loss pill (${trim.loss})`, ratio(WHITE, trim.loss), 4.5);
   }
   // The network strip under the footer is the primary under 30% black
   // (NetworkBar.astro, bg-black/30): its labels and taglines are white/70,
@@ -119,10 +129,11 @@ for (const site of allSites) {
 const schoolNotes: string[] = [];
 for (const site of allSites) {
   if (site.kind !== 'town' || !site.school) continue;
-  const { school } = site;
+  // The colours the strip is drawn from: the sports config's where the guide follows one school.
+  const school = stripColors(site)!;
   const page = PAPERS[site.colors.paper];
   const theme = schoolTheme(school);
-  const who = `${site.slug} ${school.mascot}`;
+  const who = `${site.slug} ${site.school.mascot}`;
   const primaryClears = ratio(WHITE, school.primary) >= 7;
   const band = primaryClears ? school.primary : school.secondary;
   const mark = primaryClears ? school.secondary : school.primary;

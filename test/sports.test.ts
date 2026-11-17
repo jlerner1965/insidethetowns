@@ -1132,3 +1132,36 @@ test('every sports title fits in 60 and names its town first where the school’
   }
   assert.equal(schoolPageTitle(SCHOOL_SPORTS.find((s) => s.school === 'Roosevelt High School')!), 'Johnstown Roosevelt Roughriders Scores & Schedules');
 });
+
+test('every school’s pages carry its own colours, however many schools the guide follows', async () => {
+  const { schoolCssVars } = await import('../src/lib/school-sports.ts');
+  const { schoolTrim, stripColors } = await import('../src/config/school-colors.ts');
+  // Severance High on the Windsor guide: navy, never Windsor's maroon (the audit of 17 November 2026).
+  const severance = schoolSportsFor('windsor', 'severance-high')!;
+  const vars = schoolCssVars(severance)!;
+  assert.match(vars, /--town-primary:#1C3C6D/);
+  assert.match(vars, /--town-accent:#8F8C88/);
+  assert.doesNotMatch(vars, /6A1B32/i);
+  for (const route of ['src/routes/town/sports.astro', 'src/routes/town/sports-team.astro']) {
+    assert.doesNotMatch(readFileSync(route, 'utf8'), /schools\.length === 1 \? schoolCssVars/, route);
+  }
+  // The trim: the published orange where the pages are a darker step of it, the second colour, or the primary where that is white.
+  assert.deepEqual(schoolTrim(schoolSportsFor('erie')!.colors!), { accent: '#F26B21', loss: '#231F20' });
+  assert.deepEqual(schoolTrim(schoolSportsFor('johnstown')!.colors!), { accent: '#000000', loss: '#000000' });
+  assert.deepEqual(schoolTrim(schoolSportsFor('carbon-valley')!.colors!), { accent: '#EFC867' });
+  assert.deepEqual(schoolTrim(berthoud.colors!), { accent: '#572932' });
+  assert.equal(schoolTrim({ primary: '#022C66' }), undefined, 'no second colour recorded: the guide’s accent stays');
+  // One source: the home strip is drawn from the sports config's colours.
+  assert.deepEqual(stripColors(findTown('erie')!), { primary: '#F26B21', secondary: '#231F20' });
+  assert.deepEqual(stripColors(findTown('niwot')!), { primary: '#126637', secondary: '#ffffff' });
+});
+
+test('a share card carries the school’s other colour as a bar along the foot', async () => {
+  const { renderShareCard, SHARE_HEIGHT, SHARE_WIDTH } = await import('../src/lib/share-image.ts');
+  const sharp = (await import('sharp')).default;
+  const png = await renderShareCard({ color: '#1C3C6D', trim: '#8F8C88', title: 'Severance football', footer: 'Scores and schedules · Inside Windsor' });
+  const { data } = await sharp(png).raw().toBuffer({ resolveWithObject: true });
+  const at = (x: number, y: number) => [0, 1, 2].map((c) => data[(y * SHARE_WIDTH + x) * 4 + c]);
+  assert.deepEqual(at(0, 0), [0x1c, 0x3c, 0x6d]);
+  assert.deepEqual(at(600, SHARE_HEIGHT - 2), [0x8f, 0x8c, 0x88]);
+});

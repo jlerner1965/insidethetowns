@@ -15,7 +15,7 @@
  */
 import type { TownConfig } from '@/config';
 import { schoolAthletics, schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
-import { schoolTheme } from '@/config/school-colors';
+import { schoolTheme, stripColors } from '@/config/school-colors';
 import { clock, dashed, nextGame, scoreboardResult } from '@/lib/flagship-home';
 import { gameDay, latestResult, RESULT_WORD, sportsDataFor, where } from '@/lib/school-sports';
 import { dayKey, formatDayShort, TIME_ZONE } from '@/lib/dates';
@@ -30,7 +30,9 @@ const schools = schoolsFor(town.slug);
 const school = schools.length === 1 ? schools[0] : undefined;
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
 const data = school ? sportsDataFor(school, files) : undefined;
-const theme = town.school ? schoolTheme(town.school) : undefined;
+// The school's colours from the sports config, where its pages read them (stripColors).
+const pair = stripColors(town);
+const theme = pair ? schoolTheme(pair) : undefined;
 const band = theme?.band ?? town.colors.primary;
 // The dot by the school's name is the school's own colour from the sports
 // config (SchoolSports.colors), filled and with no ring: the white circle in

@@ -70,9 +70,10 @@ const { season: seasonName } = seasonOf(data, cfg.teams, now);
 const seasonLabel = pageSeasonLabel(data, cfg.teams, now);
 const seasonWord = seasonName.toLowerCase();
 const description = `${school} ${mascot} scores, schedules and records this ${seasonWord}: ${teamList}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
-// One guide, one colour: a guide that follows one school wears it; a guide
-// that follows several (Loveland) keeps its own on every school's page.
-const schoolStyle = schools.length === 1 ? schoolCssVars(cfg) : undefined;
+// Each school's page in that school's colours, however many the guide
+// follows (the owner, 17 November 2026: Severance High's pages were in
+// Windsor's maroon).
+const schoolStyle = schoolCssVars(cfg);
 
 const next = bigGame(data, now);
 const then = coming(data).filter((c) => c.game.date >= today && c.game.url !== next?.game.url);
@@ -93,10 +94,10 @@ const newest = fetchedDates.length ? new Date(fetchedDates.sort().at(-1)!) : und
 /** A team read more than three days before the newest read: its date is worth showing. */
 const stale = (s: SportData) => !!newest && !!s.fetched && newest.getTime() - new Date(s.fetched).getTime() > 3 * 86_400_000;
 
-/** The pill's colours: a win in the primary, a loss in the ink, a tie in the soft accent. */
+/** The pill's colours: a win in the primary, a loss in the ink (the school's dark second colour where it has one, schoolTrim), a tie in the soft accent. */
 const PILL = {
   W: 'bg-primary text-white',
-  L: 'bg-ink text-raised',
+  L: 'bg-[var(--school-loss,var(--color-ink))] text-raised',
   T: 'bg-accent-soft text-ink',
 } as const;
 
@@ -128,7 +129,7 @@ const jsonLd = [
 ];
 ---
 <Base title={pageTitle} fullTitle={sportsFullTitle(pageTitle, town.siteTitle)} {description} {jsonLd} image={shareImagePath(cfg)} imageAlt={`${schoolAthletics(cfg)}: scores and schedules on ${town.siteTitle}`}>
-  {/* The school's colour from here to the foot, where the guide follows one school: see SchoolSports.colors. */}
+  {/* The school's colours from here to the foot: see SchoolSports.colors. */}
   <div style={schoolStyle}>
   <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-10 md:py-14">
