@@ -12,7 +12,8 @@ details:
   checked: "2026-11-12"
 summary: "Grain-to-glass distillery east of town making Colorado straight malt whisky, gin and rum, with a tasting room and a patio."
 source: "https://www.spirithounds.com/lyons-tasting-room"
-verified: "2026-10-03"
+verified: "2026-11-17"
+verifiedBy: "Claude Code for Lerner Works: hours, address and phone read on the distillery's Lyons tasting room page, 17 November 2026"
 added: "2026-09-17"
 ---
 

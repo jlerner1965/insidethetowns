@@ -13,7 +13,8 @@ details:
   checked: "2026-11-12"
 summary: "The downtown green with the visitor center, the summer concert stage and the 1885 Depot beside it."
 source: "https://www.lyonscolorado.com/348/Parks-Facilities"
-verified: "2026-10-03"
+verified: "2026-11-17"
+verifiedBy: "Claude Code for Lerner Works: “Our Parks are open from dawn until dusk daily” on the Town's Parks & Facilities page, 17 November 2026"
 added: "2026-09-17"
 ---
 

@@ -5,7 +5,7 @@ venue: "Lyons Classic Pinball"
 address: "339 Main St, Lyons, CO 80540"
 url: "https://www.lyonsclassicpinball.com/events/fifth-sunday/29-november-2026"
 cost: "$20"
-category: sports
+category: other
 recurring: "Fifth Sundays"
 source: "https://www.lyonsclassicpinball.com/events/fifth-sunday/29-november-2026"
 verified: "2026-11-17"

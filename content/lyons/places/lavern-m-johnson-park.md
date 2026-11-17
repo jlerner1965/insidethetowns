@@ -22,4 +22,4 @@ added: "2026-09-17"
 
 The Town's riverside park, rebuilt after the 2013 flood. A quarter-mile of engineered pools and drops on the North St. Vrain for kayaks in June and tubes in July and August, a splash pad and playgrounds, the campground, and an ice rink when a cold snap holds. Picnic tables and shelters can be reserved online, which the Town recommends for summer weekends and holidays; otherwise tables are first come, first served. RV camping with full hookups is open year-round and tent camping from April 1 to October 15. A concessionaire, Ray's River Rentals, rents tubes, life jackets, river shoes and dry bags at the park when the river allows.
 
-For the winter of 2027 the Town is hosting Ember N Ice, a wood-fired sauna club, in the park: hour-long sessions with a cold plunge in the creek, and a $10 launch price through November 15 (the Town's park page, read November 10, 2026).
+For the winter of 2027 the Town is hosting Ember N Ice, a wood-fired sauna club, in the park: hour-long sessions with a cold plunge in the creek (the Town's park page, read November 17, 2026).

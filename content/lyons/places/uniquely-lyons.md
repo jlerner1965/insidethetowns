@@ -7,8 +7,9 @@ url: "https://www.lyonscolorado.com/"
 hours: "Mon–Fri 9 am–5 pm, Sat–Sun 10 am–4 pm"
 tags: [gifts, souvenirs]
 summary: "Lyons-branded gifts, shirts and souvenirs; part of every sale supports the town."
-source: "https://www.lyonscolorado.com/"
-verified: "2026-09-17"
+source: "https://townoflyons.com/782/Shop"
+verified: "2026-11-17"
+verifiedBy: "Claude Code for Lerner Works: address and hours read on the Town of Lyons shop directory (townoflyons.com/782/Shop), 17 November 2026"
 added: "2026-09-17"
 ---
 

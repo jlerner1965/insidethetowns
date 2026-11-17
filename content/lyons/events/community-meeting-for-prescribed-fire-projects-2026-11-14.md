@@ -3,7 +3,7 @@ title: "Community Meeting for Prescribed Fire Projects"
 start: "2026-11-14T15:00"
 end: "2026-11-14T16:30"
 venue: "Lyons Regional Library"
-address: "451 4th Ave, Lyons, CO, 80504"
+address: "451 4th Ave, Lyons, CO 80540"
 url: "https://bouldercounty.gov/event/community-meeting-prescribed-fire-projects/"
 category: outdoors
 source: "https://bouldercounty.gov/event/community-meeting-prescribed-fire-projects/"

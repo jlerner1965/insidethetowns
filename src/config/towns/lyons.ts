@@ -13,7 +13,7 @@ export const lyons: TownConfig = {
   tagline: 'An independent guide to Lyons, Colorado: the river, the trails, the music, and what it’s like to live at the canyon mouth.',
   shortTagline: 'Sandstone, the river, and a music festival',
   // The outdoors first, as the home page is (17 November 2026).
-  seoTagline: 'Lyons, CO trails, river & parks, and events this weekend',
+  seoTagline: 'Lyons, CO trails & parks, events this weekend',
   counties: ['Boulder'],
   state: 'CO',
   lat: 40.2247,

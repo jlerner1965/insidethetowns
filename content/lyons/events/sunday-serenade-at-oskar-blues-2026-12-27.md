@@ -6,8 +6,8 @@ venue: "Oskar Blues Grill & Brew"
 cost: "Free"
 category: music
 source: "https://lyonsrecorder.org/event/sunday-serenade-oskar-blues/2026-12-27/"
-verified: "2026-10-17"
-verifiedBy: "Claude Code for Lerner Works, on the Lyons Recorder's community calendar: “Sunday Serenade (Oskar Blues)” at 5 pm on 27 December, 17 October 2026"
+verified: "2026-11-17"
+verifiedBy: "Claude Code for Lerner Works, on the Lyons Recorder's community calendar: “Sunday Serenade (Oskar Blues)” at 5 pm on 27 December, read again 17 November 2026"
 ---
 
 Gentle all-ages Sunday evening concert at Oskar Blues.
