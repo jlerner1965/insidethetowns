@@ -201,6 +201,58 @@ Lyons 234 visitors and 579 pageviews, 32 from google.com; Golden 84 visitors
 and 184 pageviews, referrers not read. Niwot's Google landings were led by
 the Niwot Trot 5K event page and the incorporation-election article.
 
+### Readers a week, Erie and Berthoud (read 17 November 2026)
+
+The goal of 11 November (`DECISIONS.md`, "Erie and Berthoud: 1,000
+visitors a week") is counted in visitors. From 17 November the Vercel
+connection reads the `insideerie` and `insideberthoud` projects (team
+ARProject), so Web Analytics can be read each week alongside Search
+Console. Vercel's weeks run Monday to Sunday in UTC, not Denver time.
+
+Vercel's own visitor count is not the figure to use. From 4 November it
+carries automated traffic: on Berthoud, desktop hits from Singapore (224
+visitors, 2 to 16 November), China (106) and Hong Kong (38), many on
+`/correct` (the Formspree-backed corrections form, 112 visitors in the
+week of 2 November against 3 the week before); on Erie, US desktop visits
+of one page each, on 4 and 5 November (141) and 13 to 15 November, spread
+across old event and place pages. The count kept here is **US visitors,
+`/correct` left out**, with the phone share beside it, since the
+automated visits are desktop. Erie's desktop count still holds most of
+its automated visits, so for Erie the phone column is the surer one.
+
+| Week of | Site | Vercel visitors (all) | US, not `/correct` | of which on phones | Google search clicks (Search Console) |
+|---|---|---|---|---|---|
+| 2026-10-12 | Inside Berthoud | 47 | 46 | 25 | 12 |
+| 2026-10-19 | Inside Berthoud | 104 | 95 | 56 | 34 |
+| 2026-10-26 | Inside Berthoud | 116 | 93 | 63 | 32 |
+| 2026-11-02 | Inside Berthoud | 395 | 131 | 69 | 49 |
+| 2026-11-09 | Inside Berthoud | 285 | 121 | 54 | 29 |
+| 2026-10-12 | Inside Erie | 40 | 35 | 16 | 14 |
+| 2026-10-19 | Inside Erie | 53 | 40 | 24 | 13 |
+| 2026-10-26 | Inside Erie | 89 | 65 | 37 | 16 |
+| 2026-11-02 | Inside Erie | 339 | 200 | 31 | 15 |
+| 2026-11-09 | Inside Erie | 219 | 169 | 52 | 7 |
+
+What it says, 17 November:
+
+- **Berthoud** is at about an eighth of 1,000. Its Google impressions rose
+  every week (806, 1,369, 1,543, 1,798, 2,011) at an average position of
+  about 11, but its clicks did not follow; event pages and the Ballot
+  Issue 3G update carry most of them.
+- **Erie** has had about 15 search clicks a week since its launch
+  week (63 clicks, 28 September), and 7 in the week of 9 November. Its
+  impressions fell from 1,746 in the week of 19 October (Boo on Briggs) to
+  544 to 710 since, and its average position slipped from about 10 to 13.
+  `/eat-drink/` sits at position 29 and `/directory/` at 40; the Parade of
+  Lights page (position 5) carries the clicks.
+- **No visit came from Facebook or Nextdoor** in the two weeks to 16
+  November, tagged or untagged, so the Thursday posts in "Distribution"
+  below have not yet shown in either guide's count.
+- Network-wide, for comparison: 1,099 Google clicks and 57,364
+  impressions on the 15 properties in the 28 days to 14 November, against
+  532 and 19,047 the 28 days before. Golden (237), Berthoud (143),
+  Longmont (136), Loveland (118) and Niwot (101) lead; Erie had 55.
+
 ## The phases
 
 Decided 15 October 2026, after phase 1 shipped. Each phase has an owner;
