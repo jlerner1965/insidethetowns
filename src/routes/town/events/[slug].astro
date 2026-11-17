@@ -417,7 +417,7 @@ const facts: Fact[] = [
     <div class:list={['lg:col-start-1', awaitingDate && statusLabel ? 'lg:row-start-3' : awaitingDate || statusLabel ? 'lg:row-start-2' : 'lg:row-start-1']}>
       {data.image && (
         <figure class="mb-10">
-          <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
+          <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} loading="eager" fetchpriority="high" class="rounded-lg" />
           {data.imageCredit && (
             <figcaption class="mt-1 text-[0.75rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>
           )}
@@ -425,7 +425,7 @@ const facts: Fact[] = [
       )}
       {venuePhoto && (
         <figure class="mb-10">
-          <Image src={venuePhoto.image!} alt={venuePhoto.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
+          <Image src={venuePhoto.image!} alt={venuePhoto.imageAlt ?? ''} width={1200} height={800} loading="eager" fetchpriority="high" class="rounded-lg" />
           <figcaption class="mt-1 text-[0.75rem] leading-tight tracking-wide text-ink-muted">
             The venue, {venuePhoto.title}{venuePhoto.imageCredit && <>. Photo: {venuePhoto.imageCredit}</>}
           </figcaption>

@@ -10,7 +10,8 @@
 import { readFileSync } from 'node:fs';
 import type { ImageMetadata } from 'astro';
 import { getSite } from '@/config';
-import { getHubEntries, getTownEntries, getTraditions } from '@/lib/content';
+import { getCuriosity, getHubEntries, getTownEntries, getTraditions } from '@/lib/content';
+import { articlePath } from '@/lib/curiosity';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { hubTownPhoto, resolveSiteImage } from '@/lib/images';
 import { creditBeside, parseLedger, publicCredit, type LedgerRow, type PublicCredit } from '@/lib/credits';
@@ -78,6 +79,14 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
     for (const town of publishedHubTowns(await getTraditions())) {
       const photo = hubTownPhoto(town);
       if (photo) use(photo.image, photo.alt, { title: `the ${town.name} page`, href: `/${town.slug}/` }, photo.folder);
+    }
+  }
+
+  // The hub's articles (content/hub/curiosity/): a photograph at the head of
+  // one is also its link preview, and may be kept in a town's folder.
+  if (site.kind === 'hub') {
+    for (const { data } of await getCuriosity()) {
+      if (data.image) use(data.image, data.imageAlt ?? '', { title: data.title, href: articlePath(data) }, data.imageFolder ?? 'hub');
     }
   }
 

@@ -90,10 +90,9 @@ const subtitleLong = week?.long ?? shorten(subtitle, 88);
     widths={[640, 960, 1280, 1920]}
     sizes="100vw"
     layout="full-width"
-    {/* Most of the hero sits under a scrim, so a lower quality is invisible
-        here and saves about a fifth of one of the largest assets a desktop
-        visitor downloads. The scrim now clears at the top of the frame, so
-        this is the one place to look first if a sky ever bands. */}
+    {/* Quality 72, the build's figure for every photograph (src/lib/image-service.ts):
+        about a fifth off one of the largest assets a desktop visitor downloads.
+        The one place to look first if a sky ever bands. */}
     quality={72}
     priority
     class="absolute inset-0 -z-20 h-full! w-full object-cover"
