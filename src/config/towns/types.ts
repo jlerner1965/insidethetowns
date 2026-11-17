@@ -442,9 +442,10 @@ export interface TownConfig {
    * sports (the restructure of 12 November 2026). Unset on the sports-led
    * guides, which are unchanged.
    *
-   * - `outdoors` (Lyons): the outdoor dates lead the home page, and sports
-   *   are out of the menu and off the home page. The sports pages still
-   *   build, so no address that was live stops answering.
+   * - `outdoors` (Lyons): the trails and parks lead the home page and the
+   *   menu carries Trails. No sports: the guide follows no school
+   *   (src/config/school-sports.ts), so no sports page is built, and
+   *   vercel.json sends the old addresses on (17 November 2026).
    * - `updates` (Niwot): a quiet guide. No events: the events, This week
    *   and This weekend pages are not built (vercel.json sends their old
    *   addresses home), and the home page is "Updates", shown only when

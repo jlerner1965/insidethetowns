@@ -253,15 +253,11 @@ const ICE_HOCKEY: SportConfig = { key: 'ice-hockey', season: 'winter', name: 'Ic
 const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: 'fall', name: 'Girls flag football', maxpreps: 'flag-football/girls/fall', calendar: { gender: 'Girls', sport: 'Flag Football' } };
 
 /**
- * Spring teams, followed where a guide has asked: Lyons, on the owner's word
- * of 9 November 2026 (baseball and track, both on the school's athletics
- * list). The paths are MaxPreps's spring defaults ("baseball",
- * "track-field", "track-field/girls"); MaxPreps refuses the cloud address
- * this was written from, so the first Saturday or Wednesday run from the
- * runner is the check, and a path that is not there keeps the team off the
- * page and says so in the run's summary. Track is meets, not games: the
- * reader finds nothing on the cross-country pages, which are meets too, so
- * track may show nothing until the reader learns to read a meet.
+ * Spring teams, followed where a guide has asked. Baseball came with Lyons,
+ * on the owner's word of 9 November 2026, and stays for Roosevelt; Lyons's
+ * teams (and its track) left on 17 November 2026, when the guide dropped
+ * sports. The path is MaxPreps's spring default ("baseball"); one that is
+ * not there keeps the team off the page and says so in the run's summary.
  */
 const SPRING_BASEBALL: SportConfig = { key: 'baseball', season: 'spring', name: 'Baseball', maxpreps: 'baseball', calendar: { gender: 'Boys', sport: 'Baseball' } };
 /**
@@ -273,10 +269,6 @@ const SPRING_BASEBALL: SportConfig = { key: 'baseball', season: 'spring', name: 
  * page on 9 November 2026. Baseball's plain `baseball` answered the same day.
  */
 const SPRING_GIRLS_SOCCER: SportConfig = { key: 'girls-soccer', season: 'spring', name: 'Girls soccer', maxpreps: 'soccer/girls/spring', calendar: { gender: 'Girls', sport: 'Soccer' } };
-const SPRING_TRACK: SportConfig[] = [
-  { key: 'boys-track', season: 'spring', name: 'Boys track and field', maxpreps: 'track-field', calendar: { gender: 'Boys', sport: 'Track & Field' } },
-  { key: 'girls-track', season: 'spring', name: 'Girls track and field', maxpreps: 'track-field/girls', calendar: { gender: 'Girls', sport: 'Track & Field' } },
-];
 
 /**
  * Boys' golf and boys' tennis, CHSAA fall sports, followed where the guide
@@ -527,24 +519,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // with schedules, wrestling and girls' swimming without yet.
     teams: TEAMS(),
   },
-  {
-    town: 'lyons',
-    school: 'Lyons Middle/Senior High School',
-    mascot: 'Lions',
-    maxpreps: 'https://www.maxpreps.com/co/lyons/lyons-lions/',
-    maxprepsName: 'Lyons',
-    // Lion navy, as MaxPreps's team data gives it (022C66 on white, 22 October 2026).
-    colors: { primary: '#022C66' },
-    // The school posts each team's schedule as a Google Sheet
-    // (lmshs.svvsd.org/activities-arts-athletics/athletics/high-school-athletics/,
-    // 22 October 2026), which the cross-check does not read.
-    calendarNote: 'Lyons posts its schedules as spreadsheets on the school site, which the cross-check does not read, so games to come are published on MaxPreps’s word alone.',
-    // The fall list at the school site, 22 October 2026: cross country,
-    // football, softball, volleyball (and cheer). No boys soccer. No girls'
-    // swimming page on MaxPreps (HTTP 404, 25 October 2026). Baseball and
-    // track in the spring, on the owner's word (9 November 2026).
-    teams: TEAMS(FALL_WITHOUT('boys-soccer'), WINTER_WITHOUT('girls-swimming'), [SPRING_BASEBALL, ...SPRING_TRACK]),
-  },
+  // Lyons Middle/Senior High left on 17 November 2026: the guide leads with
+  // the outdoors and has no sports (TownConfig.lead), so no page is built
+  // and the MaxPreps run no longer reads it.
 ];
 
 /** Every school a town follows, in the config's order. */

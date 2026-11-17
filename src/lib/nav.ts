@@ -47,6 +47,7 @@
  */
 import { schoolsFor } from '../config/school-sports.ts';
 import { openPlaceTypeCounts } from './raw-places.ts';
+import { PLACE_TYPE_PAGES, placeTypePages } from './place-types.ts';
 import { seasonTypesWithRecords } from './tradition-files.ts';
 import { hasArticles } from './curiosity-files.ts';
 import { ARTICLES_INDEX_PATH } from './curiosity.ts';
@@ -71,8 +72,10 @@ export function townNav(
   town: Pick<TownConfig, 'slug' | 'families' | 'livingHere' | 'lead'>,
   counts: Partial<Record<string, number>> = openPlaceTypeCounts(town.slug),
 ): NavItem[] {
-  // An outdoors-led guide (Lyons) has no sports in its menu; the pages stay.
+  // An outdoors-led guide (Lyons) follows no school and has no sports pages
+  // (17 November 2026): its trails page, where it builds one, takes the slot.
   const sports = town.lead === 'outdoors' ? undefined : sportsNavLabel(town.slug);
+  const trails = town.lead === 'outdoors' && placeTypePages(counts).includes('trail');
   // A quiet guide (Niwot) has no events: Updates stands where This week
   // does, and the hub slot never falls back to Events.
   const quiet = town.lead === 'updates';
@@ -81,6 +84,7 @@ export function townNav(
     quiet ? { label: 'Updates', href: '/updates/' } : { label: 'This week', href: '/this-week/' },
     { label: 'Things to do', href: '/things-to-do/' },
     ...(sports ? [{ label: sports, href: '/sports/' }] : []),
+    ...(trails ? [{ label: 'Trails', href: PLACE_TYPE_PAGES.trail.path }] : []),
     { label: 'Eat & drink', href: '/eat-drink/' },
     ...(shops ? [{ label: 'Shops', href: '/shops/' }] : []),
     ...(town.families ? [{ label: 'Families', href: '/families/' }] : quiet ? [] : [{ label: 'Events', href: '/events/' }]),

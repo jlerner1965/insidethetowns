@@ -64,7 +64,6 @@ export const POSTSEASON: PostseasonGame[] = [
   { town: 'berthoud', team: 'volleyball', date: '2026-11-12', time: '08:00', opponent: 'Eaton', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('3a'), read: '2026-11-08' },
   { town: 'niwot', team: 'volleyball', date: '2026-11-12', time: '11:00', opponent: 'Mead', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('4a'), read: '2026-11-08' },
   { town: 'windsor', slug: 'windsor-high', team: 'volleyball', date: '2026-11-12', time: '12:30', opponent: 'Battle Mountain', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('4a'), read: '2026-11-08' },
-  { town: 'lyons', team: 'volleyball', date: '2026-11-12', time: '11:00', opponent: 'Holyoke', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('2a'), read: '2026-11-08' },
 
   // Football's second round. The rows for Timnath, Loveland and Fort
   // Collins High left with their guides on 12 November 2026 (folded
