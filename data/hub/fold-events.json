@@ -25,7 +25,8 @@
     "/events/feria-del-tamal/": "longmont-feria-del-tamal",
     "/events/feria-del-tamal-2026-10-24/": "longmont-feria-del-tamal",
     "/events/longmont-quilt-show/": "longmont-quilt-show",
-    "/events/longmont-quilt-guild-19th-annual-quilt-show-2026-10-16/": "longmont-quilt-show"
+    "/events/longmont-quilt-guild-19th-annual-quilt-show-2026-10-16/": "longmont-quilt-show",
+    "/events/longmont-quilt-guild-19th-annual-quilt-show-2026-10-17/": "longmont-quilt-show"
   },
   "insideestespark.com": {
     "/events/catch-the-glow-parade/": "estes-park-catch-the-glow-parade",
@@ -81,5 +82,17 @@
     "/events/timnath-holiday-festival/": "timnath-holiday-festival",
     "/events/timnath-holiday-festival-2026/": "timnath-holiday-festival",
     "/events/noco-winter-wonderland-2026-11-26/": "timnath-noco-winter-wonderland"
+  },
+  "insideblackhawk.com": {
+    "/events/halloween-street-fall-festival-2026-10-24/": "black-hawk-halloween-street-fall-festival"
+  },
+  "insideidahosprings.com": {
+    "/events/halloween-street-fall-festival-2026-10-24/": "black-hawk-halloween-street-fall-festival"
+  },
+  "insideevergreenco.com": {
+    "/events/frostival-2026-12-12/": "evergreen-frostival"
+  },
+  "insidemanitousprings.com": {
+    "/events/emma-crawford-coffin-races-2026-10-24/": "manitou-springs-emma-crawford-coffin-races"
   }
 }

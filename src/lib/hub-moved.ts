@@ -7,11 +7,13 @@
  * them, and each old address is a redirect page (Astro's: a meta refresh,
  * noindex, and a canonical to the guide's page), out of the sitemap.
  *
- * A server 301 would be four host-scoped rules in vercel.json, which is
- * deploy configuration and was left alone; the rules are in the pull
- * request for the owner. The check of what was built reads each target as
- * a link to the guide (scripts/lib/site-check.ts), and check-network
- * fails if the guide does not build it.
+ * The redirect page is the fallback: vercel.json carries a 301 for each,
+ * scoped to the hub's host (hubMovedRules, written by `node
+ * scripts/fold-rules.ts --write`; the search audit of 17 November 2026
+ * found the pages answering 200 with noindex and a canonical to another
+ * domain, which is no move at all). The check of what was built reads
+ * each target as a link to the guide (scripts/lib/site-check.ts), and
+ * check-network fails if the guide does not build it.
  */
 export const HUB_MOVED: Readonly<Record<string, string>> = {
   // A live guide's town at the hub's address for a town: the guide itself
@@ -34,3 +36,15 @@ export const HUB_MOVED: Readonly<Record<string, string>> = {
   '/severance/town-christmas': 'https://insidewindsorco.com/severance/',
   '/severance/kids-fishing-derby': 'https://insidewindsorco.com/events/kids-fishing-derby/',
 };
+
+export interface HubMovedRule {
+  source: string;
+  has: Array<{ type: 'host'; value: string }>;
+  destination: string;
+  statusCode: 301;
+}
+
+/** The moved pages as vercel.json rules on the hub's host, a 301 each, in the order above. */
+export function hubMovedRules(hubDomain: string): HubMovedRule[] {
+  return Object.entries(HUB_MOVED).map(([from, to]) => ({ source: `${from}{/}?`, has: [{ type: 'host', value: hubDomain }], destination: to, statusCode: 301 }));
+}
