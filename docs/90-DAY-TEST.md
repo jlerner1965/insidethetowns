@@ -51,12 +51,15 @@ Sent = the edition went out that Thursday (merge of the drafts pull request).
 | 2026-10-19 | Niwot | sent 22 Oct, 2 delivered | 2 | 0 | 530 | 14 | 0 | none reported | first automated send (merge of #197); search clicks led by the home page and /events/ (3 each), the Holiday Parade (2) |
 | 2026-10-19 | Lyons | not sent: no subscriber carries the `lyons` tag | 0 | no send | 978 | 14 | 0 | none reported | no one has signed up on insidelyons.com; impressions more than doubled, clicks flat; the dog-friendly hikes article (5) and /events/ (4) led clicks |
 | 2026-10-19 | Berthoud | not sent: no subscriber carried the `berthoud` tag on 22 Oct | 1 | no send | 1,369 | 34 | 0 | none reported | first subscriber confirmed 25 Oct, through the site's own signup; Trick or Treat Street (12) and /updates/ (7) led clicks |
-| 2026-10-26 | Niwot | sent 29 Oct, 2 delivered | 2 | 0 | unknown | unknown | 0 | none reported | no new subscriber; search not read (see below) |
-| 2026-10-26 | Lyons | sent 29 Oct, 1 delivered | 1 | 0 | unknown | unknown | 0 | none reported | first Lyons subscriber and first Lyons send |
-| 2026-10-26 | Berthoud | sent 29 Oct, 3 delivered | 3 | 0 | unknown | unknown | 0 | none reported | two new subscribers since 25 Oct |
-| 2026-11-02 | Niwot | sent 5 Nov, 2 delivered | 2 | 0 | unknown | unknown | 0 | none reported | no new confirmed subscriber; one signup waiting to confirm |
-| 2026-11-02 | Lyons | sent 5 Nov, 1 delivered | 1 | 0 | unknown | unknown | 0 | none reported | no change |
-| 2026-11-02 | Berthoud | sent 5 Nov, 3 delivered | 3 | 0 | unknown | unknown | 0 | none reported | no new confirmed subscriber; one signup waiting to confirm |
+| 2026-10-26 | Niwot | sent 29 Oct, 2 delivered | 2 | 0 | 1,475 | 37 | 0 | none reported | no new subscriber; search read 17 Nov (see below) |
+| 2026-10-26 | Lyons | sent 29 Oct, 1 delivered | 1 | 0 | 860 | 12 | 0 | none reported | first Lyons subscriber and first Lyons send |
+| 2026-10-26 | Berthoud | sent 29 Oct, 3 delivered | 3 | 0 | 1,543 | 32 | 0 | none reported | two new subscribers since 25 Oct |
+| 2026-11-02 | Niwot | sent 5 Nov, 2 delivered | 2 | 0 | 864 | 19 | 0 | none reported | no new confirmed subscriber; one signup waiting to confirm |
+| 2026-11-02 | Lyons | sent 5 Nov, 1 delivered | 1 | 0 | 1,153 | 12 | 0 | none reported | no change |
+| 2026-11-02 | Berthoud | sent 5 Nov, 3 delivered | 3 | 0 | 1,798 | 49 | 0 | none reported | no new confirmed subscriber; one signup waiting to confirm |
+| 2026-11-09 | Niwot | not sent: Niwot left the Thursday email on 12 Nov (DECISIONS.md, "Niwot is a quiet guide") | 2 | no send | 1,012 | 33 | 0 | none reported | baseline only, test paused; two signups waiting to confirm; the home page, the Holiday Magic concert and the Holiday Parade led clicks (3 each) |
+| 2026-11-09 | Lyons | sent 13 Nov (Friday), 1 delivered | 1 | 0 | 1,385 | 17 | 0 | none reported | baseline only; a second subscriber confirmed after the Sunday; Creative Grounds (3) and the Holiday Parade of Lights (2) led clicks |
+| 2026-11-09 | Berthoud | sent 13 Nov (Friday), 4 delivered | 4 | 0 | 2,011 | 29 | 0 | none reported | baseline only; two more confirmed after the Sunday; /events/ (4), the home page, "What's being built" and /eat-drink/ (2 each) led clicks |
 
 Week of 19 October, read 27 October 2026. Search: GSC Wizard, web search,
 19 to 25 October, settled. Sends and opens: Buttondown's API and the log of
@@ -86,6 +89,20 @@ so it refuses all three guides. Sends: the 5 November issues went out at
 1:36 pm Denver time, again not at 7 am. Opens: still none counted, now on
 24 deliveries since 22 October. Subscribers: confirmed by the end of 8
 November; a signup still waiting to confirm is not counted.
+
+Search columns for the weeks of 26 October and 2 November filled on 17
+November 2026, once GSC Wizard read the three guides again (web search,
+Monday to Sunday, settled; the week of 19 October's comparison figures
+matched what was recorded).
+
+Week of 9 November, read 17 November 2026: a baseline row. The test was
+paused on 12 November and its rules removed (DECISIONS.md, "The 90-day
+test is paused"); that decision left open whether this scorecard keeps
+being filled, so the row is filled as the TODO row stands. Niwot left the
+Thursday email the same day, so it has no send. The 12 November issues went
+out on Friday 13 November at 10:45 am, when their drafts (#383) were
+merged. Opens: still none counted, on 32 deliveries since 22 October.
+Subscribers: confirmed by the end of 15 November.
 
 ## Outreach and sponsor log
 
