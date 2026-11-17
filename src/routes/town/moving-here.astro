@@ -41,8 +41,10 @@ const title = page?.data.title ?? `Moving to ${town.name}`;
 const description = excerptDescription(page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`);
 // The guide carried only the site's Organization and WebSite; as a WebPage
 // of the site, dated by its `updated`, with its place in the breadcrumb.
+// The page file's own subject where it names one town of a guide to several ("Moving to Frederick" on Carbon Valley).
+const searchTitle = page && /^Moving to [A-Z][A-Za-z .'-]+$/.test(title) ? `${title}, Colorado` : `Moving to ${town.name}, Colorado`;
 const structured = [
-  webPageJsonLd(town, { name: `Moving to ${town.name}, Colorado`, description, path: '/moving-here/', updated: page?.data.updated }),
+  webPageJsonLd(town, { name: searchTitle, description, path: '/moving-here/', updated: page?.data.updated }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
     { name: 'Moving here', path: '/moving-here/' },
@@ -51,7 +53,7 @@ const structured = [
 ---
 <Page
   title={title}
-  seoTitle={`Moving to ${town.name}, Colorado`}
+  seoTitle={searchTitle}
   eyebrow="Moving here"
   intro={page?.data.description}
   {description}

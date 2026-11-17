@@ -14,7 +14,8 @@ import { getTown } from '@/config';
 import { subscribeLinks } from '@/lib/ics';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
-import { agenda, categoriesIn, groupByDay, occurrences, splitOngoing, uniqueByEvent } from '@/lib/events';
+import { agenda, categoriesIn, groupByDay, indexedSlugs, occurrences, splitOngoing, uniqueByEvent } from '@/lib/events';
+import { pickCanonical } from '@/lib/series';
 import { currentPicks } from '@/lib/weekly';
 import { bigDates } from '@/lib/big-dates';
 import { formatDate, formatDayLong, toIsoLocal } from '@/lib/dates';
@@ -74,13 +75,17 @@ const big = bigDates(all, { now: refreshedAt });
 const picks = currentPicks(await getTownEntries('weekly'), nextTwoWeeks, refreshedAt);
 const pickSlugs = new Set(picks.map((e) => e.slug));
 
+// The structured list names only pages a search engine may index: of a
+// series, the one date its page indexes (events/[slug].astro, the same
+// choice), so no entry points at a noindex page (the audit of 17 November 2026).
+const indexed = indexedSlugs(entries, pickCanonical, refreshedAt);
 const description = `What’s on in ${town.name} this week and next: markets, music, festivals, trails and more, then the big dates further out and the weekly regulars.`;
 const structured = [
   collectionPageJsonLd(town, {
     name: `${town.name}, Colorado events`,
     description,
     path: '/events/',
-    items: uniqueByEvent(shown).map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
+    items: uniqueByEvent(shown).filter((e) => indexed.has(e.slug)).map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
   }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },

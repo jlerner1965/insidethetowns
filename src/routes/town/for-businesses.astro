@@ -48,7 +48,7 @@ const advertise = `https://${hub.domain}/advertise/`;
 // /advertise/ shows a rate card only once `hub.rates` is set; until then it
 // makes the founding offer without a price.
 const hasRates = (hub.rates?.length ?? 0) > 0;
-const description = `If you run a business in ${town.name}, ${town.state}: correct your free listing, submit an event, or send a photograph. Listings are editorial, never paid for.`;
+const description = `If you run a business in ${town.name}, ${town.state}: correct your free listing${listsEvents(town) ? ', submit an event,' : ''} or send a photograph. Listings are editorial, never paid for.`;
 // The three actions, in the order an owner most often needs them.
 const actions = [
   {
@@ -78,7 +78,7 @@ const actions = [
 ---
 <Page
   title="For businesses"
-  seoTitle={`For businesses in ${town.name}: listings, events and photos`}
+  seoTitle={`For businesses in ${town.name}: ${listsEvents(town) ? 'listings, events and photos' : 'listings and photos'}`}
   eyebrow={town.siteTitle}
   {description}
   intro={`If you run something in ${town.name}, here are three things you can do today, all free. Below them: how the guide stays independent, what a listing carries, and what is for sale.`}
@@ -119,8 +119,8 @@ const actions = [
       anyone paid. A listing carries your name, what you are, where you are, when you are open, your phone number
       and your website, a sentence or two on what you are known for, and a photograph if we have one we are allowed
       to use. It shows whether you are open right now, worked out from the hours on the page, and it appears in the
-      <a href="/directory/">directory</a>, in the <a href="/search/">site search</a>, and beside any event held at
-      your address.
+      <a href="/directory/">directory</a>{listsEvents(town) ? <Fragment>, in the <a href="/search/">site search</a>, and beside any event held at
+      your address.</Fragment> : <Fragment> and in the <a href="/search/">site search</a>.</Fragment>}
     </p>
     <p>
       Every place page has an “Own or run this?” link at the foot of its details, which reports a correction about

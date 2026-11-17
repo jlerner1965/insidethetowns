@@ -69,17 +69,18 @@ const townPages = publishedHubTowns(await getTraditions()).length;
       size="number"
       facts={[
         { label: 'Places listed', value: String(places.length) },
-        { label: 'Upcoming listings', value: String(totals.listings) },
+        // Not on a guide that lists no events: "Upcoming listings 0" (Niwot; the audit of 17 November 2026).
+        ...(listsEvents(site) ? [{ label: 'Upcoming listings', value: String(totals.listings) }] : []),
         { label: 'Sister towns', value: String(siblings.length) },
         ...(lastChecked ? [{ label: 'Last checked', value: formatShortDate(lastChecked) }] : []),
       ]}
-      note={`${describeTotals(totals)}; ${totals.datesNextTwoWeeks} dates in the next two weeks. Each page says which it counts.`}
+      note={listsEvents(site) ? `${describeTotals(totals)}; ${totals.datesNextTwoWeeks} dates in the next two weeks. Each page says which it counts.` : undefined}
     />
     <div class="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
       <div class="prose">
         <p>
-          {site.siteTitle} is an independent {guideKind} to {site.name}, {site.state}: what’s on this
-          week, where to eat and drink, where to walk, and what it’s like to live here.
+          {site.siteTitle} is an independent {guideKind} to {site.name}, {site.state}: {listsEvents(site) ? 'what’s on this week' : 'local updates'},
+          where to eat and drink, where to walk, and what it’s like to live here.
         </p>
         {who && (
           <Fragment>
@@ -186,11 +187,13 @@ const townPages = publishedHubTowns(await getTraditions()).length;
     </div>
     <CtaBand
       slot="after"
-      eyebrow={`Coming up in ${site.name}`}
-      title="Start with what’s on"
-      body={`${describeTotals(totals)} in ${site.name} right now, from markets and live music to town meetings.`}
+      eyebrow={listsEvents(site) ? `Coming up in ${site.name}` : `What’s new in ${site.name}`}
+      title={listsEvents(site) ? 'Start with what’s on' : 'Start with the local updates'}
+      body={listsEvents(site)
+        ? `${describeTotals(totals)} in ${site.name} right now, from markets and live music to town meetings.`
+        : `What has changed in ${site.name}, each change with where it was read, and ${places.length} places to eat, shop and walk.`}
       links={[
-        ...(listsEvents(site) ? [{ label: 'See the events', href: '/events/', primary: true }] : []),
+        listsEvents(site) ? { label: 'See the events', href: '/events/', primary: true } : { label: 'Local updates', href: '/updates/', primary: true },
         { label: 'Eat & drink', href: '/eat-drink/' },
       ]}
     />

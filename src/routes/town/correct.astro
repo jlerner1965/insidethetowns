@@ -19,7 +19,7 @@
  * Without the script the form still sends, with a general subject.
  */
 import Page from '@/layouts/Page.astro';
-import { getNetworkHub, getTown } from '@/config';
+import { getNetworkHub, getTown, listsEvents } from '@/config';
 
 const town = getTown();
 const hub = getNetworkHub();
@@ -33,7 +33,7 @@ const label = 'block text-sm font-semibold';
   title="Report a correction"
   eyebrow={town.name}
   description={`Tell ${town.siteTitle} what is wrong with a listing and it is checked and fixed.`}
-  intro="Wrong hours, a moved event, a place that has closed: say what you know and it is checked against the source and corrected. Listings are editorial and free."
+  intro={`Wrong hours, ${listsEvents(town) ? 'a moved event, ' : ''}a place that has closed: say what you know and it is checked against the source and corrected. Listings are editorial and free.`}
   noindex
   narrow
 >
