@@ -117,7 +117,7 @@ const seasons = seasonLinks();
         families toggle: an event has no audience field to read it from. */}
     <FilterBar options={options} label="Filter by town" rowLabel="Town" toggles={[{ key: 'free', label: 'Free' }, { key: 'music', label: 'Live music' }, { key: 'outing', label: 'Hide meetings' }]} remember="town" />
     {/* What the filters left, and which days it covers: counted from the rows shown, after every filter. */}
-    <p class="mb-6 text-[0.9375rem] text-ink-muted" data-filter-summary aria-hidden="true"></p>
+    <p class="mb-6 min-h-6 text-[0.9375rem] text-ink-muted" data-filter-summary aria-hidden="true"></p>
     {/* Straight to a day, as on a town's events page. */}
     <DayStrip days={groupByDay(weekend)} more={next.length ? [{ href: '#coming-up', label: 'Coming up' }] : []} />
 
