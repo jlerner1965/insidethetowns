@@ -17,8 +17,16 @@
  * A page that draws its own masthead passes it in the `header` slot and
  * the band is not drawn: the hub's town pages, whose name sits on the
  * town's landscape (src/routes/hub/town.astro).
+ *
+ * The trail above the eyebrow is the page's own BreadcrumbList, shown: the
+ * structured data named a way back up that 606 pages did not show (the
+ * audit of 17 November 2026). Small, in the muted ink, the page itself left
+ * to the h1 under it. A page that passes no structured data of its own (the
+ * about, contact and policy pages) gets the two-step trail and a WebPage.
  */
 import Base from './Base.astro';
+import { getSite } from '@/config';
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/seo';
 
 interface Props {
   title: string;
@@ -43,12 +51,43 @@ interface Props {
 
 const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astro.props;
 const ownHeader = Astro.slots.has('header');
+const site = getSite();
+const path = Astro.url.pathname;
+if (!seo.jsonLd && !seo.noindex && path !== '/') {
+  seo.jsonLd = [
+    webPageJsonLd(site, { name: seoTitle ?? title, description: seo.description ?? site.tagline, path }),
+    breadcrumbJsonLd(site, [
+      { name: site.kind === 'hub' ? site.siteTitle : site.name, path: '/' },
+      { name: title, path },
+    ]),
+  ];
+}
+type Crumb = { name: string; item: string };
+const list = ([seo.jsonLd].flat().filter(Boolean) as Array<{ '@type'?: string; itemListElement?: Crumb[] }>).find((j) => j['@type'] === 'BreadcrumbList');
+// A step on this site is linked by its path; the hub's event page draws its own trail in its body.
+const trail = seo.kind === 'Annual event' ? [] : (list?.itemListElement ?? []).map((c) => {
+  const to = new URL(c.item);
+  return { name: c.name, href: to.host === Astro.site?.host ? to.pathname : c.item };
+});
 ---
 <Base title={seoTitle ?? title} {...seo}>
   {ownHeader ? <slot name="header" /> : (
   <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-6 md:py-9">
       <div class="max-w-3xl">
+        {trail.length > 1 && (
+          <nav aria-label="Breadcrumb" class="mb-3 text-[0.8125rem] leading-snug text-ink-muted">
+            <ol class="flex flex-wrap items-center gap-x-1.5">
+              {trail.slice(0, -1).map((step, i) => (
+                <li>
+                  {i > 0 && <span aria-hidden="true" class="mr-1.5">›</span>}
+                  <a href={step.href} class="underline underline-offset-2">{step.name}</a>
+                </li>
+              ))}
+              <li class="sr-only" aria-current="page">{trail.at(-1)!.name}</li>
+            </ol>
+          </nav>
+        )}
         {(eyebrow || status) && (
           <p class="eyebrow mb-3 flex flex-wrap items-center gap-x-2 gap-y-1">
             {status && <span class="rounded-full bg-ink px-2.5 py-0.5 text-[0.75rem] text-raised">{status}</span>}

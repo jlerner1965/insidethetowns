@@ -19,7 +19,8 @@ import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import WeeklyRegulars from '@/components/WeeklyRegulars.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { occurrences, uniqueByEvent, upcoming, weeklyRegulars, weeklyTest } from '@/lib/events';
+import { indexedSlugs, occurrences, uniqueByEvent, upcoming, weeklyRegulars, weeklyTest } from '@/lib/events';
+import { pickCanonical } from '@/lib/series';
 import { byProminence } from '@/lib/places';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { subTownLabel, subTownList, subTownsOf } from '@/lib/sub-towns';
@@ -35,6 +36,7 @@ const siblings = subTownsOf(town).filter((t) => t.slug !== subTown);
 
 const allEvents = await getTownEntries('events');
 const mine = allEvents.filter((e) => e.data.subTown === subTown);
+const indexed = indexedSlugs(allEvents, pickCanonical);
 const isWeekly = weeklyTest(allEvents);
 const dated = mine.filter((e) => !isWeekly(e));
 const comingUp = upcoming(occurrences(dated, { horizonDays: 60 }), { days: 60 });
@@ -48,12 +50,14 @@ const structured = [
     description,
     path: `/${subTown}/`,
     items: [
-      ...uniqueByEvent(comingUp).map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
+      // Only pages a search engine may index: of a series, its one indexed date (indexedSlugs).
+      ...uniqueByEvent(comingUp).filter((e) => indexed.has(e.slug)).map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
       ...places.map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` })),
     ],
   }),
   breadcrumbJsonLd(town, [
-    { name: town.name, path: '/' },
+    // The guide by its title where the section has the town's own name: "Windsor > Windsor" said one thing twice.
+    { name: label === town.name ? town.siteTitle : town.name, path: '/' },
     { name: label, path: `/${subTown}/` },
   ]),
 ];
