@@ -1,29 +1,29 @@
 {
- "fetched": "2026-11-15",
+ "fetched": "2026-11-17",
  "readings": [
   {
    "triplet": "564:CO:SNTL",
-   "date": "2026-11-14",
-   "swe": 0.4,
-   "median": 1.2
+   "date": "2026-11-16",
+   "swe": 0.3,
+   "median": 1.4
   },
   {
    "triplet": "415:CO:SNTL",
-   "date": "2026-11-14",
+   "date": "2026-11-16",
    "swe": 0.3,
-   "median": 1.8
+   "median": 2
   },
   {
    "triplet": "485:CO:SNTL",
-   "date": "2026-11-14",
+   "date": "2026-11-16",
    "swe": 1,
-   "median": 2.8
+   "median": 2.9
   },
   {
    "triplet": "380:CO:SNTL",
-   "date": "2026-11-14",
+   "date": "2026-11-16",
    "swe": 0.8,
-   "median": 1.4
+   "median": 1.6
   }
  ]
 }
