@@ -162,7 +162,8 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
           </div>
           {e.next.length > 0 && (
             <div data-next-up data-hide-when-empty class="pb-1">
-              <h3 class="text-[0.9375rem] font-semibold text-ink">Next in {town.name}</h3>
+              {/* A label, not a heading: the panel is drawn once per day and hour, and nine h3s said the same thing (the audit of 17 November 2026). */}
+              <p class="text-[0.9375rem] font-semibold text-ink">Next in {town.name}</p>
               <ol class="divide-y divide-line-soft">
                 {e.next.map((row) => (
                   <li class="grid grid-cols-[5.75rem_minmax(0,1fr)] gap-x-3 py-3 sm:grid-cols-[7rem_minmax(0,1fr)] sm:items-baseline sm:gap-x-4" data-event-day={row.eventDay} data-end={row.end}>

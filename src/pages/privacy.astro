@@ -13,7 +13,7 @@
  * claiming it has no forms while showing one.
  */
 import Page from '@/layouts/Page.astro';
-import { getNetworkHub, getSite } from '@/config';
+import { getNetworkHub, getSite, listsEvents } from '@/config';
 import { PRIVACY_LINE } from '@/lib/privacy';
 
 const site = getSite();
@@ -102,15 +102,14 @@ const quiet = !analytics && !forms;
         <p>
           If you use a form on this site, what you type in it reaches us by email through
           {formHost ? <Fragment> <strong>{formHost}</strong>, a form service,</Fragment> : ' a form service,'} and we
-          keep it only as long as it takes to act on it. If you submit an event, the event details go on the site;
-          your email address does not.
+          keep it only as long as it takes to act on it.{listsEvents(site) && ' If you submit an event, the event details go on the site; your email address does not.'}
         </p>
       </Fragment>
     )}
 
     {newsletter && (
       <Fragment>
-        <h2>If you sign up for the weekly email</h2>
+        <h2>If you sign up for the {listsEvents(site) ? 'weekly email' : 'email'}</h2>
         <p>
           Your address goes to
           {newsletterHost ? <Fragment> <strong>{newsletterHost}</strong>, which sends the email for us,</Fragment> : ' the company that sends the email for us,'}

@@ -22,13 +22,16 @@ import NearbyWeekend from '@/components/NearbyWeekend.astro';
 import { getNetworkHub, getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { formatDate, formatDayRange } from '@/lib/dates';
-import { occurrences, sectionCount, weekendSections, weekendWindow } from '@/lib/events';
+import { indexedSlugs, occurrences, sectionCount, weekendSections, weekendWindow } from '@/lib/events';
+import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
 const hub = getNetworkHub();
 const refreshedAt = new Date();
-const sections = weekendSections(occurrences(await getTownEntries('events'), { now: refreshedAt, horizonDays: 30 }), {
+const entries = await getTownEntries('events');
+const indexed = indexedSlugs(entries, pickCanonical, refreshedAt);
+const sections = weekendSections(occurrences(entries, { now: refreshedAt, horizonDays: 30 }), {
   now: refreshedAt,
   horizonDays: 8,
 });
@@ -42,7 +45,8 @@ const structured = [
     name: `This weekend in ${town.name}, Colorado`,
     description,
     path: '/this-weekend/',
-    items: everything.map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
+    // Only pages a search engine may index: of a series, its one indexed date (indexedSlugs).
+    items: everything.filter((e) => indexed.has(e.slug)).map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
   }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },

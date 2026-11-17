@@ -9,8 +9,8 @@ import PlaceIndex from '@/components/PlaceIndex.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
-import { breadcrumbJsonLd, localBusinessJsonLd, placeDescription, placeLocality } from '@/lib/seo';
-import { subTownLabel } from '@/lib/sub-towns';
+import { breadcrumbJsonLd, localBusinessJsonLd, placeDescription, placeLocality, placeSchemaType } from '@/lib/seo';
+import { subTownLabel, subTownList } from '@/lib/sub-towns';
 import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
 import { hoursDataAttr, hoursLines, hoursWithMeridiem } from '@/lib/hours';
@@ -64,10 +64,16 @@ const family: readonly string[] = EAT_DRINK_TYPES.includes(data.type)
     : [data.type];
 // Somewhere to go next, so only places a reader can go.
 const others = (await getTownEntries('places')).filter((p) => p.slug !== place.slug && isOpen(p));
-const sameType = others.filter((p) => p.data.type === data.type);
-const nearbyAll = (sameType.length >= 3 ? sameType : others.filter((p) => family.includes(p.data.type)))
-  .sort(byProminence)
-  .slice(0, 6);
+const pick = (pool: typeof others) => {
+  const sameType = pool.filter((p) => p.data.type === data.type);
+  return (sameType.length >= 3 ? sameType : pool.filter((p) => family.includes(p.data.type))).sort(byProminence).slice(0, 6);
+};
+// On a guide to two towns, the place's own town's first: "More in Windsor"
+// stood over a Severance park (17 pages, the audit of 17 November 2026).
+// Where its town has too few to fill the block, both, under both names.
+const localPick = data.subTown ? pick(others.filter((p) => p.data.subTown === data.subTown)) : [];
+const nearbyAll = localPick.length >= 3 ? localPick : pick(others);
+const moreIn = !data.subTown ? town.name : localPick.length >= 3 ? subTownLabel(data.subTown) : subTownList(town) || town.name;
 // Two columns: an odd count left one name alone on the last row.
 const nearby = nearbyAll.length > 2 && nearbyAll.length % 2 === 1 ? nearbyAll.slice(0, -1) : nearbyAll;
 // The guide articles that link this listing, newest first (src/lib/mentions.ts):
@@ -108,7 +114,8 @@ const hoursValue: string | undefined =
       // "Closed for the season; reopens May", from the dates or the months (src/lib/freshness.ts).
       ? `${seasonLabel(data.seasonal) ?? 'Closed for the season'}.`
       : open
-        ? data.hours ?? (hasOperator ? 'Hours unknown' : undefined)
+        // A street, a mural walk or a festival ground keeps no hours to be unknown (a venue that is no library, office or gym; the audit of 17 November 2026).
+        ? data.hours ?? (hasOperator && !['EventVenue', 'TouristAttraction'].includes(placeSchemaType(data.type, data.tags)) ? 'Hours unknown' : undefined)
         : undefined;
 /**
  * The mountain variant's season, as one row: the operator's own words for
@@ -261,7 +268,8 @@ const description = placeDescription(
   image={shareImage}
   imageAlt={data.imageAlt}
   jsonLd={[
-    localBusinessJsonLd(town, place, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined),
+    // The pin the street map is drawn from, where the guide's own file places the listing (data/<town>/place-map.json).
+    localBusinessJsonLd(town, place, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined, mapData?.places[place.slug]),
     breadcrumbJsonLd(town, [
       { name: town.name, path: '/' },
       { name: back.label, path: back.href },
@@ -440,7 +448,7 @@ const description = placeDescription(
   {nearby.length > 0 && (
     <section class="mt-20 md:mt-24" data-pagefind-ignore>
       <SectionHeader
-        eyebrow={`More in ${town.name}`}
+        eyebrow={`More in ${moreIn}`}
         title={nearby.every((p) => p.data.type === data.type) ? PLACE_TYPE_PLURALS[data.type] : back.label}
         href={back.href}
         linkLabel={`All ${back.label.toLowerCase()}`}

@@ -61,11 +61,13 @@ const stale = !!newest && !!team.fetched && new Date(newest).getTime() - new Dat
 const title = `${shortSchool} ${mascot} ${team.name.toLowerCase()}`;
 const fullTitle = sportsFullTitle(teamPageTitle(cfg, team, years), town.siteTitle);
 const description = teamDescription(cfg, team, seasonWord, now);
+const sportsStep = cfg.slug ? `${town.name} high school sports` : schoolAthletics(cfg);
 const jsonLd = [
   collectionPageJsonLd(town, { name: teamPageTitle(cfg, team, years), description, path, updated: data.generated ? new Date(data.generated) : undefined }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
-    { name: 'Sports', path: '/sports/' },
+    // The names the trail on the page shows, step for step (the audit of 17 November 2026).
+    { name: sportsStep, path: '/sports/' },
     ...(cfg.slug ? [{ name: school, path: schoolPath }] : []),
     { name: team.name, path },
   ]),
@@ -79,11 +81,13 @@ const jsonLd = [
       <div class="max-w-3xl">
         <nav aria-label="Breadcrumb" class="mb-3">
           <ol class="eyebrow flex flex-wrap items-center gap-x-2">
-            <li><a href="/sports/" class="underline underline-offset-2">{cfg.slug ? `${town.name} high school sports` : schoolAthletics(cfg)}</a></li>
+            <li><a href="/" class="underline underline-offset-2">{town.name}</a></li>
+            <li aria-hidden="true">›</li>
+            <li><a href="/sports/" class="underline underline-offset-2">{sportsStep}</a></li>
             {cfg.slug && (
               <Fragment>
                 <li aria-hidden="true">›</li>
-                <li><a href={schoolPath} class="underline underline-offset-2">{shortSchool}</a></li>
+                <li><a href={schoolPath} class="underline underline-offset-2">{school}</a></li>
               </Fragment>
             )}
             <li aria-hidden="true">›</li>

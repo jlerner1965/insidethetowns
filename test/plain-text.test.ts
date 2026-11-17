@@ -68,7 +68,8 @@ test('an event page’s description keeps the body’s first sentence beside a l
   const out = eventPageDescription(lead, body);
   assert.ok(out.length <= META_DESCRIPTION_LIMIT, out);
   assert.ok(out.startsWith(`${lead} Stories, songs and movement`), out);
-  assert.match(out, /…$/, 'the sentence is cut at a word, not dropped');
+  // At the end of a clause, with a full stop and no ellipsis (the audit of 17 November 2026).
+  assert.equal(out, `${lead} Stories, songs and movement for little ones.`);
   // A short lead and sentence fit whole; a trivial sentence is left off; a lead with no room stands alone.
   assert.equal(eventPageDescription('Tuesday, October 27, 6 pm at City Star Brewing, Berthoud.', 'Pub trivia every Tuesday evening in the **City Star** taproom. Free to play.'), 'Tuesday, October 27, 6 pm at City Star Brewing, Berthoud. Pub trivia every Tuesday evening in the City Star taproom.');
   assert.equal(eventPageDescription('Tuesday, October 27, 6 pm at City Star Brewing, Berthoud.', 'Pub trivia.'), 'Tuesday, October 27, 6 pm at City Star Brewing, Berthoud.');
@@ -173,7 +174,12 @@ test('a place page is one sentence that leads with the hours and promises only w
   assert.equal(rec, 'Berthoud Recreation Center is open Mon–Fri 5 am–9 pm, Sat 7 am–8 pm, Sun 11 am–8 pm, with the pool schedule, day pass prices and the address on this page.');
   // Hours hidden for age or season are not promised, nor stated; a closed place says so first.
   const stale = placeDescription({ title: 'A&W', summary: 'Root beer floats.', address: '1 Main St', phone: '970', url: 'https://x', hoursShown: false, hours: 'Mon–Sun 11–8' }, town);
-  assert.equal(stale, 'A&W in Berthoud, CO is listed here, with the address, phone, website and directions on this page.');
+  assert.equal(stale, 'A&W in Berthoud, CO: Root beer floats, with the address, phone, website and directions on this page.');
+  // Hours that open with a word are lower-cased after "is open"; a line that opens with a label is given as the hours.
+  const lobby = placeDescription({ title: 'Frederick Police Department', summary: 'x', address: 'x', hoursShown: true, hours: 'Lobby Mon–Fri 8 am–5 pm' }, { name: 'Frederick', state: 'CO' });
+  assert.equal(lobby, 'Hours at Frederick Police Department: Lobby Mon–Fri 8 am–5 pm, with the address and directions on this page.');
+  const appointment = placeDescription({ title: 'Bulrush Open Space', summary: 'x', hoursShown: true, hours: 'By appointment only, sunrise to sunset' }, { name: 'Frederick', state: 'CO' });
+  assert.equal(appointment, 'Bulrush Open Space in Frederick, CO is open by appointment only, sunrise to sunset, with directions on this page.');
   const closed = placeDescription({ title: 'B-Rad’s Arcade', summary: 'Retro arcade.', status: 'Temporarily closed', address: '1 Main St', hoursShown: false }, town);
   assert.equal(closed, 'B-Rad’s Arcade in Berthoud, CO is temporarily closed; this page keeps the address and what is known about it.');
 });
@@ -201,7 +207,7 @@ test('a place with no hours says what is there, from the summary’s own "with" 
   assert.equal(big, 'Waggener Farm Park in Berthoud, CO is the big park on the north side: farm-themed playground, full basketball court, skate park and fields.');
   // Rock Cut Brewing, Estes Park: once cut to its first sentence and never filled (all-sites check, 5 November 2026); now its hours lead.
   const out = placeDescription({ title: 'Rock Cut Brewing Company', summary: 'Brewery and taproom at the foot of Prospect Mountain, an easy walk from downtown.', address: 'x', phone: 'x', url: 'x', hoursShown: true, hours: 'Daily noon–9' }, { name: 'Estes Park', state: 'CO' });
-  assert.equal(out, 'Rock Cut Brewing Company in Estes Park, CO is open Daily noon–9 pm, with the address, phone, website and directions on this page.');
+  assert.equal(out, 'Rock Cut Brewing Company in Estes Park, CO is open daily noon–9 pm, with the address, phone, website and directions on this page.');
   for (const d of [park, bike, big, out]) assert.ok(d.length <= META_DESCRIPTION_LIMIT && /\.$/.test(d) && !d.includes('…'), d);
   // Sentences that add up, each only while still short and only where it fits.
   assert.equal(topUpDescription('Short.', ['One more.', 'x'.repeat(200), 'Last.']), 'Short. One more. Last.');
@@ -227,7 +233,7 @@ test('an event with no words of its own says what it is and what the page offers
   assert.equal(thin, 'Thursday, January 21, 8 pm at Aggie Theatre, Fort Collins. Twin Fin. Directions, and a link to add it to your calendar. Checked against its source.');
   assert.ok(thin.length >= META_DESCRIPTION_MIN && thin.length <= META_DESCRIPTION_LIMIT, String(thin.length));
   // A description already long enough is the one the page always had.
-  const long = 'Saturday, December 5, 9 am – 3 pm at Berthoud Recreation Center, Berthoud. The fair fills the gym with sixty makers, a bake sale and a visit from Santa at noon.';
+  const long = 'Saturday, December 5, 9 am – 3 pm at Berthoud Recreation Center, Berthoud. The fair fills the gym with sixty makers, a bake sale and Santa at noon.';
   assert.equal(eventMetaDescription({ title: 'Winter Craft Fair', lead: long.slice(0, 74), body: long.slice(75), directions: true, calendar: true }), eventPageDescription(long.slice(0, 74), long.slice(75)));
 });
 
@@ -240,13 +246,13 @@ test('a list page adds as many of its names as fit', () => {
   assert.equal(listDescription(base, ['A Name So Long It Will Not Fit Alongside The Base At All', 'Lake Loop']), `${base} Including Lake Loop.`);
 });
 
-test('an excerpt is cut at whole sentences as they fit, and at a word only when the sentences leave it short', () => {
+test('an excerpt is cut at whole sentences as they fit, and at a clause’s end when the sentences leave it short', () => {
   assert.deepEqual(sentences('One here. Two, with St. Vrain in it. Three'), ['One here.', 'Two, with St. Vrain in it.', 'Three']);
   assert.equal(clampAtWord('alpha beta gamma delta', 12), 'alpha beta…');
   // McIntosh versus Union, Longmont: cut to its first sentence, 84 characters, when the second did not fit (all-sites check, 5 November 2026).
   const two = 'McIntosh Lake is free, has a 3.5-mile loop and takes carry-in boats but no swimmers. Union Reservoir charges $10 a vehicle, allows wakeless boating, has a year-round dog beach and closes the water December 1 to February 28.';
   const out = excerptDescription(two);
-  assert.ok(out.endsWith('…') && out.length >= META_DESCRIPTION_MIN && out.length <= META_DESCRIPTION_LIMIT, out);
+  assert.ok(!out.endsWith('…') && out.endsWith('allows wakeless boating.') && out.length >= META_DESCRIPTION_MIN && out.length <= META_DESCRIPTION_LIMIT, out);
   assert.ok(out.startsWith('McIntosh Lake is free, has a 3.5-mile loop and takes carry-in boats but no swimmers. Union Reservoir charges'), out);
   // Two sentences that fit together are used whole, and a third that does not is left off.
   const three = 'Longmont has two lakes you can put a boat on, and the City runs them differently. One is free and one charges at the gate. The third sentence is long enough that it will not fit inside the budget beside the other two.';

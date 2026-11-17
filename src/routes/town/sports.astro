@@ -40,7 +40,7 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown, listsEvents } from '@/config';
 import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, pageSeasonLabel, postseasonSource, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, latestAwaiting, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
+import { bigGame, coming, gameDay as day, latestResult, pageSeasonLabel, postseasonSource, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, latestAwaiting, seasonComplete, sportsFullTitle, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -66,10 +66,9 @@ const now = new Date();
 const today = dayKey(now);
 // "Fall 2026", "Winter 2026–27": the season of the next game listed, from the data (seasonOf);
 // the eyebrow says the school year, "2026–27", while the page shows teams of both (pageSeasonLabel).
-const { season: seasonName } = seasonOf(data, cfg.teams, now);
 const seasonLabel = pageSeasonLabel(data, cfg.teams, now);
-const seasonWord = seasonName.toLowerCase();
-const description = `${school} ${mascot} scores, schedules and records this ${seasonWord}: ${teamList}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
+// The page's own season label ("2026–27" where it shows fall and winter teams), not "this winter" over four fall teams.
+const description = `${school} ${mascot} scores, schedules and records, ${seasonLabel}: ${teamList}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
 // Each school's page in that school's colours, however many the guide
 // follows (the owner, 17 November 2026: Severance High's pages were in
 // Windsor's maroon).
@@ -112,7 +111,8 @@ const jsonLd = [
   collectionPageJsonLd(town, { name: pageTitle, description, path, updated: data.generated ? new Date(data.generated) : undefined }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
-    { name: 'Sports', path: '/sports/' },
+    // On a school's page of several, the names its trail shows (the audit of 17 November 2026).
+    { name: cfg.slug ? indexName : 'Sports', path: '/sports/' },
     ...(cfg.slug ? [{ name: school, path }] : []),
   ]),
   /*
@@ -137,13 +137,22 @@ const jsonLd = [
         {cfg.slug ? (
           <nav aria-label="Breadcrumb" class="mb-3">
             <ol class="eyebrow flex flex-wrap items-center gap-x-2">
+              <li><a href="/" class="underline underline-offset-2">{town.name}</a></li>
+              <li aria-hidden="true">›</li>
               <li><a href="/sports/" class="underline underline-offset-2">{indexName}</a></li>
               <li aria-hidden="true">›</li>
-              <li aria-current="page">{shortName(cfg)}</li>
+              <li aria-current="page">{school}</li>
             </ol>
           </nav>
         ) : (
-          <p class="eyebrow mb-3">Sports · {seasonLabel}</p>
+          <nav aria-label="Breadcrumb" class="eyebrow mb-3 flex flex-wrap items-center gap-x-2">
+            <ol class="flex flex-wrap items-center gap-x-2">
+              <li><a href="/" class="underline underline-offset-2">{town.name}</a></li>
+              <li aria-hidden="true">›</li>
+              <li aria-current="page">Sports</li>
+            </ol>
+            <span>· {seasonLabel}</span>
+          </nav>
         )}
         {/* 2.25rem on a phone: "Resurrection Christian sports" in two lines, not three. */}
         <h1 class="display-md text-[2.25rem] sm:text-5xl md:text-6xl">{school} sports</h1>

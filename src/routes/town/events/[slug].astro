@@ -11,7 +11,7 @@ import { subTownLabel } from '@/lib/sub-towns';
 import { exportWhen, finalDay, isCanceled, isInProgress, isMultiDay, isOver, lastDay, listedUntil, nextOccurrence, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { googleCalendarUrl, showKey } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
-import { breadcrumbJsonLd, eventImage, eventJsonLd, eventLocality, eventMetaDescription, eventWhere } from '@/lib/seo';
+import { breadcrumbJsonLd, eventImage, eventJsonLd, eventLocality, eventMetaDescription, eventPlace, eventWhere } from '@/lib/seo';
 import { firstSentence as firstSentenceOf, markdownToText } from '@/lib/plain-text';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import Provenance from '@/components/Provenance.astro';
@@ -63,6 +63,8 @@ export async function getStaticPaths() {
       canonicalOccurrence: canonical.get(keyOf(event)) === event.slug,
       sameDayTwin: (perDay.get(`${event.data.title}|${dayKey(event.data.start)}`) ?? 0) > 1,
       nextListing: event.data.annual ? nextListingFor(event) : undefined,
+      // A finished date of a series: the one a reader can still attend, for the notice on the page.
+      nextInSeries: event.data.annual ? undefined : nextListingFor(event),
     },
   }));
 }
@@ -74,10 +76,12 @@ interface Props {
   sameDayTwin: boolean;
   /** On an annual event's permanent page: next year's dated listing, once it is filed and still to come. */
   nextListing?: TownEntry<'events'>;
+  /** On a one-off listing that is over: a later listing of the same title and venue, still to come. */
+  nextInSeries?: TownEntry<'events'>;
 }
 
 const town = getTown();
-const { event, canonicalOccurrence, sameDayTwin, nextListing } = Astro.props;
+const { event, canonicalOccurrence, sameDayTwin, nextListing, nextInSeries } = Astro.props;
 const { data } = event;
 const { Content } = await render(event);
 /**
@@ -92,6 +96,15 @@ const annual = !!data.annual;
 const over = isOver(event);
 const shown = annual && over && nextListing ? nextListing : event;
 const awaitingDate = annual && over && !nextListing;
+/**
+ * A one-off listing that is over. The page stays (a URL that was live does
+ * not start 404ing) and is not indexed, and until 17 November 2026 it still
+ * read as an invitation: "Next Saturday, October 10", no year, and the
+ * calendar buttons (221 pages, the audit of that day). It now says it has
+ * passed, gives the date with its year under "Was held", offers no calendar
+ * entry, and points at the next date of the series where one is listed.
+ */
+const passed = over && !annual;
 const next = nextOccurrence(shown);
 const when = next.data;
 // Called off or postponed: said in the eyebrow, the title tag and a notice
@@ -154,9 +167,11 @@ const timeText = next.data.timeNote ?? formatTimeRange(when.start, when.end, dat
 // A run of days leads with its range, or "Now through…" while it is on, not
 // with the day it opened: Les Misérables said "Thursday, September 10" into
 // October.
-const dayText = isMultiDay(next)
+const dayOnly = isMultiDay(next)
   ? isInProgress(next) ? `Now through ${formatMonthDay(when.end!)}` : formatDayRange(when.start, when.end!)
   : formatDayLong(when.start);
+// A date that has gone carries its year: the page is read long after.
+const dayText = passed ? `${dayOnly}, ${formatDate(when.start).slice(-4)}` : dayOnly;
 /**
  * Date, time and venue alone say nothing about the event and collide with
  * every other listing at the same place. Lead with the particulars, which are
@@ -169,9 +184,13 @@ const dayText = isMultiDay(next)
 // the guide's own (src/lib/seo.ts, eventLocality).
 const locality = eventLocality(data, town);
 const yearText = annual ? `, ${formatDate(when.start).slice(-4)}` : '';
+// The venue and its town, the town once ("…, 600 5th Street, Frederick", not "…, Frederick, Carbon Valley").
+const place = eventPlace(data, town);
 const particulars = awaitingDate
-  ? `Held ${dayText}${yearText}, ${timeText} at ${data.venue}, ${locality}; the next date is to be announced.`
-  : `${statusLabel ? `${statusLabel}. ` : ''}${dayText}${yearText}, ${timeText} at ${data.venue}, ${locality}.`;
+  ? `Held ${dayText}${yearText}, ${timeText} at ${place}; the next date is to be announced.`
+  : passed
+    ? `${statusLabel ? `${statusLabel}. ` : ''}Held ${dayText}, ${timeText} at ${place}. This event has passed.`
+    : `${statusLabel ? `${statusLabel}. ` : ''}${dayText}${yearText}, ${timeText} at ${place}.`;
 const firstSentence = firstSentenceOf(markdownToText(event.body));
 /**
  * Two ways into a reader's own calendar, neither needing a script: the
@@ -192,6 +211,8 @@ const googleUrl = googleFor(next);
 // (nobody should add a meeting that is not happening), and the organizer's
 // page is offered as a check rather than as the next step.
 const offList = isCanceled(event) || awaitingDate;
+// No calendar entry for a date that is off, or gone.
+const noCalendar = offList || passed;
 /**
  * The main button: the organizer's page for the session a reader can still
  * attend. A listing of several sessions often keeps the first session's page
@@ -234,7 +255,7 @@ const alsoOn = [...soon.filter((e) => e.data.venue === data.venue), ...soon.filt
 const directions = data.address ? directionsUrl(data.address, locality) : undefined;
 // The particulars and the body's first sentence; where that is short, the
 // next sentence, the event's name and what the page offers (eventMetaDescription).
-const description = eventMetaDescription({ title: data.title, lead: particulars, body: event.body, directions: !!directions, calendar: !offList });
+const description = eventMetaDescription({ title: data.title, lead: particulars, body: event.body, directions: !!directions, calendar: !noCalendar });
 interface Fact {
   label: string;
   value: (string | undefined)[];
@@ -243,7 +264,7 @@ interface Fact {
 }
 const facts: Fact[] = [
   {
-    label: awaitingDate ? 'Last held' : repeatNote || shown !== event ? 'Next' : 'When',
+    label: awaitingDate ? 'Last held' : passed ? 'Was held' : repeatNote || shown !== event ? 'Next' : 'When',
     value: [dayText, timeText, awaitingDate ? 'Next date to be announced' : repeatNote].filter(Boolean),
   },
   { label: 'Where', value: [data.venue, data.address].filter(Boolean) },
@@ -260,7 +281,7 @@ const facts: Fact[] = [
   seoTitle={
     annual
       ? annualEventTitle(data.title, data.subTown ? subTownLabel(data.subTown) : town.name, when.start, awaitingDate)
-      : eventTitle(`${statusLabel ? `${statusLabel}: ` : ''}${data.title}`, `${titleDate(when.start)}${sameDayTwin && !when.allDay ? `, ${formatTime(when.start)}` : ''}`, data.subTown ? subTownLabel(data.subTown) : town.name, town.siteTitle)
+      : eventTitle(`${statusLabel ? `${statusLabel}: ` : ''}${data.title}`, `${titleDate(when.start)}${sameDayTwin && !when.allDay ? `, ${formatTime(when.start)}` : ''}`, data.subTown ? subTownLabel(data.subTown) : town.name, town.siteTitle, data.venue)
   }
   eyebrow={shownCategoryLabel(data.category)}
   status={statusLabel}
@@ -278,7 +299,7 @@ const facts: Fact[] = [
     // ticketed performances; anything else is its next occurrence. An
     // annual page between dates has no Event to mark up.
     ...(awaitingDate ? [] : (shows.length > 0 ? shows : [next]).map((e) =>
-      eventJsonLd(town, e, url, structuredImage && new URL(structuredImage, Astro.site).toString(), listedOrganizerUrl),
+      eventJsonLd(town, e, url, structuredImage && new URL(structuredImage, Astro.site).toString(), listedOrganizerUrl, venueListing?.data.address),
     )),
     breadcrumbJsonLd(town, [
       { name: town.name, path: '/' },
@@ -298,7 +319,7 @@ const facts: Fact[] = [
       </Fragment>
     ) : (
       <Fragment>
-        <span class:list={['font-semibold', offList && 'text-ink-muted line-through decoration-ink-muted']}><time datetime={toIsoLocal(when.start)}>{dayText}</time> · {timeText}</span>
+        <span class:list={['font-semibold', offList && 'text-ink-muted line-through decoration-ink-muted']}>{passed && 'Was held '}<time datetime={toIsoLocal(when.start)}>{dayText}</time> · {timeText}</span>
         <span class="text-ink-muted"> · {data.venue}</span>
       </Fragment>
     )}
@@ -329,8 +350,25 @@ const facts: Fact[] = [
         </p>
       </div>
     )}
+    {passed && (
+      <div class="max-w-[40rem] rounded-r-lg border-l-4 border-accent bg-raised p-5 ring-1 ring-line-soft lg:col-start-1 lg:row-start-1 lg:mb-10" role="note" data-event-passed>
+        <p class="eyebrow text-ink">This event has passed</p>
+        <p class="mt-2 leading-relaxed">
+          {data.title} was held on {dayText}.
+          {nextInSeries ? (
+            <Fragment>
+              {' '}The next date listed is <a href={`/events/${nextInSeries.slug}/`} class="text-primary underline">{formatDayLong(nextInSeries.data.start)} →</a>
+            </Fragment>
+          ) : (
+            <Fragment>
+              {' '}<a href="/events/" class="text-primary underline">See what’s on in {town.name} now →</a>
+            </Fragment>
+          )}
+        </p>
+      </div>
+    )}
     {statusLabel && (
-      <div class:list={['max-w-[40rem] rounded-r-lg border-l-4 border-highlight bg-highlight-soft p-5 lg:col-start-1 lg:mb-10', awaitingDate ? 'lg:row-start-2' : 'lg:row-start-1']} role="note">
+      <div class:list={['max-w-[40rem] rounded-r-lg border-l-4 border-highlight bg-highlight-soft p-5 lg:col-start-1 lg:mb-10', awaitingDate || passed ? 'lg:row-start-2' : 'lg:row-start-1']} role="note">
         <p class="eyebrow text-ink">{statusLabel}</p>
         <p class="mt-2 leading-relaxed">
           {data.statusNote}
@@ -351,7 +389,7 @@ const facts: Fact[] = [
               <dd>
                 {f.value.map((line, i) => (
                   <span class:list={['block', i > 0 && 'text-ink-muted', offList && i === 0 && (f.label === 'When' || f.label === 'Next') && 'text-ink-muted line-through decoration-ink-muted']}>
-                    {i === 0 && (f.label === 'When' || f.label === 'Next') ? (
+                    {i === 0 && (f.label === 'When' || f.label === 'Next' || f.label === 'Was held') ? (
                       <time datetime={toIsoLocal(when.start)}>{line}</time>
                     ) : i === 0 && f.label === 'Where' && venueListing ? (
                       <a href={`/places/${venueListing.slug}/`}>{line}</a>
@@ -367,10 +405,10 @@ const facts: Fact[] = [
           ))}
         </dl>
         {organizerHref && (
-          <a href={organizerHref} rel="noopener" class:list={['btn mt-6', offList ? 'btn-outline text-primary' : 'btn-primary']}>Organizer’s page →</a>
+          <a href={organizerHref} rel="noopener" class:list={['btn mt-6', noCalendar ? 'btn-outline text-primary' : 'btn-primary']}>Organizer’s page →</a>
         )}
         {/* Two buttons, not two 20px text links a middot apart. */}
-        {!offList && showsLeft.length > 0 && (
+        {!noCalendar && showsLeft.length > 0 && (
           <div class="mt-6" data-hide-when-empty>
             <p class="eyebrow" id="shows">{sittings[0]!.toUpperCase()}{sittings.slice(1)} · add one to your calendar</p>
             <ul class="mt-2 divide-y divide-line-soft border-y border-line-soft" aria-labelledby="shows">
@@ -389,7 +427,7 @@ const facts: Fact[] = [
             </ul>
           </div>
         )}
-        {!offList && !shown.data.performances && (
+        {!noCalendar && !shown.data.performances && (
           <div class="mt-6">
             <p class="eyebrow">Add to calendar</p>
             <div class="mt-2 flex flex-wrap gap-2">
@@ -414,7 +452,7 @@ const facts: Fact[] = [
         />
       </div>
     </div>
-    <div class:list={['lg:col-start-1', awaitingDate && statusLabel ? 'lg:row-start-3' : awaitingDate || statusLabel ? 'lg:row-start-2' : 'lg:row-start-1']}>
+    <div class:list={['lg:col-start-1', (awaitingDate || passed) && statusLabel ? 'lg:row-start-3' : awaitingDate || passed || statusLabel ? 'lg:row-start-2' : 'lg:row-start-1']}>
       {data.image && (
         <figure class="mb-10">
           <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} loading="eager" fetchpriority="high" class="rounded-lg" />

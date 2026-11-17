@@ -23,7 +23,7 @@ test('a recreation center is a SportsActivityLocation with its hours as a specif
   assert.equal(d['@type'], 'SportsActivityLocation');
   assert.equal(d.url, 'https://www.berthoud.org/1547/x');
   assert.equal(d.mainEntityOfPage, page);
-  assert.deepEqual(d.address, { '@type': 'PostalAddress', streetAddress: '1000 N Berthoud Pkwy', addressLocality: 'Berthoud', addressRegion: 'CO' });
+  assert.deepEqual(d.address, { '@type': 'PostalAddress', streetAddress: '1000 N Berthoud Pkwy', addressLocality: 'Berthoud', addressRegion: 'CO', addressCountry: 'US' });
   const spec = d.openingHoursSpecification as Array<{ '@type': string; dayOfWeek: string[]; opens: string; closes: string }>;
   assert.deepEqual(spec[0], { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '05:00', closes: '21:00' });
   assert.deepEqual(spec[1], { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '07:00', closes: '20:00' });

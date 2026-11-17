@@ -30,8 +30,9 @@ const expired = site.kind === 'town' ? pastEventSlugs(site.slug) : new Set();
 const closed = site.kind === 'town' ? closedPlaceSlugs(site.slug) : new Set();
 // A town that has not launched is a holding page: nothing of it is indexable.
 const live = site.kind === 'hub' || site.status === 'live';
-// Every sitemap entry carries lastmod: the listing's check date, an article's
-// check or publish date, else the build date (src/lib/lastmod.ts).
+// A sitemap entry carries lastmod: the listing's check date, an article's
+// check or publish date, else the build date; a page of fixed copy with no
+// date of its own carries none (src/lib/lastmod.ts).
 const buildDate = new Date();
 const dates = contentDates(site);
 /** Pages that carry noindex must not be listed in the sitemap either. */
@@ -83,7 +84,10 @@ export default defineConfig({
   },
   // siteImages: the photographs this build may see, and no original left in /_astro/ (src/integrations/site-images.ts).
   // On the hub, /hero-map.json: each town page's photograph, for the links to start early (src/integrations/hero-map.ts).
-  integrations: [townRoutes(site), siteImages(site), sitemap({ filter: indexable, serialize: (item) => ({ ...item, lastmod: lastmodFor(item.url, dates, buildDate) }) }), hostFiles(vercelConfig, site.domain), ...(site.kind === 'hub' ? [heroMap()] : [])],
+  integrations: [townRoutes(site), siteImages(site), sitemap({ filter: indexable, serialize: (item) => {
+      const lastmod = lastmodFor(item.url, dates, buildDate);
+      return lastmod ? { ...item, lastmod } : item;
+    } }), hostFiles(vercelConfig, site.domain), ...(site.kind === 'hub' ? [heroMap()] : [])],
   vite: {
     plugins: [tailwindcss()],
     build: {

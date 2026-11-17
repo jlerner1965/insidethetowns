@@ -22,6 +22,7 @@
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { UNDATED } from '../../src/lib/lastmod.ts';
 
 export interface Problem {
   /** The rule's short name, stable, so a report can be grouped and searched. */
@@ -640,7 +641,10 @@ export function checkSite(input: SiteInput): { problems: Problem[]; manifest: Ma
         else if (page.refresh !== undefined) add('sitemap', mapPath, `${loc} is listed and is a redirect page`);
         else if (page.noindex) add('sitemap', mapPath, `${loc} is listed and is noindex`);
         if (redirectAt(path)) add('sitemap', mapPath, `${loc} is listed and vercel.json redirects it`);
-        if (!lastmod) add('sitemap-lastmod', mapPath, `${loc} has no lastmod`);
+        // A page of fixed copy carries no lastmod (src/lib/lastmod.ts, UNDATED); every other entry has one.
+        if (!lastmod) {
+          if (!UNDATED.test(path)) add('sitemap-lastmod', mapPath, `${loc} has no lastmod`);
+        }
         else if (Number.isNaN(Date.parse(lastmod))) add('sitemap-lastmod', mapPath, `${loc} has lastmod ${lastmod}, not a date`);
         else if (Date.parse(lastmod) > now.getTime() + 36 * 3600 * 1000) add('sitemap-lastmod', mapPath, `${loc} has lastmod ${lastmod}, in the future`);
       }

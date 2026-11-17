@@ -51,5 +51,6 @@ export function dateBlock(row: Pick<TraditionRow, 'entry' | 'past' | 'year'>): D
     };
   }
   if (entry.status === 'typical') return { set: false, canceled: false, top: '', main: 'Varies', foot: '' };
-  return { set: false, canceled, top: '', main: 'TBA', foot: past ? '' : String(row.year) };
+  // Called off with no date on file: "Off", not a date still to be announced (the audit of 17 November 2026).
+  return { set: false, canceled, top: '', main: canceled ? 'Off' : 'TBA', foot: past ? '' : String(row.year) };
 }
