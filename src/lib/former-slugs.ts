@@ -30,9 +30,18 @@
  * former or retired slug that is also a live slug is skipped with a warning
  * rather than shadowing a page: the live page wins, and the validator and
  * test/retired-slugs.test.ts report the clash.
+ *
+ * That page is the fallback. The answer a crawler gets is a 301 from the
+ * host: one rule per address in vercel.json, host-scoped (guideRules,
+ * written by `node scripts/fold-rules.ts --write`), since a 200 page with
+ * noindex is filed as excluded, not as a move (the search audit of 17
+ * November 2026). test/guide-redirects.test.ts holds the two in step.
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { dayKey } from './dates.ts';
+import { closedPlaceSlugs } from './raw-places.ts';
+import { pickCanonical, readOccurrences } from './series.ts';
 
 const KINDS = ['events', 'places'] as const;
 export type FormerSlugKind = (typeof KINDS)[number];
@@ -145,13 +154,36 @@ export function retiredLedgerIssues(town: string, contentRoot = 'content'): stri
 }
 
 /**
+ * Where a listing's page sends a searcher today: the page itself, or, for an
+ * event that is a repeat of a series, the series' indexed page; the kind's
+ * list when that page is over (noindex, src/lib/series.ts) or the place has
+ * closed for good. A redirect to a noindex page passes nothing on.
+ */
+function landing(town: string, contentRoot: string, now: Date): (kind: FormerSlugKind, slug: string) => string {
+  const today = dayKey(now);
+  const all = readOccurrences(town, contentRoot);
+  const canonical = pickCanonical(all, today);
+  const closed = closedPlaceSlugs(town, contentRoot);
+  return (kind, slug) => {
+    if (kind === 'places') return closed.has(slug) ? RETIRED_INDEX.places : `/places/${slug}/`;
+    const own = all.find((o) => o.slug === slug);
+    if (!own) return `/events/${slug}/`;
+    const page = all.find((o) => o.slug === canonical.get(own.key)) ?? own;
+    return page.lastDay < today && !page.annual ? RETIRED_INDEX.events : `/events/${page.slug}/`;
+  };
+}
+
+/**
  * The town's former and retired slugs as Astro `redirects`: `/events/old`
  * to `/events/new/`, or to the kind's list. A former slug comes first: a
- * listing that names its old slug knows better than the ledger.
+ * listing that names its old slug knows better than the ledger. With `now`
+ * each lands on a page that is indexed that day (landing); null gives the
+ * listing as filed, whatever its date.
  */
-export function formerSlugRedirects(town: string, contentRoot = 'content'): Record<string, string> {
+export function formerSlugRedirects(town: string, contentRoot = 'content', now: Date | null = new Date()): Record<string, string> {
   const out: Record<string, string> = {};
-  for (const { kind, from, to } of formerSlugs(town, contentRoot)) out[`/${kind}/${from}`] = `/${kind}/${to}/`;
+  const land = now ? landing(town, contentRoot, now) : (kind: FormerSlugKind, slug: string) => `/${kind}/${slug}/`;
+  for (const { kind, from, to } of formerSlugs(town, contentRoot)) out[`/${kind}/${from}`] = land(kind, to);
   for (const { kind, from, to } of retiredSlugs(town, contentRoot)) {
     const path = `/${kind}/${from}`;
     if (path in out) continue;
@@ -161,9 +193,57 @@ export function formerSlugRedirects(town: string, contentRoot = 'content'): Reco
       continue;
     }
     if (to !== null && !live.has(to)) console.warn(`retired.json: ${town}/${kind}/${from} names ${to}, which is not a live listing; the URL goes to ${RETIRED_INDEX[kind]} instead.`);
-    out[path] = to !== null && live.has(to) ? `/${kind}/${to}/` : RETIRED_INDEX[kind];
+    out[path] = to !== null && live.has(to) ? land(kind, to) : RETIRED_INDEX[kind];
   }
   return out;
+}
+
+/** A guide's index pages that moved: /places/ is /directory/, /articles/ is /guides/ (astro.config.mjs builds the same two). */
+export const GUIDE_MOVED: Readonly<Record<string, string>> = { '/places': '/directory/', '/articles': '/guides/' };
+
+/** Where a quiet guide's annual events are kept: it builds no event pages (TownConfig.lead 'updates'). */
+export const QUIET_ANNUAL = '/traditions/';
+
+/**
+ * Every old address a guide answers with a redirect, path to destination:
+ * the former and retired slugs and the two moved index pages. A quiet
+ * guide builds no events pages, so its old event addresses are not sent
+ * to them: an annual event's, dated or not, goes to the annual-events page
+ * (the search audit of 17 November 2026: Niwot's ranked and went to the
+ * home page), and the rest are left to the host's own events rule.
+ */
+export function guideRedirects(town: string, opts: { listsEvents?: boolean; contentRoot?: string; now?: Date | null } = {}): Record<string, string> {
+  const { listsEvents = true, contentRoot = 'content', now = new Date() } = opts;
+  const all = formerSlugRedirects(town, contentRoot, now);
+  if (listsEvents) return { ...all, ...GUIDE_MOVED };
+  const out: Record<string, string> = {};
+  for (const [from, to] of Object.entries(all)) if (!from.startsWith('/events/')) out[from] = to;
+  const formers = liveListings(town, 'events', contentRoot);
+  for (const o of readOccurrences(town, contentRoot)) {
+    if (!o.annual) continue;
+    for (const slug of [o.slug, ...(formers.get(o.slug) ?? [])]) out[`/events/${slug}`] = QUIET_ANNUAL;
+  }
+  return { ...out, ...GUIDE_MOVED };
+}
+
+export interface GuideRule {
+  source: string;
+  has: Array<{ type: 'host'; value: string }>;
+  destination: string;
+  statusCode: 301;
+}
+
+/**
+ * The redirects as vercel.json rules for one host, a 301 each, sorted by
+ * address so the file does not churn. `onto` is the receiving guide's
+ * origin when the host is another domain that keeps the path (Inside
+ * Frederick to Carbon Valley): the old address then goes straight to the
+ * page, not to the same path and on from there.
+ */
+export function guideRules(domain: string, redirects: Record<string, string>, onto = ''): GuideRule[] {
+  return Object.entries(redirects)
+    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
+    .map(([from, to]) => ({ source: `${from}{/}?`, has: [{ type: 'host', value: domain }], destination: `${onto}${to}`, statusCode: 301 }));
 }
 
 /**

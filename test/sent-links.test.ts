@@ -31,11 +31,13 @@ import { join } from 'node:path';
 import { towns } from '../src/config/towns/registry.ts';
 import { listsEvents } from '../src/config/index.ts';
 import { hubRoutes, placeTypeRoutes } from '../src/integrations/town-routes.ts';
-import { formerSlugs } from '../src/lib/former-slugs.ts';
+import { ALSO_COVERED } from '../src/lib/fold.ts';
+import { formerSlugs, QUIET_ANNUAL } from '../src/lib/former-slugs.ts';
+import { heldEventRedirects } from '../scripts/lib/redirect-rules.ts';
 
 const root = new URL('..', import.meta.url).pathname;
 
-type Rule = { source: string; destination?: string; permanent?: boolean; has?: Array<{ type: string; value: string }> };
+type Rule = { source: string; destination?: string; permanent?: boolean; statusCode?: number; has?: Array<{ type: string; value: string }> };
 const rules = (JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8')) as { redirects: Rule[] }).redirects;
 
 const live = towns.filter((t) => t.status === 'live');
@@ -84,9 +86,10 @@ function answered(l: Link): boolean {
   const builds = liveSlugs.has(l.town) && (l.collection !== 'events' || listsEvents(town));
   if (builds) return existsSync(join(root, 'content', l.town, l.collection, `${l.slug}.md`)) || redirected(l.domain, l.town, l.collection, l.slug);
   const rule = hostRule(l.domain, `/${l.collection}/${l.slug}/`);
-  if (!rule || rule.permanent !== true || !rule.destination) return false;
+  if (!rule || !(rule.permanent === true || rule.statusCode === 301) || !rule.destination) return false;
   // A guide folded into its hub page lands on that page, an event on its Traditions section.
-  if (town.hubPage) return rule.destination.startsWith(`https://insidethetowns.com/${town.hubPage.town}/`);
+  // (Or on the page of a second town the guide carried: src/lib/fold.ts, ALSO_COVERED.)
+  if (town.hubPage) return [town.hubPage.town, ...(ALSO_COVERED[l.domain] ?? [])].some((t) => rule.destination!.startsWith(`https://insidethetowns.com/${t}/`));
   return true;
 }
 
@@ -144,7 +147,8 @@ test('the links into folded guides and to Niwot’s events are among those check
     // page of its own on the hub (data/hub/fold-events.json, 13 November
     // 2026), to that page under the town's: /golden/trick-or-treat-street/.
     if (l.collection === 'events' && rule.source !== '/events/(.*)') {
-      assert.match(rule.destination, new RegExp(`^${page.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[a-z0-9-]+/$`), `${l.domain}/${l.collection}/${l.slug}/`);
+      const under = [town.hubPage!.town, ...(ALSO_COVERED[l.domain] ?? [])].join('|');
+      assert.match(rule.destination, new RegExp(`^https://insidethetowns\\.com/(?:${under})/[a-z0-9-]+/$`), `${l.domain}/${l.collection}/${l.slug}/`);
     } else {
       assert.equal(rule.destination, l.collection === 'events' ? `${page}#traditions` : page, `${l.domain}/${l.collection}/${l.slug}/`);
     }
@@ -154,10 +158,13 @@ test('the links into folded guides and to Niwot’s events are among those check
   for (const l of quietEvents) {
     const rule = hostRule(l.domain, `/${l.collection}/${l.slug}/`);
     assert.ok(rule, `${l.domain}: no rule takes /events/${l.slug}/`);
-    assert.equal(rule.source, '/events/(.*)');
-    assert.equal(rule.destination, '/', `${l.domain}: an event goes to the guide's home page`);
-    assert.equal(rule.permanent, true);
+    // An annual event has a rule of its own to the annual-events page (the
+    // audit of 17 November 2026); every other event goes to the home page.
+    if (rule.source === '/events/(.*)') assert.equal(rule.destination, '/', `${l.domain}: an event goes to the guide's home page`);
+    else assert.deepEqual([rule.source, rule.destination], [`/events/${l.slug}{/}?`, QUIET_ANNUAL], `${l.domain}/events/${l.slug}/`);
+    assert.ok(rule.permanent === true || rule.statusCode === 301);
   }
+  assert.ok(quietEvents.some((l) => hostRule(l.domain, `/events/${l.slug}/`)!.destination === QUIET_ANNUAL), 'an annual event among them');
   // The patterns read as Vercel reads them.
   assert.ok(sourcePattern('/events{/}?').test('/events/') && sourcePattern('/events{/}?').test('/events') && !sourcePattern('/events{/}?').test('/events/a/'));
   assert.ok(sourcePattern('/events/:slug{/}?').test('/events/a-b/') && !sourcePattern('/events/:slug{/}?').test('/events/a/b/'));
@@ -175,15 +182,21 @@ test('no redirect on a live guide hides a page that exists', () => {
   // status) would hide the hub if it came back. Remove the rule when the
   // page returns.
   const hidden: string[] = [];
+  const heldBy = new Map<string, Record<string, string>>();
+  const held = (town: string) => heldBy.get(town) ?? heldBy.set(town, heldEventRedirects(town, join(root, 'content'))).get(town)!;
   for (const r of rules) {
     for (const h of r.has ?? []) {
       const town = h.type === 'host' ? byDomain.get(h.value.replace(/^www\./, '')) : undefined;
       // A guide that is not live builds nothing for a rule to hide.
       if (!town || !liveSlugs.has(town)) continue;
       const listing = r.source.match(/^\/(events|places|articles)\/([a-z0-9-]+)\{\/\}\?$/);
-      if (listing && existsSync(join(root, 'content', town, listing[1]!, `${listing[2]}.md`))) hidden.push(`${h.value}${r.source}`);
-      const section = r.source.match(/^(\/[a-z-]+)\{\/\}\?$/);
       const config = live.find((t) => t.slug === town)!;
+      // A file with no page behind it hides nothing: a quiet guide builds no
+      // event pages, and an event that is over and held back by the publish
+      // gate is not built (scripts/lib/redirect-rules.ts, heldEventRedirects).
+      const unbuilt = listing?.[1] === 'events' && (!listsEvents(config) || `/events/${listing[2]}` in held(town));
+      if (listing && !unbuilt && existsSync(join(root, 'content', town, listing[1]!, `${listing[2]}.md`))) hidden.push(`${h.value}${r.source}`);
+      const section = r.source.match(/^(\/[a-z-]+)\{\/\}\?$/);
       if (section && [...placeTypeRoutes(town), ...hubRoutes(config)].some(([pattern]) => pattern === section[1])) hidden.push(`${h.value}${r.source}`);
     }
   }

@@ -49,13 +49,14 @@ test('each Monday session of Music & Movement is listed once: one at 10, one at 
 test('the retired page is gone and its address goes to the series kept, on Johnstown’s domain only', () => {
   assert.equal(existsSync(new URL(`${RETIRED}.md`, dir)), false);
   const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
-    redirects: Array<{ source: string; destination: string; permanent?: boolean; has?: Array<{ type: string; value: string }> }>;
+    redirects: Array<{ source: string; destination: string; permanent?: boolean; statusCode?: number; has?: Array<{ type: string; value: string }> }>;
   };
   const rules = vercel.redirects.filter((r) => r.source.startsWith(`/events/${RETIRED}`));
   assert.ok(rules.length >= 2);
   for (const r of rules) {
     assert.deepEqual(r.has, [{ type: 'host', value: 'insidejohnstown.com' }]);
-    assert.equal(r.permanent, true);
+    // The page's own rule is written from retired.json as a 301 (scripts/fold-rules.ts); the calendar files' are 308s.
+    assert.ok(r.permanent === true || r.statusCode === 301, r.source);
     assert.ok(r.destination === `/events/${KEPT}/` || r.destination === `/events/${KEPT}.ics`, r.destination);
   }
   assert.ok(rules.some((r) => r.source === `/events/${RETIRED}{/}?` && r.destination === `/events/${KEPT}/`));

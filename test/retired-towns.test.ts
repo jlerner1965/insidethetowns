@@ -34,11 +34,12 @@ import { emailTowns, findTown, LIVE_TOWNS } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { foldRules, OUTDOOR_ANCHOR, TRADITIONS_ANCHOR } from '../src/lib/fold.ts';
+import { guideRedirects } from '../src/lib/former-slugs.ts';
 import { findHubTown } from '../src/config/hub-towns.ts';
 import { publishedHubTownSlugs } from '../src/lib/tradition-files.ts';
 
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
-  redirects: Array<{ source: string; destination: string; permanent?: boolean; has?: Array<{ type: string; value?: string }> }>;
+  redirects: Array<{ source: string; destination: string; permanent?: boolean; statusCode?: number; has?: Array<{ type: string; value?: string }> }>;
 };
 const retired = towns.filter((t) => t.retired);
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
@@ -105,7 +106,9 @@ test("a retired guide's content has left its folder", () => {
 test("every path on a retired guide's domain redirects to its town's page on the hub, to the hub's home page where it has none, or into the guide that took its ground", () => {
   const published = new Set(publishedHubTownSlugs());
   for (const t of retired) {
-    const rules = rulesFor(t.domain);
+    // An old event address with a hub page of its own has a rule of its own
+    // (data/hub/fold-events.json); test/hub-fold.test.ts holds those.
+    const rules = rulesFor(t.domain).filter((r) => !t.hubPage || !/^\/events\/[a-z0-9-]+\{\/\}\?$/.test(r.source));
     assert.ok(rules.length > 0, `${t.domain}: no rules`);
     if (t.hubPage) {
       // The town has a published page on the hub: the same rules as a guide
@@ -115,7 +118,7 @@ test("every path on a retired guide's domain redirects to its town's page on the
       assert.ok(published.has(t.hubPage.town), `${t.slug}: the page /${t.hubPage.town}/ is published`);
       const page = `https://${hub.domain}/${t.hubPage.town}/`;
       assert.deepEqual(rules, foldRules(t.domain, hub.domain, t.hubPage.town), `${t.domain}: the rules src/lib/fold.ts writes`);
-      assert.ok(rules.every((r) => r.permanent === true && r.destination.startsWith(page)), `${t.domain}: permanent, to ${page}`);
+      assert.ok(rules.every((r) => (r.permanent === true || r.statusCode === 301) && r.destination.startsWith(page)), `${t.domain}: permanent, to ${page}`);
       const to = (source: string) => rules.find((r) => r.source === source)?.destination;
       assert.equal(to('/'), page, `${t.domain}: the home page`);
       assert.equal(to('/events{/}?'), `${page}#${TRADITIONS_ANCHOR}`, `${t.domain}: the events list goes to the page's traditions`);
@@ -131,13 +134,13 @@ test("every path on a retired guide's domain redirects to its town's page on the
     const home = successor ? `https://${successor.domain}/` : `https://${hub.domain}/`;
     if (successor) {
       // Path kept where the page exists on the successor, the home page otherwise.
-      assert.ok(rules.every((r) => r.permanent === true && r.destination.startsWith(home)), `${t.domain}: permanent, into ${successor.domain}`);
+      assert.ok(rules.every((r) => (r.permanent === true || r.statusCode === 301) && r.destination.startsWith(home)), `${t.domain}: permanent, into ${successor.domain}`);
       for (const r of rules) {
         const m = r.destination.match(/^https:\/\/[^/]+\/(events|places|articles)\/([a-z0-9-]+)\/$/);
         if (m) assert.ok(existsSync(new URL(`../content/${successor.slug}/${m[1]}/${m[2]}.md`, import.meta.url)), `${t.domain}: ${r.source} goes to ${r.destination}, which has no file`);
       }
     } else {
-      assert.ok(rules.every((r) => r.permanent === true && r.destination === home), `${t.domain}: permanent, to ${home}`);
+      assert.ok(rules.every((r) => (r.permanent === true || r.statusCode === 301) && r.destination === home), `${t.domain}: permanent, to ${home}`);
     }
     assert.equal(rules.find((r) => r.source === '/')?.destination, home, `${t.domain}: the home page`);
     assert.equal(rules.at(-1)?.source, '/(.*)', `${t.domain}: the catch-all last`);
@@ -160,17 +163,19 @@ test('Frederick and Firestone forward to Carbon Valley in one step, and no old C
   const home = `https://${cv.domain}/`;
   // Firestone never had pages of its own: everything to the guide's home page.
   const firestone = rulesFor('insidefirestone.com');
-  assert.ok(firestone.length > 0 && firestone.every((r) => r.permanent === true && r.destination === home), 'insidefirestone.com goes to Carbon Valley’s home page');
+  assert.ok(firestone.length > 0 && firestone.every((r) => (r.permanent === true || r.statusCode === 301) && r.destination === home), 'insidefirestone.com goes to Carbon Valley’s home page');
   // Frederick: the path kept, and nothing that points anywhere but the guide.
   const frederick = rulesFor('insidefrederickco.com');
   assert.deepEqual([frederick[0]?.source, frederick[0]?.destination], ['/', home]);
-  assert.ok(frederick.every((r) => r.permanent === true && r.destination.startsWith(home)));
+  assert.ok(frederick.every((r) => (r.permanent === true || r.statusCode === 301) && r.destination.startsWith(home)));
   // No rule anywhere still points at the domain that now forwards: that would be a chain.
   for (const r of vercel.redirects) assert.ok(!r.destination.includes('insidefrederickco.com'), `${r.source} still goes to insidefrederickco.com`);
   // The guide's own domain: only the addresses the closed guide had and
   // this one does not (a section page, a Firestone, Dacono or Fort Lupton
   // listing), each to a page that exists; never a catch-all on a live guide.
-  const own = rulesFor(cv.domain);
+  // (The guide's own former and retired slugs are test/guide-redirects.test.ts's.)
+  const current = new Set(Object.keys(guideRedirects(cv.slug)).map((from) => `${from}{/}?`));
+  const own = rulesFor(cv.domain).filter((r) => !current.has(r.source));
   assert.ok(own.length > 0);
   for (const r of own) {
     assert.notEqual(r.source, '/(.*)', 'no catch-all on a live guide');

@@ -11,6 +11,11 @@
  * reviewed by hand) gets a rule of its own to the record's page, ahead of
  * the events catch-all.
  *
+ * And the 301s for every address a live guide or the hub would otherwise
+ * answer with a redirect page: former and retired slugs, moved index pages,
+ * the hub's pages that moved to a guide (scripts/lib/redirect-rules.ts).
+ * Run it after a listing is retired, merged or re-filed.
+ *
  *   node scripts/fold-rules.ts            # says what would change
  *   node scripts/fold-rules.ts --write    # rewrites vercel.json
  *
@@ -23,8 +28,9 @@ import { HUB_TOWNS } from '../src/config/hub-towns.ts';
 import { hubEventPages, publishedHubTowns } from '../src/lib/hub-towns.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
 import foldEvents from '../data/hub/fold-events.json' with { type: 'json' };
+import { generatedBlocks, withBlocks, REDIRECT_LIMIT, type HostRule } from './lib/redirect-rules.ts';
 
-type Rule = { source: string; destination: string; permanent?: boolean; has?: Array<{ type: string; value?: string }> };
+type Rule = HostRule;
 const file = new URL('../vercel.json', import.meta.url);
 const config = JSON.parse(readFileSync(file, 'utf8')) as { redirects: Rule[] };
 const hub = getNetworkHub();
@@ -59,7 +65,18 @@ for (const town of domains) {
   rules = [...rest.slice(0, index), ...want, ...rest.slice(index)];
   console.log(`${town.domain}: ${have.length} rule(s) replaced by ${want.length}, to /${town.town}/`);
 }
-if (changed === 0) console.log('vercel.json already carries every folded guide’s rules.');
+// The live guides' former and retired addresses and the hub's moved pages
+// (scripts/lib/redirect-rules.ts): a 301 each, ahead of the host's other rules.
+for (const block of generatedBlocks()) {
+  const next = withBlocks(rules, [block]);
+  if (JSON.stringify(next) === JSON.stringify(rules)) continue;
+  changed++;
+  rules = next as Rule[];
+  console.log(`${block.host}: ${block.rules.length} rule(s) for its former, retired and moved addresses`);
+}
+// Vercel refuses a deployment with more (vercel.com/docs/redirects/configuration-redirects, "Limits").
+if (rules.length > REDIRECT_LIMIT) throw new Error(`vercel.json would hold ${rules.length} redirects; Vercel allows ${REDIRECT_LIMIT}.`);
+if (changed === 0) console.log(`vercel.json already carries every rule (${rules.length} of the ${REDIRECT_LIMIT} Vercel allows).`);
 else if (process.argv.includes('--write')) {
   config.redirects = rules;
   writeFileSync(file, `${JSON.stringify(config, null, 2)}\n`, 'utf8');

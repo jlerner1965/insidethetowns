@@ -21,7 +21,7 @@ import { findTown, LIVE_TOWNS } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
-  redirects: Array<{ source: string; destination: string; permanent?: boolean; has?: Array<{ type: string; value?: string }> }>;
+  redirects: Array<{ source: string; destination: string; permanent?: boolean; statusCode?: number; has?: Array<{ type: string; value?: string }> }>;
 };
 // A retired guide redirects too, but to the hub, with no guide to take it:
 // test/retired-towns.test.ts. So does a guide folded into its town's page on
@@ -63,7 +63,7 @@ test("every path on a folded guide's domain redirects into the guide that took i
     const base = `https://${home.domain}`;
     const rules = rulesFor(t.domain);
     const to = (source: string) => rules.find((r) => r.source === source)?.destination;
-    assert.ok(rules.every((r) => r.permanent === true && r.destination.startsWith(`${base}/`)), `${t.domain}: permanent, to ${home.domain}`);
+    assert.ok(rules.every((r) => (r.permanent === true || r.statusCode === 301) && r.destination.startsWith(`${base}/`)), `${t.domain}: permanent, to ${home.domain}`);
     assert.equal(to('/'), `${base}${t.foldedInto!.path}`);
     assert.equal(to('/events/:slug{/}?'), `${base}/events/:slug/`, 'events keep their slug');
     assert.equal(to('/places/:slug{/}?'), `${base}/places/:slug/`, 'places keep their slug');
