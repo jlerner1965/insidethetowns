@@ -342,8 +342,7 @@
       "category": "other",
       "status": "confirmed",
       "lastChecked": "2026-11-16",
-      "lastStatus": "blocked",
-      "lastNote": "unexpected status",
+      "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
         "Erie, CO"
