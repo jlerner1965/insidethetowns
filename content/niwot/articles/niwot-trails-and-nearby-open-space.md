@@ -17,7 +17,7 @@ sources:
   - { label: "Boulder County: Niwot Trails map", url: "https://assets.bouldercounty.gov/wp-content/uploads/2024/07/niwot-trails-map-scaled.jpg" }
   - { label: "Boulder County: Niwot Loop Trailhead closure map", url: "https://assets.bouldercounty.gov/wp-content/uploads/2026/11/niwot-loop-th-closure.jpg" }
   - { label: "Boulder County: Trail Closures, Notices, and Alerts", url: "https://bouldercounty.gov/open-space/parks-and-trails/trail-closures/" }
-  - { label: "Boulder County: Open Space Regulations", url: "https://bouldercounty.gov/open-space/parks-and-trails/rules-and-regulations/" }
+  - { label: "Boulder County: Open Space Regulations", url: "https://bouldercounty.gov/open-space/parks-and-trails/regulations/" }
   - { label: "Boulder County: Accessibility on Open Space", url: "https://bouldercounty.gov/open-space/parks-and-trails/accessibility/" }
   - { label: "Boulder County: Fishing on Open Space", url: "https://bouldercounty.gov/open-space/activities/fishing/" }
   - { label: "Boulder County: Twin Lakes", url: "https://bouldercounty.gov/open-space/parks-and-trails/twin-lakes/" }
@@ -81,7 +81,7 @@ For a flat or a tune-up first, [Niwot Wheel Works](/places/niwot-wheel-works/), 
 
 ## Rules on all County land
 
-The County's [regulations](https://bouldercounty.gov/open-space/parks-and-trails/rules-and-regulations/): pets on a leash and under physical control, waste carried out; unattended vehicles left after dark ticketed or towed; no swimming, wading or drones; a fishing license from age 16. Fines run to $300; a ranger is at 303-441-4444. None of the County pages above lists a fee.
+The County's [regulations](https://bouldercounty.gov/open-space/parks-and-trails/regulations/): pets on a leash and under physical control, waste carried out; unattended vehicles left after dark ticketed or towed; no swimming, wading or drones; a fishing license from age 16. Fines run to $300; a ranger is at 303-441-4444. None of the County pages above lists a fee.
 
 ## Which to choose
 

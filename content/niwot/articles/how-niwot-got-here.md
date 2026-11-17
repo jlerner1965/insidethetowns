@@ -17,7 +17,7 @@ sources:
   - { label: "Niwot Historical Society: Niwot Tribune collection", url: "https://niwothistoricalsociety.org/collections_tag/niwot-tribune" }
   - { label: "Niwot Historical Society: Self-guided walking tour of the Niwot Historic District, sesquicentennial edition (text by Anne Quinby Dyni)", url: "https://niwothistoricalsociety.org/master-niwot-walking-tour-brochure-_-sesquicentennial-2025" }
   - { label: "Anne Dyni: Niwot, Colorado (Colorado Magazine Online)", url: "https://coloradomagazineonline.com/Cities%20_%20Towns/Niwot-2/Niwot-2.htm" }
-  - { label: "Anne Quinby Dyni: Around Niwot (Images of America), book preview", url: "https://www.everand.com/book/275216491/Around-Niwot" }
+  - { label: "Anne Quinby Dyni: Around Niwot (Images of America), Arcadia Publishing", url: "https://www.arcadiapublishing.com/products/around-niwot-9781467133241" }
   - { label: "Niwot Business Association: Birth of a Railroad Town", url: "https://niwot.com/niwot-history/" }
   - { label: "Colorado Encyclopedia: Niwot (Left Hand)", url: "https://coloradoencyclopedia.org/article/niwot-left-hand" }
   - { label: "National Park Service, Sand Creek Massacre National Historic Site: History and culture", url: "https://www.nps.gov/sand/learn/historyculture/index.htm" }
@@ -68,7 +68,7 @@ Niwot is one of three figures in *Peace Keepers*, the Sand Creek Massacre memori
 
 The Colorado Central Railroad reached Boulder from Golden in 1873 and by that fall ran twelve miles on to Longmont, [Anne Dyni writes](https://coloradomagazineonline.com/Cities%20_%20Towns/Niwot-2/Niwot-2.htm). Halfway along stood a section house, the base for the crew that kept up the track. A depot opened there the same year, with George W. Wilson as its first agent, [according to the Historical Society](https://niwothistoricalsociety.org/stories/the-niwot-depot/).
 
-Hinman had come to the area in 1860, and Murray was a Boulder resident. Each gave 20 acres just north of the section house for the town, [Dyni writes in *Around Niwot*](https://www.everand.com/book/275216491/Around-Niwot). Their plat laid out streets, alleys and lots on both sides of the tracks, on a grid set at an angle to follow the rails.
+Hinman had come to the area in 1860, and Murray was a Boulder resident. Each gave 20 acres just north of the section house for the town, [Dyni writes in *Around Niwot*](https://www.arcadiapublishing.com/products/around-niwot-9781467133241). Their plat laid out streets, alleys and lots on both sides of the tracks, on a grid set at an angle to follow the rails.
 
 The town was built for shipping. From the depot, farmers sent cattle to the Denver stockyards and produce to Boulder and Longmont. Left Hand Grange No. 9, the farmers' organization that still meets in Niwot, was organized in December 1873, [the Courier has reported](https://lhvc.com/story/2021/04/21/news/how-does-niwot-work-part-7/6174.html).
 

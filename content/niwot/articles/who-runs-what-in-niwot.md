@@ -59,4 +59,4 @@ Each row names the body responsible and links to the page of its site that handl
 
 ## Get involved
 
-The quickest way in is to turn up. The events calendar lists what has been published: the summer concerts beside the caboose, the art walks, and the seasonal gatherings in Old Town. Most of them are run by the groups above, and every one of them is looking for hands.
+The quickest way in is to turn up. The Business Association's [events calendar](https://niwot.com/upcoming-events/) lists what is coming: the summer concerts beside the caboose, the art walks, and the seasonal gatherings in Old Town. Most of them are run by the groups above, and every one of them is looking for hands.

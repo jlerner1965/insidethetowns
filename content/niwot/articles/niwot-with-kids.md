@@ -48,7 +48,3 @@ The [Niwot Sculpture Park](/places/niwot-sculpture-park/) is at the south-west c
 The [Niwot Loop Trail](/places/niwot-loop-trail/) is the flat, easy Boulder County loop around the edge of town from the trailhead on 79th Street. It links to the [LoBo Regional Trail](/places/lobo-regional-trail/), the twelve-mile crushed-gravel path between Longmont and Boulder, whose eastern fields at sunset are the reason to go a little further. The trailheads close at sunset, and dogs stay on a leash.
 
 Boulder County plans to close the Niwot Loop Trailhead and trail later this winter while crews repair two bridges near the trailhead; it has not set the dates ([the notice](/updates/#niwot-loop-trail-winter-closure)).
-
-## What's on for families
-
-The events page filters to family listings. Everything there is checked against its source before it goes up.
