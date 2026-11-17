@@ -269,8 +269,9 @@ const description = placeDescription(
     ]),
   ]}
 >
+  {/* The line keeps its place before the script fills it (a shift of up to 0.119, audit of 17 November 2026): unseen until the status is set. */}
   {lede?.kind === 'hours' && (
-    <p slot="after-header" class="page-lede" data-hours={hours} data-open-wrap hidden>
+    <p slot="after-header" class="page-lede invisible has-[[data-open]]:visible" data-hours={hours} data-open-wrap>
       <span class="open-status" data-open-status hidden></span>
       <span class="text-[0.9375rem] text-ink-muted"> · by the published hours</span>
     </p>
@@ -311,7 +312,7 @@ const description = placeDescription(
       <div class="order-3">
         {data.image && (
           <figure class:list={['mb-10', data.image.width < 800 && 'max-w-xl']}>
-            <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
+            <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} loading="eager" fetchpriority="high" class="rounded-lg" />
             {data.imageCredit && (
               <figcaption class="mt-1 text-[0.75rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>
             )}

@@ -21,9 +21,11 @@ interface Props {
   row?: boolean;
   /** Off under a heading that already names the category (the guides page). */
   showCategory?: boolean;
+  /** The first photograph on its page: fetched at once, as PlaceCard's. */
+  eager?: boolean;
 }
 
-const { article, feature = false, row = false, showCategory = true } = Astro.props;
+const { article, feature = false, row = false, showCategory = true, eager = false } = Astro.props;
 const { data, slug } = article;
 const href = `/articles/${slug}/`;
 const twoUp = feature && !!data.image;
@@ -47,6 +49,8 @@ const side = row && !feature && !!data.image;
         alt={data.imageAlt ?? ''}
         width={feature ? 1200 : 800}
         height={feature ? 900 : 500}
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : undefined}
         class="h-full! w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
       />
     </div>
