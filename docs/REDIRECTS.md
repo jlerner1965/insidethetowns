@@ -130,14 +130,18 @@ another rule. A destination settled on the day the rules were written
 stays accepted after the event passes; the next `--write` moves it to the
 list. The other rules in the file keep `permanent: true`, which Vercel
 answers as 308; both are permanent to a search engine. Vercel allows 2,048
-redirects in one `vercel.json`; the file holds 870, and the script and the
+redirects in one `vercel.json`; the file holds 875, and the script and the
 test refuse more.
 
 Also on 17 November 2026: `/sitemap.xml` to `/sitemap-index.xml` is a 301
 (it was a 307); `/index.html` and `/<path>/index.html` go to the directory
-address, the last two rules in the file so a redirect-only domain's own
-catch-all still answers first; Lyons' six `/sports/` pages, removed that
-day, go to `/families/#program-high-school-athletics`.
+address. Those three are the last rules in the file, so a redirect-only
+domain's own catch-all answers first, in one hop; Lyons' six `/sports/` pages, removed that
+day, go to `/families/#program-high-school-athletics`; and the hub's five
+pages for free-admission days that have passed, no longer built, go to
+`/free-admission-days/` (the Museum of Boulder's two, Dinosaur Ridge's) or
+to `/golden/` (the Colorado Railroad Museum's two, which that page does
+not list).
 
 Not changed, because they are Vercel's own behaviour and not rules in this
 file: an address without its trailing slash gets the slash first and the

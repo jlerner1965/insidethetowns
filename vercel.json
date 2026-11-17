@@ -251,8 +251,58 @@
       "permanent": true
     },
     {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap-index.xml",
+      "source": "/boulder/museum-of-boulder-colorado-day-free-admission{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/free-admission-days/",
+      "statusCode": 301
+    },
+    {
+      "source": "/boulder/museum-of-boulder-tulagi-free-days{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/free-admission-days/",
+      "statusCode": 301
+    },
+    {
+      "source": "/golden/colorado-railroad-museum-boulder-county-free-days{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/golden/",
+      "statusCode": 301
+    },
+    {
+      "source": "/golden/colorado-railroad-museum-scfd-free-days{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/golden/",
+      "statusCode": 301
+    },
+    {
+      "source": "/morrison/dinosaur-ridge-scfd-free-day-november{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/free-admission-days/",
       "statusCode": 301
     },
     {
@@ -9603,6 +9653,11 @@
         }
       ],
       "destination": "/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
       "statusCode": 301
     },
     {
