@@ -34,6 +34,11 @@ test('a town page’s title and description name its next dated traditions and t
   assert.equal(long.seoTitle, 'Salida, Colorado events and annual dates, 2026');
   assert.match(long.seoTitle, /events/, 'every dated title says events');
 
+  // A showpiece's spotlight leads, whatever falls before it (the audit of 17 November 2026).
+  const lead = townSearchText('Estes Park', [row('Catch the Glow', '2026-11-27'), row('Frozen Dead Guy Days', '2027-04-09')], 'frozen-dead-guy-days');
+  assert.equal(lead.seoTitle, 'Estes Park, Colorado events 2026–27: Frozen Dead Guy Days');
+  assert.match(lead.description, /^Estes Park, Colorado in 2026–27: Frozen Dead Guy Days \(April 9, 2027\) and Catch the Glow \(November 27\)\./);
+
   const none = townSearchText('Ouray', [row('Ice Festival')]);
   assert.equal(none.seoTitle, 'Ouray, Colorado: annual events and outdoor dates', 'no date ahead, no event named');
 });

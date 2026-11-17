@@ -6,7 +6,7 @@ town:
   guide: pagosa-springs
 type: rodeo-fair
 organizer: "Archuleta County Fair"
-sourceUrl: "https://www.archuletacountyfair.com/"
+sourceUrl: "https://fair.archuletacounty.gov/"
 years:
   - year: 2027
     status: not-announced

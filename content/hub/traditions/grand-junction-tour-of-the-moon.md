@@ -6,7 +6,7 @@ town:
   guide: grand-junction
 type: race
 organizer: "The Ride Collective"
-sourceUrl: "https://tourofthemoon.com/"
+sourceUrl: "https://www.theridecollective.com/tourofthemoon"
 years:
   - year: 2027
     status: not-announced

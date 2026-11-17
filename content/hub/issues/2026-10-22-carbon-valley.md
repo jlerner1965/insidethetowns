@@ -31,8 +31,8 @@ towns: [carbon-valley]
 
 ---
 
-This week in Carbon Valley: https://carbonvalleyguide.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22  
-Everything on in Carbon Valley: https://carbonvalleyguide.com/events/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22  
-Know of something missing? https://carbonvalleyguide.com/submit-event/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22
+[This week in Carbon Valley](https://carbonvalleyguide.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)  
+[Everything on in Carbon Valley](https://carbonvalleyguide.com/events/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)  
+[Know of something missing?](https://carbonvalleyguide.com/submit-event/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)
 
 _The weekly email from Inside Carbon Valley, part of Inside the Towns. Listings are editorial; nobody pays to be in them._

@@ -6,7 +6,7 @@ town:
   guide: palisade
 type: race
 organizer: "The Ride Collective"
-sourceUrl: "https://tourdevineyards.com/"
+sourceUrl: "https://www.theridecollective.com/tourdevineyards"
 years:
   - year: 2027
     status: not-announced

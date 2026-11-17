@@ -6,7 +6,7 @@ town:
   guide: buena-vista
 type: festival
 organizer: "CKS River Supply"
-sourceUrl: "https://ckspaddlefest.com/paddlefestschedule"
+sourceUrl: "https://cksriversupply.com/paddlefestschedule"
 years:
   - year: 2027
     status: not-announced

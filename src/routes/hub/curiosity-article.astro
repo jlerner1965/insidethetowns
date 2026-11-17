@@ -148,6 +148,8 @@ const structured = [
     description: data.description,
     datePublished: toIsoLocal(parseLocal(data.date)),
     dateModified: toIsoLocal(parseLocal(modified)),
+    // The article's own photograph, where the page shows one; none otherwise (the audit of 17 November 2026).
+    ...(shareImage ? { image: [new URL(shareImage, url).toString()] } : {}),
     ...(topic ? { articleSection: topic.label } : {}),
     author: { '@type': 'Organization', name: CURIOSITY_BYLINE, url: 'https://lernerworks.com' },
     publisher: { '@id': `https://${hub.domain}/#org` },

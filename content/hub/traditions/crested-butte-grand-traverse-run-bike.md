@@ -6,7 +6,7 @@ town:
   guide: crested-butte
 type: race
 organizer: "Crested Butte Nordic"
-sourceUrl: "https://thegrandtraverse.org/"
+sourceUrl: "https://www.cbnordic.org/thegrandtraverse"
 years:
   - year: 2027
     status: confirmed

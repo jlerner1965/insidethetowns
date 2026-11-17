@@ -10,10 +10,12 @@
 import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { findTown, getHub } from '@/config';
-import { getHubEntries, type TownEntry } from '@/lib/content';
+import { allTowns, findTown, getHub } from '@/config';
+import { getHubEntries, getTraditions, type TownEntry } from '@/lib/content';
+import { publishedHubTowns } from '@/lib/hub-towns';
+import { archiveTitle, movedGuides, movedIn } from '@/lib/issues';
 import { formatDate, toIsoLocal } from '@/lib/dates';
-import { articleJsonLd, breadcrumbJsonLd, fillDescription } from '@/lib/seo';
+import { META_DESCRIPTION_LIMIT, articleJsonLd, breadcrumbJsonLd, fillDescription } from '@/lib/seo';
 
 export async function getStaticPaths() {
   // No provider, no sent issues, and no reason to read an empty collection.
@@ -36,19 +38,26 @@ const towns = data.towns.map((slug) => findTown(slug)).filter(Boolean);
 // Three lengths, since the Thursday script writes the excerpt and a 118-character one left no room for the first two (5 November 2026).
 // The email by the name the masthead, the home and the footer give it.
 const emailName = `The ${hub.newsletter?.sendDay ?? 'Thursday'} email`;
-const description = fillDescription(data.excerpt, [`The weekly email from ${hub.siteTitle}, ${formatDate(data.date)}.`, `From the ${hub.siteTitle} weekly email.`, 'From the weekly email.']);
+// A guide this issue names that has closed since: the page's own title says "edition", and the note beside the email says where its town is now.
+// The email's text is the record of what was sent and is left as it went out.
+const moved = movedGuides(allTowns, hub.siteTitle, new Set(publishedHubTowns(await getTraditions()).map((t) => t.slug)), findTown);
+const title = archiveTitle(data.title, moved);
+const since = movedIn(`${data.title}\n${(issue as { body?: string }).body ?? ''}`, moved);
+// An excerpt too long for a description gives its count and weekend, the part before its list, so the line ends on a full stop and not an ellipsis.
+const head = data.excerpt.length > META_DESCRIPTION_LIMIT && data.excerpt.includes(': ') ? `${data.excerpt.slice(0, data.excerpt.indexOf(': '))}.` : data.excerpt;
+const description = fillDescription(head, [`The weekly email from ${hub.siteTitle}, ${formatDate(data.date)}.`, `From the ${hub.siteTitle} weekly email.`, 'From the weekly email.']);
 ---
 <Page
-  title={data.title}
+  {title}
   eyebrow={`${emailName} · ${formatDate(data.date)}`}
   intro={data.excerpt}
   {description}
   type="article"
   jsonLd={[
-    articleJsonLd(hub, issue as never, url),
+    articleJsonLd(hub, { ...issue, data: { ...data, title } } as never, url),
     breadcrumbJsonLd(hub, [
       { name: emailName, path: '/newsletter/' },
-      { name: data.title, path: `/newsletter/${issue.slug}/` },
+      { name: title, path: `/newsletter/${issue.slug}/` },
     ]),
   ]}
 >
@@ -66,6 +75,11 @@ const description = fillDescription(data.excerpt, [`The weekly email from ${hub.
         This one has already gone out. Everything in it was checked against its
         source at the time; the dates have since passed.
       </p>
+      {since.length > 0 && (
+        <p class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted" data-moved-guides>
+          Since it was sent: {since.map((m, i) => (<Fragment>{i > 0 && '; '}{m.siteTitle} is now <a href={m.href} class="text-primary underline">{m.now}</a></Fragment>))}.
+        </p>
+      )}
     </aside>
   </div>
 </Page>

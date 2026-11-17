@@ -26,7 +26,7 @@ import { STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-town
 import { getTraditions } from '@/lib/content';
 import { dayKey, formatDate, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { checkedBy } from '@/lib/editor';
-import { eventPath, hubEventPages, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { eventPath, firstFitting, hubEventPages, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { googleCalendarUrl } from '@/lib/ics';
 import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, excerptDescription, traditionEventJsonLd } from '@/lib/seo';
 import { titleTime, traditionTitle } from '@/lib/titles';
@@ -75,12 +75,20 @@ const title = traditionTitle(town.name, record.name, year, {
 
 const possessive = record.organizer.endsWith('s') ? `${record.organizer}’` : `${record.organizer}’s`;
 const read = `Read on ${possessive} page, checked ${formatShortDate(parseLocal(entry.checked))}.`;
-const lead =
+const span = state === 'upcoming' ? `${dayText(entry.date!)}${entry.endDate && entry.endDate !== entry.date ? ` to ${dayText(entry.endDate)}` : ''}` : '';
+// The lead, from most said to least: the first that fits the meta budget whole is used, so none is cut mid-sentence (the audit of 17 November 2026).
+const leads =
   state === 'upcoming'
-    ? `${record.name} in ${town.name}, Colorado: ${dayText(entry.date!)}${entry.endDate && entry.endDate !== entry.date ? ` to ${dayText(entry.endDate)}` : ''}${entry.startTime ? `, ${entry.startTime}` : ''}${entry.place ? `, ${entry.place}` : ''}.`
+    ? [
+        `${record.name} in ${town.name}, Colorado: ${span}${entry.startTime ? `, ${entry.startTime}` : ''}${entry.place ? `, ${entry.place}` : ''}.`,
+        `${record.name} in ${town.name}, Colorado: ${span}${entry.startTime ? `, ${entry.startTime}` : ''}.`,
+        `${record.name} in ${town.name}, Colorado: ${span}.`,
+        `${record.name}: ${span}.`,
+      ]
     : state === 'canceled'
-      ? `${record.name} in ${town.name}, Colorado: canceled for ${row.year}, as ${possessive} page says.${entry.date ? ` It was set for ${dayText(entry.date)}.` : ''}`
-      : `${record.name} in ${town.name}, Colorado: ${year} date not announced yet${row.lastHeld ? `; last held ${dayText(row.lastHeld)}` : ''}.`;
+      ? [`${record.name} in ${town.name}, Colorado: canceled for ${row.year}, as ${possessive} page says.${entry.date ? ` It was set for ${dayText(entry.date)}.` : ''}`, `${record.name} in ${town.name}, Colorado: canceled for ${row.year}.`]
+      : [`${record.name} in ${town.name}, Colorado: ${year} date not announced yet${row.lastHeld ? `; last held ${dayText(row.lastHeld)}` : ''}.`, `${record.name} in ${town.name}, Colorado: ${year} date not announced yet.`];
+const lead = firstFitting(leads, META_DESCRIPTION_LIMIT);
 // The lead, and the provenance sentence where both fit the meta budget; the lead alone otherwise.
 // Where the record says what the event is (`about`), that goes after the lead instead, where it fits.
 const description =
@@ -172,7 +180,7 @@ const pill =
             <span class="text-[0.9375rem] font-semibold tabular-nums text-ink">{y.year}</span>
             <span class="text-[0.9375rem] leading-snug text-ink-muted">
               {isDated(y) && y.date ? <time datetime={y.date}>{yearLine(y)}</time> : yearLine(y)}
-              {' · '}Checked <time datetime={y.checked}>{formatShortDate(parseLocal(y.checked))}</time> · <a href={entrySource(record, y)} rel="noopener" class="text-primary underline">Source</a>
+              {' · '}Checked <time datetime={y.checked}>{formatShortDate(parseLocal(y.checked))}</time> · Source: <a href={entrySource(record, y)} rel="noopener" class="text-primary underline">{hostOf(entrySource(record, y))}</a>
             </span>
           </li>
         ))}
