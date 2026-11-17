@@ -231,7 +231,7 @@ This page follows the football teams of 23 towns. Ten of their teams are still p
 - **Palisade:** [Palisade](#palisade-high-school-palisade), 3A
 - **Timnath:** [Timnath](#timnath-high-school-timnath), 3A
 
-Two quarterfinals are between teams on this page: Monarch and Loveland in 4A, and Evergreen at Mead in 3A. By the evening of November 14, CHSAA had posted a kickoff time and a site for none of these teams' next games. Records below include the weekend's games, and statistics are as CHSAA's game pages showed them on November 14, from figures the schools report to MaxPreps.
+Two quarterfinals are between teams on this page: Monarch and Loveland in 4A, and Evergreen at Mead in 3A. Records below include the weekend's games, and statistics are as CHSAA's game pages showed them on November 14, from figures the schools report to MaxPreps.
 
 ### Elizabeth High School (Elizabeth)
 
