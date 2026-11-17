@@ -8,7 +8,7 @@ cost: "$20"
 category: sports
 recurring: "Fifth Sundays"
 source: "https://www.lyonsclassicpinball.com/events/fifth-sunday/29-november-2026"
-verified: "2026-11-16"
+verified: "2026-11-17"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Fifth Sunday Classics\" at 1 pm on 29 November in the page's structured data"
 ---
 
