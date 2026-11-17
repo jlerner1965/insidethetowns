@@ -53,7 +53,7 @@ The Society's [self-guided walk](/places/old-town-walking-tour/) starts at the P
 
 ## 05 · An evening at Candlelight
 
-The [Candlelight Dinner Playhouse](/places/candlelight-dinner-playhouse/) is not in Old Town: it is at 4747 Marketplace Drive at the 2534 interchange, a 350-seat dinner theater with a Broadway-sized stage that serves a full dinner before each musical. The 2026 season runs Les Misérables from September 10 to November 15 and Irving Berlin's Holiday Inn from November 27 to January 17, 2027. Book seats before you plan the day around it. The box office is open Tuesday to Friday 10–5 and Saturday 12–5 and closed Sunday and Monday; those are hours for buying tickets, not show times, which come with the booking on the theater's own site.
+The [Candlelight Dinner Playhouse](/places/candlelight-dinner-playhouse/) is not in Old Town: it is at 4747 Marketplace Drive at the 2534 interchange, a 350-seat dinner theater with a Broadway-sized stage that serves a full dinner before each musical. The 2026 season ran Les Misérables from September 10 to November 15 and has Irving Berlin's Holiday Inn from November 27 to January 17, 2027. Book seats before you plan the day around it. The box office is open Tuesday to Friday 10–5 and Saturday 12–5 and closed Sunday and Monday; those are hours for buying tickets, not show times, which come with the booking on the theater's own site.
 
 *Getting there:* by car, at I-25 and US 34, with the [Johnstown Plaza](/places/johnstown-plaza/) lots around it. *Best for:* a reserved evening after an Old Town morning.
 

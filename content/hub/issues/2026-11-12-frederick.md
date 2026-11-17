@@ -2,7 +2,7 @@
 title: "Inside Frederick, the weekend of November 13–15"
 date: "2026-11-12"
 excerpt: "3 things on in Frederick this weekend, November 13–15: Empty Bowls Fundraiser for the Carbon Valley Help Center, Colorado Ghosts & Vampire Tours - Under 18 years old Free with Gaurdian, Harvest & Holly Market."
-towns: [frederick]
+towns: [carbon-valley]
 ---
 
 **Inside Frederick** · November 12, 2026

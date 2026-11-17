@@ -18,8 +18,8 @@ sources:
   - { label: "Georgia Boys BBQ: the Smokehouse, Frederick", url: "https://www.georgiaboys.com/location/the-smokehouse/" }
   - { label: "Town of Frederick: Police", url: "https://www.frederickco.gov/360/Police" }
   - { label: "Thunder Valley K-8", url: "https://tvk8.svvsd.org/" }
-  - { label: "CVPRD: hours of operation", url: "https://www.cvprd.com/hours-of-operation" }
-  - { label: "CVPRD: rates and passes", url: "https://www.cvprd.com/rates-pass-information" }
+  - { label: "CVPRD: hours of operation", url: "https://www.carbonvalleyrec.gov/hours-of-operation" }
+  - { label: "CVPRD: rates and passes", url: "https://www.carbonvalleyrec.gov/rates-pass-information" }
   - { label: "Town of Frederick: Centennial Park", url: "https://www.frederickco.gov/Facilities/Facility/Details/8" }
   - { label: "Town of Frederick: Frederick Recreation Area", url: "https://www.frederickco.gov/Facilities/Facility/Details/2" }
   - { label: "Mirror Image Brewing", url: "https://www.mirrorimagebrewco.com/" }

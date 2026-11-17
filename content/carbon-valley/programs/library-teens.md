@@ -11,7 +11,7 @@ ages: "12–18 (Chess Club 10–18)"
 ageFrom: 12
 ageTo: 18
 location: "Carbon Valley Regional Library, 7 Park Ave, Firestone"
-schedule: "Teen Advisory Board 2nd Tuesdays 4–5 pm (Nov 10, Dec 8); Chess Club 2nd Tuesdays 5–6 pm; Sketch Club 1st Wednesdays 4–5 pm (Nov 4, Dec 2); Teen D&D 1st Tuesdays 3:45–6:45 pm (Nov 3, Dec 1); Bubble Tea Social 3rd Mondays of Feb, May, Aug and Nov, 4–5:30 pm"
+schedule: "Teen Advisory Board 2nd Tuesdays 4–5 pm (Dec 8); Chess Club 2nd Tuesdays 5–6 pm; Sketch Club 1st Wednesdays 4–5 pm (Dec 2); Teen D&D 1st Tuesdays 3:45–6:45 pm (Dec 1); Bubble Tea Social 3rd Mondays of Feb, May, Aug and Nov, 4–5:30 pm"
 season: "Year-round"
 price: "Free"
 free: true
@@ -23,4 +23,4 @@ verified: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 ---
 
-The **Teen Advisory Board** meets in the Teen Room on second Tuesdays at 4: snacks, planning teen events, talking books, shows and games, and suggestions for the teen room; the library says it is a way to get involved in the community. **Chess Club**, a casual meetup for ages 10 to 18, follows it at 5 in the Storytime Room. **Sketch Club** is an hour of open studio time for drawing, painting, doodling or collage with art challenges and contests, first Wednesdays at 4 in Meeting Room 1. **[Teen Dungeons & Dragons](/events/teen-dungeons-and-dragons-2026-12-01/)** runs first Tuesdays from 3:45 to 6:45 and fills; November's had a waiting list. The **[Bubble Tea Social](/events/bubble-tea-social-2026-11-16/)** is quarterly, next on November 16, with registration opening November 2. A one-off **[Medieval Garb Workshop](/events/medieval-garb-workshop-2026-11-07/)** with the Society for Creative Anachronism is on November 7.
+The **Teen Advisory Board** meets in the Teen Room on second Tuesdays at 4: snacks, planning teen events, talking books, shows and games, and suggestions for the teen room; the library says it is a way to get involved in the community. **Chess Club**, a casual meetup for ages 10 to 18, follows it at 5 in the Storytime Room. **Sketch Club** is an hour of open studio time for drawing, painting, doodling or collage with art challenges and contests, first Wednesdays at 4 in Meeting Room 1. **[Teen Dungeons & Dragons](/events/teen-dungeons-and-dragons-2026-12-01/)** runs first Tuesdays from 3:45 to 6:45 and fills; November's had a waiting list. The **Bubble Tea Social** is quarterly, on the third Mondays of February, May, August and November, with registration; the last was November 16.

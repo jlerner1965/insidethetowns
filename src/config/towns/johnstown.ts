@@ -203,7 +203,7 @@ export const johnstown: TownConfig = {
           { label: 'Johnstown Police Department', url: 'https://johnstownco.gov/667/Police', note: '430 S. Parish Ave, 970-587-5555; non-emergency dispatch 970-356-1212 ext. 4; in an emergency call 911' },
           { label: 'Police online reports and requests', url: 'https://johnstownco.gov/548/Citizen-Online-Services', note: 'Abandoned vehicles, extra patrols, traffic complaints, minor crashes, police reports' },
           { label: 'Fire districts, by area', url: 'https://johnstownco.gov/408/Fire-Districts', note: 'Front Range Fire Rescue on the Weld County side, 970-587-4464; Loveland Fire Rescue Authority on the Larimer County side, including 2534, Johnstown Plaza, Iron Horse and Thompson River Ranch, 970-962-2471' },
-          { label: 'Power outages and street lights', url: 'https://johnstownco.gov/660/Report-a-Concern-To-Electric-Company', note: 'Not the Town’s: report to Xcel, United Power or Poudre Valley REA, whichever is on your bill or the pole' },
+          { label: 'Power outages and street lights', url: 'https://johnstownco.gov/510/Utility-Service-Providers', note: 'Not the Town’s: report to Xcel, United Power or Poudre Valley REA, whichever is on your bill or the pole' },
           { label: 'Code enforcement', url: 'https://johnstownco.gov/231/Code-Enforcement', note: 'Weeds, property upkeep and nuisances go to the police department’s community service officers, CSO@JohnstownCO.gov' },
           { label: 'Emergency alerts', url: 'https://johnstownco.gov/234/Emergency-Notifications', note: 'Sign up by county: CodeRED for Weld, LETA 911 for Larimer', track: 'registration' },
         ],

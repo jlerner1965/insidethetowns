@@ -4,9 +4,9 @@ start: "2026-11-28"
 allDay: true
 venue: "Downtown Berthoud"
 address: "Mountain Ave"
-url: "https://downtownberthoud.org/downtown-berthoud-events/"
+url: "https://berthoudmainstreet.org/downtown-berthoud-events/"
 category: market
-source: "https://downtownberthoud.org/downtown-berthoud-events/"
+source: "https://berthoudmainstreet.org/downtown-berthoud-events/"
 verified: "2026-11-17"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November on the page"
 ---

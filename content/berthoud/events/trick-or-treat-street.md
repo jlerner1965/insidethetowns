@@ -6,7 +6,7 @@ start: "2026-10-24T15:00"
 end: "2026-10-24T17:00"
 venue: "Downtown Berthoud"
 address: "Mountain Ave"
-url: "https://downtownberthoud.org/downtown-berthoud-events/"
+url: "https://berthoudmainstreet.org/downtown-berthoud-events/"
 cost: "Free"
 category: family
 source: "https://berthoudmainstreet.org/fall-for-berthoud/"

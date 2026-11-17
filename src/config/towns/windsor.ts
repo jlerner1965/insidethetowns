@@ -157,7 +157,7 @@ export const windsor: TownConfig = {
         verified: '2026-10-22',
         items: [
           { label: 'Windsor: trash haulers, as the Town lists them', url: 'https://www.windsorco.gov/998/Services-by-other-Agencies', note: 'Bunting Disposal, Gallegos Sanitation, Ram Waste Systems and Waste Management; the Town endorses none' },
-          { label: 'Windsor: Leaf & Branch Drop and the yard-waste rebate', url: 'https://www.windsorco.gov/1306/Yard-Waste-Rebate-Program', note: 'Fridays to Sundays 8 am–3 pm at 922 N 15th St through November 15 this fall, $10 a carload, residents only, card only; Windsor water customers can claim up to $10 a year for recycling yard waste elsewhere' },
+          { label: 'Windsor: Leaf & Branch Drop and the yard-waste rebate', url: 'https://www.windsorco.gov/1306/Yard-Waste-Rebate-Program', note: 'This fall’s drop at 922 N 15th St ended November 15; Windsor water customers can claim up to $10 a year for recycling yard waste elsewhere' },
           { label: 'Severance: trash and recycling', url: 'https://www.townofseverance.org/266/Trash-and-Recycling', note: 'Independent companies; some subdivisions include service in their HOA or metro district dues' },
           { label: 'Windsor’s solid waste study', url: 'https://windsorprojectconnect.com/TrashHauling', note: 'At least five companies serve Windsor neighborhoods, and the Town has hired Burns & McDonnell to weigh a Town-run service and a single contracted hauler against the open market of today; the resident survey closed in March 2026' },
         ],
@@ -253,7 +253,7 @@ export const windsor: TownConfig = {
           // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
           { label: 'Weld County elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'The page links the unofficial results of the November 3 general election; 970-304-6525' },
           // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
-          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'For Windsor addresses in Larimer County; after the November 3 election, signature cures are due November 12 and final results are posted by November 25' },
+          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'For Windsor addresses in Larimer County; after the November 3 election, final results are posted by November 25' },
         ],
       },
     ],

@@ -12,7 +12,7 @@ published: "2026-11-11"
 verified: "2026-11-11"
 source: "https://www.mylibrary.us/holiday-closures/"
 sourceLabel: "High Plains Library District: Holiday Closures"
-alsoSource: "https://www.cvprd.com/hours-of-operation"
+alsoSource: "https://www.carbonvalleyrec.gov/hours-of-operation"
 alsoSourceLabel: "Carbon Valley Parks and Recreation District: Hours of Operation"
 expires: "2026-11-27"
 ---
