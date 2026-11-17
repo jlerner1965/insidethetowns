@@ -12,7 +12,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
@@ -30,7 +30,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Severance Town Hall, 3 S Timber Ridge Parkway, Severance",
@@ -47,7 +47,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "cites": {
         "events": 8,
@@ -95,7 +95,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Attempted on 6 October 2026: https://severancechamber.com/ failed twice at the connection (curl error, not a robots refusal) and is unreachable from here; not read. The URL comes from two pages that were read: the Colorado Sun article of 29 August 2026 (https://coloradosun.com/2026/08/29/rural-chamber-of-commerce-timnath-severence/), which links https://severancechamber.com/severance-chamber and says Dustin Peyser is president of both the Timnath and Severance chambers, and the Clearview Library District event page https://clearview.libnet.info/event/16880333 (Business Spotlight, Vecinos Mexican Grill and Cantina, 15 July), which links https://severancechamber.com/ and describes monthly Business Spotlight evenings run with the library. A 'Towns Connecting Over Coffee' quarterly event for Timnath, Severance, Eaton and Evans is listed on timnathchamber.com. Platform and feed unknown until the site can be reached; there is no downtown association. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Checked on 10 November 2026 by the sources agent: https://severancechamber.com/ now answers 200 (a GoDaddy Website Builder site; robots.txt disallows only /404). Its menu has an Event Details page (/event-details) whose calendar is drawn by script and gave no events to a plain read, and the site has no iCal, RSS or JSON (/events/?ical=1, /events/feed/, /calendar all 404). Stays manual, read in a browser."
@@ -111,7 +111,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "cites": {
         "events": 4,
@@ -159,7 +159,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -201,7 +201,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Found and read once on 6 October 2026. Parks & Recreation sits under Public Works on the CivicPlus site (3 S Timber Ridge Parkway, 970-686-1218). The page lists the Town's parks: Severance Shores Park, Hunter's Crossing Park, Overlook Park (650 Audubon Boulevard), Hidden Valley Park 1 and 2, Community Park (100 Waterfowl Way), Dog Park, Tailholt Park, Lakeview Park (513 1/2 Broadview Drive), Karen Suman Park (400 S Timber Ridge Parkway), Summit View Park (270 Audubon Boulevard), Blue Spruce Park (50 S Timber Ridge Parkway), plus a Park Reservation Request and 'Parks Master Plan coming soon'. No recreation programs, classes or a recreation centre are listed; the Town has no separate parks calendar, so park events arrive through the Community Events iCal. The regional recreation provider is the Town of Windsor's Community Recreation Center (250 11th Street, Windsor), but https://www.windsorgov.com/Calendar.aspx returned HTTP 403 on 6 October 2026 and is unreachable from here. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
@@ -217,7 +217,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "cites": {
         "events": 16,
@@ -242,7 +242,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Bruce's Bar, 123 1st Street, Severance",
@@ -259,7 +259,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
@@ -369,7 +369,7 @@
       "type": "ical",
       "category": "venue",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "cites": {
         "events": 7,
@@ -399,7 +399,7 @@
       "type": "rss",
       "category": "venue",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "cites": {
         "events": 3,
@@ -426,6 +426,8 @@
       "type": "ical",
       "category": "venue",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
         "Basketball",
@@ -448,9 +450,7 @@
         "Rehearsal"
       ],
       "defaultVenue": "Severance Middle School, 1801 Avery Plaza Street, Severance",
-      "notes": "Found and read 10 November 2026. Severance Middle School, 1801 Avery Plaza Street, Severance (the address the feed's own LOCATION fields give), in the Weld RE-4 district; same site platform as Severance High. The home page's config names a public Google Calendar, c_h641rpflh8kqpl7l0m555ssha4@group.calendar.google.com, whose public iCal is the feedUrl. Fetched once: 200 text/calendar, calendar name \"Severance Middle School_Normal\", 973 VEVENTs (26 recurring) from July 2022 to May 2027, 23 dated 10 November to 10 December 2026. Worth a row: 1, the SMS Winter Orchestra & Band Concert (8 December, 5:15 pm, at Severance High School, 1200 Hidden Valley Parkway). The other 22 are 16 boys' basketball games (middle school games, home and away, treated as never-list here), 4 field trips, a Family Partnership Council meeting and Fall Break. Past years show a Middle School Musical in late February at Severance High, so expect one or two listings a month in term: concerts and the musical. Sports, field trips, meetings, breaks, clubs, camps and testing are excluded by title, a first pass for the editor to prune. Most items carry a LOCATION, some at other schools, so the default venue only stands in for blanks. Times in the feed are UTC. robots: sms.weldre4.org/robots.txt allows the pages; calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this, and robots: subscribe is the owner's call, as for Severance High. Windsor Middle School's calendar (c_r1bdsjfucp9cak5t3vm1p8bgc4@group.calendar.google.com, named on wms.weldre4.org) was read the same day and not added: 617 VEVENTs, 5 in the window, none public (a choir outing, a field trip, a council meeting, Thanksgiving Break); its spring musical in May is the one thing it would add. 11 November 2026: the owner accepted public Google Calendar feeds as a source and asked for the remaining ones to be switched on; confirmed with robots: subscribe so ingest reads it.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "ok"
+      "notes": "Found and read 10 November 2026. Severance Middle School, 1801 Avery Plaza Street, Severance (the address the feed's own LOCATION fields give), in the Weld RE-4 district; same site platform as Severance High. The home page's config names a public Google Calendar, c_h641rpflh8kqpl7l0m555ssha4@group.calendar.google.com, whose public iCal is the feedUrl. Fetched once: 200 text/calendar, calendar name \"Severance Middle School_Normal\", 973 VEVENTs (26 recurring) from July 2022 to May 2027, 23 dated 10 November to 10 December 2026. Worth a row: 1, the SMS Winter Orchestra & Band Concert (8 December, 5:15 pm, at Severance High School, 1200 Hidden Valley Parkway). The other 22 are 16 boys' basketball games (middle school games, home and away, treated as never-list here), 4 field trips, a Family Partnership Council meeting and Fall Break. Past years show a Middle School Musical in late February at Severance High, so expect one or two listings a month in term: concerts and the musical. Sports, field trips, meetings, breaks, clubs, camps and testing are excluded by title, a first pass for the editor to prune. Most items carry a LOCATION, some at other schools, so the default venue only stands in for blanks. Times in the feed are UTC. robots: sms.weldre4.org/robots.txt allows the pages; calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this, and robots: subscribe is the owner's call, as for Severance High. Windsor Middle School's calendar (c_r1bdsjfucp9cak5t3vm1p8bgc4@group.calendar.google.com, named on wms.weldre4.org) was read the same day and not added: 617 VEVENTs, 5 in the window, none public (a choir outing, a field trip, a council meeting, Thanksgiving Break); its spring musical in May is the one thing it would add. 11 November 2026: the owner accepted public Google Calendar feeds as a source and asked for the remaining ones to be switched on; confirmed with robots: subscribe so ingest reads it."
     },
     {
       "id": "thelodgewindsor-com",
@@ -530,6 +530,8 @@
       "type": "ical",
       "category": "venue",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
         "Break",
@@ -537,9 +539,7 @@
         "Family Partnership Council"
       ],
       "defaultVenue": "Windsor High School, 1100 West Main Street, Windsor",
-      "notes": "Found and read on 10 November 2026 by the sources agent. Windsor High School, 1100 West Main Street, in the Weld RE-4 district; its site (the same platform as Severance High's) names a public Google Calendar in the home page's config, c_svh4etca2e78dpd4dpfj094gdg@group.calendar.google.com, shown on the school's calendar page. The public iCal answered 200 text/calendar, calendar name \"Windsor High School_Normal\": 354 VEVENTs (12 recurring) from July 2022 to May 2027, 6 in the next 30 days: the WHS Fall Play, Make 'Em Laugh (12, 13 and 14 November, 7 pm), the Veterans Day Program (11 November), Fall Break and a Family Partnership Council meeting. LOCATION is usually empty, so the school is the default venue. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this; it is a public calendar the school embeds on its own site, and robots: subscribe is the editor's call. Expect two to four public listings a month in term (plays, concerts, graduation); athletics are not on this calendar. robots: subscribe from 10 November 2026, the owner's call: the host's robots.txt disallows the path, and this is the calendar the organization publishes for subscription; one weekly read is what a subscribed calendar does (DECISIONS.md, \"The owner subscribes to the calendar feeds\").",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "ok"
+      "notes": "Found and read on 10 November 2026 by the sources agent. Windsor High School, 1100 West Main Street, in the Weld RE-4 district; its site (the same platform as Severance High's) names a public Google Calendar in the home page's config, c_svh4etca2e78dpd4dpfj094gdg@group.calendar.google.com, shown on the school's calendar page. The public iCal answered 200 text/calendar, calendar name \"Windsor High School_Normal\": 354 VEVENTs (12 recurring) from July 2022 to May 2027, 6 in the next 30 days: the WHS Fall Play, Make 'Em Laugh (12, 13 and 14 November, 7 pm), the Veterans Day Program (11 November), Fall Break and a Family Partnership Council meeting. LOCATION is usually empty, so the school is the default venue. calendar.google.com/robots.txt is `Allow: /$` then `Disallow: /` for every agent, so under robots: honor ingest will not read this; it is a public calendar the school embeds on its own site, and robots: subscribe is the editor's call. Expect two to four public listings a month in term (plays, concerts, graduation); athletics are not on this calendar. robots: subscribe from 10 November 2026, the owner's call: the host's robots.txt disallows the path, and this is the calendar the organization publishes for subscription; one weekly read is what a subscribed calendar does (DECISIONS.md, \"The owner subscribes to the calendar feeds\")."
     },
     {
       "id": "northfortynews-com",
@@ -575,6 +575,8 @@
       "type": "eventbrite",
       "category": "other",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
         "Severance, CO"
@@ -609,9 +611,7 @@
         "Reservations"
       ],
       "autoApprove": true,
-      "notes": "Found 10 November 2026 by reading all of the region's Eventbrite search (up to 49 pages), which the weekly read of five pages does not reach: this organizer had an event in Severance. Its own page was read that day: 1 upcoming, 1 in town: Naughty bingo 6 yr anniversary (2026-11-19). Confirmed with autoApprove on the owner's word that Eventbrite is used for every town and publishes without a person (\"yes to 2 and auto publish all\"); filed as other, kept to the town by the location filter, with the title exclusions every Eventbrite source carries. One page, read once a week. Eventbrite's terms of service restrict automated collection; see eventbrite-com-windsor.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "ok"
+      "notes": "Found 10 November 2026 by reading all of the region's Eventbrite search (up to 49 pages), which the weekly read of five pages does not reach: this organizer had an event in Severance. Its own page was read that day: 1 upcoming, 1 in town: Naughty bingo 6 yr anniversary (2026-11-19). Confirmed with autoApprove on the owner's word that Eventbrite is used for every town and publishes without a person (\"yes to 2 and auto publish all\"); filed as other, kept to the town by the location filter, with the title exclusions every Eventbrite source carries. One page, read once a week. Eventbrite's terms of service restrict automated collection; see eventbrite-com-windsor."
     },
     {
       "id": "eventbrite-com-severance",
@@ -622,6 +622,9 @@
       "type": "eventbrite",
       "category": "other",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "blocked",
+      "lastNote": "unexpected status",
       "robots": "honor",
       "locationFilter": [
         "Severance, CO"
@@ -656,10 +659,7 @@
         "Reservations"
       ],
       "autoApprove": true,
-      "notes": "Proposed 10 November 2026 with the Windsor entry (eventbrite-com-windsor), whose notes say how it is read and what to weigh before confirming. Not read separately: the Windsor read found one Severance event in five pages (a coworking morning at Pedro's Coffee). Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "blocked",
-      "lastNote": "unexpected status"
+      "notes": "Proposed 10 November 2026 with the Windsor entry (eventbrite-com-windsor), whose notes say how it is read and what to weigh before confirming. Not read separately: the Windsor read found one Severance event in five pages (a coworking morning at Pedro's Coffee). Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home."
     },
     {
       "id": "eventbrite-com-windsor",
@@ -670,6 +670,9 @@
       "type": "eventbrite",
       "category": "other",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "blocked",
+      "lastNote": "unexpected status",
       "robots": "honor",
       "locationFilter": [
         "Windsor, CO"
@@ -704,10 +707,7 @@
         "Reservations"
       ],
       "autoApprove": true,
-      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Windsor, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Windsor. Read that day: 91 events in five pages, 9 of them in town: Coffee & Coworking at Coffeehouse 29 Windsor (2026-11-10, Coffee House 29); Coffee & Coworking at Pedro's Coffee in Severance/Timnath! (2026-11-11, Pedro's Coffee Shop); Neck Pain Workshop with Dr. Josh (2026-11-14, Refuge Physiotherapy); Craft & Sip - Glass Suncatcher Workshop - at Peculier Ales! (2026-11-16, Peculier Ales). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "blocked",
-      "lastNote": "unexpected status"
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Windsor, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Windsor. Read that day: 91 events in five pages, 9 of them in town: Coffee & Coworking at Coffeehouse 29 Windsor (2026-11-10, Coffee House 29); Coffee & Coworking at Pedro's Coffee in Severance/Timnath! (2026-11-11, Pedro's Coffee Shop); Neck Pain Workshop with Dr. Josh (2026-11-14, Refuge Physiotherapy); Craft & Sip - Glass Suncatcher Workshop - at Peculier Ales! (2026-11-16, Peculier Ales). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home."
     },
     {
       "id": "runsignup-com",

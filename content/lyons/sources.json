@@ -27,7 +27,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "cites": {
         "events": 14,
@@ -50,7 +50,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "cites": {
         "events": 0,
@@ -72,7 +72,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "cites": {
         "events": 74,
@@ -91,7 +91,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-13",
+      "lastChecked": "2026-11-16",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Creative Grounds",
@@ -224,6 +224,8 @@
       "type": "eventbrite",
       "category": "other",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
         "Lyons, CO"
@@ -258,9 +260,7 @@
         "Reservations"
       ],
       "autoApprove": true,
-      "notes": "Found 10 November 2026 by reading all of the region's Eventbrite search (up to 49 pages), which the weekly read of five pages does not reach: this organizer had an event in Lyons. Its own page was read that day: 1 upcoming, 1 in town: One More Wear: A Fancy Closet Party (2026-11-13). Confirmed with autoApprove on the owner's word that Eventbrite is used for every town and publishes without a person (\"yes to 2 and auto publish all\"); filed as other, kept to the town by the location filter, with the title exclusions every Eventbrite source carries. One page, read once a week. Eventbrite's terms of service restrict automated collection; see eventbrite-com-lyons.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "ok"
+      "notes": "Found 10 November 2026 by reading all of the region's Eventbrite search (up to 49 pages), which the weekly read of five pages does not reach: this organizer had an event in Lyons. Its own page was read that day: 1 upcoming, 1 in town: One More Wear: A Fancy Closet Party (2026-11-13). Confirmed with autoApprove on the owner's word that Eventbrite is used for every town and publishes without a person (\"yes to 2 and auto publish all\"); filed as other, kept to the town by the location filter, with the title exclusions every Eventbrite source carries. One page, read once a week. Eventbrite's terms of service restrict automated collection; see eventbrite-com-lyons."
     },
     {
       "id": "eventbrite-com-lyons",
@@ -270,6 +270,9 @@
       "type": "eventbrite",
       "category": "other",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "blocked",
+      "lastNote": "unexpected status",
       "robots": "honor",
       "locationFilter": [
         "Lyons, CO"
@@ -304,10 +307,7 @@
         "Reservations"
       ],
       "autoApprove": true,
-      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Lyons, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Lyons. Read that day: 99 events in five pages, 2 of them in town: Intro to Branch Weaving (2026-11-15, Lyons Farmette); HELD (2026-12-10, Lyons Farmette). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "blocked",
-      "lastNote": "unexpected status"
+      "notes": "Proposed 10 November 2026, when the owner asked for a way to use Eventbrite. The place page is Eventbrite's search of the region around Lyons, not of the town: 49 pages of twenty. The reader (scripts/lib/feeds/eventbrite.ts) takes the first five pages, one every two seconds, and the location filter keeps what is in Lyons. Read that day: 99 events in five pages, 2 of them in town: Intro to Branch Weaving (2026-11-15, Lyons Farmette); HELD (2026-12-10, Lyons Farmette). Eventbrite lists every organizer's events, so this is filed as other and its items wait for a person; classes and workshops are most of what a small town shows. robots.txt at www.eventbrite.com allows the page for ordinary agents (it disallows its internal /api/v3/destination/ search, which the reader does not use). Eventbrite's terms of service restrict automated collection of its pages; confirming this source is the owner's decision with that in mind. The event search API was shut in 2020, and the API that remains lists only the token holder's own events. Confirmed 10 November 2026 on the owner's word (\"for all towns as well use eventbrite\"), told that Eventbrite's terms restrict automated collection and that robots.txt allows the page. Still filed as other: its items wait for a person. autoApprove from 10 November 2026, the owner's word (\"auto publish all; having to manually do it would defeat the purpose of the town network setup\"): its items publish under the standing rules, and one that may be an event already on the guide at that hour still waits. The title exclusions were widened the same day to what the guide never lists: professional trainings and association socials, partisan events, sales demonstrations, clinics' own workshops, app-run scavenger hunts and events in a private home."
     },
     {
       "id": "lyonscf-org",
@@ -328,6 +328,8 @@
       "type": "ical",
       "category": "other",
       "status": "confirmed",
+      "lastChecked": "2026-11-16",
+      "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
         "AWAY",
@@ -345,9 +347,7 @@
         "PSAT"
       ],
       "defaultVenue": "Lyons Middle Senior High School, 100 McConnell Drive",
-      "notes": "Found and read 10 November 2026. The school is at 100 McConnell Drive, Lyons (its own home page). The home page embeds a public Google Calendar named Lyons Middle Senior Community Calendar (id c_2a55ijpsj3lakhj6u9p82cr5ns@group.calendar.google.com, time zone America/Denver); its iCal feed was fetched once and holds 1156 events going back years. Dated 10 November to 10 December 2026: 11 items, 3 worth a row: HS Boys and Girls Basketball home against Brush on 1 December at 4 pm, home against Wiggins on 8 December at 5 pm, and the MS/HS Band Concerts in the auditorium on 10 December at 7 pm. The rest are never-list or another town's: away games, middle school games and a dance, Thanksgiving break, the band at Longmont's Veterans Day parade, an open house. After the window it carries seven more home basketball dates to 20 February and the MS/HS Choir Concert on 10 March 2027. Times are in UTC in the feed (an evening event shows the next day's date in UTC). The feed also repeats the Town's Parade of Lights (5 December, 6:30 pm), which the guide already lists from the Town. calendar.google.com's robots.txt disallows /calendar, so reading it needs the editor's robots: subscribe, as the other guides' school calendars did on 10 November. The guide's school sports config (src/config/school-sports.ts) may already cover the games; if so only the concerts and plays are new. Suggested exclusions are in excludeTitles; add any test days and conferences seen on the first read. 11 November 2026: the owner accepted public Google Calendar feeds as a source and asked for the remaining ones to be switched on; confirmed with robots: subscribe so ingest reads it.",
-      "lastChecked": "2026-11-13",
-      "lastStatus": "ok"
+      "notes": "Found and read 10 November 2026. The school is at 100 McConnell Drive, Lyons (its own home page). The home page embeds a public Google Calendar named Lyons Middle Senior Community Calendar (id c_2a55ijpsj3lakhj6u9p82cr5ns@group.calendar.google.com, time zone America/Denver); its iCal feed was fetched once and holds 1156 events going back years. Dated 10 November to 10 December 2026: 11 items, 3 worth a row: HS Boys and Girls Basketball home against Brush on 1 December at 4 pm, home against Wiggins on 8 December at 5 pm, and the MS/HS Band Concerts in the auditorium on 10 December at 7 pm. The rest are never-list or another town's: away games, middle school games and a dance, Thanksgiving break, the band at Longmont's Veterans Day parade, an open house. After the window it carries seven more home basketball dates to 20 February and the MS/HS Choir Concert on 10 March 2027. Times are in UTC in the feed (an evening event shows the next day's date in UTC). The feed also repeats the Town's Parade of Lights (5 December, 6:30 pm), which the guide already lists from the Town. calendar.google.com's robots.txt disallows /calendar, so reading it needs the editor's robots: subscribe, as the other guides' school calendars did on 10 November. The guide's school sports config (src/config/school-sports.ts) may already cover the games; if so only the concerts and plays are new. Suggested exclusions are in excludeTitles; add any test days and conferences seen on the first read. 11 November 2026: the owner accepted public Google Calendar feeds as a source and asked for the remaining ones to be switched on; confirmed with robots: subscribe so ingest reads it."
     },
     {
       "id": "lyonsredstonemuseum-com",

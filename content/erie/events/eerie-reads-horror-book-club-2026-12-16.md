@@ -2,15 +2,15 @@
 title: "Eerie Reads horror book club"
 start: "2026-12-16T18:00"
 end: "2026-12-16T19:00"
-venue: "Erie Community Library living room"
+venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17077352"
 cost: "Free; registration required"
 category: arts
 recurring: "Monthly, third Wednesdays"
 source: "https://highplains.libcal.com/event/17077352"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
+verified: "2026-11-16"
+verifiedBy: "auto-review from the highplains.libcal.com feed read 2026-11-16, the weekly ingest workflow"
 ---
 
 Adult book club discussing horror fiction, meeting in person in the library living room. Registration required; books are collected from the front desk.
