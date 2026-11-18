@@ -82,9 +82,17 @@ export function servedPath(file: string): string {
   return path.endsWith('/index.html') ? path.slice(0, -'index.html'.length) : path;
 }
 
-/** Every address a section build serves, as the guide knew it (no /<town> prefix). */
+/**
+ * The guide's own search page: the section merge leaves it out
+ * (scripts/lib/section-merge.ts, DROPPED), since the hub's /search/ indexes
+ * the section's pages with its own and reads the same `?q=`. Its address goes
+ * there, the reader's query carried onto the 301 (api/legacy.ts, withQuery).
+ */
+const SEARCH = '/search/';
+
+/** Every address a section build serves, as the guide knew it (no /<town> prefix); not its search page, which the merge leaves out. */
 export function sectionAddresses(out: string): Set<string> {
-  return new Set(walk(out).map((f) => servedPath(relative(out, f))).filter((p) => !NOT_ADDRESSES.test(p)));
+  return new Set(walk(out).map((f) => servedPath(relative(out, f))).filter((p) => !NOT_ADDRESSES.test(p) && p !== SEARCH));
 }
 
 /** The history rows for a domain, or none. */
@@ -134,6 +142,9 @@ export function guideMap(o: { guide: TownConfig; out: string; hubDomain: string;
   }
   // An annual event's address the section may not build (its date passed): the tradition page all the same.
   for (const [p, to] of Object.entries(events)) if (!(p in paths)) ((paths[p] = `${hub}${to}`), counts.events++);
+  // The guide's search: the hub's, which searches the section's pages too.
+  paths[SEARCH] = `${hub}${SEARCH}`;
+  counts.built++;
 
   // 2. What the guide forwarded: its former and retired slugs, its moved index
   // pages. A retired listing the guide sent to its events list or directory

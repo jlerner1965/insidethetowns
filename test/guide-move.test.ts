@@ -194,7 +194,7 @@ test('the redirect map: every page the section builds, a former slug’s target,
   const guide = allTowns.find((t) => t.slug === 'lyons')!;
   try {
     const out = join(root, 'section');
-    for (const file of ['index.html', 'events/index.html', 'events/wayback-karaoke-2026-12-11/index.html', 'places/oskar-blues-grill-brew/index.html', 'this-week/index.html', 'directory/index.html', 'guides/index.html', '_astro/x.css', 'robots.txt', '404.html']) {
+    for (const file of ['index.html', 'events/index.html', 'events/wayback-karaoke-2026-12-11/index.html', 'places/oskar-blues-grill-brew/index.html', 'this-week/index.html', 'directory/index.html', 'guides/index.html', 'search/index.html', '_astro/x.css', 'robots.txt', '404.html']) {
       mkdirSync(join(out, file, '..'), { recursive: true });
       writeFileSync(join(out, file), 'x');
     }
@@ -226,6 +226,7 @@ test('the redirect map: every page the section builds, a former slug’s target,
     assert.equal(paths['/places/'], to('/directory/'), 'the moved index page');
     assert.equal(paths['/_astro/x.css'], undefined, 'assets are not addresses');
     assert.equal(paths['/robots.txt'], undefined, 'the function serves robots.txt itself');
+    assert.equal(paths['/search/'], `https://${hub.domain}/search/`, 'the guide’s search, which the merge leaves out, to the hub’s, the query carried by the function');
     assert.deepEqual(map.unmapped.map((r) => r.old_path), ['/articles/undecided/'], 'what nothing answers is listed, never sent to the home page by default');
     for (const [p, v] of Object.entries(paths)) if (/^\/events\/[^/]+\/$/.test(p)) assert.notEqual(v, to('/events/'), `${p}: a listing never goes to the events list`);
     // The sitemap the guide serves today, at its old address, and robots.txt pointing to it (api/legacy.ts): the brief's 200s.
