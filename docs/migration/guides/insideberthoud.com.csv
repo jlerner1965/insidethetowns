@@ -1,0 +1,282 @@
+old_path,source,kind,key,decision,note
+/,sitemap 2026-10-18 to 2026-11-18; qr-card,page,,,
+/about/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/articles/,vercel.json (a rule today),page,,/guides/,the guide's own rule sends it to /guides/
+/articles/berthoud-history/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/berthoud-with-kids/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/breakfast-and-coffee-in-berthoud/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/carter-lake-trail-permit-and-launch/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/explore-berthoud-in-walking-order/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/revere-property-what-the-april-vote-decided/,git in the content today; sitemap 2026-11-04 to 2026-11-18,articles,,,
+/articles/whats-being-built-in-berthoud/,git in the content today; sitemap 2026-11-04 to 2026-11-18,articles,,,
+/articles/when-it-snows-in-berthoud/,git in the content today; sitemap 2026-11-11 to 2026-11-18,articles,,,
+/bars-breweries/,sitemap 2026-11-10 to 2026-11-18,page,,,
+/coffee/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/contact/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/corrections/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/credits/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/directory/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/eat-drink/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/editorial/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/events/,sitemap 2026-10-18 to 2026-11-18,events,,,
+/events/a-little-help-service-saturday-2026-11-07/,git in the content today; sitemap 2026-11-02 to 2026-11-07,events,A Little Help – Service Saturday|City Star Brewing,,
+/events/a-very-merry-berthoud-2026/,git formerSlugs of a-very-merry-berthoud; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,A Very Merry Berthoud|Downtown Berthoud,https://insidethetowns.com/berthoud/a-very-merry-berthoud/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/a-very-merry-berthoud/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,A Very Merry Berthoud|Downtown Berthoud,https://insidethetowns.com/berthoud/a-very-merry-berthoud/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/angie-stevens-and-friends-2026-12-21/,git in the content today; sitemap 2026-11-02 to 2026-11-18,events,Angie Stevens and Friends|City Star Brewing,,
+/events/angie-stevens-city-star-2026-09-19/,git deleted; retired.json; vercel.json (a rule today),events,Angie Stevens and Friends at City Star|City Star Brewing,gone,"retired from the guide before its date (2026-09-19), with no later date of its series; ledger: retired"
+/events/art-in-the-park-at-the-berthoud-market-2026-09-26/,git deleted; retired.json; vercel.json (a rule today),events,Art in the Park at the Berthoud Market|Berthoud Town Park,gone,"retired from the guide before its date (2026-09-26), with no later date of its series; ledger: retired"
+/events/beer-release-cabaret-2026-11-06/,git formerSlugs of raspberry-bandit-and-cabaret-releases-with-johnny-johnston-a-2026-11-06; vercel.json (a rule today),events,Raspberry Bandit and Cabaret releases with Johnny Johnston and Felonius Smith|City Star Brewing,,the guide's own rule sends it to /events/
+/events/beer-release-deadwood-imperial-red-2026-12-18/,git formerSlugs of deadwood-imperial-red-release-with-sugar-britches-2026-12-18; vercel.json (a rule today),events,Deadwood Imperial Red release with Sugar Britches|City Star Brewing,/events/deadwood-imperial-red-release-with-sugar-britches-2026-12-18/,the guide's own rule sends it to /events/deadwood-imperial-red-release-with-sugar-britches-2026-12-18/
+/events/beer-release-sweater-weather-2026-11-20/,git formerSlugs of sweater-weather-release-with-sugar-britches-2026-11-20; vercel.json (a rule today),events,Sweater Weather release with Sugar Britches|City Star Brewing,/events/sweater-weather-release-with-sugar-britches-2026-11-20/,the guide's own rule sends it to /events/sweater-weather-release-with-sugar-britches-2026-11-20/
+/events/berthoud-blues-bash-at-city-star-2026-11-14/,git in the content today; sitemap 2026-10-29 to 2026-11-14,events,Berthoud Blues Bash at City Star|City Star Brewing,,
+/events/berthoud-bock-release-city-star-2026-10-02/,git deleted; retired.json; vercel.json (a rule today),events,Berthoud Bock release|City Star Brewing,gone,"retired from the guide before its date (2026-10-02), with no later date of its series; ledger: retired"
+/events/berthoud-day/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Berthoud Day|Berthoud Town Park,,
+/events/berthoud-fire-open-house-2026-11-10/,git in the content today; sitemap 2026-11-10 to 2026-11-10,events,Berthoud Fire open house|Berthoud Fire Station 61,,
+/events/berthoud-high-school-football-greeley-central-2026-10-15/,git deleted; retired.json; vercel.json (a rule today),events,Berthoud High School football vs. Greeley Central|Max Marr Stadium,gone,"retired from the guide before its date (2026-10-15), with no later date of its series; ledger: retired"
+/events/berthoud-high-school-homecoming-football-game-2026-10-02/,git deleted; retired.json; vercel.json (a rule today),events,Berthoud High School Homecoming Football Game|Max Marr Stadium,gone,"retired from the guide before its date (2026-10-02), with no later date of its series; ledger: retired"
+/events/berthoud-high-school-homecoming-parade-2026-09-30/,git deleted; retired.json; vercel.json (a rule today),events,Berthoud High School Homecoming Parade|Downtown Berthoud,gone,"retired from the guide before its date (2026-09-30), with no later date of its series; ledger: retired"
+/events/berthoud-historical-society-fall-speaker-series-2026-10-13/,git deleted; retired.json; vercel.json (a rule today),events,Berthoud Historical Society Fall Speaker Series|Berthoud Recreation Center Community Room,gone,"retired from the guide before its date (2026-10-13), with no later date of its series; ledger: retired"
+/events/berthoud-historical-society-fall-speaker-series-2026-11-17/,git in the content today; sitemap 2026-10-18 to 2026-11-16,events,Historic preservation in Berthoud: a November talk|Berthoud Recreation Center,,
+/events/berthoud-literary-festival-2026/,git formerSlugs of berthoud-literary-festival; retired.json; vercel.json (a rule today),events,Berthoud Literary Festival|Berthoud Community Library,/events/berthoud-literary-festival/,ledger: retired
+/events/berthoud-literary-festival/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Berthoud Literary Festival|Berthoud Community Library,,
+/events/berthoud-market-town-park/,git formerSlugs of berthoud-market; retired.json; vercel.json (a rule today),events,The Berthoud Market at Town Park|Berthoud Town Park,/events/berthoud-market/,ledger: retired
+/events/berthoud-market/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,The Berthoud Market at Town Park|Berthoud Town Park,,
+/events/berthoud-oktoberfest-2026/,git formerSlugs of berthoud-oktoberfest; retired.json; vercel.json (a rule today),events,Berthoud Oktoberfest|Berthoud Town Park,/events/berthoud-oktoberfest/,ledger: retired
+/events/berthoud-oktoberfest/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Berthoud Oktoberfest|Berthoud Town Park,,
+/events/berthoud-scarecrow-contest-2026-10-17/,git formerSlugs of scarecrow-contest; sitemap 2026-10-18 to 2026-10-31; vercel.json (a rule today),events,Berthoud Scarecrow Contest|Downtown Berthoud,/events/scarecrow-contest/,the guide's own rule sends it to /events/scarecrow-contest/
+/events/blind-date-with-a-book-at-city-star-2026-10-25/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-26; vercel.json (a rule today),events,Blind Date with a Book at City Star|City Star Brewing,gone,"retired from the guide before its date (2026-10-25), with no later date of its series; ledger: retired"
+/events/boulder-grass-at-city-star-2026-10-09/,git deleted; retired.json; vercel.json (a rule today),events,Boulder Grass at City Star|City Star Brewing,gone,"retired from the guide before its date (2026-10-09), with no later date of its series; ledger: retired"
+/events/bouncing-baby-storytime/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Bouncing Baby Storytime|Berthoud Community Library,,
+/events/breathwork-and-reiki-at-wildfire-arts-center-2026-10-13/,git deleted; retired.json; vercel.json (a rule today),events,Breathwork and Reiki at Wildfire Arts Center|Wildfire Arts Center,,ledger: retired
+/events/breathwork-and-reiki-at-wildfire-arts-center-2026-11-08/,git in the content today; sitemap 2026-10-21 to 2026-11-08,events,Breathwork and Reiki at Wildfire Arts Center|Wildfire Arts Center,,
+/events/brush-and-banter-class-and-open-studio-2026-09-28/,git deleted; retired.json; vercel.json (a rule today),events,Brush & Banter Class and Open Studio|Wildfire Arts Center,/events/brush-and-banter-class-and-open-studio/,ledger: brush-and-banter-class-and-open-studio
+/events/brush-and-banter-class-and-open-studio/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Brush & Banter Class and Open Studio|Wildfire Arts Center,,
+/events/budding-artists-collage-2026-11-20/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,Budding Artists: Collage|Berthoud Community Library,,
+/events/budding-artists-library-2026-09-25/,git deleted; retired.json; vercel.json (a rule today),events,Budding Artists|Berthoud Community Library,gone,"retired from the guide before its date (2026-09-25), with no later date of its series; ledger: retired"
+/events/candy-and-beer-pairing-city-star-2026-10-25/,git in the content today; sitemap 2026-10-21 to 2026-10-31,events,Halloween candy and beer pairing at City Star|City Star Brewing,,
+/events/chai-watchman-release-2026-11-27/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Chai Watchman release|City Star Brewing,,
+/events/chicken-coop-willaye-2026-11-27/,git in the content today; sitemap 2026-11-02 to 2026-11-18,events,Chicken Coop Willaye|City Star Brewing,,
+/events/chili-the-kid-release-with-justin-howl-2026-10-23/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-22; vercel.json (a rule today),events,Chili The Kid release with Justin Howl|City Star Brewing,gone,"retired from the guide before its date (2026-10-23), with no later date of its series; ledger: retired"
+/events/city-star-social-run-2026-12-24/,git deleted; retired.json; vercel.json (a rule today),events,City Star Social Run|City Star Brewing,,ledger: retired
+/events/city-star-social-run/,git deleted; retired.json; vercel.json (a rule today),events,City Star Social Run|City Star Brewing,,ledger: retired
+/events/community-drum-circle-at-wildfire-arts-center-2026-10-02/,git deleted; retired.json; vercel.json (a rule today),events,Community Drum Circle at Wildfire Arts Center|Wildfire Arts Center,,ledger: retired
+/events/community-drum-circle-at-wildfire-arts-center-2026-10-09/,git deleted; retired.json; vercel.json (a rule today),events,Community Drum Circle at Wildfire Arts Center|Wildfire Arts Center,,ledger: retired
+/events/community-drum-circle-at-wildfire-arts-center-2026-11-06/,git in the content today; sitemap 2026-10-18 to 2026-11-07,events,Community Drum Circle at Wildfire Arts Center|Wildfire Arts Center,,
+/events/community-drum-circle-at-wildfire-arts-center-2026-12-04/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,Community Drum Circle at Wildfire Arts Center|Wildfire Arts Center,,
+/events/country-pumpkin-release-city-star-2026-09-25/,git deleted; retired.json; vercel.json (a rule today),events,Country Pumpkin release with John McKay|City Star Brewing,gone,"retired from the guide before its date (2026-09-25), with no later date of its series; ledger: retired"
+/events/craft-and-concoct-library-2026-11-12/,git in the content today; sitemap 2026-11-10 to 2026-11-13,events,Craft & Concoct at the library|Berthoud Community Library,,
+/events/cribbage-night-2027-01-13/,git in the content today,events,Cribbage Night|City Star Brewing,,
+/events/cribbage-night-2027-01-27/,git in the content today,events,Cribbage Night|City Star Brewing,,
+/events/cribbage-night-2027-02-10/,git in the content today,events,Cribbage Night|City Star Brewing,,
+/events/cribbage-night-2027-02-24/,git in the content today,events,Cribbage Night|City Star Brewing,,
+/events/cribbage-night-2027-03-10/,git in the content today,events,Cribbage Night|City Star Brewing,,
+/events/cribbage-night-at-city-star-2026-12-23/,git in the content today,events,Cribbage Night|City Star Brewing,,
+/events/cribbage-night-city-star-2026-09-23/,git deleted; retired.json; vercel.json (a rule today),events,Cribbage Night at City Star|City Star Brewing,gone,"retired from the guide before its date (2026-09-23), with no later date of its series; ledger: retired"
+/events/cribbage-night-city-star-2026-10-14/,git deleted; retired.json; vercel.json (a rule today),events,Cribbage Night at City Star|City Star Brewing,gone,"retired from the guide before its date (2026-10-14), with no later date of its series; ledger: retired"
+/events/cribbage-night-city-star-2026-10-28/,git in the content today; sitemap 2026-10-18 to 2026-10-29,events,Cribbage Night|City Star Brewing,,
+/events/cribbage-night-city-star-2026-11-11/,git in the content today; sitemap 2026-10-30 to 2026-11-11,events,Cribbage Night|City Star Brewing,,
+/events/cribbage-night-city-star-2026-11-25/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Cribbage Night|City Star Brewing,,
+/events/cribbage-night-city-star-2026-12-09/,git in the content today,events,Cribbage Night|City Star Brewing,,
+/events/danny-shafer-at-city-star-2026-12-26/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,Danny Shafer at City Star|City Star Brewing,,
+/events/dead-or-alive-release-2026-11-13/,git in the content today; sitemap 2026-10-18 to 2026-11-13,events,Dead or Alive release|City Star Brewing,,
+/events/deadwood-imperial-red-release-with-sugar-britches-2026-12-18/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Deadwood Imperial Red release with Sugar Britches|City Star Brewing,,
+/events/derek-dames-ohl-at-city-star-2026-10-17/,git deleted; retired.json; vercel.json (a rule today),events,Derek Dames Ohl at City Star|City Star Brewing,gone,"retired from the guide before its date (2026-10-17), with no later date of its series; ledger: retired"
+/events/desiderata-ranch-tour-2026-09-26/,git deleted; retired.json; vercel.json (a rule today),events,Desiderata Ranch Tour|Desiderata Ranch,gone,"retired from the guide before its date (2026-09-26), with no later date of its series; ledger: retired"
+/events/digital-navigator-drop-in-library-thursdays/,git in the content today,events,Digital Navigator drop-in tech help|Berthoud Community Library,,
+/events/digital-navigator-drop-in-library-wednesdays/,git in the content today,events,Digital Navigator drop-in tech help|Berthoud Community Library,,
+/events/digital-navigator-drop-in-library/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Digital Navigator drop-in tech help|Berthoud Community Library,,
+/events/don-elwood-big-band-christmas-concert-2026-12-06/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,Don Elwood Big Band Christmas concert|First United Methodist Church of Berthoud,,
+/events/donut-bug-me-im-reading-2026-11-18/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,"Donut Bug Me, I'm Reading!|Berthoud Community Library",,
+/events/election-day-2026-11-03/,git in the content today; sitemap 2026-11-02 to 2026-11-04,events,Election Day: vote at the recreation center|Berthoud Recreation Center,,
+/events/eric-wiggs-and-dylan-mccarthy-at-city-star-2026-11-13/,git in the content today; sitemap 2026-10-29 to 2026-11-13,events,Eric Wiggs and Dylan McCarthy at City Star|City Star Brewing,,
+/events/father-daughter-dance-2026/,git deleted; retired.json; vercel.json (a rule today),events,Father Daughter Dance|Berthoud Recreation Center,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/free-milk-duo-at-city-star-2026-12-04/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Free Milk Duo at City Star|City Star Brewing,,
+/events/glow-and-splash-2027-01-02/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,Glow & Splash at the Berthoud Recreation Center|Berthoud Recreation Center,,
+/events/gratitude-of-presence-sound-journey-at-wildfire-arts-center-2026-11-20/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,Gratitude of Presence sound journey at Wildfire Arts Center|Wildfire Arts Center,,
+/events/greg-hoy-and-the-boys-at-city-star-2026-12-12/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Greg Hoy and the Boys at City Star|City Star Brewing,,
+/events/hand-drumming-beginner-workshop-2026-10-15/,git deleted; retired.json; vercel.json (a rule today),events,Hand Drumming: Beginner Workshop|Wildfire Arts Center,gone,"retired from the guide before its date (2026-10-15), with no later date of its series; ledger: retired"
+/events/handmade-market-at-city-star-2026-11-28/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Handmade Market at City Star|City Star Brewing,,
+/events/historic-preservation-advisory-committee-2026-10-12/,git deleted; retired.json; vercel.json (a rule today),events,Historic Preservation Advisory Committee meeting|Berthoud Town Hall,,ledger: retired
+/events/historic-preservation-advisory-committee-2026-11-09/,git in the content today; sitemap 2026-10-29 to 2026-11-10,events,Historic Preservation Advisory Committee meeting|Berthoud Town Hall,,
+/events/historic-preservation-advisory-committee-2026-12-14/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Historic Preservation Advisory Committee meeting|Berthoud Town Hall,,
+/events/holiday-card-art-contest-deadline-2026-11-07/,git formerSlugs of holiday-card-art-contest-deadline-2026-11-14; sitemap 2026-10-21 to 2026-11-08; vercel.json (a rule today),events,Holiday Card Art Contest: artwork due|Berthoud Historical Society,,the guide's own rule sends it to /events/
+/events/holiday-card-art-contest-deadline-2026-11-14/,git in the content today; sitemap 2026-11-10 to 2026-11-14,events,Holiday Card Art Contest: artwork due|Berthoud Historical Society,,
+/events/holiday-cheer-release-2026-12-04/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Holiday Cheer release|City Star Brewing,,
+/events/holidaycation-2026-12-12/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Holidaycation at the Berthoud Recreation Center|Berthoud Recreation Center,,
+/events/holidaycation-2026-12-19/,git in the content today,events,Holidaycation at the Berthoud Recreation Center|Berthoud Recreation Center,,
+/events/homegrown-ipa-release-city-star-2026-09-18/,git deleted; retired.json; vercel.json (a rule today),events,Homegrown IPA release with Younger Than Dirt|City Star Brewing,gone,"retired from the guide before its date (2026-09-18), with no later date of its series; ledger: retired"
+/events/hoss-and-the-hangman-at-city-star-2026-11-07/,git in the content today; sitemap 2026-10-29 to 2026-11-07,events,Hoss and the Hangman at City Star|City Star Brewing,,
+/events/humdinger-trivia-at-city-star-2026-12-22/,git deleted; retired.json; vercel.json (a rule today),events,Humdinger Trivia at City Star|City Star Brewing,,ledger: retired
+/events/humdinger-trivia-at-city-star/,git deleted; retired.json; vercel.json (a rule today),events,Humdinger Trivia at City Star|City Star Brewing,,ledger: retired
+/events/humdinger-trivia-city-star/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Humdinger Trivia at City Star|City Star Brewing,,
+/events/independence-day-celebration-and-fireworks/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Independence Day Celebration and Fireworks|Waggener Farm Park,,
+/events/johnny-johnston-and-felonius-smith-2026-11-06/,git formerSlugs of raspberry-bandit-and-cabaret-releases-with-johnny-johnston-a-2026-11-06; vercel.json (a rule today),events,Raspberry Bandit and Cabaret releases with Johnny Johnston and Felonius Smith|City Star Brewing,,the guide's own rule sends it to /events/
+/events/jon-garson-and-late-for-supper-at-city-star-2026-12-11/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Jon Garson and Late For Supper at City Star|City Star Brewing,,
+/events/joshua-james-johnson-city-star-2026-09-26/,git deleted; retired.json; vercel.json (a rule today),events,Joshua James Johnson Duo at City Star|City Star Brewing,gone,"retired from the guide before its date (2026-09-26), with no later date of its series; ledger: retired"
+/events/just-write-teen-writing-group-2026-11-19/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,Just Write! teen writing group|Berthoud Community Library,,
+/events/kelly-aspen-and-branden-sipes-2026-12-19/,git in the content today; sitemap 2026-11-02 to 2026-11-18,events,Kelly Aspen and Branden Sipes|City Star Brewing,,
+/events/knit-and-crochet-drop-in-2026-09-25/,git deleted; retired.json; vercel.json (a rule today),events,Knit & Crochet drop-in|Berthoud Community Library,gone,"retired from the guide before its date (2026-09-25), with no later date of its series; ledger: retired"
+/events/library-book-club-2026-09-23/,git deleted; retired.json; vercel.json (a rule today),events,Library Book Club: Atmosphere|Berthoud Community Library,gone,"retired from the guide before its date (2026-09-23), with no later date of its series; ledger: retired"
+/events/library-book-club-kin-2026-10-28/,git in the content today; sitemap 2026-10-18 to 2026-10-29,events,Library Book Club: Kin|Berthoud Community Library,,
+/events/library-book-club-the-personal-librarian-2026-12-09/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Library Book Club: The Personal Librarian|Berthoud Community Library,,
+/events/library-just-write-teens-2026-10-22/,git deleted; retired.json; sitemap 2026-10-21 to 2026-10-22; vercel.json (a rule today),events,Just Write! for ages 11 to 17 at the library|Berthoud Community Library,gone,"retired from the guide before its date (2026-10-22), with no later date of its series; ledger: retired"
+/events/library-knit-and-crochet-drop-in-2026-10-23/,git deleted; retired.json; sitemap 2026-10-21 to 2026-10-22; vercel.json (a rule today),events,Knit and crochet drop-in at the library|Berthoud Community Library,gone,"retired from the guide before its date (2026-10-23), with no later date of its series; ledger: retired"
+/events/library-master-gardeners-composting-2026-10-24/,git deleted; retired.json; sitemap 2026-10-21 to 2026-10-24; vercel.json (a rule today),events,Master Gardeners: Composting 101 and vermiculture|Berthoud Community Library,gone,"retired from the guide before its date (2026-10-24), with no later date of its series; ledger: retired"
+/events/library-pressure-canning-2026-10-21/,git deleted; retired.json; sitemap 2026-10-21 to 2026-10-21; vercel.json (a rule today),events,Pressure canning with CSU Extension at the library|Berthoud Community Library,gone,"retired from the guide before its date (2026-10-21), with no later date of its series; ledger: retired"
+/events/library-senior-yoga-2026-10-31/,git in the content today; sitemap 2026-10-21 to 2026-10-31,events,Senior yoga at the library|Berthoud Community Library,,
+/events/library-senior-yoga-2026-11-28/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,Senior yoga at the library|Berthoud Community Library,,
+/events/library-trick-or-read-2026-10-24/,git deleted; retired.json; sitemap 2026-10-21 to 2026-10-24; vercel.json (a rule today),events,Trick or Read at the library|Berthoud Community Library,gone,"retired from the guide before its date (2026-10-24), with no later date of its series; ledger: retired"
+/events/lloyd-drust-at-city-star-2026-10-31/,git in the content today; sitemap 2026-10-18 to 2026-10-31,events,Lloyd Drust at City Star|City Star Brewing,,
+/events/macaroon-stout-release-with-steepland-string-band-2026-10-30/,git in the content today; sitemap 2026-10-18 to 2026-10-30,events,Macaroon Stout release with Steepland String Band|City Star Brewing,,
+/events/make-and-mingle-at-the-library-2026-11-15/,git in the content today; sitemap 2026-11-10 to 2026-11-16,events,Make & Mingle at the library|Berthoud Community Library,,
+/events/meditation-in-everyday-life-library-2026-11-12/,git in the content today; sitemap 2026-11-10 to 2026-11-13,events,Meditation in Everyday Life at the library|Berthoud Community Library,,
+/events/mountain-duo-at-city-star-2026-10-24/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-24; vercel.json (a rule today),events,Mountain Duo at City Star|City Star Brewing,gone,"retired from the guide before its date (2026-10-24), with no later date of its series; ledger: retired"
+/events/musical-moments-library/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Musical Moments|Berthoud Community Library,,
+/events/national-night-out/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,National Night Out|Berthoud Town Park,,
+/events/neon-nights-cosmic-pickleball-2026/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-22; vercel.json (a rule today),events,Neon Nights: cosmic pickleball|Berthoud Recreation Center,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/neon-nights-dodgeball-2026/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-24; vercel.json (a rule today),events,Neon Nights: adult dodgeball tournament|Berthoud Recreation Center,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/parade-of-lights-2026/,git formerSlugs of parade-of-lights; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,"Berthoud Parade of Lights and tree lighting|Mountain Avenue, 2nd St to 8th St",https://insidethetowns.com/berthoud/parade-of-lights/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/parade-of-lights/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,"Berthoud Parade of Lights and tree lighting|Mountain Avenue, 2nd St to 8th St",https://insidethetowns.com/berthoud/parade-of-lights/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/perky-pre-k-storytime/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Perky Pre-K Storytime|Berthoud Community Library,,
+/events/pineapple-ipa-release-2026-12-26/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Pineapple IPA release|City Star Brewing,,
+/events/pioneer-museum-open-for-a-very-merry-berthoud-2026-12-05/,git in the content today; sitemap 2026-11-02 to 2026-11-18,events,Pioneer Museum open for A Very Merry Berthoud|Little Thompson Valley Pioneer Museum,,
+/events/pioneer-museum-open-small-business-saturday-2026-11-28/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Pioneer Museum open for Small Business Saturday|Little Thompson Valley Pioneer Museum,,
+/events/planning-commission-2026-09-24/,git deleted; retired.json; vercel.json (a rule today),events,Planning Commission meeting|Berthoud Town Hall,,ledger: retired
+/events/planning-commission-2026-10-08/,git deleted; retired.json; vercel.json (a rule today),events,Planning Commission meeting|Berthoud Town Hall,,ledger: retired
+/events/planning-commission-2026-10-22/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-22; vercel.json (a rule today),events,Planning Commission meeting|Berthoud Town Hall,,ledger: retired
+/events/planning-commission-2026-11-12/,git in the content today; sitemap 2026-10-24 to 2026-11-13,events,Planning Commission meeting|Berthoud Town Hall,,
+/events/planning-commission-2026-12-10/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,Planning Commission meeting|Berthoud Town Hall,,
+/events/port-advisory-committee-2026-10-07/,git deleted; retired.json; vercel.json (a rule today),events,PORT Advisory Committee meeting|Berthoud Town Hall,,ledger: retired
+/events/port-advisory-committee-2026-11-04/,git in the content today; sitemap 2026-10-29 to 2026-11-04,events,PORT Advisory Committee meeting|Berthoud Town Hall,,
+/events/port-advisory-committee-2026-12-02/,git in the content today; sitemap 2026-11-05 to 2026-11-18,events,PORT Advisory Committee meeting|Berthoud Town Hall,,
+/events/rachel-alena-at-city-star-2026-10-10/,git deleted; retired.json; vercel.json (a rule today),events,Rachel Alena at City Star|City Star Brewing,,ledger: retired
+/events/rachel-alena-at-city-star-2026-12-05/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Rachel Alena at City Star|City Star Brewing,,
+/events/raspberry-bandit-and-cabaret-releases-with-johnny-johnston-a-2026-11-06/,git in the content today; sitemap 2026-10-18 to 2026-11-07,events,Raspberry Bandit and Cabaret releases with Johnny Johnston and Felonius Smith|City Star Brewing,,
+/events/rec-center-fifth-anniversary-2026-11-20/,git in the content today; sitemap 2026-10-21 to 2026-11-18,events,Berthoud Recreation Center fifth anniversary celebration|Berthoud Recreation Center,,
+/events/scarecrow-contest/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Berthoud Scarecrow Contest|Downtown Berthoud,,
+/events/senior-yoga-library-2026-09-26/,git deleted; retired.json; vercel.json (a rule today),events,Senior Yoga|Berthoud Community Library,gone,"retired from the guide before its date (2026-09-26), with no later date of its series; ledger: retired"
+/events/small-business-saturday-2026/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Small Business Saturday in downtown Berthoud|Downtown Berthoud,,
+/events/social-run-city-star/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,City Star Social Run|City Star Brewing,,
+/events/something-to-say-at-city-star-2026-11-21/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Something to Say at City Star|City Star Brewing,,
+/events/sourdough-breads-fermenting-and-pickling-2026-10-24/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-24; vercel.json (a rule today),events,"Sourdough Breads, Fermenting and Pickling|Berthoud Community Library",gone,"retired from the guide before its date (2026-10-24), with no later date of its series; ledger: retired"
+/events/sugar-britches-2026-11-20/,git formerSlugs of sweater-weather-release-with-sugar-britches-2026-11-20; vercel.json (a rule today),events,Sweater Weather release with Sugar Britches|City Star Brewing,/events/sweater-weather-release-with-sugar-britches-2026-11-20/,the guide's own rule sends it to /events/sweater-weather-release-with-sugar-britches-2026-11-20/
+/events/sugar-britches-2026-12-18/,git formerSlugs of deadwood-imperial-red-release-with-sugar-britches-2026-12-18; vercel.json (a rule today),events,Deadwood Imperial Red release with Sugar Britches|City Star Brewing,/events/deadwood-imperial-red-release-with-sugar-britches-2026-12-18/,the guide's own rule sends it to /events/deadwood-imperial-red-release-with-sugar-britches-2026-12-18/
+/events/sugar-britches-city-star-2026-10-03/,git deleted; retired.json; vercel.json (a rule today),events,Sugar Britches at City Star|City Star Brewing,gone,"retired from the guide before its date (2026-10-03), with no later date of its series; ledger: retired"
+/events/sweater-weather-release-with-sugar-britches-2026-11-20/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Sweater Weather release with Sugar Britches|City Star Brewing,,
+/events/terrific-toddler-storytime/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Terrific Toddler Storytime|Berthoud Community Library,,
+/events/thankful-and-blooming-berthoud-2026-11-22/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Thankful & Blooming- Berthoud|Just For Kix,,
+/events/the-bells-of-berthoud-2026-12-13/,git in the content today; sitemap 2026-11-10 to 2026-11-18,events,The Bells of Berthoud ring|Fickel Park,,
+/events/the-soil-builders-masterclass-2026-10-10/,git deleted; retired.json; vercel.json (a rule today),events,The Soil Builders Masterclass|Berthoud Community Library,gone,"retired from the guide before its date (2026-10-10), with no later date of its series; ledger: retired"
+/events/time-machine-release-with-mike-finders-duo-2026-10-16/,git deleted; retired.json; vercel.json (a rule today),events,Time Machine release with Mike Finders Duo|City Star Brewing,gone,"retired from the guide before its date (2026-10-16), with no later date of its series; ledger: retired"
+/events/town-board-2026-09-22/,git deleted; retired.json; vercel.json (a rule today),events,Town Board meeting|Berthoud Town Hall,,ledger: retired
+/events/town-board-2026-10-13/,git deleted; retired.json; vercel.json (a rule today),events,Town Board meeting|Berthoud Town Hall,,ledger: retired
+/events/town-board-2026-10-27/,git in the content today; sitemap 2026-10-18 to 2026-10-27,events,Town Board meeting|Berthoud Town Hall,,
+/events/town-board-2026-11-10/,git in the content today; sitemap 2026-10-29 to 2026-11-10,events,Town Board meeting|Berthoud Town Hall,,
+/events/town-board-2026-11-24/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Town Board meeting|Berthoud Town Hall,,
+/events/town-board-2026-12-08/,git in the content today,events,Town Board meeting|Berthoud Town Hall,,
+/events/town-board-study-session-2026-11-17/,git in the content today; sitemap 2026-11-10 to 2026-11-16,events,Town Board study session|Berthoud Town Hall,,
+/events/tree-advisory-committee-2026-09-21/,git deleted; retired.json; vercel.json (a rule today),events,Tree Advisory Committee meeting|Berthoud Town Hall,,ledger: retired
+/events/tree-advisory-committee-2026-10-19/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-20; vercel.json (a rule today),events,Tree Advisory Committee meeting|Berthoud Town Hall,,ledger: retired
+/events/tree-advisory-committee-2026-11-16/,git in the content today; sitemap 2026-10-21 to 2026-11-16,events,Tree Advisory Committee meeting|Berthoud Town Hall,,
+/events/trick-or-treat-street-2026/,git formerSlugs of trick-or-treat-street; retired.json; sitemap 2026-10-18 to 2026-10-24; vercel.json (a rule today),events,Trick or Treat Street|Downtown Berthoud,/events/trick-or-treat-street/,ledger: retired
+/events/trick-or-treat-street/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Trick or Treat Street|Downtown Berthoud,,
+/events/u-create-open-studio-at-wildfire-arts-center-2026-09-26/,git deleted; retired.json; vercel.json (a rule today),events,U-Create Open Studio at Wildfire Arts Center|Wildfire Arts Center,/events/u-create-open-studio-at-wildfire-arts-center/,ledger: u-create-open-studio-at-wildfire-arts-center
+/events/u-create-open-studio-at-wildfire-arts-center/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,U-Create Open Studio at Wildfire Arts Center|Wildfire Arts Center,,
+/events/widow-maker-imperial-stout-release-2026-12-21/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Widow Maker Imperial Stout release|City Star Brewing,,
+/events/winter-craft-fair-2026/,git formerSlugs of winter-craft-fair; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,Winter Craft Fair|Berthoud Recreation Center,/events/winter-craft-fair/,the guide's own rule sends it to /events/winter-craft-fair/
+/events/winter-craft-fair/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Winter Craft Fair|Berthoud Recreation Center,,
+/events/writers-group-library/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Writers Group|Berthoud Community Library,,
+/events/youth-advisory-commission-2026-11-04/,git in the content today; sitemap 2026-10-29 to 2026-11-04,events,Youth Advisory Commission meeting|Berthoud Town Hall,,
+/events/youth-advisory-commission-2026-12-02/,git in the content today; sitemap 2026-11-05 to 2026-11-18,events,Youth Advisory Commission meeting|Berthoud Town Hall,,
+/events/zombie-fun-run-2026/,git formerSlugs of zombie-fun-run; retired.json; vercel.json (a rule today),events,Zombie Fun Run|Waggener Farm Park,/events/zombie-fun-run/,ledger: retired
+/events/zombie-fun-run/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Zombie Fun Run|Waggener Farm Park,,
+/families/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/for-businesses/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/get-involved/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/guides/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/living-here/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/moving-here/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/parks/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/places/,vercel.json (a rule today),page,,/directory/,the guide's own rule sends it to /directory/
+/places/a-and-w/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/arcana-house/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/aussies-poke-pitstop/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/b-rads-arcade/,git deleted; retired.json; sitemap 2026-10-18 to 2026-11-08; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/bein-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/bennys-tacos/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/berthoud-animal-hospital/,git in the content today; sitemap 2026-11-07 to 2026-11-18,places,,,
+/places/berthoud-bike-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/berthoud-brewing/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/berthoud-community-library/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/berthoud-inn/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/berthoud-pet-supply/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/berthoud-pizza-co/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/berthoud-recreation-center/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/berthoud-reservoir-loop/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/berthoud-town-hall/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/berthoud-town-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/bradfords-grub-and-grog/,git in the content today,places,,,
+/places/brick-oven-pizza/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/carter-lake/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/city-star-brewing/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/cobblestone-corner/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/cocina-and-cantina/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/cornerstone-cafe/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/coyote-ridge-veterinary-clinic/,git in the content today; sitemap 2026-11-07 to 2026-11-18,places,,,
+/places/dominos-pizza/,git in the content today; sitemap 2026-11-07 to 2026-11-18,places,,,
+/places/downtown-mural-walk/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/fickel-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/forbici-barber-werx/,git in the content today; sitemap 2026-11-07 to 2026-11-18,places,,,
+/places/glass-of-art/,git in the content today,places,,,
+/places/grandpas-cafe/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/habitat-restore/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/happy-eating/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/hays-market/,git in the content today; sitemap 2026-11-07 to 2026-11-18,places,,,
+/places/homestead-fine-art-gallery/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/house-of-rossi/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/indigo-sky-trading/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/jessies-pub-and-sports-bar/,git in the content today; sitemap 2026-11-10 to 2026-11-18,places,,,
+/places/joyful-brews/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/kofe-house/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/la-casita/,git in the content today,places,,,
+/places/log-cabin-liquors/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/marley-and-moose/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/mccarty-fickel-home/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/muddy-mutt/,git in the content today; sitemap 2026-11-07 to 2026-11-18,places,,,
+/places/oreilly-auto-parts/,git in the content today; sitemap 2026-11-07 to 2026-11-18,places,,,
+/places/ositos/,git in the content today; sitemap 2026-11-10 to 2026-11-18,places,,,
+/places/pioneer-museum/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/pioneer-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/rise-artisan-bread/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/roberts-lake/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/sirenhouse/,git in the content today; sitemap 2026-11-07 to 2026-11-18,places,,,
+/places/six-barbershop/,git in the content today; sitemap 2026-11-07 to 2026-11-18,places,,,
+/places/the-learning-experience-berthoud/,git in the content today; sitemap 2026-11-10 to 2026-11-18,places,,,
+/places/the-ranchers-wife/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/the-source-zero/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/trailhead-cafe/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/turners-pit-bbq/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/waggener-farm-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/wildfire-arts-center/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/wishful-living/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/ziggis-coffee/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/privacy/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/restaurants/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/services/,sitemap 2026-11-07 to 2026-11-18,page,,,
+/shops/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/sports/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/sports/boys-basketball/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/boys-soccer/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/football/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/girls-basketball/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/girls-flag-football/,sitemap 2026-11-10 to 2026-11-18,page,,,
+/sports/softball/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/volleyball/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/submit-event/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/things-to-do/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/this-week/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/this-weekend/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/traditions/,sitemap 2026-11-13 to 2026-11-18,page,,,
+/trails/,sitemap 2026-10-21 to 2026-11-05; vercel.json (a rule today),page,,/things-to-do/,the guide's own rule sends it to /things-to-do/
+/updates/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/venues/,sitemap 2026-10-21 to 2026-11-18,page,,,

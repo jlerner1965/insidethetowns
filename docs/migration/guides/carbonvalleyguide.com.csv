@@ -1,0 +1,254 @@
+old_path,source,kind,key,decision,note
+/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/about/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/articles/,vercel.json (a rule today),page,,/guides/,the guide's own rule sends it to /guides/
+/articles/carbon-valley-history/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),articles,,/,the guide's own rule sends it to /
+/articles/carbon-valley-with-kids/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),articles,,/,the guide's own rule sends it to /
+/articles/explore-carbon-valley-in-driving-order/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),articles,,/,the guide's own rule sends it to /
+/articles/explore-fort-lupton-in-walking-order/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),articles,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/articles/explore-frederick-in-walking-order/,git in the content today; sitemap 2026-11-13 to 2026-11-18,articles,,,
+/articles/fort-lupton-history/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),articles,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/articles/fort-lupton-with-kids/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),articles,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/articles/frederick-history/,git in the content today; sitemap 2026-11-13 to 2026-11-18,articles,,,
+/articles/frederick-with-kids/,git in the content today; sitemap 2026-11-13 to 2026-11-18,articles,,,
+/articles/metro-districts-and-neighborhood-pools/,git in the content today; sitemap 2026-11-13 to 2026-11-18,articles,,,
+/articles/moving-to-fort-lupton/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),articles,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/contact/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/corrections/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/credits/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/dacono/,sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),page,,/,the guide's own rule sends it to /
+/directory/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/eat-drink/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/editorial/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/events.rss,vercel.json,page,,,
+/events/,sitemap 2026-10-18 to 2026-11-18; vercel.json,events,,,
+/events/6th-8th-band-concert-2027-02-18/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"6th-8th Band Concert|Thunder Valley K-8, 600 5th Street, Frederick",,
+/events/6th-8th-orchestra-concert-2027-02-25/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"6th-8th Orchestra Concert|Thunder Valley K-8, 600 5th Street, Frederick",,
+/events/6th-grade-orchestra-concert-2027-02-22/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"6th Grade Orchestra Concert|Coal Ridge Middle School, 6201 Booth Drive, Firestone",,
+/events/7th-8th-grade-orchestra-concert-2027-02-22/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"7th/8th Grade Orchestra Concert|Coal Ridge Middle School, 6201 Booth Drive, Firestone",,
+/events/adam-doleac-at-salt-and-acres-2026-10-17/,git deleted; vercel.json (a rule today),events,Adam Doleac at Salt & Acres|Salt & Acres,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/adult-d-and-d-one-shot-adventures-2026-10-14/,git deleted; vercel.json (a rule today),events,Adult D&D One-shot Adventures|Carbon Valley Regional Library,,the guide's own rule sends it to /events/
+/events/adult-dungeons-and-dragons-one-shot-2026-11-28/,git in the content today; sitemap 2026-11-02 to 2026-11-18; vercel.json,events,Adult Dungeons & Dragons one-shot|Carbon Valley Regional Library,,
+/events/adult-dungeons-and-dragons-one-shot-adventures-2026-12-09/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Adult D&D One-shot Adventures|Carbon Valley Regional Library,,
+/events/adv-drama-performance-2026-12-04/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Adv Drama Performance|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/auditions-for-musical-frozen-jr-2026-12-15/,git in the content today; sitemap 2026-11-18 to 2026-11-18,events,"Auditions for Musical (Frozen Jr)|Thunder Valley K-8, 600 5th Street, Frederick",,
+/events/auditions-for-musical-frozen-jr-2026-12-16/,git in the content today,events,"Auditions for Musical (Frozen Jr)|Thunder Valley K-8, 600 5th Street, Frederick",,
+/events/band-festival-band-concert-2027-03-04/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Band - Festival Band Concert|Coal Ridge Middle School, 6201 Booth Drive, Firestone",,
+/events/band-festival-fall-band-concert-6th-grade-2027-03-04/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Band - Festival Fall Band Concert - 6th Grade|Coal Ridge Middle School, 6201 Booth Drive, Firestone",,
+/events/blood-drive-carbon-valley-recreation-center-2026-11-25/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Red Cross Blood Drive at the Rec Center|Carbon Valley Recreation Center,,
+/events/bubble-tea-social-2026-11-16/,git in the content today; sitemap 2026-10-20 to 2026-11-16; vercel.json,events,Bubble Tea Social for teens|Carbon Valley Regional Library,,
+/events/bundle-up-hats-scarves-mittens-and-winter-accessories-2026-12-07/,git deleted; retired.json; vercel.json (a rule today),events,"Bundle Up!! Hats, scarves, mittens & winter accessories|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-07), with no later date of its series; ledger: retired"
+/events/calendar.ics,vercel.json,events,,,
+/events/carbon-valley-holiday-festival-2026-12-05-2691/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,Carbon Valley Holiday Festival in Firestone|Miners Park,/events/carbon-valley-holiday-festival-2026-12-05/,"the same listing renamed (Town of Firestone calendar, event 2691): its page today. Firestone's festival at Miners Park, not Frederick's Festival of Lights"
+/events/carbon-valley-holiday-festival-2026-12-05/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Carbon Valley Holiday Festival|Miners Park,,
+/events/centennial-music-program-2027-03-11/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,"Centennial Music Program|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/centennial-state-ballet-excerpts-from-the-nutcracker-2026-12-05/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Centennial State Ballet: Nutcracker excerpts|Carbon Valley Regional Library,,
+/events/chat-with-a-trustee-2026-10-07/,git deleted; vercel.json (a rule today),events,Chat with a Trustee|Firestone Police Department and Municipal Court,gone,"one-time event on 2026-10-07, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/chat-with-a-trustee-2026-11-04/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,Chat with a Trustee|Firestone Police Department and Municipal Court,gone,"one-time event on 2026-11-04, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/chat-with-a-trustee-2026-12-02/,git deleted; vercel.json (a rule today),events,Chat with a Trustee|Firestone Police Department and Municipal Court,gone,"removed from the guide before its date, and no later date of its series is listed; the guide itself sent it to its events list"
+/events/choir-concert-2027-02-23/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Choir Concert|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/choir-concert-6th-grade-2027-03-09/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Choir Concert - 6th Grade|Coal Ridge Middle School, 6201 Booth Drive, Firestone",,
+/events/choir-concert-7th-8th-grade-2027-03-09/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Choir Concert - 7th/8th Grade|Coal Ridge Middle School, 6201 Booth Drive, Firestone",,
+/events/coal-ridge-middle-school-winter-band-concert-2026-12-10/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Coal Ridge Middle School Winter Band Concert|Coal Ridge Middle School,,
+/events/coal-ridge-middle-school-winter-choir-concert-2026-12-01/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Coal Ridge Middle School Winter Choir Concert|Coal Ridge Middle School,,
+/events/coal-ridge-middle-school-winter-orchestra-concert-2026-12-03/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Coal Ridge Middle School Winter Orchestra Concert|Coal Ridge Middle School,,
+/events/colorado-ghosts-and-vampire-tours-under-18-years-old-free-wi-2026-11-14/,git in the content today; sitemap 2026-11-13 to 2026-11-14,events,Colorado Ghosts & Vampire Tours - Under 18 years old Free with Gaurdian|Meco Coffee Collection,,
+/events/community-game-night-2026-11-12/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,Community Game Night|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/coptic-medieval-bookbinding-workshop-2026-12-05/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Coptic Medieval Bookbinding Workshop|Carbon Valley Regional Library,,
+/events/cpr-aed-basic-first-aid-class-2026-11-04/,git in the content today,events,"CPR, AED and Basic First Aid Class|Frederick-Firestone Fire District Administrative Office",,
+/events/create-with-canva-2026-11-18/,git in the content today; sitemap 2026-10-20 to 2026-11-18; vercel.json,events,Create with Canva|Carbon Valley Regional Library,,
+/events/creepy-crawly-creatures-2026-10-19/,git deleted; sitemap 2026-10-18 to 2026-10-20; vercel.json (a rule today),events,"Creepy, Crawly Creatures|Fort Lupton Public & School Library",https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/deck-the-halls-wear-red-green-silver-or-gold-2026-11-30/,git deleted; retired.json; vercel.json (a rule today),events,"Deck the Halls- Wear red, green, silver or gold!|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-11-30), with no later date of its series; ledger: retired"
+/events/decorative-mandala-tote-bag-2026-11-04/,git in the content today,events,Decorative Mandala Tote Bag|Carbon Valley Regional Library,,
+/events/dia-de-los-muertos-2026-11-02/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-26; vercel.json (a rule today),events,Día de los Muertos|Fort Lupton Public & School Library — Public Branch,gone,"retired from the guide before its date (2026-11-02), with no later date of its series; ledger: retired"
+/events/dia-de-los-muertos-day-of-the-dead-celebration-2026-11-02/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,Día de los Muertos | Day of the Dead Celebration|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/dia-de-los-muertos-ofrenda-viewing-night-2026-10-24/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-26; vercel.json (a rule today),events,Día de los Muertos Ofrenda Viewing Night|Fort Lupton Public & School Library,gone,"retired from the guide before its date (2026-10-24), with no later date of its series; ledger: retired"
+/events/dmv2go-2026-12-01/,git deleted; sitemap 2026-11-02 to 2026-11-02; vercel.json (a rule today),events,DMV2GO|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/drug-take-back-day-2026-10-24/,git deleted; sitemap 2026-10-18 to 2026-10-24; vercel.json (a rule today),events,Drug Take Back Day|Firestone Police Department,gone,"one-time event on 2026-10-24, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/election-day-2026-11-03/,git in the content today,events,Election Day: vote or drop your ballot at the Carbon Valley Recreation Center|Carbon Valley Recreation Center,,
+/events/empty-bowls-fundraiser-2026-11-14/,git in the content today; sitemap 2026-11-13 to 2026-11-14,events,Empty Bowls Fundraiser for the Carbon Valley Help Center|Frederick High School,,
+/events/empty-bowls-painting-party-2026-10-12/,git deleted; vercel.json (a rule today),events,Empty Bowls Painting Party|Carbon Valley Community Center,gone,"one-time event on 2026-10-12, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/fall-babysitting-class-2026-11-07/,git in the content today,events,Fall Babysitting Class|Frederick-Firestone Fire District Administration Building,,
+/events/family-health-plate-2026-11-30/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,Family Health Plate|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/festival-of-lights-2026-12-05/,git formerSlugs of festival-of-lights; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,Festival of Lights|Crist Park,https://insidethetowns.com/carbon-valley/frederick-festival-of-lights/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/festival-of-lights/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Festival of Lights|Crist Park,https://insidethetowns.com/carbon-valley/frederick-festival-of-lights/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/fhs-tvk8-crms-concert-2026-12-08/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"FHS/TVK8/CRMS Concert|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/fhs-tvk8-crms-concert-2027-03-01/,git in the content today,events,"FHS/TVK8/CRMS Concert|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/fhs-tvk8-crms-orchestra-concert-2026-11-10/,git in the content today,events,"FHS/TVK8/CRMS Orchestra Concert|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/firestone-art-and-music-show-2026/,git deleted; sitemap 2026-10-18 to 2026-10-22; vercel.json (a rule today),events,Firestone Art & Music Show|Carbon Valley Regional Library,gone,"one-time show that ended on 2026-10-22, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/first-friday-at-the-miners-memorial-museum-2026-11-06/,git in the content today,events,"First Friday at the Miners Memorial Museum|Miners Memorial Museum, Crist Park",,
+/events/first-friday-at-the-miners-memorial-museum-2026-12-04/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"First Friday at the Miners Memorial Museum|Miners Memorial Museum, Crist Park",,
+/events/flannel-and-frost-wear-you-favorite-flannel-or-plaid-2026-12-14/,git deleted; retired.json; vercel.json (a rule today),events,"Flannel & Frost - Wear you favorite flannel or Plaid|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-14), with no later date of its series; ledger: retired"
+/events/frights-on-fifth-2026-10-17/,git deleted; retired.json; vercel.json (a rule today),events,Frights on Fifth|Downtown Frederick,gone,"retired from the guide before its date (2026-10-17), with no later date of its series; ledger: retired"
+/events/from-features-to-fiction-dan-jorgensen-2026-12-13/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,From Features to Fiction: author Dan Jorgensen|Carbon Valley Regional Library,,
+/events/ftl-closed-for-veterans-day-2026-11-11/,git deleted; sitemap 2026-10-29 to 2026-11-02; vercel.json (a rule today),events,FTL Closed for Veterans Day|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/ftl-closing-early-2026-11-25/,git deleted; sitemap 2026-11-02 to 2026-11-02; vercel.json (a rule today),events,FTL CLOSING EARLY|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/genealogy-presentation-saying-goodbye-our-ancestors-traditio-2026-10-21/,git deleted; sitemap 2026-10-18 to 2026-10-21; vercel.json (a rule today),events,Genealogy Presentation: Saying Goodbye: Our Ancestors’ Traditions of Death and Dying|Carbon Valley Regional Library,gone,"one-time event on 2026-10-21, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/girls-basketball-tournament-2026-12-03/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Girls Basketball Tournament|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/girls-basketball-tournament-2026-12-04/,git in the content today,events,"Girls Basketball Tournament|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/girls-basketball-tournament-2026-12-05/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Girls Basketball tournament|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/grinch-day-wear-green-or-dress-like-a-whoville-character-2026-12-10/,git deleted; retired.json; vercel.json (a rule today),events,"Grinch Day - wear green or dress like a Whoville character|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-10), with no later date of its series; ledger: retired"
+/events/halloween-dance-party-2026-10-30/,git deleted; sitemap 2026-10-18 to 2026-10-30; vercel.json (a rule today),events,Halloween Dance Party|Carbon Valley Regional Library,gone,"one-time event on 2026-10-30, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/halloween-nail-art-2026-10-21/,git deleted; sitemap 2026-10-18 to 2026-10-21; vercel.json (a rule today),events,Halloween Nail Art|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/halloween-pancake-breakfast-2026-10-31/,git deleted; sitemap 2026-10-18 to 2026-10-31; vercel.json (a rule today),events,Halloween Pancake Breakfast|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/halloween-safe-night-2026-10-23/,git deleted; sitemap 2026-10-18 to 2026-10-22; vercel.json (a rule today),events,Halloween Safe Night|Firestone Regional Sports Complex,gone,"one-time event on 2026-10-23, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/harvest-and-holly-market-2026-11-15/,git in the content today; sitemap 2026-10-18 to 2026-11-16; vercel.json,events,Harvest & Holly Market|Carbon Valley Recreation Center,,
+/events/holiday-card-making-class-2026-12-03/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Holiday Card Making Class|Carbon Valley Regional Library,,
+/events/holiday-ceramic-coasters-2026-12-09/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Holiday Ceramic Coasters|Carbon Valley Regional Library,,
+/events/holiday-color-wars-6th-grade-merry-red-7th-grade-grinch-gree-2026-12-15/,git deleted; retired.json; vercel.json (a rule today),events,"Holiday Color Wars - 6th Grade Merry Red - 7th Grade Grinch Green - 8th Grade Winter Blue|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-15), with no later date of its series; ledger: retired"
+/events/holiday-food-drive-2026-11-21/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Holiday Food Drive|King Soopers Silverstone Marketplace,,
+/events/holiday-hits-dress-like-a-holiday-singer-or-wear-a-festive-b-2026-12-11/,git deleted; retired.json; vercel.json (a rule today),events,"Holiday Hits - Dress like a Holiday singer or wear a festive band tee|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-11), with no later date of its series; ledger: retired"
+/events/holiday-movie-magic-dress-as-your-favorite-holiday-movie-cha-2026-12-04/,git deleted; retired.json; vercel.json (a rule today),events,"Holiday Movie Magic - Dress as your favorite holiday movie character|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-04), with no later date of its series; ledger: retired"
+/events/holiday-nails-harvest-edition-2026-11-18/,git deleted; sitemap 2026-10-20 to 2026-11-02; vercel.json (a rule today),events,Holiday Nails: Harvest Edition|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/holiday-princess-tea-and-concert-2026-12-12/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Holiday Princess Tea & Concert|Magical Moments,,
+/events/holiday-spirit-explosion-go-all-out-with-your-most-festive-o-2026-12-18/,git deleted; retired.json; vercel.json (a rule today),events,"Holiday Spirit Explosion - Go all out with your most festive outfit!|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-18), with no later date of its series; ledger: retired"
+/events/holiday-tree-pavlova-2026-12-06/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Holiday Tree Pavlova|Carbon Valley Regional Library,,
+/events/improv-for-teens-2026-10-10/,git deleted; vercel.json (a rule today),events,Improv for Teens|Carbon Valley Regional Library,gone,"one-time event on 2026-10-10, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/kids-winter-coat-clothing-swap-2026-11-02/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,Kids Winter Coat/Clothing Swap|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/la-posada-and-loteria-celebration-2026-12-08/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,La Posada + Lotería Celebration|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/leaf-drop-off-event-2026-11-06/,git deleted; sitemap 2026-11-02 to 2026-11-02; vercel.json (a rule today),events,Leaf Drop-Off Event|Firestone Maintenance Facility,gone,"one-time event on 2026-11-06, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/leaf-drop-off-event-2026-11-13/,git deleted; vercel.json (a rule today),events,Leaf Drop-Off Event|Firestone Maintenance Facility,gone,"one-time event on 2026-11-13, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/leaf-drop-off-event-2026-11-20/,git deleted; vercel.json (a rule today),events,Leaf Drop-Off Event|Firestone Maintenance Facility,gone,"removed from the guide before its date, and no later date of its series is listed; the guide itself sent it to its events list"
+/events/leaf-drop-off-event-2026-12-04/,git deleted; vercel.json (a rule today),events,Leaf Drop-Off Event|Firestone Maintenance Facility,gone,"removed from the guide before its date, and no later date of its series is listed; the guide itself sent it to its events list"
+/events/low-sensory-blue-heart-social-2026-11-07/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,Low-Sensory Blue Heart Social|Firestone Police Department & Municipal Court Building,gone,"one-time event on 2026-11-07, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/mariachi-concert-2026-12-09/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Mariachi Concert|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/medieval-garb-workshop-2026-11-07/,git in the content today; sitemap 2026-10-18 to 2026-11-02; vercel.json,events,Medieval Garb Workshop|Carbon Valley Regional Library,,
+/events/murder-at-shade-hallow-manor-2026-10-27/,git deleted; sitemap 2026-10-18 to 2026-10-27; vercel.json (a rule today),events,Murder at Shade Hallow Manor|Carbon Valley Regional Library,gone,"one-time event on 2026-10-27, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/musical-callbacks-2026-12-17/,git in the content today; sitemap 2026-11-18 to 2026-11-18,events,"Musical Callbacks|Thunder Valley K-8, 600 5th Street, Frederick",,
+/events/national-coffee-with-a-cop-day-2026-10-07/,git deleted; vercel.json (a rule today),events,National Coffee with a Cop Day|Chick-fil-A in Firestone,gone,"one-time event on 2026-10-07, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/one-acts-festival-2027-02-06/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"One Acts Festival|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/orchestra-3rd-quarter-concert-6th-grade-2027-03-02/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Orchestra - 3rd Quarter Concert 6th Grade|Coal Ridge Middle School, 6201 Booth Drive, Firestone",,
+/events/orchestra-3rd-quarter-concert-7th-8th-grade-2027-03-02/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Orchestra - 3rd Quarter Concert 7th/8th Grade|Coal Ridge Middle School, 6201 Booth Drive, Firestone",,
+/events/orchestra-concert-2027-03-02/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Orchestra Concert|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/pie-potluck-social-2026-11-20/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Pie Potluck Social|Active Adults & Community Center,,
+/events/pumpkinfest-and-hayrides-2026-10-10/,git deleted; vercel.json (a rule today),events,Pumpkinfest & Hayrides|Historic Fort Lancaster (South Platte Valley Historic Park),https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/reel-talk-2026-10-27/,git deleted; sitemap 2026-10-18 to 2026-10-27; vercel.json (a rule today),events,Reel Talk!|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/reel-talk-2026-11-17/,git deleted; sitemap 2026-10-29 to 2026-11-02; vercel.json (a rule today),events,Reel Talk!|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/reindeer-games-antlers-brown-red-noses-or-reindeer-gear-2026-12-09/,git deleted; retired.json; vercel.json (a rule today),events,"Reindeer Games - Antlers, brown, red noses or reindeer gear|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-09), with no later date of its series; ledger: retired"
+/events/resume-and-job-search-help-2026-11-18/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,Resume and Job Search Help|Carbon Valley Regional Library,,
+/events/resume-and-job-search-help-2026-11-19/,git in the content today,events,Resume and Job Search Help|Carbon Valley Regional Library,,
+/events/resume-and-job-search-help-2026-12-16/,git in the content today,events,Resume and Job Search Help|Carbon Valley Regional Library,,
+/events/santa-s-workshop-dress-as-santa-an-elf-or-a-helper-2026-12-03/,git deleted; retired.json; vercel.json (a rule today),events,"Santa's Workshop - Dress as Santa an elf or a helper|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-03), with no later date of its series; ledger: retired"
+/events/school-s-out-standing-paint-the-plows-2026-10-16/,git deleted; vercel.json (a rule today),events,School's Out-Standing: Paint The Plows|Mountain Shadows Park,gone,"one-time event on 2026-10-16, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/sipping-and-socializing-how-tea-has-guided-social-interactio-2026-10-24/,git deleted; sitemap 2026-10-18 to 2026-10-24; vercel.json (a rule today),events,Sipping & Socializing: How Tea Has Guided Social Interaction|Carbon Valley Regional Library,gone,"one-time event on 2026-10-24, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/soaring-singers-concert-2026-12-07/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Soaring Singers Concert|Thunder Valley K-8,,
+/events/socks-and-sweats-rock-your-favorite-sweats-and-fun-festive-s-2026-12-01/,git deleted; retired.json; vercel.json (a rule today),events,"Socks & Sweats - Rock your favorite sweats & fun festive socks|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-01), with no later date of its series; ledger: retired"
+/events/splash-the-pumpkin-pool-and-movie-party-2026-10-16/,git deleted; vercel.json (a rule today),events,Splash the Pumpkin Pool & Movie Party|Fort Lupton Recreation Center,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/story-time-at-the-firehouse-2026-11-05/,git in the content today,events,Story Time at the Firehouse|Frederick-Firestone Fire District Station 4,,
+/events/sweet-traditions-holiday-candy-making-workshop-2026-11-15/,git in the content today; sitemap 2026-11-14 to 2026-11-16,events,Sweet Traditions: Holiday Candy Making Workshop|Carbon Valley Regional Library,,
+/events/teen-dungeons-and-dragons-2026-11-03/,git in the content today; sitemap 2026-10-18 to 2026-11-02; vercel.json,events,Teen Dungeons & Dragons|Carbon Valley Regional Library,,
+/events/teen-dungeons-and-dragons-2026-12-01/,git in the content today; sitemap 2026-11-13 to 2026-11-18; vercel.json,events,Teen Dungeons & Dragons|Carbon Valley Regional Library,,
+/events/teen-dungeons-and-dragons-one-shot-2026-12-05/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Teen Dungeons & Dragons One-shot|Carbon Valley Regional Library,,
+/events/teen-laser-tag-2026-10-30/,git deleted; sitemap 2026-10-18 to 2026-10-30; vercel.json (a rule today),events,Teen Laser Tag|Fort Lupton High School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/tinsel-and-bling-sparkles-sequins-and-anything-that-shines-2026-12-16/,git deleted; retired.json; vercel.json (a rule today),events,"Tinsel & Bling - Sparkles, Sequins & anything that shines|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-16), with no later date of its series; ledger: retired"
+/events/to-the-moon-teen-gaming-night-2026-10-22/,git deleted; sitemap 2026-10-18 to 2026-10-22; vercel.json (a rule today),events,To the Moon Teen Gaming Night|Fort Lupton Recreation Center,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/trick-or-treat-street-2026-10-31/,git deleted; sitemap 2026-10-18 to 2026-10-31; vercel.json (a rule today),events,"Trick-or-Treat Street|Downtown Fort Lupton, Denver Avenue and 4th Street",https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/trimble-sketchup-project-spectrum-3d-modelling-class-2026-10-17/,git deleted; vercel.json (a rule today),events,SketchUp Project Spectrum: 3D Modeling Class|Carbon Valley Regional Library,gone,"one-time event on 2026-10-17, passed, with no later date of its series (the guide's own rule sent it to /events/, a generic page)"
+/events/ugly-sweater-day-wear-your-funnies-tackiest-holiday-sweater-2026-12-17/,git deleted; retired.json; vercel.json (a rule today),events,"Ugly Sweater Day - Wear your funnies, tackiest holiday sweater!|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-17), with no later date of its series; ledger: retired"
+/events/unified-play-and-band-performance-2026-12-03/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Unified Play & Band Performance|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/varsity-blue-showcase-2027-02-26/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Varsity Blue Showcase|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/victorian-death-ritual-presentation-2026-10-22/,git deleted; sitemap 2026-10-18 to 2026-10-22; vercel.json (a rule today),events,Victorian Death Ritual Presentation|Fort Lupton Public & School Library,https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/wiggle-worms-yoga-storytime-2026-11-10/,git in the content today,events,Wiggle Worms: Yoga Storytime|Carbon Valley Regional Library,,
+/events/wiggle-worms-yoga-storytime-2026-12-08/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Wiggle Worms: Yoga Storytime|Carbon Valley Regional Library,,
+/events/winter-percussion-competition-2027-02-20/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Winter Percussion Competition|Frederick High School, 5690 Tipple Parkway, Frederick",,
+/events/winter-wonderland-wear-white-silver-and-icy-blue-2026-12-02/,git deleted; retired.json; vercel.json (a rule today),events,"Winter Wonderland - Wear white, silver & icy blue|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-02), with no later date of its series; ledger: retired"
+/events/winterfest-featuring-cookies-and-cocoa-with-santa-2026-12-05/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),events,"Winterfest featuring Cookies & Cocoa with Santa|Fort Lupton Public & School Library, then Fort Lupton Recreation Center",https://insidethetowns.com/fort-lupton/#traditions,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/#traditions
+/events/wrap-it-up-gift-inspired-colors-bows-and-ribbons-2026-12-08/,git deleted; retired.json; vercel.json (a rule today),events,"Wrap It Up - Gift-inspired colors, bows & ribbons|Coal Ridge Middle School, 6201 Booth Drive, Firestone",gone,"retired from the guide before its date (2026-12-08), with no later date of its series; ledger: retired"
+/families/,sitemap 2026-11-13 to 2026-11-18; vercel.json,page,,,
+/firestone/,sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),page,,/,the guide's own rule sends it to /
+/for-businesses/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/fort-lupton/,sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),page,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/frederick/,sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),page,,/,the guide's own rule sends it to /
+/get-involved/,sitemap 2026-11-13 to 2026-11-18; vercel.json,page,,,
+/guides/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/living-here/,sitemap 2026-11-13 to 2026-11-18; vercel.json,page,,,
+/moving-here/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/parks/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/places/,vercel.json (a rule today),page,,/directory/,the guide's own rule sends it to /directory/
+/places/a-natural-way/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/ace-hardware-of-fort-lupton/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/acupuncture-and-natural-medicine-center/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/bella-rosa-golf-course/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/blitz-paintball-and-airsoft/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/bulrush-open-space/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/cannery-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/carbon-valley-community-center/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/carbon-valley-gymnastics-center/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/carbon-valley-help-center/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/carbon-valley-recreation-center/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/carbon-valley-regional-library/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/centennial-field/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/centennial-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/central-park-disc-golf-and-dog-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/clem-dufour-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/coalridge-park/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/colorado-national-speedway/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/community-center-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/confluence-park/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/countryside-park/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/coyote-creek-golf-course/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/crist-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/erie-coffee-roasters-ecr-cafe/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/firestone-regional-sports-complex/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/firestone-trail/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/fort-lupton-city-museum/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/fort-lupton-dog-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/fort-lupton-public-and-school-library/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/frederick-firestone-fire-district/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/frederick-police-department/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/frederick-recreation-area/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/frederick-skate-park/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/frederick-town-hall/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/gabes-cafe/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/georgia-boys-bbq-smokehouse/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/hart-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/heritage-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/historic-denver-avenue/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/hounds-town-frederick/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/house-of-smoke/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/imi-motorsports/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/king-soopers-silverstone-marketplace/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/lancaster-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/legacy-trail/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/lucky-shot-sports-bar-and-grill/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/marcos-pizza-firestone/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/miners-memorial-museum/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/miners-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/mirror-image-brewing/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/mountain-shadows-bike-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/pearson-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/peppers-fireside-grille/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/railroad-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/raw-roots-juice-bar-and-cafe/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/saddleback-golf-club/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/safeway-colorado-blvd/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/salt-and-acres/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/santiagos/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/settlers-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/south-platte-valley-historic-park/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/southwest-weld-county-services-complex/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/st-vrain-state-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18; vercel.json,places,,,
+/places/walgreens-firestone-blvd/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/places/wholly-stromboli/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,https://insidethetowns.com/fort-lupton/,the guide's own rule sends it to https://insidethetowns.com/fort-lupton/
+/places/wing-shack-dacono/,git deleted; sitemap 2026-10-18 to 2026-11-02; vercel.json (a rule today),places,,/,the guide's own rule sends it to /
+/places/ziggis-coffee-frederick/,git in the content today; sitemap 2026-11-13 to 2026-11-18,places,,,
+/privacy/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/restaurants/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/rss.xml,vercel.json,page,,,
+/services/,sitemap 2026-11-13 to 2026-11-18,page,,,
+/shops/,sitemap 2026-11-13 to 2026-11-18,page,,,
+/sports/,sitemap 2026-10-22 to 2026-11-18; vercel.json,page,,,
+/sports/boys-basketball/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/boys-soccer/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/football/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/girls-basketball/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/softball/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/sports/volleyball/,sitemap 2026-10-26 to 2026-11-18,page,,,
+/submit-event/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/things-to-do/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/this-week/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/this-weekend/,sitemap 2026-10-18 to 2026-11-18; vercel.json,page,,,
+/traditions/,sitemap 2026-11-13 to 2026-11-18,page,,,
+/trails/,sitemap 2026-10-21 to 2026-11-02,page,,/things-to-do/,"the trails page of 21 October to 2 November 2026; its content is on Things to do, as on Inside Berthoud"
+/updates/,sitemap 2026-11-13 to 2026-11-18; vercel.json,page,,,
+/venues/,sitemap 2026-10-21 to 2026-11-18,page,,,

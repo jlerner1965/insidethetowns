@@ -49,7 +49,7 @@ import { Image, getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { pub } from '@/components/hub/pub';
-import { emailEditions, getHub, listsEvents, liveTowns } from '@/config';
+import { emailEditions, getHub, guideUrl, listsEvents, liveTowns } from '@/config';
 import { hubCountyLine } from '@/config/hub-towns';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
@@ -105,7 +105,6 @@ const records = await getTraditions();
 const pages = publishedHubTowns(records);
 const now = new Date();
 const todayKey = dayKey(now);
-const guideUrl = (t: { domain: string }) => `https://${t.domain}/`;
 
 /**
  * Every town a reader might type, each with its page (src/lib/hub-home.ts,
@@ -121,7 +120,7 @@ const finder = townFinder(
       name: t.name,
       href: guideUrl(t),
       covered: [
-        ...sections.map((s) => ({ name: s.label, href: `https://${t.domain}/${s.slug}/` })),
+        ...sections.map((s) => ({ name: s.label, href: guideUrl(t, `/${s.slug}/`) })),
         ...coveredTowns(t).map((name) => ({ name, href: guideUrl(t) })),
       ],
     };
@@ -222,7 +221,7 @@ const weekend = days.flatMap((d) => {
     items.push({
       label: `${guide.name} · Friday night lights`,
       title: row.title,
-      href: row.final || !listing ? `https://${guide.domain}${teamPath(school, team.key)}` : `https://${guide.domain}/events/${listing.slug}/`,
+      href: row.final || !listing ? guideUrl(guide, `${teamPath(school, team.key)}`) : guideUrl(guide, `/events/${listing.slug}/`),
       reasons: row.reasons,
       meta: row.meta,
       dot: school.colors?.primary,
@@ -240,7 +239,7 @@ const weekend = days.flatMap((d) => {
     items.push({
       label: category ? `${e.town.name} · ${category}` : e.town.name,
       title,
-      href: `https://${e.town.domain}/events/${e.slug}/`,
+      href: guideUrl(e.town, `/events/${e.slug}/`),
       reasons,
       // "Free" is said once, as the reason, where it is one; any other cost as a row can carry it,
       // "From $70" for a line of every ticket price (src/lib/cost.ts, shortCost). The listing's page has it whole.
@@ -268,7 +267,7 @@ const scores = live
       return [{
         // "Johnstown Roosevelt Roughriders": the town first where the school's name does not carry it, as its pages' titles have it.
         name: [s.place, schoolTeamName(s)].filter(Boolean).join(' '),
-        href: `https://${t.domain}${sportsPath(s)}`,
+        href: guideUrl(t, `${sportsPath(s)}`),
         result: `${last.team.name} ${RESULT_WORD[last.game.result].toLowerCase()} ${outcome(last.game)}`,
         date: last.game.date,
         day: formatDayShort(gameDay(last.game)),
@@ -311,7 +310,7 @@ const news = newsItems(
       title: c.data.title,
       // One line: the summary's first sentence, as a card shows it.
       line: shorten(firstSentence(c.data.summary) || c.data.summary, 170),
-      href: `https://${c.town.domain}/updates/#${c.slug}`,
+      href: guideUrl(c.town, `/updates/#${c.slug}`),
       date: dayKey(c.data.published),
       until: dayKey(expiresOn(c)),
       source: changeSourceText(c.data),

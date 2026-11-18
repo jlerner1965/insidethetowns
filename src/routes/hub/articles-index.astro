@@ -21,7 +21,7 @@
  * headlines are set in the `headline` utility (src/styles/global.css).
  */
 import Page from '@/layouts/Page.astro';
-import { getHub } from '@/config';
+import { getHub, guideUrl } from '@/config';
 import { getCuriosity, getNetworkEntries } from '@/lib/content';
 import { dayKey, formatDate, parseLocal } from '@/lib/dates';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
@@ -52,7 +52,7 @@ const hubArticles: Row[] = newestFirst((await getCuriosity()).map((a) => a.data)
 });
 const guideArticles: Row[] = (await getNetworkEntries('articles')).map((a) => ({
   title: a.data.title,
-  href: `https://${a.town.domain}/articles/${a.slug}/`,
+  href: guideUrl(a.town, `/articles/${a.slug}/`),
   eyebrow: [a.town.name, a.data.category].filter(Boolean).join(' · '),
   place: a.town.name,
   subject: a.data.category || 'More',

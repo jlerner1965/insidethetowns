@@ -42,11 +42,13 @@ import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPat
 import { dayKey, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
 import { bigGame, coming, gameDay as day, latestResult, pageSeasonLabel, postseasonSource, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, latestAwaiting, seasonComplete, sportsFullTitle, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { pagePath } from '@/lib/section';
 
 const town = getTown();
 // Every town's file is in the bundle; the route exists only for towns in the config.
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
-const slug = Astro.url.pathname.match(/^\/sports\/([^/]+)\/?$/)?.[1];
+// The page's own path, as the guide knew it (a section of the hub carries the town's prefix).
+const slug = pagePath(Astro.url).match(/^\/sports\/([^/]+)\/?$/)?.[1];
 const cfg = schoolSportsFor(town.slug, slug);
 if (!cfg) throw new Error(`No school is configured for ${Astro.url.pathname} on ${town.slug} (src/config/school-sports.ts)`);
 const schools = schoolsFor(town.slug);

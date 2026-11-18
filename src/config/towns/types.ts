@@ -298,7 +298,21 @@ export interface TownConfig {
    * /<town>/places/<slug>/, /<town>/guides/<slug>/ and
    * /<town>/events/<slug>/. The domain's own project stays redirect-only.
    */
-  section?: { mode: 'full' | 'pages'; since: string; /** A full section's Nearby block: the guides the folded guide named, as `neighbors` did. */ neighbors?: readonly string[] };
+  section?: {
+    mode: 'full' | 'pages';
+    since: string;
+    /** A full section's Nearby block: the guides the folded guide named, as `neighbors` did. */
+    neighbors?: readonly string[];
+    /**
+     * `all`: a guide moved whole (the seven of 4 January 2027;
+     * src/config/guide-move.ts). Every page is carried at its own path under
+     * /<town>/, the home page, This Week, updates and sports included, and
+     * the town stays `status: 'live'`: its newsletter, its weekly routine and
+     * its re-checks go on. Unset on the four sections of 17 November 2026,
+     * whose home page is the hub's town page.
+     */
+    carry?: 'all';
+  };
   /**
    * A live guide taken out of the weekly routine on the owner's word while
    * it is decided whether to keep it: the day it went quiet, the day to
@@ -329,6 +343,17 @@ export interface TownConfig {
   name: string;
   /** Production domain without protocol: "insidelyons.com" */
   domain: string;
+  /**
+   * Domains that forward to this guide and have no pages of their own:
+   * explorelyons.com (a domain on the insidelyons project, a 308 to
+   * insidelyons.com), insidefrederickco.com and insidefirestone.com (into
+   * Carbon Valley). Once the guide's switch is on (src/config/guide-move.ts)
+   * each is answered like the guide's own domain: every path to
+   * api/legacy.ts, from the guide's map, one hop to the matching hub page,
+   * the section's home where there is none. Until then they forward as
+   * they do today.
+   */
+  formerDomains?: readonly string[];
   /** "Inside Lyons" */
   siteTitle: string;
   /** One sentence. Shown in the meta description and the footer. */
@@ -617,6 +642,15 @@ export interface HubConfig {
    * the page moves through those states on its own.
    */
   analyticsSince?: string;
+  /**
+   * Plausible Analytics on every page the hub serves: its own and every
+   * section's under /<town>/ (the folded guides' and, once switched, the
+   * seven moved guides'), all counted under the hub's `domain`, which has to
+   * be a site in Plausible's dashboard or the events are dropped there. The
+   * same tracker and options as a guide's (TownConfig.plausible); a town's
+   * figures are its pages under /<town>/ (src/config/index.ts, plausibleDomain).
+   */
+  plausible?: boolean;
   /**
    * What a placement costs. Absent until there are numbers to stand behind,
    * and /advertise/ invites a founding-partnership conversation until then.

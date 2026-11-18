@@ -155,6 +155,14 @@ One wrong fact costs more than ten missing ones.
   night: places set aside, possible closures and blocked reads (each with
   its confirm-place command), dates the watch read but did not write,
   dates unconfirmed three weeks out, roundups due with dates missing.
+- The seven standalone guides move whole into insidethetowns.com, each on
+  a switch of its own (`src/config/guide-move.ts`). On: the guide is a
+  section at `/<town>/` with every page it had, under its own name, built
+  from its content on every hub build, and its domain answers every address
+  it ever published with one 301 or a documented 410 from a map made in the
+  same build. Off: the guide is served exactly as before. Its newsletter,
+  its Thursday email, its Wednesday runs and the nightly re-checks go on
+  either way; every link in the network follows the switch.
 - Corrections are shown, not silently fixed: a change found late is a
   correction with both dates, never the week's news.
 - A called-off or moved event stays on its day with the word beside it.

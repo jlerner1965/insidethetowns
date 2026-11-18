@@ -18,12 +18,13 @@ import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPat
 import { dayKey, formatShortDate, parseLocal } from '@/lib/dates';
 import { coming, hasData, leaguePlace, postseasonSource, schoolCssVars, latestAwaiting, seasonComplete, seasonOf, sportsDataFor, sportsFullTitle, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { pagePath } from '@/lib/section';
 
 const town = getTown();
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
 const schools = schoolsFor(town.slug);
 // /sports/football/ on a town with one school; /sports/<slug>/football/ with several.
-const m = Astro.url.pathname.match(/^\/sports\/(?:([^/]+)\/)?([^/]+)\/?$/);
+const m = pagePath(Astro.url).match(/^\/sports\/(?:([^/]+)\/)?([^/]+)\/?$/);
 const slug = schools.length > 1 ? m?.[1] : undefined;
 const key = m?.[2];
 const cfg = schoolSportsFor(town.slug, slug);

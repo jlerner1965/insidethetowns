@@ -10,6 +10,8 @@ export const lyons: TownConfig = {
   slug: 'lyons',
   name: 'Lyons',
   domain: 'insidelyons.com',
+  // explorelyons.com and its www are domains on this project, each a 308 to insidelyons.com (DEPLOY.md); with the switch on they answer from the map.
+  formerDomains: ['explorelyons.com'],
   siteTitle: 'Inside Lyons',
   tagline: 'An independent guide to Lyons, Colorado: the river, the trails, the music, and what it’s like to live at the canyon mouth.',
   shortTagline: 'Sandstone, the river, and a music festival',

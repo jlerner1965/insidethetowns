@@ -385,7 +385,9 @@ hand from the Actions tab. GitHub starts scheduled runs late, five to six
 hours late through early October 2026, and sometimes not at all. Before it
 fires, the run waits until `main`'s latest commit is over 30 minutes old,
 because that age is how the Ignored Build Step tells a rebuild from a push. Adding a town later means adding its line to that secret;
-nothing else. **The run fails until that line exists**: it reads the live
+nothing else. A guide moved into the hub (`src/config/guide-move.ts`) comes
+off the list: its project is a redirect project, and `node
+scripts/live-towns.ts --moved` names the lines to remove. **The run fails until that line exists**: it reads the live
 sites from the configs (`node scripts/live-towns.ts`) and reports any live
 town without a hook as an error, because a live town that is never rebuilt
 is a site whose past events never drop off.
@@ -397,6 +399,56 @@ Note that GitHub disables scheduled workflows in a repository with no activity
 for sixty days. The pages are built not to depend on the schedule (see
 DECISIONS.md, "Staying current without a server"), but if the Actions tab shows
 no recent runs, that is why.
+
+## Moving a guide into the hub (the cutover switches)
+
+The seven standalone guides (Berthoud, Erie, Johnstown, Windsor, Carbon
+Valley, Lyons, Niwot) each have a switch in `src/config/guide-move.ts`,
+`false` or the day the guide was cut over. Nothing else changes between a
+guide and its section: everything the move does is read from the switch.
+
+**To switch one on** (a Friday, after the Thursday email has sent; Johnstown
+first, then the other six the same day, on the owner's word):
+
+1. Write the day on its line: `johnstown: '2026-12-04',`.
+2. `node scripts/fold-rules.ts --write`: vercel.json drops the guide's own
+   rules and adds the rewrite that sends every path on its domain to
+   `api/legacy.ts`; the hub's `/<town>/` rule goes, since that is now the
+   section's home; the rules of a retired domain that forwards onto the
+   guide (insideseverance.com, insidefrederickco.com, insidefirestone.com)
+   follow it onto the hub.
+3. `npm test`, commit, push, merge. Every project deploys: the hub builds
+   the guide's section at `/<town>/` from its content; the guide's own
+   project becomes a redirect project (no site, one 404 page, the function
+   and its map, made from the same content in the same build) and from then
+   on builds only when its redirect files or its content change
+   (`scripts/vercel-ignore.sh`).
+4. `node scripts/migration/check-production.ts --moved=<slug>` against the
+   live domain (it needs the guide's section build at `.sections/<slug>/`,
+   which `TOWN=hub npm run build` leaves): every mapped address 301s to its
+   page in one hop or answers 410, and the sitemap and robots.txt answer 200.
+5. **Lyons only**: in the `insidelyons` project, Settings → Domains, change
+   `explorelyons.com` and `www.explorelyons.com` from "Redirect to
+   insidelyons.com" to plain domains of the project, so the rewrite in
+   vercel.json answers them (one hop to the hub) instead of the 308 that
+   would add a hop. `formerDomains` on a guide's config names such domains;
+   Frederick's and Firestone's are on their own projects and need no change.
+6. Remove the guide's line from the `VERCEL_DEPLOY_HOOKS` secret:
+   `node scripts/live-towns.ts --moved` names them. The nightly rebuild warns
+   on each stale line until it is gone, and its hook is never fired again.
+
+**To switch one off**, write `false` on its line, run `fold-rules.ts
+--write` again, commit, push, merge: the guide's project builds the guide as
+before at its own domain, the hub builds no section for it and forwards
+`/<town>/` to it again, and its hook line goes back into the secret.
+**Never Vercel's Instant Rollback**: it turns off production domain
+auto-assignment, and the next deployment then does not take the domain.
+
+Previews: every project but `insidelyons` has preview deployments off, so
+the move is checked on a local production build (`GUIDE_MOVE_ON=all
+TOWN=hub npm run build`, then `GUIDE_MOVE_ON=all node
+scripts/migration/check-local.ts`); `GUIDE_MOVE_ON` is never read on Vercel,
+where a deployment's switches are exactly the file's.
 
 ## Weekly ingest and Thursday drafts
 

@@ -26,7 +26,7 @@ import { fileURLToPath } from 'node:url';
 import type { AstroIntegration } from 'astro';
 import type { SiteConfig } from '../config/towns/types';
 import { HUB_TOWNS, heroOf } from '../config/hub-towns.ts';
-import { getNetworkHub } from '../config/index.ts';
+import { allTowns, getNetworkHub, isMoved } from '../config/index.ts';
 
 const EXTENSIONS = 'jpg,jpeg,png,webp,avif,gif';
 const IMAGE = /\.(jpe?g|png|webp|avif|gif|svg)$/i;
@@ -56,7 +56,9 @@ export function siteImagePatterns(site: SiteConfig, root: string = process.cwd()
       const hero = heroOf(town);
       return hero?.folder && hero.folder !== 'hub' ? [file(hero.folder, hero.image)] : [];
     });
-    return [...new Set([folder('hub'), ...elsewhere, ...articlePhotos(root)])];
+    // A guide moved into the hub (src/config/guide-move.ts): its hero, for the share image of the tradition pages under its section.
+    const movedHeroes = allTowns.filter((t) => isMoved(t)).map((t) => file(t.slug, t.hero.image));
+    return [...new Set([folder('hub'), ...elsewhere, ...movedHeroes, ...articlePhotos(root)])];
   }
   const portraits = [getNetworkHub().editor?.photo, site.about?.photo].filter((name): name is string => !!name);
   return [...new Set([folder(site.slug), ...portraits.map((name) => file('hub', name))])];

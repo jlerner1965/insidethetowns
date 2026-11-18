@@ -64,6 +64,14 @@ export interface MergeOptions {
   hubDomain: string;
   /** The old event addresses with a tradition page on the hub (data/hub/fold-events.json): "/events/<slug>/" to "/<town>/<event>/". */
   events?: Readonly<Record<string, string>>;
+  /**
+   * A guide moved whole (`section.carry: 'all'`, src/config/guide-move.ts):
+   * its home page, This Week, This weekend, updates and its Every year page
+   * are carried at their own paths, not sent elsewhere, since the hub has no
+   * town page for it. An annual event's own page is not merged where the
+   * hub builds its tradition page (`events`): one page for one event.
+   */
+  carryAll?: boolean;
 }
 
 export interface MergeResult {
@@ -95,7 +103,7 @@ function served(file: string): string {
  * built where. Returns the path to write, or undefined for a dead link.
  * The query and the fragment ride along.
  */
-export function resolvePath(href: string, base: string, inSection: (path: string) => boolean, inHub: (path: string) => boolean, events: Readonly<Record<string, string>> = {}): string | undefined {
+export function resolvePath(href: string, base: string, inSection: (path: string) => boolean, inHub: (path: string) => boolean, events: Readonly<Record<string, string>> = {}, moved: ReadonlyArray<readonly [string, string]> = SECTION_MOVED): string | undefined {
   const at = href.search(/[?#]/);
   const path = at === -1 ? href : href.slice(0, at);
   const rest = at === -1 ? '' : href.slice(at);
@@ -103,7 +111,7 @@ export function resolvePath(href: string, base: string, inSection: (path: string
   if (path === base || path.startsWith(`${base}/`)) return href;
   if (path === '/') return `${base}/${rest}`;
   // A moved page's fragment names a section of a page that is gone; the query, where there is one, stays.
-  for (const [from, to] of SECTION_MOVED) if (path === from || path === from.replace(/\/$/, '')) return `${base}${to}${rest.startsWith('?') ? rest.split('#')[0] : ''}`;
+  for (const [from, to] of moved) if (path === from || path === from.replace(/\/$/, '')) return `${base}${to}${rest.startsWith('?') ? rest.split('#')[0] : ''}`;
   const slashed = path.endsWith('/') || /\.[a-z0-9]+$/i.test(path) ? path : `${path}/`;
   // An annual event's old address: its tradition page, before the section's own pages (the section builds none for it).
   if (events[slashed]) return `${events[slashed]}${rest}`;
@@ -116,9 +124,10 @@ const ATTR = /(\s(?:href|src|action|poster)=")(\/(?!\/)[^"]*)(")/g;
 const SRCSET = /(\s(?:srcset|imagesrcset)=")([^"]*)(")/g;
 
 /** Rewrites one file's text. `report` is told each dead link. */
-export function rewriteText(text: string, o: Pick<MergeOptions, 'base' | 'oldDomain' | 'hubDomain' | 'events'>, html: boolean, inSection: (path: string) => boolean, inHub: (path: string) => boolean, report: (link: string) => void): string {
+export function rewriteText(text: string, o: Pick<MergeOptions, 'base' | 'oldDomain' | 'hubDomain' | 'events' | 'carryAll'>, html: boolean, inSection: (path: string) => boolean, inHub: (path: string) => boolean, report: (link: string) => void): string {
+  const moved = o.carryAll ? [] : SECTION_MOVED;
   const go = (href: string): string => {
-    const to = resolvePath(href, o.base, inSection, inHub, o.events);
+    const to = resolvePath(href, o.base, inSection, inHub, o.events, moved);
     if (to === undefined) {
       report(href);
       // A dead link is sent to the hub's town page rather than left pointing at nothing.
@@ -147,7 +156,7 @@ export function rewriteText(text: string, o: Pick<MergeOptions, 'base' | 'oldDom
   out = out.replace(onHub, (m, path: string) => {
     const clean = path.split(/[?#]/)[0]!;
     if (clean === '/' || clean === o.base || clean.startsWith(`${o.base}/`) || inHub(clean.endsWith('/') || /\.[a-z0-9]+$/i.test(clean) ? clean : `${clean}/`)) return m;
-    const to = resolvePath(path.replace(/&amp;/g, '&'), o.base, inSection, inHub, o.events);
+    const to = resolvePath(path.replace(/&amp;/g, '&'), o.base, inSection, inHub, o.events, moved);
     return to === undefined ? m : `https://${o.hubDomain}${to.replace(/&/g, '&amp;')}`;
   });
   // The same, percent-encoded inside another address (the Google Calendar
@@ -160,9 +169,54 @@ export function rewriteText(text: string, o: Pick<MergeOptions, 'base' | 'oldDom
   return out;
 }
 
+/**
+ * The hub's own pages that name a moved guide's domain by hand (an article's
+ * link to its sports page, the moving guide's link to a Niwot update): each
+ * is rewritten to the guide's place on the hub, so no page of the hub links
+ * a domain that only redirects. `where` gives the hub path for a path on a
+ * moved domain, or undefined where the domain is no moved guide's
+ * (src/lib/moved-guides.ts, movedPath). Returns the files changed.
+ */
+export function rewriteMovedLinks(hub: string, hubDomain: string, domains: readonly string[], where: (domain: string, path: string) => string | undefined, dropped: Readonly<Record<string, string>> = {}): number {
+  if (!domains.length) return 0;
+  const hosts = domains.map((d) => d.replace(/\./g, '\\.')).join('|');
+  const absolute = new RegExp(`https?:(\\\\?/\\\\?/)(?:www\\.)?(${hosts})((?:\\\\?/[^\\s"'<>\\\\)]*)*)`, 'g');
+  // A section page the merge dropped for the hub's tradition page ("/windsor/events/windsor-wonderland/" to
+  // "/windsor/wonderland/"), linked by a hub page (a season's roundup) on the hub's origin or by path.
+  const droppedPaths = Object.keys(dropped).map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  const onHub = droppedPaths ? new RegExp(`(https://${hubDomain.replace(/\./g, '\\.')}|\\s(?:href|src)=")(${droppedPaths})`, 'g') : undefined;
+  let changed = 0;
+  const built = (to: string) => {
+    const p = to.split(/[?#]/)[0]!;
+    return existsSync(join(hub, p.endsWith('/') ? `${p}index.html` : p));
+  };
+  for (const file of walk(hub).filter((f) => TEXT.test(f))) {
+    // The archive of sent emails is a historical record: a link there follows the guide only where its page is built on the
+    // hub; the address of a listing that is over stays as sent, and the guide's domain answers it from its map.
+    const archive = /^(?:.*[\\/])?newsletter[\\/]/.test(relative(hub, file));
+    const text = readFileSync(file, 'utf8');
+    let out = onHub ? text.replace(onHub, (_m, lead: string, path: string) => `${lead}${dropped[path]}`) : text;
+    out = out.replace(absolute, (m, slashes: string, domain: string, tail: string) => {
+      const escaped = slashes.includes('\\');
+      const path = (escaped ? tail.replace(/\\\//g, '/') : tail) || '/';
+      const to = where(domain, path.replace(/&amp;/g, '&'));
+      if (!to || (archive && !built(to))) return m;
+      const url = `https://${hubDomain}${to.replace(/&/g, '&amp;')}`;
+      return escaped ? url.replace(/\//g, '\\/') : url;
+    });
+    if (out !== text) {
+      writeFileSync(file, out, 'utf8');
+      changed++;
+    }
+  }
+  return changed;
+}
+
 export function mergeSection(o: MergeOptions): MergeResult {
   if (!existsSync(o.from)) throw new Error(`section-merge: ${o.from} is not built.`);
-  for (const name of DROPPED) rmSync(join(o.from, name), { recursive: true, force: true });
+  for (const name of DROPPED) if (!(o.carryAll && name === 'index.html')) rmSync(join(o.from, name), { recursive: true, force: true });
+  // A moved guide's annual event with a tradition page on the hub: the tradition page stands for it (see `carryAll`).
+  if (o.carryAll) for (const path of Object.keys(o.events ?? {})) if (path.endsWith('/')) rmSync(join(o.from, path.slice(1)), { recursive: true, force: true });
   // public/ is copied into every build; what the hub already serves at the root is not served twice.
   const files = walk(o.from).map((f) => relative(o.from, f));
   const section = new Set(files.map(served));
@@ -178,7 +232,10 @@ export function mergeSection(o: MergeOptions): MergeResult {
     if (file === 'sitemap-0.xml') {
       // Served at the hub's root beside its own, and named in its index (below).
       sitemap = `sitemap-${o.base.slice(1)}.xml`;
-      writeFileSync(join(o.hub, sitemap), readFileSync(from, 'utf8'), 'utf8');
+      let xml = readFileSync(from, 'utf8');
+      // The annual events' own pages a moved guide's section does not carry (see `carryAll`) are not listed either.
+      if (o.carryAll) for (const path of Object.keys(o.events ?? {})) xml = xml.replace(new RegExp(`<url><loc>https://${o.hubDomain.replace(/\./g, '\\.')}${o.base}${path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</loc>.*?</url>`, 'g'), '');
+      writeFileSync(join(o.hub, sitemap), xml, 'utf8');
       continue;
     }
     const to = join(target, file);

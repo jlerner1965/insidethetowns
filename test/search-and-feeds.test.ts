@@ -47,7 +47,7 @@ const record = (over: Partial<TraditionRecord>) => ({ slug: 'x', name: 'X', type
 const ctx = (published: string[]): ShowingContext => ({
   hubDomain: 'insidethetowns.com',
   published: new Set(published),
-  guideDomain: (key) => (key === 'erie' ? 'insideerie.com' : undefined),
+  guideOrigin: (key) => (key === 'erie' ? 'https://insideerie.com' : undefined),
   guideName: (key) => key,
 });
 

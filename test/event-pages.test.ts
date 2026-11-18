@@ -28,7 +28,7 @@ function record(over: Partial<TraditionRecord> = {}): TraditionRecord {
   };
 }
 const published = new Set(['golden', 'estes-park']);
-const ctx: ShowingContext = { hubDomain: 'insidethetowns.com', published, guideDomain: (k) => (k === 'erie' ? 'insideerie.com' : undefined), guideName: (k) => k };
+const ctx: ShowingContext = { hubDomain: 'insidethetowns.com', published, guideOrigin: (k) => (k === 'erie' ? 'https://insideerie.com' : undefined), guideName: (k) => k };
 
 test('the address drops the town prefix from the slug: golden-candlelight-walk is /golden/candlelight-walk/', () => {
   assert.equal(eventSegment(record(), 'golden'), 'candlelight-walk');

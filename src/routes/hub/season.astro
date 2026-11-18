@@ -21,7 +21,7 @@ import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
 import DateCorrection from '@/components/DateCorrection.astro';
 import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
-import { findTown, getHub } from '@/config';
+import { findTown, guideOrigin, getHub } from '@/config';
 import { STANDALONE_GUIDES, findHubTown } from '@/config/hub-towns';
 import { eventPage, eventPath, firstFitting, homeOf, placeKey, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { getTraditions } from '@/lib/content';
@@ -45,7 +45,10 @@ const published = publishedHubTowns(records);
 const ctx: ShowingContext = {
   hubDomain: hub.domain,
   published: new Set(published.map((t) => t.slug)),
-  guideDomain: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.domain,
+  guideOrigin: (key) => {
+    const guide = findTown(STANDALONE_GUIDES[key]?.guide ?? '');
+    return guide && guideOrigin(guide);
+  },
   guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
 };
 /** Every other place the record shows: the town pages and the guides. */

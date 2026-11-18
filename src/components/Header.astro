@@ -19,7 +19,7 @@
  * usual way to do this and it puts every link in the page twice, which is
  * duplicate anchor text on four hundred pages and two things to keep in step.
  */
-import { editionFor, emailEditions, getNetworkHub, getSite, hubNeighborsOf, liveTowns, neighborsOf } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getSite, guideUrl, hubNeighborsOf, liveTowns, neighborsOf } from '@/config';
 import { getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import Wordmark from './Wordmark.astro';
@@ -177,7 +177,7 @@ const wide = hubRow ? '(min-width: 66.25rem)' : undefined;
                       <ul class="mt-2 grid gap-1">
                         {nearby.map((t) => (
                           <li>
-                            <a href={`https://${t.domain}/`} class="inline-block py-1.5 text-[0.9375rem] font-medium text-ink no-underline hover:text-primary hover:underline">{t.siteTitle}</a>
+                            <a href={guideUrl(t)} class="inline-block py-1.5 text-[0.9375rem] font-medium text-ink no-underline hover:text-primary hover:underline">{t.siteTitle}</a>
                           </li>
                         ))}
                         {nearbyOnHub.map((t) => (

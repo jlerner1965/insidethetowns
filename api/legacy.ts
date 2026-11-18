@@ -28,7 +28,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-type Table = Record<string, { page: string; paths: Record<string, string | 0>; sitemap?: string; sitemapIndex?: string }>;
+type Table = Record<string, { page: string; paths: Record<string, string | 0>; sitemap?: string; sitemapIndex?: string; /** A guide moved whole into the hub (scripts/migration/guide-map.ts), by its name. */ moved?: { name: string } }>;
 // Read beside this file, once per instance: the URL form is what Vercel's
 // file tracer follows, so the map ships with the function.
 // vercel.json's `functions` entry includes it (includeFiles), at the same
@@ -55,8 +55,12 @@ export const CACHE_HEADERS = {
   'Vercel-CDN-Cache-Control': 'public, max-age=86400',
 } as const;
 
-const GONE_HTML = (page: string, name: string) =>
-  `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>This page is gone</title><meta name="robots" content="noindex"><body style="font-family:system-ui,sans-serif;max-width:36rem;margin:3rem auto;padding:0 1rem;line-height:1.5"><h1>This page is gone</h1><p>It was on a guide that has closed, and there is no page on Inside the Towns that stands for it.</p><p><a href="${page}">${name}: annual events and outdoor dates</a></p></body></html>`;
+const GONE_HTML = (page: string, name: string, moved?: { name: string }) =>
+  `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>This page is gone</title><meta name="robots" content="noindex"><body style="font-family:system-ui,sans-serif;max-width:36rem;margin:3rem auto;padding:0 1rem;line-height:1.5"><h1>This page is gone</h1>${
+    moved
+      ? `<p>It was on ${moved.name}, which is now part of Inside the Towns. What it listed is over, and there is no page that stands for it.</p><p><a href="${page}">${moved.name}</a></p>`
+      : `<p>It was on a guide that has closed, and there is no page on Inside the Towns that stands for it.</p><p><a href="${page}">${name}: annual events and outdoor dates</a></p>`
+  }</body></html>`;
 
 /** The host the reader asked for, without its www. */
 export function hostOf(headers: Headers): string {
@@ -98,7 +102,7 @@ export function answer(host: string, pathname: string, search = ''): Response {
   const found = lookup(entry, pathname);
   if (found === 0) {
     const name = decodeURIComponent(entry.page.split('/').filter(Boolean).pop()!).replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-    return new Response(GONE_HTML(entry.page, name), { status: 410, headers: { 'Content-Type': 'text/html; charset=utf-8', ...cache } });
+    return new Response(GONE_HTML(entry.page, name, entry.moved), { status: 410, headers: { 'Content-Type': 'text/html; charset=utf-8', ...cache } });
   }
   return new Response(null, { status: 301, headers: { Location: withQuery(found ?? entry.page, search), ...cache } });
 }

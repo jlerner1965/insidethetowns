@@ -13,12 +13,12 @@
  * claiming it has no forms while showing one.
  */
 import Page from '@/layouts/Page.astro';
-import { getNetworkHub, getSite, listsEvents } from '@/config';
+import { getNetworkHub, getSite, listsEvents, plausibleDomain } from '@/config';
 import { PRIVACY_LINE } from '@/lib/privacy';
 
 const site = getSite();
 const hub = getNetworkHub();
-const plausible = site.kind === 'town' && site.plausible === true;
+const plausible = Boolean(plausibleDomain(site));
 const analytics = Boolean(site.ga4Id) || hub.analytics === true || plausible;
 const submitForm = Boolean(site.formspreeId);
 const newsletter = Boolean(hub.newsletter);

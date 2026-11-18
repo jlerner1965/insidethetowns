@@ -42,6 +42,13 @@ export const hub: HubConfig = {
   analytics: true,
   analyticsSince: '2026-09-19',
   /**
+   * Plausible on every hub page, sections included, counted as
+   * insidethetowns.com (the owner's review of #465, 18 November 2026): the
+   * folded and moved guides' visitor figures go on as their pages under
+   * /<town>/. The site has to exist in Plausible's dashboard.
+   */
+  plausible: true,
+  /**
    * Buttondown. emailField and tagField are left at their defaults ("email",
    * "tag"), which is what the account's own embed snippet uses. Town choice
    * rides as repeated `tag` fields, so a subscriber carries one tag per town

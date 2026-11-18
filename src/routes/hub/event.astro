@@ -21,17 +21,17 @@ import { getImage } from 'astro:assets';
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
 import DateCorrection from '@/components/DateCorrection.astro';
-import { findTown, getHub } from '@/config';
+import { findTown, guideOrigin, getHub } from '@/config';
 import { STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey, formatDate, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { checkedBy } from '@/lib/editor';
-import { eventPath, firstFitting, hubEventPages, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { eventPath, firstFitting, hubEventPages, pageTown, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { googleCalendarUrl } from '@/lib/ics';
 import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, excerptDescription, traditionEventJsonLd } from '@/lib/seo';
 import { titleTime, traditionTitle } from '@/lib/titles';
 import { hostOf } from '@/lib/hub-home';
-import { hubTownPhoto } from '@/lib/images';
+import { findSiteImage, hubTownPhoto } from '@/lib/images';
 import { certainTime, traditionCalendarEvent } from '@/lib/tradition-calendar';
 import { CURRENT_SEASONS, TRADITION_TYPE_INFO, isDated, isListed, nextRow, rowState, sourceLink, type TraditionYear } from '@/lib/traditions';
 import { hubReservedSegments } from '@/integrations/town-routes';
@@ -45,13 +45,17 @@ export async function getStaticPaths() {
 const hub = getHub();
 const records = await getTraditions();
 const record = records.find((r) => r.slug === Astro.props.slug)!;
-const town = findHubTown(Astro.params.town as string)!;
+// A hub town, or a guide moved into the hub, whose section is the town's page (src/lib/hub-towns.ts, pageTown).
+const town = pageTown(Astro.params.town as string)!;
 const published = publishedHubTowns(records);
 const today = dayKey(new Date());
 const ctx: ShowingContext = {
   hubDomain: hub.domain,
   published: new Set(published.map((t) => t.slug)),
-  guideDomain: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.domain,
+  guideOrigin: (key) => {
+    const guide = findTown(STANDALONE_GUIDES[key]?.guide ?? '');
+    return guide && guideOrigin(guide);
+  },
   guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
 };
 const path = eventPath(record, ctx.published)!;
@@ -115,7 +119,11 @@ const yearLine = (y: TraditionYear): string => {
 // The town's photograph where it has one (HubTown.hero), else its
 // share card (src/routes/hub/town-share.png.ts): the page's share image and
 // the Event's image, since a record has no photograph of its own.
-const photo = hubTownPhoto(town);
+// On a moved guide's section (src/config/guide-move.ts), the guide's own hero photograph, as its pages carry it.
+const hubTown = findHubTown(town.slug);
+const movedGuide = hubTown ? undefined : findTown(town.slug);
+const movedSrc = movedGuide ? findSiteImage(movedGuide.slug, movedGuide.hero.image) : undefined;
+const photo = hubTown ? hubTownPhoto(hubTown) : movedSrc && movedGuide ? { src: movedSrc, alt: movedGuide.hero.alt } : undefined;
 const shareImage = photo ? (await getImage({ src: photo.src, width: 1200, height: 630, format: 'jpg' })).src : `/share/${town.slug}.png`;
 const shareAlt = photo ? photo.alt : `${town.name}, Colorado: annual events and outdoor dates`;
 

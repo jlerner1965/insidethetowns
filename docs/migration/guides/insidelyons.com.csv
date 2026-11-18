@@ -1,0 +1,309 @@
+old_path,source,kind,key,decision,note
+/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/about/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/articles/,vercel.json (a rule today),page,,/guides/,the guide's own rule sends it to /guides/
+/articles/explore-lyons-in-walking-order/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/lyons-hikes-where-dogs-are-allowed/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/lyons-history-sandstone-railroad-river/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/lyons-with-kids/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/trails-and-the-river/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/articles/who-governs-lyons/,git in the content today; sitemap 2026-10-18 to 2026-11-18,articles,,,
+/bars-breweries/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/civic/,vercel.json (a rule today),page,,/articles/who-governs-lyons/,the guide's own rule sends it to /articles/who-governs-lyons/
+/coffee/,sitemap 2026-10-29 to 2026-11-18,page,,,
+/community/,vercel.json (a rule today),page,,/moving-here/,the guide's own rule sends it to /moving-here/
+/contact/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/corrections/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/credits/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/directory/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/eat-drink/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/eat-shop/,vercel.json (a rule today),page,,/eat-drink/,the guide's own rule sends it to /eat-drink/
+/editorial/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/events/,sitemap 2026-10-18 to 2026-11-18,events,,,
+/events/afternoon-art-2026-10-12/,git deleted; retired.json; vercel.json (a rule today),events,Afternoon Art|Lyons Regional Library,gone,"retired from the guide before its date (2026-10-12), with no later date of its series; ledger: retired"
+/events/afternoon-art-2026-11-09/,git deleted; retired.json; vercel.json (a rule today),events,Afternoon Art|Lyons Regional Library,gone,"retired from the guide before its date (2026-11-09), with no later date of its series; ledger: retired"
+/events/afternoon-art-2026-12-14/,git deleted; retired.json; vercel.json (a rule today),events,Afternoon Art|Lyons Regional Library,gone,"retired from the guide before its date (2026-12-14), with no later date of its series; ledger: retired"
+/events/aging-resources-library/,git deleted; retired.json; vercel.json (a rule today),events,Resources with the Boulder County Area Agency on Aging|Lyons Regional Library,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/alcohol-ink-tiles-2026-10-20/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-20; vercel.json (a rule today),events,Alcohol ink tiles|Lyons Regional Library,gone,"retired from the guide before its date (2026-10-20), with no later date of its series; ledger: retired"
+/events/apple-pressing-community-orchard/,git deleted; retired.json; vercel.json (a rule today),events,Apple pressing at the Lyons Community Orchard|Lyons Community Orchard,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/art-4-art-trading-cards-2026-09-19/,git deleted; retired.json; vercel.json (a rule today),events,Art-4-Art trading cards|Lyons Regional Library,gone,"retired from the guide before its date (2026-09-19), with no later date of its series; ledger: retired"
+/events/art-4-art-trading-cards-2026-10-17/,git deleted; retired.json; vercel.json (a rule today),events,"Art-4-Art trading cards|Lyons Regional Library, Effie Banta Room",,ledger: retired
+/events/art-4-art-trading-cards-2026-11-21/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,"Art-4-Art trading cards|Lyons Regional Library, Effie Banta Room",,
+/events/art-4-art-trading-cards-2026-12-19/,git in the content today,events,"Art-4-Art trading cards|Lyons Regional Library, Effie Banta Room",,
+/events/art-opening-at-mainstage-brewing-2026-11-06/,git in the content today; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,Art opening at MainStage Brewing|MainStage Brewing Company,,the guide's own rule sends it to /events/
+/events/art-opening-at-mainstage-brewing-2026-12-04/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,Art opening at MainStage Brewing|MainStage Brewing Company,,
+/events/art-opening-mainstage-2026-10-02/,git deleted; retired.json; vercel.json (a rule today),events,Art opening at MainStage Brewing|MainStage Brewing Company,,ledger: retired
+/events/arts-and-humanities-commission-meeting-2026-10-13/,git deleted; retired.json; vercel.json (a rule today),events,"Arts and Humanities Commission meeting|Lyons Regional Library, Effie Banta Room",,ledger: retired
+/events/arts-and-humanities-commission-meeting-2026-11-10/,git in the content today; sitemap 2026-10-18 to 2026-11-10,events,"Arts and Humanities Commission meeting|Lyons Regional Library, Effie Banta Room",,
+/events/arts-and-humanities-commission-meeting-2026-12-08/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,"Arts and Humanities Commission meeting|Lyons Regional Library, Effie Banta Room",,
+/events/baby-storytime-and-stay-and-play-2026-12-01/,git deleted; retired.json; vercel.json (a rule today),events,Baby storytime and stay-and-play|Lyons Regional Library,/events/baby-storytime-and-stay-and-play/,ledger: baby-storytime-and-stay-and-play
+/events/baby-storytime-and-stay-and-play/,git in the content today; sitemap 2026-10-21 to 2026-11-18,events,Baby storytime and stay-and-play|Lyons Regional Library,,
+/events/baby-storytime-library/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-20; vercel.json (a rule today),events,Baby storytime and stay-and-play|Lyons Regional Library,/events/baby-storytime-november/,ledger: baby-storytime-november
+/events/baby-storytime-november/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,"Baby storytime and stay-and-play|Lyons Regional Library, Community Room",,
+/events/beginner-ukulele-library/,git deleted; retired.json; vercel.json (a rule today),events,Beginning ukulele class|Lyons Regional Library,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/birds-of-prey-library/,git deleted; retired.json; vercel.json (a rule today),events,Birds of prey slideshow|Lyons Regional Library,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/blood-drive-2026-11-18/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Blood drive|Lyons Regional Library,,
+/events/bluegrass-pick-at-oskar-blues-2026-12-22/,git deleted; retired.json; vercel.json (a rule today),events,Bluegrass pick at Oskar Blues|Oskar Blues Grill & Brew,gone,"retired from the guide before its date (2026-12-22), with no later date of its series; ledger: retired"
+/events/bluegrass-pick-at-oskar-blues/,git deleted; retired.json; vercel.json (a rule today),events,Bluegrass pick at Oskar Blues|Oskar Blues Grill & Brew,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/bluegrass-pick-oskar-blues/,git deleted; retired.json; vercel.json (a rule today),events,Bluegrass pick at Oskar Blues|Oskar Blues Grill & Brew,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/board-of-trustees-2026-09-21/,git deleted; retired.json; vercel.json (a rule today),events,Board of Trustees meeting|Lyons Town Hall,,ledger: retired
+/events/board-of-trustees-2026-10-05/,git deleted; retired.json; vercel.json (a rule today),events,Board of Trustees meeting|Lyons Town Hall,,ledger: retired
+/events/board-of-trustees-2026-10-19/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-20; vercel.json (a rule today),events,Board of Trustees meeting|Lyons Town Hall,,ledger: retired
+/events/board-of-trustees-2026-11-02/,git in the content today; sitemap 2026-10-21 to 2026-11-02,events,Board of Trustees meeting|Lyons Town Hall,,
+/events/board-of-trustees-2026-11-16/,git in the content today; sitemap 2026-11-04 to 2026-11-16,events,Board of Trustees meeting|Lyons Town Hall,,
+/events/board-of-trustees-meeting-2026-12-07/,git in the content today; sitemap 2026-11-18 to 2026-11-18,events,Board of Trustees meeting|Lyons Town Hall,,
+/events/board-of-trustees-meeting-2026-12-21/,git in the content today,events,Board of Trustees meeting|Lyons Town Hall,,
+/events/boulder-phil-rock-unplugged-wildflower/,git deleted; retired.json; vercel.json (a rule today),events,"Rock Music: Unplugged, with the Boulder Philharmonic|Wildflower Pavilion, Planet Bluegrass",gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/coexisting-with-cougars-2026-10-17/,git deleted; retired.json; vercel.json (a rule today),events,Coexisting with Cougars|Hall Ranch,gone,"retired from the guide before its date (2026-10-17), with no later date of its series; ledger: retired"
+/events/colorado-annual-women-s-weekend-2026-10-02/,git deleted; retired.json; vercel.json (a rule today),events,Colorado Annual Women's Weekend|Lyons Classic Pinball,gone,"retired from the guide before its date (2026-10-02), with no later date of its series; ledger: retired"
+/events/colorado-death-care-panel/,git deleted; retired.json; vercel.json (a rule today),events,Colorado death care: logistics and legacy|Lyons Regional Library,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/comedy-night-at-spirit-hound-2026-12-18/,git deleted; retired.json; vercel.json (a rule today),events,Comedy night at Spirit Hound|Spirit Hound Distillers,gone,"retired from the guide before its date (2026-12-18), with no later date of its series; ledger: retired"
+/events/comedy-third-fridays-spirit-hound-2026-09-18/,git deleted; retired.json; vercel.json (a rule today),events,Comedy night at Spirit Hound|Spirit Hound Distillers,gone,"retired from the guide before its date (2026-09-18), with no later date of its series; ledger: retired"
+/events/comedy-third-fridays-spirit-hound-2026-10-16/,git deleted; retired.json; vercel.json (a rule today),events,Comedy night at Spirit Hound|Spirit Hound Distillers,gone,"retired from the guide before its date (2026-10-16), with no later date of its series; ledger: retired"
+/events/comedy-third-fridays-spirit-hound-2026-11-20/,git deleted; retired.json; vercel.json (a rule today),events,Comedy night at Spirit Hound|Spirit Hound Distillers,gone,"retired from the guide before its date (2026-11-20), with no later date of its series; ledger: retired"
+/events/community-meeting-for-prescribed-fire-projects-2026-11-14/,git in the content today; sitemap 2026-11-02 to 2026-11-14,events,Community Meeting for Prescribed Fire Projects|Lyons Regional Library,,
+/events/connect-for-health-colorado-and-hhsc-2026-11-11/,git in the content today; sitemap 2026-10-18 to 2026-11-11,events,Connect for Health Colorado and HHSC|Lyons Regional Library,,
+/events/country-music-explored-wildflower/,git in the content today; sitemap 2026-10-18 to 2026-11-04,events,"Country Music: Explored, with the Boulder Philharmonic|Wildflower Pavilion, Planet Bluegrass",,
+/events/creative-grounds-adult-beginning-wheel-wednesdays/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Adult beginning wheel throwing (five Wednesdays)|Creative Grounds,,
+/events/creative-grounds-adult-hand-building-thursdays/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Adult hand building (five Thursdays)|Creative Grounds,,
+/events/creative-grounds-all-ages-wheel-throwing-sundays/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,All-ages wheel throwing (five Sundays)|Creative Grounds,,
+/events/creative-grounds-fun-friday-ornament-making-2026-11-20/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Fun Friday ornament-making class|Creative Grounds,,
+/events/creative-grounds-fun-friday-ornament-making-2026-12-04/,git in the content today,events,Fun Friday ornament-making class|Creative Grounds,,
+/events/creative-grounds-fun-friday-ornament-making-2026-12-18/,git in the content today,events,Fun Friday ornament-making class|Creative Grounds,,
+/events/creative-grounds-fun-friday-sculpting-and-handbuilding-2026-11-06/,git in the content today; sitemap 2026-10-29 to 2026-11-07,events,Fun Friday sculpting and handbuilding class|Creative Grounds,,
+/events/creative-grounds-fun-friday-tray-making-2026-11-13/,git in the content today; sitemap 2026-10-29 to 2026-11-13,events,Fun Friday tray-making class|Creative Grounds,,
+/events/creative-grounds-fun-friday-tray-making-2026-12-11/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,Fun Friday tray-making class|Creative Grounds,,
+/events/creative-grounds-fun-friday-wheel-class/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Fun Friday wheel class for ages 14–21|Creative Grounds,,
+/events/creative-grounds-youth-wheel-throwing-saturdays/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,Youth wheel throwing (five Saturdays)|Creative Grounds,,
+/events/creative-movement-with-dandelion-arts-collective-2026-10-08/,git deleted; retired.json; vercel.json (a rule today),events,Creative movement with Dandelion Arts Collective|Lyons Regional Library,,ledger: retired
+/events/creative-movement-with-dandelion-arts-collective-2026-11-12/,git in the content today; sitemap 2026-10-18 to 2026-11-13,events,Creative movement with Dandelion Arts Collective|Lyons Regional Library,,
+/events/creative-movement-with-dandelion-arts-collective-2026-12-10/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,Creative movement with Dandelion Arts Collective|Lyons Regional Library,,
+/events/daniel-rodriguez-string-band-wildflower/,git deleted; retired.json; vercel.json (a rule today),events,"Daniel Rodriguez String Band at the Wildflower Pavilion|Wildflower Pavilion, Planet Bluegrass",gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/declaration-book-club-2026-11-03/,git in the content today; sitemap 2026-10-18 to 2026-11-04,events,Declaration book club|Lyons Regional Library,,
+/events/declaration-book-club-2026-12-01/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,"Declaration book club|Lyons Regional Library, Community Room",,
+/events/declaration-book-club-library/,git deleted; retired.json; vercel.json (a rule today),events,Declaration book club|Lyons Regional Library,/events/declaration-book-club-2026-12-01/,ledger: declaration-book-club-2026-12-01
+/events/dogs-enjoy-afternoon-reading-d-e-a-r-2026-10-15/,git deleted; retired.json; vercel.json (a rule today),events,Dogs Enjoy Afternoon Reading (D.E.A.R.)|Lyons Regional Library,,ledger: retired
+/events/dogs-enjoy-afternoon-reading-d-e-a-r-2026-11-19/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Dogs Enjoy Afternoon Reading (D.E.A.R.)|Lyons Regional Library,,
+/events/dogs-enjoy-afternoon-reading-d-e-a-r-2026-12-17/,git deleted; retired.json; vercel.json (a rule today),events,Dogs Enjoy Afternoon Reading (D.E.A.R.)|Lyons Regional Library,,ledger: retired
+/events/ecology-advisory-board-2026-10-20/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-20; vercel.json (a rule today),events,"Ecology Advisory Board|Lyons Regional Library, Effie Banta Room",,ledger: retired
+/events/ecology-advisory-board-2026-11-17/,git in the content today; sitemap 2026-10-21 to 2026-11-16,events,"Ecology Advisory Board|Lyons Regional Library, Effie Banta Room",,
+/events/ecology-advisory-board-2026-12-15/,git in the content today; sitemap 2026-11-18 to 2026-11-18,events,"Ecology Advisory Board|Lyons Regional Library, Effie Banta Room",,
+/events/economic-vitality-commission-2026-10-14/,git deleted; retired.json; vercel.json (a rule today),events,"Economic Vitality Commission|Lyons Regional Library, Effie Banta Room",,ledger: retired
+/events/economic-vitality-commission-2026-11-11/,git in the content today; sitemap 2026-10-18 to 2026-11-11,events,"Economic Vitality Commission|Lyons Regional Library, Effie Banta Room",,
+/events/economic-vitality-commission-2026-12-09/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,"Economic Vitality Commission|Lyons Regional Library, Effie Banta Room",,
+/events/election-day-2026-11-03/,git in the content today; sitemap 2026-10-21 to 2026-11-04,events,"Election Day: vote at the library|Lyons Regional Library, Community Room",,
+/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-09-30/,git deleted; retired.json; vercel.json (a rule today),events,"Explore resources with the Boulder County Area Agency on Aging|Lyons Regional Library, Effie Banta Room",gone,"retired from the guide before its date (2026-09-30), with no later date of its series; ledger: retired"
+/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-10-07/,git deleted; retired.json; vercel.json (a rule today),events,"Explore resources with the Boulder County Area Agency on Aging|Lyons Regional Library, Effie Banta Room",gone,"retired from the guide before its date (2026-10-07), with no later date of its series; ledger: retired"
+/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-10-14/,git deleted; retired.json; vercel.json (a rule today),events,"Explore resources with the Boulder County Area Agency on Aging|Lyons Regional Library, Effie Banta Room",gone,"retired from the guide before its date (2026-10-14), with no later date of its series; ledger: retired"
+/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-10-21/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-21; vercel.json (a rule today),events,"Explore resources with the Boulder County Area Agency on Aging|Lyons Regional Library, Effie Banta Room",gone,"retired from the guide before its date (2026-10-21), with no later date of its series; ledger: retired"
+/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-10-28/,git in the content today; sitemap 2026-10-22 to 2026-10-29,events,"Resources from the Boulder County Area Agency on Aging|Lyons Regional Library, Effie Banta Room",,
+/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-11-04/,git in the content today; sitemap 2026-10-30 to 2026-11-04,events,"Resources from the Boulder County Area Agency on Aging|Lyons Regional Library, Effie Banta Room",,
+/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-11-18/,git in the content today; sitemap 2026-11-05 to 2026-11-18,events,"Resources from the Boulder County Area Agency on Aging|Lyons Regional Library, Effie Banta Room",,
+/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-12-02/,git in the content today,events,"Resources from the Boulder County Area Agency on Aging|Lyons Regional Library, Effie Banta Room",,
+/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-12-16/,git in the content today,events,"Resources from the Boulder County Area Agency on Aging|Lyons Regional Library, Effie Banta Room",,
+/events/fall-pinball-league-2026-10-01/,git deleted; retired.json; vercel.json (a rule today),events,Fall pinball league|Lyons Classic Pinball,/events/fall-pinball-league/,ledger: fall-pinball-league
+/events/fall-pinball-league/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Fall pinball league|Lyons Classic Pinball,,
+/events/family-storytelling-through-art-2026-11-10/,git in the content today; sitemap 2026-10-21 to 2026-11-10,events,"Family Story Telling Through Art with Museo de las Americas|Lyons Regional Library, Community Room",,
+/events/fear-the-reaper-pinball-tournament-2026-10-25/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-26; vercel.json (a rule today),events,Fear the Reaper pinball tournament|Lyons Classic Pinball,gone,"retired from the guide before its date (2026-10-25), with no later date of its series; ledger: retired"
+/events/fifth-sunday-classics-2026-11-29/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-31; vercel.json (a rule today),events,Fifth Sunday Classics|Lyons Classic Pinball,/events/fifth-sunday-classics-pinball-2026-11-29/,ledger: fifth-sunday-classics-pinball-2026-11-29
+/events/fifth-sunday-classics-pinball-2026-11-29/,git in the content today; sitemap 2026-10-27 to 2026-11-18,events,Fifth Sunday Classics pinball tournament|Lyons Classic Pinball,,
+/events/friends-of-the-library-book-sale-2026-10-23/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-22; vercel.json (a rule today),events,"Friends of the Library book sale|Lyons Regional Library, Community Room",gone,"retired from the guide before its date (2026-10-23), with no later date of its series; ledger: retired"
+/events/friends-of-the-library-book-sale-2026-10-24/,git deleted; retired.json; sitemap 2026-10-24 to 2026-10-24; vercel.json (a rule today),events,"Friends of the Library book sale|Lyons Regional Library, Community Room",gone,"retired from the guide before its date (2026-10-24), with no later date of its series; ledger: retired"
+/events/friends-of-the-library-monthly-meeting-2026-10-15/,git deleted; retired.json; vercel.json (a rule today),events,"Friends of the Library monthly meeting|Lyons Regional Library, Effie Banta Room",,ledger: retired
+/events/friends-of-the-library-monthly-meeting-2026-11-19/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,"Friends of the Library monthly meeting|Lyons Regional Library, Effie Banta Room",,
+/events/friends-of-the-library-monthly-meeting-2026-12-17/,git in the content today,events,"Friends of the Library monthly meeting|Lyons Regional Library, Effie Banta Room",,
+/events/halloween-spooktacular-2026/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-24; vercel.json (a rule today),events,Halloween Spooktacular|Lyons Elementary School and Main Street,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/historic-preservation-commission-2026-09-22/,git deleted; retired.json; vercel.json (a rule today),events,"Historic Preservation Commission|Lyons Regional Library, Effie Banta Room",,ledger: retired
+/events/historic-preservation-commission-2026-10-27/,git in the content today; sitemap 2026-10-18 to 2026-10-27,events,"Historic Preservation Commission|Lyons Regional Library, Effie Banta Room",,
+/events/historic-preservation-commission-2026-11-24/,git deleted; retired.json; vercel.json (a rule today),events,"Historic Preservation Commission|Lyons Regional Library, Effie Banta Room",/events/historic-preservation-commission-2026-12-01/,ledger: historic-preservation-commission-2026-12-01
+/events/historic-preservation-commission-2026-12-01/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,"Historic Preservation Commission|Lyons Regional Library, Effie Banta Room",,
+/events/historic-preservation-commission-2026-12-22/,git deleted; retired.json; vercel.json (a rule today),events,"Historic Preservation Commission|Lyons Regional Library, Effie Banta Room",,ledger: retired
+/events/holiday-artisan-market-2026/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Lyons Holiday Artisan Market|Lyons Middle/Senior High School,,
+/events/holiday-parade-of-lights-2026/,git formerSlugs of holiday-parade-of-lights; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,"Lyons Holiday Parade of Lights|Main Street, downtown Lyons",https://insidethetowns.com/lyons/parade-of-lights/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/holiday-parade-of-lights/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,"Lyons Holiday Parade of Lights|Main Street, downtown Lyons",https://insidethetowns.com/lyons/parade-of-lights/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/housing-and-human-services-commission-2026-10-12/,git deleted; retired.json; vercel.json (a rule today),events,"Housing and Human Services Commission|Lyons Regional Library, Effie Banta Room",,ledger: retired
+/events/housing-and-human-services-commission-2026-11-09/,git in the content today; sitemap 2026-10-18 to 2026-11-10,events,"Housing and Human Services Commission|Lyons Regional Library, Effie Banta Room",,
+/events/housing-and-human-services-commission-2026-12-14/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,"Housing and Human Services Commission|Lyons Regional Library, Effie Banta Room",,
+/events/intro-to-branch-weaving-2026-11-15/,git in the content today; sitemap 2026-11-11 to 2026-11-16,events,Intro to Branch Weaving|Lyons Farmette,,
+/events/john-mckay-band-rock-garden-2026-10-03/,git deleted; retired.json; vercel.json (a rule today),events,John McKay Band|The Rock Garden,gone,"retired from the guide before its date (2026-10-03), with no later date of its series; ledger: retired"
+/events/karaoke-at-the-wayback-bar-2026-12-11/,git deleted; retired.json; vercel.json (a rule today),events,Karaoke at the Wayback Bar|Wayback Bar (back of Wildcat Mountaineering),gone,"retired from the guide before its date (2026-12-11), with no later date of its series; ledger: retired"
+/events/karaoke-at-the-wayback-bar/,git deleted; retired.json; vercel.json (a rule today),events,Karaoke at the Wayback Bar|Wayback Bar (back of Wildcat Mountaineering),gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/karaoke-wayback-bar/,git deleted; retired.json; vercel.json (a rule today),events,Karaoke at the Wayback Bar|Wayback Bar (back of Wildcat Mountaineering),gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/kids-chess-wizards-library/,git deleted; retired.json; vercel.json (a rule today),events,Kids’ chess with Chess Wizards|Lyons Regional Library,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/lahc-quarterly-art-show/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-21; vercel.json (a rule today),events,Arts & Humanities Commission quarterly art show|Lyons Regional Library,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/lego-club-2026-10-01/,git deleted; retired.json; vercel.json (a rule today),events,LEGO Club|Lyons Regional Library,,ledger: retired
+/events/lego-club-2026-12-03/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,LEGO Club|Lyons Regional Library,,
+/events/library-district-board-meeting-2026-10-27/,git in the content today; sitemap 2026-10-18 to 2026-10-27,events,"Library district board meeting|Lyons Regional Library, Effie Banta Room",,
+/events/library-district-board-meeting-2026-11-24/,git in the content today; sitemap 2026-10-29 to 2026-11-18,events,"Library district board meeting|Lyons Regional Library, Effie Banta Room",,
+/events/library-district-board-meeting-2026-12-22/,git in the content today,events,"Library district board meeting|Lyons Regional Library, Effie Banta Room",,
+/events/lightworkers-documentary-library/,git deleted; retired.json; vercel.json (a rule today),events,“Lightworkers” documentary screening|Lyons Regional Library,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/lvdy-sway-wild-wildflower/,git deleted; retired.json; vercel.json (a rule today),events,"LVDY and Sway Wild at the Wildflower Pavilion|Wildflower Pavilion, Planet Bluegrass",gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/lyons-old-time-square-dance/,git deleted; retired.json; vercel.json (a rule today),events,Lyons old-time square dance|Lone Hawk Farm,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/lyons-urban-renewal-authority-2026-10-15/,git deleted; retired.json; vercel.json (a rule today),events,Lyons Urban Renewal Authority|Lyons Town Hall Board Room,,ledger: retired
+/events/lyons-urban-renewal-authority-2026-11-19/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Lyons Urban Renewal Authority|Lyons Town Hall Board Room,,
+/events/lyons-urban-renewal-authority-2026-12-17/,git in the content today,events,Lyons Urban Renewal Authority|Lyons Town Hall Board Room,,
+/events/makerspace-open-studio-2026-10-12/,git deleted; retired.json; vercel.json (a rule today),events,Monday Makerspace|Lyons Regional Library,,ledger: retired
+/events/makerspace-open-studio-2026-11-09/,git in the content today; sitemap 2026-10-18 to 2026-11-10,events,Monday Makerspace|Lyons Regional Library,,
+/events/makerspace-open-studio-library/,git deleted; retired.json; vercel.json (a rule today),events,Makerspace open studio|Lyons Regional Library,/events/monday-makerspace-2026-12-14/,ledger: monday-makerspace-2026-12-14
+/events/mean-girls-teen-movie-night-2026-10-03/,git deleted; retired.json; vercel.json (a rule today),events,"Mean Girls teen movie night|Lyons Regional Library, Community Room",gone,"retired from the guide before its date (2026-10-03), with no later date of its series; ledger: retired"
+/events/mmb3-rock-garden/,git deleted; retired.json; vercel.json (a rule today),events,MMB3 at The Rock Garden|The Rock Garden,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/monday-makerspace-2026-12-14/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Monday Makerspace|Lyons Regional Library,,
+/events/monday-night-repairs-lyons-classic-pinball/,git in the content today; sitemap 2026-10-27 to 2026-11-10,events,Monday Night Repairs with Russ at Lyons Classic Pinball|Lyons Classic Pinball,,
+/events/monthly-pinball-tournament-2026-10-10/,git deleted; retired.json; vercel.json (a rule today),events,Monthly pinball tournament|Lyons Classic Pinball,gone,"retired from the guide before its date (2026-10-10), with no later date of its series; ledger: retired"
+/events/monthly-pinball-tournament-2026-11-14/,git deleted; retired.json; vercel.json (a rule today),events,Monthly pinball tournament|Lyons Classic Pinball,gone,"retired from the guide before its date (2026-11-14), with no later date of its series; ledger: retired"
+/events/monthly-pinball-tournament-2026-12-12/,git deleted; retired.json; vercel.json (a rule today),events,Monthly pinball tournament|Lyons Classic Pinball,gone,"retired from the guide before its date (2026-12-12), with no later date of its series; ledger: retired"
+/events/nature-journaling-club-2026-09-23/,git deleted; retired.json; vercel.json (a rule today),events,Nature journaling club|Lyons Regional Library,gone,"retired from the guide before its date (2026-09-23), with no later date of its series; ledger: retired"
+/events/nature-journaling-club-2026-10-17/,git deleted; retired.json; vercel.json (a rule today),events,Nature journaling club|Lyons Regional Library,gone,"retired from the guide before its date (2026-10-17), with no later date of its series; ledger: retired"
+/events/old-dogapalooza-rock-garden/,git deleted; retired.json; vercel.json (a rule today),events,Old DogAPalooza|The Rock Garden,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/old-time-jam-at-oskar-blues-2026-10-28/,git in the content today; sitemap 2026-10-18 to 2026-10-29; vercel.json (a rule today),events,Old-time jam at Oskar Blues|Oskar Blues Grill & Brew,,the guide's own rule sends it to /events/
+/events/old-time-jam-at-oskar-blues-2026-11-11/,git in the content today; sitemap 2026-10-30 to 2026-11-11,events,Old-time jam at Oskar Blues|Oskar Blues Grill & Brew,,
+/events/old-time-jam-at-oskar-blues-2026-11-25/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Old-time jam at Oskar Blues|Oskar Blues Grill & Brew,,
+/events/old-time-jam-at-oskar-blues-2026-12-09/,git in the content today,events,Old-time jam at Oskar Blues|Oskar Blues Grill & Brew,,
+/events/old-time-jam-at-oskar-blues-2026-12-23/,git in the content today,events,Old-time jam at Oskar Blues|Oskar Blues Grill & Brew,,
+/events/old-time-jam-oskar-blues-2026-10-14/,git deleted; retired.json; vercel.json (a rule today),events,Old-time jam at Oskar Blues|Oskar Blues Grill & Brew,,ledger: retired
+/events/one-more-wear-a-fancy-closet-party-2026-11-13/,git in the content today; sitemap 2026-11-11 to 2026-11-13,events,One More Wear: A Fancy Closet Party|Lyons Locale,,
+/events/open-bluegrass-pick-n-at-mainstage-2026-12-24/,git deleted; retired.json; vercel.json (a rule today),events,Open bluegrass pick'n at MainStage|MainStage Brewing Company,gone,"retired from the guide before its date (2026-12-24), with no later date of its series; ledger: retired"
+/events/open-bluegrass-pick-n-at-mainstage/,git deleted; retired.json; vercel.json (a rule today),events,Open bluegrass pick'n at MainStage|MainStage Brewing Company,/events/open-bluegrass-pickn-mainstage/,ledger: open-bluegrass-pickn-mainstage
+/events/open-bluegrass-pickn-mainstage/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Open bluegrass pick’n at MainStage|MainStage Brewing Company,,
+/events/open-house-for-2nd-and-3rd-avenue-improvements-2026-10-07/,git deleted; retired.json; vercel.json (a rule today),events,Open house for 2nd and 3rd Avenue improvements|Lyons Regional Library,gone,"retired from the guide before its date (2026-10-07), with no later date of its series; ledger: retired"
+/events/open-mic-rock-garden/,git deleted; retired.json; vercel.json (a rule today),events,Open mic at The Rock Garden|The Rock Garden,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/parks-and-recreation-commission-2026-10-12/,git deleted; retired.json; vercel.json (a rule today),events,"Parks and Recreation Commission|Lyons Regional Library, Community Room",,ledger: retired
+/events/parks-and-recreation-commission-2026-11-09/,git in the content today; sitemap 2026-10-18 to 2026-11-10,events,"Parks and Recreation Commission|Lyons Regional Library, Community Room",,
+/events/parks-and-recreation-commission-2026-12-14/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,"Parks and Recreation Commission|Lyons Regional Library, Community Room",,
+/events/piano-benefit-concert-community-church/,git deleted; retired.json; vercel.json (a rule today),events,Piano benefit concert at Lyons Community Church|Lyons Community Church,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/pints-and-pages-book-club-2026-11-11/,git in the content today; sitemap 2026-10-18 to 2026-11-11,events,Pints & Pages book club|MainStage Brewing Company,,
+/events/pints-and-pages-book-club-2026-12-09/,git in the content today; sitemap 2026-11-13 to 2026-11-18,events,Pints & Pages book club|MainStage Brewing Company,,
+/events/pints-and-pages-mainstage-2026-10-14/,git deleted; retired.json; vercel.json (a rule today),events,Pints & Pages book club|MainStage Brewing Company,,ledger: retired
+/events/quarterly-art-show-drop-off-and-pick-up-2026-10-16/,git deleted; retired.json; vercel.json (a rule today),events,Quarterly art show drop-off and pick-up|Lyons Town Hall Board Room,gone,"retired from the guide before its date (2026-10-16), with no later date of its series; ledger: retired"
+/events/redstone-museum-last-day-2026/,git deleted; retired.json; vercel.json (a rule today),events,Last day of the season at the Redstone Museum|Lyons Redstone Museum,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/school-streets-open-house/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-20; vercel.json (a rule today),events,School streets open house|Lyons Regional Library,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/science-and-spirits-climate/,git deleted; retired.json; vercel.json (a rule today),events,Science + Spirits: climate challenges|Spirit Hound Distillers,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/second-gear-bluegrass-rock-garden-2026-10-09/,git deleted; retired.json; vercel.json (a rule today),events,Second Gear Bluegrass at The Rock Garden|The Rock Garden,gone,"retired from the guide before its date (2026-10-09), with no later date of its series; ledger: retired"
+/events/seed-swap-library/,git deleted; retired.json; vercel.json (a rule today),events,"Seed swap, save and sort|Lyons Regional Library",/events/seed-swap-save-and-sort-2026-12-12/,ledger: seed-swap-save-and-sort-2026-12-12
+/events/seed-swap-save-and-sort-2026-11-14/,git in the content today; sitemap 2026-10-18 to 2026-11-14,events,"Seed swap, save and sort|Lyons Regional Library",,
+/events/seed-swap-save-and-sort-2026-12-12/,git in the content today; sitemap 2026-11-16 to 2026-11-18,events,"Seed swap, save and sort|Lyons Regional Library",,
+/events/sensory-play-and-family-meetup-2026-10-14/,git deleted; retired.json; vercel.json (a rule today),events,"Sensory play and family meetup|Lyons Regional Library, Community Room",gone,"retired from the guide before its date (2026-10-14), with no later date of its series; ledger: retired"
+/events/snacks-in-space-book-launch/,git deleted; retired.json; vercel.json (a rule today),events,“SnaCkS IN SpAcE” book launch and poetry reading|Warrior Soul,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/st-vrain-invitational-2026/,git deleted; retired.json; vercel.json (a rule today),events,St. Vrain Invitational cross-country meet|Lyons Middle/Senior High School and Bohn Park,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/sundance-film-festival-task-force-2026-10-09/,git deleted; retired.json; vercel.json (a rule today),events,Sundance Film Festival Task Force meeting|Lyons Regional Library,gone,"retired from the guide before its date (2026-10-09), with no later date of its series; ledger: retired"
+/events/sundance-lodging-discussion/,git deleted; retired.json; vercel.json (a rule today),events,Sundance lodging discussion|Lyons Farmette,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/sunday-serenade-at-oskar-blues-2026-12-27/,git in the content today,events,Sunday Serenade at Oskar Blues|Oskar Blues Grill & Brew,,
+/events/sunday-serenade-oskar-blues/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Sunday Serenade at Oskar Blues|Oskar Blues Grill & Brew,,
+/events/sustainable-futures-commission-2026-10-08/,git deleted; retired.json; vercel.json (a rule today),events,"Sustainable Futures Commission|Lyons Regional Library, Effie Banta Room",,ledger: retired
+/events/sustainable-futures-commission-2026-11-12/,git in the content today; sitemap 2026-10-21 to 2026-11-13,events,"Sustainable Futures Commission|Lyons Regional Library, Effie Banta Room",,
+/events/teen-advisory-group-2026-10-08/,git deleted; retired.json; vercel.json (a rule today),events,Teen Advisory Group|Lyons Regional Library,,ledger: retired
+/events/teen-advisory-group-2026-10-22/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-22; vercel.json (a rule today),events,Teen Advisory Group|Lyons Regional Library,,ledger: retired
+/events/teen-advisory-group-2026-11-12/,git in the content today; sitemap 2026-10-24 to 2026-11-13,events,Teen Advisory Group|Lyons Regional Library,,
+/events/teen-advisory-group-2026-12-10/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,Teen Advisory Group|Lyons Regional Library,,
+/events/the-89s-rock-garden/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-24; vercel.json (a rule today),events,The 89s at The Rock Garden|The Rock Garden,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/the-cozy-library-2026-11-13/,git in the content today; sitemap 2026-11-04 to 2026-11-13,events,The Cozy: a fall hangout for grades 6–12|Lyons Regional Library,,
+/events/the-spooky-teen-halloween-hangout-2026-10-16/,git deleted; retired.json; vercel.json (a rule today),events,"The Spooky: a teen Halloween hangout|Lyons Regional Library, Community Room",gone,"retired from the guide before its date (2026-10-16), with no later date of its series; ledger: retired"
+/events/toddler-storytime-library/,git in the content today; sitemap 2026-10-18 to 2026-10-21,events,Toddler and preschool storytime|Lyons Regional Library,,
+/events/travel-talk-china-mongolia-taiwan/,git deleted; retired.json; vercel.json (a rule today),events,"Travel talk: China, Mongolia and Taiwan|Lyons Regional Library",gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/tree-lighting-and-caroling-2026/,git formerSlugs of tree-lighting-and-caroling; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,Lyons Tree Lighting and Caroling|Sandstone Park,https://insidethetowns.com/lyons/tree-lighting/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/tree-lighting-and-caroling/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Lyons Tree Lighting and Caroling|Sandstone Park,https://insidethetowns.com/lyons/tree-lighting/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/trivia-at-mainstage-brewing-2026-12-22/,git deleted; retired.json; vercel.json (a rule today),events,Trivia at MainStage Brewing|MainStage Brewing Company,,ledger: retired
+/events/trivia-at-mainstage-brewing/,git deleted; retired.json; vercel.json (a rule today),events,Trivia at MainStage Brewing|MainStage Brewing Company,/events/trivia-mainstage-brewing/,ledger: trivia-mainstage-brewing
+/events/trivia-at-the-wayback-bar-2026-10-15/,git deleted; retired.json; vercel.json (a rule today),events,Trivia at the Wayback Bar|Wayback Bar (back of Wildcat Mountaineering),gone,"retired from the guide before its date (2026-10-15), with no later date of its series; ledger: retired"
+/events/trivia-at-the-wayback-bar-2026-11-05/,git deleted; retired.json; vercel.json (a rule today),events,Trivia at the Wayback Bar|Wayback Bar (back of Wildcat Mountaineering),gone,"retired from the guide before its date (2026-11-05), with no later date of its series; ledger: retired"
+/events/trivia-at-the-wayback-bar-2026-11-19/,git deleted; retired.json; vercel.json (a rule today),events,Trivia at the Wayback Bar|Wayback Bar (back of Wildcat Mountaineering),gone,"retired from the guide before its date (2026-11-19), with no later date of its series; ledger: retired"
+/events/trivia-at-the-wayback-bar-2026-12-03/,git deleted; retired.json; vercel.json (a rule today),events,Trivia at the Wayback Bar|Wayback Bar (back of Wildcat Mountaineering),gone,"retired from the guide before its date (2026-12-03), with no later date of its series; ledger: retired"
+/events/trivia-at-the-wayback-bar-2026-12-17/,git deleted; retired.json; vercel.json (a rule today),events,Trivia at the Wayback Bar|Wayback Bar (back of Wildcat Mountaineering),gone,"retired from the guide before its date (2026-12-17), with no later date of its series; ledger: retired"
+/events/trivia-mainstage-brewing/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Trivia at MainStage Brewing|MainStage Brewing Company,,
+/events/trivia-night-at-spirit-hound-2026-10-28/,git deleted; retired.json; vercel.json (a rule today),events,Trivia night at Spirit Hound|Spirit Hound Distillers,gone,"retired from the guide before its date (2026-10-28), with no later date of its series; ledger: retired"
+/events/trivia-night-spirit-hound-2026-11-25/,git deleted; retired.json; vercel.json (a rule today),events,Trivia night at Spirit Hound|Spirit Hound Distillers,gone,"retired from the guide before its date (2026-11-25), with no later date of its series; ledger: retired"
+/events/trivia-wayback-bar-2026-10-01/,git deleted; retired.json; vercel.json (a rule today),events,Trivia at the Wayback Bar|Wayback Bar (back of Wildcat Mountaineering),gone,"retired from the guide before its date (2026-10-01), with no later date of its series; ledger: retired"
+/events/troubles-braids-rock-garden/,git deleted; retired.json; vercel.json (a rule today),events,Trouble’s Braids at The Rock Garden|The Rock Garden,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/tumbledown-shack-rock-garden/,git deleted; retired.json; vercel.json (a rule today),events,Tumbledown Shack at The Rock Garden|The Rock Garden,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/tween-book-to-movie-club-2026-10-20/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-20; vercel.json (a rule today),events,Tween book-to-movie club|Lyons Regional Library,,ledger: retired
+/events/tween-book-to-movie-club-2026-11-17/,git in the content today; sitemap 2026-10-21 to 2026-11-16,events,Tween book-to-movie club|Lyons Regional Library,,
+/events/tween-book-to-movie-club-2026-12-15/,git in the content today; sitemap 2026-11-18 to 2026-11-18,events,Tween book-to-movie club|Lyons Regional Library,,
+/events/ukulele-group-2026-10-13/,git deleted; retired.json; vercel.json (a rule today),events,"Lyons Library Ukulele Group|Lyons Regional Library, Community Room",,ledger: retired
+/events/ukulele-group-2026-10-21/,git deleted; retired.json; vercel.json (a rule today),events,Ukulele group|Lyons Regional Library,gone,"retired from the guide before its date (2026-10-21), with no later date of its series; ledger: retired"
+/events/ukulele-group-2026-11-10/,git in the content today; sitemap 2026-10-18 to 2026-11-10,events,"Lyons Library Ukulele Group|Lyons Regional Library, Community Room",,
+/events/ukulele-group-2026-11-18/,git deleted; retired.json; vercel.json (a rule today),events,Ukulele group|Lyons Regional Library,gone,"retired from the guide before its date (2026-11-18), with no later date of its series; ledger: retired"
+/events/ukulele-group-2026-12-08/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,"Lyons Library Ukulele Group|Lyons Regional Library, Community Room",,
+/events/ukulele-group-2026-12-16/,git deleted; retired.json; vercel.json (a rule today),events,Ukulele group|Lyons Regional Library,gone,"retired from the guide before its date (2026-12-16), with no later date of its series; ledger: retired"
+/events/utilities-and-engineering-board-2026-10-21/,git deleted; retired.json; sitemap 2026-10-18 to 2026-10-21; vercel.json (a rule today),events,Utilities & Engineering Board|Lyons Town Hall Board Room,gone,"retired from the guide before its date (2026-10-21), with no later date of its series; ledger: retired"
+/events/water-tower-wildflower/,git deleted; retired.json; vercel.json (a rule today),events,"Water Tower at the Wildflower Pavilion|Wildflower Pavilion, Planet Bluegrass",gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/women-s-pinball-tournament-2026-10-17/,git deleted; retired.json; vercel.json (a rule today),events,Women's pinball tournament|Lyons Classic Pinball,gone,"retired from the guide before its date (2026-10-17), with no later date of its series; ledger: retired"
+/events/women-s-pinball-tournament-2026-11-21/,git deleted; retired.json; vercel.json (a rule today),events,Women's pinball tournament|Lyons Classic Pinball,gone,"retired from the guide before its date (2026-11-21), with no later date of its series; ledger: retired"
+/events/women-s-pinball-tournament-2026-12-19/,git deleted; retired.json; vercel.json (a rule today),events,Women's pinball tournament|Lyons Classic Pinball,gone,"retired from the guide before its date (2026-12-19), with no later date of its series; ledger: retired"
+/events/womens-pinball-tournament-2026-09-19/,git deleted; retired.json; vercel.json (a rule today),events,Women’s pinball tournament|Lyons Classic Pinball,gone,"retired from the guide before its date (2026-09-19), with no later date of its series; ledger: retired"
+/events/word-wednesday-library-2026-10-07/,git deleted; retired.json; vercel.json (a rule today),events,"Word Wednesday writing group|Online, via the Lyons Regional Library",,ledger: retired
+/events/word-wednesday-writing-group-2026-11-04/,git in the content today; sitemap 2026-10-18 to 2026-11-04,events,"Word Wednesday writing group|Online, via the Lyons Regional Library",,
+/events/word-wednesday-writing-group-2026-12-02/,git in the content today; sitemap 2026-11-05 to 2026-11-18,events,"Word Wednesday writing group|Online, via the Lyons Regional Library",,
+/events/yard-waste-drop-off-2026-11-07/,git in the content today; sitemap 2026-11-04 to 2026-11-07,events,Yard waste drop-off at the Town yard|Town of Lyons public works facility,,
+/explore/,vercel.json (a rule today),page,,/things-to-do/,the guide's own rule sends it to /things-to-do/
+/families/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/for-businesses/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/get-involved/,sitemap 2026-11-10 to 2026-11-18,page,,,
+/guides/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/itineraries/,vercel.json (a rule today),page,,/things-to-do/,the guide's own rule sends it to /things-to-do/
+/living-here/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/moving-here/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/our-story/,vercel.json (a rule today),page,,/articles/lyons-history-sandstone-railroad-river/,the guide's own rule sends it to /articles/lyons-history-sandstone-railroad-river/
+/outdoors/,vercel.json (a rule today),page,,/articles/trails-and-the-river/,the guide's own rule sends it to /articles/trails-and-the-river/
+/parks/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/places/,vercel.json (a rule today),page,,/directory/,the guide's own rule sends it to /directory/
+/places/a-lodge-lyons/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/bohn-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/button-rock-preserve/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/creative-grounds/,git in the content today; sitemap 2026-10-29 to 2026-11-18,places,,,
+/places/gatherings-of-a-lifetime/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/hall-ranch/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/heil-valley-ranch/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/honorable-harvest/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/indian-bites/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/julies-thai-kitchen/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/la-mariposa/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/lavern-m-johnson-park-campground/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/lavern-m-johnson-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/lyons-classic-pinball/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/lyons-dairy-bar/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/lyons-dog-park/,git in the content today; sitemap 2026-11-10 to 2026-11-18,places,,,
+/places/lyons-locale/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/lyons-redstone-museum/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/lyons-regional-library/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/main-street/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/mainstage-brewing-company/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/marigold/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/mojo-taqueria/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/moxie-mercantile/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/mudhut-lyons/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/oskar-blues-grill-brew/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/planet-bluegrass/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/rabbit-mountain/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/sandstone-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/smokin-daves-bbq-taphouse/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/solace/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/south-creek-ltd/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/spirit-hound-distillers/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/st-vrain-market/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/st-vrain-river-path/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/stone-mountain-lodge/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/the-rock-garden/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/tubing-the-st-vrain/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/uniquely-lyons/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/weecasa-tiny-house-resort/,git in the content today; sitemap 2026-10-18 to 2026-11-02,places,,,
+/places/western-stars-gallery-studio/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
+/places/wildflower-pavilion-planet-bluegrass/,git in the content today; sitemap 2026-10-21 to 2026-11-18,places,,,
+/plan-a-visit/,vercel.json (a rule today),page,,/things-to-do/,the guide's own rule sends it to /things-to-do/
+/privacy/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/restaurants/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/shops/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/sports/,sitemap 2026-10-22 to 2026-11-16; vercel.json (a rule today),page,,/families/#program-high-school-athletics,the guide's own rule sends it to /families/#program-high-school-athletics
+/sports/boys-basketball/,sitemap 2026-10-26 to 2026-11-16; vercel.json (a rule today),page,,/families/#program-high-school-athletics,the guide's own rule sends it to /families/#program-high-school-athletics
+/sports/football/,sitemap 2026-10-26 to 2026-11-16; vercel.json (a rule today),page,,/families/#program-high-school-athletics,the guide's own rule sends it to /families/#program-high-school-athletics
+/sports/girls-basketball/,sitemap 2026-10-26 to 2026-11-16; vercel.json (a rule today),page,,/families/#program-high-school-athletics,the guide's own rule sends it to /families/#program-high-school-athletics
+/sports/softball/,sitemap 2026-10-26 to 2026-11-16; vercel.json (a rule today),page,,/families/#program-high-school-athletics,the guide's own rule sends it to /families/#program-high-school-athletics
+/sports/volleyball/,sitemap 2026-10-26 to 2026-11-16; vercel.json (a rule today),page,,/families/#program-high-school-athletics,the guide's own rule sends it to /families/#program-high-school-athletics
+/stay/,sitemap 2026-10-21 to 2026-11-18; vercel.json,page,,,
+/submit-event/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/things-to-do/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/this-week/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/this-weekend/,sitemap 2026-10-18 to 2026-11-18,page,,,
+/traditions/,sitemap 2026-11-13 to 2026-11-18,page,,,
+/trails/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/updates/,sitemap 2026-11-02 to 2026-11-18,page,,,
+/venues/,sitemap 2026-10-21 to 2026-11-18,page,,,

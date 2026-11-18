@@ -22,7 +22,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { emailTowns, findTown, LIVE_TOWNS, liveTowns } from '../src/config/index.ts';
+import { emailTowns, findTown, LIVE_TOWNS, liveTowns, MOVING_GUIDES } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide } from '../src/config/hub-towns.ts';
@@ -198,6 +198,15 @@ test('an old event address with a record of its own goes to that record’s page
   const domains = new Map(everyPage.map((t) => [t.domain, t.hubPage!.town]));
   let count = 0;
   for (const [host, paths] of Object.entries(eventMap)) {
+    // A moving guide's entries (src/config/guide-move.ts) are read by its own build once its switch is on; test/guide-move.test.ts holds them to pages.
+    const moving = towns.find((t) => t.domain === host && MOVING_GUIDES.includes(t.slug));
+    if (moving) {
+      for (const [path, slug] of Object.entries(paths)) {
+        assert.match(path, /^\/events\/[a-z0-9-]+\/$/, `${host}${path}`);
+        assert.ok(records.some((r) => r.slug === slug), `${host}${path} → ${slug}: no such record`);
+      }
+      continue;
+    }
     const town = domains.get(host);
     assert.ok(town, `${host}: not a folded guide's domain`);
     if (everyPage.find((t) => t.domain === host)!.section) {
@@ -242,7 +251,8 @@ test('an old event address with a record of its own goes to that record’s page
   assert.equal(to('insideestespark.com', 'bigfoot-days-festival'), 'estes-park-bigfoot-days');
   assert.equal(to('insideestespark.com', 'rocky-mountain-craft-spirits-festival-2026-11-07'), 'estes-park-rocky-mountain-craft-spirits-festival');
   // An old address carries its date; the page it goes to carries none.
-  for (const host of Object.keys(eventMap).filter((h) => !everyPage.find((t) => t.domain === h)!.section)) {
+  // (A moving guide's rules are not vercel.json's: api/legacy.ts answers its domain once its switch is on.)
+  for (const host of Object.keys(eventMap).filter((h) => { const t = everyPage.find((x) => x.domain === h); return t && !t.section; })) {
     for (const rule of rulesFor(host).filter((r) => /^\/events\/[a-z0-9-]+\{\/\}\?$/.test(r.source))) assert.doesNotMatch(rule.destination, /(?:^|-)(?:19|20)\d\d(?:-|\/|$)/, rule.destination);
   }
 });

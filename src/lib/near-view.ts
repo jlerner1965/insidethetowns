@@ -7,7 +7,7 @@
  */
 import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { allTowns, findTown, getNetworkHub } from '../config/index.ts';
+import { allTowns, findTown, getNetworkHub, guideUrl } from '../config/index.ts';
 import { STANDALONE_GUIDES, findHubTown } from '../config/hub-towns.ts';
 import { PASSES, type Pass } from '../config/passes.ts';
 import { nearestPlaces, passesFor, type Leg, type RoadMiles } from './near.ts';
@@ -61,7 +61,7 @@ export function nearView(place: string, roads: RoadMiles | undefined, withPage: 
       return { name: hubTown.name, href: `${base}/${slug}/`, ...(section ? { section } : {}) };
     }
     const guide = findTown(STANDALONE_GUIDES[slug]?.guide ?? '');
-    return guide ? { name: guide.name, href: `https://${guide.domain}/` } : undefined;
+    return guide ? { name: guide.name, href: guideUrl(guide) } : undefined;
   };
   const near = roads
     ? nearestPlaces(roads, place, withPage).flatMap((n) => {

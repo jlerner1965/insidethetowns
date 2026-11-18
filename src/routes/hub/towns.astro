@@ -10,7 +10,7 @@
  * day it reaches its own.
  */
 import Page from '@/layouts/Page.astro';
-import { getHub, liveTowns } from '@/config';
+import { getHub, guideUrl, liveTowns } from '@/config';
 import { findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { subTownsOf } from '@/lib/sub-towns';
 import { getTraditions } from '@/lib/content';
@@ -33,7 +33,7 @@ const pages = [...publishedHubTowns(records)].sort((a, b) => a.name.localeCompar
 const sections = guides.flatMap((g) =>
   subTownsOf(g)
     .filter((s) => s.slug !== g.slug && !pages.some((p) => p.slug === s.slug))
-    .map((s) => ({ name: s.label, href: `https://${g.domain}/${s.slug}/`, note: `on ${g.siteTitle}`, county: findHubTown(s.slug) ? hubCountyLine(findHubTown(s.slug)!) : undefined })),
+    .map((s) => ({ name: s.label, href: guideUrl(g, `/${s.slug}/`), note: `on ${g.siteTitle}`, county: findHubTown(s.slug) ? hubCountyLine(findHubTown(s.slug)!) : undefined })),
 );
 const aToZ = [
   ...pages.map((t) => ({ name: t.name, href: `/${t.slug}/`, note: undefined as string | undefined, county: hubCountyLine(t) as string | undefined })),
@@ -47,7 +47,7 @@ const structured = [
     name: 'Every town, A to Z',
     description,
     path,
-    items: [...guides.map((g) => ({ name: g.siteTitle, url: `https://${g.domain}/` })), ...pages.map((t) => ({ name: t.name, url: `https://${hub.domain}/${t.slug}/` }))],
+    items: [...guides.map((g) => ({ name: g.siteTitle, url: guideUrl(g) })), ...pages.map((t) => ({ name: t.name, url: `https://${hub.domain}/${t.slug}/` }))],
   }),
   breadcrumbJsonLd(hub, [
     { name: hub.siteTitle, path: '/' },
@@ -63,7 +63,7 @@ const link = 'font-semibold text-primary underline';
     <p class="mb-4 max-w-2xl text-[0.9375rem] text-ink-muted">A guide is a whole site for one town: the week’s events, places to eat, trails and services.</p>
     <ul class="grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3" data-index="guides">
       {guides.map((g) => (
-        <li><a href={`https://${g.domain}/`} class={link}>{g.siteTitle}</a> <span class="text-[0.875rem] text-ink-muted">{g.domain}</span></li>
+        <li><a href={guideUrl(g)} class={link}>{g.siteTitle}</a> <span class="text-[0.875rem] text-ink-muted">{g.domain}</span></li>
       ))}
     </ul>
   </section>

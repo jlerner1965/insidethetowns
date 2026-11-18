@@ -87,6 +87,20 @@ if [ -f "src/config/towns/$slug.ts" ] && grep -qE "^[[:space:]]*status:[[:space:
   skip "a redirect-only site, and its rules are unchanged since ${prev:0:7}"
 fi
 
+# A guide moved into the hub (its switch on in src/config/guide-move.ts) is
+# a redirect project too, but its map is made from its own content at build
+# (scripts/migration/guide-map.ts): it builds for its switch, its rules, the
+# function, its content and the history its map reads, and for nothing else.
+if grep -qE "^[[:space:]]*'?$slug'?:[[:space:]]*'[0-9]{4}-[0-9]{2}-[0-9]{2}'" src/config/guide-move.ts 2>/dev/null; then
+  while IFS= read -r path; do
+    case "$path" in
+      vercel.json | src/config/guide-move.ts | "src/config/towns/$slug.ts" | scripts/vercel-ignore.sh | scripts/run.ts | api/legacy.ts | api/legacy-map.json | scripts/migration/guide-map.ts | "docs/migration/guides/"* | data/hub/fold-events.json | "content/$slug/"* | "data/$slug/"*)
+        build "$path (a moved guide is made of its rules, api/legacy.ts and the content its map reads)" ;;
+    esac
+  done <<<"$changed"
+  skip "a guide moved into the hub, and nothing its redirects are made of changed since ${prev:0:7}"
+fi
+
 # The hub carries the folded guides' kept pages (`section` on a town's
 # config, 17 November 2026): their content builds the hub.
 sections=""
@@ -94,7 +108,13 @@ if [ "$slug" = hub ]; then
   for cfg in src/config/towns/*.ts; do
     grep -qE "^[[:space:]]*section:[[:space:]]*\{" "$cfg" && sections="$sections $(basename "$cfg" .ts)"
   done
+  # And each guide moved whole (its switch on, src/config/guide-move.ts).
+  for s in $(grep -oE "^[[:space:]]*'?[a-z-]+'?:[[:space:]]*'[0-9]{4}-[0-9]{2}-[0-9]{2}'" src/config/guide-move.ts 2>/dev/null | sed -E "s/^[[:space:]]*'?([a-z-]+)'?:.*/\1/"); do
+    sections="$sections $s"
+  done
 fi
+# The switch file is shared: every site's links to a moved guide follow it.
+case "$changed" in *src/config/guide-move.ts*) build "src/config/guide-move.ts (every site links to the guides)" ;; esac
 
 while IFS= read -r path; do
   for s in $sections; do

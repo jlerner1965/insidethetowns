@@ -11,6 +11,8 @@ import { towns } from './towns/registry.ts';
 import { hub } from './towns/hub.ts';
 import { editionsOf, type Edition } from '../lib/editions.ts';
 import { STANDALONE_GUIDES, findHubTown } from './hub-towns.ts';
+import { isMoved, type GuidePlace } from './guide-move.ts';
+export { GUIDE_MOVE, MOVING_GUIDES, isMoved, moveSwitches } from './guide-move.ts';
 
 export type { ConditionsLink, EditorConfig, HubConfig, NewsletterEdition, SiteConfig, TownConfig, TownRegion, TownStatus, TownVariant, NavItem } from './towns/types.ts';
 export type { Edition } from '../lib/editions.ts';
@@ -159,6 +161,20 @@ export function isSectionBuild(env: Record<string, string | undefined> = process
   return env[SECTION_ENV] === '1';
 }
 
+/**
+ * The site Plausible counts a page under, or none. Every page the hub
+ * serves, its own and each section's under /<town>/, counts under the hub's
+ * domain when the hub config sets `plausible` (the owner's review of #465,
+ * 18 November 2026), so a guide's figures go on after its move as its pages
+ * under /<town>/; a guide on its own domain counts under that domain when
+ * its config sets `plausible`. Base.astro puts the tracker on the page and
+ * /privacy/ says so from this one answer.
+ */
+export function plausibleDomain(site: SiteConfig, env: Record<string, string | undefined> = process.env): string | undefined {
+  if (site.kind === 'hub' || isSectionBuild(env)) return hub.plausible ? hub.domain : undefined;
+  return site.plausible ? site.domain : undefined;
+}
+
 /** The towns with something of their guide kept under their hub page, by mode; registry order. */
 export function sectionTowns(mode?: 'full' | 'pages'): TownConfig[] {
   return towns.filter((t) => !!t.section && !!t.hubPage && (!mode || t.section.mode === mode));
@@ -179,6 +195,8 @@ export function sectionBase(town: Pick<TownConfig, 'hubPage' | 'slug'>): string 
  * (scripts/lib/section-merge.ts).
  */
 export function sectionSite(town: TownConfig): TownConfig {
+  // A guide moved whole keeps its own name, masthead and contact as they were (the owner's brief of 18 November 2026).
+  if (isMoved(town)) return { ...town, status: 'live', neighbors: town.section?.neighbors ?? town.neighbors };
   return { ...town, status: 'live', siteTitle: `Inside ${town.name}`, neighbors: town.section?.neighbors ?? [], social: { ...town.social, email: hub.social.email } };
 }
 
@@ -189,6 +207,21 @@ export function sectionSite(town: TownConfig): TownConfig {
  */
 export function eventTowns(): TownConfig[] {
   return towns.filter((t) => LIVE_TOWNS.includes(t.slug) || t.section?.mode === 'full');
+}
+
+/**
+ * Where a guide's pages are served, with no trailing slash: its own domain,
+ * or, once its switch is on (src/config/guide-move.ts), its section on the
+ * hub, "https://insidethetowns.com/lyons". Every link one site writes to a
+ * guide's page goes through here, so a switch moves every link with it.
+ */
+export function guideOrigin(t: GuidePlace): string {
+  return isMoved(t) && t.hubPage ? `https://${hub.domain}/${t.hubPage.town}` : `https://${t.domain}`;
+}
+
+/** A guide's page by path ("/events/x/"), wherever the guide is served. */
+export function guideUrl(t: GuidePlace, path = '/'): string {
+  return `${guideOrigin(t)}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
 /** The current site, narrowed to a town. Throws when building the hub. */

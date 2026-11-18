@@ -10,7 +10,7 @@
  * own name and the towns it covers, so a search for the town on its own
  * guide still leads with the guide's sections.
  */
-import { allTowns, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
+import { allTowns, guideOrigin, guideUrl, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
 import { HUB_CLUSTERS, STANDALONE_GUIDES, hubCountyLine, type HubTown } from '../config/hub-towns.ts';
 import { townNav } from './nav.ts';
 import { subTownsOf } from './sub-towns.ts';
@@ -71,7 +71,7 @@ export function townRegions(guides: readonly TownConfig[], pages: readonly HubTo
     regions.set(key, region);
   };
   for (const g of guides) {
-    const town = { name: g.name, url: `https://${g.domain}/`, kind: 'guide' as const };
+    const town = { name: g.name, url: guideUrl(g), kind: 'guide' as const };
     add(g.region, town);
     for (const c of g.counties) add(`${c} County`, town);
   }
@@ -92,7 +92,7 @@ export function townSearchIndex(site: SiteConfig, pages: readonly HubTown[] = []
   if (site.kind === 'town') return { towns: [guideDestination(site, '')], regions: [] };
   const guides = liveTowns();
   return {
-    towns: [...guides.map((g) => guideDestination(g, `https://${g.domain}`)), ...pages.map((p) => annualDestination(p, ''))],
+    towns: [...guides.map((g) => guideDestination(g, guideOrigin(g))), ...pages.map((p) => annualDestination(p, ''))],
     regions: townRegions(guides, pages, ''),
   };
 }

@@ -1,15 +1,16 @@
 ---
 /**
- * Plausible Analytics, on a guide whose config sets `plausible`
- * (TownConfig.plausible). Base.astro renders this only there, so no other
- * site ships the script.
+ * Plausible Analytics: on every hub page, sections included, counted as the
+ * hub's domain (HubConfig.plausible), and on a guide whose config sets
+ * `plausible`, counted as its own (TownConfig.plausible). Base.astro renders
+ * it from plausibleDomain() (src/config/index.ts), so no other site ships it.
  *
  * The options are the ones Plausible's own snippet for insideberthoud.com had
  * switched on: outbound link clicks, file downloads and form submissions,
  * each an event with the page's path and nothing typed into the form.
  */
 interface Props {
-  /** The site as Plausible knows it: the guide's domain. */
+  /** The site as Plausible knows it: insidethetowns.com on the hub, a guide's own domain on a guide. */
   domain: string;
 }
 

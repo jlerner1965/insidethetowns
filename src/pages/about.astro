@@ -6,7 +6,7 @@ import Page from '@/layouts/Page.astro';
 import FactStrip from '@/components/FactStrip.astro';
 import TipsLink from '@/components/TipsLink.astro';
 import { resolveSiteImage } from '@/lib/images';
-import { countiesCovered, countyLabel, getNetworkHub, getSite, liveTowns, listsEvents } from '@/config';
+import { countiesCovered, countyLabel, getNetworkHub, getSite, guideUrl, liveTowns, listsEvents } from '@/config';
 import CtaBand from '@/components/CtaBand.astro';
 import { getTownEntries } from '@/lib/content';
 import { eventTotals, describeTotals } from '@/lib/event-totals';
@@ -177,7 +177,7 @@ const townPages = publishedHubTowns(await getTraditions()).length;
             <ul class="mt-3 grid grid-cols-2 gap-x-4 text-[0.9375rem]">
               {siblings.map((t) => (
                 <li>
-                  <a href={`https://${t.domain}/`} class="block py-1 font-semibold no-underline hover:text-primary hover:underline">{t.name}</a>
+                  <a href={guideUrl(t)} class="block py-1 font-semibold no-underline hover:text-primary hover:underline">{t.name}</a>
                 </li>
               ))}
             </ul>
@@ -278,7 +278,7 @@ const townPages = publishedHubTowns(await getTraditions()).length;
           <ul class="mt-4 space-y-2.5 text-[0.9375rem]">
             {live.map((t) => (
               <li>
-                <a href={`https://${t.domain}/`} class="font-semibold no-underline hover:text-primary hover:underline">{t.siteTitle}</a>
+                <a href={guideUrl(t)} class="font-semibold no-underline hover:text-primary hover:underline">{t.siteTitle}</a>
                 <span class="block text-ink-muted">{countyLabel(t)}</span>
               </li>
             ))}

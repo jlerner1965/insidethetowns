@@ -52,6 +52,8 @@ export const carbonValley: TownConfig = {
   slug: 'carbon-valley',
   name: 'Carbon Valley',
   domain: 'carbonvalleyguide.com',
+  // Inside Frederick's and Inside Firestone's domains forward here (vercel.json); with the switch on they answer from the map.
+  formerDomains: ['insidefrederickco.com', 'insidefirestone.com'],
   siteTitle: 'Inside Carbon Valley',
   tagline:
     'An independent guide to Frederick, Firestone and Dacono, Colorado: Fifth Street, Milavec Lake, the parks and trails, the Golden Eagles and what’s on.',

@@ -156,6 +156,30 @@ test('a redirect-only site skips shared code and other content, and builds for i
   assert.equal(decide('golden', config, config), 'build');
 });
 
+test('a guide moved into the hub (its switch on) is a redirect project: it skips shared code and builds for its switch, its rules, the function and its own content, which the hub builds for too', () => {
+  const prev = git('rev-parse', 'HEAD');
+  const on = commit({ 'src/config/guide-move.ts': "export const GUIDE_MOVE = {\n  lyons: '2026-12-04',\n  niwot: false,\n};\n" });
+  assert.equal(decide('lyons', on, prev), 'build', 'the switch turning on builds the guide');
+  assert.equal(decide('hub', on, prev), 'build', 'and the hub, which links to the guides');
+  const shared = commit({ 'src/lib/dates.ts': 'moved-shared' });
+  assert.equal(decide('lyons', shared, on), 'skip', 'shared code changes nothing a moved guide serves');
+  assert.equal(decide('niwot', shared, on), 'build', 'a guide still on its own domain builds for it');
+  assert.equal(decide('hub', shared, on), 'build');
+  const content = commit({ 'content/lyons/events/b.md': 'moved-content' });
+  assert.equal(decide('lyons', content, shared), 'build', 'its map is made from its content');
+  assert.equal(decide('hub', content, shared), 'build', 'its section is made from its content');
+  assert.equal(decide('niwot', content, shared), 'skip');
+  const history = commit({ 'docs/migration/guides/insidelyons.com.csv': 'old_path,source\n/x/,sitemap\n' });
+  assert.equal(decide('lyons', history, content), 'build', 'a decision in its history');
+  assert.equal(decide('hub', history, content), 'skip');
+  const other = commit({ 'README.md': 'moved-readme' });
+  assert.equal(decide('lyons', other, history), 'skip');
+  // Switched off again: a live guide as before.
+  const off = commit({ 'src/config/guide-move.ts': "export const GUIDE_MOVE = {\n  lyons: false,\n  niwot: false,\n};\n" });
+  assert.equal(decide('lyons', off, other), 'build');
+  assert.equal(decide('lyons', commit({ 'src/lib/dates.ts': 'moved-shared-2' }), off), 'build', 'shared code builds a guide on its own domain');
+});
+
 test('a build and a dev server parse every content file afresh (astro --force), so a schema change cannot meet a cached entry', () => {
   // Vercel carries node_modules/.astro between builds; on 13 November 2026 a
   // cached Eldora article without the new `games` default failed every hub

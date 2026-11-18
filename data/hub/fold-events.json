@@ -97,5 +97,61 @@
   },
   "insidemanitousprings.com": {
     "/events/emma-crawford-coffin-races-2026-10-24/": "manitou-springs-emma-crawford-coffin-races"
+  },
+  "insideberthoud.com": {
+    "/events/a-very-merry-berthoud/": "berthoud-a-very-merry-berthoud",
+    "/events/a-very-merry-berthoud-2026/": "berthoud-a-very-merry-berthoud",
+    "/events/parade-of-lights/": "berthoud-parade-of-lights",
+    "/events/parade-of-lights-2026/": "berthoud-parade-of-lights"
+  },
+  "insideerie.com": {
+    "/events/erie-balloon-festival/": "erie-balloon-festival",
+    "/events/erie-brewfest/": "erie-brewfest",
+    "/events/erie-brewfest-2026/": "erie-brewfest",
+    "/events/parade-of-lights/": "erie-parade-of-lights",
+    "/events/parade-of-lights-2026/": "erie-parade-of-lights",
+    "/events/erie-town-fair/": "erie-town-fair"
+  },
+  "insidejohnstown.com": {
+    "/events/fitness-avenue-turkey-trot/": "johnstown-fitness-avenue-turkey-trot",
+    "/events/johnstown-jingle/": "johnstown-jingle",
+    "/events/johnstown-jingle-2026/": "johnstown-jingle",
+    "/events/trick-or-treat-street/": "johnstown-trick-or-treat-street",
+    "/events/trick-or-treat-street-2026/": "johnstown-trick-or-treat-street"
+  },
+  "insidewindsorco.com": {
+    "/events/kids-fishing-derby/": "severance-kids-fishing-derby",
+    "/events/trick-or-treat-parade/": "severance-trick-or-treat-parade",
+    "/events/trick-or-treat-parade-2026-10-30/": "severance-trick-or-treat-parade",
+    "/events/windsor-turkey-trot/": "windsor-turkey-trot",
+    "/events/windsor-turkey-trot-2026-11-26/": "windsor-turkey-trot",
+    "/events/windsor-wonderland/": "windsor-wonderland",
+    "/events/windsor-wonderland-2026-12-05/": "windsor-wonderland"
+  },
+  "carbonvalleyguide.com": {
+    "/events/festival-of-lights/": "frederick-festival-of-lights",
+    "/events/festival-of-lights-2026-12-05/": "frederick-festival-of-lights"
+  },
+  "insidelyons.com": {
+    "/events/holiday-parade-of-lights/": "lyons-parade-of-lights",
+    "/events/holiday-parade-of-lights-2026/": "lyons-parade-of-lights",
+    "/events/tree-lighting-and-caroling/": "lyons-tree-lighting",
+    "/events/tree-lighting-and-caroling-2026/": "lyons-tree-lighting"
+  },
+  "insideniwot.com": {
+    "/events/enchanted-evening-2026/": "niwot-enchanted-evening",
+    "/events/enchanted-evening/": "niwot-enchanted-evening",
+    "/events/fourth-of-july-2027/": "niwot-fourth-of-july",
+    "/events/great-pumpkin-party-2026/": "niwot-great-pumpkin-party",
+    "/events/great-pumpkin-party/": "niwot-great-pumpkin-party",
+    "/events/holiday-magic-market-fayre-2026/": "niwot-holiday-magic-market-fayre",
+    "/events/holiday-magic-market-fayre/": "niwot-holiday-magic-market-fayre",
+    "/events/holiday-parade-2026/": "niwot-holiday-parade",
+    "/events/holiday-parade/": "niwot-holiday-parade",
+    "/events/lets-wine-about-winter-2027/": "niwot-lets-wine-about-winter",
+    "/events/niwot-trot-5k-2026/": "niwot-niwot-trot",
+    "/events/niwot-trot/": "niwot-niwot-trot",
+    "/events/sample-holiday-parade/": "niwot-holiday-parade",
+    "/events/sample-rock-and-rails/": "niwot-rock-and-rails"
   }
 }

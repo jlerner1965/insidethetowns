@@ -5,14 +5,13 @@ address: "488 Main St, Black Hawk, CO 80422"
 area: "Monarch Casino Resort Spa"
 url: "https://monarchblackhawk.com/wellness"
 source: "https://monarchblackhawk.com/wellness"
-verified: "2026-10-10"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "James Lerner, by phone on 2026-11-18"
 phone: "720-460-4000"
 hours: "Daily 8 am–9 pm"
 tags: [spa, pool, day-pass, massage]
 summary: "The Monarch's spa, over 30,000 square feet with steam rooms, a Laconium lounge and a 23rd-floor indoor infinity pool. Open daily 8 am–9 pm; four-hour day passes are limited and must be reserved."
-readBlocked: "2026-11-17: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
 ---
 
 Spa Monarch is inside the Monarch Casino Resort Spa on Main Street. Monarch's page describes more than 30,000 square feet: a Laconium lounge with heated, contoured seating, an Aqua lounge with an experiential shower, a brine inhalation and light therapy lounge, herbal steam rooms and a Mountain Stone Bath. The indoor infinity pool is on the 23rd floor, with an outdoor jetted spa and a seasonal sun deck with fire pits; the pool is open every day 6 am to 10 pm. Massages, facials, nails and body wraps are listed on the spa's booking page, and a stay-and-spa package adds a spa credit to a two-night stay in a Monarch Grand Room.

@@ -1,0 +1,218 @@
+old_path,source,kind,key,decision,note
+/,sitemap 2026-10-19 to 2026-11-18; qr-card,page,,,
+/about/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/articles/,vercel.json (a rule today),page,,/guides/,the guide's own rule sends it to /guides/
+/articles/2026-incorporation-election/,git in the content today; sitemap 2026-10-19 to 2026-11-18,articles,,,
+/articles/explore-niwot-in-walking-order/,git in the content today; sitemap 2026-10-19 to 2026-11-18,articles,,,
+/articles/holiday-magic-in-niwot/,git in the content today; sitemap 2026-11-08 to 2026-11-18,articles,,,
+/articles/how-niwot-got-here/,git in the content today; sitemap 2026-10-19 to 2026-11-18,articles,,,
+/articles/niwot-trails-and-nearby-open-space/,git in the content today; sitemap 2026-11-12 to 2026-11-18,articles,,,
+/articles/niwot-with-kids/,git in the content today; sitemap 2026-10-19 to 2026-11-18,articles,,,
+/articles/patios-in-niwot/,git in the content today; sitemap 2026-10-19 to 2026-11-18,articles,,,
+/articles/welcome/,git deleted,articles,,gone,"article removed from the guide (git deleted), and no page stands for it"
+/articles/who-runs-what-in-niwot/,git in the content today; sitemap 2026-10-19 to 2026-11-18,articles,,,
+/coffee/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/contact/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/corrections/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/credits/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/directory/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/eat-drink/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/editorial/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/events.rss,vercel.json (a rule today),page,,/updates.rss,the guide's own rule sends it to /updates.rss
+/events/,sitemap 2026-10-19 to 2026-11-11; vercel.json (a rule today),events,,/traditions/,the guide's own rule sends it to /traditions/
+/events/a-dance-for-wildlife-2026-12-06/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,A dance for Wildlife|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/active-minds-native-americans-of-colorado-2026-11-16/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Active Minds: Native Americans of Colorado|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/active-minds-the-story-of-toys-2026-12-21/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Active Minds: The Story of Toys|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/artist-in-residence-open-house-gail-denton-2026-10-15/,git deleted; retired.json; vercel.json,events,Artist-in-residence: Painters in the Hall with Gail Denton|Niwot Hall,gone,"retired from the guide before its date (2026-10-15), with no later date of its series; ledger: retired"
+/events/artist-in-residence-open-house-gail-denton-2026-10-16/,git deleted; retired.json; vercel.json,events,Artist-in-residence open house: Gail Denton|Niwot Hall,gone,"retired from the guide before its date (2026-10-16), with no later date of its series; ledger: retired"
+/events/artist-in-residence-open-house-gail-denton-2026-10-17/,git deleted; retired.json,events,Artist-in-residence open house: Gail Denton|Niwot Hall,gone,"retired from the guide before its date (2026-10-17), with no later date of its series; ledger: retired"
+/events/artist-reception-tory-cusack-2026-12-04/,git in the content today; sitemap 2026-10-21 to 2026-11-11,events,Artist's reception for Tory Cusack at Niwot Hall|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/baby-handprint-keepsake-2026-12-06/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Baby Handprint Keepsake|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/bad-art-night-2026-12-03/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Bad Art Night|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/ballots-mailed-2026-10-02/,git deleted; retired.json; vercel.json,events,"Ballots go out for the November 3 election|By mail, from Boulder County Elections",gone,"retired from the guide before its date (2026-10-02), with no later date of its series; ledger: retired"
+/events/basin-design-open-house-2026-09-19/,git deleted; retired.json,events,Open house at Basin Design + Build|Basin Design + Build,gone,"retired from the guide before its date (2026-09-19), with no later date of its series; ledger: retired"
+/events/blessing-of-the-animals-2026/,git deleted; retired.json,events,Blessing of the Animals|Niwot United Methodist Church,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/blind-date-with-a-book-white-elephant-exchange-2026-12-15/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Blind Date with a Book: White Elephant Exchange|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/boot-squad-2026-12-05/,git in the content today,events,Boot Squad|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/boulder-dead-night-at-mainstage-gunbarrel-2026-11-12/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Boulder Dead Night at MainStage Gunbarrel|MainStage Brewing Gunbarrel,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/branch-and-barrel-whiskey-tasting-2026-12-03/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Branch & Barrel Whiskey Tasting|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/breakfast-with-the-rotary-club-of-niwot-2026-10-01/,git deleted; retired.json,events,Breakfast with the Rotary Club of Niwot|Niwot Hall,gone,retired to a later listing (breakfast-with-the-rotary-club-of-niwot) that has itself passed; no later date of its series
+/events/breakfast-with-the-rotary-club-of-niwot-november/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,Breakfast with the Rotary Club of Niwot|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/breakfast-with-the-rotary-club-of-niwot/,git in the content today,events,Breakfast with the Rotary Club of Niwot|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/buzz-brothers-wheel-house-2026-12-04/,git in the content today; sitemap 2026-11-02 to 2026-11-11,events,Buzz Brothers|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/childrens-park-turns-10/,git deleted; retired.json; vercel.json,events,Niwot Children’s Park turns 10|Niwot Children’s Park,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/community-chats-colorado-talking-book-library-2026-12-07/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Community Chats: Colorado Talking Book Library|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/community-craft-fair-niwot-umc-2026-11-07/,git in the content today; sitemap 2026-11-02 to 2026-11-06,events,Community Craft Fair at Niwot United Methodist Church|Niwot United Methodist Church,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/cruagh-irish-food-truck-2026-11-14/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Cruagh Irish Food Truck|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/dancing-under-the-stars-season-finale/,git deleted; retired.json; vercel.json,events,Dancing Under the Stars: last Friday of the season|Cottonwood Square,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/decorate-a-yule-log-2026-12-12/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Decorate a Yule Log|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/dj-night-with-dj-gourmet-and-asano-2026-11-21/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,DJ Night with DJ Gourmet and Asano|MainStage Brewing Gunbarrel,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/dougs-garage-wheel-house-2026-11-21/,git in the content today; sitemap 2026-11-02 to 2026-11-11,events,Doug's Garage|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/election-commission-meeting-2026-09-18/,git deleted; retired.json,events,Niwot Election Commission meeting|Niwot Inn & Spa,gone,"retired from the guide before its date (2026-09-18), with no later date of its series; ledger: retired"
+/events/election-commission-meeting-2026-10-20/,git deleted; retired.json; sitemap 2026-10-19 to 2026-10-21,events,Niwot Election Commission meeting|Niwot Hall,gone,"retired from the guide before its date (2026-10-20), with no later date of its series; ledger: retired"
+/events/election-day-2026-11-03/,git in the content today; sitemap 2026-10-19 to 2026-11-03,events,Election Day: the Niwot incorporation vote|Boulder County vote centers and drop boxes,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/enchanted-evening-2026/,git formerSlugs of enchanted-evening; sitemap 2026-10-19 to 2026-11-06; vercel.json (a rule today),events,Enchanted Evening|Old Town and Cottonwood Square,https://insidethetowns.com/niwot/enchanted-evening/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/enchanted-evening/,git in the content today; sitemap 2026-11-08 to 2026-11-11; vercel.json (a rule today),events,Enchanted Evening|Old Town and Cottonwood Square,https://insidethetowns.com/niwot/enchanted-evening/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/euchre-wheel-house/,git in the content today; sitemap 2026-11-02 to 2026-11-11,events,Euchre night at The Wheel House|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/festive-ugly-sweater-party-2026-12-17/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Festive/Ugly Sweater Party|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/first-friday-art-walk-2026-10-02/,git deleted; retired.json; vercel.json,events,First Friday Art Walk|Old Town Niwot and Cottonwood Square,gone,"retired from the guide before its date (2026-10-02), with no later date of its series; ledger: retired"
+/events/first-friday-art-walk-2026-11-06/,git deleted; retired.json,events,First Friday Art Walk|Old Town Niwot and Cottonwood Square,gone,"retired from the guide before its date (2026-11-06), with no later date of its series; ledger: retired"
+/events/first-friday-art-walk-2026-12-04/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,First Friday Art Walk|Old Town and Cottonwood Square,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/fourth-of-july-2027/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,Fourth of July in Niwot|Downtown Niwot,https://insidethetowns.com/niwot/fourth-of-july/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/fresh-reads-2026-12-02/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Fresh Reads|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/great-decisions-presented-by-the-foreign-policy-association-2026-11-15/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Great Decisions Presented by the Foreign Policy Association|Gunbarrel Library - Gunbarrel Meeting Room,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/great-decisions-presented-by-the-foreign-policy-association-2026-12-20/,git in the content today,events,Great Decisions Presented by the Foreign Policy Association|Gunbarrel Library - Gunbarrel Meeting Room,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/great-pumpkin-party-2026/,git formerSlugs of great-pumpkin-party; sitemap 2026-10-22 to 2026-10-31; vercel.json (a rule today),events,Niwot Great Pumpkin Party|Old Town and Cottonwood Square,https://insidethetowns.com/niwot/great-pumpkin-party/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/great-pumpkin-party/,git in the content today; sitemap 2026-11-08 to 2026-11-11; vercel.json (a rule today),events,Niwot Great Pumpkin Party|Old Town and Cottonwood Square,https://insidethetowns.com/niwot/great-pumpkin-party/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/gunbarrel-classic-movies-2026-11-22/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Gunbarrel Classic Movies|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/gunbarrel-classic-movies-2026-12-27/,git in the content today,events,Gunbarrel Classic Movies|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/halloween-party-wheel-house-2026-10-31/,git deleted; retired.json,events,Halloween party with Wendy Woo|The Wheel House,gone,"retired from the guide before its date (2026-10-31), with no later date of its series; ledger: retired"
+/events/holiday-magic-concert-rebecca-folsom-2026-12-05/,git in the content today; sitemap 2026-10-21 to 2026-11-11,events,Holiday Magic Concert with Rebecca Folsom|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/holiday-magic-market-fayre-2026/,git formerSlugs of holiday-magic-market-fayre; sitemap 2026-10-19 to 2026-11-06; vercel.json (a rule today),events,Holiday Magic Market Fayre|Niwot Hall and Downtown Niwot,https://insidethetowns.com/niwot/holiday-magic-market-fayre/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/holiday-magic-market-fayre/,git in the content today; sitemap 2026-11-08 to 2026-11-11; vercel.json (a rule today),events,Holiday Magic Market Fayre|Niwot Hall and Downtown Niwot,https://insidethetowns.com/niwot/holiday-magic-market-fayre/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/holiday-parade-2026/,git formerSlugs of holiday-parade; sitemap 2026-10-19 to 2026-11-06; vercel.json (a rule today),events,"Niwot Holiday Parade|Second Avenue, Murray Street to Niwot Road",https://insidethetowns.com/niwot/holiday-parade/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/holiday-parade/,git in the content today; sitemap 2026-11-08 to 2026-11-11; vercel.json (a rule today),events,"Niwot Holiday Parade|Second Avenue, Murray Street to Niwot Road",https://insidethetowns.com/niwot/holiday-parade/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/in-concert-firefly-winds-2026-12-13/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,In Concert: Firefly Winds|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/lets-wine-about-winter-2027/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,Let’s Wine About Winter|Downtown Niwot,https://insidethetowns.com/niwot/lets-wine-about-winter/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/line-dancing-niwot-hall-2026-10-08/,git deleted; retired.json,events,Line dancing lessons with Lindy B Dance|Niwot Hall,gone,"retired from the guide before its date (2026-10-08), with no later date of its series; ledger: retired"
+/events/line-dancing-niwot-hall-2026-10-29/,git in the content today; sitemap 2026-10-19 to 2026-10-30,events,Line dancing lessons with Lindy B Dance|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/line-dancing-niwot-hall-2026-11-05/,git in the content today; sitemap 2026-11-02 to 2026-11-05,events,Line dancing lessons with Lindy B Dance|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/line-dancing-niwot-hall/,git deleted; retired.json,events,Line dancing lessons with Lindy B Dance|Niwot Hall,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/maingrass-11-13-26-2026-11-13/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,MainGrass|MainStage Brewing Gunbarrel,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/maingrass-11-20-26-2026-11-20/,git in the content today,events,MainGrass|MainStage Brewing Gunbarrel,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/maingrass-11-27-26-2026-11-27/,git in the content today,events,MainGrass|MainStage Brewing Gunbarrel,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/mainjazz-11-15-26-2026-11-15/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,MainJazz|MainStage Brewing Gunbarrel,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/mainjazz-11-22-26-2026-11-22/,git in the content today,events,MainJazz|MainStage Brewing Gunbarrel,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/mainjazz-11-29-26-2026-11-29/,git in the content today,events,MainJazz|MainStage Brewing Gunbarrel,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/marvelous-marvel-challenge-2027-01-08/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Marvelous Marvel Challenge|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-business-association-monthly-meeting-2026-10-13/,git deleted; retired.json; vercel.json,events,Niwot Business Association monthly meeting|Niwot Hall,gone,"retired from the guide before its date (2026-10-13), with no later date of its series; ledger: retired"
+/events/niwot-business-association-monthly-meeting-2026-11-10/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,Niwot Business Association monthly meeting|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-business-association-monthly-meeting-2026-12-08/,git in the content today,events,Niwot Business Association monthly meeting|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-cemetery-talk-2026-10-21/,git deleted; retired.json; sitemap 2026-10-19 to 2026-10-21; vercel.json,events,Niwot Historical Society: The Niwot Cemetery|Niwot Hall,gone,"retired from the guide before its date (2026-10-21), with no later date of its series; ledger: retired"
+/events/niwot-community-connection-2026-11-12/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,Niwot Community Connection|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-community-connection-colorado-bats-2026-10-08/,git deleted; retired.json,events,Niwot Community Connection: Colorado bats|Niwot Hall,gone,"retired from the guide before its date (2026-10-08), with no later date of its series; ledger: retired"
+/events/niwot-cougars-football-vs-fort-morgan-2026-10-23/,git deleted; retired.json; vercel.json,events,Niwot Cougars football vs Fort Morgan|Niwot High School,gone,"retired from the guide before its date (2026-10-23), with no later date of its series; ledger: retired"
+/events/niwot-cougars-football-vs-skyview-2026-10-16/,git deleted; retired.json; vercel.json,events,Niwot Cougars football vs Skyview|Niwot High School,gone,"retired from the guide before its date (2026-10-16), with no later date of its series; ledger: retired"
+/events/niwot-hall-board-meeting-2026-10-14/,git deleted; retired.json,events,Niwot Hall board meeting|Niwot Hall,gone,"retired from the guide before its date (2026-10-14), with no later date of its series; ledger: retired"
+/events/niwot-hall-board-meeting-2026-11-11/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,Niwot Hall board meeting|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-hall-board-meeting-2026-12-09/,git in the content today,events,Niwot Hall board meeting|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-local-improvement-district-advisory-committee-meeting-2026-10-06/,git deleted; retired.json; vercel.json,events,Niwot Local Improvement District Advisory Committee meeting|Niwot Inn Conference Room,gone,"retired from the guide before its date (2026-10-06), with no later date of its series; ledger: retired"
+/events/niwot-local-improvement-district-advisory-committee-meeting-2026-11-03/,git in the content today; sitemap 2026-10-19 to 2026-11-03,events,Niwot Local Improvement District Advisory Committee meeting|Niwot Inn Conference Room,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-local-improvement-district-advisory-committee-meeting-2026-11-17/,git deleted; retired.json,events,Niwot Local Improvement District Advisory Committee meeting|Niwot Inn,gone,"retired from the guide before its date (2026-11-17), with no later date of its series; ledger: retired"
+/events/niwot-local-improvement-district-advisory-committee-meeting-2026-12-01/,git in the content today; sitemap 2026-11-05 to 2026-11-11,events,Niwot Local Improvement District Advisory Committee meeting|Niwot Inn Conference Room,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-stroll-2026-12-04/,git in the content today; sitemap 2026-11-02 to 2026-11-11,events,Niwot Stroll: holiday shopping after hours|Old Town and Cottonwood Square,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-stroll-2026-12-10/,git in the content today,events,Niwot Stroll: holiday shopping after hours|Old Town and Cottonwood Square,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-stroll-2026-12-17/,git in the content today,events,Niwot Stroll: holiday shopping after hours|Old Town and Cottonwood Square,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-stroll-2026-12-21/,git in the content today,events,Niwot Stroll: holiday shopping after hours|Old Town and Cottonwood Square,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/niwot-trot-5k-2026/,git formerSlugs of niwot-trot; retired.json; vercel.json (a rule today),events,Niwot Trot 5K|Whistle Stop Park,https://insidethetowns.com/niwot/niwot-trot/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/niwot-trot/,git in the content today; vercel.json (a rule today),events,Niwot Trot 5K|Whistle Stop Park,https://insidethetowns.com/niwot/niwot-trot/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/rebuilding-evening-workshop-2026-11-12/,git in the content today; sitemap 2026-11-06 to 2026-11-11,events,"Rebuilding evening workshop: recovering after a relationship ends|195 Second Avenue, Niwot",gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/rebuilding-seminars-2026-11-01/,git deleted; retired.json,events,Rebuilding Seminars|Niwot Hall,gone,"retired from the guide before its date (2026-11-01), with no later date of its series; ledger: retired"
+/events/red-sax-jazz-band-wheel-house-2026-11-20/,git in the content today; sitemap 2026-11-02 to 2026-11-11,events,Red Sax Jazz Band|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/responders-oldies-band-wheel-house-2026-11-07/,git in the content today; sitemap 2026-11-02 to 2026-11-06,events,Responders Oldies Band|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/sample-art-walk/,git deleted; retired.json,events,First Friday Art Walk (sample)|Old Town galleries,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/sample-farmers-market/,git deleted; retired.json,events,Niwot Farmers Market (sample)|Main Street,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/sample-harvest-dinner/,git deleted; retired.json,events,Harvest dinner on 2nd Avenue (sample)|2nd Avenue,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/sample-holiday-parade/,git deleted; retired.json,events,Holiday Parade (sample)|2nd Avenue,https://insidethetowns.com/niwot/holiday-parade/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/sample-rock-and-rails/,git deleted; retired.json,events,Rock & Rails (sample)|Whistle Stop Park,https://insidethetowns.com/niwot/rock-and-rails/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/sample-story-time/,git deleted; retired.json,events,Library story time (sample)|Niwot Library,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/sample-trail-run/,git deleted; retired.json,events,Left Hand Valley trail run (sample)|Niwot Trails trailhead,gone,"retired from the guide before its date, with no later date of its series; ledger: retired"
+/events/spoilers-ahead-prepare-for-sunrise-on-the-reaping-2026-11-16/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Spoilers Ahead: Prepare for Sunrise on the Reaping|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/starlight-and-pine-wheel-house-2026-11-14/,git in the content today; sitemap 2026-11-02 to 2026-11-11,events,Starlight and Pine|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/strange-byrds-wheel-house-2026-11-13/,git in the content today; sitemap 2026-11-02 to 2026-11-11,events,Strangebyrds|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/the-maine-event-food-truck-2026-11-19/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,The Maine Event Food Truck|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/the-pogs-2026-11-28/,git in the content today,events,The Pogs|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/tinker-art-studio-winter-watercolor-landscapes-2026-11-30/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Tinker Art Studio: Winter Watercolor Landscapes|Gunbarrel Library - Gunbarrel Study Rooms - Joined,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/toys-in-the-attic-2026-11-14/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Toys In The Attic|Niwot High School Auditorium,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/tree-sculptures-open-house-2026-10-04/,git deleted; retired.json; vercel.json,events,Open house for the tree sculptures restoration|9700 Niwot Road,gone,"retired from the guide before its date (2026-10-04), with no later date of its series; ledger: retired"
+/events/trivia-2026-11-16/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Trivia|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/trivia-2026-12-07/,git in the content today,events,Trivia|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/trivia-2026-12-21/,git in the content today,events,Trivia|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/trivia-2027-01-04/,git in the content today,events,Trivia|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/trivia-2027-01-18/,git in the content today,events,Trivia|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/trivia-2027-02-01/,git in the content today,events,Trivia|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/trivia-2027-02-15/,git in the content today,events,Trivia|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/trivia-2027-03-01/,git in the content today,events,Trivia|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/trivia-2027-03-15/,git in the content today,events,Trivia|Fritz Family Brewers,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/trivia-night-wheel-house/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,Trivia Night at The Wheel House|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/wandering-roads-band-wheel-house-2026-11-06/,git in the content today; sitemap 2026-11-02 to 2026-11-06,events,Wandering Roads Band|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/wellness-lecture-2026-10-07/,git deleted; retired.json; vercel.json,events,Niwot Wellness Lecture Series: Women’s Health Update 2026|Niwot Hall,gone,"retired from the guide before its date (2026-10-07), with no later date of its series; ledger: retired"
+/events/wellness-lecture-2026-12-02/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,Niwot Wellness Lecture Series: Holiday Panel|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/events/winter-baby-rave-2026-12-05/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Winter Baby Rave|Gunbarrel Library,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
+/families/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/for-businesses/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/get-involved/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/guides/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/living-here/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/moving-here/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/parks/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/places/,vercel.json (a rule today),page,,/directory/,the guide's own rule sends it to /directory/
+/places/abos-pizza/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/belle-terre-floral/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/blessings-day-spa/,git in the content today; sitemap 2026-11-11 to 2026-11-18,places,,,
+/places/cimminis/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/emory-janes-coffee-co/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/fans-chinese-cuisine/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/fly-away-home/,git in the content today,places,,,
+/places/fortezza-ristorante/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/fritz-family-brewers/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/garden-gate-cafe/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/gateway-sculpture/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/hannas-herb-shop/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/inkberry-books/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/little-bird/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/lobo-regional-trail/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/love-ice-cream/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/murray-street-flowers/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niles-family-dentistry/,git in the content today; sitemap 2026-11-11 to 2026-11-18,places,,,
+/places/niwot-childrens-park/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-hall/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-inn/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-jewelry-gifts/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-liquor/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-loop-trail/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-market-deli/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-market/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-sculpture-park/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-tavern/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/niwot-veterinary-clinic/,git in the content today; sitemap 2026-11-11 to 2026-11-18,places,,,
+/places/niwot-wheel-works/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/old-fire-house-museum/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/old-oak-coffeehouse/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/old-town-second-avenue/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/osmosis-gallery/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/raza-fresa/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/sachi-sushi/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/sample-gateway-sculpture/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-left-hand-trail/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-main-street-cafe/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-niwot-tavern/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-second-avenue-bar/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-whistle-stop-park/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/subway/,git deleted; retired.json; sitemap 2026-10-19 to 2026-11-05; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/taverna-laudisio/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/the-nook/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/the-wheel-house/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/una-vida/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/whistle-stop-park/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/winot-coffee-company/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/places/wise-buys-antiques/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
+/privacy/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/restaurants/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/services/,sitemap 2026-11-11 to 2026-11-18,page,,,
+/shops/,sitemap 2026-10-21 to 2026-11-18,page,,,
+/sports/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/sports/boys-basketball/,sitemap 2026-10-25 to 2026-11-18,page,,,
+/sports/boys-soccer/,sitemap 2026-10-25 to 2026-11-18,page,,,
+/sports/football/,sitemap 2026-10-25 to 2026-11-18,page,,,
+/sports/girls-basketball/,sitemap 2026-10-25 to 2026-11-18,page,,,
+/sports/softball/,sitemap 2026-10-25 to 2026-11-18,page,,,
+/sports/volleyball/,sitemap 2026-10-25 to 2026-11-18,page,,,
+/submit-event/,sitemap 2026-10-19 to 2026-11-11; vercel.json (a rule today),page,,/,the guide's own rule sends it to /
+/thanks/,vercel.json (a rule today),page,,/,the guide's own rule sends it to /
+/things-to-do/,sitemap 2026-10-19 to 2026-11-18,page,,,
+/this-week/,sitemap 2026-10-19 to 2026-11-11; vercel.json (a rule today),page,,/updates/,the guide's own rule sends it to /updates/
+/this-weekend/,sitemap 2026-10-19 to 2026-11-11; vercel.json (a rule today),page,,/updates/,the guide's own rule sends it to /updates/
+/traditions/,sitemap 2026-11-12 to 2026-11-18,page,,,
+/updates/,sitemap 2026-10-22 to 2026-11-18,page,,,
+/venues/,sitemap 2026-10-21 to 2026-11-18,page,,,

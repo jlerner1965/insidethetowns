@@ -37,7 +37,7 @@
  * such a guide is no box on anyone else's: the email is a weekly promise,
  * and that guide is not being covered weekly.
  */
-import { editionFor, emailEditions, getNetworkHub, liveTowns, type TownConfig } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, guideUrl, liveTowns, type TownConfig } from '@/config';
 import { inlineSignup, SIGNUP_MESSAGES } from '@/lib/signup';
 import { EMAIL_PROMISE, PRIVACY_LINE } from '@/lib/privacy';
 import { nextSendDay } from '@/lib/newsletter';
@@ -319,7 +319,7 @@ const box = 'size-5 shrink-0 rounded border-line';
             {/* A guide with no weekly issue is not a box here; its own occasional updates are one link away (the audit of 13 November 2026). */}
             {occasional.map((t) => (
               <p class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted" data-occasional={t.slug}>
-                {t.name} has no weekly issue: its guide sends occasional local updates instead. <a href={`https://${t.domain}/#signup`} class="text-primary underline">Sign up on {t.siteTitle}</a>.
+                {t.name} has no weekly issue: its guide sends occasional local updates instead. <a href={guideUrl(t, '/#signup')} class="text-primary underline">Sign up on {t.siteTitle}</a>.
               </p>
             ))}
           </Fragment>
