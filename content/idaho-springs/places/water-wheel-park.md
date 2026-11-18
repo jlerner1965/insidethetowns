@@ -5,15 +5,14 @@ address: "Behind City Hall, 1711 Miner Street, Idaho Springs, CO 80452, by a pav
 area: "City Hall"
 url: "https://www.idahospringsco.com/our-community/page/parks"
 source: "https://www.idahospringsco.com/our-community/page/parks"
-verified: "2026-10-10"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 image: ../images/water-wheel-park.jpg
 imageAlt: "The Charlie Tayler Waterwheel, a large wooden wheel on a timber frame against a wooded slope, small flags at its base, July 2010"
 imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 tags: [history, waterwheel, clear-creek, walking]
 summary: "The City park on Clear Creek around the Charlie Tayler Waterwheel, built in 1893 and moved here in 1946, reached by a paved path from behind City Hall under I-70."
-readBlocked: "2026-11-17: the City's parks page (idahospringsco.com) answers 403 to the link checker and to WebFetch; the Historical Society's waterwheel page gives the history but not the park's details."
 ---
 
 The waterwheel is visible from the interstate, and the City's parks page says a paved path behind City Hall leads under I-70 and along the creek for a better view. The Historical Society of Idaho Springs calls it the Charlie Tayler Waterwheel: Tayler built it in 1893 to power a stamp mill at his gold mine on Ute Creek, his estate gave it to the town and it was moved here in 1946, and volunteers restored it in 1988. The City's visitor site adds that the path connects with the Clear Creek Greenway. Behind City Hall too, the City's Anderson Park holds Colorado & Southern steam locomotive No. 60 and passenger car No. 70 on a piece of the original rail line through town.

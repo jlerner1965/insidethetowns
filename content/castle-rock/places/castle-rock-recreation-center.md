@@ -7,13 +7,12 @@ url: "https://www.crgov.com/2054/Recreation-Center"
 # The Town's site refuses automated reads; the owner read the page in a
 # browser on 31 October 2026 and passed its text on, and this is written from that.
 source: "https://www.crgov.com/2054/Recreation-Center"
-verified: "2026-10-31"
+verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "James Lerner, from the Town's page in a browser; written up by Claude Code"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 hours: "Mon–Thu 5 am–9 pm; Fri 5 am–8 pm; Sat 7 am–8 pm; Sun 7 am–6 pm"
 tags: [indoor, pool, gym, fitness, track, recreation]
 summary: "The Town's recreation center: a 25-yard lap pool and a leisure pool, a gym, an indoor track, cardio, weights and strength areas, fitness studios, racquetball and wallyball courts, a steam room and child-watch for ages 1 to 8. Separate passes from the MAC."
-readBlocked: "2026-11-17: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
 ---
 
 The Town's recreation center, with everything below included in the daily admission: a 25-yard swimming pool with lap lanes and a separate leisure pool, each with its own schedule on the Town's site, with a lift for people with disabilities; basketball courts and a gymnasium; an indoor track; a cardio fitness area, free and circuit weights and a strength and conditioning area; group fitness studios and a mind/body studio; racquetball and wallyball courts; a steam room; locker rooms including a family one; and rooms to rent.

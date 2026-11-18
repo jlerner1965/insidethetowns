@@ -8,14 +8,13 @@ url: "https://www.alidadebrewing.com/"
 # reads; the owner read it in a browser on 31 October 2026 and passed on the
 # address, phone and hours, and this is written from that.
 source: "https://www.alidadebrewing.com/"
-verified: "2026-10-31"
+verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "James Lerner, from the brewery's site in a browser; written up by Claude Code"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "(720) 726-2109"
 hours: "Mon 2–8 pm; Tue 2–9 pm; Wed–Thu noon–9 pm; Fri noon–10 pm; Sat 11 am–10 pm; Sun 11 am–8 pm"
 tags: [brewery, taproom]
 summary: "A brewery taproom on Atchison Way, off Wolfensberger Road west of I-25, open every day from the early afternoon, from 11 at weekends."
-readBlocked: "2026-11-17: source returns 403 bot check (Cloudflare) to curl and WebFetch; no other official page readable; last read by the owner in a browser 31 Oct 2026."
 ---
 
 A brewery and taproom on Atchison Way, open seven days: from 2 pm on Monday and Tuesday, from noon Wednesday to Friday and from 11 am at the weekend, closing at 8 on Sunday and Monday, 9 Tuesday to Thursday and 10 on Friday and Saturday.

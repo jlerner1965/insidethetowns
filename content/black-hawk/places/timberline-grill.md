@@ -3,17 +3,16 @@ title: "Timberline Grill"
 type: restaurant
 address: "111 Richman Street, Black Hawk, CO 80422"
 area: "Ameristar Black Hawk, first floor"
-url: "https://www.ameristarblackhawk.com/dining/timberline-grill"
-source: "https://www.ameristarblackhawk.com/dining/timberline-grill"
-verified: "2026-10-10"
+url: "https://www.pennentertainment.com/ameristar-black-hawk/dining/timberline-grill"
+source: "https://www.pennentertainment.com/ameristar-black-hawk/dining/timberline-grill"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-946-4082"
 hours: "Wed–Thu & Sun 5–9 pm; Fri–Sat 5–10 pm; closed Mon–Tue"
 priceRange: "$$$"
 tags: [steakhouse, seafood, happy-hour, reservations]
 summary: "Ameristar's first-floor steakhouse, with hand-cut steaks, seafood, wine and cocktails, open from 5 pm Wednesday to Sunday. Business casual; happy hour 5–6 pm on Wednesday, Thursday and Sunday."
-readBlocked: "2026-11-17: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch."
 ---
 
 The Timberline Grill is the Ameristar's steakhouse, on the resort's first floor, in a room the page describes as reclaimed-timber walls, a carved bar and cherry-wood furniture. The menu runs to hand-cut steaks, seafood and specialty dishes, with wine, craft cocktails and desserts; the dress code is business casual and tables are booked online or by phone.

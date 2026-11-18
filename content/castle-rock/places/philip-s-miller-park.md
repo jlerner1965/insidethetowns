@@ -7,14 +7,13 @@ url: "https://www.crgov.com/2051/Philip-S-Miller-Park"
 # The Town's site refuses automated reads; the owner read the page in a
 # browser on 31 October 2026 and passed its text on, and this is written from that.
 source: "https://www.crgov.com/2051/Philip-S-Miller-Park"
-verified: "2026-10-31"
+verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "James Lerner, from the Town's page in a browser; written up by Claude Code"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-733-2260"
 tags: [hiking, trails, playground, challenge-hill, splash-pad, amphitheater]
 featured: true
 summary: "The Town's 300-acre park: 8 miles of single-track in four loops, a paved mile around the park, the 200-step Challenge Hill, a 2.5-acre adventure playground with a 40-foot slide, a splash pad, the MAC and The Edge's ziplines."
-readBlocked: "2026-11-17: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
 ---
 
 The Town's flagship park, 300 acres on West Plum Creek Parkway, holding the Millhouse events center, an outdoor amphitheater, the Miller Activity Complex, Challenge Hill, an adventure playground and a trail network, with The Edge's ziplines and adventure courses run inside it under a public-private partnership. The Town says it has been voted Best Place for Outdoor Fun every year since 2018.

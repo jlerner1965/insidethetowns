@@ -8,10 +8,9 @@ phone: "(303) 646-0916"
 tags: [trail, events, picnic]
 summary: "Town park on East Kiowa Avenue with a stage, picnic tables and a walking and bike path, on the Running Creek trail toward Evans Park; the summer Friday Night Market sets up here on Fridays."
 source: "https://www.townofelizabeth.org/publicworks/page/parks-and-trails"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-18"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 added: "2026-09-17"
-readBlocked: "2026-11-17: source townofelizabeth.org returns 403 (bot check, not worked around) to curl and WebFetch; no other official page gives the park address or amenities."
 ---
 
 A Town park on East Kiowa Avenue with a stage, five picnic tables and a walk and bike path, kept by the Town's Public Works department. The Town lists the Running Creek Park Trail System at the same address: it runs from Running Creek Elementary to Evans Park along the town's southeastern boundary, with several places to join it, and the Town's page carries a map of the route. Evans Park and Casey Jones Park belong to the separate Elizabeth Park & Recreation District.

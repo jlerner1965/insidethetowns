@@ -5,9 +5,9 @@ address: "1101 Lake Ave, Grand Lake, CO 80447"
 area: "Lake Avenue, north shore of Grand Lake"
 url: "https://www.townofgrandlake.com/administration/page/gene-stover-lakefront-park"
 source: "https://www.townofgrandlake.com/administration/page/gene-stover-lakefront-park"
-verified: "2026-10-10"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 image: ../images/gene-stover-lakefront-park.jpg
 imageAlt: "The sand beach on the north shore of Grand Lake, a young spruce in front and paddle boats tied up along the shore, July 2020"
 imageCredit: "Faith Warehime, Wikimedia Commons, CC BY-SA 4.0"
@@ -15,7 +15,6 @@ phone: "970-627-3435"
 tags: [beach, picnic, lake, town-park]
 summary: "The Town of Grand Lake's park and beach on the north shore of the lake, with two picnic pavilions that can be rented by the hour, public restrooms, parking and barbecue grills."
 access: { parking: "Public parking at the park", permit: "None to visit; the two pavilions are rented by the hour through the Town", source: "https://www.townofgrandlake.com/administration/page/gene-stover-lakefront-park", verified: "2026-10-10" }
-readBlocked: "2026-11-17: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against."
 ---
 
 Gene Stover Lakefront Park is the Town of Grand Lake's park on the north shore of the lake, at 1101 Lake Avenue. It has the beach, two picnic pavilions (upper and lower) with access to public restrooms, public parking and barbecue grills. The pavilions are rented by the hour through the Town's online reservation system: $20 an hour for government bodies, non-profits and special districts, $30 for a private function, and $25 for electricity. The Town's parks page says alcohol is not allowed in any Town park and asks that no stakes be driven into park ground, to protect the irrigation. The Headwaters Marina, also run by the Town, is across the street.

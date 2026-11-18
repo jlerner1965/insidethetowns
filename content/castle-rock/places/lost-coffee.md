@@ -7,15 +7,14 @@ url: "https://www.lostcoffee.com/"
 # The roaster's site refuses automated reads (403); the owner read it in a
 # browser on 31 October 2026 and passed on the address and hours, and this
 # is written from that.
-source: "https://www.lostcoffee.com/"
-verified: "2026-10-31"
+source: "https://www.lostcoffee.com/pages/castle-rock"
+verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "James Lerner, from the roaster's site in a browser; written up by Claude Code"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 # The site gives 6 to 6 without days; its Google listing, which the owner also read, says every day.
 hours: "Daily 6 am–6 pm"
 tags: [coffee, roaster, downtown]
 summary: "The local roaster's own shop on Perry Street downtown, open 6 am to 6 pm; its beans are what COFF33 pours up the street."
-readBlocked: "2026-11-17: source returns 403 bot check (Cloudflare) to curl and WebFetch; no other official page readable; last read by the owner in a browser 31 Oct 2026."
 ---
 
 The downtown shop of Lost Coffee, the Castle Rock roaster whose beans COFF33 on Wilcox Street also pours. Specialty espresso drinks and seasonal selections, open 6 am to 6 pm every day.

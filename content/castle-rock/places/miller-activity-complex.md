@@ -7,14 +7,13 @@ url: "https://www.crgov.com/2049/Miller-Activity-Complex-MAC"
 # The Town's site refuses automated reads; the owner read the page in a
 # browser on 31 October 2026 and sent screenshots, and this is written from them.
 source: "https://www.crgov.com/2049/Miller-Activity-Complex-MAC"
-verified: "2026-10-31"
+verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "James Lerner, from the Town's page in a browser; written up by Claude Code"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-733-2222"
 hours: "Mon–Sat 8 am–9 pm; Sun 8 am–8 pm"
 tags: [indoor, pool, trampolines, turf, kids, recreation]
 summary: "The Town's 64,443-square-foot indoor recreation building in Philip S. Miller Park: a leisure pool with a slide, four lap lanes, 16 trampolines, a 23-foot play slide, indoor turf fields and batting cages. Children 11 and under need a guardian 15 or older with them."
-readBlocked: "2026-11-17: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
 ---
 
 The Town's two-story, 64,443-square-foot recreation building in Philip S. Miller Park, which the Town calls the park's crowning jewel. Inside: an indoor leisure pool with a slide, a zero-entry section, a water table and a vortex whirlpool; four 25-yard lap lanes; a trampoline area with 16 beds; a children's play structure with a 23-foot slide, for ages 11 and under with their guardians; Beam interactive floor games; a full-size and a half-size indoor synthetic field, the half field doubling as two batting-cage bays when rented; a functional fitness area; two party rooms beside the pool; and a lounge with a fireplace.

@@ -11,9 +11,10 @@ imageAlt: "The brick Scheels All Sports store at Johnstown Plaza on a summer day
 imageCredit: "Tony Webster, Wikimedia Commons, CC BY 2.0"
 tags: [shopping, ferris wheel, aquarium, kids]
 summary: "The 250,000-square-foot sporting-goods store at 2534 with a 65-foot indoor Ferris wheel, a 16,000-gallon saltwater aquarium, a wildlife mountain, an arcade, a candy factory and Ginna's Café."
-source: "https://www.scheels.com/stores/colorado/johnstown/features/johnstown-store-attractions.html"
-verified: "2026-09-18"
+source: "https://www.scheels.com/store/johnstown/092"
+verified: "2026-11-18"
 added: "2026-09-17"
+verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
 ---
 
 Scheels opened its Johnstown store at the 2534 interchange in September 2017 and it is as much an attraction as a shop: 80-plus specialty shops of sporting goods, footwear and outdoor gear under one roof, a 65-foot Ferris wheel, a 16,000-gallon saltwater aquarium, a wildlife mountain of taxidermy, arcade games, Rollerball, Fuzziwig's candy factory and Ginna's Café with its fudge. The town's biggest employer.
