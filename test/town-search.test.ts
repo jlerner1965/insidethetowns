@@ -49,8 +49,8 @@ test("a retired guide's town and title lead to the guide that took its ground", 
     if (site.kind !== 'town' || !site.retired?.successor) continue;
     const successor = liveTowns().find((t) => t.slug === site.retired!.successor);
     if (!successor) continue;
-    assert.ok(matchTown(site.name, index).towns.some((t) => t.url === `https://${successor.domain}/`), `${site.name} finds ${successor.siteTitle}`);
-    assert.ok(matchTown(site.siteTitle, index).towns.some((t) => t.url === `https://${successor.domain}/`), `${site.siteTitle} finds ${successor.siteTitle}`);
+    assert.ok(matchTown(site.name, index).towns.some((t) => t.url === `${guideOrigin(successor)}/`), `${site.name} finds ${successor.siteTitle}`);
+    assert.ok(matchTown(site.siteTitle, index).towns.some((t) => t.url === `${guideOrigin(successor)}/`), `${site.siteTitle} finds ${successor.siteTitle}`);
   }
 });
 

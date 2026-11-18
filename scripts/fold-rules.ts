@@ -29,7 +29,7 @@ import { hubEventPages, publishedHubTowns } from '../src/lib/hub-towns.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
 import foldEvents from '../data/hub/fold-events.json' with { type: 'json' };
 import { generatedBlocks, retiredOntoGuideRules, withBlocks, REDIRECT_LIMIT, type HostRule } from './lib/redirect-rules.ts';
-import { isMoved, MOVING_GUIDES } from '../src/config/index.ts';
+import { domainMoved, isMoved, MOVING_GUIDES } from '../src/config/index.ts';
 
 type Rule = HostRule;
 const file = new URL('../vercel.json', import.meta.url);
@@ -51,7 +51,8 @@ const eventMap = foldEvents as FoldEventMap;
 // redirect for its host, only the rewrite that sends every path to the
 // function (below).
 // A guide moved whole (src/config/guide-move.ts) is answered the same way, from the map its own build writes.
-const legacy: Array<{ domain: string }> = [...allTowns.filter((t) => (t.hubPage && t.section) || isMoved(t)), ...allTowns.filter(isMoved).flatMap((t) => (t.formerDomains ?? []).map((domain) => ({ domain })))];
+// While a moved guide's domain is held (DOMAIN_HELD, the first of a switch's two steps) it keeps its rules and serves the guide.
+const legacy: Array<{ domain: string }> = [...allTowns.filter((t) => (t.hubPage && t.section && !isMoved(t)) || domainMoved(t)), ...allTowns.filter((t) => domainMoved(t)).flatMap((t) => (t.formerDomains ?? []).map((domain) => ({ domain })))];
 const domains = [
   ...allTowns.filter((t) => t.hubPage && !t.section).map((t) => ({ domain: t.domain, town: t.hubPage!.town })),
   ...HUB_TOWNS.filter((t) => t.domain && published.has(t.slug)).map((t) => ({ domain: t.domain!, town: t.slug })),

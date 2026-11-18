@@ -16,14 +16,14 @@
 import { spawnSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { allSites, isMoved, LIVE_TOWNS } from '../src/config/index.ts';
+import { allSites, domainMoved, LIVE_TOWNS } from '../src/config/index.ts';
 import { checkNetwork, formatProblems, type Manifest, type Problem } from './lib/site-check.ts';
 import { MANIFESTS, networkDomains, vercelRedirects } from './lib/network.ts';
 
 const args = process.argv.slice(2);
 const dir = args.find((a) => !a.startsWith('--')) ?? MANIFESTS;
 // A moved guide builds no site of its own (src/config/guide-move.ts): its pages are the hub's, in the hub's manifest.
-const live = allSites.filter((s) => s.kind === 'hub' || (LIVE_TOWNS.includes(s.slug) && !(s.kind === 'town' && isMoved(s))));
+const live = allSites.filter((s) => s.kind === 'hub' || (LIVE_TOWNS.includes(s.slug) && !(s.kind === 'town' && domainMoved(s))));
 
 if (args.includes('--build')) {
   for (const site of live) {

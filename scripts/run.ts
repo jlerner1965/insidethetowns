@@ -12,7 +12,7 @@
 import { spawnSync } from 'node:child_process';
 import { buildSearchIndex } from './lib/search-index.ts';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { allSites, getNetworkHub, isMoved, isSectionBuild, sectionBase, sectionTowns, SECTION_ENV } from '../src/config/index.ts';
+import { allSites, domainMoved, getNetworkHub, isMoved, isSectionBuild, sectionBase, sectionTowns, SECTION_ENV } from '../src/config/index.ts';
 import { guideMap } from './migration/guide-map.ts';
 import { mergeSection, rewriteMovedLinks } from './lib/section-merge.ts';
 import { movedEventPaths, movedPath } from '../src/lib/moved-guides.ts';
@@ -47,10 +47,11 @@ const env = { ...process.env, TOWN: town };
 // map the function answers from (scripts/migration/guide-map.ts) into
 // api/legacy-map.json, which Vercel bundles with the function after this
 // command; dist/ holds one 404 page. Anything published before or after the
-// cutover is in the map of the build that serves it.
+// cutover is in the map of the build that serves it. While its domain is
+// held (the first of a switch's two steps, DOMAIN_HELD), it builds the guide.
 if (command === 'build' && !isSectionBuild(env)) {
   const site = allSites.find((s) => s.slug === town);
-  if (site?.kind === 'town' && isMoved(site)) {
+  if (site?.kind === 'town' && domainMoved(site, env)) {
     const v = spawnSync(process.execPath, ['scripts/validate-content.ts', '--build'], { stdio: 'inherit', env });
     if (v.status !== 0) process.exit(v.status ?? 1);
     const out = `.sections/${site.slug}`;
