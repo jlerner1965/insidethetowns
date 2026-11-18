@@ -105,7 +105,7 @@ export function answer(host: string, pathname: string, search = ''): Response {
 
 /**
  * The path the reader asked for. vercel.json's rewrite passes it as
- * `legacy_path` (`/:path*` → `/api/legacy/?legacy_path=/:path*`, Vercel's
+ * `legacy_path` (`/(.*)` → `/api/legacy/?legacy_path=/$1`, Vercel's
  * own pattern for redirects answered by a function), since the request
  * this function sees may carry the rewritten address. The original query
  * string rides along: it does not change which page the answer names, and
@@ -123,6 +123,11 @@ export function requestedSearch(url: URL): string {
   const params = new URLSearchParams(url.search);
   params.delete('legacy_path');
   params.delete('legacy_host');
+  // Vercel's rule converter adds the `has` condition's capture to the
+  // rewritten query (`&host=$host`; @vercel/routing-utils): it is the
+  // platform's, not the reader's, and never rides onto the Location.
+  params.delete('host');
+  params.delete('path');
   const rest = params.toString();
   return rest ? `?${rest}` : '';
 }

@@ -90,7 +90,12 @@ for (const t of legacy) {
   rules = rules.filter((r) => hostOf(r) !== t.domain);
   console.log(`${t.domain}: ${had} redirect rule(s) removed; api/legacy.ts answers every path`);
 }
-const wantRewrites = legacy.map((t) => ({ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy/?legacy_path=/:path*' }));
+// `/(.*)` and `$1`, the form the old catch-all redirects used on these hosts:
+// Vercel matches `/:path*` strictly, so it missed every address ending in a
+// slash and the bare `/` (after #459 and #460 those answered 404; only
+// /robots.txt and the sitemaps reached the function). The destination is the
+// function's slashed address, the only one it is served at with trailingSlash.
+const wantRewrites = legacy.map((t) => ({ source: '/(.*)', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy/?legacy_path=/$1' }));
 const otherRewrites = (config.rewrites ?? []).filter((r) => !legacy.some((t) => hostOf(r as Rule) === t.domain));
 const nextRewrites = [...otherRewrites, ...wantRewrites];
 if (JSON.stringify(nextRewrites) !== JSON.stringify(config.rewrites ?? []) || !config.functions?.['api/legacy.ts']) {
