@@ -5,7 +5,7 @@ towns: [crested-butte]
 eyebrow: "Getting around · Crested Butte"
 title: "Crested Butte without a car: the free bus, parking and Elk Avenue"
 seoTitle: "Crested Butte free bus and parking: town and ski area"
-description: "Mountain Express is free: every 15 minutes, 7:10 am to midnight, November 25, 2026 to April 4, 2027. Town parking is free; the ski area's Main Lot is $20 to $30."
+description: "The free bus runs every 15 minutes, 7:10 am to midnight, from November 25, 2026, to April 4, 2027. Town parking is free; the ski area's Main Lot is $20–$30."
 status: verified
 date: 2026-11-18
 homeUntil: 2026-11-18
