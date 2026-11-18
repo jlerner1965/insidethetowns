@@ -10,6 +10,7 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "970-586-8191"
 tags: [community-center, pool, gym, fitness, families, rentals]
 summary: "The recreation district’s community center: lap and leisure pools, a gymnasium, weight and cardio equipment, fitness classes, sports for all ages and rooms to rent. Pool schedules differ from the building’s hours."
+readBlocked: "2026-11-18: the source page: answered 307"
 ---
 
 The Estes Valley Recreation and Park District’s community center on Community Drive: lap and leisure pools, a gymnasium, weight and cardio equipment, fitness classes and personal training, youth and adult sports, a golf simulator, a children’s area it calls the Cubz Den, and venues for events. Daily admission, punch passes and memberships are sold at the front desk, and the district says to stop by for a tour.

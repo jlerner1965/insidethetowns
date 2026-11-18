@@ -10,7 +10,7 @@ performers:
   - { name: "future.exboyfriend", kind: group }
   - { name: "Treewell", kind: group }
 source: "https://www.z2ent.com/events/detail/krooked-kings-2026-agg"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 8 pm on the page"
 ---
 

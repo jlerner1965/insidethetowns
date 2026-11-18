@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/efficiencyworks-and-our-energy-future-tick
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2004090188703"
 sourceHash: "b229f5f22050"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"EfficiencyWorks and our Energy Future\" at 5:30 pm on 1 December in the page's structured data"
 ---
 
 EfficiencyWorks and our Energy Future at Odell Brewing Company, Tuesday, December 1, 5:30 pm – 7:30 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

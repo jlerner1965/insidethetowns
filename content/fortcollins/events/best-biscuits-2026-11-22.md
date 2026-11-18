@@ -10,7 +10,7 @@ source: "https://gingerandbaker.com/my-event/tk-best-biscuits-5/"
 sourceId: "gingerandbaker-com"
 sourceUid: "81312"
 sourceHash: "43640b29e386"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Best Biscuits\" at 10 am on 22 November in the page's structured data"
 ---
 

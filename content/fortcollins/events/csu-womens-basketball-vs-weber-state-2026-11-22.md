@@ -7,7 +7,7 @@ url: "https://csurams.com/sports/womens-basketball/schedule/2026-27"
 cost: "Tickets from the Rams ticket office"
 category: sports
 source: "https://csurams.com/sports/womens-basketball/schedule/2026-27"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado State University Women's Basketball vs Weber State\" at 1 pm on 22 November on the csurams.com feed"
 ---
 

@@ -12,6 +12,8 @@ hours: "Mon–Thu 4 pm–10 pm; Fri 12 pm–11 pm; Sat 3 pm–11 pm; Sun 10 am�
 priceRange: "$$"
 tags: [cocktails, speakeasy, small-plates, reservations]
 summary: "A downtown cocktail lounge \"where 1940s glamour meets modern mixology,\" with an intimate art deco room, inventive cocktails and gourmet bites such as charcuterie boards and baked brie."
+changeFlag: true
+changeNote: "recheck-places 2026-11-18: the source page names the place but lists 855-704-1971, not 970-744-2197, https://sagespeakeasylounge.com/"
 ---
 
 The food menu runs from shareable plates and salads to lobster bisque. Reservations are recommended and can be booked online, and the lounge hosts private events and offers catering. Sunday hours are daytime only, 10 am–3 pm.

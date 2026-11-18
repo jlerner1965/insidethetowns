@@ -10,7 +10,7 @@ source: "https://www.stvraincidery.com/events/think-drink-w-nick-2-a3gea-s4nhy-2
 sourceId: "stvraincidery-com"
 sourceUid: "/events/think-drink-w-nick-2-a3gea-s4nhy-2plgg-4mw8j-9s7n5-b5jza-nngjn-j9d9t"
 sourceHash: "b65d1260b18d"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"DISCUSSION | Think &amp; Drink — Home\" at 7 pm on 19 November in the page's structured data"
 ---
 

@@ -9,7 +9,7 @@ source: "https://www.wolverinefarm.org/event/science-on-tap-54/"
 sourceId: "wolverinefarm-org"
 sourceUid: "197689"
 sourceHash: "ef3e679d6c74"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Science On Tap\" at 6:30 pm on 24 November in the page's structured data"
 ---
 

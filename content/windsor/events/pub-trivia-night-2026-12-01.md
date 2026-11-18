@@ -9,8 +9,8 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17702804"
 sourceHash: "918dd6da08d1"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the clearview.libnet.info feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Pub Trivia Night\" at 5:30 pm on 1 December on the Clearview Library District feed"
 ---
 
 Pub Trivia Night at Windsor Library, Tuesday, December 1, 5:30 pm – 7:30 pm. Listed by Clearview Library District; the organizer's page has the details and any registration.

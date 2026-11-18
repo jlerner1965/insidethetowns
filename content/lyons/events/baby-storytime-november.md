@@ -9,10 +9,8 @@ address: "451 4th Ave, Lyons, CO 80540"
 url: "https://lyons.librarycalendar.com/event/baby-storytime-stay-and-play-11882"
 category: family
 source: "https://lyons.librarycalendar.com/event/baby-storytime-stay-and-play-11882"
-verified: "2026-11-16"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Baby Storytime & Stay-and-Play\" at 10:30 am on 17 November on the lyons.librarycalendar.com feed"
-changeFlag: true
-changeNote: "recheck 2026-11-17: not on the lyons.librarycalendar.com feed on 17 November; it has \"Baby Storytime & Stay-and-Play\" on 24 November, 1 December, 8 December, 15 December"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Baby Storytime & Stay-and-Play\" at 10:30 am on 24 November on the lyons.librarycalendar.com feed"
 ---
 
 Lap-sit story time for infants up to 18 months, then half an hour of play, on Tuesday mornings at the library. The library's calendar skips the Tuesdays between October 20 and November 17; it resumes here and runs through December 15.

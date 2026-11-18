@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/create-a-christmas-coo-highland-cow-maxlin
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2002234575514"
 sourceHash: "93ba59ba2b19"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the review of 10 November 2026, ruled item by item for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Create a Christmas COO Highland Cow @ Maxline Brewing\" at 12:30 pm on 29 November in the page's structured data"
 ---
 
 Create a Christmas COO Highland Cow @ Maxline Brewing at Maxline Brewing, Sunday, November 29, 12:30 pm – 3 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

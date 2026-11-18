@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/floating-sound-bath-tickets-2001707346558"
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2001707346558"
 sourceHash: "7d6949a76922"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Floating Sound Bath\" at 2 pm on 29 November in the page's structured data"
 ---
 
 Floating Sound Bath at Aquis Wellness Arts, Sunday, November 29, 2 pm – 4 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

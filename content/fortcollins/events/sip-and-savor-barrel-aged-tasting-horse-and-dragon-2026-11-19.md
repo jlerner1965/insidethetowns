@@ -8,7 +8,7 @@ url: "https://www.horseanddragonbrewing.com/"
 category: "food"
 cost: "$35"
 source: "https://www.horseanddragonbrewing.com/"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 5:30 pm on the page"
 ---
 

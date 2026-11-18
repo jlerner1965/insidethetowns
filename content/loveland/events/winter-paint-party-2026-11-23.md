@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/winter-paint-party-tickets-2004331133375"
 sourceId: "eventbrite-com-loveland"
 sourceUid: "2004331133375"
 sourceHash: "61b16eaecbc4"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Winter Paint Party\" at 6 pm on 23 November in the page's structured data"
 ---
 

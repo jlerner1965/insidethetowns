@@ -10,8 +10,8 @@ source: "https://tockify.com/lovelanddowntown/detail/1794/1795827600000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1794/29930460/0/0"
 sourceHash: "68d968b76c50"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Loveland Downtown Partnership feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Derek Dames Ohl at Loveland Aleworks\" at 6 pm on 27 November on the Loveland Downtown Partnership feed"
 ---
 
 Live Music with Derek Dames Ohl at Loveland Aleworks at Loveland Aleworks, Friday, November 27, 6 pm – 8 pm. Listed by Loveland Downtown Partnership; the organizer's page has the details and any registration.

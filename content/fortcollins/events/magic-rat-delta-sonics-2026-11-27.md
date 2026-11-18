@@ -9,7 +9,7 @@ category: "music"
 performers:
   - { name: "Delta Sonics", kind: group }
 source: "https://www.theelizabethcolorado.com/the-hotel/events-calendar/"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 8 pm on the page"
 ---
 

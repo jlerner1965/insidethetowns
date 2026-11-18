@@ -9,8 +9,8 @@ source: "https://maxlinebrewing.com/events/flingin-pots-create-a-clay-ram-or-she
 sourceId: "maxlinebrewing-com"
 sourceUid: "2387@maxlinebrewing.com"
 sourceHash: "040e3d9ca64e"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Maxline Brewing (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Flingin' Pots: Create a Clay RAM or Sheep\" at 12:30 pm on 29 November on the Maxline Brewing (events calendar) feed"
 ---
 
 Flingin' Pots: Create a Clay RAM or Sheep at Maxline Brewing, 2724 McClelland Dr #190, Sunday, November 29, 12:30 pm – 3 pm. Listed by Maxline Brewing (events calendar); the organizer's page has the details and any registration.

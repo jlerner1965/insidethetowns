@@ -9,8 +9,8 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17689621"
 sourceHash: "fcfa055599f3"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the clearview.libnet.info feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Book Box\" at 12 am on 1 December on the Clearview Library District feed"
 ---
 
 Teen Book Box at Windsor Library, Tuesday, December 1, all day. Listed by Clearview Library District; the organizer's page has the details and any registration.

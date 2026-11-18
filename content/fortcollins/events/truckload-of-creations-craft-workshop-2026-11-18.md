@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/truckload-of-creations-craft-workshop-tick
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003997810397"
 sourceHash: "014258797576"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Truckload of Creations Craft Workshop\" at 6 pm on 18 November in the page's structured data"
 ---
 

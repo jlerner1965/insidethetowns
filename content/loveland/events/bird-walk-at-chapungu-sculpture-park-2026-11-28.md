@@ -9,8 +9,8 @@ source: "https://www.eventbrite.com/e/bird-walk-at-chapungu-sculpture-park-ticke
 sourceId: "eventbrite-com-loveland"
 sourceUid: "1980732379868"
 sourceHash: "09321403b3f9"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Loveland feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Bird Walk at Chapungu Sculpture Park\" at 9 am on 28 November in the page's structured data"
 ---
 
 Bird Walk at Chapungu Sculpture Park at Chapungu Sculpture Park at Centerra, Saturday, November 28, 9 am – 11 am. Listed by Eventbrite, events in Loveland; the organizer's page has the details and any registration.

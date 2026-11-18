@@ -10,7 +10,7 @@ cost: "$84.50–$93.50 adults, $65 youth 13–18, $55 children 12 and under, plu
 category: arts
 timeNote: "Nov 27 to Jan 17; see box office for times"
 source: "https://coloradocandlelight.com/show/holiday-inn/"
-verified: "2026-11-17"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 27 November on the page"
 ---
 

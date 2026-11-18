@@ -9,9 +9,9 @@ phone: "720-552-8003"
 hours: "Daily 10 am–6 pm"
 tags: [bookstore, books, book-clubs]
 summary: "Independent bookstore on Main Street in downtown Longmont, open daily, with events, six book clubs and an online shop for books and audiobooks."
-verified: "2026-10-04"
+verified: "2026-11-18"
 added: "2026-10-04"
-verifiedBy: "James Lerner"
+verifiedBy: "recheck-places (the nightly re-check workflow): the source page still names it (its phone and street address are not on the page to compare), https://www.compositionshop.com/contact-hours"
 ---
 
 Composition Shop sells books in the store and through its website, which also offers audiobooks, ships books and sells gift cards. It runs events and six book clubs, from the Square State Book Club to Through the Rift and Into the Shadows, and keeps teachers' registries for local schools. The shop closes on Thanksgiving, Christmas Day and New Year's Day and shuts at 3 pm on Christmas Eve.

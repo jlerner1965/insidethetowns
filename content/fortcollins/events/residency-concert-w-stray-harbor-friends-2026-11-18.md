@@ -9,7 +9,7 @@ source: "https://www.wolverinefarm.org/event/residency-concert-w-stray-harbor-fr
 sourceId: "wolverinefarm-org"
 sourceUid: "197768"
 sourceHash: "4d1dd3167fe4"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Residency Concert w/ Stray Harbor + Friends\" at 6 pm on 18 November in the page's structured data"
 ---
 

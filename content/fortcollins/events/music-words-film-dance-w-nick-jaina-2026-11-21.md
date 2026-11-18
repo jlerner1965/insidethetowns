@@ -9,7 +9,7 @@ source: "https://www.wolverinefarm.org/event/music-words-film-dance-w-nick-jaina
 sourceId: "wolverinefarm-org"
 sourceUid: "197769"
 sourceHash: "e0ee15ca1695"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Music/ Words/ Film/ Dance: W/ Nick Jaina\" at 7 pm on 21 November in the page's structured data"
 ---
 

@@ -9,8 +9,8 @@ cost: "Free"
 category: family
 recurring: "First and third Tuesdays"
 source: "https://highplains.libcal.com/event/16010115"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Tales 2 Tails\" at 4 pm on 1 December on the highplains.libcal.com feed"
 ---
 
 Elementary-aged independent readers practise reading aloud to a trained Caring Canines therapy dog.
