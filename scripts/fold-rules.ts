@@ -90,7 +90,7 @@ for (const t of legacy) {
   rules = rules.filter((r) => hostOf(r) !== t.domain);
   console.log(`${t.domain}: ${had} redirect rule(s) removed; api/legacy.ts answers every path`);
 }
-const wantRewrites = legacy.map((t) => ({ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy?legacy_path=/:path*' }));
+const wantRewrites = legacy.map((t) => ({ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy/?legacy_path=/:path*' }));
 const otherRewrites = (config.rewrites ?? []).filter((r) => !legacy.some((t) => hostOf(r as Rule) === t.domain));
 const nextRewrites = [...otherRewrites, ...wantRewrites];
 if (JSON.stringify(nextRewrites) !== JSON.stringify(config.rewrites ?? []) || !config.functions?.['api/legacy.ts']) {
