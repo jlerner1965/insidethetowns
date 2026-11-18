@@ -78,6 +78,9 @@ export const hub: HubConfig = {
     editions: [],
   },
   social: {
+    // The network's account (the owner, 18 November 2026). Every guide's
+    // footer links to it unless the guide has an account of its own.
+    instagram: 'https://www.instagram.com/insidethetowns/',
     email: 'hello@insidethetowns.com',
   },
   correctionsEmail: 'hello@insidethetowns.com',

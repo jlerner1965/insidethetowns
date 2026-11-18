@@ -36,6 +36,9 @@ const linkClass = 'inline-block -my-1.5 py-2.5 no-underline text-white hover:und
 const column = site.kind === 'hub' ? HUB_COLUMN : 'container-page';
 // The email by the name the masthead and the home give it: "The Thursday email".
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
+// A guide's own account where it has one, else the network's (18 November
+// 2026), as the address above is the network's on every site.
+const instagram = site.social.instagram ?? hub.social.instagram;
 // Every section of the guide the menu leaves out (src/lib/nav.ts), so each
 // is one click from any page and none is reachable only from an aside.
 const inMenu = new Set(siteNav(site).map((n) => n.href));
@@ -98,7 +101,7 @@ const sections = site.kind === 'town'
             Partner with us
           </a>
         </li>
-        {site.social.instagram && <li><a href={site.social.instagram} rel="noopener" class={linkClass}>Instagram</a></li>}
+        {instagram && <li><a href={instagram} rel="noopener" class={linkClass}>Instagram</a></li>}
         {site.social.facebook && <li><a href={site.social.facebook} rel="noopener" class={linkClass}>Facebook</a></li>}
       </ul>
     </div>

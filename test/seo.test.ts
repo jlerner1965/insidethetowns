@@ -188,6 +188,19 @@ test('the publisher graph leads from every town to the hub and from the hub to t
   assert.equal(org.parentOrganization?.url, hub.publisher!.url);
 });
 
+test('the hub’s Organization names its Instagram as sameAs; a guide without its own account names none (18 November 2026)', async () => {
+  const { siteJsonLd } = await import('../src/lib/seo.ts');
+  const { getNetworkHub, findTown } = await import('../src/config/index.ts');
+  const hub = getNetworkHub();
+  assert.equal(hub.social.instagram, 'https://www.instagram.com/insidethetowns/');
+  const org = (siteJsonLd(hub) as { '@graph': Array<Record<string, unknown>> })['@graph'][0];
+  assert.deepEqual(org.sameAs, ['https://www.instagram.com/insidethetowns/']);
+  const erie = findTown('erie')!;
+  assert.equal(erie.social.instagram, undefined);
+  const guideOrg = (siteJsonLd(erie) as { '@graph': Array<Record<string, unknown>> })['@graph'][0];
+  assert.equal(guideOrg.sameAs, undefined);
+});
+
 test('a section of the hub declares the hub’s one WebSite and Organization, never “Inside <Town>” (18 November 2026)', async () => {
   const { siteJsonLd, publicationSite, collectionPageJsonLd, webPageJsonLd } = await import('../src/lib/seo.ts');
   const { getNetworkHub, findTown, sectionSite } = await import('../src/config/index.ts');
