@@ -169,6 +169,42 @@ export function rewriteText(text: string, o: Pick<MergeOptions, 'base' | 'oldDom
   return out;
 }
 
+/**
+ * The hub's own pages that name a moved guide's domain by hand (an article's
+ * link to its sports page, the moving guide's link to a Niwot update): each
+ * is rewritten to the guide's place on the hub, so no page of the hub links
+ * a domain that only redirects. `where` gives the hub path for a path on a
+ * moved domain, or undefined where the domain is no moved guide's
+ * (src/lib/moved-guides.ts, movedPath). Returns the files changed.
+ */
+export function rewriteMovedLinks(hub: string, hubDomain: string, domains: readonly string[], where: (domain: string, path: string) => string | undefined, dropped: Readonly<Record<string, string>> = {}): number {
+  if (!domains.length) return 0;
+  const hosts = domains.map((d) => d.replace(/\./g, '\\.')).join('|');
+  const absolute = new RegExp(`https?:(\\\\?/\\\\?/)(?:www\\.)?(${hosts})((?:\\\\?/[^\\s"'<>\\\\)]*)*)`, 'g');
+  // A section page the merge dropped for the hub's tradition page ("/windsor/events/windsor-wonderland/" to
+  // "/windsor/wonderland/"), linked by a hub page (a season's roundup) on the hub's origin or by path.
+  const droppedPaths = Object.keys(dropped).map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  const onHub = droppedPaths ? new RegExp(`(https://${hubDomain.replace(/\./g, '\\.')}|\\s(?:href|src)=")(${droppedPaths})`, 'g') : undefined;
+  let changed = 0;
+  for (const file of walk(hub).filter((f) => TEXT.test(f))) {
+    const text = readFileSync(file, 'utf8');
+    let out = onHub ? text.replace(onHub, (_m, lead: string, path: string) => `${lead}${dropped[path]}`) : text;
+    out = out.replace(absolute, (m, slashes: string, domain: string, tail: string) => {
+      const escaped = slashes.includes('\\');
+      const path = (escaped ? tail.replace(/\\\//g, '/') : tail) || '/';
+      const to = where(domain, path.replace(/&amp;/g, '&'));
+      if (!to) return m;
+      const url = `https://${hubDomain}${to.replace(/&/g, '&amp;')}`;
+      return escaped ? url.replace(/\//g, '\\/') : url;
+    });
+    if (out !== text) {
+      writeFileSync(file, out, 'utf8');
+      changed++;
+    }
+  }
+  return changed;
+}
+
 export function mergeSection(o: MergeOptions): MergeResult {
   if (!existsSync(o.from)) throw new Error(`section-merge: ${o.from} is not built.`);
   for (const name of DROPPED) if (!(o.carryAll && name === 'index.html')) rmSync(join(o.from, name), { recursive: true, force: true });

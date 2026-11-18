@@ -14,7 +14,8 @@ import { buildSearchIndex } from './lib/search-index.ts';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { allSites, getNetworkHub, isMoved, isSectionBuild, sectionBase, sectionTowns, SECTION_ENV } from '../src/config/index.ts';
 import { guideMap } from './migration/guide-map.ts';
-import { mergeSection } from './lib/section-merge.ts';
+import { mergeSection, rewriteMovedLinks } from './lib/section-merge.ts';
+import { movedEventPaths, movedPath } from '../src/lib/moved-guides.ts';
 import { foldEventTargets, type FoldEventMap } from '../src/lib/fold.ts';
 import { hubEventPages, publishedHubTowns } from '../src/lib/hub-towns.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
@@ -132,6 +133,13 @@ if (command === 'build' && town === 'hub' && !args.includes('--no-sections')) {
   }
   // Each such link lands on the town's page; the list above is for the editor, not a failed build.
   if (deadLinks) console.error(`sections: ${deadLinks} link(s) sent to a town page; see above.`);
+  // The hub's own pages that name a moved guide's domain by hand: each to the guide's place on the hub (src/lib/moved-guides.ts).
+  const movedGuides = sectionTowns('full').filter((t) => isMoved(t));
+  const movedDomains = movedGuides.map((t) => t.domain);
+  // The annual event pages their sections do not carry, by their path on the hub, to the tradition page each stands for.
+  const dropped = Object.fromEntries(movedGuides.flatMap((t) => Object.entries(movedEventPaths(t)).map(([path, to]) => [`/${t.hubPage!.town}${path}`, to])));
+  const relinked = rewriteMovedLinks('dist', hub.domain, movedDomains, movedPath, dropped);
+  if (relinked) console.log(`moved guides: links to ${movedDomains.length} domain${movedDomains.length === 1 ? '' : 's'} rewritten to the hub in ${relinked} file(s)`);
 }
 
 // The site search's index; on the hub it also takes in the town pages
