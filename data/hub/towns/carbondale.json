@@ -105,5 +105,64 @@
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
       "checked": "2026-11-12"
     }
-  }
+  },
+  "trails": [
+    {
+      "name": "Rio Grande Trail through Carbondale",
+      "kind": "Paved rail trail",
+      "manager": "Roaring Fork Transportation Authority (RFTA)",
+      "length": "3.9 miles through Carbondale; mostly asphalt, 8 to 10 feet wide",
+      "trailhead": "The RFTA Carbondale Park & Ride beside Highway 133, where trail parking is available; the Carbondale trailhead is by the 6th Street and Colorado Avenue bus stop",
+      "season": "Plowed in winter between Glenwood Springs and Carbondale after more than 3 inches of snow. Upvalley, Rock Bottom Ranch to Catherine Bridge closes from 5 pm November 30 to 5 pm April 30.",
+      "dogs": "On a leash at all times, and never on the wildlife section between Rock Bottom Ranch and Catherine Bridge.",
+      "fee": "None at the Carbondale trailhead.",
+      "url": "https://www.rfta.com/trail-information/",
+      "source": "https://www.rfta.com/trail-information/",
+      "alsoSources": [
+        "https://trails.colorado.gov/trails/rio-grande-trail-12843",
+        "https://trails.colorado.gov/trailheads/carbondale-2701",
+        "https://www.pitkincounty.com/DocumentCenter/View/2295/Rio-Grande-Trail-Map"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Riverfront and Stairway parks, on the Crystal River",
+      "kind": "Town parks with river access",
+      "manager": "Town of Carbondale Parks and Recreation",
+      "size": "Riverfront Park, 4.44 acres, with soft-surfaced trails; Stairway Park, 3.93 acres, with a trail, picnic table and fire pits",
+      "address": "Stairway Park is on Oak Run Road between Crystal Road and Greystone Drive; Riverfront Park adjoins the river south of it",
+      "season": "Open 6 am to 10 pm.",
+      "dogs": "Not allowed: Town parks ban dogs except at Glassier Park, Hendrick Dog Park and Delaney Nature Park.",
+      "fee": "Organized groups, classes and teams need a Town permit.",
+      "url": "https://www.carbondalegov.org/departments/parks_&_recreation/parks.php",
+      "source": "https://www.carbondalegov.org/departments/parks_&_recreation/parks.php",
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Triangle Park",
+      "kind": "Town park",
+      "manager": "Town of Carbondale Parks and Recreation",
+      "size": "7.4 acres: playground, ball fields, tennis and pickleball courts, a picnic shelter, grills, restrooms and a drinking fountain",
+      "address": "The corner of Village Road and 8th Street",
+      "season": "Open 6 am to 10 pm.",
+      "dogs": "Not allowed: Town parks ban dogs except at Glassier Park, Hendrick Dog Park and Delaney Nature Park.",
+      "fee": "Organized groups, classes and teams need a Town permit.",
+      "url": "https://www.carbondalegov.org/departments/parks_&_recreation/parks.php",
+      "source": "https://www.carbondalegov.org/departments/parks_&_recreation/parks.php",
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Sopris Park",
+      "kind": "Town park",
+      "manager": "Town of Carbondale Parks and Recreation",
+      "size": "3.90 acres: a bandstand, large picnic shelter, playground, sand volleyball court and restrooms",
+      "address": "Snowmass Drive at Second Street; the John M. Fleet pool inside it is at 685 Main Street",
+      "season": "Open 6 am to 10 pm.",
+      "dogs": "Not allowed: Town parks ban dogs except at Glassier Park, Hendrick Dog Park and Delaney Nature Park.",
+      "fee": "Organized groups, classes and teams need a Town permit.",
+      "url": "https://www.carbondalegov.org/departments/parks_&_recreation/parks.php",
+      "source": "https://www.carbondalegov.org/departments/parks_&_recreation/parks.php",
+      "checked": "2026-11-18"
+    }
+  ]
 }
