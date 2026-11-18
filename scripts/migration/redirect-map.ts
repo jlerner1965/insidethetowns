@@ -172,6 +172,10 @@ for (const town of allTowns.filter((t) => t.hubPage && t.section && FOLDED[t.dom
       return built(`${page}places/`) ? go(`${page}places/`, 'dropped from the old guide before the move, not as closed; the town’s places') : go(page, 'dropped from the old guide before the move, not as closed; the town’s page');
     }
     if (article) return gone('retired before the restructure');
+    // A page the guide had for a town it covered ("/georgetown/" on the Clear Creek guide, in the
+    // sitemap it served on 3 November 2026): that town's page on the hub, where it has one.
+    const covered = path.match(/^\/([a-z-]+)\/$/)?.[1];
+    if (covered && covered !== H && built(`/${covered}/`) && allTowns.some((t) => t.hubPage?.town === covered)) return go(`/${covered}/`, 'the guide’s page for a town it covered: that town’s page on the hub');
     return go(page, 'a page of the closed guide; the town’s page on the hub');
   };
 

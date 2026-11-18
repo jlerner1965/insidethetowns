@@ -14,5 +14,5 @@ years:
     startTime: "6 pm"
     place: "Harrison Avenue, downtown Leadville"
     cost: "Free"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

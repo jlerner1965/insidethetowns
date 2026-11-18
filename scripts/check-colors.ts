@@ -105,7 +105,7 @@ for (const site of allSites) {
     want(`white on ${who}`, ratio(WHITE, school), 4.5);
     want(`white on ${who} hover`, ratio(WHITE, primaryHover(school)), 4.5);
     want(`white/70 display text on ${who}`, ratio(mix(WHITE, 0.7, school), school), 3);
-    // The hub's score rows and a multi-school guide's rows set the school's name in it, on white or a paper.
+    // The hub's game and score rows and a multi-school guide's rows mark the school with a dot in it, on white or a paper (never its words, since 18 November 2026); held to the text bar all the same.
     for (const [name, hex] of papers) want(`${who} on ${name} paper`, ratio(school, hex), 4.5);
     // The trim (schoolTrim): the tie pill is ink on its wash, the loss pill white on the dark second colour.
     const trim = schoolTrim(s.colors!);

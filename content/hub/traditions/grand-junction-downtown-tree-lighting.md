@@ -13,5 +13,5 @@ years:
     date: 2026-11-21
     startTime: "5:00-7:00 pm"
     place: "4th + Main Plaza"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

@@ -5,13 +5,15 @@
  * fall, its next game (whichever team plays it) and its last result, from
  * the same data files its own page reads, and a link to that page. A town
  * with one school has no such page: its /sports/ is the school's own.
- * Each row's name and link are in its school's colours (schoolCssVars).
+ * Each row's school is marked by a dot in its own colour beside its name in
+ * the ink: a school's colour is never the colour of words (the post-migration
+ * fixes, 18 November 2026; the name was in it, schoolCssVars, before).
  */
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
 import { formatDayShort, formatShortDate } from '@/lib/dates';
-import { bigGame, formatGameTime, gameDay, latestResult, outcome, RESULT_WORD, pageSeasonLabel, schoolCssVars, sportsDataFor, where } from '@/lib/school-sports';
+import { bigGame, formatGameTime, gameDay, latestResult, outcome, RESULT_WORD, pageSeasonLabel, sportsDataFor, where } from '@/lib/school-sports';
 import { subTownsOf } from '@/lib/sub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
@@ -65,9 +67,9 @@ const jsonLd = [
   {newest && <p slot="after-header" class="mt-3 text-[0.9375rem] text-ink-muted">Scores from MaxPreps, read {formatShortDate(newest)}.</p>}
   <ul class="divide-y divide-line-soft border-y border-line-soft">
     {rows.map(({ school, teams, next, last }) => (
-      <li class="py-5" style={schoolCssVars(school)}>
+      <li class="py-5">
         <a href={sportsPath(school)} class="group block no-underline">
-          <h2 class="display-md text-[1.75rem] text-primary group-hover:underline md:text-[2rem]">{school.school} {school.mascot}</h2>
+          <h2 class="display-md flex items-center gap-3 text-[1.75rem] text-ink group-hover:underline md:text-[2rem]">{school.colors && <span class="inline-block size-3 shrink-0 rounded-full" style={`background:${school.colors.primary}`} aria-hidden="true" data-school-dot></span>}<span>{school.school} {school.mascot}</span></h2>
           {teams.length > 0 ? (
             <p class="mt-2 text-[0.9375rem] text-ink-muted">
               {teams.map((t, i) => (

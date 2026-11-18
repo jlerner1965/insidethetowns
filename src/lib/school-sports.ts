@@ -5,25 +5,37 @@
  */
 import { LEAGUE_SPELLINGS, schoolsFor, schoolTeamName, sportsDataFile, type AwayGame, type HostedRound, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { POSTSEASON, type PostseasonGame } from '../config/postseason.ts';
-import { primaryHover } from '../config/palette.ts';
+import { INK, primaryHover } from '../config/palette.ts';
 import { schoolTrim } from '../config/school-colors.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock, TIME_ZONE } from './dates.ts';
 import { addFirstFitting } from './plain-text.ts';
 import { TITLE_LIMIT } from './titles.ts';
 
 /**
- * The school's colour as the page's primary, for a `style` on the element
- * that wraps the sports page or the home page's game strip. Base.astro sets
- * the town's on <html>; a custom property is computed where it is declared,
- * so the line colour derived from it in global.css is set here again, or it
- * would stay the town's. Nothing where the school has no colour. The trim
- * (schoolTrim) takes the accent's place the same way, and `--school-loss`
- * is the loss pill's fill where the school's second colour is dark.
+ * The school's colours on the element that wraps its sports page or the
+ * home page's game strip. Base.astro sets the town's on <html>; a custom
+ * property is computed where it is declared, so the line colour derived
+ * from it in global.css is set here again. Nothing where the school has no
+ * colour.
+ *
+ * Where the school's colour is the guide's own (one school, the guide in
+ * its colours), it is the page's primary, as everywhere on the guide. Where
+ * it is not (Severance High on the Windsor guide), its colour is an accent
+ * only: the rules and lines (`--t-primary-line`), the trim's borders, the
+ * win pill's fill (`--school-primary`), and words and links are in the ink
+ * (the post-migration fixes, 18 November 2026: "text and links in ink,
+ * school color only as accents"; Severance's navy had been every link,
+ * eyebrow and heading on its pages since 17 November). The trim (schoolTrim)
+ * takes the accent's place, and `--school-loss` is the loss pill's fill
+ * where the school's second colour is dark.
  */
-export function schoolCssVars(school: SchoolSports | undefined): string | undefined {
+export function schoolCssVars(school: SchoolSports | undefined, town?: { colors: { primary: string } }): string | undefined {
   const primary = school?.colors?.primary;
   if (!primary) return undefined;
-  const hover = primaryHover(primary);
+  // The guide's own colour, or the ink where the school's is not the guide's.
+  const own = !town || town.colors.primary.toLowerCase() === primary.toLowerCase();
+  const words = own ? primary : INK;
+  const hover = primaryHover(words);
   const line = `color-mix(in srgb, ${primary} 25%, #ffffff)`;
   const trim = schoolTrim(school!.colors!);
   const soft = trim && `color-mix(in srgb, ${trim.accent} 16%, #ffffff)`;
@@ -31,10 +43,11 @@ export function schoolCssVars(school: SchoolSports | undefined): string | undefi
   // `var(--town-primary)`), the stylesheet's own rules (.btn-primary,
   // .eyebrow) read the theme's, which the root resolved to the town's.
   return [
-    `--town-primary:${primary}`,
+    `--school-primary:${primary}`,
+    `--town-primary:${words}`,
     `--town-primary-hover:${hover}`,
     `--t-primary-line:${line}`,
-    `--color-primary:${primary}`,
+    `--color-primary:${words}`,
     `--color-primary-hover:${hover}`,
     `--color-primary-line:${line}`,
     ...(trim ? [`--town-accent:${trim.accent}`, `--t-accent-soft:${soft}`, `--color-accent:${trim.accent}`, `--color-accent-soft:${soft}`] : []),

@@ -20,7 +20,11 @@
  *
  * Writes docs/migration/inventory/<host>.csv (old_path, source, note) and
  * copies each built sitemap to data/migration/sitemaps/<host>/ for
- * api/legacy.ts to go on serving.
+ * api/legacy.ts to go on serving. A guide retired before that commit built
+ * no sitemap there: its sitemap was read from its last live deployment and
+ * the addresses only it listed were added to its inventory by hand, source
+ * `sitemap` (18 November 2026; docs/REDIRECTS.md). A rerun of this script
+ * keeps neither, so add them again after one.
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync, copyFileSync } from 'node:fs';

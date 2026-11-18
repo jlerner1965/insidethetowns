@@ -16,7 +16,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { allTowns } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { answer, CACHE_HEADERS, lookup, requestedHost, requestedPath, requestedSearch, withQuery } from '../api/legacy.ts';
@@ -207,4 +207,27 @@ test('a kept place past its check window becomes re-check pending, not a 404: th
   // The gate agrees: the stale one is what it would cut for age; a re-check pending one it keeps.
   assert.equal(placeExclusion({ source: 'https://a.example/', verified: new Date('2026-08-01T12:00:00-06:00') }, 'front-range', now)?.reason, 'stale');
   assert.equal(placeExclusion({ source: 'https://a.example/', verified: new Date('2026-08-01T12:00:00-06:00'), recheckPending: 'blocked' }, 'front-range', now), null);
+});
+
+test('every folded domain serves the sitemap it had and robots.txt naming it, each with a 200 (the owner, 18 November 2026)', () => {
+  const rows = readFileSync('docs/migration/redirect-map.csv', 'utf8');
+  for (const host of Object.keys(table)) {
+    const entry = table[host]! as { sitemap?: string; sitemapIndex?: string };
+    assert.ok(entry.sitemap && entry.sitemapIndex, `${host}: a sitemap to serve`);
+    assert.match(entry.sitemapIndex!, new RegExp(`<loc>https://${host.replace(/\./g, '\\.')}/sitemap-0\\.xml</loc>`), `${host}: the index names its own sitemap-0.xml`);
+    // Every address of the old sitemap is a row of the map, so each has its own answer.
+    for (const loc of entry.sitemap!.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+      const url = new URL(loc[1]!);
+      assert.equal(url.hostname, host, `${host}: ${loc[1]} is on its own domain`);
+      assert.ok(rows.includes(`\n${host},${url.pathname},`), `${host}${url.pathname}: in the old sitemap but not in the map`);
+    }
+    for (const path of ['/sitemap-index.xml', '/sitemap-0.xml', '/robots.txt']) {
+      const res = answer(host, path);
+      assert.equal(res.status, 200, `${host}${path}`);
+    }
+  }
+  // The seven guides retired before the restructure: read from their last live deployments (six) or rebuilt (Fort Lupton).
+  for (const host of ['insideblackhawk.com', 'insideevergreenco.com', 'insidefortlupton.com', 'insidegeorgetownco.com', 'insidegrandlake.com', 'insideidahosprings.com', 'insidemanitousprings.com']) {
+    assert.ok(existsSync(`data/migration/sitemaps/${host}/sitemap-0.xml`), host);
+  }
 });

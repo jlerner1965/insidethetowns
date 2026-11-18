@@ -35,6 +35,7 @@ old_path,source,note
 /guides/,routes,"a page every guide had, at 933267d5"
 /message-sent/,routes,"a page every guide had, at 933267d5"
 /moving-here/,routes,"a page every guide had, at 933267d5"
+/parks/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_G7RLT2SY3d1T7RNB2feexcW4cycp, 20 October 2026)"
 /places/ameristar-black-hawk/,decisions,at 933267d5
 /places/ballys-black-hawk/,decisions,at 933267d5
 /places/bar-8042/,decisions,at 933267d5
@@ -56,6 +57,7 @@ old_path,source,note
 /places/timberline-grill/,decisions,at 933267d5
 /places/white-buffalo-grille/,decisions,at 933267d5
 /privacy/,routes,"a page every guide had, at 933267d5"
+/restaurants/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_G7RLT2SY3d1T7RNB2feexcW4cycp, 20 October 2026)"
 /robots.txt,routes,"a page every guide had, at 933267d5"
 /rss.xml,routes,"a page every guide had, at 933267d5"
 /search/,routes,"a page every guide had, at 933267d5"
@@ -66,3 +68,4 @@ old_path,source,note
 /things-to-do/,routes,"a page every guide had, at 933267d5"
 /this-week/,routes,"a page every guide had, at 933267d5"
 /this-weekend/,routes,"a page every guide had, at 933267d5"
+/venues/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_G7RLT2SY3d1T7RNB2feexcW4cycp, 20 October 2026)"

@@ -14,5 +14,5 @@ years:
     startTime: "6:00 PM"
     place: "Granby Information Center"
     note: "following Parade of Lights"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

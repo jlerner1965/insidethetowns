@@ -228,6 +228,16 @@ export interface TownConfig {
    */
   neighbors: readonly string[];
   /**
+   * The towns next door that now live on the hub (insidethetowns.com), as
+   * hub town slugs (src/config/hub-towns.ts): a full section (Longmont) or a
+   * town page (Lafayette). The header's "Other towns" menu and the footer's
+   * nearby list link each to its page on the hub, once that page is built
+   * (hubNeighborsOf). The list is the hub towns this guide named in
+   * `neighbors` before the restructure of 12 November 2026 (7141d032); the
+   * post-migration fixes of 18 November 2026 put them back as links.
+   */
+  hubNeighbors?: readonly string[];
+  /**
    * The places a multi-town guide covers, as slugs: Carbon Valley's
    * frederick, firestone and dacono. Every item on such a guide is tagged
    * with one of these. Absent on a single-town guide.

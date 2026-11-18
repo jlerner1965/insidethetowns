@@ -7,6 +7,7 @@ export const niwot: TownConfig = {
   region: 'Boulder County',
   // Lafayette, down the Diagonal's side roads, from 2 November 2026.
   neighbors: ['lyons', 'erie'],
+  hubNeighbors: ['longmont', 'lafayette', 'nederland'],
   slug: 'niwot',
   name: 'Niwot',
   domain: 'insideniwot.com',

@@ -15,11 +15,13 @@
  * block is not drawn.
  *
  * One school's block is in the guide's own colours (the guide is in that
- * school's colour already); of several, each row's link is in its school's
- * (schoolCssVars; the owner, 17 November 2026).
+ * school's colour already); of several, each row's school is marked by a dot
+ * in its own colour beside a link in the ink. A school's colour is never the
+ * colour of words (the post-migration fixes, 18 November 2026; it was each
+ * row's link, schoolCssVars, from 17 November 2026).
  */
 import { schoolAthletics, schoolsFor, schoolTeamName, sportsPath, type SchoolSports, type SportGame, type SportsData } from '@/config/school-sports';
-import { formatGameTime, latestResult, outcome, RESULT_WORD, schoolCssVars, sportsDataFor, stripGames, weekGames, when, where } from '@/lib/school-sports';
+import { formatGameTime, latestResult, outcome, RESULT_WORD, sportsDataFor, stripGames, weekGames, when, where } from '@/lib/school-sports';
 
 interface Props {
   town: string;
@@ -76,8 +78,11 @@ const stageWord = (g: SportGame) => (g.stage ? ` · ${g.stage}` : '');
           {rows.map(({ school, games, last }) => {
             const next = games[0];
             return (
-              <li class="py-3 text-[0.9375rem] leading-snug" style={schoolCssVars(school)}>
-                <a href={sportsPath(school)} class="font-semibold text-primary underline">{schoolTeamName(school)}</a>
+              <li class="py-3 text-[0.9375rem] leading-snug">
+                <span class="flex items-baseline gap-2">
+                  {school.colors && <span class="inline-block size-2.5 shrink-0 translate-y-[-1px] rounded-full" style={`background:${school.colors.primary}`} aria-hidden="true" data-school-dot></span>}
+                  <a href={sportsPath(school)} class="font-semibold text-ink underline hover:text-primary">{schoolTeamName(school)}</a>
+                </span>
                 {next ? (
                   <span class="block text-ink-muted">{next.team.name} {where(next.game)} {next.game.opponent} · <span data-relday={next.game.date}>{when(next.game, now, false)}</span>{next.game.time && ` · ${formatGameTime(next.game)}`}{stageWord(next.game)}{placeWord(next.game)}</span>
                 ) : last?.game.result ? (

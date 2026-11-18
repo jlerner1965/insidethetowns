@@ -8,7 +8,7 @@ import { namesTown } from './titles.ts';
 import type { CollectionEntry } from 'astro:content';
 // Relative rather than the '@/…' alias so the module loads in plain Node and
 // its builders can be unit-tested; Vite resolves both the same way.
-import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
+import { getNetworkHub, isSectionBuild, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
 import { dayKey, parseLocal, toIsoLocal } from './dates.ts';
 import { certainTime } from './tradition-calendar.ts';
 import { exportWhen } from './events.ts';
@@ -360,6 +360,24 @@ export function eventImage<T extends ImageCandidate>(
 }
 
 /**
+ * The site a page declares as its WebSite and its Organization: its own,
+ * except on a section of the hub (a folded guide built under /<town>/,
+ * src/config/index.ts, sectionSite), whose pages are insidethetowns.com's
+ * and say so. "Inside <Town>" is the section's label in its breadcrumbs and
+ * headings, never a WebSite's or an Organization's name (the post-migration
+ * fixes, 18 November 2026: the four sections each declared a WebSite of
+ * their own at /<town>/).
+ */
+export function publicationSite(site: SiteConfig): SiteConfig {
+  return site.kind === 'town' && isSectionBuild() ? getNetworkHub() : site;
+}
+
+/** The address of the publication's home, where its #website and #org nodes are. */
+function publicationUrl(site: SiteConfig): string {
+  return `https://${publicationSite(site).domain}/`;
+}
+
+/**
  * The publisher graph: who runs this site, and how the domains relate.
  *
  * Separate domains look to a search engine like strangers. The
@@ -379,6 +397,9 @@ export function eventImage<T extends ImageCandidate>(
  * November 2026).
  */
 export function siteJsonLd(site: SiteConfig) {
+  // A section's pages are the hub's: one WebSite and one Organization on insidethetowns.com.
+  const publication = publicationSite(site);
+  if (publication !== site) return siteJsonLd(publication);
   const url = `https://${site.domain}/`;
   const hubUrl = `https://${getNetworkHub().domain}/`;
   const publisher = getNetworkHub().publisher;
@@ -721,7 +742,7 @@ export function collectionPageJsonLd(
     url: `${url}${page.path.replace(/^\//, '')}`,
     name: page.name,
     description: page.description,
-    isPartOf: { '@id': `${url}#website` },
+    isPartOf: { '@id': `${publicationUrl(site)}#website` },
     inLanguage: 'en-US',
     ...(page.updated && !Number.isNaN(page.updated.getTime()) ? { dateModified: toIsoLocal(page.updated) } : {}),
     ...(items.length > 0 && {
@@ -779,7 +800,7 @@ export function articleJsonLd(
     dateModified: toIsoLocal(articleModified(data) ?? data.date),
     ...(imageUrl ? { image: [imageUrl] } : {}),
     articleSection: data.category,
-    isPartOf: { '@id': `https://${site.domain}/#website` },
+    isPartOf: { '@id': `${publicationUrl(site)}#website` },
     /*
      * A named person when the network has one configured, the publication
      * itself otherwise. Both are valid; the difference is that a reader and a
@@ -789,8 +810,8 @@ export function articleJsonLd(
      */
     author: person
       ? { '@type': 'Person', name: person.name, ...(person.url ? { url: person.url } : {}) }
-      : { '@id': `https://${site.domain}/#org` },
-    publisher: { '@id': `https://${site.domain}/#org` },
+      : { '@id': `${publicationUrl(site)}#org` },
+    publisher: { '@id': `${publicationUrl(site)}#org` },
     mainEntityOfPage: url,
     url,
   };
@@ -825,8 +846,8 @@ export function webPageJsonLd(
     url: `${url}${page.path.replace(/^\//, '')}`,
     name: page.name,
     description: page.description,
-    isPartOf: { '@id': `${url}#website` },
-    publisher: { '@id': `${url}#org` },
+    isPartOf: { '@id': `${publicationUrl(site)}#website` },
+    publisher: { '@id': `${publicationUrl(site)}#org` },
     inLanguage: 'en-US',
     ...(page.updated ? { dateModified: toIsoLocal(page.updated) } : {}),
   };

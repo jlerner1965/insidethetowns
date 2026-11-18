@@ -1,6 +1,6 @@
 ---
 slug: elizabeth-mayors-tree-lighting
-name: "Mayor's Tree Lighting"
+name: "Mayor’s Tree Lighting"
 town:
   name: Elizabeth
   guide: elizabeth
@@ -13,5 +13,5 @@ years:
     date: 2026-12-05
     startTime: "3PM-6PM, Tree Lighting at 5PM"
     place: "Main Street"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

@@ -19,7 +19,9 @@
  * usual way to do this and it puts every link in the page twice, which is
  * duplicate anchor text on four hundred pages and two things to keep in step.
  */
-import { editionFor, emailEditions, getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getSite, hubNeighborsOf, liveTowns, neighborsOf } from '@/config';
+import { getTraditions } from '@/lib/content';
+import { publishedHubTowns } from '@/lib/hub-towns';
 import Wordmark from './Wordmark.astro';
 import { HUB_COLUMN } from './hub/pub';
 import { siteNav } from '@/lib/nav';
@@ -37,6 +39,8 @@ const hub = getNetworkHub();
  * closes it: on Escape, on a click elsewhere, and on a width change.
  */
 const nearby = site.kind === 'town' ? neighborsOf(site) : [];
+// The towns next door that live on the hub, each to its page there (the post-migration fixes, 18 November 2026).
+const nearbyOnHub = site.kind === 'town' ? hubNeighborsOf(site, new Set(publishedHubTowns(await getTraditions()).map((h) => h.slug))) : [];
 const guideCount = liveTowns().length;
 const path = pagePath(Astro.url);
 // A link to a section of a page (the hub's "/#towns") is never the current
@@ -167,7 +171,7 @@ const wide = hubRow ? '(min-width: 66.25rem)' : undefined;
                     in the phone menu, where it reads better. */}
                 <summary class={summaryClass}><span class="xl:hidden">Other towns</span><span class="hidden xl:inline">Towns</span></summary>
                 <div class="site-nav-panel text-ink">
-                  {nearby.length > 0 && (
+                  {nearby.length + nearbyOnHub.length > 0 && (
                     <Fragment>
                       <p class="eyebrow text-ink-muted">Nearby</p>
                       <ul class="mt-2 grid gap-1">
@@ -176,10 +180,15 @@ const wide = hubRow ? '(min-width: 66.25rem)' : undefined;
                             <a href={`https://${t.domain}/`} class="inline-block py-1.5 text-[0.9375rem] font-medium text-ink no-underline hover:text-primary hover:underline">{t.siteTitle}</a>
                           </li>
                         ))}
+                        {nearbyOnHub.map((t) => (
+                          <li>
+                            <a href={t.href} class="inline-block py-1.5 text-[0.9375rem] font-medium text-ink no-underline hover:text-primary hover:underline" data-hub-town={t.slug}>{t.name} <span class="font-normal text-ink-muted">on {hub.siteTitle}</span></a>
+                          </li>
+                        ))}
                       </ul>
                     </Fragment>
                   )}
-                  <p class:list={['text-[0.9375rem]', nearby.length > 0 && 'mt-3 border-t border-line-soft pt-3']}>
+                  <p class:list={['text-[0.9375rem]', nearby.length + nearbyOnHub.length > 0 && 'mt-3 border-t border-line-soft pt-3']}>
                     <a href={`https://${hub.domain}/#towns`} class="inline-block py-1.5 font-semibold text-primary underline">All {guideCount} guides →</a>
                   </p>
                 </div>

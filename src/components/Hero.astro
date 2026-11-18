@@ -159,10 +159,12 @@ const subtitleLong = week?.long ?? shorten(subtitle, 88);
         cleanly on a phone, and the week is a scroll closer. The whole
         tagline is in the meta description and the footer. */}
     <h1 class:list={['display mt-2 [overflow-wrap:anywhere] sm:text-[3.25rem] lg:text-[4.25rem]', compact ? 'text-[2.25rem]' : 'text-[2.5rem]']}>{title}</h1>
-    {/* Full white on the town's colour in the phone band: at 85% the line
-        measured 4.17:1 on Golden's colour, 4.27:1 on Niwot's and 4.31:1 on
-        Timnath's, under the 4.5:1 it needs; full white is 5.07:1 or more. */}
-    <p class:list={['mt-3 max-w-xl text-[1.0625rem] leading-snug text-white/85 md:text-xl', compact && 'max-sm:text-white', lineShade]}>
+    {/* Full white on the town's colour: at 85% the line measured 4.17:1 on
+        Golden's colour, 4.27:1 on Niwot's and 4.31:1 on Timnath's, under
+        the 4.5:1 it needs; full white is 5.07:1 or more. In the phone band
+        first; everywhere since 18 November 2026, where the line sits on the
+        town's colour until the photograph has loaded (Niwot, 4.28:1). */}
+    <p class:list={['mt-3 max-w-xl text-[1.0625rem] leading-snug text-white md:text-xl', lineShade]}>
       <span class="sm:hidden">{subtitleShort}</span><span class="hidden sm:inline">{subtitleLong}</span>
     </p>
     {links.length > 0 && (

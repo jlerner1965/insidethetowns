@@ -27,9 +27,9 @@ interface Props {
 
 const { team: s, today, heading, stale = false, class: className } = Astro.props;
 const Heading = heading.level;
-/** The pill's colours: a win in the primary, a loss in the ink (the school's dark second colour where it has one, schoolTrim), a tie in the soft accent. */
+/** The pill's colours: a win in the school's colour (--school-primary, schoolCssVars), a loss in the ink (the school's dark second colour where it has one, schoolTrim), a tie in the soft accent. */
 const PILL = {
-  W: 'bg-primary text-white',
+  W: 'bg-[var(--school-primary,var(--color-primary))] text-white',
   L: 'bg-[var(--school-loss,var(--color-ink))] text-raised',
   T: 'bg-accent-soft text-ink',
 } as const;

@@ -1145,6 +1145,17 @@ test('every school’s pages carry its own colours, however many schools the gui
   assert.match(vars, /--town-primary:#1C3C6D/);
   assert.match(vars, /--town-accent:#8F8C88/);
   assert.doesNotMatch(vars, /6A1B32/i);
+  // On the Windsor guide, whose colour is Windsor High's, Severance's navy is an accent only:
+  // its rules, its borders and its win pill; words and links in the ink (18 November 2026).
+  const onWindsor = schoolCssVars(severance, findTown('windsor')!)!;
+  assert.match(onWindsor, /--town-primary:#243137/);
+  assert.match(onWindsor, /--color-primary:#243137/);
+  assert.match(onWindsor, /--school-primary:#1C3C6D/);
+  assert.match(onWindsor, /--t-primary-line:color-mix\(in srgb, #1C3C6D 25%/);
+  assert.match(onWindsor, /--town-accent:#8F8C88/);
+  assert.doesNotMatch(onWindsor, /6A1B32/i);
+  // Windsor High on its own guide: its colour is the guide's, and stays the page's primary.
+  assert.match(schoolCssVars(schoolSportsFor('windsor', 'windsor-high')!, findTown('windsor')!)!, /--town-primary:#6A1B32/i);
   for (const route of ['src/routes/town/sports.astro', 'src/routes/town/sports-team.astro']) {
     assert.doesNotMatch(readFileSync(route, 'utf8'), /schools\.length === 1 \? schoolCssVars/, route);
   }

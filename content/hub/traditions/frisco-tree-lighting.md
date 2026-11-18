@@ -13,5 +13,5 @@ years:
     date: 2026-11-28
     startTime: "6:00pm"
     place: "Frisco Historic Park"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

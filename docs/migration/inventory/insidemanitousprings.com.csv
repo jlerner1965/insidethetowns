@@ -81,6 +81,7 @@ old_path,source,note
 /guides/,routes,"a page every guide had, at a030ab9b"
 /message-sent/,routes,"a page every guide had, at a030ab9b"
 /moving-here/,routes,"a page every guide had, at a030ab9b"
+/parks/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_9a9jg5YWLfnRcwg5ytWUbYvsoGch, 3 November 2026)"
 /places/adams-mountain-cafe/,decisions,at a030ab9b
 /places/barr-trail/,decisions,at a030ab9b
 /places/broadmoor-manitou-and-pikes-peak-cog-railway/,decisions,at a030ab9b
@@ -109,9 +110,11 @@ old_path,source,note
 /places/the-cliff-house-at-pikes-peak/,decisions,at a030ab9b
 /places/villa-motel/,decisions,at a030ab9b
 /privacy/,routes,"a page every guide had, at a030ab9b"
+/restaurants/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_9a9jg5YWLfnRcwg5ytWUbYvsoGch, 3 November 2026)"
 /robots.txt,routes,"a page every guide had, at a030ab9b"
 /rss.xml,routes,"a page every guide had, at a030ab9b"
 /search/,routes,"a page every guide had, at a030ab9b"
+/shops/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_9a9jg5YWLfnRcwg5ytWUbYvsoGch, 3 November 2026)"
 /sitemap-0.xml,routes,"a page every guide had, at a030ab9b"
 /sitemap-index.xml,routes,"a page every guide had, at a030ab9b"
 /submit-event/,routes,"a page every guide had, at a030ab9b"
@@ -119,3 +122,4 @@ old_path,source,note
 /things-to-do/,routes,"a page every guide had, at a030ab9b"
 /this-week/,routes,"a page every guide had, at a030ab9b"
 /this-weekend/,routes,"a page every guide had, at a030ab9b"
+/venues/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_9a9jg5YWLfnRcwg5ytWUbYvsoGch, 3 November 2026)"

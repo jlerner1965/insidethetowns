@@ -13,7 +13,7 @@ years:
     date: 2026-12-04
     startTime: "5 pm"
     place: "Sandstone Park"
-    checked: 2026-11-12
+    checked: 2026-11-17
   - year: 2025
     status: confirmed
     date: 2025-12-05

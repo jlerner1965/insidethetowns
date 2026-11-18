@@ -203,8 +203,12 @@ interface Item {
   reasons: string[];
   /** "9 am · Altona Middle School". */
   meta: string[];
-  /** A game's title in its school's colour (SchoolSports.colors). */
-  color?: string;
+  /**
+   * A game's school colour (SchoolSports.colors), drawn only as a dot beside
+   * the label line: the title is a link like every other listing's, never in
+   * the school's colour (the post-migration fixes, 18 November 2026).
+   */
+  dot?: string;
   /** The last day it shows, and the instant it comes off where it has one (src/lib/expiry.ts). */
   until: string;
   end?: string;
@@ -221,7 +225,7 @@ const weekend = days.flatMap((d) => {
       href: row.final || !listing ? `https://${guide.domain}${teamPath(school, team.key)}` : `https://${guide.domain}/events/${listing.slug}/`,
       reasons: row.reasons,
       meta: row.meta,
-      color: school.colors?.primary,
+      dot: school.colors?.primary,
       until: friday,
     });
   }
@@ -268,8 +272,8 @@ const scores = live
         result: `${last.team.name} ${RESULT_WORD[last.game.result].toLowerCase()} ${outcome(last.game)}`,
         date: last.game.date,
         day: formatDayShort(gameDay(last.game)),
-        // The school's own colour for its name, not the hub's blue (SchoolSports.colors; check-colors proves it on white and the paper).
-        color: s.colors?.primary,
+        // The school's own colour as a dot beside its name; the name is a link like any other (the post-migration fixes, 18 November 2026).
+        dot: s.colors?.primary,
       }];
     }),
   );
@@ -463,8 +467,8 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
                     <article class:list={['py-4 desk:grid desk:grid-cols-[1.35fr_1fr] desk:gap-x-7', pub.rule]} data-event-day={r.until} data-end={r.end}>
                       {/* What it is; from 900px, when and where beside it. */}
                       <div class="min-w-0">
-                        <p class={by}>{r.label}</p>
-                        <h4 class={hl}><a href={r.href} class={pub.titleLink} style={r.color && `color:${r.color}`} data-track="home-weekend">{typeset(r.title)}</a></h4>
+                        <p class:list={[by, r.dot && 'flex items-center gap-2']}>{r.dot && <span class="inline-block size-2.5 shrink-0 rounded-full" style={`background:${r.dot}`} aria-hidden="true" data-school-dot></span>}{r.label}</p>
+                        <h4 class={hl}><a href={r.href} class={pub.titleLink} data-track="home-weekend">{typeset(r.title)}</a></h4>
                         {r.reasons.length > 0 && <p class:list={['mt-1.5', pub.t]}>{typeset(r.reasons.join(' · '))}</p>}
                       </div>
                       <div class="min-w-0">
@@ -543,7 +547,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
               <ul class="mt-2">
                 {scores.map((s) => (
                   <li class:list={['py-2.5', pub.rule]} data-score-row>
-                    <a href={s.href} class={pub.link} style={s.color && `color:${s.color}`} data-track="home-scores">{s.name}</a>
+                    <span class="flex items-baseline gap-2">{s.dot && <span class="inline-block size-2.5 shrink-0 translate-y-[-1px] rounded-full" style={`background:${s.dot}`} aria-hidden="true" data-school-dot></span>}<a href={s.href} class={pub.link} data-track="home-scores">{s.name}</a></span>
                     <p class:list={['mt-0.5', pub.meta]}>{s.result}, <time datetime={s.date}>{s.day}</time></p>
                   </li>
                 ))}

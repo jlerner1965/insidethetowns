@@ -13,5 +13,5 @@ years:
     date: 2026-11-27
     startTime: "4-5 p.m."
     place: "Stroehle Square"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

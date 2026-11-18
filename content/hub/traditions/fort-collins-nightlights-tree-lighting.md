@@ -14,5 +14,5 @@ years:
     startTime: "5:30 pm"
     place: "First Presbyterian Church, 531 S College Ave"
     cost: "Free"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

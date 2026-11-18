@@ -11964,3 +11964,68 @@ layout changes to the hub's pages beyond the links named.*
   'astro'" on main since #457 (its scripts reach astro/zod through
   src/lib/lastmod.ts and the job installed nothing). The job now runs
   `npm ci` first.
+
+## Post-migration fixes, 18 November 2026
+
+*The owner's list after #459–#461: one pull request.*
+
+- **A school's colour is never the colour of words in a listing.** The
+  hub's home set the Friday game's title ("Roosevelt Roughriders vs Mesa
+  Ridge") and each school's name under High school scores in the school's
+  colour; a guide's home set its game rows in the guide's primary, which on
+  a flagship is the school's; Windsor's home and /sports/ index set each
+  school's name in its own. Each is now a link like the listings around it,
+  and the school's colour is a dot: beside "Johnstown · Friday night
+  lights", beside a school's name in the scores, beside each school on
+  Windsor's list. The home strip keeps its band and its dot; its label is
+  white where it was the school's second colour (Erie's orange, Windsor's
+  and Carbon Valley's gold, Timnath's gold). A school's own sports pages
+  list games too (the owner, the same day): where the school's colour is
+  not the guide's own (Severance High on the Windsor guide), its words and
+  links are in the ink and its navy is an accent only, the rules, the
+  borders and the win pill (`schoolCssVars(school, town)`). Where the
+  school's colour is the guide's (every other guide), the page keeps the
+  guide's palette.
+- **The guides link the towns next door that now live on the hub.** Each
+  guide's "Other towns" menu and the footer's nearby list name them, each
+  to its page on insidethetowns.com (`hubNeighbors` on the guide's config,
+  `hubNeighborsOf`): the hub towns the guide named in `neighbors` before
+  the restructure of 12 November 2026 (7141d032), where the hub builds a
+  page for them. Berthoud: Loveland, Longmont. Niwot: Longmont, Lafayette,
+  Nederland. Erie: Longmont, Lafayette, Golden. Lyons: Longmont, Estes
+  Park, Nederland. Johnstown: Loveland. Windsor: Timnath, Fort Collins.
+  Carbon Valley named none; it links Longmont, on the owner's word.
+- **One site name.** A section's pages (Longmont, Loveland, Fort Collins,
+  Estes Park) declared a WebSite and an Organization of their own,
+  "Inside Longmont" at /longmont/, and that name as og:site_name. They now
+  declare the hub's one WebSite and Organization, "Inside the Towns" at
+  https://insidethetowns.com/, and every page's `isPartOf` and `publisher`
+  point there (`publicationSite`, src/lib/seo.ts). "Inside <Town>" stays
+  the section's label in its breadcrumbs, headings and footer.
+- **Loveland's Día de los Muertos is a tradition**, /loveland/day-of-the-dead/
+  (Heart and Sol, at the Pulliam Community Building; the 10th annual on
+  November 7, 2026 and the 9th on November 1, 2025, both on the Loveland
+  Chamber's listings), and the old guide's dated address for it moves
+  from 410 to a 301 to that page.
+- **Elizabeth's Mayor’s Tree Lighting is confirmed from the owner's read**
+  of the Town's own page (Saturday, December 5, 2026, 3–6 pm, the
+  lighting at 5 pm), on November 17: the Town's site refuses automated
+  readers, and its page is the organizer's. Dillon's 2026 stays not
+  announced, and the Outlets at Castle Rock's November 14 lighting (read
+  on its page on November 13) has passed: neither shows a date to come
+  that is not confirmed.
+- **Every folded domain serves the sitemap it had.** The #461 check found
+  the seven guides retired before the restructure (Black Hawk, Evergreen,
+  Fort Lupton, Georgetown, Grand Lake, Idaho Springs, Manitou Springs)
+  answering 301 for `/sitemap-index.xml` and `/sitemap-0.xml`: the
+  inventory copied sitemaps only from the builds at 7141d032, where those
+  seven no longer built one. The owner wants each served with a 200 so
+  Google finds the redirects. Six are the files their last live
+  deployments served, read from Vercel; Fort Lupton's live week left no
+  deployment, so its sitemap is rebuilt from its page addresses and says
+  so. The 27 addresses only those sitemaps listed are rows of the map
+  now, each to its town's places index or page (the Clear Creek guide's
+  `/georgetown/` to Georgetown's page).
+- **Check dates are Denver's day.** The records read on the evening of
+  November 17 in Colorado (after midnight UTC) carry 2026-11-17, as
+  test/check-dates.test.ts requires.

@@ -13,5 +13,5 @@ years:
     date: 2026-12-11
     startTime: "4 p.m."
     place: "Midland Avenue"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

@@ -22,6 +22,8 @@
  * - The mark: the other colour, for the closing band's eyebrows and, where
  *   it is legible, its pills.
  * - The eyebrow: the mark where it clears 4.5:1 on the band, else white.
+ *   Not drawn since 18 November 2026: the strip's label is white, as a
+ *   school's colour is never the colour of words (SportsBar.astro).
  * - The pill ("Thursday email", the season record): the mark as the fill
  *   with ink on it where the mark clears 4.5:1 on the band and ink clears
  *   4.5:1 on the mark, else white with ink.

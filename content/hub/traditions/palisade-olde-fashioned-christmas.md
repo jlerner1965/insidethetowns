@@ -14,5 +14,5 @@ years:
     endDate: 2026-12-05
     startTime: "Parade of Lights begins at 5:30pm Friday"
     place: "Downtown Palisade"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---
