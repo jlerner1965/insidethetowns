@@ -8,6 +8,8 @@
  * config is loaded, so the committed switches stay off.
  */
 process.env.GUIDE_MOVE_ON = 'all';
+// Both steps of each switch, whatever the committed DOMAIN_HELD holds (the hub-first step has its own test below).
+process.env.GUIDE_DOMAIN_HELD = '';
 delete process.env.VERCEL;
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -259,7 +261,7 @@ test('the function serves a moved guide’s sitemap and robots.txt with 200 and 
 
 test('a moved guide builds no site of its own and leaves the nightly rebuild’s hook list; its project builds for its switch, its rules, the function and its content', () => {
   const run = readFileSync('scripts/run.ts', 'utf8');
-  assert.match(run, /isMoved\(site\)\)\s*\{[\s\S]*?guideMap\(/, 'the guide’s project writes the map from its own section build');
+  assert.match(run, /domainMoved\(site, env\)\)\s*\{[\s\S]*?guideMap\(/, 'the guide’s project writes the map from its own section build, once its domain is not held');
   assert.match(run, /carryAll: isMoved\(section\)/, 'the hub merges its section with every page carried');
   const live = readFileSync('scripts/live-towns.ts', 'utf8');
   assert.match(live, /LIVE_TOWNS\.filter\(\(s\) => !moved\.includes\(s\)\)/);
@@ -285,4 +287,28 @@ test('Plausible counts every hub page, sections included, as insidethetowns.com;
   assert.equal(plausibleDomain(berthoud, {}), 'insideberthoud.com', 'the guide on its own domain, before its switch');
   const without = allTowns.find((x) => x.kind === 'town' && !x.plausible)!;
   assert.equal(plausibleDomain(without, {}), undefined);
+});
+
+test('the hub-first step (DOMAIN_HELD): the section is on the hub and the hub’s /<town>/ is its home, while the guide’s own project builds the guide and its domain keeps its rules', async () => {
+  const { applyGuideMove, domainHeld, domainMoved, DOMAIN_HELD } = await import('../src/config/guide-move.ts');
+  const { berthoud } = await import('../src/config/towns/berthoud.ts');
+  const committed = readFileSync('src/config/guide-move.ts', 'utf8');
+  assert.match(committed, /^export const DOMAIN_HELD: readonly string\[\] = \[[^\]]*\];$/m, 'DOMAIN_HELD on one line, as the ignore step reads it');
+  for (const slug of DOMAIN_HELD) assert.notEqual(GUIDE_MOVE[slug], undefined, `${slug}: one of the seven`);
+  const env = (more: Record<string, string>) => ({ GUIDE_MOVE_ON: 'berthoud', GUIDE_DOMAIN_HELD: 'berthoud', ...more });
+  // The hub, and the section build on the hub: moved.
+  const [onHub] = applyGuideMove([berthoud], env({ TOWN: 'hub' }));
+  assert.ok(isMoved(onHub!) && onHub!.hubPage?.town === 'berthoud');
+  assert.equal(domainMoved(onHub!, env({ TOWN: 'hub' })), false, 'its domain is held');
+  const [asSection] = applyGuideMove([berthoud], env({ TOWN: 'berthoud', HUB_SECTION: '1' }));
+  assert.ok(isMoved(asSection!), 'the hub builds the section');
+  // Its own project: the guide, exactly as before.
+  const [own] = applyGuideMove([berthoud], env({ TOWN: 'berthoud' }));
+  assert.equal(own, berthoud, 'the guide’s own build sees the guide unmoved');
+  // Another guide's build links to the section.
+  const [fromErie] = applyGuideMove([berthoud], env({ TOWN: 'erie' }));
+  assert.ok(isMoved(fromErie!));
+  // The second step: held no more, its domain moves.
+  assert.equal(domainMoved(onHub!, { GUIDE_MOVE_ON: 'berthoud', GUIDE_DOMAIN_HELD: '' }), true);
+  assert.deepEqual([...domainHeld({ GUIDE_DOMAIN_HELD: 'berthoud, erie' })], ['berthoud', 'erie']);
 });

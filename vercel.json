@@ -64,50 +64,6 @@
   ],
   "redirects": [
     {
-      "source": "/berthoud{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidethetowns.com"
-        }
-      ],
-      "destination": "https://insideberthoud.com/",
-      "statusCode": 301
-    },
-    {
-      "source": "/erie{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidethetowns.com"
-        }
-      ],
-      "destination": "https://insideerie.com/",
-      "statusCode": 301
-    },
-    {
-      "source": "/windsor{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidethetowns.com"
-        }
-      ],
-      "destination": "https://insidewindsorco.com/",
-      "statusCode": 301
-    },
-    {
-      "source": "/carbon-valley{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidethetowns.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/",
-      "statusCode": 301
-    },
-    {
       "source": "/frederick{/}?",
       "has": [
         {
@@ -115,7 +71,7 @@
           "value": "insidethetowns.com"
         }
       ],
-      "destination": "https://carbonvalleyguide.com/",
+      "destination": "/carbon-valley/",
       "statusCode": 301
     },
     {
@@ -126,7 +82,7 @@
           "value": "insidethetowns.com"
         }
       ],
-      "destination": "https://carbonvalleyguide.com/",
+      "destination": "/carbon-valley/",
       "statusCode": 301
     },
     {
@@ -137,29 +93,7 @@
           "value": "insidethetowns.com"
         }
       ],
-      "destination": "https://carbonvalleyguide.com/",
-      "statusCode": 301
-    },
-    {
-      "source": "/lyons{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidethetowns.com"
-        }
-      ],
-      "destination": "https://insidelyons.com/",
-      "statusCode": 301
-    },
-    {
-      "source": "/niwot{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidethetowns.com"
-        }
-      ],
-      "destination": "https://insideniwot.com/",
+      "destination": "/carbon-valley/",
       "statusCode": 301
     },
     {
@@ -170,7 +104,7 @@
           "value": "insidethetowns.com"
         }
       ],
-      "destination": "https://insidewindsorco.com/severance/",
+      "destination": "/windsor/severance/",
       "statusCode": 301
     },
     {
@@ -181,7 +115,7 @@
           "value": "insidethetowns.com"
         }
       ],
-      "destination": "https://insidewindsorco.com/events/trick-or-treat-parade/",
+      "destination": "/windsor/severance-trick-or-treat-parade/",
       "statusCode": 301
     },
     {
@@ -192,7 +126,7 @@
           "value": "insidethetowns.com"
         }
       ],
-      "destination": "https://insidewindsorco.com/severance/",
+      "destination": "/windsor/severance/",
       "statusCode": 301
     },
     {
@@ -203,7 +137,7 @@
           "value": "insidethetowns.com"
         }
       ],
-      "destination": "https://insidewindsorco.com/events/kids-fishing-derby/",
+      "destination": "/windsor/severance-kids-fishing-derby/",
       "statusCode": 301
     },
     {

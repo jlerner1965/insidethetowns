@@ -180,6 +180,20 @@ test('a guide moved into the hub (its switch on) is a redirect project: it skips
   assert.equal(decide('lyons', commit({ 'src/lib/dates.ts': 'moved-shared-2' }), off), 'build', 'shared code builds a guide on its own domain');
 });
 
+test('a guide whose domain is held (the hub-first step) builds as a guide on its own domain, and the hub builds its section', () => {
+  const prev = git('rev-parse', 'HEAD');
+  const held = commit({ 'src/config/guide-move.ts': "export const GUIDE_MOVE = {\n  lyons: '2026-12-04',\n  niwot: false,\n};\nexport const DOMAIN_HELD: readonly string[] = ['lyons'];\n" });
+  assert.equal(decide('lyons', held, prev), 'build', 'the switch file changed');
+  const shared = commit({ 'src/lib/dates.ts': 'held-shared' });
+  assert.equal(decide('lyons', shared, held), 'build', 'shared code builds it: it still serves the guide');
+  const content = commit({ 'content/lyons/events/c.md': 'held-content' });
+  assert.equal(decide('hub', content, shared), 'build', 'its section is on the hub already');
+  // The second step: out of DOMAIN_HELD, its project becomes the redirect project.
+  const moved = commit({ 'src/config/guide-move.ts': "export const GUIDE_MOVE = {\n  lyons: '2026-12-04',\n  niwot: false,\n};\nexport const DOMAIN_HELD: readonly string[] = [];\n" });
+  assert.equal(decide('lyons', moved, content), 'build');
+  assert.equal(decide('lyons', commit({ 'src/lib/dates.ts': 'held-shared-2' }), moved), 'skip', 'then shared code changes nothing it serves');
+});
+
 test('a build and a dev server parse every content file afresh (astro --force), so a schema change cannot meet a cached entry', () => {
   // Vercel carries node_modules/.astro between builds; on 13 November 2026 a
   // cached Eldora article without the new `games` default failed every hub

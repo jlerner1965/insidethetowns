@@ -7,6 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { HUB_TOWNS, STANDALONE_GUIDES } from '../src/config/hub-towns.ts';
+import { allTowns, isMoved } from '../src/config/index.ts';
 import { eventPage, eventPath, eventSegment, hubEventPages, publishedHubTowns, type ShowingContext } from '../src/lib/hub-towns.ts';
 import { HUB_ROUTES, hubReservedSegments } from '../src/integrations/town-routes.ts';
 import { contentDates } from '../src/lib/lastmod.ts';
@@ -42,13 +43,15 @@ test('the address drops the town prefix from the slug: golden-candlelight-walk i
 });
 
 test('only a record whose home is a published hub town page gets one: a guide’s record, a shared date and an unpublished town keep what they have', () => {
-  assert.equal(eventPath(record({ town: { name: 'Erie', guide: 'erie' } }), published), undefined, 'a standalone guide');
+  // A standalone guide's record keeps the guide's own page, until the guide's section is on the hub (src/config/guide-move.ts).
+  const erieMoved = isMoved(allTowns.find((t) => t.slug === 'erie')!);
+  assert.equal(eventPath(record({ town: { name: 'Erie', guide: 'erie' } }), published), erieMoved ? '/erie/golden-candlelight-walk/' : undefined, 'a standalone guide');
   assert.equal(eventPath(record({ town: undefined, towns: [{ slug: 'golden' }] }), published), undefined, 'no home');
   assert.equal(eventPath(record({ slug: 'salida-x', town: { name: 'Salida', guide: 'salida' } }), published), undefined, 'not published');
   // The page is where eventPage already said the Event belongs: the two agree.
   assert.equal(eventPage(record(), ctx), 'golden');
   const pages = hubEventPages([record(), record({ slug: 'erie-parade', town: { name: 'Erie', guide: 'erie' } })], published);
-  assert.deepEqual(pages.map((p) => [p.town, p.event, p.path]), [['golden', 'candlelight-walk', '/golden/candlelight-walk/']]);
+  assert.deepEqual(pages.map((p) => [p.town, p.event, p.path]), [['golden', 'candlelight-walk', '/golden/candlelight-walk/'], ...(erieMoved ? [['erie', 'parade', '/erie/parade/']] : [])]);
 });
 
 test('the build fails on two records at one address, or on a town slug that is one of the hub’s routes', () => {

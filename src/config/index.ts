@@ -12,7 +12,7 @@ import { hub } from './towns/hub.ts';
 import { editionsOf, type Edition } from '../lib/editions.ts';
 import { STANDALONE_GUIDES, findHubTown } from './hub-towns.ts';
 import { isMoved, type GuidePlace } from './guide-move.ts';
-export { GUIDE_MOVE, MOVING_GUIDES, isMoved, moveSwitches } from './guide-move.ts';
+export { DOMAIN_HELD, GUIDE_MOVE, MOVING_GUIDES, domainHeld, domainMoved, isMoved, moveSwitches } from './guide-move.ts';
 
 export type { ConditionsLink, EditorConfig, HubConfig, NewsletterEdition, SiteConfig, TownConfig, TownRegion, TownStatus, TownVariant, NavItem } from './towns/types.ts';
 export type { Edition } from '../lib/editions.ts';

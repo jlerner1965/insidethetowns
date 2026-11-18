@@ -13,7 +13,8 @@
  *   node scripts/live-towns.ts --json   # ["hub","niwot"]
  *   node scripts/live-towns.ts --moved  # the guides moved into the hub
  */
-import { allTowns, isMoved, LIVE_TOWNS } from '../src/config/index.ts';
-const moved = allTowns.filter((t) => isMoved(t)).map((t) => t.slug);
+import { allTowns, domainMoved, LIVE_TOWNS } from '../src/config/index.ts';
+// A guide whose domain is held (DOMAIN_HELD) still serves the guide there, so its hook stays.
+const moved = allTowns.filter((t) => domainMoved(t)).map((t) => t.slug);
 const sites = process.argv.includes('--moved') ? moved : ['hub', ...LIVE_TOWNS.filter((s) => !moved.includes(s))];
 console.log(process.argv.includes('--json') ? JSON.stringify(sites) : sites.join('\n'));

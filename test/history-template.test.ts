@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { allTowns } from '../src/config/index.ts';
+import { allTowns, isMoved } from '../src/config/index.ts';
 
 interface Story {
   file: string;
@@ -28,7 +28,8 @@ function historyStories(): Story[] {
   const out: Story[] = [];
   // A guide kept page by page on the hub (`section`, 17 November 2026) carries
   // its articles as they were, before the template; they are not held to it.
-  const asTheyWere = new Set(allTowns.filter((t) => t.section).map((t) => t.slug));
+  // A guide moved whole (src/config/guide-move.ts) is a live guide still, its articles held to the template.
+  const asTheyWere = new Set(allTowns.filter((t) => t.section && !isMoved(t)).map((t) => t.slug));
   for (const town of readdirSync('content').filter((t) => !asTheyWere.has(t))) {
     const dir = join('content', town, 'articles');
     let files: string[] = [];

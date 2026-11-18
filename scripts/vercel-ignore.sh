@@ -91,7 +91,11 @@ fi
 # a redirect project too, but its map is made from its own content at build
 # (scripts/migration/guide-map.ts): it builds for its switch, its rules, the
 # function, its content and the history its map reads, and for nothing else.
-if grep -qE "^[[:space:]]*'?$slug'?:[[:space:]]*'[0-9]{4}-[0-9]{2}-[0-9]{2}'" src/config/guide-move.ts 2>/dev/null; then
+# While its domain is held (DOMAIN_HELD, the first of the switch's two steps)
+# its project still builds the guide, so it builds as any guide does, below.
+held=""
+grep -qE "^export const DOMAIN_HELD[^=]*=[^;]*'$slug'" src/config/guide-move.ts 2>/dev/null && held=1
+if [ -z "$held" ] && grep -qE "^[[:space:]]*'?$slug'?:[[:space:]]*'[0-9]{4}-[0-9]{2}-[0-9]{2}'" src/config/guide-move.ts 2>/dev/null; then
   while IFS= read -r path; do
     case "$path" in
       vercel.json | src/config/guide-move.ts | "src/config/towns/$slug.ts" | scripts/vercel-ignore.sh | scripts/run.ts | api/legacy.ts | api/legacy-map.json | scripts/migration/guide-map.ts | "docs/migration/guides/"* | data/hub/fold-events.json | "content/$slug/"* | "data/$slug/"*)

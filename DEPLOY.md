@@ -410,19 +410,32 @@ guide and its section: everything the move does is read from the switch.
 **To switch one on** (a Friday, after the Thursday email has sent; Johnstown
 first, then the other six the same day, on the owner's word):
 
-1. Write the day on its line: `johnstown: '2026-12-04',`.
-2. `node scripts/fold-rules.ts --write`: vercel.json drops the guide's own
-   rules and adds the rewrite that sends every path on its domain to
-   `api/legacy.ts`; the hub's `/<town>/` rule goes, since that is now the
-   section's home; the rules of a retired domain that forwards onto the
+In two steps, hub first (the owner's order of 18 November 2026, after
+Johnstown looped for the eight minutes between its own project's deploy and
+the hub's: the guide's domain already sent readers to `/johnstown/` while
+the hub still forwarded `/johnstown/` to the guide):
+
+1. **Hub side.** Write the day on its line, `berthoud: '2026-11-18',`, and
+   add its slug to `DOMAIN_HELD` in the same file. `node
+   scripts/fold-rules.ts --write`: the hub's `/<town>/` rule goes, since that
+   is now the section's home; nothing changes for the guide's own domain.
+   `npm test`, commit, push, merge. The hub builds the guide's section at
+   `/<town>/` from its content; the guide's own project builds the guide
+   exactly as before and keeps serving it. Wait until the hub deploy is
+   READY and `/<town>/` answers 200.
+2. **Domain side.** Take the slug out of `DOMAIN_HELD`. `node
+   scripts/fold-rules.ts --write`: vercel.json drops the guide's own rules
+   and adds the rewrite that sends every path on its domain to
+   `api/legacy.ts`; the rules of a retired domain that forwards onto the
    guide (insideseverance.com, insidefrederickco.com, insidefirestone.com)
-   follow it onto the hub.
-3. `npm test`, commit, push, merge. Every project deploys: the hub builds
-   the guide's section at `/<town>/` from its content; the guide's own
+   follow it onto the hub. `npm test`, commit, push, merge. The guide's
    project becomes a redirect project (no site, one 404 page, the function
    and its map, made from the same content in the same build) and from then
    on builds only when its redirect files or its content change
-   (`scripts/vercel-ignore.sh`).
+   (`scripts/vercel-ignore.sh`). The hub, already serving the section,
+   answers every redirect the moment the guide's project is live.
+3. (Johnstown went in one step, before the order: its switch on and its
+   domain never held.)
 4. `node scripts/migration/check-production.ts --moved=<slug>` against the
    live domain (it needs the guide's section build at `.sections/<slug>/`,
    which `TOWN=hub npm run build` leaves): every mapped address 301s to its
@@ -437,8 +450,8 @@ first, then the other six the same day, on the owner's word):
    `node scripts/live-towns.ts --moved` names them. The nightly rebuild warns
    on each stale line until it is gone, and its hook is never fired again.
 
-**To switch one off**, write `false` on its line, run `fold-rules.ts
---write` again, commit, push, merge: the guide's project builds the guide as
+**To switch one off**, write `false` on its line (and take it out of
+`DOMAIN_HELD`), run `fold-rules.ts --write` again, commit, push, merge: the guide's project builds the guide as
 before at its own domain, the hub builds no section for it and forwards
 `/<town>/` to it again, and its hook line goes back into the secret.
 **Never Vercel's Instant Rollback**: it turns off production domain

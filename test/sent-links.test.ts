@@ -29,7 +29,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { towns } from '../src/config/towns/registry.ts';
-import { isMoved, listsEvents } from '../src/config/index.ts';
+import { domainMoved, isMoved, listsEvents } from '../src/config/index.ts';
 import { hubRoutes, placeTypeRoutes } from '../src/integrations/town-routes.ts';
 import { ALSO_COVERED } from '../src/lib/fold.ts';
 import { formerSlugs, guideRedirects, QUIET_ANNUAL } from '../src/lib/former-slugs.ts';
@@ -90,18 +90,20 @@ function answered(l: Link): boolean {
   // know with the town's page (test/legacy-redirects.test.ts).
   // A guide moved whole into the hub (src/config/guide-move.ts): its content is still here, and its former and
   // retired slugs go into the map its build writes (scripts/migration/guide-map.ts, from guideRedirects), not vercel.json.
-  if (isMoved(town)) {
+  // While its domain is held (DOMAIN_HELD) the guide's own rules answer there, as before: checked below.
+  if (domainMoved(town)) {
     if (existsSync(join(root, 'content', l.town, l.collection, `${l.slug}.md`))) return true;
     return `/${l.collection}/${l.slug}` in guideRedirects(l.town, { listsEvents: listsEvents(town) });
   }
-  if (town.section && town.hubPage) return l.domain in legacyMap;
+  if (town.section && town.hubPage && !isMoved(town)) return l.domain in legacyMap;
   const builds = liveSlugs.has(l.town) && (l.collection !== 'events' || listsEvents(town));
   if (builds) return existsSync(join(root, 'content', l.town, l.collection, `${l.slug}.md`)) || redirected(l.domain, l.town, l.collection, l.slug);
   const rule = hostRule(l.domain, `/${l.collection}/${l.slug}/`);
   if (!rule || !(rule.permanent === true || rule.statusCode === 301) || !rule.destination) return false;
   // A guide folded into its hub page lands on that page, an event on its Traditions section.
   // (Or on the page of a second town the guide carried: src/lib/fold.ts, ALSO_COVERED.)
-  if (town.hubPage) return [town.hubPage.town, ...(ALSO_COVERED[l.domain] ?? [])].some((t) => rule.destination!.startsWith(`https://insidethetowns.com/${t}/`));
+  // A moved guide whose domain is held still answers with its own rules, as a live guide does.
+  if (town.hubPage && !isMoved(town)) return [town.hubPage.town, ...(ALSO_COVERED[l.domain] ?? [])].some((t) => rule.destination!.startsWith(`https://insidethetowns.com/${t}/`));
   return true;
 }
 

@@ -28,7 +28,7 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { allSites, isMoved, LIVE_TOWNS, type SiteConfig } from '../src/config/index.ts';
+import { allSites, domainMoved, LIVE_TOWNS, type SiteConfig } from '../src/config/index.ts';
 import { contentDates } from '../src/lib/lastmod.ts';
 import {
   accepted,
@@ -54,7 +54,7 @@ const stateDir = option('state') ?? '.cache/indexnow';
 const only = option('town');
 
 // A moved guide's pages are the hub's (src/config/guide-move.ts): its domain only redirects, and the hub's sitemap lists its section.
-const deployed = ['hub', ...LIVE_TOWNS.filter((slug) => !allSites.some((s) => s.slug === slug && s.kind === 'town' && isMoved(s)))];
+const deployed = ['hub', ...LIVE_TOWNS.filter((slug) => !allSites.some((s) => s.slug === slug && s.kind === 'town' && domainMoved(s)))];
 if (only && !deployed.includes(only)) {
   console.error(`${only} is not a deployed site. Deployed: ${deployed.join(', ')}.`);
   process.exit(1);

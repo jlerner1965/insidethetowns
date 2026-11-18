@@ -17,7 +17,7 @@
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { allTowns, isMoved } from '../../src/config/index.ts';
+import { allTowns, domainMoved, isMoved } from '../../src/config/index.ts';
 import { guideMap, readHistory } from './guide-map.ts';
 import { readCsv } from './shared.ts';
 
@@ -36,9 +36,10 @@ const walk = (dir: string, out: string[] = []): string[] => {
   return out;
 };
 const sections = allTowns.filter((t) => t.hubPage && t.section);
-// A guide moved into the hub (src/config/guide-move.ts) is a section too, and its domain only redirects.
-const moved = sections.filter((t) => isMoved(t));
-const folded = new Set([...sections.map((t) => t.domain), ...moved.flatMap((t) => t.formerDomains ?? [])]);
+// A guide moved into the hub (src/config/guide-move.ts) is a section too, and its domain only redirects,
+// unless that domain is held (DOMAIN_HELD, the first of a switch's two steps): it serves the guide still.
+const moved = sections.filter((t) => domainMoved(t));
+const folded = new Set([...sections.filter((t) => !isMoved(t) || domainMoved(t)).map((t) => t.domain), ...moved.flatMap((t) => t.formerDomains ?? [])]);
 const towns = new Map(sections.map((t) => [t.hubPage!.town, t]));
 const built = (path: string) => existsSync(join(dist, path.endsWith('/') ? `${path}index.html` : path));
 
