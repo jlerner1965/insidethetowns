@@ -4,9 +4,9 @@ type: "shop"
 address: "488 Main Street, Black Hawk, CO 80422"
 url: "https://monarchblackhawk.com/explore/activities/shopping"
 source: "https://monarchblackhawk.com/explore/activities/shopping"
-verified: "2026-10-11"
+verified: "2026-11-18"
 added: "2026-10-11"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "James Lerner, by phone on 2026-11-18"
 status: "open"
 summary: "Monarch’s third-floor shop near the Chophouse, selling jewelry, clothing, sundries, seasonal gifts and resort merchandise. It opens at 8 am daily, with later closing times on weekends."
 tags:
@@ -17,7 +17,6 @@ tags:
 phone: "720-406-3812"
 hours: "Mon–Thu 8 am–10 pm; Fri–Sat 8 am–midnight; Sun 8 am–11 pm"
 area: "Main Street, inside Monarch"
-readBlocked: "2026-11-17: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
 ---
 
 mPulse is Monarch’s gift shop, on the **third floor near Monarch Chophouse**. It sells designer jewelry, clothing and accessories, sundries, seasonal gifts and Monarch merchandise, so it covers both souvenirs and a forgotten travel item.

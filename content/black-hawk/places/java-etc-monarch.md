@@ -4,9 +4,9 @@ type: "coffee"
 address: "488 Main Street, Black Hawk, CO 80422"
 url: "https://monarchblackhawk.com/dining/java-etc"
 source: "https://monarchblackhawk.com/dining/java-etc"
-verified: "2026-10-11"
+verified: "2026-11-18"
 added: "2026-10-11"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "James Lerner, by phone on 2026-11-18"
 status: "open"
 summary: "A 24-hour coffee and snack counter on Monarch’s second floor beside Twenty-Four 7, with espresso drinks, pastries, breakfast burritos, sandwiches and gelato."
 tags:
@@ -16,7 +16,6 @@ tags:
   - "24-hours"
 hours: "Daily, 24 hours"
 area: "Main Street, inside Monarch"
-readBlocked: "2026-11-17: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
 ---
 
 java etc. is a counter on the second floor of Monarch Casino Resort Spa, next to Twenty-Four 7, open **24 hours a day, seven days a week**. It serves brewed Starbucks coffee, espresso drinks and Teavana tea.

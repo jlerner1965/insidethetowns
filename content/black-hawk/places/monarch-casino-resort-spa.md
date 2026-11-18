@@ -5,13 +5,12 @@ address: "488 Main St, Black Hawk, CO 80422"
 area: "Main Street"
 url: "https://monarchblackhawk.com/"
 source: "https://monarchblackhawk.com/contact-us"
-verified: "2026-10-10"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "James Lerner, by phone on 2026-11-18"
 phone: "303-582-1000"
 tags: [casino, hotel, spa, dining]
 summary: "Casino, hotel and spa at the top of Main Street, with five places to eat including the Monarch Chophouse and The Buffet on the third floor."
-readBlocked: "2026-11-17: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
 ---
 
 Monarch Casino Resort Spa is at 488 Main Street. Its site lists the casino, a hotel, a spa and five places to eat: the Monarch Chophouse, The Buffet, Bistro Mariposa, Twenty-Four 7 (which the site describes as always open, without giving hours) and java etc. The Chophouse, The Buffet and Bistro Mariposa have their own listings on this guide with hours from Monarch's dining pages, and so does Spa Monarch.

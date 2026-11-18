@@ -5,15 +5,14 @@ address: "488 Main St, Black Hawk, CO 80422"
 area: "Monarch Casino Resort Spa, third floor"
 url: "https://monarchblackhawk.com/dining/bistro-mariposa"
 source: "https://monarchblackhawk.com/dining/bistro-mariposa"
-verified: "2026-10-10"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "James Lerner, by phone on 2026-11-18"
 phone: "303-996-2008"
 hours: "Wed–Thu & Sun 5–10 pm; Fri–Sat 5–11 pm; closed Mon–Tue"
 priceRange: "$$"
 tags: [latin, mexican, tequila, social-hour, reservations]
 summary: "Monarch's Latin and Mexican restaurant on the third floor by the sportsbook, open from 5 pm Wednesday to Sunday, with tequilas and mezcals, Colorado craft beer and a Wednesday social hour of half-price appetizers all evening."
-readBlocked: "2026-11-17: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
 ---
 
 Bistro Mariposa is the Monarch's contemporary Latin restaurant, on the third floor beside the sportsbook. Its page names oysters a la parrilla, char-broiled carne asada, chicken al pastor tacos and a sweet corn ice cream sandwich among its dishes, and a drinks list built on tequilas, mezcals and Colorado craft beer. On Wednesdays a social hour runs from 5 pm to close, with half-price appetizers, salads, soups and select wines by the glass, beer and craft cocktails. Tables are booked through OpenTable or by phone, and the restaurant takes private group dinners.
