@@ -7,6 +7,9 @@ town:
 type: turkey-trot
 organizer: "Run Windsor (miles.Beyond)"
 sourceUrl: "https://runsignup.com/Race/CO/Windsor/PelicanLakesTurkeyTrot"
+dateWindow:
+  start: "11-26"
+  end: "11-26"
 years:
   - year: 2026
     status: confirmed

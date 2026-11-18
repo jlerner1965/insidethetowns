@@ -7,6 +7,9 @@ town:
 type: fireworks
 organizer: "Town of Avon"
 sourceUrl: "https://www.avon.org/414/Salute-to-the-USA"
+dateWindow:
+  start: "07-03"
+  end: "07-03"
 years:
   - year: 2027
     status: not-announced

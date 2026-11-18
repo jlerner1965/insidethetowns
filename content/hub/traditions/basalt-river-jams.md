@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Basalt"
 sourceUrl: "https://www.basalt.net/683/Basalt-River-Jams"
+dateWindow:
+  start: "06-27"
+  end: "06-27"
 years:
   - year: 2027
     status: not-announced

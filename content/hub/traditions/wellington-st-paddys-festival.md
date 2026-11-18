@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Wellington"
 sourceUrl: "https://wellingtoncolorado.gov/166/Events"
+dateWindow:
+  start: "03-14"
+  end: "03-14"
 years:
   - year: 2027
     status: not-announced

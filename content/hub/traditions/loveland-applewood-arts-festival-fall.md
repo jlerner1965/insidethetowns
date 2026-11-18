@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Applewood Arts Festivals"
 sourceUrl: "https://www.applewoodfestivals.com/"
+dateWindow:
+  start: "10-17"
+  end: "10-17"
 years:
   - year: 2027
     status: not-announced

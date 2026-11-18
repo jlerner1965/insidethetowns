@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Palisade Bluegrass & Roots Festival"
 sourceUrl: "https://palisademusic.com/"
+dateWindow:
+  start: "06-11"
+  end: "06-11"
 years:
   - year: 2027
     status: confirmed

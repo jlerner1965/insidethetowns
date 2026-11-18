@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Winter Park Resort"
 sourceUrl: "https://www.winterparkresort.com/things-to-do/events/torchlight-parade-snowcat-experience"
+dateWindow:
+  start: "12-24"
+  end: "12-24"
 years:
   - year: 2026
     status: confirmed

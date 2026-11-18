@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "City of Fort Collins"
 sourceUrl: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/Downtown-Holiday-Lighting-Ceremony"
+dateWindow:
+  start: "11-06"
+  end: "11-06"
 years:
   - year: 2027
     status: not-announced

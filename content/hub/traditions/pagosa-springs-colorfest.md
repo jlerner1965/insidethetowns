@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Pagosa Springs Area Chamber of Commerce"
 sourceUrl: "https://www.pagosachamber.com/chamber-events.html"
+dateWindow:
+  start: "09-18"
+  end: "09-18"
 years:
   - year: 2027
     status: not-announced

@@ -11,6 +11,9 @@ about:
   text: "A family-friendly, neighborhood streets 5K starting and finishing at Edora Pool Ice Center (EPIC). The race is held after sunset; kids, strollers, dogs and walkers are welcome."
   source: "https://runsignup.com/Race/ResolutionRunFortCollins/Page/Home"
   checked: 2026-11-17
+dateWindow:
+  start: "12-31"
+  end: "12-31"
 years:
   - year: 2026
     status: confirmed

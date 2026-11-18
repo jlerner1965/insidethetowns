@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Grand Old West Days"
 sourceUrl: "https://grandoldwestdays.com/event_schedule"
+dateWindow:
+  start: "05-21"
+  end: "05-21"
 years:
   - year: 2027
     status: not-announced

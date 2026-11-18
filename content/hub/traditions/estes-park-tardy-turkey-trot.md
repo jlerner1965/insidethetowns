@@ -7,6 +7,9 @@ town:
 type: turkey-trot
 organizer: "Running Wild Events"
 sourceUrl: "https://runningwildevents.com/races/tardy-turkey"
+dateWindow:
+  start: "11-27"
+  end: "11-27"
 years:
   - year: 2026
     status: confirmed

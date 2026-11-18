@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Applewood Arts Festivals"
 sourceUrl: "https://www.applewoodfestivals.com/"
+dateWindow:
+  start: "11-20"
+  end: "11-20"
 years:
   - year: 2026
     status: confirmed

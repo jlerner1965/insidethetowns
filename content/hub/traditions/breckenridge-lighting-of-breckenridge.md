@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Breckenridge Tourism Office"
 sourceUrl: "https://gobreck.com/event/lighting-breckenridge-race-santas/"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

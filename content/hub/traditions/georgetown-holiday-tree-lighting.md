@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Town of Georgetown"
 sourceUrl: "https://georgetown-colorado.org/upcoming-events/"
+dateWindow:
+  start: "11-28"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

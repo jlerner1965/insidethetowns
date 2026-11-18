@@ -11,6 +11,9 @@ about:
   text: "A holiday parade of floats from the Town and local nonprofits, marching bands, fire trucks and specialty vehicles. Spectators watch along Elkhorn Avenue in downtown Estes Park."
   source: "https://eventsinestes.com/catch-the-glow-parade/"
   checked: 2026-11-13
+dateWindow:
+  start: "11-27"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

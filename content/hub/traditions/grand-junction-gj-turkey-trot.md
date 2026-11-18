@@ -7,6 +7,9 @@ town:
 type: turkey-trot
 organizer: "Grand Junction Fire Fighters Foundation"
 sourceUrl: "https://www.gjfffoundation.com/info-cpdfc"
+dateWindow:
+  start: "11-26"
+  end: "11-26"
 years:
   - year: 2026
     status: confirmed

@@ -11,6 +11,9 @@ about:
   text: "Come dressed in your wildest costume, bring your friends, and warm up afterward with hot drinks and treats. A majority of proceeds go to INSPIRE, an Evergreen organization that provides inclusive recreation opportunities for individuals with disabilities."
   source: "https://www.a4aevergreen.org/lake-plunge"
   checked: 2026-11-17
+dateWindow:
+  start: "01-01"
+  end: "01-01"
 years:
   - year: 2027
     status: confirmed

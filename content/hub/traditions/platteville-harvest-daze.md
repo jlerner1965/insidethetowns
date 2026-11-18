@@ -7,6 +7,9 @@ town:
 type: harvest-festival
 organizer: "Town of Platteville"
 sourceUrl: "https://platteville.colorado.gov/residents/community-events/harvest-daze-weekend"
+dateWindow:
+  start: "08-21"
+  end: "08-21"
 years:
   - year: 2027
     status: not-announced

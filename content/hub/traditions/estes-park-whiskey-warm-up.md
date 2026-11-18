@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Estes Park"
 sourceUrl: "https://eventsinestes.com/whiskey-warm-up/"
+dateWindow:
+  start: "03-06"
+  end: "03-06"
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Erie Chamber of Commerce"
 sourceUrl: "https://members.eriechamber.org/events/details/erie-town-fair-2026-853383"
+dateWindow:
+  start: "05-16"
+  end: "05-16"
 years:
   - year: 2027
     status: not-announced

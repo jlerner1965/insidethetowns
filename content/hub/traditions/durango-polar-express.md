@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Durango & Silverton Narrow Gauge Railroad"
 sourceUrl: "https://durangotrain.com/events/the-polar-express-train-ride/"
+dateWindow:
+  start: "11-20"
+  end: "11-20"
 years:
   - year: 2026
     status: confirmed

@@ -11,6 +11,9 @@ about:
   text: "La Veta's hometown parade down Main Street to open the Independence Day weekend: floats, classic cars, horses and local groups, 10 to 11:30 am. Free. Art in the Park runs the same weekend."
   source: "https://spanishpeakscountry.com/?p=60693"
   checked: 2026-11-13
+dateWindow:
+  start: "07-03"
+  end: "07-03"
 years:
   - year: 2027
     status: not-announced

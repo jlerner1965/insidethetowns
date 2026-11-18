@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Montrose"
 sourceUrl: "https://www.visitmontrose.com/func"
+dateWindow:
+  start: "08-07"
+  end: "08-07"
 years:
   - year: 2027
     status: not-announced

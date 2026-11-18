@@ -8,6 +8,9 @@ type: festival
 organizer: "Central City Opera"
 sourceUrl: "https://centralcityopera.org/2027-season-announcement/"
 firstYear: 1932
+dateWindow:
+  start: "06-26"
+  end: "06-27"
 years:
   - year: 2027
     status: confirmed

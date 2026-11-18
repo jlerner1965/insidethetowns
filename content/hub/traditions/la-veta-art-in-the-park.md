@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Spanish Peaks Arts Council"
 sourceUrl: "https://spanishpeaksarts.org/art-in-the-park"
+dateWindow:
+  start: "07-03"
+  end: "07-03"
 years:
   - year: 2027
     status: not-announced

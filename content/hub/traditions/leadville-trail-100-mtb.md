@@ -8,6 +8,9 @@ type: race
 organizer: "Leadville Race Series (Life Time)"
 sourceUrl: "https://www.leadvilleraceseries.com/mtb/leadvilletrail100mtb/"
 firstYear: 1994
+dateWindow:
+  start: "08-14"
+  end: "08-14"
 years:
   - year: 2027
     status: confirmed

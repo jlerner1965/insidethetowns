@@ -11,6 +11,9 @@ about:
   text: "A free family-friendly afternoon honoring loved ones and celebrating culture, community, and remembrance. Live performances featuring mariachi music, folklorico dancers, Aztec dancers, a mini-mercado, hands-on craft tables honoring the four elements and more."
   source: "https://business.loveland.org/events/details/10th-annual-day-of-the-dead-celebration-27012"
   checked: 2026-11-17
+dateWindow:
+  start: "11-01"
+  end: "11-07"
 years:
   - year: 2027
     status: not-announced

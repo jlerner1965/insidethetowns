@@ -10,6 +10,9 @@ towns:
 type: race
 organizer: "Imogene Pass Run"
 sourceUrl: "http://live-raceresults.com/imogene/"
+dateWindow:
+  start: "09-11"
+  end: "09-12"
 years:
   - year: 2027
     status: confirmed

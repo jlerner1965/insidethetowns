@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Castle Rock Downtown Alliance"
 sourceUrl: "https://www.downtowncastlerock.com/bootsandbrews"
+dateWindow:
+  start: "07-25"
+  end: "07-25"
 years:
   - year: 2027
     status: not-announced

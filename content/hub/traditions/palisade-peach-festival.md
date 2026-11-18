@@ -11,6 +11,9 @@ about:
   text: "A festival of Palisade's peaches, with a vendor market, food trucks, live music, peach cooking demonstrations and a peach eating contest, at Riverbend Park."
   source: "https://palisadecoc.com/events/palisadepeachfest/"
   checked: 2026-11-13
+dateWindow:
+  start: "08-21"
+  end: "08-21"
 years:
   - year: 2027
     status: not-announced

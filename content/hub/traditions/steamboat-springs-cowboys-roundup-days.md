@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Steamboat Pro Rodeo"
 sourceUrl: "https://steamboatprorodeo.com/buy-tickets/"
+dateWindow:
+  start: "07-02"
+  end: "07-02"
 years:
   - year: 2027
     status: not-announced

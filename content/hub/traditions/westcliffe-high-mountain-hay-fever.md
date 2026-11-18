@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "High Mountain Hay Fever Festival Association"
 sourceUrl: "https://www.highmountainhayfever.org/"
+dateWindow:
+  start: "07-08"
+  end: "07-08"
 years:
   - year: 2027
     status: confirmed

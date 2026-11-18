@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Telluride gondola, winter season"
   edge: opens
+dateWindow:
+  start: "11-20"
+  end: "11-20"
 years:
   - year: 2026
     status: confirmed

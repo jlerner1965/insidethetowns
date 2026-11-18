@@ -8,6 +8,9 @@ type: race
 organizer: "Shift Events"
 sourceUrl: "https://www.triplebypass.org/"
 firstYear: 1988
+dateWindow:
+  start: "07-10"
+  end: "07-11"
 years:
   - year: 2027
     status: confirmed

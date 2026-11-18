@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Gilpin Historical Society"
 sourceUrl: "https://www.gilpinhistory.org/events"
+dateWindow:
+  start: "10-16"
+  end: "10-16"
 years:
   - year: 2027
     status: not-announced

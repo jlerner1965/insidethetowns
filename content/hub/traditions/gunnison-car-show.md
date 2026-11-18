@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Gunnison Car Club"
 sourceUrl: "https://www.gunnisoncarclub.com/"
+dateWindow:
+  start: "08-14"
+  end: "08-14"
 years:
   - year: 2027
     status: not-announced

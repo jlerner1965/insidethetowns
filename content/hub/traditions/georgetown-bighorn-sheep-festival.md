@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Georgetown"
 sourceUrl: "https://georgetown-colorado.org/upcoming-events/"
+dateWindow:
+  start: "11-14"
+  end: "11-14"
 years:
   - year: 2026
     status: confirmed

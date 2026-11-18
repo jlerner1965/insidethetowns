@@ -12,6 +12,9 @@ outdoor:
   kind: road
   facility: "Guanella Pass"
   edge: opens
+dateWindow:
+  start: "04-16"
+  end: "04-16"
 years:
   - year: 2027
     status: not-announced

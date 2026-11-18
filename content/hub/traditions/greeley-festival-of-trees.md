@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Greeley"
 sourceUrl: "https://greeleyco.gov/events/festival-of-trees/"
+dateWindow:
+  start: "11-21"
+  end: "11-21"
 years:
   - year: 2026
     status: confirmed

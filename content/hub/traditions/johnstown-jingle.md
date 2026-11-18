@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Johnstown Downtown Development Authority"
 sourceUrl: "https://www.visitdowntownjohnstown.com/johnstownjingle"
+dateWindow:
+  start: "12-06"
+  end: "12-06"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Realities For Children"
 sourceUrl: "https://www.realitiesforchildren.com/events/nightlights-2/"
+dateWindow:
+  start: "12-01"
+  end: "12-01"
 years:
   - year: 2026
     status: confirmed

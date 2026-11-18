@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Delta"
 sourceUrl: "https://www.cityofdelta.net/439/4th-of-July-Western-Sky-Balloon-Festival"
+dateWindow:
+  start: "07-02"
+  end: "07-02"
 years:
   - year: 2027
     status: not-announced

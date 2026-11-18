@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Mead Area Chamber of Commerce"
 sourceUrl: "https://meadchamber.org/summer-block-party/"
+dateWindow:
+  start: "06-13"
+  end: "06-13"
 years:
   - year: 2027
     status: not-announced

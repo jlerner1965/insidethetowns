@@ -7,6 +7,9 @@ town:
 type: harvest-festival
 organizer: "North Fork Valley Creative Coalition"
 sourceUrl: "https://mountainharvestfestival.org/"
+dateWindow:
+  start: "09-25"
+  end: "09-25"
 years:
   - year: 2027
     status: not-announced

@@ -8,6 +8,9 @@ type: winter-carnival
 organizer: "Aspen Chamber Resort Association"
 sourceUrl: "https://www.aspenchamber.org/winterskol"
 firstYear: 1951
+dateWindow:
+  start: "12-10"
+  end: "12-10"
 years:
   - year: 2026
     status: confirmed

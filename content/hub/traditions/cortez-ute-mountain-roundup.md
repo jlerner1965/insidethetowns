@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Ute Mountain Roundup PRCA Rodeo"
 sourceUrl: "https://www.utemountainroundup.org/eventsandschedule"
+dateWindow:
+  start: "06-10"
+  end: "06-10"
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Ridgway Railroad Museum"
 sourceUrl: "https://www.ridgwayrailroadmuseum.org/"
+dateWindow:
+  start: "09-26"
+  end: "09-26"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Estes Park Marathon"
 sourceUrl: "https://www.epmarathon.org/"
+dateWindow:
+  start: "06-20"
+  end: "06-20"
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Ned Gravel"
 sourceUrl: "https://www.nedgravel.com/"
+dateWindow:
+  start: "07-12"
+  end: "07-12"
 years:
   - year: 2027
     status: not-announced

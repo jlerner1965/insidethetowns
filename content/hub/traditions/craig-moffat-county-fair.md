@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Moffat County Fair"
 sourceUrl: "https://www.moffatcountyfair.com/"
+dateWindow:
+  start: "07-31"
+  end: "07-31"
 years:
   - year: 2027
     status: not-announced

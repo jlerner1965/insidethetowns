@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Basalt Half Marathon & Relay"
 sourceUrl: "http://www.basalthalfmarathon.com/"
+dateWindow:
+  start: "06-06"
+  end: "06-06"
 years:
   - year: 2027
     status: not-announced

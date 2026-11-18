@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Frisco Adventure Park tubing hill"
   edge: opens
+dateWindow:
+  start: "11-26"
+  end: "11-26"
 years:
   - year: 2026
     status: confirmed

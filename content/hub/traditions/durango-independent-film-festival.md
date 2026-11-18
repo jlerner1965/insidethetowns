@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Durango Independent Film Festival"
 sourceUrl: "https://durangofilm.org/"
+dateWindow:
+  start: "03-03"
+  end: "03-03"
 years:
   - year: 2027
     status: confirmed

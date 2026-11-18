@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Georgetown Loop Railroad"
 sourceUrl: "https://www.georgetownlooprr.com/glrr-events/santas-lighted-fo/"
+dateWindow:
+  start: "11-06"
+  end: "11-06"
 years:
   - year: 2026
     status: confirmed

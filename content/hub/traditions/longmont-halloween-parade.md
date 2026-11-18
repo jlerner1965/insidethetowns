@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "City of Longmont Recreation Services"
 sourceUrl: "https://longmontcolorado.gov/recreation-services/community-events/halloween-parade/"
+dateWindow:
+  start: "10-31"
+  end: "10-31"
 years:
   - year: 2027
     status: not-announced

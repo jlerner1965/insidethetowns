@@ -12,6 +12,9 @@ about:
   text: "An out-and-back trail ultramarathon that starts and finishes in Leadville and climbs over Hope Pass."
   source: "https://www.leadvilleraceseries.com/run/leadvilletrail100run/"
   checked: 2026-11-13
+dateWindow:
+  start: "08-21"
+  end: "08-21"
 years:
   - year: 2027
     status: confirmed

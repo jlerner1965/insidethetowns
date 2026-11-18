@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Breckenridge Ski Resort"
   edge: opens
+dateWindow:
+  start: "11-11"
+  end: "11-11"
 years:
   - year: 2027
     status: not-announced

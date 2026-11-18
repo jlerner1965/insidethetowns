@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Aspen Highlands"
   edge: closes
+dateWindow:
+  start: "04-11"
+  end: "04-11"
 years:
   - year: 2027
     status: confirmed

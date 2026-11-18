@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "City of Cripple Creek"
 sourceUrl: "https://www.cityofcripplecreek.com/visit-cripple-creek/page/christmas-tree-lighting-celebration-0"
+dateWindow:
+  start: "11-28"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

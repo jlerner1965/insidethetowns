@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Fraser and the Fraser Public Arts Committee"
 sourceUrl: "https://www.explorefrasercolorado.com/fmmf"
+dateWindow:
+  start: "08-07"
+  end: "08-07"
 years:
   - year: 2027
     status: not-announced

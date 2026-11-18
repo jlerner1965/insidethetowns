@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Town of Lyons"
 sourceUrl: "https://www.townoflyons.com/353/Lucky-Lyons-5k-10k"
+dateWindow:
+  start: "03-07"
+  end: "03-07"
 years:
   - year: 2027
     status: not-announced

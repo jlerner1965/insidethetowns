@@ -11,6 +11,9 @@ outdoor:
   kind: booking
   facility: "Telluride Town Park Campground"
   edge: opens
+dateWindow:
+  start: "04-21"
+  end: "04-21"
 years:
   - year: 2027
     status: not-announced

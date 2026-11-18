@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Georgetown Loop Railroad"
   edge: opens
+dateWindow:
+  start: "03-20"
+  end: "03-20"
 years:
   - year: 2027
     status: not-announced

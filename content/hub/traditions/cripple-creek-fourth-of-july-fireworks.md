@@ -7,6 +7,9 @@ town:
 type: fireworks
 organizer: "City of Cripple Creek"
 sourceUrl: "https://www.cityofcripplecreek.com/visit-cripple-creek/page/events"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

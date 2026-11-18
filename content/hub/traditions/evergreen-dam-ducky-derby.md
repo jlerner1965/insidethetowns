@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Downtown Evergreen"
 sourceUrl: "https://downtownevergreen.com/events/dam-ducky-derby"
+dateWindow:
+  start: "08-07"
+  end: "08-07"
 years:
   - year: 2027
     status: confirmed

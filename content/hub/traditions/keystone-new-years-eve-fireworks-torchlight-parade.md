@@ -11,6 +11,9 @@ about:
   text: "Fireworks and a torchlight parade in River Run gondola plaza at Keystone, to ring in the new year."
   source: "https://www.keystoneresort.com/explore-the-resort/activities-and-events/event-detail.aspx?id=%7Baea65dfc-49e1-4276-adac-d27ec183539a%7D"
   checked: 2026-11-17
+dateWindow:
+  start: "12-31"
+  end: "12-31"
 years:
   - year: 2026
     status: not-announced

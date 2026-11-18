@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Vail Mountain"
   edge: opens
+dateWindow:
+  start: "11-13"
+  end: "11-13"
 years:
   - year: 2026
     status: confirmed

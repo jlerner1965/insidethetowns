@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "The Sherbino (Ridgway Chautauqua Society)"
 sourceUrl: "https://sherbino.org/"
+dateWindow:
+  start: "11-13"
+  end: "11-13"
 years:
   - year: 2026
     status: confirmed

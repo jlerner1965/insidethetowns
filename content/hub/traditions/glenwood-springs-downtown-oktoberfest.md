@@ -7,6 +7,9 @@ town:
 type: oktoberfest
 organizer: "Glenwood Springs Downtown Development Authority"
 sourceUrl: "https://www.glenwoodspringsdda.com/oktoberfest/"
+dateWindow:
+  start: "10-17"
+  end: "10-17"
 years:
   - year: 2027
     status: not-announced

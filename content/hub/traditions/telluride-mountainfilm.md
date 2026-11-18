@@ -8,6 +8,9 @@ type: festival
 organizer: "Mountainfilm"
 sourceUrl: "https://www.mountainfilm.org/"
 firstYear: 1979
+dateWindow:
+  start: "05-27"
+  end: "05-27"
 years:
   - year: 2027
     status: confirmed

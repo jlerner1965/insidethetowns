@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Aspen Highlands"
   edge: opens
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

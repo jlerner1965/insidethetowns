@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Weehawken Creative Arts"
 sourceUrl: "https://www.ridgwayrendezvous.com"
+dateWindow:
+  start: "08-14"
+  end: "08-14"
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Winter Park & Fraser Chamber"
 sourceUrl: "https://playwinterpark.com/jazzfest"
+dateWindow:
+  start: "07-18"
+  end: "07-18"
 years:
   - year: 2027
     status: not-announced

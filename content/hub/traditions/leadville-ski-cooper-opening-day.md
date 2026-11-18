@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Ski Cooper"
   edge: opens
+dateWindow:
+  start: "12-09"
+  end: "12-09"
 years:
   - year: 2026
     status: confirmed

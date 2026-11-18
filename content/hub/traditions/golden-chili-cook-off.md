@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Golden Welcome Center"
 sourceUrl: "https://goldenbeerchilicookoff.org/"
+dateWindow:
+  start: "10-17"
+  end: "10-17"
 years:
   - year: 2027
     status: not-announced

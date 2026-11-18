@@ -22,6 +22,9 @@ outdoor:
   kind: road
   facility: "Trail Ridge Road"
   edge: opens
+dateWindow:
+  start: "05-29"
+  end: "05-30"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Christmas Mountain Run"
 sourceUrl: "https://runsignup.com/Race/CO/Salida/ChristmasMountainRun"
+dateWindow:
+  start: "11-27"
+  end: "11-27"
 years:
   - year: 2026
     status: confirmed

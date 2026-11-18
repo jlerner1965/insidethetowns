@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "North Park Never Summer Rodeo"
 sourceUrl: "https://www.npneversummerrodeo.com/"
+dateWindow:
+  start: "06-26"
+  end: "06-26"
 years:
   - year: 2027
     status: not-announced

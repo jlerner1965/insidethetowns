@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Covered Wagon Days"
 sourceUrl: "https://coveredwagondays.com/"
+dateWindow:
+  start: "07-31"
+  end: "07-31"
 years:
   - year: 2027
     status: not-announced

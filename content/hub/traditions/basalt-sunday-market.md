@@ -7,6 +7,9 @@ town:
 type: farmers-market
 organizer: "Town of Basalt"
 sourceUrl: "https://www.basalt.net/606/Basalt-Sunday-Market"
+dateWindow:
+  start: "06-14"
+  end: "06-14"
 years:
   - year: 2027
     status: not-announced

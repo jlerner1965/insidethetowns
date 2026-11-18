@@ -8,6 +8,9 @@ type: rodeo-fair
 organizer: "Boulder County Fair, Livestock Show & Rodeo"
 sourceUrl: "https://www.bouldercountyfair.org/p/boulder-county-fair-tickets"
 firstYear: 1869
+dateWindow:
+  start: "08-05"
+  end: "08-05"
 years:
   - year: 2027
     status: not-announced

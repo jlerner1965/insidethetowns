@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Eagle"
 sourceUrl: "https://eagleoutside.com/kids-july-4th-bike-parade/"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Johnstown Downtown Development Authority"
 sourceUrl: "https://www.visitdowntownjohnstown.com/fallfest"
+dateWindow:
+  start: "09-12"
+  end: "09-12"
 years:
   - year: 2027
     status: not-announced

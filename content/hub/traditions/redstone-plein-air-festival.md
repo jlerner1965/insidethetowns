@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Redstone Art Foundation"
 sourceUrl: "https://www.redstoneartfoundation.org/upcoming-events"
+dateWindow:
+  start: "06-22"
+  end: "06-22"
 years:
   - year: 2027
     status: not-announced

@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Green Mountain Falls Municipal Pool"
   edge: opens
+dateWindow:
+  start: "06-18"
+  end: "06-18"
 years:
   - year: 2027
     status: not-announced

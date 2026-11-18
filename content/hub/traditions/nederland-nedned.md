@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Peak to Peak Endurance Foundation"
 sourceUrl: "https://nednedtrailfest.com/"
+dateWindow:
+  start: "09-12"
+  end: "09-12"
 years:
   - year: 2027
     status: not-announced

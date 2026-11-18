@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Salida Arts & Culture"
 sourceUrl: "https://www.salidasteamplant.com/calendar/7th-annual-holiday-art-market"
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: turkey-trot
 organizer: "City of Longmont Recreation Services"
 sourceUrl: "https://longmontcolorado.gov/recreation-services/community-events/turkey-trot/"
+dateWindow:
+  start: "11-14"
+  end: "11-15"
 years:
   - year: 2026
     status: confirmed

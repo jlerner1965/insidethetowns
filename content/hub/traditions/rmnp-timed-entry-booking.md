@@ -15,6 +15,9 @@ outdoor:
   kind: booking
   facility: "Rocky Mountain National Park timed entry"
   edge: opens
+dateWindow:
+  start: "05-01"
+  end: "05-01"
 years:
   - year: 2027
     status: not-announced

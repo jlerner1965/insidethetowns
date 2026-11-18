@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "Johnstown Downtown Development Authority"
 sourceUrl: "https://www.visitdowntownjohnstown.com/trickortreatstreet"
+dateWindow:
+  start: "10-31"
+  end: "10-31"
 years:
   - year: 2027
     status: not-announced

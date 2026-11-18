@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Visit Golden"
 sourceUrl: "https://www.visitgolden.com/events/holiday-events/olde-golden-holidays/"
+dateWindow:
+  start: "12-19"
+  end: "12-19"
 years:
   - year: 2026
     status: confirmed

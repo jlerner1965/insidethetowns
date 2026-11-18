@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Fraser"
 sourceUrl: "https://explore-fraser.squarespace.com/picnicinthepark"
+dateWindow:
+  start: "06-23"
+  end: "06-23"
 years:
   - year: 2027
     status: not-announced

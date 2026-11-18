@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Logan County Chamber of Commerce"
 sourceUrl: "https://www.logancountychamber.com/parade-of-lights/"
+dateWindow:
+  start: "12-03"
+  end: "12-03"
 years:
   - year: 2026
     status: confirmed

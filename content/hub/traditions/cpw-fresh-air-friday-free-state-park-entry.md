@@ -5,6 +5,9 @@ statewide: true
 type: free-day
 organizer: "Colorado Parks and Wildlife"
 sourceUrl: "https://cpw.state.co.us/event/2026/11/free-state-park-entry-fresh-air-friday"
+dateWindow:
+  start: "11-27"
+  end: "11-27"
 years:
   - year: 2026
     status: confirmed

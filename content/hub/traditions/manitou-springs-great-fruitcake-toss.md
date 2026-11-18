@@ -8,6 +8,9 @@ type: festival
 organizer: "Visit Manitou Springs"
 sourceUrl: "https://manitousprings.org/events/fruitcake-toss/"
 firstYear: 1995
+dateWindow:
+  start: "01-30"
+  end: "01-30"
 years:
   - year: 2027
     status: confirmed

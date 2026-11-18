@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Fort Morgan Area Chamber of Commerce"
 sourceUrl: "https://www.fortmorganchamber.com/yearly-events"
+dateWindow:
+  start: "09-26"
+  end: "09-26"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "BOBStock Music Festival"
 sourceUrl: "https://bobstockmusicfestival.com/"
+dateWindow:
+  start: "07-10"
+  end: "07-10"
 years:
   - year: 2027
     status: not-announced

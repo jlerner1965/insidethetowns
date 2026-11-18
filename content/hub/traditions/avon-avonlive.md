@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Avon"
 sourceUrl: "https://www.avon.org/993/AvonLIVE"
+dateWindow:
+  start: "06-10"
+  end: "06-10"
 years:
   - year: 2027
     status: not-announced

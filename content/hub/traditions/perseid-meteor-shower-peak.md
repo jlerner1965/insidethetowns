@@ -5,6 +5,9 @@ statewide: true
 type: outdoor
 organizer: "American Meteor Society"
 sourceUrl: "https://www.amsmeteors.org/calendar/"
+dateWindow:
+  start: "08-12"
+  end: "08-12"
 years:
   - year: 2027
     status: confirmed

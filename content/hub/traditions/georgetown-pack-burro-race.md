@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Clear Creek Pack Burro Races (race director Brad Wann)"
 sourceUrl: "https://www.ccburroracing.com/"
+dateWindow:
+  start: "05-23"
+  end: "05-23"
 years:
   - year: 2027
     status: not-announced

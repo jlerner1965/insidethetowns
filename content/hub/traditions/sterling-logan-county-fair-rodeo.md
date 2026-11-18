@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Logan County"
 sourceUrl: "https://www.logancountyco.gov/211/Logan-County-Fair-Fair-Rodeo"
+dateWindow:
+  start: "07-29"
+  end: "07-29"
 years:
   - year: 2027
     status: confirmed

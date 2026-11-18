@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Fort Collins Running Club"
 sourceUrl: "https://horsetooth-half.com/course-race-info/"
+dateWindow:
+  start: "04-18"
+  end: "04-18"
 years:
   - year: 2027
     status: confirmed

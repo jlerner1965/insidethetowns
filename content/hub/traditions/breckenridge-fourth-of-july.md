@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Breckenridge Tourism Office"
 sourceUrl: "https://gobreck.com/event/independence-day-celebration/"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

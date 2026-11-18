@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "New Belgium Brewing"
 sourceUrl: "https://www.newbelgium.com/events/tour-de-fat/"
+dateWindow:
+  start: "08-29"
+  end: "08-29"
 years:
   - year: 2027
     status: not-announced

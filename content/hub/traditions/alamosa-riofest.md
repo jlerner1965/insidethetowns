@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Alamosa Parks & Recreation"
 sourceUrl: "https://alamosa-parks-rec.specialdistrict.org/riofest"
+dateWindow:
+  start: "06-06"
+  end: "06-06"
 years:
   - year: 2027
     status: not-announced

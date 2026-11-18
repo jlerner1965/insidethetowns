@@ -14,6 +14,9 @@ outdoor:
   kind: road
   facility: "Cottonwood Pass"
   edge: closes
+dateWindow:
+  start: "11-02"
+  end: "11-02"
 years:
   - year: 2027
     status: not-announced

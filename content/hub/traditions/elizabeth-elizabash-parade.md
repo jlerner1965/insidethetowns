@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Elizabeth Chamber of Commerce"
 sourceUrl: "https://www.elizabethstampede.com/parade"
+dateWindow:
+  start: "06-06"
+  end: "06-06"
 years:
   - year: 2027
     status: not-announced

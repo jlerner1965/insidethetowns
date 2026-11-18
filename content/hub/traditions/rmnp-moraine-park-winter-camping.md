@@ -15,6 +15,9 @@ outdoor:
   kind: campground
   facility: "Moraine Park Campground winter camping"
   edge: opens
+dateWindow:
+  start: "10-19"
+  end: "10-19"
 years:
   - year: 2026
     status: confirmed

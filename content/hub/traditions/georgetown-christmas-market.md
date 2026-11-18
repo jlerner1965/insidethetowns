@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Historic Georgetown, Inc. and the Town of Georgetown"
 sourceUrl: "https://historicgeorgetown.org/georgetown-christmas-market-2/"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

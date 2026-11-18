@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Keystone Festivals"
 sourceUrl: "https://www.keystonefestivals.com/festivals/bluegrass-and-beer/"
+dateWindow:
+  start: "08-01"
+  end: "08-01"
 years:
   - year: 2027
     status: not-announced

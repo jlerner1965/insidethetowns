@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Visit Loveland"
 sourceUrl: "https://www.visitloveland.com/sweetheartfestival/"
+dateWindow:
+  start: "02-12"
+  end: "02-12"
 years:
   - year: 2027
     status: confirmed

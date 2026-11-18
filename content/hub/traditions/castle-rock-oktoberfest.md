@@ -7,6 +7,9 @@ town:
 type: oktoberfest
 organizer: "Castle Rock Downtown Alliance"
 sourceUrl: "https://www.downtowncastlerock.com/oktoberfest"
+dateWindow:
+  start: "09-19"
+  end: "09-19"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Vino & Notes"
 sourceUrl: "https://www.vinoandnotes.com/"
+dateWindow:
+  start: "08-01"
+  end: "08-01"
 years:
   - year: 2027
     status: not-announced

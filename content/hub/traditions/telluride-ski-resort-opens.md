@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Telluride Ski Resort"
   edge: opens
+dateWindow:
+  start: "11-26"
+  end: "11-26"
 years:
   - year: 2026
     status: confirmed

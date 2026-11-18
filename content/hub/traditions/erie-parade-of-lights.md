@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Erie Chamber of Commerce"
 sourceUrl: "https://members.eriechamber.org/events/details/parade-of-lights-2026-853091"
+dateWindow:
+  start: "12-04"
+  end: "12-04"
 years:
   - year: 2026
     status: confirmed

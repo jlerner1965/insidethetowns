@@ -11,6 +11,9 @@ about:
   text: "A celebration of the Old West and Leadville's mining history, with burro races, contests of mining skill and a street fair of food and craft booths in the downtown festival area."
   source: "http://www.leadvilleboomdays.org/"
   checked: 2026-11-13
+dateWindow:
+  start: "08-07"
+  end: "08-07"
 years:
   - year: 2027
     status: not-announced

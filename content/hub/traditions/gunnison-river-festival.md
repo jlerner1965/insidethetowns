@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Gunnison River Festival board"
 sourceUrl: "https://www.gunnisonriverfestival.com/"
+dateWindow:
+  start: "06-12"
+  end: "06-12"
 years:
   - year: 2027
     status: not-announced

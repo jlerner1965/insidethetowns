@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Break the Silence Inc."
 sourceUrl: "https://www.breakthesilenceinc.org/"
+dateWindow:
+  start: "09-05"
+  end: "09-05"
 years:
   - year: 2027
     status: not-announced

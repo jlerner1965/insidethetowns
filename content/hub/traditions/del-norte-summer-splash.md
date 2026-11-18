@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Del Norte Chamber of Commerce"
 sourceUrl: "https://delnortechamber.org/events/"
+dateWindow:
+  start: "06-27"
+  end: "06-27"
 years:
   - year: 2027
     status: not-announced

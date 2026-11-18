@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Music in the Mountains"
 sourceUrl: "https://musicinthemountains.com/"
+dateWindow:
+  start: "07-08"
+  end: "07-08"
 years:
   - year: 2027
     status: confirmed

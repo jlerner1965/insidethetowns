@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Timnath"
 sourceUrl: "https://timnath.org/holidayfestival/"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

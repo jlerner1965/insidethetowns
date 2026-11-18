@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Silverton Creative District"
 sourceUrl: "https://www.silvertoncreativedistrict.org/"
+dateWindow:
+  start: "09-11"
+  end: "09-11"
 years:
   - year: 2027
     status: not-announced

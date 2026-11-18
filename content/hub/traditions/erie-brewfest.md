@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Erie Chamber of Commerce"
 sourceUrl: "https://members.eriechamber.org/events/details/13th-annual-erie-brewfest-853656"
+dateWindow:
+  start: "10-03"
+  end: "10-03"
 years:
   - year: 2027
     status: not-announced

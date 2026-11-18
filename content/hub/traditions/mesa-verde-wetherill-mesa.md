@@ -17,6 +17,9 @@ outdoor:
   kind: other
   facility: "Wetherill Mesa"
   edge: window
+dateWindow:
+  start: "05-22"
+  end: "05-22"
 years:
   - year: 2027
     status: not-announced

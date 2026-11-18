@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Cañon City Music & Blossom Festival"
 sourceUrl: "https://www.ccblossomfestival.com/"
+dateWindow:
+  start: "05-02"
+  end: "05-02"
 years:
   - year: 2027
     status: not-announced

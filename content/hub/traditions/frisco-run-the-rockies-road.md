@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Town of Frisco"
 sourceUrl: "https://www.townoffrisco.com/event/athletic-events/run-the-rockies-road-10k-half-marathon/"
+dateWindow:
+  start: "09-18"
+  end: "09-18"
 years:
   - year: 2027
     status: confirmed

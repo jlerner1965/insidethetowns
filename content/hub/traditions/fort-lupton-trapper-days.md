@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Fort Lupton"
 sourceUrl: "https://www.fortluptonco.gov/472/Trapper-Days"
+dateWindow:
+  start: "09-11"
+  end: "09-11"
 years:
   - year: 2027
     status: not-announced

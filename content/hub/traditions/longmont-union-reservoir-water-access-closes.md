@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Union Reservoir water access"
   edge: closes
+dateWindow:
+  start: "11-08"
+  end: "11-08"
 years:
   - year: 2027
     status: not-announced

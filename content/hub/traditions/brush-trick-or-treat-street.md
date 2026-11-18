@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "Brush Area Chamber of Commerce"
 sourceUrl: "https://www.brushchamberofcommerce.org/events"
+dateWindow:
+  start: "10-30"
+  end: "10-30"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Meeker Range Call"
 sourceUrl: "https://meekerrangecall.com/schedule"
+dateWindow:
+  start: "07-02"
+  end: "07-02"
 years:
   - year: 2027
     status: not-announced

@@ -8,6 +8,9 @@ type: festival
 organizer: "Visit Idaho Springs (Business and Community Promotion, City of Idaho Springs)"
 sourceUrl: "https://www.visitidahospringsco.com/minersfeast"
 firstYear: 2026
+dateWindow:
+  start: "10-02"
+  end: "10-02"
 years:
   - year: 2027
     status: not-announced

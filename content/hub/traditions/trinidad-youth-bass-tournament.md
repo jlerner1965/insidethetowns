@@ -11,6 +11,9 @@ about:
   text: "A youth bass fishing tournament at Trinidad Lake, sponsored again by the City in 2026, on Sunday, May 31."
   source: "https://www.cml.org/home/publications-news/article-detail/trinidad-celebrates-150th-anniversary-all-year-long"
   checked: 2026-11-13
+dateWindow:
+  start: "05-31"
+  end: "05-31"
 years:
   - year: 2027
     status: not-announced

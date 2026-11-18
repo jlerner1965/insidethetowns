@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Center for the Arts Evergreen"
 sourceUrl: "https://evergreenarts.org/winterfest/"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

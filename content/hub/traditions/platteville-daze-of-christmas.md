@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Platteville"
 sourceUrl: "https://platteville.colorado.gov/residents/community-events/daze-of-christmas"
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

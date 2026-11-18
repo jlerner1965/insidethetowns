@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Loveland High Plains Arts Council"
 sourceUrl: "https://www.sculptureinthepark.org/"
+dateWindow:
+  start: "08-13"
+  end: "08-13"
 years:
   - year: 2027
     status: confirmed

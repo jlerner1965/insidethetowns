@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Waneka Lake boathouse"
   edge: closes
+dateWindow:
+  start: "08-11"
+  end: "08-11"
 years:
   - year: 2027
     status: not-announced

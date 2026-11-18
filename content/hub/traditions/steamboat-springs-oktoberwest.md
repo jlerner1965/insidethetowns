@@ -7,6 +7,9 @@ town:
 type: oktoberfest
 organizer: "Steamboat Springs Chamber"
 sourceUrl: "https://www.steamboatchamber.com/events/annual-events/steamboat-oktoberwest/"
+dateWindow:
+  start: "09-11"
+  end: "09-11"
 years:
   - year: 2027
     status: not-announced

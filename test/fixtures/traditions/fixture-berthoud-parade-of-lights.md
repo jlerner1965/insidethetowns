@@ -9,6 +9,9 @@ organizer: "Sample organizer (fixture)"
 sourceUrl: "https://example.com/fixture/berthoud-parade"
 firstYear: 1990
 fixture: true
+dateWindow:
+  start: "12-05"
+  end: "12-06"
 years:
   - year: 2026
     status: confirmed

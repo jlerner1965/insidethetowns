@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Redstone Inn"
 sourceUrl: "https://www.redstoneinn.com/events/"
+dateWindow:
+  start: "11-28"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

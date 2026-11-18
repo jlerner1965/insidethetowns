@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Downtown Evergreen"
 sourceUrl: "https://downtownevergreen.com/events/holiday-walk"
+dateWindow:
+  start: "12-04"
+  end: "12-04"
 years:
   - year: 2026
     status: confirmed

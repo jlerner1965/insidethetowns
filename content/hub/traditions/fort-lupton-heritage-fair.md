@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "South Platte Valley Historical Society"
 sourceUrl: "https://www.spvhs.org/heritage-fair.html"
+dateWindow:
+  start: "05-02"
+  end: "05-02"
 years:
   - year: 2027
     status: not-announced

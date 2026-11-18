@@ -13,6 +13,9 @@ outdoor:
   kind: other
   facility: "Horsetooth Reservoir boat ramps"
   edge: opens
+dateWindow:
+  start: "04-01"
+  end: "04-01"
 years:
   - year: 2027
     status: not-announced

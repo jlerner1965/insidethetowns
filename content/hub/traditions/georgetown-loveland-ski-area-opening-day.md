@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Loveland Ski Area"
   edge: opens
+dateWindow:
+  start: "11-07"
+  end: "11-08"
 years:
   - year: 2027
     status: not-announced

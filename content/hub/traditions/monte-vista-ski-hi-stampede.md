@@ -8,6 +8,9 @@ type: rodeo-fair
 organizer: "San Luis Valley Ski Hi Stampede"
 sourceUrl: "https://www.skihistampede.com/"
 firstYear: 1919
+dateWindow:
+  start: "07-08"
+  end: "07-08"
 years:
   - year: 2027
     status: confirmed

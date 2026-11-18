@@ -11,6 +11,9 @@ about:
   text: "A festival for Mike, the chicken who lived without a head, with a 5K run, a car show and an art contest, in downtown Fruita."
   source: "https://www.miketheheadlesschicken.org/"
   checked: 2026-11-13
+dateWindow:
+  start: "05-29"
+  end: "05-29"
 years:
   - year: 2027
     status: not-announced

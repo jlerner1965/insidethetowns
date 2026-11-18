@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Salida Studio Tour"
 sourceUrl: "https://www.salidastudiotour.com/"
+dateWindow:
+  start: "09-26"
+  end: "09-26"
 years:
   - year: 2027
     status: not-announced

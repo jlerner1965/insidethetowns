@@ -5,6 +5,9 @@ statewide: true
 type: free-day
 organizer: "Colorado Parks and Wildlife"
 sourceUrl: "https://cpw.state.co.us/event/events-and-festivals/2026/08/celebrate-colorado-day-visiting-state-parks-free"
+dateWindow:
+  start: "08-03"
+  end: "08-03"
 years:
   - year: 2027
     status: not-announced

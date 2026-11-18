@@ -8,6 +8,9 @@ type: farmers-market
 organizer: "Town of Cedaredge"
 sourceUrl: "https://deltacountycolorado.com/?p=10006748"
 firstYear: 2026
+dateWindow:
+  start: "07-01"
+  end: "07-01"
 years:
   - year: 2027
     status: not-announced

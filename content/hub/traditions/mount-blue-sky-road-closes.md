@@ -13,6 +13,9 @@ outdoor:
   kind: road
   facility: "Mount Blue Sky road"
   edge: closes
+dateWindow:
+  start: "09-08"
+  end: "09-08"
 years:
   - year: 2027
     status: not-announced

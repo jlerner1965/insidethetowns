@@ -17,6 +17,9 @@ outdoor:
   kind: booking
   facility: "Brainard Lake Recreation Area timed entry"
   edge: opens
+dateWindow:
+  start: "05-30"
+  end: "05-30"
 years:
   - year: 2027
     status: not-announced

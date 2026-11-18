@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Telluride Blues & Brews Festival"
 sourceUrl: "https://www.tellurideblues.com/"
+dateWindow:
+  start: "09-17"
+  end: "09-17"
 years:
   - year: 2027
     status: confirmed

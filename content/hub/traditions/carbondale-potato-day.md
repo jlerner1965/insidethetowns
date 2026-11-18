@@ -7,6 +7,9 @@ town:
 type: harvest-festival
 organizer: "Town of Carbondale Parks and Recreation"
 sourceUrl: "https://www.carbondalerec.com/programs/special-events-2/"
+dateWindow:
+  start: "10-03"
+  end: "10-03"
 years:
   - year: 2027
     status: not-announced

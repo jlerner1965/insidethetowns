@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Town of Basalt"
 sourceUrl: "https://www.basalt.net/670/Holiday-Events"
+dateWindow:
+  start: "12-11"
+  end: "12-11"
 years:
   - year: 2026
     status: confirmed

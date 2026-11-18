@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Mesa County Fair"
 sourceUrl: "https://www.mesacountyfair.org/"
+dateWindow:
+  start: "07-13"
+  end: "07-14"
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Georgetown"
 sourceUrl: "https://georgetown-colorado.org/4th-of-july-celebration/"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Taste of Fort Collins"
 sourceUrl: "https://tasteoffortcollins.com/"
+dateWindow:
+  start: "09-26"
+  end: "09-26"
 years:
   - year: 2027
     status: not-announced

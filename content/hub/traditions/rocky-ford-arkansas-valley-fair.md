@@ -8,6 +8,9 @@ type: rodeo-fair
 organizer: "Arkansas Valley Fair"
 sourceUrl: "https://www.arkvalleyfair.com/"
 firstYear: 1878
+dateWindow:
+  start: "08-19"
+  end: "08-19"
 years:
   - year: 2027
     status: not-announced

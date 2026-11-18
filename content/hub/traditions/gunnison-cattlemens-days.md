@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Cattlemen's Days"
 sourceUrl: "https://www.cattlemensdays.com/"
+dateWindow:
+  start: "07-09"
+  end: "07-15"
 years:
   - year: 2027
     status: confirmed

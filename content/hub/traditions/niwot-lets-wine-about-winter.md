@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Niwot Business Association"
 sourceUrl: "https://niwot.com/events/lets-wine-about-winter-2026-743/?occurrence=2027-02-20"
+dateWindow:
+  start: "02-20"
+  end: "02-20"
 years:
   - year: 2027
     status: confirmed

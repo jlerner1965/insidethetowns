@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "West Custer County Library District"
 sourceUrl: "https://www.westcusterlibrary.org/carshow/"
+dateWindow:
+  start: "09-05"
+  end: "09-05"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Silverton Skijoring"
 sourceUrl: "https://www.silvertonskijoring.com/"
+dateWindow:
+  start: "02-13"
+  end: "02-13"
 years:
   - year: 2027
     status: confirmed

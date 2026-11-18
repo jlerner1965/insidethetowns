@@ -10,6 +10,9 @@ towns:
 type: race
 organizer: "Grand Junction Sports Commission"
 sourceUrl: "https://grandjunctionsports.org/rimrockmarathon"
+dateWindow:
+  start: "11-01"
+  end: "11-01"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Creede & Mineral County Chamber of Commerce"
 sourceUrl: "https://www.creederocks.com/taste-of-creede"
+dateWindow:
+  start: "05-23"
+  end: "05-23"
 years:
   - year: 2027
     status: not-announced

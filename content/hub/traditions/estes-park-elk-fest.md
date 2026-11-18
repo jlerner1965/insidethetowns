@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Estes Park"
 sourceUrl: "https://eventsinestes.com/estes-parks-elk-festival/"
+dateWindow:
+  start: "10-02"
+  end: "10-02"
 years:
   - year: 2027
     status: confirmed

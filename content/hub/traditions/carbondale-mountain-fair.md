@@ -8,6 +8,9 @@ type: festival
 organizer: "Carbondale Arts"
 sourceUrl: "https://www.carbondalearts.com/mountain-fair"
 firstYear: 1972
+dateWindow:
+  start: "07-23"
+  end: "07-24"
 years:
   - year: 2027
     status: confirmed

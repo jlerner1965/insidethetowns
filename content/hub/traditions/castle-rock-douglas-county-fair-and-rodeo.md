@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Douglas County Fair & Rodeo"
 sourceUrl: "https://www.douglascountyfairandrodeo.com/"
+dateWindow:
+  start: "07-30"
+  end: "07-30"
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Grand Lake Area Chamber of Commerce"
 sourceUrl: "https://gograndlake.com/tree-lighting-ceremony/"
+dateWindow:
+  start: "11-27"
+  end: "11-27"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Main Street Central City"
 sourceUrl: "https://visitcentralcity.com/events/"
+dateWindow:
+  start: "06-19"
+  end: "06-20"
 years:
   - year: 2027
     status: confirmed

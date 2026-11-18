@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "North Park Area Chamber of Commerce"
 sourceUrl: "https://www.visitnorthparkco.com/2026-lake-john-fishing-contest"
+dateWindow:
+  start: "01-10"
+  end: "01-10"
 years:
   - year: 2027
     status: not-announced

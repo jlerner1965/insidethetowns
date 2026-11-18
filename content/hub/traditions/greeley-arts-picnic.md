@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Greeley"
 sourceUrl: "https://greeleyco.gov/news/2026/20260609-greeley-celebrates-local-arts-culture-with-four-day-festival-july-23-26"
+dateWindow:
+  start: "07-25"
+  end: "07-25"
 years:
   - year: 2027
     status: not-announced

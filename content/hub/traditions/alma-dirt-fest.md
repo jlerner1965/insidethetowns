@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Alma Foundation"
 sourceUrl: "https://www.almafoundation.com/events"
+dateWindow:
+  start: "06-26"
+  end: "06-26"
 years:
   - year: 2027
     status: not-announced

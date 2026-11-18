@@ -7,6 +7,9 @@ town:
 type: harvest-festival
 organizer: "Promote Morrison & Morrison Ciderfest Committee"
 sourceUrl: "https://www.morrisonciderfest.org/"
+dateWindow:
+  start: "09-26"
+  end: "09-26"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Steamboat Springs Chamber"
 sourceUrl: "https://www.steamboatchamber.com/events/annual-events/steamboat-marathon/"
+dateWindow:
+  start: "06-06"
+  end: "06-06"
 years:
   - year: 2027
     status: confirmed

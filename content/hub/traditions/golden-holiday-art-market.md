@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Foothills Art Center"
 sourceUrl: "https://foothillsartcenter.org/exhibits/51st-holiday-art-market/"
+dateWindow:
+  start: "11-20"
+  end: "11-20"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "City of Black Hawk"
 sourceUrl: "https://www.cityofblackhawk.org/CivicAlerts.aspx?AID=52"
+dateWindow:
+  start: "10-01"
+  end: "10-01"
 years:
   - year: 2027
     status: not-announced

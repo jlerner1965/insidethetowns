@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Adventure Fit Inc."
 sourceUrl: "https://www.oldmanwinterrally.com/"
+dateWindow:
+  start: "02-07"
+  end: "02-07"
 years:
   - year: 2027
     status: confirmed

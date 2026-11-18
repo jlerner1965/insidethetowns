@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Vail Farmers' Market & Art Show"
 sourceUrl: "https://www.vailfarmersmarket.com/"
+dateWindow:
+  start: "12-10"
+  end: "12-10"
 years:
   - year: 2026
     status: confirmed

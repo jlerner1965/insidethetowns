@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Town of Frisco"
 sourceUrl: "https://www.townoffrisco.com/event/athletic-events/run-the-rockies-trail-10k-half-marathon/"
+dateWindow:
+  start: "08-14"
+  end: "08-14"
 years:
   - year: 2027
     status: confirmed

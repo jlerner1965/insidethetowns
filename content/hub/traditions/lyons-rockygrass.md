@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Planet Bluegrass"
 sourceUrl: "https://bluegrass.com/rockygrass"
+dateWindow:
+  start: "07-23"
+  end: "07-23"
 years:
   - year: 2027
     status: confirmed

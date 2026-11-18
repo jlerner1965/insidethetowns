@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Tour de Corgi"
 sourceUrl: "https://tourdecorgi.org/"
+dateWindow:
+  start: "10-03"
+  end: "10-03"
 years:
   - year: 2027
     status: not-announced

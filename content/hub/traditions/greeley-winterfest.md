@@ -7,6 +7,9 @@ town:
 type: winter-carnival
 organizer: "Greeley Downtown Development Authority"
 sourceUrl: "https://www.greeleydowntown.com/events/winterfest"
+dateWindow:
+  start: "11-28"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

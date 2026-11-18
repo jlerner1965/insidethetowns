@@ -5,6 +5,9 @@ statewide: true
 type: free-day
 organizer: "US Forest Service"
 sourceUrl: "https://www.fs.usda.gov/visit/passes-permits"
+dateWindow:
+  start: "01-19"
+  end: "01-19"
 years:
   - year: 2027
     status: not-announced

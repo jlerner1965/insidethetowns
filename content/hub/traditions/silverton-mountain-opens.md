@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Silverton Mountain"
   edge: opens
+dateWindow:
+  start: "12-31"
+  end: "12-31"
 years:
   - year: 2026
     status: confirmed

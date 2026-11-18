@@ -7,6 +7,9 @@ town:
 type: winter-carnival
 organizer: "Town of Fraser"
 sourceUrl: "https://www.explorefrasercolorado.com/fraserfireice"
+dateWindow:
+  start: "02-06"
+  end: "02-06"
 years:
   - year: 2027
     status: confirmed

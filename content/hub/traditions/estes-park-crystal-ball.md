@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "The Stanley Hotel"
 sourceUrl: "https://www.stanleyhotel.com/event/crystal-ball/"
+dateWindow:
+  start: "12-31"
+  end: "12-31"
 years:
   - year: 2026
     status: confirmed

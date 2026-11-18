@@ -11,6 +11,9 @@ about:
   text: "A festival of Scottish and Irish heritage with Celtic music, massed pipe bands, Highland athletics, dancing, clan gatherings and the Estes Park International Tattoo, on the Festival Field in Estes Park."
   source: "https://www.scotfest.com/"
   checked: 2026-11-13
+dateWindow:
+  start: "09-10"
+  end: "09-10"
 years:
   - year: 2027
     status: confirmed

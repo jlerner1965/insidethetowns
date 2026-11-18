@@ -7,6 +7,9 @@ town:
 type: farmers-market
 organizer: "Town of Windsor Parks, Recreation & Culture"
 sourceUrl: "https://recreationliveshere.com/213/Farmers-Market"
+dateWindow:
+  start: "06-06"
+  end: "06-06"
 years:
   - year: 2027
     status: not-announced

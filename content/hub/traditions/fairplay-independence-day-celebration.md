@@ -7,6 +7,9 @@ town:
 type: fireworks
 organizer: "Town of Fairplay"
 sourceUrl: "https://fairplayco.us/172/Special-Events"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

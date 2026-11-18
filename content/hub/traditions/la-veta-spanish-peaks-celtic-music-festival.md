@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Spanish Peaks International Celtic Music Festival"
 sourceUrl: "https://www.celticmusicfest.com/"
+dateWindow:
+  start: "09-17"
+  end: "09-23"
 years:
   - year: 2027
     status: confirmed

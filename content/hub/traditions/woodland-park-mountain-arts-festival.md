@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "The Mountain Artists"
 sourceUrl: "https://www.mtnartists.com/"
+dateWindow:
+  start: "08-08"
+  end: "08-08"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: oktoberfest
 organizer: "All Points Transit"
 sourceUrl: "https://www.allpointstransit.com/montrose-oktoberfest/"
+dateWindow:
+  start: "09-26"
+  end: "09-26"
 years:
   - year: 2027
     status: not-announced

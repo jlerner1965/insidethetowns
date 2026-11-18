@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Purgatory Resort"
   edge: opens
+dateWindow:
+  start: "11-20"
+  end: "11-20"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Milliken Festival Committee"
 sourceUrl: "https://www.millikenco.gov/calendar.aspx?view=list&year=2026&month=12"
+dateWindow:
+  start: "12-04"
+  end: "12-04"
 years:
   - year: 2026
     status: confirmed

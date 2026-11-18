@@ -11,6 +11,9 @@ about:
   text: "The Colorado Railroad Museum's holiday production: caroling, the Hot Chocolate song and a re-enactment of The Polar Express story in a heated pavilion, then a ride to the North Pole in vintage coaches pulled by a coal-fired steam locomotive, and a visit with Santa."
   source: "https://coloradorailroadmuseum.org/polar-express/"
   checked: 2026-11-17
+dateWindow:
+  start: "11-06"
+  end: "11-06"
 years:
   - year: 2026
     status: confirmed

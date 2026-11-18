@@ -7,6 +7,9 @@ town:
 type: turkey-trot
 organizer: "Town of Frisco"
 sourceUrl: "https://www.townoffrisco.com/event/athletic-events/turkey-day-5k/"
+dateWindow:
+  start: "11-26"
+  end: "11-26"
 years:
   - year: 2026
     status: confirmed

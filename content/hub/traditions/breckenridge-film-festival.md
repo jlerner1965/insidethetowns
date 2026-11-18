@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Breck Film"
 sourceUrl: "https://breckfilm.org/"
+dateWindow:
+  start: "09-17"
+  end: "09-17"
 years:
   - year: 2027
     status: not-announced

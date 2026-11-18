@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Castle Rock Chamber of Commerce"
 sourceUrl: "https://castlerock.org/castle-rock-sip-and-savor/"
+dateWindow:
+  start: "06-27"
+  end: "06-27"
 years:
   - year: 2027
     status: not-announced

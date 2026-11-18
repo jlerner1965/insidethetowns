@@ -11,6 +11,9 @@ about:
   text: "Strawberry Days has a parade that heads south down Pitkin Avenue. After it, free strawberries and ice cream are served at Two Rivers Park."
   source: "https://www.glenwoodchamber.com/strawberry-days-parade/"
   checked: 2026-11-13
+dateWindow:
+  start: "06-19"
+  end: "06-19"
 years:
   - year: 2027
     status: not-announced

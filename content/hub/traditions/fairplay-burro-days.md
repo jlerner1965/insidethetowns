@@ -8,6 +8,9 @@ type: festival
 organizer: "Town of Fairplay"
 sourceUrl: "https://burrodays.org/"
 firstYear: 1949
+dateWindow:
+  start: "07-24"
+  end: "07-24"
 years:
   - year: 2027
     status: not-announced

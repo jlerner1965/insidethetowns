@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Old Town Square skate rink"
   edge: closes
+dateWindow:
+  start: "01-24"
+  end: "01-24"
 years:
   - year: 2027
     status: confirmed

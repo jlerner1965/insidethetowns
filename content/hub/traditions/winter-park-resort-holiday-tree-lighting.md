@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Winter Park Resort"
 sourceUrl: "https://www.winterparkresort.com/things-to-do/events"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

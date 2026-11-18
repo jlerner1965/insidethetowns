@@ -12,6 +12,9 @@ about:
   text: "A coffin race held in memory of Manitou Springs resident Emma Crawford, in which teams compete on speed, coffin design, team names and costumes, on the 900 block of Manitou Avenue."
   source: "https://emmacrawford.coffinraces.com/"
   checked: 2026-11-13
+dateWindow:
+  start: "10-24"
+  end: "10-30"
 years:
   - year: 2027
     status: confirmed

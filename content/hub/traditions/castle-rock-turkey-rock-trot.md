@@ -7,6 +7,9 @@ town:
 type: turkey-trot
 organizer: "Plum Creek Church"
 sourceUrl: "https://runtochangelives.org/turkeyrocktrot/"
+dateWindow:
+  start: "11-26"
+  end: "11-26"
 years:
   - year: 2026
     status: confirmed

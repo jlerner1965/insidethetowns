@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Palmer Lake"
 sourceUrl: "https://www.townofpalmerlake.com/Calendar.aspx?EID=2017"
+dateWindow:
+  start: "11-28"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

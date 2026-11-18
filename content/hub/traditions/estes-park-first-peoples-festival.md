@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Estes Park"
 sourceUrl: "https://eventsinestes.com/first-peoples-festival/"
+dateWindow:
+  start: "01-14"
+  end: "01-14"
 years:
   - year: 2027
     status: confirmed

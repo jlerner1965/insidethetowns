@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Rocky Ford"
 sourceUrl: "https://www.cityofrockyfordco.gov/2026-07-04-4th-annual-freedom-fest"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

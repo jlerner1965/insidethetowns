@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Loveland Downtown District"
 sourceUrl: "https://www.downtownloveland.org/festivaloflights"
+dateWindow:
+  start: "11-20"
+  end: "11-20"
 years:
   - year: 2026
     status: confirmed

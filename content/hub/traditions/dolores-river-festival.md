@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Dolores River Festival"
 sourceUrl: "https://www.doloresriverfest.org/"
+dateWindow:
+  start: "06-06"
+  end: "06-06"
 years:
   - year: 2027
     status: not-announced

@@ -8,6 +8,9 @@ type: race
 organizer: "Hardrock Hundred Endurance Run"
 sourceUrl: "https://www.hardrock100.com/"
 firstYear: 1992
+dateWindow:
+  start: "07-09"
+  end: "07-09"
 years:
   - year: 2027
     status: confirmed

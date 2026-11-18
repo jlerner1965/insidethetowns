@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Louisville"
 sourceUrl: "https://www.louisvilleco.gov/departments/events/labor-day-weekend/"
+dateWindow:
+  start: "09-04"
+  end: "09-04"
 years:
   - year: 2027
     status: not-announced

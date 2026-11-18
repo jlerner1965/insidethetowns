@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Town of Lyons"
 sourceUrl: "https://www.townoflyons.com/354/Lyons-Holiday-Parade-of-Lights"
+dateWindow:
+  start: "12-04"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

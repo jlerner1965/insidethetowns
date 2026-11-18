@@ -7,6 +7,9 @@ town:
 type: new-years
 organizer: "Colorado Parks and Wildlife"
 sourceUrl: "https://cpw.state.co.us/event/events-and-festivals/2027/01/first-day-hikes"
+dateWindow:
+  start: "01-01"
+  end: "01-01"
 years:
   - year: 2027
     status: confirmed

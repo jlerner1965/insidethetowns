@@ -7,6 +7,9 @@ type: tree-lighting
 organizer: "Sampleton sample organizer (fixture)"
 sourceUrl: "https://example.com/fixture/sampleton-tree"
 fixture: true
+dateWindow:
+  start: "12-04"
+  end: "12-04"
 years:
   - year: 2026
     status: canceled

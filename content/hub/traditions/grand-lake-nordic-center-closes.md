@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Grand Lake Nordic Center"
   edge: closes
+dateWindow:
+  start: "03-31"
+  end: "03-31"
 years:
   - year: 2027
     status: confirmed

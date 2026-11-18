@@ -5,6 +5,9 @@ statewide: true
 type: outdoor
 organizer: "Colorado Parks and Wildlife"
 sourceUrl: "https://cpw.state.co.us/event/fishing/2026/06/experience-world-class-fishing-colorado-free-june-6-7"
+dateWindow:
+  start: "06-06"
+  end: "06-06"
 years:
   - year: 2027
     status: not-announced

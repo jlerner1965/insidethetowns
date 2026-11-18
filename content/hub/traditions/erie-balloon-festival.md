@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Erie Chamber of Commerce"
 sourceUrl: "https://erieballoonfestival.com/"
+dateWindow:
+  start: "07-09"
+  end: "07-10"
 years:
   - year: 2027
     status: confirmed

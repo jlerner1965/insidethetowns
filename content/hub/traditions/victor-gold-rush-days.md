@@ -8,6 +8,9 @@ type: festival
 organizer: "Victor Gold Rush Days (City of Victor)"
 sourceUrl: "https://victorgoldrushdays.com/"
 firstYear: 1895
+dateWindow:
+  start: "07-17"
+  end: "07-17"
 years:
   - year: 2027
     status: not-announced

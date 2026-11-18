@@ -7,6 +7,9 @@ town:
 type: winter-carnival
 organizer: "Evergreen Park & Recreation District"
 sourceUrl: "https://www.evergreenrecreation.com/2026-12-12-frostival"
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

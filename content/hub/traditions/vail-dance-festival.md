@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Vail Valley Foundation"
 sourceUrl: "https://vaildance.org/"
+dateWindow:
+  start: "07-30"
+  end: "07-30"
 years:
   - year: 2027
     status: confirmed

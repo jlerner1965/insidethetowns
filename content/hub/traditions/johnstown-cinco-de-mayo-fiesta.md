@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Johnstown Downtown Development Authority"
 sourceUrl: "https://www.visitdowntownjohnstown.com/cincodemayo"
+dateWindow:
+  start: "05-02"
+  end: "05-02"
 years:
   - year: 2027
     status: not-announced

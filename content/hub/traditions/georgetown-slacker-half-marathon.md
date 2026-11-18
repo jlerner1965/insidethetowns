@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Slacker Half Marathon"
 sourceUrl: "https://www.slackerhalfmarathon.com/"
+dateWindow:
+  start: "06-27"
+  end: "06-27"
 years:
   - year: 2027
     status: not-announced

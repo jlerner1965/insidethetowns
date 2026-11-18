@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Collegiate Peaks Trail Run"
 sourceUrl: "https://www.collegiatepeakstrailrun.org/"
+dateWindow:
+  start: "05-01"
+  end: "05-01"
 years:
   - year: 2027
     status: confirmed

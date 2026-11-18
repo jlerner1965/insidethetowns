@@ -5,6 +5,9 @@ statewide: true
 type: free-day
 organizer: "Colorado Parks and Wildlife"
 sourceUrl: "https://cpw.state.co.us/news/07312026/cpw-offers-free-entry-colorado-state-parks-august-active-duty-military-veterans-and"
+dateWindow:
+  start: "08-01"
+  end: "08-01"
 years:
   - year: 2027
     status: not-announced

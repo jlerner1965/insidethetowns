@@ -7,6 +7,9 @@ town:
 type: fireworks
 organizer: "Brush Area Chamber of Commerce"
 sourceUrl: "https://www.brushchamberofcommerce.org/events"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

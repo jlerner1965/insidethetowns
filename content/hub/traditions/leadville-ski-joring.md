@@ -8,6 +8,9 @@ type: festival
 organizer: "Ski Joring Leadville"
 sourceUrl: "https://www.leadvilleskijoring.com/"
 firstYear: 1949
+dateWindow:
+  start: "03-06"
+  end: "03-07"
 years:
   - year: 2027
     status: confirmed

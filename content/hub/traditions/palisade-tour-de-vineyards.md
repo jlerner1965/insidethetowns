@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "The Ride Collective"
 sourceUrl: "https://www.theridecollective.com/tourdevineyards"
+dateWindow:
+  start: "09-19"
+  end: "09-19"
 years:
   - year: 2027
     status: not-announced

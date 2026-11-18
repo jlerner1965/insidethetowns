@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Downtown Boulder Community Initiatives"
 sourceUrl: "https://boulderdowntown.com/events/light-up-the-holidays"
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

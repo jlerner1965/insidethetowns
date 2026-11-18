@@ -7,6 +7,9 @@ town:
 type: winter-carnival
 organizer: "City of Cripple Creek"
 sourceUrl: "https://www.cityofcripplecreek.com/visit-cripple-creek/page/events"
+dateWindow:
+  start: "02-14"
+  end: "02-14"
 years:
   - year: 2027
     status: not-announced
