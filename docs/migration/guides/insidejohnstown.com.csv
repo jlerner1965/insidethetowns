@@ -85,7 +85,7 @@ old_path,source,kind,key,decision,note
 /events/operation-elf-duty-2026-12-09/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,"Operation: Elf Duty|Glenn A. Jones, M.D. Memorial Library",,
 /events/operation-elf-duty-2026-12-17/,git in the content today,events,"Operation: Elf Duty|Glenn A. Jones, M.D. Memorial Library",,
 /events/orchids-101-2026-11-12/,git in the content today; sitemap 2026-10-18 to 2026-11-13,events,"Orchids 101|Glenn A. Jones, M.D. Memorial Library",,
-/events/paint-n-sip-2026-10-02/,git deleted; retired.json; vercel.json (a rule today),events,"Paint 'n Sip|Glenn A. Jones, M.D. Memorial Library",gone,ledger: paint-n-sip-2026-11-06
+/events/paint-n-sip-2026-10-02/,git deleted; retired.json; vercel.json (a rule today),events,"Paint 'n Sip|Glenn A. Jones, M.D. Memorial Library",gone,retired to a later listing (paint-n-sip-2026-11-06) that has itself passed; no later date of its series
 /events/paint-n-sip-2026-11-06/,git in the content today; sitemap 2026-10-18 to 2026-11-07,events,"Paint 'n Sip (full; waiting list)|Glenn A. Jones, M.D. Memorial Library",,
 /events/paint-n-sip-2026-12-04/,git in the content today; sitemap 2026-11-01 to 2026-11-18,events,"Paint ‘n Sip|Glenn A. Jones, M.D. Memorial Library",,
 /events/pancakes-in-a-jar-2026-12-05/,git in the content today; sitemap 2026-11-01 to 2026-11-18,events,"Breakfast in a Jar: Pancakes|Glenn A. Jones, M.D. Memorial Library",,
@@ -170,7 +170,7 @@ old_path,source,kind,key,decision,note
 /places/scheels/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
 /places/sunrise-park/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
 /places/urban-egg/,git in the content today; sitemap 2026-10-18 to 2026-11-18,places,,,
-/places/we-knead-donut/,git deleted; retired.json; vercel.json (a rule today),places,,gone,ledger: retired
+/places/we-knead-donut/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"removed in the accuracy sweep of 3 October 2026 as an unverified listing; not a confirmed closure, and no page on the hub stands for it; ledger: retired"
 /places/wing-shack-johnstown/,git in the content today; sitemap 2026-10-27 to 2026-11-18,places,,,
 /privacy/,sitemap 2026-10-18 to 2026-11-18,page,,,
 /restaurants/,sitemap 2026-10-21 to 2026-11-18,page,,,

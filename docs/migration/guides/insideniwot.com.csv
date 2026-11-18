@@ -36,7 +36,7 @@ old_path,source,kind,key,decision,note
 /events/boot-squad-2026-12-05/,git in the content today,events,Boot Squad|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
 /events/boulder-dead-night-at-mainstage-gunbarrel-2026-11-12/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Boulder Dead Night at MainStage Gunbarrel|MainStage Brewing Gunbarrel,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
 /events/branch-and-barrel-whiskey-tasting-2026-12-03/,git in the content today; sitemap 2026-11-11 to 2026-11-11,events,Branch & Barrel Whiskey Tasting|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
-/events/breakfast-with-the-rotary-club-of-niwot-2026-10-01/,git deleted; retired.json,events,Breakfast with the Rotary Club of Niwot|Niwot Hall,gone,ledger: breakfast-with-the-rotary-club-of-niwot
+/events/breakfast-with-the-rotary-club-of-niwot-2026-10-01/,git deleted; retired.json,events,Breakfast with the Rotary Club of Niwot|Niwot Hall,gone,retired to a later listing (breakfast-with-the-rotary-club-of-niwot) that has itself passed; no later date of its series
 /events/breakfast-with-the-rotary-club-of-niwot-november/,git in the content today; sitemap 2026-10-19 to 2026-11-11,events,Breakfast with the Rotary Club of Niwot|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
 /events/breakfast-with-the-rotary-club-of-niwot/,git in the content today,events,Breakfast with the Rotary Club of Niwot|Niwot Hall,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
 /events/buzz-brothers-wheel-house-2026-12-04/,git in the content today; sitemap 2026-11-02 to 2026-11-11,events,Buzz Brothers|The Wheel House,gone,"Inside Niwot lists no events since 12 November 2026 (updates only); the address has had no page since, and none stands for it"
@@ -183,13 +183,13 @@ old_path,source,kind,key,decision,note
 /places/osmosis-gallery/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
 /places/raza-fresa/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
 /places/sachi-sushi/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
-/places/sample-gateway-sculpture/,git deleted; retired.json; vercel.json (a rule today),places,,gone,ledger: retired
-/places/sample-left-hand-trail/,git deleted; retired.json; vercel.json (a rule today),places,,gone,ledger: retired
-/places/sample-main-street-cafe/,git deleted; retired.json; vercel.json (a rule today),places,,gone,ledger: retired
-/places/sample-niwot-tavern/,git deleted; retired.json; vercel.json (a rule today),places,,gone,ledger: retired
-/places/sample-second-avenue-bar/,git deleted; retired.json; vercel.json (a rule today),places,,gone,ledger: retired
-/places/sample-whistle-stop-park/,git deleted; retired.json; vercel.json (a rule today),places,,gone,ledger: retired
-/places/subway/,git deleted; retired.json; sitemap 2026-10-19 to 2026-11-05; vercel.json (a rule today),places,,gone,ledger: retired
+/places/sample-gateway-sculpture/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-left-hand-trail/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-main-street-cafe/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-niwot-tavern/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-second-avenue-bar/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/sample-whistle-stop-park/,git deleted; retired.json; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
+/places/subway/,git deleted; retired.json; sitemap 2026-10-19 to 2026-11-05; vercel.json (a rule today),places,,gone,"listing retired from the guide (retired.json, no successor); no page on the hub stands for it"
 /places/taverna-laudisio/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
 /places/the-nook/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
 /places/the-wheel-house/,git in the content today; sitemap 2026-10-19 to 2026-11-18,places,,,
