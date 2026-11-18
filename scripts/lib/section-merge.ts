@@ -186,15 +186,21 @@ export function rewriteMovedLinks(hub: string, hubDomain: string, domains: reado
   const droppedPaths = Object.keys(dropped).map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
   const onHub = droppedPaths ? new RegExp(`(https://${hubDomain.replace(/\./g, '\\.')}|\\s(?:href|src)=")(${droppedPaths})`, 'g') : undefined;
   let changed = 0;
-  // The archive of sent emails is a historical record and keeps the addresses it sent: the guide's domain answers each from its map.
-  for (const file of walk(hub).filter((f) => TEXT.test(f) && !/^(?:.*[\\/])?newsletter[\\/]/.test(relative(hub, f)))) {
+  const built = (to: string) => {
+    const p = to.split(/[?#]/)[0]!;
+    return existsSync(join(hub, p.endsWith('/') ? `${p}index.html` : p));
+  };
+  for (const file of walk(hub).filter((f) => TEXT.test(f))) {
+    // The archive of sent emails is a historical record: a link there follows the guide only where its page is built on the
+    // hub; the address of a listing that is over stays as sent, and the guide's domain answers it from its map.
+    const archive = /^(?:.*[\\/])?newsletter[\\/]/.test(relative(hub, file));
     const text = readFileSync(file, 'utf8');
     let out = onHub ? text.replace(onHub, (_m, lead: string, path: string) => `${lead}${dropped[path]}`) : text;
     out = out.replace(absolute, (m, slashes: string, domain: string, tail: string) => {
       const escaped = slashes.includes('\\');
       const path = (escaped ? tail.replace(/\\\//g, '/') : tail) || '/';
       const to = where(domain, path.replace(/&amp;/g, '&'));
-      if (!to) return m;
+      if (!to || (archive && !built(to))) return m;
       const url = `https://${hubDomain}${to.replace(/&/g, '&amp;')}`;
       return escaped ? url.replace(/\//g, '\\/') : url;
     });

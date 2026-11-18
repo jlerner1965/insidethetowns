@@ -21,7 +21,7 @@ const { HUB_MOVED } = await import('../src/lib/hub-moved.ts');
 const { movedEventPaths, movedPath } = await import('../src/lib/moved-guides.ts');
 const { eventPath, pageTown } = await import('../src/lib/hub-towns.ts');
 const { rawRecords } = await import('../src/lib/tradition-files.ts');
-const { mergeSection, resolvePath } = await import('../scripts/lib/section-merge.ts');
+const { mergeSection, resolvePath, rewriteMovedLinks } = await import('../scripts/lib/section-merge.ts');
 const { guideMap } = await import('../scripts/migration/guide-map.ts');
 const { generatedBlocks, retiredOntoGuideRules } = await import('../scripts/lib/redirect-rules.ts');
 const hub = config.getNetworkHub();
@@ -155,6 +155,19 @@ test('the merge carries a moved guide’s home page, This Week, updates and spor
     const sitemap = readFileSync(join(hubDir, 'sitemap-lyons.xml'), 'utf8');
     assert.match(sitemap, /\/lyons\/this-week\//);
     assert.doesNotMatch(sitemap, /\/lyons\/events\/parade-of-lights\//, 'the dropped page is not in the sitemap');
+    // The hub's own pages that name the guide's domain by hand follow it; the email archive only where the page is built.
+    mkdirSync(join(hubDir, 'moving'), { recursive: true });
+    writeFileSync(join(hubDir, 'moving', 'index.html'), page(['https://insidelyons.com/updates/#x', 'https://insidelyons.com/events/parade-of-lights/']));
+    mkdirSync(join(hubDir, 'newsletter', '2026-10-01-lyons'), { recursive: true });
+    writeFileSync(join(hubDir, 'newsletter', '2026-10-01-lyons', 'index.html'), page(['https://insidelyons.com/#signup', 'https://insidelyons.com/events/over-2026-09-30/']));
+    const where = (domain: string, path: string) => (domain === 'insidelyons.com' ? (events[path.split(/[?#]/)[0]!] ?? `/lyons${path}`) : undefined);
+    assert.equal(rewriteMovedLinks(hubDir, hub.domain, ['insidelyons.com'], where, { '/lyons/events/parade-of-lights/': '/lyons/parade-of-lights/' }), 2);
+    const moving = readFileSync(join(hubDir, 'moving', 'index.html'), 'utf8');
+    assert.match(moving, new RegExp(`href="https://${hub.domain.replace(/\./g, '\\.')}/lyons/updates/#x"`));
+    assert.match(moving, new RegExp(`href="https://${hub.domain.replace(/\./g, '\\.')}/lyons/parade-of-lights/"`), 'an annual event’s page to the tradition page that stands for it');
+    const archive = readFileSync(join(hubDir, 'newsletter', '2026-10-01-lyons', 'index.html'), 'utf8');
+    assert.match(archive, new RegExp(`href="https://${hub.domain.replace(/\./g, '\\.')}/lyons/#signup"`), 'the home is built, so the archive link follows');
+    assert.match(archive, /href="https:\/\/insidelyons\.com\/events\/over-2026-09-30\/"/, 'a listing that is over stays as sent');
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
