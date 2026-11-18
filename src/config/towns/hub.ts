@@ -79,7 +79,7 @@ export const hub: HubConfig = {
   // "Who runs it", and articles are authored by the publication. The
   // publisher is an organisation, Lerner Works, named below at the owner's
   // direction the same day (the follow-up audit asked who is accountable).
-  publisher: { name: 'Lerner Works', url: 'https://lernerworks.com' },
+  publisher: { name: 'Lerner Works', url: 'https://www.lernerworks.com/' },
   // The home page's order and words (13 November 2026), so the menu does not
   // change under a reader between the home and any other page; "Annual
   // events" is added after the weekend (src/lib/nav.ts, hubNav). About and
@@ -96,5 +96,5 @@ export const hub: HubConfig = {
   towns,
   formspreeId: 'xeaoakgg',
   // Who built the sites, set on 5 October 2026 at the owner's direction.
-  credit: { label: 'Lerner Works', url: 'https://lernerworks.com' },
+  credit: { label: 'Lerner Works', url: 'https://www.lernerworks.com/' },
 };
