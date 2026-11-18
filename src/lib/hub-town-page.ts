@@ -10,11 +10,18 @@
  * The profile's values (the facts, the drive and the airport, the lodging
  * and the heritage) are exactly what TownProfile.astro printed before the
  * redesign, from the same files, with the same sources and check dates:
- * the layout changed, not a figure.
+ * the layout changed, not a figure. Since 18 November 2026 (the owner's
+ * navigation brief, item 7) Getting here also lists Denver International
+ * and, for a drive over a pass closed in winter, the year-round route, from
+ * a later reading of the same router with its own date
+ * (src/lib/getting-here.ts).
  */
+import { GETTING_HERE } from '../config/getting-here.ts';
 import { clusterName, hubCountyLine, type HubTown } from '../config/hub-towns.ts';
+import { PASSES } from '../config/passes.ts';
 import { BLOCK_MONTHS } from './date-block.ts';
 import { monthLabel, type YearMark } from './year-grid.ts';
+import { airportRows, fromDenverKey, winterNote, type GettingHere } from './getting-here.ts';
 import { roadLeg, type Airports, type RoadMiles, type TownFacts } from './near.ts';
 import { newestCheck, sourceHost, type TownProfile } from './town-profile.ts';
 import { isUpcoming, type TraditionRow } from './traditions.ts';
@@ -109,6 +116,8 @@ export interface ProfileFiles {
   airports?: Airports;
   bustang?: { checked: string; stops: Array<{ town: string; service: string; detail?: string; seasonal?: string; url: string; source: string; checked: string }> };
   profile?: TownProfile;
+  /** The other airports and the year-round routes (src/config/getting-here.ts); the file on disk unless one is handed in. */
+  gettingHere?: GettingHere;
 }
 
 /**
@@ -117,7 +126,7 @@ export interface ProfileFiles {
  * Denver, buses and trains, the nearest airport, where to stay, and the
  * heritage. A value nobody confirmed is not in the files and not here.
  */
-export function profileView(town: HubTown, { facts, roads, airports, bustang, profile }: ProfileFiles) {
+export function profileView(town: HubTown, { facts, roads, airports, bustang, profile, gettingHere = GETTING_HERE }: ProfileFiles) {
   const bulk = facts?.towns[town.slug];
   const elevation = profile?.facts?.elevationFt?.value ?? bulk?.elevationFt;
   const incorporated = profile?.facts?.incorporated;
@@ -136,6 +145,9 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
   const fromDenver = roads?.fromDenver[town.slug];
   const nearestAirport = roads?.airport[town.slug];
   const airport = nearestAirport ? airports?.airports.find((a) => a.code === nearestAirport.code) : undefined;
+  // Every airport the page lists, nearest first, Denver International always (the owner's navigation brief of 18 November 2026, item 7).
+  const airportList = airportRows(town.slug, roads, airports, gettingHere, PASSES);
+  const fromDenverWinter = winterNote(gettingHere, fromDenverKey(town.slug), PASSES);
   const transit = [
     ...(bustang?.stops.filter((s) => s.town === town.slug).map((s) => ({ name: s.service, detail: [s.detail, s.seasonal].filter(Boolean).join('. '), url: s.url, checked: s.checked })) ?? []),
     ...(profile?.transit ?? []).map((t) => ({ name: t.name, detail: t.detail, url: t.url, checked: t.checked })),
@@ -162,7 +174,12 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
     factsChecked: facts?.checked,
     fromDenver,
     airport: airport && nearestAirport ? { ...airport, miles: nearestAirport.miles } : undefined,
+    airports: airportList,
     airportList: airports?.listSource,
+    /** The drive from Denver, where it is over a pass closed in winter. */
+    fromDenverWinter,
+    /** What the page shows from the later reading (src/lib/getting-here.ts), and its date: "the other airports and the year-round route". */
+    laterCheck: laterCheck(airportList.filter((a) => !a.nearest).map((a) => a.code), airportList.some((a) => a.winter) || !!fromDenverWinter, gettingHere?.checked),
     transit,
     roads,
     lodging,
@@ -175,6 +192,18 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
     heritageSources,
     heritageChecked: h ? newestCheck(heritageItems) : undefined,
   };
+}
+
+/**
+ * The source line's second date: what came from the later reading
+ * ("Denver International", "the other airports and the year-round route"),
+ * or nothing where the page shows none of it.
+ */
+export function laterCheck(otherAirports: readonly string[], yearRound: boolean, checked: string | undefined): { what: string; checked: string } | undefined {
+  if (!checked || (otherAirports.length === 0 && !yearRound)) return undefined;
+  const airports = otherAirports.length === 0 ? '' : otherAirports.length > 1 ? 'the other airports' : otherAirports[0] === 'DEN' ? 'Denver International' : 'the other airport';
+  const what = [airports, yearRound && 'the year-round route'].filter(Boolean).join(' and ');
+  return { what, checked };
 }
 
 /** A place's sources in the order its facts use them, its own page first. */

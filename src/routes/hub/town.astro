@@ -522,7 +522,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       {(profile.fromDenver || profile.transit.length > 0 || profile.airport || passes.length > 0) && (
         <dl class="mt-3.5 border-t border-hairline">
           {profile.fromDenver && (
-            <div class={pub.dl}><dt class={pub.dt}>From Denver</dt><dd class={pub.t}>{formatMiles(profile.fromDenver.miles)} by road, {formatDrive(profile.fromDenver.minutes)} without traffic or stops</dd></div>
+            <div class={pub.dl}><dt class={pub.dt}>From Denver</dt><dd class={pub.t}>{formatMiles(profile.fromDenver.miles)} by road, {formatDrive(profile.fromDenver.minutes)} without traffic or stops{profile.fromDenverWinter && <span class:list={['block', pub.meta]} data-winter-route>{typeset(profile.fromDenverWinter.line)}</span>}</dd></div>
           )}
           {profile.transit.length > 0 && (
             <div class={pub.dl}>
@@ -532,10 +532,17 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               </dd>
             </div>
           )}
-          {profile.airport && (
-            <div class={pub.dl}>
-              <dt class={pub.dt}>Nearest commercial airport</dt>
-              <dd class={pub.t}>{profile.airport.url ? <a href={profile.airport.url} rel="noopener" class={pub.link}>{typeset(profile.airport.name)}</a> : typeset(profile.airport.name)} ({profile.airport.code}), {typeset(profile.airport.city)}: {formatMiles(profile.airport.miles)} by road</dd>
+          {profile.airports.length > 0 && (
+            <div class={pub.dl} data-airports>
+              <dt class={pub.dt}>Airports</dt>
+              <dd class="space-y-2.5">
+                {profile.airports.map((a) => (
+                  <p class={pub.t} data-airport={a.code}>
+                    {a.url ? <a href={a.url} rel="noopener" class={pub.link}>{typeset(a.name)}</a> : typeset(a.name)} ({a.code}), {typeset(a.city)}: {formatMiles(a.miles)} by road, {formatDrive(a.minutes)}{a.nearest && ' · nearest by road'}
+                    {a.winter && <span class:list={['block', pub.meta]} data-winter-route>{typeset(a.winter.line)}</span>}
+                  </p>
+                ))}
+              </dd>
             </div>
           )}
           {passes.length > 0 && (
@@ -557,7 +564,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       )}
       {roads && (profile.fromDenver || profile.transit.length > 0 || profile.airport) && (
         <p class:list={['mt-2.5', pub.meta]}>
-          Checked <time datetime={roads.checked}>{short(roads.checked)}</time> · Sources:
+          Checked <time datetime={roads.checked}>{short(roads.checked)}</time>{profile.laterCheck && <Fragment>; {profile.laterCheck.what}{' '}<time datetime={profile.laterCheck.checked}>{short(profile.laterCheck.checked)}</time></Fragment>} · Sources:
           <a href={roads.source.url} rel="noopener" class={pub.link}>{roads.source.name}</a> for the miles and the time{profile.transit.length > 0 && <Fragment>; the operator’s own page for each service</Fragment>}{profile.airport && profile.airportList && <Fragment>; <a href={profile.airportList} rel="noopener" class={pub.link}>Federal Aviation Administration, commercial service airports</a></Fragment>}
         </p>
       )}
@@ -574,9 +581,14 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               </li>
             ))}
           </ul>
+          {near.some((n) => n.winter) && (
+            <ul class="mt-3 space-y-1.5" data-winter-routes>
+              {near.map((n) => n.winter && <li class={pub.meta} data-winter-route={n.place}>{typeset(n.name)}, {formatMiles(n.miles)}: {typeset(n.winter.line)}</li>)}
+            </ul>
+          )}
           <p class:list={['mt-3', pub.meta]}>
-            Road miles between town centers, every pair from one router. A road shut for the season is not taken out of the miles.
-            Checked <time datetime={roads.checked}>{short(roads.checked)}</time> · Source:
+            Road miles between town centers, every pair from one router. A road shut for the season is not taken out of the miles{near.some((n) => n.winter) ? '; where one is on the way, the year-round route is given' : ''}.
+            Checked <time datetime={roads.checked}>{short(roads.checked)}</time>{near.filter((n) => n.winter).slice(0, 1).map((n) => <Fragment>; the year-round routes <time datetime={n.winter!.checked}>{short(n.winter!.checked)}</time></Fragment>)} · Source:
             <a href={roads.source.url} rel="noopener" class={pub.link}>{roads.source.name}</a>
           </p>
         </div>

@@ -12318,3 +12318,64 @@ from what is already in the repo, such as Grand Lake.*
   parks have no hours. Timnath, Longmont, Castle Rock and Black Hawk have
   one each. Cold Springs Campground is left out as a campground.
 
+
+## Getting here through the year: Denver International and the year-round routes, 18 November 2026
+
+*The owner's navigation brief of 18 November 2026, item 7: airports and
+distances must respect seasonal closures; give the year-round route where a
+route uses a pass closed for the season; always list Denver International;
+add Eagle County for Leadville and say the Aspen road is over Independence
+Pass.*
+
+- **Every town page lists Denver International** with its miles and drive
+  time, under one "Airports" row: the nearest by road first, then the rest
+  by miles. Each airport now shows its drive time as well as its miles. The
+  67 town pages whose nearest airport is another got a DEN row.
+- **One router, one more file.** `data/hub/getting-here.json`, written by
+  hand with `scripts/getting-here.ts`, holds DEN's miles from those towns,
+  the extra airports and the year-round routes, with its own check date
+  (18 November); the road miles keep theirs (12 November), and the source
+  line names both. The router is the same Open Source Routing Machine
+  server as the road miles, so a year-round figure is measured the way the
+  figure beside it is.
+- **"Over a pass" is a point on the route.** Each pass that
+  `data/hub/passes.json` says closes in winter has its Gap point in USGS's
+  Geographic Names Information System (Trail Ridge Road has two, Milner
+  Pass and Fall River Pass); a drive whose route runs within half a
+  kilometre of one is over it. A drive that cannot reach a pass (the
+  straight line through the pass is longer than the drive) is not routed.
+  The year-round route is the router's drive by way of a GNIS populated
+  place on a road kept open in winter (Glenwood Springs for Independence
+  Pass; Idaho Springs or Walden for Trail Ridge Road; Gunnison and Crawford
+  or Montrose for Kebler Pass), checked against every pass again, the
+  fastest kept.
+- **What it found.** Ten printed drives: Leadville and Buena Vista to Aspen's
+  airport (ASE), and Aspen to Leadville and to Buena Vista, over
+  Independence Pass, each by Glenwood Springs in winter; Grand Lake to
+  Estes Park, over Trail Ridge Road, 150 miles by Idaho Springs in winter;
+  and Crested Butte to Paonia, Hotchkiss, Redstone, Marble and Carbondale,
+  over Kebler Pass, each by Gunnison and Crawford (CO 92) in winter. No
+  drive from Denver or to DEN crosses one. The router does not route over
+  Cottonwood, Guanella, Medano, Boreas or any four-wheel-drive pass for
+  any drive a page prints.
+- **The nearest airport by a year-round road** is listed where the nearest
+  by road is over a closed pass: Eagle County (EGE) for Leadville, 63 miles,
+  and Gunnison (GUC) for Buena Vista, 84 miles. Leadville's row is ASE (over
+  Independence Pass, 129 miles by Glenwood Springs in winter), EGE and DEN,
+  and its Passes and routes keeps CDOT's words for the pass ("typically
+  closes in late Oct. or early Nov." and reopens "typically around the
+  Memorial Day holiday weekend").
+- **The note** reads "Over Independence Pass, which is closed in winter.
+  Year-round, by way of Glenwood Springs: 129 miles, about 2 hours 50
+  minutes." The agency's words stay in Passes and routes, and every pass a
+  page's drive crosses is listed there (the test holds it). The Near grid's
+  miles and order are unchanged; the notes sit under it.
+- **Cottonwood Pass carries its closure** in `passes.json` now, in Chaffee
+  County's words from the repo's own record ("From November 1st until June
+  15th this road is not maintained beyond Denny Creek Trailhead"), so the
+  check covers it and its row says so.
+- **Mount Blue Sky** is not checked: CO 5 ends at the summit, so no drive
+  between towns crosses it. Medano Pass, Boreas Pass, Ripple Creek Pass
+  (Rio Blanco County Road 8) and the four-wheel-drive passes are watched:
+  a drive over one is printed at the end of the run so a row with its
+  closure can be added.

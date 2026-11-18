@@ -353,7 +353,8 @@ one and the road's COtrip page (`data/hub/road-miles.json`,
 pages cannot disagree); the facts strip (elevation, the Census Bureau's
 latest estimate with its year, county, the year of incorporation); Getting
 there (miles and drive time from Denver, the Bustang family's stops, the
-nearest commercial airport by road); Where to stay (the property's own
+nearest commercial airport by road and Denver International, each with
+miles and drive time); Where to stay (the property's own
 site, never a booking or affiliate link); and the history card (the name,
 the founding, three to five dated facts, one row a year and none that only
 repeats the name or the founding, museums and landmarks with hours,
@@ -373,6 +374,23 @@ or a historical society's, and a value that only a historical society
 holds is left empty.
 Items four to six are the hub's only; a standalone guide gets Near <Town>
 at the foot of `/things-to-do/` and the open-now view on `/traditions/`.
+
+**Getting here through the year** (the owner's brief of 18 November 2026,
+item 7; `src/lib/getting-here.ts`, `data/hub/getting-here.json`, written
+by hand with `scripts/getting-here.ts` after `scripts/town-facts.ts`).
+Every town page lists Denver International (DEN) with its miles and drive
+time beside the nearest airport. Every drive a town page prints (from
+Denver, to each airport, to each town under Near) is checked against the
+passes that `data/hub/passes.json` says close in winter, each at its point
+in USGS's Geographic Names Information System: a drive whose route runs
+within half a kilometre of one says "Over <pass>, which is closed in
+winter" and gives the year-round route, the same router's drive by way of
+a place on a road kept open in winter, with its miles, time and check date.
+Where the nearest airport by road is over such a pass, the nearest by a
+year-round road is listed too. A pass a page's drive crosses is always in
+that page's Passes and routes, with the closure in the agency's words. A
+closure added to `passes.json` needs the pass's GNIS point in the script,
+and `test/getting-here.test.ts` fails until the script has run again.
 
 **The town-anchored articles** (13 November 2026; `src/lib/curiosity.ts`).
 The hub has one more kind of page: an article anchored to one town, in two
