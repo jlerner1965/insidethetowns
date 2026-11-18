@@ -12200,3 +12200,50 @@ Friday after the Thursday email has sent. No towns, features or redesigns.*
 - **Previews**: every project but Lyons has preview deployments off, so the
   checks ran on a local production build with every switch on
   (`check-local`, the site check, the tests), as the brief allows.
+
+## Five town pages and their lead guides, 18 November 2026
+
+*The owner's brief of 18 November 2026: Estes Park, Golden, Manitou
+Springs, Evergreen and Salida, one pull request, no other town touched.*
+
+- **Start here.** A town's row may name its lead guide (`leadGuide` in
+  `src/config/hub-towns.ts`); the town page prints the article's own title
+  and excerpt under the hero, and the build stops on a path that names no
+  published article (`src/lib/lead-guide.ts`). Estes Park's is in its full
+  section (`/estes-park/articles/…`), Golden's, Evergreen's and Manitou
+  Springs' are kept guides (`/<town>/guides/…`), and Salida's, a town with
+  no guide folder, is a hub story (`/articles/…`, `homeUntil` its own date,
+  so it is not news on the hub's home). Evergreen's is the lake article
+  rebuilt at its own address, so the address keeps what it has earned.
+- **Places to know and Trails and parks** are two sections of the town
+  page, read from the town's profile file (`places`, `trails` in
+  `src/lib/town-profile.ts`), each drawn only where the file has entries.
+  A trail or park carries its length or size, its trailhead or address,
+  its season, the dog rule and any fee, every one from the land manager's
+  page; an entry missing one stays out of the file. The page names each
+  source site once, linked to the first page used.
+- **Gaps, not guesses.** The Town of Estes Park, the City of Manitou
+  Springs, the City of Salida and Larimer County answer automated readers
+  with a bot check, and coloradosprings.gov's robots.txt disallows this
+  assistant; none was worked around. Estes Park's downtown entry rests on
+  the Town's pages as read on 7 October and 6 November, with those dates;
+  the Manitou Incline's facts on the City's page as read on 17 November,
+  said so in the guide's footnote; Hermit Park on Larimer County's page as
+  WebFetch returned it. Manitou Springs and Salida have two trails and
+  parks each, not three: no season or dog rule could be read from the
+  managers for the others (`TRAIL_GAPS`, `test/town-page-guides.test.ts`).
+- **Estes Park** keeps Frozen Dead Guy Days as its spotlight. Rocky
+  Mountain National Park's listing was read again: the 2026 timed-entry
+  season is over and 2027's is not announced, Trail Ridge Road closed to
+  through travel on 13 November 2026.
+- **Golden's Trick or Treat Street** has its `about`, 2024 and 2025 from
+  the City's calendar (October 31, 3 to 5 pm both years), each year's own
+  calendar entry as its source, and the City's calendar as the record's
+  source, so the date watch reads the page the 2027 date will appear on
+  rather than 2026's entry. The City's 2026 entry gives the closure as 11th
+  to 14th Street in its text and "10th to 13th St" in its location field;
+  the record keeps the text's, which 2024 and 2025 also give.
+- **Salida** gets no spotlight yet: fibark.com shows only 2026. The test
+  refuses one until FIBArk's next year is confirmed on the organizer's
+  page.
+

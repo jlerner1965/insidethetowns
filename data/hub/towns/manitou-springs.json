@@ -118,5 +118,41 @@
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
       "checked": "2026-11-12"
     }
-  }
+  },
+  "trails": [
+    {
+      "name": "Manitou Incline",
+      "kind": "Stair trail",
+      "manager": "City of Colorado Springs Parks",
+      "length": "About 1 mile up, with about 2,000 feet of climbing; down by Barr Trail, never by the steps",
+      "trailhead": "The base, at the upper end of Ruxton Avenue; Route 33, the free shuttle, stops at The Incline/Cog Railway",
+      "season": "All year: 6 am–6 pm from May through October, 6 am–3 pm from November through April.",
+      "dogs": "No pets, carried ones included.",
+      "fee": "A free reservation and a signed waiver for every climb, for parties of up to eight; booked on the City’s Incline page.",
+      "page": "/manitou-springs/places/manitou-incline/",
+      "source": "https://coloradosprings.gov/manitouincline",
+      "alsoSources": [
+        "https://manitousprings.org/where-to-play/manitou-incline/"
+      ],
+      "checked": "2026-11-17"
+    },
+    {
+      "name": "Garden of the Gods Park",
+      "kind": "City park",
+      "manager": "City of Colorado Springs, with the Garden of the Gods Visitor & Nature Center",
+      "size": "More than 22 miles of trail; the Perkins Central Garden Trail is an easy 1.5-mile round trip with less than 30 feet of rise",
+      "address": "Visitor & Nature Center, 1805 N. 30th Street, Colorado Springs",
+      "season": "Daily, 5 am–9 pm from November 1 to April 30 and 5 am–10 pm from May 1 to October 31. The Visitor Center is closed Thanksgiving, Christmas and New Year’s Day.",
+      "dogs": "On a 6-foot leash at all times; pick up after them.",
+      "fee": "Free: the park was given to the city in 1909 on condition it stay free.",
+      "url": "https://gardenofgods.com/",
+      "source": "https://gardenofgods.com/park-info/park-rules/",
+      "alsoSources": [
+        "https://gardenofgods.com/",
+        "https://gardenofgods.com/activities/hiking-trails/",
+        "https://gardenofgods.com/park-info/get-directions/"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }

@@ -143,8 +143,8 @@ export const townProfileSchema = z
             page: localPath.optional(),
             /** The manager's page for it: the name links here where there is no page on this site. */
             url: own.optional(),
-            /** A second official page a fact was read on (a regulations page for the dog rule, a fees page). */
-            alsoSource: source.optional(),
+            /** Other official pages a fact was read on (a regulations page for the dog rule, a fees page). */
+            alsoSources: z.array(source).min(1).max(3).optional(),
             ...read,
           })
           .strict()

@@ -117,5 +117,96 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Clear Creek Trail",
+      "kind": "Paved trail",
+      "manager": "Jefferson County Parks & Open Space",
+      "length": "1.75 miles for the Gateway Segment, from downtown Golden along the creek to Tunnel 1; newer segments continue up the canyon",
+      "trailhead": "Gateway Trailhead, 21100 US Highway 6, and Tunnel 1 Trailhead, 22122 US Highway 6: more than 170 spaces, restrooms and shade",
+      "season": "All year, from one hour before sunrise to one hour after sunset; the lots’ gates close at those times.",
+      "dogs": "On a leash of 10 feet or less.",
+      "fee": "No entry fee: Jefferson County’s parks charge none.",
+      "page": "/golden/places/clear-creek-trail/",
+      "source": "https://www.jeffco.us/3792/Clear-Creek-Trail",
+      "alsoSources": [
+        "https://www.jeffco.us/1196/Clear-Creek-Canyon-Park",
+        "https://www.jeffco.us/1583/Regulations",
+        "https://www.jeffco.us/3159/Parks-Recreation"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "North Table Mountain Park",
+      "kind": "County open space",
+      "manager": "Jefferson County Parks & Open Space",
+      "size": "1,998 acres and 17.1 miles of trail on the county’s January 2026 map; the North Table Loop is 7.4 miles",
+      "address": "West Trailhead, 4788 Highway 93; Golden Cliffs Trailhead, 100 Peery Parkway",
+      "season": "All year, from one hour before sunrise to one hour after sunset. Rim Rock Trail closes February 1 to July 31 for nesting birds.",
+      "dogs": "On a leash of 10 feet or less.",
+      "fee": "No entry fee: Jefferson County’s parks charge none.",
+      "page": "/golden/places/north-table-mountain-park/",
+      "source": "https://www.jeffco.us/1427/North-Table-Mountain-Park",
+      "alsoSources": [
+        "https://www.jeffco.us/DocumentCenter/View/9380/North-Table-Mountain-Park-Map",
+        "https://www.jeffco.us/1531/Alerts-Closures",
+        "https://www.jeffco.us/1583/Regulations"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Windy Saddle Park, Lookout Mountain",
+      "kind": "County open space",
+      "manager": "Jefferson County Parks & Open Space",
+      "size": "792 acres and 4.3 miles of trail on the county’s March 2026 map, with Beaver Brook Trail for hikers only",
+      "address": "Windy Saddle Trailhead, 1277 Lookout Mountain Road",
+      "season": "All year, from one hour before sunrise to one hour after sunset.",
+      "dogs": "On a leash of 10 feet or less.",
+      "fee": "No entry fee: Jefferson County’s parks charge none.",
+      "page": "/golden/places/windy-saddle-park-trailhead/",
+      "source": "https://www.jeffco.us/1440/Windy-Saddle-Park",
+      "alsoSources": [
+        "https://www.jeffco.us/DocumentCenter/View/9388/Windy-Saddle-Park-Map",
+        "https://www.jeffco.us/1583/Regulations",
+        "https://www.jeffco.us/3159/Parks-Recreation"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "White Ranch Park",
+      "kind": "County open space",
+      "manager": "Jefferson County Parks & Open Space",
+      "size": "3,953 acres and 21.5 miles of trail, the county’s largest park",
+      "address": "East Trailhead, 21827 West 56th Avenue; West Trailhead, 25373 Belcher Hill Road",
+      "season": "All year, from one hour before sunrise to one hour after sunset.",
+      "dogs": "On a leash of 10 feet or less.",
+      "fee": "No entry fee; campsites are $12 a night.",
+      "page": "/golden/places/white-ranch-park/",
+      "source": "https://www.jeffco.us/1437/White-Ranch-Park",
+      "alsoSources": [
+        "https://www.jeffco.us/DocumentCenter/View/9387/White-Ranch-Park-Map",
+        "https://www.jeffco.us/1583/Regulations",
+        "https://www.jeffco.us/3159/Parks-Recreation"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Golden History Park",
+      "kind": "History park",
+      "manager": "City of Golden, Golden History Museum & Park",
+      "size": "3 acres of 1800s cabins and ranch buildings on gravel paths, with ramps to the three main buildings",
+      "address": "11th and Arapahoe streets, across the creek from the Golden History Museum",
+      "season": "Grounds open daily, 5 am–11 pm; the buildings open now and then, such as the summer open house.",
+      "dogs": "On a leash, welcome.",
+      "fee": "Free.",
+      "page": "/golden/places/golden-history-park/",
+      "source": "https://www.goldenhistory.org/visit/history-park/",
+      "alsoSources": [
+        "https://www.goldenhistory.org/visit/frequently-asked-questions/",
+        "https://www.cityofgolden.gov/community/art_culture_history/golden_museums.php"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }

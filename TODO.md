@@ -8,12 +8,16 @@ stand until the owner revisits them.
 Remove a row when it is done; the dated audits in `docs/audits/` say what
 was found and when.
 
-Last revised: 17 November 2026.
+Last revised: 18 November 2026.
 
 ## This week
 
 | Town | What | Why | Who |
 |---|---|---|---|
+| Estes Park | When the park announces 2027 timed entry (2026's was announced 18 February): put the dates, hours and release schedule into `rocky-mountain-national-park-with-or-without-timed-entry.md`, the park's listing and Places to know in `data/hub/towns/estes-park.json`, and the Hiker Shuttle's 2027 season | Each says "2027 dates: not yet announced" (checked 18 November 2026) | Assistant |
+| Estes Park, Manitou Springs, Salida | Read in a browser, then tell the assistant: estespark.colorado.gov/parking, /transit and /townparks (the Downtown and Riverwalk entry rests on reads of 7 October and 6 November); coloradosprings.gov/manitouincline (reservation, waiver, hours; the guide and Trails and parks rest on the read of 17 November); cityofsalida.com's Riverside Park, Alpine Park, Riverwalk, parking and Hot Springs Aquatic Center pages (restrooms, dog rule, season, the pool's hours) | Each site refuses automated readers; the gaps are named in `DECISIONS.md`, "Five town pages and their lead guides" | Owner |
+| Salida | When fibark.com posts 2027's dates: confirm the 2027 year in `salida-fibark.md` and set `showpiece.spotlight: 'salida-fibark'` on Salida's row; the test refuses the spotlight before then | FIBArk shows only June 18–21, 2026 (read 18 November) | Assistant |
+| Golden, Evergreen, Manitou Springs, Estes Park, Salida | Walk and photograph what the five lead guides route (the list is in the pull request of 18 November): no guide claims a walk was taken | The routes and times are drawn from official pages; nobody has walked them for the guide | Owner |
 | Hub | January 2027: property-tax dates for the counties the pages cover, as `tax-date` records, each from its county treasurer's own page | The type exists (12 November 2026); the treasurers post the year's due dates in January | Assistant, owner approves |
 | Hub | Late January 2027: wildlife and trail closures (raptor nesting, elk calving, winter range) as `closure` records, from each land manager's own page | The type exists; most closures are posted for 1 February or 15 March | Assistant, owner approves |
 | Hub | Late February 2027: Easter egg hunts as `egg-hunt` records; Easter is 28 March 2027 | The type exists; organizers post in February and March | Assistant, owner approves |

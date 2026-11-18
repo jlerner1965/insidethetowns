@@ -111,5 +111,161 @@
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
       "checked": "2026-11-12"
     }
-  }
+  },
+  "places": [
+    {
+      "name": "The Arkansas River and whitewater",
+      "what": "The Arkansas River runs past downtown, inside Colorado Parks and Wildlife’s Arkansas Headwaters Recreation Area: 152 miles of river from Leadville to Lake Pueblo, the most commercially rafted river in the country, CPW says.",
+      "url": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area",
+      "facts": [
+        {
+          "label": "Rafting season",
+          "value": "From spring runoff to late summer or early fall, when flows drop; some sections can be run all year, cold and with portages in winter. No motorboats.",
+          "source": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-activities",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Outfitters",
+          "value": "Every commercial river outfitter needs a CPW license; CPW publishes its list of outfitters for the recreation area.",
+          "source": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-river-sections",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "In town",
+          "value": "The Salida Whitewater Park is at the Salida Boat Ramp, managed by the City, with a restroom and changing facilities.",
+          "source": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-salida-vallie",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Passes",
+          "value": "A day pass at fee sites: $10–$12 a vehicle with Colorado plates, $15–$17 from out of state. Free entry to every state park on Friday, November 27, 2026.",
+          "source": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Safety",
+          "value": "Anyone under 13 swimming in the river must wear a life jacket; the water is cold most of the year.",
+          "source": "https://cpw.state.co.us/sites/default/files/dam/iv4cywcl7k/ahra-state-park-brochure.pdf",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Visitor center",
+          "value": "307 W. Sackett Ave., at G Street: passes and licenses, Monday–Friday, 8 am–5 pm.",
+          "source": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area",
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Monarch Mountain",
+      "what": "The ski area near the top of Monarch Pass on US 50, 20 miles west of Salida; it began in 1939, built by WPA workers and given to the city of Salida, it says.",
+      "url": "https://skimonarch.com/",
+      "facts": [
+        {
+          "label": "Opening day",
+          "value": "Not yet announced for 2026–27; the usual season runs from late November to early April.",
+          "source": "https://skimonarch.com/hours-stats/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Tickets",
+          "value": "Priced by the day online; at the window they can cost up to 40 percent more.",
+          "source": "https://skimonarch.com/tickets/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Parking",
+          "value": "Free; the main and lower lots fill between 9:30 and 1:30 on weekends and holidays.",
+          "source": "https://skimonarch.com/parking/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Bus",
+          "value": "In the ski season the Bustang Outrider stops every day: $5 each way, leaving Salida at 9:50 am.",
+          "source": "https://skimonarch.com/parking/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Dogs",
+          "value": "Not allowed on the mountain at any time.",
+          "source": "https://skimonarch.com/parking/",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source": "https://skimonarch.com/directions/",
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Hot springs",
+      "what": "The City of Salida runs the Salida Hot Springs Aquatic Center in town; three resorts open to the public are up the valley toward Buena Vista.",
+      "url": "https://www.cityofsalida.com/aquaticcenter",
+      "facts": [
+        {
+          "label": "In Salida",
+          "value": "The Salida Hot Springs Aquatic Center: the City’s Parks & Recreation lists lap swim, weekend soaking and private soaking pools there. Hours and status are on the City’s page.",
+          "source": "https://app.amilia.com/store/en/city-of-salida-recreation/shop/programs",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Nathrop",
+          "value": "Mount Princeton Hot Springs Resort, 15870 County Road 162, between Buena Vista and Salida: open daily to the public, with day guests all year.",
+          "source": "https://mtprinceton.com/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Buena Vista",
+          "value": "Cottonwood Hot Springs, 18999 County Road 306: daily 8 am–10 pm, walk-ins always taken for soaking passes.",
+          "source": "https://www.cottonwoodhs.com/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Buena Vista",
+          "value": "Charlotte Hot Springs, 19256 County Road 343: day passes at the front desk, no reservations; 9 am–8 pm, November to April.",
+          "source": "https://www.charlottehotspringscabins.com/hot-springs",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source": "https://app.amilia.com/store/en/city-of-salida-recreation/shop/programs",
+      "checked": "2026-11-18"
+    }
+  ],
+  "trails": [
+    {
+      "name": "Arkansas Hills trails, Tenderfoot Mountain",
+      "kind": "Trail system",
+      "manager": "Bureau of Land Management, with Salida Mountain Trails",
+      "size": "More than 22 miles of trail and more than 1,200 feet of climbing, from beginner to advanced",
+      "trailhead": "Arkansas Hills Trailhead: north on Highway 291, right on County Road 175 across the river, then right on County Road 176, Spiral Drive, for 1 mile to the City’s trailhead and kiosk",
+      "season": "January 1 to December 31; the closest trails to downtown, snow-free for most of the winter. Some close each winter to protect wildlife.",
+      "dogs": "Allowed on the Frontside and Tenderfoot trails, by the state’s trail database.",
+      "fee": "None.",
+      "url": "https://www.blm.gov/programs/recreation/mountainbike/SalidaMountain",
+      "source": "https://www.blm.gov/programs/recreation/mountainbike/SalidaMountain",
+      "alsoSources": [
+        "https://www.blm.gov/press-release/blm-announces-decision-salida-trail-system",
+        "https://trails.colorado.gov/trails/frontside-20902",
+        "https://trails.colorado.gov/trails/tenderfoot-23631"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Arkansas Headwaters Recreation Area",
+      "kind": "State park, a river",
+      "manager": "Colorado Parks and Wildlife",
+      "size": "152 miles of the Arkansas River, Leadville to Lake Pueblo, and 5,355 acres",
+      "address": "Visitor Center, 307 W. Sackett Ave., at G Street in downtown Salida; Salida East, the nearest campground, is on US 50 near mile marker 224",
+      "season": "Open 24 hours a day, all year.",
+      "dogs": "On a leash no longer than six feet.",
+      "fee": "A day pass at fee sites: $10–$12 a vehicle with Colorado plates, $15–$17 from out of state; $4 a person on foot or bike at select parks.",
+      "url": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area",
+      "source": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area",
+      "alsoSources": [
+        "https://cpw.state.co.us/sites/default/files/dam/iv4cywcl7k/ahra-state-park-brochure.pdf",
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-salida-vallie"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }

@@ -143,7 +143,7 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
 
   const lodging = profile?.lodging ?? [];
   const places = (profile?.places ?? []).map((p) => ({ ...p, sources: placeSources(p) }));
-  const trails = (profile?.trails ?? []).map((t) => ({ ...t, sources: [t.source, ...(t.alsoSource ? [t.alsoSource] : [])].map((u) => ({ host: sourceHost(u), url: u })) }));
+  const trails = (profile?.trails ?? []).map((t) => ({ ...t, sources: byHost([t.source, ...(t.alsoSources ?? [])]) }));
   const h = profile?.heritage;
   const sites = h?.sites ?? [];
   const dated = [...(h?.timeline ?? [])].sort((a, b) => a.year - b.year);
@@ -177,10 +177,20 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
   };
 }
 
-/** A place's sources, once each, in the order its facts use them: its own page first. */
+/** A place's sources in the order its facts use them, its own page first. */
 function placeSources(p: NonNullable<TownProfile['places']>[number]): Array<{ host: string; url: string }> {
-  const urls = [...new Set([p.source, ...p.facts.map((f) => f.source).filter((u): u is string => !!u)])];
-  return urls.map((u) => ({ host: sourceHost(u), url: u }));
+  return byHost([p.source, ...p.facts.map((f) => f.source).filter((u): u is string => !!u)]);
+}
+
+/**
+ * Sources as the page names them: each site once, linked to the first of
+ * its pages the entry used, as History's sources line does. Every page
+ * stays in the file, for the record and the re-check.
+ */
+export function byHost(urls: readonly string[]): Array<{ host: string; url: string }> {
+  const out = new Map<string, string>();
+  for (const u of urls) if (!out.has(sourceHost(u))) out.set(sourceHost(u), u);
+  return [...out.entries()].map(([host, url]) => ({ host, url }));
 }
 
 /**
