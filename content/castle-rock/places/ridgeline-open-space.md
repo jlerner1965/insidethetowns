@@ -3,19 +3,18 @@ title: "Ridgeline Open Space and Trails"
 type: trail
 address: "2525 Coachline Road, Castle Rock, CO 80109"
 area: "The Meadows"
-url: "https://www.crgov.com/facilities/facility/details/ridgelineopenspace"
+url: "https://www.crgov.com/Facilities/Facility/Details/RidgelineOpenSpace-40"
 # The Town's site refuses automated reads; the owner read the page in a
 # browser on 31 October 2026 and passed its text on, and this is written from that.
-source: "https://www.crgov.com/facilities/facility/details/ridgelineopenspace"
-verified: "2026-10-31"
+source: "https://www.crgov.com/Facilities/Facility/Details/RidgelineOpenSpace-40"
+verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "James Lerner, from the Town's page in a browser; written up by Claude Code"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-733-2260"
 mapUrl: "https://www.crgov.com/DocumentCenter/View/296/Ridgeline-Open-Space-Map-PDF"
 tags: [hiking, mountain-biking, trails, wildlife]
 featured: true
 summary: "367 acres of ridge and valley above The Meadows: 13.5 miles of trail in four colored loops, the 9.5-mile Stewart Trail the outer one, moderate and busy, joined to Philip S. Miller Park by a footbridge. Parking on Coachline Road and at Bison Park."
-readBlocked: "2026-11-17: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
 ---
 The Town's 367-acre open space on the ridge above The Meadows, named Best Hiking/Biking Trail by Colorado Community Media. The soft-surface single-track runs through valleys, ridgelines, open grassland and dense Gambel oak in four interconnected, color-coded loops of moderate difficulty, 13.5 miles in all with the feeders and connections; the outer loop, Stewart Trail, is 9.5 miles with a marker every half mile. Paved connections lead into the neighborhoods, and the system joins the paved trails and open space of The Meadows and Red Hawk. There are views of the Front Range to the west and the Town below. The Town calls the traffic heavy and names rattlesnakes and bluebirds as the wildlife to expect.
 

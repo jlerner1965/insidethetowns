@@ -8,14 +8,13 @@ url: "https://www.scileppis.com/"
 # browser on 31 October 2026 and passed on the address, phone and hours,
 # and this is written from that.
 source: "https://www.scileppis.com/"
-verified: "2026-10-31"
+verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "James Lerner, from the restaurant's site in a browser; written up by Claude Code"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "(303) 688-9000"
 hours: "Sun–Thu 11 am–9 pm; Fri–Sat 11 am–10 pm"
 tags: [italian, downtown, historic]
 summary: "Scileppi's, in the old stone church on Third Street downtown, open daily from 11 am, to 9 pm most nights and 10 on Friday and Saturday."
-readBlocked: "2026-11-17: source returns 403 bot check (Cloudflare) to curl and WebFetch; no other official page readable; last read by the owner in a browser 31 Oct 2026."
 ---
 
 The restaurant in the old stone church on Third Street, a block off Wilcox downtown, open every day from 11 am: until 9 pm Sunday to Thursday and 10 pm on Friday and Saturday.

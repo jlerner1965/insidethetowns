@@ -3,15 +3,14 @@ title: "Ameristar Black Hawk"
 type: venue
 address: "111 Richman Street, Black Hawk, CO 80422"
 area: "Richman Street"
-url: "https://www.ameristarblackhawk.com/"
-source: "https://www.ameristarblackhawk.com/visit"
-verified: "2026-10-10"
+url: "https://www.pennentertainment.com/ameristar-black-hawk/"
+source: "https://www.pennentertainment.com/ameristar-black-hawk/visit-us"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-946-4000"
 tags: [casino, hotel, spa, dining, pool]
 summary: "PENN Entertainment's casino resort on Richman Street, with a hotel, a rooftop pool, the ara Spa on the ninth floor, a sportsbook and eight places to eat and drink, from Fireside Kitchen to the Timberline Grill steakhouse."
-readBlocked: "2026-11-17: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch."
 ---
 
 Ameristar Casino Resort Spa Black Hawk is at 111 Richman Street. Its site lists a hotel, a casino with a baccarat parlor, a poker room and the Sportsbook, and eight places to eat and drink: the Richman Beer Garden, the Sportsbook, Club 38, JINYA Ramen Bar, Fireside Kitchen, the Timberline Grill, the Centennial Market Buffet and Bar 8042. Fireside Kitchen and the Timberline Grill are listed separately.

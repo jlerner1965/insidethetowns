@@ -4,14 +4,13 @@ type: park
 address: "1016 Manitou Avenue, Manitou Springs, CO 80829"
 area: "Manitou Avenue, downtown"
 url: "https://www.manitouspringsco.gov/Facilities/Facility/Details/Soda-Springs-Park-6"
-source: "https://www.manitouspringsco.gov/723/_Soda-Springs-Park-Remodel"
-verified: "2026-10-10"
+source: "https://www.manitouspringsco.gov/facilities/facility/details/sodaspringspark-6"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "719-685-2605"
 tags: [playground, creek, pavilion, events]
 summary: "The City's 1.9-acre park on Fountain Creek at 1016 Manitou Avenue, with the Bud Ford Pavilion, a plaza, accessible walkways, creek access and a playground rebuilt in 2025; the town's stage for outdoor festivals and concerts."
-readBlocked: "2026-11-17: source and the City's facility page (manitouspringsco.gov) answer 403, a Cloudflare block, to curl and WebFetch; the City site is the only official page."
 ---
 
 Soda Springs Park is a 1.9-acre City of Manitou Springs park at 1016 Manitou Avenue, with Fountain Creek running through it. The City calls it a hub for outdoor festivals, concerts and recreation. A community master plan has been rebuilding it in phases: the first, finished in 2021 with a Great Outdoors Colorado grant, added a decorative plaza, accessible walkways, boulder access to the creek, a lawn for day use and events, and security lighting; the second rebuilt the playground with inclusive equipment for a range of ages and abilities, finished in June 2025. A third phase, for the east and west ends of the park, is at the concept stage.

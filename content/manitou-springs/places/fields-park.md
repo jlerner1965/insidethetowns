@@ -5,15 +5,14 @@ address: "101 El Paso Boulevard, Manitou Springs, CO 80829"
 area: "El Paso Boulevard"
 url: "https://www.manitouspringsco.gov/Facilities/Facility/Details/Fields-Park-1"
 source: "https://www.manitouspringsco.gov/836/Tennis-and-Pickleball-Courts"
-verified: "2026-10-10"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "719-685-2605"
 hours: "Courts open daylight hours only"
 access: { parking: "Fields Park has its own parking lot; when it is closed the City points visitors to parking along El Paso Boulevard", closures: "Tennis and pickleball courts are open during daylight hours only; no pets, bikes, skateboards or rollerblades on the courts", source: "https://www.manitouspringsco.gov/836/Tennis-and-Pickleball-Courts", verified: "2026-10-10" }
 tags: [tennis, pickleball, park]
 summary: "City of Manitou Springs park at 101 El Paso Boulevard with the town's public tennis and pickleball courts, open during daylight hours, and a parking lot of its own."
-readBlocked: "2026-11-17: source and the City's facility page (manitouspringsco.gov) answer 403, a Cloudflare block, to curl and WebFetch; the City site is the only official page."
 ---
 
 Fields Park at 101 El Paso Boulevard is a City of Manitou Springs park and home to the City's tennis and pickleball courts. The courts are open during daylight hours only and are for tennis or pickleball alone: tennis shoes or sneakers only, water and sports drinks but no food or other drinks, no alcohol, chairs, pets, bikes, skateboards or rollerblades, and no unsupervised children. Tennis players yield the court after an hour when others are waiting; pickleball players yield after 11 points, queue by putting their paddles in the paddle rack, and rotate four on and four off (or two and two) when every court is busy.

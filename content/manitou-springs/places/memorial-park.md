@@ -5,13 +5,12 @@ address: "502 Manitou Avenue, Manitou Springs, CO 80829"
 area: "Manitou Avenue"
 url: "https://www.manitouspringsco.gov/Facilities/Facility/Details/Memorial-Park-3"
 source: "https://www.manitouspringsco.gov/Facilities/Facility/Details/Memorial-Park-3"
-verified: "2026-10-10"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "719-685-2605"
 tags: [park, events]
 summary: "City of Manitou Springs park at 502 Manitou Avenue, in the same block as the Manitou Art Center and the Heritage Center; it can be rented for public events only."
-readBlocked: "2026-11-17: source (manitouspringsco.gov) answers 403, a Cloudflare block, to curl and WebFetch; the City site is the only official page."
 ---
 
 Memorial Park is a City of Manitou Springs park at 502 Manitou Avenue, in the 500 block with the Manitou Art Center and the Manitou Springs Heritage Center. The City lists it among the town's large parks and rents it for public events only; its rental fees and an availability calendar are linked from the City's facility page. The City's parks department can be reached at 719-685-2605.
