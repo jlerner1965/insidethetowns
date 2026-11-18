@@ -34,6 +34,7 @@ old_path,source,note
 /guides/,routes,"a page every guide had, at f5e52d14"
 /message-sent/,routes,"a page every guide had, at f5e52d14"
 /moving-here/,routes,"a page every guide had, at f5e52d14"
+/parks/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_FLavV2DPUSHG6NztHUsz79a4Yvgn, 30 October 2026)"
 /places/adams-falls-via-east-inlet-trail/,decisions,at f5e52d14
 /places/arapaho-national-recreation-area/,decisions,at f5e52d14
 /places/bob-scotts-authentic-indian-jewelry/,decisions,at f5e52d14
@@ -59,6 +60,7 @@ old_path,source,note
 /robots.txt,routes,"a page every guide had, at f5e52d14"
 /rss.xml,routes,"a page every guide had, at f5e52d14"
 /search/,routes,"a page every guide had, at f5e52d14"
+/shops/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_FLavV2DPUSHG6NztHUsz79a4Yvgn, 30 October 2026)"
 /sitemap-0.xml,routes,"a page every guide had, at f5e52d14"
 /sitemap-index.xml,routes,"a page every guide had, at f5e52d14"
 /submit-event/,routes,"a page every guide had, at f5e52d14"
@@ -66,3 +68,4 @@ old_path,source,note
 /things-to-do/,routes,"a page every guide had, at f5e52d14"
 /this-week/,routes,"a page every guide had, at f5e52d14"
 /this-weekend/,routes,"a page every guide had, at f5e52d14"
+/venues/,sitemap,"in the sitemap the guide served, its last live deployment (dpl_FLavV2DPUSHG6NztHUsz79a4Yvgn, 30 October 2026)"

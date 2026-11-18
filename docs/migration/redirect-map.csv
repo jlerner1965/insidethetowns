@@ -35,6 +35,7 @@ insideblackhawk.com,/for-businesses/,301,/black-hawk/,a page of the closed guide
 insideblackhawk.com,/guides/,301,/black-hawk/places/,the directory and the picks pages are the index of kept pages,routes
 insideblackhawk.com,/message-sent/,301,/black-hawk/,a page of the closed guide; the town’s page on the hub,routes
 insideblackhawk.com,/moving-here/,301,/black-hawk/,a page of the closed guide; the town’s page on the hub,routes
+insideblackhawk.com,/parks/,301,/black-hawk/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideblackhawk.com,/places/ameristar-black-hawk/,301,/black-hawk/places/ameristar-black-hawk/,"kept: re-check pending (kept, noindex, last checked date shown): unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch",decisions
 insideblackhawk.com,/places/ballys-black-hawk/,301,/black-hawk/places/ballys-black-hawk/,kept: casino's own page read 17 Nov 2026: address and phone match,decisions
 insideblackhawk.com,/places/bar-8042/,301,/black-hawk/places/bar-8042/,"kept: re-check pending (kept, noindex, last checked date shown): unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch",decisions
@@ -56,6 +57,7 @@ insideblackhawk.com,/places/the-lodge-casino/,301,/black-hawk/places/the-lodge-c
 insideblackhawk.com,/places/timberline-grill/,301,/black-hawk/places/timberline-grill/,"kept: re-check pending (kept, noindex, last checked date shown): unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch",decisions
 insideblackhawk.com,/places/white-buffalo-grille/,301,/black-hawk/places/white-buffalo-grille/,kept: restaurant's page read 17 Nov 2026: hours and phone match,decisions
 insideblackhawk.com,/privacy/,301,/black-hawk/,a page of the closed guide; the town’s page on the hub,routes
+insideblackhawk.com,/restaurants/,301,/black-hawk/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideblackhawk.com,/robots.txt,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insideblackhawk.com,/rss.xml,410,,a feed or calendar file of the closed guide; no page stands for it,routes
 insideblackhawk.com,/search/,301,/black-hawk/,a page of the closed guide; the town’s page on the hub,routes
@@ -66,6 +68,7 @@ insideblackhawk.com,/thanks/,301,/black-hawk/,a page of the closed guide; the to
 insideblackhawk.com,/things-to-do/,301,/black-hawk/,a page of the closed guide; the town’s page on the hub,routes
 insideblackhawk.com,/this-week/,301,/black-hawk/,a page of the closed guide; the town’s page on the hub,routes
 insideblackhawk.com,/this-weekend/,301,/black-hawk/,a page of the closed guide; the town’s page on the hub,routes
+insideblackhawk.com,/venues/,301,/black-hawk/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidecastlerockco.com,/,301,/castle-rock/,the old home page is the town’s page on the hub,build
 insidecastlerockco.com,/about/,301,/castle-rock/,a page of the closed guide; the town’s page on the hub,build
 insidecastlerockco.com,/articles/castle-rock-history/,301,/castle-rock/guides/castle-rock-history/,"kept: town history; Historical Society, state census files, Chamber and Wikipedia re-read, claims match",build
@@ -861,6 +864,7 @@ insideevergreenco.com,/articles/evergreen-history/,301,/evergreen/guides/evergre
 insideevergreenco.com,/articles/evergreen-lake-through-the-seasons/,301,/evergreen/guides/evergreen-lake-through-the-seasons/,"kept: district lake pages re-read 17 Nov 2026: prices, rules, hours and season status match; last winter's closed-holidays line removed (no longer on the page)",decisions
 insideevergreenco.com,/articles/evergreen-with-kids/,301,/evergreen/guides/evergreen-with-kids/,"kept: district, library, county and arts-center pages re-read 17 Nov 2026; passed dates removed, Kid's Night Out dates, swim-lesson ages and roof-work month corrected",decisions
 insideevergreenco.com,/articles/explore-evergreen-in-driving-order/,301,/evergreen/guides/explore-evergreen-in-driving-order/,"kept: sources re-read 17 Nov 2026: stops, addresses and hours match; Suz Cookie Jar Rescue (not carried) and the passed Hiwan Halloween line removed",decisions
+insideevergreenco.com,/coffee/,301,/evergreen/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideevergreenco.com,/contact/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
 insideevergreenco.com,/correct/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
 insideevergreenco.com,/corrections/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
@@ -912,6 +916,7 @@ insideevergreenco.com,/for-businesses/,301,/evergreen/,a page of the closed guid
 insideevergreenco.com,/guides/,301,/evergreen/places/,the directory and the picks pages are the index of kept pages,routes
 insideevergreenco.com,/message-sent/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
 insideevergreenco.com,/moving-here/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
+insideevergreenco.com,/parks/,301,/evergreen/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideevergreenco.com,/places/alderfer-three-sisters-east-trailhead/,301,/evergreen/places/alderfer-three-sisters-east-trailhead/,"kept: Jeffco Open Space page read 17 Nov 2026: open, address matches; hours from the county Park Regulations page (C.21.a)",decisions
 insideevergreenco.com,/places/alderfer-three-sisters-park/,301,/evergreen/places/alderfer-three-sisters-park/,"kept: Jeffco Open Space page read 17 Nov 2026: open, address matches; hours from the county Park Regulations page (C.21.a)",decisions
 insideevergreenco.com,/places/alderfer-three-sisters-west-trailhead/,301,/evergreen/places/alderfer-three-sisters-west-trailhead/,"kept: Jeffco Open Space page read 17 Nov 2026: open, address matches; hours from the county Park Regulations page (C.21.a)",decisions
@@ -940,9 +945,11 @@ insideevergreenco.com,/places/the-holly-berry/,301,/evergreen/places/the-holly-b
 insideevergreenco.com,/places/wildflower-cafe/,301,/evergreen/places/wildflower-cafe/,"kept: own page read 17 Nov 2026: operating; address, phone and hours match",decisions
 insideevergreenco.com,/places/wulf-recreation-center/,301,/evergreen/places/wulf-recreation-center/,"kept: Evergreen Park & Recreation District page read 17 Nov 2026: address, phone and hours match",decisions
 insideevergreenco.com,/privacy/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
+insideevergreenco.com,/restaurants/,301,/evergreen/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideevergreenco.com,/robots.txt,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insideevergreenco.com,/rss.xml,410,,a feed or calendar file of the closed guide; no page stands for it,routes
 insideevergreenco.com,/search/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
+insideevergreenco.com,/shops/,301,/evergreen/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideevergreenco.com,/sitemap-0.xml,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insideevergreenco.com,/sitemap-index.xml,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insideevergreenco.com,/submit-event/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
@@ -950,6 +957,8 @@ insideevergreenco.com,/thanks/,301,/evergreen/,a page of the closed guide; the t
 insideevergreenco.com,/things-to-do/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
 insideevergreenco.com,/this-week/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
 insideevergreenco.com,/this-weekend/,301,/evergreen/,a page of the closed guide; the town’s page on the hub,routes
+insideevergreenco.com,/trailheads/,301,/evergreen/places/,the directory and the picks pages are the index of kept pages,sitemap
+insideevergreenco.com,/venues/,301,/evergreen/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidefortcollins.com,/,301,/fort-collins/,the old home page is the town’s page on the hub,build
 insidefortcollins.com,/about/,301,/fort-collins/about/,the same page in the section,build
 insidefortcollins.com,/articles/colorado-state-for-visitors/,301,/fort-collins/articles/colorado-state-for-visitors/,kept: the guide in the section,build
@@ -1086,7 +1095,7 @@ insidefortcollins.com,/events/city-council-meeting-2026-10-20/,410,,past one-tim
 insidefortcollins.com,/events/city-council-meeting-2026-11-03.ics,410,,a past event’s calendar file,file
 insidefortcollins.com,/events/city-council-meeting-2026-11-03/,410,,past one-time event with no matching annual page,build
 insidefortcollins.com,/events/city-council-meeting-2026-11-17.ics,410,,a past event’s calendar file,file
-insidefortcollins.com,/events/city-council-meeting-2026-11-17/,410,,upcoming on the old guide but held back by the publish gate (no confirmation on its source),build
+insidefortcollins.com,/events/city-council-meeting-2026-11-17/,410,,past one-time event with no matching annual page,build
 insidefortcollins.com,/events/city-council-meeting-2026-12-01.ics,301,/fort-collins/events/city-council-meeting-2026-12-01.ics,the same page in the section,file
 insidefortcollins.com,/events/city-council-meeting-2026-12-01/,301,/fort-collins/events/city-council-meeting-2026-12-01/,carried over: the event’s page in the section,build
 insidefortcollins.com,/events/city-council-meeting-2026-12-15.ics,301,/fort-collins/events/city-council-meeting-2026-12-15.ics,the same page in the section,file
@@ -1124,7 +1133,7 @@ insidefortcollins.com,/events/colorado-state-university-men-s-basketball-vs-wyom
 insidefortcollins.com,/events/colorado-state-university-volleyball-vs-fresno-state-2026-11-12.ics,410,,a past event’s calendar file,file
 insidefortcollins.com,/events/colorado-state-university-volleyball-vs-fresno-state-2026-11-12/,410,,past one-time event with no matching annual page,build
 insidefortcollins.com,/events/colorado-state-university-volleyball-vs-texas-state-2026-11-17.ics,410,,a past event’s calendar file,file
-insidefortcollins.com,/events/colorado-state-university-volleyball-vs-texas-state-2026-11-17/,410,,upcoming on the old guide but held back by the publish gate (no confirmation on its source),build
+insidefortcollins.com,/events/colorado-state-university-volleyball-vs-texas-state-2026-11-17/,410,,past one-time event with no matching annual page,build
 insidefortcollins.com,/events/colorado-state-university-women-s-basketball-vs-boise-state-2027-03-03.ics,301,/fort-collins/events/colorado-state-university-women-s-basketball-vs-boise-state-2027-03-03.ics,the same page in the section,file
 insidefortcollins.com,/events/colorado-state-university-women-s-basketball-vs-boise-state-2027-03-03/,301,/fort-collins/events/colorado-state-university-women-s-basketball-vs-boise-state-2027-03-03/,carried over: the event’s page in the section,build
 insidefortcollins.com,/events/colorado-state-university-women-s-basketball-vs-fresno-state-2027-01-07.ics,301,/fort-collins/events/colorado-state-university-women-s-basketball-vs-fresno-state-2027-01-07.ics,the same page in the section,file
@@ -1379,7 +1388,7 @@ insidefortcollins.com,/events/groove-avenue-2026-11-20/,301,/fort-collins/events
 insidefortcollins.com,/events/guest-artist-concert-matt-boyle-percussion-free-date-has-cha-2026-11-05.ics,410,,a past event’s calendar file,file
 insidefortcollins.com,/events/guest-artist-concert-matt-boyle-percussion-free-date-has-cha-2026-11-05/,410,,past one-time event with no matching annual page,build
 insidefortcollins.com,/events/gulo-gulo-poetry-open-mic-6pm-workshop-4pm-free-2026-11-17.ics,410,,a past event’s calendar file,file
-insidefortcollins.com,/events/gulo-gulo-poetry-open-mic-6pm-workshop-4pm-free-2026-11-17/,410,,upcoming on the old guide but held back by the publish gate (no confirmation on its source),build
+insidefortcollins.com,/events/gulo-gulo-poetry-open-mic-6pm-workshop-4pm-free-2026-11-17/,410,,past one-time event with no matching annual page,build
 insidefortcollins.com,/events/gulo-gulo-poetry-open-mic-6pm-workshop-4pm-free-2026-12-15.ics,301,/fort-collins/events/gulo-gulo-poetry-open-mic-6pm-workshop-4pm-free-2026-12-15.ics,the same page in the section,file
 insidefortcollins.com,/events/gulo-gulo-poetry-open-mic-6pm-workshop-4pm-free-2026-12-15/,301,/fort-collins/events/gulo-gulo-poetry-open-mic-6pm-workshop-4pm-free-2026-12-15/,carried over: the event’s page in the section,build
 insidefortcollins.com,/events/gulo-gulo-poetry-open-mic-6pm-workshop-4pm-free-2027-01-19.ics,301,/fort-collins/events/gulo-gulo-poetry-open-mic-6pm-workshop-4pm-free-2027-01-19.ics,the same page in the section,file
@@ -2120,6 +2129,7 @@ insidegeorgetownco.com,/for-businesses/,301,/georgetown/,a page of the closed gu
 insidegeorgetownco.com,/guides/,301,/georgetown/places/,the directory and the picks pages are the index of kept pages,routes
 insidegeorgetownco.com,/message-sent/,301,/georgetown/,a page of the closed guide; the town’s page on the hub,routes
 insidegeorgetownco.com,/moving-here/,301,/georgetown/,a page of the closed guide; the town’s page on the hub,routes
+insidegeorgetownco.com,/parks/,301,/georgetown/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidegeorgetownco.com,/places/511-rose/,301,/georgetown/places/511-rose/,"kept: own site read 17 Nov 2026: address, phone and hours match; live-music days corrected to Friday and Saturday",decisions
 insidegeorgetownco.com,/places/alpine-hose-no-2-firefighting-museum/,301,/georgetown/places/alpine-hose-no-2-firefighting-museum/,"kept: Historic Georgetown page read 17 Nov 2026: closed for the season, open for the Christmas Market weekends; season fields updated",decisions
 insidegeorgetownco.com,/places/bierstadt-trailhead/,301,/georgetown/places/bierstadt-trailhead/,kept: Forest Service page read 17 Nov 2026: location and rules match,decisions
@@ -2151,6 +2161,7 @@ insidegeorgetownco.com,/thanks/,301,/georgetown/,a page of the closed guide; the
 insidegeorgetownco.com,/things-to-do/,301,/georgetown/,a page of the closed guide; the town’s page on the hub,routes
 insidegeorgetownco.com,/this-week/,301,/georgetown/,a page of the closed guide; the town’s page on the hub,routes
 insidegeorgetownco.com,/this-weekend/,301,/georgetown/,a page of the closed guide; the town’s page on the hub,routes
+insidegeorgetownco.com,/venues/,301,/georgetown/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidegolden.com,/,301,/golden/,the old home page is the town’s page on the hub,build
 insidegolden.com,/about/,301,/golden/,a page of the closed guide; the town’s page on the hub,build
 insidegolden.com,/articles/apex-white-ranch-and-lookout-mountain/,301,/golden/guides/apex-white-ranch-and-lookout-mountain/,kept: town-specific; main claims re-read on its sources 17 November 2026,build
@@ -2605,6 +2616,7 @@ insidegrandlake.com,/for-businesses/,301,/grand-lake/,a page of the closed guide
 insidegrandlake.com,/guides/,301,/grand-lake/places/,the directory and the picks pages are the index of kept pages,routes
 insidegrandlake.com,/message-sent/,301,/grand-lake/,a page of the closed guide; the town’s page on the hub,routes
 insidegrandlake.com,/moving-here/,301,/grand-lake/,a page of the closed guide; the town’s page on the hub,routes
+insidegrandlake.com,/parks/,301,/grand-lake/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidegrandlake.com,/places/adams-falls-via-east-inlet-trail/,301,/grand-lake/places/adams-falls-via-east-inlet-trail/,"kept: operating; NPS trail list moved to the park's hiking page (old list 404): 0.3 mile confirmed, unreadable figures removed",decisions
 insidegrandlake.com,/places/arapaho-national-recreation-area/,301,/grand-lake/places/arapaho-national-recreation-area/,kept: operating; fees and day-use match the Forest Service page; ramp closures line brought to 18 November,decisions
 insidegrandlake.com,/places/bob-scotts-authentic-indian-jewelry/,301,/grand-lake/places/bob-scotts-authentic-indian-jewelry/,"kept: re-check pending (kept, noindex, last checked date shown): unverifiable: own site answers 403 Forbidden; no other official page",decisions
@@ -2630,6 +2642,7 @@ insidegrandlake.com,/privacy/,301,/grand-lake/,a page of the closed guide; the t
 insidegrandlake.com,/robots.txt,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insidegrandlake.com,/rss.xml,410,,a feed or calendar file of the closed guide; no page stands for it,routes
 insidegrandlake.com,/search/,301,/grand-lake/,a page of the closed guide; the town’s page on the hub,routes
+insidegrandlake.com,/shops/,301,/grand-lake/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidegrandlake.com,/sitemap-0.xml,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insidegrandlake.com,/sitemap-index.xml,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insidegrandlake.com,/submit-event/,301,/grand-lake/,a page of the closed guide; the town’s page on the hub,routes
@@ -2637,6 +2650,7 @@ insidegrandlake.com,/thanks/,301,/grand-lake/,a page of the closed guide; the to
 insidegrandlake.com,/things-to-do/,301,/grand-lake/,a page of the closed guide; the town’s page on the hub,routes
 insidegrandlake.com,/this-week/,301,/grand-lake/,a page of the closed guide; the town’s page on the hub,routes
 insidegrandlake.com,/this-weekend/,301,/grand-lake/,a page of the closed guide; the town’s page on the hub,routes
+insidegrandlake.com,/venues/,301,/grand-lake/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideidahosprings.com,/,301,/idaho-springs/,the old home page is the town’s page on the hub,routes
 insideidahosprings.com,/about/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
 insideidahosprings.com,/articles/black-hawk-history/,301,/black-hawk/guides/black-hawk-history/,"kept: Black Hawk guide (off this guide since 20 Oct 2026); decided by the Black Hawk pass: town-specific; the City's History and Gregory Street Plaza pages re-read 17 Nov 2026, dates match",decisions
@@ -2651,6 +2665,7 @@ insideidahosprings.com,/articles/idaho-springs-history/,301,/idaho-springs/guide
 insideidahosprings.com,/articles/idaho-springs-with-kids/,301,/idaho-springs/guides/idaho-springs-with-kids/,"kept: town-specific; Historical Society, Argo and library district pages re-read 17 Nov 2026",decisions
 insideidahosprings.com,/articles/moving-to-black-hawk/,410,,"one of the old guide's moving-here pages, which are not carried; off this guide since 20 Oct 2026",decisions
 insideidahosprings.com,/articles/moving-to-georgetown/,410,,"one of the old guide's moving-here pages, which are not carried; it describes Georgetown as part of the retired Inside Clear Creek guide and lists no sources",decisions
+insideidahosprings.com,/bars-breweries/,301,/idaho-springs/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideidahosprings.com,/contact/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
 insideidahosprings.com,/correct/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
 insideidahosprings.com,/corrections/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
@@ -2726,9 +2741,12 @@ insideidahosprings.com,/events/werewolf-after-dark-2026-10-15/,410,,in Georgetow
 insideidahosprings.com,/events/witchy-wonders-storytime-2026-10-23/,410,,past one-time event,decisions
 insideidahosprings.com,/events/zombie-fun-run-2026-10-31/,410,,past one-time event,decisions
 insideidahosprings.com,/for-businesses/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
+insideidahosprings.com,/georgetown/,301,/georgetown/,the guide’s page for a town it covered: that town’s page on the hub,sitemap
 insideidahosprings.com,/guides/,301,/idaho-springs/places/,the directory and the picks pages are the index of kept pages,routes
+insideidahosprings.com,/idaho-springs/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,sitemap
 insideidahosprings.com,/message-sent/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
 insideidahosprings.com,/moving-here/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
+insideidahosprings.com,/parks/,301,/idaho-springs/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideidahosprings.com,/places/511-rose/,301,/georgetown/places/511-rose/,"kept: in Georgetown, file already restored by the Georgetown pass; own site read 17 Nov 2026: address, phone and hours match; live-music days corrected to Friday and Saturday",decisions
 insideidahosprings.com,/places/alpine-hose-no-2-firefighting-museum/,301,/georgetown/places/alpine-hose-no-2-firefighting-museum/,"kept: in Georgetown, file already restored by the Georgetown pass; Historic Georgetown page read 17 Nov 2026: closed for the season, open for the Christmas Market weekends; season fields updated",decisions
 insideidahosprings.com,/places/ameristar-black-hawk/,301,/black-hawk/places/ameristar-black-hawk/,"a black-hawk listing the guide carried for a while: re-check pending (kept, noindex, last checked date shown): unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch",history
@@ -2797,16 +2815,21 @@ insideidahosprings.com,/places/werlin-park-dog-park/,301,/georgetown/places/werl
 insideidahosprings.com,/places/westbound-and-down-brewing/,301,/idaho-springs/places/westbound-and-down-brewing/,"kept: re-check pending (kept, noindex, last checked date shown): unverifiable: westboundanddown.com answers with a Cloudflare bot check (403) on every page tried, also to WebFetch",decisions
 insideidahosprings.com,/places/white-buffalo-grille/,301,/black-hawk/places/white-buffalo-grille/,a black-hawk listing the guide carried for a while: restaurant's page read 17 Nov 2026: hours and phone match,history
 insideidahosprings.com,/privacy/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
+insideidahosprings.com,/restaurants/,301,/idaho-springs/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideidahosprings.com,/robots.txt,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insideidahosprings.com,/rss.xml,410,,a feed or calendar file of the closed guide; no page stands for it,routes
 insideidahosprings.com,/search/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
+insideidahosprings.com,/services/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,sitemap
+insideidahosprings.com,/shops/,301,/idaho-springs/places/,the directory and the picks pages are the index of kept pages,sitemap
 insideidahosprings.com,/sitemap-0.xml,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insideidahosprings.com,/sitemap-index.xml,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
+insideidahosprings.com,/stay/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,sitemap
 insideidahosprings.com,/submit-event/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
 insideidahosprings.com,/thanks/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
 insideidahosprings.com,/things-to-do/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
 insideidahosprings.com,/this-week/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
 insideidahosprings.com,/this-weekend/,301,/idaho-springs/,a page of the closed guide; the town’s page on the hub,routes
+insideidahosprings.com,/venues/,301,/idaho-springs/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidelafayette.com,/,301,/lafayette/,the old home page is the town’s page on the hub,build
 insidelafayette.com,/about/,301,/lafayette/,a page of the closed guide; the town’s page on the hub,build
 insidelafayette.com,/articles/bvsd-school-closures-and-lafayette/,301,/lafayette/guides/bvsd-school-closures-and-lafayette/,"kept: Lafayette-specific; BVSD Resilient Schools and Choice Enrollment pages re-read 2026-11-17, vote, closures list, lottery priority and dates all match",build
@@ -3496,7 +3519,7 @@ insidelongmontco.com,/events/pumpkin-pie-days-vintage-and-antique-market-2026-10
 insidelongmontco.com,/events/santa-visit-at-callahan-house-2026-12-10.ics,301,/longmont/events/santa-visit-at-callahan-house-2026-12-10.ics,the same page in the section,file
 insidelongmontco.com,/events/santa-visit-at-callahan-house-2026-12-10/,301,/longmont/events/santa-visit-at-callahan-house-2026-12-10/,carried over: the event’s page in the section,build
 insidelongmontco.com,/events/senior-center-50th-anniversary-celebration-2026-11-17.ics,410,,a past event’s calendar file,file
-insidelongmontco.com,/events/senior-center-50th-anniversary-celebration-2026-11-17/,410,,upcoming on the old guide but held back by the publish gate (no confirmation on its source),build
+insidelongmontco.com,/events/senior-center-50th-anniversary-celebration-2026-11-17/,410,,past one-time event with no matching annual page,build
 insidelongmontco.com,/events/show-next-stop-comedy-2026-11-14.ics,410,,a past event’s calendar file,file
 insidelongmontco.com,/events/show-next-stop-comedy-2026-11-14/,410,,past one-time event with no matching annual page,build
 insidelongmontco.com,/events/small-business-saturday-downtown-longmont-2026-11-28.ics,301,/longmont/events/small-business-saturday-downtown-longmont-2026-11-28.ics,the same page in the section,file
@@ -4159,6 +4182,7 @@ insidemanitousprings.com,/for-businesses/,301,/manitou-springs/,a page of the cl
 insidemanitousprings.com,/guides/,301,/manitou-springs/places/,the directory and the picks pages are the index of kept pages,routes
 insidemanitousprings.com,/message-sent/,301,/manitou-springs/,a page of the closed guide; the town’s page on the hub,routes
 insidemanitousprings.com,/moving-here/,301,/manitou-springs/,a page of the closed guide; the town’s page on the hub,routes
+insidemanitousprings.com,/parks/,301,/manitou-springs/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidemanitousprings.com,/places/adams-mountain-cafe/,301,/manitou-springs/places/adams-mountain-cafe/,"kept: operating; address, phone and hours read on its own page 17 Nov 2026",decisions
 insidemanitousprings.com,/places/barr-trail/,301,/manitou-springs/places/barr-trail/,"kept: operating; address, phone and hours read on its own page 17 Nov 2026",decisions
 insidemanitousprings.com,/places/broadmoor-manitou-and-pikes-peak-cog-railway/,301,/manitou-springs/places/broadmoor-manitou-and-pikes-peak-cog-railway/,"kept: operating; address, phone and hours read on its own page 17 Nov 2026",decisions
@@ -4187,9 +4211,11 @@ insidemanitousprings.com,/places/swirl-restaurant-and-wine-bar/,301,/manitou-spr
 insidemanitousprings.com,/places/the-cliff-house-at-pikes-peak/,301,/manitou-springs/places/the-cliff-house-at-pikes-peak/,"kept: operating; address, phone and hours read on its own page 17 Nov 2026",decisions
 insidemanitousprings.com,/places/villa-motel/,301,/manitou-springs/places/villa-motel/,"kept: operating; address, phone and hours read on its own page 17 Nov 2026",decisions
 insidemanitousprings.com,/privacy/,301,/manitou-springs/,a page of the closed guide; the town’s page on the hub,routes
+insidemanitousprings.com,/restaurants/,301,/manitou-springs/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidemanitousprings.com,/robots.txt,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insidemanitousprings.com,/rss.xml,410,,a feed or calendar file of the closed guide; no page stands for it,routes
 insidemanitousprings.com,/search/,301,/manitou-springs/,a page of the closed guide; the town’s page on the hub,routes
+insidemanitousprings.com,/shops/,301,/manitou-springs/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidemanitousprings.com,/sitemap-0.xml,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insidemanitousprings.com,/sitemap-index.xml,200,,served as it was: the pre-restructure sitemap and robots.txt; remove after 2027-05-17,routes
 insidemanitousprings.com,/submit-event/,301,/manitou-springs/,a page of the closed guide; the town’s page on the hub,routes
@@ -4197,6 +4223,7 @@ insidemanitousprings.com,/thanks/,301,/manitou-springs/,a page of the closed gui
 insidemanitousprings.com,/things-to-do/,301,/manitou-springs/,a page of the closed guide; the town’s page on the hub,routes
 insidemanitousprings.com,/this-week/,301,/manitou-springs/,a page of the closed guide; the town’s page on the hub,routes
 insidemanitousprings.com,/this-weekend/,301,/manitou-springs/,a page of the closed guide; the town’s page on the hub,routes
+insidemanitousprings.com,/venues/,301,/manitou-springs/places/,the directory and the picks pages are the index of kept pages,sitemap
 insidenederland.com,/,301,/nederland/,the old home page is the town’s page on the hub,build
 insidenederland.com,/about/,301,/nederland/,a page of the closed guide; the town’s page on the hub,build
 insidenederland.com,/articles/before-you-drive-to-hessie/,301,/nederland/guides/before-you-drive-to-hessie/,"kept: town-specific; shuttle, parking, distances and wilderness rules re-read on the county and Forest Service pages",build

@@ -12014,6 +12014,18 @@ layout changes to the hub's pages beyond the links named.*
   announced, and the Outlets at Castle Rock's November 14 lighting (read
   on its page on November 13) has passed: neither shows a date to come
   that is not confirmed.
+- **Every folded domain serves the sitemap it had.** The #461 check found
+  the seven guides retired before the restructure (Black Hawk, Evergreen,
+  Fort Lupton, Georgetown, Grand Lake, Idaho Springs, Manitou Springs)
+  answering 301 for `/sitemap-index.xml` and `/sitemap-0.xml`: the
+  inventory copied sitemaps only from the builds at 7141d032, where those
+  seven no longer built one. The owner wants each served with a 200 so
+  Google finds the redirects. Six are the files their last live
+  deployments served, read from Vercel; Fort Lupton's live week left no
+  deployment, so its sitemap is rebuilt from its page addresses and says
+  so. The 27 addresses only those sitemaps listed are rows of the map
+  now, each to its town's places index or page (the Clear Creek guide's
+  `/georgetown/` to Georgetown's page).
 - **Check dates are Denver's day.** The records read on the evening of
   November 17 in Colorado (after midnight UTC) carry 2026-11-17, as
   test/check-dates.test.ts requires.
