@@ -124,26 +124,22 @@ test('an address line is split into its parts where it ends in a town and the st
   const { postalAddress } = await import('../src/lib/seo.ts');
   const town = { name: 'Estes Park', state: 'CO' };
   assert.deepEqual(postalAddress('333 E. Wonderview Avenue, Estes Park, CO 80517', town), {
-    '@type': 'PostalAddress', streetAddress: '333 E. Wonderview Avenue', addressLocality: 'Estes Park', addressRegion: 'CO', postalCode: '80517',
-  });
+    '@type': 'PostalAddress', streetAddress: '333 E. Wonderview Avenue', addressLocality: 'Estes Park', addressRegion: 'CO', postalCode: '80517', addressCountry: 'US' });
   // The town on the line is the postal one, which need not be the guide's.
   assert.deepEqual(postalAddress('11600 N. 75th St., Longmont, CO, 80503', town), {
-    '@type': 'PostalAddress', streetAddress: '11600 N. 75th St.', addressLocality: 'Longmont', addressRegion: 'CO', postalCode: '80503',
-  });
+    '@type': 'PostalAddress', streetAddress: '11600 N. 75th St.', addressLocality: 'Longmont', addressRegion: 'CO', postalCode: '80503', addressCountry: 'US' });
   assert.deepEqual(postalAddress('1019 Ford Street, Golden, CO', town), {
-    '@type': 'PostalAddress', streetAddress: '1019 Ford Street', addressLocality: 'Golden', addressRegion: 'CO',
-  });
+    '@type': 'PostalAddress', streetAddress: '1019 Ford Street', addressLocality: 'Golden', addressRegion: 'CO', addressCountry: 'US' });
   assert.equal(postalAddress('101 Second Avenue, Suite B, Niwot, CO 80503', town).streetAddress, '101 Second Avenue, Suite B');
   assert.equal(postalAddress('4th Ave & Kimbark St, Longmont, CO 80501', town).postalCode, '80501');
   // A bare street, or directions, is the street line in the guide's town.
   assert.deepEqual(postalAddress('100 N 5th St', town), {
-    '@type': 'PostalAddress', streetAddress: '100 N 5th St', addressLocality: 'Estes Park', addressRegion: 'CO',
-  });
+    '@type': 'PostalAddress', streetAddress: '100 N 5th St', addressLocality: 'Estes Park', addressRegion: 'CO', addressCountry: 'US' });
   assert.equal(
     postalAddress('Colorado Highway 7, 5.8 miles south of Estes Park (on the right heading south)', town).streetAddress,
     'Colorado Highway 7, 5.8 miles south of Estes Park (on the right heading south)',
   );
-  assert.deepEqual(postalAddress(undefined, town), { '@type': 'PostalAddress', addressLocality: 'Estes Park', addressRegion: 'CO' });
+  assert.deepEqual(postalAddress(undefined, town), { '@type': 'PostalAddress', addressLocality: 'Estes Park', addressRegion: 'CO', addressCountry: 'US' });
 });
 
 test('an event\'s offer carries a number where the cost line gives one, and the words always', async () => {

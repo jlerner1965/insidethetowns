@@ -4,8 +4,8 @@ kind: class
 topic: sports
 audience: [babies, preschool, elementary, teens]
 organizer: "Carbon Valley Parks and Recreation District"
-organizerUrl: "https://www.cvprd.com/"
-url: "https://www.cvprd.com/swim-lessons"
+organizerUrl: "https://www.carbonvalleyrec.gov/"
+url: "https://www.carbonvalleyrec.gov/swim-lessons"
 summary: "Group lessons from six months old through Stroke School, on Tuesday and Thursday evenings or Saturday mornings in four-week sessions. The last session of the year runs November 17 to December 19; registration is November 9 to 12, district residents first."
 ages: "6–35 months with a parent (StarBabies and StarTots); 3–13 by level; Stroke School 6–16"
 location: "Carbon Valley Recreation Center pools, 701 5th St"
@@ -16,7 +16,7 @@ ends: "2026-12-19"
 price: "Not listed on the lessons page; see the district’s rates page or the catalog"
 registration: { required: true, how: "Online in the CivicRec catalog from 7 am on the first day for district residents, two days later for non-residents; closes at 5 pm on the last day", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog", opens: "2026-11-09", deadline: "2026-11-12" }
 contact: "Tessa Shorten, Aquatics Coordinator, 303-833-3660 x120, tshorten@cvprd.com"
-source: "https://www.cvprd.com/swim-lessons"
+source: "https://www.carbonvalleyrec.gov/swim-lessons"
 verified: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 ---

@@ -7,7 +7,7 @@ venue: "Candlelight Dinner Playhouse"
 address: "4747 Marketplace Dr"
 performers:
   - { name: "Candlelight Dinner Playhouse", kind: group }
-url: "https://coloradocandlelight.com/show/les-miserables-johnstown-colorado/"
+url: "https://coloradocandlelight.com/shows/"
 cost: "$115–$125 adults, $80 youth 13–18, $70 children 12 and under, plus a $6 reservation fee per ticket; dinner included"
 category: arts
 timeNote: "Through Nov 15; see box office for times"

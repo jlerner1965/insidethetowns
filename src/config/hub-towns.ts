@@ -123,12 +123,13 @@ export interface HubTown {
    * its row in IMAGE_LICENSES.csv; a showpiece without one draws the town's
    * horizon rather than borrow one. `intro` is
    * one line on what the page is. Since the publication redesign of 14
-   * November 2026 the dates take every town's layout: the spotlight and the
-   * year by season are not drawn, and the intros no longer say "season by
-   * season". `spotlight` stays on file, unused.
+   * November 2026 the dates take every town's layout: the year by season
+   * is not drawn, and the intros no longer say "season by season". The
+   * spotlight is drawn again since 17 November 2026, in that layout: first
+   * under Events, and first in the page's title and description.
    */
   showpiece?: {
-    /** The record the spotlight block showed, before the redesign of 14 November 2026; not drawn now. */
+    /** The record the page leads with: "The one to know", first under Events (src/routes/hub/town.astro). */
     spotlight: string;
     intro: string;
     /**
@@ -234,7 +235,7 @@ export const HUB_TOWNS: readonly HubTown[] = [
     signature: { kind: 'fish-stocking', waters: [{ name: 'Lake Estes', ids: [795] }] },
     showpiece: {
       spotlight: 'estes-park-frozen-dead-guy-days',
-      intro: 'What Estes Park puts on through the year, and the dates Rocky Mountain National Park sets beside it.',
+      intro: 'What Estes Park puts on through the year, Frozen Dead Guy Days first, and the dates Rocky Mountain National Park sets beside it.',
       hero: {
         // The Estes Park guide's hero, bought from Adobe Stock on 30 October
         // 2026 (PERMISSIONS.md, Stock licences); the same file, on the hub.

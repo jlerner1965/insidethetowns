@@ -288,11 +288,11 @@ export const carbonValley: TownConfig = {
         verified: '2026-11-02',
         items: [
           { label: 'CVPRD registration (CivicRec)', url: 'https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog', note: 'Classes, camps, leagues and lessons; district residents register first, non-residents a week or two later; 303-833-3660', track: 'registration' },
-          { label: 'Carbon Valley Recreation Center, 701 5th St', url: 'https://www.cvprd.com/hours-of-operation', note: 'Mon–Fri 5:30 am–9 pm, Sat 7:30–5, Sun 10–5; a visit $5.50 for district adults and $8 for others, youth $4 and $6; check your address under “Carbon Valley Rec” on the Weld property portal' },
-          { label: 'Pool schedule', url: 'https://www.cvprd.com/pool-schedule', note: 'Open swim Mon/Wed/Fri 1–8:30 pm, Tue/Thu 1–4:15, Sat 11–4:30, Sun 10–4:30 through January 3; school-break days from 11 am' },
+          { label: 'Carbon Valley Recreation Center, 701 5th St', url: 'https://www.carbonvalleyrec.gov/hours-of-operation', note: 'Mon–Fri 5:30 am–9 pm, Sat 7:30–5, Sun 10–5; a visit $5.50 for district adults and $8 for others, youth $4 and $6; check your address under “Carbon Valley Rec” on the Weld property portal' },
+          { label: 'Pool schedule', url: 'https://www.carbonvalleyrec.gov/pool-schedule', note: 'Open swim Mon/Wed/Fri 1–8:30 pm, Tue/Thu 1–4:15, Sat 11–4:30, Sun 10–4:30 through January 3; school-break days from 11 am' },
           { label: 'Town parks and facilities', url: 'https://www.frederickco.gov/Facilities', note: '26 developed parks and 21 miles of trails, as the Town counts them; shelter reservations at Crist Park, Centennial Park and the Frederick Recreation Area close September 30 to February 1; Parks and Open Space 720-382-5805' },
           { label: 'Bella Rosa Golf Course', url: 'https://bellarosagolf.com/course-rates/', note: 'The Town’s nine-hole course, 5830 Bella Rosa Pkwy; $19 for nine holes walking on weekdays, $24 Friday to Sunday; 303-678-2940' },
-          { label: 'Active adults, 55 and over', url: 'https://www.cvprd.com/active-adults-community-center', note: 'The district’s Community Center, 151 Grant Ave, Firestone, weekdays 8–4: drop-ins, day trips and the Friendly Fork lunch Tuesdays and Thursdays at noon; 303-833-3660 x123' },
+          { label: 'Active adults, 55 and over', url: 'https://www.carbonvalleyrec.gov/active-adults-community-center', note: 'The district’s Community Center, 151 Grant Ave, Firestone, weekdays 8–4: drop-ins, day trips and the Friendly Fork lunch Tuesdays and Thursdays at noon; 303-833-3660 x123' },
         ],
       },
       {

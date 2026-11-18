@@ -9,7 +9,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import TipsLink from '@/components/TipsLink.astro';
-import { getNetworkHub, getSite, liveTowns } from '@/config';
+import { getNetworkHub, getSite, listsEvents, liveTowns } from '@/config';
 import { PHOTO_ACCEPTED, PHOTO_CREDIT, PHOTO_NOT_COPIED, PHOTO_PERMISSION } from '@/lib/photo-policy';
 
 const site = getSite();
@@ -74,6 +74,8 @@ const live = liveTowns();
       record and the listing is a pointer to it.
     </p>
 
+    {/* Not on a guide that lists no events (Niwot). */}
+    {listsEvents(site) && <Fragment>
     <h2>Events</h2>
     <p>
       No event is listed without a source. Dates are checked against the weekday they claim to fall on, which is what
@@ -82,6 +84,7 @@ const live = liveTowns();
       “Every week” with its next date, and anything else repeating is listed date by date, each one read from the
       organizer’s own page. Past events drop off on their own.
     </p>
+    </Fragment>}
 
     {/* One policy in one set of words (src/lib/photo-policy.ts). This said
         businesses' own marketing photographs "are not used" while the

@@ -2,7 +2,7 @@
 title: "Inside Frederick, the weekend of November 6–8"
 date: "2026-11-05"
 excerpt: "3 things on in Frederick this weekend, November 6–8: First Friday at the Miners Memorial Museum, Fall Babysitting Class, Medieval Garb Workshop."
-towns: [frederick]
+towns: [carbon-valley]
 ---
 
 **Inside Frederick** · November 5, 2026

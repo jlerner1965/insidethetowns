@@ -2,8 +2,8 @@
 title: "Carbon Valley Gymnastics Center"
 type: venue
 address: "6615 Frederick Way, Frederick, CO 80530"
-url: "https://www.cvprd.com/carbon-valley-gymnastics-center"
-source: "https://www.cvprd.com/hours-of-operation"
+url: "https://www.carbonvalleyrec.gov/carbon-valley-gymnastics-center"
+source: "https://www.carbonvalleyrec.gov/hours-of-operation"
 verified: "2026-11-02"
 added: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
@@ -11,7 +11,7 @@ phone: "303-833-2765"
 hours: "Mon & Wed 9–11:15 am and 3:45–8:30 pm; Tue & Thu 9–11:15 am and 3:45–8 pm; Fri 9 am–noon and 3:45–6 pm; Sat 8:45 am–12:45 pm; closed Sun"
 tags: [gymnastics, open-gym, foam-pit, kids]
 details:
-  source: "https://www.cvprd.com/carbon-valley-gymnastics-center"
+  source: "https://www.carbonvalleyrec.gov/carbon-valley-gymnastics-center"
   checked: "2026-11-12"
 summary: "The recreation district’s gymnastics building on Frederick Way: a competition floor, an in-ground tumble track into a foam pit and preschool equipment, with classes from age 2 and open gym on Friday mornings and Saturday middays."
 ---

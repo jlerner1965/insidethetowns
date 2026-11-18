@@ -6,6 +6,7 @@
 import { LEAGUE_SPELLINGS, schoolsFor, schoolTeamName, sportsDataFile, type HostedRound, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { POSTSEASON, type PostseasonGame } from '../config/postseason.ts';
 import { primaryHover } from '../config/palette.ts';
+import { schoolTrim } from '../config/school-colors.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock, TIME_ZONE } from './dates.ts';
 import { addFirstFitting } from './plain-text.ts';
 import { TITLE_LIMIT } from './titles.ts';
@@ -15,13 +16,17 @@ import { TITLE_LIMIT } from './titles.ts';
  * that wraps the sports page or the home page's game strip. Base.astro sets
  * the town's on <html>; a custom property is computed where it is declared,
  * so the line colour derived from it in global.css is set here again, or it
- * would stay the town's. Nothing where the school has no colour.
+ * would stay the town's. Nothing where the school has no colour. The trim
+ * (schoolTrim) takes the accent's place the same way, and `--school-loss`
+ * is the loss pill's fill where the school's second colour is dark.
  */
 export function schoolCssVars(school: SchoolSports | undefined): string | undefined {
   const primary = school?.colors?.primary;
   if (!primary) return undefined;
   const hover = primaryHover(primary);
   const line = `color-mix(in srgb, ${primary} 25%, #ffffff)`;
+  const trim = schoolTrim(school!.colors!);
+  const soft = trim && `color-mix(in srgb, ${trim.accent} 16%, #ffffff)`;
   // Both names: Tailwind's utilities read the town's (`bg-primary` is
   // `var(--town-primary)`), the stylesheet's own rules (.btn-primary,
   // .eyebrow) read the theme's, which the root resolved to the town's.
@@ -32,6 +37,8 @@ export function schoolCssVars(school: SchoolSports | undefined): string | undefi
     `--color-primary:${primary}`,
     `--color-primary-hover:${hover}`,
     `--color-primary-line:${line}`,
+    ...(trim ? [`--town-accent:${trim.accent}`, `--t-accent-soft:${soft}`, `--color-accent:${trim.accent}`, `--color-accent-soft:${soft}`] : []),
+    ...(trim?.loss ? [`--school-loss:${trim.loss}`] : []),
   ].join(';');
 }
 
@@ -317,6 +324,9 @@ export function postseasonSource(teams: readonly Pick<SportData, 'upcoming'>[]):
   return teams.flatMap((t) => t.upcoming).find((g) => g.chsaa)?.chsaa;
 }
 
+/** A venue line that names a round of a bracket, not a place. */
+const ROUND_NAME = /\bround\s+\d+\b|\b(?:quarter|semi)finals?\b|^(?:state\s+)?playoffs?\b/i;
+
 /** The stages a game carries when MaxPreps names no tournament, only the kind of game: a state stage replaces them. */
 const GENERIC_STAGES = new Set(['Playoffs', 'Tournament']);
 
@@ -335,6 +345,12 @@ export function correctedGame(g: SportGame, sport: Pick<SportConfig, 'state'> | 
   if (host) {
     const { neutral: _neutral, venue: _venue, ...rest } = g;
     return { ...rest, site: 'home', stage: host.stage };
+  }
+  // MaxPreps's venue field sometimes holds the round ("State Playoffs Round
+  // 1", Windsor football, 6 November 2026): a stage, not a place to print.
+  if (g.venue && ROUND_NAME.test(g.venue)) {
+    const { venue: _round, ...rest } = g;
+    return rest;
   }
   return g;
 }
@@ -412,12 +428,28 @@ export function seasonOver(team: Pick<SportData, 'results' | 'upcoming' | 'overa
   return Boolean(team.overall) && playedOut(team, today);
 }
 
-/** At least one result, nothing to come, and the last game more than SEASON_OVER_DAYS behind. */
+/** A loss in the state postseason this many days behind, with nothing to come, ends the season without the week's wait. */
+export const POSTSEASON_LOSS_DAYS = 2;
+
+/** A stage of the state postseason: "State Football Playoffs", "State Volleyball Championships". */
+export const isPostseasonStage = (stage: string | undefined): boolean => !!stage && /\bstate\b|\bplayoffs?\b/i.test(stage);
+
+/**
+ * At least one result, nothing to come, and the last game more than
+ * SEASON_OVER_DAYS behind; or, sooner, the last game a loss in the state
+ * postseason more than POSTSEASON_LOSS_DAYS behind. The week's wait is for
+ * a team that won and awaits a draw; a team beaten at state on a Friday
+ * read "nothing scheduled yet" until the next weekend (four pages, the
+ * audit of 17 November 2026). The two days leave room for a bracket with a
+ * second game the next day.
+ */
 function playedOut(team: Pick<SportData, 'results' | 'upcoming'>, today: string): boolean {
   if (team.results.length === 0) return false;
   if (team.upcoming.some((g) => g.date >= today)) return false;
   const last = lastGameDate(team, today)!;
   const gap = (Date.parse(`${today}T12:00:00Z`) - Date.parse(`${last}T12:00:00Z`)) / 86_400_000;
+  const final = team.results[0]!;
+  if (final.date === last && final.result === 'L' && isPostseasonStage(final.stage) && gap > POSTSEASON_LOSS_DAYS) return true;
   return gap > SEASON_OVER_DAYS;
 }
 
@@ -559,8 +591,8 @@ export function shortWhen(g: SportGame): string {
  * The team page's meta description, built from the data: "Berthoud High
  * football is 7-2 this fall. Next: at Severance, Friday Oct 30, 7 pm.
  * Every score and the full schedule, from MaxPreps." With nothing to come
- * and games played, "Regular season complete." stands where the next game
- * would, with the last game after it; a stage MaxPreps gives follows the
+ * and games played, "Regular season complete." (or "Season over.", after a
+ * postseason game) stands where the next game would, with the last game after it; a stage MaxPreps gives follows the
  * game. Kept within the snippet's 155 characters.
  */
 export function teamDescription(school: Pick<SchoolSports, 'school'>, team: SportData, seasonWord: string, now = new Date()): string {
@@ -571,7 +603,8 @@ export function teamDescription(school: Pick<SchoolSports, 'school'>, team: Spor
   const then = next
     ? `Next: ${where(next)} ${next.opponent}, ${shortWhen(next)}${next.stage ? `, ${next.stage}` : ''}.`
     : team.results.length
-      ? 'Regular season complete.'
+      // A season that ended in the playoffs is over, not only its regular part.
+      ? isPostseasonStage(team.results[0]!.stage) ? 'Season over.' : 'Regular season complete.'
       : '';
   // With nothing to come, the last game played says more than the record alone.
   // A meet without a place to report ("at Sterling") is left out.

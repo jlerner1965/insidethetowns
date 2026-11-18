@@ -62,10 +62,10 @@ test('every guide has the same menu, built from what it has: the week (Updates o
   }
   // Berthoud lists ten open shops or more, so Shops follows Eat & drink (the owner, 7 November 2026).
   assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Shops', 'Families', 'Living here', 'Guides']);
-  // Lyons leads with the outdoors since 12 November 2026: it still follows Lyons Middle/Senior High, and the menu has no sports item.
-  assert.ok(schoolsFor('lyons').length > 0, 'Lyons still follows its school');
+  // Lyons leads with the outdoors since 12 November 2026 and follows no school since 17 November: no sports item, Trails in its slot.
+  assert.deepEqual(schoolsFor('lyons'), []);
   assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/'), undefined);
-  assert.deepEqual(townNav(by('lyons')).map((n) => n.label), ['This week', 'Things to do', 'Eat & drink', 'Families', 'Living here', 'Guides']);
+  assert.deepEqual(townNav(by('lyons')).map((n) => n.label), ['This week', 'Things to do', 'Trails', 'Eat & drink', 'Families', 'Living here', 'Guides']);
   // Niwot is a quiet guide since 12 November 2026: Updates first, Athletics kept, never Events.
   assert.deepEqual(townNav(by('niwot')).map((n) => n.label), ['Updates', 'Things to do', 'Athletics', 'Eat & drink', 'Shops', 'Families', 'Living here', 'Guides']);
   assert.equal(townNav(by('niwot'))[0]?.href, '/updates/');

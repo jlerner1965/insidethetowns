@@ -4,7 +4,7 @@ start: "2026-11-19T16:15"
 end: "2026-11-19T17:15"
 venue: "Erie Community Library"
 url: "https://highplains.libcal.com/event/17625472"
-category: music
+category: arts
 source: "https://highplains.libcal.com/event/17625472"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17625472"

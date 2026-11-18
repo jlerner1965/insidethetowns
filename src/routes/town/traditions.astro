@@ -116,7 +116,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? town.social.email}?subject=${en
   {seoTitle}
   eyebrow={`${town.name} traditions`}
   {description}
-  intro="The events this town holds every year and the outdoor dates around it, with the date where it has been set, and where we read it."
+  intro={`The events held in ${town.name} every year and the outdoor dates around it, with the date where it has been set, and where we read it.`}
   jsonLd={structured}
 >
   {dated.length > 0 && (

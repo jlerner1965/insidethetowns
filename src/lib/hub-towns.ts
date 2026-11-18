@@ -11,7 +11,7 @@
  * It never imports astro:content or node:fs.
  */
 import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide, type HubTown } from '../config/hub-towns.ts';
-import { formatMonthDay, parseLocal } from './dates.ts';
+import { dayKey, formatMonthDay, parseLocal } from './dates.ts';
 import { CURRENT_SEASONS, TRADITION_TYPE_INFO, byNextDate, countsAsVerified, hasVerifiedDate, isAgencyDate, isListed, isUpcoming, nextRow, type TraditionRecord, type TraditionRow } from './traditions.ts';
 import { TITLE_LIMIT } from './titles.ts';
 
@@ -194,6 +194,14 @@ export function showings(record: TraditionRecord, ctx: ShowingContext): Showing[
   return out;
 }
 
+/** A meta description's length, as src/components/SEO.astro clamps it. */
+const DESCRIPTION_LIMIT = 155;
+
+/** The first wording that fits a meta description whole; the last where none does. */
+export function firstFitting(wordings: readonly string[], limit = DESCRIPTION_LIMIT): string {
+  return wordings.find((w) => w.length <= limit) ?? wordings[wordings.length - 1]!;
+}
+
 /**
  * A town page's title and description for a search result: the town, the
  * year its next dates fall in, and the next two or three traditions with a
@@ -201,28 +209,41 @@ export function showings(record: TraditionRecord, ctx: ShowingContext): Showing[
  * published, so the line is as true as the page; a town with none ahead
  * says what the page holds and names no event.
  */
-export function townSearchText(name: string, traditions: readonly TraditionRow[]): { seoTitle: string; description: string } {
-  const next = traditions.filter(isUpcoming).sort((a, b) => a.entry.date!.localeCompare(b.entry.date!)).slice(0, 3);
+export function townSearchText(name: string, traditions: readonly TraditionRow[], spotlight?: string, today: string = dayKey(new Date())): { seoTitle: string; description: string } {
+  // A showpiece's spotlight leads the title and the list while its date is set, whatever falls before it.
+  const upcoming = traditions.filter(isUpcoming).sort((a, b) => a.entry.date!.localeCompare(b.entry.date!));
+  const lead = spotlight ? upcoming.find((r) => r.record.slug === spotlight) : undefined;
+  const next = (lead ? [lead, ...upcoming.filter((r) => r !== lead)] : upcoming).slice(0, 3);
   if (next.length === 0) {
     return {
       seoTitle: `${name}, Colorado: annual events and outdoor dates`,
-      description: `${name}, Colorado’s annual events and outdoor dates: the date each organizer or agency has published, or that it has not yet, with the page it was read from.`,
+      description: firstFitting([
+        `${name}, Colorado’s annual events and outdoor dates: the date each organizer or agency has published, or that it has not yet, with the page it was read from.`,
+        `${name}, Colorado’s annual events and outdoor dates: the date each organizer or agency has published, or that it has not yet.`,
+      ]),
     };
   }
-  const day = (r: TraditionRow) => formatMonthDay(parseLocal(r.entry.date!));
-  const first = next[0]!.entry.date!.slice(0, 4);
-  const last = next[next.length - 1]!.entry.date!.slice(0, 4);
+  // A run already under way is named by the day it ends, not a start that has passed.
+  const day = (r: TraditionRow) =>
+    r.entry.date! < today && r.entry.endDate && r.entry.endDate >= today ? `through ${formatMonthDay(parseLocal(r.entry.endDate))}` : formatMonthDay(parseLocal(r.entry.date!));
+  const yearsOf = next.map((r) => r.entry.date!.slice(0, 4)).sort();
+  const first = yearsOf[0]!;
+  const last = yearsOf[yearsOf.length - 1]!;
   const years = first === last ? first : `${first}–${last.slice(2)}`;
   const list = next.map((r) => `${r.record.name} (${day(r)}${r.entry.date!.slice(0, 4) === first ? '' : `, ${r.entry.date!.slice(0, 4)}`})`);
-  const words = list.length === 1 ? list[0] : `${list.slice(0, -1).join(', ')} and ${list[list.length - 1]}`;
+  const words = (n: number) => (n === 1 ? list[0]! : `${list.slice(0, n - 1).join(', ')} and ${list[n - 1]}`);
   // A title a result page cuts short says less than a shorter one.
   const named = `${name}, Colorado events ${years}: ${next[0]!.record.name} and annual dates`;
+  // The description whole, never cut mid-sentence (the audit of 17 November 2026: 54 town pages ended on an ellipsis):
+  // the closing sentence shortens first, then the list.
+  const tails = [' Every annual event and outdoor date, with the date its organizer has published and the page it was read from.', ' Every annual event and outdoor date, each with the page it was read from.', ' Every annual event and outdoor date, with its source.', ''];
+  const counts = list.map((_, i) => list.length - i);
   return {
     seoTitle:
       // "events" in every shape, the word people search with (the search audit of 13 November 2026).
       [named, `${name}, Colorado events ${years}: ${next[0]!.record.name}`, `${name}, CO events ${years}: ${next[0]!.record.name}`].find((t) => t.length <= TITLE_LIMIT) ??
       `${name}, Colorado events and annual dates, ${years}`,
-    description: `${name}, Colorado in ${years}: ${words}. Every annual event and outdoor date, with the date its organizer has published and the page it was read from.`,
+    description: firstFitting(counts.flatMap((n) => tails.map((tail) => `${name}, Colorado in ${years}: ${words(n)}.${tail}`))),
   };
 }
 
@@ -350,14 +371,18 @@ export function eventPath(record: TraditionRecord, published: ReadonlySet<string
  * one address or one that takes a route the hub already has, when two
  * records share a path or a town's slug is a reserved first segment
  * (`reserved`: the hub's fixed routes, src/integrations/town-routes.ts).
+ *
+ * A free-admission day that has passed is on no page (isListed), so it has
+ * no page of its own either until its next date is on file: the audit of
+ * 17 November 2026 found five such pages in the sitemap with no link to them.
  */
-export function hubEventPages(records: readonly TraditionRecord[], published: ReadonlySet<string>, reserved: Iterable<string> = []): HubEventPage[] {
+export function hubEventPages(records: readonly TraditionRecord[], published: ReadonlySet<string>, reserved: Iterable<string> = [], today: string = dayKey(new Date())): HubEventPage[] {
   const taken = new Set([...reserved].map((s) => s.replace(/^\/|\/$/g, '').split('/')[0]!).filter(Boolean));
   const out: HubEventPage[] = [];
   const seen = new Map<string, string>();
   for (const record of records) {
     const path = eventPath(record, published);
-    if (!path) continue;
+    if (!path || !isListed(nextRow(record, today))) continue;
     const [town, event] = path.split('/').filter(Boolean) as [string, string];
     if (taken.has(town)) throw new Error(`Event page ${path} (${record.slug}) shadows the hub's /${town}/ route.`);
     const other = seen.get(path);

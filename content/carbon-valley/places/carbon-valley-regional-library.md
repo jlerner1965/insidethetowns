@@ -22,4 +22,4 @@ imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 
 The High Plains Library District's Carbon Valley branch serves Frederick, Firestone and Dacono from 7 Park Avenue in Firestone, open until 8 pm Monday to Thursday, 10 to 5 Friday and Saturday and 1 to 5 on Sunday. The district's page lists two meeting rooms residents can reserve, four study rooms, a vending cafe and patio, a Spanish-language collection and large print, storytimes for children from birth to six, a Teen Advisory Board, book groups, job-search help and adult computer classes. Its events are on the district's [LibCal calendar](https://highplains.libcal.com/calendar/hpld?cid=8181&t=d&d=0000-00-00&cal=8181&cm=4554&inc=0), and this guide's [Families](/families/) pages list the regular programs.
 
-Holiday closures this season, from the district's page: Veterans Day, November 11; Thanksgiving, November 26 (closes at 5 pm the day before); December 24 and 25; and the library closes at 5 pm on New Year's Eve.
+Holiday closures this season, from the district's page: Thanksgiving, November 26 (closes at 5 pm the day before); December 24 and 25; and the library closes at 5 pm on New Year's Eve.

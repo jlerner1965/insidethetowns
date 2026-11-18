@@ -54,9 +54,11 @@ export function heroLine(town: Pick<TownConfig, 'name' | 'home' | 'visitorGuide'
     const line = changes ? `What’s new in ${town.name}, and what to know` : `What to know in ${town.name}`;
     return { short: line, long: line };
   }
-  // An outdoors-led guide (`lead: 'outdoors'`) leads with the outdoor dates.
+  // An outdoors-led guide (`lead: 'outdoors'`) opens on its trails and parks
+  // (TownHome's first section; "the outdoor dates" until 17 November 2026,
+  // which the page showed only when two local ones had a date set).
   if (town.lead === 'outdoors') {
-    const line = `The outdoor dates around ${town.name}, and what’s on this week`;
+    const line = `Trails and parks around ${town.name}, and what’s on this week`;
     return { short: line, long: pick ? `${line}, with the one we’d go to` : line };
   }
   const on = `What’s on in ${town.name} this week`;

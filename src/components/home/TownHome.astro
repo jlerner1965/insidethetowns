@@ -70,7 +70,8 @@ import { dayKey, formatDayShort, formatTimeRange } from '@/lib/dates';
 import { resolveSiteImage } from '@/lib/images';
 import { firstSentence } from '@/lib/plain-text';
 import { eventDescription } from '@/lib/seo';
-import { isOpen } from '@/lib/places';
+import { byProminence, isOpen } from '@/lib/places';
+import { countByType, PLACE_TYPE_PAGES, placeTypePages } from '@/lib/place-types';
 import { hasData, sportsDataFor } from '@/lib/school-sports';
 import { currentUpdates, isNew, isTimely } from '@/lib/updates';
 import { formatDate } from '@/lib/dates';
@@ -100,6 +101,13 @@ const anyDates = dates.outdoor.length + dates.traditions.length > 0;
 const localLines = Object.fromEntries(dates.outdoor.map((r) => [r.record.slug, place ? lineFor(r.record, place) : undefined]));
 /** The guide's dates under Worth knowing, on a sports-led guide; an outdoors-led one has them at the top of the page. */
 const worthDates = !outdoorsLed && anyDates ? { dates, town: town.name, lines: localLines } : undefined;
+
+// An outdoors-led guide opens on its trails and parks (the owner, 17
+// November 2026): the featured ones first, each with its line, then the
+// pages that list them all. Nothing where the guide lists none.
+const OUTDOOR_ROWS = 5;
+const outdoorPlaces = outdoorsLed ? (await getTownEntries('places')).filter((p) => isOpen(p) && (p.data.type === 'trail' || p.data.type === 'park')).sort(byProminence) : [];
+const outdoorPages = placeTypePages(countByType(outdoorPlaces)).filter((t) => t === 'trail' || t === 'park');
 
 // 2. The school. One school: its strip. Several: the shared one. None on
 // an outdoors-led guide, whose home page carries no sports.
@@ -280,6 +288,30 @@ if (featured) {
 )}
 
 {school && !quietGuide && <SportsBar town={town} />}
+
+{/* An outdoors-led guide (Lyons): the trails, the river and the parks
+    first, ahead of the week (the owner, 17 November 2026). */}
+{outdoorPlaces.length > 0 && (
+  <section class="band-compact band-paper" aria-labelledby="outdoors-home" data-outdoors-home>
+    <div class="container-page">
+      <h2 id="outdoors-home" class="display-md text-[2rem] md:text-[2.5rem]">Trails and parks</h2>
+      <ul class="mt-3 divide-y divide-line-soft">
+        {outdoorPlaces.slice(0, OUTDOOR_ROWS).map((p) => (
+          <li class="py-3">
+            <p class="text-[1.0625rem] leading-snug"><a href={`/places/${p.slug}/`} class="font-medium no-underline hover:text-primary hover:underline" data-track="outdoors-home">{p.data.title}</a></p>
+            <p class="mt-0.5 text-[0.9375rem] leading-snug text-ink-muted">{p.data.summary}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-3 flex flex-wrap gap-x-6 text-[1.0625rem]">
+        {outdoorPages.map((t) => (
+          <a href={PLACE_TYPE_PAGES[t].path} class="inline-block -my-3 py-3 font-semibold text-primary underline">{t === 'trail' ? 'Every trail' : 'Every park'} →</a>
+        ))}
+        {outdoorPages.length === 0 && <a href="/things-to-do/" class="inline-block -my-3 py-3 font-semibold text-primary underline">Things to do →</a>}
+      </p>
+    </div>
+  </section>
+)}
 
 {!quietGuide && (
   <WhatsHappening town={town} editions={editions} open={open} feature={feature}>

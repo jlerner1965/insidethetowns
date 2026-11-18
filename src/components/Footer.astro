@@ -43,7 +43,8 @@ const hasUpdates = site.kind === 'town' && (await getTownEntries('updates')).len
 // every guide (the review of 14 November 2026): /events/, the only page with
 // the date and category filters, was reachable from the home page alone once
 // Families took its menu slot; Erie's Balloon Festival and Berthoud Day were
-// linked from nowhere; and Lyons keeps Athletics out of its menu.
+// linked from nowhere. Athletics only where the guide follows a school
+// (sportsNavLabel): Lyons has no sports pages since 17 November 2026.
 const sportsLabel = site.kind === 'town' ? sportsNavLabel(site.slug) : undefined;
 const hasTraditions = site.kind === 'town' && guidesWithTraditions().has(site.slug);
 const sections = site.kind === 'town'

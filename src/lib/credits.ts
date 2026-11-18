@@ -100,7 +100,8 @@ function authorFrom(license: string): string | undefined {
 function changesFrom(license: string): string | undefined {
   if (/cropped and resized/i.test(license)) return 'cropped and resized';
   if (/cropped/i.test(license)) return 'cropped';
-  if (/resized to/i.test(license)) return 'resized';
+  // "Commons' 2400px rendition" is Commons' own downscaled copy of the original.
+  if (/resized to|\d+px rendition/i.test(license)) return 'resized';
   return undefined;
 }
 

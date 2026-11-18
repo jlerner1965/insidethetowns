@@ -233,6 +233,28 @@ export function lastDay(event: EventLike): string {
   return dayKey(new Date(eventEnd(event).getTime() - 1));
 }
 
+/**
+ * The listings whose own page a search engine may index, as slugs: of a
+ * series (one title at one venue), the one date its page indexes, by the
+ * rule the page itself uses (`canonical` is src/lib/series.ts's
+ * pickCanonical, passed in so this file stays free of the file system). A
+ * structured list names only these, so no entry points at a noindex page
+ * (the audit of 17 November 2026).
+ */
+export function indexedSlugs<T extends EventLike & { slug: string }>(
+  all: readonly T[],
+  canonical: (occurrences: Array<{ slug: string; key: string; startDay: string; lastDay: string; canceled: boolean; annual: boolean }>, today: string) => Map<string, string>,
+  now = new Date(),
+): Set<string> {
+  const data = (e: T) => e.data as T['data'] & { title: string; venue: string; annual?: boolean };
+  const key = (e: T) => `${data(e).title}|${data(e).venue}`;
+  const chosen = canonical(
+    all.map((e) => ({ slug: e.slug, key: key(e), startDay: dayKey(e.data.start), lastDay: finalDay(e), canceled: isCanceled(e), annual: !!data(e).annual })),
+    dayKey(now),
+  );
+  return new Set(all.filter((e) => chosen.get(key(e)) === e.slug).map((e) => e.slug));
+}
+
 /** True while the event has started and has not yet finished. */
 export function isInProgress(event: EventLike, now = new Date()): boolean {
   const t = now.getTime();

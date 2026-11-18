@@ -26,13 +26,13 @@ import { emailTowns, findTown, LIVE_TOWNS, liveTowns } from '../src/config/index
 import { towns } from '../src/config/towns/registry.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide } from '../src/config/hub-towns.ts';
-import { eventSource, foldEventTargets, foldRules, OUTDOOR_ANCHOR, TO_OUTDOOR, TO_TRADITIONS, TRADITIONS_ANCHOR, type FoldEventMap } from '../src/lib/fold.ts';
+import { ALSO_COVERED, eventSource, foldEventTargets, foldRules, OUTDOOR_ANCHOR, TO_OUTDOOR, TO_TRADITIONS, TRADITIONS_ANCHOR, type FoldEventMap } from '../src/lib/fold.ts';
 import { hubEventPages, publishedHubTowns } from '../src/lib/hub-towns.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
 import foldEvents from '../data/hub/fold-events.json' with { type: 'json' };
 
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
-  redirects: Array<{ source: string; destination: string; permanent?: boolean; has?: Array<{ type: string; value?: string }> }>;
+  redirects: Array<{ source: string; destination: string; permanent?: boolean; statusCode?: number; has?: Array<{ type: string; value?: string }> }>;
 };
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 
@@ -96,7 +96,8 @@ test('each old address lands on the matching place on the page: the events on Tr
     assert.equal(to('/(.*)'), page, `${t.domain}: everything else`);
     for (const source of TO_TRADITIONS) assert.equal(to(source), `${page}#${TRADITIONS_ANCHOR}`, `${t.domain}${source}`);
     for (const source of TO_OUTDOOR) assert.equal(to(source), `${page}#${OUTDOOR_ANCHOR}`, `${t.domain}${source}`);
-    const own = new Set(eventsFor(t.domain, t.hubPage!.town).map((e) => `${page}${e.event}/`));
+    // (An event of a second town the guide carried goes to that town's page: ALSO_COVERED.)
+    const own = new Set(eventsFor(t.domain, t.hubPage!.town).map((e) => `${e.town ? `https://insidethetowns.com/${e.town}/` : page}${e.event}/`));
     for (const r of rulesFor(t.domain)) assert.ok(r.destination === page || r.destination.startsWith(`${page}#`) || own.has(r.destination), `${t.domain}${r.source}: goes to ${r.destination}, off the town's page`);
   }
   // The addresses a guide's readers hold are among them.
@@ -193,14 +194,17 @@ test('an old event address with a record of its own goes to that record’s page
       assert.match(path, /^\/events\/[a-z0-9-]+\/$/, `${host}${path}`);
       const page = pages.get(slug);
       assert.ok(page, `${host}${path} → ${slug}: no record with a page of its own`);
-      assert.equal(page.town, town, `${host}${path} → ${slug}: another town's record`);
+      assert.ok(page.town === town || ALSO_COVERED[host]?.includes(page.town), `${host}${path} → ${slug}: another town's record`);
       const at = rules.findIndex((r) => r.source === eventSource(path));
       assert.ok(at > 0 && at < catchAll, `${host}${path}: rule at ${at}, catch-all at ${catchAll}`);
-      assert.equal(rules[at]!.destination, `https://insidethetowns.com/${town}/${page.event}/`, `${host}${path}: one hop to the page`);
+      assert.equal(rules[at]!.destination, `https://insidethetowns.com/${page.town}/${page.event}/`, `${host}${path}: one hop to the page`);
       assert.equal(rules[at]!.permanent, true);
     }
   }
-  assert.ok(count >= 63, `${count} old addresses mapped`);
+  assert.ok(count >= 68, `${count} old addresses mapped`);
+  // The five the audit of 17 November 2026 found on the town page with a page of their own to go to.
+  assert.equal(eventMap['insideevergreenco.com']?.['/events/frostival-2026-12-12/'], 'evergreen-frostival');
+  assert.equal(eventMap['insideidahosprings.com']?.['/events/halloween-street-fall-festival-2026-10-24/'], 'black-hawk-halloween-street-fall-festival');
   // The ones the brief names first.
   const to = (host: string, slug: string) => eventMap[host]?.[`/events/${slug}/`];
   assert.equal(to('insidegolden.com', 'olde-golden-candlelight-walk'), 'golden-candlelight-walk');

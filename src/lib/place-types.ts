@@ -95,7 +95,7 @@ export const PLACE_TYPE_PAGES: Record<PlaceType, PlaceTypePage> = {
     heading: 'Venues',
     title: (t) => `Venues in ${where(t)}`,
     parent: THINGS_TO_DO,
-    describe: (t, n) => `${n} venues in ${where(t)}: the halls, stages, galleries and rooms where the town's events happen, with addresses and hours.`,
+    describe: (t, n) => `${n} venues in ${where(t)}: the halls, stages, galleries and rooms where events happen, with addresses and hours.`,
   },
   lodging: {
     path: '/stay/',
@@ -109,7 +109,7 @@ export const PLACE_TYPE_PAGES: Record<PlaceType, PlaceTypePage> = {
     heading: 'Services',
     title: (t) => `Services in ${where(t)}`,
     parent: DIRECTORY,
-    describe: (t, n) => `${n} services in ${where(t)}: the post office, the clinic, the hardware store and the rest, with addresses and hours.`,
+    describe: (t, n) => `${n} services in ${where(t)}, each with its address and hours.`,
   },
 };
 

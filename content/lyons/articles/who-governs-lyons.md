@@ -76,7 +76,7 @@ Each line names the body and what it is the authority for.
 | Town Clerk | Records, licenses, municipal elections, public notices | [Town of Lyons](https://www.lyonscolorado.com/) |
 | Boulder County Commissioners | The county; the unincorporated land around the town | [Commissioners](https://www.bouldercounty.gov/government/elected-officials/commissioners/) |
 | Boulder County Clerk & Recorder | County, state and federal elections; recording; motor vehicles | [Clerk & Recorder](https://www.bouldercounty.gov/departments/clerk-and-recorder/) |
-| Boulder County Sheriff | Law enforcement in the town, under contract | [Sheriff's Office](https://www.bouldercounty.gov/departments/sheriff/) |
+| Boulder County Sheriff | Law enforcement in the town, under contract | [Sheriff's Office](https://bouldercounty.gov/safety/sheriff/) |
 | Lyons Fire Protection District | Fire and EMS; elected district board | [lyonsfire.org](https://www.lyonsfire.org/) |
 | Lyons Regional Library District | The library; board appointed by the Town, Boulder County and Larimer County | [Library board](https://lyons.colibraries.org/board-of-trustees/) |
 | St. Vrain Valley School District | Lyons Elementary and Lyons Middle/Senior High; elected board | [svvsd.org](https://www.svvsd.org/) |

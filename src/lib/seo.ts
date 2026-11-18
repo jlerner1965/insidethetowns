@@ -1,7 +1,7 @@
 /**
  * JSON-LD builders. Keep these pure so they are easy to eyeball in tests.
  */
-import { subTownLabel } from './sub-towns.ts';
+import { coveredTowns, subTownLabel } from './sub-towns.ts';
 import { isFreeCost } from './cost.ts';
 import { hhmm, hoursWithMeridiem, openingHoursOf, parseOpeningHours } from './hours.ts';
 import { namesTown } from './titles.ts';
@@ -13,7 +13,7 @@ import { dayKey, parseLocal, toIsoLocal } from './dates.ts';
 import { certainTime } from './tradition-calendar.ts';
 import { exportWhen } from './events.ts';
 import { isPlaceholder } from './editor.ts';
-import { addFirstFitting, clampAtWord, clampText, firstSentence, listWords, markdownToText, sentences } from './plain-text.ts';
+import { addFirstFitting, clampSnippet, clampText, firstSentence, listWords, markdownToText, sentences } from './plain-text.ts';
 
 /**
  * An Event's `description`: the listing's words as plain text, cut at a
@@ -49,12 +49,14 @@ export const META_DESCRIPTION_LIMIT = 155;
 export function eventPageDescription(lead: string, body: string | undefined, limit = META_DESCRIPTION_LIMIT): string {
   const flatLead = lead.replace(/\s+/g, ' ').trim();
   const sentence = firstSentence(markdownToText(body));
-  if (sentence.length <= 30) return clampText(flatLead, limit);
+  if (sentence.length <= 30) return clampSnippet(flatLead, limit);
   const whole = `${flatLead} ${sentence}`;
   if (whole.length <= limit) return whole;
   const room = limit - flatLead.length - 1;
-  if (room < 16) return clampText(flatLead, limit);
-  return `${flatLead} ${clampText(sentence, room)}`;
+  if (room < 16) return clampSnippet(flatLead, limit);
+  // At a clause's end, with no ellipsis (clampSnippet); a sentence with no such place to cut is left off.
+  const part = clampSnippet(sentence, room, room * 0.5, 24);
+  return part.endsWith('…') ? flatLead : `${flatLead} ${part}`;
 }
 
 /**
@@ -84,7 +86,7 @@ export function fillDescription(
   limit = META_DESCRIPTION_LIMIT,
   min = META_DESCRIPTION_MIN,
 ): string {
-  const cut = clampText(base, limit);
+  const cut = clampSnippet(base, limit);
   if (cut.length >= min) return cut;
   return addFirstFitting(cut, extras, limit);
 }
@@ -100,7 +102,7 @@ export function topUpDescription(
   limit = META_DESCRIPTION_LIMIT,
   min = META_DESCRIPTION_MIN,
 ): string {
-  let out = clampText(base, limit);
+  let out = clampSnippet(base, limit);
   for (const sentence of sentences) {
     if (out.length >= min) break;
     // A slot may offer a longer and a shorter wording: the first that fits.
@@ -154,9 +156,10 @@ export function eventMetaDescription(
  * but no swimmers." and then 132 characters on Union) was cut to the
  * short one, 84 characters, on seven articles across the network (all-
  * sites check, 5 November 2026). Where whole sentences still leave it
- * under the floor, the excerpt is cut at a word with an ellipsis instead:
- * more of the page's own words, which is what the floor is for. An
- * excerpt within the budget is used whole, whatever its length.
+ * under the floor, the excerpt is cut at a clause's end instead, with no
+ * ellipsis (clampSnippet): more of the page's own words, which is what the
+ * floor is for. An excerpt within the budget is used whole, whatever its
+ * length.
  */
 export function excerptDescription(text: string, limit = META_DESCRIPTION_LIMIT, min = META_DESCRIPTION_MIN): string {
   const flat = markdownToText(text);
@@ -167,7 +170,7 @@ export function excerptDescription(text: string, limit = META_DESCRIPTION_LIMIT,
     if (next.length > limit) break;
     out = next;
   }
-  return out.length >= min ? out : clampAtWord(flat, limit);
+  return out.length >= min ? out : clampSnippet(flat, limit, min);
 }
 
 /**
@@ -191,7 +194,8 @@ export function excerptDescription(text: string, limit = META_DESCRIPTION_LIMIT,
  * - else the summary as a predicate, where it begins with an article:
  *   "Waggener Farm Park in Berthoud, CO is the big park on the north side:
  *   farm-themed playground, ...";
- * - else only what the page gives.
+ * - else the summary as written, after the name and a colon;
+ * - else, with no summary, only what the page gives.
  * Then, while there is room, what else the page has (", with the menu,
  * the address and directions on this page"), the menu, the pool schedule
  * and the prices before the address and the phone; a shorter list where
@@ -215,6 +219,10 @@ export interface PlaceDescriptionFacts {
   dayPassPrices?: boolean;
   trailMap?: boolean;
 }
+
+/** An hours line that reads on after "is open": a day, a time, or a word for when. */
+const OPEN_WORD = /^(?:daily|every|weekdays|weekends|by|dawn|sunrise|open|year-round|always|closed)\b/i;
+const OPENS_WITH_TIME = /^(?:mon|tue|wed|thu|fri|sat|sun|\d|24|daily|every|weekdays|weekends|by appointment|dawn|sunrise|year-round|always)/i;
 
 export function placeDescription(place: PlaceDescriptionFacts, town: { name: string; state: string }, limit = META_DESCRIPTION_LIMIT): string {
   const subject = namesTown(place.title, town.name) ? place.title : `${place.title} in ${town.name}, ${town.state}`;
@@ -255,12 +263,17 @@ export function placeDescription(place: PlaceDescriptionFacts, town: { name: str
     return `${lead}.`;
   };
   if (place.status) {
-    return clampText(`${subject} is ${place.status.toLowerCase()}; this page keeps the address and what is known about it.`, limit);
+    return clampSnippet(`${subject} is ${place.status.toLowerCase()}; this page keeps the address and what is known about it.`, limit);
   }
   if (place.hoursShown && place.hours) {
     const line = hoursWithMeridiem(place.hours).replace(/;\s*/g, ', ').replace(/[.\s]+$/, '');
     // The hours are not shortened: a day dropped is an hour not stated.
-    const lead = `${subject} is open ${line}`;
+    // "is open daily 5 am–10 pm", "is open by appointment only": a word that
+    // is not a day's name goes in lower case mid-sentence. A line that opens
+    // with a label ("Lobby Mon–Fri 8 am–5 pm", "Office hours Tue & Thu")
+    // does not follow "is open", and is given as the hours it is.
+    const lower = line.replace(OPEN_WORD, (w) => w.toLowerCase());
+    const lead = OPENS_WITH_TIME.test(line) ? `${subject} is open ${lower}` : `Hours at ${subject}: ${line}`;
     if (lead.length + 1 <= limit) return withFeatures(lead)!;
   }
   const first = firstSentence(markdownToText(place.summary)).replace(/[.!?]+$/, '');
@@ -274,6 +287,12 @@ export function placeDescription(place: PlaceDescriptionFacts, town: { name: str
     const out = withFeatures(`${subject} is ${first.charAt(0).toLowerCase()}${first.slice(1)}`);
     if (out) return out;
   }
+  // The summary as it is written, after the name: "is listed here" said
+  // nothing a searcher could use (four Berthoud pages, the audit of 17 November 2026).
+  if (first) {
+    const whole = `${subject}: ${first}`;
+    return whole.length + 1 <= limit ? withFeatures(whole)! : clampSnippet(`${whole}.`, limit);
+  }
   return withFeatures(`${subject} is listed here`) ?? clampText(`${subject}.`, limit);
 }
 
@@ -283,7 +302,7 @@ export function placeDescription(place: PlaceDescriptionFacts, town: { name: str
  * many as fit, in the list's own order.
  */
 export function listDescription(base: string, names: readonly string[], limit = META_DESCRIPTION_LIMIT): string {
-  const cut = clampText(base, limit);
+  const cut = clampSnippet(base, limit);
   // Names in the list's order, skipping one too long to fit beside the rest.
   const chosen: string[] = [];
   for (const name of names.slice(0, 12)) {
@@ -291,6 +310,11 @@ export function listDescription(base: string, names: readonly string[], limit = 
     if (`${cut} Including ${listWords([...chosen, name])}.`.length <= limit) chosen.push(name);
   }
   return fillDescription(cut, [chosen.length ? `Including ${listWords(chosen)}.` : undefined], limit);
+}
+
+function areaServed(site: { name: string; state: string; slug?: string; subTowns?: readonly string[] }) {
+  const cities = coveredTowns(site).map((name) => ({ '@type': 'City', name, addressRegion: site.state, addressCountry: 'US' }));
+  return cities.length === 1 ? cities[0] : cities;
 }
 
 /** An image as the build knows it: Astro's ImageMetadata has these three. */
@@ -389,12 +413,9 @@ export function siteJsonLd(site: SiteConfig) {
             name: getNetworkHub().siteTitle,
             url: hubUrl,
           },
-          areaServed: {
-            '@type': 'City',
-            name: site.name,
-            addressRegion: site.state,
-            addressCountry: 'US',
-          },
+          // The towns the guide covers, each by name: Windsor and Severance;
+          // Frederick, Firestone and Dacono, not a city called Carbon Valley.
+          areaServed: areaServed(site),
         };
   return {
     '@context': 'https://schema.org',
@@ -482,47 +503,95 @@ export function placeLocality(place: { address?: string; subTown?: string }, tow
   return postalAddress(place.address, town).addressLocality;
 }
 
+/** As much of a guide's config as says which towns it covers. */
+type GuideTown = { name: string; state: string; slug?: string; subTowns?: readonly string[] };
+
+/**
+ * A venue line that carries its own street, as the school and library feeds
+ * write it: "Severance High School, 1200 Hidden Valley Parkway, Severance",
+ * "The Old Mine, 500 Briggs Street". The name, the street where a part
+ * begins with a house number, and the town where the line ends in one: a
+ * town the guide covers, or a place name after a street. Nothing is
+ * supplied that the line does not say (the audit of 17 November 2026).
+ */
+export function venueParts(venue: string | undefined, known: readonly string[] = []): { name: string; street?: string; locality?: string } {
+  const parts = (venue ?? '').split(/,\s+/).map((p) => p.trim()).filter(Boolean);
+  const isStreet = (p: string | undefined) => !!p && /^\d+[A-Za-z]?\s+\S/.test(p);
+  const last = parts.at(-1);
+  let locality: string | undefined;
+  if (
+    parts.length >= 2 && last &&
+    (known.some((k) => k.toLowerCase() === last.toLowerCase()) || (parts.length >= 3 && isStreet(parts.at(-2)) && /^[A-Z][A-Za-z .'-]+$/.test(last)))
+  ) {
+    locality = parts.pop();
+  }
+  const street = parts.length >= 2 && isStreet(parts.at(-1)) ? parts.pop() : undefined;
+  return { name: parts.join(', '), ...(street ? { street } : {}), ...(locality ? { locality } : {}) };
+}
+
 /**
  * The town an event is in, read the way a place's is (placeLocality): its
  * section's on a guide that covers several, else the town its own address
- * names, else the guide's. Every line that says where an event is goes
- * through here: the description, the structured data, the calendar exports,
- * the directions and the "held every year" sentence. Before, each wrote the
- * guide's own name, so a Severance event on the Windsor guide was "at
- * Severance Town Hall, Windsor" in 78 places (the audit of 17 November 2026).
+ * names, else the one its venue line ends in, else the guide's. Every line
+ * that says where an event is goes through here: the description, the
+ * structured data, the calendar exports, the directions and the "held every
+ * year" sentence. Before, each wrote the guide's own name, so a Severance
+ * event on the Windsor guide was "at Severance Town Hall, Windsor" in 78
+ * places, and a Frederick High concert was in "Carbon Valley", which is not
+ * a town (the audit of 17 November 2026).
  */
-export function eventLocality(event: { address?: string; subTown?: string }, town: { name: string; state: string }): string {
+export function eventLocality(event: { venue?: string; address?: string; subTown?: string }, town: GuideTown): string {
   if (event.subTown) return subTownLabel(event.subTown);
-  return postalAddress(event.address, town).addressLocality;
+  const known = coveredTowns(town);
+  return splitAddress(event.address, known).locality ?? venueParts(event.venue, known).locality ?? town.name;
+}
+
+const endsWithTown = (line: string, locality: string) => line.toLowerCase().endsWith(`, ${locality.toLowerCase()}`);
+
+/** The venue and its town, for a sentence; the town is not said twice where the venue line ends in it. */
+export function eventPlace(event: { venue: string; address?: string; subTown?: string }, town: GuideTown): string {
+  const locality = eventLocality(event, town);
+  return endsWithTown(event.venue, locality) ? event.venue : `${event.venue}, ${locality}`;
 }
 
 /**
  * Where an event is, on one line, for a calendar entry: the venue, the
- * address, and the town and state only when the address does not already end
- * with them ("3 S Timber Ridge Parkway, Severance, CO 80550" needs nothing
- * after it).
+ * address, and the town and state only as far as the line does not already
+ * end with them ("3 S Timber Ridge Parkway, Severance, CO 80550" needs
+ * nothing after it; "5690 Tipple Parkway, Frederick" needs the state).
  */
-export function eventWhere(event: { venue?: string; address?: string; subTown?: string }, town: { name: string; state: string }): string {
-  const complete = /,\s*(?:CO|Colorado)\b/.test(event.address ?? '');
-  return [event.venue, event.address, complete ? undefined : `${eventLocality(event, town)}, CO`].filter(Boolean).join(', ');
+export function eventWhere(event: { venue?: string; address?: string; subTown?: string }, town: GuideTown): string {
+  const line = [event.venue, event.address].filter(Boolean).join(', ');
+  if (/,?\s+(?:CO|Colorado)\b/.test(event.address ?? '')) return line;
+  const locality = eventLocality(event, town);
+  return [line, endsWithTown(line, locality) ? undefined : locality, 'CO'].filter(Boolean).join(', ');
 }
 
-export function postalAddress(address: string | undefined, town: { name: string; state: string }) {
-  const parts = address?.match(/^(.+),\s*([A-Za-z][A-Za-z .'-]*),\s*(?:CO|Colorado),?(?:\s+(\d{5}(?:-\d{4})?))?\s*$/);
-  if (parts) {
-    return {
-      '@type': 'PostalAddress',
-      streetAddress: parts[1]!.trim(),
-      addressLocality: parts[2]!.trim(),
-      addressRegion: town.state,
-      ...(parts[3] ? { postalCode: parts[3] } : {}),
-    };
-  }
+/**
+ * An address line in its parts, where it says them: "…, Town, CO 80517",
+ * the same with no comma before the state ("170 Grant Ave., Firestone CO
+ * 80520"), or a street and then a town the guide covers with no state
+ * ("400 S Parish Ave, Johnstown"). Anything else is the street as written.
+ */
+function splitAddress(address: string | undefined, known: readonly string[] = []): { street?: string; locality?: string; postalCode?: string } {
+  if (!address) return {};
+  const full = address.match(/^(.+),\s*([A-Za-z][A-Za-z .'-]*?),?\s+(?:CO|Colorado),?(?:\s+(\d{5}(?:-\d{4})?))?\s*$/);
+  if (full) return { street: full[1]!.trim(), locality: full[2]!.trim(), ...(full[3] ? { postalCode: full[3] } : {}) };
+  const tail = address.match(/^(.+),\s*([A-Za-z][A-Za-z .'-]*)\s*$/);
+  if (tail && known.some((k) => k.toLowerCase() === tail[2]!.trim().toLowerCase())) return { street: tail[1]!.trim(), locality: tail[2]!.trim() };
+  return { street: address };
+}
+
+export function postalAddress(address: string | undefined, town: { name: string; state: string }, known: readonly string[] = [town.name]) {
+  const parts = splitAddress(address, known);
   return {
     '@type': 'PostalAddress',
-    ...(address ? { streetAddress: address } : {}),
-    addressLocality: town.name,
+    ...(parts.street ? { streetAddress: parts.street } : {}),
+    addressLocality: parts.locality ?? town.name,
     addressRegion: town.state,
+    ...(parts.postalCode ? { postalCode: parts.postalCode } : {}),
+    // Every listing is in Colorado; Google asks for the country on an address.
+    addressCountry: 'US',
   };
 }
 
@@ -533,6 +602,8 @@ export function eventJsonLd(
   imageUrl?: string,
   /** The organizer's site from its own listing in the guide, for when the event does not give one. */
   listedOrganizerUrl?: string,
+  /** The address on the venue's own listing in the guide (matched on its exact name), for an event that gives none. */
+  listedVenueAddress?: string,
 ) {
   const { data } = event;
   // As the .ics and the Google link give it: whole days by date alone, one
@@ -540,6 +611,20 @@ export function eventJsonLd(
   const when = exportWhen(event);
   const stamp = (d: Date) => (when.allDay ? dayKey(d) : toIsoLocal(d));
   const organizerUrl = data.organizerUrl ?? listedOrganizerUrl;
+  // The place in its parts, from what the listing holds and in that order:
+  // its address; the street its venue line carries ("Frederick High School,
+  // 5690 Tipple Parkway, Frederick"); the address on the venue's own listing
+  // in the guide. No street is written that none of them gives.
+  const known = coveredTowns(town);
+  const venue = venueParts(data.venue, known);
+  const local = { ...town, name: eventLocality(data, town) };
+  const address = data.address
+    ? postalAddress(data.address, local, known)
+    : venue.street
+      ? postalAddress(`${venue.street}, ${local.name}`, local, [local.name])
+      : postalAddress(listedVenueAddress, local, known);
+  // "Online, via the Lyons Regional Library": no room to go to, so no Place.
+  const online = /^(?:online|virtual)\b/i.test(data.venue);
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -552,12 +637,10 @@ export function eventJsonLd(
         : data.status === 'postponed'
           ? 'https://schema.org/EventPostponed'
           : 'https://schema.org/EventScheduled',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    location: {
-      '@type': 'Place',
-      name: data.venue,
-      address: postalAddress(data.address, { ...town, name: eventLocality(data, town) }),
-    },
+    eventAttendanceMode: online ? 'https://schema.org/OnlineEventAttendanceMode' : 'https://schema.org/OfflineEventAttendanceMode',
+    location: online
+      ? { '@type': 'VirtualLocation', url: data.url ?? url }
+      : { '@type': 'Place', name: venue.name || data.venue, address },
     ...(imageUrl ? { image: [imageUrl] } : {}),
     // Only when the listing records who is running it. The venue is not
     // evidence of the organiser, so an unset field emits nothing rather than
@@ -684,14 +767,16 @@ export function articleJsonLd(
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: data.title,
+    // Google reads up to 110 characters of a headline; a longer title gives its shorter search title.
+    headline: data.title.length > 110 && data.seoTitle ? data.seoTitle : data.title,
     description: data.excerpt,
     datePublished: toIsoLocal(data.date),
     // The day the article last changed: an edit, or else the day its facts
     // were last re-checked and the check line on the page moved. A check
     // that confirms every fact still changes the page (search-visibility
-    // phase 1, 15 October 2026). Nothing when neither has happened.
-    ...(articleModified(data) ? { dateModified: toIsoLocal(articleModified(data)!) } : {}),
+    // phase 1, 15 October 2026). The day it was published when neither has
+    // happened: unchanged since then is what that says.
+    dateModified: toIsoLocal(articleModified(data) ?? data.date),
     ...(imageUrl ? { image: [imageUrl] } : {}),
     articleSection: data.category,
     isPartOf: { '@id': `https://${site.domain}/#website` },
@@ -753,7 +838,8 @@ export function webPageJsonLd(
  * center are not event venues to a search engine, and the types it does
  * read (Library, GovernmentOffice, SportsActivityLocation) are what put
  * "Berthoud Recreation Center hours" in a result with the hours on it.
- * A venue with none of those tags stays an EventVenue, as before.
+ * A landmark, a piece of public art or a historic district is a
+ * TouristAttraction. A venue with none of those tags stays an EventVenue.
  */
 export function placeSchemaType(type: string, tags: readonly string[] = []): string {
   const typeMap: Record<string, string> = {
@@ -774,6 +860,8 @@ export function placeSchemaType(type: string, tags: readonly string[] = []): str
     if (has('government')) return 'GovernmentOffice';
     if (['pool', 'gym', 'recreation', 'fitness', 'climbing wall'].some(has)) return 'SportsActivityLocation';
     if (has('museum')) return 'Museum';
+    // A gateway sculpture and a street of shops hold no events (Niwot; the audit of 17 November 2026).
+    if (['landmark', 'public-art', 'historic'].some(has)) return 'TouristAttraction';
   }
   return typeMap[type] ?? 'LocalBusiness';
 }
@@ -813,6 +901,8 @@ export function localBusinessJsonLd(
   place: CollectionEntry<'places'>,
   url: string,
   imageUrl?: string,
+  /** Latitude and longitude, where the guide's own street-map file places the listing (data/<town>/place-map.json). */
+  geo?: readonly [number, number],
 ) {
   const { data } = place;
   const hours = openingHoursOf(data);
@@ -822,7 +912,8 @@ export function localBusinessJsonLd(
     '@type': placeSchemaType(data.type, data.tags),
     name: data.title,
     description: data.summary,
-    address: postalAddress(data.address, town),
+    address: postalAddress(data.address, town, coveredTowns(town)),
+    ...(geo ? { geo: { '@type': 'GeoCoordinates', latitude: geo[0], longitude: geo[1] } } : {}),
     url: data.url ?? url,
     mainEntityOfPage: url,
     ...(data.phone ? { telephone: data.phone } : {}),
@@ -843,14 +934,15 @@ export function localBusinessJsonLd(
  * window, or a cancellation with no date was never an event to mark up.
  */
 export function traditionEventJsonLd(
-  record: { slug: string; name: string; organizer: string; town?: { name: string }; type?: string; firstYear?: number },
+  record: { slug: string; name: string; organizer: string; sourceUrl?: string; town?: { name: string }; type?: string; firstYear?: number },
   entry: { status: string; date?: string; endDate?: string; place?: string; startTime?: string; cost?: string; previousDate?: string },
   pageUrl: string,
   { own = false, image }: { own?: boolean; image?: string } = {},
 ) {
   // An outdoor date (a road opening, a licence window) is not an event to
-  // attend, and a record with no town has no place to give one.
-  if (!entry.date || !record.town || record.type === 'outdoor' || record.type === 'free-day') return undefined;
+  // attend, and a record with no town has no place to give one. A dated
+  // free-admission day is one (the audit of 17 November 2026).
+  if (!entry.date || !record.town || record.type === 'outdoor') return undefined;
   if (entry.status !== 'confirmed' && entry.status !== 'moved' && entry.status !== 'canceled') return undefined;
   const span = !!entry.endDate && entry.endDate !== entry.date;
   const time = span ? undefined : certainTime(entry.startTime);
@@ -862,6 +954,8 @@ export function traditionEventJsonLd(
   ]
     .filter(Boolean)
     .join(' ');
+  // "Estes Park Events Complex, 1125 Rooftop Way": the name, and the street the line ends in.
+  const placed = entry.place?.match(/^(.*?),\s*(\d+[A-Za-z]?\s+[^,]+)$/);
   const eventStatus =
     entry.status === 'canceled' ? 'https://schema.org/EventCancelled' : entry.status === 'moved' ? 'https://schema.org/EventRescheduled' : 'https://schema.org/EventScheduled';
   return {
@@ -876,10 +970,10 @@ export function traditionEventJsonLd(
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
-      name: entry.place ?? record.town.name,
-      address: { '@type': 'PostalAddress', addressLocality: record.town.name, addressRegion: 'CO', addressCountry: 'US' },
+      name: placed ? placed[1] : (entry.place ?? record.town.name),
+      address: { '@type': 'PostalAddress', ...(placed ? { streetAddress: placed[2] } : {}), addressLocality: record.town.name, addressRegion: 'CO', addressCountry: 'US' },
     },
-    organizer: { '@type': 'Organization', name: record.organizer },
+    organizer: { '@type': 'Organization', name: record.organizer, ...(record.sourceUrl ? { url: record.sourceUrl } : {}) },
     // The town's photograph, or its share card where it has none: a record
     // has no photograph of its own, and an Event without an image is
     // ineligible for Google's event results (the owner, 13 November 2026).

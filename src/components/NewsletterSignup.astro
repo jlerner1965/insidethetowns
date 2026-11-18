@@ -41,6 +41,7 @@ import { editionFor, emailEditions, getNetworkHub, liveTowns, type TownConfig } 
 import { inlineSignup, SIGNUP_MESSAGES } from '@/lib/signup';
 import { EMAIL_PROMISE, PRIVACY_LINE } from '@/lib/privacy';
 import { nextSendDay } from '@/lib/newsletter';
+import { sportsNavLabel } from '@/lib/nav';
 import { latestIssueFor } from '@/lib/issues';
 import { dayKey, formatMonthDay, parseLocal } from '@/lib/dates';
 import { nextIssueWords, sendInstant } from '@/lib/next-issue';
@@ -161,7 +162,7 @@ const lastIssue = town && !(town.lead === 'updates' && !editionFor(town.slug, ed
  * audit of 13 November 2026: the home's strip, the card and the full form
  * each said it differently).
  */
-const what = `the weekend’s events${town?.school ? ', the scores' : ''}, places that opened or closed${town ? ` in ${where}` : ''}, and a new article when there is one`;
+const what = `the weekend’s events${town && sportsNavLabel(town.slug) ? ', the scores' : ''}, places that opened or closed${town ? ` in ${where}` : ''}, and a new article when there is one`;
 /**
  * On the hub's form: the guides whose email is not the weekly one but
  * occasional local updates (Niwot), with the way to their own signup.

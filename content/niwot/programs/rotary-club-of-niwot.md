@@ -5,16 +5,16 @@ topic: community
 audience: [adults]
 organizer: "Rotary Club of Niwot"
 organizerUrl: "https://www.niwotrotary.org/"
-url: "https://www.niwotrotary.org/page/become-a-member"
+url: "https://www.niwotrotary.org/page/membership"
 summary: "Breakfast at Niwot Hall most Thursdays, 7:30 to 8:30 am, with a speaker; the club invites prospective members to join a meeting or a service project, and offers individual, shared and service-only memberships."
 location: "Niwot Hall, 195 Second Avenue"
 schedule: "Most Thursdays, 7:30–8:30 am; the club's calendar says which (the first three Thursdays of a month have been club meetings; a late-month Thursday a social or a committee)"
 price: "Dues not stated on the club's site"
-registration: { required: false, how: "'Join us for a breakfast meeting most Thursday mornings', its membership page says, or contact the club through its form", url: "https://www.niwotrotary.org/page/become-a-member" }
+registration: { required: false, how: "'Join us for a breakfast meeting most Thursday mornings', its membership page says, or contact the club through its form", url: "https://www.niwotrotary.org/page/membership" }
 newcomers: true
 nextEvent: breakfast-with-the-rotary-club-of-niwot-november
 contact: "https://www.niwotrotary.org/SingleEmail/ContactUs"
-source: "https://www.niwotrotary.org/page/become-a-member"
+source: "https://www.niwotrotary.org/page/membership"
 verified: "2026-11-03"
 ---
 

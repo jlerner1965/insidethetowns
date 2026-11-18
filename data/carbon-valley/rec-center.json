@@ -4,24 +4,24 @@
   "shortName": "Rec center",
   "operator": "the district",
   "scheduleLabel": "pool schedule page",
-  "scheduleUrl": "https://www.cvprd.com/pool-schedule",
+  "scheduleUrl": "https://www.carbonvalleyrec.gov/pool-schedule",
   "checked": "2026-11-09",
   "sources": [
     {
       "label": "Carbon Valley Parks and Recreation District: Hours of Operation",
-      "url": "https://www.cvprd.com/hours-of-operation"
+      "url": "https://www.carbonvalleyrec.gov/hours-of-operation"
     },
     {
       "label": "Carbon Valley Parks and Recreation District: Pool Schedule, Fall/Winter (August 17, 2026 to January 3, 2027)",
-      "url": "https://www.cvprd.com/pool-schedule"
+      "url": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "label": "Pool Schedule Fall/Winter 2026 (PDF), August 17 to January 3",
-      "url": "https://www.cvprd.com/files/66681f176/Pool+Schedule+Fall-Winter+2026.pdf"
+      "url": "https://www.carbonvalleyrec.gov/files/66681f176/Pool+Schedule+Fall-Winter+2026.pdf"
     },
     {
       "label": "Carbon Valley Parks and Recreation District: Rates & Pass Information",
-      "url": "https://www.cvprd.com/rates-pass-information"
+      "url": "https://www.carbonvalleyrec.gov/rates-pass-information"
     }
   ],
   "season": {
@@ -201,28 +201,28 @@
     {
       "date": "2026-11-23",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-11-24",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-11-25",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-11-26",
       "note": "Thanksgiving",
       "closed": true,
-      "source": "https://www.cvprd.com/hours-of-operation"
+      "source": "https://www.carbonvalleyrec.gov/hours-of-operation"
     },
     {
       "date": "2026-11-27",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm; day after Thanksgiving, regular building hours",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-12-15",
@@ -247,17 +247,17 @@
     {
       "date": "2026-12-21",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-12-22",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-12-23",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-12-24",
@@ -266,28 +266,28 @@
         "06:00",
         "13:00"
       ],
-      "source": "https://www.cvprd.com/hours-of-operation"
+      "source": "https://www.carbonvalleyrec.gov/hours-of-operation"
     },
     {
       "date": "2026-12-25",
       "note": "Christmas Day",
       "closed": true,
-      "source": "https://www.cvprd.com/hours-of-operation"
+      "source": "https://www.carbonvalleyrec.gov/hours-of-operation"
     },
     {
       "date": "2026-12-28",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-12-29",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-12-30",
       "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
-      "source": "https://www.cvprd.com/pool-schedule"
+      "source": "https://www.carbonvalleyrec.gov/pool-schedule"
     },
     {
       "date": "2026-12-31",
@@ -296,17 +296,17 @@
         "06:00",
         "13:00"
       ],
-      "source": "https://www.cvprd.com/hours-of-operation"
+      "source": "https://www.carbonvalleyrec.gov/hours-of-operation"
     },
     {
       "date": "2027-01-01",
       "note": "New Year’s Day",
       "closed": true,
-      "source": "https://www.cvprd.com/hours-of-operation"
+      "source": "https://www.carbonvalleyrec.gov/hours-of-operation"
     }
   ],
   "prices": {
-    "source": "https://www.cvprd.com/rates-pass-information",
+    "source": "https://www.carbonvalleyrec.gov/rates-pass-information",
     "checked": "2026-11-09",
     "dayPass": [
       {

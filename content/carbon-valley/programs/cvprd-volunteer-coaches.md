@@ -4,8 +4,8 @@ kind: volunteer
 topic: sports
 audience: [adults]
 organizer: "Carbon Valley Parks and Recreation District"
-organizerUrl: "https://www.cvprd.com/"
-url: "https://www.cvprd.com/volunteer-coaches"
+organizerUrl: "https://www.carbonvalleyrec.gov/"
+url: "https://www.carbonvalleyrec.gov/volunteer-coaches"
 summary: "Every rec-district youth team is coached by a volunteer; the district supplies practice drills, asks for an online concussion course and a background check, and lets a head coach’s child play that sport free. Sign up in the registration catalog under Volunteer Coaches."
 ages: "Adults"
 location: "Practices and games at the Carbon Valley Recreation Center and fields around the three towns; practice days set by the coach"
@@ -17,7 +17,7 @@ registration: { required: true, how: "Go to the district’s registration page, 
 beginners: true
 volunteerNeed: "Head and assistant coaches for every league"
 contact: "Darren Duplechin, Sports Coordinator, 303-833-3660 x127, dduplechin@cvprd.com"
-source: "https://www.cvprd.com/volunteer-coaches"
+source: "https://www.carbonvalleyrec.gov/volunteer-coaches"
 verified: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 ---

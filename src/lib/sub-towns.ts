@@ -32,6 +32,22 @@ export function subTownsOf(site: HasSubTowns): SubTown[] {
   return (site.subTowns ?? []).map((slug) => ({ slug, label: subTownLabel(slug) }));
 }
 
+/**
+ * A guide named for a region and not sectioned by `subTowns`: the
+ * municipalities it covers, by name. "Carbon Valley" is not a postal town,
+ * so nothing that states a town (an address, `areaServed`) may use it.
+ */
+const REGION_TOWNS: Readonly<Record<string, readonly string[]>> = {
+  'carbon-valley': ['Frederick', 'Firestone', 'Dacono'],
+};
+
+/** The towns a guide covers, by name: its sections, a region's towns, else its own. */
+export function coveredTowns(site: HasSubTowns & { slug?: string; name: string }): string[] {
+  const sections = subTownsOf(site).map((t) => t.label);
+  if (sections.length > 0) return sections;
+  return [...(REGION_TOWNS[site.slug ?? ''] ?? [site.name])];
+}
+
 /** "Frederick, Firestone and Dacono", for a sentence. */
 export function subTownList(site: HasSubTowns): string {
   const names = subTownsOf(site).map((t) => t.label);

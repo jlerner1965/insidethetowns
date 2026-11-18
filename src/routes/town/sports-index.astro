@@ -5,12 +5,14 @@
  * fall, its next game (whichever team plays it) and its last result, from
  * the same data files its own page reads, and a link to that page. A town
  * with one school has no such page: its /sports/ is the school's own.
+ * Each row's name and link are in its school's colours (schoolCssVars).
  */
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
 import { formatDayShort, formatShortDate } from '@/lib/dates';
-import { bigGame, formatGameTime, gameDay, latestResult, outcome, RESULT_WORD, pageSeasonLabel, seasonOf, sportsDataFor, where } from '@/lib/school-sports';
+import { bigGame, formatGameTime, gameDay, latestResult, outcome, RESULT_WORD, pageSeasonLabel, schoolCssVars, sportsDataFor, where } from '@/lib/school-sports';
+import { subTownsOf } from '@/lib/sub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -24,11 +26,9 @@ const rows = schools.map((school) => {
   const fetched = data.sports.map((s) => s.fetched).filter(Boolean) as string[];
   return { school, teams, next: bigGame(data, now), last: latestResult(data), read: fetched.length ? new Date(fetched.sort().at(-1)!) : undefined };
 });
-// The season, from the first school's data (seasonOf): the four share a calendar.
+// The season, from the first school's data (pageSeasonLabel): the four share a calendar.
 const firstData = sportsDataFor(schools[0]!, files) ?? { generated: '', sports: [] };
-const { season } = seasonOf(firstData, schools[0]!.teams, now);
 const seasonLabel = pageSeasonLabel(firstData, schools[0]!.teams, now);
-const seasonWord = season.toLowerCase();
 // The newest run among the schools' files: the page's dateModified and its sitemap lastmod.
 const stamps = schools.map((school) => Date.parse(sportsDataFor(school, files)?.generated ?? '')).filter((t) => !Number.isNaN(t));
 const generated = stamps.length ? new Date(Math.max(...stamps)) : undefined;
@@ -36,10 +36,20 @@ const reads = rows.map((r) => r.read).filter(Boolean) as Date[];
 const newest = reads.length ? new Date(Math.max(...reads.map((d) => d.getTime()))) : undefined;
 const names = schools.map((s) => s.school);
 const COUNT: Record<number, string> = { 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six' };
-const description = `${town.name}’s high-school scores and schedules this ${seasonWord}: ${names.slice(0, -1).join(', ')} and ${names.at(-1)}, from MaxPreps, each checked against the school’s own calendar where there is one.`;
+const list = (words: string[]) => (words.length > 1 ? `${words.slice(0, -1).join(', ')} and ${words.at(-1)}` : words[0] ?? '');
+// "Windsor and Severance": the guide's towns that a school here is named for. Severance High is not one of
+// Windsor's (the audit of 17 November 2026); a guide of one town (Loveland's four schools) keeps its name.
+const places = subTownsOf(town).map((t) => t.label).filter((label) => schools.some((s) => s.school.startsWith(`${label} `)));
+const whose = places.length > 1 ? list(places) : town.name;
+const intro = places.length > 1
+  ? `Scores, schedules and records for ${list(names)}, season by season.`
+  : `Scores, schedules and records for ${town.name}’s ${COUNT[schools.length] ?? schools.length} high schools, season by season.`;
+// The calendar clause only where a school here has a calendar to check against.
+const checked = schools.some((s) => s.calendar) ? ', each checked against the school’s own calendar where there is one' : '';
+const description = `${places.length > 1 ? whose : `${town.name}’s`} high-school scores and schedules, ${seasonLabel}: ${list(names)}, from MaxPreps${checked}.`;
 const jsonLd = [
   collectionPageJsonLd(town, {
-    name: `${town.name} high-school sports`,
+    name: `${whose} high-school sports`,
     description,
     path: '/sports/',
     items: schools.map((s) => ({ name: `${s.school} ${s.mascot}`, path: sportsPath(s) })),
@@ -51,13 +61,13 @@ const jsonLd = [
   ]),
 ];
 ---
-<Page title="High school sports" seoTitle={`${town.name} high-school scores and schedules`} eyebrow={`${town.name} · ${seasonLabel}`} {description} intro={`Scores, schedules and records for ${town.name}’s ${COUNT[schools.length] ?? schools.length} high schools, season by season.`} {jsonLd}>
+<Page title="High school sports" seoTitle={`${whose} high-school scores and schedules`} eyebrow={`${whose} · ${seasonLabel}`} {description} {intro} {jsonLd}>
   {newest && <p slot="after-header" class="mt-3 text-[0.9375rem] text-ink-muted">Scores from MaxPreps, read {formatShortDate(newest)}.</p>}
   <ul class="divide-y divide-line-soft border-y border-line-soft">
     {rows.map(({ school, teams, next, last }) => (
-      <li class="py-5">
+      <li class="py-5" style={schoolCssVars(school)}>
         <a href={sportsPath(school)} class="group block no-underline">
-          <h2 class="display-md text-[1.75rem] group-hover:underline md:text-[2rem]">{school.school} {school.mascot}</h2>
+          <h2 class="display-md text-[1.75rem] text-primary group-hover:underline md:text-[2rem]">{school.school} {school.mascot}</h2>
           {teams.length > 0 ? (
             <p class="mt-2 text-[0.9375rem] text-ink-muted">
               {teams.map((t, i) => (

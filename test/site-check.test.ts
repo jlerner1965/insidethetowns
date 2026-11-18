@@ -195,6 +195,9 @@ test('a sitemap entry needs a lastmod that is a date and not in the future', () 
   assert.deepEqual(rules(withLastmod('')), ['sitemap-lastmod']);
   assert.deepEqual(rules(withLastmod('<lastmod>soon</lastmod>')), ['sitemap-lastmod']);
   assert.deepEqual(rules(withLastmod('<lastmod>2027-01-01</lastmod>')), ['sitemap-lastmod']);
+  // A page of fixed copy has no date to give, and may list none.
+  const undated = { ...sound(), '/sitemap-0.xml': `<urlset><url><loc>${ORIGIN}/</loc><lastmod>2026-11-01</lastmod></url><url><loc>${ORIGIN}/about/</loc></url></urlset>` };
+  assert.deepEqual(rules(undated), []);
 });
 
 test('robots.txt names the sitemap and blocks nothing it lists', () => {

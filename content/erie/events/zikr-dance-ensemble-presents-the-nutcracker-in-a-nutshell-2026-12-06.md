@@ -5,7 +5,7 @@ venue: "Erie Community Center"
 address: "450 Powers Street, Erie, CO 80516"
 url: "https://www.eventbrite.com/e/zikr-dance-ensemble-presents-the-nutcracker-in-a-nutshell-tickets-2003210063224"
 cost: "From $17.85, fees included"
-category: other
+category: arts
 source: "https://www.eventbrite.com/e/zikr-dance-ensemble-presents-the-nutcracker-in-a-nutshell-tickets-2003210063224"
 sourceId: "eventbrite-com-o-18284345715"
 sourceUid: "2003210063224"

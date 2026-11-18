@@ -353,7 +353,7 @@ export function deadlineTitle(programTitle: string, listing?: { data: { title: s
 /** A school's football season, read for the home's Friday: its guide, the school, and the file's data after CHSAA's corrections. */
 export interface GameSource<G> {
   guide: G;
-  school: Pick<SchoolSports, 'slug' | 'town' | 'calendar' | 'maxprepsName' | 'mascot'>;
+  school: Pick<SchoolSports, 'slug' | 'town' | 'calendar' | 'maxprepsName' | 'mascot' | 'colors'>;
   team: SportData;
 }
 

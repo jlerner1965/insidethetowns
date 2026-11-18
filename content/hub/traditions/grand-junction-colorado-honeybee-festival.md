@@ -9,7 +9,7 @@ towns:
     line: "Formerly the Palisade International Honeybee Festival; the 2027 festival is at Las Colonias Park in Grand Junction."
 type: festival
 organizer: "Colorado Honeybee Festival"
-sourceUrl: "https://palisadehoneybeefest.org/"
+sourceUrl: "https://coloradohoneybee.org/"
 years:
   - year: 2027
     status: confirmed

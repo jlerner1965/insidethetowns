@@ -9,7 +9,7 @@ url: "https://www.frederickco.gov/1001/Frederick-Youth-Commission"
 summary: "The Town’s advisory body of 8th to 12th graders, which recommends youth policies and programs to the Board of Trustees and sends liaisons to the planning, parks, arts, Miners Day and historic preservation bodies. Ten seats were open on November 2; applications are considered in May and October."
 ages: "Grades 8–12 (must be entering 8th grade in the fall of 2026)"
 location: "Town Hall, 401 Locust St; the meetings calendar lists the commission on second Saturdays"
-schedule: "Second Saturdays 9–10 am per the Town’s meetings calendar (November 14, December 12, January 9, February 13)"
+schedule: "Second Saturdays 9–10 am per the Town’s meetings calendar (December 12, January 9, February 13)"
 season: "Year-round"
 price: "Free"
 free: true

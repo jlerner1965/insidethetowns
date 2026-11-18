@@ -61,14 +61,15 @@ const link = 'inline-block -my-3 py-3 font-medium text-primary underline';
 <section class="mt-20 border-t-2 border-accent pt-8 md:mt-24" aria-label={`More from the ${town.name} guide`} data-pagefind-ignore>
   <div class="grid gap-10 md:grid-cols-2 md:gap-12">
     <div>
-      <h2 class="eyebrow">Coming up in {town.name}</h2>
+      {/* A guide that lists no events has nothing coming up: its updates, under their own name (Niwot; the audit of 17 November 2026). */}
+      <h2 class="eyebrow">{listsEvents(town) ? 'Coming up in' : 'What’s new in'} {town.name}</h2>
       {events.length > 0 && (
         <div class="mt-2" data-hide-when-empty>
           {events.map((event) => <WeekEventRow event={event} />)}
         </div>
       )}
-      <p class="mt-4 text-[0.9375rem]" hidden={!listsEvents(town)}>
-        <a href={listsEvents(town) ? '/this-week/' : '/'} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{listsEvents(town) ? 'This week in' : 'What’s new in'} {town.name} →</a>
+      <p class="mt-4 text-[0.9375rem]">
+        <a href={listsEvents(town) ? '/this-week/' : '/updates/'} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{listsEvents(town) ? `This week in ${town.name}` : 'Local updates'} →</a>
       </p>
     </div>
     {related.length > 0 && (

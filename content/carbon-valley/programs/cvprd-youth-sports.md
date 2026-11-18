@@ -4,8 +4,8 @@ kind: league
 topic: sports
 audience: [preschool, elementary, teens]
 organizer: "Carbon Valley Parks and Recreation District"
-organizerUrl: "https://www.cvprd.com/"
-url: "https://www.cvprd.com/youth-sports"
+organizerUrl: "https://www.carbonvalleyrec.gov/"
+url: "https://www.carbonvalleyrec.gov/youth-sports"
 summary: "The district’s leagues across the year: basketball (preschool to 8th grade), soccer (preschool to 6th), softball (6 to 14), volleyball (grades 1 to 8), baseball (4 to 12), SuperTots for 2 to 4-year-olds, Skyhawks camps and cheer and dance. Jerseys included; register online through CivicRec."
 ages: "2 to 14, by sport"
 ageFrom: 2
@@ -17,7 +17,7 @@ price: "Varies by sport; the current basketball season is $127 district / $191 n
 registration: { required: true, how: "Online any time in the district’s CivicRec youth sports catalog; district residents get a two-week head start on each season", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index?filter=dGFiJTVCMTI4MDElNUQ9MSZzZWFyY2g9JnJlbnRhbCU1QmZyb20lNUQ9JnJlbnRhbCU1QnRvJTVEPSYzM2IzODY1MWI2ZTg4ZGFlMzYxNGNjZDRlYWQ4YzVhYj1kZmYwZjhjZTcwYTM0N2VlNmMwNzY4Njg2NGU5M2M3ZA==" }
 volunteerNeed: "Volunteer coaches run every team; the district gives them practice drills and a free season for their own child"
 contact: "Kelly Gray, Sports Supervisor, 303-833-3660 x124, kgray@cvprd.com; Darren Duplechin, Sports Coordinator, x127"
-source: "https://www.cvprd.com/youth-sports"
+source: "https://www.carbonvalleyrec.gov/youth-sports"
 verified: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 ---

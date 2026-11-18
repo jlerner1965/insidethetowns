@@ -154,8 +154,8 @@
     {
       "id": "cvprd-com",
       "name": "Carbon Valley Parks and Recreation District",
-      "url": "https://www.cvprd.com/special-events",
-      "sampleUrl": "https://www.cvprd.com/active-adults-special-events",
+      "url": "https://www.carbonvalleyrec.gov/special-events",
+      "sampleUrl": "https://www.carbonvalleyrec.gov/active-adults-special-events",
       "type": "html",
       "category": "parks",
       "priority": "core",

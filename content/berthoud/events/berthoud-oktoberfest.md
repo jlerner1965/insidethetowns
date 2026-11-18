@@ -6,7 +6,7 @@ start: "2026-10-03T11:00"
 end: "2026-10-03T18:00"
 venue: "Berthoud Town Park"
 address: "200 7th St"
-url: "https://downtownberthoud.org/downtown-berthoud-events/"
+url: "https://berthoudmainstreet.org/downtown-berthoud-events/"
 cost: "Free admission"
 category: festival
 featured: true

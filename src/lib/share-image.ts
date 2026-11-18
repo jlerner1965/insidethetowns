@@ -13,11 +13,14 @@ import sharp from 'sharp';
 export const SHARE_WIDTH = 1200;
 export const SHARE_HEIGHT = 630;
 const MARGIN = 80;
+const TRIM_HEIGHT = 24;
 const FONT_FILE = resolve('src/assets/fonts/InstrumentSans-Variable.ttf');
 
 export interface ShareCard {
   /** The school's colour, "#572932": white type goes on it (check-colors proves 4.5:1). */
   color: string;
+  /** The school's other colour, as a bar along the foot with no words on it (schoolTrim); none where it has none. */
+  trim?: string;
   /** "Berthoud football", "Berthoud athletics". */
   title: string;
   /** "7-2 this fall · 3-1 in the 3A Cache la Poudre", or the teams' records for the school. */
@@ -44,6 +47,7 @@ export async function renderShareCard(card: ShareCard): Promise<Buffer> {
     { input: title, left: MARGIN, top: 120 },
     ...(record ? [{ input: record, left: MARGIN, top: 120 + titleHeight + 40 }] : []),
     { input: footer, left: MARGIN, top: SHARE_HEIGHT - MARGIN - 40 },
+    ...(card.trim ? [{ input: { create: { width: SHARE_WIDTH, height: TRIM_HEIGHT, channels: 4 as const, background: card.trim } }, left: 0, top: SHARE_HEIGHT - TRIM_HEIGHT }] : []),
   ];
   return sharp({ create: { width: SHARE_WIDTH, height: SHARE_HEIGHT, channels: 4, background: card.color } })
     .composite(layers)

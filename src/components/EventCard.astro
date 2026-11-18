@@ -86,7 +86,10 @@ const title = displayTitle(event);
 // column keeps its first clause where that is short ("Evening"), else nothing.
 const longNote = !!data.timeNote && data.timeNote.length > 14;
 const firstClause = data.timeNote?.split(/[;,(]/)[0].trim();
-const cell = longNote ? (firstClause && firstClause.length <= 14 ? [firstClause] : []) : [cellTime, cellTo];
+// A list of times is one thing: "Waves at 9:00, 9:01 and 9:02" is not cut
+// at its first comma (the audit of 17 November 2026).
+const listOfTimes = !!data.timeNote && !!firstClause && /^\s*,\s*(?:\d|and\b|or\b)/.test(data.timeNote.slice(firstClause.length));
+const cell = longNote ? (firstClause && firstClause.length <= 14 && !listOfTimes ? [firstClause] : []) : [cellTime, cellTo];
 // What the line under the title says of a long note on a wide screen: the
 // whole note where the column is empty, else the part after the clause the
 // column has ("From 3 pm" in the column, "live music 6–8:30 pm" in the line),

@@ -457,9 +457,10 @@ test('a town with one school keeps /sports/ and sports.json; Windsor’s two eac
   ]);
   assert.ok(sportsRoutes('windsor').some(([p, f]) => p === '/sports/severance-high/football' && f === 'sports-team.astro'), 'a school’s team page carries the school’s slug');
   assert.equal(teamPath(windsorSchools[1]!, 'football'), '/sports/severance-high/football/');
-  // An outdoors-led guide (Lyons, 12 November 2026) keeps its sports pages though they are out of its menu.
+  // An outdoors-led guide (Lyons) follows no school and builds no sports page (17 November 2026).
   assert.equal(findTown('lyons')!.lead, 'outdoors');
-  assert.deepEqual(sportsRoutes('lyons')[0], ['/sports', 'sports.astro'], 'Lyons’s sports pages still build');
+  assert.deepEqual(schoolsFor('lyons'), []);
+  assert.deepEqual(sportsRoutes('lyons'), [], 'Lyons has no sports pages');
 });
 
 test('every school is one entry with its own file, and its town’s menu carries it in the third slot, but on an outdoors-led guide', () => {
@@ -479,7 +480,8 @@ test('every school is one entry with its own file, and its town’s menu carries
     }
     for (const s of schools) assert.ok(s.calendar || s.calendarNote, `${s.school}: a calendar to check against, or a note saying why not`);
   }
-  assert.deepEqual([...new Set(SCHOOL_SPORTS.map((s) => s.town))].filter((town) => findTown(town)!.lead === 'outdoors'), ['lyons']);
+  // No outdoors-led guide follows a school (Lyons's left on 17 November 2026).
+  assert.deepEqual([...new Set(SCHOOL_SPORTS.map((s) => s.town))].filter((town) => findTown(town)!.lead === 'outdoors'), []);
 });
 
 test('a result MaxPreps lists twice is shown once; a doubleheader stays two games', async () => {
@@ -654,13 +656,13 @@ test('every school carries the winter list after its fall list, any spring teams
     const order = { fall: 0, winter: 1, spring: 2 } as const;
     const seasons = school.teams.map((t) => order[t.season]);
     assert.deepEqual(seasons, [...seasons].sort((a, b) => a - b), `${school.school}: fall, then winter, then spring`);
-    // Spring teams only where a guide has asked: Lyons's baseball and track and Roosevelt's baseball and girls' soccer (the owner, 9 November 2026).
+    // Spring teams only where a guide has asked: Roosevelt's baseball and girls' soccer (the owner, 9 November 2026); Lyons's baseball and track left with its sports pages on 17 November 2026.
     // Golden's baseball and lacrosse went with its guide, folded into its page on the hub on 12 November 2026.
-    assert.equal(school.teams.some((t) => t.season === 'spring'), ['lyons', 'johnstown'].includes(school.town), `${school.school}: spring teams only at Lyons and Roosevelt`);
+    assert.equal(school.teams.some((t) => t.season === 'spring'), school.town === 'johnstown', `${school.school}: spring teams only at Roosevelt`);
     // Ice hockey only where CHSAA lists the school: Resurrection Christian was the one, and it went with Loveland's guide the same day.
     assert.equal(keys.includes('ice-hockey'), false, `${school.school}: CHSAA lists no ice hockey for a school still followed`);
-    // MaxPreps has no girls' swimming page for Elizabeth or Lyons (25 October 2026), nor for Severance, which CHSAANow lists none for (9 November 2026).
-    assert.equal(keys.includes('girls-swimming'), !['Elizabeth High School', 'Lyons Middle/Senior High School', 'Severance High School'].includes(school.school), `${school.school}: girls swimming`);
+    // MaxPreps has no girls' swimming page for Elizabeth (25 October 2026), nor for Severance, which CHSAANow lists none for (9 November 2026).
+    assert.equal(keys.includes('girls-swimming'), !['Elizabeth High School', 'Severance High School'].includes(school.school), `${school.school}: girls swimming`);
   }
   const teams = schoolSportsFor('berthoud')!.teams;
   const game = (date: string, opponent: string) => ({ date, opponent, site: 'home' as const, url: `u-${date}` });
@@ -682,8 +684,7 @@ test('every school carries the winter list after its fall list, any spring teams
   assert.equal(seasonOf(rooseveltSpring, rooseveltTeams, new Date('2027-03-01T15:00:00Z')).label, 'Spring 2027');
   // A spring game: the spring of its own calendar year, and the school page's eyebrow is the school year while winter is on it too.
   const { pageSeasonLabel } = await import('../src/lib/school-sports.ts');
-  const lyons = schoolSportsFor('lyons')!.teams;
-  assert.deepEqual(lyons.filter((t) => t.season === 'spring').map((t) => t.key), ['baseball', 'boys-track', 'girls-track']);
+  const lyons = rooseveltTeams;
   const roosevelt = schoolSportsFor('johnstown')!.teams.filter((t) => t.season === 'spring');
   assert.deepEqual(roosevelt.map((t) => [t.key, t.maxpreps]), [['baseball', 'baseball'], ['girls-soccer', 'soccer/girls/spring']]);
   const spring: SportsData = { generated: '', sports: [team('boys-basketball', [{ ...game('2027-02-20', 'Estes Park'), result: 'W' as const, score: { us: 50, them: 40 } }], []), team('baseball', [], [game('2027-03-10', 'Estes Park')])].map((t) => ({ ...t, fetched: '2027-03-01' })) };
@@ -927,13 +928,15 @@ test('the email’s games carry their day in full, and a shared edition gives th
 
 test('a school’s teams are called by its short name and mascot, as people search for them', async () => {
   const { teamPageTitle } = await import('../src/lib/school-sports.ts');
-  assert.equal(schoolTeamName(schoolSportsFor('lyons')!), 'Lyons Lions', 'not "Lyons Middle/Senior Lions"');
+  // Lyons's ("Lyons Lions", not "Lyons Middle/Senior Lions") left on 17 November 2026; the rule is held on a copy of its entry.
+  const lyonsLions = { ...schoolSportsFor('johnstown')!, town: 'lyons', place: undefined, school: 'Lyons Middle/Senior High School', mascot: 'Lions', maxprepsName: 'Lyons' };
+  assert.equal(schoolTeamName(lyonsLions), 'Lyons Lions', 'not "Lyons Middle/Senior Lions"');
   // Timnath's ("Timnath Cubs", not "Timnath Middle-High Cubs") and Resurrection Christian's left with
   // their guides on 12 November 2026; the rule is held on the names still followed, and on every one below.
   assert.equal(schoolTeamName(schoolSportsFor('johnstown')!), 'Roosevelt Roughriders');
   assert.equal(schoolTeamName(schoolSportsFor('windsor', 'severance-high')!), 'Severance Silver Knights', 'a two-word mascot is kept whole');
   assert.equal(schoolTeamName(schoolSportsFor('johnstown')!), 'Roosevelt Roughriders', 'the school’s name, not the town’s');
-  assert.equal(teamPageTitle(schoolSportsFor('lyons')!, { name: 'Football' }, '2026'), 'Lyons Lions Football Scores & Schedule 2026');
+  assert.equal(teamPageTitle(lyonsLions, { name: 'Football' }, '2026'), 'Lyons Lions Football Scores & Schedule 2026');
   for (const s of SCHOOL_SPORTS) assert.doesNotMatch(schoolTeamName(s), /School|Middle|Senior|\//, s.school);
 });
 
@@ -1131,4 +1134,37 @@ test('every sports title fits in 60 and names its town first where the school’
     }
   }
   assert.equal(schoolPageTitle(SCHOOL_SPORTS.find((s) => s.school === 'Roosevelt High School')!), 'Johnstown Roosevelt Roughriders Scores & Schedules');
+});
+
+test('every school’s pages carry its own colours, however many schools the guide follows', async () => {
+  const { schoolCssVars } = await import('../src/lib/school-sports.ts');
+  const { schoolTrim, stripColors } = await import('../src/config/school-colors.ts');
+  // Severance High on the Windsor guide: navy, never Windsor's maroon (the audit of 17 November 2026).
+  const severance = schoolSportsFor('windsor', 'severance-high')!;
+  const vars = schoolCssVars(severance)!;
+  assert.match(vars, /--town-primary:#1C3C6D/);
+  assert.match(vars, /--town-accent:#8F8C88/);
+  assert.doesNotMatch(vars, /6A1B32/i);
+  for (const route of ['src/routes/town/sports.astro', 'src/routes/town/sports-team.astro']) {
+    assert.doesNotMatch(readFileSync(route, 'utf8'), /schools\.length === 1 \? schoolCssVars/, route);
+  }
+  // The trim: the published orange where the pages are a darker step of it, the second colour, or the primary where that is white.
+  assert.deepEqual(schoolTrim(schoolSportsFor('erie')!.colors!), { accent: '#F26B21', loss: '#231F20' });
+  assert.deepEqual(schoolTrim(schoolSportsFor('johnstown')!.colors!), { accent: '#000000', loss: '#000000' });
+  assert.deepEqual(schoolTrim(schoolSportsFor('carbon-valley')!.colors!), { accent: '#EFC867' });
+  assert.deepEqual(schoolTrim(berthoud.colors!), { accent: '#572932' });
+  assert.equal(schoolTrim({ primary: '#022C66' }), undefined, 'no second colour recorded: the guide’s accent stays');
+  // One source: the home strip is drawn from the sports config's colours.
+  assert.deepEqual(stripColors(findTown('erie')!), { primary: '#F26B21', secondary: '#231F20' });
+  assert.deepEqual(stripColors(findTown('niwot')!), { primary: '#126637', secondary: '#ffffff' });
+});
+
+test('a share card carries the school’s other colour as a bar along the foot', async () => {
+  const { renderShareCard, SHARE_HEIGHT, SHARE_WIDTH } = await import('../src/lib/share-image.ts');
+  const sharp = (await import('sharp')).default;
+  const png = await renderShareCard({ color: '#1C3C6D', trim: '#8F8C88', title: 'Severance football', footer: 'Scores and schedules · Inside Windsor' });
+  const { data } = await sharp(png).raw().toBuffer({ resolveWithObject: true });
+  const at = (x: number, y: number) => [0, 1, 2].map((c) => data[(y * SHARE_WIDTH + x) * 4 + c]);
+  assert.deepEqual(at(0, 0), [0x1c, 0x3c, 0x6d]);
+  assert.deepEqual(at(600, SHARE_HEIGHT - 2), [0x8f, 0x8c, 0x88]);
 });

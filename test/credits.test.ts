@@ -40,6 +40,8 @@ test('a Creative Commons row names the author, links the licence and says what c
   const cropped = publicCredit(row('CC BY 4.0 (Jeffrey Beall; 2017); cropped and resized to 1700px. Came in via townofniwot.com'));
   assert.equal(cropped.licenseUrl, 'https://creativecommons.org/licenses/by/4.0/');
   assert.equal(cropped.changes, 'cropped and resized');
+  // Commons' own downscaled copy is a resized one (audit of 17 November 2026).
+  assert.equal(publicCredit(row("CC BY-SA 3.0 (Wusel007; 2010); Commons' 2400px rendition; the Walden page's photograph")).changes, 'resized');
 });
 
 test('public domain and CC0 rows', () => {

@@ -230,7 +230,12 @@ test('every live flagship names its school as the sports pages do, and its band 
     assert.ok(t.hubPage, `${t.slug}: a flagship that is not live was folded into its page on the hub`);
     assert.deepEqual(schoolsFor(t.slug), [], `${t.slug}: a folded guide follows no school`);
   }
-  for (const t of towns.filter((t) => t.home && t.status === 'live')) {
+  // Lyons leads with the outdoors and has no sports (17 November 2026): no school, no colours.
+  for (const t of towns.filter((t) => t.home && t.status === 'live' && t.lead === 'outdoors')) {
+    assert.deepEqual(schoolsFor(t.slug), [], `${t.slug}: an outdoors-led guide follows no school`);
+    assert.equal(t.school, undefined, `${t.slug}: no school colours where no page draws them`);
+  }
+  for (const t of towns.filter((t) => t.home && t.status === 'live' && t.lead !== 'outdoors')) {
     assert.ok(t.school, `${t.slug}: a flagship with a school in the sports coverage has its colours`);
     // The town's only school, or, where it follows several (Windsor and Severance's two), the one its colours are.
     const sports = schoolSportsFor(t.slug) ?? schoolsFor(t.slug).find((s) => s.school === t.school!.name)!;

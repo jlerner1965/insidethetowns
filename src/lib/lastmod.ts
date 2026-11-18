@@ -131,8 +131,17 @@ function traditionDates(repoRoot: string, out: Map<string, string>): void {
   }
 }
 
-/** The lastmod for one sitemap URL: the page's own date, else the build's. */
-export function lastmodFor(url: string, dates: Map<string, string>, buildDate: Date): string {
+/**
+ * Pages of fixed copy with no date of their own: the about, contact and
+ * policy pages, the forms, the hub's moving pages and its list of towns.
+ * They took the build's instant, a new lastmod on every deploy for a page
+ * that had not changed (20 entries, the audit of 17 November 2026); they
+ * now carry none, which is what "no date known" is.
+ */
+export const UNDATED = /^\/(?:about|advertise|contact|corrections|credits|editorial|for-businesses|moving-here|privacy|submit-event|towns|moving(?:\/[^/]+)?)\/$/;
+
+/** The lastmod for one sitemap URL: the page's own date; none for a page of fixed copy; else the build's. */
+export function lastmodFor(url: string, dates: Map<string, string>, buildDate: Date): string | undefined {
   const { pathname } = new URL(url);
-  return dates.get(pathname) ?? buildDate.toISOString();
+  return dates.get(pathname) ?? (UNDATED.test(pathname) ? undefined : buildDate.toISOString());
 }

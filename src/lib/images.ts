@@ -4,11 +4,8 @@
  */
 import type { ImageMetadata } from 'astro';
 import { heroOf, type HubTown } from '../config/hub-towns.ts';
-
-const images = import.meta.glob<ImageMetadata>('/content/*/images/*.{jpg,jpeg,png,webp,avif,gif}', {
-  eager: true,
-  import: 'default',
-});
+// The folders of the site being built, never every town's: src/integrations/site-images.ts.
+import images from 'virtual:site-images';
 
 export function resolveSiteImage(siteSlug: string, fileName: string): ImageMetadata {
   const key = `/content/${siteSlug}/images/${fileName}`;

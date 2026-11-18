@@ -14,8 +14,8 @@ sources:
   - { label: "SilverStone Metropolitan Districts", url: "https://silverstonemetrodistricts.specialdistrict.org/" }
   - { label: "SilverStone Metropolitan District No. 1: 2022 budget", url: "https://silverstonemetrodistricts.specialdistrict.org/files/293404575/2022+Budget+Message+-+Silverstone+Metro+District+No.+1.pdf" }
   - { label: "Weld County: property information", url: "https://www.weld.gov/How-Do-I/Find/Property-Information" }
-  - { label: "CVPRD: district residency", url: "https://www.cvprd.com/district-residency" }
-  - { label: "CVPRD: pool schedule", url: "https://www.cvprd.com/pool-schedule" }
+  - { label: "CVPRD: district residency", url: "https://www.carbonvalleyrec.gov/district-residency" }
+  - { label: "CVPRD: pool schedule", url: "https://www.carbonvalleyrec.gov/pool-schedule" }
   - { label: "YES! Communities: Prairie Greens", url: "https://www.yescommunities.com/About-Prairie-Greens" }
 related:
   - { label: "Moving to Frederick", href: "/moving-here/", note: "Schools, commute, what houses cost and what to check before you buy." }
@@ -33,7 +33,7 @@ An HOA is a separate thing. It enforces covenants and collects dues, and it does
 
 ## Is your address in one?
 
-- **The county's list.** Look the address up on Weld County's [property portal](https://apps.weld.gov/propertyportal/) and open the "Taxing Districts" box. The "Tax Authorities" list there names every district that taxes the property. The Carbon Valley Parks and Recreation District tells residents to use the same box to confirm they pay "Carbon Valley Rec" ([district residency](https://www.cvprd.com/district-residency)), and a metro district shows up the same way.
+- **The county's list.** Look the address up on Weld County's [property portal](https://apps.weld.gov/propertyportal/) and open the "Taxing Districts" box. The "Tax Authorities" list there names every district that taxes the property. The Carbon Valley Parks and Recreation District tells residents to use the same box to confirm they pay "Carbon Valley Rec" ([district residency](https://www.carbonvalleyrec.gov/district-residency)), and a metro district shows up the same way.
 - **Your tax statement.** Each district that taxes you is a line on it.
 - **The Town's map.** The [Metropolitan Districts page](https://www.frederickco.gov/838/Metropolitan-Districts) has an interactive map of the districts and links each one to its filings with the State Auditor.
 
@@ -55,7 +55,7 @@ The same law covers home sales. Anyone selling a house inside a metro district m
 
 Whether your neighborhood has a pool or clubhouse, and who runs it, is a question for your HOA. **Prairie Greens**, the YES! Communities neighborhood at 7781 Mountain View Drive, lists a clubhouse, fitness center, swimming pool, playground and picnic area among its amenities ([YES! Communities](https://www.yescommunities.com/About-Prairie-Greens)).
 
-For everyone else, the pool is the rec center's: the **Carbon Valley Recreation Center**, 701 5th Street, has a lap pool and an activity pool with a lazy river and slide ([pool schedule](https://www.cvprd.com/pool-schedule)). Anyone can swim. If your address pays "Carbon Valley Rec", you pay district rates.
+For everyone else, the pool is the rec center's: the **Carbon Valley Recreation Center**, 701 5th Street, has a lap pool and an activity pool with a lazy river and slide ([pool schedule](https://www.carbonvalleyrec.gov/pool-schedule)). Anyone can swim. If your address pays "Carbon Valley Rec", you pay district rates.
 
 ## Before you buy
 

@@ -4,8 +4,8 @@ kind: league
 topic: sports
 audience: [elementary, teens]
 organizer: "Carbon Valley Parks and Recreation District"
-organizerUrl: "https://www.cvprd.com/"
-url: "https://www.cvprd.com/youth-basketball"
+organizerUrl: "https://www.carbonvalleyrec.gov/"
+url: "https://www.carbonvalleyrec.gov/youth-basketball"
 summary: "The recreation district’s January–February leagues for 5th/6th grade coed and 7th/8th grade boys, Junior Nuggets partner leagues: register by December 7, practice from the week of January 5, games Fridays or Saturdays January 15 to February 27. $127 for district residents, $191 for others."
 ages: "Grades 5–8 for the winter season; the fall season (Mini-Dribblers age 4 to 8th grade) is under way through December 19"
 location: "Practices and home games at the Carbon Valley Recreation Center and area gyms; some games in Mead, Berthoud and LaSalle"
@@ -19,7 +19,7 @@ registration: { required: true, how: "Online in the district’s CivicRec catalo
 volunteerNeed: "Volunteer head coaches are needed every season; a head coach’s child plays that sport free"
 contact: "Darren Duplechin, Sports Coordinator, 303-833-3660 x127, dduplechin@cvprd.com; weather line 720-531-3373"
 featured: true
-source: "https://www.cvprd.com/youth-basketball"
+source: "https://www.carbonvalleyrec.gov/youth-basketball"
 verified: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 ---

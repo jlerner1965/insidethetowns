@@ -44,7 +44,7 @@ test('a line promises only what the guide has: changes on a resident guide, the 
       }
       assert.deepEqual(withPick, without, `${t.slug}: the pick changes nothing`);
     } else if (t.lead === 'outdoors') {
-      assert.match(withPick.short, /^The outdoor dates around /, `${t.slug}: the outdoor dates lead`);
+      assert.match(withPick.short, /^Trails and parks around /, `${t.slug}: the outdoors lead`);
       assert.match(withPick.short, /what’s on this week/, `${t.slug}: it still lists the week`);
       assert.match(withPick.long, /the one we’d go to/, `${t.slug}: the week's pick, when there is one`);
     } else if (t.home) {
@@ -77,7 +77,7 @@ test('a line promises only what the guide has: changes on a resident guide, the 
   }
 });
 
-test('a guide that leads with something else says so: Updates on a quiet guide, the outdoor dates on an outdoors-led one (12 November 2026)', () => {
+test('a guide that leads with something else says so: Updates on a quiet guide, its trails and parks on an outdoors-led one (17 November 2026)', () => {
   // `lead: 'updates'` (Niwot): what its home page has, Updates when there is
   // a current one and Things to know. One line for both widths, no pick.
   const niwot = live.find((t) => t.slug === 'niwot')!;
@@ -85,18 +85,18 @@ test('a guide that leads with something else says so: Updates on a quiet guide, 
   assert.deepEqual(heroLine(niwot, { pick: true }), { short: 'What’s new in Niwot, and what to know', long: 'What’s new in Niwot, and what to know' });
   assert.deepEqual(heroLine(niwot, { pick: false, changes: true }), { short: 'What’s new in Niwot, and what to know', long: 'What’s new in Niwot, and what to know' });
   assert.deepEqual(heroLine(niwot, { pick: true, changes: false }), { short: 'What to know in Niwot', long: 'What to know in Niwot' });
-  // `lead: 'outdoors'` (Lyons): the outdoor dates first, then the week; the
+  // `lead: 'outdoors'` (Lyons): the trails and parks first, then the week; the
   // pick only in the wide line and only in a week with one. Whether Worth
   // knowing has a change does not alter it.
   const lyons = live.find((t) => t.slug === 'lyons')!;
   assert.equal(lyons.lead, 'outdoors');
   assert.deepEqual(heroLine(lyons, { pick: true }), {
-    short: 'The outdoor dates around Lyons, and what’s on this week',
-    long: 'The outdoor dates around Lyons, and what’s on this week, with the one we’d go to',
+    short: 'Trails and parks around Lyons, and what’s on this week',
+    long: 'Trails and parks around Lyons, and what’s on this week, with the one we’d go to',
   });
   assert.deepEqual(heroLine(lyons, { pick: false }), {
-    short: 'The outdoor dates around Lyons, and what’s on this week',
-    long: 'The outdoor dates around Lyons, and what’s on this week',
+    short: 'Trails and parks around Lyons, and what’s on this week',
+    long: 'Trails and parks around Lyons, and what’s on this week',
   });
   assert.deepEqual(heroLine(lyons, { pick: true, changes: false }), heroLine(lyons, { pick: true }));
   // A guide without `lead` is unchanged, whatever else it is.

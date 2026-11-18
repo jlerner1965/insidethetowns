@@ -34,8 +34,8 @@ towns: [idaho-springs]
 
 ---
 
-This week in Clear Creek: https://insideidahosprings.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22  
-Everything on in Clear Creek: https://insideidahosprings.com/events/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22  
-Know of something missing? https://insideidahosprings.com/submit-event/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22
+[This week in Clear Creek](https://insideidahosprings.com/this-week/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)  
+[Everything on in Clear Creek](https://insideidahosprings.com/events/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)  
+[Know of something missing?](https://insideidahosprings.com/submit-event/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22)
 
 _The weekly email from Inside Clear Creek, part of Inside the Towns. Listings are editorial; nobody pays to be in them._

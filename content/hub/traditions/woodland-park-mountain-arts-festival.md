@@ -6,7 +6,7 @@ town:
   guide: woodland-park
 type: festival
 organizer: "The Mountain Artists"
-sourceUrl: "https://www.themountainartists.org/"
+sourceUrl: "https://www.mtnartists.com/"
 years:
   - year: 2027
     status: not-announced

@@ -46,7 +46,16 @@ export const TO_OUTDOOR = ['/things-to-do{/}?', '/trails{/}?', '/trailheads{/}?'
 export interface FoldEvent {
   path: string;
   event: string;
+  /** Set when the record's page is under another town's (ALSO_COVERED). */
+  town?: string;
 }
+
+/**
+ * A guide that carried a second town's listings: the Clear Creek guide at
+ * insideidahosprings.com held Black Hawk's from 20 October to 2 November
+ * 2026, so an old event address there may be a Black Hawk record's.
+ */
+export const ALSO_COVERED: Readonly<Record<string, readonly string[]>> = { 'insideidahosprings.com': ['black-hawk'] };
 
 /** The map as the data file holds it: host, then old path to record slug. */
 export type FoldEventMap = Record<string, Record<string, string>>;
@@ -73,8 +82,9 @@ export function foldEventTargets(
     if (!/^\/events\/[a-z0-9-]+\/$/.test(path)) throw new Error(`${domain}${path}: not an event address (/events/<slug>/).`);
     const page = pageFor(slug);
     if (!page) throw new Error(`${domain}${path} → ${slug}: no such record, or it has no page of its own.`);
-    if (page.town !== town) throw new Error(`${domain}${path} → ${slug}: the record's page is /${page.town}/, not this domain's town /${town}/.`);
-    return { path, event: page.event };
+    if (page.town === town) return { path, event: page.event };
+    if (!ALSO_COVERED[domain]?.includes(page.town)) throw new Error(`${domain}${path} → ${slug}: the record's page is /${page.town}/, not this domain's town /${town}/.`);
+    return { path, event: page.event, town: page.town };
   });
 }
 
@@ -85,7 +95,7 @@ export function foldRules(domain: string, hubDomain: string, town: string, event
   return [
     rule('/', page),
     // Each old event address with a page of its own, before the events catch-all.
-    ...events.map((e) => rule(eventSource(e.path), `${page}${e.event}/`)),
+    ...events.map((e) => rule(eventSource(e.path), `${e.town ? `https://${hubDomain}/${e.town}/` : page}${e.event}/`)),
     ...TO_TRADITIONS.map((s) => rule(s, `${page}#${TRADITIONS_ANCHOR}`)),
     ...TO_OUTDOOR.map((s) => rule(s, `${page}#${OUTDOOR_ANCHOR}`)),
     rule('/(.*)', page),

@@ -12,7 +12,8 @@ export const lyons: TownConfig = {
   siteTitle: 'Inside Lyons',
   tagline: 'An independent guide to Lyons, Colorado: the river, the trails, the music, and what it’s like to live at the canyon mouth.',
   shortTagline: 'Sandstone, the river, and a music festival',
-  seoTagline: 'Lyons, CO events this weekend & things to do',
+  // The outdoors first, as the home page is (17 November 2026).
+  seoTagline: 'Lyons, CO trails & parks, events this weekend',
   counties: ['Boulder'],
   state: 'CO',
   lat: 40.2247,
@@ -52,19 +53,12 @@ export const lyons: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
-  // The restructure of 12 November 2026 (TownConfig.lead).
+  // The restructure of 12 November 2026 (TownConfig.lead). No sports since
+  // 17 November 2026: no school in src/config/school-sports.ts, no /sports/.
   lead: 'outdoors',
   // Quick answers under What's happening (parity with Berthoud, 9 November 2026).
   // Lyons has no recreation center, so no rec center link.
   quickAnswers: {},
-  /**
-   * Lyons Middle/Senior High's colours, read from its own site 25 October
-   * 2026 (lmshs.svvsd.org): the theme's `--color-primary` is #0054A6, the
-   * blue of the school's logo (lmshs-logo.svg), whose other colours are
-   * white and the black ring every St. Vrain school's logo has, so the
-   * second colour is white. MaxPreps's navy (#022C66) stays on /sports/.
-   */
-  school: { name: 'Lyons Middle/Senior High School', mascot: 'Lions', teamName: 'Lyons Lions', primary: '#0054A6', secondary: '#FFFFFF' },
   // /get-involved/, on the owner's word (9 November 2026), once the adult
   // ways in were read from their own pages: LEAF, the Community Foundation,
   // Lyons Fire, the Town's boards and the Board of Trustees, the Friends of
