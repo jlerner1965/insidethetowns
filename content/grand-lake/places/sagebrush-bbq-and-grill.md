@@ -5,14 +5,13 @@ address: "1101 Grand Ave, Grand Lake, CO 80447"
 area: "Grand Avenue"
 url: "https://sagebrushbbq.com/"
 source: "https://sagebrushbbq.com/"
-verified: "2026-10-10"
+verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "970-627-1404"
 hours: "Sun–Thu 7 am–9 pm; Fri–Sat 7 am–10 pm"
 tags: [barbecue, breakfast, bar, catering, year-round]
 summary: "Full-service barbecue and Western restaurant on Grand Avenue, open year-round for breakfast, lunch and dinner since 1999, with ribs, smoked meats, buffalo, steaks, a bar and SBQ To-Go takeout."
-readBlocked: "2026-11-17: own site answers 403 with a bot challenge (\"Just a moment...\"), not worked around; no other official page."
 ---
 
 David Freeman founded Sagebrush BBQ & Grill in 1999, and the Freeman family still runs it. The restaurant says it is open year-round for breakfast, lunch and dinner, with a menu that runs from ribs and smoked meats to buffalo, burgers, salads, fish, tacos and USDA Choice steaks, and gluten-free and vegetarian options. The bar adjoins a lounge-style dining area with garage-door windows that open in summer, and serves beer, wine and cocktails. SBQ To-Go sells the full menu for takeout plus shakes, ice cream, subs and espresso; call 970-627-1404 ext 1 to order for pickup within 72 hours, or ext 3 for the catering office. Sagebrush also caters and has private-event and banquet space.
