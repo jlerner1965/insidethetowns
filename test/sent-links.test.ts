@@ -33,6 +33,8 @@ import { domainMoved, isMoved, listsEvents } from '../src/config/index.ts';
 import { hubRoutes, placeTypeRoutes } from '../src/integrations/town-routes.ts';
 import { ALSO_COVERED } from '../src/lib/fold.ts';
 import { formerSlugs, guideRedirects, QUIET_ANNUAL } from '../src/lib/former-slugs.ts';
+import { movedEventPaths } from '../src/lib/moved-guides.ts';
+import { readCsv } from '../scripts/migration/shared.ts';
 import { heldEventRedirects } from '../scripts/lib/redirect-rules.ts';
 import legacyMap from '../api/legacy-map.json' with { type: 'json' };
 
@@ -93,7 +95,19 @@ function answered(l: Link): boolean {
   // While its domain is held (DOMAIN_HELD) the guide's own rules answer there, as before: checked below.
   if (domainMoved(town)) {
     if (existsSync(join(root, 'content', l.town, l.collection, `${l.slug}.md`))) return true;
-    return `/${l.collection}/${l.slug}` in guideRedirects(l.town, { listsEvents: listsEvents(town) });
+    const path = `/${l.collection}/${l.slug}/`;
+    if (path in movedEventPaths(town)) return true;
+    if (`/${l.collection}/${l.slug}` in guideRedirects(l.town, { listsEvents: listsEvents(town) })) return true;
+    // Everything the guide ever published is in its inventory with a decision (docs/migration/guides/<host>.csv), and the map answers it.
+    return inventory(l.domain).has(path);
+  }
+  // A retired domain a moved guide names in formerDomains (insidefrederickco.com, once Carbon Valley's domain has
+  // moved): api/legacy.ts answers it from that guide's map, path for path, as the guide's own domain.
+  const taker = town.retired?.successor ? config(town.retired.successor) : undefined;
+  if (taker && domainMoved(taker) && taker.formerDomains?.includes(l.domain)) {
+    if (existsSync(join(root, 'content', taker.slug, l.collection, `${l.slug}.md`))) return true;
+    const path = `/${l.collection}/${l.slug}/`;
+    return path in movedEventPaths(taker) || `/${l.collection}/${l.slug}` in guideRedirects(taker.slug, { listsEvents: listsEvents(taker) }) || inventory(taker.domain).has(path);
   }
   if (town.section && town.hubPage && !isMoved(town)) return l.domain in legacyMap;
   const builds = liveSlugs.has(l.town) && (l.collection !== 'events' || listsEvents(town));
@@ -105,6 +119,13 @@ function answered(l: Link): boolean {
   // A moved guide whose domain is held still answers with its own rules, as a live guide does.
   if (town.hubPage && !isMoved(town)) return [town.hubPage.town, ...(ALSO_COVERED[l.domain] ?? [])].some((t) => rule.destination!.startsWith(`https://insidethetowns.com/${t}/`));
   return true;
+}
+
+const inventories = new Map<string, Set<string>>();
+function inventory(domain: string): Set<string> {
+  const file = join(root, 'docs/migration/guides', `${domain}.csv`);
+  if (!inventories.has(domain)) inventories.set(domain, new Set(existsSync(file) ? readCsv(file).map((r) => r.old_path!) : []));
+  return inventories.get(domain)!;
 }
 
 interface Link { file: string; town: string; domain: string; collection: string; slug: string }
@@ -176,8 +197,10 @@ test('the links into folded guides and to Niwot’s events are among those check
       assert.equal(rule.destination, l.collection === 'events' ? `${page}#traditions` : page, `${l.domain}/${l.collection}/${l.slug}/`);
     }
   }
-  const quietEvents = links.filter((l) => liveSlugs.has(l.town) && !listsEvents(config(l.town)) && l.collection === 'events');
-  assert.ok(quietEvents.length > 0, 'the sent issues and Niwot’s weekly notes link Niwot’s events');
+  const quietLinks = links.filter((l) => liveSlugs.has(l.town) && !listsEvents(config(l.town)) && l.collection === 'events');
+  assert.ok(quietLinks.length > 0, 'the sent issues and Niwot’s weekly notes link Niwot’s events');
+  // Once the quiet guide's domain has moved, the map answers them (checked above); the host's rules are gone.
+  const quietEvents = quietLinks.filter((l) => !domainMoved(config(l.town)));
   for (const l of quietEvents) {
     const rule = hostRule(l.domain, `/${l.collection}/${l.slug}/`);
     assert.ok(rule, `${l.domain}: no rule takes /events/${l.slug}/`);
@@ -187,7 +210,7 @@ test('the links into folded guides and to Niwot’s events are among those check
     else assert.deepEqual([rule.source, rule.destination], [`/events/${l.slug}{/}?`, QUIET_ANNUAL], `${l.domain}/events/${l.slug}/`);
     assert.ok(rule.permanent === true || rule.statusCode === 301);
   }
-  assert.ok(quietEvents.some((l) => hostRule(l.domain, `/events/${l.slug}/`)!.destination === QUIET_ANNUAL), 'an annual event among them');
+  if (quietEvents.length) assert.ok(quietEvents.some((l) => hostRule(l.domain, `/events/${l.slug}/`)!.destination === QUIET_ANNUAL), 'an annual event among them');
   // The patterns read as Vercel reads them.
   assert.ok(sourcePattern('/events{/}?').test('/events/') && sourcePattern('/events{/}?').test('/events') && !sourcePattern('/events{/}?').test('/events/a/'));
   assert.ok(sourcePattern('/events/:slug{/}?').test('/events/a-b/') && !sourcePattern('/events/:slug{/}?').test('/events/a/b/'));

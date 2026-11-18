@@ -61,7 +61,8 @@ test('vercel.json carries a 301 for every former, retired and moved address, and
       assert.deepEqual(rule.has, [{ type: 'host', value: block.host }], `${where}: scoped to its own host`);
     }
   }
-  assert.ok(count > 300, `${count} addresses checked`);
+  // Over 300 while the seven guides had their rules here; once their domains have moved, the hub's and Severance's remain.
+  assert.ok(count >= 10, `${count} addresses checked`);
   // Writing them again changes nothing.
   assert.deepEqual(withBlocks(rules, generatedBlocks(null)).length, rules.length, 'a block would add or drop a rule');
 });
@@ -73,19 +74,25 @@ test('every live guide and the hub are among them, and the two the audit named g
   // The hub's 14 addresses for a guide's town, in one hop to the guide.
   assert.deepEqual(hubMovedRules(hub.domain).map((r) => [r.source, r.destination]), Object.entries(HUB_MOVED).map(([from, to]) => [`${from}{/}?`, to]));
   for (const [from, to] of Object.entries(HUB_MOVED)) assert.equal(answer(hub.domain, `${from}/`)?.destination, to, `${hub.domain}${from}/`);
+  // A guide whose domain has moved (src/config/guide-move.ts) has no rule in vercel.json: api/legacy.ts answers its
+  // domain and the domains that forward to it from the map its build writes (test/guide-move.test.ts holds those).
+  const moved = (slug: string) => domainMoved(towns.find((t) => t.slug === slug)!);
+  for (const host of ['carbonvalleyguide.com', 'insidefrederickco.com']) if (moved('carbon-valley')) assert.deepEqual(onHost(host), [], `${host}: no rule once Carbon Valley's domain has moved`);
   // Festival of Lights: the event's page, not the events list, and the same from the domain that forwards to the guide.
-  assert.equal(answer('carbonvalleyguide.com', '/events/festival-of-lights-2026-12-05/')?.destination, '/events/festival-of-lights/');
-  assert.equal(answer('insidefrederickco.com', '/events/festival-of-lights-2026-12-05/')?.destination, 'https://carbonvalleyguide.com/events/festival-of-lights/');
+  if (!moved('carbon-valley')) {
+    assert.equal(answer('carbonvalleyguide.com', '/events/festival-of-lights-2026-12-05/')?.destination, '/events/festival-of-lights/');
+    assert.equal(answer('insidefrederickco.com', '/events/festival-of-lights-2026-12-05/')?.destination, 'https://carbonvalleyguide.com/events/festival-of-lights/');
+  }
   // An annual event's dated address, the kind that held the ranking.
-  assert.equal(answer('insideerie.com', '/events/parade-of-lights-2026/')?.destination, '/events/parade-of-lights/');
+  if (!moved('erie')) assert.equal(answer('insideerie.com', '/events/parade-of-lights-2026/')?.destination, '/events/parade-of-lights/');
   // The two Lyons addresses Google still showed that were 404s.
   for (const slug of ['art-opening-at-mainstage-brewing-2026-11-06', 'old-time-jam-at-oskar-blues-2026-10-28']) {
-    assert.equal(answer('insidelyons.com', `/events/${slug}/`)?.destination, '/events/', slug);
+    if (!moved('lyons')) assert.equal(answer('insidelyons.com', `/events/${slug}/`)?.destination, '/events/', slug);
     assert.ok(`/events/${slug}` in heldEventRedirects('lyons', join(root, 'content')), `${slug}: over, and held back by the gate`);
   }
   // A quiet guide's annual events go to its annual-events page; its other events are the host's own rule's.
+  assert.ok(towns.some((t) => t.status === 'live' && !listsEvents(t)), 'a quiet guide');
   const quiet = live.filter((t) => !listsEvents(t));
-  assert.ok(quiet.length > 0);
   for (const t of quiet) {
     const own = guideRedirects(t.slug, { listsEvents: false });
     const events = Object.entries(own).filter(([from]) => from.startsWith('/events/'));

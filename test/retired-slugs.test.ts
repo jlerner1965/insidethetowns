@@ -17,6 +17,8 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { towns } from '../src/config/towns/registry.ts';
+import { domainMoved } from '../src/config/index.ts';
+import { readCsv } from '../scripts/migration/shared.ts';
 import { formerSlugRedirects, liveListings, retiredLedgerIssues, retiredSlugs } from '../src/lib/former-slugs.ts';
 
 const root = new URL('..', import.meta.url).pathname;
@@ -80,6 +82,13 @@ type Rule = { source: string; has?: Array<{ type: string; value: string }> };
 const rules = (JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8')) as { redirects: Rule[] }).redirects;
 const hostRule = (domain: string, kind: string, slug: string) =>
   rules.some((r) => r.source === `/${kind}/${slug}{/}?` && (!r.has || r.has.some((h) => h.type === 'host' && h.value.replace(/^www\./, '') === domain)));
+/** A guide whose domain has moved (src/config/guide-move.ts): api/legacy.ts answers every address its inventory holds, with its decision (scripts/migration/guide-map.ts). */
+const inventories = new Map<string, Set<string>>();
+const inInventory = (domain: string, kind: string, slug: string) => {
+  const file = join(root, 'docs/migration/guides', `${domain}.csv`);
+  if (!inventories.has(domain)) inventories.set(domain, new Set(existsSync(file) ? readCsv(file).map((r) => r.old_path!) : []));
+  return inventories.get(domain)!.has(`/${kind}/${slug}/`);
+};
 
 test('no listing a live guide published has gone without something to catch its URL', () => {
   // Every path under content/<town>/{events,places}/ deleted or renamed
@@ -115,7 +124,8 @@ test('no listing a live guide published has gone without something to catch its 
       liveNow.has(slug) ||
       [...liveNow.values()].some((formers) => formers.includes(slug)) ||
       retiredSlugs(town, join(root, 'content')).some((r) => r.kind === kind && r.from === slug) ||
-      hostRule(config.domain, kind!, slug);
+      hostRule(config.domain, kind!, slug) ||
+      (domainMoved(config) && inInventory(config.domain, kind!, slug));
     if (covered(file!)) continue;
     // The file may have declared a slug of its own; read the version that was deleted.
     let declared: string | undefined;
