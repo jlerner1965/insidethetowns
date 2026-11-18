@@ -186,7 +186,8 @@ export function rewriteMovedLinks(hub: string, hubDomain: string, domains: reado
   const droppedPaths = Object.keys(dropped).map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
   const onHub = droppedPaths ? new RegExp(`(https://${hubDomain.replace(/\./g, '\\.')}|\\s(?:href|src)=")(${droppedPaths})`, 'g') : undefined;
   let changed = 0;
-  for (const file of walk(hub).filter((f) => TEXT.test(f))) {
+  // The archive of sent emails is a historical record and keeps the addresses it sent: the guide's domain answers each from its map.
+  for (const file of walk(hub).filter((f) => TEXT.test(f) && !/[\\/]newsletter[\\/]/.test(relative(hub, f)))) {
     const text = readFileSync(file, 'utf8');
     let out = onHub ? text.replace(onHub, (_m, lead: string, path: string) => `${lead}${dropped[path]}`) : text;
     out = out.replace(absolute, (m, slashes: string, domain: string, tail: string) => {

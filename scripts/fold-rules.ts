@@ -75,6 +75,17 @@ for (const town of domains) {
   rules = [...rest.slice(0, index), ...want, ...rest.slice(index)];
   console.log(`${town.domain}: ${have.length} rule(s) replaced by ${want.length}, to /${town.town}/`);
 }
+// The hub's own address for a moved guide's town is its section's home now
+// (src/lib/hub-moved.ts drops it from HUB_MOVED): the rule that forwarded it
+// to the guide's domain goes.
+for (const t of allTowns.filter((g) => isMoved(g) && g.hubPage)) {
+  const source = `/${t.hubPage!.town}{/}?`;
+  const had = rules.filter((r) => hostOf(r) === hub.domain && r.source === source).length;
+  if (!had) continue;
+  changed++;
+  rules = rules.filter((r) => !(hostOf(r) === hub.domain && r.source === source));
+  console.log(`${hub.domain}: ${source} no longer forwards to ${t.domain}; /${t.hubPage!.town}/ is the section's home`);
+}
 // The live guides' former and retired addresses and the hub's moved pages
 // (scripts/lib/redirect-rules.ts): a 301 each, ahead of the host's other rules.
 for (const block of generatedBlocks()) {
