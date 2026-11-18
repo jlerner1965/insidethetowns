@@ -323,3 +323,15 @@ export function timelineText(year: number, text: string): string {
   const rest = m[1]!;
   return rest.charAt(0).toUpperCase() + rest.slice(1);
 }
+
+/**
+ * A road's or outdoor date's status line: the source's typical window, then
+ * "; most recent …" where there is a date on file. The window's own trailing
+ * period is dropped so the line never reads ".;" (the owner, 18 November
+ * 2026: "depending on weather conditions.; most recent Nov 3, 2026").
+ */
+export function notYetLine(typicalWindow: string | undefined, mostRecent: string | undefined): string {
+  const window = typicalWindow?.trim().replace(/\.+$/, '');
+  return `not yet announced${window ? `, ${window}` : ''}${mostRecent ? `; most recent ${mostRecent}` : ''}`;
+}
+

@@ -67,7 +67,7 @@ import { dayKey, formatDayLong, formatShortDate, parseLocal, publishedTime } fro
 import { hubTownPhoto } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
 import { appliesTo, eventPage, eventPath, lineFor, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
-import { foundedLine, milesShort, monthAnchor, moreHeading, moreInRegion, pageSections, profileView, timelineText, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
+import { foundedLine, milesShort, monthAnchor, notYetLine, moreHeading, moreInRegion, pageSections, profileView, timelineText, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
 import { MONTH_NAMES } from '@/lib/year-grid';
 import { articlePath, articlesFor, historyStory } from '@/lib/curiosity';
 import { PLACE_TYPE_PLURALS, type PlaceType } from '@/content/schemas';
@@ -139,7 +139,7 @@ const roadRows = [...traditions, ...outdoor].filter(isRoad).sort((a, b) => a.rec
 const roadLine = (r: Row) => {
   const set = !r.past && (r.entry.status === 'confirmed' || r.entry.status === 'moved');
   const edge = r.record.outdoor?.edge === 'closes' ? 'Closes' : r.record.outdoor?.edge === 'opens' ? 'Opens' : 'Open';
-  const when = set ? `${formatShortDate(parseLocal(r.entry.date!))}${r.entry.startTime ? `, ${publishedTime(r.entry.startTime)}` : ''}` : r.entry.status === 'canceled' ? 'canceled' : `not yet announced${r.entry.typicalWindow ? `, ${r.entry.typicalWindow}` : ''}${r.lastHeld ? `; most recent ${formatShortDate(parseLocal(r.lastHeld))}` : ''}`;
+  const when = set ? `${formatShortDate(parseLocal(r.entry.date!))}${r.entry.startTime ? `, ${publishedTime(r.entry.startTime)}` : ''}` : r.entry.status === 'canceled' ? 'canceled' : notYetLine(r.entry.typicalWindow, r.lastHeld ? formatShortDate(parseLocal(r.lastHeld)) : undefined);
   return { edge, when };
 };
 

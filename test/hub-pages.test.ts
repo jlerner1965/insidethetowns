@@ -9,7 +9,7 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { HUB_PUBLICATION } from '../src/config/palette.ts';
 import { CLUSTER_NAMES, HUB_CLUSTERS, HUB_TOWNS, clusterName } from '../src/config/hub-towns.ts';
-import { MORE_MAX, MORE_MIN, milesShort, moreHeading, moreInRegion, pageSections, profileView, sameYearJoined, yearGrid } from '../src/lib/hub-town-page.ts';
+import { MORE_MAX, MORE_MIN, milesShort, moreHeading, moreInRegion, notYetLine, pageSections, profileView, sameYearJoined, yearGrid } from '../src/lib/hub-town-page.ts';
 import { formatMiles, roadLeg, type RoadMiles } from '../src/lib/near.ts';
 import { publishedHubTowns } from '../src/lib/hub-towns.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
@@ -156,4 +156,10 @@ test('History on every town page: one row a year, and no timeline row that only 
       assert.equal(same, undefined, `${town.slug}: ${h.founded.year} is the Founded row again`);
     }
   }
+});
+
+test('a road line drops the window’s own period before “; most recent”', () => {
+  assert.equal(notYetLine('typically closes in late Oct. or early Nov., depending on weather conditions.', 'Nov 3, 2026'), 'not yet announced, typically closes in late Oct. or early Nov., depending on weather conditions; most recent Nov 3, 2026');
+  assert.equal(notYetLine('around Memorial Day weekend', undefined), 'not yet announced, around Memorial Day weekend');
+  assert.equal(notYetLine(undefined, 'May 21, 2026'), 'not yet announced; most recent May 21, 2026');
 });
