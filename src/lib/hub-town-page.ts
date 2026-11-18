@@ -1,7 +1,8 @@
 /**
  * The hub's town page as data (src/routes/hub/town.astro; the publication
  * redesign of 14 November 2026). The page is a run of numbered sections,
- * Events, Where to stay, Getting here, Outdoor dates and About, each drawn
+ * Events, Places to know, Trails and parks (the owner's brief of 18
+ * November 2026), Where to stay, Getting here, Outdoor dates and About, each drawn
  * only where the town's files have something for it, and numbered and
  * listed under "On this page" in the order they are drawn. Everything here
  * is pure, so the rules are tested rather than trusted to a template.
@@ -20,10 +21,10 @@ import { isUpcoming, type TraditionRow } from './traditions.ts';
 
 /* ---------------------------------------------------------------- sections */
 
-export type SectionKey = 'events' | 'stay' | 'getting' | 'outdoor' | 'about';
+export type SectionKey = 'events' | 'places' | 'trails' | 'stay' | 'getting' | 'outdoor' | 'about';
 
 /** The sections in the page's order, each with its anchor and its words. */
-export const SECTION_ORDER: readonly SectionKey[] = ['events', 'stay', 'getting', 'outdoor', 'about'];
+export const SECTION_ORDER: readonly SectionKey[] = ['events', 'places', 'trails', 'stay', 'getting', 'outdoor', 'about'];
 
 /**
  * Each section's anchor. The events and outdoor anchors are the ones a
@@ -33,6 +34,8 @@ export const SECTION_ORDER: readonly SectionKey[] = ['events', 'stay', 'getting'
  */
 export const SECTION_IDS: Readonly<Record<SectionKey, string>> = {
   events: 'traditions',
+  places: 'places-to-know',
+  trails: 'trails-and-parks',
   stay: 'stay',
   getting: 'getting-here',
   outdoor: 'outdoor-dates',
@@ -54,6 +57,8 @@ export interface PageSection {
 export function pageSections(town: string, present: Readonly<Record<SectionKey, boolean>>): PageSection[] {
   const words: Record<SectionKey, { label: string; title: string }> = {
     events: { label: 'Event dates', title: `Events and dates in ${town}` },
+    places: { label: 'Places to know', title: `Places to know in ${town}` },
+    trails: { label: 'Trails and parks', title: `Trails and parks in ${town}` },
     stay: { label: 'Where to stay', title: `Where to stay in ${town}` },
     getting: { label: 'Getting here', title: `Getting to ${town}` },
     outdoor: { label: 'Outdoor dates', title: 'Outdoor dates in Colorado' },
@@ -137,6 +142,8 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
   ];
 
   const lodging = profile?.lodging ?? [];
+  const places = (profile?.places ?? []).map((p) => ({ ...p, sources: placeSources(p) }));
+  const trails = (profile?.trails ?? []).map((t) => ({ ...t, sources: byHost([t.source, ...(t.alsoSources ?? [])]) }));
   const h = profile?.heritage;
   const sites = h?.sites ?? [];
   const dated = [...(h?.timeline ?? [])].sort((a, b) => a.year - b.year);
@@ -160,10 +167,30 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
     roads,
     lodging,
     lodgingChecked: newestCheck(lodging),
+    places,
+    placesChecked: newestCheck(places.flatMap((p) => [p, ...p.facts.filter((f): f is typeof f & { checked: string } => !!f.checked)])),
+    trails,
+    trailsChecked: newestCheck(trails),
     heritage: hasHeritage && h ? { nameOrigin: h.nameOrigin, founded: h.founded, timeline, sites, ghostTowns, makers } : undefined,
     heritageSources,
     heritageChecked: h ? newestCheck(heritageItems) : undefined,
   };
+}
+
+/** A place's sources in the order its facts use them, its own page first. */
+function placeSources(p: NonNullable<TownProfile['places']>[number]): Array<{ host: string; url: string }> {
+  return byHost([p.source, ...p.facts.map((f) => f.source).filter((u): u is string => !!u)]);
+}
+
+/**
+ * Sources as the page names them: each site once, linked to the first of
+ * its pages the entry used, as History's sources line does. Every page
+ * stays in the file, for the record and the re-check.
+ */
+export function byHost(urls: readonly string[]): Array<{ host: string; url: string }> {
+  const out = new Map<string, string>();
+  for (const u of urls) if (!out.has(sourceHost(u))) out.set(sourceHost(u), u);
+  return [...out.entries()].map(([host, url]) => ({ host, url }));
 }
 
 /**

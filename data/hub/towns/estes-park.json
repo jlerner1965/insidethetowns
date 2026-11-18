@@ -137,5 +137,234 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "places": [
+    {
+      "name": "Rocky Mountain National Park",
+      "what": "The national park at the west edge of town, entered on US 36 at Beaver Meadows or on US 34 at Fall River. It is open 24 hours a day, all year, weather permitting.",
+      "page": "/estes-park/places/rocky-mountain-national-park/",
+      "url": "https://www.nps.gov/romo/index.htm",
+      "facts": [
+        {
+          "label": "Entrance pass",
+          "value": "Needed 24 hours a day, all year, in every part of the park, Lily Lake and Lumpy Ridge included: $30 a vehicle for one day, $35 for seven, $70 for the park’s annual pass; under 16 free. Cards only at the gates.",
+          "source": "https://www.nps.gov/romo/planyourvisit/fees.htm",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Non-US visitors",
+          "value": "$100 a person, 16 and older, on top of the entrance fee, unless admitted with an annual or America the Beautiful pass.",
+          "source": "https://www.nps.gov/romo/planyourvisit/fees.htm",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Timed entry",
+          "value": "Not needed now. In 2026 it ran May 22 to October 12, 9 am–2 pm, and on Bear Lake Road to October 18, 5 am–6 pm, sold only on Recreation.gov. 2027 dates: not yet announced.",
+          "source": "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Roads now",
+          "value": "Trail Ridge Road closed to through travel for the winter on November 13, 2026; Bear Lake Road is open all year, and the park’s shuttles return in summer 2027.",
+          "source": "https://www.nps.gov/romo/planyourvisit/road_status.htm",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Dogs",
+          "value": "Not on any trail, tundra or meadow, nor on the park’s buses; on a leash of 6 feet or less along roads and in parking areas, campgrounds and picnic areas.",
+          "source": "https://www.nps.gov/romo/planyourvisit/pets.htm",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source": "https://www.nps.gov/romo/planyourvisit/hours.htm",
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Elk and the fall rut",
+      "what": "Large elk herds spend autumn and winter in the park’s meadow valleys. The rut, their mating season, is in September and October.",
+      "url": "https://www.nps.gov/romo/learn/nature/elk.htm",
+      "facts": [
+        {
+          "label": "Where and when",
+          "value": "September and October, near meadows and where meadows meet forest; bulls bugle most at dawn and dusk.",
+          "source": "https://www.nps.gov/romo/planyourvisit/wildlife_view.htm",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Rut closures",
+          "value": "September 1 to October 31, 5 pm to 10 am daily: no walking off roads and designated trails in Horseshoe Park, Moraine Park, Upper Beaver Meadows, Harbison Meadow and Holzwarth Meadow.",
+          "source": "https://www.nps.gov/romo/planyourvisit/area_closures.htm",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Distance",
+          "value": "Stay at least 75 feet away, about two bus lengths. Calling elk and using lights to spot them are illegal.",
+          "source": "https://www.nps.gov/romo/learn/nature/elk.htm",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Elk Fest",
+          "value": "October 2 and 3, 2027, in Bond Park; free.",
+          "source": "https://eventsinestes.com/estes-parks-elk-festival/",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source": "https://www.nps.gov/romo/learn/nature/elk.htm",
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "The Stanley Hotel",
+      "what": "The hotel on Wonderview Avenue north of downtown, open to visitors who are not staying, for tours, meals and shows.",
+      "page": "/estes-park/places/the-stanley-hotel/",
+      "url": "https://www.stanleyhotel.com/",
+      "facts": [
+        {
+          "label": "Where",
+          "value": "333 E. Wonderview Ave.",
+          "source": "https://www.stanleyhotel.com/tours/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Tours",
+          "value": "The 60-minute Historic Tour is $30, $20 for ages 8 to 17, and not open to children under 8; the ghost and Shining tours are $35, ages 8 and up. 2027 tours are on sale, and the hotel recommends booking ahead.",
+          "source": "https://www.stanleyhotel.com/tours/historic-tours/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Parking",
+          "value": "$10 a vehicle for day visitors.",
+          "source": "https://www.stanleyhotel.com/faqs/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Dogs",
+          "value": "Only trained service animals in the buildings.",
+          "source": "https://www.stanleyhotel.com/faqs/",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source": "https://www.stanleyhotel.com/tours/",
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Downtown and the Riverwalk",
+      "what": "Downtown is Elkhorn Avenue, the Riverwalk and Bond Park, the Town’s green in front of Town Hall at 170 MacGregor Avenue.",
+      "facts": [
+        {
+          "label": "Parking",
+          "value": "The Town’s free structure at 691 North St. Vrain Avenue, by the Visitor Center: 415 spaces on four levels. Downtown lots were paid May 22 to October 18 in 2026 and are free until late May.",
+          "source": "https://estespark.colorado.gov/parking",
+          "checked": "2026-10-07"
+        },
+        {
+          "label": "On foot",
+          "value": "Under ten minutes from the structure, the Town says: over the footbridge across the Big Thompson River and through the lighted tunnel under US 36 to the Riverwalk.",
+          "source": "https://estespark.colorado.gov/parking",
+          "checked": "2026-10-07"
+        },
+        {
+          "label": "Bond Park",
+          "value": "46,000 square feet of lawn with picnic tables and benches, where the downtown festivals, concerts and art fairs are held.",
+          "source": "https://estespark.colorado.gov/townparks",
+          "checked": "2026-11-06"
+        },
+        {
+          "label": "Town shuttle",
+          "value": "The Peak, the Town’s free buses, runs from late May to late October.",
+          "source": "https://estespark.colorado.gov/transit",
+          "checked": "2026-10-07"
+        }
+      ],
+      "source": "https://estespark.colorado.gov/parking",
+      "checked": "2026-10-07"
+    },
+    {
+      "name": "Lake Estes",
+      "what": "The lake by the Visitor Center, ringed by a paved trail, with a marina run by the Estes Valley Recreation and Park District.",
+      "page": "/estes-park/places/lake-estes-trail/",
+      "url": "https://evrpd.com/marina/",
+      "facts": [
+        {
+          "label": "Trail",
+          "value": "A paved 4-mile loop, rated easy; dogs welcome on a leash. Join it from the Visitor Center, parking-garage or Fisherman’s Nook lots, or the paid lots at Cherokee Draw, Wapiti Meadows and the marina; restrooms at Cherokee Draw.",
+          "source": "https://evrpd.com/parks-and-trails/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Paid lots",
+          "value": "$8 a vehicle for the day at the marina, Wapiti Meadows and Cherokee Draw.",
+          "source": "https://evrpd.com/marina/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Marina",
+          "value": "1770 Big Thompson Ave., 970-586-2011: closed for the season until spring 2027.",
+          "source": "https://evrpd.com/marina/",
+          "checked": "2026-11-18"
+        },
+        {
+          "label": "Rules",
+          "value": "A Colorado fishing license for anyone 16 and older. No swimming, jet skis, water skiing or ice fishing.",
+          "source": "https://evrpd.com/marina/",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source": "https://evrpd.com/marina/",
+      "checked": "2026-11-18"
+    }
+  ],
+  "trails": [
+    {
+      "name": "Bear Lake Loop",
+      "kind": "Lake loop",
+      "manager": "National Park Service",
+      "length": "0.6 mile, a loop, with 71 feet of climbing",
+      "trailhead": "Bear Lake Trailhead, at the end of Bear Lake Road, 9.2 miles from Trail Ridge Road, at 9,475 feet. The lot is often full by 9 am, all year.",
+      "season": "All year, weather permitting; Bear Lake Road stays open in winter. Expect snow-packed trails from October to early June.",
+      "dogs": "Not allowed on any park trail.",
+      "fee": "A park entrance pass ($30 a vehicle for a day). In the timed-entry season, a Timed Entry + Bear Lake Road reservation; in 2026, 5 am–6 pm from May 22 to October 18.",
+      "page": "/estes-park/places/bear-lake-trailhead/",
+      "source": "https://www.nps.gov/romo/planyourvisit/exploring-the-bear-lake-road-corridor.htm",
+      "checked": "2026-11-18",
+      "alsoSources": [
+        "https://www.nps.gov/romo/planyourvisit/fees.htm",
+        "https://www.nps.gov/romo/planyourvisit/pets.htm",
+        "https://www.nps.gov/romo/planyourvisit/plan-your-winter-springtime-visit-to-rocky.htm"
+      ]
+    },
+    {
+      "name": "Sprague Lake Loop",
+      "kind": "Lake loop",
+      "manager": "National Park Service",
+      "length": "0.8 mile, a flat loop that is wheelchair and stroller accessible (0.7 mile on the park’s Sprague Lake page)",
+      "trailhead": "Sprague Lake Parking Area on Bear Lake Road, with 27 picnic tables and a vault toilet open all year",
+      "season": "Open all year; ice fishing in winter.",
+      "dogs": "Not allowed on the trail; on a leash in the parking and picnic areas.",
+      "fee": "A park entrance pass ($30 a vehicle for a day). In the timed-entry season, a Timed Entry + Bear Lake Road reservation; in 2026, 5 am–6 pm from May 22 to October 18.",
+      "page": "/estes-park/places/sprague-lake-trailhead/",
+      "source": "https://www.nps.gov/romo/planyourvisit/exploring-the-bear-lake-road-corridor.htm",
+      "checked": "2026-11-18",
+      "alsoSources": [
+        "https://www.nps.gov/places/sprague-lake.htm",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm",
+        "https://www.nps.gov/romo/planyourvisit/pets.htm"
+      ]
+    },
+    {
+      "name": "Hermit Park Open Space",
+      "kind": "County open space",
+      "manager": "Larimer County Natural Resources",
+      "size": "1,362 acres, between 7,880 and 8,964 feet",
+      "address": "On US 36 about 4 miles southeast of downtown Estes Park; the entrance is on the right heading out of town",
+      "season": "March 1 to December 20; closed for winter from December 21 to the end of February.",
+      "dogs": "On a leash no longer than 10 feet, and never left alone.",
+      "fee": "An entrance permit for every visit, on foot or by bike too; $10 a vehicle for the day.",
+      "url": "https://www.larimer.gov/naturalresources/parks/hermit-park",
+      "source": "https://www.larimer.gov/naturalresources/parks/hermit-park",
+      "checked": "2026-11-18",
+      "alsoSources": [
+        "https://www.larimer.gov/naturalresources/parks/permits"
+      ]
+    }
+  ]
 }

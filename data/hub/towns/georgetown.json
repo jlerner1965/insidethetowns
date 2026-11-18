@@ -104,5 +104,77 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Tom Bennhoff Lake Trail, Georgetown Lake",
+      "kind": "Lake loop",
+      "manager": "Town of Georgetown",
+      "length": "About 2 miles round the lake by the Town (1.4 in the state’s trail database); flat crushed gravel, wheelchair friendly",
+      "trailhead": "On the southeast side of Georgetown Lake, just off 22nd Street; restrooms at the trailhead",
+      "season": "All year: the Town calls the lake year-round fun.",
+      "dogs": "On a leash.",
+      "fee": "None. Fishing needs a license, and driving on the ice a Town permit, January and February.",
+      "page": "/georgetown/places/georgetown-lake-and-tom-bennhoff-lake-trail/",
+      "source": "https://www.townofgeorgetown.us/town_government/parks_and_trails.php",
+      "alsoSources": [
+        "https://www.townofgeorgetown.us/town_government/tom_bennhoff_lake_trail.php",
+        "https://trails.colorado.gov/trails/tom-bennhoff-lake-22019",
+        "https://trails.colorado.gov/trailheads/georgetown-lake-22146"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Rutherford Trail",
+      "kind": "Hiking and snowshoe trail",
+      "manager": "Town of Georgetown",
+      "length": "2.1 miles with 734 feet of climbing, from Georgetown up to Silver Dale",
+      "trailhead": "Rutherford Trailhead in Georgetown: through the gate and up the dirt road past the water tower; a kiosk with a map; no restrooms or water",
+      "season": "A hiking route, and a snowshoe route in winter.",
+      "dogs": "On a leash.",
+      "fee": "None.",
+      "page": "/georgetown/places/rutherford-trail/",
+      "source": "https://trails.colorado.gov/routes/184",
+      "alsoSources": [
+        "https://trails.colorado.gov/interpretive-trails/rutherford-18634",
+        "https://trails.colorado.gov/interpretive-trails/rutherford-trailhead-22156"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Silver Dollar Lake Trail",
+      "kind": "National forest trail",
+      "manager": "USDA Forest Service, Clear Creek Ranger District",
+      "length": "2.1 miles, from 11,192 to 12,213 feet, a short but steep climb in thin air",
+      "trailhead": "A small lot just south of Guanella Pass Campground, about 11 miles up Guanella Pass Road from Georgetown; no restrooms",
+      "season": "Guanella Pass Road closes at Naylor Lake after Thanksgiving and reopens about Memorial Day weekend; in winter, ski or snowshoe from the lot at the gate. The area is closed from 10 pm to 6 am.",
+      "dogs": "On a hand-held leash.",
+      "fee": "None.",
+      "page": "/georgetown/places/silver-dollar-lake-trail/",
+      "source": "https://www.fs.usda.gov/r02/arp/recreation/trails/silver-dollar-lake-trail",
+      "alsoSources": [
+        "https://www.fs.usda.gov/r02/arp/recreation/silver-dollar-lake-trailhead",
+        "https://www.clearcreekcounty.us/689/Guanella-Pass-Information",
+        "https://trails.colorado.gov/trails/silver-dollar-lake-15787"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Mount Bierstadt Trail",
+      "kind": "Fourteener trail",
+      "manager": "USDA Forest Service",
+      "length": "3.6 miles one way, from 11,471 to 14,063 feet",
+      "trailhead": "Bierstadt Trailhead, 9 miles south of Georgetown on Guanella Pass Road (County Road 381); vault toilets. Park in designated spaces only, never on the road",
+      "season": "Not usually free of snow until late June or early July; from after Thanksgiving to about Memorial Day the road is closed at Naylor Lake, 0.8 mile below the trailhead.",
+      "dogs": "On a hand-held leash at all times.",
+      "fee": "No parking fee; a free self-issued Mount Evans Wilderness permit, at the trailhead.",
+      "page": "/georgetown/places/bierstadt-trailhead/",
+      "source": "https://www.fs.usda.gov/r02/arp/recreation/bierstadt-trailhead",
+      "alsoSources": [
+        "https://www.clearcreekcounty.us/689/Guanella-Pass-Information",
+        "https://trails.colorado.gov/trailheads/bierstadt-19365"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }

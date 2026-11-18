@@ -42,6 +42,8 @@ const source = url.refine((u) => !onAny(u, GUIDE_SITES), 'a guide site is not a 
 const own = url.refine((u) => !onAny(u, [...GUIDE_SITES, ...BOOKING_SITES]), 'link the place’s own site: no booking, affiliate or guide site');
 const day = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, '"YYYY-MM-DD"');
 const text = z.string().min(1);
+/** A page on the hub itself: "/golden/places/clear-creek-trail/". The built site's check holds it to a page that was built. */
+const localPath = z.string().regex(/^\/[a-z0-9-]+(?:\/[a-z0-9-]+)*\/$/, 'a page on this site, with its trailing slash: "/golden/places/clear-creek-trail/"');
 /** Where a value was read and the day it was read. */
 const read = { source, checked: day };
 
@@ -76,6 +78,80 @@ export const townProfileSchema = z
           .strict(),
       )
       .max(8)
+      .optional(),
+    /**
+     * The places a visitor asks about first (the owner's brief of 18
+     * November 2026: Estes Park's national park, elk, the Stanley, downtown
+     * and the Riverwalk, Lake Estes; Salida's river, Monarch Mountain and
+     * hot springs): "Places to know" on the town page. Each is one or two
+     * sentences of what it is, then its facts by label ("Entry", "Season",
+     * "Book", "Dogs"), each read on the manager's or operator's own page.
+     * A fact read on another page than the entry's names it (`source`).
+     */
+    places: z
+      .array(
+        z
+          .object({
+            name: text,
+            /** One or two sentences: what it is and where, every fact one a row below or the source carries. */
+            what: text.max(400),
+            /** The place's page on this site, where there is one ("/estes-park/places/the-stanley-hotel/"); the name links to it. */
+            page: localPath.optional(),
+            /** The manager's or operator's own page: the name links to it where there is no page here. */
+            url: own.optional(),
+            facts: z
+              .array(z.object({ label: text.max(24), value: text.max(360), source: source.optional(), checked: day.optional() }).strict())
+              .min(1)
+              .max(6),
+            ...read,
+          })
+          .strict(),
+      )
+      .max(6)
+      .optional(),
+    /**
+     * The town's best-known trails and parks (the owner's brief of 18
+     * November 2026): three to six, each with its length or size, where it
+     * starts, its season, the dog rule and any permit or fee, all read on
+     * the land manager's page. An entry missing one of those is left out
+     * of the file, not printed with a gap.
+     */
+    trails: z
+      .array(
+        z
+          .object({
+            name: text,
+            /** "Paved trail", "County open space", "National park", in a few words. */
+            kind: text.max(40),
+            /** Who manages it: "Jefferson County Parks & Open Space". */
+            manager: text.max(80),
+            /** The trail's length, in the manager's words: "4 miles, a loop". */
+            length: text.max(160).optional(),
+            /** A park's size: "1,968 acres". */
+            size: text.max(160).optional(),
+            /** Where a trail starts: the trailhead and its address. */
+            trailhead: text.max(200).optional(),
+            /** A park's address or its main entrance. */
+            address: text.max(200).optional(),
+            /** "Year-round, 1 hour before sunrise to 1 hour after sunset", or the season in the manager's words. */
+            season: text.max(200),
+            /** The dog rule: "On a leash no longer than 6 feet", "Not allowed on trails". */
+            dogs: text.max(200),
+            /** A permit, pass, parking fee or reservation, or "None". */
+            fee: text.max(240),
+            /** The trail's or park's page on this site, where there is one; the name links to it. */
+            page: localPath.optional(),
+            /** The manager's page for it: the name links here where there is no page on this site. */
+            url: own.optional(),
+            /** Other official pages a fact was read on (a regulations page for the dog rule, a fees page). */
+            alsoSources: z.array(source).min(1).max(4).optional(),
+            ...read,
+          })
+          .strict()
+          .refine((t) => !!t.length || !!t.size, { message: 'a trail gives its length, a park its size', path: ['length'] })
+          .refine((t) => !!t.trailhead || !!t.address, { message: 'a trail gives its trailhead, a park its address', path: ['trailhead'] }),
+      )
+      .max(6)
       .optional(),
     heritage: z
       .object({

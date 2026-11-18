@@ -92,5 +92,56 @@
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
       "checked": "2026-11-12"
     }
-  }
+  },
+  "trails": [
+    {
+      "name": "Buena Vista River Park and the river trails",
+      "kind": "Town park and whitewater park",
+      "manager": "Town of Buena Vista",
+      "length": "The nearly flat Arkansas River Trail, 0.6 mile, makes a river loop with the Whitewater and Rock ’n Roll trails",
+      "address": "800 East Main Street, at the end of East Main by the Arkansas River",
+      "season": "Dawn to 10 pm, the Town’s parks page says; its 2023 park rules say dawn to dusk.",
+      "dogs": "On a leash no longer than 20 feet; the off-leash dog park, with small- and large-dog areas, is across from the Community Center.",
+      "fee": "Renting the large pavilion costs $60 for under four hours.",
+      "url": "https://www.buenavistarec.com/parks/",
+      "source": "https://www.buenavistarec.com/trails/",
+      "alsoSources": [
+        "https://www.buenavistarec.com/parks/",
+        "https://www.buenavistaco.gov/2240/Parks-Department",
+        "https://www.buenavistaco.gov/2625/Dogs",
+        "https://www.buenavistarec.com/wp-content/uploads/2023/07/Town-of-Buena-Vista-Parks-and-Fields.pdf"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Hecla Junction and the Seidel’s Suckhole trail",
+      "kind": "State river access site",
+      "manager": "Colorado Parks and Wildlife, Arkansas Headwaters Recreation Area",
+      "length": "A ¾-mile foot trail downstream along the shore to Seidel’s Suckhole, CPW says; the BLM gives 2 miles out and back",
+      "trailhead": "Hecla Junction Recreation Site, the main take-out for the Browns Canyon run; the road in is steep and unpaved",
+      "season": "Open 24 hours a day, all year.",
+      "dogs": "On a leash.",
+      "fee": "A CPW daily pass from the self-serve kiosk: $10–$12 a vehicle with Colorado plates, $15–$17 from out of state, or $4 a person; or a CPW annual pass.",
+      "url": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-buena-vista",
+      "source": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-buena-vista",
+      "alsoSources": [
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area",
+        "https://www.blm.gov/programs/national-conservation-lands/colorado/browns-canyon"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Cottonwood Lake Picnic Area",
+      "kind": "National forest picnic area",
+      "manager": "U.S. Forest Service, Salida Ranger District",
+      "size": "17 picnic sites with tables and grills, parking for 20 vehicles, and accessible fishing docks on the shore",
+      "trailhead": "Follow Main Street west out of town onto County Road 306 for 6 miles, then County Road 344 for 3 miles to the lake",
+      "season": "Open all year, sunrise to sunset; day use only, no camping. No drinking water.",
+      "dogs": "On a leash at all times.",
+      "fee": "$10 to use the site from May to September, unless you are camping in a Salida Ranger District developed campground.",
+      "url": "https://www.fs.usda.gov/r02/psicc/recreation/cottonwood-lake-picnic-area",
+      "source": "https://www.fs.usda.gov/r02/psicc/recreation/cottonwood-lake-picnic-area",
+      "checked": "2026-11-18"
+    }
+  ]
 }

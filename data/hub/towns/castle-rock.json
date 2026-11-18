@@ -75,5 +75,21 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Castlewood Canyon State Park",
+      "kind": "State park",
+      "manager": "Colorado Parks and Wildlife",
+      "size": "2,628 acres of the Black Forest region, with 12 miles of trails and 60-foot rock-climbing walls",
+      "address": "2989 South State Highway 83, Franktown. The main (east) entrance is off Highway 83 five miles south of Franktown; the west entrance is off Castlewood Canyon Road from Highway 86.",
+      "season": "Sunrise to sunset. The visitor center is open Wednesday to Sunday, 9 am–5 pm. CPW lists no closures.",
+      "dogs": "On a leash. Service animals and horses are also allowed.",
+      "fee": "Daily vehicle pass $10–$12 with Colorado plates, $15–$17 out of state (its summary says $10–$15); $4 a person on foot, bike or horseback; annual vehicle pass $80, or the $29 Keep Colorado Wild Pass with Colorado vehicle registration.",
+      "page": "/castle-rock/places/castlewood-canyon-state-park/",
+      "url": "https://cpw.state.co.us/state-parks/castlewood-canyon-state-park",
+      "source": "https://cpw.state.co.us/state-parks/castlewood-canyon-state-park",
+      "checked": "2026-11-18"
+    }
+  ]
 }

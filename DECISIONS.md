@@ -12200,3 +12200,121 @@ Friday after the Thursday email has sent. No towns, features or redesigns.*
 - **Previews**: every project but Lyons has preview deployments off, so the
   checks ran on a local production build with every switch on
   (`check-local`, the site check, the tests), as the brief allows.
+
+## Five town pages and their lead guides, 18 November 2026
+
+*The owner's brief of 18 November 2026: Estes Park, Golden, Manitou
+Springs, Evergreen and Salida, one pull request, no other town touched.*
+
+- **Start here.** A town's row may name its lead guide (`leadGuide` in
+  `src/config/hub-towns.ts`); the town page prints the article's own title
+  and excerpt under the hero, and the build stops on a path that names no
+  published article (`src/lib/lead-guide.ts`). Estes Park's is in its full
+  section (`/estes-park/articles/…`), Golden's, Evergreen's and Manitou
+  Springs' are kept guides (`/<town>/guides/…`), and Salida's, a town with
+  no guide folder, is a hub story (`/articles/…`, `homeUntil` its own date,
+  so it is not news on the hub's home). Evergreen's is the lake article
+  rebuilt at its own address, so the address keeps what it has earned.
+- **Places to know and Trails and parks** are two sections of the town
+  page, read from the town's profile file (`places`, `trails` in
+  `src/lib/town-profile.ts`), each drawn only where the file has entries.
+  A trail or park carries its length or size, its trailhead or address,
+  its season, the dog rule and any fee, every one from the land manager's
+  page; an entry missing one stays out of the file. The page names each
+  source site once, linked to the first page used.
+- **Gaps, not guesses.** The Town of Estes Park, the City of Manitou
+  Springs, the City of Salida and Larimer County answer automated readers
+  with a bot check, and coloradosprings.gov's robots.txt disallows this
+  assistant; none was worked around. Estes Park's downtown entry rests on
+  the Town's pages as read on 7 October and 6 November, with those dates;
+  the Manitou Incline's facts on the City's page as read on 17 November,
+  said so in the guide's footnote; Hermit Park on Larimer County's page as
+  WebFetch returned it. Salida has two trails and parks, not three: no
+  season or dog rule could be read from the managers for the others
+  (`TRAIL_GAPS`, `test/town-page-guides.test.ts`). Manitou Springs had two
+  until Barr Trail was added from its place page (below).
+- **Estes Park** keeps Frozen Dead Guy Days as its spotlight. Rocky
+  Mountain National Park's listing was read again: the 2026 timed-entry
+  season is over and 2027's is not announced, Trail Ridge Road closed to
+  through travel on 13 November 2026.
+- **Golden's Trick or Treat Street** has its `about`, 2024 and 2025 from
+  the City's calendar (October 31, 3 to 5 pm both years), each year's own
+  calendar entry as its source, and the City's calendar as the record's
+  source, so the date watch reads the page the 2027 date will appear on
+  rather than 2026's entry. The City's 2026 entry gives the closure as 11th
+  to 14th Street in its text and "10th to 13th St" in its location field;
+  the record keeps the text's, which 2024 and 2025 also give.
+- **Salida** gets no spotlight yet: fibark.com shows only 2026. The test
+  refuses one until FIBArk's next year is confirmed on the organizer's
+  page.
+
+## Nine more town pages and their lead guides, 18 November 2026
+
+*The owner's second brief of 18 November 2026: the same for Carbondale,
+Nederland, Buena Vista, Leadville, Idaho Springs, Georgetown, Crested
+Butte, Steamboat Springs and Durango, in the same pull request.*
+
+- **The guides' subjects** were the assistant's choice, one each, picked
+  for the question a visitor to the town has first: Carbondale, a
+  park-once day on the Rio Grande Trail; Nederland, getting to Eldora by
+  bus or car; Buena Vista, River Park and the hot springs; Leadville, the
+  Mineral Belt Trail; Idaho Springs, the Mount Blue Sky road; Georgetown,
+  the Loop Railroad; Crested Butte, the town without a car; Steamboat
+  Springs, Old Town or Strawberry Park; Durango, which train runs now.
+  Nederland, Leadville, Idaho Springs and Georgetown keep guide folders, so
+  theirs are guides (`/<town>/guides/…`); the other five are hub stories.
+- **Gaps, not guesses.** The City of Leadville, the Town of Crested Butte,
+  Mt. Crested Butte, the City of Idaho Springs, Garfield County Libraries
+  and the Buena Vista Public Library refuse automated readers, and none
+  was worked around. RFTA's web pages answer a plain fetch with a bot check
+  but let WebFetch read them; its Park & Ride and trail rules were read
+  that way and its timetables and fares from its own PDFs. Leadville's
+  Mount Elbert and Turquoise Lake entries come from its existing place
+  pages, each re-read on the Forest Service's own pages, with the dog rule
+  from the Forest Service's Rocky Mountain Region FAQ (leashes in developed
+  campgrounds, picnic and day-use areas; under control on other trails);
+  the Willow Fire closure, to 31 December 2026, is named in both. Manitou
+  Springs gains Barr Trail the same way, its length and dog rule from
+  COTREX. Steamboat Springs, Nederland and Idaho Springs keep two
+  (`TRAIL_GAPS`): Virginia Canyon Mountain Park, read in the owner's
+  browser, waits on its mileage page and on a January-to-March bighorn
+  closure that only the county's visitor site gives. `alsoSources` now
+  takes four pages.
+- **Dated facts.** Durango's guide rests on the railroad's update of 12
+  November that it was on schedule to run by 20 November after the flood
+  of 1 November; Eldora had not named an opening day; RTD's NB timetable
+  runs to 2 January 2027; Steamboat's winter bus schedule and Lake County's
+  2026–27 grooming were not yet posted. Each is on the to-do list.
+- **Prices copied** are those a comparison needs: the three Buena Vista
+  hot springs are linked, not priced, because Cottonwood's own pages give
+  two rates; Steamboat's two springs, the Cascade Canyon coach fare and
+  the Hot Springs Shuttle's are printed, and go on the re-check.
+
+## Ten more town pages from what the repo holds, 18 November 2026
+
+*The owner's third ask of 18 November 2026: the towns not yet updated,
+from what is already in the repo, such as Grand Lake.*
+
+- **Which towns.** Of the 83 other hub towns, ten have a former guide's
+  articles and place listings in the repo: Grand Lake, Fort Collins,
+  Longmont, Loveland, Castle Rock, Lafayette, Timnath, Elizabeth, Fort
+  Lupton and Black Hawk. The other 73 have a profile file only, so nothing
+  in the repo could make a lead guide or a trail entry for them.
+- **Lead guides** are each town's own visitor article: the walking or
+  driving order where there is one, else the "with kids" guide. The test
+  now checks every row that names a lead guide, not only the briefed
+  fourteen.
+- **Trails and parks** come from the town's place listings, an entry only
+  where the land manager's page gives all five facts. The City of Fort
+  Collins, Larimer County, the City of Loveland, the Town of Castle Rock,
+  Douglas County, the Town of Grand Lake and the Town of Elizabeth refuse
+  automated readers, so facts from them are the listings' as recorded, on
+  10 or 17 November, with that date as `checked`. Two Rocky Mountain
+  National Park trails at Grand Lake, Coyote Valley and the Colorado River
+  Trail to Lulu City, have no listing and come from the park's pages.
+- **Gaps.** Lafayette and Elizabeth have none: no manager states a fee, or
+  that there is none, for any of their trails and parks (Boulder County's
+  regulations, hours and permits pages are silent too), and Elizabeth's
+  parks have no hours. Timnath, Longmont, Castle Rock and Black Hawk have
+  one each. Cold Springs Campground is left out as a campground.
+

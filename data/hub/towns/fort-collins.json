@@ -109,5 +109,100 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Horsetooth Mountain Open Space",
+      "kind": "County open space",
+      "manager": "Larimer County Natural Resources",
+      "size": "2,711 acres between 5,430 and 7,255 feet, with 29 miles of hiking, biking and horse trails; the Horsetooth Rock Loop is five miles",
+      "trailhead": "The main trailhead, west of Horsetooth Reservoir and 4 miles from Fort Collins, where the walks to Horsetooth Rock and Horsetooth Falls start; also the Soderberg Trailhead",
+      "season": "The main trailhead is open 4 am to 11 pm, the Soderberg Trailhead sunrise to sunset. The lot fills on weekends and holidays; the County says to arrive before 9 am or after 3 pm.",
+      "dogs": "On a leash at all times.",
+      "fee": "A $10 daily entrance permit per vehicle, bought at the pay station, or an annual pass.",
+      "page": "/fort-collins/places/horsetooth-mountain-open-space/",
+      "url": "https://www.larimer.gov/naturalresources/parks/horsetooth-mountain",
+      "source": "https://www.larimer.gov/naturalresources/parks/horsetooth-mountain",
+      "checked": "2026-11-10"
+    },
+    {
+      "name": "Horsetooth Reservoir",
+      "kind": "County reservoir park",
+      "manager": "Larimer County Natural Resources",
+      "size": "Six and a half miles of water with 1,900 acres of public land around it, and more than 150 campsites and five camper cabins",
+      "address": "Horsetooth Area Information Center, 4200 W. County Road 38E",
+      "season": "Open all year. The swim beaches open Memorial Day weekend to October 1. The information center is open weekdays 9 to 4 from November to February. The County says the ice is never safe for fishing.",
+      "dogs": "On a leash no longer than 10 feet.",
+      "fee": "An entrance permit for every vehicle: $10 a day, or $20 with a boat trailer; annual permits are $100 for county residents and $130 for others.",
+      "page": "/fort-collins/places/horsetooth-reservoir/",
+      "url": "https://www.larimer.gov/naturalresources/parks/horsetooth-reservoir",
+      "source": "https://www.larimer.gov/naturalresources/parks/horsetooth-reservoir",
+      "alsoSources": [
+        "https://www.larimer.gov/naturalresources/parks/permits"
+      ],
+      "checked": "2026-11-10"
+    },
+    {
+      "name": "Lory State Park",
+      "kind": "State park",
+      "manager": "Colorado Parks and Wildlife",
+      "length": "28.1 miles of trail for hiking, mountain biking and horseback riding, generally no steeper than 12 percent",
+      "address": "708 Lodgepole Drive, Bellvue: about 1.6 miles up Lodgepole Drive (County Road 25G), on the left",
+      "season": "Open daily, 5 am to sunset; the visitor center at the north end keeps 8:30 to 4 as staffing allows. Trails close regularly for mud, and closures are posted on COTREX.",
+      "dogs": "On a leash and under control at all times.",
+      "fee": "A daily vehicle pass, $10 to $12 with Colorado plates or $15 to $17 out of state; $4 a person on foot, bike or horse.",
+      "page": "/fort-collins/places/lory-state-park/",
+      "url": "https://cpw.state.co.us/state-parks/lory-state-park",
+      "source": "https://cpw.state.co.us/state-parks/lory-state-park",
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Pineridge Natural Area",
+      "kind": "Natural area",
+      "manager": "City of Fort Collins Natural Areas",
+      "length": "Seven miles of natural-surface trail on the first ridge west of town, including the loop round Dixon Reservoir and the south end of the 9.6-mile Foothills Trail",
+      "address": "2750 County Road 42C",
+      "season": "Open daily, 5 am to 11 pm.",
+      "dogs": "On a leash.",
+      "fee": "None.",
+      "page": "/fort-collins/places/pineridge-natural-area/",
+      "url": "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Pineridge-Natural-Area",
+      "source": "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Pineridge-Natural-Area",
+      "alsoSources": [
+        "https://trails.colorado.gov/trailheads/dixon-reservoir-1877"
+      ],
+      "checked": "2026-11-10"
+    },
+    {
+      "name": "Cathy Fromme Prairie Natural Area",
+      "kind": "Natural area",
+      "manager": "City of Fort Collins Natural Areas",
+      "length": "The paved Fossil Creek Trail runs 2.4 miles one way across the prairie, Shields Street to Luther Lane; a raptor observatory is near the Shields Street entrance",
+      "address": "1999 Fromme Prairie Way",
+      "season": "Open daily, 5 am to 11 pm. Winter is the time to watch hawks and eagles from the raptor observatory.",
+      "dogs": "On a leash: horned lizards, ground-nesting songbirds and rattlesnakes live here.",
+      "fee": "None.",
+      "page": "/fort-collins/places/cathy-fromme-prairie-natural-area/",
+      "url": "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Cathy-Fromme-Prairie-Natural-Area",
+      "source": "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Cathy-Fromme-Prairie-Natural-Area",
+      "alsoSources": [
+        "https://trails.colorado.gov/trailheads/cathy-fromme-prairie-1884"
+      ],
+      "checked": "2026-11-10"
+    },
+    {
+      "name": "Gateway Natural Area",
+      "kind": "Natural area, Poudre Canyon",
+      "manager": "City of Fort Collins Natural Areas",
+      "length": "Two short trails: the Overlook Trail, 0.3 mile, and the Black Powder Trail, 0.8 mile; Seaman Reservoir is a mile farther along a flat dirt road",
+      "address": "5216 Poudre Canyon Road, Bellvue, off Highway 14 where the North Fork meets the Poudre",
+      "season": "Open daily, dawn to dusk.",
+      "dogs": "On a leash.",
+      "fee": "$8 a day per passenger vehicle; groups of 15 or more need a special use permit.",
+      "page": "/fort-collins/places/gateway-natural-area/",
+      "url": "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Gateway-Natural-Area",
+      "source": "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Gateway-Natural-Area",
+      "checked": "2026-11-10"
+    }
+  ]
 }

@@ -104,5 +104,82 @@
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
       "checked": "2026-11-12"
     }
-  }
+  },
+  "trails": [
+    {
+      "name": "Adams Falls via East Inlet Trail",
+      "kind": "National park trail",
+      "manager": "National Park Service, Rocky Mountain National Park",
+      "length": "0.3 mile one way to the Adams Falls viewing area. The East Inlet Trail goes on past Lone Pine Lake, Lake Verna and Spirit Lake to Fourth Lake.",
+      "trailhead": "East Inlet Trailhead, at the end of West Portal Road near the Town of Grand Lake",
+      "season": "Open 24 hours a day, all year, weather permitting. Timed entry, a reservation to enter from 9 am to 2 pm that covers East Inlet, ran May 22 to October 12 in 2026.",
+      "dogs": "Not allowed: pets are prohibited on all park trails, tundra and meadows. Leashed pets (6-foot leash) are allowed only on roads, in parking areas, campgrounds and picnic areas.",
+      "fee": "Entrance pass required at all hours: $30 a vehicle for 1 day or $35 for 7; $15 a person on foot or bike; park annual pass $70. Non-US residents 16 and over add $100 unless they hold an annual or America the Beautiful pass.",
+      "page": "/grand-lake/places/adams-falls-via-east-inlet-trail/",
+      "url": "https://www.nps.gov/trails/view.htm?id=abd99288-d0d2-4acc-a0ef-00a5e688c10b",
+      "source": "https://www.nps.gov/trails/view.htm?id=abd99288-d0d2-4acc-a0ef-00a5e688c10b",
+      "alsoSources": [
+        "https://www.nps.gov/romo/planyourvisit/hours.htm",
+        "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm",
+        "https://www.nps.gov/romo/planyourvisit/pets.htm",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Coyote Valley Trail",
+      "kind": "National park trail",
+      "manager": "National Park Service, Rocky Mountain National Park",
+      "length": "1 mile on compacted gravel and boardwalk beside the Colorado River, with benches; a 0.1-mile side trail leads to a picnic area",
+      "trailhead": "Coyote Valley Trailhead, on Trail Ridge Road (US 34) 6 miles north of the Kawuneeche Visitor Center",
+      "season": "Open 24 hours a day, all year, weather permitting. From late May to mid-October a timed-entry reservation is needed to enter the park’s west side from 9 am to 2 pm.",
+      "dogs": "Not allowed: pets are prohibited on all park trails, tundra and meadows. Leashed pets (6-foot leash) are allowed only on roads, in parking areas, campgrounds and picnic areas.",
+      "fee": "Entrance pass required at all hours: $30 a vehicle for 1 day or $35 for 7; $15 a person on foot or bike; park annual pass $70. Non-US residents 16 and over add $100 unless they hold an annual or America the Beautiful pass.",
+      "url": "https://www.nps.gov/trails/view.htm?id=2e29236d-fdb2-43ce-8a87-a1c986a8f664",
+      "source": "https://www.nps.gov/trails/view.htm?id=2e29236d-fdb2-43ce-8a87-a1c986a8f664",
+      "alsoSources": [
+        "https://www.nps.gov/romo/planyourvisit/upload/Access-Guide-508-updated-July-7-2026.pdf",
+        "https://www.nps.gov/romo/planyourvisit/hours.htm",
+        "https://www.nps.gov/romo/planyourvisit/pets.htm",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Colorado River Trail to Lulu City",
+      "kind": "National park trail",
+      "manager": "National Park Service, Rocky Mountain National Park",
+      "length": "3.75 miles one way to Lulu City, an abandoned 1800s mining settlement, the trail’s description says; the park’s trail data gives about 3.4",
+      "trailhead": "Colorado River Trailhead, 10 miles north of the Kawuneeche Visitor Center on US 34 (Trail Ridge Road), between Timber Creek Campground and Farview Curve",
+      "season": "Trail Ridge Road is closed to through travel for the season, on the west side at the Colorado River Trailhead. A timed-entry reservation is needed for part of the day from late May to mid-October.",
+      "dogs": "Not allowed: pets are prohibited on all park trails, tundra and meadows. Leashed pets (6-foot leash) are allowed only on roads, in parking areas, campgrounds and picnic areas.",
+      "fee": "Entrance pass required at all hours: $30 a vehicle for 1 day or $35 for 7; $15 a person on foot or bike; park annual pass $70. Non-US residents 16 and over add $100 unless they hold an annual or America the Beautiful pass.",
+      "url": "https://www.nps.gov/trails/view.htm?id=b1e284c1-7da4-4d79-8f91-2c10d24f8b25",
+      "source": "https://www.nps.gov/trails/view.htm?id=b1e284c1-7da4-4d79-8f91-2c10d24f8b25",
+      "alsoSources": [
+        "https://www.nps.gov/romo/planyourvisit/upload/Access-Guide-508-updated-July-7-2026.pdf",
+        "https://www.nps.gov/romo/planyourvisit/road_status.htm",
+        "https://www.nps.gov/romo/planyourvisit/pets.htm",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Arapaho National Recreation Area",
+      "kind": "National recreation area",
+      "manager": "Forest Service, Arapaho and Roosevelt National Forests, Sulphur Ranger District",
+      "size": "35,000 acres with five reservoirs: Lake Granby, Shadow Mountain Reservoir, Monarch Lake, Willow Creek Reservoir and Meadow Creek Reservoir",
+      "address": "The upper Colorado River valley beside Grand Lake, taking in Lake Granby and Shadow Mountain Reservoir",
+      "season": "Day use sun-up to sun-down; overnight in campgrounds only. The Stillwater boat ramp is closed for the season; the Sunset Point auxiliary ramp is open 6 am to 6 pm through November 29.",
+      "dogs": "On a leash in developed campgrounds, picnic and day-use areas and in some wilderness areas, Indian Peaks among them; elsewhere, trails included, under your control at all times.",
+      "fee": "ANRA pass in fee areas: $5 for 1 day, $10 for 3, $15 for 7, from fee machines or Recreation.gov; $30 annual pass on Recreation.gov only. Interagency passes accepted. No pass needed outside fee areas.",
+      "page": "/grand-lake/places/arapaho-national-recreation-area/",
+      "url": "https://www.fs.usda.gov/r02/arp/recreation/arapaho-national-recreation-area",
+      "source": "https://www.fs.usda.gov/r02/arp/recreation/arapaho-national-recreation-area",
+      "alsoSources": [
+        "https://www.fs.usda.gov/r02/about-area/faqs"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }

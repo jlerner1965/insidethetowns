@@ -22,7 +22,7 @@ test('the stylesheet declares the publication colours in src/config/palette.ts',
 });
 
 test('the sections are numbered over the ones drawn, and On this page lists the same', () => {
-  const all = pageSections('La Veta', { events: true, stay: true, getting: true, outdoor: true, about: true });
+  const all = pageSections('La Veta', { events: true, places: false, trails: false, stay: true, getting: true, outdoor: true, about: true });
   assert.deepEqual(all.map((s) => [s.number, s.label, s.id]), [
     ['01', 'Event dates', 'traditions'],
     ['02', 'Where to stay', 'stay'],
@@ -32,7 +32,7 @@ test('the sections are numbered over the ones drawn, and On this page lists the 
   ]);
   assert.deepEqual(all.map((s) => s.title), ['Events and dates in La Veta', 'Where to stay in La Veta', 'Getting to La Veta', 'Outdoor dates in Colorado', 'About La Veta']);
   // No lodging on file: the section is not drawn and the rest close up.
-  const noStay = pageSections('Craig', { events: true, stay: false, getting: true, outdoor: true, about: true });
+  const noStay = pageSections('Craig', { events: true, places: false, trails: false, stay: false, getting: true, outdoor: true, about: true });
   assert.deepEqual(noStay.map((s) => [s.number, s.key]), [['01', 'events'], ['02', 'getting'], ['03', 'outdoor'], ['04', 'about']]);
 });
 

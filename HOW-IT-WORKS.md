@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 14 November 2026.
+Last revised: 18 November 2026.
 
 ## 1. What this is
 
@@ -291,10 +291,23 @@ horizon for the country it is in (peaks,
 foothills, mesas or plains, `src/lib/ridgeline.ts`), with the next date the
 town has under the name: its own events' soonest date set, and an outdoor or
 free-admission date only where no event of its has one (since 15 November
-2026; the page's script re-reads it by the reader's day the same way). Then "On this page" and numbered sections, each a
+2026; the page's script re-reads it by the reader's day the same way). A
+town that names a lead guide (`leadGuide`, 18 November 2026: Estes Park,
+Golden, Manitou Springs, Evergreen, Salida, then Carbondale, Nederland,
+Buena Vista, Leadville, Idaho Springs, Georgetown, Crested Butte, Steamboat
+Springs and Durango; and Grand Lake, Fort Collins, Longmont, Loveland,
+Castle Rock, Lafayette, Timnath, Elizabeth, Fort Lupton and Black Hawk from
+their former guides' articles) has "Start here" next, the
+article's own title and excerpt and the link to it; a path that names no
+published article stops the build (`src/lib/lead-guide.ts`). Then "On this page" and numbered sections, each a
 full-width band, paper and white in turn: Events (the dates set, soonest
 first; those not yet announced, with when each was last held; what is open
-now; the year at a glance; the calendar links), Where to stay, Getting here
+now; the year at a glance; the calendar links), Places to know and Trails
+and parks (18 November 2026, from the town's profile file: a place's facts
+by label, and three to six trails and parks, each with its length or size,
+its trailhead or address, its season, the dog rule and any permit or fee,
+every one with the land manager's page and the day it was read; an entry
+missing one of those stays out of the file), Where to stay, Getting here
 (with the towns near it by road), Outdoor dates (the statewide ones: the
 next two, the rest behind a button and all on the page without the script)
 and About; then "More in <area>": three to five other town pages, the

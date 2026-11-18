@@ -119,5 +119,43 @@
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
       "checked": "2026-11-12"
     }
-  }
+  },
+  "trails": [
+    {
+      "name": "Echo Lake Park",
+      "kind": "Denver Mountain Park",
+      "manager": "Denver Mountain Parks",
+      "size": "A 24-acre natural lake at 10,600 feet, at the foot of Goliath Peak, with trails to the Chicago Lakes",
+      "address": "Colorado 103 at the foot of Highway 5, reached by Colorado 103 from I-70 exit 240 in Idaho Springs",
+      "season": "Daily, one hour before sunrise to one hour after sunset; Echo Lake Lodge is closed while it is redesigned.",
+      "dogs": "On a leash and under control at all times.",
+      "fee": "None at the Echo Lake Trailhead, below the Mount Blue Sky welcome station.",
+      "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Mountain-Parks/Echo-Lake-Lodge-Park",
+      "source": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Mountain-Parks/About-Denver-Mountain-Parks",
+      "alsoSources": [
+        "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Urban-Parks-Trails/Park-Rules-Policies",
+        "https://trails.colorado.gov/trailheads/echo-lake-952",
+        "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Mountain-Parks/Echo-Lake-Lodge-Park"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Summit Lake Park, Mount Blue Sky",
+      "kind": "Denver Mountain Park",
+      "manager": "Denver Mountain Parks",
+      "size": "160 acres at about 12,830 feet, the highest city park in North America, with an accessible trail to the Chicago Lakes overlook",
+      "address": "On Highway 5, the Mount Blue Sky road, above Echo Lake; restrooms on site, no drinking water",
+      "season": "Reached by car only while Highway 5 is open: in 2026, from May 22 until it closed to vehicles on October 5.",
+      "dogs": "On a hand-held leash.",
+      "fee": "In 2026, a timed ticket from Recreation.gov to park between 7 am and 6 pm: $20 a car, $15 a motorcycle. Hikers and cyclists free; free passes from Denver and Clear Creek County libraries.",
+      "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Mountain-Parks/Mount-Blue-Sky",
+      "source": "https://www.fs.usda.gov/r02/arp/recreation/summit-lake-park",
+      "alsoSources": [
+        "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Mountain-Parks/About-Denver-Mountain-Parks",
+        "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/News/2026/Road-to-Mount-Blue-Sky-Opens-for-2026-Season-on-Friday-May-22",
+        "https://www.recreation.gov/timed-entry/10087438"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }
