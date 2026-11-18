@@ -109,5 +109,58 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Animas City Mountain",
+      "kind": "Public lands trails",
+      "manager": "Bureau of Land Management, entered through the City’s Dalla Mountain Park",
+      "length": "About 5 miles of trail, climbing from 6,700 to 8,200 feet",
+      "trailhead": "North Durango: west on 32nd Street from Main, then right on West 3rd Avenue; or west on 25th Street to Dalla Mountain Park, whose lot is at 3234 Junction Street",
+      "season": "Day use. The upper mountain closes December 1 for wintering wildlife, until April 30 by the BLM (perhaps April 15) and April 15 by the City; the lower trails stay open all year.",
+      "dogs": "Under voice control on the BLM land, the City says; on a leash in Dalla Mountain Park.",
+      "fee": "No fees.",
+      "url": "https://www.blm.gov/visit/animasgrandviewskyline-rmz",
+      "source": "https://www.blm.gov/visit/animasgrandviewskyline-rmz",
+      "alsoSources": [
+        "https://www.blm.gov/programs/recreation/recreation-activities/colorado/closures/tres-rios-field-office",
+        "https://www.durangoco.gov/Facilities.aspx?Page=detail&RID=5",
+        "https://www.durangoco.gov/1619/Enjoying-Durango-With-Your-Dog"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Lake Nighthorse Recreation Area",
+      "kind": "City recreation area, a reservoir",
+      "manager": "City of Durango, under City and Bureau of Reclamation rules",
+      "size": "About 1,500 acres of water at full pool and 5,500 acres in all, two miles from downtown",
+      "address": "1795 County Road 210; 970-375-7335",
+      "season": "Closed for the winter wildlife closure since November 16, 2026; 2027’s opening is not yet posted (in 2026 the closure ended April 30).",
+      "dogs": "Welcome, but on a leash on land, and never at the swim beach.",
+      "fee": "In 2026, $10 a vehicle or $5 on foot or bike for the day; a fishing license from 16.",
+      "url": "https://www.durangoco.gov/1052/Lake-Nighthorse",
+      "source": "https://www.durangoco.gov/1052/Lake-Nighthorse",
+      "alsoSources": [
+        "https://www.durangoco.gov/1619/Enjoying-Durango-With-Your-Dog"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Chapman Hill",
+      "kind": "City ski hill",
+      "manager": "City of Durango Parks and Recreation",
+      "size": "500 vertical feet with snowmaking, two rope tows, a bumps course and park features",
+      "address": "500 Florida Road; 970-375-7395",
+      "season": "Closed now; the 2026–27 opening is not yet announced. When open: weekdays 4–8 pm, weekends 10 am–4 pm, and 10 am–4 pm from December 21 to January 3, except Christmas and New Year’s Day.",
+      "dogs": "The City asks skiers to keep unleashed dogs at home; its leash law covers all City land.",
+      "fee": "A 2026–27 day pass is $17 for adults, $15 for ages 6 to 17, $7 for 4–5 and 62 and over, free under 4. Uphill travel is free outside operating hours.",
+      "url": "https://www.durangoco.gov/512/Chapman-Hill",
+      "source": "https://www.durangoco.gov/544/Ski-Area",
+      "alsoSources": [
+        "https://www.durangoco.gov/512/Chapman-Hill",
+        "https://www.durangoco.gov/553/Parks"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }
