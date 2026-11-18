@@ -17,6 +17,9 @@
  *   vercel.json  every fixed address a rule on the host ever named;
  *   qr-card    the printed cards' addresses.
  *
+ * An annual event's address in data/hub/fold-events.json takes its
+ * tradition page on the hub as its decision.
+ *
  * Each row keeps its `decision` and `note` across reruns. A decision is
  * empty (the rules decide: the section's page, a former slug's target, the
  * series' current page), a path on the guide ("/events/x/": wherever that
@@ -36,6 +39,7 @@ import { allTowns, getNetworkHub, MOVING_GUIDES } from '../../src/config/index.t
 import { dayKey } from '../../src/lib/dates.ts';
 import { parseFormerSlugs } from '../../src/lib/former-slugs.ts';
 import { readOccurrences } from '../../src/lib/series.ts';
+import { movedEventPaths } from '../../src/lib/moved-guides.ts';
 import { guideMap, type HistoryRow } from './guide-map.ts';
 import { csvLine, readCsv } from './shared.ts';
 
@@ -149,6 +153,16 @@ for (const slug of MOVING_GUIDES.filter((s) => !only || s === only)) {
 
   // 4. The printed cards.
   for (const path of QR_CARDS[slug] ?? []) add(path, 'qr-card', 'page');
+
+  // 5. An annual event's address, dated or not (data/hub/fold-events.json,
+  // reviewed by hand): its tradition page on the hub, whatever the guide's
+  // own rule or an earlier default said, so the row reads as the map answers.
+  for (const [path, to] of Object.entries(movedEventPaths(guide))) {
+    const row = rows.get(path);
+    if (!row) continue;
+    row.decision = `https://${hub.domain}${to}`;
+    row.note = 'an annual event: its tradition page on the hub (data/hub/fold-events.json)';
+  }
 
   // --decide: what the rules leave, with the default decision and its reason.
   let undecided: HistoryRow[] = [];

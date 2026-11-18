@@ -354,16 +354,14 @@ checkFormActions();
  * browser while the dashboard just shows nobody came.
  */
 function checkPlausible() {
-  const towns = deployedTowns().filter((town) => town.plausible);
+  // The hub's own switch counts too: every hub page, sections included, sends its events (HubConfig.plausible).
+  const files = [...deployedTowns().filter((town) => town.plausible).map((town) => `src/config/towns/${town.slug}.ts`), ...(hub.plausible ? ['src/config/towns/hub.ts'] : [])];
   const vercelJson = join(root, 'vercel.json');
-  if (towns.length === 0 || !existsSync(vercelJson)) return;
+  if (files.length === 0 || !existsSync(vercelJson)) return;
   const directive = /connect-src ([^;"]*)/.exec(readFileSync(vercelJson, 'utf8'));
   if (!directive?.[1].trim().split(/\s+/).includes('https://plausible.io')) {
-    for (const town of towns) {
-      errors.push(
-        `src/config/towns/${town.slug}.ts: plausible is on, but the CSP would block its events. ` +
-          'Add https://plausible.io to connect-src in vercel.json.',
-      );
+    for (const file of files) {
+      errors.push(`${file}: plausible is on, but the CSP would block its events. ` + 'Add https://plausible.io to connect-src in vercel.json.');
     }
   }
 }

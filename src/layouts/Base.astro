@@ -22,7 +22,7 @@ import '@/styles/global.css';
 import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
 import instrumentLatin from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
 import Analytics from '@vercel/analytics/astro';
-import { getNetworkHub, getSite, listsEvents } from '@/config';
+import { getNetworkHub, getSite, listsEvents, plausibleDomain } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
@@ -59,7 +59,8 @@ interface Props {
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
-const plausible = site.kind === 'town' && site.plausible === true;
+// The site Plausible counts this page under: the hub's domain on every hub and section page, a guide's own on a guide that has it (src/config/index.ts).
+const plausible = plausibleDomain(site);
 const { jsonLd, kind, preload = [frauncesLatin, instrumentLatin], bodyClass, ...props } = Astro.props;
 // A town that has not launched serves a holding page; nothing on it, nor the
 // shared pages around it, should be indexed before the guide exists.
@@ -121,7 +122,7 @@ const cssVars = [
     {Astro.slots.has('footer') ? <slot name="footer" /> : <Footer />}
     <Freshness />
     {analytics && <Analytics />}
-    {plausible && <Plausible domain={site.domain} />}
+    {plausible && <Plausible domain={plausible} />}
     <TrackClicks />
     {/* The hub's town pages open with their photograph in the cache (src/components/HeroWarm.astro). */}
     {site.kind === 'hub' && <HeroWarm />}

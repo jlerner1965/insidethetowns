@@ -44,7 +44,7 @@ old_path,source,kind,key,decision,note
 /events/fabric-ghosts-2026-10-15/,git in the content today,events,"Fabric Ghosts|Glenn A. Jones, M.D. Memorial Library",,
 /events/fall-leaf-hair-clips-2026-11-04/,git in the content today; sitemap 2026-10-18 to 2026-11-04,events,"Fall Leaf Hair Clips|Glenn A. Jones, M.D. Memorial Library",,
 /events/festive-bingo-2026-12-16/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,"Festive Bingo|Glenn A. Jones, M.D. Memorial Library",,
-/events/fitness-avenue-turkey-trot/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Fitness Avenue Turkey Trot|21 South Parish Avenue,,
+/events/fitness-avenue-turkey-trot/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Fitness Avenue Turkey Trot|21 South Parish Avenue,https://insidethetowns.com/johnstown/fitness-avenue-turkey-trot/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
 /events/flu-clinic-2026-09-30/,git deleted; retired.json; vercel.json (a rule today),events,"Flu Clinic|Glenn A. Jones, M.D. Memorial Library",gone,"retired from the guide before its date (2026-09-30), with no later date of its series; ledger: retired"
 /events/frosted-mugs-2026-12-19/,git in the content today; sitemap 2026-11-18 to 2026-11-18,events,"Frosted Mugs|Glenn A. Jones, M.D. Memorial Library",,
 /events/gobble-hunt-and-make-2026-11-09/,git in the content today; sitemap 2026-10-18 to 2026-11-10,events,"Gobble, Hunt, & Make|Glenn A. Jones, M.D. Memorial Library",,
@@ -57,8 +57,8 @@ old_path,source,kind,key,decision,note
 /events/holiday-wreaths-2026-11-13/,git in the content today; sitemap 2026-10-18 to 2026-11-13,events,"Holiday Wreaths|Glenn A. Jones, M.D. Memorial Library",,
 /events/jingle-and-mingle-2026-12-02/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Jingle & Mingle|Dreams and Dragonflies Event Center,,
 /events/johnstown-business-mixer-free-new-year-goal-setting-night-2027-01-06/,git in the content today; sitemap 2026-11-18 to 2026-11-18,events,Johnstown Business Mixer: goal-setting night|The Arabella,,
-/events/johnstown-jingle-2026/,git formerSlugs of johnstown-jingle; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,Johnstown Jingle and tree lighting|Downtown Johnstown,/events/johnstown-jingle/,the guide's own rule sends it to /events/johnstown-jingle/
-/events/johnstown-jingle/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Johnstown Jingle and tree lighting|Downtown Johnstown,,
+/events/johnstown-jingle-2026/,git formerSlugs of johnstown-jingle; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,Johnstown Jingle and tree lighting|Downtown Johnstown,https://insidethetowns.com/johnstown/jingle/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/johnstown-jingle/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Johnstown Jingle and tree lighting|Downtown Johnstown,https://insidethetowns.com/johnstown/jingle/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
 /events/johnstown-senior-center-christmas-boutique-2026-12-05/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Johnstown Senior Center Christmas Boutique|Johnstown Senior Center,,
 /events/les-miserables-candlelight-2026/,git in the content today; sitemap 2026-10-18 to 2026-11-16,events,Les Misérables at Candlelight Dinner Playhouse|Candlelight Dinner Playhouse,,
 /events/make-a-monster-2026-10-10/,git in the content today,events,"Make-a-Monster|Glenn A. Jones, M.D. Memorial Library",,
@@ -123,8 +123,8 @@ old_path,source,kind,key,decision,note
 /events/town-council-work-session-2026-09-28/,git deleted; retired.json; vercel.json (a rule today),events,Town Council Work Session|Johnstown Town Hall,gone,"retired from the guide before its date (2026-09-28), with no later date of its series; ledger: retired"
 /events/tree-board-2026-12-07/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,Johnstown Tree Board meeting|Johnstown Town Hall,,
 /events/tree-ornaments-2026-12-10/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,"Tree Ornaments|Glenn A. Jones, M.D. Memorial Library",,
-/events/trick-or-treat-street-2026/,git formerSlugs of trick-or-treat-street; sitemap 2026-10-18 to 2026-10-30; vercel.json (a rule today),events,Trick-or-Treat Street|Downtown Johnstown,/events/trick-or-treat-street/,the guide's own rule sends it to /events/trick-or-treat-street/
-/events/trick-or-treat-street/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Trick-or-Treat Street|Downtown Johnstown,,
+/events/trick-or-treat-street-2026/,git formerSlugs of trick-or-treat-street; sitemap 2026-10-18 to 2026-10-30; vercel.json (a rule today),events,Trick-or-Treat Street|Downtown Johnstown,https://insidethetowns.com/johnstown/trick-or-treat-street/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/trick-or-treat-street/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Trick-or-Treat Street|Downtown Johnstown,https://insidethetowns.com/johnstown/trick-or-treat-street/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
 /events/watercolor-trees-and-leaves-2026-11-20/,git in the content today; sitemap 2026-10-18 to 2026-11-18,events,"Watercolor Trees & Leaves|Glenn A. Jones, M.D. Memorial Library",,
 /events/watercolor-trees-and-wreaths-2026-12-17/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,"Watercolor Trees & Wreaths|Glenn A. Jones, M.D. Memorial Library",,
 /events/winter-scarves-2026-12-12/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,"Winter Scarves|Glenn A. Jones, M.D. Memorial Library",,

@@ -139,7 +139,19 @@
     "/events/tree-lighting-and-caroling-2026/": "lyons-tree-lighting"
   },
   "insideniwot.com": {
+    "/events/enchanted-evening-2026/": "niwot-enchanted-evening",
     "/events/enchanted-evening/": "niwot-enchanted-evening",
-    "/events/enchanted-evening-2026/": "niwot-enchanted-evening"
+    "/events/fourth-of-july-2027/": "niwot-fourth-of-july",
+    "/events/great-pumpkin-party-2026/": "niwot-great-pumpkin-party",
+    "/events/great-pumpkin-party/": "niwot-great-pumpkin-party",
+    "/events/holiday-magic-market-fayre-2026/": "niwot-holiday-magic-market-fayre",
+    "/events/holiday-magic-market-fayre/": "niwot-holiday-magic-market-fayre",
+    "/events/holiday-parade-2026/": "niwot-holiday-parade",
+    "/events/holiday-parade/": "niwot-holiday-parade",
+    "/events/lets-wine-about-winter-2027/": "niwot-lets-wine-about-winter",
+    "/events/niwot-trot-5k-2026/": "niwot-niwot-trot",
+    "/events/niwot-trot/": "niwot-niwot-trot",
+    "/events/sample-holiday-parade/": "niwot-holiday-parade",
+    "/events/sample-rock-and-rails/": "niwot-rock-and-rails"
   }
 }

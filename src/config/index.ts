@@ -161,6 +161,20 @@ export function isSectionBuild(env: Record<string, string | undefined> = process
   return env[SECTION_ENV] === '1';
 }
 
+/**
+ * The site Plausible counts a page under, or none. Every page the hub
+ * serves, its own and each section's under /<town>/, counts under the hub's
+ * domain when the hub config sets `plausible` (the owner's review of #465,
+ * 18 November 2026), so a guide's figures go on after its move as its pages
+ * under /<town>/; a guide on its own domain counts under that domain when
+ * its config sets `plausible`. Base.astro puts the tracker on the page and
+ * /privacy/ says so from this one answer.
+ */
+export function plausibleDomain(site: SiteConfig, env: Record<string, string | undefined> = process.env): string | undefined {
+  if (site.kind === 'hub' || isSectionBuild(env)) return hub.plausible ? hub.domain : undefined;
+  return site.plausible ? site.domain : undefined;
+}
+
 /** The towns with something of their guide kept under their hub page, by mode; registry order. */
 export function sectionTowns(mode?: 'full' | 'pages'): TownConfig[] {
   return towns.filter((t) => !!t.section && !!t.hubPage && (!mode || t.section.mode === mode));

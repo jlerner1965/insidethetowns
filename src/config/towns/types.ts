@@ -643,6 +643,15 @@ export interface HubConfig {
    */
   analyticsSince?: string;
   /**
+   * Plausible Analytics on every page the hub serves: its own and every
+   * section's under /<town>/ (the folded guides' and, once switched, the
+   * seven moved guides'), all counted under the hub's `domain`, which has to
+   * be a site in Plausible's dashboard or the events are dropped there. The
+   * same tracker and options as a guide's (TownConfig.plausible); a town's
+   * figures are its pages under /<town>/ (src/config/index.ts, plausibleDomain).
+   */
+  plausible?: boolean;
+  /**
    * What a placement costs. Absent until there are numbers to stand behind,
    * and /advertise/ invites a founding-partnership conversation until then.
    * A published rate card with blanks in it is worse than no rate card: it

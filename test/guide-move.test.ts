@@ -95,6 +95,22 @@ test('an address on a moved guide’s domain lands on its page under the section
   assert.equal(movedPath('insidewindsorco.com', '/events/windsor-wonderland-2026-12-05/'), '/windsor/wonderland/');
   assert.equal(movedPath('carbonvalleyguide.com', '/events/festival-of-lights-2026-12-05/'), '/carbon-valley/frederick-festival-of-lights/');
   assert.equal(movedPath('insidegolden.com', '/x/'), undefined, 'a folded domain is not a moved guide’s');
+  // Niwot's annual events, dated and undated (the owner's review of #465): each on its own tradition page, never the /traditions/ list.
+  const niwot: Record<string, string> = {
+    '/events/enchanted-evening/': '/niwot/enchanted-evening/',
+    '/events/enchanted-evening-2026/': '/niwot/enchanted-evening/',
+    '/events/great-pumpkin-party/': '/niwot/great-pumpkin-party/',
+    '/events/great-pumpkin-party-2026/': '/niwot/great-pumpkin-party/',
+    '/events/holiday-magic-market-fayre/': '/niwot/holiday-magic-market-fayre/',
+    '/events/holiday-magic-market-fayre-2026/': '/niwot/holiday-magic-market-fayre/',
+    '/events/holiday-parade/': '/niwot/holiday-parade/',
+    '/events/holiday-parade-2026/': '/niwot/holiday-parade/',
+    '/events/niwot-trot/': '/niwot/niwot-trot/',
+    '/events/niwot-trot-5k-2026/': '/niwot/niwot-trot/',
+    '/events/fourth-of-july-2027/': '/niwot/fourth-of-july/',
+    '/events/lets-wine-about-winter-2027/': '/niwot/lets-wine-about-winter/',
+  };
+  for (const [from, to] of Object.entries(niwot)) assert.equal(movedPath('insideniwot.com', from), to, `insideniwot.com${from}`);
   // Every record at home in a moved guide has a page under its section.
   const records = rawRecords();
   const lyons = records.find((r) => r.slug === 'lyons-parade-of-lights')!;
@@ -249,4 +265,18 @@ test('a moved guide builds no site of its own and leaves the nightly rebuild’s
   assert.match(rebuild, /live-towns\.ts --moved/, 'the nightly rebuild names a stale hook line');
   const routes = readFileSync('src/integrations/town-routes.ts', 'utf8');
   assert.match(routes, /sectionBuild && !isMoved\(site\)\s*\?\s*sectionRoutes\(site\)/, 'a moved guide’s section gets every route the guide had');
+});
+
+test('Plausible counts every hub page, sections included, as insidethetowns.com; a guide on its own domain as that domain', () => {
+  const { plausibleDomain } = config;
+  assert.equal(hub.plausible, true);
+  assert.equal(plausibleDomain(hub, {}), 'insidethetowns.com');
+  for (const slug of [...SEVEN, 'longmont', 'loveland', 'fortcollins', 'estes-park']) {
+    const t = allTowns.find((x) => x.slug === slug)!;
+    assert.equal(plausibleDomain(t, { HUB_SECTION: '1' }), 'insidethetowns.com', `${slug}'s section`);
+  }
+  const berthoud = allTowns.find((x) => x.slug === 'berthoud')!;
+  assert.equal(plausibleDomain(berthoud, {}), 'insideberthoud.com', 'the guide on its own domain, before its switch');
+  const without = allTowns.find((x) => x.kind === 'town' && !x.plausible)!;
+  assert.equal(plausibleDomain(without, {}), undefined);
 });

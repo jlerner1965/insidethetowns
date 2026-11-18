@@ -93,9 +93,9 @@ old_path,source,kind,key,decision,note
 /events/ehs-band-mattress-sale-fund-raiser-in-main-gym-2026-11-15/,git in the content today; sitemap 2026-11-14 to 2026-11-16,events,"Erie High School Band Mattress Sale Fundraiser|Erie High School, 3180 County Road 5",,
 /events/ehs-choir-concert-in-auditorium-2026-12-08/,git in the content today; sitemap 2026-11-14 to 2026-11-18,events,"EHS Choir Concert in auditorium|Erie High School, 3180 County Road 5",,
 /events/election-day-2026-11-03/,git in the content today; sitemap 2026-11-02 to 2026-11-04,events,Election Day: vote at the community center|Erie Community Center,,
-/events/erie-balloon-festival/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Erie Balloon Festival|Weld County Road 5 and Colliers Parkway,,
-/events/erie-brewfest-2026/,git formerSlugs of erie-brewfest; vercel.json (a rule today),events,Erie Brewfest|Coal Creek Park,/events/erie-brewfest/,the guide's own rule sends it to /events/erie-brewfest/
-/events/erie-brewfest/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Erie Brewfest|Coal Creek Park,,
+/events/erie-balloon-festival/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Erie Balloon Festival|Weld County Road 5 and Colliers Parkway,https://insidethetowns.com/erie/balloon-festival/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/erie-brewfest-2026/,git formerSlugs of erie-brewfest; vercel.json (a rule today),events,Erie Brewfest|Coal Creek Park,https://insidethetowns.com/erie/brewfest/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/erie-brewfest/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Erie Brewfest|Coal Creek Park,https://insidethetowns.com/erie/brewfest/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
 /events/erie-evening-book-club-2026-10-05/,git in the content today,events,Erie Evening Book Club|Erie Community Library,,
 /events/erie-evening-book-club-2026-11-02/,git in the content today; sitemap 2026-10-18 to 2026-11-02,events,Erie Evening Book Club|Erie Community Library,,
 /events/erie-evening-book-club-2026-12-07/,git in the content today; sitemap 2026-11-04 to 2026-11-18,events,Erie Evening Book Club|Erie Community Library,,
@@ -104,7 +104,7 @@ old_path,source,kind,key,decision,note
 /events/erie-saturday-family-storytime-2026-10-10/,git in the content today,events,Erie Saturday Family Storytime|Erie Community Library,,
 /events/erie-saturday-family-storytime-2026-11-07/,git in the content today; sitemap 2026-10-18 to 2026-11-07,events,Erie Saturday Family Storytime|Erie Community Library,,
 /events/erie-saturday-family-storytime-2026-12-05/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Erie Saturday Family Storytime|Erie Community Library,,
-/events/erie-town-fair/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Erie Town Fair|Downtown Erie,,
+/events/erie-town-fair/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Erie Town Fair|Downtown Erie,https://insidethetowns.com/erie/town-fair/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
 /events/explore-our-national-parks-sand-creek-massacre-2026-11-16/,git in the content today; sitemap 2026-10-18 to 2026-11-16,events,Explore our National Parks: Sand Creek Massacre|Erie Community Library,,
 /events/fall-frame-show-at-summit-vision-care-2026-10-06/,git in the content today,events,Fall frame show at Summit Vision Care|Summit Vision Care,,
 /events/family-lego-club-2026-10-18/,git in the content today; sitemap 2026-10-18 to 2026-10-18,events,Family LEGO Club|Erie Community Library,,
@@ -152,8 +152,8 @@ old_path,source,kind,key,decision,note
 /events/open-space-and-trails-advisory-board-meeting-2026-11-09/,git in the content today; sitemap 2026-10-18 to 2026-11-10,events,Open Space and Trails Advisory Board meeting|Erie Town Hall Community Room,,
 /events/open-space-and-trails-advisory-board-meeting-2026-12-14/,git in the content today; sitemap 2026-11-11 to 2026-11-18,events,Open Space and Trails Advisory Board meeting|Erie Town Hall Community Room,,
 /events/paella-made-simple-with-chef-steve-2026-10-10/,git in the content today,events,Paella made simple with Chef Steve|Erie Community Library,,
-/events/parade-of-lights-2026/,git formerSlugs of parade-of-lights; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,Erie Parade of Lights and Country Christmas|Downtown Erie and Coal Creek Park,/events/parade-of-lights/,the guide's own rule sends it to /events/parade-of-lights/
-/events/parade-of-lights/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Erie Parade of Lights and Country Christmas|Downtown Erie and Coal Creek Park,,
+/events/parade-of-lights-2026/,git formerSlugs of parade-of-lights; sitemap 2026-10-18 to 2026-11-07; vercel.json (a rule today),events,Erie Parade of Lights and Country Christmas|Downtown Erie and Coal Creek Park,https://insidethetowns.com/erie/parade-of-lights/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
+/events/parade-of-lights/,git in the content today; sitemap 2026-11-08 to 2026-11-18,events,Erie Parade of Lights and Country Christmas|Downtown Erie and Coal Creek Park,https://insidethetowns.com/erie/parade-of-lights/,an annual event: its tradition page on the hub (data/hub/fold-events.json)
 /events/parenting-series-adolescent-rise-with-nicholas-thompson-2026-10-22/,git in the content today; sitemap 2026-10-18 to 2026-10-22,events,Parenting series: Adolescent RISE with Nicholas Thompson|Erie Community Library,,
 /events/parenting-series-pen-parenting-book-group-brainstorm-2026-09-30/,git deleted; retired.json; vercel.json (a rule today),events,"Parenting series: PEN parenting book group, Brainstorm|Erie Community Library",,ledger: parenting-series-pen-parenting-book-group-brainstorm
 /events/parenting-series-pen-parenting-book-group-brainstorm/,git in the content today; sitemap 2026-10-18 to 2026-10-21,events,"Parenting series: PEN parenting book group, Brainstorm|Erie Community Library",,
