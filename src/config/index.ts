@@ -211,11 +211,10 @@ export function sectionSite(town: TownConfig): TownConfig {
  * so a section is added to or taken off every one of them in one place.
  */
 export function fullSections(): TownConfig[] {
+  // One A to Z order for all eleven, guides and folded guides alike (the owner, 18 November 2026).
   const guides = liveTowns();
-  const kept = sectionTowns('full')
-    .filter((t) => !guides.some((g) => g.slug === t.slug))
-    .sort((a, b) => a.name.localeCompare(b.name));
-  return [...guides, ...kept];
+  const kept = sectionTowns('full').filter((t) => !guides.some((g) => g.slug === t.slug));
+  return [...guides, ...kept].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**

@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { eventPage, townSearchText, type ShowingContext } from '../src/lib/hub-towns.ts';
-import { traditionEventJsonLd } from '../src/lib/seo.ts';
+import { traditionEventJsonLd, inSentence } from '../src/lib/seo.ts';
 import { subscribeLinks } from '../src/lib/ics.ts';
 import { networkChanges, updateFeedItems, type UpdateLike } from '../src/lib/updates.ts';
 import { hubNav } from '../src/lib/nav.ts';
@@ -115,4 +115,11 @@ test('the hub’s menu gains Articles after Towns only while an article is on th
   assert.deepEqual(hubNav(nav, [], true).map((n) => [n.label, n.href]), [['This Weekend', '/this-weekend/'], ['Towns', '/towns/'], ['Articles', '/articles/'], ['Newsletter', '/newsletter/']]);
   assert.deepEqual(hubNav([{ label: 'Newsletter', href: '/newsletter/' }], [], true).map((n) => n.label), ['Newsletter', 'Articles'], 'with no Towns entry it goes last');
   assert.deepEqual(hubNav(nav, [], false), nav);
+});
+
+test('a venue in a description loses its own trailing period, so the sentence ends on one', () => {
+  assert.equal(inSentence('700 Longs Peak Ave.'), '700 Longs Peak Ave');
+  assert.equal(`Parade in Longmont: Dec 6, ${inSentence('700 Longs Peak Ave.')}.`, 'Parade in Longmont: Dec 6, 700 Longs Peak Ave.');
+  assert.equal(inSentence('Roosevelt Park'), 'Roosevelt Park', 'a venue with no period is unchanged');
+  assert.equal(inSentence('Main St. (north end)'), 'Main St. (north end)', 'a period inside stays');
 });

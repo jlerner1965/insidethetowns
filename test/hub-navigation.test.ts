@@ -26,15 +26,15 @@ import { SECTION_MOVED as MERGE_MOVED, resolvePath } from '../scripts/lib/sectio
 
 const read = (path: string) => readFileSync(path, 'utf8');
 
-test('the full sections are the seven guides in their order, then the folded guides kept whole, A to Z: eleven, each with a section on the hub', () => {
+test('the full sections are the seven guides and the folded guides kept whole in one A to Z order: eleven, each with a section on the hub', () => {
   const full = fullSections();
   assert.deepEqual(
     full.map((t) => t.name),
-    ['Berthoud', 'Erie', 'Johnstown', 'Windsor', 'Carbon Valley', 'Lyons', 'Niwot', 'Estes Park', 'Fort Collins', 'Longmont', 'Loveland'],
+    ['Berthoud', 'Carbon Valley', 'Erie', 'Estes Park', 'Fort Collins', 'Johnstown', 'Longmont', 'Loveland', 'Lyons', 'Niwot', 'Windsor'],
   );
-  // The seven are STANDALONE_GUIDES' and liveTowns()' order, the one order every list of guides uses.
-  assert.deepEqual(full.slice(0, 7).map((t) => t.slug), Object.values(STANDALONE_GUIDES).map((g) => g.guide));
-  assert.deepEqual(full.slice(0, 7).map((t) => t.slug), liveTowns().map((t) => t.slug));
+  // The seven guides are all there, whatever order STANDALONE_GUIDES and liveTowns() keep them in.
+  assert.deepEqual(full.filter((t) => t.status === 'live').map((t) => t.slug).sort(), Object.values(STANDALONE_GUIDES).map((g) => g.guide).sort());
+  assert.deepEqual(full.filter((t) => t.status === 'live').map((t) => t.slug).sort(), liveTowns().map((t) => t.slug).sort());
   // With every switch on (src/config/guide-move.ts), the list is exactly the towns with a full section.
   assert.deepEqual(full.map((t) => t.slug).sort(), sectionTowns('full').map((t) => t.slug).sort());
   assert.equal(new Set(full.map((t) => t.slug)).size, full.length, 'no section twice');

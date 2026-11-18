@@ -28,7 +28,7 @@ import { dayKey, formatDate, formatDayLong, formatShortDate, parseLocal } from '
 import { checkedBy } from '@/lib/editor';
 import { eventPath, firstFitting, hubEventPages, pageTown, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { googleCalendarUrl } from '@/lib/ics';
-import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, excerptDescription, traditionEventJsonLd } from '@/lib/seo';
+import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, excerptDescription, traditionEventJsonLd, inSentence } from '@/lib/seo';
 import { titleTime, traditionTitle } from '@/lib/titles';
 import { hostOf } from '@/lib/hub-home';
 import { findSiteImage, hubTownPhoto } from '@/lib/images';
@@ -92,7 +92,7 @@ const span = state === 'upcoming' ? `${dayText(entry.date!)}${entry.endDate && e
 const leads =
   state === 'upcoming'
     ? [
-        `${record.name} in ${town.name}, Colorado: ${span}${entry.startTime ? `, ${entry.startTime}` : ''}${entry.place ? `, ${entry.place}` : ''}.`,
+        `${record.name} in ${town.name}, Colorado: ${span}${entry.startTime ? `, ${entry.startTime}` : ''}${entry.place ? `, ${inSentence(entry.place)}` : ''}.`,
         `${record.name} in ${town.name}, Colorado: ${span}${entry.startTime ? `, ${entry.startTime}` : ''}.`,
         `${record.name} in ${town.name}, Colorado: ${span}.`,
         `${record.name}: ${span}.`,
