@@ -226,8 +226,8 @@ test('without the switch, no fixture reaches a route', () => {
   }
   const on = { TRADITIONS_FIXTURES: '1' };
   assert.ok(guidesWithTraditions('.', on).has('berthoud'));
-  // The three holiday seasons, and the five opened with the additions of 12 November 2026.
-  assert.deepEqual(seasonTypesWithRecords('.', on).filter((t) => t !== 'outdoor'), ['parade-of-lights', 'tree-lighting', 'turkey-trot', 'rodeo-fair', 'oktoberfest', 'harvest-festival', 'winter-carnival', 'free-day']);
+  // The three holiday seasons, the five opened with the additions of 12 November 2026, and New Year's (18 November 2026).
+  assert.deepEqual(seasonTypesWithRecords('.', on).filter((t) => t !== 'outdoor'), ['parade-of-lights', 'tree-lighting', 'turkey-trot', 'rodeo-fair', 'oktoberfest', 'harvest-festival', 'winter-carnival', 'free-day', 'new-years']);
 });
 
 test('the routes: /traditions/ only on a guide a record names; a hub page per season type with a record', () => {
