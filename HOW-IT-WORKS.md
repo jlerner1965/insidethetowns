@@ -299,7 +299,7 @@ Springs and Durango; and Grand Lake, Fort Collins, Longmont, Loveland,
 Castle Rock, Lafayette, Timnath, Elizabeth, Fort Lupton and Black Hawk from
 their former guides' articles) has "Start here" next, the
 article's own title and excerpt and the link to it; a path that names no
-published article stops the build (`src/lib/lead-guide.ts`). Then "On this page" and numbered sections, each a
+published article stops the build (`src/lib/lead-guide.ts`). Then "On this page" (its last item, marked with an arrow, the town's Places page, and a full section's Guides, since 18 November 2026) and numbered sections, each a
 full-width band, paper and white in turn: Events (the dates set, soonest
 first; those not yet announced, with when each was last held; what is open
 now; the year at a glance; the calendar links), Places to know and Trails

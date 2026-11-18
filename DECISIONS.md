@@ -12318,3 +12318,19 @@ from what is already in the repo, such as Grand Lake.*
   parks have no hours. Timnath, Longmont, Castle Rock and Black Hawk have
   one each. Cold Springs Campground is left out as a campground.
 
+## Places in the town page's menu, 18 November 2026
+
+*The owner, 18 November 2026: the places page "should be in menu beside the
+outdoor dates", "otherwise nobody will find it", and its opening "is not
+good".*
+
+- **The menu.** "On this page" ends with Places, marked with an arrow
+  because it leaves the page: `/<town>/places/` where a guide was kept page
+  by page, `/<town>/directory/` and Guides where it was kept whole. The
+  line at the foot of the town page stays.
+- **The places page** speaks about the town, not the guide it came from:
+  no "Inside <Town>" in its eyebrow, an intro and description that say what
+  is on it, the guides first with the town's lead guide marked "Start
+  here", then the places by kind in a fixed order, outdoors first, instead
+  of the largest group first.
+
