@@ -51,10 +51,15 @@ test('a lead guide path is a section article or a hub story, nothing else', () =
   assert.equal(sectionArticleSegment('pages'), 'guides');
 });
 
-test('each briefed town names a lead guide that is a published article where its path says', () => {
-  for (const slug of BRIEFED) {
+test('each briefed town names a lead guide, and every lead guide is a published article where its path says', () => {
+  for (const slug of BRIEFED) assert.ok(findHubTown(slug)!.leadGuide, `${slug}: no leadGuide`);
+  // The owner's third ask of 18 November 2026: the other towns whose guides
+  // left articles in the repo name one of those, so every row with a lead
+  // guide is checked, not only the briefed fourteen.
+  const named = HUB_TOWNS.filter((t) => t.leadGuide).map((t) => t.slug);
+  assert.ok(named.length >= 24, `${named.length} towns name a lead guide`);
+  for (const slug of named) {
     const town = findHubTown(slug)!;
-    assert.ok(town.leadGuide, `${slug}: no leadGuide`);
     const ref = parseLeadGuide(town.leadGuide!);
     assert.ok(ref, `${slug}: ${town.leadGuide} is not a lead guide path`);
     if (ref!.kind === 'hub') {
