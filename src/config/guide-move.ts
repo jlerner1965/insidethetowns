@@ -69,7 +69,7 @@ export const MOVING_GUIDES: readonly string[] = Object.keys(GUIDE_MOVE);
  * section and its /<town>/ is the section's home. Empty it, in a change of
  * its own, once the hub deploy is READY and each /<town>/ answers 200.
  */
-export const DOMAIN_HELD: readonly string[] = ['berthoud', 'erie', 'windsor', 'carbon-valley', 'lyons', 'niwot'];
+export const DOMAIN_HELD: readonly string[] = [];
 
 /** For a local build or a test only, as GUIDE_MOVE_ON: `GUIDE_DOMAIN_HELD=berthoud,erie` (or empty) in place of the list above. Never read on Vercel. */
 export const DOMAIN_HELD_ENV = 'GUIDE_DOMAIN_HELD';

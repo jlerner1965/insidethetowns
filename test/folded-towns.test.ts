@@ -17,7 +17,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { findTown, LIVE_TOWNS } from '../src/config/index.ts';
+import { findTown, guideOrigin, LIVE_TOWNS } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
@@ -60,10 +60,11 @@ test("a folded guide's content has moved out of its folder", () => {
 test("every path on a folded guide's domain redirects into the guide that took it", () => {
   for (const t of folded) {
     const home = findTown(t.foldedInto!.town)!;
-    const base = `https://${home.domain}`;
+    // The guide's own domain, or its section on the hub once its domain has moved (src/config/guide-move.ts).
+    const base = guideOrigin(home);
     const rules = rulesFor(t.domain);
     const to = (source: string) => rules.find((r) => r.source === source)?.destination;
-    assert.ok(rules.every((r) => (r.permanent === true || r.statusCode === 301) && r.destination.startsWith(`${base}/`)), `${t.domain}: permanent, to ${home.domain}`);
+    assert.ok(rules.every((r) => (r.permanent === true || r.statusCode === 301) && r.destination.startsWith(`${base}/`)), `${t.domain}: permanent, to ${base}`);
     assert.equal(to('/'), `${base}${t.foldedInto!.path}`);
     assert.equal(to('/events/:slug{/}?'), `${base}/events/:slug/`, 'events keep their slug');
     assert.equal(to('/places/:slug{/}?'), `${base}/places/:slug/`, 'places keep their slug');

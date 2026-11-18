@@ -30,7 +30,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { emailTowns, findTown, LIVE_TOWNS } from '../src/config/index.ts';
+import { domainMoved, emailTowns, findTown, LIVE_TOWNS } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { foldRules, OUTDOOR_ANCHOR, TRADITIONS_ANCHOR } from '../src/lib/fold.ts';
@@ -40,7 +40,10 @@ import { publishedHubTownSlugs } from '../src/lib/tradition-files.ts';
 
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
   redirects: Array<{ source: string; destination: string; permanent?: boolean; statusCode?: number; has?: Array<{ type: string; value?: string }> }>;
+  rewrites?: Array<{ source: string; destination: string; has?: Array<{ type: string; value?: string }> }>;
 };
+/** The rewrite that sends every path on a host to api/legacy.ts (a domain a moved guide names in formerDomains, src/config/guide-move.ts). */
+const rewriteFor = (domain: string) => (vercel.rewrites ?? []).find((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 const retired = towns.filter((t) => t.retired);
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 
@@ -108,6 +111,14 @@ test("every path on a retired guide's domain redirects to its town's page on the
   // A retired guide whose pages were kept on the hub (`section`) is answered
   // by api/legacy.ts, not by rules here: test/legacy-redirects.test.ts.
   for (const t of retired.filter((t) => !t.section)) {
+    // A retired domain a moved guide names in formerDomains (Frederick, once Carbon Valley's domain has moved):
+    // no rule here; api/legacy.ts answers it from the guide's map, path for path (test/guide-move.test.ts).
+    const taker = t.retired!.successor ? findTown(t.retired!.successor) : undefined;
+    if (taker && domainMoved(taker) && taker.formerDomains?.includes(t.domain)) {
+      assert.deepEqual(rulesFor(t.domain), [], `${t.domain}: no redirect rule, the function answers`);
+      assert.deepEqual(rewriteFor(t.domain), { source: '/(.*)', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy/?legacy_path=/$1' });
+      continue;
+    }
     // An old event address with a hub page of its own has a rule of its own
     // (data/hub/fold-events.json); test/hub-fold.test.ts holds those.
     const rules = rulesFor(t.domain).filter((r) => !t.hubPage || !/^\/events\/[a-z0-9-]+\{\/\}\?$/.test(r.source));
@@ -162,6 +173,17 @@ test('Frederick and Firestone forward to Carbon Valley in one step, and no old C
   assert.equal(cv.status, 'live');
   assert.equal(cv.retired, undefined);
   assert.equal(findTown('frederick')!.retired!.successor, 'carbon-valley');
+  // No rule anywhere still points at the domain that now forwards: that would be a chain.
+  for (const r of vercel.redirects) assert.ok(!r.destination.includes('insidefrederickco.com'), `${r.source} still goes to insidefrederickco.com`);
+  if (domainMoved(cv)) {
+    // Carbon Valley's domain has moved into the hub: it and both domains that forward to it are answered by
+    // api/legacy.ts from the map its build writes, one hop to the section (test/guide-move.test.ts).
+    for (const host of [cv.domain, 'insidefrederickco.com', 'insidefirestone.com']) {
+      assert.deepEqual(rulesFor(host), [], `${host}: no redirect rule`);
+      assert.equal(rewriteFor(host)?.destination, '/api/legacy/?legacy_path=/$1', `${host}: the rewrite to the function`);
+    }
+    return;
+  }
   const home = `https://${cv.domain}/`;
   // Firestone never had pages of its own: everything to the guide's home page.
   const firestone = rulesFor('insidefirestone.com');
@@ -170,8 +192,6 @@ test('Frederick and Firestone forward to Carbon Valley in one step, and no old C
   const frederick = rulesFor('insidefrederickco.com');
   assert.deepEqual([frederick[0]?.source, frederick[0]?.destination], ['/', home]);
   assert.ok(frederick.every((r) => (r.permanent === true || r.statusCode === 301) && r.destination.startsWith(home)));
-  // No rule anywhere still points at the domain that now forwards: that would be a chain.
-  for (const r of vercel.redirects) assert.ok(!r.destination.includes('insidefrederickco.com'), `${r.source} still goes to insidefrederickco.com`);
   // The guide's own domain: only the addresses the closed guide had and
   // this one does not (a section page, a Firestone, Dacono or Fort Lupton
   // listing), each to a page that exists; never a catch-all on a live guide.

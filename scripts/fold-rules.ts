@@ -102,9 +102,12 @@ for (const block of generatedBlocks()) {
 // block between; each destination follows the guide's switch.
 for (const { host, lead, events, tail } of retiredOntoGuideRules()) {
   const have = rules.filter((r) => hostOf(r) === host);
-  const fixed = [...lead, ...events, ...tail];
-  const generated = have.filter((r) => !fixed.some((x) => x.source === r.source));
-  const want = [...lead, ...events, ...generated, ...tail];
+  const fixed = [...lead, ...tail];
+  // The guide's own former-slug block (the 301s generatedBlocks wrote above), ahead of the annual-event rules; an
+  // address in both is answered once, by its 301, and the hand-written rule for it is left out.
+  const generated = have.filter((r) => r.statusCode === 301 && !fixed.some((x) => x.source === r.source));
+  const annual = events.filter((e) => !generated.some((g) => g.source === e.source));
+  const want = [...lead, ...generated, ...annual, ...tail];
   if (JSON.stringify(have) === JSON.stringify(want)) continue;
   changed++;
   const at = rules.findIndex((r) => hostOf(r) === host);
