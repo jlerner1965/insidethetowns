@@ -10,8 +10,8 @@ source: "https://gingerandbaker.com/my-event/tk-chefs-table-november/"
 sourceId: "gingerandbaker-com"
 sourceUid: "82449"
 sourceHash: "1b76f699b584"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Ginger and Baker (classes and events) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 29 November and 6 pm on the page"
 ---
 
 Chef’s Table November at The Teaching Kitchen, Sunday, November 29, 6 pm – 8:30 pm. Listed by Ginger and Baker (classes and events); the organizer's page has the details and any registration.

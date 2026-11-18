@@ -9,8 +9,8 @@ source: "https://calendar.estesvalleylibrary.org/event/17814716"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17814716"
 sourceHash: "3e7360e185f1"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Estes Valley Library feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Moth Magic to Autumn Nights: Paper Moths\" at 1 pm on 25 November on the Estes Valley Library feed"
 ---
 
 Moth Magic to Autumn Nights: Paper Moths at Estes Valley Library, Wednesday, November 25, 1 pm – 2 pm. Listed by Estes Valley Library; the organizer's page has the details and any registration.

@@ -11,8 +11,8 @@ performers:
   - { name: "The White Moms", kind: group }
   - { name: "Smiley Gatmouth", kind: person }
 source: "https://www.z2ent.com/events/detail/i-in-team-2026-agg"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 28 November and 8 pm on the page"
 ---
 
 A local hip-hop and funk bill headlined by I in Team. Doors at 7 pm, show at 8 pm. All ages. Presented by KRFC 88.9 FM and Natural Alternatives. Ticket prices are on the Aggie's page; none was posted in the listing text when checked.

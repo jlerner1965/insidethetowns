@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/dinner-detective-true-crime-murder-mystery
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "1975135238668"
 sourceHash: "d801e8d610f4"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Dinner Detective True Crime Murder Mystery Dinner Show - Fort Collins, CO\" at 6 pm on 21 November in the page's structured data"
 ---
 

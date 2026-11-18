@@ -16,6 +16,8 @@ confirmed: { how: email, with: "Casey, Creative Grounds", on: "2026-10-28", note
 sourceId: "creativegroundslyons-com"
 verified: "2026-11-17"
 verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 1:30 pm on the page"
+changeFlag: true
+changeNote: "recheck 2026-11-18: the source page answers 404"
 ---
 
 A five-week handbuilding course for adults: pinching, coiling and slab building, then decorating and glazing, to make pots or sculpture. Ages 18 and up; tools, clay, glaze and firing are included. It meets Thursdays 1:30 to 4:30 pm on October 29, November 5, 12 and 19 and December 3, with no class on Thanksgiving. Creative Grounds confirmed 1:30 to 4:30 by email on October 28; its class pages still say 1:30 to 4.

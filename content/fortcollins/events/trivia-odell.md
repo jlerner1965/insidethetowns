@@ -10,8 +10,8 @@ cost: "Free"
 category: other
 recurring: "Mondays at 6"
 source: "https://www.odellbrewing.com/events/"
-verified: "2026-11-11"
-verifiedBy: "recheck-events (the nightly re-check workflow): 16 November and 6 pm on the page"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 23 November and 6 pm on the page"
 ---
 
 Pub trivia in the Odell taproom every Monday at 6 pm. Odell lists it as a weekly series with no end date; this listing stops in mid-December.

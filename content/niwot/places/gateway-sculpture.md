@@ -12,6 +12,7 @@ summary: "The steel gateway at the highway edge of town, an oval sign held insid
 source: "https://niwotarts.org/"
 verified: "2026-09-09"
 added: "2026-09-17"
+closureCheck: "2026-11-18: the source page answered but no longer names the place or lists its phone, https://niwotarts.org/"
 ---
 
 The first thing you see turning off the Diagonal: a steel gateway with an oval sign held between two curving rails, a nod to the rail line that made the town. It is the natural meeting point for a walk into Old Town, and the start of the public-art loop that continues through the Sculpture Park.

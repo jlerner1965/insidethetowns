@@ -8,7 +8,7 @@ venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
 category: family
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-11-08"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Baby Storytime & Stay-and-Play\" at 10:30 am on 1 December on the lyons.librarycalendar.com feed"
 ---
 

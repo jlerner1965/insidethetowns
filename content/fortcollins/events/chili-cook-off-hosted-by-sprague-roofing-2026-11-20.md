@@ -9,7 +9,7 @@ source: "https://maxlinebrewing.com/events/chili-cook-off-hosted-by-sprague-roof
 sourceId: "maxlinebrewing-com"
 sourceUid: "2383@maxlinebrewing.com"
 sourceHash: "4fe711614fe3"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Chili Cook-Off Hosted by Sprague Roofing\" at 6 pm on 20 November on the Maxline Brewing (events calendar) feed"
 ---
 

@@ -10,8 +10,8 @@ source: "https://gingerandbaker.com/my-event/tk-great-british-baking-4/"
 sourceId: "gingerandbaker-com"
 sourceUid: "83532"
 sourceHash: "67ee98fdbfe0"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Ginger and Baker (classes and events) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Great British Baking\" at 10 am on 29 November in the page's structured data"
 ---
 
 Great British Baking at The Teaching Kitchen, Sunday, November 29, 10 am – 1 pm. Listed by Ginger and Baker (classes and events); the organizer's page has the details and any registration.

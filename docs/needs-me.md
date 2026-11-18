@@ -22,20 +22,22 @@ Kept, noindex and off every list, until you confirm them. The nightly re-check r
 |---|---|---|---|---|---|---|
 | Timnath | [The Hidden Stem](https://insidethetowns.com/timnath/places/the-hidden-stem/) | 2026-09-18 | no: set aside | <https://timnathchamber.com/directory/the-hidden-stem> | Not re-read at the move, 17 November 2026: the Chamber directory listing now gives no address, phone or hours (only "a garden boutique on Main Street in Timnath"); its own page is Facebook (login wall); thehiddenstem.com did not answer. | `npm run confirm-place -- timnath/the-hidden-stem --how=browser` |
 
-## Possible closures (1)
+## Possible closures (2)
 
 A sign the place may have closed that does not say so in those words: its page gone, a locator that no longer lists it, "Site Closed", a parked domain. Nothing is hidden and nothing becomes a 410 until you confirm it. While its last verified date is inside the window it stays listed; past it, the usual rules apply.
 
 | Town | Place | Last verified | Listed now | Source to read | Why | To confirm it |
 |---|---|---|---|---|---|---|
 | Evergreen | [Suz Cookie Jar Rescue Bakery & Bites](https://insidethetowns.com/evergreen/places/suz-cookie-jar-rescue/) | 2026-10-06 | yes, through 2026-12-05 | <https://scjrbakery.com/> | 2026-11-17: own site scjrbakery.com is now a domain-parking page (redirects to /lander); no other official page found. | `npm run confirm-place -- evergreen/suz-cookie-jar-rescue --how=browser` |
+| Niwot | [The Niwot gateway sculpture](https://insidethetowns.com/niwot/places/gateway-sculpture/) | 2026-09-09 | yes, through 2026-12-08 | <https://niwotarts.org/> | 2026-11-18: the source page answered but no longer names the place or lists its phone, https://niwotarts.org/ | `npm run confirm-place -- niwot/gateway-sculpture --how=browser` |
 
-## Places whose source blocked the nightly read (1)
+## Places whose source blocked the nightly read (2)
 
 Flagged on the first blocked read (a bot check, a refusal, robots.txt, no answer). Each stays listed and indexed while its last verified date is inside its window (90 days on the Front Range, 60 in the mountains); past it, the usual rules apply: a guide drops it, a hub section keeps its page noindex as re-check pending. A later read that works clears the flag by itself.
 
 | Town | Place | Last verified | Listed now | Source to read | Why | To confirm it |
 |---|---|---|---|---|---|---|
+| Estes Park | [Estes Valley Community Center](https://insidethetowns.com/estes-park/places/estes-valley-community-center/) | 2026-10-13 | yes, through 2026-12-12 | <https://evrpd.com/community-center/> | 2026-11-18: the source page: answered 307 | `npm run confirm-place -- estes-park/estes-valley-community-center --how=browser` |
 | Loveland | [Bai Tong](https://insidethetowns.com/loveland/places/bai-tong-loveland/) | 2026-10-04 | yes, through 2027-01-02 | <https://www.baitongloveland.com/> | 2026-11-18: the source page: 403, a bot check or a refusal (https://www.baitongloveland.com/); left for the owner to confirm | `npm run confirm-place -- loveland/bai-tong-loveland --how=browser` |
 
 ## Dates the watch read but did not write (0)

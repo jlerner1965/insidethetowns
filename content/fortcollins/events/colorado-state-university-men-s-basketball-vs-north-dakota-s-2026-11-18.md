@@ -9,7 +9,7 @@ source: "https://admin.csurams.com/calendar.aspx?game_id=22218&amp;sport_id=3"
 sourceId: "csurams-com"
 sourceUid: "vcal_22218-admin.csurams.com"
 sourceHash: "eda46e8ee710"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado State University Men's Basketball vs North Dakota State\" at 7 pm on 18 November on the csurams.com feed"
 ---
 

@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/womens-circles-of-boulder-and-longmont-mon
 sourceId: "eventbrite-com-longmont"
 sourceUid: "1980411933404"
 sourceHash: "9443caae6f5f"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Women's Circles of Boulder and Longmont - Monthly\" at 6 pm on 19 November in the page's structured data"
 ---
 

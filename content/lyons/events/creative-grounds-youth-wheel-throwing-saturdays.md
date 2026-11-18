@@ -14,6 +14,8 @@ source: "https://creativegroundslyons.com/classes"
 sourceId: "creativegroundslyons-com"
 verified: "2026-11-17"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 2:30 pm on the page"
+changeFlag: true
+changeNote: "recheck 2026-11-18: the source page answers 404"
 ---
 
 A five-week wheel-throwing course for ages 14 to 21: centering, throwing, trimming and glazing. It meets Saturdays 2:30 to 5 pm from November 7 to December 5. Creative Grounds lists it at no charge; sign up on the class page.

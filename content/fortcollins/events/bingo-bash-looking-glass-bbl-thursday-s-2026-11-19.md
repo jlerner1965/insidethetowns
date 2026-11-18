@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/bingo-bash-looking-glass-bbl-thursdays-tic
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "1999707320426"
 sourceHash: "afc1eecc8703"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Bingo Bash @ Looking Glass - BBL Thursday's\" at 7 pm on 19 November in the page's structured data"
 ---
 

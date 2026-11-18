@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/raku-workshop-paint-fire-gnomes-tickets-20
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2002303779505"
 sourceHash: "42ef8400fb21"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Raku Workshop:  Paint & Fire Gnomes\" at 3 pm on 27 November in the page's structured data"
 ---
 
 Raku Workshop: Paint & Fire Gnomes at Flingin Pots, Friday, November 27, 3 pm – 4:30 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

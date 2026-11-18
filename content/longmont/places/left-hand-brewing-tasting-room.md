@@ -7,9 +7,9 @@ source: "https://lefthandbrewing.com/brewery/tasting-room"
 hours: "Mon–Thu 12 pm–9 pm; Fri–Sat 11 am–9 pm; Sun 11 am–8 pm"
 tags: [brewery, food-truck, trivia, patio, beer-garden]
 summary: "Left Hand's Longmont tasting room has poured beer on Boston Avenue since 1993, with more than 30 taps of Milk Stout Nitro, Sawtooth Amber, limited releases, cask beers and pilot brews."
-verified: "2026-10-04"
+verified: "2026-11-18"
 added: "2026-10-04"
-verifiedBy: "James Lerner"
+verifiedBy: "recheck-places (the nightly re-check workflow): the source page still names it, at the same address, https://lefthandbrewing.com/brewery/tasting-room"
 image: ../images/left-hand-brewing-tasting-room.jpg
 imageAlt: "Left Hand Brewing's tasting room on Boston Avenue in light snow, November 2014: a two-storey wood-sided building with the brewery's red sign and three white silos behind"
 imageCredit: "NE Ent, Wikimedia Commons, CC BY-SA 4.0"

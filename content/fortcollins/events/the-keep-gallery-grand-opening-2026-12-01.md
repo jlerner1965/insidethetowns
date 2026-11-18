@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/the-keep-gallery-grand-opening-tickets-200
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003802619576"
 sourceHash: "3e10b46f52b4"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Fort Collins feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"The Keep Gallery Grand Opening\" at 4 pm on 1 December in the page's structured data"
 ---
 
 The Keep Gallery Grand Opening at The Keep Gallery, Tuesday, December 1, 4 pm – 7 pm. Listed by Eventbrite, events in Fort Collins; the organizer's page has the details and any registration.

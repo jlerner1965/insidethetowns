@@ -13,8 +13,9 @@ details:
   checked: "2026-11-12"
 summary: "Drive-through Ziggi's on Milan Place by Erie Parkway, open from six."
 source: "https://ziggiscoffee.com/locations/331-milan-place-erie-co/"
-verified: "2026-10-03"
+verified: "2026-11-18"
 added: "2026-09-17"
+verifiedBy: "recheck-places (the nightly re-check workflow): the source page still names it, with the same phone number and at the same address, https://ziggiscoffee.com/locations/331-milan-place-erie-co/"
 ---
 
 The Colorado drive-through chain's Erie stand, on Milan Place just off Erie Parkway: espresso, blended drinks, breakfast burritos and paninis, open early every day.

@@ -10,8 +10,8 @@ source: "https://theatre.colostate.edu/events/musical-theatre-voice-studio-recit
 sourceId: "theatre-colostate-edu"
 sourceUid: "11-19509@theatre.colostate.edu"
 sourceHash: "89070d287729"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the organizer's own events feed (colostate.edu) on 10 November 2026: date, start and end time, hall; the feed misspells the street as Remingon, CSU's other pages for the same building give 1400 Remington St."
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Musical Theatre Voice Studio Recital / FREE\" at 7:30 pm on 1 December on the theatre.colostate.edu feed"
 ---
 
 Musical Theatre Voice Studio Recital / FREE at Organ Recital Hall, Tuesday, December 1, 7:30 pm – 8:30 pm. Listed by theatre.colostate.edu; the organizer's page has the details and any registration.

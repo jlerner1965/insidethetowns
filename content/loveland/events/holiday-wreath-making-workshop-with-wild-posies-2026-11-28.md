@@ -10,8 +10,8 @@ source: "https://tockify.com/lovelanddowntown/detail/1813/1795914000000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1813/29931900/0/0"
 sourceHash: "9cd1472263c8"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Loveland Downtown Partnership feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Wreath Making Workshop with Wild Posies\" at 6 pm on 28 November on the Loveland Downtown Partnership feed"
 ---
 
 Holiday Wreath Making Workshop with Wild Posies at Loveland Aleworks, Saturday, November 28, 6 pm – 8 pm. Listed by Loveland Downtown Partnership; the organizer's page has the details and any registration.

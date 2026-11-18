@@ -10,8 +10,8 @@ source: "https://tockify.com/lovelanddowntown/detail/1814/1795986000000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1814/29933100/0/0"
 sourceHash: "c54ad5c3c4b9"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Loveland Downtown Partnership feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mini Altar Workshop with Gothic Muse\" at 2 pm on 29 November on the Loveland Downtown Partnership feed"
 ---
 
 Mini Altar Workshop with Gothic Muse at Loveland Aleworks, Sunday, November 29, 2 pm – 4 pm. Listed by Loveland Downtown Partnership; the organizer's page has the details and any registration.

@@ -13,6 +13,7 @@ hours: "Tue–Thu 7 am–3 pm; Fri 7 am–5 pm; Sat–Sun 9 am–4 pm; closed Mo
 tags: [bakery, breakfast, lunch, custom-cakes]
 summary: "Mother-and-daughter bakery on Highway 74 serving breakfast and lunch, with custom cakes, parties and its \"adoptable\" cookie jars."
 closureCheck: "2026-11-17: own site scjrbakery.com is now a domain-parking page (redirects to /lander); no other official page found."
+readBlocked: "2026-11-18: the source page answered, but showed nothing to read (a page drawn by JavaScript, or a challenge)"
 ---
 
 A downtown bakery run by a mother and daughter, now serving breakfast and lunch as well as baked goods. It makes custom cakes for weddings and birthdays, hosts parties, and offers "adoptable" cookie jars.

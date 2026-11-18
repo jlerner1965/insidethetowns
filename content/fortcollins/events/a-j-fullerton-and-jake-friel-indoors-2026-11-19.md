@@ -10,7 +10,7 @@ source: "https://www.ajfullerton.com#new_tab"
 sourceId: "maxlinebrewing-com"
 sourceUid: "1962@maxlinebrewing.com"
 sourceHash: "e96fdebc7b91"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"A.J. Fullerton & Jake Friel (Indoors)\" at 6:30 pm on 19 November on the Maxline Brewing (events calendar) feed"
 ---
 

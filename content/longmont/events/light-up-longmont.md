@@ -13,8 +13,8 @@ timeNote: "5 to 7 pm; Roosevelt Park lit at 5:30, 6th Avenue Plaza tree at 6, St
 organizer: "Downtown Longmont (Longmont Downtown Development Authority)"
 organizerUrl: "https://www.downtownlongmont.com/"
 source: "https://www.downtownlongmont.com/do/light-up-longmont-a-new-holiday-lights-stroll"
-verified: "2026-11-17"
-verifiedBy: "Claude Code, delegated by James Lerner: Downtown Longmont's Light Up Longmont page, read 17 November 2026 (Saturday, Nov 21, 2026, 5pm - 7pm, Roosevelt Park). The page calls it a new event, so it is listed as a dated event, not an annual one."
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 5 pm on the page"
 ---
 
 Light Up Longmont turns on downtown's holiday lights on Saturday, November 21, 2026, from 5 to 7 pm, starting at the Roosevelt Park Ice Pavilion and walking with Santa to the 6th Avenue Plaza tree and St. Stephen's Plaza. Downtown Longmont's page lists no admission charge.

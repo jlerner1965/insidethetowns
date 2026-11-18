@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/realities-for-children-holiday-social-tick
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2002969173717"
 sourceHash: "43f4a9075338"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Realities For Children Holiday Social\" at 6 pm on 19 November in the page's structured data"
 ---
 

@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/johnsmith-with-dan-sebranek-tickets-199865
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "1998658013922"
 sourceHash: "59ce3cf334e9"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Johnsmith with Dan Sebranek\" at 5 pm on 22 November in the page's structured data"
 ---
 

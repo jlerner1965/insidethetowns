@@ -10,8 +10,8 @@ source: "https://gingerandbaker.com/my-event/tk-gifts-from-the-kitchen/"
 sourceId: "gingerandbaker-com"
 sourceUid: "81373"
 sourceHash: "2d91d038aebe"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Ginger and Baker (classes and events) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Gifts from the Kitchen\" at 10 am on 28 November in the page's structured data"
 ---
 
 Gifts from the Kitchen at The Teaching Kitchen, Saturday, November 28, 10 am – 1 pm. Listed by Ginger and Baker (classes and events); the organizer's page has the details and any registration.

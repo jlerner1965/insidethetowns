@@ -10,7 +10,7 @@ source: "https://citystarbrewing.com/event/chicken-coop-willaye/"
 sourceId: "citystarbrewing-com"
 sourceUid: "14891"
 sourceHash: "4d3ee3b9b557"
-verified: "2026-11-17"
+verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Chicken Coop Willaye\" at 6 pm on 27 November in the page's structured data"
 ---
 

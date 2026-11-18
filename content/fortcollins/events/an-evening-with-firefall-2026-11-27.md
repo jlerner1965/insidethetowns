@@ -10,8 +10,8 @@ source: "https://bohemianlivemusic.org/event/an-evening-with-firefall/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "54135"
 sourceHash: "5fee0c975431"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from Bohemian Live Music's own events feed (bohemianlivemusic.org) on 10 November 2026: date, start time, venue and price; the feed gives no end time"
+verified: "2026-11-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"An Evening with Firefall\" at 7 pm on 27 November in the page's structured data"
 ---
 
 An Evening with Firefall at The Armory, Friday, November 27, 7 pm. Listed by bohemianlivemusic.org; the organizer's page has the details and any registration.
