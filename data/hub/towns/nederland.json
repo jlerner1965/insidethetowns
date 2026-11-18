@@ -67,5 +67,39 @@
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
       "checked": "2026-11-12"
     }
-  }
+  },
+  "trails": [
+    {
+      "name": "Hessie Trailhead and the Indian Peaks lakes",
+      "kind": "Wilderness trails",
+      "manager": "USDA Forest Service; Boulder County runs the access road and the summer shuttle",
+      "length": "Round trips from the trailhead: Lost Lake 4.2 miles, Woodland Lake 9.6, Devils Thumb 11.6, King Lake 12, Diamond Lake 13",
+      "trailhead": "From Nederland, 0.6 mile south on Colorado 119, then west on County Road 130 through the Town of Eldora; the left fork 0.75 mile past the end of the pavement. Parking is limited",
+      "season": "In winter, access is usually from the Town of Eldora; Boulder County’s summer shuttle returns Memorial Day weekend 2027.",
+      "dogs": "On a hand-held leash at all times.",
+      "fee": "No day-use fee for individuals; organized groups need a free day-hiking permit, and overnight trips June 1 to September 15 need a $5 permit.",
+      "page": "/nederland/places/hessie-trailhead/",
+      "source": "https://www.fs.usda.gov/r02/arp/recreation/hessie-trailhead",
+      "alsoSources": [
+        "https://bouldercounty.gov/open-space/parks-and-trails/hessie-trailhead/"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Brainard Lake Recreation Area",
+      "kind": "National forest recreation area",
+      "manager": "USDA Forest Service",
+      "length": "Brainard Gateway Trailhead is 2.5 miles up Brainard Lake Road from Colorado 72 at Ward, and the lake two miles beyond it",
+      "trailhead": "Brainard Gateway Trailhead, on Brainard Lake Road west of Ward",
+      "season": "The gate at the Gateway Trailhead is open from about mid-June to mid-October; in winter, park at the Gateway for the ski and snowshoe trails.",
+      "dogs": "May 1 to November 14, on a hand-held leash; November 15 to April 30, only on the Brainard Lake and Lefthand Park Reservoir roads and the Sourdough Trail.",
+      "fee": "A $10 day-use fee from the Gateway Trailhead, no reservation; parking inside the area in summer needs a timed-entry reservation.",
+      "page": "/nederland/places/brainard-lake-recreation-area/",
+      "source": "https://www.fs.usda.gov/r02/arp/recreation/brainard-lake-recreation-area",
+      "alsoSources": [
+        "https://www.fs.usda.gov/r02/arp/recreation/brainard-lake-recreation-area-seasonal-information"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }

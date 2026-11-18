@@ -86,6 +86,7 @@ test('each briefed town names a lead guide that is a published article where its
 const TRAIL_GAPS: Readonly<Record<string, string>> = {
   'manitou-springs': 'the City of Manitou Springs and the City of Colorado Springs pages refuse automated readers, and the Forest Service page for Barr Trail gives no length or dog rule',
   salida: 'the City of Salida refuses automated readers, so the Riverwalk and Riverside Park have no season or dog rule from the City',
+  nederland: 'Boulder County publishes no fee statement for Mud Lake or Caribou Ranch, and the Town gives no hours, dog rule or fee for its parks',
 };
 
 test('Trails and parks: three to six on each briefed town, every one with the facts the brief names', () => {
