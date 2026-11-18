@@ -27,7 +27,7 @@
  * (sectionHref, src/lib/section.ts), in the section's colours, which
  * `data-palette` scopes to the masthead (src/styles/global.css).
  */
-import { editionFor, emailEditions, getNetworkHub, getSite, guideUrl, hubNeighborsOf, isMoved, liveTowns, neighborsOf, type FullSection } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getSite, guideUrl, hubNeighborsOf, isMoved, liveTowns, neighborsOf, type FullSection, fullSections } from '@/config';
 import { paletteVars } from '@/config/palette';
 import { getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
@@ -57,7 +57,8 @@ const at = (href: string) => (section ? sectionHref(href, section.base, isMoved(
 const nearby = site.kind === 'town' ? neighborsOf(site) : [];
 // The towns next door that live on the hub, each to its page there (the post-migration fixes, 18 November 2026).
 const nearbyOnHub = site.kind === 'town' ? hubNeighborsOf(site, new Set(publishedHubTowns(await getTraditions()).map((h) => h.slug))) : [];
-const guideCount = liveTowns().length;
+// The eleven full sections (fullSections; the owner, 18 November 2026), the count the menu's link to the hub says.
+const guideCount = fullSections().length;
 const path = pagePath(Astro.url);
 // A link to a section of a page (the hub's "/#towns") is never the current
 // page: stripped to "/" it matched the home page and showed "Towns" as where
@@ -209,7 +210,7 @@ const palette = section ? { 'data-palette': '', 'data-section-masthead': section
                     </Fragment>
                   )}
                   <p class:list={['text-[0.9375rem]', nearby.length + nearbyOnHub.length > 0 && 'mt-3 border-t border-line-soft pt-3']}>
-                    <a href={`https://${hub.domain}/#towns`} class="inline-block py-1.5 font-semibold text-primary underline">All {guideCount} guides →</a>
+                    <a href={`https://${hub.domain}/#towns`} class="inline-block py-1.5 font-semibold text-primary underline">All {guideCount} full sections →</a>
                   </p>
                 </div>
               </details>

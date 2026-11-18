@@ -23,15 +23,15 @@
  * and from `sm` up the summary is not shown. A reader without the script
  * sees the list as before.
  */
-import { getNetworkHub, getSite, guideUrl, hubNeighborsOf, liveTowns, neighborsOf } from '@/config';
+import { fullSections, getNetworkHub, getSite, guideUrl, hubNeighborsOf, liveTowns, neighborsOf, sectionHome } from '@/config';
 import { getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { HUB_COLUMN } from './hub/pub';
 
 const site = getSite();
 const hub = getNetworkHub();
-// The seven guides in the one order every list uses (liveTowns()).
-const guides = site.kind === 'hub' ? liveTowns() : [];
+// The eleven full sections, A to Z, as /towns/ lists them (fullSections; the owner, 18 November 2026).
+const guides = site.kind === 'hub' ? fullSections() : [];
 // Every guide names its neighbours and the hub, not every guide (the
 // flagships from 21 October 2026, every guide from the navigation audit of
 // 22 October: 19 sister guides with their taglines were some 200 words of
@@ -56,7 +56,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
         <span class={label}>The guides</span>
         <ul class="flex flex-wrap gap-x-4">
           {guides.map((t) => (
-            <li><a href={guideUrl(t)} class={link}>{t.siteTitle}</a></li>
+            <li><a href={sectionHome(t)} class={link}>{t.siteTitle}</a></li>
           ))}
         </ul>
       </nav>
