@@ -22,7 +22,7 @@ import '@/styles/global.css';
 import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
 import instrumentLatin from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
 import Analytics from '@vercel/analytics/astro';
-import { getNetworkHub, getSite, listsEvents, plausibleDomain } from '@/config';
+import { getNetworkHub, getSite, listsEvents, plausibleDomain, type FullSection } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
@@ -33,7 +33,7 @@ import SEO from '@/components/SEO.astro';
 import { siteJsonLd } from '@/lib/seo';
 import { searchType } from '@/lib/network-search';
 import { verificationTags } from '@/lib/verification';
-import { PAPERS, categoryCss, primaryHover } from '@/config/palette';
+import { categoryCss, paletteVars } from '@/config/palette';
 
 interface Props {
   title?: string;
@@ -55,13 +55,20 @@ interface Props {
   preload?: string[];
   /** A class on <body>, for a page with a stylesheet of its own. */
   bodyClass?: string;
+  /**
+   * A full section's masthead in place of the site's: a hub page under
+   * /<town>/ that belongs to that section, its tradition pages
+   * (fullSectionAt, src/config/index.ts; the owner's navigation brief of 18
+   * November 2026). Only the masthead changes: the page is the hub's.
+   */
+  masthead?: FullSection;
 }
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
 // The site Plausible counts this page under: the hub's domain on every hub and section page, a guide's own on a guide that has it (src/config/index.ts).
 const plausible = plausibleDomain(site);
-const { jsonLd, kind, preload = [frauncesLatin, instrumentLatin], bodyClass, ...props } = Astro.props;
+const { jsonLd, kind, preload = [frauncesLatin, instrumentLatin], bodyClass, masthead, ...props } = Astro.props;
 // A town that has not launched serves a holding page; nothing on it, nor the
 // shared pages around it, should be indexed before the guide exists.
 const seo = site.kind === 'town' && site.status !== 'live' ? { ...props, noindex: true } : props;
@@ -78,12 +85,7 @@ const structured = [siteJsonLd(site), ...(jsonLd ? (Array.isArray(jsonLd) ? json
 // of, so a token set in Vercel never reached the page this way (found 25
 // October 2026, when the signup's key switch met the same wall).
 const verification = verificationTags(process.env);
-const cssVars = [
-  `--town-primary:${site.colors.primary}`,
-  `--town-primary-hover:${primaryHover(site.colors.primary)}`,
-  `--town-accent:${site.colors.accent}`,
-  `--town-paper:${PAPERS[site.colors.paper]}`,
-].join(';');
+const cssVars = paletteVars(site.colors);
 ---
 <!doctype html>
 <html lang="en" style={cssVars}>
@@ -114,7 +116,7 @@ const cssVars = [
       Skip to content
     </a>
     {/* A page may draw its own masthead and footer (the hub's home); every other page has the site's. */}
-    {Astro.slots.has('header') ? <slot name="header" /> : <Header />}
+    {Astro.slots.has('header') ? <slot name="header" /> : <Header section={masthead} />}
     {/* The kind labels a result ("Place · Niwot"); the filter puts it under the search page's type buttons (src/lib/network-search.ts). */}
     <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined} data-pagefind-filter={searchable && searchType(kind) ? `type:${searchType(kind)}` : undefined}>
       <slot />

@@ -21,7 +21,7 @@ import { getImage } from 'astro:assets';
 import Page from '@/layouts/Page.astro';
 import TraditionRow from '@/components/TraditionRow.astro';
 import DateCorrection from '@/components/DateCorrection.astro';
-import { findTown, guideOrigin, getHub } from '@/config';
+import { findTown, fullSectionAt, guideOrigin, getHub } from '@/config';
 import { STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getTraditions } from '@/lib/content';
 import { dayKey, formatDate, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
@@ -47,6 +47,14 @@ const records = await getTraditions();
 const record = records.find((r) => r.slug === Astro.props.slug)!;
 // A hub town, or a guide moved into the hub, whose section is the town's page (src/lib/hub-towns.ts, pageTown).
 const town = pageTown(Astro.params.town as string)!;
+/**
+ * The town's full section where it has one (a guide moved into the hub, or
+ * Longmont, Loveland, Fort Collins and Estes Park): the page carries that
+ * section's masthead, "Inside Erie", as the section's own pages do (the
+ * owner's navigation brief of 18 November 2026). A town page alone, or a
+ * town kept page by page, keeps the hub's.
+ */
+const masthead = fullSectionAt(town.slug);
 const published = publishedHubTowns(records);
 const today = dayKey(new Date());
 const ctx: ShowingContext = {
@@ -147,7 +155,7 @@ const card = 'rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7';
 const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary';
 ---
-<Page {title} seoTitle={title} eyebrow={`${town.name}, ${hubCountyLine(town)} · ${info.label}`} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual event" narrow>
+<Page {title} seoTitle={title} eyebrow={`${town.name}, ${hubCountyLine(town)} · ${info.label}`} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual event" {masthead} narrow>
   <nav aria-label="Breadcrumb" class="mb-6 text-sm text-ink-muted" data-breadcrumb>
     <a href="/" class="underline">{hub.siteTitle}</a> › <a href={`/${town.slug}/`} class="underline">{town.name}</a> › <span>{record.name}</span>
   </nav>

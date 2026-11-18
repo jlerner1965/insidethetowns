@@ -122,6 +122,34 @@ export function listWords(names: readonly string[]): string {
 }
 
 /**
+ * A season's name inside a sentence: "parades of lights", "turkey trots";
+ * a name that begins with a proper noun keeps its capital ("New Year’s
+ * celebrations", "Easter egg hunts", "Oktoberfests"), where lowercasing the
+ * whole name wrote "new year’s".
+ */
+export function inSentence(name: string): string {
+  return /^(New Year|Easter|Oktoberfest)/.test(name) ? name : name.charAt(0).toLowerCase() + name.slice(1);
+}
+
+/**
+ * The home's description, the words a search result shows under its title:
+ * this weekend's events, the full sections by count, and the annual dates
+ * of every other town (`moreTowns`), with the seasons open now where they
+ * fit. The longest of the wordings that fits `limit` whole (the page passes
+ * META_DESCRIPTION_LIMIT, 155). Since the owner's navigation brief of 18
+ * November 2026 it counts the full sections, "eleven full town sections"
+ * (fullSections, src/config/index.ts); it had counted the six guides that
+ * list events.
+ */
+export function homeDescription(o: { sections: number; moreTowns: number; seasons: readonly string[] }, limit = 155): string {
+  const lead = `This weekend’s events, ${numberWord(o.sections)} full town sections and annual dates for ${o.moreTowns} more Colorado towns`;
+  const seasons = o.seasons.length > 0 ? `: ${listWords(o.seasons.map(inSentence))}` : '';
+  const checked = ', each checked against its source';
+  const wordings = [`${lead}${seasons}${checked}.`, `${lead}${seasons}.`, `${lead}${checked}.`, `${lead}.`];
+  return wordings.find((d) => d.length <= limit) ?? wordings.at(-1)!;
+}
+
+/**
  * The guides' one line each in the index, as the approved mockup has them.
  * Each was read against the guide's own content on 13 November 2026 (its
  * tagline, its places and the school it follows): Niwot's Second Avenue
