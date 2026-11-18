@@ -12247,3 +12247,38 @@ Springs, Evergreen and Salida, one pull request, no other town touched.*
   refuses one until FIBArk's next year is confirmed on the organizer's
   page.
 
+## Nine more town pages and their lead guides, 18 November 2026
+
+*The owner's second brief of 18 November 2026: the same for Carbondale,
+Nederland, Buena Vista, Leadville, Idaho Springs, Georgetown, Crested
+Butte, Steamboat Springs and Durango, in the same pull request.*
+
+- **The guides' subjects** were the assistant's choice, one each, picked
+  for the question a visitor to the town has first: Carbondale, a
+  park-once day on the Rio Grande Trail; Nederland, getting to Eldora by
+  bus or car; Buena Vista, River Park and the hot springs; Leadville, the
+  Mineral Belt Trail; Idaho Springs, the Mount Blue Sky road; Georgetown,
+  the Loop Railroad; Crested Butte, the town without a car; Steamboat
+  Springs, Old Town or Strawberry Park; Durango, which train runs now.
+  Nederland, Leadville, Idaho Springs and Georgetown keep guide folders, so
+  theirs are guides (`/<town>/guides/…`); the other five are hub stories.
+- **Gaps, not guesses.** The City of Leadville, the Town of Crested Butte,
+  Mt. Crested Butte, the City of Idaho Springs, Garfield County Libraries
+  and the Buena Vista Public Library refuse automated readers, and none
+  was worked around. RFTA's web pages answer a plain fetch with a bot check
+  but let WebFetch read them; its Park & Ride and trail rules were read
+  that way and its timetables and fares from its own PDFs. Leadville has
+  one trail or park, not three: the Willow Fire closure covers the national
+  forest west of town to 31 December 2026, and the others lack a dog rule,
+  size or hours on their managers' pages (`FEWEST`, `TRAIL_GAPS`).
+  Steamboat Springs has two. `alsoSources` now takes four pages.
+- **Dated facts.** Durango's guide rests on the railroad's update of 12
+  November that it was on schedule to run by 20 November after the flood
+  of 1 November; Eldora had not named an opening day; RTD's NB timetable
+  runs to 2 January 2027; Steamboat's winter bus schedule and Lake County's
+  2026–27 grooming were not yet posted. Each is on the to-do list.
+- **Prices copied** are those a comparison needs: the three Buena Vista
+  hot springs are linked, not priced, because Cottonwood's own pages give
+  two rates; Steamboat's two springs, the Cascade Canyon coach fare and
+  the Hot Springs Shuttle's are printed, and go on the re-check.
+

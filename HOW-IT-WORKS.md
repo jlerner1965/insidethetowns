@@ -293,7 +293,9 @@ town has under the name: its own events' soonest date set, and an outdoor or
 free-admission date only where no event of its has one (since 15 November
 2026; the page's script re-reads it by the reader's day the same way). A
 town that names a lead guide (`leadGuide`, 18 November 2026: Estes Park,
-Golden, Manitou Springs, Evergreen, Salida) has "Start here" next, the
+Golden, Manitou Springs, Evergreen, Salida, then Carbondale, Nederland,
+Buena Vista, Leadville, Idaho Springs, Georgetown, Crested Butte, Steamboat
+Springs and Durango) has "Start here" next, the
 article's own title and excerpt and the link to it; a path that names no
 published article stops the build (`src/lib/lead-guide.ts`). Then "On this page" and numbered sections, each a
 full-width band, paper and white in turn: Events (the dates set, soonest
