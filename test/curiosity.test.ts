@@ -272,7 +272,8 @@ test('the Nearby block is links only, on the hub town page and a guide’s thing
   const block = readFileSync('src/components/NearbyArticles.astro', 'utf8');
   assert.match(block, /getCuriosity\(\)/, 'only the articles on the site');
   assert.ok(!/description|summary|\.value/.test(block.replace(/^---[\s\S]*?---/, '')), 'no line of an article is copied onto a town page');
-  assert.match(readFileSync('src/routes/hub/town.astro', 'utf8'), /<NearbyArticles place=\{town\.slug\} onHub(?: variant="pub")? \/>/);
+  // The town's history story is featured in About with "Read the story" (the owner, 18 November 2026), so Nearby leaves it out.
+  assert.match(readFileSync('src/routes/hub/town.astro', 'utf8'), /<NearbyArticles place=\{town\.slug\} onHub(?: variant="pub")?(?: exclude=\{[^}]+\})? \/>/);
   assert.match(readFileSync('src/routes/town/things-to-do.astro', 'utf8'), /<NearbyArticles place=\{nearPlace\} \/>/);
 });
 

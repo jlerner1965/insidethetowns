@@ -41,7 +41,9 @@ const title = `Places in ${town.name}`;
 const count = (n: number, one: string) => `${n} ${one}${n === 1 ? '' : 's'}`;
 const kinds = groups.map(([type]) => PLACE_TYPE_PLURALS[type].toLowerCase());
 const description = `${count(section.placeEntries.length, 'place')} in ${town.name}, Colorado, by kind: ${kinds.slice(0, 3).join(', ')}${kinds.length > 3 ? ' and more' : ''}, each checked against its own source${guides.length ? `, with ${count(guides.length, 'guide')} to plan a visit` : ''}.`;
-const intro = `${guides.length ? `${count(guides.length, 'guide')} to plan a visit, then ` : ''}${count(section.placeEntries.length, 'place')} to know in ${town.name}, by kind. Annual events and outdoor dates are on the town's page.`;
+/** "Museums, restaurants, places to stay and trails in Leadville, each checked against its own source." (the owner's words, 18 November 2026) */
+const kindList = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kinds[kinds.length - 1]}` : kinds[0] ?? 'places';
+const intro = `${kindList.charAt(0).toUpperCase()}${kindList.slice(1)} in ${town.name}, each checked against its own source.`;
 const structured = [
   webPageJsonLd(hub, { name: title, description, path }),
   breadcrumbJsonLd(hub, [
