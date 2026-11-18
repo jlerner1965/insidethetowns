@@ -15,6 +15,10 @@ export const elizabeth = {
   // its folder with the fold and git history keeps it.
   status: 'redirect',
   hubPage: { town: 'elizabeth', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /elizabeth/places/<slug>/, /elizabeth/guides/<slug>/
+  // and the carried events at /elizabeth/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'front-range',
   region: 'South Metro',
   neighbors: [],

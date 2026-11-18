@@ -19,13 +19,14 @@ import { guidesWithTraditions } from '@/lib/tradition-files';
 import { HUB_COLUMN } from './hub/pub';
 import NetworkBar from './NetworkBar.astro';
 import Wordmark from './Wordmark.astro';
+import { pagePath } from '@/lib/section';
 
 const site = getSite();
 const hub = getNetworkHub();
 const year = new Date().getFullYear();
 // A guide's home ends on a band with its own padding. (The hub's home draws
 // its own footer since 13 November 2026, src/routes/hub/index.astro.)
-const home = Astro.url.pathname === '/';
+const home = pagePath(Astro.url) === '/';
 // A phone gets a 44px line to tap (cleanup pass, 9 November 2026; it was 34px):
 // the padding is the target and the negative margin keeps the rows where they were.
 const linkClass = 'inline-block -my-1.5 py-2.5 no-underline text-white hover:underline sm:my-0 sm:py-0';

@@ -52,7 +52,8 @@ import DateCorrection from '@/components/DateCorrection.astro';
 import CalendarSubscribe from '@/components/CalendarSubscribe.astro';
 import OpenNow from '@/components/OpenNow.astro';
 import NearbyArticles from '@/components/NearbyArticles.astro';
-import { findTown, getHub } from '@/config';
+import { allTowns, findTown, getHub } from '@/config';
+import { sectionFor } from '@/lib/section-index';
 import { STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getCuriosity, getTraditions } from '@/lib/content';
 import { articlesFor } from '@/lib/curiosity';
@@ -149,8 +150,13 @@ const horizon = dayKey(new Date(parseLocal(today).getTime() + NEXT_DAYS * 86_400
 const quiet = !own.some((r) => isUpcoming(r) && r.entry.date! <= horizon);
 /** Set dates, soonest first; then those not yet announced, in the order of the year they were last held; then any canceled. */
 const comingUp = listed.filter((r) => rowState(r) === 'upcoming').sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || a.record.name.localeCompare(b.record.name));
+// A season that is open (Moraine Park's winter camping, "October 19 to
+// mid-May") is in "Open now" below; it is not also "not yet announced" here
+// because its opening day has passed (the owner, 17 November 2026: show it
+// once). It comes back to this list the day its closing date passes.
+const openSlugs = new Set(openNow(records.filter((r) => !r.statewide && appliesTo(r, town.slug)), today).open.map((o) => o.slug));
 const waiting = listed
-  .filter((r) => rowState(r) === 'waiting' || rowState(r) === 'past')
+  .filter((r) => (rowState(r) === 'waiting' || rowState(r) === 'past') && !openSlugs.has(r.record.slug))
   .sort((a, b) => (a.lastHeld?.slice(5) ?? '99').localeCompare(b.lastHeld?.slice(5) ?? '99') || a.record.name.localeCompare(b.record.name));
 const canceled = listed.filter((r) => rowState(r) === 'canceled');
 const groupOf = (r: Row) => (r === spotlight ? 'one-to-know' : rowState(r) === 'upcoming' ? 'coming-up' : rowState(r) === 'canceled' ? 'canceled' : 'not-announced');
@@ -218,6 +224,24 @@ const statewideRest = statewide.slice(STATEWIDE_SHOWN);
 
 /** The other town pages in its area, nearest by road first (src/lib/hub-town-page.ts, moreInRegion), and the areas they are in. */
 const more = moreInRegion(town, published, roads);
+// The guide folded into this page, where some of it lives on under it (the
+// move of 17 November 2026): a full section's main pages, or the index of
+// the pages kept one by one (src/lib/section-index.ts). One line, in the
+// close, and the section links back here from every page.
+const folded = allTowns.find((t) => t.hubPage?.town === town.slug && t.section);
+const kept = folded?.section?.mode === 'pages' ? await sectionFor(town.slug) : undefined;
+const sectionLinks: Array<{ label: string; href: string }> =
+  folded?.section?.mode === 'full'
+    ? [
+        { label: 'Events', href: `/${town.slug}/events/` },
+        { label: 'Eat & drink', href: `/${town.slug}/eat-drink/` },
+        { label: 'Things to do', href: `/${town.slug}/things-to-do/` },
+        { label: 'Places', href: `/${town.slug}/directory/` },
+        { label: 'Guides', href: `/${town.slug}/guides/` },
+      ]
+    : kept && kept.placeEntries.length + kept.guideEntries.length > 0
+      ? [{ label: `Places in ${town.name}`, href: `/${town.slug}/places/` }]
+      : [];
 const moreIn = moreHeading(more);
 const subject = `[Correction] ${town.name}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
@@ -362,7 +386,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           {canceled.map((r) => <DateEntry {...entryProps(r)} />)}
         </Fragment>
       )}
-      <OpenNow records={openRecords} {today} variant="pub" />
+      <OpenNow records={openRecords} {today} variant="pub" anchors={openSlugs} />
       {marked && (
         <Fragment>
           <h3 class={pub.h3}>The year at a glance</h3>
@@ -632,6 +656,12 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               <li><a href={`/${t.slug}/`} class:list={[pub.link, 'flex min-h-12 items-center border-b border-hairline text-base no-underline']} data-nearby={t.slug}><span class="underline decoration-1 underline-offset-[3px]">{t.name}</span></a></li>
             ))}
           </ul>
+        )}
+        {sectionLinks.length > 0 && (
+          <p class:list={['mt-4', pub.t]} data-section-links>
+            <strong class="font-semibold">Inside {town.name}</strong>{folded?.section?.mode === 'full' ? ', the guide, lives on here: ' : ': '}
+            {sectionLinks.map((l, i) => (<Fragment>{i > 0 && ' · '}<a href={l.href} class={pub.link}>{l.label}</a></Fragment>))}
+          </p>
         )}
         <a href="#contents" class:list={[pub.go, more.length > 0 && 'mt-2', 'desk:hidden']} data-back-to-contents>Back to contents ↑</a>
       </div>

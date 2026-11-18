@@ -1,0 +1,78 @@
+---
+/**
+ * /<town>/places/: the kept pages of a guide folded page by page (the move
+ * of 17 November 2026; src/lib/section-index.ts). A plain index: each
+ * place by kind, with its summary, then the guides. The town's page on the
+ * hub links here once; everything else of the old guide is that page.
+ */
+import Page from '@/layouts/Page.astro';
+import CheckedLine from '@/components/CheckedLine.astro';
+import { getHub } from '@/config';
+import { findHubTown, hubCountyLine } from '@/config/hub-towns';
+import { PLACE_TYPE_PLURALS, type PlaceType } from '@/content/schemas';
+import { sectionContents, sectionFor } from '@/lib/section-index';
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/seo';
+import { formatShortDate } from '@/lib/dates';
+
+export async function getStaticPaths() {
+  return (await sectionContents()).filter((s) => s.placeEntries.length + s.guideEntries.length > 0).map((s) => ({ params: { town: s.hubTown } }));
+}
+
+const hub = getHub();
+const section = (await sectionFor(Astro.params.town as string))!;
+const town = findHubTown(section.hubTown)!;
+const path = `/${town.slug}/places/`;
+const byType = new Map<PlaceType, typeof section.placeEntries>();
+for (const p of [...section.placeEntries].sort((a, b) => a.data.title.localeCompare(b.data.title))) {
+  const list = byType.get(p.data.type) ?? [];
+  list.push(p);
+  byType.set(p.data.type, list);
+}
+const groups = [...byType.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+const guides = [...section.guideEntries].sort((a, b) => a.data.title.localeCompare(b.data.title));
+const title = `Places in ${town.name}`;
+const description = `${section.placeEntries.length} places in ${town.name}, Colorado, each checked against its own source${guides.length ? `, and ${guides.length} guide${guides.length === 1 ? '' : 's'}` : ''}: what Inside ${town.name} kept when the guide closed.`;
+const structured = [
+  webPageJsonLd(hub, { name: title, description, path }),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: town.name, path: `/${town.slug}/` },
+    { name: 'Places', path },
+  ]),
+];
+const link = 'text-primary underline decoration-1 underline-offset-[3px]';
+---
+<Page {title} eyebrow={`${town.name}, ${hubCountyLine(town)} · Inside ${town.name}`} intro={`The pages kept from the Inside ${town.name} guide, each read against its own source. Annual events and outdoor dates are on the town's page.`} {description} jsonLd={structured} kind="Guide" narrow>
+  <CheckedLine dates={section.placeEntries.filter((p) => !p.data.recheckPending).map((p) => p.data.verified)} perItem />
+  {groups.map(([type, places]) => (
+    <section class="mt-10" aria-labelledby={`type-${type}`}>
+      <h2 id={`type-${type}`} class="eyebrow mb-3">{PLACE_TYPE_PLURALS[type]}</h2>
+      <ul class="divide-y divide-line-soft">
+        {places.map((p) => (
+          <li class="py-3">
+            <a href={`${path}${p.slug}/`} class={`text-[1.0625rem] font-semibold ${link}`}>{p.data.title}</a>
+            {p.data.area && <span class="ml-2 text-sm text-ink-muted">{p.data.area}</span>}
+            {p.data.recheckPending && <span class="ml-2 text-sm text-ink-muted" data-recheck-pending>· re-check pending, last checked {p.data.verified ? formatShortDate(p.data.verified) : 'not recorded'}</span>}
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{p.data.summary}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+  {guides.length > 0 && (
+    <section class="mt-10" aria-labelledby="guides-heading">
+      <h2 id="guides-heading" class="eyebrow mb-3">Guides</h2>
+      <ul class="divide-y divide-line-soft">
+        {guides.map((g) => (
+          <li class="py-3">
+            <a href={`/${town.slug}/guides/${g.slug}/`} class={`text-[1.0625rem] font-semibold ${link}`}>{g.data.title}</a>
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{g.data.excerpt}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+  <p class="mt-10 text-[0.9375rem] text-ink-muted">
+    <a href={`/${town.slug}/`} class={link}>Every annual event and outdoor date in {town.name}</a>
+  </p>
+</Page>

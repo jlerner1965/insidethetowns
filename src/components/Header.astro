@@ -24,6 +24,7 @@ import Wordmark from './Wordmark.astro';
 import { HUB_COLUMN } from './hub/pub';
 import { siteNav } from '@/lib/nav';
 import { wordmarkEm as titleEm } from '@/lib/titles';
+import { pagePath } from '@/lib/section';
 
 const site = getSite();
 const hub = getNetworkHub();
@@ -37,7 +38,7 @@ const hub = getNetworkHub();
  */
 const nearby = site.kind === 'town' ? neighborsOf(site) : [];
 const guideCount = liveTowns().length;
-const path = Astro.url.pathname;
+const path = pagePath(Astro.url);
 // A link to a section of a page (the hub's "/#towns") is never the current
 // page: stripped to "/" it matched the home page and showed "Towns" as where
 // the reader already was.

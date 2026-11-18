@@ -934,7 +934,7 @@ export function localBusinessJsonLd(
  * window, or a cancellation with no date was never an event to mark up.
  */
 export function traditionEventJsonLd(
-  record: { slug: string; name: string; organizer: string; sourceUrl?: string; town?: { name: string }; type?: string; firstYear?: number },
+  record: { slug: string; name: string; organizer: string; sourceUrl?: string; sourceOffline?: string; town?: { name: string }; type?: string; firstYear?: number },
   entry: { status: string; date?: string; endDate?: string; place?: string; startTime?: string; cost?: string; previousDate?: string },
   pageUrl: string,
   { own = false, image }: { own?: boolean; image?: string } = {},
@@ -973,7 +973,7 @@ export function traditionEventJsonLd(
       name: placed ? placed[1] : (entry.place ?? record.town.name),
       address: { '@type': 'PostalAddress', ...(placed ? { streetAddress: placed[2] } : {}), addressLocality: record.town.name, addressRegion: 'CO', addressCountry: 'US' },
     },
-    organizer: { '@type': 'Organization', name: record.organizer, ...(record.sourceUrl ? { url: record.sourceUrl } : {}) },
+    organizer: { '@type': 'Organization', name: record.organizer, ...(record.sourceUrl && !record.sourceOffline ? { url: record.sourceUrl } : {}) },
     // The town's photograph, or its share card where it has none: a record
     // has no photograph of its own, and an Event without an image is
     // ineligible for Google's event results (the owner, 13 November 2026).

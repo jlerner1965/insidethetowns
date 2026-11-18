@@ -24,6 +24,13 @@ export const estesPark: TownConfig = {
   // content has left content/estes-park/ (git history keeps it).
   status: 'redirect',
   hubPage: { town: 'estes-park', since: '2026-11-12' },
+  // Since 17 November 2026 the guide's pages live on as a section of the
+  // hub, insidethetowns.com/estes-park/<same path>/, labelled "Inside
+  // Estes Park" (the move brief; DECISIONS.md, "The folded domains move in").
+  // This domain's own project stays redirect-only. No weekly email, as the
+  // guide had none when it folded; `neighbors` here are the section's Nearby
+  // block, the guides the folded guide named.
+  section: { mode: 'full', since: '2026-11-17', neighbors: ['lyons', 'loveland'] },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: [],

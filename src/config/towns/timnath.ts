@@ -9,6 +9,10 @@ export const timnath: TownConfig = {
   // content has left content/timnath/ (git history keeps it).
   status: 'redirect',
   hubPage: { town: 'timnath', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /timnath/places/<slug>/, /timnath/guides/<slug>/
+  // and the carried events at /timnath/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'front-range',
   region: 'Northern Colorado',
   neighbors: [],

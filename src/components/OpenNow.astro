@@ -27,8 +27,15 @@ interface Props {
    * list the script empties takes its heading with it.
    */
   variant?: 'card' | 'pub';
+  /**
+   * Records whose row is not on the page (an open season is not also
+   * "not yet announced"; the owner, 17 November 2026): the item here
+   * carries the row's id, so links to `#<slug>` from other pages land on
+   * it, and its name is not a link to itself.
+   */
+  anchors?: ReadonlySet<string>;
 }
-const { records, today, class: className, variant = 'card' } = Astro.props;
+const { records, today, class: className, variant = 'card', anchors = new Set<string>() } = Astro.props;
 const { open, next } = openNow(records, today);
 const day = (d: string) => `${formatDayLong(parseLocal(d))}, ${d.slice(0, 4)}`;
 const lists = [
@@ -43,8 +50,8 @@ const lists = [
         <h3 class={pub.h3}>{list.title}</h3>
         <ul>
           {list.items.map((it) => (
-            <li class:list={['py-3', pub.rule]} data-open-item data-from={it.from} data-until={it.until}>
-              <a href={`#${it.slug}`} class:list={[pub.link, 'text-base font-semibold']}>{typeset(it.facility)}</a>
+            <li class:list={['py-3', pub.rule]} id={anchors.has(it.slug) ? it.slug : undefined} data-open-item data-from={it.from} data-until={it.until}>
+              {anchors.has(it.slug) ? <span class="text-base font-semibold text-ink">{typeset(it.facility)}</span> : <a href={`#${it.slug}`} class:list={[pub.link, 'text-base font-semibold']}>{typeset(it.facility)}</a>}
               <span class:list={['block', pub.meta]}>
                 {it.kindLabel} ·
                 {/* The comma follows the date with no space before it: "opened Nov 26, 2026, until Apr 18, 2027" (a line break between these spans put one there, the review of 14 November 2026); the hidden one of the two takes no space either. */}
@@ -67,8 +74,8 @@ const lists = [
           <p class="eyebrow mb-2">{list.title}</p>
           <ul class="space-y-2.5">
             {list.items.map((it) => (
-              <li class="text-[0.9375rem] leading-snug" data-open-item data-from={it.from} data-until={it.until}>
-                <a href={`#${it.slug}`} class="font-semibold text-ink no-underline hover:text-primary hover:underline">{typeset(it.facility)}</a>
+              <li class="text-[0.9375rem] leading-snug" id={anchors.has(it.slug) ? it.slug : undefined} data-open-item data-from={it.from} data-until={it.until}>
+                {anchors.has(it.slug) ? <span class="font-semibold text-ink">{typeset(it.facility)}</span> : <a href={`#${it.slug}`} class="font-semibold text-ink no-underline hover:text-primary hover:underline">{typeset(it.facility)}</a>}
                 <span class="block text-ink-muted">
                   {it.kindLabel} ·
                   {/* The comma follows the date with no space before it: "opened Nov 26, 2026, until Apr 18, 2027" (a line break between these spans put one there, the review of 14 November 2026); the hidden one of the two takes no space either. */}

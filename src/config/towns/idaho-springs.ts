@@ -50,6 +50,10 @@ export const idahoSprings: TownConfig = {
   // owner's rule that an organizer's own word of continuing counts), so
   // the domain now forwards there, not to the hub's home page.
   hubPage: { town: 'idaho-springs', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /idaho-springs/places/<slug>/, /idaho-springs/guides/<slug>/
+  // and the carried events at /idaho-springs/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Retired 3 November 2026: it names no neighbour and has no sections, and

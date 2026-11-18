@@ -1,0 +1,226 @@
+old_path,source,note
+/,build,in the sitemap
+/about/,build,in the sitemap
+/articles/castle-rock-history/,build,in the sitemap
+/articles/castle-rock-holiday-season-2026/,build,in the sitemap
+/articles/castle-rock-with-kids/,build,in the sitemap
+/bars-breweries/,build,in the sitemap
+/coffee/,build,in the sitemap
+/contact/,build,in the sitemap
+/correct/,build,
+/corrections/,build,in the sitemap
+/credits/,build,in the sitemap
+/directory/,build,in the sitemap
+/eat-drink/,build,in the sitemap
+/editorial/,build,in the sitemap
+/events.rss,file,
+/events/,build,in the sitemap
+/events/3d-printing-101-2026-11-04.ics,file,
+/events/3d-printing-101-2026-11-04/,build,
+/events/3d-printing-102-2026-11-21.ics,file,
+/events/3d-printing-102-2026-11-21/,build,in the sitemap
+/events/all-american-collectors-expo-2026-10-31.ics,file,
+/events/all-american-collectors-expo-2026-10-31/,build,
+/events/battle-of-the-books-2027-01-26.ics,file,
+/events/battle-of-the-books-2027-01-26/,build,in the sitemap
+/events/battle-of-the-books-2027-01-28.ics,file,
+/events/battle-of-the-books-2027-01-28/,build,
+/events/battle-of-the-books-2027-02-02.ics,file,
+/events/battle-of-the-books-2027-02-02/,build,
+/events/battle-of-the-books-2027-02-04.ics,file,
+/events/battle-of-the-books-2027-02-04/,build,
+/events/battle-of-the-books-2027-02-09.ics,file,
+/events/battle-of-the-books-2027-02-09/,build,
+/events/battle-of-the-books-2027-02-11.ics,file,
+/events/battle-of-the-books-2027-02-11/,build,
+/events/battle-of-the-books-2027-02-16.ics,file,
+/events/battle-of-the-books-2027-02-16/,build,
+/events/battle-of-the-books-2027-02-18.ics,file,
+/events/battle-of-the-books-2027-02-18/,build,
+/events/battle-of-the-books-2027-02-23.ics,file,
+/events/battle-of-the-books-2027-02-23/,build,
+/events/battle-of-the-books-2027-02-25.ics,file,
+/events/battle-of-the-books-2027-02-25/,build,
+/events/boo-bash-2026-10-24/,stub,/events/boo-bash/
+/events/boo-bash.ics,file,
+/events/boo-bash/,build,in the sitemap
+/events/book-bingo-at-sinners-and-saints-2026-11-11.ics,file,
+/events/book-bingo-at-sinners-and-saints-2026-11-11/,build,
+/events/booked-for-the-holidays-2026-11-07.ics,file,
+/events/booked-for-the-holidays-2026-11-07/,build,
+/events/booked-for-the-holidays-2026-11-11.ics,file,
+/events/booked-for-the-holidays-2026-11-11/,build,
+/events/booked-for-the-holidays-2026-12-08.ics,file,
+/events/booked-for-the-holidays-2026-12-08/,build,in the sitemap
+/events/booked-for-the-holidays-2026-12-10-463461/,stub,/events/
+/events/booked-for-the-holidays-2026-12-10.ics,file,
+/events/booked-for-the-holidays-2026-12-10/,build,in the sitemap
+/events/booked-for-the-holidays-2026-12-10/20261210T1000.ics,file,
+/events/booked-for-the-holidays-2026-12-10/20261210T1400.ics,file,
+/events/booked-for-the-holidays-2026-12-10/20261210T1800.ics,file,
+/events/booked-for-the-holidays-jingle-jam-2026-11-29.ics,file,
+/events/booked-for-the-holidays-jingle-jam-2026-11-29/,build,in the sitemap
+/events/calendar.ics,file,
+/events/castle-rock-craft-show-extraordinaire-2026-11-07.ics,file,
+/events/castle-rock-craft-show-extraordinaire-2026-11-07/,build,
+/events/castle-rock-starlighting-2026-11-21/,stub,/events/castle-rock-starlighting/
+/events/castle-rock-starlighting.ics,file,
+/events/castle-rock-starlighting/,build,in the sitemap
+/events/christmas-eve-live-nativity-service-2026-12-24.ics,file,
+/events/christmas-eve-live-nativity-service-2026-12-24/,build,in the sitemap
+/events/club-21-2026-11-20.ics,file,
+/events/club-21-2026-11-20/,build,in the sitemap
+/events/crhsm-monthly-presentation-mark-stevenson-2026-11-12.ics,file,
+/events/crhsm-monthly-presentation-mark-stevenson-2026-11-12/,build,
+/events/dinner-and-dueling-pianos-2026-11-13.ics,file,
+/events/dinner-and-dueling-pianos-2026-11-13/,build,
+/events/e-and-h-teardown-setup-2026-11-15.ics,file,
+/events/e-and-h-teardown-setup-2026-11-15/,build,
+/events/embark-on-your-ancestral-journey-2026-10-07.ics,file,
+/events/embark-on-your-ancestral-journey-2026-10-07/,build,
+/events/epic-reads-2026-11-19.ics,file,
+/events/epic-reads-2026-11-19/,build,in the sitemap
+/events/epic-reads-2026-12-17.ics,file,
+/events/epic-reads-2026-12-17/,build,
+/events/epic-reads-2027-01-06.ics,file,
+/events/epic-reads-2027-01-06/,build,
+/events/epic-reads-2027-02-03.ics,file,
+/events/epic-reads-2027-02-03/,build,
+/events/fangtastic-festival-2026-10-30.ics,file,
+/events/fangtastic-festival-2026-10-30/,build,
+/events/festival-park-starlight-market-2026-12-04.ics,file,
+/events/festival-park-starlight-market-2026-12-04/,build,in the sitemap
+/events/festival-park-starlight-market-2026-12-05.ics,file,
+/events/festival-park-starlight-market-2026-12-05/,build,
+/events/free-winter-trolley-rides-2026-11-23.ics,file,
+/events/free-winter-trolley-rides-2026-11-23/,build,in the sitemap
+/events/gamer-s-choice-rpg-torchbearer-2026-11-21.ics,file,
+/events/gamer-s-choice-rpg-torchbearer-2026-11-21/,build,in the sitemap
+/events/ghostly-stories-and-tragic-tales-walking-tours-2026-10-07.ics,file,
+/events/ghostly-stories-and-tragic-tales-walking-tours-2026-10-07/,build,
+/events/heroes-hall-groundbreaking-2026-11-07.ics,file,
+/events/heroes-hall-groundbreaking-2026-11-07/,build,
+/events/holiday-book-wrapping-sudden-fiction-2026-12-07.ics,file,
+/events/holiday-book-wrapping-sudden-fiction-2026-12-07/,build,in the sitemap
+/events/holiday-carriage-rides-2026-11-22.ics,file,
+/events/holiday-carriage-rides-2026-11-22/,build,in the sitemap
+/events/holiday-glass-suncatcher-workshop-at-wild-blue-yonder-brewin-2026-11-22.ics,file,
+/events/holiday-glass-suncatcher-workshop-at-wild-blue-yonder-brewin-2026-11-22/,build,in the sitemap
+/events/josh-blackburn-at-honnibrook-2026-11-06.ics,file,
+/events/josh-blackburn-at-honnibrook-2026-11-06/,build,
+/events/josh-blackburn-at-honnibrook-2026-12-04.ics,file,
+/events/josh-blackburn-at-honnibrook-2026-12-04/,build,in the sitemap
+/events/let-it-snow-tote-bag-or-wood-sign-painting-at-iron-mule-brew-2026-11-20.ics,file,
+/events/let-it-snow-tote-bag-or-wood-sign-painting-at-iron-mule-brew-2026-11-20/,build,in the sitemap
+/events/local-author-showcase-2027-03-20.ics,file,
+/events/local-author-showcase-2027-03-20/,build,in the sitemap
+/events/reindeer-games-2026-12-05.ics,file,
+/events/reindeer-games-2026-12-05/,build,in the sitemap
+/events/return-to-self-an-end-of-year-somatic-release-breathwork-jou-2026-11-29.ics,file,
+/events/return-to-self-an-end-of-year-somatic-release-breathwork-jou-2026-11-29/,build,in the sitemap
+/events/rocky-mountain-mennonite-relief-sale-2026-10-17.ics,file,
+/events/rocky-mountain-mennonite-relief-sale-2026-10-17/,build,
+/events/santa-at-the-castle-rock-museum-2026-12-12.ics,file,
+/events/santa-at-the-castle-rock-museum-2026-12-12/,build,in the sitemap
+/events/st-francis-of-assisi-christmas-eve-service-2026-12-24.ics,file,
+/events/st-francis-of-assisi-christmas-eve-service-2026-12-24/,build,in the sitemap
+/events/stamped-with-style-2027-01-25/,stub,/events/
+/events/stamped-with-style-cuff-bracelet-workshop-2027-01-25.ics,file,
+/events/stamped-with-style-cuff-bracelet-workshop-2027-01-25/,build,in the sitemap
+/events/stamped-with-style-cuff-bracelet-workshop-2027-01-25/20270125T1600.ics,file,
+/events/stamped-with-style-cuff-bracelet-workshop-2027-01-25/20270125T1800.ics,file,
+/events/starfall-acotar-release-party-sudden-fiction-2027-01-11.ics,file,
+/events/starfall-acotar-release-party-sudden-fiction-2027-01-11/,build,in the sitemap
+/events/stitch-by-stitch-introduction-to-embroidery-2027-01-21.ics,file,
+/events/stitch-by-stitch-introduction-to-embroidery-2027-01-21/,build,in the sitemap
+/events/storytellers-and-s-mores-2026-12-12.ics,file,
+/events/storytellers-and-s-mores-2026-12-12/,build,in the sitemap
+/events/tanner-gun-show-2026-11-14.ics,file,
+/events/tanner-gun-show-2026-11-14/,build,
+/events/tree-lighting-celebration-outlets-2026-11-14/,stub,/events/tree-lighting-celebration-outlets/
+/events/tree-lighting-celebration-outlets.ics,file,
+/events/tree-lighting-celebration-outlets/,build,in the sitemap
+/events/trivia-night-the-muppets-food-truck-taqueria-el-perikin-2026-11-17.ics,file,
+/events/trivia-night-the-muppets-food-truck-taqueria-el-perikin-2026-11-17/,build,in the sitemap
+/events/turkey-rock-trot-2026-11-26/,stub,/events/turkey-rock-trot/
+/events/turkey-rock-trot.ics,file,
+/events/turkey-rock-trot/,build,in the sitemap
+/events/veterans-day-tribute-2026-11-07.ics,file,
+/events/veterans-day-tribute-2026-11-07/,build,
+/for-businesses/,build,in the sitemap
+/guides/,build,in the sitemap
+/message-sent/,build,
+/moving-here/,build,in the sitemap
+/parks/,build,in the sitemap
+/places/,stub,/directory/
+/places/105-west-brewing/,build,in the sitemap
+/places/alidade-brewing/,build,in the sitemap
+/places/angies-restaurant/,build,in the sitemap
+/places/bb-cafe/,build,in the sitemap
+/places/castle-cafe/,build,in the sitemap
+/places/castle-rock-collective/,build,in the sitemap
+/places/castle-rock-library/,build,in the sitemap
+/places/castle-rock-museum/,build,in the sitemap
+/places/castle-rock-recreation-center/,build,in the sitemap
+/places/castlewood-canyon-state-park/,build,in the sitemap
+/places/chick-fil-a-castle-rock/,build,in the sitemap
+/places/coff33/,build,in the sitemap
+/places/courtyard-social/,build,in the sitemap
+/places/crave-real-burgers/,build,in the sitemap
+/places/crush-wine-bar/,build,in the sitemap
+/places/dawson-butte-open-space/,build,in the sitemap
+/places/douglas-county-fairgrounds/,build,in the sitemap
+/places/fairgrounds-regional-park/,build,in the sitemap
+/places/festival-park/,build,in the sitemap
+/places/glacier-homemade-ice-cream/,build,in the sitemap
+/places/glendale-farm-open-space/,build,in the sitemap
+/places/granellis-pizzeria/,build,in the sitemap
+/places/great-divide-brewery-and-roadhouse/,build,in the sitemap
+/places/greenland-open-space/,stub,/directory/
+/places/guadalajara-family-restaurant/,build,in the sitemap
+/places/hidden-mesa-open-space/,stub,/directory/
+/places/homegrown-tap-and-dough/,build,in the sitemap
+/places/honnibrook-craft-meadery/,build,in the sitemap
+/places/lincoln-mountain-open-space/,stub,/directory/
+/places/los-dos-potrillos-castle-rock/,build,in the sitemap
+/places/lost-coffee/,build,in the sitemap
+/places/miller-activity-complex/,build,in the sitemap
+/places/mod-mountain-boutique/,build,in the sitemap
+/places/no-cow-bakery/,build,in the sitemap
+/places/outlets-at-castle-rock/,build,in the sitemap
+/places/parrys-pizzeria-and-taphouse/,build,in the sitemap
+/places/pegasus-restaurant/,build,in the sitemap
+/places/philip-s-miller-park/,build,in the sitemap
+/places/provision/,build,in the sitemap
+/places/ridgeline-open-space/,build,in the sitemap
+/places/rock-park/,build,in the sitemap
+/places/rockyard-brewing/,build,in the sitemap
+/places/sandstone-ranch/,stub,/directory/
+/places/scileppis-at-the-old-stone-church/,build,in the sitemap
+/places/spruce-mountain-open-space/,stub,/directory/
+/places/sudden-fiction-books/,build,in the sitemap
+/places/teaology-tea-cafe/,build,in the sitemap
+/places/the-barn-antiques-and-specialty-shops/,build,in the sitemap
+/places/the-edge-ziplines/,build,in the sitemap
+/places/the-emporium/,build,in the sitemap
+/places/two-bridges-trail/,stub,/directory/
+/places/union-american-bistro/,build,in the sitemap
+/places/wide-awake-eatery/,build,in the sitemap
+/places/wild-blue-yonder-brewing/,build,in the sitemap
+/places/zabbracci/,build,in the sitemap
+/privacy/,build,in the sitemap
+/restaurants/,build,in the sitemap
+/robots.txt,file,
+/rss.xml,file,
+/search/,build,
+/shops/,build,in the sitemap
+/sitemap-0.xml,file,
+/sitemap-index.xml,file,
+/submit-event/,build,in the sitemap
+/thanks/,build,
+/things-to-do/,build,in the sitemap
+/this-week/,build,in the sitemap
+/this-weekend/,build,in the sitemap
+/trails/,build,in the sitemap
+/updates/,build,in the sitemap
+/venues/,build,in the sitemap

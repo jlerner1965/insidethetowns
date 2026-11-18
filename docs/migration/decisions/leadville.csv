@@ -1,0 +1,91 @@
+old_path,kind,decision,destination,reason
+/places/before-and-after/,place,keep,/leadville/places/before-and-after/,"operates: operator's own site read 17 Nov 2026, hours match; Toast source page 403, so phone removed (not re-readable)"
+/places/city-on-a-hill-coffee/,place,keep,/leadville/places/city-on-a-hill-coffee/,"own site read 17 Nov 2026: address matches; hours corrected to its ""6am - 4pm Every Day"""
+/places/community-park-and-fairgrounds/,place,keep,/leadville/places/community-park-and-fairgrounds/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/cycles-of-life/,place,keep,/leadville/places/cycles-of-life/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/delaware-hotel/,place,keep,/leadville/places/delaware-hotel/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/freight/,place,keep,/leadville/places/freight/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/healy-house-museum-and-dexter-cabin/,place,keep,/leadville/places/healy-house-museum-and-dexter-cabin/,History Colorado page read 17 Nov 2026 (WebFetch): address and phone match; hours corrected to Fri-Sun 10:30 am-2:30 pm
+/places/high-mountain-pies/,place,keep,/leadville/places/high-mountain-pies/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/huck-finn-ice-rink/,place,keep,/leadville/places/huck-finn-ice-rink/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/ice-palace-park/,place,keep,/leadville/places/ice-palace-park/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/inn-the-clouds/,place,keep,/leadville/places/inn-the-clouds/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/leadville-national-fish-hatchery/,place,keep,/leadville/places/leadville-national-fish-hatchery/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/leadville-railroad/,place,keep,/leadville/places/leadville-railroad/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/leadville-ranger-district-office/,place,keep,/leadville/places/leadville-ranger-district-office/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/matchless-mine/,place,keep,/leadville/places/matchless-mine/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/melanzana/,place,keep,/leadville/places/melanzana/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/mineral-1886/,place,keep,/leadville/places/mineral-1886/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/mineral-belt-trail/,place,keep,/leadville/places/mineral-belt-trail/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/mount-elbert-trailheads/,place,keep,/leadville/places/mount-elbert-trailheads/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/mount-massive-trailhead/,place,keep,/leadville/places/mount-massive-trailhead/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/national-mining-hall-of-fame-and-museum/,place,keep,/leadville/places/national-mining-hall-of-fame-and-museum/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/quincys-steak-and-spirits/,place,keep,/leadville/places/quincys-steak-and-spirits/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/safeway/,place,keep,/leadville/places/safeway/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/silver-dollar-saloon/,place,keep,/leadville/places/silver-dollar-saloon/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/ski-cooper/,place,keep,/leadville/places/ski-cooper/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/st-vincent-health/,place,keep,/leadville/places/st-vincent-health/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/tabor-opera-house/,place,keep,/leadville/places/tabor-opera-house/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/places/turquoise-lake-recreation-area/,place,keep,/leadville/places/turquoise-lake-recreation-area/,"Forest Service page read 17 Nov 2026: details match; ""campgrounds May to September"" removed from the season line, not on the page"
+/places/two-mile-brewing/,place,keep,/leadville/places/two-mile-brewing/,"own site /home read in a browser 17 Nov 2026: address, phone and hours match"
+/places/visit-leadville-twin-lakes-visitor-center/,place,keep,/leadville/places/visit-leadville-twin-lakes-visitor-center/,"source read 17 Nov 2026: operating; address, phone and hours or season match"
+/articles/explore-leadville-in-walking-order/,guide,keep,/leadville/guides/explore-leadville-in-walking-order/,"town-specific; sources re-read 17 Nov 2026; Healy House hours and tours, visitor centre hours and best days corrected, passed October notes removed"
+/articles/leadville-history/,guide,keep,/leadville/guides/leadville-history/,"town-specific; Tabor Opera House history page re-read 17 Nov 2026 (1879, 100 days, Clarendon skywalk, 1893); unchanged"
+/articles/leadville-out-of-season/,guide,keep,/leadville/guides/leadville-out-of-season/,"town-specific and in season until May 2027; sources re-read 17 Nov 2026 and dated facts brought to that day (Healy House, visitor centre, Tabor, railroad, FREIGHT)"
+/articles/leadville-with-kids/,guide,keep,/leadville/guides/leadville-with-kids/,"town-specific; museum, railroad and hatchery pages re-read 17 Nov 2026; unchanged"
+/events/10th-mountain-day-ski-cooper-2027-02-26/,event,keep,/leadville/events/10th-mountain-day-ski-cooper-2027-02-26/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/alpine-orchestra-the-old-church-2026-11-13/,event,410,,past one-time event
+/events/beetlejuice-tabor-opera-house-2026-10-30/,event,410,,past one-time event
+/events/champions-live-at-the-pastime-saloon-2026-11-20/,event,keep,/leadville/events/champions-live-at-the-pastime-saloon-2026-11-20/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/christmas-storytime-with-santa-hora-de-cuentos-con-papa-noel-2026-12-17/,event,keep,/leadville/events/christmas-storytime-with-santa-hora-de-cuentos-con-papa-noel-2026-12-17/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/city-council-online-regular-meetings-2026/,event,410,,past: its listed meetings were 20 October and 4 November 2026
+/events/climate-and-coffee-mountain-energy-project-2026-11-19/,event,keep,/leadville/events/climate-and-coffee-mountain-energy-project-2026-11-19/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/craft-anarchy-anarquia-artesanal-2026-12-04/,event,keep,/leadville/events/craft-anarchy-anarquia-artesanal-2026-12-04/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/craft-anarchy-anarquia-artesanal-2027-01-01/,event,keep,/leadville/events/craft-anarchy-anarquia-artesanal-2027-01-01/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/craft-anarchy-anarquia-artesanal-2027-02-05/,event,keep,/leadville/events/craft-anarchy-anarquia-artesanal-2027-02-05/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/craft-anarchy-anarquia-artesanal-2027-03-05/,event,keep,/leadville/events/craft-anarchy-anarquia-artesanal-2027-03-05/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/cribbage-night-at-freight-2026-11-19/,event,keep,/leadville/events/cribbage-night-at-freight-2026-11-19/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/feed-the-lizard-get-the-gold-2026-10-28/,event,410,,past one-time event
+/events/holiday-express-leadville-railroad-2026-11-14/,event,410,,"past: a season-start listing dated 14 November 2026; no tradition record, and the railroad listing carries the Holiday Express"
+/events/holiday-ornament-workshop-taller-de-adornos-navidenos-2026-12-11/,event,keep,/leadville/events/holiday-ornament-workshop-taller-de-adornos-navidenos-2026-12-11/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/karaoke-night-at-the-pastime-saloon-2026-11-21/,event,keep,/leadville/events/karaoke-night-at-the-pastime-saloon-2026-11-21/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/leadville-ski-joring-2027-03-06/,event,tradition,/leadville/ski-joring/,"annual; existing record leadville-ski-joring; listing re-read 17 Nov 2026: March 6-7, 2027"
+/events/lego-robotics-2026-11-13/,event,410,,past one-time event
+/events/make-and-take-club-club-de-crear-y-llevar-design-your-own-sk-2026-12-09/,event,keep,/leadville/events/make-and-take-club-club-de-crear-y-llevar-design-your-own-sk-2026-12-09/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/make-and-take-club-club-de-crear-y-llevar-make-it-yours-tray-2026-11-18/,event,keep,/leadville/events/make-and-take-club-club-de-crear-y-llevar-make-it-yours-tray-2026-11-18/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/motherlode-holiday-market-2026/,event,keep,/leadville/events/motherlode-holiday-market-2026/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/nightmare-before-christmas-tabor-opera-house-2026-11-01/,event,410,,past one-time event
+/events/parade-of-lights/,event,tradition,/leadville/parade-of-lights/,"annual; existing record leadville-parade-of-lights; listing re-read 17 Nov 2026: December 4, 6 pm, free"
+/events/leadville-main-street-parade-of-lights-2026-12-04/,event,tradition,/leadville/parade-of-lights/,"annual; existing record leadville-parade-of-lights; listing re-read 17 Nov 2026: December 4, 6 pm, free"
+/events/rocky-mountain-starscape-teen-painting-program-paisaje-estre-2026-12-15/,event,keep,/leadville/events/rocky-mountain-starscape-teen-painting-program-paisaje-estre-2026-12-15/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/shop-small-saturday-2026-11-28/,event,keep,/leadville/events/shop-small-saturday-2026-11-28/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/silver-social-2026-11-14/,event,410,,past one-time event
+/events/ski-cooper-community-meeting-2026-10-24/,event,410,,past one-time event
+/events/ski-cooper-opening-day-2026-12-09/,event,tradition,/leadville/ski-cooper-opening-day/,"annual; existing record leadville-ski-cooper-opening-day; Ski Cooper events page re-read 17 Nov 2026: December 9, weather permitting"
+/events/st-patricks-day-ski-cooper-2027-03-17/,event,keep,/leadville/events/st-patricks-day-ski-cooper-2027-03-17/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/steam-and-stitches-at-freight-2026-12-06/,event,keep,/leadville/events/steam-and-stitches-at-freight-2026-12-06/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/taste-of-leadville-2026-12-04/,event,keep,/leadville/events/taste-of-leadville-2026-12-04/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/tea-blending-workshop-taller-de-mezclas-de-te-2026-12-12/,event,keep,/leadville/events/tea-blending-workshop-taller-de-mezclas-de-te-2026-12-12/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/the-addams-family-musical-tabor-opera-house-2026-10-22/,event,410,,past one-time event
+/events/theatre-production-of-when-bad-things-happen-to-good-actors-2026-11-13/,event,410,,past one-time event
+/events/theatre-production-of-when-bad-things-happen-to-good-actors-2026-11-14-glecom/,event,410,,past one-time event
+/events/theatre-production-of-when-bad-things-happen-to-good-actors-2026-11-14/,event,410,,past one-time event
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-12/,event,410,,past one-time event
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-19/,event,410,,unverifiable: the listing's address for 19 November now redirects to a past date (9 April); the calendar shows a Turkey Bingo at the Elks Lodge that night instead
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-26/,event,keep,/leadville/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-26/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-12-03/,event,keep,/leadville/events/thursday-night-family-bingo-at-the-elks-lodge-2026-12-03/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-12-10/,event,keep,/leadville/events/thursday-night-family-bingo-at-the-elks-lodge-2026-12-10/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/toddies-for-the-tabor-2026-12-03/,event,keep,/leadville/events/toddies-for-the-tabor-2026-12-03/,"upcoming; source re-read 17 Nov 2026: same date, time and place; title corrected to the organizer's ""Toddies at the Tabor"""
+/events/trivia-at-the-pastime-saloon-2026-11-10/,event,410,,past one-time event
+/events/trivia-night-at-the-delaware-hotel/,event,keep,/leadville/events/trivia-night-at-the-delaware-hotel/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/trivia-tuesdays-at-the-famous-2026-11-10/,event,410,,past one-time event
+/events/veterans-appreciation-luncheon-at-the-senior-center-2026-11-13/,event,410,,past one-time event
+/events/victorian-ghost-stories-2026-12-10/,event,keep,/leadville/events/victorian-ghost-stories-2026-12-10/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"
+/events/visit-with-santa-cooper-lodge-2026-12-24/,event,keep,/leadville/events/visit-with-santa-cooper-lodge-2026-12-24/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/warren-miller-days-off-ski-cooper-2026-11-20/,event,keep,/leadville/events/warren-miller-days-off-ski-cooper-2026-11-20/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/warren-miller-movie-at-the-cooper-lodge-2026-11-20/,event,keep,/leadville/events/warren-miller-days-off-ski-cooper-2026-11-20/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/winter-band-choir-concert-2026-12-08/,event,keep,/leadville/events/winter-band-choir-concert-2026-12-08/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/winter-mountain-bike-series-colorado-cup-2027-01-23/,event,keep,/leadville/events/winter-mountain-bike-series-colorado-cup-2027-01-23/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/winter-mountain-bike-series-mineral-belt-trail-mayhem-2027-03-06/,event,keep,/leadville/events/winter-mountain-bike-series-mineral-belt-trail-mayhem-2027-03-06/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/winter-mountain-bike-series-tennessee-pass-night-jam-2027-02-06/,event,keep,/leadville/events/winter-mountain-bike-series-tennessee-pass-night-jam-2027-02-06/,"upcoming; source re-read 17 Nov 2026: same date, time and place"
+/events/wreath-making-workshop-decoracion-de-coronas-2026-12-05/,event,keep,/leadville/events/wreath-making-workshop-decoracion-de-coronas-2026-12-05/,"upcoming; library calendar feed re-read 17 Nov 2026: scheduled, same date, time and place"

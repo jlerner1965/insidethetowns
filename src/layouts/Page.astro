@@ -27,6 +27,7 @@
 import Base from './Base.astro';
 import { getSite } from '@/config';
 import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/seo';
+import { pagePath } from '@/lib/section';
 
 interface Props {
   title: string;
@@ -52,7 +53,7 @@ interface Props {
 const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astro.props;
 const ownHeader = Astro.slots.has('header');
 const site = getSite();
-const path = Astro.url.pathname;
+const path = pagePath(Astro.url);
 if (!seo.jsonLd && !seo.noindex && path !== '/') {
   seo.jsonLd = [
     webPageJsonLd(site, { name: seoTitle ?? title, description: seo.description ?? site.tagline, path }),
@@ -67,7 +68,7 @@ const list = ([seo.jsonLd].flat().filter(Boolean) as Array<{ '@type'?: string; i
 // A step on this site is linked by its path; the hub's event page draws its own trail in its body.
 const trail = seo.kind === 'Annual event' ? [] : (list?.itemListElement ?? []).map((c) => {
   const to = new URL(c.item);
-  return { name: c.name, href: to.host === Astro.site?.host ? to.pathname : c.item };
+  return { name: c.name, href: to.host === Astro.site?.host || to.host === site.domain ? to.pathname : c.item };
 });
 ---
 <Base title={seoTitle ?? title} {...seo}>

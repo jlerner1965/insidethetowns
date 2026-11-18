@@ -1,0 +1,266 @@
+old_path,source,note
+/,build,in the sitemap
+/about/,build,in the sitemap
+/articles/elizabeth-history/,build,in the sitemap
+/articles/elizabeth-with-kids/,build,in the sitemap
+/articles/explore-elizabeth-in-walking-order/,build,in the sitemap
+/articles/welcome/,history,deleted before the restructure
+/contact/,build,in the sitemap
+/correct/,build,
+/corrections/,build,in the sitemap
+/credits/,build,in the sitemap
+/directory/,build,in the sitemap
+/eat-drink/,build,in the sitemap
+/editorial/,build,in the sitemap
+/events.rss,file,
+/events/,build,in the sitemap
+/events/aarp-downsizing-decluttering-2026-10-13.ics,file,
+/events/aarp-downsizing-decluttering-2026-10-13/,build,
+/events/an-elizabeth-christmas-2026-12-12.ics,file,
+/events/an-elizabeth-christmas-2026-12-12/,build,in the sitemap
+/events/board-of-trustees-2026-09-22/,stub,/events/
+/events/board-of-trustees-2026-10-13.ics,file,
+/events/board-of-trustees-2026-10-13/,build,
+/events/board-of-trustees-2026-10-27.ics,file,
+/events/board-of-trustees-2026-10-27/,build,
+/events/board-of-trustees-2026-11-10.ics,file,
+/events/board-of-trustees-2026-11-10/,build,
+/events/board-of-trustees-2026-11-24.ics,file,
+/events/board-of-trustees-2026-11-24/,build,in the sitemap
+/events/board-of-trustees-2026-12-08.ics,file,
+/events/board-of-trustees-2026-12-08/,build,
+/events/board-of-trustees-2026-12-22.ics,file,
+/events/board-of-trustees-2026-12-22/,build,
+/events/boo-bash-on-main-2026/,stub,/events/boo-bash-on-main/
+/events/boo-bash-on-main.ics,file,
+/events/boo-bash-on-main/,build,in the sitemap
+/events/calendar.ics,file,
+/events/christmas-cow-painting-with-sherry-2026-12-10.ics,file,
+/events/christmas-cow-painting-with-sherry-2026-12-10/,build,in the sitemap
+/events/comedy-night-in-elizabeth-2026-12-12.ics,file,
+/events/comedy-night-in-elizabeth-2026-12-12/,build,in the sitemap
+/events/community-coffee-chat-2026-10-13.ics,file,
+/events/community-coffee-chat-2026-10-13/,build,
+/events/community-coffee-chat-2026-12-08.ics,file,
+/events/community-coffee-chat-2026-12-08/,build,in the sitemap
+/events/curiosity-club-2026-09-24/,stub,/events/
+/events/curiosity-club-2026-10-22.ics,file,
+/events/curiosity-club-2026-10-22/,build,
+/events/elbert-county-marketplace-2026-10-03/,stub,/events/
+/events/elbert-county-marketplace-2026-10-17.ics,file,
+/events/elbert-county-marketplace-2026-10-17/,build,
+/events/elbert-county-marketplace-2026-10-31.ics,file,
+/events/elbert-county-marketplace-2026-10-31/,build,
+/events/elbert-county-marketplace-2026-11-07.ics,file,
+/events/elbert-county-marketplace-2026-11-07/,build,
+/events/elbert-county-marketplace-2026-11-14.ics,file,
+/events/elbert-county-marketplace-2026-11-14/,build,
+/events/elbert-county-marketplace-2026-11-21.ics,file,
+/events/elbert-county-marketplace-2026-11-21/,build,in the sitemap
+/events/elbert-county-marketplace-2026-11-28.ics,file,
+/events/elbert-county-marketplace-2026-11-28/,build,
+/events/elbert-county-marketplace-2026-12-05.ics,file,
+/events/elbert-county-marketplace-2026-12-05/,build,
+/events/elbert-county-marketplace-2026-12-19.ics,file,
+/events/elbert-county-marketplace-2026-12-19/,build,
+/events/elizabeth-book-club-2026-10-19.ics,file,
+/events/elizabeth-book-club-2026-10-19/,build,
+/events/elizabeth-book-club-evening-2026-10-20.ics,file,
+/events/elizabeth-book-club-evening-2026-10-20/,build,
+/events/elizabeth-community-coffee-and-chat-2027-01-12.ics,file,
+/events/elizabeth-community-coffee-and-chat-2027-01-12/,build,in the sitemap
+/events/elizabeth-community-coffee-and-chat-2027-02-09.ics,file,
+/events/elizabeth-community-coffee-and-chat-2027-02-09/,build,
+/events/elizabeth-community-coffee-and-chat-2027-03-09.ics,file,
+/events/elizabeth-community-coffee-and-chat-2027-03-09/,build,
+/events/elizabeth-curiosity-club-2026-11-26.ics,file,
+/events/elizabeth-curiosity-club-2026-11-26/,build,in the sitemap
+/events/elizabeth-curiosity-club-2026-12-24.ics,file,
+/events/elizabeth-curiosity-club-2026-12-24/,build,
+/events/elizabeth-curiosity-club-2027-01-28.ics,file,
+/events/elizabeth-curiosity-club-2027-01-28/,build,
+/events/elizabeth-curiosity-club-2027-02-25.ics,file,
+/events/elizabeth-curiosity-club-2027-02-25/,build,
+/events/elizabeth-heritage-crew-2027-01-02.ics,file,
+/events/elizabeth-heritage-crew-2027-01-02/,build,
+/events/elizabeth-heritage-crew-2027-02-06.ics,file,
+/events/elizabeth-heritage-crew-2027-02-06/,build,
+/events/elizabeth-heritage-crew-2027-03-06.ics,file,
+/events/elizabeth-heritage-crew-2027-03-06/,build,
+/events/elizabeth-lego-construction-masters-2027-01-05.ics,file,
+/events/elizabeth-lego-construction-masters-2027-01-05/,build,in the sitemap
+/events/elizabeth-lego-construction-masters-2027-02-02.ics,file,
+/events/elizabeth-lego-construction-masters-2027-02-02/,build,
+/events/elizabeth-lego-construction-masters-2027-03-02.ics,file,
+/events/elizabeth-lego-construction-masters-2027-03-02/,build,
+/events/elizabeth-piecemaker-s-of-colorado-quilting-group-2026-11-13.ics,file,
+/events/elizabeth-piecemaker-s-of-colorado-quilting-group-2026-11-13/,build,
+/events/elizabeth-piecemaker-s-of-colorado-quilting-group-2027-01-08.ics,file,
+/events/elizabeth-piecemaker-s-of-colorado-quilting-group-2027-01-08/,build,in the sitemap
+/events/elizabeth-piecemaker-s-of-colorado-quilting-group-2027-02-12.ics,file,
+/events/elizabeth-piecemaker-s-of-colorado-quilting-group-2027-02-12/,build,
+/events/ems-ehs-band-concert-2026-12-07.ics,file,
+/events/ems-ehs-band-concert-2026-12-07/,build,in the sitemap
+/events/ems-ehs-combined-choir-concert-2026-12-08.ics,file,
+/events/ems-ehs-combined-choir-concert-2026-12-08/,build,in the sitemap
+/events/ems-ehs-combined-orchestra-concert-2026-12-09.ics,file,
+/events/ems-ehs-combined-orchestra-concert-2026-12-09/,build,in the sitemap
+/events/fall-break-day-camp-2026.ics,file,
+/events/fall-break-day-camp-2026/,build,
+/events/free-legal-clinic-2026-10-07.ics,file,
+/events/free-legal-clinic-2026-10-07/,build,
+/events/halloween-haven-2026-10-24.ics,file,
+/events/halloween-haven-2026-10-24/,build,
+/events/heritage-crew-2026-10-03/,stub,/events/
+/events/heritage-crew-2026-11-07.ics,file,
+/events/heritage-crew-2026-11-07/,build,
+/events/heritage-crew-2026-12-05.ics,file,
+/events/heritage-crew-2026-12-05/,build,in the sitemap
+/events/inservice-day-camp-2026-09-25/,stub,/events/
+/events/joy-seekers-2026-10-02/,stub,/events/
+/events/joy-seekers-2026-11-06.ics,file,
+/events/joy-seekers-2026-11-06/,build,
+/events/joy-seekers-2026-12-04.ics,file,
+/events/joy-seekers-2026-12-04/,build,in the sitemap
+/events/joy-seekers-with-courtney-2027-01-01.ics,file,
+/events/joy-seekers-with-courtney-2027-01-01/,build,in the sitemap
+/events/joy-seekers-with-courtney-2027-02-05.ics,file,
+/events/joy-seekers-with-courtney-2027-02-05/,build,
+/events/joy-seekers-with-courtney-2027-03-05.ics,file,
+/events/joy-seekers-with-courtney-2027-03-05/,build,
+/events/just-a-note-paper-arts-2026-10-06.ics,file,
+/events/just-a-note-paper-arts-2026-10-06/,build,
+/events/just-a-note-paper-arts-2026-10-20.ics,file,
+/events/just-a-note-paper-arts-2026-10-20/,build,
+/events/just-a-note-paper-arts-2026-11-17.ics,file,
+/events/just-a-note-paper-arts-2026-11-17/,build,in the sitemap
+/events/just-a-note-paper-arts-2026-12-01.ics,file,
+/events/just-a-note-paper-arts-2026-12-01/,build,in the sitemap
+/events/just-a-note-paper-arts-2026-12-15.ics,file,
+/events/just-a-note-paper-arts-2026-12-15/,build,
+/events/just-a-note-paper-arts-2027-01-05.ics,file,
+/events/just-a-note-paper-arts-2027-01-05/,build,
+/events/just-a-note-paper-arts-2027-01-19.ics,file,
+/events/just-a-note-paper-arts-2027-01-19/,build,
+/events/just-a-note-paper-arts-2027-02-02.ics,file,
+/events/just-a-note-paper-arts-2027-02-02/,build,
+/events/just-a-note-paper-arts-2027-02-16.ics,file,
+/events/just-a-note-paper-arts-2027-02-16/,build,
+/events/just-a-note-paper-arts-2027-03-02.ics,file,
+/events/just-a-note-paper-arts-2027-03-02/,build,
+/events/legacy-academy-band-concert-2026-12-10.ics,file,
+/events/legacy-academy-band-concert-2026-12-10/,build,in the sitemap
+/events/legacy-academy-fall-theater-performance-2026-12-03.ics,file,
+/events/legacy-academy-fall-theater-performance-2026-12-03/,build,in the sitemap
+/events/lego-construction-masters-2026-10-06.ics,file,
+/events/lego-construction-masters-2026-10-06/,build,
+/events/lego-construction-masters-2026-12-01.ics,file,
+/events/lego-construction-masters-2026-12-01/,build,in the sitemap
+/events/library-book-sale-2026-09-26/,stub,/events/
+/events/live-music-mike-maurer-2026-11-25.ics,file,
+/events/live-music-mike-maurer-2026-11-25/,build,in the sitemap
+/events/mayors-tree-lighting-2026/,stub,/events/mayors-tree-lighting/
+/events/mayors-tree-lighting.ics,file,
+/events/mayors-tree-lighting/,build,in the sitemap
+/events/natures-educators-night-owls-2026-10-16.ics,file,
+/events/natures-educators-night-owls-2026-10-16/,build,
+/events/pickleball-tournament-2026-09-26/,stub,/events/
+/events/piecemakers-quilting-2026-10-09.ics,file,
+/events/piecemakers-quilting-2026-10-09/,build,
+/events/piecemakers-quilting-2026-12-11.ics,file,
+/events/piecemakers-quilting-2026-12-11/,build,in the sitemap
+/events/pines-plains-board-meeting-2026-10-28.ics,file,
+/events/pines-plains-board-meeting-2026-10-28/,build,
+/events/planning-commission-2026-10-06.ics,file,
+/events/planning-commission-2026-10-06/,build,
+/events/planning-commission-2026-10-20.ics,file,
+/events/planning-commission-2026-10-20/,build,
+/events/planning-commission-2026-11-03.ics,file,
+/events/planning-commission-2026-11-03/,build,
+/events/planning-commission-2026-11-17.ics,file,
+/events/planning-commission-2026-11-17/,build,in the sitemap
+/events/planning-commission-2026-12-01.ics,file,
+/events/planning-commission-2026-12-01/,build,
+/events/planning-commission-2026-12-15.ics,file,
+/events/planning-commission-2026-12-15/,build,
+/events/sample-farmers-market/,stub,/events/
+/events/star-party-with-csastro-2026-11-14.ics,file,
+/events/star-party-with-csastro-2026-11-14/,build,
+/events/story-time-mondays.ics,file,
+/events/story-time-mondays/,build,in the sitemap
+/events/story-time-wednesdays.ics,file,
+/events/story-time-wednesdays/,build,
+/events/veterans-appreciation-luncheon-2026.ics,file,
+/events/veterans-appreciation-luncheon-2026/,build,
+/events/wic-clinic-2026-10-14.ics,file,
+/events/wic-clinic-2026-10-14/,build,
+/events/wic-clinic-2026-11-11.ics,file,
+/events/wic-clinic-2026-11-11/,build,
+/events/wic-clinic-2026-12-09.ics,file,
+/events/wic-clinic-2026-12-09/,build,in the sitemap
+/events/yarning-for-all.ics,file,
+/events/yarning-for-all/,build,in the sitemap
+/for-businesses/,build,in the sitemap
+/guides/,build,in the sitemap
+/message-sent/,build,
+/moving-here/,build,in the sitemap
+/parks/,build,in the sitemap
+/places/,stub,/directory/
+/places/86-and-main/,stub,/directory/
+/places/antelope-alpacas/,build,in the sitemap
+/places/carriage-shoppes-tea-room/,build,in the sitemap
+/places/casey-jones-park/,build,in the sitemap
+/places/catrinas-latin-food/,build,in the sitemap
+/places/coffee-house-on-main/,stub,/directory/
+/places/cowgirlz-coffee/,stub,/directory/
+/places/el-pinito/,build,in the sitemap
+/places/elbert-county-artists-guild/,build,in the sitemap
+/places/elizabeth-brewing-company/,build,in the sitemap
+/places/elizabeth-kitchen-and-bar/,build,in the sitemap
+/places/elizabeth-library/,build,in the sitemap
+/places/elizabeth-stampede-grounds/,build,in the sitemap
+/places/elizabeth-town-hall/,build,in the sitemap
+/places/evans-park/,build,in the sitemap
+/places/first-national-bank-building/,build,in the sitemap
+/places/historic-main-street/,build,in the sitemap
+/places/ic-threads/,build,in the sitemap
+/places/kgs-fashion-farm/,build,in the sitemap
+/places/mountain-man-nut-and-fruit/,build,in the sitemap
+/places/powder-river-hat-company/,build,in the sitemap
+/places/prickly-pines-disc-golf/,build,in the sitemap
+/places/randys-antiques-and-art/,build,in the sitemap
+/places/running-creek-park/,build,in the sitemap
+/places/sample-main-street-cafe/,stub,/directory/
+/places/small-town-mini-donuts/,build,in the sitemap
+/places/the-carriage-shoppes/,build,in the sitemap
+/places/the-nest-at-the-1897-house/,build,in the sitemap
+/places/two-bridges-trail/,stub,/directory/
+/privacy/,build,in the sitemap
+/restaurants/,build,in the sitemap
+/robots.txt,file,
+/rss.xml,file,
+/search/,build,
+/shops/,build,in the sitemap
+/sitemap-0.xml,file,
+/sitemap-index.xml,file,
+/sports/,build,in the sitemap
+/sports/boys-basketball/,build,in the sitemap
+/sports/boys-soccer/,build,in the sitemap
+/sports/football/,build,in the sitemap
+/sports/girls-basketball/,build,in the sitemap
+/sports/share/boys-basketball.png,file,
+/sports/share/boys-soccer.png,file,
+/sports/share/football.png,file,
+/sports/share/girls-basketball.png,file,
+/sports/share/school.png,file,
+/sports/share/softball.png,file,
+/sports/share/volleyball.png,file,
+/sports/softball/,build,in the sitemap
+/sports/volleyball/,build,in the sitemap
+/submit-event/,build,in the sitemap
+/thanks/,build,
+/things-to-do/,build,in the sitemap
+/this-week/,build,in the sitemap
+/this-weekend/,build,in the sitemap
+/updates/,build,in the sitemap
+/venues/,build,in the sitemap

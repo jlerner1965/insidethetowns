@@ -153,8 +153,11 @@ export function nextAfter(rows: readonly TabRow[], afterKey: string, limit = NEX
   const seen = new Set<string>();
   const after: TabRow[] = [];
   for (const row of rows) {
-    // A regular kept as a file per date has a page per date: once, by its title at its venue.
-    const key = row.series ? `${row.fullTitle}|${row.where}` : row.href;
+    // A regular kept as a file per date has a page per date: once, by its
+    // title at its venue. Every row is read that way, not only one marked
+    // as a series (17 November 2026: Berthoud's and Carbon Valley's "Next
+    // in" offered the same storytime three times, once per dated file).
+    const key = `${row.fullTitle}|${row.where}`;
     if (row.dayKey <= afterKey || row.status || seen.has(key)) continue;
     seen.add(key);
     after.push(row);

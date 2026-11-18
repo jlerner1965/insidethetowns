@@ -35,6 +35,10 @@ export const georgetown: TownConfig = {
   // Its town page on the hub is published (12 November 2026), so the
   // domain now forwards there, not to the hub's home page.
   hubPage: { town: 'georgetown', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /georgetown/places/<slug>/, /georgetown/guides/<slug>/
+  // and the carried events at /georgetown/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: [],

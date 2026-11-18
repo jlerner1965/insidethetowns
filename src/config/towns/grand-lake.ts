@@ -30,6 +30,10 @@ export const grandLake: TownConfig = {
   // Its town page on the hub is published (12 November 2026), so the
   // domain now forwards there, not to the hub's home page.
   hubPage: { town: 'grand-lake', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /grand-lake/places/<slug>/, /grand-lake/guides/<slug>/
+  // and the carried events at /grand-lake/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Retired 30 October 2026: it names no neighbour, and Estes Park, which

@@ -11828,3 +11828,139 @@ front matter, never in a "Sources" section of the body.
   or which source a disputed date follows), shown under the sources.
 - **test/history-template.test.ts** checks every history article for the
   parts a file can be checked for, so a new one cannot drift.
+
+## The folded domains move into insidethetowns.com, 17 November 2026
+
+*The owner's brief of 17 November 2026: the move only, no template or
+layout changes to the hub's pages beyond the links named.*
+
+- **Four sections.** Longmont, Loveland, Fort Collins and Estes Park had
+  steady search traffic across many event pages, so their guides live on
+  whole as sections of the hub, `insidethetowns.com/<town>/<same path>/`,
+  labelled "Inside <Town>" (`section: { mode: 'full' }` on the config;
+  `sectionSite` in `src/config/index.ts`). Each is the guide's own build
+  (`HUB_SECTION=1`, Astro's `base` set to `/<town>`), merged into the hub's
+  `dist/` after the hub's build (`scripts/lib/section-merge.ts`): every
+  hand-written link is rewritten to stay inside `/<town>/`, the old home
+  page is the hub's town page, This week, This weekend and Updates are
+  `/<town>/events/`, and the high-school sports pages are gone (410: no
+  ongoing scores). Their places, guides, pages and the events dated today
+  or later came back from commit 7141d032; their annual events are the
+  hub's tradition pages. Light Up Longmont is carried as a dated event,
+  not an annual one: Downtown Longmont calls it new. The Estes Valley
+  Library's Halloween trick-or-treat was marked annual on the guide and is
+  not on its source, so its address answers 410. Ingest, the nightly
+  re-check and the review scripts read these four again (`eventTowns()`).
+- **Fourteen towns page by page** (`section: { mode: 'pages' }`): Golden,
+  Castle Rock, Lafayette, Leadville, Nederland, Timnath, Elizabeth, Idaho
+  Springs, Georgetown, Black Hawk, Evergreen, Grand Lake, Manitou Springs
+  and Fort Lupton. Every old place, guide and event was decided on its own
+  (`docs/migration/decisions/<town>.csv`, with the research in
+  `docs/agent/dates/_notes-migration-<town>.md`): a place is kept when it
+  is the town's, still operates and its details match its source today; a
+  guide when its claims re-read; a one-time event dated today or later
+  when its source still shows it; an annual event goes to a tradition
+  page. Kept pages are `/<town>/places/<slug>/`, `/<town>/guides/<slug>/`
+  and `/<town>/events/<slug>/` on the hub's own templates
+  (`src/routes/hub/section-*.astro`), with `/<town>/places/` as their
+  index and one link to it from the town's page; their links were
+  rewritten to the hub (`scripts/section-links.ts`). A carried event that
+  passes is noindex, out of the sitemap, and points at what is next.
+- **New tradition records**, each read on its organizer's page: Golden's
+  Polar Express, Holiday Art Market, Chili Cook-Off and Nightmare on Greek
+  Street; Evergreen's WinterFest, New Year's Day Lake Plunge, Witches and
+  Warlocks on the Water and Trick-or-Treat Trail; Manitou Springs'
+  Christmas Parade; Nederland's Carousel of Happiness gala. Not added, for
+  want of a source: Georgetown's Trick or Treat Train (the railroad's site
+  lists only its winter trains) and Elizabeth's Boo Bash on Main (the
+  Chamber's domain is parked); both answer 410 until the owner reads them.
+- **One answer per address** (`docs/migration/redirect-map.csv`, 4,530
+  rows): built from each domain's addresses at 7141d032 (its pages, its
+  sitemap, its redirect stubs), the listings git history shows it had
+  before, and the decisions. `api/legacy.ts` answers every request on the
+  eighteen domains from it, one hop, 301 or 410, and serves each domain's
+  pre-restructure sitemap and a robots.txt that points to it (remove after
+  2027-05-17); an unknown address goes to the town's page. `vercel.json`
+  keeps no redirect rule for these hosts, only the rewrite. Keep the
+  redirects live and the domains renewed indefinitely, at minimum until
+  2027-11-17. Each folded project builds nothing but one 404 page and the
+  function (`scripts/run.ts`).
+- **Accuracy fixes.** A season that is open (Moraine Park's winter camping)
+  is under Open now on the town page and not also "Date not yet announced".
+  Trail Ridge Road's most recent opening is May 29, 2026 (the park's
+  release). "Next in <Town>" on a guide's home counts a listing once by its
+  title and venue, not once per dated file. The validator reports, never
+  fails on, a record that is open and unannounced and one whose most
+  recent date is over 13 months old and not marked `notAnnual`.
+- **Dates.** Denver's day when the sources were read was 17 November 2026;
+  every `verified` and `checked` written in the move says so.
+
+## The owner's calls on the move, 17 November 2026 (later)
+
+*The owner's reply on the move's pull request (#459), the same evening.*
+
+- **A place answers 410 only when it is confirmed closed.** The 41 places
+  that answered 410 because their source could not be read (a bot check
+  on Castle Rock's, Idaho Springs', Manitou Springs', Grand Lake's and
+  Elizabeth's town sites, the Black Hawk casinos', and a few others) are
+  kept like the other kept places, from their last version in git, each
+  with `recheckPending` saying why: noindex, out of the sitemap, no
+  LocalBusiness data, and a "Re-check pending. Last checked <date>" notice
+  above the facts. The listing-age cut does not apply while one waits;
+  hours still follow their own window. `docs/migration/needs-recheck.md`
+  lists them and says how to clear one; `npm run validate` reports them.
+  Four were not blocked but gave nothing to check (Cold Springs
+  Campground's "Site Closed" banner, a parked bakery domain, a store
+  locator that drew nothing, a Chamber listing with no address); none is
+  a confirmed closure, so they are kept and flagged the same way. A kept
+  place whose file later says `status: closed` answers 410 the next time
+  the map is written.
+- **History-only addresses follow the listing.** The 20 Black Hawk
+  listings the Clear Creek guide carried from 20 October to 2 November
+  2026 go to the same Black Hawk pages from insideidahosprings.com; a
+  listing a guide dropped before the move, not as closed, goes to the
+  town's places index (Garden of the Gods, Castle Rock's six retired open
+  spaces) instead of answering 410.
+- **The Elizabeth Stampede** is June 3 to 6, 2027, from the countdown on
+  the Stampede's home page ("Elizabeth Stampede · June 3–6, 2027").
+- **Boo Bash on Main** is an Elizabeth tradition on the owner's word: last
+  held Saturday, October 24, 2026, the date the old guide read on the
+  Chamber's site on 15 October, so that is the check date; the next is not
+  announced. The Chamber's domain now serves a parking page, which the
+  record still names as its source until the Chamber's new site is known.
+  Both old addresses go to `/elizabeth/boo-bash-on-main/`.
+- **Georgetown's Trick or Treat Train stays 410**, on the owner's word.
+- **The function**: the rewrite passes the path as `legacy_path`
+  (Vercel's documented pattern for redirects answered by a function); a
+  query string is carried onto the 301 as the old rules carried it;
+  answers carry `CDN-Cache-Control` and `Vercel-CDN-Cache-Control` for a
+  day at the CDN; the map ships with the function (`includeFiles`).
+
+## Boo Bash's source, and kept places that go stale, 17 November 2026 (night)
+
+*The owner's answers on #459, the same night.*
+
+- **Boo Bash on Main's source.** Neither elizabethmainstreet.org (its
+  events list carries only what is ahead) nor townofelizabeth.org (a
+  Cloudflare challenge, not worked around) lists it, so the record keeps
+  elizabethchamber.org as the place the date was read and no longer links
+  it: `sourceOffline` on a tradition record stands in plain text where the
+  link would be, on the town page, the record's page, the season pages,
+  the guides' Every year, the calendar file and the structured data
+  ("Date read on the Elizabeth Area Chamber's site, Oct 15, 2026; that
+  site is now offline").
+- **A kept place that goes stale is not dropped.** On the hub's sections,
+  a place past its check window (90 days on the Front Range, 60 in the
+  mountains) becomes "re-check pending" instead of leaving the build: its
+  page stays, noindex, out of the sitemap and off every list, and says
+  when it was last checked, so its old address never ends in a 404
+  (`keepAsRecheck` in src/lib/content.ts; the sitemap reads the same rule
+  from the markdown, `stalePlaceSlugs` in src/lib/raw-places.ts). The
+  guides' own sites keep their rule: a stale listing leaves the build.
+- **Next**: the recurring re-check is to cover places, so the ~650 kept
+  places are not all due in January and February (a pull request of its
+  own).
+- **CI's "Links between the sites"** had stopped at "Cannot find package
+  'astro'" on main since #457 (its scripts reach astro/zod through
+  src/lib/lastmod.ts and the job installed nothing). The job now runs
+  `npm ci` first.

@@ -46,7 +46,12 @@ import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { z } from 'astro/zod';
-import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
+import { allTowns, eventTowns } from '../src/config/index.ts';
+
+// Every deployed guide, and the hub's full sections (Longmont, Loveland,
+// Fort Collins, Estes Park), whose events are ingested and re-read as a
+// guide's are (the move of 17 November 2026; src/config/index.ts, eventTowns).
+const EVENT_TOWNS = new Set(eventTowns().map((t) => t.slug));
 import { eventSchema, placeSchema, type Source } from '../src/content/schemas.ts';
 import { eventConfidence, eventPresentation } from '../src/lib/confidence.ts';
 import { addDays, dayKey, startOfDay } from '../src/lib/dates.ts';
@@ -330,7 +335,7 @@ function prefixOf(slug: string): string {
 
 // ---------------------------------------------------------------- main
 
-const towns = allTowns.filter((t) => (onlyTown ? t.slug === onlyTown || onlyTown === 'all' : LIVE_TOWNS.includes(t.slug)));
+const towns = allTowns.filter((t) => (onlyTown ? t.slug === onlyTown || onlyTown === 'all' : EVENT_TOWNS.has(t.slug)));
 if (!towns.length) {
   console.error(`No town "${onlyTown}".`);
   process.exit(2);

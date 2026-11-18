@@ -1,0 +1,79 @@
+---
+/**
+ * /<town>/guides/<slug>/: a guide (the old /articles/<slug>/) kept from a
+ * guide folded page by page (the move of 17 November 2026). The article as
+ * it was, with its sources, its related links and its Article entity; its
+ * links were rewritten to the hub when the file was carried over
+ * (scripts/section-links.ts).
+ */
+import { getImage, Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import { getHub } from '@/config';
+import { findHubTown, hubCountyLine } from '@/config/hub-towns';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+import { checkedBy } from '@/lib/editor';
+import { sectionContents, sectionFor } from '@/lib/section-index';
+import { articleJsonLd, breadcrumbJsonLd, excerptDescription } from '@/lib/seo';
+
+export async function getStaticPaths() {
+  return (await sectionContents()).flatMap((s) => s.guideEntries.map((g) => ({ params: { town: s.hubTown, slug: g.slug } })));
+}
+
+const hub = getHub();
+const section = (await sectionFor(Astro.params.town as string))!;
+const town = findHubTown(section.hubTown)!;
+const article = section.guideEntries.find((g) => g.slug === Astro.params.slug)!;
+const { data } = article;
+const path = `/${town.slug}/guides/${article.slug}/`;
+const url = `https://${hub.domain}${path}`;
+const { Content } = await render(article);
+const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+const structured = [
+  articleJsonLd(hub, article, url, shareImage ? new URL(shareImage, url).toString() : undefined),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: town.name, path: `/${town.slug}/` },
+    { name: 'Places', path: `/${town.slug}/places/` },
+    { name: data.title, path },
+  ]),
+];
+const link = 'text-primary underline decoration-1 underline-offset-[3px]';
+---
+<Page title={data.title} seoTitle={data.seoTitle} eyebrow={`${town.name}, ${hubCountyLine(town)} · ${data.category}`} intro={data.excerpt} description={excerptDescription(data.excerpt)} image={shareImage} imageAlt={data.imageAlt} type="article" jsonLd={structured} kind="Article" narrow>
+  <Fragment slot="after-header">
+    <p class="mt-5 text-sm text-ink-muted">
+      <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
+      {data.updated && <span> · Updated {formatDate(data.updated)}</span>}
+      {data.verified && <span> · {checkedBy(formatDate(data.verified))}</span>}
+    </p>
+  </Fragment>
+  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} widths={[480, 768, 1200]} sizes="(min-width: 48rem) 42rem, 100vw" class="mb-8 w-full rounded-lg" loading="eager" />}
+  <div class="prose"><Content /></div>
+  {data.sources.length > 0 && (
+    <section class="mt-10 text-[0.875rem] text-ink-muted" aria-labelledby="sources-heading" data-sources>
+      <h2 id="sources-heading" class="eyebrow mb-2">Sources</h2>
+      <ul class="list-disc space-y-1 pl-5">
+        {data.sources.map((s) => <li><a href={s.url} rel="noopener" class="underline">{s.label}</a></li>)}
+      </ul>
+      {data.footnote && <p class="mt-3" data-footnote>{data.footnote}</p>}
+      {data.verified && <p class="mt-3">{checkedBy(formatDate(data.verified))}. Hours, prices and seasons change; the sources above are the record.</p>}
+    </section>
+  )}
+  {(data.related ?? []).length > 0 && (
+    <section class="mt-10" aria-labelledby="related-heading" data-related>
+      <h2 id="related-heading" class="eyebrow mb-2">Related</h2>
+      <ul class="divide-y divide-line-soft">
+        {data.related!.map((r) => (
+          <li class="py-3">
+            <a href={r.href} class={`font-semibold ${link}`}>{r.label}</a>
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{r.note}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+  <p class="mt-10 text-[0.9375rem]">
+    <a href={`/${town.slug}/places/`} class={link}>Places in {town.name}</a> · <a href={`/${town.slug}/`} class={link}>Every date in {town.name}</a>
+  </p>
+</Page>

@@ -68,7 +68,10 @@ fi
 changed="$(git diff --name-only --no-renames "$prev" "$head")" || build "cannot compare ${prev:0:7} with ${head:0:7}"
 
 # A site that only redirects (`status: 'redirect'` in its config: a folded or
-# retired guide) serves nothing but vercel.json's rules for its host: every
+# retired guide) serves nothing but vercel.json's rules for its host, or,
+# for a folded guide whose pages moved to the hub (17 November 2026), the
+# answers of api/legacy.ts from api/legacy-map.json; its build is one 404
+# page (scripts/run.ts): every
 # path on its domain is answered by a rule before its holding page is reached
 # (scripts/check-site.ts). So it is made of vercel.json, its own config and
 # this script, and a push that touches none of them changes nothing it serves.
@@ -77,14 +80,28 @@ changed="$(git diff --name-only --no-renames "$prev" "$head")" || build "cannot 
 if [ -f "src/config/towns/$slug.ts" ] && grep -qE "^[[:space:]]*status:[[:space:]]*'redirect'" "src/config/towns/$slug.ts"; then
   while IFS= read -r path; do
     case "$path" in
-      vercel.json | "src/config/towns/$slug.ts" | scripts/vercel-ignore.sh)
-        build "$path (a redirect-only site is made of its rules)" ;;
+      vercel.json | "src/config/towns/$slug.ts" | scripts/vercel-ignore.sh | scripts/run.ts | api/legacy.ts | api/legacy-map.json | docs/migration/redirect-map.csv)
+        build "$path (a redirect-only site is made of its rules and api/legacy.ts)" ;;
     esac
   done <<<"$changed"
   skip "a redirect-only site, and its rules are unchanged since ${prev:0:7}"
 fi
 
+# The hub carries the folded guides' kept pages (`section` on a town's
+# config, 17 November 2026): their content builds the hub.
+sections=""
+if [ "$slug" = hub ]; then
+  for cfg in src/config/towns/*.ts; do
+    grep -qE "^[[:space:]]*section:[[:space:]]*\{" "$cfg" && sections="$sections $(basename "$cfg" .ts)"
+  done
+fi
+
 while IFS= read -r path; do
+  for s in $sections; do
+    case "$path" in
+      "content/$s/"*) build "$path (a section of the hub)" ;;
+    esac
+  done
   case "$path" in
     "content/$slug/"* | "data/$slug/"*)
       build "$path" ;;

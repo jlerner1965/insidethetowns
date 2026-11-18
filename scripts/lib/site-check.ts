@@ -23,6 +23,7 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { UNDATED } from '../../src/lib/lastmod.ts';
+import { sectionTowns } from '../../src/config/index.ts';
 
 export interface Problem {
   /** The rule's short name, stable, so a report can be grouped and searched. */
@@ -420,6 +421,9 @@ export function checkJsonLd(text: string): { problems: string[]; urls: string[] 
 const SKIP_SCHEME = /^(mailto|tel|sms|javascript|data|blob|webcal|geo):/i;
 
 /** Every problem in one built site, and its manifest for the network check. */
+/** The hub's full sections' first segments (the move of 17 November 2026): /longmont, /fort-collins. */
+const SECTION_PREFIX = new RegExp(`^/(?:${sectionTowns('full').map((t) => t.hubPage!.town).join('|') || '(?!)'})(?=/)`);
+
 export function checkSite(input: SiteInput): { problems: Problem[]; manifest: Manifest; pages: number } {
   const { dir, domain, network } = input;
   const origin = `https://${domain}`;
@@ -643,7 +647,8 @@ export function checkSite(input: SiteInput): { problems: Problem[]; manifest: Ma
         if (redirectAt(path)) add('sitemap', mapPath, `${loc} is listed and vercel.json redirects it`);
         // A page of fixed copy carries no lastmod (src/lib/lastmod.ts, UNDATED); every other entry has one.
         if (!lastmod) {
-          if (!UNDATED.test(path)) add('sitemap-lastmod', mapPath, `${loc} has no lastmod`);
+          // A full section's fixed pages (/longmont/about/) are the guide's, undated as the hub's own are.
+          if (!UNDATED.test(path) && !UNDATED.test(path.replace(SECTION_PREFIX, ''))) add('sitemap-lastmod', mapPath, `${loc} has no lastmod`);
         }
         else if (Number.isNaN(Date.parse(lastmod))) add('sitemap-lastmod', mapPath, `${loc} has lastmod ${lastmod}, not a date`);
         else if (Date.parse(lastmod) > now.getTime() + 36 * 3600 * 1000) add('sitemap-lastmod', mapPath, `${loc} has lastmod ${lastmod}, in the future`);

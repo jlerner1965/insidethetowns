@@ -29,7 +29,7 @@
  */
 import { parseLocal, formatDayLong, formatShortDate } from '@/lib/dates';
 import { dateBlock } from '@/lib/date-block';
-import { TRADITION_TYPE_INFO, type TraditionRow } from '@/lib/traditions';
+import { TRADITION_TYPE_INFO, sourceLink, type TraditionRow } from '@/lib/traditions';
 
 interface Props {
   row: TraditionRow;
@@ -204,8 +204,8 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
     </p>
   )}
   <p class="mt-1.5 text-sm text-ink-muted">
-    Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · Source:
-    <a href={source} rel="noopener" class="text-primary underline">{record.organizer}</a>
+    Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> ·
+    {sourceLink(record, entry) ? <Fragment>Source: <a href={source} rel="noopener" class="text-primary underline">{record.organizer}</a></Fragment> : <span data-source-offline>{record.sourceOffline}</span>}
   </p>
   {also.length > 0 && (
     <p class="mt-1 text-sm text-ink-muted" data-also-on>

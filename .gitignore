@@ -14,3 +14,4 @@ agent/node_modules/
 
 # scripts/indexnow.ts: the last run's sitemaps (kept in the Actions cache)
 .cache/
+.sections/

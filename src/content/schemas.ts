@@ -686,6 +686,17 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       area: z.string().optional(),
       /** Where the listing was checked: the business's own site, a directory, or a dated news report. */
       source: httpUrl.optional(),
+      /**
+       * Why the listing could not be read again when its guide moved to the
+       * hub (17 November 2026: the source answered a bot check, or gave
+       * nothing to check against), in the editor's words. The page is kept,
+       * noindex and out of the sitemap, and says "Re-check pending" with the
+       * day it was last checked (`verified`, left as it was). It is not cut
+       * for age while it waits: the notice already says how old it is.
+       * Clear the field and move `verified` once a person reads the source;
+       * docs/migration/needs-recheck.md lists them.
+       */
+      recheckPending: z.string().min(1).optional(),
       verified: localDate.optional(),
       /**
        * The day the listing was published on the guide: stamped at approval
@@ -1879,6 +1890,10 @@ export function traditionSchema() {
       sourceUrl: httpUrl,
       /** Only when the organizer states it. */
       firstYear: z.number().int().min(1800).max(2100).optional(),
+      /** Why this is not held every year, where it is not: a one-off or a run that ended. The 13-month report (scripts/validate-content.ts) leaves a record so marked alone. */
+      notAnnual: z.string().min(1).optional(),
+      /** The source can no longer be opened (a parked or gone domain): this note, in plain text, stands where the link to `sourceUrl` would, which stays as the record of where the date was read. */
+      sourceOffline: z.string().min(1).optional(),
       /**
        * What the event is and where in the town it is held, in one or two
        * plain sentences, every word from `source` (the organizer's own page),

@@ -11,6 +11,13 @@
  */
 import { spawnSync } from 'node:child_process';
 import { buildSearchIndex } from './lib/search-index.ts';
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { allSites, getNetworkHub, isSectionBuild, sectionBase, sectionTowns, SECTION_ENV } from '../src/config/index.ts';
+import { mergeSection } from './lib/section-merge.ts';
+import { foldEventTargets, type FoldEventMap } from '../src/lib/fold.ts';
+import { hubEventPages, publishedHubTowns } from '../src/lib/hub-towns.ts';
+import { rawRecords } from '../src/lib/tradition-files.ts';
+import foldEvents from '../data/hub/fold-events.json' with { type: 'json' };
 
 const [command = 'dev', ...rest] = process.argv.slice(2);
 const args: string[] = [];
@@ -26,6 +33,22 @@ if (!town) {
   process.exit(1);
 }
 const env = { ...process.env, TOWN: town };
+
+// A guide that only redirects (`status: 'redirect'` and not a section
+// build): its domain is answered by vercel.json's rules or by api/legacy.ts
+// (the move of 17 November 2026), so nothing it would build is ever served.
+// No Astro build: an empty dist/ with one 404 page, and the function beside
+// it. The site's old pages are in git history.
+if (command === 'build' && !isSectionBuild(env)) {
+  const site = allSites.find((s) => s.slug === town);
+  if (site?.kind === 'town' && site.status === 'redirect') {
+    rmSync('dist', { recursive: true, force: true });
+    mkdirSync('dist', { recursive: true });
+    writeFileSync('dist/404.html', `<!doctype html><html lang="en"><meta charset="utf-8"><title>Not found</title><meta name="robots" content="noindex"><body><p>Not found. <a href="https://${getNetworkHub().domain}/">Inside the Towns</a></p></body></html>\n`, 'utf8');
+    console.log(`${site.domain}: a redirect-only site; dist/ holds one 404 page and the host's requests are answered by vercel.json and api/legacy.ts. No site build.`);
+    process.exit(0);
+  }
+}
 
 // `--build`: an entry that fails its schema is reported and excluded rather
 // than failing the build, because a failed build on Vercel leaves the previous
@@ -48,6 +71,37 @@ if (command === 'build') {
 const forced = (command === 'build' || command === 'dev') && !args.includes('--force') ? ['--force'] : [];
 const result = spawnSync('astro', [command, ...args, ...forced], { stdio: 'inherit', env, shell: true });
 if (result.status !== 0) process.exit(result.status ?? 1);
+
+// The hub's full sections (Longmont, Loveland, Fort Collins, Estes Park;
+// the move of 17 November 2026): each folded guide's pages, built from its
+// own templates with HUB_SECTION=1 and put under /<town>/ in dist/
+// (scripts/lib/section-merge.ts). After the hub's own build, so a path both
+// would write is caught, and before the search index and the site check,
+// which then read the section's pages as the hub's own. One at a time: the
+// builds share Astro's generated files in .astro/.
+let deadLinks = 0;
+if (command === 'build' && town === 'hub' && !args.includes('--no-sections')) {
+  const hub = getNetworkHub();
+  // Each old event address with a tradition page (data/hub/fold-events.json), for the links the section's pages still carry to it.
+  const records = rawRecords();
+  const published = new Set(publishedHubTowns(records).map((t) => t.slug));
+  const pages = new Map(hubEventPages(records, published).map((p) => [p.record.slug, { town: p.town, event: p.event }]));
+  for (const section of sectionTowns('full')) {
+    const events = Object.fromEntries(foldEventTargets(foldEvents as FoldEventMap, section.domain, section.hubPage!.town, (slug) => pages.get(slug)).map((e) => [e.path, `/${e.town ?? section.hubPage!.town}/${e.event}/`]));
+    const out = `.sections/${section.slug}`;
+    const built = spawnSync('astro', ['build', '--outDir', out, '--force'], { stdio: 'inherit', env: { ...env, TOWN: section.slug, [SECTION_ENV]: '1' }, shell: true });
+    if (built.status !== 0) process.exit(built.status ?? 1);
+    const merged = mergeSection({ from: out, hub: 'dist', base: sectionBase(section), oldDomain: section.domain, hubDomain: hub.domain, events });
+    console.log(`section ${sectionBase(section)}/: ${merged.pages} pages, ${merged.files} files merged into dist/`);
+    if (merged.dangling.length) {
+      deadLinks += merged.dangling.length;
+      console.error(`section ${sectionBase(section)}/: ${merged.dangling.length} link(s) to a page neither the section nor the hub builds, sent to ${sectionBase(section)}/:`);
+      for (const line of [...new Set(merged.dangling.map((d) => d.split(': ')[1]))].slice(0, 40)) console.error(`  ${line}`);
+    }
+  }
+  // Each such link lands on the town's page; the list above is for the editor, not a failed build.
+  if (deadLinks) console.error(`sections: ${deadLinks} link(s) sent to a town page; see above.`);
+}
 
 // The site search's index; on the hub it also takes in the town pages
 // (scripts/lib/search-index.ts).

@@ -41,7 +41,12 @@ import { fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { z } from 'astro/zod';
-import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
+import { allTowns, eventTowns } from '../src/config/index.ts';
+
+// Every deployed guide, and the hub's full sections (Longmont, Loveland,
+// Fort Collins, Estes Park), whose events are ingested and re-read as a
+// guide's are (the move of 17 November 2026; src/config/index.ts, eventTowns).
+const EVENT_TOWNS = new Set(eventTowns().map((t) => t.slug));
 import { INGEST } from '../src/config/ingest.ts';
 import { FEED_TYPES, changeSchema, eventSchema, type Change, type Source } from '../src/content/schemas.ts';
 import { addDays, dayKey, startOfDay, toWallClock } from '../src/lib/dates.ts';
@@ -86,7 +91,7 @@ const today = dayKey(now);
 const horizon: Horizon = { from: startOfDay(now), to: addDays(startOfDay(now), INGEST.horizonDays) };
 const schema = eventSchema(() => z.string());
 
-const towns = allTowns.filter((t) => (onlyTown ? t.slug === onlyTown : LIVE_TOWNS.includes(t.slug)));
+const towns = allTowns.filter((t) => (onlyTown ? t.slug === onlyTown : EVENT_TOWNS.has(t.slug)));
 if (onlyTown && towns.length === 0) {
   console.error(`ingest: no town "${onlyTown}". Towns: ${allTowns.map((t) => t.slug).join(', ')}`);
   process.exit(2);

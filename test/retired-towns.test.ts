@@ -93,8 +93,8 @@ test('a retired guide redirects, says why, goes nowhere else, and is out of ever
   for (const t of towns.filter((t) => t.status !== 'redirect')) assert.equal(t.retired, undefined, `${t.slug}: retired without status redirect`);
 });
 
-test("a retired guide's content has left its folder", () => {
-  for (const t of retired) {
+test("a retired guide's content has left its folder, unless its pages were kept one by one on the hub (17 November 2026)", () => {
+  for (const t of retired.filter((t) => !t.section)) {
     for (const dir of ['events', 'places', 'articles', 'pages', 'staging', 'weekly', 'corrections', 'programs', 'updates']) {
       const path = new URL(`../content/${t.slug}/${dir}/`, import.meta.url);
       assert.ok(!existsSync(path) || readdirSync(path).length === 0, `content/${t.slug}/${dir}/ should be empty`);
@@ -105,7 +105,9 @@ test("a retired guide's content has left its folder", () => {
 
 test("every path on a retired guide's domain redirects to its town's page on the hub, to the hub's home page where it has none, or into the guide that took its ground", () => {
   const published = new Set(publishedHubTownSlugs());
-  for (const t of retired) {
+  // A retired guide whose pages were kept on the hub (`section`) is answered
+  // by api/legacy.ts, not by rules here: test/legacy-redirects.test.ts.
+  for (const t of retired.filter((t) => !t.section)) {
     // An old event address with a hub page of its own has a rule of its own
     // (data/hub/fold-events.json); test/hub-fold.test.ts holds those.
     const rules = rulesFor(t.domain).filter((r) => !t.hubPage || !/^\/events\/[a-z0-9-]+\{\/\}\?$/.test(r.source));

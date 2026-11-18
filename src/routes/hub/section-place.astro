@@ -1,0 +1,98 @@
+---
+/**
+ * /<town>/places/<slug>/: a place kept from a guide folded page by page
+ * (the move of 17 November 2026). The listing's facts as the guide held
+ * them, its text, where it was read, and its LocalBusiness entity. Every
+ * link in the text was rewritten to the hub when the file was carried over
+ * (scripts/section-links.ts), so none leaves for a page the move did not
+ * carry.
+ */
+import { getImage, Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import { getHub } from '@/config';
+import { findHubTown, hubCountyLine } from '@/config/hub-towns';
+import { PLACE_STATUS_LABELS, PLACE_TYPE_LABELS } from '@/content/schemas';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+import { checkedBy } from '@/lib/editor';
+import { hoursLines } from '@/lib/hours';
+import { hostOf } from '@/lib/hub-home';
+import { sectionContents, sectionFor } from '@/lib/section-index';
+import { breadcrumbJsonLd, localBusinessJsonLd, placeDescription } from '@/lib/seo';
+import { placeTitle } from '@/lib/titles';
+
+export async function getStaticPaths() {
+  return (await sectionContents()).flatMap((s) => s.placeEntries.map((p) => ({ params: { town: s.hubTown, slug: p.slug } })));
+}
+
+const hub = getHub();
+const section = (await sectionFor(Astro.params.town as string))!;
+const town = findHubTown(section.hubTown)!;
+const place = section.placeEntries.find((p) => p.slug === Astro.params.slug)!;
+const { data } = place;
+const path = `/${town.slug}/places/${place.slug}/`;
+const url = `https://${hub.domain}${path}`;
+const { Content } = await render(place);
+const kind = PLACE_TYPE_LABELS[data.type];
+// Closed for good: the page stays, noindex, as on a guide (`delisted`, src/lib/content.ts); a temporary closure keeps its pill and its place in the index.
+const closed = !!place.delisted;
+const pill = data.status && data.status !== 'open' ? PLACE_STATUS_LABELS[data.status] : undefined;
+const hours = data.hours && !place.hoursHidden ? hoursLines(data.hours) : [];
+const image = data.image && !data.imageListingOnly ? data.image : undefined;
+const shareImage = image ? (await getImage({ src: image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+const title = placeTitle(data.title, kind, { name: town.name, state: 'CO', siteTitle: `Inside ${town.name}` });
+// Waiting for a person to read its source (placeSchema, recheckPending), or past its check window and kept rather than dropped (src/lib/content.ts, keepAsRecheck): noindex, and says so.
+const pending = !!data.recheckPending;
+const description = placeDescription(
+  { title: data.title, summary: data.summary, status: pill, address: data.address, phone: data.phone, url: data.url, hoursShown: hours.length > 0, hours: data.hours },
+  { name: town.name, state: 'CO' },
+);
+const structured = [
+  // No LocalBusiness while its facts wait for a re-read: structured data states them as current.
+  ...(pending ? [] : [localBusinessJsonLd(section.town, place, url, shareImage ? new URL(shareImage, url).toString() : undefined)]),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: town.name, path: `/${town.slug}/` },
+    { name: 'Places', path: `/${town.slug}/places/` },
+    { name: data.title, path },
+  ]),
+];
+const facts: Array<[string, string]> = [['Address', data.address], ...(data.phone ? [['Phone', data.phone] as [string, string]] : [])];
+const link = 'text-primary underline decoration-1 underline-offset-[3px]';
+---
+<Page title={data.title} seoTitle={title} eyebrow={`${town.name}, ${hubCountyLine(town)} · ${kind}`} status={pill} intro={data.summary} {description} jsonLd={structured} image={shareImage} imageAlt={data.imageAlt} noindex={closed || pending} kind="Place" narrow>
+  {pending && (
+    <p class="mb-8 rounded-lg bg-raised px-5 py-4 text-[0.9375rem] leading-relaxed ring-1 ring-line-soft" data-recheck-pending>
+      <strong class="font-semibold">Re-check pending.</strong> Last checked <time datetime={data.verified ? toIsoLocal(data.verified).slice(0, 10) : undefined}>{data.verified ? formatDate(data.verified) : 'not recorded'}</time>. It has not been read again since, so what follows is as it was then. Check with the place before you go.
+    </p>
+  )}
+  {image && <Image src={image} alt={data.imageAlt ?? ''} widths={[480, 768, 1200]} sizes="(min-width: 48rem) 42rem, 100vw" class="mb-8 w-full rounded-lg" loading="eager" />}
+  <dl class="mb-8 grid gap-x-8 gap-y-4 rounded-lg bg-raised px-5 py-5 ring-1 ring-line-soft sm:grid-cols-2 sm:px-7" data-place-facts>
+    {facts.map(([term, detail]) => (
+      <div>
+        <dt class="eyebrow text-ink-muted">{term}</dt>
+        <dd class="mt-1 text-[0.9375rem] leading-snug">{term === 'Phone' ? <a href={`tel:${detail.replace(/[^\d+]/g, '')}`} class={link}>{detail}</a> : detail}</dd>
+      </div>
+    ))}
+    {hours.length > 0 && (
+      <div>
+        <dt class="eyebrow text-ink-muted">Hours</dt>
+        <dd class="mt-1 text-[0.9375rem] leading-snug">{hours.map((line) => <span class="block">{line}</span>)}</dd>
+      </div>
+    )}
+    {data.url && (
+      <div>
+        <dt class="eyebrow text-ink-muted">Website</dt>
+        <dd class="mt-1 text-[0.9375rem] leading-snug"><a href={data.url} rel="noopener" class={link}>{hostOf(data.url)}</a></dd>
+      </div>
+    )}
+  </dl>
+  <div class="prose"><Content /></div>
+  <p class="mt-8 text-[0.875rem] text-ink-muted" data-place-checked>
+    {data.verified && <Fragment>{checkedBy(formatDate(data.verified))}{data.source && <Fragment>, read on <a href={data.source} rel="noopener" class="underline">{hostOf(data.source)}</a></Fragment>}. </Fragment>}
+    Hours and prices change; the place's own site is the record. <a href="/editorial/" class="underline">How we check</a>
+  </p>
+  <p class="mt-6 text-[0.9375rem]">
+    <a href={`/${town.slug}/places/`} class={link}>More places in {town.name}</a> · <a href={`/${town.slug}/`} class={link}>Every date in {town.name}</a>
+  </p>
+</Page>

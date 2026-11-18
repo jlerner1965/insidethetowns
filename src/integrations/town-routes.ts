@@ -17,6 +17,7 @@ import { guidesWithTraditions, seasonTypesWithRecords } from '../lib/tradition-f
 import { TRADITION_TYPE_INFO } from '../lib/traditions.ts';
 import { TOPIC_INFO } from '../lib/curiosity.ts';
 import { hasArticles, hasEventArticle, topicsWithArticles } from '../lib/curiosity-files.ts';
+import { isSectionBuild } from '../config/index.ts';
 
 /**
  * The home page: one route file for every guide (design pass, 26 October
@@ -226,6 +227,13 @@ export const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   // getStaticPaths names them and fails the build on a duplicate or a path
   // that shadows one of these routes.
   ['/[town]/[event]', 'event.astro'],
+  // A folded guide kept page by page (`section.mode: 'pages'`, src/lib/section-index.ts):
+  // its places, guides and carried events, and the index of them. Built only
+  // for those towns; a full section's pages are merged in after the build.
+  ['/[town]/places', 'section-places.astro'],
+  ['/[town]/places/[slug]', 'section-place.astro'],
+  ['/[town]/guides/[slug]', 'section-guide.astro'],
+  ['/[town]/events/[slug]', 'section-event.astro'],
   // Its share card, where the town has no photograph (src/lib/share-image.ts).
   ['/share/[town].png', 'town-share.png.ts'],
   // One date as a calendar entry (src/lib/tradition-calendar.ts).
@@ -246,15 +254,34 @@ export function hubReservedSegments(root = '.', env: Record<string, string | und
   return [...new Set([...HUB_ROUTES, ...seasonRoutes(root), ...curiosityRoutes(root, env)].map(([pattern]) => first(pattern)).filter((s) => s && !s.startsWith('[')))];
 }
 
+/**
+ * What a full section of the hub builds (Longmont, Loveland, Fort Collins,
+ * Estes Park; the move of 17 November 2026): the guide's own routes at the
+ * same paths, under /<town>/ by the build's `base`, but for four the brief
+ * sends elsewhere. The home page is the hub's town page; This week, This
+ * weekend and Updates give way to /<town>/events/; and the high-school
+ * sports pages are gone (410 on the old domain), there being no scores to
+ * follow. The links to those four are sent on after the build
+ * (scripts/lib/section-merge.ts, SECTION_MOVED).
+ */
+export const SECTION_DROPPED = ['/this-weekend', '/this-week', '/updates', '/updates.rss'] as const;
+export function sectionRoutes(site: TownConfig, contentRoot = 'content'): Array<[pattern: string, file: string]> {
+  const dropped = new Set<string>(SECTION_DROPPED);
+  return [...EVENT_ROUTES, ...TOWN_ROUTES, ...hubRoutes(site, contentRoot), ...placeTypeRoutes(site.slug, contentRoot)].filter(([pattern]) => !dropped.has(pattern));
+}
+
 export function townRoutes(site: SiteConfig): AstroIntegration {
   return {
     name: 'inside-the-towns:routes',
     hooks: {
       'astro:config:setup': ({ config, injectRoute, logger }) => {
+        const sectionBuild = site.kind === 'town' && isSectionBuild();
         const routes =
           site.kind === 'hub'
             ? [...HUB_ROUTES, ...seasonRoutes(), ...curiosityRoutes()]
-            : site.status === 'live'
+            : sectionBuild
+              ? sectionRoutes(site)
+              : site.status === 'live'
               ? [
                   homeRoute(site),
                   ...(site.lead === 'updates' ? [] : EVENT_ROUTES),

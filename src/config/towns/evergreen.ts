@@ -32,6 +32,10 @@ export const evergreen: TownConfig = {
   // Its town page on the hub is published (12 November 2026), so the
   // domain now forwards there, not to the hub's home page.
   hubPage: { town: 'evergreen', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /evergreen/places/<slug>/, /evergreen/guides/<slug>/
+  // and the carried events at /evergreen/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Retired 3 November 2026: it names no neighbour, and Golden, which named

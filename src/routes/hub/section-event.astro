@@ -1,0 +1,96 @@
+---
+/**
+ * /<town>/events/<slug>/: a one-time event carried over from a guide
+ * folded page by page (the move of 17 November 2026), dated today or
+ * later when it was carried and confirmed on its source that day. A static
+ * page with no feed behind it: when the date has passed it says so, is
+ * noindex and out of the sitemap (astro.config.mjs), and points at what
+ * is next in the town. Its Event entity carries the same dates the page
+ * shows, from the listing's own start and end.
+ */
+import { getImage, Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import { getHub } from '@/config';
+import { findHubTown, hubCountyLine } from '@/config/hub-towns';
+import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
+import { dayKey, formatDate, formatDayLong, formatTime, formatTimeRange, toIsoLocal } from '@/lib/dates';
+import { checkedBy } from '@/lib/editor';
+import { exportWhen, isCanceled, isOver } from '@/lib/events';
+import { hostOf } from '@/lib/hub-home';
+import { sectionContents, sectionFor } from '@/lib/section-index';
+import { breadcrumbJsonLd, eventJsonLd, excerptDescription } from '@/lib/seo';
+import { eventTitle, titleDate } from '@/lib/titles';
+
+export async function getStaticPaths() {
+  return (await sectionContents()).flatMap((s) => s.eventEntries.map((e) => ({ params: { town: s.hubTown, slug: e.slug } })));
+}
+
+const hub = getHub();
+const section = (await sectionFor(Astro.params.town as string))!;
+const town = findHubTown(section.hubTown)!;
+const event = section.eventEntries.find((e) => e.slug === Astro.params.slug)!;
+const { data } = event;
+const path = `/${town.slug}/events/${event.slug}/`;
+const url = `https://${hub.domain}${path}`;
+const { Content } = await render(event);
+const when = exportWhen(event);
+const over = isOver(event);
+const canceled = isCanceled(event);
+const statusLabel = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.status] : over ? 'This event has passed' : undefined;
+const sameDay = !when.end || when.end.toDateString() === when.start.toDateString();
+const dayLine = sameDay ? `${formatDayLong(when.start)}, ${when.start.getFullYear()}` : `${formatDayLong(when.start)} to ${formatDayLong(when.end!)}, ${when.end!.getFullYear()}`;
+const timeLine = when.allDay ? 'All day' : formatTimeRange(when.start, when.end, false);
+const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+// Two shows of the same title on one day (a matinee and an evening) are told apart by the time, as on a guide.
+const twin = section.eventEntries.some((e) => e !== event && e.data.title === data.title && dayKey(exportWhen(e).start) === dayKey(when.start));
+const seoTitle = eventTitle(`${canceled ? 'Canceled: ' : ''}${data.title}`, `${titleDate(when.start)}${twin && !when.allDay ? `, ${formatTime(when.start)}` : ''}`, town.name, `Inside ${town.name}`, data.venue);
+const lead = `${data.title} in ${town.name}, Colorado: ${dayLine}${when.allDay ? '' : `, ${timeLine}`}, ${data.venue}.${data.cost ? ` ${data.cost}.` : ''}`;
+const description = excerptDescription(lead);
+const structured = [
+  // Nothing once the event is over: a passed event is no longer an Event to mark up.
+  ...(over ? [] : [eventJsonLd(section.town, event, url, shareImage ? new URL(shareImage, url).toString() : undefined)]),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: town.name, path: `/${town.slug}/` },
+    { name: data.title, path },
+  ]),
+];
+const facts: Array<[string, string]> = [
+  ['When', `${dayLine}${when.allDay ? '' : `, ${timeLine}`}`],
+  ['Where', data.address ? `${data.venue}, ${data.address}` : data.venue],
+  ...(data.cost ? [['Cost', data.cost] as [string, string]] : []),
+  ...(data.organizer ? [['Organizer', data.organizer] as [string, string]] : []),
+];
+const link = 'text-primary underline decoration-1 underline-offset-[3px]';
+---
+<Page title={data.title} {seoTitle} eyebrow={`${town.name}, ${hubCountyLine(town)} · ${shownCategoryLabel(data.category)}`} status={statusLabel} {description} image={shareImage} imageAlt={data.imageAlt} jsonLd={structured} noindex={over} kind="Event" narrow>
+  {over && (
+    <p class="mb-8 rounded-lg bg-raised px-5 py-4 text-[0.9375rem] ring-1 ring-line-soft" data-event-passed>
+      This event was on {dayLine} and has passed. <a href={`/${town.slug}/`} class={link}>What is next in {town.name}</a>: the town's annual events and outdoor dates.
+    </p>
+  )}
+  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} widths={[480, 768, 1200]} sizes="(min-width: 48rem) 42rem, 100vw" class="mb-8 w-full rounded-lg" loading="eager" />}
+  <dl class="mb-8 grid gap-x-8 gap-y-4 rounded-lg bg-raised px-5 py-5 ring-1 ring-line-soft sm:grid-cols-2 sm:px-7" data-event-facts>
+    {facts.map(([term, detail]) => (
+      <div>
+        <dt class="eyebrow text-ink-muted">{term}</dt>
+        <dd class="mt-1 text-[0.9375rem] leading-snug">{term === 'When' ? <time datetime={toIsoLocal(when.start)}>{detail}</time> : detail}</dd>
+      </div>
+    ))}
+    {data.url && (
+      <div>
+        <dt class="eyebrow text-ink-muted">Details</dt>
+        <dd class="mt-1 text-[0.9375rem] leading-snug"><a href={data.url} rel="noopener" class={link}>{hostOf(data.url)}</a></dd>
+      </div>
+    )}
+  </dl>
+  <div class="prose"><Content /></div>
+  <p class="mt-8 text-[0.875rem] text-ink-muted" data-event-checked>
+    {data.verified && <Fragment>{checkedBy(formatDate(data.verified))}{data.source && <Fragment>, read on <a href={data.source} rel="noopener" class="underline">{hostOf(data.source)}</a></Fragment>}. </Fragment>}
+    Carried over from the Inside {town.name} guide; the organizer's page is the record for any change. <a href="/editorial/" class="underline">How we check</a>
+  </p>
+  <p class="mt-6 text-[0.9375rem]">
+    <a href={`/${town.slug}/`} class={link}>Every date in {town.name}</a> · <a href={`/${town.slug}/places/`} class={link}>Places in {town.name}</a>
+  </p>
+</Page>

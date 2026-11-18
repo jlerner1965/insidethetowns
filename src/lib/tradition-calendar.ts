@@ -16,7 +16,7 @@
  */
 import { parseLocal } from './dates.ts';
 import type { IcsEvent } from './ics.ts';
-import type { TraditionRow } from './traditions.ts';
+import { sourceLink, type TraditionRow } from './traditions.ts';
 
 /** "17:30" from "5:30 pm", or undefined when the text is anything but one clock time with am or pm. */
 export function certainTime(text: string | undefined): string | undefined {
@@ -49,7 +49,7 @@ export function traditionCalendarEvent(
     time ? undefined : entry.startTime ? `Time, as published: ${entry.startTime}` : undefined,
     entry.cost ? `Cost: ${entry.cost}` : undefined,
     entry.note ? `${record.organizer}: “${entry.note}”` : undefined,
-    `Date read on ${record.organizer}'s page, ${row.source}, checked ${entry.checked}.`,
+    sourceLink(record, entry) ? `Date read on ${record.organizer}'s page, ${row.source}, checked ${entry.checked}.` : record.sourceOffline,
     `More: ${pageUrl}#${record.slug}`,
   ]
     .filter(Boolean)
@@ -61,7 +61,7 @@ export function traditionCalendarEvent(
     ...(time ? {} : { allDay: true, ...(span ? { end: parseLocal(entry.endDate!) } : {}) }),
     ...(where ? { location: where } : {}),
     description,
-    url: row.source,
+    url: sourceLink(record, entry) ?? pageUrl,
     ...(cancelled ? { cancelled: true } : {}),
   };
 }

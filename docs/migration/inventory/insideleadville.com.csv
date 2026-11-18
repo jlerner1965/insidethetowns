@@ -1,0 +1,184 @@
+old_path,source,note
+/,build,in the sitemap
+/about/,build,in the sitemap
+/articles/explore-leadville-in-walking-order/,build,in the sitemap
+/articles/leadville-history/,build,in the sitemap
+/articles/leadville-out-of-season/,build,in the sitemap
+/articles/leadville-with-kids/,build,in the sitemap
+/bars-breweries/,build,in the sitemap
+/contact/,build,in the sitemap
+/correct/,build,
+/corrections/,build,in the sitemap
+/credits/,build,in the sitemap
+/directory/,build,in the sitemap
+/eat-drink/,build,in the sitemap
+/editorial/,build,in the sitemap
+/events.rss,file,
+/events/,build,in the sitemap
+/events/10th-mountain-day-ski-cooper-2027-02-26.ics,file,
+/events/10th-mountain-day-ski-cooper-2027-02-26/,build,in the sitemap
+/events/alpine-orchestra-the-old-church-2026-11-13.ics,file,
+/events/alpine-orchestra-the-old-church-2026-11-13/,build,
+/events/beetlejuice-tabor-opera-house-2026-10-30.ics,file,
+/events/beetlejuice-tabor-opera-house-2026-10-30/,build,
+/events/calendar.ics,file,
+/events/champions-live-at-the-pastime-saloon-2026-11-20.ics,file,
+/events/champions-live-at-the-pastime-saloon-2026-11-20/,build,in the sitemap
+/events/christmas-storytime-with-santa-hora-de-cuentos-con-papa-noel-2026-12-17.ics,file,
+/events/christmas-storytime-with-santa-hora-de-cuentos-con-papa-noel-2026-12-17/,build,in the sitemap
+/events/city-council-online-regular-meetings-2026.ics,file,
+/events/city-council-online-regular-meetings-2026/,build,
+/events/city-council-online-regular-meetings-2026/20261020T1800.ics,file,
+/events/city-council-online-regular-meetings-2026/20261104T1800.ics,file,
+/events/climate-and-coffee-mountain-energy-project-2026-11-19.ics,file,
+/events/climate-and-coffee-mountain-energy-project-2026-11-19/,build,in the sitemap
+/events/craft-anarchy-anarquia-artesanal-2026-12-04.ics,file,
+/events/craft-anarchy-anarquia-artesanal-2026-12-04/,build,in the sitemap
+/events/craft-anarchy-anarquia-artesanal-2027-01-01.ics,file,
+/events/craft-anarchy-anarquia-artesanal-2027-01-01/,build,
+/events/craft-anarchy-anarquia-artesanal-2027-02-05.ics,file,
+/events/craft-anarchy-anarquia-artesanal-2027-02-05/,build,
+/events/craft-anarchy-anarquia-artesanal-2027-03-05.ics,file,
+/events/craft-anarchy-anarquia-artesanal-2027-03-05/,build,
+/events/cribbage-night-at-freight-2026-11-19.ics,file,
+/events/cribbage-night-at-freight-2026-11-19/,build,in the sitemap
+/events/feed-the-lizard-get-the-gold-2026-10-28.ics,file,
+/events/feed-the-lizard-get-the-gold-2026-10-28/,build,
+/events/holiday-express-leadville-railroad-2026-11-14.ics,file,
+/events/holiday-express-leadville-railroad-2026-11-14/,build,
+/events/holiday-ornament-workshop-taller-de-adornos-navidenos-2026-12-11.ics,file,
+/events/holiday-ornament-workshop-taller-de-adornos-navidenos-2026-12-11/,build,in the sitemap
+/events/karaoke-night-at-the-pastime-saloon-2026-11-21.ics,file,
+/events/karaoke-night-at-the-pastime-saloon-2026-11-21/,build,in the sitemap
+/events/leadville-main-street-parade-of-lights-2026-12-04/,stub,/events/parade-of-lights/
+/events/leadville-ski-joring-2027-03-06.ics,file,
+/events/leadville-ski-joring-2027-03-06/,build,in the sitemap
+/events/lego-robotics-2026-11-13.ics,file,
+/events/lego-robotics-2026-11-13/,build,
+/events/make-and-take-club-club-de-crear-y-llevar-design-your-own-sk-2026-12-09.ics,file,
+/events/make-and-take-club-club-de-crear-y-llevar-design-your-own-sk-2026-12-09/,build,in the sitemap
+/events/make-and-take-club-club-de-crear-y-llevar-make-it-yours-tray-2026-11-18.ics,file,
+/events/make-and-take-club-club-de-crear-y-llevar-make-it-yours-tray-2026-11-18/,build,in the sitemap
+/events/motherlode-holiday-market-2026.ics,file,
+/events/motherlode-holiday-market-2026/,build,in the sitemap
+/events/motherlode-holiday-market-2026/20261211T1500.ics,file,
+/events/motherlode-holiday-market-2026/20261212T1200.ics,file,
+/events/motherlode-holiday-market-2026/20261213T1200.ics,file,
+/events/nightmare-before-christmas-tabor-opera-house-2026-11-01.ics,file,
+/events/nightmare-before-christmas-tabor-opera-house-2026-11-01/,build,
+/events/parade-of-lights.ics,file,
+/events/parade-of-lights/,build,in the sitemap
+/events/rocky-mountain-starscape-teen-painting-program-paisaje-estre-2026-12-15.ics,file,
+/events/rocky-mountain-starscape-teen-painting-program-paisaje-estre-2026-12-15/,build,in the sitemap
+/events/shop-small-saturday-2026-11-28.ics,file,
+/events/shop-small-saturday-2026-11-28/,build,in the sitemap
+/events/silver-social-2026-11-14.ics,file,
+/events/silver-social-2026-11-14/,build,
+/events/ski-cooper-community-meeting-2026-10-24.ics,file,
+/events/ski-cooper-community-meeting-2026-10-24/,build,
+/events/ski-cooper-opening-day-2026-12-09.ics,file,
+/events/ski-cooper-opening-day-2026-12-09/,build,in the sitemap
+/events/st-patricks-day-ski-cooper-2027-03-17.ics,file,
+/events/st-patricks-day-ski-cooper-2027-03-17/,build,in the sitemap
+/events/steam-and-stitches-at-freight-2026-12-06.ics,file,
+/events/steam-and-stitches-at-freight-2026-12-06/,build,in the sitemap
+/events/taste-of-leadville-2026-12-04.ics,file,
+/events/taste-of-leadville-2026-12-04/,build,in the sitemap
+/events/tea-blending-workshop-taller-de-mezclas-de-te-2026-12-12.ics,file,
+/events/tea-blending-workshop-taller-de-mezclas-de-te-2026-12-12/,build,in the sitemap
+/events/the-addams-family-musical-tabor-opera-house-2026-10-22.ics,file,
+/events/the-addams-family-musical-tabor-opera-house-2026-10-22/,build,
+/events/theatre-production-of-when-bad-things-happen-to-good-actors-2026-11-13.ics,file,
+/events/theatre-production-of-when-bad-things-happen-to-good-actors-2026-11-13/,build,
+/events/theatre-production-of-when-bad-things-happen-to-good-actors-2026-11-14-glecom.ics,file,
+/events/theatre-production-of-when-bad-things-happen-to-good-actors-2026-11-14-glecom/,build,
+/events/theatre-production-of-when-bad-things-happen-to-good-actors-2026-11-14.ics,file,
+/events/theatre-production-of-when-bad-things-happen-to-good-actors-2026-11-14/,build,
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-12.ics,file,
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-12/,build,
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-19.ics,file,
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-19/,build,in the sitemap
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-26.ics,file,
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-11-26/,build,
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-12-03.ics,file,
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-12-03/,build,
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-12-10.ics,file,
+/events/thursday-night-family-bingo-at-the-elks-lodge-2026-12-10/,build,
+/events/toddies-for-the-tabor-2026-12-03.ics,file,
+/events/toddies-for-the-tabor-2026-12-03/,build,in the sitemap
+/events/trivia-at-the-pastime-saloon-2026-11-10.ics,file,
+/events/trivia-at-the-pastime-saloon-2026-11-10/,build,
+/events/trivia-night-at-the-delaware-hotel.ics,file,
+/events/trivia-night-at-the-delaware-hotel/,build,in the sitemap
+/events/trivia-tuesdays-at-the-famous-2026-11-10.ics,file,
+/events/trivia-tuesdays-at-the-famous-2026-11-10/,build,
+/events/veterans-appreciation-luncheon-at-the-senior-center-2026-11-13.ics,file,
+/events/veterans-appreciation-luncheon-at-the-senior-center-2026-11-13/,build,
+/events/victorian-ghost-stories-2026-12-10.ics,file,
+/events/victorian-ghost-stories-2026-12-10/,build,in the sitemap
+/events/visit-with-santa-cooper-lodge-2026-12-24.ics,file,
+/events/visit-with-santa-cooper-lodge-2026-12-24/,build,in the sitemap
+/events/warren-miller-days-off-ski-cooper-2026-11-20.ics,file,
+/events/warren-miller-days-off-ski-cooper-2026-11-20/,build,in the sitemap
+/events/warren-miller-movie-at-the-cooper-lodge-2026-11-20/,stub,/events/warren-miller-days-off-ski-cooper-2026-11-20/
+/events/winter-band-choir-concert-2026-12-08.ics,file,
+/events/winter-band-choir-concert-2026-12-08/,build,in the sitemap
+/events/winter-mountain-bike-series-colorado-cup-2027-01-23.ics,file,
+/events/winter-mountain-bike-series-colorado-cup-2027-01-23/,build,in the sitemap
+/events/winter-mountain-bike-series-mineral-belt-trail-mayhem-2027-03-06.ics,file,
+/events/winter-mountain-bike-series-mineral-belt-trail-mayhem-2027-03-06/,build,in the sitemap
+/events/winter-mountain-bike-series-tennessee-pass-night-jam-2027-02-06.ics,file,
+/events/winter-mountain-bike-series-tennessee-pass-night-jam-2027-02-06/,build,in the sitemap
+/events/wreath-making-workshop-decoracion-de-coronas-2026-12-05.ics,file,
+/events/wreath-making-workshop-decoracion-de-coronas-2026-12-05/,build,in the sitemap
+/for-businesses/,build,in the sitemap
+/guides/,build,in the sitemap
+/message-sent/,build,
+/moving-here/,build,in the sitemap
+/parks/,build,in the sitemap
+/places/,stub,/directory/
+/places/before-and-after/,build,in the sitemap
+/places/city-on-a-hill-coffee/,build,in the sitemap
+/places/community-park-and-fairgrounds/,build,in the sitemap
+/places/cycles-of-life/,build,in the sitemap
+/places/delaware-hotel/,build,in the sitemap
+/places/freight/,build,in the sitemap
+/places/healy-house-museum-and-dexter-cabin/,build,in the sitemap
+/places/high-mountain-pies/,build,in the sitemap
+/places/huck-finn-ice-rink/,build,in the sitemap
+/places/ice-palace-park/,build,in the sitemap
+/places/inn-the-clouds/,build,in the sitemap
+/places/leadville-national-fish-hatchery/,build,in the sitemap
+/places/leadville-railroad/,build,in the sitemap
+/places/leadville-ranger-district-office/,build,in the sitemap
+/places/matchless-mine/,build,in the sitemap
+/places/melanzana/,build,in the sitemap
+/places/mineral-1886/,build,in the sitemap
+/places/mineral-belt-trail/,build,in the sitemap
+/places/mount-elbert-trailheads/,build,in the sitemap
+/places/mount-massive-trailhead/,build,in the sitemap
+/places/national-mining-hall-of-fame-and-museum/,build,in the sitemap
+/places/quincys-steak-and-spirits/,build,in the sitemap
+/places/safeway/,build,in the sitemap
+/places/silver-dollar-saloon/,build,in the sitemap
+/places/ski-cooper/,build,in the sitemap
+/places/st-vincent-health/,build,in the sitemap
+/places/tabor-opera-house/,build,in the sitemap
+/places/turquoise-lake-recreation-area/,build,in the sitemap
+/places/two-mile-brewing/,build,in the sitemap
+/places/visit-leadville-twin-lakes-visitor-center/,build,in the sitemap
+/privacy/,build,in the sitemap
+/robots.txt,file,
+/rss.xml,file,
+/search/,build,
+/services/,build,in the sitemap
+/shops/,build,in the sitemap
+/sitemap-0.xml,file,
+/sitemap-index.xml,file,
+/submit-event/,build,in the sitemap
+/thanks/,build,
+/things-to-do/,build,in the sitemap
+/this-week/,build,in the sitemap
+/this-weekend/,build,in the sitemap
+/updates/,build,in the sitemap
+/venues/,build,in the sitemap

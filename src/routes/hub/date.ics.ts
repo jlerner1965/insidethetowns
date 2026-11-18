@@ -10,7 +10,7 @@ import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { buildIcs } from '@/lib/ics';
 import { traditionCalendarEvent } from '@/lib/tradition-calendar';
-import { TRADITION_TYPE_INFO, CURRENT_SEASONS, nextRow } from '@/lib/traditions';
+import { TRADITION_TYPE_INFO, CURRENT_SEASONS, nextRow, sourceLink } from '@/lib/traditions';
 import { eventPath, publishedHubTowns } from '@/lib/hub-towns';
 
 export async function getStaticPaths() {
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
     const info = TRADITION_TYPE_INFO[record.type];
     // "More:" in the entry: the record's own page where it has one, else its season page, else its source.
     const own = eventPath(record, published);
-    const page = own ? `https://${hub.domain}${own}` : CURRENT_SEASONS[record.type] ? `https://${hub.domain}${info.path}` : row.source;
+    const page = own ? `https://${hub.domain}${own}` : CURRENT_SEASONS[record.type] ? `https://${hub.domain}${info.path}` : (sourceLink(record, row.entry) ?? `https://${hub.domain}/`);
     const event = traditionCalendarEvent(row, { domain: hub.domain, pageUrl: page });
     return event ? [{ params: { slug: record.slug }, props: { event, name: record.name } }] : [];
   });
