@@ -10,7 +10,7 @@ import { countiesCovered, countyLabel, getNetworkHub, getSite, liveTowns, listsE
 import CtaBand from '@/components/CtaBand.astro';
 import { getTownEntries } from '@/lib/content';
 import { eventTotals, describeTotals } from '@/lib/event-totals';
-import { isOpen } from '@/lib/places';
+import { isListed } from '@/lib/places';
 import { formatShortDate } from '@/lib/dates';
 
 const site = getSite();
@@ -34,7 +34,7 @@ const siblings = live.filter((t) => t.slug !== site.slug);
 // What the guide actually holds, which is the one thing an About page can say
 // that no other site's About page can.
 const allPlaces = await getTownEntries('places');
-const places = allPlaces.filter(isOpen);
+const places = allPlaces.filter(isListed);
 const allEvents = await getTownEntries('events');
 /**
  * Listings, not occurrences, and one definition for every page that prints

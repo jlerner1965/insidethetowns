@@ -18,6 +18,8 @@ phone: "303-567-2578"
 hours: "Mon–Thu 5 am–9 pm; Fri–Sun 4:30 am–9 pm"
 area: "Colorado Boulevard"
 recheckPending: "Not re-read at the move, 17 November 2026: the source is Starbucks' script-drawn store locator, which showed no store results in a plain read or a rendered one."
+changeFlag: true
+changeNote: "recheck-places 2026-11-18: the source page answered but no longer names the place or lists its phone, https://www.starbucks.com/store-locator?map=39.770895,-105.444815,10z&place=Idaho%20Springs%2C%20Colorado"
 ---
 
 The Starbucks at the Idaho Springs Retail Center on Colorado Boulevard, away from the downtown Miner Street businesses: a drive-through as well as café service, with indoor and outdoor seating, Wi-Fi, oven-warmed food and nitro cold brew.

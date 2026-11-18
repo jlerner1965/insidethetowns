@@ -14,7 +14,7 @@ import { subTownLabel, subTownList } from '@/lib/sub-towns';
 import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 import { hoursDataAttr, hoursLines, hoursWithMeridiem } from '@/lib/hours';
-import { byProminence, directionsUrl, isOpen, repeatsSummary } from '@/lib/places';
+import { byProminence, directionsUrl, isListed, isOpen, repeatsSummary } from '@/lib/places';
 import { countByType, placeTypePages } from '@/lib/place-types';
 import { articlesMentioning } from '@/lib/mentions';
 import { placeTitle } from '@/lib/titles';
@@ -43,7 +43,7 @@ const { Content } = await render(place);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 // A shop goes back to the shops, which have their own page since the audit of 13 November 2026, or to the A to Z where no page is built.
-const shopsBuilt = data.type === 'shop' && placeTypePages(countByType((await getTownEntries('places')).filter(isOpen))).includes('shop');
+const shopsBuilt = data.type === 'shop' && placeTypePages(countByType((await getTownEntries('places')).filter(isListed))).includes('shop');
 const back = EAT_DRINK_TYPES.includes(data.type)
   ? { href: '/eat-drink/', label: 'Eat & drink' }
   : data.type === 'shop'
@@ -63,7 +63,7 @@ const family: readonly string[] = EAT_DRINK_TYPES.includes(data.type)
     ? [...THINGS_TO_DO_TYPES, 'lodging']
     : [data.type];
 // Somewhere to go next, so only places a reader can go.
-const others = (await getTownEntries('places')).filter((p) => p.slug !== place.slug && isOpen(p));
+const others = (await getTownEntries('places')).filter((p) => p.slug !== place.slug && isListed(p));
 const pick = (pool: typeof others) => {
   const sameType = pool.filter((p) => p.data.type === data.type);
   return (sameType.length >= 3 ? sameType : pool.filter((p) => family.includes(p.data.type))).sort(byProminence).slice(0, 6);
@@ -269,7 +269,8 @@ const description = placeDescription(
   imageAlt={data.imageAlt}
   jsonLd={[
     // The pin the street map is drawn from, where the guide's own file places the listing (data/<town>/place-map.json).
-    localBusinessJsonLd(town, place, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined, mapData?.places[place.slug]),
+    // None while it waits for a re-check: structured data states the facts as current (as section-place.astro).
+    ...(data.recheckPending ? [] : [localBusinessJsonLd(town, place, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined, mapData?.places[place.slug])]),
     breadcrumbJsonLd(town, [
       { name: town.name, path: '/' },
       { name: back.label, path: back.href },
@@ -301,7 +302,7 @@ const description = placeDescription(
   */}
   <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-16">
     <div class="contents lg:block">
-      {/* A section of the hub keeps a place past its check window, or one whose source could not be read, rather than drop it (src/lib/content.ts, keepAsRecheck): noindex, off the lists, and it says so. */}
+      {/* A place whose source could not be read (recheckPending, the nightly re-check), or on a section of the hub one past its check window (src/lib/content.ts, keepAsRecheck), is kept rather than dropped: noindex, off the lists, and it says so. */}
       {data.recheckPending && (
         <div class="order-1 max-w-[40rem] rounded-r-lg border-l-4 border-highlight bg-highlight-soft p-5 lg:mb-10" role="note" data-recheck-pending>
           <p class="eyebrow text-ink">Re-check pending</p>

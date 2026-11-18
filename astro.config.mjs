@@ -34,9 +34,10 @@ const guidePath = (/** @type {string} */ pathname) => (section && pathname.start
 // decides the same two things from src/lib/series.ts and src/lib/events.ts.
 const repeats = site.kind === 'town' ? repeatOccurrenceSlugs(site.slug) : new Set();
 const expired = site.kind === 'town' ? pastEventSlugs(site.slug) : new Set();
-// A permanently closed place keeps its page, noindex, out of the sitemap.
-// A section of the hub keeps a stale or re-check-pending place as a noindex page (src/lib/content.ts, keepAsRecheck).
-const closed = site.kind === 'town' ? new Set([...closedPlaceSlugs(site.slug), ...(isSectionBuild() ? [...recheckPendingSlugs(site.slug), ...stalePlaceSlugs(site.slug, windowsFor(site.variant).listingDays)] : [])]) : new Set();
+// A permanently closed place keeps its page, noindex, out of the sitemap, and so does one waiting for a re-check
+// (recheckPending, which the nightly places re-check sets on a guide too). A section of the hub also keeps a
+// stale place as a noindex page (src/lib/content.ts, keepAsRecheck); a guide drops it until it moves into the hub.
+const closed = site.kind === 'town' ? new Set([...closedPlaceSlugs(site.slug), ...recheckPendingSlugs(site.slug), ...(isSectionBuild() ? stalePlaceSlugs(site.slug, windowsFor(site.variant).listingDays) : [])]) : new Set();
 // A town that has not launched is a holding page: nothing of it is indexable.
 const live = site.kind === 'hub' || site.status === 'live';
 // A sitemap entry carries lastmod: the listing's check date, an article's

@@ -2,6 +2,8 @@
 
 *The move of 17 November 2026, on the owner's word of the same day.*
 
+> **Since 18 November 2026 the nightly re-check reads these again every night** (scripts/recheck-places.ts) and the living list is [`docs/needs-me.md`](../needs-me.md). Its first read of all 41, on 18 November: none cleared. 38 still answer a bot check (403); Starbucks — Colorado Boulevard is flagged (its store locator no longer names the store); Cold Springs Campground and The Hidden Stem were named on their pages but with no phone or address to read them by, so they stay for a person. The list below is as it was written at the move.
+
 These places were on a folded guide and could not be read again when the guide moved to insidethetowns.com. They are kept like the other kept places, at the same address under the town, but each page is **noindex**, out of the sitemap, carries no LocalBusiness data, and opens with "Re-check pending. Last checked <date>". The old address on the guide's domain forwards to it (docs/migration/redirect-map.csv). `npm run validate` lists them on every run.
 
 **To clear one:** read the source in a browser (or call the place), correct the file in `content/<town>/places/<slug>.md` to what it says, move `verified` to that day with `verifiedBy`, and delete the `recheckPending` line. The page is then indexed and listed in the sitemap on the next build. If it has closed for good, set `status: closed` (with `statusNote` and `statusSource`) and delete `recheckPending`; after the next hub build, `node scripts/migration/redirect-map.ts --dist=dist` answers its old address with 410, which is kept for confirmed closures only.

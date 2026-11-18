@@ -16,6 +16,16 @@ export function isOpen(place: { data: { status?: string } }): boolean {
 }
 
 /**
+ * Open and on the lists: a place a reader is sent to from another page. A
+ * place waiting for a re-check (`delisted`, src/lib/content.ts) keeps its
+ * own page but is on no list, however open it was when last read (the
+ * owner, 18 November 2026: off every list until a person reads it again).
+ */
+export function isListed(place: { data: { status?: string }; delisted?: boolean }): boolean {
+  return isOpen(place) && !place.delisted;
+}
+
+/**
  * Open places first, the picks among them before the rest, then by name.
  * A closed place keeps its row (a reader looking for it should find the
  * answer) but goes to the end of its group, and its "Our pick" no longer

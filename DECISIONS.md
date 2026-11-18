@@ -12029,3 +12029,64 @@ layout changes to the hub's pages beyond the links named.*
 - **Check dates are Denver's day.** The records read on the evening of
   November 17 in Colorado (after midnight UTC) carry 2026-11-17, as
   test/check-dates.test.ts requires.
+
+## Scheduled re-checks for places, traditions and roundups, 18 November 2026
+
+*The owner's brief of 18 November 2026: one pull request.*
+
+- **Places are re-read on a rotation.** Every place on the hub (the four
+  full sections and the places kept page by page) and on the seven guides,
+  950 files, is due at half its window: 45 days on the Front Range, 30 in
+  the mountains. The nightly run reads the most overdue sixty
+  (`NIGHTLY_BUDGET`; about 32 a night covers 950 in a month) and, on top of
+  them, every place waiting for a re-check, so the waiting ones never crowd
+  out the rotation (src/lib/place-recheck.ts, scripts/recheck-places.ts).
+- **The verdicts are the events re-check's.** Confirmed: `verified` moves,
+  `verifiedBy` says what was read where. Changed (another phone in the
+  page's own content, the page gone, the place no longer named): a
+  `changeFlag` with the evidence, for the Wednesday editor run to update.
+  Closed (the page says "permanently closed", "closed its doors" and the
+  like, never a season or a holiday): `status: closed` quoting the page,
+  so the next redirect-map rebuild answers its old address with 410.
+  Blocked (a bot check, a refusal, robots.txt, no answer, a page drawn by
+  script with nothing to read): `recheckPending`, and on the needs-me list.
+- **A name alone confirms a listing in the rotation, but never clears one
+  a person set aside.** A page that names the place and shows its phone or
+  its street address confirms its facts; one that names it with neither
+  moves the check date, saying so in `verifiedBy`, but leaves a waiting
+  place waiting: Cold Springs Campground was set aside over whether "Site
+  Closed" means the season or for good, which its name on the page does
+  not answer. Phone numbers are read from the page's own content, not its
+  header, footer or navigation: Longmont's switchboard number is in the
+  footer of every park page.
+- **The 41 waiting places, read on 18 November:** none cleared. 38 still
+  answer 403 (the Black Hawk casinos, crgov.com, the Town sites of Grand
+  Lake, Idaho Springs, Manitou Springs and Elizabeth, and the rest);
+  Starbucks — Colorado Boulevard is flagged; Cold Springs Campground and
+  The Hidden Stem stay for a person.
+- **The guides' stale fallback is not done** (the owner, the same day: the
+  guides move into the hub on 4 January 2027). A guide still drops a place
+  past its window. What the re-check needs is done: a guide place it sets
+  waiting (`recheckPending`, a source that refuses it) is built, noindex,
+  out of the sitemap, without LocalBusiness data and off every list, as on
+  the hub; the lists that read only "open" (the home page's tiles, the
+  article strip, a place page's "others", the About counts) read
+  `isListed`, which leaves a waiting place out, on the sections too.
+- **Every tradition records its typical window**, `dateWindow`, the first
+  and last day of the year its date has fallen on, read from its dated
+  years (589 records). The nightly date watch reads the organizer's page
+  eight weeks before the window: one date for the year (or two to four
+  consecutive days) is written confirmed, which moves the page's title,
+  description, Event JSON-LD and lastmod at the next build; no date is
+  written not-announced with the day it was read (once a week at most).
+  Three weeks out, a date still unconfirmed is on the needs-me list.
+- **A roundup records its season** (`span` in CURRENT_SEASONS: parades of
+  lights Nov 20–Dec 20, tree lightings Nov 1–Dec 15, turkey trots
+  Nov 10–30, New Year's Dec 31–Jan 1, winter carnivals Dec 1–Mar 15, rodeos
+  and fairs Jun 1–Aug 31, harvest festivals Jun 15–Oct 15, Oktoberfests
+  Sep 1–Oct 31; the year-round outdoor dates and free days have none). It
+  is due eight weeks before; `npm run validate` and the needs-me list name
+  one due with dates missing. Report only: never a failed build.
+- **`docs/needs-me.md`** is written every night by `npm run needs-me`: the
+  places waiting for a re-check, the tradition dates unconfirmed three
+  weeks out, and the roundups due with dates missing.

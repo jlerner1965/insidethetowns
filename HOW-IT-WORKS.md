@@ -120,6 +120,30 @@ One wrong fact costs more than ten missing ones.
 - A listing is re-checked within 30 days. At 60 days its hours hide. A
   listing whose only source dropped it carries a `changeFlag` and gets a
   call before the hours hide.
+- Every place on the hub and the seven guides is read against its source
+  again on a rotation, at half its window (45 days on the Front Range, 30
+  in the mountains), sixty a night and the waiting ones on top
+  (scripts/recheck-places.ts, 18 November 2026): confirmed moves
+  `verified`; a contradiction is a `changeFlag` for the Wednesday editor; a
+  page that says it closed for good sets `status: closed` (410 at the next
+  redirect-map rebuild); a bot check or no answer sets `recheckPending`.
+  A place a person set aside clears only when a fact of it (its phone or
+  its address) is read again, not its name alone.
+- A place waiting for a re-check is kept on every build, a guide's
+  included: its page stays, noindex, out of the sitemap and off every list,
+  and says when it was last checked. On the hub's sections a place past
+  its window is kept the same way, so its old address never ends in a 404;
+  a guide still drops a stale place until the guides move into the hub on
+  4 January 2027 (the owner, 18 November 2026).
+- Every tradition records its typical window (`dateWindow`). Eight weeks
+  before it opens the nightly date watch reads the organizer's page for the
+  next date and writes it confirmed when the page gives one; three weeks
+  before, a date still unconfirmed is on the needs-me list. A seasonal
+  roundup is due eight weeks before its season (CURRENT_SEASONS' `span`):
+  the validator lists one due with dates missing, and never fails a build.
+- `docs/needs-me.md` is what no machine could settle, rewritten every
+  night: places waiting for a re-check, dates unconfirmed three weeks out,
+  roundups due with dates missing.
 - Corrections are shown, not silently fixed: a change found late is a
   correction with both dates, never the week's news.
 - A called-off or moved event stays on its day with the word beside it.
@@ -516,7 +540,7 @@ Scheduled jobs (Denver time), all in `.github/workflows/`:
 |---|---|---|
 | Daily 05:10 | Rebuild every site; restart a dropped ingest or re-check | nothing; Vercel redeploys |
 | Daily 06:10 | Run CI on main with nothing pushed: the tests, the validator, a build of every site and the check of what was built | nothing; a failure opens an issue |
-| Daily 05:40 | Re-check the next 14 days of events against their sources; list what waits for a person before its date; re-read each town's development map and list every row that moved | stamps and flags, and `data/<town>/development.json`, as a pull request |
+| Daily 05:40 | Re-check the next 14 days of events against their sources; list what waits for a person before its date; re-read each town's development map and list every row that moved; re-check places on their rotation; watch tradition dates eight weeks out; write the needs-me list | stamps and flags, `data/<town>/development.json`, place and tradition files, and `docs/needs-me.md`, as a pull request |
 | Monday 07:10 | Ingest the confirmed feeds; auto-review the safe ones | staged and published events, as a pull request |
 | Wednesday 06:20 | The research agent: one week's findings per live town, and up to two local changes per resident guide from official pages | drafts in `docs/agent/`; the weekly editor publishes a local change only when it can read its source |
 | Thursday 06:10 | Draft the Thursday email from the listings | a draft, as a pull request; merging sends it |

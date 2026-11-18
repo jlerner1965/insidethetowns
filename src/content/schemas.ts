@@ -20,6 +20,7 @@ import { dayKey, parseLocal } from '../lib/dates.ts';
 import { OPENING_HOURS_RE } from '../lib/hours.ts';
 import { CLOCK_RE, WEEKDAYS, isDayOff, runSittings, weekdayOf } from '../lib/schedule.ts';
 import { OUTDOOR_EDGES, OUTDOOR_KINDS, TRADITION_STATUSES, TRADITION_TYPES, isAgencyDate } from '../lib/traditions.ts';
+import { windowCovers } from '../lib/date-watch.ts';
 
 /** Astro passes its image() helper (typed to ImageMetadata); the validator passes a plain string check. */
 export type ImageSchema = () => z.ZodType;
@@ -1908,6 +1909,17 @@ export function traditionSchema() {
       about: z.object({ text: z.string().min(1).max(500), source: httpUrl, checked: isoDay }).strict().optional(),
       /** On an outdoor date: what it is the date of (src/lib/traditions.ts, OUTDOOR_KINDS; src/lib/open-now.ts). */
       outdoor: z.object({ kind: z.enum(OUTDOOR_KINDS), facility: z.string().min(1), edge: z.enum(OUTDOOR_EDGES) }).strict().optional(),
+      /**
+       * The typical window, as "MM-DD": the first and last day of the year
+       * the record's date has fallen on, read from its dated years (the
+       * owner, 18 November 2026; src/lib/date-watch.ts). Eight weeks before
+       * it opens the nightly date watch reads the organizer's page for the
+       * next date; three weeks before, a date still not confirmed is on the
+       * needs-me list. Every record with a dated year has one, holding every
+       * such date (test/date-watch.test.ts); the nightly watch, or
+       * `node scripts/date-watch.ts --windows --write`, sets a missing one.
+       */
+      dateWindow: z.object({ start: z.string().regex(/^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/, 'MM-DD'), end: z.string().regex(/^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/, 'MM-DD') }).strict().optional(),
       years: z.array(year).min(1),
       /** A sample record (test/fixtures/traditions/). Never true in content/. */
       fixture: z.boolean().optional(),
@@ -1933,6 +1945,11 @@ export function traditionSchema() {
     .refine((r) => !r.firstYear || r.years.every((y) => y.year >= r.firstYear!), {
       message: 'an entry is older than firstYear',
       path: ['firstYear'],
+    })
+    // Every record with a dated year carries one (test/date-watch.test.ts); the nightly watch writes a missing one.
+    .refine((r) => !r.dateWindow || windowCovers(r.dateWindow, r), {
+      message: 'dateWindow holds every day the record has started on',
+      path: ['dateWindow'],
     });
 }
 export type TraditionData = z.infer<ReturnType<typeof traditionSchema>>;

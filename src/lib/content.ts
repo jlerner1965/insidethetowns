@@ -53,9 +53,13 @@ const reported = new Set<string>();
  * page, so the page must stay. Past its window it becomes "re-check pending"
  * (the owner, 17 November 2026): the page is kept, noindex, out of the
  * sitemap (astro.config.mjs reads the same rule from the markdown,
- * src/lib/raw-places.ts) and out of every list, and says when it was last
- * checked. A listing that waits for a person already (`recheckPending`)
- * is the same: off the lists, its page noindex.
+ * src/lib/raw-places.ts) and out of every list (src/lib/places.ts,
+ * isListed), and says when it was last checked. A listing that waits for a
+ * person already (`recheckPending`, which the nightly places re-check sets
+ * where a source refuses it, scripts/recheck-places.ts) is the same on every
+ * build, a guide's included: off the lists, its page noindex. A guide still
+ * drops a stale place (the owner, 18 November 2026: the guides move into the
+ * hub on 4 January 2027).
  */
 function keepAsRecheck(entry: CollectionEntry<'places'>, why: Exclusion, variant: TownConfig['variant'], now: Date): void {
   const window = why.reason === 'stale' ? why.windowDays : undefined;
@@ -164,6 +168,7 @@ export async function getTownEntries<C extends CollectionKey>(collection: C): Pr
   // A quiet guide lists no events (listsEvents): none reaches any page.
   if (collection === 'events' && !listsEvents(site)) return [];
   const prefix = `${site.slug}/`;
+  // A section keeps a stale place as re-check pending (keepAsRecheck); a guide drops it, until the guides move into the hub (4 January 2027).
   const entries = publishable(collection, await getCollection(collection, (entry) => entry.id.startsWith(prefix)), new Map([[site.slug, site]]), isSectionBuild());
   return entries.map((entry) => {
     const data = entry.data as { slug?: string };
