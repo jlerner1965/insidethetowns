@@ -255,6 +255,19 @@ const sectionLinks: Array<{ label: string; href: string }> =
       ? [{ label: `Places in ${town.name}`, href: `/${town.slug}/places/` }]
       : [];
 const moreIn = moreHeading(more);
+// The rest of the old guide, in the menu beside the sections (the owner,
+// 18 November 2026: "otherwise nobody will find it"): its places, and a full
+// section's guides. Pages, not anchors, so they carry an arrow and stay out
+// of the rail's place-marking script.
+const menuPages: Array<{ label: string; href: string }> =
+  folded?.section?.mode === 'full'
+    ? [
+        { label: 'Places', href: `/${town.slug}/directory/` },
+        { label: 'Guides', href: `/${town.slug}/guides/` },
+      ]
+    : kept && kept.placeEntries.length + kept.guideEntries.length > 0
+      ? [{ label: 'Places', href: `/${town.slug}/places/` }]
+      : [];
 
 /*
  * Start here: the town's lead guide (src/lib/lead-guide.ts), with the
@@ -398,6 +411,14 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
             <a href={`#${s.id}`} class="relative flex min-h-12 items-center gap-2.5 border-b border-hairline font-heading text-[1.1176rem] font-medium leading-tight text-primary [font-variation-settings:normal] aria-[current=location]:text-ink aria-[current=location]:before:absolute aria-[current=location]:before:inset-y-0 aria-[current=location]:before:-left-3 aria-[current=location]:before:w-[2px] aria-[current=location]:before:bg-ink aria-[current=location]:before:content-['']" data-otp-link>
               <span class="inline-block w-3.5 shrink-0 font-normal no-underline" aria-hidden="true">{i + 1}</span>
               <span class="underline decoration-1 underline-offset-[3px]">{s.label}</span>
+            </a>
+          </li>
+        ))}
+        {menuPages.map((l) => (
+          <li>
+            <a href={l.href} class="relative flex min-h-12 items-center gap-2.5 border-b border-hairline font-heading text-[1.1176rem] font-medium leading-tight text-primary [font-variation-settings:normal]" data-menu-page>
+              <span class="inline-block w-3.5 shrink-0 font-normal no-underline" aria-hidden="true">→</span>
+              <span class="underline decoration-1 underline-offset-[3px]">{l.label}<span class="sr-only"> in {town.name}</span></span>
             </a>
           </li>
         ))}
