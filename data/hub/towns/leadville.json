@@ -115,5 +115,26 @@
       "source": "https://archives.colorado.gov/collections/history/incorporation-records",
       "checked": "2026-11-12"
     }
-  }
+  },
+  "trails": [
+    {
+      "name": "Mineral Belt Trail",
+      "kind": "Paved loop trail",
+      "manager": "Lake County",
+      "length": "About 11.6 miles round Leadville (the County also gives 12), climbing 859 feet; 12 feet of pavement, at 9,897 to 10,637 feet",
+      "trailhead": "The dirt lot at the base of Dutch Henry Hill on U.S. 24 south of downtown; also Ice Palace Park, Community Park, and East 5th and East 7th streets",
+      "season": "All year: walked and ridden in summer, groomed for Nordic skiing and snowshoeing in winter; nothing is posted yet on 2026–27 grooming.",
+      "dogs": "On a leash no longer than 10 feet, under county law; pick up the waste.",
+      "fee": "None.",
+      "page": "/leadville/places/mineral-belt-trail/",
+      "source": "https://lakecountyco.gov/382/Parks-and-Facilities",
+      "alsoSources": [
+        "https://trails.colorado.gov/trails/mineral-belt-13514",
+        "https://www.lakecountyco.gov/630/Winter-Groomed-Trails",
+        "https://www.mineralbelttrail.com/thetrail",
+        "https://www.leadvilletwinlakes.com/trail/mineral-belt-trail/"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }
