@@ -10,7 +10,7 @@ url: "https://www.scileppis.com/"
 source: "https://www.scileppis.com/"
 verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "(303) 688-9000"
 hours: "Sun–Thu 11 am–9 pm; Fri–Sat 11 am–10 pm"
 tags: [italian, downtown, historic]

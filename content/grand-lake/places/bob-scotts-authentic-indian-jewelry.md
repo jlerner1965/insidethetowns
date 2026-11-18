@@ -7,7 +7,7 @@ url: "https://bobscottsauthenticindianjewelry.com/"
 source: "https://bobscottsauthenticindianjewelry.com/"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "970-216-2512"
 hours: "Daily 9 am–5 pm"
 tags: [jewelry, native-american, antiques, gifts]

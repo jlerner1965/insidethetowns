@@ -7,7 +7,7 @@ url: "https://www.acehardware.com/store-details/14333"
 source: "https://www.acehardware.com/store-details/14333"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "303-857-1695"
 hours: "Mon–Fri 7:30 am–8 pm; Sat 8 am–7 pm; Sun 8 am–6 pm"
 tags: [hardware, paint, lawn-and-garden, housewares, gifts]

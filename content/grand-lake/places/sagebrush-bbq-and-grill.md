@@ -7,7 +7,7 @@ url: "https://sagebrushbbq.com/"
 source: "https://sagebrushbbq.com/"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "970-627-1404"
 hours: "Sun–Thu 7 am–9 pm; Fri–Sat 7 am–10 pm"
 tags: [barbecue, breakfast, bar, catering, year-round]

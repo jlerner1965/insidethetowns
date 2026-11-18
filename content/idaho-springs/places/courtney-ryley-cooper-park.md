@@ -7,7 +7,7 @@ url: "https://www.idahospringsco.com/our-community/page/parks"
 source: "https://www.idahospringsco.com/our-community/page/parks"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 tags: [playground, picnic, pavilion, clear-creek, farmers-market]
 summary: "A large grassy City park along Clear Creek on Colorado Boulevard, with picnic tables, a playground and a first-come pavilion at its east end, and a Friday farmers market in summer."
 ---

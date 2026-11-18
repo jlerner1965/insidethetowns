@@ -9,7 +9,7 @@ tags: [trail, events, picnic]
 summary: "Town park on East Kiowa Avenue with a stage, picnic tables and a walking and bike path, on the Running Creek trail toward Evans Park; the summer Friday Night Market sets up here on Fridays."
 source: "https://www.townofelizabeth.org/publicworks/page/parks-and-trails"
 verified: "2026-11-18"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 added: "2026-09-17"
 ---
 

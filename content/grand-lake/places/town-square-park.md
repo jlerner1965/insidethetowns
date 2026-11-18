@@ -7,7 +7,7 @@ url: "https://www.townofgrandlake.com/community/page/town-square-park"
 source: "https://www.townofgrandlake.com/community/page/town-square-park"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "970-627-3435"
 tags: [playground, town-park, events, restrooms]
 summary: "The Town's park in the middle of the Grand Avenue boardwalk, set aside in the 1905 town plat, with a lawn, gazebo, playground, basketball court and public restrooms, ringed by the library, Town Hall and the Community House."

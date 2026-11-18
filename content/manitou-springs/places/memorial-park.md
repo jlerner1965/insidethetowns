@@ -7,7 +7,7 @@ url: "https://www.manitouspringsco.gov/Facilities/Facility/Details/Memorial-Park
 source: "https://www.manitouspringsco.gov/Facilities/Facility/Details/Memorial-Park-3"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "719-685-2605"
 tags: [park, events]
 summary: "City of Manitou Springs park at 502 Manitou Avenue, in the same block as the Manitou Art Center and the Heritage Center; it can be rented for public events only."

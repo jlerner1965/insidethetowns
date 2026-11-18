@@ -9,7 +9,7 @@ url: "https://www.crgov.com/2842/Rock-Park"
 source: "https://www.crgov.com/2842/Rock-Park"
 verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-733-2260"
 mapUrl: "https://www.crgov.com/DocumentCenter/View/46283/Rock-Park-Trail-Map-PDF"
 tags: [hiking, landmark, views, picnic, no-bikes]

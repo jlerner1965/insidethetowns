@@ -9,7 +9,7 @@ url: "https://www.crgov.com/2051/Philip-S-Miller-Park"
 source: "https://www.crgov.com/2051/Philip-S-Miller-Park"
 verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-733-2260"
 tags: [hiking, trails, playground, challenge-hill, splash-pad, amphitheater]
 featured: true

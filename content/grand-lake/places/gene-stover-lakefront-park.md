@@ -7,7 +7,7 @@ url: "https://www.townofgrandlake.com/administration/page/gene-stover-lakefront-
 source: "https://www.townofgrandlake.com/administration/page/gene-stover-lakefront-park"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 image: ../images/gene-stover-lakefront-park.jpg
 imageAlt: "The sand beach on the north shore of Grand Lake, a young spruce in front and paddle boats tied up along the shore, July 2020"
 imageCredit: "Faith Warehime, Wikimedia Commons, CC BY-SA 4.0"

@@ -7,7 +7,7 @@ url: "https://www.manitouspringsco.gov/Facilities/Facility/Details/Soda-Springs-
 source: "https://www.manitouspringsco.gov/facilities/facility/details/sodaspringspark-6"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "719-685-2605"
 tags: [playground, creek, pavilion, events]
 summary: "The City's 1.9-acre park on Fountain Creek at 1016 Manitou Avenue, with the Bud Ford Pavilion, a plaza, accessible walkways, creek access and a playground rebuilt in 2025; the town's stage for outdoor festivals and concerts."

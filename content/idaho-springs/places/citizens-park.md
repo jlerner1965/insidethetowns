@@ -7,7 +7,7 @@ url: "https://www.idahospringsco.com/our-community/page/parks"
 source: "https://www.idahospringsco.com/our-community/page/parks"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 image: ../images/citizens-park.jpg
 imageAlt: "The tiered cast-iron fountain in Citizens Park, set in a round brick basin against a brick wall, with a spruce and a hanging basket of petunias, July 2010"
 imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"

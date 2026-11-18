@@ -9,7 +9,7 @@ url: "https://www.crgov.com/Facilities/Facility/Details/RidgelineOpenSpace-40"
 source: "https://www.crgov.com/Facilities/Facility/Details/RidgelineOpenSpace-40"
 verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-733-2260"
 mapUrl: "https://www.crgov.com/DocumentCenter/View/296/Ridgeline-Open-Space-Map-PDF"
 tags: [hiking, mountain-biking, trails, wildlife]

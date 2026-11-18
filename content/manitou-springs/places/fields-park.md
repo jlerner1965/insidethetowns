@@ -7,7 +7,7 @@ url: "https://www.manitouspringsco.gov/Facilities/Facility/Details/Fields-Park-1
 source: "https://www.manitouspringsco.gov/836/Tennis-and-Pickleball-Courts"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "719-685-2605"
 hours: "Courts open daylight hours only"
 access: { parking: "Fields Park has its own parking lot; when it is closed the City points visitors to parking along El Paso Boulevard", closures: "Tennis and pickleball courts are open during daylight hours only; no pets, bikes, skateboards or rollerblades on the courts", source: "https://www.manitouspringsco.gov/836/Tennis-and-Pickleball-Courts", verified: "2026-10-10" }

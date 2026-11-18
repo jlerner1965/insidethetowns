@@ -11,7 +11,7 @@ summary: "The Promenade Parkway restaurant of the family-owned Mexican restauran
 source: "https://www.losdospotrillos.com/castle-rock"
 verified: "2026-11-18"
 added: "2026-11-06"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 ---
 
 The Castle Rock restaurant of Los Dos Potrillos, family owned and operated, on Promenade Parkway. Open Monday to Thursday 11 to 9, Friday and Saturday 9 to 10, and Sunday 9 to 9.

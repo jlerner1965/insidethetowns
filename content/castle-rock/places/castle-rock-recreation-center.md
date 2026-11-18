@@ -9,7 +9,7 @@ url: "https://www.crgov.com/2054/Recreation-Center"
 source: "https://www.crgov.com/2054/Recreation-Center"
 verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 hours: "Mon–Thu 5 am–9 pm; Fri 5 am–8 pm; Sat 7 am–8 pm; Sun 7 am–6 pm"
 tags: [indoor, pool, gym, fitness, track, recreation]
 summary: "The Town's recreation center: a 25-yard lap pool and a leisure pool, a gym, an indoor track, cardio, weights and strength areas, fitness studios, racquetball and wallyball courts, a steam room and child-watch for ages 1 to 8. Separate passes from the MAC."

@@ -9,7 +9,7 @@ url: "https://www.crgov.com/2049/Miller-Activity-Complex-MAC"
 source: "https://www.crgov.com/2049/Miller-Activity-Complex-MAC"
 verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-733-2222"
 hours: "Mon–Sat 8 am–9 pm; Sun 8 am–8 pm"
 tags: [indoor, pool, trampolines, turf, kids, recreation]

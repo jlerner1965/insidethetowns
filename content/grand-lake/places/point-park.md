@@ -7,7 +7,7 @@ url: "https://www.townofgrandlake.com/community/page/point-park"
 source: "https://www.townofgrandlake.com/community/page/point-park"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "970-627-3435"
 tags: [picnic, fishing, paddling, forest-service, accessible]
 summary: "Forest Service picnic site on Grand Lake, run by the Town, where the lake meets the channel to Shadow Mountain Reservoir: a quarter-mile mostly paved loop, covered picnic tables, a pier facing Mount Craig, and access for paddling and fishing. First come, first served."

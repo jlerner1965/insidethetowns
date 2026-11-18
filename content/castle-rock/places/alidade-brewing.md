@@ -10,7 +10,7 @@ url: "https://www.alidadebrewing.com/"
 source: "https://www.alidadebrewing.com/"
 verified: "2026-11-18"
 added: "2026-10-31"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "(720) 726-2109"
 hours: "Mon 2–8 pm; Tue 2–9 pm; Wed–Thu noon–9 pm; Fri noon–10 pm; Sat 11 am–10 pm; Sun 11 am–8 pm"
 tags: [brewery, taproom]

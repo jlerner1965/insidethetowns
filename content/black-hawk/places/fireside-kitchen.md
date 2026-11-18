@@ -7,7 +7,7 @@ url: "https://www.pennentertainment.com/ameristar-black-hawk/dining/fireside-kit
 source: "https://www.pennentertainment.com/ameristar-black-hawk/dining/fireside-kitchen"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-946-4142"
 hours: "Daily 7 am–5 am"
 priceRange: "$$"

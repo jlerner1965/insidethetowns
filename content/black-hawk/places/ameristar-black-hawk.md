@@ -7,7 +7,7 @@ url: "https://www.pennentertainment.com/ameristar-black-hawk/"
 source: "https://www.pennentertainment.com/ameristar-black-hawk/visit-us"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-946-4000"
 tags: [casino, hotel, spa, dining, pool]
 summary: "PENN Entertainment's casino resort on Richman Street, with a hotel, a rooftop pool, the ara Spa on the ninth floor, a sportsbook and eight places to eat and drink, from Fireside Kitchen to the Timberline Grill steakhouse."

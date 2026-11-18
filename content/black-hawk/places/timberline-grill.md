@@ -7,7 +7,7 @@ url: "https://www.pennentertainment.com/ameristar-black-hawk/dining/timberline-g
 source: "https://www.pennentertainment.com/ameristar-black-hawk/dining/timberline-grill"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "720-946-4082"
 hours: "Wed–Thu & Sun 5–9 pm; Fri–Sat 5–10 pm; closed Mon–Tue"
 priceRange: "$$$"

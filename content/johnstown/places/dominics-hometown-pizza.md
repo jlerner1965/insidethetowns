@@ -11,7 +11,7 @@ summary: "Family pizzeria on Parish Avenue since 1986, at the same address as Bl
 source: "https://dominicsdelivery.com/"
 verified: "2026-11-18"
 added: "2026-09-17"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 ---
 
 The original family business on the block, opened in 1986: pizza and more with beer, wine and cocktails, eat in or delivered, seven days a week from 11.

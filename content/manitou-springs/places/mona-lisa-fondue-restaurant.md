@@ -7,7 +7,7 @@ url: "https://www.monalisafondue.com/"
 source: "https://www.monalisafondue.com/"
 verified: "2026-11-18"
 added: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner, read in a browser on 2026-11-18: Read by Claude in James's browser"
+verifiedBy: "the editor, read in a browser on 2026-11-18: Read by Claude in James's browser"
 phone: "719-685-0277"
 hours: "Sun–Thu 4–8 pm; Fri–Sat 4–8:30 pm"
 tags: [fondue, dinner, wine, reservations]
