@@ -74,14 +74,20 @@ export interface WinterNote {
   checked: string;
 }
 
-/** The note for a drive, or undefined where the drive crosses no pass closed in winter. `via` is in names. */
-export function winterNote(gh: GettingHere | undefined, key: string, passes: readonly Pass[]): WinterNote | undefined {
+/**
+ * The note for a drive, or undefined where the drive crosses no pass closed
+ * in winter. `via` is in names. A pair is routed one way, from the slug
+ * that sorts first (road-miles.json); `reverse` names its places from the
+ * other end, for that town's page.
+ */
+export function winterNote(gh: GettingHere | undefined, key: string, passes: readonly Pass[], reverse = false): WinterNote | undefined {
   const route = gh?.routes[key];
   if (!route) return undefined;
   const over = route.over.map((slug) => passes.find((p) => p.slug === slug)).filter((p): p is Pass => !!p);
   if (over.length === 0) return undefined;
   const y = route.yearRound;
-  const yearRound = y ? { miles: y.miles, minutes: y.minutes, via: y.via.map((w) => gh!.waypoints[w]?.name ?? w) } : undefined;
+  const via = y ? y.via.map((w) => gh!.waypoints[w]?.name ?? w) : [];
+  const yearRound = y ? { miles: y.miles, minutes: y.minutes, via: reverse ? via.reverse() : via } : undefined;
   return { over, ...(yearRound ? { yearRound } : {}), line: winterLine({ over, yearRound }), checked: gh!.checked };
 }
 

@@ -152,6 +152,11 @@ test('the Near list carries the note on a page that prints the pair', () => {
   assert.equal(aspen.winter.yearRound?.via[0], 'Glenwood Springs');
   const cb = nearView('crested-butte', roads, withPage, true, gh).near.filter((n) => n.winter);
   assert.ok(cb.length >= 4 && cb.every((n) => n.winter!.over.some((p) => p.slug === 'kebler-pass')), 'Crested Butte’s neighbours over Kebler Pass');
+  // The places are named from the page's own town, whichever way the pair was routed.
+  for (const n of cb) assert.equal(n.winter!.yearRound!.via[0], 'Gunnison', `Crested Butte to ${n.place}: Gunnison first`);
+  const paonia = nearView('paonia', roads, withPage, true, gh).near.find((n) => n.place === 'crested-butte')!;
+  assert.deepEqual(paonia.winter!.yearRound!.via, ['Crawford', 'Gunnison']);
+  assert.match(paonia.winter!.line, /by way of Crawford and Gunnison/);
   assert.equal(winterNote(gh, pairKey('aspen', 'basalt'), PASSES), undefined, 'a drive over no pass that closes has no note');
   // A guide's Near list (NearThisTown.astro) does not print the note: none of its pairs may need one.
   for (const g of Object.keys(STANDALONE_GUIDES)) assert.ok(nearView(g, roads, withPage, false, gh).near.every((n) => !n.winter), `${g}: a Near pair over a pass that closes; NearThisTown.astro must print its note`);

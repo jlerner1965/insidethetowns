@@ -72,7 +72,9 @@ export function nearView(place: string, roads: RoadMiles | undefined, withPage: 
   const near = roads
     ? nearestPlaces(roads, place, withPage).flatMap((n) => {
         const l = link(n.place);
-        const winter = winterNote(gettingHere, pairKey(place, n.place), PASSES);
+        const key = pairKey(place, n.place);
+        // The pair is routed from the slug that sorts first; its places are named from this town.
+        const winter = winterNote(gettingHere, key, PASSES, key !== `${place}|${n.place}`);
         return l ? [{ ...n, ...l, ...(winter ? { winter } : {}) }] : [];
       })
     : [];
