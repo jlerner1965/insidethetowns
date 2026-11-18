@@ -19,7 +19,7 @@ old_path,kind,decision,destination,reason
 /places/powder-river-hat-company/,place,keep,/elizabeth/places/powder-river-hat-company/,"own site: 211 Main St, Tue–Sat 10–5 or by appointment, phone matches"
 /places/prickly-pines-disc-golf/,place,keep,/elizabeth/places/prickly-pines-disc-golf/,"district page: 18 holes, daily fee $5, address and phone match"
 /places/randys-antiques-and-art/,place,keep,/elizabeth/places/randys-antiques-and-art/,"Main Street Program directory: 232 S Main Street, 720-343-7266"
-/places/running-creek-park/,place,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around) to curl and WebFetch; no other official page gives the park address or amenities"
+/places/running-creek-park/,place,keep,/elizabeth/places/running-creek-park/,"re-check pending (kept, noindex, last checked date shown): unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around) to curl and WebFetch; no other official page gives the park address or amenities"
 /places/small-town-mini-donuts/,place,keep,/elizabeth/places/small-town-mini-donuts/,"own site; hours corrected to what the page now prints (Mon–Fri 7a–12p, Sat–Sun 8a–12p; the 3–5 pm block is gone)"
 /places/the-carriage-shoppes/,place,keep,/elizabeth/places/the-carriage-shoppes/,"own site: 392 Main Street, regular and winter hours as the file states"
 /places/the-nest-at-the-1897-house/,place,keep,/elizabeth/places/the-nest-at-the-1897-house/,"Main Street Program directory: 286 S Main Street, 720-643-5124"
@@ -34,8 +34,8 @@ old_path,kind,decision,destination,reason
 /events/board-of-trustees-2026-11-24/,event,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around)"
 /events/board-of-trustees-2026-12-08/,event,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around)"
 /events/board-of-trustees-2026-12-22/,event,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around)"
-/events/boo-bash-on-main/,event,410,,"annual, not verifiable: the organizer site elizabethchamber.org now serves a parked-domain page; nothing on the Main Street Program site; Town site 403. An unverified record waits at docs/agent/dates/unverified/elizabeth-boo-bash-on-main.md (would be /elizabeth/boo-bash-on-main/)"
-/events/boo-bash-on-main-2026/,event,410,,"annual, not verifiable: former dated address of Boo Bash on Main; see /events/boo-bash-on-main/"
+/events/boo-bash-on-main/,event,tradition,/elizabeth/boo-bash-on-main/,"annual; record elizabeth-boo-bash-on-main added on the owner's word, 17 November 2026: held Saturday, 24 October 2026 (the date as read on the Chamber's site, 15 October), next date not announced"
+/events/boo-bash-on-main-2026/,event,tradition,/elizabeth/boo-bash-on-main/,"annual; record elizabeth-boo-bash-on-main added on the owner's word, 17 November 2026: held Saturday, 24 October 2026 (the date as read on the Chamber's site, 15 October), next date not announced"
 /events/christmas-cow-painting-with-sherry-2026-12-10/,event,410,,unverifiable: the restaurant events page loads its calendar by script and showed no events to a plain read
 /events/comedy-night-in-elizabeth-2026-12-12/,event,keep,/elizabeth/events/comedy-night-in-elizabeth-2026-12-12/,"Eventbrite listing: Saturday, December 12, starts 8 PM, Elizabeth Kitchen + Bar"
 /events/community-coffee-chat-2026-10-13/,event,410,,past occurrence of a recurring series

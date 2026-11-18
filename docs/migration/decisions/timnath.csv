@@ -7,7 +7,7 @@ old_path,kind,decision,destination,reason
 /places/old-town-main-street/,place,keep,/timnath/places/old-town-main-street/,"Town page: Timnath Main Street, ""proud participant in the Colorado Main Street Program"""
 /places/pedros-coffee-shop/,place,keep,/timnath/places/pedros-coffee-shop/,"own visit page: 2100 S Colorado Blvd, Daily 7am–3pm, (970) 399-9424"
 /places/poudre-river-trail/,place,keep,/timnath/places/poudre-river-trail/,"Larimer County page (read by WebFetch; curl 403): ""45 miles of continuous, paved, multi-use trail"", Bellvue to Greeley, 83-foot bridge between Timnath and Windsor"
-/places/the-hidden-stem/,place,410,,"unverifiable: the Chamber directory listing now gives no address, phone or hours (only ""a garden boutique on Main Street in Timnath""); its own page is Facebook (login wall); thehiddenstem.com did not answer"
+/places/the-hidden-stem/,place,keep,/timnath/places/the-hidden-stem/,"re-check pending (kept, noindex, last checked date shown): unverifiable: the Chamber directory listing now gives no address, phone or hours (only ""a garden boutique on Main Street in Timnath""); its own page is Facebook (login wall); thehiddenstem.com did not answer"
 /places/timnath-beerwerks/,place,keep,/timnath/places/timnath-beerwerks/,"own contact page: 4138 Main Street, 970-999-5751, taproom hours match"
 /places/timnath-beverage/,place,keep,/timnath/places/timnath-beverage/,"own site: 6790 Innovate Pl, 970-795-4140, Mon–Sat 9am–9pm, Sun 9am–7pm"
 /places/timnath-community-park/,place,keep,/timnath/places/timnath-community-park/,"Town page: 5500 Summerfields Pkwy., dawn until dusk, splash pad and courts match"

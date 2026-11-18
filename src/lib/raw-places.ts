@@ -23,6 +23,19 @@ export function closedPlaceSlugs(town: string, contentRoot = 'content'): Set<str
   return out;
 }
 
+/** A town's places waiting for a re-check (`recheckPending`): noindex, so out of the sitemap. Read from the markdown, as closedPlaceSlugs is. */
+export function recheckPendingSlugs(town: string, contentRoot = 'content'): Set<string> {
+  const dir = join(contentRoot, town, 'places');
+  const out = new Set<string>();
+  if (!existsSync(dir)) return out;
+  for (const file of readdirSync(dir)) {
+    if (!file.endsWith('.md') || file.startsWith('_')) continue;
+    const fm = readFileSync(join(dir, file), 'utf8').match(/^---\n([\s\S]*?)\n---/);
+    if (fm && /^recheckPending:\s*\S/m.test(fm[1]!)) out.add(fm[1]!.match(/^slug:\s*"?([a-z0-9-]+)"?\s*$/m)?.[1] ?? file.slice(0, -3));
+  }
+  return out;
+}
+
 /**
  * How many places of each kind a town lists that are not closed, read the
  * same way, for the route integration (src/integrations/town-routes.ts),

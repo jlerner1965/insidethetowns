@@ -6622,7 +6622,7 @@
           "value": "insidetimnath.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6632,7 +6632,7 @@
           "value": "insideelizabeth.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6642,7 +6642,7 @@
           "value": "insidefortcollins.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6652,7 +6652,7 @@
           "value": "insidelongmontco.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6662,7 +6662,7 @@
           "value": "insidelovelandco.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6672,7 +6672,7 @@
           "value": "insidefortlupton.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6682,7 +6682,7 @@
           "value": "insidecastlerockco.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6692,7 +6692,7 @@
           "value": "insideestespark.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6702,7 +6702,7 @@
           "value": "insidegolden.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6712,7 +6712,7 @@
           "value": "insideevergreenco.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6722,7 +6722,7 @@
           "value": "insidenederland.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6732,7 +6732,7 @@
           "value": "insideblackhawk.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6742,7 +6742,7 @@
           "value": "insideidahosprings.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6752,7 +6752,7 @@
           "value": "insidegeorgetownco.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6762,7 +6762,7 @@
           "value": "insidegrandlake.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6772,7 +6772,7 @@
           "value": "insidemanitousprings.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6782,7 +6782,7 @@
           "value": "insideleadville.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     },
     {
       "source": "/:path*",
@@ -6792,7 +6792,12 @@
           "value": "insidelafayette.com"
         }
       ],
-      "destination": "/api/legacy"
+      "destination": "/api/legacy?legacy_path=/:path*"
     }
-  ]
+  ],
+  "functions": {
+    "api/legacy.ts": {
+      "includeFiles": "api/legacy-map.json"
+    }
+  }
 }

@@ -686,6 +686,17 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       area: z.string().optional(),
       /** Where the listing was checked: the business's own site, a directory, or a dated news report. */
       source: httpUrl.optional(),
+      /**
+       * Why the listing could not be read again when its guide moved to the
+       * hub (17 November 2026: the source answered a bot check, or gave
+       * nothing to check against), in the editor's words. The page is kept,
+       * noindex and out of the sitemap, and says "Re-check pending" with the
+       * day it was last checked (`verified`, left as it was). It is not cut
+       * for age while it waits: the notice already says how old it is.
+       * Clear the field and move `verified` once a person reads the source;
+       * docs/migration/needs-recheck.md lists them.
+       */
+      recheckPending: z.string().min(1).optional(),
       verified: localDate.optional(),
       /**
        * The day the listing was published on the guide: stamped at approval

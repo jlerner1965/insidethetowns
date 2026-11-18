@@ -10,6 +10,14 @@
  *   node scripts/migration/check-production.ts                 # every host
  *   node scripts/migration/check-production.ts --host=insidegolden.com
  *   node scripts/migration/check-production.ts --report=/tmp/redirects.md --concurrency=8
+ *   node scripts/migration/check-production.ts --variants=200   # how many 301s to try in their variants (default 150)
+ *
+ * Beyond the map: a sample of the 301s is tried without its trailing slash
+ * (Vercel's trailingSlash setting answers that with a 308 to the slash
+ * first, so it may take one hop more) and with a query string, and must
+ * land on the same page; an address the map does not know must go to the
+ * town's page; and a few answers are asked for twice, to read the CDN's
+ * cache headers and whether the second came from its cache (x-vercel-cache).
  *
  * The report is Markdown, for the pull request. Exit 1 when anything fails.
  */
@@ -79,6 +87,51 @@ async function worker() {
 }
 await Promise.all(Array.from({ length: concurrency }, worker));
 
+// The variants: no trailing slash, a query string, and an address the map does not know.
+const variantCount = Number(option('variants') ?? 150);
+const pages301 = rows.filter((r) => r.status === '301' && r.old_path!.endsWith('/') && r.old_path !== '/');
+const step = Math.max(1, Math.floor(pages301.length / Math.max(1, variantCount)));
+const sample = pages301.filter((_, n) => n % step === 0).slice(0, variantCount);
+const variantJobs: Array<{ host: string; path: string; label: string; want: string; limit: number }> = [];
+for (const r of sample) {
+  const want = new URL(r.destination!, 'https://insidethetowns.com').toString();
+  variantJobs.push({ host: r.host!, path: r.old_path!.slice(0, -1), label: 'no slash', want, limit: HOP_LIMIT + 1 });
+  variantJobs.push({ host: r.host!, path: `${r.old_path}?utm_source=redirect-check&utm_medium=test`, label: 'query', want, limit: HOP_LIMIT });
+}
+for (const host of [...new Set(rows.map((r) => r.host!))]) {
+  const page = rows.find((r) => r.host === host && r.old_path === '/')?.destination;
+  if (page) variantJobs.push({ host, path: '/no-such-address-redirect-check/', label: 'unknown path', want: new URL(page, 'https://insidethetowns.com').toString(), limit: HOP_LIMIT });
+}
+let v = 0;
+async function variantWorker() {
+  while (v < variantJobs.length) {
+    const j = variantJobs[v++]!;
+    const { hops, final, error } = await follow(`https://${j.host}${j.path}`, j.limit);
+    const landed = hops.at(-1)?.location ? new URL(hops.at(-1)!.location!) : undefined;
+    const want = new URL(j.want);
+    // A query string is carried onto the page, as Vercel's own redirect rules carry it.
+    const carried = j.label !== 'query' || landed?.searchParams.get('utm_source') === 'redirect-check';
+    const ok = !error && !!landed && carried && landed.origin === want.origin && landed.pathname === want.pathname && final?.status === 200 && hops.every((h) => h.status === 301 || h.status === 308);
+    results.push({ host: j.host, path: `${j.path} (${j.label})`, expected: `→ ${j.want}`, got: error ?? `${hops.map((h) => `${h.status} → ${h.location}`).join(', ')} (${final?.status})`, ok });
+  }
+}
+await Promise.all(Array.from({ length: concurrency }, variantWorker));
+
+// The CDN: a 301 and a 410 on a few hosts, each asked for twice.
+const cacheLines: string[] = [];
+for (const host of [...new Set(rows.map((r) => r.host!))].slice(0, 6)) {
+  for (const status of ['301', '410']) {
+    const r = rows.find((x) => x.host === host && x.status === status && x.old_path !== '/');
+    if (!r) continue;
+    const url = `https://${host}${r.old_path}`;
+    const read = async () => fetch(url, { redirect: 'manual', headers: { 'User-Agent': UA } });
+    const first = await read();
+    const second = await read();
+    const h = (res: Response, k: string) => res.headers.get(k) ?? '–';
+    cacheLines.push(`| ${url} | ${second.status} | ${h(second, 'cache-control')} | ${h(second, 'cdn-cache-control')} | ${h(first, 'x-vercel-cache')} → ${h(second, 'x-vercel-cache')} |`);
+  }
+}
+
 const failed = results.filter((r) => !r.ok);
 const byHost = new Map<string, { ok: number; failed: number }>();
 for (const r of results) {
@@ -90,12 +143,13 @@ for (const r of results) {
 const lines = [
   `## Redirect check, ${new Date().toISOString().slice(0, 16).replace('T', ' ')} UTC`,
   '',
-  `${results.length} addresses from docs/migration/redirect-map.csv, ${results.length - failed.length} as mapped, ${failed.length} not.`,
+  `${rows.length} addresses from docs/migration/redirect-map.csv and ${variantJobs.length} variants of them (no trailing slash, a query string, an unknown path): ${results.length - failed.length} as mapped, ${failed.length} not.`,
   '',
   '| Host | As mapped | Not |',
   '|---|---|---|',
   ...[...byHost.entries()].sort().map(([h, c]) => `| ${h} | ${c.ok} | ${c.failed} |`),
 ];
+lines.push('', '### The CDN', '', 'Each address asked for twice; the last column is `x-vercel-cache` on the first answer, then the second.', '', '| Address | Status | Cache-Control | CDN-Cache-Control | x-vercel-cache |', '|---|---|---|---|---|', ...cacheLines);
 if (failed.length) {
   lines.push('', '### Not as mapped', '', '| Address | Expected | Got |', '|---|---|---|');
   for (const f of failed.slice(0, 400)) lines.push(`| https://${f.host}${f.path} | ${f.expected} | ${f.got.replace(/\|/g, '\\|')} |`);

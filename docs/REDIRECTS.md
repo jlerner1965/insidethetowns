@@ -135,8 +135,21 @@ decisions in `docs/migration/decisions/<town>.csv`, and the hub build.
   and `/sitemap-0.xml` (from `data/migration/sitemaps/<host>/`), with a
   robots.txt that points to it. **Remove both after 2027-05-17.**
 - A redirect stub (meta refresh) goes where its target goes, one hop. An
-  address not in the map goes to the town's page. Server-side 301 only;
-  no meta-refresh pages are built for these hosts.
+  address not in the map goes to the town's page (301). Server-side 301
+  only; no meta-refresh pages are built for these hosts.
+- The rewrite passes the path as `legacy_path`; the lookup takes it with
+  or without its trailing slash and in any case, and a query string is
+  carried onto the Location without changing the page. Vercel itself
+  answers a path without its trailing slash with a 308 to the slash before
+  any rule or rewrite runs (`trailingSlash: true`), so that form takes two
+  hops, as it did before; `www.` takes one more at the domain level.
+- Every answer carries `Cache-Control: public, max-age=3600` and
+  `CDN-Cache-Control` / `Vercel-CDN-Cache-Control: public, max-age=86400`:
+  Vercel's CDN keeps a 301 or 410 for a day, and a new deployment of the
+  project starts its cache afresh.
+- A place answers 410 only when it is closed for good. A kept place whose
+  source could not be read is kept, noindex, "re-check pending"
+  (`docs/migration/needs-recheck.md`).
 - **Keep the redirects live and the domains renewed indefinitely, at
   minimum until 2027-11-17** (the owner's brief; the comment is in
   `api/legacy.ts`).

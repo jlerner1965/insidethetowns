@@ -1,23 +1,23 @@
 old_path,kind,decision,destination,reason
-/places/ameristar-black-hawk/,place,410,,"unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
+/places/ameristar-black-hawk/,place,keep,/black-hawk/places/ameristar-black-hawk/,"re-check pending (kept, noindex, last checked date shown): unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
 /places/ballys-black-hawk/,place,keep,/black-hawk/places/ballys-black-hawk/,casino's own page read 17 Nov 2026: address and phone match
-/places/bar-8042/,place,410,,"unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
-/places/bistro-mariposa/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/bar-8042/,place,keep,/black-hawk/places/bar-8042/,"re-check pending (kept, noindex, last checked date shown): unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
+/places/bistro-mariposa/,place,keep,/black-hawk/places/bistro-mariposa/,"re-check pending (kept, noindex, last checked date shown): unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it"
 /places/black-hawk-and-central-city-tramway/,place,keep,/black-hawk/places/black-hawk-and-central-city-tramway/,"City page read 17 Nov 2026; hours corrected to the City's: Mon-Thu to 2 am, Fri-Sun to 3 am"
-/places/cold-springs-campground/,place,410,,"closed: the old guide had it as temporarily closed, and the Forest Service page still carries its ""Site Closed"" banner on 17 Nov 2026"
-/places/fireside-kitchen/,place,410,,"unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
+/places/cold-springs-campground/,place,keep,/black-hawk/places/cold-springs-campground/,"re-check pending (kept, noindex, last checked date shown): closed: the old guide had it as temporarily closed, and the Forest Service page still carries its ""Site Closed"" banner on 17 Nov 2026"
+/places/fireside-kitchen/,place,keep,/black-hawk/places/fireside-kitchen/,"re-check pending (kept, noindex, last checked date shown): unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
 /places/gilpin-county-public-library/,place,keep,/black-hawk/places/gilpin-county-public-library/,"library pages read 17 Nov 2026: address, phone and holiday closures match"
 /places/golden-gate-canyon-state-park/,place,keep,/black-hawk/places/golden-gate-canyon-state-park/,"CPW page read 17 Nov 2026: address and phone match; visitor center hours corrected (Tue-Sun), fall notices replaced by the winter road closure"
 /places/gregory-street-plaza/,place,keep,/black-hawk/places/gregory-street-plaza/,City page read 17 Nov 2026: description matches
-/places/java-etc-monarch/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/java-etc-monarch/,place,keep,/black-hawk/places/java-etc-monarch/,"re-check pending (kept, noindex, last checked date shown): unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it"
 /places/maryland-mountain-quartz-valley-open-space-park/,place,keep,/black-hawk/places/maryland-mountain-quartz-valley-open-space-park/,City page read 17 Nov 2026: trailhead address and dawn-to-dusk hours match
-/places/monarch-casino-resort-spa/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
-/places/monarch-chophouse/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
-/places/mpulse-gift-shop/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
-/places/spa-monarch/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
-/places/the-buffet-at-monarch/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/monarch-casino-resort-spa/,place,keep,/black-hawk/places/monarch-casino-resort-spa/,"re-check pending (kept, noindex, last checked date shown): unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it"
+/places/monarch-chophouse/,place,keep,/black-hawk/places/monarch-chophouse/,"re-check pending (kept, noindex, last checked date shown): unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it"
+/places/mpulse-gift-shop/,place,keep,/black-hawk/places/mpulse-gift-shop/,"re-check pending (kept, noindex, last checked date shown): unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it"
+/places/spa-monarch/,place,keep,/black-hawk/places/spa-monarch/,"re-check pending (kept, noindex, last checked date shown): unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it"
+/places/the-buffet-at-monarch/,place,keep,/black-hawk/places/the-buffet-at-monarch/,"re-check pending (kept, noindex, last checked date shown): unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it"
 /places/the-lodge-casino/,place,keep,/black-hawk/places/the-lodge-casino/,casino's contact page read 17 Nov 2026: address and phone match
-/places/timberline-grill/,place,410,,"unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
+/places/timberline-grill/,place,keep,/black-hawk/places/timberline-grill/,"re-check pending (kept, noindex, last checked date shown): unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
 /places/white-buffalo-grille/,place,keep,/black-hawk/places/white-buffalo-grille/,restaurant's page read 17 Nov 2026: hours and phone match
 /articles/black-hawk-history/,guide,keep,/black-hawk/guides/black-hawk-history/,"town-specific; the City's History and Gregory Street Plaza pages re-read 17 Nov 2026, dates match"
 /articles/black-hawk-with-kids/,guide,keep,/black-hawk/guides/black-hawk-with-kids/,"town-specific; City, library and CPW pages re-read 17 Nov 2026"

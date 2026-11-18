@@ -1,10 +1,10 @@
 old_path,kind,decision,destination,reason
 /places/adams-falls-via-east-inlet-trail/,place,keep,/grand-lake/places/adams-falls-via-east-inlet-trail/,"operating; NPS trail list moved to the park's hiking page (old list 404): 0.3 mile confirmed, unreadable figures removed"
 /places/arapaho-national-recreation-area/,place,keep,/grand-lake/places/arapaho-national-recreation-area/,operating; fees and day-use match the Forest Service page; ramp closures line brought to 18 November
-/places/bob-scotts-authentic-indian-jewelry/,place,410,,unverifiable: own site answers 403 Forbidden; no other official page
+/places/bob-scotts-authentic-indian-jewelry/,place,keep,/grand-lake/places/bob-scotts-authentic-indian-jewelry/,"re-check pending (kept, noindex, last checked date shown): unverifiable: own site answers 403 Forbidden; no other official page"
 /places/cottage-court-museum-and-history-park/,place,keep,/grand-lake/places/cottage-court-museum-and-history-park/,"address, phone and season match the historical society page"
 /places/gateway-inn/,place,keep,/grand-lake/places/gateway-inn/,"address, phone and desk hours match the inn's contact page"
-/places/gene-stover-lakefront-park/,place,410,,"unverifiable: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against"
+/places/gene-stover-lakefront-park/,place,keep,/grand-lake/places/gene-stover-lakefront-park/,"re-check pending (kept, noindex, last checked date shown): unverifiable: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against"
 /places/grand-lake-lodge/,place,keep,/grand-lake/places/grand-lake-lodge/,address and phone match the lodge's site; winter lodging offered
 /places/grand-lake-visitor-center/,place,keep,/grand-lake/places/grand-lake-visitor-center/,"operating; hours corrected to the page's ""Winter Hours"", daily 10 am to 3 pm"
 /places/juniper-library/,place,keep,/grand-lake/places/juniper-library/,"address, phone and hours match the library district page"
@@ -13,13 +13,13 @@ old_path,kind,decision,destination,reason
 /places/miyauchis-snack-bar/,place,keep,/grand-lake/places/miyauchis-snack-bar/,seasonal (May to September); phone and posted hours match its hours page
 /places/mountain-market/,place,keep,/grand-lake/places/mountain-market/,operating; hours corrected to the posted winter hours
 /places/never-summer-mountain-products/,place,keep,/grand-lake/places/never-summer-mountain-products/,"address, phone and hours match the shop's contact and home pages"
-/places/point-park/,place,410,,"unverifiable: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against"
+/places/point-park/,place,keep,/grand-lake/places/point-park/,"re-check pending (kept, noindex, last checked date shown): unverifiable: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against"
 /places/rapids-lodge/,place,keep,/grand-lake/places/rapids-lodge/,"operating; hours corrected to the FAQ page: Thursday to Saturday, happy hour 3-5 pm, dinner 5-8 pm"
 /places/rocky-mountain-folk-school/,place,keep,/grand-lake/places/rocky-mountain-folk-school/,address matches the school's contact page
 /places/rocky-mountain-repertory-theatre/,place,keep,/grand-lake/places/rocky-mountain-repertory-theatre/,"address, phone and box office hours match the box office page"
-/places/sagebrush-bbq-and-grill/,place,410,,"unverifiable: own site answers 403 with a bot challenge (""Just a moment...""), not worked around; no other official page"
+/places/sagebrush-bbq-and-grill/,place,keep,/grand-lake/places/sagebrush-bbq-and-grill/,"re-check pending (kept, noindex, last checked date shown): unverifiable: own site answers 403 with a bot challenge (""Just a moment...""), not worked around; no other official page"
 /places/the-hub/,place,keep,/grand-lake/places/the-hub/,"address, phone and hours match its site; says it is open year-round"
-/places/town-square-park/,place,410,,"unverifiable: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against"
+/places/town-square-park/,place,keep,/grand-lake/places/town-square-park/,"re-check pending (kept, noindex, last checked date shown): unverifiable: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against"
 /articles/explore-grand-lake-in-walking-order/,guide,410,,"key claims cannot be re-read: five of its sources are townofgrandlake.com pages (403), the NPS trail list is 404, and five of its stops are not carried or have changed hours"
 /articles/grand-lake-history/,guide,keep,/grand-lake/guides/grand-lake-history/,dates and names match the historical society's Kauffman House and Cottage Court pages; Cottage Court source URL corrected
 /articles/grand-lake-with-kids/,guide,keep,/grand-lake/guides/grand-lake-with-kids/,"town-specific; library address, branch calendar and NPS conditions page re-read; links to two parks and a guide that are not carried"

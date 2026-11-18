@@ -12,6 +12,7 @@ import { findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { PLACE_TYPE_PLURALS, type PlaceType } from '@/content/schemas';
 import { sectionContents, sectionFor } from '@/lib/section-index';
 import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/seo';
+import { formatShortDate } from '@/lib/dates';
 
 export async function getStaticPaths() {
   return (await sectionContents()).filter((s) => s.placeEntries.length + s.guideEntries.length > 0).map((s) => ({ params: { town: s.hubTown } }));
@@ -42,7 +43,7 @@ const structured = [
 const link = 'text-primary underline decoration-1 underline-offset-[3px]';
 ---
 <Page {title} eyebrow={`${town.name}, ${hubCountyLine(town)} · Inside ${town.name}`} intro={`The pages kept from the Inside ${town.name} guide, each read against its own source. Annual events and outdoor dates are on the town's page.`} {description} jsonLd={structured} kind="Guide" narrow>
-  <CheckedLine dates={section.placeEntries.map((p) => p.data.verified)} perItem />
+  <CheckedLine dates={section.placeEntries.filter((p) => !p.data.recheckPending).map((p) => p.data.verified)} perItem />
   {groups.map(([type, places]) => (
     <section class="mt-10" aria-labelledby={`type-${type}`}>
       <h2 id={`type-${type}`} class="eyebrow mb-3">{PLACE_TYPE_PLURALS[type]}</h2>
@@ -51,6 +52,7 @@ const link = 'text-primary underline decoration-1 underline-offset-[3px]';
           <li class="py-3">
             <a href={`${path}${p.slug}/`} class={`text-[1.0625rem] font-semibold ${link}`}>{p.data.title}</a>
             {p.data.area && <span class="ml-2 text-sm text-ink-muted">{p.data.area}</span>}
+            {p.data.recheckPending && <span class="ml-2 text-sm text-ink-muted" data-recheck-pending>· re-check pending, last checked {p.data.verified ? formatShortDate(p.data.verified) : 'not recorded'}</span>}
             <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{p.data.summary}</p>
           </li>
         ))}

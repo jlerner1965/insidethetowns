@@ -32,7 +32,7 @@ import { generatedBlocks, withBlocks, REDIRECT_LIMIT, type HostRule } from './li
 
 type Rule = HostRule;
 const file = new URL('../vercel.json', import.meta.url);
-const config = JSON.parse(readFileSync(file, 'utf8')) as { redirects: Rule[]; rewrites?: Array<{ source: string; destination: string; has?: Rule['has'] }> };
+const config = JSON.parse(readFileSync(file, 'utf8')) as { redirects: Rule[]; rewrites?: Array<{ source: string; destination: string; has?: Rule['has'] }>; functions?: Record<string, { includeFiles?: string }> };
 const hub = getNetworkHub();
 const hostOf = (r: Rule) => r.has?.find((h) => h.type === 'host')?.value;
 
@@ -90,10 +90,10 @@ for (const t of legacy) {
   rules = rules.filter((r) => hostOf(r) !== t.domain);
   console.log(`${t.domain}: ${had} redirect rule(s) removed; api/legacy.ts answers every path`);
 }
-const wantRewrites = legacy.map((t) => ({ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy' }));
+const wantRewrites = legacy.map((t) => ({ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy?legacy_path=/:path*' }));
 const otherRewrites = (config.rewrites ?? []).filter((r) => !legacy.some((t) => hostOf(r as Rule) === t.domain));
 const nextRewrites = [...otherRewrites, ...wantRewrites];
-if (JSON.stringify(nextRewrites) !== JSON.stringify(config.rewrites ?? [])) {
+if (JSON.stringify(nextRewrites) !== JSON.stringify(config.rewrites ?? []) || !config.functions?.['api/legacy.ts']) {
   changed++;
   console.log(`rewrites: ${wantRewrites.length} folded domain(s) sent to api/legacy.ts`);
 }
@@ -103,6 +103,8 @@ if (changed === 0) console.log(`vercel.json already carries every rule (${rules.
 else if (process.argv.includes('--write')) {
   config.redirects = rules;
   config.rewrites = nextRewrites;
+  // The map ships with the function (api/legacy.ts reads it from disk).
+  config.functions = { ...(config.functions ?? {}), 'api/legacy.ts': { includeFiles: 'api/legacy-map.json' } };
   writeFileSync(file, `${JSON.stringify(config, null, 2)}\n`, 'utf8');
   console.log(`vercel.json rewritten: ${changed} domain(s).`);
 } else console.log(`${changed} domain(s) differ. Run with --write.`);

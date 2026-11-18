@@ -719,6 +719,24 @@ for (const town of deployedTowns()) for (const issue of nextEventIssues(town.slu
   }
 }
 
+// Places kept on the hub while their source could not be read (placeSchema,
+// recheckPending; docs/migration/needs-recheck.md): a list, never a failure.
+{
+  const pending: string[] = [];
+  for (const town of readdirSync(contentDir)) {
+    const dir = join(contentDir, town, 'places');
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).filter((f) => f.endsWith('.md') && !f.startsWith('_'))) {
+      const fm = readFileSync(join(dir, f), 'utf8').match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
+      if (/^recheckPending:\s*\S/m.test(fm)) pending.push(`content/${town}/places/${f}: last checked ${fm.match(/^verified:\s*"?([\d-]+)/m)?.[1] ?? 'never'}`);
+    }
+  }
+  if (pending.length > 0) {
+    console.warn(`places: ${pending.length} waiting for a re-check (kept, noindex); read the source, move \`verified\` and clear \`recheckPending\` (docs/migration/needs-recheck.md):`);
+    for (const p of pending) console.warn(`  recheck ${p}`);
+  }
+}
+
 // Two more lines of report, never a failure (the owner, 17 November 2026):
 // a season that is open today whose row reads "not yet announced" (the
 // opening has passed and no later year is on file: the town page shows it

@@ -10,7 +10,7 @@ import { heroMap } from './src/integrations/hero-map.ts';
 import { siteImages } from './src/integrations/site-images.ts';
 import { tableLabels } from './src/integrations/table-labels.ts';
 import { pastEventSlugs, repeatOccurrenceSlugs } from './src/lib/series.ts';
-import { closedPlaceSlugs } from './src/lib/raw-places.ts';
+import { closedPlaceSlugs, recheckPendingSlugs } from './src/lib/raw-places.ts';
 import { contentDates, lastmodFor } from './src/lib/lastmod.ts';
 import { formerSlugRedirects } from './src/lib/former-slugs.ts';
 import { draftPaths } from './src/lib/curiosity-files.ts';
@@ -47,14 +47,17 @@ const dates = contentDates(site);
 const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/', '/newsletter/sample/', '/search/', ...(site.kind === 'hub' ? draftPaths() : [])]);
 
 // The hub's page-by-page sections (src/lib/section-index.ts): a carried
-// event that has passed and a kept place that has closed are noindex, so
-// neither is listed. Keyed by the hub path, read from the markdown as above.
+// event that has passed, a kept place that has closed and one waiting for a
+// re-check are noindex, so none is listed. Keyed by the hub path, read from the markdown as above.
 const sectionNoindex = new Set(
   site.kind === 'hub'
-    ? sectionTowns('pages').flatMap((t) => [
-        ...[...pastEventSlugs(t.slug)].map((s) => `/${t.hubPage.town}/events/${s}/`),
-        ...[...closedPlaceSlugs(t.slug)].map((s) => `/${t.hubPage.town}/places/${s}/`),
-      ])
+    ? sectionTowns('pages').flatMap((t) => {
+        const town = t.hubPage?.town ?? t.slug;
+        return [
+          ...[...pastEventSlugs(t.slug)].map((s) => `/${town}/events/${s}/`),
+          ...[...closedPlaceSlugs(t.slug), ...recheckPendingSlugs(t.slug)].map((s) => `/${town}/places/${s}/`),
+        ];
+      })
     : [],
 );
 const indexable = (/** @type {string} */ url) => {

@@ -11894,3 +11894,44 @@ layout changes to the hub's pages beyond the links named.*
   recent date is over 13 months old and not marked `notAnnual`.
 - **Dates.** Denver's day when the sources were read was 17 November 2026;
   every `verified` and `checked` written in the move says so.
+
+## The owner's calls on the move, 17 November 2026 (later)
+
+*The owner's reply on the move's pull request (#459), the same evening.*
+
+- **A place answers 410 only when it is confirmed closed.** The 41 places
+  that answered 410 because their source could not be read (a bot check
+  on Castle Rock's, Idaho Springs', Manitou Springs', Grand Lake's and
+  Elizabeth's town sites, the Black Hawk casinos', and a few others) are
+  kept like the other kept places, from their last version in git, each
+  with `recheckPending` saying why: noindex, out of the sitemap, no
+  LocalBusiness data, and a "Re-check pending. Last checked <date>" notice
+  above the facts. The listing-age cut does not apply while one waits;
+  hours still follow their own window. `docs/migration/needs-recheck.md`
+  lists them and says how to clear one; `npm run validate` reports them.
+  Four were not blocked but gave nothing to check (Cold Springs
+  Campground's "Site Closed" banner, a parked bakery domain, a store
+  locator that drew nothing, a Chamber listing with no address); none is
+  a confirmed closure, so they are kept and flagged the same way. A kept
+  place whose file later says `status: closed` answers 410 the next time
+  the map is written.
+- **History-only addresses follow the listing.** The 20 Black Hawk
+  listings the Clear Creek guide carried from 20 October to 2 November
+  2026 go to the same Black Hawk pages from insideidahosprings.com; a
+  listing a guide dropped before the move, not as closed, goes to the
+  town's places index (Garden of the Gods, Castle Rock's six retired open
+  spaces) instead of answering 410.
+- **The Elizabeth Stampede** is June 3 to 6, 2027, from the countdown on
+  the Stampede's home page ("Elizabeth Stampede · June 3–6, 2027").
+- **Boo Bash on Main** is an Elizabeth tradition on the owner's word: last
+  held Saturday, October 24, 2026, the date the old guide read on the
+  Chamber's site on 15 October, so that is the check date; the next is not
+  announced. The Chamber's domain now serves a parking page, which the
+  record still names as its source until the Chamber's new site is known.
+  Both old addresses go to `/elizabeth/boo-bash-on-main/`.
+- **Georgetown's Trick or Treat Train stays 410**, on the owner's word.
+- **The function**: the rewrite passes the path as `legacy_path`
+  (Vercel's documented pattern for redirects answered by a function); a
+  query string is carried onto the 301 as the old rules carried it;
+  answers carry `CDN-Cache-Control` and `Vercel-CDN-Cache-Control` for a
+  day at the CDN; the map ships with the function (`includeFiles`).

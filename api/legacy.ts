@@ -25,13 +25,35 @@
  * The map is written by `node scripts/migration/redirect-map.ts` from the
  * CSV; test/legacy-redirects.test.ts holds the two together.
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 type Table = Record<string, { page: string; paths: Record<string, string | 0>; sitemap?: string; sitemapIndex?: string }>;
 // Read beside this file, once per instance: the URL form is what Vercel's
 // file tracer follows, so the map ships with the function.
+// vercel.json's `functions` entry includes it (includeFiles), at the same
+// path from the project root, which is the function's working directory.
 let loaded: Table | undefined;
-const table = (): Table => (loaded ??= JSON.parse(readFileSync(new URL('./legacy-map.json', import.meta.url), 'utf8')) as Table);
+function table(): Table {
+  if (loaded) return loaded;
+  const beside = new URL('./legacy-map.json', import.meta.url);
+  const file = existsSync(beside) ? beside : join(process.cwd(), 'api', 'legacy-map.json');
+  return (loaded = JSON.parse(readFileSync(file, 'utf8')) as Table);
+}
+
+/**
+ * How long an answer is kept. The browser: an hour. Vercel's CDN: a day,
+ * so a repeat request for the same old address is answered without the
+ * function; a deployment of the project starts the cache afresh, so a
+ * change to the map is live as soon as it deploys. `Vercel-CDN-Cache-Control`
+ * and `CDN-Cache-Control` are read by the CDN in place of `Cache-Control`,
+ * which vercel.json's catch-all header rule may set for the browser.
+ */
+export const CACHE_HEADERS = {
+  'Cache-Control': 'public, max-age=3600',
+  'CDN-Cache-Control': 'public, max-age=86400',
+  'Vercel-CDN-Cache-Control': 'public, max-age=86400',
+} as const;
 
 const GONE_HTML = (page: string, name: string) =>
   `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>This page is gone</title><meta name="robots" content="noindex"><body style="font-family:system-ui,sans-serif;max-width:36rem;margin:3rem auto;padding:0 1rem;line-height:1.5"><h1>This page is gone</h1><p>It was on a guide that has closed, and there is no page on Inside the Towns that stands for it.</p><p><a href="${page}">${name}: annual events and outdoor dates</a></p></body></html>`;
@@ -55,10 +77,18 @@ export function lookup(entry: Table[string], pathname: string): string | 0 | und
   return undefined;
 }
 
-export function answer(host: string, pathname: string): Response {
+/** A destination with the reader's query string on it, ahead of any fragment, as Vercel's own redirect rules carry it. */
+export function withQuery(location: string, search: string): string {
+  if (!search || search === '?') return location;
+  const at = location.indexOf('#');
+  const [base, hash] = at === -1 ? [location, ''] : [location.slice(0, at), location.slice(at)];
+  return `${base}${base.includes('?') ? `&${search.slice(1)}` : search}${hash}`;
+}
+
+export function answer(host: string, pathname: string, search = ''): Response {
   const entry = table()[host];
   if (!entry) return new Response('Not found', { status: 404 });
-  const cache = { 'Cache-Control': 'public, max-age=3600, s-maxage=86400' };
+  const cache = CACHE_HEADERS;
   if (pathname === '/robots.txt') {
     // Remove after 2027-05-17, with the sitemap below.
     return new Response(`User-agent: *\nAllow: /\nSitemap: https://${host}/sitemap-index.xml\n`, { status: 200, headers: { 'Content-Type': 'text/plain; charset=utf-8', ...cache } });
@@ -70,12 +100,35 @@ export function answer(host: string, pathname: string): Response {
     const name = decodeURIComponent(entry.page.split('/').filter(Boolean).pop()!).replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
     return new Response(GONE_HTML(entry.page, name), { status: 410, headers: { 'Content-Type': 'text/html; charset=utf-8', ...cache } });
   }
-  return new Response(null, { status: 301, headers: { Location: found ?? entry.page, ...cache } });
+  return new Response(null, { status: 301, headers: { Location: withQuery(found ?? entry.page, search), ...cache } });
+}
+
+/**
+ * The path the reader asked for. vercel.json's rewrite passes it as
+ * `legacy_path` (`/:path*` → `/api/legacy?legacy_path=/:path*`, Vercel's
+ * own pattern for redirects answered by a function), since the request
+ * this function sees may carry the rewritten address. The original query
+ * string rides along: it does not change which page the answer names, and
+ * it is carried onto the 301's Location, as Vercel's own redirect rules
+ * carry it (a newsletter's `utm_` tags reach the hub's analytics).
+ */
+export function requestedPath(url: URL): string {
+  const given = url.searchParams.get('legacy_path');
+  if (given !== null) return given.startsWith('/') ? given : `/${given}`;
+  return url.pathname.startsWith('/api/legacy') ? '/' : url.pathname;
+}
+
+/** The reader's own query string, without the rewrite's parameter. */
+export function requestedSearch(url: URL): string {
+  const params = new URLSearchParams(url.search);
+  params.delete('legacy_path');
+  const rest = params.toString();
+  return rest ? `?${rest}` : '';
 }
 
 export function GET(request: Request): Response {
   const url = new URL(request.url);
-  return answer(hostOf(request.headers), url.pathname);
+  return answer(hostOf(request.headers), requestedPath(url), requestedSearch(url));
 }
 
 export const HEAD = GET;

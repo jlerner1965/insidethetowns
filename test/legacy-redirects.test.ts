@@ -19,7 +19,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { allTowns } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
-import { answer, lookup } from '../api/legacy.ts';
+import { answer, CACHE_HEADERS, lookup, requestedPath, requestedSearch, withQuery } from '../api/legacy.ts';
 import { readCsv } from '../scripts/migration/shared.ts';
 import map from '../api/legacy-map.json' with { type: 'json' };
 
@@ -37,10 +37,11 @@ test('eighteen folded guides keep their pages on the hub, each with its mode', (
 });
 
 test('vercel.json: no redirect rule for a folded domain, and one rewrite each to api/legacy.ts', () => {
+  assert.deepEqual((vercel as { functions?: unknown }).functions, { 'api/legacy.ts': { includeFiles: 'api/legacy-map.json' } }, 'the map ships with the function');
   for (const t of legacy) {
     assert.deepEqual(vercel.redirects.filter((r) => hostOf(r) === t.domain), [], `${t.domain}: a redirect rule would answer before the function`);
     const rewrites = (vercel.rewrites ?? []).filter((r) => hostOf(r) === t.domain);
-    assert.deepEqual(rewrites, [{ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy' }], `${t.domain}: one rewrite, every path`);
+    assert.deepEqual(rewrites, [{ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy?legacy_path=/:path*' }], `${t.domain}: one rewrite, every path, the path passed on`);
   }
   // No redirect anywhere points at a folded domain.
   const folded = new Set(legacy.map((t) => t.domain));
@@ -119,4 +120,54 @@ test('the brief’s named addresses', () => {
   assert.equal(to('insidegolden.com', '/events/olde-golden-candlelight-walk/'), `https://${hub.domain}/golden/candlelight-walk/`);
   assert.equal(to('insideidahosprings.com', '/events/georgetown-christmas-market-2026-12-05/'), `https://${hub.domain}/georgetown/christmas-market/`);
   assert.equal(to('insideestespark.com', '/places/'), `https://${hub.domain}/estes-park/directory/`, 'a stub for /directory/: where its target goes, one hop');
+});
+
+test('the path the reader asked for: from the rewrite’s parameter, with or without its slash; a query string changes the page nothing and is carried on', () => {
+  const at = (u: string) => requestedPath(new URL(u, 'https://insidegolden.com'));
+  assert.equal(at('/api/legacy?legacy_path=/events/trick-or-treat-street'), '/events/trick-or-treat-street');
+  assert.equal(at('/api/legacy?legacy_path=/'), '/');
+  assert.equal(at('/api/legacy?legacy_path=/events/trick-or-treat-street&utm_source=newsletter'), '/events/trick-or-treat-street');
+  assert.equal(at('/api/legacy'), '/', 'no parameter: the home page');
+  // The reader's query string is carried onto the Location, ahead of a fragment; the page is the same.
+  const q = new URL('/api/legacy?legacy_path=/events/trick-or-treat-street/&utm_source=newsletter', 'https://insidegolden.com');
+  assert.equal(requestedSearch(q), '?utm_source=newsletter');
+  assert.equal(answer('insidegolden.com', requestedPath(q), requestedSearch(q)).headers.get('location'), 'https://insidethetowns.com/golden/trick-or-treat-street/?utm_source=newsletter');
+  assert.equal(withQuery('https://insidethetowns.com/longmont/#traditions', '?a=1'), 'https://insidethetowns.com/longmont/?a=1#traditions');
+  assert.equal(withQuery('https://insidethetowns.com/golden/', ''), 'https://insidethetowns.com/golden/');
+  assert.equal(at('/events/x/'), '/events/x/', 'no rewrite parameter: the request’s own path');
+  const to = (path: string) => {
+    const r = answer('insidegolden.com', path);
+    return `${r.status} ${r.headers.get('location') ?? ''}`;
+  };
+  for (const path of ['/events/trick-or-treat-street/', '/events/trick-or-treat-street', '/events/trick-or-treat-street-2026-10-30/', '/events/trick-or-treat-street-2026-10-30', '/EVENTS/Trick-or-Treat-Street/']) {
+    assert.equal(to(path), '301 https://insidethetowns.com/golden/trick-or-treat-street/', path);
+  }
+});
+
+test('every answer carries the CDN’s cache headers: a 301, a 410, the town page for an unknown path, the sitemap and robots.txt', () => {
+  const golden = table['insidegolden.com']!;
+  const [gonePath] = Object.entries(golden.paths).find(([, v]) => v === 0)!;
+  for (const path of ['/events/trick-or-treat-street/', gonePath, '/no-such-page/', '/sitemap-0.xml', '/robots.txt']) {
+    const r = answer('insidegolden.com', path);
+    for (const [k, v] of Object.entries(CACHE_HEADERS)) assert.equal(r.headers.get(k), v, `${path}: ${k}`);
+  }
+  assert.match(CACHE_HEADERS['Vercel-CDN-Cache-Control'], /max-age=\d+/);
+});
+
+test('a place answers 410 only where it is closed; one whose source could not be read is kept, noindex, re-check pending', () => {
+  for (const r of rows.filter((r) => r.status === '410' && /^\/places\//.test(r.old_path!))) assert.match(r.reason!, /^closed/, `${r.host}${r.old_path}: ${r.reason}`);
+  const pending = table['insideblackhawk.com']!.paths['/places/monarch-casino-resort-spa/'];
+  assert.equal(pending, `https://${hub.domain}/black-hawk/places/monarch-casino-resort-spa/`);
+  // The Black Hawk listings the Clear Creek guide carried from 20 October to 2 November.
+  assert.equal(table['insideidahosprings.com']!.paths['/places/monarch-casino-resort-spa/'], pending);
+});
+
+test('Boo Bash on Main and the Stampede: the owner’s two Elizabeth calls of 17 November 2026', () => {
+  const to = (path: string) => table['insideelizabeth.com']!.paths[path];
+  assert.equal(to('/events/boo-bash-on-main/'), `https://${hub.domain}/elizabeth/boo-bash-on-main/`);
+  assert.equal(to('/events/boo-bash-on-main-2026/'), `https://${hub.domain}/elizabeth/boo-bash-on-main/`);
+  const stampede = readFileSync(new URL('../content/hub/traditions/elizabeth-stampede-rodeo.md', import.meta.url), 'utf8');
+  assert.match(stampede, /- year: 2027\n    status: confirmed\n    date: 2027-06-03\n    endDate: 2027-06-06\n/);
+  // The Trick or Treat Train stays gone, on the owner's word.
+  assert.equal(table['insideidahosprings.com']!.paths['/events/trick-or-treat-train-2026-10-30/'], 0);
 });

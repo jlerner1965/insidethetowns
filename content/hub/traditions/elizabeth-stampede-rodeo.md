@@ -10,8 +10,11 @@ sourceUrl: "https://www.elizabethstampede.com/upcoming-events"
 firstYear: 1966
 years:
   - year: 2027
-    status: not-announced
-    checked: 2026-11-12
+    status: confirmed
+    date: 2027-06-03
+    endDate: 2027-06-06
+    sourceUrl: "https://www.elizabethstampede.com/"
+    checked: 2026-11-17
   - year: 2026
     status: confirmed
     date: 2026-06-05

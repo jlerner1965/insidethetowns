@@ -30,7 +30,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { allTowns, getNetworkHub } from '../../src/config/index.ts';
 import type { TownConfig } from '../../src/config/towns/types.ts';
-import { foldEventTargets, type FoldEventMap } from '../../src/lib/fold.ts';
+import { ALSO_COVERED, foldEventTargets, type FoldEventMap } from '../../src/lib/fold.ts';
 import { hubEventPages, publishedHubTowns } from '../../src/lib/hub-towns.ts';
 import { rawRecords } from '../../src/lib/tradition-files.ts';
 import { dayKey } from '../../src/lib/dates.ts';
@@ -92,7 +92,11 @@ for (const town of allTowns.filter((t) => t.hubPage && t.section && FOLDED[t.dom
   const mode = town.section!.mode;
   const { commit } = FOLDED[host]!;
   const inventory = readCsv(`docs/migration/inventory/${host}.csv`);
-  const decisions = new Map(existsSync(`docs/migration/decisions/${town.slug}.csv`) ? readCsv(`docs/migration/decisions/${town.slug}.csv`).map((r) => [r.old_path!, r]) : []);
+  const decisionsOf = (slug: string) => new Map(existsSync(`docs/migration/decisions/${slug}.csv`) ? readCsv(`docs/migration/decisions/${slug}.csv`).map((r) => [r.old_path!, r]) : []);
+  const decisions = decisionsOf(town.slug);
+  // A second town the guide carried for a while (src/lib/fold.ts, ALSO_COVERED: the Clear Creek
+  // guide held Black Hawk's listings from 20 October to 2 November 2026): its own decisions, by the same path.
+  const alsoCovered = (ALSO_COVERED[host] ?? []).map((t) => decisionsOf(allTowns.find((c) => c.hubPage?.town === t)?.slug ?? t));
   const traditions = new Map(foldEventTargets(foldEvents as FoldEventMap, host, H, (slug) => pages.get(slug)).map((e) => [e.path, `/${e.town ?? H}/${e.event}/`]));
   const stubs = new Map(inventory.filter((r) => r.source === 'stub').map((r) => [r.old_path!, r.note!]));
 
@@ -129,8 +133,8 @@ for (const town of allTowns.filter((t) => t.hubPage && t.section && FOLDED[t.dom
       if (path.endsWith('.ics')) return gone('a past event’s calendar file');
       if (place) {
         const fm = oldFile(town, commit, 'places', place);
-        if (fm && /^status:\s*"?(closed|permanently-closed|temporarily-closed)/m.test(fm)) return gone('closed');
-        return gone('unverifiable: the listing is outside its freshness window and was not re-read');
+        if (fm && /^status:\s*"?closed"?\s*$/m.test(fm)) return gone('closed: the old guide had it permanently closed');
+        return go(`${page}directory/`, 'not built in the section (outside its freshness window); the section’s directory');
       }
       return go(page, 'a page not carried into the section; the town’s page on the hub');
     }
@@ -139,6 +143,10 @@ for (const town of allTowns.filter((t) => t.hubPage && t.section && FOLDED[t.dom
     if (d) {
       if (d.decision === '410') return gone(d.reason!);
       const dest = d.destination!;
+      if (d.decision === '301') return built(dest) ? go(dest, d.reason!) : go(page, `${d.reason!} (index not built; the town's page)`);
+      // A kept place since found closed for good (`status: closed` in its file) answers 410: only a confirmed closure does.
+      const keptPlace = dest.match(/^\/[a-z-]+\/places\/([a-z0-9-]+)\/$/)?.[1];
+      if (keptPlace && existsSync(`content/${town.slug}/places/${keptPlace}.md`) && /^status:\s*"?closed"?\s*$/m.test(readFileSync(`content/${town.slug}/places/${keptPlace}.md`, 'utf8'))) return gone('closed: the place’s file says it has closed for good');
       if (built(dest)) return go(dest, d.decision === 'tradition' ? `an annual event: ${d.reason}` : `kept: ${d.reason}`);
       if (d.decision === 'tradition') throw new Error(`${host}${path}: the tradition page ${dest} is not built.`);
       return gone(`unverifiable: carried over but held back by the hub’s publish gate (${dest})`);
@@ -151,7 +159,18 @@ for (const town of allTowns.filter((t) => t.hubPage && t.section && FOLDED[t.dom
       if (fm && /^annual:\s*true/m.test(fm)) return gone('annual on the old guide, not verifiable as continuing; no tradition record');
       return gone(fm && (lastDate(fm) ?? '') >= today ? 'not carried: no decision for it' : 'past one-time event with no matching annual page');
     }
-    if (place) return gone('closed or retired before the restructure');
+    if (place) {
+      // Decided under the other town the guide carried (ALSO_COVERED), by the same path.
+      for (const other of alsoCovered) {
+        const o = other.get(path);
+        if (o && o.decision !== '410' && built(o.destination!)) return go(o.destination!, `a ${o.destination!.split('/')[1]} listing the guide carried for a while: ${o.reason}`);
+        if (o?.decision === '410') return gone(o.reason!);
+      }
+      // A listing the guide itself dropped before the move: 410 only when it had it closed.
+      const fm = oldFile(town, commit, 'places', place);
+      if (fm && /^status:\s*"?closed"?\s*$/m.test(fm)) return gone('closed: the old guide had it permanently closed');
+      return built(`${page}places/`) ? go(`${page}places/`, 'dropped from the old guide before the move, not as closed; the town’s places') : go(page, 'dropped from the old guide before the move, not as closed; the town’s page');
+    }
     if (article) return gone('retired before the restructure');
     return go(page, 'a page of the closed guide; the town’s page on the hub');
   };

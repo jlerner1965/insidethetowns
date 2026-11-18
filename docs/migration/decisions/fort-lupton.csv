@@ -1,6 +1,6 @@
 old_path,kind,decision,destination,reason
 /places/a-natural-way/,place,keep,/fort-lupton/places/a-natural-way/,"address, phone and hours match its contact page"
-/places/ace-hardware-of-fort-lupton/,place,410,,"unverifiable: source acehardware.com store page answers 403 (bot check, not worked around); the store has no other own page"
+/places/ace-hardware-of-fort-lupton/,place,keep,/fort-lupton/places/ace-hardware-of-fort-lupton/,"re-check pending (kept, noindex, last checked date shown): unverifiable: source acehardware.com store page answers 403 (bot check, not worked around); the store has no other own page"
 /places/cannery-park/,place,keep,/fort-lupton/places/cannery-park/,"address, hours and features match the City's facility page"
 /places/community-center-park/,place,keep,/fort-lupton/places/community-center-park/,"address, hours and features match the City's facility page"
 /places/coyote-creek-golf-course/,place,keep,/fort-lupton/places/coyote-creek-golf-course/,"address, phone and summer and winter hours match the course's contact page"

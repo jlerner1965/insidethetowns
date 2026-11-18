@@ -8,7 +8,9 @@ type: trick-or-treat
 organizer: "Elizabeth Area Chamber of Commerce"
 sourceUrl: "https://elizabethchamber.org/"
 years:
-  - year: 2027
-    status: not-announced
-    checked: 2026-11-12
+  - year: 2026
+    status: confirmed
+    date: 2026-10-24
+    place: "South Main Street"
+    checked: 2026-10-15
 ---

@@ -27,7 +27,7 @@ export function ageDays(verified: Date, now: Date = new Date()): number {
 type Provenanced = { source?: string; verified?: Date };
 /** The part of a `seasonal` block the gate reads; see seasonalSchema. */
 export type SeasonLike = { opens?: Date; closes?: Date; openMonths?: readonly string[]; closedMonths?: readonly string[] };
-type PlaceLike = Provenanced & { status?: string; hours?: string; seasonal?: SeasonLike; alwaysListed?: boolean };
+type PlaceLike = Provenanced & { status?: string; hours?: string; seasonal?: SeasonLike; alwaysListed?: boolean; recheckPending?: string };
 
 /** Why an entry may not publish, or null when it may. */
 export type Exclusion =
@@ -54,6 +54,9 @@ export function placeExclusion(data: unknown, variant: TownVariant, now: Date = 
   if (place.status && place.status !== 'open') return null;
   // The owner's word that it stays (placeSchema, alwaysListed).
   if (place.alwaysListed) return null;
+  // Waiting for a person to read its source (placeSchema, recheckPending): the
+  // page is noindex and says how old the check is, so age does not cut it.
+  if (place.recheckPending) return null;
   const { listingDays } = windowsFor(variant);
   const age = ageDays(place.verified, now);
   if (age > listingDays) {
