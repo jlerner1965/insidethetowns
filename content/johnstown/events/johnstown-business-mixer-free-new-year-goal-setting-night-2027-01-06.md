@@ -1,5 +1,5 @@
 ---
-title: "Johnstown Business Mixer | Free New Year Goal-Setting Night"
+title: "Johnstown Business Mixer: goal-setting night"
 start: "2027-01-06T17:00"
 venue: "The Arabella"
 address: "4520 Venture Drive, Johnstown, CO 80534"

@@ -1,5 +1,5 @@
 ---
-title: "Prevention and signs of elder abuse: a police safety talk"
+title: "Elder abuse prevention: a police safety talk"
 start: "2026-12-16T13:00"
 end: "2026-12-16T14:00"
 venue: "Erie Police Department"

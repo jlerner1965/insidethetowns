@@ -30,8 +30,10 @@ const categories = [...new Set(articles.map((a) => a.data.category))].sort((a, b
  * promised "where to eat" and "the outdoors" over two or three articles on
  * history and moving here, so the subjects are read off the articles.
  */
+// The town the guides are written for (TownConfig.pageTown).
+const place = town.pageTown?.guides ?? town.name;
 const SUBJECT: Record<string, string> = {
-  Families: `${town.name} with kids`,
+  Families: `${place} with kids`,
   'Food & drink': 'where to eat',
   Outdoors: 'the outdoors',
   'Moving here': 'what moving here is like',
@@ -43,13 +45,13 @@ const subjects = categories.map((c) => SUBJECT[c] ?? c.toLowerCase());
 const subjectList = subjects.length > 1 ? `${subjects.slice(0, -1).join(', ')}, and ${subjects[subjects.length - 1]}` : subjects.join('');
 // Where the subjects leave it short, the meta description names some of the guides (listDescription).
 const description = fillDescription(
-  listDescription(`Guides to ${town.name}, ${town.state}: ${subjectList}. ${articles.length} so far, each with its sources.`, articles.map((a) => a.data.title)),
+  listDescription(`Guides to ${place}, ${town.state}: ${subjectList}. ${articles.length} so far, each with its sources.`, articles.map((a) => a.data.title)),
   // Where no article's name fits either (the "with kids" titles run long): the date every article carries.
   ['Each one carries its date.', 'Each is dated.'],
 );
 const structured = [
   collectionPageJsonLd(town, {
-    name: `Guides to ${town.name}, Colorado`,
+    name: `Guides to ${place}, Colorado`,
     description,
     path: '/guides/',
     items: articles.map((a) => ({ name: a.data.title, path: `/articles/${a.slug}/` })),
@@ -60,7 +62,7 @@ const structured = [
   ]),
 ];
 ---
-<Page title="Guides" seoTitle={`Guides to ${town.name}, Colorado`} eyebrow={town.name} {description} intro={articles.length > 0 ? `The longer reads: ${subjectList}. Each says where its facts came from.` : 'The longer reads, as they are written. Each will say where its facts came from.'} jsonLd={structured}>
+<Page title="Guides" seoTitle={`Guides to ${place}, Colorado`} eyebrow={place} {description} intro={articles.length > 0 ? `The longer reads: ${subjectList}. Each says where its facts came from.` : 'The longer reads, as they are written. Each will say where its facts came from.'} jsonLd={structured}>
   {articles.length === 0 ? (
     <p class="text-ink-muted">Guides are on their way.</p>
   ) : (

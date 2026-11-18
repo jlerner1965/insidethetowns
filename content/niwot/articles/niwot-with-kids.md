@@ -1,5 +1,6 @@
 ---
 title: "Niwot with kids: a playground, a caboose, ice cream and a flat loop"
+seoTitle: "Niwot, CO with kids: playground, caboose, ice cream, flat loop"
 date: "2026-09-27"
 excerpt: "Everything in Niwot a family can do on foot from Second Avenue, and the two places a short drive away, with what each is actually like."
 image: ../images/whistle-stop-caboose.jpg

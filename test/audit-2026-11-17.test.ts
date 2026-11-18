@@ -8,7 +8,7 @@ import { articleJsonLd, eventJsonLd, eventLocality, eventPlace, eventWhere, plac
 import { clampSnippet } from '../src/lib/plain-text.ts';
 import { coveredTowns } from '../src/lib/sub-towns.ts';
 import { eventTitle } from '../src/lib/titles.ts';
-import { correctedGame, seasonOver, teamDescription } from '../src/lib/school-sports.ts';
+import { correctedGame, seasonOver, teamDescription, outcome } from '../src/lib/school-sports.ts';
 
 const cv = { kind: 'town', slug: 'carbon-valley', name: 'Carbon Valley', state: 'CO', domain: 'carbonvalleyguide.com', siteTitle: 'Inside Carbon Valley', tagline: 'x' } as never;
 const windsor = { kind: 'town', slug: 'windsor', name: 'Windsor', state: 'CO', domain: 'insidewindsorco.com', siteTitle: 'Inside Windsor', tagline: 'x', subTowns: ['windsor', 'severance'] } as never;
@@ -94,4 +94,17 @@ test('a loss at state ends a season without the week’s wait, and a round’s n
   assert.match(teamDescription({ school: 'Severance High School' }, team as never, 'fall', new Date('2026-11-17T18:00:00Z')), /Season over\./);
   assert.equal('venue' in correctedGame({ ...game, venue: 'State Playoffs Round 1' }, undefined, []), false);
   assert.equal(correctedGame({ ...game, venue: 'Dutch Clark' }, undefined, []).venue, 'Dutch Clark');
+});
+
+test('a game CHSAA puts at the other school is away, and reads "at" (the owner, 17 November 2026)', () => {
+  const game = { date: '2026-11-13', opponent: 'Pueblo East', site: 'neutral' as const, neutral: true, url: 'u', stage: 'Playoffs', result: 'L' as const, score: { us: 7, them: 10 } };
+  const visit = { team: 'football', date: '2026-11-13', stage: 'State Football Playoffs', venue: 'Dutch Clark', source: 'https://chsaanow.com/sports/football/games/2026/11/13/severance-at-pueblo-east' };
+  const fixed = correctedGame(game, undefined, [], [visit]);
+  assert.equal(fixed.site, 'away');
+  assert.equal('neutral' in fixed, false);
+  assert.equal(fixed.stage, 'State Football Playoffs');
+  assert.equal(fixed.venue, 'Dutch Clark');
+  assert.equal(outcome(fixed), '7-10 at Pueblo East');
+  // Another day is left as MaxPreps filed it.
+  assert.equal(correctedGame({ ...game, date: '2026-11-06' }, undefined, [], [visit]).site, 'neutral');
 });

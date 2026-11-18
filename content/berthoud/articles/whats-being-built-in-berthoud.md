@@ -1,6 +1,6 @@
 ---
 title: "What's being built in Berthoud"
-seoTitle: "Berthoud, CO: what's being built, approved and under review in 2026"
+seoTitle: "Berthoud, CO: what's being built and under review in 2026"
 date: "2026-11-03"
 excerpt: "Every sizable project on the Town's development map, from the 439-lot first filing of Legacy Park to the Mountain View annexation of up to 618 homes now under review, with where each one stands, how a project moves from petition to permit, and the rules the Town changed this year. Updated as they move."
 image: ../images/town-limits.jpg

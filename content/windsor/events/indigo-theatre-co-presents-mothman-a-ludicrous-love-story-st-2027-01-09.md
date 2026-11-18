@@ -1,5 +1,5 @@
 ---
-title: "Indigo Theatre CO Presents Mothman: A Ludicrous Love Story, Staged Reading"
+title: "Indigo Theatre: Mothman, a staged reading"
 subTown: windsor
 start: "2027-01-09T14:00"
 end: "2027-01-09T16:30"

@@ -3,6 +3,9 @@ title: "St. Vrain State Park"
 type: park
 address: "3785 Weld County Road 24 1/2, Firestone, CO 80504"
 url: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
+image: ../images/st-vrain-state-park.jpg
+imageAlt: "The Colorado Parks & Wildlife welcome sign at St. Vrain State Park: a brown board on two timber posts reading “Welcome to your St. Vrain State Park”, behind a wire fence in tall grass, with one of the park’s ponds and a line of cottonwoods behind it on a clear summer morning, 2017"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 source: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
 verified: "2026-11-02"
 added: "2026-11-02"

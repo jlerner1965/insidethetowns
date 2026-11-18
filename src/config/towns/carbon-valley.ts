@@ -57,8 +57,12 @@ export const carbonValley: TownConfig = {
   // A few enduring words, no year, no vote.
   shortTagline: 'Frederick, Firestone and Dacono on one guide',
   // Short enough that the state survives the search-result trim (test/towns.test.ts).
-  // The three towns by name, as the guide had it until 2 November 2026.
-  seoTagline: 'Frederick, Firestone & Dacono, CO events & things to do',
+  // The two towns with listings; Dacono has none yet, so the title does not
+  // promise it (the owner, 17 November 2026).
+  seoTagline: 'Frederick & Firestone, CO events & things to do',
+  // Living Here and Guides are written for Frederick (the restructure of 12
+  // November 2026), so their titles say Frederick (the owner, 17 November 2026).
+  pageTown: { livingHere: 'Frederick', guides: 'Frederick' },
   // One line for the comparison table, as the three-town guide had it until
   // 2 November 2026, less its census years: the flagship test keeps the one
   // line enduring.

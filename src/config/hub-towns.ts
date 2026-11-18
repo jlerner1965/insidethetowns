@@ -129,8 +129,8 @@ export interface HubTown {
    * under Events, and first in the page's title and description.
    */
   showpiece?: {
-    /** The record the page leads with: "The one to know", first under Events (src/routes/hub/town.astro). */
-    spotlight: string;
+    /** The record the page leads with: "The one to know", first under Events (src/routes/hub/town.astro). Salida's FIBArk came off on 17 November 2026 (the owner): its next date is not announced. */
+    spotlight?: string;
     intro: string;
     /**
      * The photograph, once one is licensed. Three things and no code: the
@@ -252,7 +252,6 @@ export const HUB_TOWNS: readonly HubTown[] = [
     cluster: 'Arkansas valley',
     signature: { kind: 'river-flow', gauge: { agency: 'DWR', id: 'ARKSALCO', river: 'Arkansas River', where: 'at Salida', page: 'https://dwr.state.co.us/Tools/Stations/ARKSALCO' } },
     showpiece: {
-      spotlight: 'salida-fibark',
       intro: 'Salida’s year on the Arkansas River: the festivals, the races and the dates the mountains set.',
       // Waiting for the owner's licensed photograph (12 November 2026): put
       // the file at content/hub/images/salida.jpg, write the alt here, add
