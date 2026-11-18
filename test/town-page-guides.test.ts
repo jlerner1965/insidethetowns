@@ -21,6 +21,9 @@ import { rawRecords } from '../src/lib/tradition-files.ts';
 import { parseFrontmatter } from '../scripts/lib/frontmatter.ts';
 
 const FIVE = ['estes-park', 'golden', 'manitou-springs', 'evergreen', 'salida'] as const;
+/** The second brief of 18 November 2026: the same for nine more. */
+const NINE = ['carbondale', 'nederland', 'buena-vista', 'leadville', 'idaho-springs', 'georgetown', 'crested-butte', 'steamboat-springs', 'durango'] as const;
+const BRIEFED = [...FIVE, ...NINE];
 const profileOf = (slug: string): TownProfile => townProfileSchema.parse(JSON.parse(readFileSync(`data/hub/towns/${slug}.json`, 'utf8')));
 const records = rawRecords('.', {});
 
@@ -48,8 +51,8 @@ test('a lead guide path is a section article or a hub story, nothing else', () =
   assert.equal(sectionArticleSegment('pages'), 'guides');
 });
 
-test('each of the five names a lead guide that is a published article where its path says', () => {
-  for (const slug of FIVE) {
+test('each briefed town names a lead guide that is a published article where its path says', () => {
+  for (const slug of BRIEFED) {
     const town = findHubTown(slug)!;
     assert.ok(town.leadGuide, `${slug}: no leadGuide`);
     const ref = parseLeadGuide(town.leadGuide!);
@@ -85,8 +88,8 @@ const TRAIL_GAPS: Readonly<Record<string, string>> = {
   salida: 'the City of Salida refuses automated readers, so the Riverwalk and Riverside Park have no season or dog rule from the City',
 };
 
-test('Trails and parks: three to six on each of the five, every one with the facts the brief names', () => {
-  for (const slug of FIVE) {
+test('Trails and parks: three to six on each briefed town, every one with the facts the brief names', () => {
+  for (const slug of BRIEFED) {
     const trails = profileOf(slug).trails ?? [];
     const least = TRAIL_GAPS[slug] ? 2 : 3;
     assert.ok(trails.length >= least && trails.length <= 6, `${slug}: ${trails.length} trails and parks${TRAIL_GAPS[slug] ? ` (gap: ${TRAIL_GAPS[slug]})` : ''}`);
@@ -105,7 +108,7 @@ test('Places to know: Estes Park has the five the brief names, Salida its three,
   for (const want of [/Rocky Mountain National Park/, /elk/i, /Stanley/, /Riverwalk/, /Lake Estes/]) assert.match(estes, want, `Estes Park: ${want}`);
   const salida = (profileOf('salida').places ?? []).map((p) => p.name).join(' | ');
   for (const want of [/Arkansas/, /Monarch/, /hot springs/i]) assert.match(salida, want, `Salida: ${want}`);
-  for (const slug of FIVE) {
+  for (const slug of BRIEFED) {
     for (const p of profileOf(slug).places ?? []) {
       assert.ok(p.source && p.checked && p.facts.length > 0, `${slug} ${p.name}`);
       if (p.page) assert.ok(pageFile(p.page), `${slug} ${p.name}: ${p.page} is not a page this site builds`);
