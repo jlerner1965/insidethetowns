@@ -41,7 +41,7 @@ test('vercel.json: no redirect rule for a folded domain, and one rewrite each to
   for (const t of legacy) {
     assert.deepEqual(vercel.redirects.filter((r) => hostOf(r) === t.domain), [], `${t.domain}: a redirect rule would answer before the function`);
     const rewrites = (vercel.rewrites ?? []).filter((r) => hostOf(r) === t.domain);
-    assert.deepEqual(rewrites, [{ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy/?legacy_path=/:path*' }], `${t.domain}: one rewrite, every path, the path passed on; to the function's slashed address, the only one Vercel serves it at with trailingSlash`);
+    assert.deepEqual(rewrites, [{ source: '/(.*)', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy/?legacy_path=/$1' }], `${t.domain}: one rewrite for every path, slashed or not (\`/(.*)\`; Vercel matched \`/:path*\` strictly and missed every address ending in a slash), to the function's slashed address`);
   }
   // No redirect anywhere points at a folded domain.
   const folded = new Set(legacy.map((t) => t.domain));
@@ -134,6 +134,13 @@ test('the path the reader asked for: from the rewrite’s parameter, with or wit
   assert.equal(answer('insidegolden.com', requestedPath(q), requestedSearch(q)).headers.get('location'), 'https://insidethetowns.com/golden/trick-or-treat-street/?utm_source=newsletter');
   assert.equal(withQuery('https://insidethetowns.com/longmont/#traditions', '?a=1'), 'https://insidethetowns.com/longmont/?a=1#traditions');
   assert.equal(withQuery('https://insidethetowns.com/golden/', ''), 'https://insidethetowns.com/golden/');
+  // The query Vercel's converter hands the function for /(.*) → /api/legacy/?legacy_path=/$1 with a host condition
+  // (@vercel/routing-utils: dest "/api/legacy/?legacy_path=%2F$1&host=$host"): the slashed path arrives whole, and its host= is the platform's.
+  const real = new URL('/api/legacy/?legacy_path=%2Fevents/trick-or-treat-street/&host=insidegolden.com&utm_source=newsletter', 'https://insidegolden.com');
+  assert.equal(requestedPath(real), '/events/trick-or-treat-street/');
+  assert.equal(requestedSearch(real), '?utm_source=newsletter');
+  assert.equal(requestedPath(new URL('/api/legacy/?legacy_path=%2F&host=', 'https://insidegolden.com')), '/');
+  assert.equal(requestedSearch(new URL('/api/legacy/?legacy_path=%2F&host=', 'https://insidegolden.com')), '');
   assert.equal(at('/events/x/'), '/events/x/', 'no rewrite parameter: the request’s own path');
   const to = (path: string) => {
     const r = answer('insidegolden.com', path);

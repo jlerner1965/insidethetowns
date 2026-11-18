@@ -6615,184 +6615,184 @@
   ],
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidetimnath.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insideelizabeth.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidefortcollins.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidelongmontco.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidelovelandco.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidefortlupton.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidecastlerockco.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insideestespark.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidegolden.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insideevergreenco.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidenederland.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insideblackhawk.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insideidahosprings.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidegeorgetownco.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidegrandlake.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidemanitousprings.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insideleadville.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "insidelafayette.com"
         }
       ],
-      "destination": "/api/legacy/?legacy_path=/:path*"
+      "destination": "/api/legacy/?legacy_path=/$1"
     }
   ],
   "functions": {
