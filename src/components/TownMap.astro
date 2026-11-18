@@ -12,7 +12,7 @@
  * towns mean something: all but one sit north-west of Denver and Elizabeth sits
  * south-east of it, which is a fact about the network, not a hole in the map.
  */
-import { LIVE_TOWNS, type TownConfig } from '@/config';
+import { LIVE_TOWNS, guideUrl, type TownConfig } from '@/config';
 
 interface Props {
   towns: TownConfig[];
@@ -176,7 +176,7 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
     {pins.map(({ t, cx, cy, spot, live }) => (
       <g>
         {live ? (
-          <a href={`https://${t.domain}/`} aria-label={`${t.name} — ${t.domain}`}>
+          <a href={guideUrl(t)} aria-label={`${t.name} — ${guideUrl(t).replace(/^https:\/\//, '')}`}>
             {/* A 13px halo, not 17: the larger ones ran into each other along
                 the Longmont–Niwot–Erie and Fort Collins–Timnath clusters. */}
             <circle cx={cx} cy={cy} r="13" fill={t.colors.primary} fill-opacity="0.14"></circle>

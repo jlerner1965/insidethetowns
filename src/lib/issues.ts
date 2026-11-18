@@ -13,6 +13,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { findHubTown } from '../config/hub-towns.ts';
+import { guideUrl } from '../config/index.ts';
 
 export interface SentIssue {
   /** The file's name without its extension: the page's slug on the hub. */
@@ -55,6 +56,7 @@ interface GuideLike {
   siteTitle: string;
   domain: string;
   hubPage?: { town: string };
+  section?: { carry?: string };
   retired?: { successor?: string };
 }
 
@@ -71,7 +73,7 @@ export function movedGuides(towns: readonly GuideLike[], hubTitle: string, publi
     if (t.status !== 'redirect') continue;
     const successor = t.retired?.successor ? find(t.retired.successor) : undefined;
     if (t.hubPage && published.has(t.hubPage.town)) out.push({ siteTitle: t.siteTitle, domain: t.domain, now: `${findHubTown(t.hubPage.town)?.name ?? t.name} on ${hubTitle}`, href: `/${t.hubPage.town}/` });
-    else if (successor && successor.status === 'live') out.push({ siteTitle: t.siteTitle, domain: t.domain, now: successor.siteTitle, href: `https://${successor.domain}/` });
+    else if (successor && successor.status === 'live') out.push({ siteTitle: t.siteTitle, domain: t.domain, now: successor.siteTitle, href: guideUrl(successor) });
   }
   return out;
 }

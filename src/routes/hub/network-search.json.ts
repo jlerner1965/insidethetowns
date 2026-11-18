@@ -20,7 +20,7 @@
  *   school and the run has written its data file (src/config/school-sports.ts).
  */
 import type { APIRoute } from 'astro';
-import { countyLabel, liveTowns, type TownConfig } from '@/config';
+import { countyLabel, guideUrl, liveTowns, type TownConfig } from '@/config';
 import { getNetworkEntries, type NetworkEntry } from '@/lib/content';
 import { dayKey, formatDayLong, formatDayRange, formatMonthDay, formatTimeRange } from '@/lib/dates';
 import { clampText, markdownToText } from '@/lib/plain-text';
@@ -55,7 +55,7 @@ function words(
 function townRecord(town: TownConfig): NetworkRecord {
   const covers = subTownList(town);
   return {
-    url: `https://${town.domain}/`,
+    url: guideUrl(town),
     kind: 'Town',
     title: town.siteTitle,
     town: town.name,
@@ -69,7 +69,7 @@ function townRecord(town: TownConfig): NetworkRecord {
 function movingRecord(page: NetworkEntry<'pages'>): NetworkRecord {
   const { data, town } = page;
   return {
-    url: `https://${town.domain}/moving-here/`,
+    url: guideUrl(town, `/moving-here/`),
     kind: 'Moving here',
     title: data.title,
     town: town.name,
@@ -82,7 +82,7 @@ function movingRecord(page: NetworkEntry<'pages'>): NetworkRecord {
 function placeRecord(place: NetworkEntry<'places'>): NetworkRecord {
   const { data, town } = place;
   return {
-    url: `https://${town.domain}/places/${place.slug}/`,
+    url: guideUrl(town, `/places/${place.slug}/`),
     kind: 'Place',
     title: data.title,
     town: town.name,
@@ -96,7 +96,7 @@ function placeRecord(place: NetworkEntry<'places'>): NetworkRecord {
 function articleRecord(article: NetworkEntry<'articles'>): NetworkRecord {
   const { data, town } = article;
   return {
-    url: `https://${town.domain}/articles/${article.slug}/`,
+    url: guideUrl(town, `/articles/${article.slug}/`),
     kind: 'Article',
     title: data.title,
     town: town.name,
@@ -120,7 +120,7 @@ function eventRecord(event: NetworkEntry<'events'>): NetworkRecord {
       : formatDayLong(next.data.start);
   const status = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.status] : undefined;
   return {
-    url: `https://${town.domain}/events/${event.slug}/`,
+    url: guideUrl(town, `/events/${event.slug}/`),
     kind: 'Event',
     title: data.title,
     town: town.name,
@@ -140,6 +140,7 @@ function eventRecord(event: NetworkEntry<'events'>): NetworkRecord {
 const sportsFiles = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
 function sportsRecords(town: TownConfig, now = new Date()): NetworkRecord[] {
   const out: NetworkRecord[] = [];
+  const where = { name: town.name, domain: town.domain, origin: guideUrl(town).replace(/\/$/, '') };
   for (const school of schoolsFor(town.slug)) {
     const data = sportsDataFor(school, sportsFiles);
     const teams = data ? teamsWithData(data) : [];
@@ -148,7 +149,7 @@ function sportsRecords(town: TownConfig, now = new Date()): NetworkRecord[] {
     const rows = teams.map((t) => ({ name: t.name, overall: t.overall, opponents: [...new Set([...t.upcoming, ...t.results].map((g) => g.opponent))].slice(0, 12) }));
     const names = rows.map((t) => t.name.toLowerCase());
     out.push(
-      sportsRecord(town, school, {
+      sportsRecord(where, school, {
         path: sportsPath(school),
         title: schoolPageTitle(school),
         description: `${school.school} ${school.mascot} scores, schedules and records this ${seasonWord}: ${names.join(', ')}, from MaxPreps.`,
@@ -156,7 +157,7 @@ function sportsRecords(town: TownConfig, now = new Date()): NetworkRecord[] {
     );
     for (const team of teams) {
       const { years } = seasonOf({ generated: data.generated, sports: [team] }, school.teams, now);
-      out.push(sportsRecord(town, school, { path: teamPath(school, team.key), title: teamPageTitle(school, team, years), description: teamDescription(school, team, seasonWord, now) }, rows.filter((r) => r.name === team.name)));
+      out.push(sportsRecord(where, school, { path: teamPath(school, team.key), title: teamPageTitle(school, team, years), description: teamDescription(school, team, seasonWord, now) }, rows.filter((r) => r.name === team.name)));
     }
   }
   return out;

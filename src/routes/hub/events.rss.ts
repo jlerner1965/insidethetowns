@@ -6,7 +6,7 @@
  * Each item links to the town site that owns it.
  */
 import type { APIRoute } from 'astro';
-import { getHub } from '@/config';
+import { getHub, guideUrl } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { isCanceled, occurrences, upcoming } from '@/lib/events';
 import { formatDate, formatTimeRange, dayKey } from '@/lib/dates';
@@ -33,7 +33,7 @@ export const GET: APIRoute = async ({ site }) => {
     const when = `${formatDate(data.start)}, ${data.timeNote ?? formatTimeRange(data.start, data.end, data.allDay)}`;
     return {
       title: `${data.title} — ${town.name}, ${formatDate(data.start)}`,
-      link: `https://${town.domain}/events/${event.slug}/`,
+      link: guideUrl(town, `/events/${event.slug}/`),
       guid: `${town.domain}/events/${event.slug}/${dayKey(data.start)}`,
       description: [when, data.venue, data.cost].filter(Boolean).join(' · '),
       pubDate: data.verified ?? data.start,

@@ -28,7 +28,8 @@ import { HUB_TOWNS } from '../src/config/hub-towns.ts';
 import { hubEventPages, publishedHubTowns } from '../src/lib/hub-towns.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
 import foldEvents from '../data/hub/fold-events.json' with { type: 'json' };
-import { generatedBlocks, withBlocks, REDIRECT_LIMIT, type HostRule } from './lib/redirect-rules.ts';
+import { generatedBlocks, retiredOntoGuideRules, withBlocks, REDIRECT_LIMIT, type HostRule } from './lib/redirect-rules.ts';
+import { isMoved, MOVING_GUIDES } from '../src/config/index.ts';
 
 type Rule = HostRule;
 const file = new URL('../vercel.json', import.meta.url);
@@ -49,7 +50,8 @@ const eventMap = foldEvents as FoldEventMap;
 // docs/migration/redirect-map.csv, one hop, 301 or 410: vercel.json holds no
 // redirect for its host, only the rewrite that sends every path to the
 // function (below).
-const legacy = allTowns.filter((t) => t.hubPage && t.section);
+// A guide moved whole (src/config/guide-move.ts) is answered the same way, from the map its own build writes.
+const legacy = allTowns.filter((t) => (t.hubPage && t.section) || isMoved(t));
 const domains = [
   ...allTowns.filter((t) => t.hubPage && !t.section).map((t) => ({ domain: t.domain, town: t.hubPage!.town })),
   ...HUB_TOWNS.filter((t) => t.domain && published.has(t.slug)).map((t) => ({ domain: t.domain!, town: t.slug })),
@@ -57,8 +59,10 @@ const domains = [
 for (const hubTown of HUB_TOWNS.filter((t) => t.domain && !published.has(t.slug))) {
   console.log(`${hubTown.domain}: no rule, ${hubTown.name}'s page is not published yet.`);
 }
+// A moving guide's domain (src/config/guide-move.ts) is in the map ahead of its switch: its entries are read by the guide's own build once it is on.
+const moving = allTowns.filter((t) => MOVING_GUIDES.includes(t.slug));
 for (const host of Object.keys(eventMap)) {
-  if (!domains.some((d) => d.domain === host) && !legacy.some((t) => t.domain === host)) throw new Error(`data/hub/fold-events.json names ${host}, which is no folded guide's or hub town's domain.`);
+  if (!domains.some((d) => d.domain === host) && !legacy.some((t) => t.domain === host) && !moving.some((t) => t.domain === host)) throw new Error(`data/hub/fold-events.json names ${host}, which is no folded guide's, moving guide's or hub town's domain.`);
 }
 for (const town of domains) {
   const want = foldRules(town.domain, hub.domain, town.town, foldEventTargets(eventMap, town.domain, town.town, (slug) => pages.get(slug)));
@@ -79,6 +83,22 @@ for (const block of generatedBlocks()) {
   changed++;
   rules = next as Rule[];
   console.log(`${block.host}: ${block.rules.length} rule(s) for its former, retired and moved addresses`);
+}
+// The three retired domains that forward onto a guide path for path
+// (scripts/lib/redirect-rules.ts, RETIRED_ONTO_GUIDES): their hand-written
+// rules, home page first and catch-all last, with the guide's own former-slug
+// block between; each destination follows the guide's switch.
+for (const { host, lead, tail } of retiredOntoGuideRules()) {
+  const have = rules.filter((r) => hostOf(r) === host);
+  const generated = have.filter((r) => !lead.some((l) => l.source === r.source) && !tail.some((x) => x.source === r.source));
+  const want = [...lead, ...generated, ...tail];
+  if (JSON.stringify(have) === JSON.stringify(want)) continue;
+  changed++;
+  const at = rules.findIndex((r) => hostOf(r) === host);
+  const rest = rules.filter((r) => hostOf(r) !== host);
+  const index = at < 0 ? rest.length : rules.slice(0, at).filter((r) => hostOf(r) !== host).length;
+  rules = [...rest.slice(0, index), ...want, ...rest.slice(index)];
+  console.log(`${host}: ${have.length} rule(s) replaced by ${want.length}, onto the guide where it is served`);
 }
 // The folded guides' domains: no redirect rule of their own, and one rewrite
 // each to api/legacy.ts. The rewrite names every path (`/:path*`, the root

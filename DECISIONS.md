@@ -12114,3 +12114,89 @@ layout changes to the hub's pages beyond the links named.*
 - **`docs/needs-me.md`** is written every night by `npm run needs-me`: the
   places waiting for a re-check, the tradition dates unconfirmed three
   weeks out, and the roundups due with dates missing.
+
+## The seven guides move into insidethetowns.com, 18 November 2026
+
+*The owner's brief of 18 November 2026: one pull request, built and
+verified now, merged with every switch off, cut over on the owner's go, a
+Friday after the Thursday email has sent. No towns, features or redesigns.*
+
+- **One switch per domain** (`src/config/guide-move.ts`: `false`, or the
+  day the guide was cut over). Everything the move does reads from it, so
+  switching one off restores the guide exactly as before. Switch by a
+  config edit and a redeploy, never Vercel's Instant Rollback, which turns
+  off production domain auto-assignment. `GUIDE_MOVE_ON=all` turns the
+  switches on for a local build or a test; Vercel never reads it.
+- **A moved guide is a full section that carries every page**
+  (`section.carry: 'all'`): its home, events, This Week, This weekend,
+  updates, sports, places, articles and the rest at their own paths under
+  `/<town>/` (Carbon Valley at `/carbon-valley/`), built from the guide's
+  own templates and content on every hub build, under its own name ("Inside
+  Berthoud" as the masthead, titles that lead with the town). The four
+  sections of 17 November keep their rule: their home is the hub's town
+  page, This Week and updates go to their events page. Structured data and
+  og:site_name say "Inside the Towns", as on every section.
+- **A moved guide stays `status: 'live'`**: its newsletter signup and
+  Thursday email keep their Buttondown tags, the Wednesday notes and editor
+  runs, ingest and the nightly re-checks read `content/<town>/` as before.
+  Every link the network writes to a guide goes through `guideUrl`, so a
+  switch moves every link with it (the hub's lists, the Nearby block, the
+  email, the search index, the structured data).
+- **Its places follow the hub's rules**: a stale place is kept as re-check
+  pending, noindex, out of the sitemap and off every list, so its address
+  never 404s; the flags of #463 carry over unchanged. The needs-me list
+  links the hub section; `npm run confirm-place` and the re-check work
+  unchanged.
+- **Every address a guide ever published gets one answer.** The guide's own
+  project becomes a redirect project like the twenty already moved: it
+  builds the section exactly as the hub does and writes the map
+  `api/legacy.ts` answers from (`scripts/migration/guide-map.ts`) in the
+  same build, from the same content, so anything published before the
+  cutover carries over with no step of its own. The map: every page the
+  section builds; an annual event's address, dated or not, to the year-less
+  tradition page that stands for it (`data/hub/fold-events.json`, 30 new
+  entries); a former or retired slug to its target, never to the events list
+  or the directory (a generic page); a past date of a series that goes on to
+  the series' current page; and the decision in
+  `docs/migration/guides/<host>.csv` for what the guide no longer builds.
+  That inventory is rebuilt from build history (`guide-inventory.ts`): every
+  listing file ever in git with its series key, the retired.json ledger at
+  every commit, every production deployment's sitemap sampled from Vercel
+  (about a month: Vercel keeps no more), every address vercel.json ever
+  named, and the printed QR cards. A listing taken off the guide, a past
+  one-time event with no later date of its series, a quiet guide's event
+  addresses (Niwot has built no event page since 12 November) are `gone`,
+  410 with the reason; the guide's own rules of today give the rest their
+  destinations. Nothing left over goes to the home page: the build prints
+  it, and `check-local` fails.
+- **Each domain keeps serving its sitemap and robots.txt with 200**, the
+  sitemap as the section stands, addresses on the old domain, so search
+  engines re-read every address and find the 301. The folded domains'
+  redirects are untouched: with the switches off, vercel.json does not
+  change at all.
+- **Three retired domains forward onto a guide path for path**
+  (insideseverance.com onto the Windsor guide's Severance pages,
+  insidefrederickco.com and insidefirestone.com onto Carbon Valley). Their
+  hand-written rules are code now (`RETIRED_ONTO_GUIDES`), reproducing
+  vercel.json as it was, and follow the guide onto the hub when it moves,
+  one hop.
+- **The hub's `/<town>/` forwarding** (`HUB_MOVED`) drops a moved guide's own
+  address, now its section's home, and sends `/frederick`, `/severance/...`
+  straight to their places under the section, an annual event's to its
+  tradition page.
+- **A switched project builds only when its redirect files change**
+  (`scripts/vercel-ignore.sh`: the switch file, vercel.json, the function,
+  the map-maker, the history CSVs, the event map, and the guide's own
+  content, which its map is made from). The nightly rebuild no longer fires
+  its hook and warns on the stale line; `node scripts/live-towns.ts --moved`
+  names the `VERCEL_DEPLOY_HOOKS` lines to remove.
+- **Not changed, and said so**: a moved guide's Plausible snippet fires only
+  on its own domain, so its analytics stop at cutover (the four sections of
+  17 November have none either); the calendar files keep their UIDs and
+  PRODID on the old domain, so subscribers' calendars do not duplicate
+  entries; the printed cards for Berthoud and Erie are taken to open the
+  home page, as Niwot's do, since the repository holds no other address for
+  them.
+- **Previews**: every project but Lyons has preview deployments off, so the
+  checks ran on a local production build with every switch on
+  (`check-local`, the site check, the tests), as the brief allows.

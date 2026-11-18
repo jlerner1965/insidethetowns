@@ -34,7 +34,7 @@ import NetworkDayList from '@/components/NetworkDayList.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import SponsorLine from '@/components/SponsorLine.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { getHub, listsEvents, liveTowns } from '@/config';
+import { getHub, guideUrl, listsEvents, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { groupByDay, occurrences, weekendSections, weekendWindow } from '@/lib/events';
 import { dayKey, formatDate, formatDayRange, formatTime } from '@/lib/dates';
@@ -85,7 +85,7 @@ const structured = collectionPageJsonLd(hub, {
   name: `This weekend across Colorado’s towns`,
   description: `Every event across ${towns.length} Colorado town guides this weekend.`,
   path: '/this-weekend/',
-  items: everything.map((e) => ({ name: `${e.data.title} — ${e.town.name}`, url: `https://${e.town.domain}/events/${e.slug}/` })),
+  items: everything.map((e) => ({ name: `${e.data.title} — ${e.town.name}`, url: guideUrl(e.town, `/events/${e.slug}/`) })),
 });
 // The season pages, for the reader whose date is past these three weeks.
 const seasons = seasonLinks();

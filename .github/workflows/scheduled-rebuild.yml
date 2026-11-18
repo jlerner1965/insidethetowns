@@ -97,6 +97,13 @@ jobs:
             echo "::error::VERCEL_DEPLOY_HOOKS is set but contained no URLs."
             exit 1
           fi
+          # A guide moved into the hub (src/config/guide-move.ts) is a redirect project: its
+          # line in the secret is stale, and firing it rebuilds nothing a reader sees.
+          for site in $(node scripts/live-towns.ts --moved); do
+            case " $labeled " in
+              *" $site "*) echo "::warning::$site has moved into the hub; remove its line from VERCEL_DEPLOY_HOOKS (DEPLOY.md, Scheduled rebuilds)." ;;
+            esac
+          done
           # Every live site needs a hook, or its past events stay up until someone pushes.
           expected="$(echo "$sites" | wc -l | tr -d ' ')"
           if [ -n "$labeled" ]; then

@@ -17,7 +17,8 @@
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { allTowns } from '../../src/config/index.ts';
+import { allTowns, isMoved } from '../../src/config/index.ts';
+import { guideMap, readHistory } from './guide-map.ts';
 import { readCsv } from './shared.ts';
 
 const args = process.argv.slice(2);
@@ -35,7 +36,9 @@ const walk = (dir: string, out: string[] = []): string[] => {
   return out;
 };
 const sections = allTowns.filter((t) => t.hubPage && t.section);
+// A guide moved into the hub (src/config/guide-move.ts) is a section too, and its domain only redirects.
 const folded = new Set(sections.map((t) => t.domain));
+const moved = sections.filter((t) => isMoved(t));
 const towns = new Map(sections.map((t) => [t.hubPage!.town, t]));
 const built = (path: string) => existsSync(join(dist, path.endsWith('/') ? `${path}index.html` : path));
 
@@ -49,6 +52,29 @@ const map = readCsv('docs/migration/redirect-map.csv');
 for (const r of map.filter((r) => r.status === '301')) {
   const path = r.destination!.replace(/^https:\/\/insidethetowns\.com/, '').split(/[?#]/)[0]!;
   if (!built(path)) problem(`${r.host}${r.old_path} → ${r.destination}: destination not built`);
+}
+// A moved guide's map, made from its section build as its own project makes it (scripts/migration/guide-map.ts):
+// every destination built, every address of its sitemap in it, nothing unmapped, and every address of its history answered.
+let movedAddresses = 0;
+for (const guide of moved) {
+  const out = `.sections/${guide.slug}`;
+  if (!existsSync(join(out, 'sitemap-0.xml'))) {
+    problem(`${guide.domain}: no section build at ${out}/ to make its map from (TOWN=hub npm run build leaves one)`);
+    continue;
+  }
+  const m = guideMap({ guide, out, hubDomain: 'insidethetowns.com' });
+  for (const [from, to] of Object.entries(m.entry.paths)) {
+    movedAddresses++;
+    if (to === 0) continue;
+    const path = to.replace(/^https:\/\/insidethetowns\.com/, '').split(/[?#]/)[0]!;
+    if (!built(path)) problem(`${guide.domain}${from} → ${to}: destination not built`);
+    if (gone.has(to.split(/[?#]/)[0]!)) problem(`${guide.domain}${from} → ${to}: a 410 address`);
+    if (/\/(?:events|directory|guides)\/$/.test(path) && /^\/(?:events|places|articles)\/[^/]+\/$/.test(from)) problem(`${guide.domain}${from} → ${to}: a listing sent to an index page`);
+    for (const d of folded) if (to.includes(`//${d}/`)) problem(`${guide.domain}${from} → ${to}: a folded domain`);
+  }
+  for (const loc of m.entry.sitemap!.matchAll(/<loc>https:\/\/[^/]+([^<]+)<\/loc>/g)) if (!(loc[1]! in m.entry.paths)) problem(`${guide.domain}${loc[1]}: in the sitemap it serves but not in its map`);
+  for (const r of m.unmapped) problem(`${guide.domain}${r.old_path}: a published address with no answer (docs/migration/guides/${guide.domain}.csv)`);
+  for (const row of readHistory(process.cwd(), guide.domain)) if (!(row.old_path in m.entry.paths) && !(row.old_path.replace(/\/$/, '') in m.entry.paths)) problem(`${guide.domain}${row.old_path}: in the history but not answered`);
 }
 
 let pages = 0;
@@ -118,7 +144,7 @@ for (const file of files) {
     }
   }
 }
-console.log(`${pages} section pages checked, ${events} event pages with Event JSON-LD, ${sitemapUrls.size} sitemap addresses, ${map.length} mapped addresses.`);
+console.log(`${pages} section pages checked, ${events} event pages with Event JSON-LD, ${sitemapUrls.size} sitemap addresses, ${map.length} mapped addresses${moved.length ? `, ${movedAddresses} on the ${moved.length} moved guide${moved.length === 1 ? '' : 's'}` : ''}.`);
 if (problems.length) {
   console.error(`${problems.length} problem(s):`);
   for (const p of problems.slice(0, 200)) console.error(`  ${p}`);

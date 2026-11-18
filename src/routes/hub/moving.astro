@@ -16,7 +16,7 @@
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
-import { censusGrowth, countyLabel, countyShort, getHub, liveTowns } from '@/config';
+import { censusGrowth, countyLabel, countyShort, getHub, guideUrl, liveTowns } from '@/config';
 import { collectionPageJsonLd } from '@/lib/seo';
 import { comparisonSlug, liveComparisons } from '@/content/comparisons';
 
@@ -85,7 +85,7 @@ const structured = collectionPageJsonLd(hub, {
   name: `The ${towns.length} guides of ${hub.siteTitle}, compared`,
   description: `${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`,
   path: '/moving/',
-  items: towns.map((t) => ({ name: t.name, url: `https://${t.domain}/` })),
+  items: towns.map((t) => ({ name: t.name, url: guideUrl(t) })),
 });
 ---
 <Page
@@ -112,7 +112,7 @@ const structured = collectionPageJsonLd(hub, {
         {towns.map((t) => (
           <tr>
             <th scope="row">
-              <a href={`https://${t.domain}/`} class="no-underline hover:text-primary hover:underline">{t.name}</a>
+              <a href={guideUrl(t)} class="no-underline hover:text-primary hover:underline">{t.name}</a>
               <span class="compare-domain">{t.domain}</span>
             </th>
             {columns.map((c) => (
@@ -133,7 +133,7 @@ const structured = collectionPageJsonLd(hub, {
       {towns.map((t) => (
         <article class="grid gap-x-10 gap-y-3 md:grid-cols-[14rem_minmax(0,1fr)]">
           <h3 class="display-md text-[1.75rem]">
-            <a href={`https://${t.domain}/`} class="no-underline hover:text-primary hover:underline">{t.name}</a>
+            <a href={guideUrl(t)} class="no-underline hover:text-primary hover:underline">{t.name}</a>
             <span class="mt-1 block font-body text-[0.8125rem] font-normal tracking-normal text-ink-muted">
               {countyLabel(t)} · {num(t.population)} · {growth(t)}
             </span>
@@ -164,7 +164,7 @@ const structured = collectionPageJsonLd(hub, {
               </dl>
             )}
             <p class:list={['text-[0.9375rem]', SUITS[t.slug] && 'mt-3']}>
-              <a href={`https://${t.domain}/moving-here/`} class="inline-block -my-3 py-3 font-semibold text-primary underline">
+              <a href={guideUrl(t, `/moving-here/`)} class="inline-block -my-3 py-3 font-semibold text-primary underline">
                 Moving to {t.name} →
               </a>
             </p>

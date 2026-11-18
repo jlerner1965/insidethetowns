@@ -298,7 +298,21 @@ export interface TownConfig {
    * /<town>/places/<slug>/, /<town>/guides/<slug>/ and
    * /<town>/events/<slug>/. The domain's own project stays redirect-only.
    */
-  section?: { mode: 'full' | 'pages'; since: string; /** A full section's Nearby block: the guides the folded guide named, as `neighbors` did. */ neighbors?: readonly string[] };
+  section?: {
+    mode: 'full' | 'pages';
+    since: string;
+    /** A full section's Nearby block: the guides the folded guide named, as `neighbors` did. */
+    neighbors?: readonly string[];
+    /**
+     * `all`: a guide moved whole (the seven of 4 January 2027;
+     * src/config/guide-move.ts). Every page is carried at its own path under
+     * /<town>/, the home page, This Week, updates and sports included, and
+     * the town stays `status: 'live'`: its newsletter, its weekly routine and
+     * its re-checks go on. Unset on the four sections of 17 November 2026,
+     * whose home page is the hub's town page.
+     */
+    carry?: 'all';
+  };
   /**
    * A live guide taken out of the weekly routine on the owner's word while
    * it is decided whether to keep it: the day it went quiet, the day to

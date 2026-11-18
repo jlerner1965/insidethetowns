@@ -17,7 +17,7 @@ import { guidesWithTraditions, seasonTypesWithRecords } from '../lib/tradition-f
 import { TRADITION_TYPE_INFO } from '../lib/traditions.ts';
 import { TOPIC_INFO } from '../lib/curiosity.ts';
 import { hasArticles, hasEventArticle, topicsWithArticles } from '../lib/curiosity-files.ts';
-import { isSectionBuild } from '../config/index.ts';
+import { isMoved, isSectionBuild } from '../config/index.ts';
 
 /**
  * The home page: one route file for every guide (design pass, 26 October
@@ -276,10 +276,13 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
     hooks: {
       'astro:config:setup': ({ config, injectRoute, logger }) => {
         const sectionBuild = site.kind === 'town' && isSectionBuild();
+        // A guide moved whole into the hub (src/config/guide-move.ts) is built as
+        // a section with every route it had: its home, its sports pages, This
+        // Week, updates and the rest, at their own paths under /<town>/.
         const routes =
           site.kind === 'hub'
             ? [...HUB_ROUTES, ...seasonRoutes(), ...curiosityRoutes()]
-            : sectionBuild
+            : sectionBuild && !isMoved(site)
               ? sectionRoutes(site)
               : site.status === 'live'
               ? [

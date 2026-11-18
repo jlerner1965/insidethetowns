@@ -11,6 +11,8 @@
  * It never imports astro:content or node:fs.
  */
 import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide, type HubTown } from '../config/hub-towns.ts';
+import { isMoved } from '../config/guide-move.ts';
+import { towns } from '../config/towns/registry.ts';
 import { dayKey, formatMonthDay, parseLocal } from './dates.ts';
 import { CURRENT_SEASONS, TRADITION_TYPE_INFO, byNextDate, countsAsVerified, hasVerifiedDate, isAgencyDate, isListed, isUpcoming, nextRow, type TraditionRecord, type TraditionRow } from './traditions.ts';
 import { TITLE_LIMIT } from './titles.ts';
@@ -156,7 +158,8 @@ export interface ShowingContext {
   /** Slugs of the hub towns with a published page. */
   published: ReadonlySet<string>;
   /** A standalone guide's domain, by its key in STANDALONE_GUIDES. */
-  guideDomain: (key: string) => string | undefined;
+  /** Where a standalone guide's pages are, "https://insideberthoud.com" or its section on the hub (guideOrigin). */
+  guideOrigin: (key: string) => string | undefined;
   /** A standalone guide's name, by its key. */
   guideName: (key: string) => string;
 }
@@ -188,8 +191,8 @@ export function showings(record: TraditionRecord, ctx: ShowingContext): Showing[
       if (ctx.published.has(place)) out.push({ key: place, label: hubTown.name, href: `https://${ctx.hubDomain}/${place}/#${record.slug}` });
       continue;
     }
-    const domain = ctx.guideDomain(place);
-    if (domain) out.push({ key: place, label: ctx.guideName(place), href: `https://${domain}/traditions/#${record.slug}` });
+    const origin = ctx.guideOrigin(place);
+    if (origin) out.push({ key: place, label: ctx.guideName(place), href: `${origin}/traditions/#${record.slug}` });
   }
   return out;
 }
@@ -359,10 +362,30 @@ export function eventSegment(record: Pick<TraditionRecord, 'slug'>, town: string
   return rest || record.slug;
 }
 
-/** The path of a record's own page, or undefined where it has none (its home is no published hub town page). */
+/**
+ * The standalone guides moved into the hub (src/config/guide-move.ts), by
+ * place key: each record at home in one has its own page under the guide's
+ * section, /<town>/<event>/, as a published town page's records do.
+ */
+const MOVED_PLACES: ReadonlySet<string> = new Set(towns.filter((t) => isMoved(t) && t.hubPage).map((t) => t.hubPage!.town));
+
+/**
+ * The town a tradition page is under, as the hub's town pages know one: a
+ * hub town, or a guide moved into the hub (src/config/guide-move.ts), whose
+ * section at /<town>/ is the town's page. Undefined for any other segment.
+ */
+export function pageTown(slug: string): Pick<HubTown, 'slug' | 'name' | 'counties'> | undefined {
+  const hubTown = findHubTown(slug);
+  if (hubTown) return hubTown;
+  const guide = towns.find((t) => isMoved(t) && t.hubPage?.town === slug);
+  return guide ? { slug, name: guide.name, counties: guide.counties as [string, ...string[]] } : undefined;
+}
+
+/** The path of a record's own page, or undefined where it has none (its home is no published hub town page, nor a moved guide's section). */
 export function eventPath(record: TraditionRecord, published: ReadonlySet<string>): string | undefined {
   const home = homeOf(record);
-  if (!home || !findHubTown(home) || !published.has(home)) return undefined;
+  if (!home) return undefined;
+  if (!(findHubTown(home) ? published.has(home) : MOVED_PLACES.has(home))) return undefined;
   return `/${home}/${eventSegment(record, home)}/`;
 }
 

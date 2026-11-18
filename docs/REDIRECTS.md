@@ -20,6 +20,15 @@ going to the home page otherwise.
 | insideevergreenco.com | insidethetowns.com, the home page | this repo's `vercel.json`, host-scoped to `insideevergreenco.com`; the domain stays on the Vercel project that served the guide, which still builds (`TOWN=evergreen`, status `redirect`, `retired`); `www` 308s to the apex at the domain level | Written 3 November 2026, when the owner retired the guide with no guide to take it: `/` and everything else to the hub's home page, as Grand Lake's. |
 | insidemanitousprings.com | insidethetowns.com, the home page | this repo's `vercel.json`, host-scoped to `insidemanitousprings.com`; the domain stays on its own Vercel project `insidemanitousprings`, which still builds (`TOWN=manitou-springs`, status `redirect`, `retired`); `www` 308s to the apex at the domain level | Written 3 November 2026, when the owner retired the guide with no guide to take it: `/` and everything else to the hub's home page, as Grand Lake's. Its one in-guide rule (`/places/garden-of-the-gods/` to `/things-to-do/`) went with it. |
 
+### The seven guides moved whole into the hub (switches in src/config/guide-move.ts)
+
+| From | To | Rules |
+|---|---|---|
+| insideberthoud.com, insideerie.com, insidejohnstown.com, insidewindsorco.com, carbonvalleyguide.com, insidelyons.com, insideniwot.com, each once its switch is on | `https://insidethetowns.com/<town>/<same path>/` (Carbon Valley at `/carbon-valley/`); an annual event's address, dated or not, to the year-less tradition page that stands for it (`data/hub/fold-events.json`) | `vercel.json` carries no redirect rule for the host, only the rewrite of every path to `api/legacy.ts`; the function answers from a map made in the guide's own build from its current content (`scripts/migration/guide-map.ts`): every page the section builds, the former and retired slugs, a past date of a series to the series' current page, and the decisions in `docs/migration/guides/<host>.csv` for every address the guide ever published and no longer builds (`gone` is a 410, documented); the pre-move sitemap and robots.txt as 200s at their old addresses. An address none of these answers is listed by the build and fails `check-local`; none goes to a generic page. |
+
+Until a guide's switch is on, its domain serves the guide as before, and the
+hub's `/<town>/` forwards to it.
+
 ### Guides folded into their town page on the hub, 12 November 2026
 
 | From | To | Rules |

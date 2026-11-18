@@ -30,9 +30,11 @@ import { manitouSprings } from './manitou-springs.ts';
 import { leadville } from './leadville.ts';
 import { lafayette } from './lafayette.ts';
 import { frederick } from './frederick.ts';
+import { applyGuideMove } from '../guide-move.ts';
 // new-town:imports
 
-export const towns: TownConfig[] = [
+/** Every config as written; `towns` is the same with each moving guide's switch applied (src/config/guide-move.ts). */
+const registered: TownConfig[] = [
   niwot,
   lyons,
   berthoud,
@@ -62,3 +64,5 @@ export const towns: TownConfig[] = [
   frederick,
   // new-town:entries
 ];
+
+export const towns: TownConfig[] = applyGuideMove(registered);

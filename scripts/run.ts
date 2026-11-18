@@ -11,8 +11,9 @@
  */
 import { spawnSync } from 'node:child_process';
 import { buildSearchIndex } from './lib/search-index.ts';
-import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
-import { allSites, getNetworkHub, isSectionBuild, sectionBase, sectionTowns, SECTION_ENV } from '../src/config/index.ts';
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { allSites, getNetworkHub, isMoved, isSectionBuild, sectionBase, sectionTowns, SECTION_ENV } from '../src/config/index.ts';
+import { guideMap } from './migration/guide-map.ts';
 import { mergeSection } from './lib/section-merge.ts';
 import { foldEventTargets, type FoldEventMap } from '../src/lib/fold.ts';
 import { hubEventPages, publishedHubTowns } from '../src/lib/hub-towns.ts';
@@ -39,8 +40,38 @@ const env = { ...process.env, TOWN: town };
 // (the move of 17 November 2026), so nothing it would build is ever served.
 // No Astro build: an empty dist/ with one 404 page, and the function beside
 // it. The site's old pages are in git history.
+// A guide moved into the hub (its switch on, src/config/guide-move.ts): its
+// own project serves no site, only api/legacy.ts. It builds the guide's
+// section exactly as the hub does, from the same content, and writes the
+// map the function answers from (scripts/migration/guide-map.ts) into
+// api/legacy-map.json, which Vercel bundles with the function after this
+// command; dist/ holds one 404 page. Anything published before or after the
+// cutover is in the map of the build that serves it.
 if (command === 'build' && !isSectionBuild(env)) {
   const site = allSites.find((s) => s.slug === town);
+  if (site?.kind === 'town' && isMoved(site)) {
+    const v = spawnSync(process.execPath, ['scripts/validate-content.ts', '--build'], { stdio: 'inherit', env });
+    if (v.status !== 0) process.exit(v.status ?? 1);
+    const out = `.sections/${site.slug}`;
+    const built = spawnSync('astro', ['build', '--outDir', out, '--force'], { stdio: 'inherit', env: { ...env, [SECTION_ENV]: '1' }, shell: true });
+    if (built.status !== 0) process.exit(built.status ?? 1);
+    const hub = getNetworkHub();
+    const map = guideMap({ guide: site, out, hubDomain: hub.domain });
+    const file = 'api/legacy-map.json';
+    const table = JSON.parse(readFileSync(file, 'utf8')) as Record<string, unknown>;
+    table[site.domain] = map.entry;
+    writeFileSync(file, JSON.stringify(table), 'utf8');
+    rmSync('dist', { recursive: true, force: true });
+    mkdirSync('dist', { recursive: true });
+    writeFileSync('dist/404.html', `<!doctype html><html lang="en"><meta charset="utf-8"><title>Not found</title><meta name="robots" content="noindex"><body><p>Not found. <a href="https://${hub.domain}/${site.hubPage!.town}/">${site.siteTitle}</a></p></body></html>\n`, 'utf8');
+    const c = map.counts;
+    console.log(`${site.domain}: moved to https://${hub.domain}/${site.hubPage!.town}/. ${Object.keys(map.entry.paths).length} addresses mapped (${c.built} built, ${c.events} annual events to their tradition pages, ${c.forwarded} former slugs, ${c.series} past series dates to the series, ${c.history} decided, ${c.gone} gone); api/legacy.ts answers every path. No site build.`);
+    if (map.unmapped.length) {
+      console.error(`${site.domain}: ${map.unmapped.length} published address(es) with no answer, sent to the section's home until decided (docs/migration/guides/${site.domain}.csv):`);
+      for (const row of map.unmapped.slice(0, 40)) console.error(`  ${row.old_path}  (${row.source})`);
+    }
+    process.exit(0);
+  }
   if (site?.kind === 'town' && site.status === 'redirect') {
     rmSync('dist', { recursive: true, force: true });
     mkdirSync('dist', { recursive: true });
@@ -91,7 +122,7 @@ if (command === 'build' && town === 'hub' && !args.includes('--no-sections')) {
     const out = `.sections/${section.slug}`;
     const built = spawnSync('astro', ['build', '--outDir', out, '--force'], { stdio: 'inherit', env: { ...env, TOWN: section.slug, [SECTION_ENV]: '1' }, shell: true });
     if (built.status !== 0) process.exit(built.status ?? 1);
-    const merged = mergeSection({ from: out, hub: 'dist', base: sectionBase(section), oldDomain: section.domain, hubDomain: hub.domain, events });
+    const merged = mergeSection({ from: out, hub: 'dist', base: sectionBase(section), oldDomain: section.domain, hubDomain: hub.domain, events, carryAll: isMoved(section) });
     console.log(`section ${sectionBase(section)}/: ${merged.pages} pages, ${merged.files} files merged into dist/`);
     if (merged.dangling.length) {
       deadLinks += merged.dangling.length;

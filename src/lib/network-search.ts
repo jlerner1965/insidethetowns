@@ -147,13 +147,13 @@ export function plainText(markdown: string): string {
  * (src/routes/hub/network-search.json.ts) only gathers the data files.
  */
 export function sportsRecord(
-  town: { name: string; domain: string },
+  town: { name: string; domain: string; /** Where the guide is served, when not its own domain (guideOrigin). */ origin?: string },
   school: { school: string; mascot: string; slug?: string },
   page: { path: string; title: string; description: string },
   teams: Array<{ name: string; overall?: string; opponents: string[] }>,
 ): NetworkRecord {
   return {
-    url: `https://${town.domain}${page.path}`,
+    url: `${town.origin ?? `https://${town.domain}`}${page.path}`,
     kind: 'Sports',
     title: page.title,
     town: town.name,

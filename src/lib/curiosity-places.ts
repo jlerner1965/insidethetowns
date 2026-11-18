@@ -4,7 +4,7 @@
  * own site. One function, so the article, the index and the Nearby block
  * name and link a town the same way.
  */
-import { findTown, getNetworkHub } from '../config/index.ts';
+import { findTown, getNetworkHub, guideUrl } from '../config/index.ts';
 import { STANDALONE_GUIDES, findHubTown } from '../config/hub-towns.ts';
 
 export interface PlaceLink {
@@ -25,7 +25,7 @@ export function placeName(place: string): string | undefined {
  */
 export function placeLink(place: string, opts: { onHub: boolean; withPage: ReadonlySet<string> }): PlaceLink | undefined {
   const guide = findTown(STANDALONE_GUIDES[place]?.guide ?? '');
-  if (guide && STANDALONE_GUIDES[place]) return { name: guide.name, href: `https://${guide.domain}/`, what: `${guide.name} guide` };
+  if (guide && STANDALONE_GUIDES[place]) return { name: guide.name, href: guideUrl(guide), what: `${guide.name} guide` };
   const town = findHubTown(place);
   if (!town || !opts.withPage.has(place)) return undefined;
   return { name: town.name, href: opts.onHub ? `/${place}/` : `https://${getNetworkHub().domain}/${place}/`, what: `${town.name} town page` };

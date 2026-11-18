@@ -10,7 +10,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { censusGrowth, countyLabel, findTown, getHub } from '@/config';
+import { censusGrowth, countyLabel, findTown, getHub, guideUrl } from '@/config';
 import { comparisonSlug, liveComparisons, type Comparison } from '@/content/comparisons';
 import { breadcrumbJsonLd, fillDescription } from '@/lib/seo';
 
@@ -87,7 +87,7 @@ const description = fillDescription(`${a.name} and ${b.name} compared on growth,
   <div class="mt-14 grid gap-5 sm:grid-cols-2">
     {pair.map((t) => (
       <a
-        href={`https://${t.domain}/moving-here/`}
+        href={guideUrl(t, `/moving-here/`)}
         class="group block rounded-lg border-l-4 bg-raised p-6 no-underline ring-1 ring-line-soft transition hover:ring-line"
         style={`border-color:${t.colors.accent}`}
       >

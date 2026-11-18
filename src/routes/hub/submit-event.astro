@@ -21,7 +21,7 @@
  * town now says which it is, read from the same config the town page reads.
  */
 import Page from '@/layouts/Page.astro';
-import { countyLabel, getHub, listsEvents, liveTowns } from '@/config';
+import { countyLabel, getHub, guideUrl, listsEvents, liveTowns } from '@/config';
 import { eventEmailHref } from '@/lib/submit';
 
 const hub = getHub();
@@ -50,7 +50,7 @@ const mailto = eventEmailHref(hub.social.email, 'Event submission');
     {towns.map((town) => (
       <li>
         <a
-          href={`https://${town.domain}/submit-event/`}
+          href={guideUrl(town, `/submit-event/`)}
           class="group flex items-baseline justify-between gap-3 rounded-lg bg-raised px-5 py-4 no-underline ring-1 ring-line-soft transition hover:ring-primary-line"
         >
           <span>

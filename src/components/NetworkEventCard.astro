@@ -9,6 +9,7 @@
  * palettes work together rather than separately, and it is what tells you at a
  * glance that the farmers market you want is in Lyons and not in Erie.
  */
+import { guideUrl } from '@/config';
 import { isFreeCost, shortCost } from '@/lib/cost';
 import type { NetworkEntry } from '@/lib/content';
 import { dayKey, formatDayRange, formatDayShort, formatMonthDay, toIsoLocal } from '@/lib/dates';
@@ -50,7 +51,7 @@ interface Props {
 const { event, showDay = false, showTagline = false, query, track, neutral = false, level = 3 } = Astro.props;
 const Heading = level === 4 ? 'h4' : 'h3';
 const { data, slug, town } = event;
-const href = `https://${town.domain}/events/${slug}/${query ? `?${query}` : ''}`;
+const href = guideUrl(town, `/events/${slug}/${query ? `?${query}` : ''}`);
 const canceled = isCanceled(event);
 const statusLabel = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.status] : undefined;
 // The same reading of a run of days as EventCard: "Now through October 31"

@@ -24,7 +24,7 @@ import DateCorrection from '@/components/DateCorrection.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import OpenNow from '@/components/OpenNow.astro';
 import { appliesTo } from '@/lib/hub-towns';
-import { findTown, getNetworkHub, getTown } from '@/config';
+import { findTown, guideOrigin, getNetworkHub, getTown } from '@/config';
 import { STANDALONE_GUIDES } from '@/config/hub-towns';
 import { getTownEntries, getTraditions } from '@/lib/content';
 import { dayKey, formatDayLong, parseLocal } from '@/lib/dates';
@@ -59,7 +59,10 @@ const rows = [...dated, ...canceled, ...waiting, ...outdoor];
 const ctx: ShowingContext = {
   hubDomain: hub.domain,
   published: new Set(publishedHubTowns(records).map((t) => t.slug)),
-  guideDomain: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.domain,
+  guideOrigin: (key) => {
+    const guide = findTown(STANDALONE_GUIDES[key]?.guide ?? '');
+    return guide && guideOrigin(guide);
+  },
   guideName: (key) => findTown(STANDALONE_GUIDES[key]?.guide ?? '')?.siteTitle ?? key,
 };
 // The guide's annual event pages: each tradition links its own, and the rest are listed.

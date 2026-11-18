@@ -23,7 +23,7 @@
  * and from `sm` up the summary is not shown. A reader without the script
  * sees the list as before.
  */
-import { getNetworkHub, getSite, hubNeighborsOf, liveTowns, neighborsOf } from '@/config';
+import { getNetworkHub, getSite, guideUrl, hubNeighborsOf, liveTowns, neighborsOf } from '@/config';
 import { getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { HUB_COLUMN } from './hub/pub';
@@ -56,7 +56,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
         <span class={label}>The guides</span>
         <ul class="flex flex-wrap gap-x-4">
           {guides.map((t) => (
-            <li><a href={`https://${t.domain}/`} class={link}>{t.siteTitle}</a></li>
+            <li><a href={guideUrl(t)} class={link}>{t.siteTitle}</a></li>
           ))}
         </ul>
       </nav>
@@ -82,7 +82,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
               <ul class="mt-1 flex flex-wrap gap-x-6 gap-y-1 pb-1 sm:mt-3">
                 {sisters.map((t) => (
                   <li class="break-inside-avoid leading-snug sm:pb-3">
-                    <a href={`https://${t.domain}/`} class="inline-block py-3 text-[0.875rem] font-medium text-white no-underline hover:underline sm:py-0">{t.name}</a>
+                    <a href={guideUrl(t)} class="inline-block py-3 text-[0.875rem] font-medium text-white no-underline hover:underline sm:py-0">{t.name}</a>
                   </li>
                 ))}
                 {onHub.map((t) => (

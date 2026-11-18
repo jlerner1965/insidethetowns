@@ -8,7 +8,7 @@ import { namesTown } from './titles.ts';
 import type { CollectionEntry } from 'astro:content';
 // Relative rather than the '@/…' alias so the module loads in plain Node and
 // its builders can be unit-tested; Vite resolves both the same way.
-import { getNetworkHub, isSectionBuild, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
+import { getNetworkHub, guideUrl, isSectionBuild, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
 import { dayKey, parseLocal, toIsoLocal } from './dates.ts';
 import { certainTime } from './tradition-calendar.ts';
 import { exportWhen } from './events.ts';
@@ -416,9 +416,9 @@ export function siteJsonLd(site: SiteConfig) {
           ...(publisher ? { parentOrganization: { '@type': 'Organization', name: publisher.name, url: publisher.url } } : {}),
           subOrganization: liveTowns().map((t) => ({
             '@type': 'Organization',
-            '@id': `https://${t.domain}/#org`,
+            '@id': guideUrl(t, '/#org'),
             name: t.siteTitle,
-            url: `https://${t.domain}/`,
+            url: guideUrl(t),
           })),
         }
       : {

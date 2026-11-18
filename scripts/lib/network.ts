@@ -4,7 +4,7 @@
  * and the network check cannot disagree about which domains are ours.
  */
 import { readFileSync } from 'node:fs';
-import { allSites } from '../../src/config/index.ts';
+import { allSites, isMoved } from '../../src/config/index.ts';
 import type { VercelRedirect } from './site-check.ts';
 
 export function vercelRedirects(file = 'vercel.json'): VercelRedirect[] {
@@ -21,7 +21,8 @@ export function networkDomains(redirects: VercelRedirect[] = vercelRedirects()):
   for (const rule of redirects) {
     for (const condition of rule.has ?? []) if (condition.type === 'host' && condition.value) domains.set(condition.value, false);
   }
-  for (const site of allSites) domains.set(site.domain, site.kind === 'hub' || site.status === 'live');
+  // A moved guide's domain only redirects (src/config/guide-move.ts): a link to it is a link to a redirect.
+  for (const site of allSites) domains.set(site.domain, site.kind === 'hub' || (site.status === 'live' && !isMoved(site)));
   return domains;
 }
 

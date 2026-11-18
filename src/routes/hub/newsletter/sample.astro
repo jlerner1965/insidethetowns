@@ -16,7 +16,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { emailTowns, getHub } from '@/config';
+import { emailTowns, getHub, guideUrl } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { formatDate, formatDayLong, formatDayRange } from '@/lib/dates';
 import { highlights, isCanceled, occurrences, timeText, weekendSections, weekendWindow } from '@/lib/events';
@@ -81,7 +81,7 @@ const builtAt = new Date();
       <Fragment>
         <h2 class="border-l-4 pl-3" style={`border-color:${town.colors.accent}`}>{town.name}</h2>
         {picks.length === 0 ? (
-          <p>Nothing listed for the weekend yet — <a href={`https://${town.domain}/events/`}>what’s on next</a>.</p>
+          <p>Nothing listed for the weekend yet — <a href={guideUrl(town, `/events/`)}>what’s on next</a>.</p>
         ) : (
           <ul>
             {picks.map((e) => (
@@ -89,15 +89,15 @@ const builtAt = new Date();
                 {/* The day and time on a line of their own, so a run of
                     "Friday 7 pm Title · venue" does not read as one sentence. */}
                 <strong class="block text-[0.875rem]">{formatDayLong(e.data.start).split(',')[0]} · {timeText(e, send)}</strong>
-                <a href={`https://${town.domain}/events/${e.slug}/`}>{e.data.title}</a>
+                <a href={guideUrl(town, `/events/${e.slug}/`)}>{e.data.title}</a>
                 {' · '}{[e.data.venue, e.data.cost].filter(Boolean).join(' · ')}
               </li>
             ))}
             <li>
               {count > picks.length ? (
-                <Fragment>…and {count - picks.length} more on <a href={`https://${town.domain}/events/`}>{town.domain}/events</a></Fragment>
+                <Fragment>…and {count - picks.length} more on <a href={guideUrl(town, `/events/`)}>{town.domain}/events</a></Fragment>
               ) : (
-                <Fragment>Everything on: <a href={`https://${town.domain}/events/`}>{town.domain}/events</a></Fragment>
+                <Fragment>Everything on: <a href={guideUrl(town, `/events/`)}>{town.domain}/events</a></Fragment>
               )}
             </li>
           </ul>
@@ -110,7 +110,7 @@ const builtAt = new Date();
         <h2>New on the guides</h2>
         <ul>
           {opened.map((p) => (
-            <li><strong>{p.town.name}</strong> <a href={`https://${p.town.domain}/places/${p.slug}/`}>{p.data.title}</a> — {p.data.summary}</li>
+            <li><strong>{p.town.name}</strong> <a href={guideUrl(p.town, `/places/${p.slug}/`)}>{p.data.title}</a> — {p.data.summary}</li>
           ))}
         </ul>
       </Fragment>
@@ -120,7 +120,7 @@ const builtAt = new Date();
         <h2>Closed</h2>
         <ul>
           {shut.map((p) => (
-            <li><strong>{p.town.name}</strong> <a href={`https://${p.town.domain}/places/${p.slug}/`}>{p.data.title}</a> — {closedNote(p)}</li>
+            <li><strong>{p.town.name}</strong> <a href={guideUrl(p.town, `/places/${p.slug}/`)}>{p.data.title}</a> — {closedNote(p)}</li>
           ))}
         </ul>
       </Fragment>
