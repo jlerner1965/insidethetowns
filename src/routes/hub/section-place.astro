@@ -41,7 +41,7 @@ const hours = data.hours && !place.hoursHidden ? hoursLines(data.hours) : [];
 const image = data.image && !data.imageListingOnly ? data.image : undefined;
 const shareImage = image ? (await getImage({ src: image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const title = placeTitle(data.title, kind, { name: town.name, state: 'CO', siteTitle: `Inside ${town.name}` });
-// Waiting for a person to read its source (placeSchema, recheckPending): kept, noindex, and says so.
+// Waiting for a person to read its source (placeSchema, recheckPending), or past its check window and kept rather than dropped (src/lib/content.ts, keepAsRecheck): noindex, and says so.
 const pending = !!data.recheckPending;
 const description = placeDescription(
   { title: data.title, summary: data.summary, status: pill, address: data.address, phone: data.phone, url: data.url, hoursShown: hours.length > 0, hours: data.hours },
@@ -63,7 +63,7 @@ const link = 'text-primary underline decoration-1 underline-offset-[3px]';
 <Page title={data.title} seoTitle={title} eyebrow={`${town.name}, ${hubCountyLine(town)} · ${kind}`} status={pill} intro={data.summary} {description} jsonLd={structured} image={shareImage} imageAlt={data.imageAlt} noindex={closed || pending} kind="Place" narrow>
   {pending && (
     <p class="mb-8 rounded-lg bg-raised px-5 py-4 text-[0.9375rem] leading-relaxed ring-1 ring-line-soft" data-recheck-pending>
-      <strong class="font-semibold">Re-check pending.</strong> Last checked <time datetime={data.verified ? toIsoLocal(data.verified).slice(0, 10) : undefined}>{data.verified ? formatDate(data.verified) : 'not recorded'}</time>. Its own site could not be read again when this page moved here, so what follows is as it was then. Check with the place before you go.
+      <strong class="font-semibold">Re-check pending.</strong> Last checked <time datetime={data.verified ? toIsoLocal(data.verified).slice(0, 10) : undefined}>{data.verified ? formatDate(data.verified) : 'not recorded'}</time>. It has not been read again since, so what follows is as it was then. Check with the place before you go.
     </p>
   )}
   {image && <Image src={image} alt={data.imageAlt ?? ''} widths={[480, 768, 1200]} sizes="(min-width: 48rem) 42rem, 100vw" class="mb-8 w-full rounded-lg" loading="eager" />}

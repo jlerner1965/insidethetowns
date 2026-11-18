@@ -1892,6 +1892,8 @@ export function traditionSchema() {
       firstYear: z.number().int().min(1800).max(2100).optional(),
       /** Why this is not held every year, where it is not: a one-off or a run that ended. The 13-month report (scripts/validate-content.ts) leaves a record so marked alone. */
       notAnnual: z.string().min(1).optional(),
+      /** The source can no longer be opened (a parked or gone domain): this note, in plain text, stands where the link to `sourceUrl` would, which stays as the record of where the date was read. */
+      sourceOffline: z.string().min(1).optional(),
       /**
        * What the event is and where in the town it is held, in one or two
        * plain sentences, every word from `source` (the organizer's own page),

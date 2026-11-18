@@ -8,6 +8,8 @@ These places were on a folded guide and could not be read again when the guide m
 
 "Last checked" is the date in the file, the last day the old guide read the source. The pages are not cut for age while they wait, since the notice says how old the check is.
 
+**The same happens to any kept place that goes stale** (the owner, 17 November 2026): on the hub's sections, a place past its check window (90 days on the Front Range, 60 in the mountains) is kept as "re-check pending", noindex and off the lists, instead of leaving the build, so its old address never ends in a 404. Those are not listed here, since they change from day to day: `npm run validate` and the hub build's log show them. Reading the source and moving `verified` brings one back.
+
 ## The source blocked the check (37)
 
 Each answered 403 or a bot challenge (Cloudflare and the like) to the repository's link checker and to WebFetch on 17 November 2026. Nothing was worked around. A person in a browser can read them.

@@ -29,7 +29,7 @@ import { pub } from './pub';
 import { dateBlock } from '@/lib/date-block';
 import { formatDayLong, formatShortDate, parseLocal, publishedTime } from '@/lib/dates';
 import { typeset } from '@/lib/text';
-import { TRADITION_TYPE_INFO, type TraditionRow } from '@/lib/traditions';
+import { TRADITION_TYPE_INFO, sourceLink, type TraditionRow } from '@/lib/traditions';
 
 interface Props {
   row: TraditionRow;
@@ -181,7 +181,7 @@ const note = `mt-1.5 ${pub.meta}`;
     )}
     {line && <p class="mt-1.5 text-meta leading-[1.5] text-ink" data-local-line>{typeset(line)}</p>}
     <p class:list={['mt-2', pub.meta]}>
-      Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · Source: <a href={source} rel="noopener" class={pub.link}>{organizer}</a>
+      Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · {sourceLink(record, entry) ? <Fragment>Source: <a href={source} rel="noopener" class={pub.link}>{organizer}</a></Fragment> : <span data-source-offline>{record.sourceOffline}</span>}
     </p>
     {also.length > 0 && (
       <p class:list={['mt-1', pub.meta]} data-also-on>

@@ -11935,3 +11935,32 @@ layout changes to the hub's pages beyond the links named.*
   query string is carried onto the 301 as the old rules carried it;
   answers carry `CDN-Cache-Control` and `Vercel-CDN-Cache-Control` for a
   day at the CDN; the map ships with the function (`includeFiles`).
+
+## Boo Bash's source, and kept places that go stale, 17 November 2026 (night)
+
+*The owner's answers on #459, the same night.*
+
+- **Boo Bash on Main's source.** Neither elizabethmainstreet.org (its
+  events list carries only what is ahead) nor townofelizabeth.org (a
+  Cloudflare challenge, not worked around) lists it, so the record keeps
+  elizabethchamber.org as the place the date was read and no longer links
+  it: `sourceOffline` on a tradition record stands in plain text where the
+  link would be, on the town page, the record's page, the season pages,
+  the guides' Every year, the calendar file and the structured data
+  ("Date read on the Elizabeth Area Chamber's site, Oct 15, 2026; that
+  site is now offline").
+- **A kept place that goes stale is not dropped.** On the hub's sections,
+  a place past its check window (90 days on the Front Range, 60 in the
+  mountains) becomes "re-check pending" instead of leaving the build: its
+  page stays, noindex, out of the sitemap and off every list, and says
+  when it was last checked, so its old address never ends in a 404
+  (`keepAsRecheck` in src/lib/content.ts; the sitemap reads the same rule
+  from the markdown, `stalePlaceSlugs` in src/lib/raw-places.ts). The
+  guides' own sites keep their rule: a stale listing leaves the build.
+- **Next**: the recurring re-check is to cover places, so the ~650 kept
+  places are not all due in January and February (a pull request of its
+  own).
+- **CI's "Links between the sites"** had stopped at "Cannot find package
+  'astro'" on main since #457 (its scripts reach astro/zod through
+  src/lib/lastmod.ts and the job installed nothing). The job now runs
+  `npm ci` first.

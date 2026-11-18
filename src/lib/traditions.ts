@@ -203,6 +203,8 @@ export interface TraditionRecord {
   firstYear?: number;
   /** Why this is not held every year, where it is not (schemas.ts): the 13-month report leaves it alone. */
   notAnnual?: string;
+  /** The source can no longer be opened (schemas.ts): this plain-text note stands where its link would. */
+  sourceOffline?: string;
   /** What the event is and where, from the organizer's page, with that page and the day it was read (src/content/schemas.ts). */
   about?: { text: string; source: string; checked: string };
   /** On an outdoor date: what it is the date of (OUTDOOR_KINDS, src/lib/open-now.ts). */
@@ -259,6 +261,16 @@ export function lastHeld(record: Pick<TraditionRecord, 'years'>, before: number,
 /** The page a row's source link goes to: this year's own, else the record's. */
 export function entrySource(record: Pick<TraditionRecord, 'sourceUrl'>, entry: Pick<TraditionYear, 'sourceUrl'>): string {
   return entry.sourceUrl ?? record.sourceUrl;
+}
+
+/**
+ * The source to link, or nothing where it can no longer be opened (the
+ * record's `sourceOffline`, 17 November 2026: elizabethchamber.org became
+ * a parking page): a year read on a page of its own still links that page.
+ */
+export function sourceLink(record: Pick<TraditionRecord, 'sourceUrl' | 'sourceOffline'>, entry: Pick<TraditionYear, 'sourceUrl'>): string | undefined {
+  if (entry.sourceUrl) return entry.sourceUrl;
+  return record.sourceOffline ? undefined : record.sourceUrl;
 }
 
 /** A record as a page row: the record, the year shown, and what the status line needs. */

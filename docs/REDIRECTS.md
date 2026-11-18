@@ -149,7 +149,9 @@ decisions in `docs/migration/decisions/<town>.csv`, and the hub build.
   project starts its cache afresh.
 - A place answers 410 only when it is closed for good. A kept place whose
   source could not be read is kept, noindex, "re-check pending"
-  (`docs/migration/needs-recheck.md`).
+  (`docs/migration/needs-recheck.md`), and so is a kept place that later
+  passes its check window: its page stays, so the address it is mapped to
+  never 404s.
 - **Keep the redirects live and the domains renewed indefinitely, at
   minimum until 2027-11-17** (the owner's brief; the comment is in
   `api/legacy.ts`).

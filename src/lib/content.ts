@@ -4,7 +4,7 @@
  * town's content.
  */
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
-import { getSite, listsEvents, liveTowns, type TownConfig } from '@/config';
+import { getSite, isSectionBuild, listsEvents, liveTowns, type TownConfig } from '@/config';
 import { isExcluded } from '@/content/schemas';
 import { eventExclusion, hubExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
 import { eventPresentation, type Confidence } from '@/lib/confidence';
@@ -47,7 +47,29 @@ const reported = new Set<string>();
  * decision lives in src/lib/freshness.ts; this is the one place it is
  * applied, so no page can forget it.
  */
-function publishable<C extends CollectionKey>(collection: C, entries: CollectionEntry<C>[], towns: Map<string, TownConfig>): CollectionEntry<C>[] {
+/**
+ * A place kept on the hub from a folded guide (a section, the move of 17
+ * November 2026) is never dropped for age: its old address forwards to its
+ * page, so the page must stay. Past its window it becomes "re-check pending"
+ * (the owner, 17 November 2026): the page is kept, noindex, out of the
+ * sitemap (astro.config.mjs reads the same rule from the markdown,
+ * src/lib/raw-places.ts) and out of every list, and says when it was last
+ * checked. A listing that waits for a person already (`recheckPending`)
+ * is the same: off the lists, its page noindex.
+ */
+function keepAsRecheck(entry: CollectionEntry<'places'>, why: Exclusion, variant: TownConfig['variant'], now: Date): void {
+  const window = why.reason === 'stale' ? why.windowDays : undefined;
+  const note = window ? `Past its ${window}-day check window: not read again since its last check.` : undefined;
+  Object.assign(entry, { data: { ...entry.data, recheckPending: entry.data.recheckPending ?? note } });
+  shape(entry, variant, now);
+  Object.assign(entry, { delisted: true });
+  if (!reported.has(entry.id)) {
+    reported.add(entry.id);
+    console.warn(`kept as re-check pending places/${entry.id} (${entry.data.title}): ${why.detail}; noindex until a person reads its source`);
+  }
+}
+
+function publishable<C extends CollectionKey>(collection: C, entries: CollectionEntry<C>[], towns: Map<string, TownConfig>, keepStalePlaces = false): CollectionEntry<C>[] {
   if (collection === 'programs' || collection === 'updates' || collection === 'profiles') return hubPublishable(collection, entries);
   if (collection !== 'events' && collection !== 'places') return entries;
   const now = new Date();
@@ -57,8 +79,15 @@ function publishable<C extends CollectionKey>(collection: C, entries: Collection
     const why: Exclusion | null =
       collection === 'places' ? placeExclusion(entry.data, variant, now) : eventExclusion(entry.data, now);
     if (!why) {
-      if (collection === 'places') shape(entry as CollectionEntry<'places'>, variant, now);
-      else shapeEvent(entry as CollectionEntry<'events'>, now);
+      if (collection === 'places') {
+        shape(entry as CollectionEntry<'places'>, variant, now);
+        // Waiting for a person (placeSchema, recheckPending): its page stays, noindex, off the lists.
+        if ((entry.data as { recheckPending?: string }).recheckPending) Object.assign(entry, { delisted: true });
+      } else shapeEvent(entry as CollectionEntry<'events'>, now);
+      return true;
+    }
+    if (collection === 'places' && keepStalePlaces && why.reason === 'stale') {
+      keepAsRecheck(entry as CollectionEntry<'places'>, why, variant, now);
       return true;
     }
     if (!reported.has(entry.id)) {
@@ -135,7 +164,7 @@ export async function getTownEntries<C extends CollectionKey>(collection: C): Pr
   // A quiet guide lists no events (listsEvents): none reaches any page.
   if (collection === 'events' && !listsEvents(site)) return [];
   const prefix = `${site.slug}/`;
-  const entries = publishable(collection, await getCollection(collection, (entry) => entry.id.startsWith(prefix)), new Map([[site.slug, site]]));
+  const entries = publishable(collection, await getCollection(collection, (entry) => entry.id.startsWith(prefix)), new Map([[site.slug, site]]), isSectionBuild());
   return entries.map((entry) => {
     const data = entry.data as { slug?: string };
     const slug = data.slug ?? slugOf(entry.id, site.slug);
@@ -189,7 +218,7 @@ export async function getSectionEntries<C extends CollectionKey>(collection: C, 
     throw new Error(`getSectionEntries() was called while building ${site.domain}. Town pages must use getTownEntries().`);
   }
   const prefix = `${town.slug}/`;
-  const entries = publishable(collection, await getCollection(collection, (entry) => entry.id.startsWith(prefix)), new Map([[town.slug, town]]));
+  const entries = publishable(collection, await getCollection(collection, (entry) => entry.id.startsWith(prefix)), new Map([[town.slug, town]]), true);
   return entries.map((entry) => {
     const data = entry.data as { slug?: string };
     return Object.assign(entry, { slug: data.slug ?? slugOf(entry.id, town.slug) }) as TownEntry<C>;

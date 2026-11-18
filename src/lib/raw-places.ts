@@ -6,6 +6,7 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { dayKey } from './dates.ts';
 
 export function closedPlaceSlugs(town: string, contentRoot = 'content'): Set<string> {
   const dir = join(contentRoot, town, 'places');
@@ -19,6 +20,34 @@ export function closedPlaceSlugs(town: string, contentRoot = 'content'): Set<str
       const slug = fm[1]!.match(/^slug:\s*"?([a-z0-9-]+)"?\s*$/m)?.[1] ?? file.slice(0, -3);
       out.add(slug);
     }
+  }
+  return out;
+}
+
+/**
+ * A town's open places past their listing window on the day of the build:
+ * what placeExclusion (src/lib/freshness.ts) cuts for age, read from the
+ * markdown with the same rule (Denver days since `verified`, more than
+ * `listingDays`; not a closed or temporarily closed place, nor one the
+ * owner marked `alwaysListed`, nor one already waiting for a re-check). A
+ * section of the hub keeps these as re-check pending, noindex
+ * (src/lib/content.ts, keepAsRecheck), so the sitemap leaves them out.
+ */
+export function stalePlaceSlugs(town: string, listingDays: number, contentRoot = 'content', now = new Date()): Set<string> {
+  const dir = join(contentRoot, town, 'places');
+  const out = new Set<string>();
+  if (!existsSync(dir)) return out;
+  const today = Date.parse(`${dayKey(now)}T12:00:00Z`);
+  for (const file of readdirSync(dir)) {
+    if (!file.endsWith('.md') || file.startsWith('_')) continue;
+    const fm = readFileSync(join(dir, file), 'utf8').match(/^---\n([\s\S]*?)\n---/)?.[1];
+    if (!fm) continue;
+    const status = fm.match(/^status:\s*"?([a-z-]+)"?\s*$/m)?.[1];
+    if ((status && status !== 'open') || /^alwaysListed:\s*true/m.test(fm) || /^recheckPending:\s*\S/m.test(fm)) continue;
+    const verified = fm.match(/^verified:\s*"?(\d{4}-\d{2}-\d{2})/m)?.[1];
+    if (!verified) continue;
+    const age = Math.round((today - Date.parse(`${verified}T12:00:00Z`)) / 86_400_000);
+    if (age > listingDays) out.add(fm.match(/^slug:\s*"?([a-z0-9-]+)"?\s*$/m)?.[1] ?? file.slice(0, -3));
   }
   return out;
 }

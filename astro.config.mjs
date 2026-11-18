@@ -10,7 +10,8 @@ import { heroMap } from './src/integrations/hero-map.ts';
 import { siteImages } from './src/integrations/site-images.ts';
 import { tableLabels } from './src/integrations/table-labels.ts';
 import { pastEventSlugs, repeatOccurrenceSlugs } from './src/lib/series.ts';
-import { closedPlaceSlugs, recheckPendingSlugs } from './src/lib/raw-places.ts';
+import { closedPlaceSlugs, recheckPendingSlugs, stalePlaceSlugs } from './src/lib/raw-places.ts';
+import { windowsFor } from './src/config/freshness.ts';
 import { contentDates, lastmodFor } from './src/lib/lastmod.ts';
 import { formerSlugRedirects } from './src/lib/former-slugs.ts';
 import { draftPaths } from './src/lib/curiosity-files.ts';
@@ -34,7 +35,8 @@ const guidePath = (/** @type {string} */ pathname) => (section && pathname.start
 const repeats = site.kind === 'town' ? repeatOccurrenceSlugs(site.slug) : new Set();
 const expired = site.kind === 'town' ? pastEventSlugs(site.slug) : new Set();
 // A permanently closed place keeps its page, noindex, out of the sitemap.
-const closed = site.kind === 'town' ? closedPlaceSlugs(site.slug) : new Set();
+// A section of the hub keeps a stale or re-check-pending place as a noindex page (src/lib/content.ts, keepAsRecheck).
+const closed = site.kind === 'town' ? new Set([...closedPlaceSlugs(site.slug), ...(isSectionBuild() ? [...recheckPendingSlugs(site.slug), ...stalePlaceSlugs(site.slug, windowsFor(site.variant).listingDays)] : [])]) : new Set();
 // A town that has not launched is a holding page: nothing of it is indexable.
 const live = site.kind === 'hub' || site.status === 'live';
 // A sitemap entry carries lastmod: the listing's check date, an article's
@@ -55,7 +57,7 @@ const sectionNoindex = new Set(
         const town = t.hubPage?.town ?? t.slug;
         return [
           ...[...pastEventSlugs(t.slug)].map((s) => `/${town}/events/${s}/`),
-          ...[...closedPlaceSlugs(t.slug), ...recheckPendingSlugs(t.slug)].map((s) => `/${town}/places/${s}/`),
+          ...[...closedPlaceSlugs(t.slug), ...recheckPendingSlugs(t.slug), ...stalePlaceSlugs(t.slug, windowsFor(t.variant).listingDays)].map((s) => `/${town}/places/${s}/`),
         ];
       })
     : [],

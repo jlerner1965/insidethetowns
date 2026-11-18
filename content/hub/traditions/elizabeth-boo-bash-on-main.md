@@ -7,6 +7,7 @@ town:
 type: trick-or-treat
 organizer: "Elizabeth Area Chamber of Commerce"
 sourceUrl: "https://elizabethchamber.org/"
+sourceOffline: "Date read on the Elizabeth Area Chamber’s site, Oct 15, 2026; that site is now offline."
 years:
   - year: 2026
     status: confirmed

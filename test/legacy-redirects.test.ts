@@ -180,3 +180,24 @@ test('a preview may name the folded domain to try; production answers the Host i
   assert.equal(requestedHost(url, new Headers({ host: 'www.insidegolden.com' }), {}), 'insidegolden.com');
   assert.equal(requestedSearch(url), '', 'neither parameter is carried onto the Location');
 });
+
+test('a kept place past its check window becomes re-check pending, not a 404: the sitemap rule reads the same window as the gate', async () => {
+  const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+  const { join } = await import('node:path');
+  const { tmpdir } = await import('node:os');
+  const { stalePlaceSlugs, recheckPendingSlugs } = await import('../src/lib/raw-places.ts');
+  const { placeExclusion } = await import('../src/lib/freshness.ts');
+  const root = mkdtempSync(join(tmpdir(), 'stale-places-'));
+  mkdirSync(join(root, 'x', 'places'), { recursive: true });
+  const file = (slug: string, fm: string) => writeFileSync(join(root, 'x', 'places', `${slug}.md`), `---\ntitle: "${slug}"\n${fm}\n---\n`);
+  file('old', 'verified: "2026-08-01"');
+  file('fresh', 'verified: "2026-11-10"');
+  file('old-closed', 'verified: "2026-08-01"\nstatus: closed');
+  file('old-pending', 'verified: "2026-08-01"\nrecheckPending: "blocked"');
+  const now = new Date('2026-11-17T19:00:00-07:00');
+  assert.deepEqual([...stalePlaceSlugs('x', 90, root, now)], ['old']);
+  assert.deepEqual([...recheckPendingSlugs('x', root)], ['old-pending']);
+  // The gate agrees: the stale one is what it would cut for age; a re-check pending one it keeps.
+  assert.equal(placeExclusion({ source: 'https://a.example/', verified: new Date('2026-08-01T12:00:00-06:00') }, 'front-range', now)?.reason, 'stale');
+  assert.equal(placeExclusion({ source: 'https://a.example/', verified: new Date('2026-08-01T12:00:00-06:00'), recheckPending: 'blocked' }, 'front-range', now), null);
+});

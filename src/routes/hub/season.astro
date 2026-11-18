@@ -27,7 +27,7 @@ import { eventPage, eventPath, firstFitting, homeOf, placeKey, publishedHubTowns
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, rowsByState, seasonCounts, seasonRows, type TraditionType } from '@/lib/traditions';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, rowsByState, seasonCounts, seasonRows, sourceLink, type TraditionType } from '@/lib/traditions';
 import { googleCalendarUrl } from '@/lib/ics';
 import { traditionCalendarEvent } from '@/lib/tradition-calendar';
 
@@ -69,7 +69,7 @@ const hrefFor = (row: (typeof rows)[number]): string => {
   const own = eventPath(row.record, ctx.published);
   if (own) return `https://${hub.domain}${own}`;
   const home = homeOf(row.record);
-  return (home && alsoFor(row).find((s) => s.key === home)?.href) || row.source;
+  return (home && alsoFor(row).find((s) => s.key === home)?.href) || sourceLink(row.record, row.entry) || `https://${hub.domain}/`;
 };
 const dated = season.year !== undefined;
 const when = dated ? `${season.season} ${season.year}` : season.season;
