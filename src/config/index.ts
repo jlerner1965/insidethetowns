@@ -124,7 +124,57 @@ export function getSite(): SiteConfig {
   if (!site) {
     throw new Error(`Unknown TOWN "${slug}". Known sites: ${known}. Add a town with "npm run new-town <slug> <Name>".`);
   }
+  if (isSectionBuild()) {
+    if (site.kind !== 'town' || site.section?.mode !== 'full' || !site.hubPage) {
+      throw new Error(`${SECTION_ENV}=1 with TOWN=${slug}: only a town with section.mode "full" and a hub page is built as a section of the hub.`);
+    }
+    return sectionSite(site);
+  }
   return site;
+}
+
+/**
+ * The switch for building a folded guide as a section of the hub
+ * (scripts/run.ts sets it for each `section.mode: 'full'` town after the
+ * hub's own build; scripts/lib/section-merge.ts puts the result under
+ * /<town>/ in the hub's dist). Without it the same TOWN builds what its
+ * own domain's project serves: nothing but redirects.
+ */
+export const SECTION_ENV = 'HUB_SECTION';
+export function isSectionBuild(env: Record<string, string | undefined> = process.env): boolean {
+  return env[SECTION_ENV] === '1';
+}
+
+/** The towns with something of their guide kept under their hub page, by mode; registry order. */
+export function sectionTowns(mode?: 'full' | 'pages'): TownConfig[] {
+  return towns.filter((t) => !!t.section && !!t.hubPage && (!mode || t.section.mode === mode));
+}
+
+/** A section's path prefix on the hub: "/fort-collins" for the config `fortcollins`. */
+export function sectionBase(town: Pick<TownConfig, 'hubPage' | 'slug'>): string {
+  if (!town.hubPage) throw new Error(`${town.slug} has no hub page, so no section.`);
+  return `/${town.hubPage.town}`;
+}
+
+/**
+ * A folded guide's config as its section on the hub is built from it: live
+ * (so the guide's routes and gates apply as they did) and labelled "Inside
+ * <Town>" (the owner's brief of 17 November 2026). The domain stays the old
+ * one during the build, so an absolute address a template writes is told
+ * apart from the hub's own and rewritten to its place under /<town>/
+ * (scripts/lib/section-merge.ts).
+ */
+export function sectionSite(town: TownConfig): TownConfig {
+  return { ...town, status: 'live', siteTitle: `Inside ${town.name}`, neighbors: town.section?.neighbors ?? [], social: { ...town.social, email: hub.social.email } };
+}
+
+/**
+ * Whose events are ingested and re-read each night: every deployed guide,
+ * and each full section on the hub, whose events pages are as live as a
+ * guide's.
+ */
+export function eventTowns(): TownConfig[] {
+  return towns.filter((t) => LIVE_TOWNS.includes(t.slug) || t.section?.mode === 'full');
 }
 
 /** The current site, narrowed to a town. Throws when building the hub. */

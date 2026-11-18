@@ -23,6 +23,10 @@ export const golden: TownConfig = {
   // content has left content/golden/ (git history keeps it).
   status: 'redirect',
   hubPage: { town: 'golden', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /golden/places/<slug>/, /golden/guides/<slug>/
+  // and the carried events at /golden/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Evergreen and Clear Creek were its neighbours until both retired on 3

@@ -1,0 +1,117 @@
+old_path,kind,decision,destination,reason
+/places/antelope-alpacas/,place,keep,/elizabeth/places/antelope-alpacas/,"own Find Us page: 360 Main Street, Saturdays 10–5, 303-646-9276"
+/places/carriage-shoppes-tea-room/,place,keep,/elizabeth/places/carriage-shoppes-tea-room/,"own site: 392-B Main Street, Tue–Sat 11–3, 303-646-4681"
+/places/casey-jones-park/,place,keep,/elizabeth/places/casey-jones-park/,"district page: 103 acres, amenities and phone match"
+/places/catrinas-latin-food/,place,keep,/elizabeth/places/catrinas-latin-food/,"own contact page: address, phone and hours match"
+/places/el-pinito/,place,keep,/elizabeth/places/el-pinito/,"own site: address, phones and hours match (page still prints weekend close as ""9:00 am"")"
+/places/elbert-county-artists-guild/,place,keep,/elizabeth/places/elbert-county-artists-guild/,"Main Street Program directory: 338 S Main Street, 303-565-7491"
+/places/elizabeth-brewing-company/,place,keep,/elizabeth/places/elizabeth-brewing-company/,"own site: 239 South Main Street, hours and phone match"
+/places/elizabeth-kitchen-and-bar/,place,keep,/elizabeth/places/elizabeth-kitchen-and-bar/,"own contact page: address, phone, hours and kitchen hours match"
+/places/elizabeth-library/,place,keep,/elizabeth/places/elizabeth-library/,"library page: 651 Beverly St, phone and hours match"
+/places/elizabeth-stampede-grounds/,place,keep,/elizabeth/places/elizabeth-stampede-grounds/,"Stampede site: phone matches; home page prints ""June 3–6, 2027"""
+/places/elizabeth-town-hall/,place,keep,/elizabeth/places/elizabeth-town-hall/,Town site 403 bot check; address and phone confirmed on two other Town-run sites; meeting schedule not re-read
+/places/evans-park/,place,keep,/elizabeth/places/evans-park/,"district page: 34201 County Road 17, phone and amenities match"
+/places/first-national-bank-building/,place,keep,/elizabeth/places/first-national-bank-building/,Historic Advisory Board home page confirms 188 S Main St and the 2023 listing; directory page itself loads by script
+/places/historic-main-street/,place,keep,/elizabeth/places/historic-main-street/,"Historic Advisory Board site: 1998, 2002, 2012, 2015 dates match; Depot lot post still up"
+/places/ic-threads/,place,keep,/elizabeth/places/ic-threads/,"own site: 244 Main Street, (720) 394-6999, hours match"
+/places/kgs-fashion-farm/,place,keep,/elizabeth/places/kgs-fashion-farm/,Main Street Program directory still lists it at 271 S Main Street
+/places/mountain-man-nut-and-fruit/,place,keep,/elizabeth/places/mountain-man-nut-and-fruit/,"own stores page: 207 Main St, (303) 621-0175, Mon–Sat 10:30–5:30"
+/places/powder-river-hat-company/,place,keep,/elizabeth/places/powder-river-hat-company/,"own site: 211 Main St, Tue–Sat 10–5 or by appointment, phone matches"
+/places/prickly-pines-disc-golf/,place,keep,/elizabeth/places/prickly-pines-disc-golf/,"district page: 18 holes, daily fee $5, address and phone match"
+/places/randys-antiques-and-art/,place,keep,/elizabeth/places/randys-antiques-and-art/,"Main Street Program directory: 232 S Main Street, 720-343-7266"
+/places/running-creek-park/,place,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around) to curl and WebFetch; no other official page gives the park address or amenities"
+/places/small-town-mini-donuts/,place,keep,/elizabeth/places/small-town-mini-donuts/,"own site; hours corrected to what the page now prints (Mon–Fri 7a–12p, Sat–Sun 8a–12p; the 3–5 pm block is gone)"
+/places/the-carriage-shoppes/,place,keep,/elizabeth/places/the-carriage-shoppes/,"own site: 392 Main Street, regular and winter hours as the file states"
+/places/the-nest-at-the-1897-house/,place,keep,/elizabeth/places/the-nest-at-the-1897-house/,"Main Street Program directory: 286 S Main Street, 720-643-5124"
+/articles/elizabeth-history/,guide,keep,/elizabeth/guides/elizabeth-history/,"town-specific; dates check against historicelizabethco.org, Wikipedia and the brewery building page; History Colorado page not readable today (HTTP 202, empty)"
+/articles/elizabeth-with-kids/,guide,keep,/elizabeth/guides/elizabeth-with-kids/,"town-specific; parks, library and Two Bridges facts match their pages; donut hours corrected to the shop page; Town parks page (Running Creek) 403, not re-read"
+/articles/explore-elizabeth-in-walking-order/,guide,keep,/elizabeth/guides/explore-elizabeth-in-walking-order/,"town-specific; hours, addresses, Depot lot and Stampede parking match sources; 2027 Stampede sentence corrected to the home page"
+/events/aarp-downsizing-decluttering-2026-10-13/,event,410,,past one-time event
+/events/an-elizabeth-christmas-2026-12-12/,event,keep,/elizabeth/events/an-elizabeth-christmas-2026-12-12/,"district page: ""An Elizabeth Christmas - Casey Jones Pavilion- December 12th, 1pm-3pm"""
+/events/board-of-trustees-2026-10-13/,event,410,,past occurrence of a recurring series
+/events/board-of-trustees-2026-10-27/,event,410,,cancelled (past)
+/events/board-of-trustees-2026-11-10/,event,410,,past occurrence of a recurring series
+/events/board-of-trustees-2026-11-24/,event,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around)"
+/events/board-of-trustees-2026-12-08/,event,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around)"
+/events/board-of-trustees-2026-12-22/,event,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around)"
+/events/boo-bash-on-main/,event,410,,"annual, not verifiable: the organizer site elizabethchamber.org now serves a parked-domain page; nothing on the Main Street Program site; Town site 403. An unverified record waits at docs/agent/dates/unverified/elizabeth-boo-bash-on-main.md (would be /elizabeth/boo-bash-on-main/)"
+/events/boo-bash-on-main-2026/,event,410,,"annual, not verifiable: former dated address of Boo Bash on Main; see /events/boo-bash-on-main/"
+/events/christmas-cow-painting-with-sherry-2026-12-10/,event,410,,unverifiable: the restaurant events page loads its calendar by script and showed no events to a plain read
+/events/comedy-night-in-elizabeth-2026-12-12/,event,keep,/elizabeth/events/comedy-night-in-elizabeth-2026-12-12/,"Eventbrite listing: Saturday, December 12, starts 8 PM, Elizabeth Kitchen + Bar"
+/events/community-coffee-chat-2026-10-13/,event,410,,past occurrence of a recurring series
+/events/community-coffee-chat-2026-12-08/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/curiosity-club-2026-10-22/,event,410,,past occurrence of a recurring series
+/events/elbert-county-marketplace-2026-10-17/,event,410,,past occurrence of a recurring series
+/events/elbert-county-marketplace-2026-10-31/,event,410,,past occurrence of a recurring series
+/events/elbert-county-marketplace-2026-11-07/,event,410,,past occurrence of a recurring series
+/events/elbert-county-marketplace-2026-11-14/,event,410,,past occurrence of a recurring series
+/events/elbert-county-marketplace-2026-11-21/,event,keep,/elizabeth/events/elbert-county-marketplace-2026-11-21/,"organizer schedule lists ""November 7, 14, 21, 28"", hours 9 AM – 2 PM, Casey Jones Park Pavilion"
+/events/elbert-county-marketplace-2026-11-28/,event,keep,/elizabeth/events/elbert-county-marketplace-2026-11-28/,"organizer schedule lists ""November 7, 14, 21, 28"", hours 9 AM – 2 PM, Casey Jones Park Pavilion"
+/events/elbert-county-marketplace-2026-12-05/,event,keep,/elizabeth/events/elbert-county-marketplace-2026-12-05/,"organizer schedule lists ""December 5, 19"", hours 9 AM – 2 PM, Casey Jones Park Pavilion"
+/events/elbert-county-marketplace-2026-12-19/,event,keep,/elizabeth/events/elbert-county-marketplace-2026-12-19/,"organizer schedule lists ""December 5, 19"", hours 9 AM – 2 PM, Casey Jones Park Pavilion"
+/events/elizabeth-book-club-2026-10-19/,event,410,,past occurrence of a recurring series
+/events/elizabeth-book-club-evening-2026-10-20/,event,410,,past occurrence of a recurring series
+/events/elizabeth-community-coffee-and-chat-2027-01-12/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-community-coffee-and-chat-2027-02-09/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-community-coffee-and-chat-2027-03-09/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-curiosity-club-2026-11-26/,event,410,,"unverifiable: recurring series falling on Thanksgiving; the library page says all locations are closed Thursday, November 26"
+/events/elizabeth-curiosity-club-2026-12-24/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-curiosity-club-2027-01-28/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-curiosity-club-2027-02-25/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-heritage-crew-2027-01-02/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-heritage-crew-2027-02-06/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-heritage-crew-2027-03-06/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-lego-construction-masters-2027-01-05/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-lego-construction-masters-2027-02-02/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-lego-construction-masters-2027-03-02/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-piecemaker-s-of-colorado-quilting-group-2026-11-13/,event,410,,past one-time event
+/events/elizabeth-piecemaker-s-of-colorado-quilting-group-2027-01-08/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/elizabeth-piecemaker-s-of-colorado-quilting-group-2027-02-12/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/ems-ehs-band-concert-2026-12-07/,event,keep,/elizabeth/events/ems-ehs-band-concert-2026-12-07/,"district calendar: Monday, December 7, 6–7 PM, Elizabeth High School"
+/events/ems-ehs-combined-choir-concert-2026-12-08/,event,keep,/elizabeth/events/ems-ehs-combined-choir-concert-2026-12-08/,"district calendar: Tuesday, December 8, 7–8 PM, Elizabeth High School"
+/events/ems-ehs-combined-orchestra-concert-2026-12-09/,event,keep,/elizabeth/events/ems-ehs-combined-orchestra-concert-2026-12-09/,"district calendar: Wednesday, December 9, 6–7 PM, Elizabeth Middle School"
+/events/fall-break-day-camp-2026/,event,410,,past one-time event
+/events/free-legal-clinic-2026-10-07/,event,410,,past occurrence of a recurring series
+/events/halloween-haven-2026-10-24/,event,410,,past one-time event
+/events/heritage-crew-2026-11-07/,event,410,,past occurrence of a recurring series
+/events/heritage-crew-2026-12-05/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/joy-seekers-2026-11-06/,event,410,,past occurrence of a recurring series
+/events/joy-seekers-2026-12-04/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/joy-seekers-with-courtney-2027-01-01/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/joy-seekers-with-courtney-2027-02-05/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/joy-seekers-with-courtney-2027-03-05/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/just-a-note-paper-arts-2026-10-06/,event,410,,past occurrence of a recurring series
+/events/just-a-note-paper-arts-2026-10-20/,event,410,,past occurrence of a recurring series
+/events/just-a-note-paper-arts-2026-11-17/,event,410,,past one-time event
+/events/just-a-note-paper-arts-2026-12-01/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/just-a-note-paper-arts-2026-12-15/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/just-a-note-paper-arts-2027-01-05/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/just-a-note-paper-arts-2027-01-19/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/just-a-note-paper-arts-2027-02-02/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/just-a-note-paper-arts-2027-02-16/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/just-a-note-paper-arts-2027-03-02/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/legacy-academy-band-concert-2026-12-10/,event,keep,/elizabeth/events/legacy-academy-band-concert-2026-12-10/,"school public calendar: ""EVENT: Band Concert"", 10 December, 6–7:30 pm, status confirmed"
+/events/legacy-academy-fall-theater-performance-2026-12-03/,event,keep,/elizabeth/events/legacy-academy-fall-theater-performance-2026-12-03/,"school public calendar: ""EVENT: Fall Theater Performance"", 3 December, 6–7:30 pm, status confirmed"
+/events/lego-construction-masters-2026-10-06/,event,410,,past occurrence of a recurring series
+/events/lego-construction-masters-2026-12-01/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/live-music-mike-maurer-2026-11-25/,event,410,,unverifiable: the restaurant events page loads its calendar by script and showed no events to a plain read
+/events/mayors-tree-lighting/,event,tradition,/elizabeth/mayors-tree-lighting/,annual; existing record elizabeth-mayors-tree-lighting (data/hub/fold-events.json)
+/events/mayors-tree-lighting-2026/,event,tradition,/elizabeth/mayors-tree-lighting/,annual; existing record elizabeth-mayors-tree-lighting (data/hub/fold-events.json)
+/events/natures-educators-night-owls-2026-10-16/,event,410,,past one-time event
+/events/piecemakers-quilting-2026-10-09/,event,410,,past occurrence of a recurring series
+/events/piecemakers-quilting-2026-12-11/,event,410,,"unverifiable: one occurrence of a recurring library series; the library calendar is a script-loaded embed, and the Main Street calendar lists it only as a rule-generated repeat (it also lists the series on days the library says it is closed), so the date is not individually confirmed"
+/events/pines-plains-board-meeting-2026-10-28/,event,410,,past one-time event
+/events/planning-commission-2026-10-06/,event,410,,cancelled (past)
+/events/planning-commission-2026-10-20/,event,410,,past occurrence of a recurring series
+/events/planning-commission-2026-11-03/,event,410,,cancelled (past)
+/events/planning-commission-2026-11-17/,event,410,,past occurrence of a recurring series
+/events/planning-commission-2026-12-01/,event,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around)"
+/events/planning-commission-2026-12-15/,event,410,,"unverifiable: source townofelizabeth.org returns 403 (bot check, not worked around)"
+/events/star-party-with-csastro-2026-11-14/,event,410,,past one-time event
+/events/story-time-mondays/,event,410,,weekly library series page; not carried as a static event
+/events/story-time-wednesdays/,event,410,,weekly library series page; not carried as a static event
+/events/veterans-appreciation-luncheon-2026/,event,410,,past one-time event
+/events/wic-clinic-2026-10-14/,event,410,,past occurrence of a recurring series
+/events/wic-clinic-2026-11-11/,event,410,,past occurrence of a recurring series
+/events/wic-clinic-2026-12-09/,event,410,,"unverifiable: one occurrence of a monthly clinic, listed on the Main Street events page only as a rule-generated repeat; not individually confirmed"
+/events/yarning-for-all/,event,410,,weekly library series page; not carried as a static event

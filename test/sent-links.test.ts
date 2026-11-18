@@ -34,6 +34,7 @@ import { hubRoutes, placeTypeRoutes } from '../src/integrations/town-routes.ts';
 import { ALSO_COVERED } from '../src/lib/fold.ts';
 import { formerSlugs, QUIET_ANNUAL } from '../src/lib/former-slugs.ts';
 import { heldEventRedirects } from '../scripts/lib/redirect-rules.ts';
+import legacyMap from '../api/legacy-map.json' with { type: 'json' };
 
 const root = new URL('..', import.meta.url).pathname;
 
@@ -83,6 +84,11 @@ function hostRule(domain: string, path: string): Rule | undefined {
  */
 function answered(l: Link): boolean {
   const town = config(l.town);
+  // A folded guide whose pages live on under its hub page (`section`, 17
+  // November 2026): api/legacy.ts answers every path on its host from
+  // docs/migration/redirect-map.csv, 301 or 410, and an address it does not
+  // know with the town's page (test/legacy-redirects.test.ts).
+  if (town.section && town.hubPage) return l.domain in legacyMap;
   const builds = liveSlugs.has(l.town) && (l.collection !== 'events' || listsEvents(town));
   if (builds) return existsSync(join(root, 'content', l.town, l.collection, `${l.slug}.md`)) || redirected(l.domain, l.town, l.collection, l.slug);
   const rule = hostRule(l.domain, `/${l.collection}/${l.slug}/`);
@@ -139,6 +145,14 @@ test('the links into folded guides and to Niwot’s events are among those check
   assert.ok(folded.length > 0, 'the sent issues link guides since folded into their hub pages');
   for (const l of folded) {
     const town = config(l.town);
+    if (town.section) {
+      // Answered by api/legacy.ts: the map names the path, or the town's page stands for it.
+      const entry = (legacyMap as Record<string, { page: string; paths: Record<string, string | 0> }>)[l.domain];
+      assert.ok(entry, `${l.domain}: in api/legacy-map.json`);
+      const got = entry!.paths[`/${l.collection}/${l.slug}/`];
+      if (typeof got === 'string') assert.ok(got.startsWith(`https://insidethetowns.com/`), `${l.domain}/${l.collection}/${l.slug}/ → ${got}`);
+      continue;
+    }
     const page = `https://insidethetowns.com/${town.hubPage!.town}/`;
     const rule = hostRule(l.domain, `/${l.collection}/${l.slug}/`);
     assert.ok(rule, `${l.domain}: no rule takes /${l.collection}/${l.slug}/`);

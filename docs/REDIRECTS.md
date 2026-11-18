@@ -98,6 +98,57 @@ with `annual: true` and their `formerSlugs`) go to `/traditions/`,
 `/thanks/` go to its home page. Host-scoped in `vercel.json`; the annual
 events' rules are written by `scripts/fold-rules.ts`.
 
+### The folded domains move into insidethetowns.com, 17 November 2026
+
+The eighteen folded domains (insidelongmontco.com, insidelovelandco.com,
+insidefortcollins.com, insideestespark.com, insidegolden.com,
+insidecastlerockco.com, insidelafayette.com, insideleadville.com,
+insidenederland.com, insidetimnath.com, insideelizabeth.com,
+insideidahosprings.com, insidegeorgetownco.com, insideblackhawk.com,
+insideevergreenco.com, insidegrandlake.com, insidemanitousprings.com,
+insidefortlupton.com) no longer carry redirect rules in `vercel.json`. Each
+has one rewrite, `/:path*` to `/api/legacy`, and `api/legacy.ts` answers
+every request from `api/legacy-map.json`, which `node
+scripts/migration/redirect-map.ts --dist=dist` writes from
+`docs/migration/redirect-map.csv` (one row per old address: host, path,
+301 or 410 or 200, destination, reason, where the address came from).
+The CSV is built from `docs/migration/inventory/<host>.csv` (`node
+scripts/migration/inventory.ts --old=<folder>`: every address each domain
+served at the pre-restructure commit 7141d032, its sitemap, its redirect
+stubs, and the listings git history shows it had before), the page-by-page
+decisions in `docs/migration/decisions/<town>.csv`, and the hub build.
+
+- **Longmont, Loveland, Fort Collins and Estes Park** (`section.mode:
+  'full'`) are sections of the hub: the guide's pages at the same path
+  under `/<town>/`, built from the guide's own templates (`HUB_SECTION=1`,
+  `scripts/lib/section-merge.ts`). An old address goes to the same path;
+  the home page to the town's page; This week, This weekend and Updates to
+  `/<town>/events/`; an annual event's address to its tradition page; a
+  past one-time event, a lapsed place and a sports page answer 410.
+- **The other fourteen** (`section.mode: 'pages'`) keep what was decided
+  one by one: `/<town>/places/<slug>/`, `/<town>/guides/<slug>/`,
+  `/<town>/events/<slug>/`, and `/<town>/places/` as the index; the rest of
+  the guide is the town's page. 410 only for a closed or unverifiable
+  place, a page with no town-specific content, a sports page, and a past
+  one-time event with no annual page; each row gives its reason.
+- Each domain's pre-restructure sitemap is served at `/sitemap-index.xml`
+  and `/sitemap-0.xml` (from `data/migration/sitemaps/<host>/`), with a
+  robots.txt that points to it. **Remove both after 2027-05-17.**
+- A redirect stub (meta refresh) goes where its target goes, one hop. An
+  address not in the map goes to the town's page. Server-side 301 only;
+  no meta-refresh pages are built for these hosts.
+- **Keep the redirects live and the domains renewed indefinitely, at
+  minimum until 2027-11-17** (the owner's brief; the comment is in
+  `api/legacy.ts`).
+- Each folded project builds nothing but one 404 page and the function
+  (`scripts/run.ts`); the Ignored Build Step skips it unless `vercel.json`,
+  `api/legacy.ts`, `api/legacy-map.json`, the map or its config change.
+- `test/legacy-redirects.test.ts` holds the CSV, the map and `vercel.json`
+  together; `node scripts/migration/check-local.ts` checks a hub build,
+  and `node scripts/migration/check-production.ts` reads every row against
+  the live domains after a deploy (host-based answers cannot be tried on
+  a preview address).
+
 ### A guide's own old addresses, and the hub's, 17 November 2026
 
 The builds answer a former slug (`formerSlugs`), a retired one

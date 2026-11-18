@@ -1,0 +1,107 @@
+#!/usr/bin/env node
+/**
+ * Reads docs/migration/redirect-map.csv against the live domains (the move
+ * of 17 November 2026, step 7): each old address answers 301 or 308 to its
+ * mapped destination within the hop limit, and that destination answers
+ * 200; or it answers 410 where the map says so; or, for the sitemap and
+ * robots.txt, 200. Host-based answers cannot be tried on a preview address,
+ * so this runs after the deploy, against the domains themselves.
+ *
+ *   node scripts/migration/check-production.ts                 # every host
+ *   node scripts/migration/check-production.ts --host=insidegolden.com
+ *   node scripts/migration/check-production.ts --report=/tmp/redirects.md --concurrency=8
+ *
+ * The report is Markdown, for the pull request. Exit 1 when anything fails.
+ */
+import { writeFileSync } from 'node:fs';
+import { readCsv } from './shared.ts';
+
+const args = process.argv.slice(2);
+const option = (name: string) => args.find((a) => a.startsWith(`--${name}=`))?.slice(name.length + 3);
+const onlyHost = option('host');
+const report = option('report');
+const concurrency = Number(option('concurrency') ?? 8);
+/** One hop, or two where www goes to the apex at the domain level; the trailing-slash 308 Vercel adds is a third. */
+const HOP_LIMIT = Number(option('hops') ?? 2);
+const UA = 'InsideTheTowns-RedirectCheck/1.0 (+https://insidethetowns.com/editorial/)';
+
+interface Hop { status: number; location?: string }
+async function follow(url: string, limit: number): Promise<{ hops: Hop[]; final?: Response; error?: string }> {
+  const hops: Hop[] = [];
+  let current = url;
+  for (let i = 0; i <= limit; i++) {
+    let res: Response;
+    try {
+      res = await fetch(current, { redirect: 'manual', headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(20_000) });
+    } catch (e) {
+      return { hops, error: e instanceof Error ? e.message : String(e) };
+    }
+    if (res.status >= 300 && res.status < 400 && res.headers.get('location')) {
+      const next = new URL(res.headers.get('location')!, current).toString();
+      hops.push({ status: res.status, location: next });
+      current = next;
+      continue;
+    }
+    return { hops, final: res };
+  }
+  return { hops, error: `more than ${limit} hops` };
+}
+
+interface Result { host: string; path: string; expected: string; got: string; ok: boolean }
+const rows = readCsv('docs/migration/redirect-map.csv').filter((r) => !onlyHost || r.host === onlyHost);
+const results: Result[] = [];
+let i = 0;
+async function worker() {
+  while (i < rows.length) {
+    const r = rows[i++]!;
+    const url = `https://${r.host}${r.old_path}`;
+    const want = r.status === '200' ? '200' : r.status === '410' ? '410' : `301/308 → ${r.destination}`;
+    const { hops, final, error } = await follow(url, r.status === '301' ? HOP_LIMIT : 0);
+    let ok = false;
+    let got: string;
+    if (error) got = error;
+    else if (r.status === '200') {
+      ok = final!.status === 200;
+      got = String(final!.status);
+    } else if (r.status === '410') {
+      ok = final!.status === 410 && hops.length === 0;
+      got = hops.length ? `${hops.map((h) => h.status).join(' → ')} → ${final!.status}` : String(final!.status);
+    } else {
+      const wanted = new URL(r.destination!, 'https://insidethetowns.com');
+      const landed = hops.at(-1)?.location ? new URL(hops.at(-1)!.location!) : undefined;
+      const redirected = hops.length >= 1 && hops.length <= HOP_LIMIT && hops.every((h) => h.status === 301 || h.status === 308);
+      const same = !!landed && landed.origin === wanted.origin && landed.pathname === wanted.pathname && landed.search === wanted.search;
+      ok = redirected && same && final!.status === 200;
+      got = `${hops.map((h) => `${h.status} → ${h.location}`).join(', ')}${final ? ` (${final.status})` : ''}`;
+    }
+    results.push({ host: r.host!, path: r.old_path!, expected: want, got, ok });
+  }
+}
+await Promise.all(Array.from({ length: concurrency }, worker));
+
+const failed = results.filter((r) => !r.ok);
+const byHost = new Map<string, { ok: number; failed: number }>();
+for (const r of results) {
+  const h = byHost.get(r.host) ?? { ok: 0, failed: 0 };
+  if (r.ok) h.ok++;
+  else h.failed++;
+  byHost.set(r.host, h);
+}
+const lines = [
+  `## Redirect check, ${new Date().toISOString().slice(0, 16).replace('T', ' ')} UTC`,
+  '',
+  `${results.length} addresses from docs/migration/redirect-map.csv, ${results.length - failed.length} as mapped, ${failed.length} not.`,
+  '',
+  '| Host | As mapped | Not |',
+  '|---|---|---|',
+  ...[...byHost.entries()].sort().map(([h, c]) => `| ${h} | ${c.ok} | ${c.failed} |`),
+];
+if (failed.length) {
+  lines.push('', '### Not as mapped', '', '| Address | Expected | Got |', '|---|---|---|');
+  for (const f of failed.slice(0, 400)) lines.push(`| https://${f.host}${f.path} | ${f.expected} | ${f.got.replace(/\|/g, '\\|')} |`);
+  if (failed.length > 400) lines.push('', `… and ${failed.length - 400} more.`);
+}
+const text = lines.join('\n') + '\n';
+if (report) writeFileSync(report, text);
+console.log(text);
+process.exit(failed.length ? 1 : 0);

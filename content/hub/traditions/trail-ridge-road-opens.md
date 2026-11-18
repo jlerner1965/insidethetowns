@@ -26,7 +26,11 @@ years:
   - year: 2027
     status: not-announced
     typicalWindow: "historically opens in late May"
-    checked: 2026-11-12
+    checked: 2026-11-17
+  - year: 2026
+    status: confirmed
+    date: 2026-05-29
+    checked: 2026-11-17
   - year: 2025
     status: confirmed
     date: 2025-05-30

@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { satteri } from '@astrojs/markdown-satteri';
-import { getSite } from './src/config/index.ts';
+import { getNetworkHub, getSite, isSectionBuild, sectionBase, sectionTowns } from './src/config/index.ts';
 import { townRoutes } from './src/integrations/town-routes.ts';
 import { hostFiles } from './src/integrations/host-files.ts';
 import { heroMap } from './src/integrations/hero-map.ts';
@@ -20,6 +20,13 @@ import vercelConfig from './vercel.json' with { type: 'json' };
 // Which site to build is decided by the TOWN env var (see src/config/index.ts).
 // getSite() throws with a helpful message if TOWN is unset or unknown.
 const site = getSite();
+// A folded guide built as a section of the hub (HUB_SECTION=1, set by
+// scripts/run.ts): the same routes under /<town>/ on the hub's domain. The
+// build's `base` puts the prefix on every asset; the links the templates
+// write by hand get it afterwards (scripts/lib/section-merge.ts).
+const section = site.kind === 'town' && isSectionBuild() ? { base: sectionBase(site), origin: `https://${getNetworkHub().domain}` } : undefined;
+/** A built page's path as the guide knew it, without the section's prefix. */
+const guidePath = (/** @type {string} */ pathname) => (section && pathname.startsWith(`${section.base}/`) ? pathname.slice(section.base.length) : pathname);
 
 // Two kinds of event page carry noindex, so neither belongs in the sitemap:
 // repeat occurrences of a series, and events that are simply over. The page
@@ -39,10 +46,21 @@ const dates = contentDates(site);
 // A draft article drawn by the local preview switch is noindex too (src/lib/curiosity.ts).
 const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/', '/newsletter/sample/', '/search/', ...(site.kind === 'hub' ? draftPaths() : [])]);
 
+// The hub's page-by-page sections (src/lib/section-index.ts): a carried
+// event that has passed and a kept place that has closed are noindex, so
+// neither is listed. Keyed by the hub path, read from the markdown as above.
+const sectionNoindex = new Set(
+  site.kind === 'hub'
+    ? sectionTowns('pages').flatMap((t) => [
+        ...[...pastEventSlugs(t.slug)].map((s) => `/${t.hubPage.town}/events/${s}/`),
+        ...[...closedPlaceSlugs(t.slug)].map((s) => `/${t.hubPage.town}/places/${s}/`),
+      ])
+    : [],
+);
 const indexable = (/** @type {string} */ url) => {
   if (!live) return false;
-  const { pathname } = new URL(url);
-  if (NOINDEX.has(pathname)) return false;
+  const pathname = guidePath(new URL(url).pathname);
+  if (NOINDEX.has(pathname) || sectionNoindex.has(pathname)) return false;
   const place = pathname.match(/^\/places\/([^/]+)\/$/);
   if (place) return !closed.has(place[1]);
   const m = pathname.match(/^\/events\/([^/]+)\/$/);
@@ -61,10 +79,13 @@ const formerRedirects = site.kind === 'town' ? Object.fromEntries(Object.entries
 // The hub's pages that moved to a guide (src/lib/hub-moved.ts): Severance's, to the Windsor guide.
 // /articles/ on a guide: every article lives under it and the index is
 // /guides/ (the review of 14 November 2026 found /articles/ a 404).
-const redirects = site.kind === 'town' ? { ...formerRedirects, '/places': '/directory/', '/articles': '/guides/' } : { ...HUB_MOVED };
+// A section builds no redirect page at all: a redirect page is a meta
+// refresh, and every old address is answered by a 301 in vercel.json.
+const redirects = section ? {} : site.kind === 'town' ? { ...formerRedirects, '/places': '/directory/', '/articles': '/guides/' } : { ...HUB_MOVED };
 
 export default defineConfig({
-  site: `https://${site.domain}`,
+  site: section ? section.origin : `https://${site.domain}`,
+  ...(section ? { base: section.base, cacheDir: `./node_modules/.astro-section-${site.slug}` } : {}),
   output: 'static',
   trailingSlash: 'always',
   redirects,
@@ -85,9 +106,10 @@ export default defineConfig({
   // siteImages: the photographs this build may see, and no original left in /_astro/ (src/integrations/site-images.ts).
   // On the hub, /hero-map.json: each town page's photograph, for the links to start early (src/integrations/hero-map.ts).
   integrations: [townRoutes(site), siteImages(site), sitemap({ filter: indexable, serialize: (item) => {
-      const lastmod = lastmodFor(item.url, dates, buildDate);
+      // A section's dates are keyed by the guide's own paths.
+      const lastmod = lastmodFor(section ? `https://${site.domain}${guidePath(new URL(item.url).pathname)}` : item.url, dates, buildDate);
       return lastmod ? { ...item, lastmod } : item;
-    } }), hostFiles(vercelConfig, site.domain), ...(site.kind === 'hub' ? [heroMap()] : [])],
+    } }), ...(section ? [] : [hostFiles(vercelConfig, site.domain)]), ...(site.kind === 'hub' ? [heroMap()] : [])],
   vite: {
     plugins: [tailwindcss()],
     build: {

@@ -32,7 +32,7 @@ import { generatedBlocks, withBlocks, REDIRECT_LIMIT, type HostRule } from './li
 
 type Rule = HostRule;
 const file = new URL('../vercel.json', import.meta.url);
-const config = JSON.parse(readFileSync(file, 'utf8')) as { redirects: Rule[] };
+const config = JSON.parse(readFileSync(file, 'utf8')) as { redirects: Rule[]; rewrites?: Array<{ source: string; destination: string; has?: Rule['has'] }> };
 const hub = getNetworkHub();
 const hostOf = (r: Rule) => r.has?.find((h) => h.type === 'host')?.value;
 
@@ -44,15 +44,21 @@ const published = new Set(publishedHubTowns(records).map((t) => t.slug));
 const pages = new Map(hubEventPages(records, published).map((p) => [p.record.slug, { town: p.town, event: p.event }]));
 const eventMap = foldEvents as FoldEventMap;
 /** Every domain that forwards to a town page: a folded guide's, or a hub town's own. */
+// A folded guide whose pages live on under its hub page (`section`; the move
+// of 17 November 2026) is answered by api/legacy.ts from
+// docs/migration/redirect-map.csv, one hop, 301 or 410: vercel.json holds no
+// redirect for its host, only the rewrite that sends every path to the
+// function (below).
+const legacy = allTowns.filter((t) => t.hubPage && t.section);
 const domains = [
-  ...allTowns.filter((t) => t.hubPage).map((t) => ({ domain: t.domain, town: t.hubPage!.town })),
+  ...allTowns.filter((t) => t.hubPage && !t.section).map((t) => ({ domain: t.domain, town: t.hubPage!.town })),
   ...HUB_TOWNS.filter((t) => t.domain && published.has(t.slug)).map((t) => ({ domain: t.domain!, town: t.slug })),
 ];
 for (const hubTown of HUB_TOWNS.filter((t) => t.domain && !published.has(t.slug))) {
   console.log(`${hubTown.domain}: no rule, ${hubTown.name}'s page is not published yet.`);
 }
 for (const host of Object.keys(eventMap)) {
-  if (!domains.some((d) => d.domain === host)) throw new Error(`data/hub/fold-events.json names ${host}, which is no folded guide's or hub town's domain.`);
+  if (!domains.some((d) => d.domain === host) && !legacy.some((t) => t.domain === host)) throw new Error(`data/hub/fold-events.json names ${host}, which is no folded guide's or hub town's domain.`);
 }
 for (const town of domains) {
   const want = foldRules(town.domain, hub.domain, town.town, foldEventTargets(eventMap, town.domain, town.town, (slug) => pages.get(slug)));
@@ -74,11 +80,29 @@ for (const block of generatedBlocks()) {
   rules = next as Rule[];
   console.log(`${block.host}: ${block.rules.length} rule(s) for its former, retired and moved addresses`);
 }
+// The folded guides' domains: no redirect rule of their own, and one rewrite
+// each to api/legacy.ts. The rewrite names every path (`/:path*`, the root
+// included); redirects run first, so none may stay for these hosts.
+for (const t of legacy) {
+  const had = rules.filter((r) => hostOf(r) === t.domain).length;
+  if (had === 0) continue;
+  changed++;
+  rules = rules.filter((r) => hostOf(r) !== t.domain);
+  console.log(`${t.domain}: ${had} redirect rule(s) removed; api/legacy.ts answers every path`);
+}
+const wantRewrites = legacy.map((t) => ({ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy' }));
+const otherRewrites = (config.rewrites ?? []).filter((r) => !legacy.some((t) => hostOf(r as Rule) === t.domain));
+const nextRewrites = [...otherRewrites, ...wantRewrites];
+if (JSON.stringify(nextRewrites) !== JSON.stringify(config.rewrites ?? [])) {
+  changed++;
+  console.log(`rewrites: ${wantRewrites.length} folded domain(s) sent to api/legacy.ts`);
+}
 // Vercel refuses a deployment with more (vercel.com/docs/redirects/configuration-redirects, "Limits").
 if (rules.length > REDIRECT_LIMIT) throw new Error(`vercel.json would hold ${rules.length} redirects; Vercel allows ${REDIRECT_LIMIT}.`);
 if (changed === 0) console.log(`vercel.json already carries every rule (${rules.length} of the ${REDIRECT_LIMIT} Vercel allows).`);
 else if (process.argv.includes('--write')) {
   config.redirects = rules;
+  config.rewrites = nextRewrites;
   writeFileSync(file, `${JSON.stringify(config, null, 2)}\n`, 'utf8');
   console.log(`vercel.json rewritten: ${changed} domain(s).`);
 } else console.log(`${changed} domain(s) differ. Run with --write.`);

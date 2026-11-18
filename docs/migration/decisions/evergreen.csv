@@ -1,0 +1,69 @@
+old_path,kind,decision,destination,reason
+/places/alderfer-three-sisters-east-trailhead/,place,keep,/evergreen/places/alderfer-three-sisters-east-trailhead/,"Jeffco Open Space page read 17 Nov 2026: open, address matches; hours from the county Park Regulations page (C.21.a)"
+/places/alderfer-three-sisters-park/,place,keep,/evergreen/places/alderfer-three-sisters-park/,"Jeffco Open Space page read 17 Nov 2026: open, address matches; hours from the county Park Regulations page (C.21.a)"
+/places/alderfer-three-sisters-west-trailhead/,place,keep,/evergreen/places/alderfer-three-sisters-west-trailhead/,"Jeffco Open Space page read 17 Nov 2026: open, address matches; hours from the county Park Regulations page (C.21.a)"
+/places/beau-jos-evergreen/,place,keep,/evergreen/places/beau-jos-evergreen/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/buchanan-park-recreation-center/,place,keep,/evergreen/places/buchanan-park-recreation-center/,"Evergreen Park & Recreation District page read 17 Nov 2026: address, phone and hours match"
+/places/buchanan-park/,place,keep,/evergreen/places/buchanan-park/,"Evergreen Park & Recreation District page read 17 Nov 2026: address, phone and hours match"
+/places/center-for-the-arts-evergreen/,place,keep,/evergreen/places/center-for-the-arts-evergreen/,"evergreenarts.org read 17 Nov 2026: address, phone and public hours match"
+/places/elk-meadow-park/,place,keep,/evergreen/places/elk-meadow-park/,"Jeffco Open Space page read 17 Nov 2026: open, address matches; hours from the county Park Regulations page (C.21.a)"
+/places/elk-meadow-stagecoach-trailhead/,place,keep,/evergreen/places/elk-meadow-stagecoach-trailhead/,"Jeffco Open Space page read 17 Nov 2026: open, address matches; hours from the county Park Regulations page (C.21.a)"
+/places/evergreen-clothing-and-mercantile/,place,keep,/evergreen/places/evergreen-clothing-and-mercantile/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/evergreen-lake-trail/,place,keep,/evergreen/places/evergreen-lake-trail/,"Evergreen Park & Recreation District page read 17 Nov 2026: address, phone and hours match"
+/places/evergreen-lake/,place,keep,/evergreen/places/evergreen-lake/,"Evergreen Park & Recreation District page read 17 Nov 2026: address, phone and hours match"
+/places/evergreen-library/,place,keep,/evergreen/places/evergreen-library/,"Jefferson County Public Library branch page read 17 Nov 2026: address, phone and hours match"
+/places/hiwan-heritage-park-museum/,place,keep,/evergreen/places/hiwan-heritage-park-museum/,"Jefferson County page read 17 Nov 2026: address, phone and museum hours match"
+/places/java-groove-cafe/,place,keep,/evergreen/places/java-groove-cafe/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/kittredge-park/,place,keep,/evergreen/places/kittredge-park/,"Evergreen Park & Recreation District page read 17 Nov 2026: address, phone and hours match"
+/places/lariat-lodge-brewing-evergreen/,place,keep,/evergreen/places/lariat-lodge-brewing-evergreen/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/mountain-home/,place,keep,/evergreen/places/mountain-home/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/muddy-buck-coffee-house/,place,keep,/evergreen/places/muddy-buck-coffee-house/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/revival-brews/,place,keep,/evergreen/places/revival-brews/,"own page read 17 Nov 2026: operating; address, phone and hours match; bingo times corrected in the body to 4 and 6 pm"
+/places/shadow-mountain-gallery/,place,keep,/evergreen/places/shadow-mountain-gallery/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/sundance-gardens/,place,keep,/evergreen/places/sundance-gardens/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/suz-cookie-jar-rescue/,place,410,,unverifiable: own site scjrbakery.com is now a domain-parking page (redirects to /lander); no other official page found
+/places/the-colorado-creamery/,place,keep,/evergreen/places/the-colorado-creamery/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/the-holly-berry/,place,keep,/evergreen/places/the-holly-berry/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/wildflower-cafe/,place,keep,/evergreen/places/wildflower-cafe/,"own page read 17 Nov 2026: operating; address, phone and hours match"
+/places/wulf-recreation-center/,place,keep,/evergreen/places/wulf-recreation-center/,"Evergreen Park & Recreation District page read 17 Nov 2026: address, phone and hours match"
+/articles/evergreen-history/,guide,keep,/evergreen/guides/evergreen-history/,"town history; dates and names re-read 17 Nov 2026 on the county, chamber, historical society, Denver, Ovation West and district pages; closing pointer to the dropped moving-here page removed"
+/articles/evergreen-lake-through-the-seasons/,guide,keep,/evergreen/guides/evergreen-lake-through-the-seasons/,"district lake pages re-read 17 Nov 2026: prices, rules, hours and season status match; last winter's closed-holidays line removed (no longer on the page)"
+/articles/evergreen-with-kids/,guide,keep,/evergreen/guides/evergreen-with-kids/,"district, library, county and arts-center pages re-read 17 Nov 2026; passed dates removed, Kid's Night Out dates, swim-lesson ages and roof-work month corrected"
+/articles/explore-evergreen-in-driving-order/,guide,keep,/evergreen/guides/explore-evergreen-in-driving-order/,"sources re-read 17 Nov 2026: stops, addresses and hours match; Suz Cookie Jar Rescue (not carried) and the passed Hiwan Halloween line removed"
+/events/all-hallows-eve-celebration-2026-10-17/,event,410,,past one-time event
+/events/alternative-gift-fair-2026-11-14/,event,410,,"past event (14-15 Nov 2026); annual, not verifiable: gifttwice.org gives only the 2026 dates and no word that it returns"
+/events/double-trouble-the-dark-side-of-the-evergreen-chorale-2026-10-25/,event,410,,past one-time event
+/events/downtown-evergreen-halloween-walk-2026-10-31/,event,410,,"annual, not verifiable: Downtown Evergreen page gives ""October 31st"" with no year, no next date and no word that it returns"
+/events/downtown-evergreen-holiday-walk-2026-12-04/,event,tradition,/evergreen/holiday-walk/,"existing record evergreen-holiday-walk; organizer page read 17 Nov 2026: Friday 4 December 2026, 5-9pm"
+/events/dracula-a-comedy-of-terrors-evergreen-players-2026-10-09/,event,410,,past one-time event
+/events/eapl-zombie-run-5k-2026-10-31/,event,410,,"past event; annual, not verifiable: only the Chamber listing for 2026 could be read, no organizer page saying it returns"
+/events/evergreen-chamber-orchestra-holiday-concert-2026-12-19/,event,keep,/evergreen/events/evergreen-chamber-orchestra-holiday-concert-2026-12-19/,"upcoming; orchestra pages read 17 Nov 2026: 19 December 2026, 3 pm and 6 pm, Evergreen Lutheran Church, $25-$50"
+/events/evergreen-children-s-chorale-fall-concert-take-flight-2026-11-13/,event,410,,past one-time event
+/events/evergreen-new-year-s-plunge-2027-01-01/,event,tradition,/evergreen/new-years-day-lake-plunge/,"new record evergreen-new-years-day-lake-plunge; a4aevergreen.org read 17 Nov 2026: January 1, 2027, 10AM-12PM, Evergreen Lake; emcee ""each year"""
+/events/evergreen-pond-hockey-championship-2027-01-30/,event,tradition,/evergreen/pond-hockey-championship/,existing record evergreen-pond-hockey-championship; district page read 17 Nov 2026: 30-31 January 2027
+/events/evergreen-speaks-diane-gansauer-for-the-next-chapter-in-life-2026-11-05/,event,410,,past one-time event
+/events/evergreen-speaks-drs-benjamin-sax-and-david-krueger-dialogue-2026-11-19/,event,keep,/evergreen/events/evergreen-speaks-drs-benjamin-sax-and-david-krueger-dialogue-2026-11-19/,"upcoming; Evergreen Newcomers page read 17 Nov 2026: Nov 19, 2026, 7:00-8:00 PM, Evergreen Christian Church, free"
+/events/exhibition-opening-reception-activating-the-surface-2026-10-22/,event,410,,past one-time event
+/events/free-guided-sculpture-walk-2026-11-07/,event,410,,past occurrence of a monthly series
+/events/free-guided-sculpture-walk-2026-12-05/,event,keep,/evergreen/events/free-guided-sculpture-walk-2026-12-05/,"upcoming; arts center page read 17 Nov 2026: December 5, 10:30-11:30 am, meet at CAE, free"
+/events/frostival-2026-12-12/,event,tradition,/evergreen/frostival/,"existing record evergreen-frostival (data/hub/fold-events.json); district page read 17 Nov 2026: 12 December 2026, 11 AM-3 PM"
+/events/full-moon-night-hike-2026-10-25/,event,410,,past one-time event
+/events/hiwan-halloween-2026-10-24/,event,410,,"past event; annual, not verifiable: county calendar page gives only the 2026 date"
+/events/live-music-saturdays-revival-brews/,event,410,,weekly series: the pub page lists Saturdays 5:30-7:30 pm with no dated occurrence to confirm
+/events/mountain-home-holiday-open-house-2026-11-13/,event,410,,"past event (13-15 Nov 2026); a shop sale weekend the shop calls annual, with no next date"
+/events/mountain-of-thanks-a-festival-of-creative-giving-2026-11-14/,event,410,,"past event; annual, not verifiable: page says a Gratitude Tree is ""Coming in 2027"" but gives no date and does not call the festival annual"
+/events/native-american-heritage-month-celebration-2026-11-14/,event,410,,"past event; annual, not verifiable: county calendar page gives only the 2026 date"
+/events/nightmare-at-1520-haunted-house-2026-10-09/,event,410,,past event (run ended 31 Oct 2026); ticket page says nothing of a return
+/events/open-house-jefferson-county-seeks-input-on-community-gatheri-2026-10-26/,event,410,,past one-time event
+/events/santa-breakfast-at-hiwan-barn-2026-12-06/,event,keep,/evergreen/events/santa-breakfast-at-hiwan-barn-2026-12-06/,"upcoming; Chamber page read 17 Nov 2026: Sunday December 6, Hiwan Barn, seatings 8:00 and 10:00 am, $28"
+/events/santa-breakfast-at-wild-game-2026-12-19/,event,keep,/evergreen/events/santa-breakfast-at-wild-game-2026-12-19/,"upcoming; Chamber page read 17 Nov 2026: Saturday December 19, The Wild Game, seatings 8:30 and 10:30 am, $28"
+/events/season-s-readings-a-christmas-carol-evergreen-players-2026-12-18/,event,keep,/evergreen/events/season-s-readings-a-christmas-carol-evergreen-players-2026-12-18/,"upcoming; box office read 17 Nov 2026: Dec 18 7:30 pm, Dec 19 2 pm, Dec 20 2 pm; the Dec 19 7:30 pm show is no longer listed and was removed"
+/events/second-saturday-downtown-evergreen-2026-11-14/,event,410,,past occurrence of a monthly series
+/events/second-saturday-downtown-evergreen-2026-12-12/,event,keep,/evergreen/events/second-saturday-downtown-evergreen-2026-12-12/,"upcoming dated occurrence; Downtown Evergreen page (December 12th, Holiday Shopping) and Chamber listing (4-7 pm, free) read 17 Nov 2026"
+/events/trick-or-treat-trail-2026-10-30/,event,tradition,/evergreen/trick-or-treat-trail/,"new record evergreen-trick-or-treat-trail; district page read 17 Nov 2026: ""The annual Treat-or-Treat Trail is back!"", Friday October 30, 4-8 PM; 2027 not announced"
+/events/tunisia-halloween-dance-party-at-the-wild-game-2026-10-31/,event,410,,past one-time event
+/events/winterfest-artisan-gift-market-and-holiday-festival-2026-12-05/,event,tradition,/evergreen/winterfest/,"new record evergreen-winterfest; arts center page read 17 Nov 2026: ""annual Winterfest"", Saturday December 5th, 10 AM to 4 PM, free"
+/events/witches-and-warlocks-on-evergreen-lake-2026-10-10/,event,tradition,/evergreen/witches-and-warlocks-on-the-water/,"new record evergreen-witches-and-warlocks-on-the-water; district page read 17 Nov 2026: ""We'll see you for the next coven gathering in 2027!""; 2027 date not announced"
+/events/santa-breakfast-at-hiwan-golf-club-2026-11-28/,event,410,,removed from the old guide on 27 Oct 2026 (commit be16cc51): the Chamber's Santa Breakfast page no longer listed the date; still not on the page 17 Nov 2026
+/events/santa-breakfast-at-lariat-lodge-2026-12-05/,event,410,,removed from the old guide on 27 Oct 2026 (commit be16cc51): the Chamber's Santa Breakfast page no longer listed the date; still not on the page 17 Nov 2026
+/events/santa-breakfast-at-woodcellar-bar-and-grill-2026-12-12/,event,410,,removed from the old guide on 27 Oct 2026 (commit be16cc51): the Chamber's Santa Breakfast page no longer listed the date; still not on the page 17 Nov 2026

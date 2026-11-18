@@ -24,9 +24,10 @@ import { breadcrumbJsonLd, collectionPageJsonLd, listDescription } from '@/lib/s
 import { byProminence } from '@/lib/places';
 import { PLACE_TYPE_PAGES, countByType, placeTypeOfPath, placeTypePages, siblingTypePages } from '@/lib/place-types';
 import { subTownList, subTownsOf } from '@/lib/sub-towns';
+import { pagePath } from '@/lib/section';
 
 const town = getTown();
-const type = placeTypeOfPath(Astro.url.pathname);
+const type = placeTypeOfPath(pagePath(Astro.url));
 if (!type) throw new Error(`${Astro.url.pathname} is not a place-type page (src/lib/place-types.ts)`);
 const page = PLACE_TYPE_PAGES[type];
 

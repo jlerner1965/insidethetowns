@@ -22,6 +22,10 @@ export const nederland: TownConfig = {
   // content has left content/nederland/ (git history keeps it).
   status: 'redirect',
   hubPage: { town: 'nederland', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /nederland/places/<slug>/, /nederland/guides/<slug>/
+  // and the carried events at /nederland/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Clear Creek dropped out on 3 November 2026, when it retired.

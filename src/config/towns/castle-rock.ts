@@ -30,6 +30,10 @@ export const castleRock: TownConfig = {
   // content has left content/castle-rock/ (git history keeps it).
   status: 'redirect',
   hubPage: { town: 'castle-rock', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /castle-rock/places/<slug>/, /castle-rock/guides/<slug>/
+  // and the carried events at /castle-rock/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'front-range',
   region: 'South Metro',
   // Manitou Springs dropped out on 3 November 2026, when it retired.

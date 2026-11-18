@@ -278,6 +278,18 @@ export interface TownConfig {
    */
   hubPage?: { town: string; since: string };
   /**
+   * What of a folded guide lives on under its town's page on the hub (the
+   * move of 17 November 2026; needs `hubPage`). `full`: the guide's pages
+   * are built as a section at /<hubPage.town>/<same path>/, labelled
+   * "Inside <Town>", with their layouts, their events and the nightly
+   * re-check (Longmont, Loveland, Fort Collins, Estes Park). `pages`: only
+   * the places, guides and upcoming events decided page by page
+   * (docs/migration/redirect-map.csv), on the hub's own templates at
+   * /<town>/places/<slug>/, /<town>/guides/<slug>/ and
+   * /<town>/events/<slug>/. The domain's own project stays redirect-only.
+   */
+  section?: { mode: 'full' | 'pages'; since: string; /** A full section's Nearby block: the guides the folded guide named, as `neighbors` did. */ neighbors?: readonly string[] };
+  /**
    * A live guide taken out of the weekly routine on the owner's word while
    * it is decided whether to keep it: the day it went quiet, the day to
    * decide by, and why. Its pages stay up and its listings stay accurate as

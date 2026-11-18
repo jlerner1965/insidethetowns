@@ -30,15 +30,21 @@ import { ALSO_COVERED, eventSource, foldEventTargets, foldRules, OUTDOOR_ANCHOR,
 import { hubEventPages, publishedHubTowns } from '../src/lib/hub-towns.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
 import foldEvents from '../data/hub/fold-events.json' with { type: 'json' };
+import legacyMap from '../api/legacy-map.json' with { type: 'json' };
 
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
   redirects: Array<{ source: string; destination: string; permanent?: boolean; statusCode?: number; has?: Array<{ type: string; value?: string }> }>;
 };
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 
-const withPage = towns.filter((t) => t.hubPage);
+// A folded guide whose pages live on under its hub page (`section`, the move
+// of 17 November 2026) is answered by api/legacy.ts from
+// docs/migration/redirect-map.csv (test/legacy-redirects.test.ts); vercel.json
+// holds no fold rules for it, and its kept content is back in its folder.
+const everyPage = towns.filter((t) => t.hubPage);
+const withPage = everyPage.filter((t) => !t.section);
 /** Folded on 12 November 2026, as distinct from a guide retired earlier whose town has since got its page. */
-const folded = withPage.filter((t) => !t.retired);
+const folded = everyPage.filter((t) => !t.retired);
 const records = rawRecords();
 const published = new Set(publishedHubTowns(records).map((t) => t.slug));
 /** A record's own page on the hub, by slug (src/lib/hub-towns.ts): where an old event address goes. */
@@ -49,14 +55,15 @@ const standaloneConfigs = Object.values(STANDALONE_GUIDES).map((g) => g.guide);
 
 test('eleven guides were folded into their hub pages on 12 November 2026, and seven retired earlier forward to theirs', () => {
   assert.equal(hub.domain, 'insidethetowns.com');
+  assert.deepEqual(everyPage.filter((t) => t.section).map((t) => t.slug).sort(), everyPage.map((t) => t.slug).sort(), 'every folded guide keeps something on the hub');
   assert.deepEqual(folded.map((t) => t.slug).sort(), ['castle-rock', 'elizabeth', 'estes-park', 'fortcollins', 'golden', 'lafayette', 'leadville', 'longmont', 'loveland', 'nederland', 'timnath']);
   for (const t of folded) assert.equal(t.hubPage!.since, '2026-11-12', `${t.slug}: the day it was folded`);
-  assert.deepEqual(withPage.filter((t) => t.retired).map((t) => t.slug).sort(), ['black-hawk', 'evergreen', 'fort-lupton', 'georgetown', 'grand-lake', 'idaho-springs', 'manitou-springs']);
+  assert.deepEqual(everyPage.filter((t) => t.retired).map((t) => t.slug).sort(), ['black-hawk', 'evergreen', 'fort-lupton', 'georgetown', 'grand-lake', 'idaho-springs', 'manitou-springs']);
 });
 
 test('no fold without a page: a config with `hubPage` redirects, names its own hub town, and that town’s page is published', () => {
-  assert.ok(withPage.length > 0);
-  for (const t of withPage) {
+  assert.ok(everyPage.length > 0);
+  for (const t of everyPage) {
     assert.equal(t.status, 'redirect', `${t.slug}: a guide with a hub page is a redirect`);
     assert.equal(t.foldedInto, undefined, `${t.slug}: folded into its hub page, not into another guide`);
     assert.match(t.hubPage!.since, /^\d{4}-\d{2}-\d{2}$/, `${t.slug}: since`);
@@ -105,14 +112,21 @@ test('each old address lands on the matching place on the page: the events on Tr
   assert.ok((TO_OUTDOOR as readonly string[]).includes('/things-to-do{/}?'));
 });
 
-test("a folded guide's content has left its folder, and its data with it", () => {
-  for (const t of folded) {
+test("a folded guide's content has left its folder, and its data with it; a section's kept pages are back, decided one by one", () => {
+  for (const t of folded.filter((t) => !t.section)) {
     for (const dir of ['events', 'places', 'articles', 'pages', 'staging', 'weekly', 'corrections', 'programs', 'updates']) {
       const path = new URL(`../content/${t.slug}/${dir}/`, import.meta.url);
       assert.ok(!existsSync(path) || readdirSync(path).length === 0, `content/${t.slug}/${dir}/ should be empty`);
     }
     assert.ok(!existsSync(new URL(`../content/${t.slug}/sources.json`, import.meta.url)), `${t.slug}: sources gone`);
     assert.ok(!existsSync(new URL(`../data/${t.slug}/`, import.meta.url)), `data/${t.slug}/ should be gone`);
+  }
+  for (const t of folded.filter((t) => t.section)) {
+    assert.ok(!existsSync(new URL(`../data/${t.slug}/`, import.meta.url)), `data/${t.slug}/ should be gone`);
+    for (const dir of ['staging', 'weekly', 'updates', 'programs']) {
+      const path = new URL(`../content/${t.slug}/${dir}/`, import.meta.url);
+      assert.ok(!existsSync(path) || readdirSync(path).length === 0, `content/${t.slug}/${dir}/ should be empty: a section keeps its pages, not the weekly routine`);
+    }
   }
 });
 
@@ -181,11 +195,22 @@ test('the seven standalone guides are live, each from its own config, and none i
 });
 
 test('an old event address with a record of its own goes to that record’s page in one hop, ahead of the events catch-all (the brief of 13 November 2026)', () => {
-  const domains = new Map(withPage.map((t) => [t.domain, t.hubPage!.town]));
+  const domains = new Map(everyPage.map((t) => [t.domain, t.hubPage!.town]));
   let count = 0;
   for (const [host, paths] of Object.entries(eventMap)) {
     const town = domains.get(host);
     assert.ok(town, `${host}: not a folded guide's domain`);
+    if (everyPage.find((t) => t.domain === host)!.section) {
+      // Answered by api/legacy.ts: each address in the map goes to the record's page (test/legacy-redirects.test.ts holds the table).
+      const table = legacyMap as Record<string, { paths: Record<string, string | 0> }>;
+      for (const [path, slug] of Object.entries(paths)) {
+        count++;
+        const page = pages.get(slug);
+        assert.ok(page, `${host}${path} → ${slug}: no record with a page of its own`);
+        assert.equal(table[host]?.paths[path], `https://insidethetowns.com/${page.town}/${page.event}/`, `${host}${path}: one hop to the page, in api/legacy-map.json`);
+      }
+      continue;
+    }
     const rules = rulesFor(host);
     const catchAll = rules.findIndex((r) => r.source === '/events/(.*)');
     assert.ok(catchAll > 0, `${host}: no events catch-all`);
@@ -217,7 +242,7 @@ test('an old event address with a record of its own goes to that record’s page
   assert.equal(to('insideestespark.com', 'bigfoot-days-festival'), 'estes-park-bigfoot-days');
   assert.equal(to('insideestespark.com', 'rocky-mountain-craft-spirits-festival-2026-11-07'), 'estes-park-rocky-mountain-craft-spirits-festival');
   // An old address carries its date; the page it goes to carries none.
-  for (const host of Object.keys(eventMap)) {
+  for (const host of Object.keys(eventMap).filter((h) => !everyPage.find((t) => t.domain === h)!.section)) {
     for (const rule of rulesFor(host).filter((r) => /^\/events\/[a-z0-9-]+\{\/\}\?$/.test(r.source))) assert.doesNotMatch(rule.destination, /(?:^|-)(?:19|20)\d\d(?:-|\/|$)/, rule.destination);
   }
 });

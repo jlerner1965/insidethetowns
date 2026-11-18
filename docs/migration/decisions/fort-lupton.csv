@@ -1,0 +1,38 @@
+old_path,kind,decision,destination,reason
+/places/a-natural-way/,place,keep,/fort-lupton/places/a-natural-way/,"address, phone and hours match its contact page"
+/places/ace-hardware-of-fort-lupton/,place,410,,"unverifiable: source acehardware.com store page answers 403 (bot check, not worked around); the store has no other own page"
+/places/cannery-park/,place,keep,/fort-lupton/places/cannery-park/,"address, hours and features match the City's facility page"
+/places/community-center-park/,place,keep,/fort-lupton/places/community-center-park/,"address, hours and features match the City's facility page"
+/places/coyote-creek-golf-course/,place,keep,/fort-lupton/places/coyote-creek-golf-course/,"address, phone and summer and winter hours match the course's contact page"
+/places/fort-lupton-city-museum/,place,keep,/fort-lupton/places/fort-lupton-city-museum/,"address, phone, hours and free admission match the City's museum page"
+/places/fort-lupton-dog-park/,place,keep,/fort-lupton/places/fort-lupton-dog-park/,"address, hours and features match the City's facility page"
+/places/fort-lupton-public-and-school-library/,place,keep,/fort-lupton/places/fort-lupton-public-and-school-library/,"address, phone and hours match the library's hours page"
+/places/heritage-park/,place,keep,/fort-lupton/places/heritage-park/,"address, hours and features match the City's facility page"
+/places/historic-denver-avenue/,place,keep,/fort-lupton/places/historic-denver-avenue/,the City's Historic Preservation page still describes Denver Avenue as its historic main street
+/places/house-of-smoke/,place,keep,/fort-lupton/places/house-of-smoke/,"address, phone and weekday hours match its contact page"
+/places/lancaster-park/,place,keep,/fort-lupton/places/lancaster-park/,"address, hours and features match the City's facility page"
+/places/lucky-shot-sports-bar-and-grill/,place,keep,/fort-lupton/places/lucky-shot-sports-bar-and-grill/,"address, phone and hours match its site"
+/places/pearson-park/,place,keep,/fort-lupton/places/pearson-park/,location and features match the City's facility page; dawn to dusk is on the City's park rules page
+/places/railroad-park/,place,keep,/fort-lupton/places/railroad-park/,"address, hours and features match the City's facility page"
+/places/raw-roots-juice-bar-and-cafe/,place,keep,/fort-lupton/places/raw-roots-juice-bar-and-cafe/,"address, phone and hours match its site"
+/places/salt-and-acres/,place,keep,/fort-lupton/places/salt-and-acres/,"address, phone and hours match its hours and location page"
+/places/santiagos/,place,keep,/fort-lupton/places/santiagos/,"address, phone and hours match the chain's Fort Lupton page"
+/places/south-platte-valley-historic-park/,place,keep,/fort-lupton/places/south-platte-valley-historic-park/,"address and visiting days match the historical society's home page (first and third weekends, May to October)"
+/places/wholly-stromboli/,place,keep,/fort-lupton/places/wholly-stromboli/,"address, phone and hours match its contact page"
+/articles/explore-fort-lupton-in-walking-order/,guide,keep,/fort-lupton/guides/explore-fort-lupton-in-walking-order/,"stops, hours and register entries re-read on the City, museum, historical society and business pages; one line about a missing listing removed"
+/articles/fort-lupton-history/,guide,keep,/fort-lupton/guides/fort-lupton-history/,"main dates and names re-read in the City's Crossroads in Eden history, the historical society pages and the museum page"
+/articles/fort-lupton-with-kids/,guide,410,,"dated to fall 2026: session dates, the October calendar and ""not yet out"" times have passed; needs a rewrite, not a re-check"
+/events/adam-doleac-at-salt-and-acres-2026-10-17/,event,410,,past one-time event
+/events/creepy-crawly-creatures-2026-10-19/,event,410,,past one-time event
+/events/dia-de-los-muertos-2026-11-02/,event,410,,"annual, not verifiable: the library's page says ""our 5th year hosting community ofrendas"" but gives no 2027 date or word that it returns; no hub record"
+/events/dia-de-los-muertos-ofrenda-viewing-night-2026-10-24/,event,410,,"annual, not verifiable: the library's page says ""our 5th year hosting community ofrendas"" but gives no 2027 date or word that it returns; no hub record"
+/events/family-health-plate-2026-11-30/,event,410,,"unverifiable: the library calendar page now answers ""Event not found"""
+/events/halloween-nail-art-2026-10-21/,event,410,,past one-time event
+/events/halloween-pancake-breakfast-2026-10-31/,event,410,,past one-time event
+/events/la-posada-and-loteria-celebration-2026-12-08/,event,keep,/fort-lupton/events/la-posada-and-loteria-celebration-2026-12-08/,"8 December 2026, 5:30 to 7:30 pm at the library confirmed on the library calendar"
+/events/pumpkinfest-and-hayrides-2026-10-10/,event,410,,"annual, not verifiable: the City's event page says 10 October 2026 and its Special Events list says October 9-10; the record is held in docs/agent/dates/unverified/ for that conflict"
+/events/splash-the-pumpkin-pool-and-movie-party-2026-10-16/,event,410,,past one-time event
+/events/teen-laser-tag-2026-10-30/,event,410,,past one-time event
+/events/to-the-moon-teen-gaming-night-2026-10-22/,event,410,,past one-time event
+/events/trick-or-treat-street-2026-10-31/,event,410,,"annual, not verifiable: the Chamber's event page answers 403 (bot check, not worked around)"
+/events/victorian-death-ritual-presentation-2026-10-22/,event,410,,past one-time event

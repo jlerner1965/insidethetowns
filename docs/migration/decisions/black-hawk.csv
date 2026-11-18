@@ -1,0 +1,41 @@
+old_path,kind,decision,destination,reason
+/places/ameristar-black-hawk/,place,410,,"unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
+/places/ballys-black-hawk/,place,keep,/black-hawk/places/ballys-black-hawk/,casino's own page read 17 Nov 2026: address and phone match
+/places/bar-8042/,place,410,,"unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
+/places/bistro-mariposa/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/black-hawk-and-central-city-tramway/,place,keep,/black-hawk/places/black-hawk-and-central-city-tramway/,"City page read 17 Nov 2026; hours corrected to the City's: Mon-Thu to 2 am, Fri-Sun to 3 am"
+/places/cold-springs-campground/,place,410,,"closed: the old guide had it as temporarily closed, and the Forest Service page still carries its ""Site Closed"" banner on 17 Nov 2026"
+/places/fireside-kitchen/,place,410,,"unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
+/places/gilpin-county-public-library/,place,keep,/black-hawk/places/gilpin-county-public-library/,"library pages read 17 Nov 2026: address, phone and holiday closures match"
+/places/golden-gate-canyon-state-park/,place,keep,/black-hawk/places/golden-gate-canyon-state-park/,"CPW page read 17 Nov 2026: address and phone match; visitor center hours corrected (Tue-Sun), fall notices replaced by the winter road closure"
+/places/gregory-street-plaza/,place,keep,/black-hawk/places/gregory-street-plaza/,City page read 17 Nov 2026: description matches
+/places/java-etc-monarch/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/maryland-mountain-quartz-valley-open-space-park/,place,keep,/black-hawk/places/maryland-mountain-quartz-valley-open-space-park/,City page read 17 Nov 2026: trailhead address and dawn-to-dusk hours match
+/places/monarch-casino-resort-spa/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/monarch-chophouse/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/mpulse-gift-shop/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/spa-monarch/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/the-buffet-at-monarch/,place,410,,unverifiable: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it
+/places/the-lodge-casino/,place,keep,/black-hawk/places/the-lodge-casino/,casino's contact page read 17 Nov 2026: address and phone match
+/places/timberline-grill/,place,410,,"unverifiable: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch"
+/places/white-buffalo-grille/,place,keep,/black-hawk/places/white-buffalo-grille/,restaurant's page read 17 Nov 2026: hours and phone match
+/articles/black-hawk-history/,guide,keep,/black-hawk/guides/black-hawk-history/,"town-specific; the City's History and Gregory Street Plaza pages re-read 17 Nov 2026, dates match"
+/articles/black-hawk-with-kids/,guide,keep,/black-hawk/guides/black-hawk-with-kids/,"town-specific; City, library and CPW pages re-read 17 Nov 2026"
+/articles/explore-black-hawk-in-driving-order/,guide,410,,"unverifiable: four of its five stops rest on monarchblackhawk.com (403 bot check), and its October 2026 Halloween Street advice has passed"
+/events/city-council-meeting-2026-10-14/,event,410,,past civic meeting
+/events/city-council-meeting-2026-10-28/,event,410,,past civic meeting
+/events/city-council-meeting-2026-11-11/,event,410,,cancelled: the City's calendar marks it CANCELLED; also past
+/events/city-council-meeting-2026-12-09/,event,410,,"unverifiable: the City's calendar confirms December 9, 3-5 pm, but its event page gives no location"
+/events/free-park-entry-for-veterans-2026-11-11/,event,410,,"past event (November 11, 2026); a statewide CPW day with no Black Hawk record"
+/events/halloween-night-2026-10-31/,event,tradition,/black-hawk/halloween-street-fall-festival/,annual; the October 31 celebration is part of existing record black-hawk-halloween-street-fall-festival
+/events/halloween-street-fall-festival-2026-10-17/,event,tradition,/black-hawk/halloween-street-fall-festival/,annual; existing record black-hawk-halloween-street-fall-festival
+/events/halloween-street-fall-festival-2026-10-24/,event,tradition,/black-hawk/halloween-street-fall-festival/,annual; existing record black-hawk-halloween-street-fall-festival (mapping already in data/hub/fold-events.json)
+/events/mountain-meditation-circle/,event,410,,"weekly series: the library's page says only ""Mondays at 6:00pm"", no dated occurrence to confirm"
+/events/pumpkin-decorating-contest-2026-10-01/,event,410,,"past event (October 1-23, 2026); the file does not mark it annual and no record exists"
+/events/ted-garcia-fine-art-gallery-christmas-2026-12-19/,event,410,,unverifiable: the City's calendar read 17 Nov 2026 no longer lists the gallery's events
+/events/ted-garcia-fine-art-gallery-first-friday-2026-11-06/,event,410,,past occurrence of a monthly series
+/events/ted-garcia-fine-art-gallery-first-friday-2026-12-04/,event,410,,unverifiable: the City's calendar read 17 Nov 2026 no longer lists the gallery's events
+/events/ted-garcia-fine-art-gallery-halloween-2026-10-31/,event,410,,past one-time event
+/events/ted-garcia-fine-art-gallery-new-year-s-2026-12-31/,event,410,,unverifiable: the City's calendar read 17 Nov 2026 no longer lists the gallery's events
+/events/ted-garcia-fine-art-gallery-thanksgiving-2026-11-27/,event,410,,unverifiable: the City's calendar read 17 Nov 2026 no longer lists the gallery's events
+/events/ted-garcia-fine-art-gallery-thanksgiving-2026-11-28/,event,410,,unverifiable: the City's calendar read 17 Nov 2026 no longer lists the gallery's events

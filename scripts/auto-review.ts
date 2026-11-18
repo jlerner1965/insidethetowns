@@ -38,7 +38,12 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFile
 import { basename, dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
-import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
+import { allTowns, eventTowns } from '../src/config/index.ts';
+
+// Every deployed guide, and the hub's full sections (Longmont, Loveland,
+// Fort Collins, Estes Park), whose events are ingested and re-read as a
+// guide's are (the move of 17 November 2026; src/config/index.ts, eventTowns).
+const EVENT_TOWNS = new Set(eventTowns().map((t) => t.slug));
 import { eventSchema, type Source } from '../src/content/schemas.ts';
 import { addDays, dayKey, formatDayLong, parseLocal, startOfDay } from '../src/lib/dates.ts';
 import { isOver } from '../src/lib/events.ts';
@@ -65,7 +70,7 @@ if (dueDays !== undefined && !(Number.isInteger(dueDays) && dueDays > 0)) {
 const writing = !dryRun && dueDays === undefined;
 const today = dayKey(new Date());
 
-const towns = allTowns.filter((t) => (onlyTown ? t.slug === onlyTown : LIVE_TOWNS.includes(t.slug)));
+const towns = allTowns.filter((t) => (onlyTown ? t.slug === onlyTown : EVENT_TOWNS.has(t.slug)));
 if (onlyTown && towns.length === 0) {
   console.error(`auto-review: no town "${onlyTown}". Towns: ${allTowns.map((t) => t.slug).join(', ')}`);
   process.exit(2);

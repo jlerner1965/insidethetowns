@@ -1,0 +1,403 @@
+old_path,source,note
+/,build,in the sitemap
+/about/,build,in the sitemap
+/articles/explore-loveland-in-driving-order/,build,in the sitemap
+/articles/loveland-history/,build,in the sitemap
+/articles/loveland-with-kids/,build,in the sitemap
+/articles/lovelands-sculpture-walk/,build,in the sitemap
+/bars-breweries/,build,in the sitemap
+/coffee/,build,in the sitemap
+/contact/,build,in the sitemap
+/correct/,build,
+/corrections/,build,in the sitemap
+/credits/,build,in the sitemap
+/directory/,build,in the sitemap
+/eat-drink/,build,in the sitemap
+/editorial/,build,in the sitemap
+/events.rss,file,
+/events/,build,in the sitemap
+/events/a-celtic-christmas-taste-of-ireland-rialto-2026-11-20.ics,file,
+/events/a-celtic-christmas-taste-of-ireland-rialto-2026-11-20/,build,in the sitemap
+/events/a-country-christmas-with-aubrey-dale-and-friends-2026-12-22.ics,file,
+/events/a-country-christmas-with-aubrey-dale-and-friends-2026-12-22/,build,in the sitemap
+/events/acoustic-eidolon-rialto-2026-12-05.ics,file,
+/events/acoustic-eidolon-rialto-2026-12-05/,build,in the sitemap
+/events/adult-halloween-party-desk-chair-2026-10-31.ics,file,
+/events/adult-halloween-party-desk-chair-2026-10-31/,build,
+/events/alash-2027-02-19.ics,file,
+/events/alash-2027-02-19/,build,in the sitemap
+/events/alice-in-wonderland-and-disney-holiday-expo-free-loveland-ev-2026-11-20.ics,file,
+/events/alice-in-wonderland-and-disney-holiday-expo-free-loveland-ev-2026-11-20/,build,in the sitemap
+/events/american-peasants-at-grimm-brothers-2026-11-19.ics,file,
+/events/american-peasants-at-grimm-brothers-2026-11-19/,build,in the sitemap
+/events/an-evening-with-the-petty-nicks-experience-2026-11-14.ics,file,
+/events/an-evening-with-the-petty-nicks-experience-2026-11-14/,build,
+/events/applewood-arts-festival-fall-2026-10-17/,stub,/events/applewood-arts-festival-fall/
+/events/applewood-arts-festival-fall.ics,file,
+/events/applewood-arts-festival-fall/,build,in the sitemap
+/events/applewood-arts-festival-holiday-2026-11-20/,stub,/events/applewood-arts-festival-holiday/
+/events/applewood-arts-festival-holiday.ics,file,
+/events/applewood-arts-festival-holiday/,build,in the sitemap
+/events/barbie-brunch-2026-12-06.ics,file,
+/events/barbie-brunch-2026-12-06/,build,in the sitemap
+/events/better-take-cover-2026-12-19.ics,file,
+/events/better-take-cover-2026-12-19/,build,in the sitemap
+/events/bird-walk-at-chapungu-sculpture-park-2026-11-28.ics,file,
+/events/bird-walk-at-chapungu-sculpture-park-2026-11-28/,build,in the sitemap
+/events/blade-5-movie-rialto-2026-10-30.ics,file,
+/events/blade-5-movie-rialto-2026-10-30/,build,
+/events/blue-violin-s-80s-retro-rock-and-roll-christmas-2026-11-28.ics,file,
+/events/blue-violin-s-80s-retro-rock-and-roll-christmas-2026-11-28/,build,in the sitemap
+/events/bluegrass-jam-at-loveland-aleworks-2026-11-22.ics,file,
+/events/bluegrass-jam-at-loveland-aleworks-2026-11-22/,build,in the sitemap
+/events/calendar.ics,file,
+/events/christine-alice-2026-12-05.ics,file,
+/events/christine-alice-2026-12-05/,build,in the sitemap
+/events/christmas-party-2026-12-20.ics,file,
+/events/christmas-party-2026-12-20/,build,in the sitemap
+/events/colorado-eagles-vs-abbotsford-canucks-2026-10-09.ics,file,
+/events/colorado-eagles-vs-abbotsford-canucks-2026-10-09/,build,
+/events/colorado-eagles-vs-abbotsford-canucks-2026-10-10.ics,file,
+/events/colorado-eagles-vs-abbotsford-canucks-2026-10-10/,build,
+/events/colorado-eagles-vs-bakersfield-condors-2026-10-23.ics,file,
+/events/colorado-eagles-vs-bakersfield-condors-2026-10-23/,build,
+/events/colorado-homebrewers-conference-at-grimm-brothers-2026-11-07.ics,file,
+/events/colorado-homebrewers-conference-at-grimm-brothers-2026-11-07/,build,
+/events/colorado-miss-amazing-pageant-2027-02-20.ics,file,
+/events/colorado-miss-amazing-pageant-2027-02-20/,build,in the sitemap
+/events/day-of-the-dead-celebration-pulliam-2026-11-07.ics,file,
+/events/day-of-the-dead-celebration-pulliam-2026-11-07/,build,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-09.ics,file,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-09/,build,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-10.ics,file,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-10/,build,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-11.ics,file,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-11/,build,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-16.ics,file,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-16/,build,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-17.ics,file,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-17/,build,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-18.ics,file,
+/events/die-fledermaus-loveland-opera-theatre-2026-10-18/,build,
+/events/dixx-and-balls-drag-queen-bingo-2026-12-03.ics,file,
+/events/dixx-and-balls-drag-queen-bingo-2026-12-03/,build,in the sitemap
+/events/dr-jackson-crawford-at-meadkrieger-2026-11-18.ics,file,
+/events/dr-jackson-crawford-at-meadkrieger-2026-11-18/,build,in the sitemap
+/events/face-vocal-band-holiday-rialto-2026-11-29.ics,file,
+/events/face-vocal-band-holiday-rialto-2026-11-29/,build,in the sitemap
+/events/face-vocal-band-holiday-rialto-2026-12-15.ics,file,
+/events/face-vocal-band-holiday-rialto-2026-12-15/,build,
+/events/festival-of-lights-downtown-loveland-2026-11-20/,stub,/events/festival-of-lights-downtown-loveland/
+/events/festival-of-lights-downtown-loveland.ics,file,
+/events/festival-of-lights-downtown-loveland/,build,in the sitemap
+/events/flip-the-switch-at-chapungu-illuminated-2026-11-13.ics,file,
+/events/flip-the-switch-at-chapungu-illuminated-2026-11-13/,build,
+/events/folking-imposters-2026-11-14.ics,file,
+/events/folking-imposters-2026-11-14/,build,
+/events/fresh-air-friday-boyd-lake-2026-11-27.ics,file,
+/events/fresh-air-friday-boyd-lake-2026-11-27/,build,in the sitemap
+/events/friends-of-loveland-library-book-sale-2026-10-23.ics,file,
+/events/friends-of-loveland-library-book-sale-2026-10-23/,build,
+/events/friendsgiving-potluck-2026-11-15.ics,file,
+/events/friendsgiving-potluck-2026-11-15/,build,
+/events/gary-schmidt-moonlight-sonata-rialto-2027-01-29.ics,file,
+/events/gary-schmidt-moonlight-sonata-rialto-2027-01-29/,build,in the sitemap
+/events/grains-vs-grains-hope-lives-2026-10-15.ics,file,
+/events/grains-vs-grains-hope-lives-2026-10-15/,build,
+/events/habitat-builders-ball-2026-11-07.ics,file,
+/events/habitat-builders-ball-2026-11-07/,build,
+/events/holiday-wreath-making-workshop-with-wild-posies-2026-11-28.ics,file,
+/events/holiday-wreath-making-workshop-with-wild-posies-2026-11-28/,build,in the sitemap
+/events/home-alone-5-movie-rialto-2026-12-18.ics,file,
+/events/home-alone-5-movie-rialto-2026-12-18/,build,in the sitemap
+/events/in-the-age-of-air-and-fire-maddy-weisz-and-cece-wire-2026-11-13.ics,file,
+/events/in-the-age-of-air-and-fire-maddy-weisz-and-cece-wire-2026-11-13/,build,in the sitemap
+/events/introduction-to-dot-painting-class-2026-11-14.ics,file,
+/events/introduction-to-dot-painting-class-2026-11-14/,build,
+/events/issues-on-tap-city-budget-2026-10-19.ics,file,
+/events/issues-on-tap-city-budget-2026-10-19/,build,
+/events/jeki-yoo-rialto-2026-11-21.ics,file,
+/events/jeki-yoo-rialto-2026-11-21/,build,in the sitemap
+/events/jon-pardi-blue-arena-2026-10-08.ics,file,
+/events/jon-pardi-blue-arena-2026-10-08/,build,
+/events/journey-to-the-heart-of-zeppelin-rialto-2026-10-23.ics,file,
+/events/journey-to-the-heart-of-zeppelin-rialto-2026-10-23/,build,
+/events/julie-fowlis-2027-02-05.ics,file,
+/events/julie-fowlis-2027-02-05/,build,in the sitemap
+/events/kalani-peas-hawaiian-christmas-rialto-2026-12-03.ics,file,
+/events/kalani-peas-hawaiian-christmas-rialto-2026-12-03/,build,in the sitemap
+/events/ladysmith-black-mambazo-rialto-2027-01-30.ics,file,
+/events/ladysmith-black-mambazo-rialto-2027-01-30/,build,in the sitemap
+/events/lighthouse-dance-nativity-2026-12-06.ics,file,
+/events/lighthouse-dance-nativity-2026-12-06/,build,in the sitemap
+/events/lighthouse-dance-nativity-2026-12-06/20261206T1500.ics,file,
+/events/lighthouse-dance-nativity-2026-12-06/20261206T1900.ics,file,
+/events/live-music-with-adam-golden-2026-11-13.ics,file,
+/events/live-music-with-adam-golden-2026-11-13/,build,
+/events/live-music-with-chuck-sitero-and-miles-ridnell-2026-11-28.ics,file,
+/events/live-music-with-chuck-sitero-and-miles-ridnell-2026-11-28/,build,in the sitemap
+/events/live-music-with-danny-shafer-at-loveland-aleworks-2026-11-20.ics,file,
+/events/live-music-with-danny-shafer-at-loveland-aleworks-2026-11-20/,build,in the sitemap
+/events/live-music-with-derek-dames-ohl-at-loveland-aleworks-2026-11-27.ics,file,
+/events/live-music-with-derek-dames-ohl-at-loveland-aleworks-2026-11-27/,build,in the sitemap
+/events/live-music-with-mike-o-connell-at-loveland-aleworks-2026-11-21.ics,file,
+/events/live-music-with-mike-o-connell-at-loveland-aleworks-2026-11-21/,build,in the sitemap
+/events/live-music-with-pill-bugs-2026-11-14.ics,file,
+/events/live-music-with-pill-bugs-2026-11-14/,build,
+/events/loveland-art-studio-tour-2026-10-10.ics,file,
+/events/loveland-art-studio-tour-2026-10-10/,build,
+/events/loveland-art-studio-tour-2026-10-11.ics,file,
+/events/loveland-art-studio-tour-2026-10-11/,build,
+/events/loveland-art-studio-tour-2026-10-17.ics,file,
+/events/loveland-art-studio-tour-2026-10-17/,build,
+/events/loveland-art-studio-tour-2026-10-18.ics,file,
+/events/loveland-art-studio-tour-2026-10-18/,build,
+/events/loveland-choral-society-this-shining-night-2026-12-12.ics,file,
+/events/loveland-choral-society-this-shining-night-2026-12-12/,build,in the sitemap
+/events/loveland-choral-society-this-shining-night-2026-12-12/20261212T1500.ics,file,
+/events/loveland-choral-society-this-shining-night-2026-12-12/20261212T1930.ics,file,
+/events/loveland-choral-society-this-shining-night-2026-12-13.ics,file,
+/events/loveland-choral-society-this-shining-night-2026-12-13/,build,
+/events/loveland-choral-society-this-shining-night-rialto-2026-12-11.ics,file,
+/events/loveland-choral-society-this-shining-night-rialto-2026-12-11/,build,in the sitemap
+/events/loveland-co-grimm-brothers-dueling-pianos-official-road-show-2026-12-11.ics,file,
+/events/loveland-co-grimm-brothers-dueling-pianos-official-road-show-2026-12-11/,build,in the sitemap
+/events/loveland-historical-society-december-program-2026-12-17.ics,file,
+/events/loveland-historical-society-december-program-2026-12-17/,build,in the sitemap
+/events/loveland-historical-society-november-program-2026-11-19.ics,file,
+/events/loveland-historical-society-november-program-2026-11-19/,build,in the sitemap
+/events/mackinnon-royal-dance-2026-12-19.ics,file,
+/events/mackinnon-royal-dance-2026-12-19/,build,in the sitemap
+/events/mini-altar-workshop-with-gothic-muse-2026-11-29.ics,file,
+/events/mini-altar-workshop-with-gothic-muse-2026-11-29/,build,in the sitemap
+/events/moms-holi-bae-soiree-2026-12-10.ics,file,
+/events/moms-holi-bae-soiree-2026-12-10/,build,in the sitemap
+/events/monster-mash-trunk-or-treat-sugar-valley-2026-10-28.ics,file,
+/events/monster-mash-trunk-or-treat-sugar-valley-2026-10-28/,build,
+/events/move-and-meet-noco-wellness-social-2026-11-21.ics,file,
+/events/move-and-meet-noco-wellness-social-2026-11-21/,build,in the sitemap
+/events/nash-bash-rialto-2026-12-04.ics,file,
+/events/nash-bash-rialto-2026-12-04/,build,in the sitemap
+/events/next-stop-comedy-2026-12-04.ics,file,
+/events/next-stop-comedy-2026-12-04/,build,in the sitemap
+/events/next-stop-comedy-2027-01-30.ics,file,
+/events/next-stop-comedy-2027-01-30/,build,
+/events/next-stop-comedy-2027-02-27.ics,file,
+/events/next-stop-comedy-2027-02-27/,build,
+/events/night-on-the-town-downtown-loveland-2026-11-13.ics,file,
+/events/night-on-the-town-downtown-loveland-2026-11-13/,build,
+/events/night-on-the-town-downtown-loveland-2026-12-11.ics,file,
+/events/night-on-the-town-downtown-loveland-2026-12-11/,build,in the sitemap
+/events/noco-housewives-holiday-bash-2026-11-19.ics,file,
+/events/noco-housewives-holiday-bash-2026-11-19/,build,in the sitemap
+/events/northern-colorado-home-show-2026-10-23.ics,file,
+/events/northern-colorado-home-show-2026-10-23/,build,
+/events/painting-watercolor-cat-greeting-cards-2026-12-12.ics,file,
+/events/painting-watercolor-cat-greeting-cards-2026-12-12/,build,in the sitemap
+/events/prca-mountain-states-circuit-finals-2026-10-23.ics,file,
+/events/prca-mountain-states-circuit-finals-2026-10-23/,build,
+/events/prca-mountain-states-circuit-finals-2026-10-24-evening.ics,file,
+/events/prca-mountain-states-circuit-finals-2026-10-24-evening/,build,
+/events/prca-mountain-states-circuit-finals-2026-10-24-matinee.ics,file,
+/events/prca-mountain-states-circuit-finals-2026-10-24-matinee/,build,
+/events/purple-piano-the-one-man-tribute-to-prince-starring-marshall-2027-02-27.ics,file,
+/events/purple-piano-the-one-man-tribute-to-prince-starring-marshall-2027-02-27/,build,in the sitemap
+/events/randy-red-s-reads-mobile-bookstore-at-loveland-aleworks-2026-11-22.ics,file,
+/events/randy-red-s-reads-mobile-bookstore-at-loveland-aleworks-2026-11-22/,build,in the sitemap
+/events/re-fashion-trash-fashion-show-2026-10-17.ics,file,
+/events/re-fashion-trash-fashion-show-2026-10-17/,build,
+/events/rialto-ghost-tours-2026-10-25.ics,file,
+/events/rialto-ghost-tours-2026-10-25/,build,
+/events/rialto-ghost-tours-2026-10-26.ics,file,
+/events/rialto-ghost-tours-2026-10-26/,build,
+/events/rockin-for-tim-benefit-at-grimm-brothers-2026-11-08.ics,file,
+/events/rockin-for-tim-benefit-at-grimm-brothers-2026-11-08/,build,
+/events/rooftop-zombie-crawl-dance-party-2026-10-17.ics,file,
+/events/rooftop-zombie-crawl-dance-party-2026-10-17/,build,
+/events/sabaton-legends-on-tour-blue-arena-2026-11-18.ics,file,
+/events/sabaton-legends-on-tour-blue-arena-2026-11-18/,build,in the sitemap
+/events/santa-visit-2026-12-06.ics,file,
+/events/santa-visit-2026-12-06/,build,in the sitemap
+/events/sixth-annual-holiday-show-2026-12-17.ics,file,
+/events/sixth-annual-holiday-show-2026-12-17/,build,in the sitemap
+/events/sky-bear-comedy-night-2026-11-12.ics,file,
+/events/sky-bear-comedy-night-2026-11-12/,build,
+/events/small-business-saturday-at-artworks-loveland-2026-11-28.ics,file,
+/events/small-business-saturday-at-artworks-loveland-2026-11-28/,build,in the sitemap
+/events/small-business-saturday-vendor-market-2026-11-28.ics,file,
+/events/small-business-saturday-vendor-market-2026-11-28/,build,in the sitemap
+/events/social-dancing-lessons-with-santa-5-cover-2026-12-02.ics,file,
+/events/social-dancing-lessons-with-santa-5-cover-2026-12-02/,build,in the sitemap
+/events/sound-affects-music-fundraiser-2026-11-15.ics,file,
+/events/sound-affects-music-fundraiser-2026-11-15/,build,
+/events/stray-cats-lee-rocker-rialto-2026-10-24.ics,file,
+/events/stray-cats-lee-rocker-rialto-2026-10-24/,build,
+/events/swan-lake-symphony-of-lights-rialto-2026-11-08.ics,file,
+/events/swan-lake-symphony-of-lights-rialto-2026-11-08/,build,
+/events/the-drifters-rialto-2026-11-13.ics,file,
+/events/the-drifters-rialto-2026-11-13/,build,
+/events/the-keepers-wine-dinner-at-door-222-2026-11-16.ics,file,
+/events/the-keepers-wine-dinner-at-door-222-2026-11-16/,build,
+/events/the-long-run-colorado-s-tribute-to-the-eagles-2026-11-07.ics,file,
+/events/the-long-run-colorado-s-tribute-to-the-eagles-2026-11-07/,build,
+/events/tommy-emmanuel-cgp-with-special-guest-imogen-clark-2027-02-25.ics,file,
+/events/tommy-emmanuel-cgp-with-special-guest-imogen-clark-2027-02-25/,build,in the sitemap
+/events/toughest-monster-truck-tour-2026-10-16.ics,file,
+/events/toughest-monster-truck-tour-2026-10-16/,build,
+/events/toughest-monster-truck-tour-2026-10-17.ics,file,
+/events/toughest-monster-truck-tour-2026-10-17/,build,
+/events/trash-fashion-workshop-2026-10-16.ics,file,
+/events/trash-fashion-workshop-2026-10-16/,build,
+/events/vendor-market-2026-12-13.ics,file,
+/events/vendor-market-2026-12-13/,build,in the sitemap
+/events/vertical-fusion-studios-showcase-2026-11-01.ics,file,
+/events/vertical-fusion-studios-showcase-2026-11-01/,build,
+/events/vi-wickam-and-friends-holiday-concert-2026-12-12-208869.ics,file,
+/events/vi-wickam-and-friends-holiday-concert-2026-12-12-208869/,build,in the sitemap
+/events/vintage-market-days-northern-colorado-2026-11-13.ics,file,
+/events/vintage-market-days-northern-colorado-2026-11-13/,build,
+/events/warren-miller-s-days-off-2026-11-18.ics,file,
+/events/warren-miller-s-days-off-2026-11-18/,build,in the sitemap
+/events/wendy-woo-2026-11-27.ics,file,
+/events/wendy-woo-2026-11-27/,build,in the sitemap
+/events/windsor-youth-ballet-nutcracker-suite-2026-12-20.ics,file,
+/events/windsor-youth-ballet-nutcracker-suite-2026-12-20/,build,in the sitemap
+/events/winter-paint-party-2026-11-23.ics,file,
+/events/winter-paint-party-2026-11-23/,build,in the sitemap
+/for-businesses/,build,in the sitemap
+/guides/,build,in the sitemap
+/message-sent/,build,
+/moving-here/,build,in the sitemap
+/parks/,build,in the sitemap
+/places/,stub,/directory/
+/places/bai-tong-loveland/,build,in the sitemap
+/places/benson-sculpture-garden/,build,in the sitemap
+/places/berthoud-brewing-loveland/,build,in the sitemap
+/places/big-thompson-brewery/,build,in the sitemap
+/places/blackjack-pizza-loveland/,build,in the sitemap
+/places/boyd-lake-state-park/,build,in the sitemap
+/places/chapungu-sculpture-park/,build,in the sitemap
+/places/chilson-recreation-center/,build,in the sitemap
+/places/colorado-coffee-company-foundry/,build,in the sitemap
+/places/comet-chicken-loveland/,build,in the sitemap
+/places/crooked-beech-brewing/,build,in the sitemap
+/places/dark-heart-coffee-bar/,build,in the sitemap
+/places/devils-backbone-open-space/,build,in the sitemap
+/places/door-222/,build,in the sitemap
+/places/dougs-day-diner/,build,in the sitemap
+/places/grimm-brothers-brewing/,build,in the sitemap
+/places/henrys-pub/,build,in the sitemap
+/places/high-plains-environmental-center/,build,in the sitemap
+/places/independence-gallery/,build,in the sitemap
+/places/justines-pizza/,build,in the sitemap
+/places/lincoln-gallery/,build,in the sitemap
+/places/loveland-aleworks/,build,in the sitemap
+/places/loveland-museum/,build,in the sitemap
+/places/loveland-public-library/,build,in the sitemap
+/places/loveland-recreation-trail/,build,in the sitemap
+/places/lundeen-sculpture-studios/,build,in the sitemap
+/places/marys-mountain-cookies-loveland/,build,in the sitemap
+/places/meadkrieger-meadery/,build,in the sitemap
+/places/microtel-inn-loveland/,build,in the sitemap
+/places/my-place-hotel-loveland/,build,in the sitemap
+/places/natural-grocers-loveland/,build,in the sitemap
+/places/noco-cat-cafe/,build,in the sitemap
+/places/nordys-bbq-grill/,build,in the sitemap
+/places/north-lake-park/,build,in the sitemap
+/places/pourhouse-bar-and-grill/,build,in the sitemap
+/places/promenade-shops-at-centerra/,build,in the sitemap
+/places/pure-vibes-gifts-and-wellness/,build,in the sitemap
+/places/rialto-theater-center/,build,in the sitemap
+/places/safeway-eisenhower-loveland/,build,in the sitemap
+/places/safeway-west-eisenhower-loveland/,build,in the sitemap
+/places/sage-speakeasy-lounge/,build,in the sitemap
+/places/sams-club-loveland/,build,in the sitemap
+/places/sandos-subs/,build,in the sitemap
+/places/santiagos-loveland/,build,in the sitemap
+/places/scalzotto-italian-loveland/,build,in the sitemap
+/places/sky-bear-brewery-and-pub/,build,in the sitemap
+/places/slice-n-roll/,build,in the sitemap
+/places/sprouts-loveland/,build,in the sitemap
+/places/sylvan-dale-guest-ranch/,build,in the sitemap
+/places/taste-local/,build,in the sitemap
+/places/the-black-steer/,build,in the sitemap
+/places/the-extra-mile-outdoor-gear-and-bike/,build,in the sitemap
+/places/the-flipside-loveland/,build,in the sitemap
+/places/the-love-shack-mocktails/,build,in the sitemap
+/places/the-loveland-chophouse/,build,in the sitemap
+/places/the-ranch-events-complex-blue-arena/,build,in the sitemap
+/places/urban-field-pizza-market-loveland/,build,in the sitemap
+/places/vatos-tacos-tequila-loveland/,build,in the sitemap
+/places/verboten-brewing/,build,in the sitemap
+/privacy/,build,in the sitemap
+/restaurants/,build,in the sitemap
+/robots.txt,file,
+/rss.xml,file,
+/search/,build,
+/shops/,build,in the sitemap
+/sitemap-0.xml,file,
+/sitemap-index.xml,file,
+/sports/,build,in the sitemap
+/sports/loveland-high/,build,in the sitemap
+/sports/loveland-high/boys-basketball/,build,in the sitemap
+/sports/loveland-high/boys-soccer/,build,in the sitemap
+/sports/loveland-high/football/,build,in the sitemap
+/sports/loveland-high/girls-basketball/,build,in the sitemap
+/sports/loveland-high/softball/,build,in the sitemap
+/sports/loveland-high/volleyball/,build,in the sitemap
+/sports/mountain-view/,build,in the sitemap
+/sports/mountain-view/boys-basketball/,build,in the sitemap
+/sports/mountain-view/boys-soccer/,build,in the sitemap
+/sports/mountain-view/football/,build,in the sitemap
+/sports/mountain-view/girls-basketball/,build,in the sitemap
+/sports/mountain-view/softball/,build,in the sitemap
+/sports/mountain-view/volleyball/,build,in the sitemap
+/sports/resurrection-christian/,build,in the sitemap
+/sports/resurrection-christian/boys-basketball/,build,in the sitemap
+/sports/resurrection-christian/football/,build,in the sitemap
+/sports/resurrection-christian/girls-basketball/,build,in the sitemap
+/sports/resurrection-christian/ice-hockey/,build,in the sitemap
+/sports/resurrection-christian/softball/,build,in the sitemap
+/sports/resurrection-christian/volleyball/,build,in the sitemap
+/sports/share/loveland-high-boys-basketball.png,file,
+/sports/share/loveland-high-boys-soccer.png,file,
+/sports/share/loveland-high-football.png,file,
+/sports/share/loveland-high-girls-basketball.png,file,
+/sports/share/loveland-high-softball.png,file,
+/sports/share/loveland-high-volleyball.png,file,
+/sports/share/loveland-high.png,file,
+/sports/share/mountain-view-boys-basketball.png,file,
+/sports/share/mountain-view-boys-soccer.png,file,
+/sports/share/mountain-view-football.png,file,
+/sports/share/mountain-view-girls-basketball.png,file,
+/sports/share/mountain-view-softball.png,file,
+/sports/share/mountain-view-volleyball.png,file,
+/sports/share/mountain-view.png,file,
+/sports/share/resurrection-christian-boys-basketball.png,file,
+/sports/share/resurrection-christian-football.png,file,
+/sports/share/resurrection-christian-girls-basketball.png,file,
+/sports/share/resurrection-christian-ice-hockey.png,file,
+/sports/share/resurrection-christian-softball.png,file,
+/sports/share/resurrection-christian-volleyball.png,file,
+/sports/share/resurrection-christian.png,file,
+/sports/share/thompson-valley-boys-basketball.png,file,
+/sports/share/thompson-valley-boys-soccer.png,file,
+/sports/share/thompson-valley-football.png,file,
+/sports/share/thompson-valley-girls-basketball.png,file,
+/sports/share/thompson-valley-softball.png,file,
+/sports/share/thompson-valley-volleyball.png,file,
+/sports/share/thompson-valley.png,file,
+/sports/thompson-valley/,build,in the sitemap
+/sports/thompson-valley/boys-basketball/,build,in the sitemap
+/sports/thompson-valley/boys-soccer/,build,in the sitemap
+/sports/thompson-valley/football/,build,in the sitemap
+/sports/thompson-valley/girls-basketball/,build,in the sitemap
+/sports/thompson-valley/softball/,build,in the sitemap
+/sports/thompson-valley/volleyball/,build,in the sitemap
+/stay/,build,in the sitemap
+/submit-event/,build,in the sitemap
+/thanks/,build,
+/things-to-do/,build,in the sitemap
+/this-week/,build,in the sitemap
+/this-weekend/,build,in the sitemap
+/venues/,build,in the sitemap

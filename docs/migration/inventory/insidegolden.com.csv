@@ -1,0 +1,420 @@
+old_path,source,note
+/,build,in the sitemap
+/about/,build,in the sitemap
+/articles/apex-white-ranch-and-lookout-mountain/,build,in the sitemap
+/articles/explore-golden-in-walking-order/,build,in the sitemap
+/articles/golden-history/,build,in the sitemap
+/articles/golden-with-kids/,build,in the sitemap
+/articles/mesa-hike-or-canyon-walk/,build,in the sitemap
+/articles/thanksgiving-to-new-years-closures-and-trash-days/,build,in the sitemap
+/bars-breweries/,build,in the sitemap
+/coffee/,build,in the sitemap
+/contact/,build,in the sitemap
+/correct/,build,
+/corrections/,build,in the sitemap
+/credits/,build,in the sitemap
+/directory/,build,in the sitemap
+/eat-drink/,build,in the sitemap
+/editorial/,build,in the sitemap
+/events.rss,file,
+/events/,build,in the sitemap
+/events/6-million-dollar-band-at-buffalo-rose-2026-11-21.ics,file,
+/events/6-million-dollar-band-at-buffalo-rose-2026-11-21/,build,in the sitemap
+/events/a-morning-in-candy-cane-lane-2026-12-02.ics,file,
+/events/a-morning-in-candy-cane-lane-2026-12-02/,build,in the sitemap
+/events/at-the-watertower-music-by-the-mesa-new-terrain-2026-11-05.ics,file,
+/events/at-the-watertower-music-by-the-mesa-new-terrain-2026-11-05/,build,
+/events/baby-time-golden-library-thursdays/,stub,/events/
+/events/baby-time-golden-library-tuesdays/,stub,/events/
+/events/balkan-european-2026-12-28.ics,file,
+/events/balkan-european-2026-12-28/,build,in the sitemap
+/events/behind-the-barrel-2026-winter-whiskey-experience-2026-11-27.ics,file,
+/events/behind-the-barrel-2026-winter-whiskey-experience-2026-11-27/,build,in the sitemap
+/events/beyond-garage-sales-2026-12-03.ics,file,
+/events/beyond-garage-sales-2026-12-03/,build,in the sitemap
+/events/bgoldn-holiday-artisan-auction-new-terrain-2026-11-17.ics,file,
+/events/bgoldn-holiday-artisan-auction-new-terrain-2026-11-17/,build,in the sitemap
+/events/black-planet-black-friday-new-terrain-2026-11-27.ics,file,
+/events/black-planet-black-friday-new-terrain-2026-11-27/,build,in the sitemap
+/events/blacksmithing-in-the-park-golden-history-park-2026-11-21.ics,file,
+/events/blacksmithing-in-the-park-golden-history-park-2026-11-21/,build,in the sitemap
+/events/blacksmithing-in-the-park-golden-history-park-2026-12-19.ics,file,
+/events/blacksmithing-in-the-park-golden-history-park-2026-12-19/,build,
+/events/blink-180true-at-buffalo-rose-2027-01-15.ics,file,
+/events/blink-180true-at-buffalo-rose-2027-01-15/,build,in the sitemap
+/events/boo-logical-adaptations-night-hike-2026-10-23.ics,file,
+/events/boo-logical-adaptations-night-hike-2026-10-23/,build,
+/events/boombox-bingo-thanksgiving-eve-golden-mill-2026-11-25.ics,file,
+/events/boombox-bingo-thanksgiving-eve-golden-mill-2026-11-25/,build,in the sitemap
+/events/branden-sipes-miners-saloon-2026-12-23.ics,file,
+/events/branden-sipes-miners-saloon-2026-12-23/,build,in the sitemap
+/events/bunny-blake-miners-saloon-2026-12-02.ics,file,
+/events/bunny-blake-miners-saloon-2026-12-02/,build,in the sitemap
+/events/burn-and-sip-wood-burning-cocktail-workshop-2026-11-12.ics,file,
+/events/burn-and-sip-wood-burning-cocktail-workshop-2026-11-12/,build,
+/events/buying-and-selling-online-2026-12-02.ics,file,
+/events/buying-and-selling-online-2026-12-02/,build,in the sitemap
+/events/calendar.ics,file,
+/events/cavemen-vs-zombies-miners-alley-2026-10-31.ics,file,
+/events/cavemen-vs-zombies-miners-alley-2026-10-31/,build,
+/events/cavemen-vs-zombies-miners-alley-2026-10-31/20261031T1100.ics,file,
+/events/cavemen-vs-zombies-miners-alley-2026-10-31/20261031T1300.ics,file,
+/events/cavemen-vs-zombies-miners-alley-2026-10-31/20261107T1300.ics,file,
+/events/chance-gallagher-miners-saloon-2026-11-18.ics,file,
+/events/chance-gallagher-miners-saloon-2026-11-18/,build,in the sitemap
+/events/chance-gallagher-miners-saloon-2026-12-30.ics,file,
+/events/chance-gallagher-miners-saloon-2026-12-30/,build,
+/events/charlie-milo-trio-2027-01-29.ics,file,
+/events/charlie-milo-trio-2027-01-29/,build,in the sitemap
+/events/chris-koltak-miners-saloon-2026-11-25.ics,file,
+/events/chris-koltak-miners-saloon-2026-11-25/,build,in the sitemap
+/events/chris-koltak-miners-saloon-2026-12-09.ics,file,
+/events/chris-koltak-miners-saloon-2026-12-09/,build,
+/events/city-council-2026-11-10.ics,file,
+/events/city-council-2026-11-10/,build,
+/events/city-council-2026-11-24.ics,file,
+/events/city-council-2026-11-24/,build,in the sitemap
+/events/city-council-2026-12-08.ics,file,
+/events/city-council-2026-12-08/,build,in the sitemap
+/events/city-council-2026-12-15.ics,file,
+/events/city-council-2026-12-15/,build,
+/events/cody-qualls-purple-reindeer-at-buffalo-rose-2026-11-29.ics,file,
+/events/cody-qualls-purple-reindeer-at-buffalo-rose-2026-11-29/,build,in the sitemap
+/events/coffee-with-councilors-exploring-the-golden-cemetery-2026-10-10.ics,file,
+/events/coffee-with-councilors-exploring-the-golden-cemetery-2026-10-10/,build,
+/events/community-wildfire-protection-plan-open-house-2026-11-09.ics,file,
+/events/community-wildfire-protection-plan-open-house-2026-11-09/,build,
+/events/cookies-with-councilors-holiday-bake-off-2026-12-05.ics,file,
+/events/cookies-with-councilors-holiday-bake-off-2026-12-05/,build,in the sitemap
+/events/country-dancing-night-at-buffalo-rose-2026-11-18.ics,file,
+/events/country-dancing-night-at-buffalo-rose-2026-11-18/,build,in the sitemap
+/events/country-dancing-night-at-buffalo-rose-2026-12-16.ics,file,
+/events/country-dancing-night-at-buffalo-rose-2026-12-16/,build,
+/events/crazy-diamonds-at-buffalo-rose-2026-11-15.ics,file,
+/events/crazy-diamonds-at-buffalo-rose-2026-11-15/,build,
+/events/creedence-colorado-revival-and-swingtown-at-buffalo-rose-2026-11-12.ics,file,
+/events/creedence-colorado-revival-and-swingtown-at-buffalo-rose-2026-11-12/,build,
+/events/dave-trio-goosetown-2027-01-30.ics,file,
+/events/dave-trio-goosetown-2027-01-30/,build,in the sitemap
+/events/dda-block-party-2026-10-10.ics,file,
+/events/dda-block-party-2026-10-10/,build,
+/events/deep-roots-winery-dead-red-night-2026-11-20.ics,file,
+/events/deep-roots-winery-dead-red-night-2026-11-20/,build,in the sitemap
+/events/delta-sonics-2027-02-18.ics,file,
+/events/delta-sonics-2027-02-18/,build,in the sitemap
+/events/derek-hall-miners-saloon-2026-11-11.ics,file,
+/events/derek-hall-miners-saloon-2026-11-11/,build,
+/events/derek-hall-miners-saloon-2026-12-16.ics,file,
+/events/derek-hall-miners-saloon-2026-12-16/,build,in the sitemap
+/events/donut-dollies-2026-11-04.ics,file,
+/events/donut-dollies-2026-11-04/,build,
+/events/drag-bingo-time-warped-mountain-toad-2026-11-14.ics,file,
+/events/drag-bingo-time-warped-mountain-toad-2026-11-14/,build,
+/events/election-day-2026-11-03.ics,file,
+/events/election-day-2026-11-03/,build,
+/events/elton-dan-and-the-rocket-band-at-buffalo-rose-2026-10-30.ics,file,
+/events/elton-dan-and-the-rocket-band-at-buffalo-rose-2026-10-30/,build,
+/events/escape-ii-snowboard-movie-mines-2026-11-13.ics,file,
+/events/escape-ii-snowboard-movie-mines-2026-11-13/,build,
+/events/evergreen-chamber-orchestra-fall-concert-rockland-2026-11-14.ics,file,
+/events/evergreen-chamber-orchestra-fall-concert-rockland-2026-11-14/,build,
+/events/everyday-artificial-intelligence-2026-10-29.ics,file,
+/events/everyday-artificial-intelligence-2026-10-29/,build,
+/events/family-time-golden-library/,stub,/events/
+/events/fly-fishing-film-tour-at-buffalo-rose-2026-11-10.ics,file,
+/events/fly-fishing-film-tour-at-buffalo-rose-2026-11-10/,build,
+/events/foothills-art-center-holiday-art-market-2026.ics,file,
+/events/foothills-art-center-holiday-art-market-2026/,build,in the sitemap
+/events/forces-of-nature-napoleonic-wars-book-talk-mines-2026-11-11.ics,file,
+/events/forces-of-nature-napoleonic-wars-book-talk-mines-2026-11-11/,build,
+/events/gingerbread-house-workshop-foothills-art-center-2026-12-05.ics,file,
+/events/gingerbread-house-workshop-foothills-art-center-2026-12-05/,build,in the sitemap
+/events/golden-beer-talks-bugged-by-resistance-2026-11-17.ics,file,
+/events/golden-beer-talks-bugged-by-resistance-2026-11-17/,build,in the sitemap
+/events/golden-beverage-tasting-and-chili-cook-off-2026-10-17.ics,file,
+/events/golden-beverage-tasting-and-chili-cook-off-2026-10-17/,build,
+/events/golden-cemetery-tour-2026-2026-10-17.ics,file,
+/events/golden-cemetery-tour-2026-2026-10-17/,build,
+/events/golden-concert-choir-rejoice-2026-12-12.ics,file,
+/events/golden-concert-choir-rejoice-2026-12-12/,build,in the sitemap
+/events/golden-hotel-halloween-party-2026-10-30.ics,file,
+/events/golden-hotel-halloween-party-2026-10-30/,build,
+/events/golden-s-in-golden-brunch-brake-signals-2027-02-06.ics,file,
+/events/golden-s-in-golden-brunch-brake-signals-2027-02-06/,build,in the sitemap
+/events/golden-teen-art-exhibition-reception-2026-11-15.ics,file,
+/events/golden-teen-art-exhibition-reception-2026-11-15/,build,
+/events/good-night-oscar-miners-alley-2026-10-29.ics,file,
+/events/good-night-oscar-miners-alley-2026-10-29/,build,
+/events/good-night-oscar-miners-alley-2026-10-29/20261029T1930.ics,file,
+/events/good-night-oscar-miners-alley-2026-10-29/20261030T1930.ics,file,
+/events/good-night-oscar-miners-alley-2026-10-29/20261031T1930.ics,file,
+/events/good-night-oscar-miners-alley-2026-10-29/20261101T1400.ics,file,
+/events/good-night-oscar-miners-alley-2026-10-29/20261105T1930.ics,file,
+/events/good-night-oscar-miners-alley-2026-10-29/20261106T1930.ics,file,
+/events/good-night-oscar-miners-alley-2026-10-29/20261107T1930.ics,file,
+/events/good-night-oscar-miners-alley-2026-10-29/20261108T1400.ics,file,
+/events/great-turkey-chase-2026-11-26/,stub,/events/great-turkey-chase/
+/events/great-turkey-chase.ics,file,
+/events/great-turkey-chase/,build,in the sitemap
+/events/harvest-haunt-2026-10-17/,stub,/events/harvest-haunt-express/
+/events/harvest-haunt-express.ics,file,
+/events/harvest-haunt-express/,build,in the sitemap
+/events/hillbilly-demons-and-williams-brothers-band-at-buffalo-rose-2027-01-02.ics,file,
+/events/hillbilly-demons-and-williams-brothers-band-at-buffalo-rose-2027-01-02/,build,in the sitemap
+/events/holiday-market-new-terrain-brewing-golden-2026-12-06.ics,file,
+/events/holiday-market-new-terrain-brewing-golden-2026-12-06/,build,in the sitemap
+/events/hot-lunch-and-dotsero-at-buffalo-rose-2026-12-26.ics,file,
+/events/hot-lunch-and-dotsero-at-buffalo-rose-2026-12-26/,build,in the sitemap
+/events/its-a-wonderful-life-miners-alley-2026-11-25.ics,file,
+/events/its-a-wonderful-life-miners-alley-2026-11-25/,build,in the sitemap
+/events/jason-eady-at-buffalo-rose-2027-01-03.ics,file,
+/events/jason-eady-at-buffalo-rose-2027-01-03/,build,in the sitemap
+/events/jeffco-mineral-show-2026-11-20.ics,file,
+/events/jeffco-mineral-show-2026-11-20/,build,in the sitemap
+/events/jefferson-county-home-show-2026-10-30.ics,file,
+/events/jefferson-county-home-show-2026-10-30/,build,
+/events/jefferson-symphony-holiday-concert-2026-12-13.ics,file,
+/events/jefferson-symphony-holiday-concert-2026-12-13/,build,in the sitemap
+/events/jefferson-symphony-holiday-dinner-at-buffalo-rose-2026-12-14.ics,file,
+/events/jefferson-symphony-holiday-dinner-at-buffalo-rose-2026-12-14/,build,in the sitemap
+/events/jingle-on-the-avenue-2026-12-19/,stub,/events/jingle-on-the-avenue/
+/events/jingle-on-the-avenue.ics,file,
+/events/jingle-on-the-avenue/,build,in the sitemap
+/events/lawn-free-and-water-smart-solutions-for-your-garden-2026-10-21.ics,file,
+/events/lawn-free-and-water-smart-solutions-for-your-garden-2026-10-21/,build,
+/events/lets-dance-golden-library/,stub,/events/
+/events/lies-or-lullabies-and-rebel-souls-at-buffalo-rose-2026-11-27.ics,file,
+/events/lies-or-lullabies-and-rebel-souls-at-buffalo-rose-2026-11-27/,build,in the sitemap
+/events/live-music-bill-mckay-golden-mill-2026-11-19.ics,file,
+/events/live-music-bill-mckay-golden-mill-2026-11-19/,build,in the sitemap
+/events/live-music-jeff-kingery-golden-mill-2026-11-15.ics,file,
+/events/live-music-jeff-kingery-golden-mill-2026-11-15/,build,
+/events/live-music-lucas-parker-and-jessica-paige-golden-mill-2026-11-08.ics,file,
+/events/live-music-lucas-parker-and-jessica-paige-golden-mill-2026-11-08/,build,
+/events/live-music-shawn-nelson-golden-mill-2026-11-01.ics,file,
+/events/live-music-shawn-nelson-golden-mill-2026-11-01/,build,
+/events/live-music-this-broken-beat-golden-mill-2026-11-22.ics,file,
+/events/live-music-this-broken-beat-golden-mill-2026-11-22/,build,in the sitemap
+/events/live-music-wednesdays-miners-saloon.ics,file,
+/events/live-music-wednesdays-miners-saloon/,build,in the sitemap
+/events/live-music-with-chrispy-mountain-toad.ics,file,
+/events/live-music-with-chrispy-mountain-toad/,build,in the sitemap
+/events/matt-flaherty-and-friends-2026-11-14.ics,file,
+/events/matt-flaherty-and-friends-2026-11-14/,build,
+/events/message-in-a-bottle-and-sons-of-genesis-at-buffalo-rose-2026-11-06.ics,file,
+/events/message-in-a-bottle-and-sons-of-genesis-at-buffalo-rose-2026-11-06/,build,
+/events/mineral-id-day-2026-11-07.ics,file,
+/events/mineral-id-day-2026-11-07/,build,
+/events/mines-football-vs-new-mexico-highlands-2026-11-14.ics,file,
+/events/mines-football-vs-new-mexico-highlands-2026-11-14/,build,
+/events/mines-football-vs-south-dakota-mines-2026-10-24.ics,file,
+/events/mines-football-vs-south-dakota-mines-2026-10-24/,build,
+/events/mines-mens-basketball-vs-colorado-college-2026-11-09.ics,file,
+/events/mines-mens-basketball-vs-colorado-college-2026-11-09/,build,
+/events/mines-mens-basketball-vs-msu-denver-2026-12-01.ics,file,
+/events/mines-mens-basketball-vs-msu-denver-2026-12-01/,build,in the sitemap
+/events/mines-museum-spooktacular-2026-10-17.ics,file,
+/events/mines-museum-spooktacular-2026-10-17/,build,
+/events/mines-volleyball-vs-regis-2026-11-07.ics,file,
+/events/mines-volleyball-vs-regis-2026-11-07/,build,
+/events/mines-womens-basketball-vs-msu-denver-2026-12-01.ics,file,
+/events/mines-womens-basketball-vs-msu-denver-2026-12-01/,build,in the sitemap
+/events/mines-womens-basketball-vs-saint-martins-2026-11-20.ics,file,
+/events/mines-womens-basketball-vs-saint-martins-2026-11-20/,build,in the sitemap
+/events/miracle-shop-toy-drive-golden-mill-2026-11-15.ics,file,
+/events/miracle-shop-toy-drive-golden-mill-2026-11-15/,build,in the sitemap
+/events/monster-mash-2026-10-31.ics,file,
+/events/monster-mash-2026-10-31/,build,
+/events/mountain-toad-holiday-market-2026-12-06.ics,file,
+/events/mountain-toad-holiday-market-2026-12-06/,build,in the sitemap
+/events/ms-amy-the-jet-set-music-by-the-mesa-new-terrain-2026-11-12.ics,file,
+/events/ms-amy-the-jet-set-music-by-the-mesa-new-terrain-2026-11-12/,build,
+/events/native-veterans-2026-10-07.ics,file,
+/events/native-veterans-2026-10-07/,build,
+/events/nightmare-on-greek-street-2026-10-29.ics,file,
+/events/nightmare-on-greek-street-2026-10-29/,build,
+/events/nothing-but-nineties-and-ninety2k-at-buffalo-rose-2027-01-08.ics,file,
+/events/nothing-but-nineties-and-ninety2k-at-buffalo-rose-2027-01-08/,build,in the sitemap
+/events/olde-golden-candlelight-walk-2026-12-04/,stub,/events/olde-golden-candlelight-walk/
+/events/olde-golden-candlelight-walk.ics,file,
+/events/olde-golden-candlelight-walk/,build,in the sitemap
+/events/olde-golden-holiday-parade-2026-12-12/,stub,/events/olde-golden-holiday-parade/
+/events/olde-golden-holiday-parade.ics,file,
+/events/olde-golden-holiday-parade/,build,in the sitemap
+/events/open-house-jefferson-county-seeks-input-on-community-gatheri-2026-10-27.ics,file,
+/events/open-house-jefferson-county-seeks-input-on-community-gatheri-2026-10-27/,build,
+/events/paizley-park-nye-at-buffalo-rose-2026-12-31.ics,file,
+/events/paizley-park-nye-at-buffalo-rose-2026-12-31/,build,in the sitemap
+/events/pancake-and-waffle-breakfast-golden-masonic-lodge-2026-11-22.ics,file,
+/events/pancake-and-waffle-breakfast-golden-masonic-lodge-2026-11-22/,build,in the sitemap
+/events/planning-for-end-of-life-panel-2026-10-23.ics,file,
+/events/planning-for-end-of-life-panel-2026-10-23/,build,
+/events/preschool-time-golden-library/,stub,/events/
+/events/sapsucker-trio-2027-02-13.ics,file,
+/events/sapsucker-trio-2027-02-13/,build,in the sitemap
+/events/shakedown-street-and-my-blue-sky-at-buffalo-rose-2026-10-31.ics,file,
+/events/shakedown-street-and-my-blue-sky-at-buffalo-rose-2026-10-31/,build,
+/events/shawn-nelson-2027-02-12.ics,file,
+/events/shawn-nelson-2027-02-12/,build,in the sitemap
+/events/spinphony-holiday-at-buffalo-rose-2026-12-20.ics,file,
+/events/spinphony-holiday-at-buffalo-rose-2026-12-20/,build,in the sitemap
+/events/st-nick-s-pub-crawl-2026-12-05.ics,file,
+/events/st-nick-s-pub-crawl-2026-12-05/,build,in the sitemap
+/events/state-38-distilling-cocktail-class-nov-21-2026-11-21.ics,file,
+/events/state-38-distilling-cocktail-class-nov-21-2026-11-21/,build,in the sitemap
+/events/sugar-skulls-and-calaveras-2026-10-29.ics,file,
+/events/sugar-skulls-and-calaveras-2026-10-29/,build,
+/events/sunday-swing-at-buffalo-rose-2026-11-08.ics,file,
+/events/sunday-swing-at-buffalo-rose-2026-11-08/,build,
+/events/sunday-swing-at-buffalo-rose-2026-12-13.ics,file,
+/events/sunday-swing-at-buffalo-rose-2026-12-13/,build,in the sitemap
+/events/sunset-campfires-caramelized-beers-new-terrain-2026-11-04.ics,file,
+/events/sunset-campfires-caramelized-beers-new-terrain-2026-11-04/,build,
+/events/sunset-campfires-caramelized-beers-new-terrain-2026-12-02.ics,file,
+/events/sunset-campfires-caramelized-beers-new-terrain-2026-12-02/,build,in the sitemap
+/events/sunset-campfires-caramelized-beers-new-terrain-2027-01-06.ics,file,
+/events/sunset-campfires-caramelized-beers-new-terrain-2027-01-06/,build,
+/events/sunset-campfires-w-caramelized-beers-and-s-mores-2027-02-03.ics,file,
+/events/sunset-campfires-w-caramelized-beers-and-s-mores-2027-02-03/,build,in the sitemap
+/events/sweat-and-reed-2026-11-13.ics,file,
+/events/sweat-and-reed-2026-11-13/,build,
+/events/teen-after-hours-go-nuts-for-donuts-2026-11-13.ics,file,
+/events/teen-after-hours-go-nuts-for-donuts-2026-11-13/,build,
+/events/thanksgiving-community-table-golden-mill-2026-11-26.ics,file,
+/events/thanksgiving-community-table-golden-mill-2026-11-26/,build,in the sitemap
+/events/thanksgiving-eve-throwdown-bear-hat-new-terrain-2026-11-25.ics,file,
+/events/thanksgiving-eve-throwdown-bear-hat-new-terrain-2026-11-25/,build,in the sitemap
+/events/thanksgiving-family-movie-ratatouille-2026-11-24.ics,file,
+/events/thanksgiving-family-movie-ratatouille-2026-11-24/,build,in the sitemap
+/events/the-ai-doc-film-screening-mines-2026-11-02.ics,file,
+/events/the-ai-doc-film-screening-mines-2026-11-02/,build,
+/events/the-polar-express-train-ride-2026.ics,file,
+/events/the-polar-express-train-ride-2026/,build,in the sitemap
+/events/the-story-of-the-nutcracker-miners-alley-2026-11-28.ics,file,
+/events/the-story-of-the-nutcracker-miners-alley-2026-11-28/,build,in the sitemap
+/events/the-tangents-new-terrain-brewing-golden-2026-12-03.ics,file,
+/events/the-tangents-new-terrain-brewing-golden-2026-12-03/,build,in the sitemap
+/events/toddler-time-golden-library-fridays/,stub,/events/
+/events/toddler-time-golden-library-wednesdays/,stub,/events/
+/events/trail-therapy-book-talk-mines-2026-11-05.ics,file,
+/events/trail-therapy-book-talk-mines-2026-11-05/,build,
+/events/trick-or-treat-street-2026-10-30/,stub,/events/trick-or-treat-street/
+/events/trick-or-treat-street.ics,file,
+/events/trick-or-treat-street/,build,in the sitemap
+/events/tween-scene-weave-got-this-2026-11-08.ics,file,
+/events/tween-scene-weave-got-this-2026-11-08/,build,
+/events/ugly-sweater-party-foothills-art-center-2026-12-03.ics,file,
+/events/ugly-sweater-party-foothills-art-center-2026-12-03/,build,in the sitemap
+/events/ullrgrass-music-and-beer-festival-2027-01-29.ics,file,
+/events/ullrgrass-music-and-beer-festival-2027-01-29/,build,in the sitemap
+/events/warren-miller-days-off-at-buffalo-rose-2026-11-19.ics,file,
+/events/warren-miller-days-off-at-buffalo-rose-2026-11-19/,build,in the sitemap
+/events/watercolor-landscapes-2026-11-18.ics,file,
+/events/watercolor-landscapes-2026-11-18/,build,in the sitemap
+/events/whiskey-revolution-2027-02-05.ics,file,
+/events/whiskey-revolution-2027-02-05/,build,in the sitemap
+/events/whiskeyfest-at-buffalo-rose-2026-11-28.ics,file,
+/events/whiskeyfest-at-buffalo-rose-2026-11-28/,build,in the sitemap
+/events/whos-holiday-miners-alley-2026-12-02.ics,file,
+/events/whos-holiday-miners-alley-2026-12-02/,build,in the sitemap
+/events/yoga-with-a-ranger-2026-10-24/,stub,/events/
+/events/yoga-with-a-ranger-2026-11-21.ics,file,
+/events/yoga-with-a-ranger-2026-11-21/,build,in the sitemap
+/events/zambi-string-band-music-by-the-mesa-new-terrain-2026-11-19.ics,file,
+/events/zambi-string-band-music-by-the-mesa-new-terrain-2026-11-19/,build,in the sitemap
+/families/,build,in the sitemap
+/for-businesses/,build,in the sitemap
+/get-involved/,build,in the sitemap
+/guides/,build,in the sitemap
+/living-here/,build,in the sitemap
+/message-sent/,build,
+/moving-here/,build,in the sitemap
+/parks/,build,in the sitemap
+/places/,stub,/directory/
+/places/adorne-artisan-jewelry-and-goods/,build,in the sitemap
+/places/alyth-active/,build,in the sitemap
+/places/apex-park-trailhead/,build,in the sitemap
+/places/atomic-cowboy-golden/,build,in the sitemap
+/places/bentgate-mountaineering/,build,in the sitemap
+/places/bivy-beer-bar/,build,in the sitemap
+/places/bridgewater-grill/,build,in the sitemap
+/places/buffalo-bill-museum-and-grave/,build,in the sitemap
+/places/buffalo-rose/,build,in the sitemap
+/places/cannonball-creek-brewing/,build,in the sitemap
+/places/centennial-cone-park/,build,in the sitemap
+/places/clear-creek-canyon-park/,build,in the sitemap
+/places/clear-creek-trail/,build,in the sitemap
+/places/clear-creek-whitewater-park/,build,in the sitemap
+/places/colorado-railroad-museum/,build,in the sitemap
+/places/foothills-art-center/,build,in the sitemap
+/places/fossil-trace-golf-club/,build,in the sitemap
+/places/gold-mine-cupcakes/,build,in the sitemap
+/places/golden-community-center/,build,in the sitemap
+/places/golden-history-museum/,build,in the sitemap
+/places/golden-history-park/,build,in the sitemap
+/places/golden-hour-pilates/,build,in the sitemap
+/places/golden-library/,build,in the sitemap
+/places/golden-pantry-and-thrift/,build,in the sitemap
+/places/golden-sweets/,build,in the sitemap
+/places/holidaily-brewing/,build,in the sitemap
+/places/humble-house-cafe/,build,in the sitemap
+/places/lions-park/,build,in the sitemap
+/places/lookout-mountain-nature-center-and-preserve/,build,in the sitemap
+/places/lookout-mountain-park/,build,in the sitemap
+/places/miners-alley-performing-arts-center/,build,in the sitemap
+/places/miners-saloon/,build,in the sitemap
+/places/mines-museum-of-earth-science/,build,in the sitemap
+/places/mount-galbraith-park-trailhead/,build,in the sitemap
+/places/mountain-toad-brewing/,build,in the sitemap
+/places/movement-golden/,build,in the sitemap
+/places/new-terrain-brewing/,build,in the sitemap
+/places/north-table-mountain-park/,build,in the sitemap
+/places/old-capitol-grill-and-smokehouse/,build,in the sitemap
+/places/parfet-park/,build,in the sitemap
+/places/snarfs-sandwiches/,build,in the sitemap
+/places/south-table-mountain-park/,build,in the sitemap
+/places/table-mountain-inn/,build,in the sitemap
+/places/thai-gold/,build,in the sitemap
+/places/the-eddy-taproom-and-hotel/,build,in the sitemap
+/places/the-golden-diner/,build,in the sitemap
+/places/the-golden-hotel/,build,in the sitemap
+/places/toad-and-co-golden/,build,in the sitemap
+/places/tony-grampsas-sports-complex/,build,in the sitemap
+/places/truly-bohotique/,build,in the sitemap
+/places/ulysses-sports-complex/,build,in the sitemap
+/places/vanover-park/,build,in the sitemap
+/places/vital-outdoors/,build,in the sitemap
+/places/white-ranch-park/,build,in the sitemap
+/places/windy-saddle-park-trailhead/,build,in the sitemap
+/places/woodys-wood-fired-pizza/,build,in the sitemap
+/privacy/,build,in the sitemap
+/restaurants/,build,in the sitemap
+/robots.txt,file,
+/rss.xml,file,
+/search/,build,
+/shops/,build,in the sitemap
+/sitemap-0.xml,file,
+/sitemap-index.xml,file,
+/sports/,build,in the sitemap
+/sports/boys-basketball/,build,in the sitemap
+/sports/boys-soccer/,build,in the sitemap
+/sports/football/,build,in the sitemap
+/sports/girls-basketball/,build,in the sitemap
+/sports/share/boys-basketball.png,file,
+/sports/share/boys-soccer.png,file,
+/sports/share/football.png,file,
+/sports/share/girls-basketball.png,file,
+/sports/share/school.png,file,
+/sports/share/softball.png,file,
+/sports/share/volleyball.png,file,
+/sports/softball/,build,in the sitemap
+/sports/volleyball/,build,in the sitemap
+/stay/,build,in the sitemap
+/submit-event/,build,in the sitemap
+/thanks/,build,
+/things-to-do/,build,in the sitemap
+/this-week/,build,in the sitemap
+/this-weekend/,build,in the sitemap
+/trailheads/,build,in the sitemap
+/updates/,build,in the sitemap
+/venues/,build,in the sitemap

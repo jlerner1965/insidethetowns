@@ -33,6 +33,10 @@ export const manitouSprings: TownConfig = {
   // Its town page on the hub is published (12 November 2026), so the
   // domain now forwards there, not to the hub's home page.
   hubPage: { town: 'manitou-springs', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /manitou-springs/places/<slug>/, /manitou-springs/guides/<slug>/
+  // and the carried events at /manitou-springs/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Retired 3 November 2026: it names no neighbour, and Castle Rock, which

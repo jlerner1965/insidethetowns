@@ -280,6 +280,12 @@ built and a live guide for that town stays up unchanged.
   first on the home page and takes sports out of the menu; `updates`
   (Niwot) builds no events pages and makes the home page Updates and
   Things to know.
+- A folded guide's pages can live on under its hub page (`section` on its
+  config, 17 November 2026): `mode: 'full'` builds the guide as a section
+  at `/<town>/…` (Longmont, Loveland, Fort Collins, Estes Park);
+  `mode: 'pages'` keeps the places, guides and events decided one by one
+  (`docs/migration/decisions/`). Its domain is answered by `api/legacy.ts`
+  from `docs/migration/redirect-map.csv` (`docs/REDIRECTS.md`).
 
 ## Folded and quiet guides
 

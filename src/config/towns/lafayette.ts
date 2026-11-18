@@ -30,6 +30,10 @@ export const lafayette: TownConfig = {
   // and the guide's content has left content/lafayette/ (git history keeps it).
   status: 'redirect',
   hubPage: { town: 'lafayette', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /lafayette/places/<slug>/, /lafayette/guides/<slug>/
+  // and the carried events at /lafayette/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'front-range',
   region: 'Boulder County',
   // Erie east along Arapahoe (the JUMP runs between them), Longmont up 287,

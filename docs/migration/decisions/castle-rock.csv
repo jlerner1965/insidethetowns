@@ -1,0 +1,125 @@
+old_path,kind,decision,destination,reason
+/places/105-west-brewing/,place,keep,/castle-rock/places/105-west-brewing/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/alidade-brewing/,place,410,,unverifiable: source returns 403 bot check (Cloudflare) to curl and WebFetch; no other official page readable; last read by the owner in a browser 31 Oct 2026
+/places/angies-restaurant/,place,keep,/castle-rock/places/angies-restaurant/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/bb-cafe/,place,keep,/castle-rock/places/bb-cafe/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/castle-cafe/,place,keep,/castle-rock/places/castle-cafe/,"operating; read via WebFetch, details match"
+/places/castle-rock-collective/,place,keep,/castle-rock/places/castle-rock-collective/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/castle-rock-library/,place,keep,/castle-rock/places/castle-rock-library/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/castle-rock-museum/,place,keep,/castle-rock/places/castle-rock-museum/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/castle-rock-recreation-center/,place,410,,unverifiable: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it
+/places/castlewood-canyon-state-park/,place,keep,/castle-rock/places/castlewood-canyon-state-park/,"operating; in Franktown, the state park that serves Castle Rock; CPW page matches"
+/places/chick-fil-a-castle-rock/,place,keep,/castle-rock/places/chick-fil-a-castle-rock/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/coff33/,place,keep,/castle-rock/places/coff33/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/courtyard-social/,place,keep,/castle-rock/places/courtyard-social/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/crave-real-burgers/,place,keep,/castle-rock/places/crave-real-burgers/,operating; address and phone read on the site's contact page
+/places/crush-wine-bar/,place,keep,/castle-rock/places/crush-wine-bar/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/dawson-butte-open-space/,place,keep,/castle-rock/places/dawson-butte-open-space/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/douglas-county-fairgrounds/,place,keep,/castle-rock/places/douglas-county-fairgrounds/,"operating; phone matches; the page footer prints ""500 Fairgrounds Dr."" as the file already notes"
+/places/fairgrounds-regional-park/,place,keep,/castle-rock/places/fairgrounds-regional-park/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/festival-park/,place,410,,unverifiable: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it
+/places/glacier-homemade-ice-cream/,place,keep,/castle-rock/places/glacier-homemade-ice-cream/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/glendale-farm-open-space/,place,keep,/castle-rock/places/glendale-farm-open-space/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/granellis-pizzeria/,place,keep,/castle-rock/places/granellis-pizzeria/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/great-divide-brewery-and-roadhouse/,place,keep,/castle-rock/places/great-divide-brewery-and-roadhouse/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/guadalajara-family-restaurant/,place,keep,/castle-rock/places/guadalajara-family-restaurant/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/homegrown-tap-and-dough/,place,keep,/castle-rock/places/homegrown-tap-and-dough/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/honnibrook-craft-meadery/,place,keep,/castle-rock/places/honnibrook-craft-meadery/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/los-dos-potrillos-castle-rock/,place,410,,unverifiable: source returns 403 bot check (Cloudflare) to curl and WebFetch; no other official page readable; last read by the owner in a browser 6 Nov 2026
+/places/lost-coffee/,place,410,,unverifiable: source returns 403 bot check (Cloudflare) to curl and WebFetch; no other official page readable; last read by the owner in a browser 31 Oct 2026
+/places/miller-activity-complex/,place,410,,unverifiable: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it
+/places/mod-mountain-boutique/,place,keep,/castle-rock/places/mod-mountain-boutique/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/no-cow-bakery/,place,keep,/castle-rock/places/no-cow-bakery/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/outlets-at-castle-rock/,place,keep,/castle-rock/places/outlets-at-castle-rock/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/parrys-pizzeria-and-taphouse/,place,keep,/castle-rock/places/parrys-pizzeria-and-taphouse/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/pegasus-restaurant/,place,keep,/castle-rock/places/pegasus-restaurant/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/philip-s-miller-park/,place,410,,unverifiable: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it
+/places/provision/,place,keep,/castle-rock/places/provision/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/ridgeline-open-space/,place,410,,unverifiable: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it
+/places/rock-park/,place,410,,unverifiable: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it
+/places/rockyard-brewing/,place,keep,/castle-rock/places/rockyard-brewing/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/scileppis-at-the-old-stone-church/,place,410,,unverifiable: source returns 403 bot check (Cloudflare) to curl and WebFetch; no other official page readable; last read by the owner in a browser 31 Oct 2026
+/places/sudden-fiction-books/,place,keep,/castle-rock/places/sudden-fiction-books/,"operating; read via WebFetch, details match"
+/places/teaology-tea-cafe/,place,keep,/castle-rock/places/teaology-tea-cafe/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/the-barn-antiques-and-specialty-shops/,place,keep,/castle-rock/places/the-barn-antiques-and-specialty-shops/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/the-edge-ziplines/,place,keep,/castle-rock/places/the-edge-ziplines/,operating; hours corrected to the source's winter hours and age limits corrected
+/places/the-emporium/,place,keep,/castle-rock/places/the-emporium/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/union-american-bistro/,place,keep,/castle-rock/places/union-american-bistro/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/wide-awake-eatery/,place,keep,/castle-rock/places/wide-awake-eatery/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/wild-blue-yonder-brewing/,place,keep,/castle-rock/places/wild-blue-yonder-brewing/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/zabbracci/,place,keep,/castle-rock/places/zabbracci/,"operating; address, phone and hours match the source read 17 Nov 2026"
+/places/greenland-open-space/,place,410,,already retired on the old guide (retired.json); no file at the commit
+/places/hidden-mesa-open-space/,place,410,,already retired on the old guide (retired.json); no file at the commit
+/places/lincoln-mountain-open-space/,place,410,,already retired on the old guide (retired.json); no file at the commit
+/places/sandstone-ranch/,place,410,,already retired on the old guide (retired.json); no file at the commit
+/places/spruce-mountain-open-space/,place,410,,already retired on the old guide (retired.json); no file at the commit
+/places/two-bridges-trail/,place,410,,already retired on the old guide (retired.json); no file at the commit
+/articles/castle-rock-history/,guide,keep,/castle-rock/guides/castle-rock-history/,"town history; Historical Society, state census files, Chamber and Wikipedia re-read, claims match"
+/articles/castle-rock-with-kids/,guide,keep,/castle-rock/guides/castle-rock-with-kids/,"town-specific; library, The Edge, county parks and museum re-read; The Edge hours and zipline age corrected; its October items are past"
+/articles/castle-rock-holiday-season-2026/,guide,410,,"dated seasonal roundup for 2026: three of its dates are already past, it ends 24 Dec 2026 and it points readers to the old events calendar; the remaining dates live on the tradition and event pages"
+/events/3d-printing-101-2026-11-04/,event,410,,past one-time event
+/events/3d-printing-102-2026-11-21/,event,keep,/castle-rock/events/3d-printing-102-2026-11-21/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/all-american-collectors-expo-2026-10-31/,event,410,,past one-time event
+/events/battle-of-the-books-2027-01-26/,event,keep,/castle-rock/events/battle-of-the-books-2027-01-26/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/battle-of-the-books-2027-01-28/,event,keep,/castle-rock/events/battle-of-the-books-2027-01-28/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/battle-of-the-books-2027-02-02/,event,keep,/castle-rock/events/battle-of-the-books-2027-02-02/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/battle-of-the-books-2027-02-04/,event,keep,/castle-rock/events/battle-of-the-books-2027-02-04/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/battle-of-the-books-2027-02-09/,event,keep,/castle-rock/events/battle-of-the-books-2027-02-09/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/battle-of-the-books-2027-02-11/,event,keep,/castle-rock/events/battle-of-the-books-2027-02-11/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/battle-of-the-books-2027-02-16/,event,keep,/castle-rock/events/battle-of-the-books-2027-02-16/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/battle-of-the-books-2027-02-18/,event,keep,/castle-rock/events/battle-of-the-books-2027-02-18/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/battle-of-the-books-2027-02-23/,event,keep,/castle-rock/events/battle-of-the-books-2027-02-23/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/battle-of-the-books-2027-02-25/,event,keep,/castle-rock/events/battle-of-the-books-2027-02-25/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/boo-bash/,event,410,,"annual, not verifiable: 2026 edition past (24 Oct); the Outlets' event page is script-rendered and returns no text; no next edition or return statement readable"
+/events/boo-bash-2026-10-24/,event,410,,"annual, not verifiable: 2026 edition past (24 Oct); the Outlets' event page is script-rendered and returns no text; no next edition or return statement readable"
+/events/book-bingo-at-sinners-and-saints-2026-11-11/,event,410,,past one-time event
+/events/booked-for-the-holidays-2026-11-07/,event,410,,past one-time event
+/events/booked-for-the-holidays-2026-11-11/,event,410,,past one-time event
+/events/booked-for-the-holidays-2026-12-08/,event,keep,/castle-rock/events/booked-for-the-holidays-2026-12-08/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/booked-for-the-holidays-2026-12-10/,event,keep,/castle-rock/events/booked-for-the-holidays-2026-12-10/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/booked-for-the-holidays-jingle-jam-2026-11-29/,event,keep,/castle-rock/events/booked-for-the-holidays-jingle-jam-2026-11-29/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/castle-rock-craft-show-extraordinaire-2026-11-07/,event,410,,"annual, not verifiable: fairgrounds listing calls it the 34th Annual but the 2026 edition is past and the organizer's site still shows only the 33rd (2025); no next date or return statement"
+/events/castle-rock-starlighting/,event,tradition,/castle-rock/starlighting/,annual; existing hub record castle-rock-starlighting (data/hub/fold-events.json)
+/events/castle-rock-starlighting-2026-11-21/,event,tradition,/castle-rock/starlighting/,annual; existing hub record castle-rock-starlighting (data/hub/fold-events.json)
+/events/christmas-eve-live-nativity-service-2026-12-24/,event,keep,/castle-rock/events/christmas-eve-live-nativity-service-2026-12-24/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/club-21-2026-11-20/,event,keep,/castle-rock/events/club-21-2026-11-20/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/crhsm-monthly-presentation-mark-stevenson-2026-11-12/,event,410,,past one-time event
+/events/dinner-and-dueling-pianos-2026-11-13/,event,410,,past one-time event
+/events/e-and-h-teardown-setup-2026-11-15/,event,410,,past one-time event (an internal library room booking)
+/events/embark-on-your-ancestral-journey-2026-10-07/,event,410,,past one-time event
+/events/epic-reads-2026-11-19/,event,keep,/castle-rock/events/epic-reads-2026-11-19/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/epic-reads-2026-12-17/,event,keep,/castle-rock/events/epic-reads-2026-12-17/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/epic-reads-2027-01-06/,event,keep,/castle-rock/events/epic-reads-2027-01-06/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/epic-reads-2027-02-03/,event,keep,/castle-rock/events/epic-reads-2027-02-03/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/fangtastic-festival-2026-10-30/,event,410,,past event; its source page gives no next edition and does not say it returns
+/events/festival-park-starlight-market-2026-12-04/,event,keep,/castle-rock/events/festival-park-starlight-market-2026-12-04/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/festival-park-starlight-market-2026-12-05/,event,keep,/castle-rock/events/festival-park-starlight-market-2026-12-05/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/free-winter-trolley-rides-2026-11-23/,event,keep,/castle-rock/events/free-winter-trolley-rides-2026-11-23/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/gamer-s-choice-rpg-torchbearer-2026-11-21/,event,keep,/castle-rock/events/gamer-s-choice-rpg-torchbearer-2026-11-21/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/ghostly-stories-and-tragic-tales-walking-tours-2026-10-07/,event,410,,past one-time event
+/events/heroes-hall-groundbreaking-2026-11-07/,event,410,,past one-time event
+/events/holiday-book-wrapping-sudden-fiction-2026-12-07/,event,keep,/castle-rock/events/holiday-book-wrapping-sudden-fiction-2026-12-07/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/holiday-carriage-rides-2026-11-22/,event,keep,/castle-rock/events/holiday-carriage-rides-2026-11-22/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/holiday-glass-suncatcher-workshop-at-wild-blue-yonder-brewin-2026-11-22/,event,keep,/castle-rock/events/holiday-glass-suncatcher-workshop-at-wild-blue-yonder-brewin-2026-11-22/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/josh-blackburn-at-honnibrook-2026-11-06/,event,410,,past one-time event
+/events/josh-blackburn-at-honnibrook-2026-12-04/,event,keep,/castle-rock/events/josh-blackburn-at-honnibrook-2026-12-04/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/let-it-snow-tote-bag-or-wood-sign-painting-at-iron-mule-brew-2026-11-20/,event,keep,/castle-rock/events/let-it-snow-tote-bag-or-wood-sign-painting-at-iron-mule-brew-2026-11-20/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/local-author-showcase-2027-03-20/,event,keep,/castle-rock/events/local-author-showcase-2027-03-20/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/reindeer-games-2026-12-05/,event,keep,/castle-rock/events/reindeer-games-2026-12-05/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/return-to-self-an-end-of-year-somatic-release-breathwork-jou-2026-11-29/,event,keep,/castle-rock/events/return-to-self-an-end-of-year-somatic-release-breathwork-jou-2026-11-29/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/rocky-mountain-mennonite-relief-sale-2026-10-17/,event,410,,past event; its source page gives no next edition and does not say it returns
+/events/santa-at-the-castle-rock-museum-2026-12-12/,event,keep,/castle-rock/events/santa-at-the-castle-rock-museum-2026-12-12/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/st-francis-of-assisi-christmas-eve-service-2026-12-24/,event,keep,/castle-rock/events/st-francis-of-assisi-christmas-eve-service-2026-12-24/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/stamped-with-style-cuff-bracelet-workshop-2027-01-25/,event,keep,/castle-rock/events/stamped-with-style-cuff-bracelet-workshop-2027-01-25/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/starfall-acotar-release-party-sudden-fiction-2027-01-11/,event,keep,/castle-rock/events/starfall-acotar-release-party-sudden-fiction-2027-01-11/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/stitch-by-stitch-introduction-to-embroidery-2027-01-21/,event,keep,/castle-rock/events/stitch-by-stitch-introduction-to-embroidery-2027-01-21/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/storytellers-and-s-mores-2026-12-12/,event,keep,/castle-rock/events/storytellers-and-s-mores-2026-12-12/,"upcoming; source re-read 17 Nov 2026, same date, time and place"
+/events/tanner-gun-show-2026-11-14/,event,410,,past one-time event
+/events/tree-lighting-celebration-outlets/,event,tradition,/castle-rock/outlets-tree-lighting/,annual; existing hub record castle-rock-outlets-tree-lighting (data/hub/fold-events.json)
+/events/tree-lighting-celebration-outlets-2026-11-14/,event,tradition,/castle-rock/outlets-tree-lighting/,annual; existing hub record castle-rock-outlets-tree-lighting (data/hub/fold-events.json)
+/events/trivia-night-the-muppets-food-truck-taqueria-el-perikin-2026-11-17/,event,410,,past one-time event
+/events/turkey-rock-trot/,event,tradition,/castle-rock/turkey-rock-trot/,annual; existing hub record castle-rock-turkey-rock-trot (data/hub/fold-events.json)
+/events/turkey-rock-trot-2026-11-26/,event,tradition,/castle-rock/turkey-rock-trot/,annual; existing hub record castle-rock-turkey-rock-trot (data/hub/fold-events.json)
+/events/veterans-day-tribute-2026-11-07/,event,410,,past one-time event
+/events/booked-for-the-holidays-2026-12-10-463461/,event,410,,already retired on the old guide (retired.json); no file at the commit
+/events/stamped-with-style-2027-01-25/,event,410,,already retired on the old guide (retired.json); no file at the commit

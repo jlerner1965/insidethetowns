@@ -46,7 +46,8 @@ import { STANDALONE_GUIDES, findHubTown } from '../src/config/hub-towns.ts';
 import { placeKey } from '../src/lib/hub-towns.ts';
 import { subTownLabel } from '../src/lib/sub-towns.ts';
 import { isGuideSite, townProfileSchema } from '../src/lib/town-profile.ts';
-import { STALE_CHECK_DAYS, STALE_WITHIN_DAYS, staleSoon, type TraditionRecord } from '../src/lib/traditions.ts';
+import { STALE_CHECK_DAYS, STALE_WITHIN_DAYS, isDated, nextRow, staleSoon, type TraditionRecord } from '../src/lib/traditions.ts';
+import { openNow } from '../src/lib/open-now.ts';
 import { openItems, reverifyDue } from '../src/lib/curiosity.ts';
 import { curiosityFiles } from '../src/lib/curiosity-files.ts';
 import { placeName } from '../src/lib/curiosity-places.ts';
@@ -715,6 +716,35 @@ for (const town of deployedTowns()) for (const issue of nextEventIssues(town.slu
   if (stale.length > 0) {
     console.warn(`traditions: ${stale.length} dated in the next ${STALE_WITHIN_DAYS} days with a check over ${STALE_CHECK_DAYS} days old; read the source again and move \`checked\`:`);
     for (const s of stale) console.warn(`  stale  content/hub/traditions/${s.slug}.md: ${s.year} on ${s.date}, checked ${s.checked}`);
+  }
+}
+
+// Two more lines of report, never a failure (the owner, 17 November 2026):
+// a season that is open today whose row reads "not yet announced" (the
+// opening has passed and no later year is on file: the town page shows it
+// once, under Open now, and the record wants its next year); and a record
+// whose most recent date is over thirteen months old and that is not
+// marked `notAnnual`, which has either lapsed or wants its new date read.
+{
+  const today = dayKey(new Date());
+  const openSlugs = new Set(openNow(traditionRecords, today).open.map((o) => o.slug));
+  const monthsAgo = new Date();
+  monthsAgo.setMonth(monthsAgo.getMonth() - 13);
+  const cutoff = dayKey(monthsAgo);
+  const openUnannounced = traditionRecords.filter((r) => openSlugs.has(r.slug) && (nextRow(r, today).past || r.years[0]?.status === 'not-announced'));
+  const lapsed = traditionRecords.filter((r) => {
+    if (r.notAnnual || r.fixture) return false;
+    const dates = r.years.filter((y) => isDated(y) && y.date).map((y) => y.endDate ?? y.date!);
+    const latest = dates.sort().pop();
+    return !!latest && latest < cutoff;
+  });
+  if (openUnannounced.length > 0) {
+    console.warn(`traditions: ${openUnannounced.length} open today and not announced: the season is on (Open now) while the row would read "not yet announced"; add the next year when the agency posts it:`);
+    for (const r of openUnannounced) console.warn(`  open   content/hub/traditions/${r.slug}.md: opened ${r.years.find((y) => isDated(y) && y.date)?.date}, newest year ${r.years[0]?.year} ${r.years[0]?.status}`);
+  }
+  if (lapsed.length > 0) {
+    console.warn(`traditions: ${lapsed.length} with a most recent date over 13 months old and not marked \`notAnnual\`; read the organizer's page for the new date, or mark why it is not annual:`);
+    for (const r of lapsed) console.warn(`  13mo   content/hub/traditions/${r.slug}.md: most recent ${r.years.filter((y) => isDated(y) && y.date).map((y) => y.endDate ?? y.date!).sort().pop()}`);
   }
 }
 

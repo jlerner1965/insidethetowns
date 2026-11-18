@@ -177,6 +177,26 @@ export async function getNetworkEntries<C extends CollectionKey>(collection: C):
 }
 
 /**
+ * A folded guide's kept entries, read by the hub for the town's section
+ * under /<town>/ (the move of 17 November 2026; src/lib/section-pages.ts).
+ * Through the same gate a guide's own pages read through, so a listing
+ * past its window or an event no source confirms is dropped here as it
+ * would be there. Only the hub may call this, as getNetworkEntries.
+ */
+export async function getSectionEntries<C extends CollectionKey>(collection: C, town: TownConfig): Promise<TownEntry<C>[]> {
+  const site = getSite();
+  if (site.kind !== 'hub') {
+    throw new Error(`getSectionEntries() was called while building ${site.domain}. Town pages must use getTownEntries().`);
+  }
+  const prefix = `${town.slug}/`;
+  const entries = publishable(collection, await getCollection(collection, (entry) => entry.id.startsWith(prefix)), new Map([[town.slug, town]]));
+  return entries.map((entry) => {
+    const data = entry.data as { slug?: string };
+    return Object.assign(entry, { slug: data.slug ?? slugOf(entry.id, town.slug) }) as TownEntry<C>;
+  });
+}
+
+/**
  * The hub's own entries. Towns use getTownEntries and the hub uses this; the
  * split is what stops either from reaching the other's content by accident.
  */

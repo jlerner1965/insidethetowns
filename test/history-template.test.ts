@@ -9,6 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { allTowns } from '../src/config/index.ts';
 
 interface Story {
   file: string;
@@ -25,7 +26,10 @@ function read(file: string): Story {
 /** Guide articles filed under History, and hub stories whose eyebrow says History. */
 function historyStories(): Story[] {
   const out: Story[] = [];
-  for (const town of readdirSync('content')) {
+  // A guide kept page by page on the hub (`section`, 17 November 2026) carries
+  // its articles as they were, before the template; they are not held to it.
+  const asTheyWere = new Set(allTowns.filter((t) => t.section).map((t) => t.slug));
+  for (const town of readdirSync('content').filter((t) => !asTheyWere.has(t))) {
     const dir = join('content', town, 'articles');
     let files: string[] = [];
     try {

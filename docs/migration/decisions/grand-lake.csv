@@ -1,0 +1,41 @@
+old_path,kind,decision,destination,reason
+/places/adams-falls-via-east-inlet-trail/,place,keep,/grand-lake/places/adams-falls-via-east-inlet-trail/,"operating; NPS trail list moved to the park's hiking page (old list 404): 0.3 mile confirmed, unreadable figures removed"
+/places/arapaho-national-recreation-area/,place,keep,/grand-lake/places/arapaho-national-recreation-area/,operating; fees and day-use match the Forest Service page; ramp closures line brought to 18 November
+/places/bob-scotts-authentic-indian-jewelry/,place,410,,unverifiable: own site answers 403 Forbidden; no other official page
+/places/cottage-court-museum-and-history-park/,place,keep,/grand-lake/places/cottage-court-museum-and-history-park/,"address, phone and season match the historical society page"
+/places/gateway-inn/,place,keep,/grand-lake/places/gateway-inn/,"address, phone and desk hours match the inn's contact page"
+/places/gene-stover-lakefront-park/,place,410,,"unverifiable: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against"
+/places/grand-lake-lodge/,place,keep,/grand-lake/places/grand-lake-lodge/,address and phone match the lodge's site; winter lodging offered
+/places/grand-lake-visitor-center/,place,keep,/grand-lake/places/grand-lake-visitor-center/,"operating; hours corrected to the page's ""Winter Hours"", daily 10 am to 3 pm"
+/places/juniper-library/,place,keep,/grand-lake/places/juniper-library/,"address, phone and hours match the library district page"
+/places/kauffman-house-museum/,place,keep,/grand-lake/places/kauffman-house-museum/,"address, phone and season match the historical society page"
+/places/kawuneeche-visitor-center/,place,keep,/grand-lake/places/kawuneeche-visitor-center/,"hours, address and phone match the park's data file; open year-round"
+/places/miyauchis-snack-bar/,place,keep,/grand-lake/places/miyauchis-snack-bar/,seasonal (May to September); phone and posted hours match its hours page
+/places/mountain-market/,place,keep,/grand-lake/places/mountain-market/,operating; hours corrected to the posted winter hours
+/places/never-summer-mountain-products/,place,keep,/grand-lake/places/never-summer-mountain-products/,"address, phone and hours match the shop's contact and home pages"
+/places/point-park/,place,410,,"unverifiable: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against"
+/places/rapids-lodge/,place,keep,/grand-lake/places/rapids-lodge/,"operating; hours corrected to the FAQ page: Thursday to Saturday, happy hour 3-5 pm, dinner 5-8 pm"
+/places/rocky-mountain-folk-school/,place,keep,/grand-lake/places/rocky-mountain-folk-school/,address matches the school's contact page
+/places/rocky-mountain-repertory-theatre/,place,keep,/grand-lake/places/rocky-mountain-repertory-theatre/,"address, phone and box office hours match the box office page"
+/places/sagebrush-bbq-and-grill/,place,410,,"unverifiable: own site answers 403 with a bot challenge (""Just a moment...""), not worked around; no other official page"
+/places/the-hub/,place,keep,/grand-lake/places/the-hub/,"address, phone and hours match its site; says it is open year-round"
+/places/town-square-park/,place,410,,"unverifiable: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against"
+/articles/explore-grand-lake-in-walking-order/,guide,410,,"key claims cannot be re-read: five of its sources are townofgrandlake.com pages (403), the NPS trail list is 404, and five of its stops are not carried or have changed hours"
+/articles/grand-lake-history/,guide,keep,/grand-lake/guides/grand-lake-history/,dates and names match the historical society's Kauffman House and Cottage Court pages; Cottage Court source URL corrected
+/articles/grand-lake-with-kids/,guide,keep,/grand-lake/guides/grand-lake-with-kids/,"town-specific; library address, branch calendar and NPS conditions page re-read; links to two parks and a guide that are not carried"
+/events/afterschool-club-2026/,event,410,,"past event (library series, last date 29 October 2026)"
+/events/boulder-ballet-in-human-2026-10-10/,event,410,,past one-time event
+/events/brown-bag-book-club-2026/,event,keep,/grand-lake/events/brown-bag-book-club-2026/,"10 December 2026 meeting confirmed on the library calendar (noon to 1:30 pm, Juniper Library); the 12 November date removed"
+/events/cybersecurity-2026/,event,410,,past one-time event
+/events/d-a-de-los-muertos-a-celebration-of-life-memory-2026/,event,410,,past one-time event
+/events/d-a-de-los-muertos-community-ofrenda-2026/,event,410,,past event (ran to 7 November 2026)
+/events/exploration-stations-2026/,event,410,,"past event (library series, last date 31 October 2026)"
+/events/ghosts-and-gourds-gathering-2026/,event,410,,"past event, 24 October 2026; whether it is annual cannot be read: the Town's calendar answers 403"
+/events/home-for-the-holidays-2026-12-12/,event,keep,/grand-lake/events/home-for-the-holidays-2026-12-12/,12 and 13 December 2026 confirmed on the theatre's season page and ticketing page; prices match
+/events/nepal-community-conversation-2026-10-10/,event,410,,past one-time event
+/events/rocky-mountain-rep-new-years-eve-2026-12-31/,event,keep,/grand-lake/events/rocky-mountain-rep-new-years-eve-2026-12-31/,"31 December 2026, 9 pm confirmed on the theatre's season page and ticketing page; prices match"
+/events/stan-yan-returns-2026/,event,410,,past one-time event
+/events/storytime-2026/,event,410,,"past event (library series, last date 29 October 2026)"
+/events/tech-time-2026/,event,410,,past one-time event
+/events/the-raven-s-reading-room-a-halloween-literary-open-mic-potion-bar-2026/,event,410,,past one-time event
+/events/yuletide-in-the-rockies-radio-hour-2026-12-05/,event,keep,/grand-lake/events/yuletide-in-the-rockies-radio-hour-2026-12-05/,"5 December 2026, 7 pm confirmed on the theatre's season page and ticketing page; prices match"

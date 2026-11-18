@@ -34,6 +34,10 @@ export const blackHawk: TownConfig = {
   // owner's rule that an organizer's own word of continuing counts), so
   // the domain now forwards there, not to the hub's home page.
   hubPage: { town: 'black-hawk', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /black-hawk/places/<slug>/, /black-hawk/guides/<slug>/
+  // and the carried events at /black-hawk/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: [],

@@ -201,6 +201,8 @@ export interface TraditionRecord {
   organizer: string;
   sourceUrl: string;
   firstYear?: number;
+  /** Why this is not held every year, where it is not (schemas.ts): the 13-month report leaves it alone. */
+  notAnnual?: string;
   /** What the event is and where, from the organizer's page, with that page and the day it was read (src/content/schemas.ts). */
   about?: { text: string; source: string; checked: string };
   /** On an outdoor date: what it is the date of (OUTDOOR_KINDS, src/lib/open-now.ts). */

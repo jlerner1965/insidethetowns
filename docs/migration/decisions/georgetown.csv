@@ -1,0 +1,39 @@
+old_path,kind,decision,destination,reason
+/places/511-rose/,place,keep,/georgetown/places/511-rose/,"own site read 17 Nov 2026: address, phone and hours match; live-music days corrected to Friday and Saturday"
+/places/alpine-hose-no-2-firefighting-museum/,place,keep,/georgetown/places/alpine-hose-no-2-firefighting-museum/,"Historic Georgetown page read 17 Nov 2026: closed for the season, open for the Christmas Market weekends; season fields updated"
+/places/bierstadt-trailhead/,place,keep,/georgetown/places/bierstadt-trailhead/,Forest Service page read 17 Nov 2026: location and rules match
+/places/cabin-creek-brewing/,place,keep,/georgetown/places/cabin-creek-brewing/,"own page read 17 Nov 2026: address, phone and hours match"
+/places/capital-prize-gold-mine-tours/,place,keep,/georgetown/places/capital-prize-gold-mine-tours/,"own page read 17 Nov 2026: address, phone and hours match"
+/places/city-park/,place,keep,/georgetown/places/city-park/,"Town parks page read 17 Nov 2026 still lists City Park; address rests on the Town's 2021 master plan, not re-read"
+/places/coopers-on-the-creek/,place,keep,/georgetown/places/coopers-on-the-creek/,"own page read 17 Nov 2026: address, phone and hours match"
+/places/gateway-visitor-center/,place,keep,/georgetown/places/gateway-visitor-center/,"own page read 17 Nov 2026: address, phone and hours match"
+/places/georgetown-lake-and-tom-bennhoff-lake-trail/,place,keep,/georgetown/places/georgetown-lake-and-tom-bennhoff-lake-trail/,Town lake and trail pages read 17 Nov 2026: details match
+/places/georgetown-loop-railroad-devils-gate-depot/,place,keep,/georgetown/places/georgetown-loop-railroad-devils-gate-depot/,"railroad FAQ page read 17 Nov 2026: address, phone and seasons match"
+/places/guanella-pass-scenic-byway/,place,keep,/georgetown/places/guanella-pass-scenic-byway/,county page read 17 Nov 2026: closure and parking rules match
+/places/hamill-house-museum/,place,keep,/georgetown/places/hamill-house-museum/,Historic Georgetown pages read 17 Nov 2026: tours by reservation only; season fields updated
+/places/john-tomay-memorial-library/,place,keep,/georgetown/places/john-tomay-memorial-library/,"own page read 17 Nov 2026: address, phone and hours match"
+/places/kneisel-and-anderson/,place,keep,/georgetown/places/kneisel-and-anderson/,"own page read 17 Nov 2026: address, phone and hours match"
+/places/microtel-georgetown-lake/,place,keep,/georgetown/places/microtel-georgetown-lake/,Wyndham page read 17 Nov 2026 with WebFetch (404 to the link checker): address and phone match
+/places/mountain-mamas-needful-things/,place,keep,/georgetown/places/mountain-mamas-needful-things/,"own page read 17 Nov 2026: address, phone and hours match"
+/places/rutherford-trail/,place,keep,/georgetown/places/rutherford-trail/,"Town visitor site read 17 Nov 2026: trailhead at 403 3rd Street, 2.1 miles"
+/places/silver-dollar-lake-trail/,place,keep,/georgetown/places/silver-dollar-lake-trail/,Forest Service page read 17 Nov 2026: details match
+/places/the-old-school/,place,keep,/georgetown/places/the-old-school/,Georgetown Trust pages read 17 Nov 2026: address and phone match; events page still lists nothing after August 2026
+/places/werlin-park-dog-park/,place,keep,/georgetown/places/werlin-park-dog-park/,"Town page read 17 Nov 2026: ""located at 11th/Taos"""
+/articles/explore-georgetown-in-driving-order/,guide,keep,/georgetown/guides/explore-georgetown-in-driving-order/,town-specific; ten of its sources re-read 17 Nov 2026; 511 Rose music days corrected
+/articles/georgetown-history/,guide,keep,/georgetown/guides/georgetown-history/,"town-specific; Town, visitor-site and railroad pages re-read 17 Nov 2026"
+/articles/georgetown-october-to-may/,guide,keep,/georgetown/guides/georgetown-october-to-may/,"covers the 2026-27 off-season, still current; all nine sources re-read 17 Nov 2026; museum status updated"
+/articles/georgetown-with-kids/,guide,keep,/georgetown/guides/georgetown-with-kids/,"town-specific; railroad, mine and library pages re-read 17 Nov 2026"
+/events/autumnfest-georgetown-loop-2026-10-16/,event,410,,"annual, not verifiable: the railroad's events page read 17 Nov 2026 no longer lists Autumnfest and gives no next edition"
+/events/bookfest-halloween-book-giveaway-2026-10-31/,event,410,,past one-time event
+/events/christmas-at-the-hamill-house-2026-12-12/,event,keep,/georgetown/events/christmas-at-the-hamill-house-2026-12-12/,"upcoming; Historic Georgetown page read 17 Nov 2026: December 12 and 19, 6-9 pm, $85"
+/events/georgetown-christmas-market-2026-12-05/,event,tradition,/georgetown/christmas-market/,annual; existing record georgetown-christmas-market
+/events/georgetown-christmas-market-2026-12-12/,event,tradition,/georgetown/christmas-market/,annual; existing record georgetown-christmas-market
+/events/hoppy-halloween-storytime-2026-10-30/,event,410,,past one-time event
+/events/john-tomay-memorial-library-book-group-2026-11-19/,event,keep,/georgetown/events/john-tomay-memorial-library-book-group-2026-11-19/,"upcoming; library page read 17 Nov 2026: November 19, 3:00-4:30 pm, 605 6th Street"
+/events/john-tomay-memorial-library-book-group-2026-12-17/,event,410,,unverifiable: the library's page for this date now redirects to the September meeting and its December calendar lists no JTML Book Group
+/events/jtml-book-group-2026-10-15/,event,410,,past occurrence of a monthly series
+/events/jtml-book-group-2027-01-21/,event,keep,/georgetown/events/jtml-book-group-2027-01-21/,"upcoming; library page read 17 Nov 2026: January 21, 2027, 3:00-4:30 pm, 605 6th Street"
+/events/jtml-friends-community-potluck-2026-10-17/,event,410,,past one-time event
+/events/music-and-movement-storytime-2026-10-16/,event,410,,past one-time event
+/events/trick-or-treat-train-2026-10-30/,event,410,,"annual, not verifiable: the Georgetown Loop Railroad's site lists only its winter trains and nothing says the Trick or Treat Train returns (read 17 November 2026)"
+/events/werewolf-after-dark-2026-10-15/,event,410,,past one-time event

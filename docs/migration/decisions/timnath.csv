@@ -1,0 +1,62 @@
+old_path,kind,decision,destination,reason
+/places/cfg-public-market-and-coffeehouse/,place,keep,/timnath/places/cfg-public-market-and-coffeehouse/,"own site: 4138 Main Street, Unit A; Sun–Thu 7am–3pm, Fri–Sat 7am–5pm"
+/places/costco-timnath/,place,keep,/timnath/places/costco-timnath/,"in Timnath; store page: 4705 Weitzel St; Gold Star hours Mon–Fri 10–8:30, Sat 9:30–7, Sun 10–6"
+/places/fossil-creek-reservoir-natural-area/,place,keep,/timnath/places/fossil-creek-reservoir-natural-area/,"City of Fort Collins page: 3340 Carpenter Road, ""Open daily from dawn to dusk"", trails and no-dogs rule match; a Fort Collins natural area beside Timnath, kept as serving the town"
+/places/gque-bbq/,place,keep,/timnath/places/gque-bbq/,"own Timnath page: 4931 Cima Vista Drive, 970-823-8142, Sun–Thur 11–9, Fri–Sat 11–10"
+/places/mein-house/,place,keep,/timnath/places/mein-house/,"own site: 4650 Signal Tree Dr., 970-825-5565, Monday–Saturday 11AM–9PM"
+/places/old-town-main-street/,place,keep,/timnath/places/old-town-main-street/,"Town page: Timnath Main Street, ""proud participant in the Colorado Main Street Program"""
+/places/pedros-coffee-shop/,place,keep,/timnath/places/pedros-coffee-shop/,"own visit page: 2100 S Colorado Blvd, Daily 7am–3pm, (970) 399-9424"
+/places/poudre-river-trail/,place,keep,/timnath/places/poudre-river-trail/,"Larimer County page (read by WebFetch; curl 403): ""45 miles of continuous, paved, multi-use trail"", Bellvue to Greeley, 83-foot bridge between Timnath and Windsor"
+/places/the-hidden-stem/,place,410,,"unverifiable: the Chamber directory listing now gives no address, phone or hours (only ""a garden boutique on Main Street in Timnath""); its own page is Facebook (login wall); thehiddenstem.com did not answer"
+/places/timnath-beerwerks/,place,keep,/timnath/places/timnath-beerwerks/,"own contact page: 4138 Main Street, 970-999-5751, taproom hours match"
+/places/timnath-beverage/,place,keep,/timnath/places/timnath-beverage/,"own site: 6790 Innovate Pl, 970-795-4140, Mon–Sat 9am–9pm, Sun 9am–7pm"
+/places/timnath-community-park/,place,keep,/timnath/places/timnath-community-park/,"Town page: 5500 Summerfields Pkwy., dawn until dusk, splash pad and courts match"
+/places/timnath-presbyterian-church/,place,keep,/timnath/places/timnath-presbyterian-church/,"own site: 4020 Main St., 970-493-8996, office Tuesday–Thursday 9am–2pm, worship 10am"
+/places/timnath-reservoir/,place,keep,/timnath/places/timnath-reservoir/,"Town pages: 5824 County Road 40, hours and fees match; phone removed, no Town page read today prints it"
+/places/timnath-town-center/,place,keep,/timnath/places/timnath-town-center/,"Town pages: 4750 Signal Tree Drive, 970-224-3211, Council on the 2nd and 4th Tuesday at 6:00 p.m.; hours removed, not stated on the pages read"
+/places/weitzel-park/,place,keep,/timnath/places/weitzel-park/,"Town page: 4580 Weitzel St., ""Dawn until Dusk – gate-controlled"", 4.5 acres"
+/places/wild-pastures-burger/,place,keep,/timnath/places/wild-pastures-burger/,"own contact page: 5451 E Harmony Rd, (970) 744-4137, Timnath daily 11am–8pm"
+/places/wildwing-park/,place,keep,/timnath/places/wildwing-park/,"Town page: 2221 South Larimer County Road 1, dawn until dusk, restroom ""coming soon"""
+/articles/explore-timnath-in-driving-order/,guide,keep,/timnath/guides/explore-timnath-in-driving-order/,"town-specific; park, trail, restaurant and brewery facts match their pages; Hidden Stem sentence cut back to what its listing still says"
+/articles/timnath-history/,guide,keep,/timnath/guides/timnath-history/,"town-specific; dates check against Wikipedia, the church history page and the school page"
+/articles/timnath-reservoir-permits-and-eligibility/,guide,keep,/timnath/guides/timnath-reservoir-permits-and-eligibility/,"town-specific; eligibility, fees, hours and rules match the Town reservoir, permits and anglers pages and the 2026 policy; reservoir phone removed (no longer on the pages); permit pickup details not on the pages between seasons"
+/articles/timnath-with-kids/,guide,keep,/timnath/guides/timnath-with-kids/,"town-specific; park, reservoir and CF&G facts match their pages"
+/events/8th-anniversary-party-week-timnath-beerwerks-2026-11-04/,event,410,,past one-time event
+/events/adoption-event-with-until-they-re-home-2026-12-05/,event,keep,/timnath/events/adoption-event-with-until-they-re-home-2026-12-05/,"taproom event page: Saturday, December 5, 2026, 1:00 PM–3:00 PM"
+/events/art-on-tap-with-painting-with-a-twist-2026-11-20/,event,keep,/timnath/events/art-on-tap-with-painting-with-a-twist-2026-11-20/,"taproom event page: Friday, November 20, 2026, 6:00 PM–8:00 PM"
+/events/boys-soccer-dine-and-give-gque-bbq-timnath-2026-11-18/,event,keep,/timnath/events/boys-soccer-dine-and-give-gque-bbq-timnath-2026-11-18/,"school public calendar feed, status confirmed: Boys' Soccer Dine & Give (GQue BBQ Timnath), all day 18 November"
+/events/food-truck-cousins-maine-lobster-at-timnath-beerwerks-2026-10-31/,event,410,,past one-time event
+/events/food-truck-cousins-maine-lobster-at-timnath-beerwerks-2026-11-28/,event,410,,"unverifiable: the time is not settled; the taproom event page now prints 12:00 PM–8:00 PM, the file (from the taproom calendar on 1 November) says 10 am to 6 pm"
+/events/food-truck-cousins-maine-lobster-at-timnath-beerwerks-2026-12-26/,event,410,,"unverifiable: the time is not settled; the taproom event page now prints 12:00 PM–8:00 PM, the file (from the taproom calendar on 1 November) says 10 am to 6 pm"
+/events/girls-golf-fundraiser-fuzzys-taco-2026-11-19/,event,keep,/timnath/events/girls-golf-fundraiser-fuzzys-taco-2026-11-19/,"school public calendar feed, status confirmed: Girls' Golf Fundraiser-Fuzzys Taco, 19 November, 5:30–8 pm, Fuzzy's Taco Shop"
+/events/holiday-home-tour-2026-11-13/,event,410,,past one-time event
+/events/knowledge-bowl-fundraiser-2027-01-14/,event,keep,/timnath/events/knowledge-bowl-fundraiser-2027-01-14/,"school public calendar feed, status confirmed: Knowledge Bowl Fundraiser, 14 January 2027, 11 am–10 pm, Red Robin"
+/events/live-music-aubrey-dale-2026-11-05/,event,410,,past one-time event
+/events/live-music-christine-alice-2026-12-03/,event,keep,/timnath/events/live-music-christine-alice-2026-12-03/,"taproom event page: Thursday, December 3, 2026, 5:30 PM–7:30 PM"
+/events/love-you-buddy-paint-your-pet-by-number-2026-12-05/,event,keep,/timnath/events/love-you-buddy-paint-your-pet-by-number-2026-12-05/,"taproom event page: Saturday, December 5, 2026, 4:00 PM–6:00 PM"
+/events/magic-on-main-street-2026-12-12/,event,keep,/timnath/events/magic-on-main-street-2026-12-12/,"Timnath Farmers Market page, Important Dates: ""Dec 12 • Magic on Main Street""; date only, as the file says"
+/events/music-bingo-at-timnath-beerwerks/,event,410,,weekly series page; not carried as a static event
+/events/music-bingo-tv-theme-songs-2026-11-18/,event,keep,/timnath/events/music-bingo-tv-theme-songs-2026-11-18/,"taproom event page: Wednesday, November 17, 2026, 6:00 PM–8:00 PM; a dated page of its own"
+/events/noco-winter-wonderland-2026-11-26/,event,tradition,/timnath/noco-winter-wonderland/,annual; existing record timnath-noco-winter-wonderland (data/hub/fold-events.json)
+/events/orchestra-concert-2027-02-17/,event,keep,/timnath/events/orchestra-concert-2027-02-17/,"school public calendar feed, status confirmed: Orchestra Concert, 17 February 2027, 7–8 pm"
+/events/plantiness-bingo-party-timnath-beerwerks-2026-11-08/,event,410,,past one-time event
+/events/pre-asta-orchestra-concert-2027-02-23/,event,keep,/timnath/events/pre-asta-orchestra-concert-2027-02-23/,"school public calendar feed, status confirmed: Pre-ASTA Orchestra Concert, 23 February 2027, 7–8 pm"
+/events/pre-cba-band-concert-2027-02-24/,event,keep,/timnath/events/pre-cba-band-concert-2027-02-24/,"school public calendar feed, status confirmed: Pre-CBA Band Concert, 24 February 2027, 7–8 pm"
+/events/run-club-timnath-beerwerks/,event,410,,weekly series page; not carried as a static event
+/events/santa-at-mtn-mane-2026-11-15/,event,410,,past one-time event
+/events/second-sundays-on-main-2026-10-11/,event,410,,past one-time event
+/events/timnath-farmers-market-2026-10-25/,event,410,,past one-time event
+/events/timnath-holiday-festival/,event,tradition,/timnath/holiday-festival/,annual; existing record timnath-holiday-festival (data/hub/fold-events.json)
+/events/timnath-holiday-festival-2026/,event,tradition,/timnath/holiday-festival/,annual; existing record timnath-holiday-festival (data/hub/fold-events.json)
+/events/timnath-pub-runners-2026-11-12/,event,410,,past one-time event
+/events/timnath-pub-runners-2026-11-19/,event,keep,/timnath/events/timnath-pub-runners-2026-11-19/,"taproom event page: Thursday, November 19, 2026, 6:00 PM–9:00 PM; a dated page of its own"
+/events/tmhs-band-concerts-2026-12-09/,event,keep,/timnath/events/tmhs-band-concerts-2026-12-09/,"school public calendar feed, status confirmed: TMHS Band Concerts, 9 December, 6–8 pm"
+/events/tmhs-orchestra-concerts-2026-12-10/,event,keep,/timnath/events/tmhs-orchestra-concerts-2026-12-10/,"school public calendar feed, status confirmed: TMHS Orchestra Concerts, 10 December, 6–8:30 pm"
+/events/town-council-2026-10-13/,event,410,,past occurrence of a recurring series
+/events/town-council-2026-10-27/,event,410,,past occurrence of a recurring series
+/events/town-council-2026-11-10/,event,410,,past occurrence of a recurring series
+/events/town-council-2026-11-24/,event,410,,"unverifiable: the Town pages give only the rule (""2nd and 4th Tuesday of the month at 6:00 p.m.""); this dated meeting is not listed"
+/events/town-council-2026-12-08/,event,410,,"unverifiable: the Town pages give only the rule (""2nd and 4th Tuesday of the month at 6:00 p.m.""); this dated meeting is not listed"
+/events/town-council-2026-12-22/,event,410,,"unverifiable: the Town pages give only the rule (""2nd and 4th Tuesday of the month at 6:00 p.m.""); this dated meeting is not listed"
+/events/tuesday-night-poker-at-timnath-beerwerks/,event,410,,weekly series page; not carried as a static event
+/events/timnath-fall-festival-2026/,event,tradition,/timnath/fall-festival/,annual; existing record timnath-fall-festival. No file at the commit: the address is in the old retired.json (served 410 before the fold); added so it reaches the tradition page

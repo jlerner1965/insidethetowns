@@ -24,6 +24,10 @@ export const leadville: TownConfig = {
   // content has left content/leadville/ (git history keeps it).
   status: 'redirect',
   hubPage: { town: 'leadville', since: '2026-11-12' },
+  // The pages kept from the guide, decided one by one (docs/migration/redirect-map.csv;
+  // the move of 17 November 2026): /leadville/places/<slug>/, /leadville/guides/<slug>/
+  // and the carried events at /leadville/events/<slug>/, on the hub's templates.
+  section: { mode: 'pages', since: '2026-11-17' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Nothing in the network is within an afternoon's drive of Leadville:
