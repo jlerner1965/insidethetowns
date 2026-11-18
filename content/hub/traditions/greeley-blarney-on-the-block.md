@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Greeley Downtown Development Authority"
 sourceUrl: "https://www.greeleydowntown.com/events/blarney-on-the-block"
+dateWindow:
+  start: "03-14"
+  end: "03-14"
 years:
   - year: 2027
     status: not-announced

@@ -15,7 +15,7 @@ import { getTown, listsEvents } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { occurrences } from '@/lib/events';
 import { linkedPlaceSlugs } from '@/lib/mentions';
-import { isOpen } from '@/lib/places';
+import { isListed } from '@/lib/places';
 import { upcomingEvents } from '@/lib/weekly';
 
 interface Props {
@@ -43,7 +43,7 @@ if (related.length === 0) {
   const places = await getTownEntries('places');
   const linked = linkedPlaceSlugs(article.body)
     .map((slug) => places.find((p) => p.slug === slug))
-    .filter((p): p is NonNullable<typeof p> => !!p && isOpen(p))
+    .filter((p): p is NonNullable<typeof p> => !!p && isListed(p))
     .slice(0, 3)
     .map((p) => ({ label: p.data.title, href: `/places/${p.slug}/`, note: p.data.summary }));
   const others = (await getTownEntries('articles'))

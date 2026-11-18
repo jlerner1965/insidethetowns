@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Greeley Downtown Development Authority"
 sourceUrl: "https://www.greeleydowntown.com/events/downtown-greeley-friday-fest"
+dateWindow:
+  start: "06-05"
+  end: "06-05"
 years:
   - year: 2027
     status: not-announced

@@ -13,6 +13,9 @@ outdoor:
   kind: other
   facility: "Durango & Silverton train to Silverton"
   edge: opens
+dateWindow:
+  start: "05-02"
+  end: "05-02"
 years:
   - year: 2027
     status: not-announced

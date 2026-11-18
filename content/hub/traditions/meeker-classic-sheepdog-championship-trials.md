@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Meeker Classic Sheepdog Trials"
 sourceUrl: "https://meekersheepdog.com/events-attractions/"
+dateWindow:
+  start: "09-09"
+  end: "09-09"
 years:
   - year: 2027
     status: not-announced

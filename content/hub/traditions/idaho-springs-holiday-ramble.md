@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Visit Idaho Springs (Business and Community Promotion, City of Idaho Springs)"
 sourceUrl: "https://www.visitidahospringsco.com/holidayramble"
+dateWindow:
+  start: "11-27"
+  end: "11-27"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Archuleta County Fair"
 sourceUrl: "https://fair.archuletacounty.gov/"
+dateWindow:
+  start: "07-30"
+  end: "07-30"
 years:
   - year: 2027
     status: not-announced

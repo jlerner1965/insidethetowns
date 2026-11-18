@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "City of Longmont Recreation Services"
 sourceUrl: "https://longmontcolorado.gov/event/longmont-lights-holiday-parade-2/"
+dateWindow:
+  start: "12-12"
+  end: "12-13"
 years:
   - year: 2026
     status: confirmed

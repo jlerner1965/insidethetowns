@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Severance"
 sourceUrl: "https://townofseverance.org/284/Kids-Fishing-Derby"
+dateWindow:
+  start: "05-16"
+  end: "05-16"
 years:
   - year: 2027
     status: not-announced

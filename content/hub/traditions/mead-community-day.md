@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Mead Area Chamber of Commerce"
 sourceUrl: "https://meadchamber.org/"
+dateWindow:
+  start: "09-12"
+  end: "09-12"
 years:
   - year: 2027
     status: not-announced

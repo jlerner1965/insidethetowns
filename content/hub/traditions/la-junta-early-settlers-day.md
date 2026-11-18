@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "La Junta Chamber of Commerce"
 sourceUrl: "https://www.lajuntachamber.com/la-junta-chamber-events/"
+dateWindow:
+  start: "08-01"
+  end: "08-01"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Evergreen Park & Recreation District"
 sourceUrl: "https://www.evergreenrecreation.com/2026-10-10-witches-warlocks-on-evergreen-lake"
+dateWindow:
+  start: "10-10"
+  end: "10-10"
 years:
   - year: 2027
     status: not-announced

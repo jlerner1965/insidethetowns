@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Latino Chamber of Commerce of Boulder County"
 sourceUrl: "https://www.latinochamberco.org/event-details/feria-del-tamal-2026"
+dateWindow:
+  start: "10-24"
+  end: "10-24"
 years:
   - year: 2027
     status: not-announced

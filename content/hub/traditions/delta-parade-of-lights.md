@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Delta Area Chamber of Commerce"
 sourceUrl: "https://deltacolorado.org/events/"
+dateWindow:
+  start: "12-04"
+  end: "12-04"
 years:
   - year: 2026
     status: confirmed

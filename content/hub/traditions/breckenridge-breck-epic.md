@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Breck Epic"
 sourceUrl: "https://breckepic.com/"
+dateWindow:
+  start: "08-15"
+  end: "08-15"
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Avon"
 sourceUrl: "https://www.avon.org/2434/Fireworks-in-Avon"
+dateWindow:
+  start: "01-16"
+  end: "01-16"
 years:
   - year: 2027
     status: confirmed

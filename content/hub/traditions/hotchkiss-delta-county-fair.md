@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Delta County"
 sourceUrl: "https://www.deltacountyco.gov/924/Delta-County-Fair"
+dateWindow:
+  start: "08-01"
+  end: "08-01"
 years:
   - year: 2027
     status: not-announced

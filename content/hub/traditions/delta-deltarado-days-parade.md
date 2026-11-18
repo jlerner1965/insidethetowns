@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Delta Area Chamber of Commerce"
 sourceUrl: "https://deltacolorado.org/?p=106"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

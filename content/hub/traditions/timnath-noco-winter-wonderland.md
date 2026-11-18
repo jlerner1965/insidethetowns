@@ -9,6 +9,9 @@ towns:
 type: festival
 organizer: "Colorado Youth Outdoors"
 sourceUrl: "https://www.coloradoyo.org/nocowinterwonderland/"
+dateWindow:
+  start: "11-26"
+  end: "11-26"
 years:
   - year: 2026
     status: confirmed

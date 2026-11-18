@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Fremont County"
 sourceUrl: "https://fremontcountyco.gov/fair/fremont-county-fair-rodeo"
+dateWindow:
+  start: "07-24"
+  end: "07-24"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: farmers-market
 organizer: "Glenwood Springs Downtown Development Authority"
 sourceUrl: "https://www.glenwoodspringsdda.com/market-on-7th/"
+dateWindow:
+  start: "06-23"
+  end: "06-23"
 years:
   - year: 2027
     status: not-announced

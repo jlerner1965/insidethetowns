@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Estes Park"
 sourceUrl: "https://eventsinestes.com/wine-chocolate-festival/"
+dateWindow:
+  start: "02-06"
+  end: "02-07"
 years:
   - year: 2027
     status: confirmed

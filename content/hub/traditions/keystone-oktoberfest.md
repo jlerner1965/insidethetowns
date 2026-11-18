@@ -7,6 +7,9 @@ town:
 type: oktoberfest
 organizer: "Keystone Festivals"
 sourceUrl: "https://www.keystonefestivals.com/festivals/oktoberfest/"
+dateWindow:
+  start: "09-05"
+  end: "09-05"
 years:
   - year: 2027
     status: not-announced

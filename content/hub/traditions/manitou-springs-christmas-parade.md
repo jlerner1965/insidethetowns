@@ -11,6 +11,9 @@ about:
   text: "A night-time Christmas parade on Manitou Avenue, from Ruxton Avenue to El Paso Boulevard. Spectators are asked to bring a new, unwrapped toy, which the U.S. Marine Corps Reserve collects for Toys for Tots."
   source: "https://manitouchristmasparade.com/parade-information/"
   checked: 2026-11-17
+dateWindow:
+  start: "12-06"
+  end: "12-06"
 years:
   - year: 2026
     status: confirmed

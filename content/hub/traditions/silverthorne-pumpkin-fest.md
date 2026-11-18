@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Silverthorne"
 sourceUrl: "https://content.govdelivery.com/accounts/COSILVERTHORNE/bulletins/42b9657"
+dateWindow:
+  start: "10-04"
+  end: "10-04"
 years:
   - year: 2027
     status: not-announced

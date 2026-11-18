@@ -7,6 +7,9 @@ town:
 type: harvest-festival
 organizer: "Sugar Beet Days Committee"
 sourceUrl: "https://www.sugarbeetdays.com/vendor-information"
+dateWindow:
+  start: "09-19"
+  end: "09-19"
 years:
   - year: 2027
     status: not-announced

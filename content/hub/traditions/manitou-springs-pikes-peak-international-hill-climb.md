@@ -12,6 +12,9 @@ about:
   text: "The Broadmoor Pikes Peak International Hill Climb, also called the Race to the Clouds, is an invitational automobile hill climb to the summit of Pikes Peak."
   source: "https://ppihc.org/"
   checked: 2026-11-13
+dateWindow:
+  start: "06-27"
+  end: "06-27"
 years:
   - year: 2027
     status: confirmed

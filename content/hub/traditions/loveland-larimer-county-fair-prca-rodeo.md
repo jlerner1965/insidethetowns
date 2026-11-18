@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "The Ranch Events Complex"
 sourceUrl: "https://www.treventscomplex.com/venues-events-at-the-ranch/larimer-county-fair"
+dateWindow:
+  start: "07-31"
+  end: "07-31"
 years:
   - year: 2027
     status: not-announced

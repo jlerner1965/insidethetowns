@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Trinidaddio Blues Festival"
 sourceUrl: "https://trinidaddiobluesfest.com/"
+dateWindow:
+  start: "08-28"
+  end: "08-28"
 years:
   - year: 2027
     status: not-announced

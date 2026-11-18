@@ -7,6 +7,9 @@ town:
 type: winter-carnival
 organizer: "Pagosa Springs Area Chamber of Commerce"
 sourceUrl: "https://www.pagosachamber.com/chamber-events.html"
+dateWindow:
+  start: "01-15"
+  end: "01-15"
 years:
   - year: 2027
     status: confirmed

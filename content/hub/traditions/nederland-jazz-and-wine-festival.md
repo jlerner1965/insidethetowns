@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Ned Jazz Wine"
 sourceUrl: "https://nedjazzwine.com/"
+dateWindow:
+  start: "08-22"
+  end: "08-22"
 years:
   - year: 2027
     status: not-announced

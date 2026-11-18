@@ -10,6 +10,9 @@ towns:
 type: race
 organizer: "Clear Creek Booster Club"
 sourceUrl: "http://www.gtishalf.com"
+dateWindow:
+  start: "08-08"
+  end: "08-14"
 years:
   - year: 2027
     status: confirmed

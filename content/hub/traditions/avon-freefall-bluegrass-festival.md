@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Avon"
 sourceUrl: "https://www.avon.org/2568/Avons-FreeFall-Bluegrass-Festival"
+dateWindow:
+  start: "10-09"
+  end: "10-09"
 years:
   - year: 2027
     status: not-announced

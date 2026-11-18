@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Sunlight Mountain Resort"
   edge: opens
+dateWindow:
+  start: "12-11"
+  end: "12-11"
 years:
   - year: 2026
     status: confirmed

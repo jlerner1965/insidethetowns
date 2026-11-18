@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Severance"
 sourceUrl: "https://www.townofseverance.org/calendar.aspx?month=12&year=2026"
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

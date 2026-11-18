@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Brush Area Chamber of Commerce"
 sourceUrl: "https://www.brushchamberofcommerce.org/events"
+dateWindow:
+  start: "12-04"
+  end: "12-04"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: harvest-festival
 organizer: "Loveland Chamber of Commerce"
 sourceUrl: "https://loveland.org/wp-content/uploads/2026/04/2026-Corn-Roast-FOOD-Vendor-Application.pdf"
+dateWindow:
+  start: "08-21"
+  end: "08-21"
 years:
   - year: 2027
     status: not-announced

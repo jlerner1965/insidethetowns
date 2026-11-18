@@ -11,6 +11,9 @@ about:
   text: "A summer event in Greeley with PRCA rodeos, PRCA Xtreme Bulls, American Bull Fighting, concerts, a carnival, a demolition derby and parades."
   source: "https://www.greeleystampede.org/p/rodeos1/day-sheets"
   checked: 2026-11-13
+dateWindow:
+  start: "06-24"
+  end: "06-24"
 years:
   - year: 2027
     status: not-announced

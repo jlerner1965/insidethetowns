@@ -8,6 +8,9 @@ type: festival
 organizer: "Eagle Chamber of Commerce"
 sourceUrl: "https://business.eaglechamber.co/events/details/eagle-wassailfest-3856"
 firstYear: 2015
+dateWindow:
+  start: "12-03"
+  end: "12-03"
 years:
   - year: 2026
     status: confirmed

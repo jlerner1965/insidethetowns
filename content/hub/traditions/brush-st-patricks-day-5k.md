@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "City of Brush Parks & Recreation"
 sourceUrl: "https://www.brushcolo.com/your_city/departments/parks___recreation/new_page/races_5ks.php"
+dateWindow:
+  start: "03-14"
+  end: "03-14"
 years:
   - year: 2027
     status: not-announced

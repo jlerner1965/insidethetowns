@@ -8,6 +8,9 @@ type: harvest-festival
 organizer: "Cherry Days 4-Ever Committee"
 sourceUrl: "https://paoniacherrydays.com/"
 firstYear: 1947
+dateWindow:
+  start: "07-03"
+  end: "07-03"
 years:
   - year: 2027
     status: not-announced

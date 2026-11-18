@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Redstone Art Foundation"
 sourceUrl: "https://www.redstoneartfoundation.org/"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

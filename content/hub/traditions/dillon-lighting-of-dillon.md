@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Town of Dillon"
 sourceUrl: "https://content.govdelivery.com/accounts/CODILLON/bulletins/3fdc311"
+dateWindow:
+  start: "12-06"
+  end: "12-06"
 years:
   - year: 2026
     status: not-announced

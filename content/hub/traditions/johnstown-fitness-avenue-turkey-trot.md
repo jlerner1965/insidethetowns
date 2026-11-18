@@ -7,6 +7,9 @@ town:
 type: turkey-trot
 organizer: "Fitness Avenue"
 sourceUrl: "https://runsignup.com/Race/CO/Johnstown/FitnessAvenueTurkeyTrot"
+dateWindow:
+  start: "11-26"
+  end: "11-26"
 years:
   - year: 2026
     status: confirmed

@@ -11,6 +11,9 @@ about:
   text: "A music festival held in Telluride, in the San Juan Mountains of southwestern Colorado."
   source: "https://bluegrass.com/telluride"
   checked: 2026-11-13
+dateWindow:
+  start: "06-17"
+  end: "06-17"
 years:
   - year: 2027
     status: confirmed

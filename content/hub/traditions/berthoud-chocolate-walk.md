@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Berthoud Main Street"
 sourceUrl: "https://berthoudmainstreet.org/downtown-berthoud-events/"
+dateWindow:
+  start: "02-06"
+  end: "02-06"
 years:
   - year: 2027
     status: confirmed

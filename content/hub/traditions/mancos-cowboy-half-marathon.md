@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Mancos Cowboy Half Marathon"
 sourceUrl: "https://runsignup.com/Race/CO/Mancos/MancosHalfMarathon"
+dateWindow:
+  start: "10-24"
+  end: "10-24"
 years:
   - year: 2027
     status: not-announced

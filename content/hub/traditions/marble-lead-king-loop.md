@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Lead King Loop (benefits the Marble Charter School)"
 sourceUrl: "https://www.leadkingloop.com/"
+dateWindow:
+  start: "09-13"
+  end: "09-13"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: winter-carnival
 organizer: "Grand Lake Area Chamber of Commerce"
 sourceUrl: "https://gograndlake.com/winter-carnival/"
+dateWindow:
+  start: "02-13"
+  end: "02-13"
 years:
   - year: 2027
     status: confirmed

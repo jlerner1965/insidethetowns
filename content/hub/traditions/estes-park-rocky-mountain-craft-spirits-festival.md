@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Estes Park"
 sourceUrl: "https://eventsinestes.com/rocky-mountain-craft-spirits-festival/"
+dateWindow:
+  start: "11-07"
+  end: "11-07"
 years:
   - year: 2027
     status: not-announced

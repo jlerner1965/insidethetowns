@@ -7,6 +7,9 @@ town:
 type: winter-carnival
 organizer: "City of Fort Lupton"
 sourceUrl: "https://www.fortluptonco.gov/666/Winterfest-featuring-Cookies-Cocoa-with-"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

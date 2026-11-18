@@ -5,6 +5,9 @@ statewide: true
 type: outdoor
 organizer: "American Meteor Society"
 sourceUrl: "https://www.amsmeteors.org/calendar/"
+dateWindow:
+  start: "12-13"
+  end: "12-13"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Frederick"
 sourceUrl: "https://frederickco.gov/239/Frederick-in-Flight"
+dateWindow:
+  start: "06-26"
+  end: "06-26"
 years:
   - year: 2027
     status: not-announced

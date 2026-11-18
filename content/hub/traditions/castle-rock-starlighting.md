@@ -8,6 +8,9 @@ type: tree-lighting
 organizer: "Castle Rock Chamber of Commerce"
 sourceUrl: "https://castlerock.org/castle-rock-starlighting/"
 firstYear: 1962
+dateWindow:
+  start: "11-21"
+  end: "11-21"
 years:
   - year: 2026
     status: confirmed

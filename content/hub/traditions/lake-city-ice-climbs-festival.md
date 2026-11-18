@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Lake City Ice Park (Town of Lake City)"
 sourceUrl: "https://www.lakecityice.com/"
+dateWindow:
+  start: "02-06"
+  end: "02-07"
 years:
   - year: 2027
     status: confirmed

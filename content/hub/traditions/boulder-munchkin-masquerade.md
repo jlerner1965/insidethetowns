@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "Downtown Boulder Community Initiatives"
 sourceUrl: "https://boulderdowntown.com/events/2026-downtown-boulder-events"
+dateWindow:
+  start: "10-31"
+  end: "10-31"
 years:
   - year: 2027
     status: not-announced

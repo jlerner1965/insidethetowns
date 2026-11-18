@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Palmer Lake Historical Society"
 sourceUrl: "https://palmerdividehistory.org/events/list/?tribe_event_display=past"
+dateWindow:
+  start: "06-21"
+  end: "06-21"
 years:
   - year: 2027
     status: not-announced

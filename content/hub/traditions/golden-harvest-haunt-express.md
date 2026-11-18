@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Colorado Railroad Museum"
 sourceUrl: "https://coloradorailroadmuseum.org/event/harvest-haunt-3-3/"
+dateWindow:
+  start: "10-17"
+  end: "10-17"
 years:
   - year: 2027
     status: not-announced

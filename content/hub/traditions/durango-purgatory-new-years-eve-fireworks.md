@@ -11,6 +11,9 @@ about:
   text: "Ski instructors and mountain patrol ski down to the base area, torches in hand, and a firework show follows. It is held at Ski Beach at Purgatory Resort."
   source: "https://www.purgatory.ski/event/new-years-eve-fireworks-torchlight-parade/"
   checked: 2026-11-17
+dateWindow:
+  start: "12-31"
+  end: "12-31"
 years:
   - year: 2026
     status: confirmed

@@ -8,6 +8,9 @@ type: race
 organizer: "Iron Horse Bicycle Classic"
 sourceUrl: "https://www.ironhorsebicycleclassic.com/"
 firstYear: 1971
+dateWindow:
+  start: "05-29"
+  end: "05-29"
 years:
   - year: 2027
     status: confirmed

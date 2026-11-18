@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Town of Elizabeth"
 sourceUrl: "https://www.townofelizabeth.org/community/page/mayors-tree-lighting-saturday-december-5-2026"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

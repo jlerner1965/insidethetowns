@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Arapahoe Basin"
   edge: opens
+dateWindow:
+  start: "10-28"
+  end: "10-28"
 years:
   - year: 2027
     status: not-announced

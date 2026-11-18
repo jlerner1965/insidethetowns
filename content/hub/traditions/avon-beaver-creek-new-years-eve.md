@@ -11,6 +11,9 @@ about:
   text: "Beaver Creek’s New Year’s Eve begins with the Torchlight Ski Down, followed by a fireworks display. Entertainment and live music fill Beaver Creek Village before a grand fireworks finale over Beaver Creek Mountain."
   source: "https://www.beavercreek.com/explore-the-resort/activities/event-detail.aspx?id=%7Bb2f71953-7590-40f3-8a74-6ae6ffddf326%7D"
   checked: 2026-11-17
+dateWindow:
+  start: "12-31"
+  end: "12-31"
 years:
   - year: 2026
     status: confirmed

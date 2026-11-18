@@ -5,6 +5,9 @@ statewide: true
 type: outdoor
 organizer: "Colorado Parks and Wildlife"
 sourceUrl: "https://cpw.state.co.us/activities/fishing/fishing-licenses-and-dates"
+dateWindow:
+  start: "03-01"
+  end: "03-01"
 years:
   - year: 2027
     status: not-announced

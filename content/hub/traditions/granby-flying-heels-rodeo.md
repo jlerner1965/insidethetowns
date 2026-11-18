@@ -8,6 +8,9 @@ type: rodeo-fair
 organizer: "Granby Rodeo at Flying Heels Arena"
 sourceUrl: "https://www.granbyrodeo.com/"
 firstYear: 1943
+dateWindow:
+  start: "06-06"
+  end: "06-06"
 years:
   - year: 2027
     status: not-announced

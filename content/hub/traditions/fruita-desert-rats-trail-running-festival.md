@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Desert RATS Trail Running Festival by UTMB"
 sourceUrl: "https://desertrats.utmb.world/"
+dateWindow:
+  start: "04-08"
+  end: "04-08"
 years:
   - year: 2027
     status: confirmed

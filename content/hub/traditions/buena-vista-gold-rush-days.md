@@ -11,6 +11,9 @@ about:
   text: "A festival with a pack burro race, vendor fairs, live music, a street dance and beer gardens, at McPhelemy Park and the Buena Vista Heritage Museum on East Main Street."
   source: "https://www.buenavistacolorado.org/gold-rush-days/"
   checked: 2026-11-13
+dateWindow:
+  start: "07-31"
+  end: "07-31"
 years:
   - year: 2027
     status: not-announced

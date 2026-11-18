@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "La Junta Chamber of Commerce"
 sourceUrl: "https://www.lajuntachamber.com/la-junta-chamber-events/"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

@@ -8,6 +8,9 @@ type: rodeo-fair
 organizer: "Wet Mountain Valley Saddle Club"
 sourceUrl: "https://www.wmvsc.com/rodeo"
 firstYear: 1946
+dateWindow:
+  start: "07-16"
+  end: "07-16"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Fort Collins Musicians Association (FoCoMA)"
 sourceUrl: "https://focoma.org/focomx"
+dateWindow:
+  start: "04-30"
+  end: "04-30"
 years:
   - year: 2027
     status: confirmed

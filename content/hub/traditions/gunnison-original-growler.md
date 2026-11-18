@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "The Original Growler (fundraiser for Gunnison Trails)"
 sourceUrl: "https://originalgrowler.com/"
+dateWindow:
+  start: "05-29"
+  end: "05-29"
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "La Junta Chamber of Commerce"
 sourceUrl: "https://www.lajuntachamber.com/la-junta-chamber-events/"
+dateWindow:
+  start: "10-30"
+  end: "10-30"
 years:
   - year: 2027
     status: not-announced

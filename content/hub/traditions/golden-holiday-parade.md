@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Visit Golden"
 sourceUrl: "https://www.visitgolden.com/events/holiday-events/olde-golden-holidays/event-calendar/holiday-parades/"
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

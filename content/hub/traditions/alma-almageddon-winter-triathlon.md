@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Alma Foundation"
 sourceUrl: "https://www.almafoundation.com/race-in-the-clouds"
+dateWindow:
+  start: "01-16"
+  end: "01-16"
 years:
   - year: 2027
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Durango Cowboy Gathering"
 sourceUrl: "https://durangocowboygathering.org/"
+dateWindow:
+  start: "10-06"
+  end: "10-06"
 years:
   - year: 2027
     status: confirmed

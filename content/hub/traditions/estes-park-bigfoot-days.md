@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Estes Park"
 sourceUrl: "https://eventsinestes.com/bigfoot-days/"
+dateWindow:
+  start: "04-24"
+  end: "04-24"
 years:
   - year: 2027
     status: confirmed

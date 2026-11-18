@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Planet Bluegrass"
 sourceUrl: "https://bluegrass.com/folks"
+dateWindow:
+  start: "08-06"
+  end: "08-06"
 years:
   - year: 2027
     status: confirmed

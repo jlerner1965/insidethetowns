@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "5Point Film"
 sourceUrl: "https://5pointfilm.org/"
+dateWindow:
+  start: "04-20"
+  end: "04-20"
 years:
   - year: 2027
     status: confirmed

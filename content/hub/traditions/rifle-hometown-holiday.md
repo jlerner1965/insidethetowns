@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Visit Rifle"
 sourceUrl: "https://visitrifle.com/events/featured-events/"
+dateWindow:
+  start: "12-03"
+  end: "12-03"
 years:
   - year: 2026
     status: confirmed

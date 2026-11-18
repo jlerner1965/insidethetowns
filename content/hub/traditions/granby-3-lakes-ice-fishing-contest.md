@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Destination Granby"
 sourceUrl: "https://www.destinationgranby.com/events/3-lakes-ice-fishing-contest/"
+dateWindow:
+  start: "01-29"
+  end: "01-29"
 years:
   - year: 2027
     status: confirmed

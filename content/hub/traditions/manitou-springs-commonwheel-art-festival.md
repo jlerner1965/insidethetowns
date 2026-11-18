@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Commonwheel Artists Co-op"
 sourceUrl: "https://www.commonwheel.com/festival.html"
+dateWindow:
+  start: "09-05"
+  end: "09-05"
 years:
   - year: 2027
     status: not-announced

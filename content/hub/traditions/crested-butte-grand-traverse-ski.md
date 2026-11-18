@@ -8,6 +8,9 @@ type: race
 organizer: "Crested Butte Nordic"
 sourceUrl: "https://www.cbnordic.org/thegrandtraverse"
 firstYear: 1998
+dateWindow:
+  start: "03-28"
+  end: "03-28"
 years:
   - year: 2027
     status: confirmed

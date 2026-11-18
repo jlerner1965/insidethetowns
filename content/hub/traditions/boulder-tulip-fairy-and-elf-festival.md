@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Downtown Boulder Community Initiatives"
 sourceUrl: "https://boulderdowntown.com/events/2026-downtown-boulder-events"
+dateWindow:
+  start: "04-26"
+  end: "04-26"
 years:
   - year: 2027
     status: not-announced

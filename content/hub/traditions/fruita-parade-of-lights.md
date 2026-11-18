@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Fruita Area Chamber of Commerce"
 sourceUrl: "https://gofruita.com/event/parade-of-lights-3/"
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

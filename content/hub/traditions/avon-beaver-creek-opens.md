@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Beaver Creek Resort"
   edge: opens
+dateWindow:
+  start: "11-25"
+  end: "11-25"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Canyons of the Ancients National Monument (BLM)"
 sourceUrl: "https://www.blm.gov/announcement/2026-four-corners-indigenous-art-market"
+dateWindow:
+  start: "06-27"
+  end: "06-27"
 years:
   - year: 2027
     status: not-announced

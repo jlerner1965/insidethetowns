@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Vail Recreation District"
 sourceUrl: "https://vailrd.specialdistrict.org/september-12-meadowgold-11k-5k"
+dateWindow:
+  start: "09-12"
+  end: "09-12"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Stills in the Hills"
 sourceUrl: "https://www.stillsinthehills.com/"
+dateWindow:
+  start: "06-27"
+  end: "06-27"
 years:
   - year: 2027
     status: not-announced

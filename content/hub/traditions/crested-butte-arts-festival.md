@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Crested Butte Arts Festival"
 sourceUrl: "https://www.crestedbutteartsfestival.com/"
+dateWindow:
+  start: "08-06"
+  end: "08-06"
 years:
   - year: 2027
     status: confirmed

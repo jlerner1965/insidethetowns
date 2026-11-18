@@ -14,7 +14,7 @@ phone: "720-733-2260"
 tags: [downtown, events, splash-pad, trails, picnic, wifi]
 featured: true
 summary: "The Town's downtown park at Second Street: a big pavilion, two fire pits, a splash pad, lawn and a creekside picnic area, where Starlighting's Santa, the carriage rides, the farmers market and First Fridays happen. East Plum Creek Trail and Sellars Gulch Trail meet here."
-recheckPending: "Not re-read at the move, 17 November 2026: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
+readBlocked: "2026-11-17: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
 ---
 
 The park in the middle of downtown, the Town's venue for its community events: First Fridays, the farmers market and the Western Heritage Welcome by the Town's own list, and on this guide's calendar Santa at Starlighting and the start of the holiday carriage rides by the big tree. Two acres, ADA accessible, with a large pavilion for general use (no reservations), two gas fire pits, a splash pad open 10 am to 6 pm daily in season, weather permitting, an open lawn, a creekside picnic area, electricity, paved trails and Wi-Fi; the permanent restrooms are open in season and portable ones stand in for winter. It is where the East Plum Creek Trail and the Sellars Gulch Trail meet, with access to the creek. Gas grills are allowed and charcoal is not, and the Town's fire restrictions can close even those. Parks maintenance is on 720-733-2260.

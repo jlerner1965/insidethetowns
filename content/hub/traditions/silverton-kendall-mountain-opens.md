@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Kendall Mountain Ski Area"
   edge: opens
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "City of Golden"
 sourceUrl: "https://www.cityofgolden.gov/calendar.php?view=day&month=10&year=2026&day=30&calendar=&id=722"
+dateWindow:
+  start: "10-30"
+  end: "10-30"
 years:
   - year: 2027
     status: not-announced

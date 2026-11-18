@@ -13,7 +13,7 @@ hours: "Daily 7 am–5 am"
 priceRange: "$$"
 tags: [american, breakfast, late-night, carryout]
 summary: "Ameristar's second-floor comfort-food restaurant: breakfast 7–11 am, an all-day menu 11 am–10 pm and a late-night menu 10 pm–5 am, every day, with carryout ordering."
-recheckPending: "Not re-read at the move, 17 November 2026: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch."
+readBlocked: "2026-11-17: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch."
 ---
 
 Fireside Kitchen is the Ameristar's American restaurant on the second floor, with fireplaces and wood in a lodge-style room. It serves three menus every day: breakfast from 7 to 11 am, an all-day menu from 11 am to 10 pm and a late-night menu from 10 pm to 5 am, so it closes only between 5 and 7 am. Breakfast includes house granola with Colorado honeycomb, steel-cut oats, buttermilk pancakes and a James Peak forest berry waffle at $12, and vanilla-bean French toast at $14. Carryout can be ordered from the page.

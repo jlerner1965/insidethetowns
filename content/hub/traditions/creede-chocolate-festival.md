@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Creede & Mineral County Chamber of Commerce"
 sourceUrl: "https://www.creederocks.com/events/4894/chocolate-festival"
+dateWindow:
+  start: "11-27"
+  end: "11-27"
 years:
   - year: 2026
     status: confirmed

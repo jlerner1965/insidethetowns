@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Fremont Adventure Recreation"
 sourceUrl: "https://www.joinfar.org/resolution-run.html"
+dateWindow:
+  start: "01-01"
+  end: "01-01"
 years:
   - year: 2027
     status: confirmed

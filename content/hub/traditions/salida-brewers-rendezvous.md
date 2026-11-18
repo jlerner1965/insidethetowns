@@ -8,6 +8,9 @@ type: festival
 organizer: "Colorado Brewers Guild"
 sourceUrl: "https://coloradobeer.org/colorado-brewers-rendezvous/"
 firstYear: 1997
+dateWindow:
+  start: "07-11"
+  end: "07-11"
 years:
   - year: 2027
     status: not-announced

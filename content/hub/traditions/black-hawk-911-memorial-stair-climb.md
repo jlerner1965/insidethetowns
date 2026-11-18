@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "City of Black Hawk"
 sourceUrl: "https://discoverblackhawk.com/stair-climb"
+dateWindow:
+  start: "09-11"
+  end: "09-11"
 years:
   - year: 2027
     status: confirmed

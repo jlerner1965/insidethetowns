@@ -11,6 +11,9 @@ about:
   text: "The Galloping Goose Historical Society's Christmas night at its museum on Railroad Avenue, Saturday, December 12, 3 to 7 pm. Free rides on the Goose with Christmas stories read in the back, caroling, hot cocoa and a bonfire, and Santa inside the depot. Free."
   source: "https://www.gallopinggoose5.org/schedule"
   checked: 2026-11-13
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

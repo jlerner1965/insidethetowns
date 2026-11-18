@@ -10,6 +10,9 @@ towns:
 type: festival
 organizer: "Colorado Honeybee Festival"
 sourceUrl: "https://coloradohoneybee.org/"
+dateWindow:
+  start: "04-10"
+  end: "04-10"
 years:
   - year: 2027
     status: confirmed

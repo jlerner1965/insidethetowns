@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Estes Park Rotary Duck Race"
 sourceUrl: "https://www.epduckrace.org/"
+dateWindow:
+  start: "05-01"
+  end: "05-02"
 years:
   - year: 2027
     status: confirmed

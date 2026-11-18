@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Basalt"
 sourceUrl: "https://www.basalt.net/669/Summer-Concert-Series"
+dateWindow:
+  start: "06-17"
+  end: "06-17"
 years:
   - year: 2027
     status: not-announced

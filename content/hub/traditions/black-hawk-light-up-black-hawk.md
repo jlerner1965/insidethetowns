@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "City of Black Hawk"
 sourceUrl: "https://discoverblackhawk.com/events"
+dateWindow:
+  start: "11-27"
+  end: "11-27"
 years:
   - year: 2026
     status: confirmed

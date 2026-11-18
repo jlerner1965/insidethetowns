@@ -22,6 +22,9 @@ outdoor:
   kind: road
   facility: "Trail Ridge Road"
   edge: closes
+dateWindow:
+  start: "11-13"
+  end: "11-14"
 years:
   - year: 2026
     status: confirmed

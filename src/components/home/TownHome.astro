@@ -70,7 +70,7 @@ import { dayKey, formatDayShort, formatTimeRange } from '@/lib/dates';
 import { resolveSiteImage } from '@/lib/images';
 import { firstSentence } from '@/lib/plain-text';
 import { eventDescription } from '@/lib/seo';
-import { byProminence, isOpen } from '@/lib/places';
+import { byProminence, isListed } from '@/lib/places';
 import { countByType, PLACE_TYPE_PAGES, placeTypePages } from '@/lib/place-types';
 import { hasData, sportsDataFor } from '@/lib/school-sports';
 import { currentUpdates, isNew, isTimely } from '@/lib/updates';
@@ -106,7 +106,7 @@ const worthDates = !outdoorsLed && anyDates ? { dates, town: town.name, lines: l
 // November 2026): the featured ones first, each with its line, then the
 // pages that list them all. Nothing where the guide lists none.
 const OUTDOOR_ROWS = 5;
-const outdoorPlaces = outdoorsLed ? (await getTownEntries('places')).filter((p) => isOpen(p) && (p.data.type === 'trail' || p.data.type === 'park')).sort(byProminence) : [];
+const outdoorPlaces = outdoorsLed ? (await getTownEntries('places')).filter((p) => isListed(p) && (p.data.type === 'trail' || p.data.type === 'park')).sort(byProminence) : [];
 const outdoorPages = placeTypePages(countByType(outdoorPlaces)).filter((t) => t === 'trail' || t === 'park');
 
 // 2. The school. One school: its strip. Several: the shared one. None on
@@ -195,7 +195,7 @@ const familyRows = town.families?.onHome
 const familiesFirst = familyRows.some((r) => r.kind === 'deadline');
 
 // 6. The places with a photograph, for the three tiles; a closed place is not a next stop.
-const places = (await getTownEntries('places')).filter(isOpen);
+const places = (await getTownEntries('places')).filter(isListed);
 
 // 3c. The quick answers under the tabs never repeat a link the page has
 // (src/components/home/QuickAnswers.astro): the pages linked from the

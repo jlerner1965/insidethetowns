@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Grand Lake Area Chamber of Commerce"
 sourceUrl: "https://gograndlake.com/pond-hockey-classic/"
+dateWindow:
+  start: "02-06"
+  end: "02-06"
 years:
   - year: 2027
     status: confirmed

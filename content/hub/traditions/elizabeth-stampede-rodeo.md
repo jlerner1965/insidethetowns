@@ -8,6 +8,9 @@ type: rodeo-fair
 organizer: "Elizabeth Stampede Rodeo Association"
 sourceUrl: "https://www.elizabethstampede.com/upcoming-events"
 firstYear: 1966
+dateWindow:
+  start: "06-03"
+  end: "06-05"
 years:
   - year: 2027
     status: confirmed

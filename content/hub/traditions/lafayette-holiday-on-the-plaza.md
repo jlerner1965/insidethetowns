@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Lafayette Chamber of Commerce"
 sourceUrl: "https://www.lafayettecolorado.com/holidayontheplaza"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

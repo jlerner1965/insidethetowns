@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Victor Celebrates the Arts"
 sourceUrl: "http://www.victorcelebratesthearts.org/"
+dateWindow:
+  start: "08-27"
+  end: "08-27"
 years:
   - year: 2027
     status: confirmed

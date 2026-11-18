@@ -8,6 +8,9 @@ type: festival
 organizer: "Longmont Museum"
 sourceUrl: "https://longmontcolorado.gov/museum/events-performances/day-of-the-dead/"
 firstYear: 2001
+dateWindow:
+  start: "10-24"
+  end: "10-24"
 years:
   - year: 2027
     status: not-announced

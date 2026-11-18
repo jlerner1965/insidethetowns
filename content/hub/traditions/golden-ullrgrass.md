@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "UllrGrass"
 sourceUrl: "https://www.ullrgrass.com/"
+dateWindow:
+  start: "01-29"
+  end: "01-29"
 years:
   - year: 2027
     status: confirmed

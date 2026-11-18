@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Downtown Grand Junction"
 sourceUrl: "https://downtowngj.org/events/tree-lighting/"
+dateWindow:
+  start: "11-21"
+  end: "11-21"
 years:
   - year: 2026
     status: confirmed

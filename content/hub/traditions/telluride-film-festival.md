@@ -11,6 +11,9 @@ about:
   text: "A film festival in Telluride that screens features, short films and revival programs, with tributes and conversations. Its screens include the Palm and Werner Herzog theaters, the Sheridan Opera House and Masons Hall Cinema."
   source: "https://www.telluridefilmfestival.org/"
   checked: 2026-11-13
+dateWindow:
+  start: "09-04"
+  end: "09-04"
 years:
   - year: 2027
     status: not-announced

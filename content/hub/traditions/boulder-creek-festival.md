@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Team Player Productions"
 sourceUrl: "https://www.bouldercreekfest.com/"
+dateWindow:
+  start: "05-28"
+  end: "05-28"
 years:
   - year: 2027
     status: confirmed

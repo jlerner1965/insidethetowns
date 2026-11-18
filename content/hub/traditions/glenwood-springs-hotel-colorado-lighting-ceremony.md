@@ -8,6 +8,9 @@ type: tree-lighting
 organizer: "Hotel Colorado"
 sourceUrl: "https://www.hotelcolorado.com/our-hotel/events/"
 firstYear: 1989
+dateWindow:
+  start: "11-27"
+  end: "11-27"
 years:
   - year: 2026
     status: confirmed

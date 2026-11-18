@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Crested Butte Nordic"
 sourceUrl: "https://cbnordic.org/alley-loop/"
+dateWindow:
+  start: "01-30"
+  end: "01-30"
 years:
   - year: 2027
     status: confirmed

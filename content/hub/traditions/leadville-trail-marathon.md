@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Leadville Race Series (Life Time)"
 sourceUrl: "https://www.leadvilleraceseries.com/run/trailmarathonheavyhalf/"
+dateWindow:
+  start: "06-26"
+  end: "06-26"
 years:
   - year: 2027
     status: confirmed

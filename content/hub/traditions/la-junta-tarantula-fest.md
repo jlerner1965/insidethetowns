@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "La Junta Tourism"
 sourceUrl: "https://visitlajunta.net/tarantula-fest/"
+dateWindow:
+  start: "09-24"
+  end: "09-25"
 years:
   - year: 2027
     status: confirmed

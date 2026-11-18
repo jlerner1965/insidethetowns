@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Montezuma County"
 sourceUrl: "https://montezumacounty.gov/?p=688"
+dateWindow:
+  start: "07-18"
+  end: "07-18"
 years:
   - year: 2027
     status: not-announced

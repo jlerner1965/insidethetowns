@@ -11,6 +11,9 @@ about:
   text: "A community festival with a parade, live music, and arts and crafts, at Parfet Park, 719 10th Street, in Golden."
   source: "https://www.goldenbuffalobilldays.com/"
   checked: 2026-11-13
+dateWindow:
+  start: "07-23"
+  end: "07-24"
 years:
   - year: 2027
     status: confirmed

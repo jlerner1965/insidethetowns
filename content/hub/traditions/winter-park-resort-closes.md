@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Winter Park Resort"
   edge: closes
+dateWindow:
+  start: "04-18"
+  end: "04-18"
 years:
   - year: 2027
     status: confirmed

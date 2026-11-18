@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Evergreen Rodeo Association"
 sourceUrl: "https://evergreenrodeo.com/"
+dateWindow:
+  start: "06-19"
+  end: "06-19"
 years:
   - year: 2027
     status: not-announced

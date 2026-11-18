@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Montrose County"
 sourceUrl: "https://www.montrosecountyfairandrodeo.com/"
+dateWindow:
+  start: "07-16"
+  end: "07-16"
 years:
   - year: 2027
     status: confirmed

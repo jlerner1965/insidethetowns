@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Town of Windsor Parks, Recreation & Culture"
 sourceUrl: "https://www.recreationliveshere.com/Calendar.aspx?EID=1356"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Craig Parks & Recreation"
 sourceUrl: "https://whittlethewood.com/"
+dateWindow:
+  start: "06-18"
+  end: "06-18"
 years:
   - year: 2027
     status: not-announced

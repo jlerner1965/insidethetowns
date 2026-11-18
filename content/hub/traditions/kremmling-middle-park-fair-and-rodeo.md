@@ -8,6 +8,9 @@ type: rodeo-fair
 organizer: "Grand County, Middle Park Fair and Rodeo Board"
 sourceUrl: "https://www.co.grand.co.us/1203/Middle-Park-Fair-and-Rodeo"
 firstYear: 1912
+dateWindow:
+  start: "07-29"
+  end: "07-29"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Frederick"
 sourceUrl: "https://frederickco.gov/240/Miners-Day"
+dateWindow:
+  start: "09-19"
+  end: "09-19"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Victor Heritage Society"
 sourceUrl: "https://www.victorheritagesociety.com/"
+dateWindow:
+  start: "09-12"
+  end: "09-12"
 years:
   - year: 2027
     status: not-announced

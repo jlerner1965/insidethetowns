@@ -8,6 +8,9 @@ type: harvest-festival
 organizer: "Town of Cedaredge"
 sourceUrl: "https://www.cedaredgeapplefest.com"
 firstYear: 1977
+dateWindow:
+  start: "10-03"
+  end: "10-03"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "San Luis Valley Early Iron Club"
 sourceUrl: "https://earlyironclub.com/"
+dateWindow:
+  start: "09-04"
+  end: "09-04"
 years:
   - year: 2027
     status: not-announced

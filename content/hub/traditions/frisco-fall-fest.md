@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Frisco"
 sourceUrl: "https://www.townoffrisco.com/event/festival-events/fall-fest/"
+dateWindow:
+  start: "09-12"
+  end: "09-12"
 years:
   - year: 2027
     status: not-announced

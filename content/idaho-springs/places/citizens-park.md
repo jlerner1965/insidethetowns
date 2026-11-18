@@ -13,7 +13,7 @@ imageAlt: "The tiered cast-iron fountain in Citizens Park, set in a round brick 
 imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 tags: [downtown, restrooms, events]
 summary: "Small City park among the Miner Street shops, a downtown meeting spot with a public restroom."
-recheckPending: "Not re-read at the move, 17 November 2026: the City's parks page (idahospringsco.com) answers 403 to the link checker and to WebFetch; no other official page for the park."
+readBlocked: "2026-11-17: the City's parks page (idahospringsco.com) answers 403 to the link checker and to WebFetch; no other official page for the park."
 ---
 
 Citizens Park sits in the downtown district at 1545 Miner Street. The City's parks page calls it a popular hangout and meeting spot and says it has a public restroom. The City's visitor site used it as the check-in point for the Taste at Miner's Feast on Saturday, 3 October 2026.

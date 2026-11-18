@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Salida (Salida SteamPlant / Arts & Culture)"
 sourceUrl: "https://www.salidasteamplant.com/calendar/salida-jazz-fest"
+dateWindow:
+  start: "08-08"
+  end: "08-08"
 years:
   - year: 2027
     status: not-announced

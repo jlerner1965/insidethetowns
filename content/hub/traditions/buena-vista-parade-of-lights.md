@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Buena Vista Chamber of Commerce"
 sourceUrl: "https://buenavistacolorado.org/bv-hometown-holidays"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

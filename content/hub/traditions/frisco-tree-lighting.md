@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Town of Frisco"
 sourceUrl: "https://www.townoffrisco.com/event/festival-events/wassail-days/"
+dateWindow:
+  start: "11-28"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

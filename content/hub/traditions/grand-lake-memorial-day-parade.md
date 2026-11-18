@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Grand Lake Area Chamber of Commerce"
 sourceUrl: "https://gograndlake.com/memorial-day-parade-celebration/"
+dateWindow:
+  start: "05-25"
+  end: "05-25"
 years:
   - year: 2027
     status: not-announced

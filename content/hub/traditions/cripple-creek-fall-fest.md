@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Two Mile High Club"
 sourceUrl: "https://www.cripplecreekdonkeys.com/fallfest"
+dateWindow:
+  start: "10-03"
+  end: "10-03"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Visit Grand County"
 sourceUrl: "https://www.visitgrandcounty.com/events/kremmling-days/"
+dateWindow:
+  start: "06-19"
+  end: "06-19"
 years:
   - year: 2027
     status: not-announced

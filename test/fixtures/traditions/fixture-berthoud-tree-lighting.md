@@ -8,6 +8,9 @@ type: tree-lighting
 organizer: "Sample organizer (fixture)"
 sourceUrl: "https://example.com/fixture/berthoud-tree"
 fixture: true
+dateWindow:
+  start: "11-29"
+  end: "11-29"
 years:
   - year: 2026
     status: not-announced

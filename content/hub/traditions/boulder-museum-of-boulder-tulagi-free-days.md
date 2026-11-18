@@ -7,6 +7,9 @@ town:
 type: free-day
 organizer: "Museum of Boulder"
 sourceUrl: "https://museumofboulder.org/events/free-day-for-roots-music-fest/"
+dateWindow:
+  start: "08-28"
+  end: "08-28"
 years:
   - year: 2027
     status: not-announced

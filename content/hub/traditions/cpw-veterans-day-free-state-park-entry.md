@@ -5,6 +5,9 @@ statewide: true
 type: free-day
 organizer: "Colorado Parks and Wildlife"
 sourceUrl: "https://cpw.state.co.us/event/2026/11/free-park-entry-veterans-and-active-military"
+dateWindow:
+  start: "11-11"
+  end: "11-11"
 years:
   - year: 2027
     status: not-announced

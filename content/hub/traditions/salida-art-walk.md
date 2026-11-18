@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Salida Arts & Culture Department (Salida Creative District), with the Salida Council for the Arts"
 sourceUrl: "https://www.salidasteamplant.com/calendar/33rd-annual-salida-art-walk"
+dateWindow:
+  start: "10-08"
+  end: "10-08"
 years:
   - year: 2027
     status: not-announced

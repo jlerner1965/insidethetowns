@@ -7,6 +7,9 @@ town:
 type: fireworks
 organizer: "Town of Wellington"
 sourceUrl: "https://wellingtoncolorado.gov/528/Fourth-of-July-2026"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

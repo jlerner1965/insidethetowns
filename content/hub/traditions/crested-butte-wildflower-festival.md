@@ -11,6 +11,9 @@ about:
   text: "A wildflower festival of classes, hikes and garden tours in Crested Butte. Most events meet at the Historic Train Depot, 716 Elk Avenue, the festival's headquarters."
   source: "https://crestedbuttewildflowerfestival.org/stuff-you-need-to-know/"
   checked: 2026-11-13
+dateWindow:
+  start: "07-09"
+  end: "07-09"
 years:
   - year: 2027
     status: confirmed

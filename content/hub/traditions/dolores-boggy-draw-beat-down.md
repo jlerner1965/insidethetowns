@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Rotary Club of Dolores"
 sourceUrl: "https://boggydrawbeatdown.com/"
+dateWindow:
+  start: "08-01"
+  end: "08-01"
 years:
   - year: 2027
     status: not-announced

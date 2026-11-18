@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Animas River Days"
 sourceUrl: "https://www.animasriverdays.com/"
+dateWindow:
+  start: "06-05"
+  end: "06-05"
 years:
   - year: 2027
     status: confirmed

@@ -5,6 +5,9 @@ statewide: true
 type: free-day
 organizer: "Bureau of Land Management"
 sourceUrl: "https://www.blm.gov/programs/recreation/recreation-programs/fee-free-days"
+dateWindow:
+  start: "09-17"
+  end: "09-17"
 years:
   - year: 2027
     status: not-announced

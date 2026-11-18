@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Grand Lake U.S. Constitution Week"
 sourceUrl: "https://www.grandlakeusconstitutionweek.com/"
+dateWindow:
+  start: "09-14"
+  end: "09-14"
 years:
   - year: 2027
     status: not-announced

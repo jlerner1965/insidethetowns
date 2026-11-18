@@ -16,6 +16,9 @@ outdoor:
   kind: road
   facility: "Independence Pass"
   edge: closes
+dateWindow:
+  start: "11-03"
+  end: "11-17"
 years:
   - year: 2027
     status: not-announced

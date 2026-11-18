@@ -11,6 +11,9 @@ about:
   text: "The City's four-day festival in downtown Trinidad, June 25 to 28 in 2026, its third year hosting it."
   source: "https://www.cml.org/home/publications-news/article-detail/trinidad-celebrates-150th-anniversary-all-year-long"
   checked: 2026-11-13
+dateWindow:
+  start: "06-25"
+  end: "06-25"
 years:
   - year: 2027
     status: not-announced

@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Downtown Grand Junction"
 sourceUrl: "https://downtowngj.org/events/parade-of-lights/"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

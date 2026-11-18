@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Castle Rock Chamber of Commerce"
 sourceUrl: "https://castlerock.org/dcfairparade/"
+dateWindow:
+  start: "07-25"
+  end: "07-25"
 years:
   - year: 2027
     status: not-announced

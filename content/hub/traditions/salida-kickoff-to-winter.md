@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Salida and Monarch Mountain"
 sourceUrl: "https://www.salidasteamplant.com/calendar/kickoff-to-winter-the-warren-miller-film-days-off"
+dateWindow:
+  start: "11-07"
+  end: "11-07"
 years:
   - year: 2027
     status: not-announced

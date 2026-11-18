@@ -120,6 +120,41 @@ One wrong fact costs more than ten missing ones.
 - A listing is re-checked within 30 days. At 60 days its hours hide. A
   listing whose only source dropped it carries a `changeFlag` and gets a
   call before the hours hide.
+- Every place on the hub and the seven guides is read against its source
+  again on a rotation, at half its window (45 days on the Front Range, 30
+  in the mountains), sixty a night and the waiting ones on top
+  (scripts/recheck-places.ts; the owner's rules of 18 November 2026):
+  confirmed moves `verified`; a contradiction is a `changeFlag` for the
+  Wednesday editor; a page that says in those words that the place closed
+  for good sets `status: closed` (410 at the next redirect-map rebuild).
+- A blocked read (a bot check, a refusal, robots.txt, no answer) flags the
+  place for a person on the first night (`readBlocked`) and hides nothing:
+  `verified` stays, and the listing stays visible and indexed while that
+  date is inside its window (90 days Front Range, 60 mountains). Past it,
+  the usual rules: a guide drops it, a hub section keeps its page noindex
+  as re-check pending. A later read that works clears the flag.
+- An unclear sign of closure (the page gone, a store missing from a
+  locator, "Site Closed", a parked domain) is a `closureCheck` for a
+  person, never a 410 by itself, and hides nothing either.
+- A place a person sets aside (`recheckPending`) is kept on every build,
+  noindex, out of the sitemap and off every list, saying when it was last
+  checked. The nightly run reads it but never clears it: only
+  `npm run confirm-place`, which records a person's read (browser, phone,
+  email or in person) as a verified read dated the day they checked.
+- Every tradition records its typical window (`dateWindow`). Eight weeks
+  before it opens the nightly date watch reads the organizer's page for the
+  next date. It writes one confirmed only where the page states the year
+  (or gives a weekday that is that date's in the year), the date is in the
+  future and it falls inside the window, and saves the page's address and
+  the words read (`sourceUrl`, `readText`). Anything else goes to the
+  needs-me list, not the page. Three weeks before, a date still unconfirmed
+  is on the needs-me list too. A seasonal roundup is due eight weeks before
+  its season (CURRENT_SEASONS' `span`): the validator lists one due with
+  dates missing, and never fails a build.
+- `docs/needs-me.md` is what no machine could settle, rewritten every
+  night: places set aside, possible closures and blocked reads (each with
+  its confirm-place command), dates the watch read but did not write,
+  dates unconfirmed three weeks out, roundups due with dates missing.
 - Corrections are shown, not silently fixed: a change found late is a
   correction with both dates, never the week's news.
 - A called-off or moved event stays on its day with the word beside it.
@@ -516,7 +551,7 @@ Scheduled jobs (Denver time), all in `.github/workflows/`:
 |---|---|---|
 | Daily 05:10 | Rebuild every site; restart a dropped ingest or re-check | nothing; Vercel redeploys |
 | Daily 06:10 | Run CI on main with nothing pushed: the tests, the validator, a build of every site and the check of what was built | nothing; a failure opens an issue |
-| Daily 05:40 | Re-check the next 14 days of events against their sources; list what waits for a person before its date; re-read each town's development map and list every row that moved | stamps and flags, and `data/<town>/development.json`, as a pull request |
+| Daily 05:40 | Re-check the next 14 days of events against their sources; list what waits for a person before its date; re-read each town's development map and list every row that moved; re-check places on their rotation; watch tradition dates eight weeks out; write the needs-me list | stamps and flags, `data/<town>/development.json`, place and tradition files, and `docs/needs-me.md`, as a pull request |
 | Monday 07:10 | Ingest the confirmed feeds; auto-review the safe ones | staged and published events, as a pull request |
 | Wednesday 06:20 | The research agent: one week's findings per live town, and up to two local changes per resident guide from official pages | drafts in `docs/agent/`; the weekly editor publishes a local change only when it can read its source |
 | Thursday 06:10 | Draft the Thursday email from the listings | a draft, as a pull request; merging sends it |

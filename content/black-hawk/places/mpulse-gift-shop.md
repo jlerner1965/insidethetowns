@@ -17,7 +17,7 @@ tags:
 phone: "720-406-3812"
 hours: "Mon–Thu 8 am–10 pm; Fri–Sat 8 am–midnight; Sun 8 am–11 pm"
 area: "Main Street, inside Monarch"
-recheckPending: "Not re-read at the move, 17 November 2026: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
+readBlocked: "2026-11-17: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
 ---
 
 mPulse is Monarch’s gift shop, on the **third floor near Monarch Chophouse**. It sells designer jewelry, clothing and accessories, sundries, seasonal gifts and Monarch merchandise, so it covers both souvenirs and a forgotten travel item.

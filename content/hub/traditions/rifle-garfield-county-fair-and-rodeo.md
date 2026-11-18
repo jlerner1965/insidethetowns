@@ -8,6 +8,9 @@ type: rodeo-fair
 organizer: "Garfield County Fair and Rodeo"
 sourceUrl: "https://www.garfieldcountyfair.com/"
 firstYear: 1938
+dateWindow:
+  start: "08-01"
+  end: "08-01"
 years:
   - year: 2027
     status: not-announced

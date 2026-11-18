@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Bonfire Entertainment"
 sourceUrl: "https://smalltowngathering.com/"
+dateWindow:
+  start: "09-25"
+  end: "09-25"
 years:
   - year: 2027
     status: not-announced

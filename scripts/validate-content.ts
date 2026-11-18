@@ -47,6 +47,8 @@ import { placeKey } from '../src/lib/hub-towns.ts';
 import { subTownLabel } from '../src/lib/sub-towns.ts';
 import { isGuideSite, townProfileSchema } from '../src/lib/town-profile.ts';
 import { STALE_CHECK_DAYS, STALE_WITHIN_DAYS, isDated, nextRow, staleSoon, type TraditionRecord } from '../src/lib/traditions.ts';
+import { roundupsDue } from '../src/lib/roundups.ts';
+import { watchState } from '../src/lib/date-watch.ts';
 import { openNow } from '../src/lib/open-now.ts';
 import { openItems, reverifyDue } from '../src/lib/curiosity.ts';
 import { curiosityFiles } from '../src/lib/curiosity-files.ts';
@@ -719,21 +721,29 @@ for (const town of deployedTowns()) for (const issue of nextEventIssues(town.slu
   }
 }
 
-// Places kept on the hub while their source could not be read (placeSchema,
-// recheckPending; docs/migration/needs-recheck.md): a list, never a failure.
+// Places for a person (placeSchema: recheckPending, readBlocked, closureCheck;
+// the owner, 18 November 2026; docs/needs-me.md): a list, never a failure.
 {
-  const pending: string[] = [];
+  const flagged: Record<'recheckPending' | 'closureCheck' | 'readBlocked', string[]> = { recheckPending: [], closureCheck: [], readBlocked: [] };
   for (const town of readdirSync(contentDir)) {
     const dir = join(contentDir, town, 'places');
     if (!existsSync(dir)) continue;
     for (const f of readdirSync(dir).filter((f) => f.endsWith('.md') && !f.startsWith('_'))) {
       const fm = readFileSync(join(dir, f), 'utf8').match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
-      if (/^recheckPending:\s*\S/m.test(fm)) pending.push(`content/${town}/places/${f}: last checked ${fm.match(/^verified:\s*"?([\d-]+)/m)?.[1] ?? 'never'}`);
+      const line = `content/${town}/places/${f}: last verified ${fm.match(/^verified:\s*"?([\d-]+)/m)?.[1] ?? 'never'}`;
+      for (const key of ['recheckPending', 'closureCheck', 'readBlocked'] as const) {
+        if (new RegExp(`^${key}:\\s*\\S`, 'm').test(fm)) {
+          flagged[key].push(line);
+          break;
+        }
+      }
     }
   }
-  if (pending.length > 0) {
-    console.warn(`places: ${pending.length} waiting for a re-check (kept, noindex); read the source, move \`verified\` and clear \`recheckPending\` (docs/migration/needs-recheck.md):`);
-    for (const p of pending) console.warn(`  recheck ${p}`);
+  const say = { recheckPending: 'set aside for a person (kept, noindex, off the lists)', closureCheck: 'possible closures for a person (still listed while fresh; never a 410 by itself)', readBlocked: 'whose source blocked the nightly read (still listed while fresh)' };
+  for (const key of ['recheckPending', 'closureCheck', 'readBlocked'] as const) {
+    if (!flagged[key].length) continue;
+    console.warn(`places: ${flagged[key].length} ${say[key]}; read the source and run npm run confirm-place (docs/needs-me.md):`);
+    for (const p of flagged[key]) console.warn(`  ${key} ${p}`);
   }
 }
 
@@ -763,6 +773,24 @@ for (const town of deployedTowns()) for (const issue of nextEventIssues(town.slu
   if (lapsed.length > 0) {
     console.warn(`traditions: ${lapsed.length} with a most recent date over 13 months old and not marked \`notAnnual\`; read the organizer's page for the new date, or mark why it is not annual:`);
     for (const r of lapsed) console.warn(`  13mo   content/hub/traditions/${r.slug}.md: most recent ${r.years.filter((y) => isDated(y) && y.date).map((y) => y.endDate ?? y.date!).sort().pop()}`);
+  }
+}
+
+// The seasonal roundups that are due (eight weeks before their season)
+// and the tradition dates still unconfirmed three weeks before their
+// window (the owner, 18 November 2026; src/lib/roundups.ts,
+// src/lib/date-watch.ts): the verification report, never a failure. The
+// nightly date watch reads the organizers' pages; docs/needs-me.md is the
+// same list for the owner.
+{
+  const today = dayKey(new Date());
+  for (const r of roundupsDue(traditionRecords, today)) {
+    console.warn(`roundup ${r.path} is due (season ${r.opens} to ${r.closes}; due from ${r.dueFrom}${r.late ? ', under six weeks to go' : ''}): ${r.missing.length} of ${r.total} without a confirmed date: ${r.missing.map((m) => m.slug).join(', ')}`);
+  }
+  const unconfirmed = traditionRecords.filter((r) => !r.fixture).map((r) => ({ r, w: watchState(r, today) })).filter(({ w }) => w?.state === 'needs-me');
+  if (unconfirmed.length > 0) {
+    console.warn(`traditions: ${unconfirmed.length} within three weeks of their window with no confirmed date (on the needs-me list):`);
+    for (const { r, w } of unconfirmed) console.warn(`  watch  content/hub/traditions/${r.slug}.md: ${w!.year} window opens ${w!.opens}`);
   }
 }
 

@@ -7,6 +7,9 @@ town:
 type: farmers-market
 organizer: "Town of Dillon"
 sourceUrl: "https://content.govdelivery.com/accounts/CODILLON/bulletins/4165308"
+dateWindow:
+  start: "06-05"
+  end: "06-05"
 years:
   - year: 2027
     status: not-announced

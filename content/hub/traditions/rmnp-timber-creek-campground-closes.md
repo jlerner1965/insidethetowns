@@ -15,6 +15,9 @@ outdoor:
   kind: campground
   facility: "Timber Creek Campground"
   edge: closes
+dateWindow:
+  start: "08-10"
+  end: "08-10"
 years:
   - year: 2026
     status: confirmed

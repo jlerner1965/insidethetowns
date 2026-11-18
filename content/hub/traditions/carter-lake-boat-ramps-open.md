@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Carter Lake boat ramps"
   edge: opens
+dateWindow:
+  start: "04-01"
+  end: "04-01"
 years:
   - year: 2027
     status: not-announced

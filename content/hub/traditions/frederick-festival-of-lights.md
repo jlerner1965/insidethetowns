@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Town of Frederick"
 sourceUrl: "https://www.frederickco.gov/237/Festival-of-Lights"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

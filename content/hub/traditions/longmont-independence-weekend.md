@@ -7,6 +7,9 @@ town:
 type: fireworks
 organizer: "City of Longmont Recreation Services"
 sourceUrl: "https://longmontcolorado.gov/recreation-services/community-events/longmont-july-4-celebration/"
+dateWindow:
+  start: "07-03"
+  end: "07-04"
 years:
   - year: 2027
     status: confirmed

@@ -12,7 +12,7 @@ phone: "303-857-1695"
 hours: "Mon–Fri 7:30 am–8 pm; Sat 8 am–7 pm; Sun 8 am–6 pm"
 tags: [hardware, paint, lawn-and-garden, housewares, gifts]
 summary: "The town’s Ace Hardware on South Rollie Avenue, an independently owned store in the Ace cooperative, with hardware, plumbing, electrical, tools, paint, lawn and garden, housewares, automotive and a gift shop. Open daily."
-recheckPending: "Not re-read at the move, 17 November 2026: source acehardware.com store page answers 403 (bot check, not worked around); the store has no other own page."
+readBlocked: "2026-11-17: source acehardware.com store page answers 403 (bot check, not worked around); the store has no other own page."
 ---
 
 Ace Hardware of Fort Lupton is one of the independently owned stores in the Ace cooperative. Its store page lists departments for hardware, plumbing, electrical, hand and power tools, paint and sundries, lawn and garden, housewares, cleaning supplies and automotive, and a gift shop. It opens at 7:30 am on weekdays and 8 am at weekends, and closes at 8 pm Monday to Friday, 7 pm Saturday and 6 pm Sunday.

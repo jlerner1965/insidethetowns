@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Destination Granby"
 sourceUrl: "https://www.destinationgranby.com/events/holiday/"
+dateWindow:
+  start: "11-28"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

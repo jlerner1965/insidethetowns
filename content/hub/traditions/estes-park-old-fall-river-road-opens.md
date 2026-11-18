@@ -11,6 +11,9 @@ outdoor:
   kind: road
   facility: "Old Fall River Road"
   edge: opens
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

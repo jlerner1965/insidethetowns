@@ -7,6 +7,9 @@ town:
 type: harvest-festival
 organizer: "Milliken Festival Committee"
 sourceUrl: "https://millikenco.gov/311/Beef-N-Bean-Day"
+dateWindow:
+  start: "08-08"
+  end: "08-08"
 years:
   - year: 2027
     status: not-announced

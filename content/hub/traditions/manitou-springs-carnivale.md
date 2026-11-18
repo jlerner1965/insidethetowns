@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Visit Manitou Springs"
 sourceUrl: "https://manitousprings.org/events/"
+dateWindow:
+  start: "02-06"
+  end: "02-07"
 years:
   - year: 2027
     status: confirmed

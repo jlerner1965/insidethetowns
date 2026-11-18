@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Timnath"
 sourceUrl: "https://timnath.org/?p=1178"
+dateWindow:
+  start: "09-26"
+  end: "09-26"
 years:
   - year: 2027
     status: not-announced

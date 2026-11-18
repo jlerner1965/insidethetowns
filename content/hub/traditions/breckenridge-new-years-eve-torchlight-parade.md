@@ -11,6 +11,9 @@ about:
   text: "A New Year’s Eve torchlight parade down Sundown, to Lower American, to Silverthorne, at the Peak 9 base area, followed by fireworks from the base of Peak 9. The best place to view it is from Beaver Run or The Maggie at the base of Peak 9."
   source: "https://www.breckenridge.com/explore-the-resort/activities-and-events/event-detail-page.aspx?id=%7B86369197-d54e-4e82-b556-02020beec5f7%7D"
   checked: 2026-11-17
+dateWindow:
+  start: "12-31"
+  end: "12-31"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Outlets at Castle Rock"
 sourceUrl: "https://www.outletsatcastlerock.com/event/44699-tree-lighting-celebration"
+dateWindow:
+  start: "11-14"
+  end: "11-14"
 years:
   - year: 2026
     status: confirmed

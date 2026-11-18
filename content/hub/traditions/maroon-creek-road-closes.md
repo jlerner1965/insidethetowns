@@ -15,6 +15,9 @@ outdoor:
   kind: road
   facility: "Maroon Creek Road"
   edge: closes
+dateWindow:
+  start: "11-10"
+  end: "11-10"
 years:
   - year: 2026
     status: confirmed

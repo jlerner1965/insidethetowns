@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Fort Morgan Area Chamber of Commerce"
 sourceUrl: "https://www.fortmorganchamber.com/yearly-events"
+dateWindow:
+  start: "12-03"
+  end: "12-03"
 years:
   - year: 2026
     status: confirmed

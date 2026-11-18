@@ -11,6 +11,9 @@ outdoor:
   kind: campground
   facility: "Telluride Town Park Campground"
   edge: window
+dateWindow:
+  start: "05-15"
+  end: "05-15"
 years:
   - year: 2027
     status: not-announced

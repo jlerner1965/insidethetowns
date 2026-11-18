@@ -8,6 +8,9 @@ type: parade-of-lights
 organizer: "Sample organizer (fixture)"
 sourceUrl: "https://example.com/fixture/niwot-parade"
 fixture: true
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: moved

@@ -11,6 +11,9 @@ about:
   text: "Powderhorn’s annual NYE celebration, with torchlight parades and a fireworks show, at Powderhorn Mountain Resort."
   source: "https://www.powderhorn.com/event/new-years-eve-torchlight-parade/"
   checked: 2026-11-17
+dateWindow:
+  start: "12-31"
+  end: "12-31"
 years:
   - year: 2026
     status: confirmed

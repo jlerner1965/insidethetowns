@@ -5,6 +5,9 @@ statewide: true
 type: free-day
 organizer: "US Fish and Wildlife Service"
 sourceUrl: "https://www.fws.gov/experience-america/federal-recreation-passes"
+dateWindow:
+  start: "10-27"
+  end: "10-27"
 years:
   - year: 2027
     status: not-announced

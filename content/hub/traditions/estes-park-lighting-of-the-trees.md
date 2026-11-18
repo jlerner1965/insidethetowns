@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Town of Estes Park"
 sourceUrl: "https://eventsinestes.com/tree-lighting/"
+dateWindow:
+  start: "11-21"
+  end: "11-21"
 years:
   - year: 2026
     status: confirmed

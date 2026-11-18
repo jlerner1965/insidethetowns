@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Del Norte Chamber of Commerce"
 sourceUrl: "https://delnortechamber.org/events/"
+dateWindow:
+  start: "12-11"
+  end: "12-11"
 years:
   - year: 2026
     status: confirmed

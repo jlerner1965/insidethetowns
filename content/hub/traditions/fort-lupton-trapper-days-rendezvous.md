@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Tallow River Trappers, South Platte Valley Historical Society"
 sourceUrl: "https://www.spvhs.org/trapper-days-rendezvous.html"
+dateWindow:
+  start: "09-10"
+  end: "09-10"
 years:
   - year: 2027
     status: not-announced

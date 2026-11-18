@@ -139,25 +139,39 @@ export const OUTDOOR_KIND_LABELS: Record<OutdoorKind, string> = {
  * on a guide its rows show their newest entry. The year is never worked
  * out from the calendar: it changes the day the owner says so.
  */
-export const CURRENT_SEASONS: Partial<Record<TraditionType, { season: string; year?: number }>> = {
-  'parade-of-lights': { season: 'winter', year: 2026 },
-  'tree-lighting': { season: 'winter', year: 2026 },
+/**
+ * When a roundup's season runs, as "MM-DD" (the owner, 18 November 2026):
+ * the page is due from eight weeks before `opens`, and from then the
+ * verification report (scripts/validate-content.ts) and the needs-me list
+ * (docs/needs-me.md) name it while any of its records has no confirmed date
+ * for the season (src/lib/roundups.ts). Report only: it never fails a
+ * build. Read from the records' typical windows on 18 November 2026, a
+ * little wider. A season with no span (`through the year`) is never due.
+ */
+export interface SeasonSpan {
+  opens: string;
+  closes: string;
+}
+
+export const CURRENT_SEASONS: Partial<Record<TraditionType, { season: string; year?: number; span?: SeasonSpan }>> = {
+  'parade-of-lights': { season: 'winter', year: 2026, span: { opens: '11-20', closes: '12-20' } },
+  'tree-lighting': { season: 'winter', year: 2026, span: { opens: '11-01', closes: '12-15' } },
   // Opened 12 November 2026, with six verified records (the owner's bar was five).
-  'turkey-trot': { season: 'Thanksgiving', year: 2026 },
+  'turkey-trot': { season: 'Thanksgiving', year: 2026, span: { opens: '11-10', closes: '11-30' } },
   // No year: outdoor dates run through the year, so the page shows every
   // record's next date, whichever year that falls in (nextRow).
   outdoor: { season: 'through the year' },
   // Opened with the additions of 12 November 2026. No year, as with the
   // outdoor dates: each row is the record's next date, or that it is not
   // announced and when it was last held.
-  'rodeo-fair': { season: 'through the year' },
-  oktoberfest: { season: 'each fall' },
-  'harvest-festival': { season: 'each summer and fall' },
-  'winter-carnival': { season: 'each winter' },
+  'rodeo-fair': { season: 'through the year', span: { opens: '06-01', closes: '08-31' } },
+  oktoberfest: { season: 'each fall', span: { opens: '09-01', closes: '10-31' } },
+  'harvest-festival': { season: 'each summer and fall', span: { opens: '06-15', closes: '10-15' } },
+  'winter-carnival': { season: 'each winter', span: { opens: '12-01', closes: '03-15' } },
   'free-day': { season: 'through the year' },
   // Opened 18 November 2026. No year: New Year's Eve falls in one year and
   // New Year's Day in the next, so each row is the record's next date.
-  'new-years': { season: '2026–27' },
+  'new-years': { season: '2026–27', span: { opens: '12-31', closes: '01-01' } },
 };
 
 /** One year of a tradition, as the schema leaves it: dates as "YYYY-MM-DD". */
@@ -180,6 +194,8 @@ export interface TraditionYear {
   reason?: string;
   /** The page this year's date was read from, where it is not the record's own source. */
   sourceUrl?: string;
+  /** The words the date watch read the date from (never shown). */
+  readText?: string;
   /** Which running this is, where the organizer numbers it: 78 for "the 78th annual". */
   edition?: number;
   /** The named parts of the event the organizer lists with a day or a time: the parade, the rodeo performances. */
@@ -218,6 +234,8 @@ export interface TraditionRecord {
   about?: { text: string; source: string; checked: string };
   /** On an outdoor date: what it is the date of (OUTDOOR_KINDS, src/lib/open-now.ts). */
   outdoor?: { kind: OutdoorKind; facility: string; edge: OutdoorEdge };
+  /** The typical window, "MM-DD" to "MM-DD", read from the dated years (src/lib/date-watch.ts). */
+  dateWindow?: { start: string; end: string };
   years: TraditionYear[];
   /** A sample record for building and checking the pages; never on a live site. */
   fixture?: boolean;

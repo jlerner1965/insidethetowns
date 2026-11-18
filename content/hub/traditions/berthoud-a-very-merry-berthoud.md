@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Berthoud Main Street"
 sourceUrl: "https://berthoudmainstreet.org/averymerryberthoud/"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

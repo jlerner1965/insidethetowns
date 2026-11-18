@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Vail Valley Foundation"
 sourceUrl: "https://www.mountaingames.com/media-registration"
+dateWindow:
+  start: "06-04"
+  end: "06-10"
 years:
   - year: 2027
     status: confirmed

@@ -12,7 +12,7 @@ phone: "970-216-2512"
 hours: "Daily 9 am–5 pm"
 tags: [jewelry, native-american, antiques, gifts]
 summary: "Boardwalk shop at 912 Grand Avenue selling Native American jewelry and gifts chosen by Bob Scott, plus antique and Western collectibles; open daily 9 am to 5 pm."
-recheckPending: "Not re-read at the move, 17 November 2026: own site answers 403 Forbidden; no other official page."
+readBlocked: "2026-11-17: own site answers 403 Forbidden; no other official page."
 ---
 
 The shop sells Native American jewelry and other gifts selected by Bob Scott, a Grand Lake resident, and its recent posts describe antique and collectible stock as well: concho belts from the 1920s and 1930s, Depression-era Santo Domingo thunderbird necklaces, a cradleboard, chaps, copper pots and a carbide miner's lantern. It says the selection changes week to week, that it does not sell or carry firearms, and that it can ship items found by phone or email (bobvscott@yahoo.com). It says it won several categories, including best gift shop and best jewelry store, in the 2025 Best of Grand County competition.

@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Lake Nighthorse Recreation Area"
   edge: window
+dateWindow:
+  start: "04-10"
+  end: "04-10"
 years:
   - year: 2026
     status: confirmed

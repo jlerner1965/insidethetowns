@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "City of Cripple Creek"
 sourceUrl: "https://www.cityofcripplecreek.com/visit-cripple-creek/page/events"
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

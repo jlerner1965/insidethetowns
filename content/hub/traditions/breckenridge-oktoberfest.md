@@ -7,6 +7,9 @@ town:
 type: oktoberfest
 organizer: "Breckenridge Tourism Office"
 sourceUrl: "https://gobreck.com/event/breckenridge-oktoberfest/"
+dateWindow:
+  start: "09-25"
+  end: "09-25"
 years:
   - year: 2027
     status: not-announced

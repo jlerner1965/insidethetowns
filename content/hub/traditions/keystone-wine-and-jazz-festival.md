@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Keystone Festivals"
 sourceUrl: "https://www.keystonefestivals.com/festivals/wine-and-jazz/"
+dateWindow:
+  start: "07-18"
+  end: "07-18"
 years:
   - year: 2027
     status: not-announced

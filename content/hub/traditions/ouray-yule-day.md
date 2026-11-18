@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "City of Ouray"
 sourceUrl: "https://www.visitouray.com/yuleday"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

@@ -12,6 +12,9 @@ about:
   text: "Two races hosted in Manitou Springs: the Pikes Peak Marathon runs to the summit of Pikes Peak and back, and the Pikes Peak Ascent finishes at the summit. Both climb the Barr Trail."
   source: "https://www.pikespeakmarathon.org/"
   checked: 2026-11-13
+dateWindow:
+  start: "09-18"
+  end: "09-18"
 years:
   - year: 2027
     status: confirmed

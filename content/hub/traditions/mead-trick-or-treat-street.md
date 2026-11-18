@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "Mead Area Chamber of Commerce"
 sourceUrl: "https://meadchamber.org/mc-events/2026-trick-or-treat-street/"
+dateWindow:
+  start: "10-31"
+  end: "10-31"
 years:
   - year: 2027
     status: not-announced

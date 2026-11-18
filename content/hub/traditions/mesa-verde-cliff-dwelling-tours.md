@@ -17,6 +17,9 @@ outdoor:
   kind: other
   facility: "Mesa Verde cliff dwelling tours"
   edge: window
+dateWindow:
+  start: "05-04"
+  end: "05-04"
 years:
   - year: 2027
     status: not-announced

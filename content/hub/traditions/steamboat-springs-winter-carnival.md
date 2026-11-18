@@ -12,6 +12,9 @@ about:
   text: "A celebration of winter and Steamboat's Western ski heritage, hosted by the Steamboat Springs Winter Sports Club. Events are held at Howelsen Hill, the Steamboat History Museum and on Yampa Street."
   source: "https://www.sswsc.org/event/winter-carnival-2027/"
   checked: 2026-11-13
+dateWindow:
+  start: "02-02"
+  end: "02-02"
 years:
   - year: 2027
     status: confirmed

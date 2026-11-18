@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Fairplay"
 sourceUrl: "https://fairplayco.us/172/Special-Events"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Niwot Business Association"
 sourceUrl: "https://niwot.com/rock-rails/"
+dateWindow:
+  start: "06-04"
+  end: "06-04"
 years:
   - year: 2027
     status: not-announced

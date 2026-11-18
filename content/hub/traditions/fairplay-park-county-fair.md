@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Park County Fair"
 sourceUrl: "https://parkcofair.com/"
+dateWindow:
+  start: "07-10"
+  end: "07-10"
 years:
   - year: 2027
     status: not-announced

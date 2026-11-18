@@ -7,6 +7,9 @@ town:
 type: fireworks
 organizer: "City of Fort Collins"
 sourceUrl: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q3/Independence-Day-Community-Celebration"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

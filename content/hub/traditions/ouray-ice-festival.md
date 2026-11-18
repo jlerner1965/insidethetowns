@@ -11,6 +11,9 @@ about:
   text: "An ice climbing festival with mixed and speed climbing competitions, clinics and gear demos at the Ouray Ice Park in the Uncompahgre Gorge, with films and presentations downtown."
   source: "https://ourayicepark.com/festival/about"
   checked: 2026-11-13
+dateWindow:
+  start: "01-28"
+  end: "01-28"
 years:
   - year: 2027
     status: confirmed

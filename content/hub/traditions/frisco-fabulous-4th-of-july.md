@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Frisco"
 sourceUrl: "https://www.townoffrisco.com/event/festival-events/frisco-fabulous-4th-of-july/"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

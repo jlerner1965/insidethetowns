@@ -7,6 +7,9 @@ town:
 type: farmers-market
 organizer: "Green Box Arts"
 sourceUrl: "https://greenboxarts.org/year-round-programs/farmandart/"
+dateWindow:
+  start: "09-26"
+  end: "09-26"
 years:
   - year: 2027
     status: not-announced

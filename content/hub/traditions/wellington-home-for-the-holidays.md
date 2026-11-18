@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Town of Wellington"
 sourceUrl: "https://www.wellingtoncolorado.gov/645/Home-for-the-Holidays"
+dateWindow:
+  start: "11-28"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

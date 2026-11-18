@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "12 Hours of Mesa Verde"
 sourceUrl: "https://www.12hoursofmesaverde.com/"
+dateWindow:
+  start: "05-09"
+  end: "05-09"
 years:
   - year: 2027
     status: not-announced

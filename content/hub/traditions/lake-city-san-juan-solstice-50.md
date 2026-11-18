@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "San Juan Solstice 50 Mile Run"
 sourceUrl: "https://sjs50.com/"
+dateWindow:
+  start: "06-19"
+  end: "06-20"
 years:
   - year: 2027
     status: confirmed

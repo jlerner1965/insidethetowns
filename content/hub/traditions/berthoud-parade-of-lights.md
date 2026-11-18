@@ -7,6 +7,9 @@ town:
 type: parade-of-lights
 organizer: "Berthoud Parade of Lights"
 sourceUrl: "https://berthoudparadeoflights.com/"
+dateWindow:
+  start: "12-05"
+  end: "12-05"
 years:
   - year: 2026
     status: confirmed

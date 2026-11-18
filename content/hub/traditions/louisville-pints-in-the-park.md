@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Louisville Chamber of Commerce"
 sourceUrl: "https://www.louisvillechamber.com/pints-in-the-park/"
+dateWindow:
+  start: "08-29"
+  end: "08-29"
 years:
   - year: 2027
     status: not-announced

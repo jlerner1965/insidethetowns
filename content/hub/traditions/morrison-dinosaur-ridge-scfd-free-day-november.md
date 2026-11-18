@@ -7,6 +7,9 @@ town:
 type: free-day
 organizer: "Dinosaur Ridge"
 sourceUrl: "https://dinoridge.org/event/scfd-free-day-celebrate-colorados-sesquicentennial-dino-ridge-style-4/"
+dateWindow:
+  start: "11-15"
+  end: "11-15"
 years:
   - year: 2026
     status: confirmed

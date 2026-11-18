@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Meeker Mustang Makeover"
 sourceUrl: "https://www.meekermustangmakeover.org/2026-events-schedule"
+dateWindow:
+  start: "09-18"
+  end: "09-18"
 years:
   - year: 2027
     status: not-announced

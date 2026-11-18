@@ -8,6 +8,9 @@ type: race
 organizer: "Aravaipa Running"
 sourceUrl: "https://www.aravaiparunning.com/kendall/"
 firstYear: 1978
+dateWindow:
+  start: "07-18"
+  end: "07-18"
 years:
   - year: 2027
     status: confirmed

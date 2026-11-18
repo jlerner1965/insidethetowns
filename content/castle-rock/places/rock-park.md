@@ -15,7 +15,7 @@ mapUrl: "https://www.crgov.com/DocumentCenter/View/46283/Rock-Park-Trail-Map-PDF
 tags: [hiking, landmark, views, picnic, no-bikes]
 featured: true
 summary: "The 1.5-mile looped single-track trail up the butte the town is named for, rated difficult: short and steep, 370 feet from bottom to top, with views of downtown, I-25, Pikes Peak and the Front Range. No bikes. Trailhead lot on Front Street."
-recheckPending: "Not re-read at the move, 17 November 2026: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
+readBlocked: "2026-11-17: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
 ---
 
 The Town's open space around the Rock itself, with a looped single-track trail that takes you to the base of the landmark and views over downtown Castle Rock, the I-25 corridor, Pikes Peak and the Front Range. It is short but steep, 370 feet of climbing from 6,220 to 6,590 feet, on 1.5 miles of unpaved trail the Town rates difficult, with uneven ground and a warning about falling rocks and rockslides. Bikes are prohibited. Look for rock squirrels and the migratory birds that nest on the cliffs. The park is adopted by the Keepers of the Rock through the Town's POST Partners program.

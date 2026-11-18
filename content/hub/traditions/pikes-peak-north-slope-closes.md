@@ -15,6 +15,9 @@ outdoor:
   kind: other
   facility: "Pikes Peak North Slope Recreation Area"
   edge: closes
+dateWindow:
+  start: "10-18"
+  end: "10-18"
 years:
   - year: 2026
     status: confirmed

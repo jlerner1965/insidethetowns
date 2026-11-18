@@ -8,6 +8,9 @@ type: festival
 organizer: "Town of Eagle"
 sourceUrl: "https://eagleoutside.com/flightdays"
 firstYear: 1922
+dateWindow:
+  start: "06-26"
+  end: "06-26"
 years:
   - year: 2027
     status: not-announced

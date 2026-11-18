@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "The Ride Collective"
 sourceUrl: "https://www.theridecollective.com/tourofthemoon"
+dateWindow:
+  start: "09-12"
+  end: "09-12"
 years:
   - year: 2027
     status: not-announced

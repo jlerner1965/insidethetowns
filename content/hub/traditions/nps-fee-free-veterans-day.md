@@ -5,6 +5,9 @@ statewide: true
 type: free-day
 organizer: "National Park Service"
 sourceUrl: "https://www.nps.gov/planyourvisit/fee-free-parks.htm"
+dateWindow:
+  start: "11-11"
+  end: "11-11"
 years:
   - year: 2027
     status: not-announced

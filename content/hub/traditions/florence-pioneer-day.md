@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Florence Chamber of Commerce"
 sourceUrl: "https://www.finditinflorence.com/events/information-applications/"
+dateWindow:
+  start: "09-19"
+  end: "09-19"
 years:
   - year: 2027
     status: not-announced

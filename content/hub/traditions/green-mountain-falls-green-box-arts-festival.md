@@ -8,6 +8,9 @@ type: festival
 organizer: "Green Box Arts"
 sourceUrl: "https://greenboxarts.org/arts-festival/"
 firstYear: 2009
+dateWindow:
+  start: "07-02"
+  end: "07-04"
 years:
   - year: 2027
     status: confirmed

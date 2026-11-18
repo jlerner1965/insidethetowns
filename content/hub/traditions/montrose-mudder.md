@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "City of Montrose and the Montrose Rotary Interact Club"
 sourceUrl: "https://visitmontrose.com/events/montrose-mudder/"
+dateWindow:
+  start: "05-07"
+  end: "05-08"
 years:
   - year: 2027
     status: confirmed

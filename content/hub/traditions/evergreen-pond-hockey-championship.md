@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Evergreen Park & Recreation District"
 sourceUrl: "https://www.evergreenrecreation.com/2027-01-30-pond-hockey-championship-2027"
+dateWindow:
+  start: "01-30"
+  end: "01-30"
 years:
   - year: 2027
     status: confirmed

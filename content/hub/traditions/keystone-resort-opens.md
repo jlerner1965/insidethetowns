@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Keystone Resort"
   edge: opens
+dateWindow:
+  start: "10-30"
+  end: "10-30"
 years:
   - year: 2027
     status: not-announced

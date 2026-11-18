@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Alma Foundation"
 sourceUrl: "https://festivalintheclouds.com/"
+dateWindow:
+  start: "07-17"
+  end: "07-17"
 years:
   - year: 2027
     status: not-announced

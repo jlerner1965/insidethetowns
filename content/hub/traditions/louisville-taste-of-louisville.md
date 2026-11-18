@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Louisville Chamber of Commerce"
 sourceUrl: "https://www.louisvillechamber.com/taste-of-louisville/"
+dateWindow:
+  start: "06-05"
+  end: "06-05"
 years:
   - year: 2027
     status: not-announced

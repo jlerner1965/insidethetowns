@@ -11,6 +11,9 @@ outdoor:
   kind: ski-area
   facility: "Howelsen Hill"
   edge: closes
+dateWindow:
+  start: "03-28"
+  end: "03-28"
 years:
   - year: 2027
     status: confirmed

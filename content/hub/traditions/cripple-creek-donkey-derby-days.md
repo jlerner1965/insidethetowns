@@ -8,6 +8,9 @@ type: festival
 organizer: "Two Mile High Club"
 sourceUrl: "https://www.cripplecreekdonkeys.com/donkeyderbydays"
 firstYear: 1931
+dateWindow:
+  start: "06-25"
+  end: "06-26"
 years:
   - year: 2027
     status: confirmed

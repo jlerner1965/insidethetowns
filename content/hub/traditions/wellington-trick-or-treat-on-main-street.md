@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "Town of Wellington"
 sourceUrl: "https://wellingtoncolorado.gov/166/Events"
+dateWindow:
+  start: "10-31"
+  end: "10-31"
 years:
   - year: 2027
     status: not-announced

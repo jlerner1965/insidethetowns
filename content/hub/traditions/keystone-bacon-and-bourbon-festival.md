@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Keystone Festivals"
 sourceUrl: "https://www.keystonefestivals.com/festivals/bacon-and-bourbon-festival/"
+dateWindow:
+  start: "06-27"
+  end: "06-27"
 years:
   - year: 2027
     status: not-announced

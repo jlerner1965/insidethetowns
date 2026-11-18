@@ -19,6 +19,9 @@ outdoor:
   kind: timed-entry
   facility: "Eldorado Canyon State Park timed entry"
   edge: window
+dateWindow:
+  start: "05-01"
+  end: "05-01"
 years:
   - year: 2027
     status: not-announced

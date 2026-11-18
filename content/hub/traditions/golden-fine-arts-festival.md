@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Golden Chamber of Commerce"
 sourceUrl: "https://www.goldenfineartsfestival.org/"
+dateWindow:
+  start: "08-15"
+  end: "08-15"
 years:
   - year: 2027
     status: not-announced

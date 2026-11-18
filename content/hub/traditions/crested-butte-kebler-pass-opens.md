@@ -14,6 +14,9 @@ outdoor:
   kind: road
   facility: "Kebler Pass"
   edge: opens
+dateWindow:
+  start: "05-21"
+  end: "05-21"
 years:
   - year: 2027
     status: not-announced

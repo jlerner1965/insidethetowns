@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "HEST"
 sourceUrl: "https://hest.com/pages/hestival"
+dateWindow:
+  start: "04-30"
+  end: "04-30"
 years:
   - year: 2027
     status: confirmed

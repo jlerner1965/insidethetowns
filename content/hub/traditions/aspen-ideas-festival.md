@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Aspen Ideas Festival"
 sourceUrl: "https://www.aspenideas.org/"
+dateWindow:
+  start: "06-25"
+  end: "06-25"
 years:
   - year: 2027
     status: confirmed

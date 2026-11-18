@@ -8,6 +8,9 @@ type: festival
 organizer: "Marble Institute of Colorado"
 sourceUrl: "https://marbleinst.org/"
 firstYear: 1989
+dateWindow:
+  start: "07-02"
+  end: "07-02"
 years:
   - year: 2027
     status: confirmed

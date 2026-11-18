@@ -7,6 +7,9 @@ town:
 type: free-day
 organizer: "Museum of Boulder"
 sourceUrl: "https://museumofboulder.org/events/museum-of-boulder-holiday-art-fair/2026-12-12/"
+dateWindow:
+  start: "12-12"
+  end: "12-12"
 years:
   - year: 2026
     status: confirmed

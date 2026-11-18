@@ -8,6 +8,9 @@ type: race
 organizer: "Barr Trail Mountain Race"
 sourceUrl: "https://www.barrtrailmountainrace.com/"
 firstYear: 2000
+dateWindow:
+  start: "07-18"
+  end: "07-18"
 years:
   - year: 2027
     status: confirmed

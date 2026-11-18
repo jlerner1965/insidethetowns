@@ -11,6 +11,9 @@ outdoor:
   kind: other
   facility: "Windsor Lake motorized boating"
   edge: window
+dateWindow:
+  start: "06-06"
+  end: "06-06"
 years:
   - year: 2027
     status: not-announced

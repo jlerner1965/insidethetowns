@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "City of Trinidad"
 sourceUrl: "https://www.trinidad.co.gov/community/hometown_holidays/index.php"
+dateWindow:
+  start: "11-28"
+  end: "11-28"
 years:
   - year: 2026
     status: confirmed

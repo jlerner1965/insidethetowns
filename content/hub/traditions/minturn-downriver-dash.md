@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Vail Recreation District"
 sourceUrl: "https://vailrd.specialdistrict.org/town-of-minturn-downriver-dash-whitewater-race"
+dateWindow:
+  start: "05-29"
+  end: "05-29"
 years:
   - year: 2027
     status: confirmed

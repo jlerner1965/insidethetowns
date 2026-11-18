@@ -7,6 +7,9 @@ town:
 type: turkey-trot
 organizer: "One Love Endurance Events"
 sourceUrl: "https://www.oneloveendurance.com/turkeytrotrace.html"
+dateWindow:
+  start: "11-26"
+  end: "11-26"
 years:
   - year: 2026
     status: confirmed

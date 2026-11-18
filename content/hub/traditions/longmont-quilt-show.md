@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Longmont Quilt Guild"
 sourceUrl: "https://longmontquiltguild.org/quiltguildactivities/quilt-show/"
+dateWindow:
+  start: "10-15"
+  end: "10-16"
 years:
   - year: 2027
     status: confirmed

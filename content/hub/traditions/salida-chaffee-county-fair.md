@@ -7,6 +7,9 @@ town:
 type: rodeo-fair
 organizer: "Chaffee County Fair & Rodeo"
 sourceUrl: "https://www.chaffeecountyfair.com/"
+dateWindow:
+  start: "07-23"
+  end: "07-24"
 years:
   - year: 2027
     status: confirmed

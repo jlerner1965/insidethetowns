@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Friends of the San Luis Valley National Wildlife Refuges"
 sourceUrl: "https://mvcranefest.org/"
+dateWindow:
+  start: "10-10"
+  end: "10-10"
 years:
   - year: 2027
     status: not-announced

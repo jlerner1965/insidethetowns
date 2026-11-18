@@ -7,6 +7,9 @@ town:
 type: winter-carnival
 organizer: "Rio Races"
 sourceUrl: "https://rioraces.com/rio-frio-home"
+dateWindow:
+  start: "01-29"
+  end: "01-29"
 years:
   - year: 2027
     status: confirmed

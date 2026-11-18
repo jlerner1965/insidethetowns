@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "Evergreen Park & Recreation District"
 sourceUrl: "https://www.evergreenrecreation.com/2026-10-30-trick-or-treat-trail"
+dateWindow:
+  start: "10-30"
+  end: "10-30"
 years:
   - year: 2027
     status: not-announced

@@ -20,6 +20,7 @@ import { dayKey, parseLocal } from '../lib/dates.ts';
 import { OPENING_HOURS_RE } from '../lib/hours.ts';
 import { CLOCK_RE, WEEKDAYS, isDayOff, runSittings, weekdayOf } from '../lib/schedule.ts';
 import { OUTDOOR_EDGES, OUTDOOR_KINDS, TRADITION_STATUSES, TRADITION_TYPES, isAgencyDate } from '../lib/traditions.ts';
+import { windowCovers } from '../lib/date-watch.ts';
 
 /** Astro passes its image() helper (typed to ImageMetadata); the validator passes a plain string check. */
 export type ImageSchema = () => z.ZodType;
@@ -697,6 +698,26 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
        * docs/migration/needs-recheck.md lists them.
        */
       recheckPending: z.string().min(1).optional(),
+      /**
+       * The nightly re-check could not read the source (a bot check, a
+       * refusal, no answer), "YYYY-MM-DD: why", and the place is on the
+       * needs-me list for a person to read it (the owner, 18 November 2026).
+       * It hides nothing: the listing stays visible and indexable while
+       * `verified` is inside its window, and the usual freshness rules apply
+       * once it is not. `npm run confirm-place` clears it; so does a later
+       * re-check that reads the source.
+       */
+      readBlocked: z.string().min(1).optional(),
+      /**
+       * A sign the place may have closed that is not the place's own word
+       * that it closed for good (its page gone, a locator that no longer
+       * lists it, "Site Closed" with no word on how long), "YYYY-MM-DD:
+       * what was seen". A person confirms before anything changes: it hides
+       * nothing and never becomes a 410 by itself (the owner, 18 November
+       * 2026). On the needs-me list; `npm run confirm-place` clears it, with
+       * `--closed` when the person finds it has closed.
+       */
+      closureCheck: z.string().min(1).optional(),
       verified: localDate.optional(),
       /**
        * The day the listing was published on the guide: stamped at approval
@@ -1801,8 +1822,14 @@ export function traditionSchema() {
       previousDate: isoDay.optional(),
       /** When moved (required) or canceled (where given): why, in the organizer's words. */
       reason: z.string().min(1).optional(),
-      /** The organizer page this year was read from, where it is not the record's `sourceUrl`. */
+      /** The organizer page this year was read from, where it is not the record's `sourceUrl`; the date watch writes it on every year it confirms. */
       sourceUrl: httpUrl.optional(),
+      /**
+       * The words on that page the date was read from, as read: the date
+       * watch saves them with every year it confirms (scripts/date-watch.ts;
+       * the owner, 18 November 2026). Never shown on the page.
+       */
+      readText: z.string().min(1).optional(),
       /** Which running this is, where the organizer numbers it: 78 for "the 78th annual". */
       edition: z.number().int().min(1).max(500).optional(),
       /**
@@ -1908,6 +1935,17 @@ export function traditionSchema() {
       about: z.object({ text: z.string().min(1).max(500), source: httpUrl, checked: isoDay }).strict().optional(),
       /** On an outdoor date: what it is the date of (src/lib/traditions.ts, OUTDOOR_KINDS; src/lib/open-now.ts). */
       outdoor: z.object({ kind: z.enum(OUTDOOR_KINDS), facility: z.string().min(1), edge: z.enum(OUTDOOR_EDGES) }).strict().optional(),
+      /**
+       * The typical window, as "MM-DD": the first and last day of the year
+       * the record's date has fallen on, read from its dated years (the
+       * owner, 18 November 2026; src/lib/date-watch.ts). Eight weeks before
+       * it opens the nightly date watch reads the organizer's page for the
+       * next date; three weeks before, a date still not confirmed is on the
+       * needs-me list. Every record with a dated year has one, holding every
+       * such date (test/date-watch.test.ts); the nightly watch, or
+       * `node scripts/date-watch.ts --windows --write`, sets a missing one.
+       */
+      dateWindow: z.object({ start: z.string().regex(/^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/, 'MM-DD'), end: z.string().regex(/^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/, 'MM-DD') }).strict().optional(),
       years: z.array(year).min(1),
       /** A sample record (test/fixtures/traditions/). Never true in content/. */
       fixture: z.boolean().optional(),
@@ -1933,6 +1971,11 @@ export function traditionSchema() {
     .refine((r) => !r.firstYear || r.years.every((y) => y.year >= r.firstYear!), {
       message: 'an entry is older than firstYear',
       path: ['firstYear'],
+    })
+    // Every record with a dated year carries one (test/date-watch.test.ts); the nightly watch writes a missing one.
+    .refine((r) => !r.dateWindow || windowCovers(r.dateWindow, r), {
+      message: 'dateWindow holds every day the record has started on',
+      path: ['dateWindow'],
     });
 }
 export type TraditionData = z.infer<ReturnType<typeof traditionSchema>>;

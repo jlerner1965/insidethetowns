@@ -7,6 +7,9 @@ town:
 type: tree-lighting
 organizer: "Niwot Business Association"
 sourceUrl: "https://niwot.com/events/enchanted-evening/"
+dateWindow:
+  start: "11-27"
+  end: "11-27"
 years:
   - year: 2026
     status: confirmed

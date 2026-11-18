@@ -7,6 +7,9 @@ town:
 type: trick-or-treat
 organizer: "City of Louisville"
 sourceUrl: "https://www.louisvilleco.gov/departments/events/trunk-or-treat-off-mccaslin/"
+dateWindow:
+  start: "10-25"
+  end: "10-25"
 years:
   - year: 2027
     status: not-announced

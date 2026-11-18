@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Steamboat Springs Chamber"
 sourceUrl: "https://www.steamboatchamber.com/events/annual-events/fourth-of-july/"
+dateWindow:
+  start: "07-04"
+  end: "07-04"
 years:
   - year: 2027
     status: not-announced

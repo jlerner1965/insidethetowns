@@ -7,6 +7,9 @@ town:
 type: race
 organizer: "Town of Frisco"
 sourceUrl: "https://www.townoffrisco.com/event/nordic-center-events/gold-rush-nordic-races/"
+dateWindow:
+  start: "02-13"
+  end: "02-13"
 years:
   - year: 2027
     status: confirmed

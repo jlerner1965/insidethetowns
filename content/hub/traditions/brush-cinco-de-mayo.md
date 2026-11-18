@@ -7,6 +7,9 @@ town:
 type: festival
 organizer: "Brush Area Chamber of Commerce"
 sourceUrl: "https://www.brushchamberofcommerce.org/events"
+dateWindow:
+  start: "05-02"
+  end: "05-02"
 years:
   - year: 2027
     status: not-announced

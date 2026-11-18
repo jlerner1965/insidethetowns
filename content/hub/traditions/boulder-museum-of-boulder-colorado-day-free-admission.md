@@ -7,6 +7,9 @@ town:
 type: free-day
 organizer: "Museum of Boulder"
 sourceUrl: "https://museumofboulder.org/events/raising-the-flags-on-colorados-sesquicentennial/"
+dateWindow:
+  start: "08-01"
+  end: "08-01"
 years:
   - year: 2027
     status: not-announced

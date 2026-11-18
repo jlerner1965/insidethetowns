@@ -8,6 +8,9 @@ type: festival
 organizer: "Mancos Colorado Days Association"
 sourceUrl: "https://www.mancosdays.com/"
 firstYear: 1958
+dateWindow:
+  start: "07-24"
+  end: "07-24"
 years:
   - year: 2027
     status: not-announced

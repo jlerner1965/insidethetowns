@@ -8,6 +8,9 @@ type: oktoberfest
 organizer: "Brush Area Chamber of Commerce"
 sourceUrl: "https://www.brushchamberofcommerce.org/events"
 firstYear: 1982
+dateWindow:
+  start: "10-03"
+  end: "10-03"
 years:
   - year: 2027
     status: not-announced
