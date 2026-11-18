@@ -81,5 +81,56 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Devil’s Backbone Open Space",
+      "kind": "County open space",
+      "manager": "Larimer County Natural Resources",
+      "size": "3,007 acres along the sandstone hogback west of Loveland, with 17.25 miles of shared trail that connect north through Rimrock to Horsetooth Mountain",
+      "trailhead": "Off U.S. 34 just past mile marker 88, 2 miles west of the Jax store: north on Hidden Valley Drive, just east of the old water tank; the lot is on the left, with restrooms and water",
+      "season": "Day use, sunrise to sunset; the gate typically opens by 6 am. The lot fills on weekends and holidays, and the County says to come before 10 am or after 4 pm.",
+      "dogs": "On a leash at all times; the County asks that they stay home in hot weather.",
+      "fee": "A Larimer County entrance permit is required.",
+      "page": "/loveland/places/devils-backbone-open-space/",
+      "url": "https://www.larimer.gov/naturalresources/parks/devils-backbone",
+      "source": "https://www.larimer.gov/naturalresources/parks/devils-backbone",
+      "alsoSources": [
+        "https://www.larimer.gov/naturalresources/parks/permits"
+      ],
+      "checked": "2026-11-10"
+    },
+    {
+      "name": "Boyd Lake State Park",
+      "kind": "State park lake",
+      "manager": "Colorado Parks and Wildlife",
+      "size": "A 1,700-acre lake when full, with 361 acres of land, 140 paved campsites and more than 200 bird species",
+      "address": "3720 N. County Road 11-C, Loveland, the park’s only entrance",
+      "season": "Open daily, 5 am to 10 pm. Low water has closed the lake to boating for the rest of 2026; kayaks, paddleboards and swimming are still allowed. The marina is closed for the 2026 season.",
+      "dogs": "On a leash and under control at all times.",
+      "fee": "A daily vehicle pass, $10 to $12 with Colorado plates or $15 to $17 out of state; when the entrance gate is unattended, buy it at the self-service kiosk.",
+      "page": "/loveland/places/boyd-lake-state-park/",
+      "url": "https://cpw.state.co.us/state-parks/boyd-lake-state-park",
+      "source": "https://cpw.state.co.us/state-parks/boyd-lake-state-park",
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Chapungu Sculpture Park at Centerra",
+      "kind": "Sculpture park",
+      "manager": "Chapungu Sculpture Park at Centerra",
+      "size": "26 acres of natural and landscaped gardens and trails, with 82 monumental stone sculptures by Zimbabwean artists",
+      "address": "Just east of the Promenade Shops at Centerra, off U.S. 34 and Centerra Parkway, Loveland",
+      "season": "Open every day of the year, 6 am to 10 pm. The public restroom opens during summer hours.",
+      "dogs": "Dog-friendly, with a pet water fountain.",
+      "fee": "None: admission is free.",
+      "page": "/loveland/places/chapungu-sculpture-park/",
+      "url": "https://chapunguatcenterra.com/",
+      "source": "https://chapunguatcenterra.com/",
+      "alsoSources": [
+        "https://chapunguatcenterra.com/amenities/",
+        "https://chapunguatcenterra.com/contact-us/"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }

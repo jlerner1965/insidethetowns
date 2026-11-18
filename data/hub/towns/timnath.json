@@ -28,5 +28,25 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Fossil Creek Reservoir Natural Area",
+      "kind": "Natural area",
+      "manager": "City of Fort Collins Natural Areas, with Larimer County",
+      "size": "About 1,400 acres of prairie, wetland and reservoir, an Audubon Important Bird Area, with three short trails to picnic shelters and viewing areas",
+      "address": "3340 Carpenter Road, Fort Collins, at the Fossil Creek Reservoir Trailhead (restrooms and water)",
+      "season": "Open daily, dawn to dusk, with seasonal closures to protect eagle roosts.",
+      "dogs": "Not allowed: hiking only, with no dogs, bikes or horses.",
+      "fee": "None.",
+      "page": "/timnath/places/fossil-creek-reservoir-natural-area/",
+      "url": "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Fossil-Creek-Reservoir-Natural-Area",
+      "source": "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Fossil-Creek-Reservoir-Natural-Area",
+      "alsoSources": [
+        "https://trails.colorado.gov/trailheads/fossil-creek-reservoir-1893",
+        "https://trails.colorado.gov/trails/heron-loop-13768"
+      ],
+      "checked": "2026-11-17"
+    }
+  ]
 }

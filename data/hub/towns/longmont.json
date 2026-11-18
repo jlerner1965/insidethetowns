@@ -118,5 +118,26 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Union Reservoir Nature Area",
+      "kind": "City reservoir and nature area",
+      "manager": "City of Longmont Parks and Natural Resources",
+      "size": "A 736-acre reservoir, about 7 miles west of I-25",
+      "address": "461 County Road 26, Longmont, CO 80504",
+      "season": "Through February 28: 7 am–6 pm, no water use, and closed Thanksgiving, the Friday after, December 24 and 25 and January 1. The City’s directory gives 1 hour before sunrise to 1 hour after sunset.",
+      "dogs": "On a leash, except at the off-leash dog beach on the southeast side, where dogs may swim; it stays open all year unless there is ice on the water.",
+      "fee": "$10 a vehicle a day ($15 on weekends and holidays from Memorial Day to Labor Day), $2 a person on foot or bike, $5 a watercraft; season passes sold. The Colorado State Parks Pass is not accepted.",
+      "page": "/longmont/places/union-reservoir-nature-area/",
+      "url": "https://longmontcolorado.gov/union-reservoir-nature-area/",
+      "source": "https://longmontcolorado.gov/union-reservoir-nature-area/fees-and-hours-at-union/",
+      "alsoSources": [
+        "https://longmontcolorado.gov/union-reservoir-nature-area/",
+        "https://longmontcolorado.gov/union-reservoir-nature-area/activities-at-union/",
+        "https://longmontcolorado.gov/facilities/union-reservoir-nature-area/"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }
