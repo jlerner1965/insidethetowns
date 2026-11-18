@@ -114,5 +114,60 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Crested Butte Nordic trails",
+      "kind": "Groomed Nordic trails",
+      "manager": "Crested Butte Nordic",
+      "size": "55 km of groomed trails for skiing and snowshoeing",
+      "trailhead": "The Nordic Center, 620 2nd Street (Mountain Express stop: 2nd and Whiterock); more trailheads on Peanut Lake Road and at Town Ranch behind the school on 9th Street",
+      "season": "The Nordic season, November to April; the trails stay closed to all uses until grooming starts.",
+      "dogs": "Only on the dog-friendly trails, and every dog needs a trail pass; no more than two dogs per skier.",
+      "fee": "A trail pass: $30 a day for adults 19 to 64, $20 for 65 to 69, free from 70, $10 for 18 and under; $10 a day for a dog. Day passes are sold at the Nordic Center.",
+      "url": "https://www.cbnordic.org/trails",
+      "source": "https://www.cbnordic.org/trail-passes",
+      "alsoSources": [
+        "https://www.cbnordic.org/trails",
+        "https://www.cbnordic.org/dogs",
+        "https://www.cbnordic.org/news/nordic-news-october-15-2026"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Town Ranch",
+      "kind": "Free groomed loop",
+      "manager": "Crested Butte Nordic",
+      "length": "3 km, groomed for skiing, snowshoeing, walking and fat biking",
+      "trailhead": "Town Ranch, behind the school on 9th Street",
+      "season": "Groomed in the Nordic season; the trails stay closed to all uses until grooming starts.",
+      "dogs": "Welcome, free, with no pass.",
+      "fee": "Free for people and dogs.",
+      "url": "https://www.cbnordic.org/trails",
+      "source": "https://www.cbnordic.org/trails",
+      "alsoSources": [
+        "https://www.cbnordic.org/dogs",
+        "https://www.cbnordic.org/news/nordic-news-october-15-2026"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Rec Path, in winter",
+      "kind": "Free groomed path",
+      "manager": "Crested Butte Nordic, which grooms it in winter",
+      "length": "3.5 km, start to finish, toward Mt. Crested Butte",
+      "trailhead": "The Rec Path starts on Elk Avenue",
+      "season": "Groomed in the Nordic season; the trails stay closed to all uses until grooming starts.",
+      "dogs": "On a leash.",
+      "fee": "Free; no trail pass.",
+      "url": "https://www.cbnordic.org/trails",
+      "source": "https://www.cbnordic.org/trails",
+      "alsoSources": [
+        "https://www.cbnordic.org/dogs",
+        "https://www.cbnordic.org/trail-passes",
+        "https://www.cbnordic.org/fat-biking"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }
