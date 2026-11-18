@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-16T23:16:10.549Z",
+  "generated": "2026-11-18T20:46:03.694Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/football/",
-      "fetched": "2026-11-16T23:16:10.549Z",
-      "maxprepsUpdated": "2026-11-16T19:48:38",
+      "fetched": "2026-11-18T20:46:03.694Z",
+      "maxprepsUpdated": "2026-11-18T18:15:56",
       "overall": "8-4",
       "league": {
         "record": "6-0",
@@ -17,16 +17,15 @@
         {
           "date": "2026-11-13",
           "opponent": "Pueblo East",
-          "site": "neutral",
+          "site": "away",
           "url": "https://www.maxpreps.com/co/football/game/pueblo-east-vs-severance/11-13-2026/?c=fd75e3bc-5732-4c30-a391-0aade7b068f1",
           "stage": "State Football Playoffs",
-          "neutral": true,
-          "venue": "Dutch Clark",
           "result": "L",
           "score": {
             "us": 7,
             "them": 10
-          }
+          },
+          "venue": "Dutch Clark"
         },
         {
           "date": "2026-11-06",
@@ -162,8 +161,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/soccer/",
-      "fetched": "2026-11-16T23:16:10.549Z",
-      "maxprepsUpdated": "2026-11-16T21:54:50",
+      "fetched": "2026-11-18T20:46:03.694Z",
+      "maxprepsUpdated": "2026-11-18T18:12:18",
       "overall": "7-3-5",
       "league": {
         "record": "6-2-2",
@@ -347,8 +346,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/volleyball/",
-      "fetched": "2026-11-16T23:16:10.549Z",
-      "maxprepsUpdated": "2026-11-16T22:10:23",
+      "fetched": "2026-11-18T20:46:03.694Z",
+      "maxprepsUpdated": "2026-11-18T17:06:36",
       "overall": "9-14",
       "league": {
         "record": "6-4",
@@ -391,9 +390,23 @@
         },
         {
           "date": "2026-10-17",
-          "opponent": "Sidney",
+          "opponent": "Wiggins",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/inter-state/volleyball/match/severance-co-vs-sidney-ne/10-17-2026/?c=5ed71cfd-9699-4e13-97b4-ec1b207c9ecb",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-wiggins/10-17-2026/?c=4e1e2270-afcb-4996-be00-f69f62da34fd",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Sterling High School",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Sterling",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-sterling/10-17-2026/?c=6c9d1c40-fc53-42ca-bc6c-aea9c3cbee78",
           "stage": "Tournament",
           "neutral": true,
           "result": "L",
@@ -416,25 +429,11 @@
         },
         {
           "date": "2026-10-17",
-          "opponent": "Sterling",
+          "opponent": "Sidney",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-sterling/10-17-2026/?c=6c9d1c40-fc53-42ca-bc6c-aea9c3cbee78",
+          "url": "https://www.maxpreps.com/inter-state/volleyball/match/severance-co-vs-sidney-ne/10-17-2026/?c=5ed71cfd-9699-4e13-97b4-ec1b207c9ecb",
           "stage": "Tournament",
           "neutral": true,
-          "result": "L",
-          "score": {
-            "us": 0,
-            "them": 2
-          }
-        },
-        {
-          "date": "2026-10-17",
-          "opponent": "Wiggins",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/severance-vs-wiggins/10-17-2026/?c=4e1e2270-afcb-4996-be00-f69f62da34fd",
-          "stage": "Tournament",
-          "neutral": true,
-          "venue": "Sterling High School",
           "result": "L",
           "score": {
             "us": 0,
@@ -628,8 +627,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/softball/fall/",
-      "fetched": "2026-11-16T23:16:10.549Z",
-      "maxprepsUpdated": "2026-11-16T20:24:24",
+      "fetched": "2026-11-18T20:46:03.694Z",
+      "maxprepsUpdated": "2026-11-18T20:18:26",
       "overall": "19-8",
       "league": {
         "record": "9-1",
@@ -653,19 +652,6 @@
         },
         {
           "date": "2026-10-17",
-          "opponent": "Palmer Ridge",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/palmer-ridge-monument-vs-severance/10-17-2026/?c=d08b4d46-faa9-450d-bf95-66633c841104",
-          "stage": "Tournament",
-          "neutral": true,
-          "result": "L",
-          "score": {
-            "us": 4,
-            "them": 6
-          }
-        },
-        {
-          "date": "2026-10-17",
           "opponent": "Rifle",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/rifle-vs-severance/10-17-2026/?c=0ed4596a-f8d3-4995-844d-ce959e1aac96",
@@ -675,6 +661,19 @@
           "score": {
             "us": 8,
             "them": 5
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Palmer Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/palmer-ridge-monument-vs-severance/10-17-2026/?c=d08b4d46-faa9-450d-bf95-66633c841104",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 6
           }
         },
         {
@@ -805,20 +804,6 @@
         },
         {
           "date": "2026-09-11",
-          "opponent": "Golden",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-severance/9-11-2026/?c=bdf00817-500f-4d10-b848-c19bfbf21028",
-          "stage": "Tournament",
-          "neutral": true,
-          "venue": "Brush Tournament",
-          "result": "W",
-          "score": {
-            "us": 16,
-            "them": 1
-          }
-        },
-        {
-          "date": "2026-09-11",
           "opponent": "Brush",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/brush-vs-severance/9-11-2026/?c=43585858-89ff-4394-a7a1-4e9436faa482",
@@ -829,6 +814,20 @@
           "score": {
             "us": 5,
             "them": 6
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Golden",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-severance/9-11-2026/?c=bdf00817-500f-4d10-b848-c19bfbf21028",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Brush Tournament",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 1
           }
         },
         {
@@ -856,20 +855,6 @@
         },
         {
           "date": "2026-09-04",
-          "opponent": "Strasburg",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/severance-vs-strasburg/9-4-2026/?c=3adb1bf8-e149-4b7b-81da-9769740422fb",
-          "stage": "Tournament",
-          "neutral": true,
-          "venue": "NC Classic",
-          "result": "W",
-          "score": {
-            "us": 9,
-            "them": 5
-          }
-        },
-        {
-          "date": "2026-09-04",
           "opponent": "Southeast Colorado",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/severance-vs-southeast-colorado-wiley/9-4-2026/?c=a591feea-b649-4859-96ba-bb8bb1373f56",
@@ -880,6 +865,20 @@
           "score": {
             "us": 22,
             "them": 7
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Strasburg",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/severance-vs-strasburg/9-4-2026/?c=3adb1bf8-e149-4b7b-81da-9769740422fb",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "NC Classic",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 5
           }
         },
         {
@@ -970,8 +969,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/cross-country/",
-      "fetched": "2026-11-16T23:16:10.549Z",
-      "maxprepsUpdated": "2026-11-16T19:30:32",
+      "fetched": "2026-11-18T20:46:03.694Z",
+      "maxprepsUpdated": "2026-11-18T17:41:04",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -984,8 +983,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/cross-country/girls/",
-      "fetched": "2026-11-16T23:16:10.549Z",
-      "maxprepsUpdated": "2026-11-16T23:16:50",
+      "fetched": "2026-11-18T20:46:03.694Z",
+      "maxprepsUpdated": "2026-11-18T20:14:38",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -998,8 +997,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/basketball/",
-      "fetched": "2026-11-16T23:16:10.549Z",
-      "maxprepsUpdated": "2026-11-16T20:12:21",
+      "fetched": "2026-11-18T20:46:03.694Z",
+      "maxprepsUpdated": "2026-11-18T19:34:22",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1157,8 +1156,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/basketball/girls/",
-      "fetched": "2026-11-16T23:16:10.549Z",
-      "maxprepsUpdated": "2026-11-16T20:03:51",
+      "fetched": "2026-11-18T20:46:03.694Z",
+      "maxprepsUpdated": "2026-11-18T19:07:42",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1294,8 +1293,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/wrestling/",
-      "fetched": "2026-11-16T23:16:10.549Z",
-      "maxprepsUpdated": "2026-11-16T21:47:11",
+      "fetched": "2026-11-18T20:46:03.694Z",
+      "maxprepsUpdated": "2026-11-18T19:24:31",
       "results": [],
       "upcoming": [],
       "held": [],

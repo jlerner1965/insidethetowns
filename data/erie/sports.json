@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-16T23:18:40.185Z",
+  "generated": "2026-11-18T20:48:33.387Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/football/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T20:05:49",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T17:17:47",
       "overall": "0-10",
       "league": {
         "record": "0-6",
@@ -135,8 +135,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/soccer/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T19:30:34",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T19:53:41",
       "overall": "13-2-2",
       "league": {
         "record": "5-1-1",
@@ -347,8 +347,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/volleyball/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T20:26:56",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T20:32:40",
       "overall": "10-15",
       "league": {
         "record": "7-7",
@@ -356,19 +356,6 @@
         "place": "5th"
       },
       "results": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Lutheran",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-lutheran-parker/11-7-2026/?c=b97235b5-fefa-4e3b-8af8-259193f7605f",
-          "stage": "Playoffs",
-          "neutral": true,
-          "result": "L",
-          "score": {
-            "us": 0,
-            "them": 3
-          }
-        },
         {
           "date": "2026-11-07",
           "opponent": "Pine Creek",
@@ -383,10 +370,12 @@
           }
         },
         {
-          "date": "2026-10-27",
-          "opponent": "Fossil Ridge",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-fossil-ridge-fort-collins/10-27-2026/?c=5cc9a6a2-6acd-457e-a155-88832a1cdf86",
+          "date": "2026-11-07",
+          "opponent": "Lutheran",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-lutheran-parker/11-7-2026/?c=b97235b5-fefa-4e3b-8af8-259193f7605f",
+          "stage": "Playoffs",
+          "neutral": true,
           "result": "L",
           "score": {
             "us": 0,
@@ -394,12 +383,10 @@
           }
         },
         {
-          "date": "2026-10-24",
-          "opponent": "Pine Creek",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-pine-creek-colorado-springs/10-24-2026/?c=ba8b03d2-a7e9-4917-8714-689c75ee6128",
-          "stage": "Tournament",
-          "neutral": true,
+          "date": "2026-10-27",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-fossil-ridge-fort-collins/10-27-2026/?c=5cc9a6a2-6acd-457e-a155-88832a1cdf86",
           "result": "L",
           "score": {
             "us": 0,
@@ -421,16 +408,15 @@
           }
         },
         {
-          "date": "2026-10-23",
-          "opponent": "Roosevelt",
+          "date": "2026-10-24",
+          "opponent": "Pine Creek",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-roosevelt-johnstown/10-23-2026/?c=399ff5bf-afed-4f0b-86f6-7deb95cf5854",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-pine-creek-colorado-springs/10-24-2026/?c=ba8b03d2-a7e9-4917-8714-689c75ee6128",
           "stage": "Tournament",
           "neutral": true,
-          "venue": "Mustang Classic",
           "result": "L",
           "score": {
-            "us": 2,
+            "us": 0,
             "them": 3
           }
         },
@@ -446,6 +432,20 @@
           "score": {
             "us": 3,
             "them": 2
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Roosevelt",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-roosevelt-johnstown/10-23-2026/?c=399ff5bf-afed-4f0b-86f6-7deb95cf5854",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Mustang Classic",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
           }
         },
         {
@@ -657,8 +657,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/softball/fall/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T21:11:22",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T18:33:46",
       "overall": "22-6",
       "league": {
         "record": "12-2",
@@ -682,20 +682,6 @@
         },
         {
           "date": "2026-10-23",
-          "opponent": "Valor Christian",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-valor-christian-highlands-ranch/10-23-2026/?c=1b119497-35f3-42da-85bc-78c145dc4864",
-          "stage": "State Softball Tournaments",
-          "neutral": true,
-          "venue": "Aurora Sports Park",
-          "result": "W",
-          "score": {
-            "us": 7,
-            "them": 4
-          }
-        },
-        {
-          "date": "2026-10-23",
           "opponent": "Eaglecrest",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/eaglecrest-centennial-vs-erie/10-23-2026/?c=ac9d6923-0771-41f0-b21c-f74be0edc40f",
@@ -706,6 +692,20 @@
           "score": {
             "us": 13,
             "them": 9
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Valor Christian",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-valor-christian-highlands-ranch/10-23-2026/?c=1b119497-35f3-42da-85bc-78c145dc4864",
+          "stage": "State Softball Tournaments",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 7,
+            "them": 4
           }
         },
         {
@@ -956,20 +956,6 @@
         },
         {
           "date": "2026-08-20",
-          "opponent": "Arvada West",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/arvada-west-vs-erie/8-20-2026/?c=22c40f2e-2d9c-4a8f-a528-2570c808725a",
-          "stage": "Tournament",
-          "neutral": true,
-          "venue": "Regency Athletic Complex at MSU Denver",
-          "result": "W",
-          "score": {
-            "us": 18,
-            "them": 6
-          }
-        },
-        {
-          "date": "2026-08-20",
           "opponent": "Valor Christian",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/erie-vs-valor-christian-highlands-ranch/8-20-2026/?c=d227d957-28c8-4e1e-b2af-cf54e35e0b6e",
@@ -980,6 +966,20 @@
           "score": {
             "us": 13,
             "them": 5
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Arvada West",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/arvada-west-vs-erie/8-20-2026/?c=22c40f2e-2d9c-4a8f-a528-2570c808725a",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Regency Athletic Complex at MSU Denver",
+          "result": "W",
+          "score": {
+            "us": 18,
+            "them": 6
           }
         },
         {
@@ -1004,8 +1004,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T23:19:15",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T18:41:27",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1018,8 +1018,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/girls/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T23:19:19",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T18:10:26",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1032,8 +1032,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T20:32:48",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T19:07:53",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1198,8 +1198,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/girls/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T22:23:17",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T20:45:30",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1260,11 +1260,11 @@
           "time": "17:30"
         },
         {
-          "date": "2027-01-06",
+          "date": "2027-01-09",
           "opponent": "Columbine",
           "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/columbine-littleton-vs-erie/1-6-2027/?c=b2fcfd5a-d09f-4f7f-b289-2251e906a3fb",
-          "time": "18:30"
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/columbine-littleton-vs-erie/1-9-2027/?c=b2fcfd5a-d09f-4f7f-b289-2251e906a3fb",
+          "time": "12:00"
         },
         {
           "date": "2027-01-11",
@@ -1381,8 +1381,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/wrestling/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T21:12:58",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T20:49:35",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1395,8 +1395,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/swimming/girls/",
-      "fetched": "2026-11-16T23:18:40.185Z",
-      "maxprepsUpdated": "2026-11-16T23:19:45",
+      "fetched": "2026-11-18T20:48:33.387Z",
+      "maxprepsUpdated": "2026-11-18T20:49:39",
       "results": [],
       "upcoming": [],
       "held": [],
