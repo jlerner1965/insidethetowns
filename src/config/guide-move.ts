@@ -39,7 +39,7 @@ import type { TownConfig } from './towns/types.ts';
 
 /** The switches, by config slug: `false`, or the day the guide was cut over ("YYYY-MM-DD"). */
 export const GUIDE_MOVE: Readonly<Record<string, false | string>> = {
-  johnstown: false,
+  johnstown: '2026-11-18',
   berthoud: false,
   erie: false,
   windsor: false,

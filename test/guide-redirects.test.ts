@@ -14,7 +14,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { getNetworkHub, listsEvents } from '../src/config/index.ts';
+import { getNetworkHub, isMoved, listsEvents } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { formerSlugRedirects, guideRedirects, guideRules, GUIDE_MOVED, QUIET_ANNUAL } from '../src/lib/former-slugs.ts';
 import { HUB_MOVED, hubMovedRules } from '../src/lib/hub-moved.ts';
@@ -22,7 +22,8 @@ import { generatedBlocks, heldEventRedirects, REDIRECT_LIMIT, withBlocks, type H
 
 const root = new URL('..', import.meta.url).pathname;
 const rules = (JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8')) as { redirects: HostRule[] }).redirects;
-const live = towns.filter((t) => t.status === 'live');
+// A guide moved into the hub (src/config/guide-move.ts) has no rules in vercel.json: api/legacy.ts answers its domain from the map its build writes.
+const live = towns.filter((t) => t.status === 'live' && !isMoved(t));
 const hub = getNetworkHub();
 const onHost = (domain: string) => rules.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 

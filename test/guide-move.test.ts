@@ -28,13 +28,18 @@ const hub = config.getNetworkHub();
 
 const SEVEN = ['johnstown', 'berthoud', 'erie', 'windsor', 'carbon-valley', 'lyons', 'niwot'];
 
-test('the committed switches are all off; turned on, each guide keeps its status, its name and its lists, and gains a section that carries every page', () => {
+test('each committed switch is off or the day it was cut over; turned on, each guide keeps its status, its name and its lists, and gains a section that carries every page', () => {
   const committed = readFileSync('src/config/guide-move.ts', 'utf8');
-  for (const slug of SEVEN) assert.match(committed, new RegExp(`^\\s*'?${slug}'?: false,$`, 'm'), `${slug}: switched off in the file`);
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Denver', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  for (const slug of SEVEN) {
+    const m = committed.match(new RegExp(`^\\s*'?${slug}'?: (false|'\\d{4}-\\d{2}-\\d{2}'),$`, 'm'));
+    assert.ok(m, `${slug}: false, or the day it was cut over, in the file`);
+    if (m![1] !== 'false') assert.ok(m![1]!.slice(1, -1) <= today, `${slug}: cut over on ${m![1]}, a day not after today`);
+  }
   assert.deepEqual([...MOVING_GUIDES], SEVEN, 'Johnstown first, as the cutover goes');
   for (const slug of SEVEN) {
     const t = allTowns.find((x) => x.slug === slug)!;
-    assert.ok(isMoved(t) && GUIDE_MOVE[slug] === false, `${slug}: on for this process only`);
+    assert.ok(isMoved(t) && (GUIDE_MOVE[slug] === false || /^\d{4}-\d{2}-\d{2}$/.test(GUIDE_MOVE[slug] as string)), `${slug}: on for this process, or cut over`);
     assert.equal(t.status, 'live', `${slug}: still live, so its newsletter, its weekly routine and its re-checks go on`);
     assert.deepEqual(t.hubPage, { town: slug, since: t.section!.since });
     assert.equal(t.section!.mode, 'full');

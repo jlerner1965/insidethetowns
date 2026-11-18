@@ -26,11 +26,12 @@ test('the annual pages no tradition names are listed under them, so none is link
 
 test('the hub’s address for each live guide’s town goes to the guide, and Carbon Valley’s three towns to its home (review of 14 November 2026)', async () => {
   const { HUB_MOVED } = await import('../src/lib/hub-moved.ts');
-  const { liveTowns } = await import('../src/config/index.ts');
+  const { guideOrigin, isMoved, liveTowns } = await import('../src/config/index.ts');
   const { STANDALONE_GUIDES } = await import('../src/config/hub-towns.ts');
-  for (const t of liveTowns()) assert.equal(HUB_MOVED[`/${t.slug}`], `https://${t.domain}/`, `/${t.slug}/`);
+  // A guide moved into the hub (src/config/guide-move.ts) has no rule: /<town>/ is its section's home.
+  for (const t of liveTowns()) assert.equal(HUB_MOVED[`/${t.slug}`], isMoved(t) ? undefined : `https://${t.domain}/`, `/${t.slug}/`);
   for (const [key, g] of Object.entries(STANDALONE_GUIDES)) {
     const guide = liveTowns().find((t) => t.slug === g.guide)!;
-    for (const name of g.towns ?? []) assert.equal(HUB_MOVED[`/${name.toLowerCase()}`], `https://${guide.domain}/`, `${key}: /${name.toLowerCase()}/`);
+    for (const name of g.towns ?? []) if (name.toLowerCase() !== guide.slug) assert.equal(HUB_MOVED[`/${name.toLowerCase()}`], `${guideOrigin(guide)}/`, `${key}: /${name.toLowerCase()}/`);
   }
 });

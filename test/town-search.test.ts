@@ -7,7 +7,7 @@
  */
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { allSites, liveTowns } from '../src/config/index.ts';
+import { allSites, guideOrigin, liveTowns } from '../src/config/index.ts';
 import { HUB_TOWNS } from '../src/config/hub-towns.ts';
 import { matchTown, normalizeTownQuery } from '../src/lib/town-search.ts';
 import { annualDestination, coveredTowns, guideDestination, townRegions, townSearchIndex } from '../src/lib/town-search-index.ts';
@@ -27,7 +27,7 @@ test('every community guide leads its own name, its title and its slug', () => {
   for (const guide of liveTowns()) {
     for (const q of [guide.name, guide.siteTitle, guide.name.toUpperCase()]) {
       const { towns } = matchTown(q, index);
-      assert.equal(towns[0]?.url, `https://${guide.domain}/`, `${q} leads with ${guide.siteTitle}`);
+      assert.equal(towns[0]?.url, `${guideOrigin(guide)}/`, `${q} leads with ${guide.siteTitle}`);
       assert.equal(towns[0]?.kind, 'guide');
     }
   }
@@ -37,7 +37,7 @@ test('a guide answers to the towns it covers, and says so', () => {
   for (const guide of liveTowns()) {
     for (const name of coveredTowns(guide)) {
       const { towns } = matchTown(name, index);
-      const hit = towns.find((t) => t.url === `https://${guide.domain}/`);
+      const hit = towns.find((t) => t.url === `${guideOrigin(guide)}/`);
       assert.ok(hit, `${name} finds ${guide.siteTitle}`);
       assert.match(hit.covers ?? '', new RegExp(name), `${guide.siteTitle} names ${name} among the towns it covers`);
     }

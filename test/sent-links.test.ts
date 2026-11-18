@@ -29,10 +29,10 @@ import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { towns } from '../src/config/towns/registry.ts';
-import { listsEvents } from '../src/config/index.ts';
+import { isMoved, listsEvents } from '../src/config/index.ts';
 import { hubRoutes, placeTypeRoutes } from '../src/integrations/town-routes.ts';
 import { ALSO_COVERED } from '../src/lib/fold.ts';
-import { formerSlugs, QUIET_ANNUAL } from '../src/lib/former-slugs.ts';
+import { formerSlugs, guideRedirects, QUIET_ANNUAL } from '../src/lib/former-slugs.ts';
 import { heldEventRedirects } from '../scripts/lib/redirect-rules.ts';
 import legacyMap from '../api/legacy-map.json' with { type: 'json' };
 
@@ -88,6 +88,12 @@ function answered(l: Link): boolean {
   // November 2026): api/legacy.ts answers every path on its host from
   // docs/migration/redirect-map.csv, 301 or 410, and an address it does not
   // know with the town's page (test/legacy-redirects.test.ts).
+  // A guide moved whole into the hub (src/config/guide-move.ts): its content is still here, and its former and
+  // retired slugs go into the map its build writes (scripts/migration/guide-map.ts, from guideRedirects), not vercel.json.
+  if (isMoved(town)) {
+    if (existsSync(join(root, 'content', l.town, l.collection, `${l.slug}.md`))) return true;
+    return `/${l.collection}/${l.slug}` in guideRedirects(l.town, { listsEvents: listsEvents(town) });
+  }
   if (town.section && town.hubPage) return l.domain in legacyMap;
   const builds = liveSlugs.has(l.town) && (l.collection !== 'events' || listsEvents(town));
   if (builds) return existsSync(join(root, 'content', l.town, l.collection, `${l.slug}.md`)) || redirected(l.domain, l.town, l.collection, l.slug);
@@ -141,7 +147,8 @@ test('every event, place and article a sent email or a weekly note links is stil
 
 test('the links into folded guides and to Niwot’s events are among those checked, and each lands where its rule says', () => {
   // Guards the test above: if the patterns stopped reaching these links it would pass on nothing.
-  const folded = links.filter((l) => config(l.town).hubPage);
+  // A guide moved whole into the hub (src/config/guide-move.ts) is checked above as a live guide, not here.
+  const folded = links.filter((l) => config(l.town).hubPage && !isMoved(config(l.town)));
   assert.ok(folded.length > 0, 'the sent issues link guides since folded into their hub pages');
   for (const l of folded) {
     const town = config(l.town);
