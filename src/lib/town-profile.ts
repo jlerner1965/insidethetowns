@@ -144,7 +144,7 @@ export const townProfileSchema = z
             /** The manager's page for it: the name links here where there is no page on this site. */
             url: own.optional(),
             /** Other official pages a fact was read on (a regulations page for the dog rule, a fees page). */
-            alsoSources: z.array(source).min(1).max(3).optional(),
+            alsoSources: z.array(source).min(1).max(4).optional(),
             ...read,
           })
           .strict()
