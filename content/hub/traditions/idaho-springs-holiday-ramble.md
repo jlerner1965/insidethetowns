@@ -15,5 +15,5 @@ years:
     startTime: "Community Christmas Tree Lighting at 6:00 PM Friday"
     place: "Miner Street and Citizens Park"
     cost: "Free to explore; Sips of the Season $29 per person"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

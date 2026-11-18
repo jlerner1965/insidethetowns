@@ -187,3 +187,32 @@ test('the publisher graph leads from every town to the hub and from the hub to t
   assert.equal(org.parentOrganization?.name, hub.publisher!.name);
   assert.equal(org.parentOrganization?.url, hub.publisher!.url);
 });
+
+test('a section of the hub declares the hub’s one WebSite and Organization, never “Inside <Town>” (18 November 2026)', async () => {
+  const { siteJsonLd, publicationSite, collectionPageJsonLd, webPageJsonLd } = await import('../src/lib/seo.ts');
+  const { getNetworkHub, findTown, sectionSite } = await import('../src/config/index.ts');
+  const hub = getNetworkHub();
+  const longmont = sectionSite(findTown('longmont')!);
+  const before = process.env.HUB_SECTION;
+  process.env.HUB_SECTION = '1';
+  try {
+    assert.equal(publicationSite(longmont), hub);
+    const graph = siteJsonLd(longmont) as { '@graph': Array<Record<string, unknown>> };
+    const website = graph['@graph'].find((n) => n['@type'] === 'WebSite')!;
+    const org = graph['@graph'].find((n) => n['@type'] === 'Organization')!;
+    assert.equal(website.name, 'Inside the Towns');
+    assert.equal(website['@id'], `https://${hub.domain}/#website`);
+    assert.equal(org.name, 'Inside the Towns');
+    assert.equal(org['@id'], `https://${hub.domain}/#org`);
+    assert.doesNotMatch(JSON.stringify(graph), /Inside Longmont/);
+    const page = collectionPageJsonLd(longmont, { name: 'Events', description: 'x', path: '/events/' }) as { isPartOf: { '@id': string } };
+    assert.equal(page.isPartOf['@id'], `https://${hub.domain}/#website`);
+    const web = webPageJsonLd(longmont, { name: 'About', description: 'x', path: '/about/' }) as { publisher: { '@id': string } };
+    assert.equal(web.publisher['@id'], `https://${hub.domain}/#org`);
+  } finally {
+    if (before === undefined) delete process.env.HUB_SECTION;
+    else process.env.HUB_SECTION = before;
+  }
+  // Outside a section build, a guide keeps its own.
+  assert.equal(publicationSite(findTown('niwot')!), findTown('niwot'));
+});

@@ -6,6 +6,7 @@ export const berthoud: TownConfig = {
   variant: 'front-range',
   region: 'Northern Colorado',
   neighbors: ['johnstown'],
+  hubNeighbors: ['loveland', 'longmont'],
   slug: 'berthoud',
   name: 'Berthoud',
   domain: 'insideberthoud.com',

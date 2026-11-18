@@ -41,7 +41,10 @@ const band = theme?.band ?? town.colors.primary;
 // whose colour is the band's own, where a dot of it could not be seen.
 const dot = school?.colors?.primary;
 const showDot = !!dot && dot.toLowerCase() !== band.toLowerCase();
-const vars = [`--board:${band}`, ...(showDot ? [`--board-dot:${dot}`] : []), `--board-eyebrow:${theme?.eyebrow ?? '#ffffff'}`].join(';');
+// The label is white: the school's colours are the band and the dot, never
+// the colour of words (the post-migration fixes, 18 November 2026; the
+// label was the school's second colour where it read on the band).
+const vars = [`--board:${band}`, ...(showDot ? [`--board-dot:${dot}`] : [])].join(';');
 // "Niwot athletics": the school's name, not the mascot's, since 6 November 2026 (schoolAthletics).
 const label = school ? schoolAthletics(school) : undefined;
 
@@ -76,7 +79,7 @@ const phoneNext = !!next && (nextSoon || !!next.game.stage);
       <div class="container-page flex flex-wrap items-center gap-x-4 gap-y-1 py-2.5 text-[0.9375rem] leading-snug md:gap-x-6">
         <span class="inline-flex items-center gap-2">
           {showDot && <span class="inline-block size-3 shrink-0 rounded-full bg-[var(--board-dot)]" aria-hidden="true"></span>}
-          <span class="eyebrow text-[var(--board-eyebrow)]">{label}</span>
+          <span class="eyebrow text-white">{label}</span>
         </span>
         {resultLine && result && (
           <span class:list={[phoneNext && 'hidden sm:inline']}><span class="text-white">{result.team.name}</span> · <span class="font-semibold">{resultLine}</span><span class="hidden sm:inline text-white"> {where(result.game)} {result.game.opponent}</span></span>

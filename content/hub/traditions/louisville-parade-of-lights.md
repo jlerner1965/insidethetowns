@@ -12,5 +12,5 @@ years:
     status: confirmed
     date: 2026-12-04
     place: "Historic Main Street"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

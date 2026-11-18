@@ -20,5 +20,5 @@ years:
       - name: "Tree lighting at City Hall"
         date: 2026-11-28
         time: "immediately after the parade"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

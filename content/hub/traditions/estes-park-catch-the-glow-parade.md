@@ -18,7 +18,7 @@ years:
     startTime: "5:30 pm"
     place: "Elkhorn Avenue"
     cost: "Free"
-    checked: 2026-11-12
+    checked: 2026-11-17
   - year: 2025
     status: confirmed
     date: 2025-11-28

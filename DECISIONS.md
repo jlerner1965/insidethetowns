@@ -11964,3 +11964,45 @@ layout changes to the hub's pages beyond the links named.*
   'astro'" on main since #457 (its scripts reach astro/zod through
   src/lib/lastmod.ts and the job installed nothing). The job now runs
   `npm ci` first.
+
+## Post-migration fixes, 18 November 2026
+
+*The owner's list after #459–#461: one pull request.*
+
+- **A school's colour is never the colour of words in a listing.** The
+  hub's home set the Friday game's title ("Roosevelt Roughriders vs Mesa
+  Ridge") and each school's name under High school scores in the school's
+  colour; a guide's home set its game rows in the guide's primary, which on
+  a flagship is the school's; Windsor's home and /sports/ index set each
+  school's name in its own. Each is now a link like the listings around it,
+  and the school's colour is a dot: beside "Johnstown · Friday night
+  lights", beside a school's name in the scores, beside each school on
+  Windsor's list. The home strip keeps its band and its dot; its label is
+  white where it was the school's second colour (Erie's orange, Windsor's
+  and Carbon Valley's gold, Timnath's gold). A school's own sports pages
+  keep the school's colours as their palette (the audit of 17 November
+  2026, Severance's navy), which the owner's list did not name.
+- **The guides link the towns next door that now live on the hub.** Each
+  guide's "Other towns" menu and the footer's nearby list name them, each
+  to its page on insidethetowns.com (`hubNeighbors` on the guide's config,
+  `hubNeighborsOf`): the hub towns the guide named in `neighbors` before
+  the restructure of 12 November 2026 (7141d032), where the hub builds a
+  page for them. Berthoud: Loveland, Longmont. Niwot: Longmont, Lafayette,
+  Nederland. Erie: Longmont, Lafayette, Golden. Lyons: Longmont, Estes
+  Park, Nederland. Johnstown: Loveland. Windsor: Timnath, Fort Collins.
+  Carbon Valley named none.
+- **One site name.** A section's pages (Longmont, Loveland, Fort Collins,
+  Estes Park) declared a WebSite and an Organization of their own,
+  "Inside Longmont" at /longmont/, and that name as og:site_name. They now
+  declare the hub's one WebSite and Organization, "Inside the Towns" at
+  https://insidethetowns.com/, and every page's `isPartOf` and `publisher`
+  point there (`publicationSite`, src/lib/seo.ts). "Inside <Town>" stays
+  the section's label in its breadcrumbs, headings and footer.
+- **Loveland's Día de los Muertos is a tradition**, /loveland/day-of-the-dead/
+  (Heart and Sol, at the Pulliam Community Building; the 10th annual on
+  November 7, 2026 and the 9th on November 1, 2025, both on the Loveland
+  Chamber's listings), and the old guide's dated address for it moves
+  from 410 to a 301 to that page.
+- **Check dates are Denver's day.** The records read on the evening of
+  November 17 in Colorado (after midnight UTC) carry 2026-11-17, as
+  test/check-dates.test.ts requires.

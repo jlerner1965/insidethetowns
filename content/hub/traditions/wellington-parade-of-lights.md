@@ -10,5 +10,6 @@ sourceUrl: "https://www.wellingtoncolorado.gov/645/Home-for-the-Holidays"
 years:
   - year: 2026
     status: canceled
-    checked: 2026-11-12
+    reason: "construction prevents us from hosting the Parade of Lights this year"
+    checked: 2026-11-17
 ---

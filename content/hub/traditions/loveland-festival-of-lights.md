@@ -13,5 +13,5 @@ years:
     date: 2026-11-20
     startTime: "5 pm"
     place: "4th Street between Garfield Avenue and Washington Avenue"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

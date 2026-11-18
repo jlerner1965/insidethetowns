@@ -7,6 +7,7 @@ import { getImage } from 'astro:assets';
 import { getSite } from '@/config';
 import { resolveSiteImage } from '@/lib/images';
 import { pageTitle } from '@/lib/titles';
+import { publicationSite } from '@/lib/seo';
 import { clampSnippet, markdownToText } from '@/lib/plain-text';
 
 interface Props {
@@ -64,7 +65,8 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 {!noindex && <link rel="canonical" href={canonical} />}
 {noindex && <meta name="robots" content="noindex" />}
 
-<meta property="og:site_name" content={site.siteTitle} />
+{/* The publication: on a section of the hub, Inside the Towns, never "Inside <Town>" (publicationSite). */}
+<meta property="og:site_name" content={publicationSite(site).siteTitle} />
 <meta property="og:type" content={type} />
 <meta property="og:title" content={Astro.props.fullTitle ?? title ?? site.siteTitle} />
 <meta property="og:description" content={metaDescription} />

@@ -14,5 +14,5 @@ years:
     date: 2026-11-27
     startTime: "7:00 PM"
     place: "Hotel Colorado"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

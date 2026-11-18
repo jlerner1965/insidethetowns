@@ -10,7 +10,7 @@ import type { HubConfig, SiteConfig, TownConfig } from './towns/types.ts';
 import { towns } from './towns/registry.ts';
 import { hub } from './towns/hub.ts';
 import { editionsOf, type Edition } from '../lib/editions.ts';
-import { STANDALONE_GUIDES } from './hub-towns.ts';
+import { STANDALONE_GUIDES, findHubTown } from './hub-towns.ts';
 
 export type { ConditionsLink, EditorConfig, HubConfig, NewsletterEdition, SiteConfig, TownConfig, TownRegion, TownStatus, TownVariant, NavItem } from './towns/types.ts';
 export type { Edition } from '../lib/editions.ts';
@@ -106,6 +106,20 @@ export function mountainTowns(): TownConfig[] {
 export function neighborsOf(town: Pick<TownConfig, 'neighbors'>): TownConfig[] {
   const guides = new Set(liveTowns().map((t) => t.slug));
   return town.neighbors.map((slug) => findTown(slug)).filter((t): t is TownConfig => !!t && guides.has(t.slug));
+}
+
+/**
+ * A guide's neighbours that live on the hub (TownConfig.hubNeighbors), each
+ * with the address of its page there, in the order the config lists them.
+ * `published` is the hub towns whose page is built (publishedHubTownSlugs,
+ * src/lib/tradition-files.ts): one without a page is left out, as a guide
+ * that has not launched is from neighborsOf.
+ */
+export function hubNeighborsOf(town: Pick<TownConfig, 'hubNeighbors'>, published: ReadonlySet<string>): Array<{ slug: string; name: string; href: string }> {
+  return (town.hubNeighbors ?? []).flatMap((slug) => {
+    const page = findHubTown(slug);
+    return page && published.has(slug) ? [{ slug, name: page.name, href: `https://${hub.domain}/${slug}/` }] : [];
+  });
 }
 
 /**

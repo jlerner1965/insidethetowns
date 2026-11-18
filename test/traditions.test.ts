@@ -239,7 +239,8 @@ test('the routes: /traditions/ only on a guide a record names; a hub page per se
     assert.doesNotMatch(pattern, /\d{4}/, 'no year in the address');
   }
   // Turkey trots opened on 12 November 2026 with six verified records.
-  assert.deepEqual(Object.keys(CURRENT_SEASONS).sort(), ['free-day', 'harvest-festival', 'oktoberfest', 'outdoor', 'parade-of-lights', 'rodeo-fair', 'tree-lighting', 'turkey-trot', 'winter-carnival']);
+  // New Year's opened on 18 November 2026 (the post-migration fixes).
+  assert.deepEqual(Object.keys(CURRENT_SEASONS).sort(), ['free-day', 'harvest-festival', 'new-years', 'oktoberfest', 'outdoor', 'parade-of-lights', 'rodeo-fair', 'tree-lighting', 'turkey-trot', 'winter-carnival']);
 });
 
 // ---------- approved records and drafts ----------

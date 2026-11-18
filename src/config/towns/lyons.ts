@@ -6,6 +6,7 @@ export const lyons: TownConfig = {
   variant: 'front-range',
   region: 'Boulder County',
   neighbors: ['niwot'],
+  hubNeighbors: ['longmont', 'estes-park', 'nederland'],
   slug: 'lyons',
   name: 'Lyons',
   domain: 'insidelyons.com',

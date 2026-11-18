@@ -10,6 +10,7 @@ export const erie: TownConfig = {
   // November 2026; Lafayette and Golden were neighbours until their guides
   // were folded into their hub pages on 12 November.
   neighbors: ['carbon-valley', 'niwot'],
+  hubNeighbors: ['longmont', 'lafayette', 'golden'],
   slug: 'erie',
   name: 'Erie',
   domain: 'insideerie.com',

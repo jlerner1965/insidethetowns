@@ -463,8 +463,13 @@ are dated by the newest check of the records they show
    border.
 2. The town's colours are the guide's; category dots and eyebrows are the
    listing's, never the town's.
-3. The school's colours appear only on the home strip and the sports
-   pages, proven 7:1 under white by `npm run check-colors`.
+3. The school's colours appear only on the home strip (its band and its
+   dot) and the sports pages, proven 7:1 under white by
+   `npm run check-colors`, and as a dot beside a school's name or a
+   game's "Friday night lights" line. In a listing (the hub's home, This
+   weekend, a town page, a guide's home and This week) a game's title and
+   a school's name are links like any other, never in the school's
+   colour; the strip's label is white (18 November 2026).
 4. "Our pick" is amber; "Canceled" and "Postponed" are an ink-bordered
    label; "Free" and "Away" are plain words. The four are never one slot.
 5. Colour never carries meaning alone; every status is a word.

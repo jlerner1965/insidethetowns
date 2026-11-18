@@ -23,7 +23,9 @@
  * and from `sm` up the summary is not shown. A reader without the script
  * sees the list as before.
  */
-import { getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
+import { getNetworkHub, getSite, hubNeighborsOf, liveTowns, neighborsOf } from '@/config';
+import { getTraditions } from '@/lib/content';
+import { publishedHubTowns } from '@/lib/hub-towns';
 import { HUB_COLUMN } from './hub/pub';
 
 const site = getSite();
@@ -36,6 +38,9 @@ const guides = site.kind === 'hub' ? liveTowns() : [];
 // chrome on every page). The whole list is one click away on the hub,
 // where it is a directory rather than a footer.
 const sisters = site.kind === 'town' ? neighborsOf(site) : [];
+// And the towns next door that live on the hub, each to its page there (the post-migration fixes, 18 November 2026).
+const onHub = site.kind === 'town' ? hubNeighborsOf(site, new Set(publishedHubTowns(await getTraditions()).map((h) => h.slug))) : [];
+const nearbyCount = sisters.length + onHub.length;
 // The links get a taller hit area on phones, where they are thumbed, and keep
 // the strip compact from `sm` up, where they are clicked.
 const link = 'inline-block py-2 no-underline hover:text-white hover:underline sm:py-0.5';
@@ -64,13 +69,13 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
             >{hub.siteTitle}</a
           >: {liveTowns().length} Colorado town guides.
         </p>
-        {sisters.length > 0 && (
-          <nav aria-label="Sister guides" class="mt-2 w-full sm:mt-4">
+        {nearbyCount > 0 && (
+          <nav aria-label="Nearby towns" class="mt-2 w-full sm:mt-4">
             <details open data-sisters>
               {/* From `sm` up the list cannot be closed, so the disclosure
                   triangle, which promised it could, is not shown there. */}
               <summary class:list={[label, 'cursor-pointer py-3 sm:pointer-events-none sm:list-none sm:py-0 sm:[&::-webkit-details-marker]:hidden']}>
-                Nearby guides<span class="sm:hidden"> ({sisters.length})</span>
+                {onHub.length > 0 ? 'Nearby towns' : 'Nearby guides'}<span class="sm:hidden"> ({nearbyCount})</span>
               </summary>
               {/* The neighbours in a row, each a white link, and the hub's
                   whole list after them. */}
@@ -80,6 +85,11 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
                     <a href={`https://${t.domain}/`} class="inline-block py-3 text-[0.875rem] font-medium text-white no-underline hover:underline sm:py-0">{t.name}</a>
                   </li>
                 ))}
+                {onHub.map((t) => (
+                  <li class="break-inside-avoid leading-snug sm:pb-3">
+                    <a href={t.href} class="inline-block py-3 text-[0.875rem] font-medium text-white no-underline hover:underline sm:py-0" data-hub-town={t.slug}>{t.name}</a>
+                  </li>
+                ))}
                 <li class="leading-snug sm:pb-3"><a href={`https://${hub.domain}/#towns`} class="inline-block py-3 text-[0.875rem] font-medium text-white underline sm:py-0">All {liveTowns().length} guides →</a></li>
               </ul>
             </details>
@@ -87,7 +97,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
         )}
       </Fragment>
     )}
-    {sisters.length > 0 && (
+    {nearbyCount > 0 && (
       <script>
         // Closed on a phone, open from `sm` up; the markup is open to start with.
         const sisters = document.querySelector<HTMLDetailsElement>('[data-sisters]');

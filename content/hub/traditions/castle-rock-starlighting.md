@@ -15,5 +15,5 @@ years:
     startTime: "2 pm"
     place: "Historic Wilcox Square and Festival Park, downtown Castle Rock"
     cost: "Free"
-    checked: 2026-11-12
+    checked: 2026-11-17
 ---

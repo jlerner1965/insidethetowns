@@ -10,13 +10,13 @@ sourceUrl: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/Downtow
 years:
   - year: 2027
     status: not-announced
-    continues: "The annual Downtown Holiday Lighting Ceremony brings thousands of people to Downtown Fort Collins every year"
-    checked: 2026-11-13
+    continues: "The Downtown Holiday Lighting Ceremony brings thousands of people to Downtown Fort Collins every year"
+    checked: 2026-11-17
   - year: 2026
     status: confirmed
     date: 2026-11-06
     startTime: "5:30 p.m."
     place: "Old Town Square"
     cost: "Free"
-    checked: 2026-11-13
+    checked: 2026-11-17
 ---

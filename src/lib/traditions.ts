@@ -45,6 +45,10 @@ export const TRADITION_TYPES = [
   'harvest-festival',
   'winter-carnival',
   'free-day',
+  // Added 18 November 2026 (the post-migration fixes): the next holiday
+  // roundup after the parades and the tree lightings. New Year's Eve and
+  // New Year's Day, each from its organizer's page.
+  'new-years',
 ] as const;
 export type TraditionType = (typeof TRADITION_TYPES)[number];
 
@@ -93,6 +97,8 @@ export const TRADITION_TYPE_INFO: Record<TraditionType, { label: string; plural:
   // A day admission is free: a state park, a national park or public land,
   // a museum. One record per day the agency or the museum names.
   'free-day': { label: 'Free-admission day', plural: 'Free-admission days', path: '/free-admission-days/', category: 'outdoors' },
+  // A New Year's Eve celebration or fireworks, or a New Year's Day plunge, hike or run, from its organizer's page.
+  'new-years': { label: 'New Year’s', plural: 'New Year’s celebrations', path: '/new-years/', category: 'festival' },
 };
 
 /**
@@ -149,6 +155,9 @@ export const CURRENT_SEASONS: Partial<Record<TraditionType, { season: string; ye
   'harvest-festival': { season: 'each summer and fall' },
   'winter-carnival': { season: 'each winter' },
   'free-day': { season: 'through the year' },
+  // Opened 18 November 2026. No year: New Year's Eve falls in one year and
+  // New Year's Day in the next, so each row is the record's next date.
+  'new-years': { season: '2026–27' },
 };
 
 /** One year of a tradition, as the schema leaves it: dates as "YYYY-MM-DD". */
