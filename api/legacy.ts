@@ -122,13 +122,25 @@ export function requestedPath(url: URL): string {
 export function requestedSearch(url: URL): string {
   const params = new URLSearchParams(url.search);
   params.delete('legacy_path');
+  params.delete('legacy_host');
   const rest = params.toString();
   return rest ? `?${rest}` : '';
 }
 
+/**
+ * The folded domain the request is for: its Host. On a preview deployment
+ * only (VERCEL_ENV "preview"), `?legacy_host=insidegolden.com` stands in for
+ * it, so the map can be tried on Vercel before a merge: a preview's own
+ * address is no folded domain. Production ignores the parameter.
+ */
+export function requestedHost(url: URL, headers: Headers, env: Record<string, string | undefined> = process.env): string {
+  const given = url.searchParams.get('legacy_host');
+  return env.VERCEL_ENV === 'preview' && given ? given.toLowerCase().replace(/^www\./, '') : hostOf(headers);
+}
+
 export function GET(request: Request): Response {
   const url = new URL(request.url);
-  return answer(hostOf(request.headers), requestedPath(url), requestedSearch(url));
+  return answer(requestedHost(url, request.headers), requestedPath(url), requestedSearch(url));
 }
 
 export const HEAD = GET;

@@ -19,7 +19,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { allTowns } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
-import { answer, CACHE_HEADERS, lookup, requestedPath, requestedSearch, withQuery } from '../api/legacy.ts';
+import { answer, CACHE_HEADERS, lookup, requestedHost, requestedPath, requestedSearch, withQuery } from '../api/legacy.ts';
 import { readCsv } from '../scripts/migration/shared.ts';
 import map from '../api/legacy-map.json' with { type: 'json' };
 
@@ -170,4 +170,13 @@ test('Boo Bash on Main and the Stampede: the owner’s two Elizabeth calls of 17
   assert.match(stampede, /- year: 2027\n    status: confirmed\n    date: 2027-06-03\n    endDate: 2027-06-06\n/);
   // The Trick or Treat Train stays gone, on the owner's word.
   assert.equal(table['insideidahosprings.com']!.paths['/events/trick-or-treat-train-2026-10-30/'], 0);
+});
+
+test('a preview may name the folded domain to try; production answers the Host it was asked on', () => {
+  const url = new URL('https://insidelyons-abc.vercel.app/api/legacy?legacy_path=/&legacy_host=insidegolden.com');
+  const headers = new Headers({ host: 'insidelyons-abc.vercel.app' });
+  assert.equal(requestedHost(url, headers, { VERCEL_ENV: 'preview' }), 'insidegolden.com');
+  assert.equal(requestedHost(url, headers, { VERCEL_ENV: 'production' }), 'insidelyons-abc.vercel.app');
+  assert.equal(requestedHost(url, new Headers({ host: 'www.insidegolden.com' }), {}), 'insidegolden.com');
+  assert.equal(requestedSearch(url), '', 'neither parameter is carried onto the Location');
 });
