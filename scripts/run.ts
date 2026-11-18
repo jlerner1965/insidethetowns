@@ -61,6 +61,8 @@ if (command === 'build' && !isSectionBuild(env)) {
     const file = 'api/legacy-map.json';
     const table = JSON.parse(readFileSync(file, 'utf8')) as Record<string, unknown>;
     table[site.domain] = map.entry;
+    // A domain that forwards to the guide (formerDomains): the same answers, no sitemap of its own to serve.
+    for (const alias of site.formerDomains ?? []) table[alias] = { page: map.entry.page, paths: map.entry.paths, moved: map.entry.moved };
     writeFileSync(file, JSON.stringify(table), 'utf8');
     rmSync('dist', { recursive: true, force: true });
     mkdirSync('dist', { recursive: true });

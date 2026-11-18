@@ -51,7 +51,7 @@ const eventMap = foldEvents as FoldEventMap;
 // redirect for its host, only the rewrite that sends every path to the
 // function (below).
 // A guide moved whole (src/config/guide-move.ts) is answered the same way, from the map its own build writes.
-const legacy = allTowns.filter((t) => (t.hubPage && t.section) || isMoved(t));
+const legacy: Array<{ domain: string }> = [...allTowns.filter((t) => (t.hubPage && t.section) || isMoved(t)), ...allTowns.filter(isMoved).flatMap((t) => (t.formerDomains ?? []).map((domain) => ({ domain })))];
 const domains = [
   ...allTowns.filter((t) => t.hubPage && !t.section).map((t) => ({ domain: t.domain, town: t.hubPage!.town })),
   ...HUB_TOWNS.filter((t) => t.domain && published.has(t.slug)).map((t) => ({ domain: t.domain!, town: t.slug })),
@@ -99,10 +99,11 @@ for (const block of generatedBlocks()) {
 // (scripts/lib/redirect-rules.ts, RETIRED_ONTO_GUIDES): their hand-written
 // rules, home page first and catch-all last, with the guide's own former-slug
 // block between; each destination follows the guide's switch.
-for (const { host, lead, tail } of retiredOntoGuideRules()) {
+for (const { host, lead, events, tail } of retiredOntoGuideRules()) {
   const have = rules.filter((r) => hostOf(r) === host);
-  const generated = have.filter((r) => !lead.some((l) => l.source === r.source) && !tail.some((x) => x.source === r.source));
-  const want = [...lead, ...generated, ...tail];
+  const fixed = [...lead, ...events, ...tail];
+  const generated = have.filter((r) => !fixed.some((x) => x.source === r.source));
+  const want = [...lead, ...events, ...generated, ...tail];
   if (JSON.stringify(have) === JSON.stringify(want)) continue;
   changed++;
   const at = rules.findIndex((r) => hostOf(r) === host);

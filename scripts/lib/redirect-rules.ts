@@ -19,7 +19,7 @@ import { dayKey } from '../../src/lib/dates.ts';
 import { formerSlugRedirects, guideRedirects, guideRules, RETIRED_INDEX } from '../../src/lib/former-slugs.ts';
 import { eventExclusion } from '../../src/lib/freshness.ts';
 import { hubMovedRules } from '../../src/lib/hub-moved.ts';
-import { movedPath } from '../../src/lib/moved-guides.ts';
+import { movedEventPaths, movedPath } from '../../src/lib/moved-guides.ts';
 import { readOccurrences } from '../../src/lib/series.ts';
 import { parseFrontmatter } from './frontmatter.ts';
 
@@ -83,7 +83,10 @@ export function generatedBlocks(now: Date | null = new Date()): Array<{ host: st
   for (const t of allTowns.filter((t) => t.status === 'redirect')) {
     // Inside Frederick keeps every path into Carbon Valley; Severance's
     // listings kept their slugs on the Windsor guide. Once that guide has
-    // moved, each address goes straight to its place on the hub, one hop.
+    // moved, each address goes straight to its place on the hub, one hop:
+    // Severance by these rules; a domain the guide names in formerDomains
+    // (Frederick) by api/legacy.ts from the guide's map, so no rule here.
+    if (live.some((g) => isMoved(g) && g.formerDomains?.includes(t.domain))) continue;
     const successor = live.find((g) => g.slug === t.retired?.successor);
     if (successor) blocks.push({ host: t.domain, rules: ontoGuide(t.domain, successor, redirectsFor(successor, now)) });
     const home = live.find((g) => g.slug === t.foldedInto?.town);
@@ -133,15 +136,25 @@ export const RETIRED_ONTO_GUIDES: ReadonlyArray<{ host: string; guide: string; r
   { host: 'insidefirestone.com', guide: 'carbon-valley', rules: [['/', '/'], ['/(.*)', '/']] },
 ];
 
-/** Those rules as vercel.json carries them, for the guide's place today. */
-export function retiredOntoGuideRules(): Array<{ host: string; lead: HostRule[]; tail: HostRule[] }> {
+/**
+ * Those rules as vercel.json carries them, for the guide's place today. A
+ * host the moved guide names in `formerDomains` has none: api/legacy.ts
+ * answers it from the guide's map. On a host that keeps its rules, once the
+ * guide has moved, each annual event address the section does not carry
+ * (its tradition page stands for it) gets a rule of its own ahead of the
+ * patterns, so none lands on a page that is not built.
+ */
+export function retiredOntoGuideRules(): Array<{ host: string; lead: HostRule[]; events: HostRule[]; tail: HostRule[] }> {
   const hubOrigin = `https://${getNetworkHub().domain}`;
-  return RETIRED_ONTO_GUIDES.map(({ host, guide: slug, rules }) => {
+  return RETIRED_ONTO_GUIDES.flatMap(({ host, guide: slug, rules }) => {
     const guide = allTowns.find((t) => t.slug === slug)!;
+    if (isMoved(guide) && guide.formerDomains?.includes(host)) return [];
     // A pattern ("/events/:slug/", "/$1") keeps its shape: only a fixed path is read for an annual event's tradition page.
     const onto = (path: string) => (isMoved(guide) ? `${hubOrigin}${/[:$]/.test(path) ? `/${guide.hubPage!.town}${path}` : movedPath(guide.domain, path) ?? path}` : `${guideOrigin(guide)}${path}`);
-    const all = rules.map(([source, path]): HostRule => ({ source, has: [{ type: 'host', value: host }], destination: onto(path), permanent: true }));
-    return { host, lead: all.slice(0, 1), tail: all.slice(1) };
+    const rule = (source: string, destination: string): HostRule => ({ source, has: [{ type: 'host', value: host }], destination, permanent: true });
+    const all = rules.map(([source, path]) => rule(source, onto(path)));
+    const events = isMoved(guide) ? Object.entries(movedEventPaths(guide)).sort(([a], [b]) => a.localeCompare(b)).map(([path, to]) => rule(`${path.replace(/\/$/, '')}{/}?`, `${hubOrigin}${to}`)) : [];
+    return [{ host, lead: all.slice(0, 1), events, tail: all.slice(1) }];
   });
 }
 

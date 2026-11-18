@@ -427,7 +427,13 @@ first, then the other six the same day, on the owner's word):
    live domain (it needs the guide's section build at `.sections/<slug>/`,
    which `TOWN=hub npm run build` leaves): every mapped address 301s to its
    page in one hop or answers 410, and the sitemap and robots.txt answer 200.
-5. Remove the guide's line from the `VERCEL_DEPLOY_HOOKS` secret:
+5. **Lyons only**: in the `insidelyons` project, Settings → Domains, change
+   `explorelyons.com` and `www.explorelyons.com` from "Redirect to
+   insidelyons.com" to plain domains of the project, so the rewrite in
+   vercel.json answers them (one hop to the hub) instead of the 308 that
+   would add a hop. `formerDomains` on a guide's config names such domains;
+   Frederick's and Firestone's are on their own projects and need no change.
+6. Remove the guide's line from the `VERCEL_DEPLOY_HOOKS` secret:
    `node scripts/live-towns.ts --moved` names them. The nightly rebuild warns
    on each stale line until it is gone, and its hook is never fired again.
 

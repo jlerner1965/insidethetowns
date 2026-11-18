@@ -30,9 +30,10 @@
  *
  * The report is Markdown, for the pull request. Exit 1 when anything fails.
  */
-import { existsSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { allTowns, isMoved } from '../../src/config/index.ts';
 import { guideMap } from './guide-map.ts';
+import { RETIRED_ONTO_GUIDES } from '../lib/redirect-rules.ts';
 import { readCsv } from './shared.ts';
 
 const args = process.argv.slice(2);
@@ -70,13 +71,24 @@ interface Result { host: string; path: string; expected: string; got: string; ok
 const movedArg = option('moved');
 const movedGuides = movedArg ? allTowns.filter((t) => isMoved(t) && (movedArg === 'all' || t.slug === movedArg)) : [];
 if (movedArg && !movedGuides.length) throw new Error(`--moved=${movedArg}: no guide with its switch on (src/config/guide-move.ts; GUIDE_MOVE_ON=${movedArg} turns it on for this run)`);
+const vercelNow = JSON.parse(readFileSync('vercel.json', 'utf8')) as { redirects: Array<{ source: string; destination: string; has?: Array<{ type: string; value?: string }> }> };
 const movedRows = movedGuides.flatMap((guide) => {
   const out = `.sections/${guide.slug}`;
   if (!existsSync(`${out}/sitemap-0.xml`)) throw new Error(`${guide.domain}: no section build at ${out}/ to make its map from (TOWN=hub npm run build leaves one).`);
   const m = guideMap({ guide, out, hubDomain: 'insidethetowns.com' });
+  const mapRows = (host: string) => Object.entries(m.entry.paths).map(([old_path, to]) => (to === 0 ? { host, old_path, status: '410', destination: '' } : { host, old_path, status: '301', destination: to }));
+  // The domains that forward to the guide (formerDomains) answer from the same map; a host that keeps its own rules
+  // (insideseverance.com onto Windsor) is checked by every fixed address those rules name.
+  const kept = RETIRED_ONTO_GUIDES.filter((r) => r.guide === guide.slug && !guide.formerDomains?.includes(r.host)).flatMap((r) =>
+    vercelNow.redirects
+      .filter((x) => x.has?.some((h) => h.type === 'host' && h.value === r.host) && !/[:(*]/.test(x.source))
+      .map((x) => ({ host: r.host, old_path: x.source.replace(/\{\/\}\?$/, '') || '/', status: '301', destination: x.destination })),
+  );
   return [
-    ...Object.entries(m.entry.paths).map(([old_path, to]) => (to === 0 ? { host: guide.domain, old_path, status: '410', destination: '' } : { host: guide.domain, old_path, status: '301', destination: to })),
+    ...mapRows(guide.domain),
     ...['/sitemap-index.xml', '/sitemap-0.xml', '/robots.txt'].map((old_path) => ({ host: guide.domain, old_path, status: '200', destination: '' })),
+    ...(guide.formerDomains ?? []).flatMap((alias) => mapRows(alias)),
+    ...kept,
   ];
 });
 const rows = [...(movedArg ? [] : readCsv('docs/migration/redirect-map.csv')), ...movedRows].filter((r) => !onlyHost || r.host === onlyHost);

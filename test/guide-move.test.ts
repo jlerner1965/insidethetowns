@@ -59,12 +59,31 @@ test('the hub forwards nothing for a moved guide’s own address, and sends its 
   const rules = Object.fromEntries(retiredOntoGuideRules().map((r) => [r.host, [...r.lead, ...r.tail]]));
   assert.equal(rules['insideseverance.com']![0]!.destination, `https://${hub.domain}/windsor/severance/`);
   assert.equal(rules['insideseverance.com']!.find((r) => r.source === '/events/:slug{/}?')!.destination, `https://${hub.domain}/windsor/events/:slug/`);
-  assert.equal(rules['insidefrederickco.com']!.find((r) => r.source === '/(.*)')!.destination, `https://${hub.domain}/carbon-valley/$1`);
+  assert.equal(rules['insidefrederickco.com'], undefined, 'Frederick’s domain forwards to Carbon Valley: once that guide has moved, api/legacy.ts answers it from the guide’s map, with no rule of its own');
   // A moved guide's own host carries no rule: api/legacy.ts answers every path from the map its build writes.
   for (const slug of SEVEN) {
     const t = allTowns.find((x) => x.slug === slug)!;
     assert.equal(generatedBlocks().find((b) => b.host === t.domain), undefined, `${t.domain}: no block of its own`);
   }
+  // The four domains that forward to a guide today (the owner, 18 November 2026): one hop to the hub once the guide has moved.
+  assert.deepEqual(allTowns.find((t) => t.slug === 'lyons')!.formerDomains, ['explorelyons.com']);
+  assert.deepEqual(allTowns.find((t) => t.slug === 'carbon-valley')!.formerDomains, ['insidefrederickco.com', 'insidefirestone.com']);
+  // explorelyons.com, insidefrederickco.com and insidefirestone.com: no rule of their own, answered by the function from the guide's map.
+  for (const host of ['explorelyons.com', 'insidefrederickco.com', 'insidefirestone.com']) {
+    assert.equal(generatedBlocks().find((b) => b.host === host), undefined, `${host}: no generated block`);
+    assert.equal(retiredOntoGuideRules().find((r) => r.host === host), undefined, `${host}: no hand-written rules`);
+  }
+  assert.equal(movedPath('explorelyons.com', '/explore/'), '/lyons/explore/', 'the old explorelyons path, as the guide’s own rule sends it (the map carries that decision)');
+  assert.equal(movedPath('www.explorelyons.com', '/'), '/lyons/');
+  assert.equal(movedPath('insidefrederickco.com', '/events/festival-of-lights-2026-12-05/'), '/carbon-valley/frederick-festival-of-lights/');
+  assert.equal(movedPath('insidefirestone.com', '/places/x/'), '/carbon-valley/places/x/');
+  const run = readFileSync('scripts/run.ts', 'utf8');
+  assert.match(run, /for \(const alias of site\.formerDomains \?\? \[\]\) table\[alias\] = \{ page: map\.entry\.page, paths: map\.entry\.paths/, 'the guide’s build writes the map under each former domain too');
+  // insideseverance.com keeps its rules (they carry ?where=severance) and gains the annual events’ addresses ahead of its patterns.
+  const severance = retiredOntoGuideRules().find((r) => r.host === 'insideseverance.com')!;
+  assert.equal(severance.events.find((r) => r.source === '/events/trick-or-treat-parade{/}?')!.destination, `https://${hub.domain}/windsor/severance-trick-or-treat-parade/`);
+  assert.equal(severance.events.find((r) => r.source === '/events/kids-fishing-derby{/}?')!.destination, `https://${hub.domain}/windsor/severance-kids-fishing-derby/`);
+  assert.equal(severance.tail.at(-1)!.destination, `https://${hub.domain}/windsor/severance/`, 'the catch-all last');
 });
 
 test('an address on a moved guide’s domain lands on its page under the section; an annual event’s on the tradition page that stands for it', () => {

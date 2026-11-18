@@ -343,6 +343,17 @@ export interface TownConfig {
   name: string;
   /** Production domain without protocol: "insidelyons.com" */
   domain: string;
+  /**
+   * Domains that forward to this guide and have no pages of their own:
+   * explorelyons.com (a domain on the insidelyons project, a 308 to
+   * insidelyons.com), insidefrederickco.com and insidefirestone.com (into
+   * Carbon Valley). Once the guide's switch is on (src/config/guide-move.ts)
+   * each is answered like the guide's own domain: every path to
+   * api/legacy.ts, from the guide's map, one hop to the matching hub page,
+   * the section's home where there is none. Until then they forward as
+   * they do today.
+   */
+  formerDomains?: readonly string[];
   /** "Inside Lyons" */
   siteTitle: string;
   /** One sentence. Shown in the meta description and the footer. */

@@ -20,7 +20,12 @@ import { rawRecords } from './tradition-files.ts';
 /** The moved guide whose domain this is, with or without its www. */
 export function movedGuide(domain: string): TownConfig | undefined {
   const host = domain.toLowerCase().replace(/^www\./, '');
-  return allTowns.find((t) => t.domain === host && isMoved(t) && !!t.hubPage);
+  return allTowns.find((t) => (t.domain === host || t.formerDomains?.includes(host)) && isMoved(t) && !!t.hubPage);
+}
+
+/** A moved guide's hosts: its own domain and the domains that forward to it (TownConfig.formerDomains). */
+export function movedHosts(guide: TownConfig): string[] {
+  return [guide.domain, ...(guide.formerDomains ?? [])];
 }
 
 let pages: Map<string, { town: string; event: string }> | undefined;
