@@ -135,6 +135,14 @@ const all = [...traditions, ...outdoor, ...statewide];
 /** A road's or a pass's opening or closing (CDOT's dates): under Getting here, not among the events (the owner, 18 November 2026). */
 const isRoad = (r: Row) => r.record.type === 'outdoor' && r.record.outdoor?.kind === 'road';
 const roadRows = [...traditions, ...outdoor].filter(isRoad).sort((a, b) => a.record.name.localeCompare(b.record.name));
+/** A road's date on one line: "opens · Not yet announced, usually around Memorial Day · CDOT, checked Nov 12, 2026". */
+const roadLine = (r: Row) => {
+  const set = !r.past && (r.entry.status === 'confirmed' || r.entry.status === 'moved');
+  const edge = r.record.outdoor?.edge === 'closes' ? 'Closes' : r.record.outdoor?.edge === 'opens' ? 'Opens' : 'Open';
+  const when = set ? `${formatShortDate(parseLocal(r.entry.date!))}${r.entry.startTime ? `, ${publishedTime(r.entry.startTime)}` : ''}` : r.entry.status === 'canceled' ? 'canceled' : `not yet announced${r.entry.typicalWindow ? `, ${r.entry.typicalWindow}` : ''}${r.lastHeld ? `; most recent ${formatShortDate(parseLocal(r.lastHeld))}` : ''}`;
+  return { edge, when };
+};
+
 /** The town's own dates: its events and the outdoor dates that name it (not the statewide ones, which have their section, nor the roads). */
 const own = [...traditions, ...outdoor].filter((r) => !isRoad(r));
 /** A showpiece's one to know (HubTown.showpiece.spotlight): drawn first under Events, and left out of the lists below it. */
@@ -212,6 +220,9 @@ const profile = profileView(town, files);
 const roads = files.roads;
 const withPage = new Set([...published.map((t) => t.slug), ...Object.keys(STANDALONE_GUIDES)]);
 const { near, passes } = nearView(town.slug, roads, withPage, true);
+/** The road rows that belong to a listed pass, by the pass's name, go on its row; the rest are their own list (the owner, 18 November 2026: one line per road, repeated nowhere). */
+const roadsOf = (passName: string) => roadRows.filter((r) => r.record.outdoor?.facility === passName);
+const roadsListed = roadRows.filter((r) => !passes.some(({ pass }) => pass.name === r.record.outdoor?.facility));
 const short = (d: string) => formatShortDate(parseLocal(d));
 /** The figures at a glance: two across on a phone, all of them in one row from 900px (four at most). Written out so Tailwind sees each class. */
 const figureColumns: Record<number, string> = { 2: 'desk:grid-cols-2', 3: 'desk:grid-cols-3', 4: 'desk:grid-cols-4' };
@@ -260,24 +271,33 @@ const PLACE_GROUPS: Array<{ label: string; pick: (p: PlaceEntry) => boolean }> =
   { label: 'Places to stay', pick: (p) => p.data.type === 'lodging' },
   { label: 'Shops and services', pick: (p) => (['shop', 'service'] as PlaceType[]).includes(p.data.type) },
 ];
-const PLACE_PICK = 3;
-const placeGroups = (() => {
+/** Six at most, one line each (the owner, 18 November 2026), one from each kind in turn so the six span the town; the full list is the places page's. */
+const PLACE_PICK = 6;
+const placePicks = (() => {
   const used = new Set<string>();
-  const groups = PLACE_GROUPS.map((g) => {
-    const items = placeEntries.filter((p) => !used.has(p.slug) && g.pick(p)).slice(0, PLACE_PICK);
-    for (const p of items) used.add(p.slug);
-    return { label: g.label, items };
-  });
-  const rest = placeEntries.filter((p) => !used.has(p.slug) && p.data.type === 'venue').slice(0, PLACE_PICK);
-  if (rest.length > 0) groups.push({ label: PLACE_TYPE_PLURALS.venue, items: rest });
-  return groups.filter((g) => g.items.length > 0);
+  const kinds = [...PLACE_GROUPS, { label: PLACE_TYPE_PLURALS.venue, pick: (p: PlaceEntry) => p.data.type === 'venue' }];
+  const pools = kinds.map((g) => ({ label: g.label, items: placeEntries.filter((p) => g.pick(p)) }));
+  const out: Array<{ label: string; p: PlaceEntry }> = [];
+  for (let round = 0; out.length < PLACE_PICK; round++) {
+    let added = false;
+    for (const pool of pools) {
+      const next = pool.items.find((p) => !used.has(p.slug));
+      if (!next || out.length >= PLACE_PICK) continue;
+      used.add(next.slug);
+      out.push({ label: pool.label, p: next });
+      added = true;
+    }
+    if (!added) break;
+  }
+  return out;
 })();
 /** A lodging listing's one line: its summary's first clause ("The 1886 hotel on Harrison Avenue"). */
 const oneLine = (summary: string) => {
   const first = summary.split(/[.;:](?:\s|$)/)[0]!.trim();
   return first.length <= 110 ? first : `${first.slice(0, 110).replace(/\s+\S*$/, '')}…`;
 };
-/** Where to stay: every lodging place on the guide's places page, then the profile's, each with a line on what it is (the owner, 18 November 2026). */
+/** Where to stay: the guide's lodging places, then the profile's, each on one line with what it is; three on the page and the rest behind a link (the owner, 18 November 2026). */
+const STAY_SHOWN = 3;
 const stayList = [
   ...placeEntries.filter((p) => p.data.type === 'lodging').map((p) => ({ name: p.data.title, href: placeHref(p.slug), external: false, note: oneLine(p.data.summary), area: p.data.area as string | undefined })),
   ...profile.lodging.filter((l) => !placeEntries.some((p) => p.data.type === 'lodging' && p.data.title.toLowerCase() === l.name.toLowerCase())).map((l) => ({ name: l.name, href: l.url, external: true, note: [l.kind, l.season].filter(Boolean).join(' · '), area: undefined })),
@@ -289,9 +309,9 @@ const sections = pageSections(town.name, {
   events: own.length > 0 || hasOpen,
   places: profile.places.length > 0,
   trails: profile.trails.length > 0,
-  directory: placeGroups.length > 0,
+  directory: placePicks.length > 0,
   stay: stayList.length > 0,
-  getting: !!profile.fromDenver || profile.transit.length > 0 || !!profile.airport || passes.length > 0 || near.length > 0 || roadRows.length > 0,
+  getting: !!profile.fromDenver || profile.transit.length > 0 || !!profile.airport || passes.length > 0 || near.length > 0 || roadsListed.length > 0,
   outdoor: statewide.length > 0,
   about: profile.strip.length > 0 || hasSignature || !!profile.heritage || hasArticles,
 });
@@ -471,15 +491,15 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     the section in view marked. From 900px the rail beside the sections
     does this, so the bar is a phone's and a tablet's.
   */}
-  <nav aria-label="Sections" class="sticky top-0 z-20 border-b border-hairline bg-raised/95 backdrop-blur-sm desk:hidden" data-section-bar>
-    <ul class="flex gap-x-1 overflow-x-auto whitespace-nowrap px-[12px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+  <nav aria-label="Sections" class="sticky top-0 z-20 h-12 border-b border-hairline bg-raised/95 backdrop-blur-sm desk:hidden" data-section-bar>
+    <ul class="flex h-full gap-x-1 overflow-x-auto whitespace-nowrap px-[12px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       {sections.map((s) => (
-        <li class="shrink-0"><a href={`#${s.id}`} class="flex min-h-11 items-center border-b-2 border-transparent px-2 text-meta font-[650] text-primary no-underline aria-[current=location]:border-ink aria-[current=location]:text-ink" data-bar-link>{s.label}</a></li>
+        <li class="shrink-0"><a href={`#${s.id}`} class="flex h-full items-center border-b-2 border-transparent px-2 text-meta font-[650] text-primary no-underline aria-[current=location]:border-ink aria-[current=location]:text-ink" data-bar-link>{s.label}</a></li>
       ))}
     </ul>
   </nav>
     <div class="desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[240px_minmax(0,720px)] desk:items-start desk:gap-x-[88px] desk:px-[40px]">
-  <nav aria-labelledby="otp" class="scroll-mt-[56px] desk:scroll-mt-4 bg-raised px-[20px] pb-6 pt-3.5 desk:sticky desk:top-[24px] desk:z-[1] desk:self-start desk:bg-transparent desk:px-0 desk:pb-6 desk:pt-[56px]" id="contents">
+  <nav aria-labelledby="otp" class="scroll-mt-12 desk:scroll-mt-4 bg-raised px-[20px] pb-6 pt-3.5 desk:sticky desk:top-[24px] desk:z-[1] desk:self-start desk:bg-transparent desk:px-0 desk:pb-6 desk:pt-[56px]" id="contents">
     <div class={pub.col}>
       <div class={pub.open}><h2 id="otp" class={pub.h2s}>On this page</h2></div>
       <ol class="grid grid-cols-2 gap-x-[18px] sm:grid-cols-3 desk:grid-cols-1">
@@ -509,7 +529,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
         <Fragment>
           <h3 id="one-to-know" class:list={[pub.h3, !marked && 'mt-[22px]']} data-spotlight>The one to know</h3>
           {spotlight.record.about && <p class:list={['mt-3', pub.t]}>{typeset(spotlight.record.about.text)}</p>}
-          {monthIdFor(spotlight) && <span id={monthIdFor(spotlight)} class="block scroll-mt-[56px] desk:scroll-mt-4" data-month-anchor></span>}
+          {monthIdFor(spotlight) && <span id={monthIdFor(spotlight)} class="block scroll-mt-12 desk:scroll-mt-4" data-month-anchor></span>}
           <DateEntry {...entryProps(spotlight)} />
         </Fragment>
       )}
@@ -518,7 +538,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <h3 id="coming-up" class:list={[pub.h3, !spotlight && !marked && 'mt-[22px]']}>Coming up</h3>
           {comingUp.map((r) => (
             <Fragment>
-              {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-[56px] desk:scroll-mt-4" data-month-anchor></span>}
+              {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-12 desk:scroll-mt-4" data-month-anchor></span>}
               <DateEntry {...entryProps(r)} />
             </Fragment>
           ))}
@@ -530,8 +550,8 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           {/* One line each (the owner, 18 November 2026): the name, the month it usually falls in, when it was last held. */}
           <ul data-not-announced>
             {waiting.map((r) => (
-              <li id={r.record.slug} class:list={['scroll-mt-[56px] py-2.5 desk:scroll-mt-4', pub.rule]} data-tradition-row data-status="not-announced" data-waiting>
-                {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-[56px] desk:scroll-mt-4" data-month-anchor></span>}
+              <li id={r.record.slug} class:list={['scroll-mt-12 py-2.5 desk:scroll-mt-4', pub.rule]} data-tradition-row data-status="not-announced" data-waiting>
+                {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-12 desk:scroll-mt-4" data-month-anchor></span>}
                 <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]">{pageOf(r) ? <a href={pageOf(r)} class={pub.link}>{typeset(r.record.name)}</a> : typeset(r.record.name)}</span>
                 <span class:list={['block', pub.meta]}>
                   {usualMonth(r) && <Fragment>Usually {usualMonth(r)} · </Fragment>}{r.lastHeld ? <Fragment>{isAgencyDate(r.record.type) ? 'Most recent' : 'Last held'} <time datetime={r.lastHeld}>{short(r.lastHeld)}</time></Fragment> : 'No date on file'} · <a href={r.source} rel="noopener" class={pub.link}>{typeset(r.record.organizer)}</a>, checked <time datetime={r.entry.checked}>{short(r.entry.checked)}</time>
@@ -612,32 +632,27 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
 
   {section.directory && (
     <PubSection id={section.directory.id} number={section.directory.number} title={section.directory.title} tone={section.directory.tone} top="#top" data={{ 'places-directory': '' }}>
-      {placeGroups.map((g) => (
-        <Fragment>
-          <h3 class={pub.h3}>{g.label}</h3>
-          <ul>
-            {g.items.map((p) => (
-              <li class:list={['flex min-h-11 items-baseline justify-between gap-x-3 py-1.5', pub.rule]} data-place-pick={p.slug}>
-                <a href={placeHref(p.slug)} class:list={[pub.link, 'text-base font-medium']}>{typeset(p.data.title)}</a>{p.data.area && <span class:list={['shrink-0 text-right', pub.meta]}>{typeset(p.data.area)}</span>}
-              </li>
-            ))}
-          </ul>
-        </Fragment>
-      ))}
-      <a href={placesHref} class:list={[pub.go, 'mt-5']} data-all-places>See all {placeEntries.length} places in {town.name} →</a>
+      <ul class="mt-3.5 border-t border-hairline">
+        {placePicks.map(({ label, p }) => (
+          <li class:list={['flex min-h-11 items-baseline justify-between gap-x-3 py-1.5', pub.rule]} data-place-pick={p.slug}>
+            <a href={placeHref(p.slug)} class:list={[pub.link, 'text-base font-medium']}>{typeset(p.data.title)}</a><span class:list={['shrink-0 text-right', pub.meta]}>{label}</span>
+          </li>
+        ))}
+      </ul>
+      <a href={placesHref} class:list={[pub.go, 'mt-3']} data-all-places>See all {placeEntries.length} places in {town.name} →</a>
     </PubSection>
   )}
 
   {section.stay && (
     <PubSection id={section.stay.id} number={section.stay.number} title={section.stay.title} tone={section.stay.tone} top="#top" data={{ 'where-to-stay': '' }}>
       <ul class="mt-3.5 border-t border-hairline">
-        {stayList.map((l) => (
-          <li class:list={['py-3', pub.rule]} data-stay={l.name}>
-            <h3 class={pub.title}><a href={l.href} rel={l.external ? 'noopener' : undefined} class={pub.titleLink}>{typeset(l.name)}</a>{l.area && <span class:list={['ml-2 font-normal', pub.meta]}>{typeset(l.area)}</span>}</h3>
-            {l.note && <p class:list={['mt-0.5', pub.meta]}>{typeset(l.note)}</p>}
+        {stayList.slice(0, STAY_SHOWN).map((l) => (
+          <li class:list={['flex min-h-11 items-baseline gap-x-2 py-1.5', pub.rule]} data-stay={l.name}>
+            <a href={l.href} rel={l.external ? 'noopener' : undefined} class:list={[pub.link, 'shrink-0 text-base font-medium']}>{typeset(l.name)}</a>{l.note && <span class:list={['min-w-0 truncate', pub.meta]}>{typeset(l.note)}</span>}
           </li>
         ))}
       </ul>
+      {stayList.length > STAY_SHOWN && <a href={`${placesHref}${folded?.section?.mode === 'full' ? '' : '#type-lodging'}`} class:list={[pub.go, 'mt-3']} data-all-stay>All {stayList.length} places to stay in {town.name} →</a>}
       <p class:list={['mt-3', pub.meta]}>A listing here links its page on this site; the others link the property’s own site. None is a paid or affiliate link.{profile.lodgingChecked && <Fragment> Checked <time datetime={profile.lodgingChecked}>{short(profile.lodgingChecked)}</time> against each property’s site.</Fragment>}</p>
     </PubSection>
   )}
@@ -671,7 +686,12 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
                   <p class={pub.t} data-pass={pass.slug}>
                     {typeset(pass.name)}{pass.highway && <Fragment> · {typeset(pass.highway)}</Fragment>}
                     {ends.length === 2 && <Fragment> · between {ends.map((e, i) => (<Fragment>{i > 0 && ' and '}<a href={e.href} class={pub.link}>{e.name}</a></Fragment>))}</Fragment>}
-                    {pass.seasonalClosure && <span class:list={['block', pub.meta]}>Usual seasonal closure: {typeset(pass.seasonalClosure)}</span>}
+                    {pass.seasonalClosure && roadsOf(pass.name).length === 0 && <span class:list={['block', pub.meta]}>Usual seasonal closure: {typeset(pass.seasonalClosure)}</span>}
+                    {roadsOf(pass.name).map((r) => (
+                      <span id={r.record.slug} class:list={['block scroll-mt-12 desk:scroll-mt-4', pub.meta]} data-road-date data-status={r.past ? 'not-announced' : r.entry.status}>
+                        {pageOf(r) ? <a href={pageOf(r)} class={pub.link}>{roadLine(r).edge}</a> : roadLine(r).edge} {roadLine(r).when} · <a href={r.source} rel="noopener" class={pub.link}>{typeset(r.record.organizer)}</a>, checked <time datetime={r.entry.checked}>{short(r.entry.checked)}</time>
+                      </span>
+                    ))}
                     {pass.statusUrl && <span class:list={['block', pub.meta]}><a href={pass.statusUrl} rel="noopener" class={pub.link}>{pass.statusLabel ?? 'COtrip'}</a> for today’s status · checked <time datetime={pass.checked}>{short(pass.checked)}</time></span>}
                   </p>
                 ))}
@@ -686,17 +706,13 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <a href={roads.source.url} rel="noopener" class={pub.link}>{roads.source.name}</a> for the miles and the time{profile.transit.length > 0 && <Fragment>; the operator’s own page for each service</Fragment>}{profile.airport && profile.airportList && <Fragment>; <a href={profile.airportList} rel="noopener" class={pub.link}>Federal Aviation Administration, commercial service airports</a></Fragment>}
         </p>
       )}
-      {roadRows.length > 0 && (
+      {roadsListed.length > 0 && (
         <div data-road-dates>
           <h3 class={pub.h3}>Road and pass dates</h3>
           <ul>
-            {roadRows.map((r) => (
-              <li id={r.record.slug} class:list={['scroll-mt-[56px] py-2.5 desk:scroll-mt-4', pub.rule]} data-road-date data-status={r.past ? 'not-announced' : r.entry.status}>
-                <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]">{pageOf(r) ? <a href={pageOf(r)} class={pub.link}>{typeset(r.record.name)}</a> : typeset(r.record.name)}</span>
-                <span class:list={['block', pub.meta]}>
-                  {!r.past && (r.entry.status === 'confirmed' || r.entry.status === 'moved') ? <Fragment><strong class="font-semibold text-ink">{r.entry.status === 'moved' ? 'Moved' : 'Confirmed'}</strong> · <time datetime={r.entry.date}>{short(r.entry.date!)}</time>{r.entry.startTime && <Fragment>, {publishedTime(r.entry.startTime)}</Fragment>}</Fragment> : r.entry.status === 'canceled' ? <strong class="font-semibold text-ink">Canceled</strong> : <Fragment><strong class="font-semibold text-ink">Not yet announced</strong>{r.entry.typicalWindow && <Fragment>, {typeset(r.entry.typicalWindow)}</Fragment>}{r.lastHeld && <Fragment> · Most recent <time datetime={r.lastHeld}>{short(r.lastHeld)}</time></Fragment>}</Fragment>}
-                  {' '}· <a href={r.source} rel="noopener" class={pub.link}>{typeset(r.record.organizer)}</a>, checked <time datetime={r.entry.checked}>{short(r.entry.checked)}</time>
-                </span>
+            {roadsListed.map((r) => (
+              <li id={r.record.slug} class:list={['scroll-mt-12 py-2 desk:scroll-mt-4', pub.meta, 'text-ink']} data-road-date data-status={r.past ? 'not-announced' : r.entry.status}>
+                {pageOf(r) ? <a href={pageOf(r)} class={pub.link}>{typeset(r.record.outdoor?.facility ?? r.record.name)}</a> : typeset(r.record.outdoor?.facility ?? r.record.name)} {roadLine(r).edge.toLowerCase()} {roadLine(r).when} · <a href={r.source} rel="noopener" class={pub.link}>{typeset(r.record.organizer)}</a>, checked <time datetime={r.entry.checked}>{short(r.entry.checked)}</time>
               </li>
             ))}
           </ul>
