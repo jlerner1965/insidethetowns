@@ -194,6 +194,20 @@ test('a guide whose domain is held (the hub-first step) builds as a guide on its
   assert.equal(decide('lyons', commit({ 'src/lib/dates.ts': 'held-shared-2' }), moved), 'skip', 'then shared code changes nothing it serves');
 });
 
+test('a redirect-only domain a moved guide names in formerDomains builds for that guide’s content, which its map is made from', () => {
+  const prev = git('rev-parse', 'HEAD');
+  const cfgs = commit({
+    'src/config/towns/frederick.ts': "export const frederick = {\n  slug: 'frederick',\n  domain: 'insidefrederickco.com',\n  status: 'redirect',\n};\n",
+    'src/config/towns/carbon-valley.ts': "export const cv = {\n  slug: 'carbon-valley',\n  domain: 'carbonvalleyguide.com',\n  formerDomains: ['insidefrederickco.com', 'insidefirestone.com'],\n};\n",
+  });
+  assert.equal(decide('frederick', cfgs, prev), 'build', 'its config changed');
+  const content = commit({ 'content/carbon-valley/events/f.md': 'former-domain-content' });
+  assert.equal(decide('frederick', content, cfgs), 'build', 'the guide it forwards to changed its content');
+  assert.equal(decide('golden', content, cfgs), 'skip', 'another redirect-only domain does not');
+  const other = commit({ 'content/lyons/events/g.md': 'former-domain-other' });
+  assert.equal(decide('frederick', other, content), 'skip');
+});
+
 test('a build and a dev server parse every content file afresh (astro --force), so a schema change cannot meet a cached entry', () => {
   // Vercel carries node_modules/.astro between builds; on 13 November 2026 a
   // cached Eldora article without the new `games` default failed every hub

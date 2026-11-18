@@ -76,6 +76,28 @@ if (command === 'build' && !isSectionBuild(env)) {
     }
     process.exit(0);
   }
+  // A redirect-only domain a moved guide names in formerDomains, on a project of its own (insidefrederickco.com,
+  // Carbon Valley's): its rewrite sends every path to api/legacy.ts, so its build writes the guide's map for its
+  // domain, made the same way the guide's own project makes it.
+  const taker = site?.kind === 'town' && site.status === 'redirect' ? allSites.find((g) => g.kind === 'town' && domainMoved(g, env) && g.formerDomains?.includes(site.domain)) : undefined;
+  if (site?.kind === 'town' && taker?.kind === 'town') {
+    const v = spawnSync(process.execPath, ['scripts/validate-content.ts', '--build'], { stdio: 'inherit', env });
+    if (v.status !== 0) process.exit(v.status ?? 1);
+    const out = `.sections/${taker.slug}`;
+    const built = spawnSync('astro', ['build', '--outDir', out, '--force'], { stdio: 'inherit', env: { ...env, TOWN: taker.slug, [SECTION_ENV]: '1' }, shell: true });
+    if (built.status !== 0) process.exit(built.status ?? 1);
+    const hub = getNetworkHub();
+    const map = guideMap({ guide: taker, out, hubDomain: hub.domain });
+    const file = 'api/legacy-map.json';
+    const table = JSON.parse(readFileSync(file, 'utf8')) as Record<string, unknown>;
+    table[site.domain] = { page: map.entry.page, paths: map.entry.paths, moved: map.entry.moved };
+    writeFileSync(file, JSON.stringify(table), 'utf8');
+    rmSync('dist', { recursive: true, force: true });
+    mkdirSync('dist', { recursive: true });
+    writeFileSync('dist/404.html', `<!doctype html><html lang="en"><meta charset="utf-8"><title>Not found</title><meta name="robots" content="noindex"><body><p>Not found. <a href="${map.entry.page}">${taker.siteTitle}</a></p></body></html>\n`, 'utf8');
+    console.log(`${site.domain}: forwards to ${taker.siteTitle}, moved to ${map.entry.page}. ${Object.keys(map.entry.paths).length} addresses mapped from its map; api/legacy.ts answers every path. No site build.`);
+    process.exit(0);
+  }
   if (site?.kind === 'town' && site.status === 'redirect') {
     rmSync('dist', { recursive: true, force: true });
     mkdirSync('dist', { recursive: true });

@@ -78,7 +78,18 @@ changed="$(git diff --name-only --no-renames "$prev" "$head")" || build "cannot 
 # Until the audit of 13 November 2026 twenty such projects built on every push
 # to shared code, for pages nobody could reach.
 if [ -f "src/config/towns/$slug.ts" ] && grep -qE "^[[:space:]]*status:[[:space:]]*'redirect'" "src/config/towns/$slug.ts"; then
+  # A domain a moved guide names in formerDomains (insidefrederickco.com) answers from that guide's map, made at
+  # its build: the guide's content and the map-maker build it too (scripts/run.ts).
+  domain="$(grep -oE "^[[:space:]]*domain:[[:space:]]*'[^']+'" "src/config/towns/$slug.ts" | head -1 | sed -E "s/.*'([^']+)'/\1/")"
+  taker=""
+  [ -n "$domain" ] && taker="$(grep -lE "formerDomains:.*'$domain'" src/config/towns/*.ts 2>/dev/null | head -1 | xargs -r basename | sed 's/\.ts$//')"
   while IFS= read -r path; do
+    if [ -n "$taker" ]; then
+      case "$path" in
+        src/config/guide-move.ts | scripts/migration/guide-map.ts | "docs/migration/guides/"* | data/hub/fold-events.json | "content/$taker/"* | "src/config/towns/$taker.ts")
+          build "$path (it answers from $taker's map)" ;;
+      esac
+    fi
     case "$path" in
       vercel.json | "src/config/towns/$slug.ts" | scripts/vercel-ignore.sh | scripts/run.ts | api/legacy.ts | api/legacy-map.json | docs/migration/redirect-map.csv)
         build "$path (a redirect-only site is made of its rules and api/legacy.ts)" ;;
