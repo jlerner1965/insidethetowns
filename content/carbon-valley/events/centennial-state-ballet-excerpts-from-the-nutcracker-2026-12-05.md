@@ -1,5 +1,5 @@
 ---
-title: "Centennial State Ballet Presents: Excerpts from the Nutcracker"
+title: "Centennial State Ballet: Nutcracker excerpts"
 start: "2026-12-05T15:00"
 end: "2026-12-05T16:00"
 venue: "Carbon Valley Regional Library"

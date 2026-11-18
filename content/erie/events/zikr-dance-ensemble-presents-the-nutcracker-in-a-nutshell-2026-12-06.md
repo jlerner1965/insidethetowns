@@ -1,5 +1,5 @@
 ---
-title: "Zikr Dance Ensemble presents \"The Nutcracker In A Nutshell\""
+title: "Zikr Dance Ensemble: The Nutcracker in a Nutshell"
 start: "2026-12-06T14:00"
 venue: "Erie Community Center"
 address: "450 Powers Street, Erie, CO 80516"

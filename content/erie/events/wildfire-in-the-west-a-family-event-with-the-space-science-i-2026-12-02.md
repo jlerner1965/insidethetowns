@@ -1,5 +1,5 @@
 ---
-title: "Wildfire in the West: A Family Event with the Space Science Institute"
+title: "Wildfire in the West: a family science event"
 start: "2026-12-02T18:00"
 end: "2026-12-02T19:30"
 venue: "Erie Community Library"

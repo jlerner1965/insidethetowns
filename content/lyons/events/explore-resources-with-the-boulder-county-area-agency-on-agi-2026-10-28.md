@@ -1,5 +1,5 @@
 ---
-title: "Explore resources with the Boulder County Area Agency on Aging"
+title: "Resources from the Boulder County Area Agency on Aging"
 start: "2026-10-28T10:00"
 end: "2026-10-28T11:30"
 venue: "Lyons Regional Library, Effie Banta Room"

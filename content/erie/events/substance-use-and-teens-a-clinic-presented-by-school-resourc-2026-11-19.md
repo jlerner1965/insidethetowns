@@ -1,5 +1,5 @@
 ---
-title: "Substance use and teens: a clinic presented by school resource officers"
+title: "Substance use and teens: school resource officer clinic"
 start: "2026-11-19T17:30"
 end: "2026-11-19T19:30"
 venue: "Erie Police Department"

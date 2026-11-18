@@ -3,7 +3,7 @@
  * game, the games to come, and the words for a game. Shared by /sports/
  * and the home page so both lead with the same game.
  */
-import { LEAGUE_SPELLINGS, schoolsFor, schoolTeamName, sportsDataFile, type HostedRound, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
+import { LEAGUE_SPELLINGS, schoolsFor, schoolTeamName, sportsDataFile, type AwayGame, type HostedRound, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { POSTSEASON, type PostseasonGame } from '../config/postseason.ts';
 import { primaryHover } from '../config/palette.ts';
 import { schoolTrim } from '../config/school-colors.ts';
@@ -334,9 +334,10 @@ const GENERIC_STAGES = new Set(['Playoffs', 'Tournament']);
  * One game with what CHSAA's own pages settle and MaxPreps does not: a game
  * on the sport's state championship days is at the state site, with the
  * stage MaxPreps gives or the championships' own; a game on a day the school
- * hosted a round is at home, with that round's stage.
+ * hosted a round is at home, with that round's stage; a game CHSAA's page
+ * puts at the other school is away (AwayGame), and reads "at".
  */
-export function correctedGame(g: SportGame, sport: Pick<SportConfig, 'state'> | undefined, hosted: HostedRound[]): SportGame {
+export function correctedGame(g: SportGame, sport: Pick<SportConfig, 'state'> | undefined, hosted: HostedRound[], away: AwayGame[] = []): SportGame {
   const state = sport?.state;
   if (state && g.date >= state.from && g.date <= state.to) {
     return { ...g, site: 'neutral', neutral: true, venue: state.venue, stage: g.stage && !GENERIC_STAGES.has(g.stage) ? g.stage : state.stage };
@@ -345,6 +346,11 @@ export function correctedGame(g: SportGame, sport: Pick<SportConfig, 'state'> | 
   if (host) {
     const { neutral: _neutral, venue: _venue, ...rest } = g;
     return { ...rest, site: 'home', stage: host.stage };
+  }
+  const visit = away.find((a) => a.date === g.date);
+  if (visit) {
+    const { neutral: _neutral, venue: _venue, ...rest } = g;
+    return { ...rest, site: 'away', stage: visit.stage, ...(visit.venue ? { venue: visit.venue } : {}) };
   }
   // MaxPreps's venue field sometimes holds the round ("State Playoffs Round
   // 1", Windsor football, 6 November 2026): a stage, not a place to print.
@@ -362,10 +368,11 @@ export function correctedGame(g: SportGame, sport: Pick<SportConfig, 'state'> | 
  * written before a fact was known reads right without waiting for the next
  * run. Applying it twice changes nothing.
  */
-export function correctedTeam(team: SportData, school: Pick<SchoolSports, 'teams' | 'hosted'>): SportData {
+export function correctedTeam(team: SportData, school: Pick<SchoolSports, 'teams' | 'hosted' | 'away'>): SportData {
   const sport = school.teams.find((t) => t.key === team.key);
   const hosted = (school.hosted ?? []).filter((h) => h.team === team.key);
-  const fix = (g: SportGame) => correctedGame(g, sport, hosted);
+  const away = (school.away ?? []).filter((a) => a.team === team.key);
+  const fix = (g: SportGame) => correctedGame(g, sport, hosted, away);
   const spelled = team.league && LEAGUE_SPELLINGS[team.league.name];
   return {
     ...team,
@@ -377,7 +384,7 @@ export function correctedTeam(team: SportData, school: Pick<SchoolSports, 'teams
 }
 
 /** Every team in a school's file, corrected (correctedTeam). */
-export function correctedData(data: SportsData, school: Pick<SchoolSports, 'teams' | 'hosted'>): SportsData {
+export function correctedData(data: SportsData, school: Pick<SchoolSports, 'teams' | 'hosted' | 'away'>): SportsData {
   return { ...data, sports: data.sports.map((t) => correctedTeam(t, school)) };
 }
 

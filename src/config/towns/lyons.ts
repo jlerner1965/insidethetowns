@@ -25,11 +25,12 @@ export const lyons: TownConfig = {
   population2010: 2033, // 2010 census, for census-to-census growth
   character: 'The canyon mouth: sandstone, the river, the music, and a town that rebuilt after the flood.',
   colors: {
-    // Lion navy + sandstone, on warm paper: the school's colour as the
+    // Lion blue + sandstone, on warm paper: the school's colour as the
     // guide's, as Berthoud's and Niwot's are (22 October 2026); it was
     // sandstone orange-red, #A3482D, from 9 October, which stays as the
-    // accent. The same navy src/config/school-sports.ts names.
-    primary: '#022C66',
+    // accent. The school's own blue, lmshs.svvsd.org's --color-primary
+    // (the owner, 17 November 2026); MaxPreps's navy #022C66 until then.
+    primary: '#0054A6',
     accent: '#A3482D',
     paper: 'warm',
   },

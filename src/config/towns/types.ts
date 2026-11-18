@@ -454,6 +454,12 @@ export interface TownConfig {
    *   email; it never shows an empty week.
    */
   lead?: 'outdoors' | 'updates';
+  /**
+   * The town the Living Here and Guides pages are about, where a guide of
+   * several towns has them written for one (Carbon Valley's are Frederick's,
+   * 17 November 2026): their titles say so rather than promise the rest.
+   */
+  pageTown?: { livingHere?: string; guides?: string };
   /** The high school the home page's scoreboard and the sports pages lead with: see SchoolConfig. */
   school?: SchoolConfig;
   livingHere?: LivingHereConfig;

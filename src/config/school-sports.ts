@@ -106,6 +106,24 @@ export interface HostedRound {
 }
 
 /**
+ * A postseason game the school played away, as CHSAA's game page says
+ * ("Severance at Pueblo East", 13 November 2026), where MaxPreps filed it
+ * at a neutral site: the mirror of HostedRound. The page then says "at".
+ */
+export interface AwayGame {
+  /** The team's key: "football". */
+  team: string;
+  /** The Denver day: "2026-11-13". */
+  date: string;
+  /** The stage the page names for the game: "State Football Playoffs". */
+  stage: string;
+  /** The host's field, where CHSAA names it: "Dutch Clark". */
+  venue?: string;
+  /** CHSAA's game page that names the home team. */
+  source: string;
+}
+
+/**
  * A school's colours, each read from the school's own site (or MaxPreps's
  * team page) with a comment saying where and when.
  */
@@ -185,6 +203,8 @@ export interface SchoolSports {
   colors?: SchoolColors;
   /** The postseason rounds the school hosted (HostedRound). */
   hosted?: HostedRound[];
+  /** The postseason games the school played away (AwayGame). */
+  away?: AwayGame[];
   teams: SportConfig[];
 }
 
@@ -495,6 +515,10 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // and Frederick's too. Silver is the site's accent (theme-color #1c3c6d,
     // accent #8f8c88, read 17 November 2026).
     colors: { primary: '#1C3C6D', secondary: '#8F8C88' },
+    away: [
+      // CHSAANow's game page for the 3A second round, read 17 November 2026: "Severance at Pueblo East", Pueblo East the home team, lost 7-10. MaxPreps filed it at a neutral site, Dutch Clark.
+      { team: 'football', date: '2026-11-13', stage: 'State Football Playoffs', venue: 'Dutch Clark', source: 'https://chsaanow.com/sports/football/games/2026/11/13/severance-at-pueblo-east' },
+    ],
     // Severance High's athletics page links each season's sports pages and
     // ArbiterSports, and keeps no calendar of games this reader reads.
     calendarNote: 'Severance High’s own site has no calendar of games this site can read, so games to come are published on MaxPreps’s word alone.',

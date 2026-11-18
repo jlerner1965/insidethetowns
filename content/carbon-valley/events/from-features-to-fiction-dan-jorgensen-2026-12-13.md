@@ -1,5 +1,5 @@
 ---
-title: "From Features to Fiction: An Afternoon with Award-Winning Author Dan Jorgensen"
+title: "From Features to Fiction: author Dan Jorgensen"
 start: "2026-12-13T14:00"
 end: "2026-12-13T15:30"
 venue: "Carbon Valley Regional Library"

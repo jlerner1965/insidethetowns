@@ -1,5 +1,5 @@
 ---
-title: "Daddy Daughter Doll-Up 2027 (Third Annual): Benefiting ChildSafe Colorado"
+title: "Daddy Daughter Doll-Up 2027 for ChildSafe"
 start: "2027-02-19T18:00"
 venue: "The Arabella"
 address: "4520 Venture Drive, Johnstown, CO 80534"

@@ -22,18 +22,20 @@ import { formatShortDate, parseLocal } from '@/lib/dates';
 
 const town = getTown();
 const living = town.livingHere!;
+// The town the page is written for (TownConfig.pageTown).
+const place = town.pageTown?.livingHere ?? town.name;
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const updates = currentUpdates(await getTownEntries('updates')).slice(0, 3);
-const description = `Living in ${town.name}, Colorado: who handles utilities, trash, roads, schools, recreation and problems, with the official page for each.`;
+const description = `Living in ${place}, Colorado: who handles utilities, trash, roads, schools, recreation and problems, with the official page for each.`;
 const structured = [
-  collectionPageJsonLd(town, { name: `Living in ${town.name}, Colorado`, description, path: '/living-here/' }),
+  collectionPageJsonLd(town, { name: `Living in ${place}, Colorado`, description, path: '/living-here/' }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
     { name: 'Living here', path: '/living-here/' },
   ]),
 ];
 ---
-<Page title={`Living in ${town.name}`} seoTitle={`Living in ${town.name}, CO: utilities, schools, who to call`} eyebrow="Living here" {description} intro={living.intro} jsonLd={structured} kind="Guide">
+<Page title={`Living in ${place}`} seoTitle={`Living in ${place}, CO: utilities, schools, who to call`} eyebrow="Living here" {description} intro={living.intro} jsonLd={structured} kind="Guide">
   {/* Every dated thing on the page, the changes at the foot included: the
       line said "every item here was read" on the sections' day while the
       changes below carried later reads (Berthoud, Erie, Niwot; network
