@@ -37,7 +37,7 @@ const shortSchool = cfg.maxprepsName;
 const path = teamPath(cfg, key);
 const schoolPath = sportsPath(cfg);
 const sisters = teamsWithData(data).filter((s) => s.key !== key);
-const schoolStyle = schoolCssVars(cfg);
+const schoolStyle = schoolCssVars(cfg, town);
 
 const now = new Date();
 const today = dayKey(now);

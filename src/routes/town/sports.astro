@@ -69,10 +69,11 @@ const today = dayKey(now);
 const seasonLabel = pageSeasonLabel(data, cfg.teams, now);
 // The page's own season label ("2026–27" where it shows fall and winter teams), not "this winter" over four fall teams.
 const description = `${school} ${mascot} scores, schedules and records, ${seasonLabel}: ${teamList}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
-// Each school's page in that school's colours, however many the guide
-// follows (the owner, 17 November 2026: Severance High's pages were in
-// Windsor's maroon).
-const schoolStyle = schoolCssVars(cfg);
+// Each school's page marked by that school's colours, never another's (the
+// owner, 17 November 2026: Severance High's pages were in Windsor's
+// maroon); where they are not the guide's own, as accents only, with words
+// and links in the ink (18 November 2026; schoolCssVars).
+const schoolStyle = schoolCssVars(cfg, town);
 
 const next = bigGame(data, now);
 const then = coming(data).filter((c) => c.game.date >= today && c.game.url !== next?.game.url);
@@ -93,9 +94,9 @@ const newest = fetchedDates.length ? new Date(fetchedDates.sort().at(-1)!) : und
 /** A team read more than three days before the newest read: its date is worth showing. */
 const stale = (s: SportData) => !!newest && !!s.fetched && newest.getTime() - new Date(s.fetched).getTime() > 3 * 86_400_000;
 
-/** The pill's colours: a win in the primary, a loss in the ink (the school's dark second colour where it has one, schoolTrim), a tie in the soft accent. */
+/** The pill's colours: a win in the school's colour (--school-primary, schoolCssVars), a loss in the ink (the school's dark second colour where it has one, schoolTrim), a tie in the soft accent. */
 const PILL = {
-  W: 'bg-primary text-white',
+  W: 'bg-[var(--school-primary,var(--color-primary))] text-white',
   L: 'bg-[var(--school-loss,var(--color-ink))] text-raised',
   T: 'bg-accent-soft text-ink',
 } as const;

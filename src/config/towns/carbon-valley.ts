@@ -48,6 +48,7 @@ export const carbonValley: TownConfig = {
   // Erie, down Colorado 52; it names Carbon Valley back. (Longmont, up 119,
   // was the other until its guide was folded on 12 November 2026.)
   neighbors: ['erie'],
+  hubNeighbors: ['longmont'],
   slug: 'carbon-valley',
   name: 'Carbon Valley',
   domain: 'carbonvalleyguide.com',
