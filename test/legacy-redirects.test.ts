@@ -41,7 +41,7 @@ test('vercel.json: no redirect rule for a folded domain, and one rewrite each to
   for (const t of legacy) {
     assert.deepEqual(vercel.redirects.filter((r) => hostOf(r) === t.domain), [], `${t.domain}: a redirect rule would answer before the function`);
     const rewrites = (vercel.rewrites ?? []).filter((r) => hostOf(r) === t.domain);
-    assert.deepEqual(rewrites, [{ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy?legacy_path=/:path*' }], `${t.domain}: one rewrite, every path, the path passed on`);
+    assert.deepEqual(rewrites, [{ source: '/:path*', has: [{ type: 'host', value: t.domain }], destination: '/api/legacy/?legacy_path=/:path*' }], `${t.domain}: one rewrite, every path, the path passed on; to the function's slashed address, the only one Vercel serves it at with trailingSlash`);
   }
   // No redirect anywhere points at a folded domain.
   const folded = new Set(legacy.map((t) => t.domain));

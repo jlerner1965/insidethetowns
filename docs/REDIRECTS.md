@@ -107,7 +107,7 @@ insidenederland.com, insidetimnath.com, insideelizabeth.com,
 insideidahosprings.com, insidegeorgetownco.com, insideblackhawk.com,
 insideevergreenco.com, insidegrandlake.com, insidemanitousprings.com,
 insidefortlupton.com) no longer carry redirect rules in `vercel.json`. Each
-has one rewrite, `/:path*` to `/api/legacy`, and `api/legacy.ts` answers
+has one rewrite, `/:path*` to `/api/legacy/` (the slashed address: with `trailingSlash: true` Vercel serves the function there and nowhere else; a rewrite to `/api/legacy` matched nothing, so for the first minutes after #459 deployed every folded domain answered 404), and `api/legacy.ts` answers
 every request from `api/legacy-map.json`, which `node
 scripts/migration/redirect-map.ts --dist=dist` writes from
 `docs/migration/redirect-map.csv` (one row per old address: host, path,

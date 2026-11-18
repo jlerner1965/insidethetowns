@@ -105,7 +105,7 @@ export function answer(host: string, pathname: string, search = ''): Response {
 
 /**
  * The path the reader asked for. vercel.json's rewrite passes it as
- * `legacy_path` (`/:path*` → `/api/legacy?legacy_path=/:path*`, Vercel's
+ * `legacy_path` (`/:path*` → `/api/legacy/?legacy_path=/:path*`, Vercel's
  * own pattern for redirects answered by a function), since the request
  * this function sees may carry the rewritten address. The original query
  * string rides along: it does not change which page the answer names, and
