@@ -1,21 +1,145 @@
 {
   "slug": "fort-lupton",
   "facts": {
-    "incorporated": { "year": 1890, "source": "https://history.weld.gov/County-150/Education/Fort-Lupton-School-District", "checked": "2026-11-12" }
+    "incorporated": {
+      "year": 1890,
+      "source": "https://history.weld.gov/County-150/Education/Fort-Lupton-School-District",
+      "checked": "2026-11-12"
+    }
   },
   "heritage": {
-    "founded": { "year": 1881, "text": "William G. Winbourn founded the town beside a railroad sidetrack, about a mile south of the original fort", "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County", "checked": "2026-11-12" },
-    "nameOrigin": { "text": "The city bears the name of Lancaster Lupton, a former lieutenant in the U.S. Dragoons who began building a trade fort here in 1836.", "source": "https://www.spvhs.org/background.html", "checked": "2026-11-12" },
+    "founded": {
+      "year": 1881,
+      "text": "William G. Winbourn founded the town beside a railroad sidetrack, about a mile south of the original fort",
+      "source": "https://history.weld.gov/County-150/Weld-County-Towns/Incorporated-Towns-of-Weld-County",
+      "checked": "2026-11-12"
+    },
+    "nameOrigin": {
+      "text": "The city bears the name of Lancaster Lupton, a former lieutenant in the U.S. Dragoons who began building a trade fort here in 1836.",
+      "source": "https://www.spvhs.org/background.html",
+      "checked": "2026-11-12"
+    },
     "timeline": [
-      { "year": 1836, "text": "Lancaster Lupton began building a trade fort for the fur and buffalo hide trade with the plains tribes. It operated as Fort Lancaster until 1844.", "source": "https://www.spvhs.org/luptons-fort.html", "checked": "2026-11-12" },
-      { "year": 1929, "text": "The Fort Lupton Library, now the Fort Lupton City Museum building, was built by architect John J. Huddart.", "source": "https://www.fortluptonco.gov/157/Museum", "checked": "2026-11-12" },
-      { "year": 1981, "text": "The last wall of the original fort was demolished by workers erecting gas and oil drilling rigs on the site.", "source": "https://www.spvhs.org/background.html", "checked": "2026-11-12" },
-      { "year": 1988, "text": "The South Platte Valley Historical Society was started with the aim of rebuilding the fort.", "source": "https://www.spvhs.org/background.html", "checked": "2026-11-12" },
-      { "year": 2011, "text": "The reconstructed Fort Lancaster was completed and dedicated.", "source": "https://www.spvhs.org/luptons-fort.html", "checked": "2026-11-12" }
+      {
+        "year": 1836,
+        "text": "Lancaster Lupton began building a trade fort for the fur and buffalo hide trade with the plains tribes. It operated as Fort Lancaster until 1844.",
+        "source": "https://www.spvhs.org/luptons-fort.html",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1929,
+        "text": "The Fort Lupton Library, now the Fort Lupton City Museum building, was built by architect John J. Huddart.",
+        "source": "https://www.fortluptonco.gov/157/Museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1981,
+        "text": "The last wall of the original fort was demolished by workers erecting gas and oil drilling rigs on the site.",
+        "source": "https://www.spvhs.org/background.html",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 1988,
+        "text": "The South Platte Valley Historical Society was started with the aim of rebuilding the fort.",
+        "source": "https://www.spvhs.org/background.html",
+        "checked": "2026-11-12"
+      },
+      {
+        "year": 2011,
+        "text": "The reconstructed Fort Lancaster was completed and dedicated.",
+        "source": "https://www.spvhs.org/luptons-fort.html",
+        "checked": "2026-11-12"
+      }
     ],
     "sites": [
-      { "name": "Fort Lupton City Museum", "kind": "museum", "url": "https://www.fortluptonco.gov/157/Museum", "hours": "Wednesday to Friday, 10 am to 3 pm", "cost": "Free", "source": "https://www.fortluptonco.gov/157/Museum", "checked": "2026-11-12" },
-      { "name": "South Platte Valley Historic Park (reconstructed Fort Lancaster)", "kind": "landmark", "url": "https://www.spvhs.org/", "hours": "10 am to 4 pm, Saturday and Sunday of the first and third weekend of each month", "season": "May to October", "source": "https://www.spvhs.org/", "checked": "2026-11-12" }
+      {
+        "name": "Fort Lupton City Museum",
+        "kind": "museum",
+        "url": "https://www.fortluptonco.gov/157/Museum",
+        "hours": "Wednesday to Friday, 10 am to 3 pm",
+        "cost": "Free",
+        "source": "https://www.fortluptonco.gov/157/Museum",
+        "checked": "2026-11-12"
+      },
+      {
+        "name": "South Platte Valley Historic Park (reconstructed Fort Lancaster)",
+        "kind": "landmark",
+        "url": "https://www.spvhs.org/",
+        "hours": "10 am to 4 pm, Saturday and Sunday of the first and third weekend of each month",
+        "season": "May to October",
+        "source": "https://www.spvhs.org/",
+        "checked": "2026-11-12"
+      }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Community Center Park",
+      "kind": "City park",
+      "manager": "City of Fort Lupton Parks & Recreation",
+      "size": "11.2 acres, with a skate park, playground, soccer and playing fields, a walking path and bike trail, a pavilion and picnic shelters",
+      "address": "203 South Harrison Avenue, Fort Lupton, CO 80621",
+      "season": "Open sunrise to sunset.",
+      "dogs": "On a 10-foot leash; clean up after your dog.",
+      "fee": "Free. The picnic shelters can be reserved: call 303-857-4200.",
+      "page": "/fort-lupton/places/community-center-park/",
+      "url": "https://www.fortluptonco.gov/Facilities/Facility/Details/11",
+      "source": "https://www.fortluptonco.gov/Facilities/Facility/Details/11",
+      "alsoSources": [
+        "https://www.fortluptonco.gov/1017/Parks"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Railroad Park",
+      "kind": "City park",
+      "manager": "City of Fort Lupton Parks & Recreation",
+      "size": "8.6 acres from Highway 52 north to Ninth Street: ball and soccer fields, basketball, sand volleyball, horseshoe pits, a playground and picnic shelters",
+      "address": "4th Street and Pacific Avenue, Fort Lupton, CO 80621",
+      "season": "Open sunrise to sunset.",
+      "dogs": "On a 10-foot leash; clean up after your dog.",
+      "fee": "Free.",
+      "page": "/fort-lupton/places/railroad-park/",
+      "url": "https://www.fortluptonco.gov/Facilities/Facility/Details/4",
+      "source": "https://www.fortluptonco.gov/Facilities/Facility/Details/4",
+      "alsoSources": [
+        "https://www.fortluptonco.gov/1017/Parks"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Lancaster Park",
+      "kind": "City park",
+      "manager": "City of Fort Lupton Parks & Recreation",
+      "size": "13 acres, with basketball, a playground, a walking path, picnic tables and benches",
+      "address": "Lancaster Avenue, northeast of Longview Drive, Fort Lupton, CO 80621",
+      "season": "Open sunrise to sunset.",
+      "dogs": "On a 10-foot leash; clean up after your dog.",
+      "fee": "Free.",
+      "page": "/fort-lupton/places/lancaster-park/",
+      "url": "https://www.fortluptonco.gov/Facilities/Facility/Details/10",
+      "source": "https://www.fortluptonco.gov/Facilities/Facility/Details/10",
+      "alsoSources": [
+        "https://www.fortluptonco.gov/1017/Parks"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Cannery Park",
+      "kind": "City park",
+      "manager": "City of Fort Lupton Parks & Recreation",
+      "size": "0.4 acres, a pocket park with a playground, picnic tables, benches and a drinking fountain",
+      "address": "Fifth Street and Fulton Avenue, Fort Lupton, CO 80621",
+      "season": "Open sunrise to sunset.",
+      "dogs": "On a 10-foot leash; clean up after your dog.",
+      "fee": "Free.",
+      "page": "/fort-lupton/places/cannery-park/",
+      "url": "https://www.fortluptonco.gov/Facilities/Facility/Details/2",
+      "source": "https://www.fortluptonco.gov/Facilities/Facility/Details/2",
+      "alsoSources": [
+        "https://www.fortluptonco.gov/1017/Parks"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }

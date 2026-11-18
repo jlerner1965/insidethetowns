@@ -107,5 +107,21 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Golden Gate Canyon State Park",
+      "kind": "State park",
+      "manager": "Colorado Parks and Wildlife",
+      "size": "12,119 acres with 35 miles of trails, 156 campsites and 125 picnic sites",
+      "address": "92 Crawford Gulch Road, Golden, CO 80403; the visitor center is at Golden Gate Canyon Road (Highway 46) and Crawford Gulch Road",
+      "season": "Day use 5 am to 10 pm. Mountain Base Road is closed for the winter from November 1; reach the upper park by Highway 46 and Highway 119 to Gap Road. Visitor center Tuesday to Sunday, 9 am to 4 pm.",
+      "dogs": "Leashed dogs allowed.",
+      "fee": "Daily vehicle pass $10 to $12 with a Colorado plate, $15 to $17 out of state (the page’s summary box says $12 to $17); $4 on foot, bike or horse; $80 annual pass. Nine self-pay kiosks in the park.",
+      "page": "/black-hawk/places/golden-gate-canyon-state-park/",
+      "url": "https://cpw.state.co.us/state-parks/golden-gate-canyon-state-park",
+      "source": "https://cpw.state.co.us/state-parks/golden-gate-canyon-state-park",
+      "checked": "2026-11-18"
+    }
+  ]
 }

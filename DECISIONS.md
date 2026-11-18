@@ -12290,3 +12290,31 @@ Butte, Steamboat Springs and Durango, in the same pull request.*
   two rates; Steamboat's two springs, the Cascade Canyon coach fare and
   the Hot Springs Shuttle's are printed, and go on the re-check.
 
+## Ten more town pages from what the repo holds, 18 November 2026
+
+*The owner's third ask of 18 November 2026: the towns not yet updated,
+from what is already in the repo, such as Grand Lake.*
+
+- **Which towns.** Of the 83 other hub towns, ten have a former guide's
+  articles and place listings in the repo: Grand Lake, Fort Collins,
+  Longmont, Loveland, Castle Rock, Lafayette, Timnath, Elizabeth, Fort
+  Lupton and Black Hawk. The other 73 have a profile file only, so nothing
+  in the repo could make a lead guide or a trail entry for them.
+- **Lead guides** are each town's own visitor article: the walking or
+  driving order where there is one, else the "with kids" guide. The test
+  now checks every row that names a lead guide, not only the briefed
+  fourteen.
+- **Trails and parks** come from the town's place listings, an entry only
+  where the land manager's page gives all five facts. The City of Fort
+  Collins, Larimer County, the City of Loveland, the Town of Castle Rock,
+  Douglas County, the Town of Grand Lake and the Town of Elizabeth refuse
+  automated readers, so facts from them are the listings' as recorded, on
+  10 or 17 November, with that date as `checked`. Two Rocky Mountain
+  National Park trails at Grand Lake, Coyote Valley and the Colorado River
+  Trail to Lulu City, have no listing and come from the park's pages.
+- **Gaps.** Lafayette and Elizabeth have none: no manager states a fee, or
+  that there is none, for any of their trails and parks (Boulder County's
+  regulations, hours and permits pages are silent too), and Elizabeth's
+  parks have no hours. Timnath, Longmont, Castle Rock and Black Hawk have
+  one each. Cold Springs Campground is left out as a campground.
+
