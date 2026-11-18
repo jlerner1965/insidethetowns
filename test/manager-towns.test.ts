@@ -12,6 +12,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
+import { isMoved } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
 
 interface ManagerTown {
@@ -75,7 +76,8 @@ test('a retired guide keeps its own entry, not live, and its notes say it was re
 test('a guide folded into its page on the hub keeps its own entry, not live, and its notes say where it went and when', () => {
   // The nine of 12 November 2026, and the five retired earlier whose domains
   // now forward to their town's page, not the hub's home page.
-  const withPage = towns.filter((t) => t.hubPage);
+  // A guide moved whole into the hub (src/config/guide-move.ts) stays live, with its own entry.
+  const withPage = towns.filter((t) => t.hubPage && !isMoved(t));
   assert.equal(withPage.filter((t) => !t.retired).length, 11);
   for (const t of withPage) {
     const m = listed.get(t.slug);

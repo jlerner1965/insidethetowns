@@ -17,7 +17,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
-import { allTowns } from '../src/config/index.ts';
+import { allTowns, isMoved } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { answer, CACHE_HEADERS, lookup, requestedHost, requestedPath, requestedSearch, withQuery } from '../api/legacy.ts';
 import { readCsv } from '../scripts/migration/shared.ts';
@@ -26,7 +26,8 @@ import map from '../api/legacy-map.json' with { type: 'json' };
 type Rule = { source: string; destination: string; has?: Array<{ type: string; value?: string }> };
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as { redirects: Rule[]; rewrites?: Rule[] };
 const hostOf = (r: Rule) => r.has?.find((h) => h.type === 'host')?.value;
-const legacy = allTowns.filter((t) => t.hubPage && t.section);
+// A guide moved into the hub (src/config/guide-move.ts) is answered by the function too, from a map its own build writes, not this file.
+const legacy = allTowns.filter((t) => t.hubPage && t.section && !isMoved(t));
 const rows = readCsv(new URL('../docs/migration/redirect-map.csv', import.meta.url).pathname);
 const table = map as Record<string, { page: string; paths: Record<string, string | 0>; sitemap?: string }>;
 

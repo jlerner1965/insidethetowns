@@ -14,6 +14,8 @@ import { eventSchema } from '../src/content/schemas.ts';
 import { occurrences } from '../src/lib/events.ts';
 import { dayKey, toWallClock } from '../src/lib/dates.ts';
 import { sessionLinks } from '../src/lib/session-links.ts';
+import { allTowns, isMoved } from '../src/config/index.ts';
+import { guideRedirects } from '../src/lib/former-slugs.ts';
 
 const dir = new URL('../content/johnstown/events/', import.meta.url);
 const schema = eventSchema(() => z.string());
@@ -48,6 +50,12 @@ test('each Monday session of Music & Movement is listed once: one at 10, one at 
 
 test('the retired page is gone and its address goes to the series kept, on Johnstown’s domain only', () => {
   assert.equal(existsSync(new URL(`${RETIRED}.md`, dir)), false);
+  // Once Johnstown has moved into the hub (src/config/guide-move.ts), its domain has no rule in vercel.json: the
+  // function answers from the map its build writes, which reads the same retirement (scripts/migration/guide-map.ts).
+  if (isMoved(allTowns.find((t) => t.slug === 'johnstown')!)) {
+    assert.equal(guideRedirects('johnstown')[`/events/${RETIRED}`], `/events/${KEPT}/`);
+    return;
+  }
   const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
     redirects: Array<{ source: string; destination: string; permanent?: boolean; statusCode?: number; has?: Array<{ type: string; value: string }> }>;
   };

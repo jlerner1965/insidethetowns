@@ -22,7 +22,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { emailTowns, findTown, LIVE_TOWNS, liveTowns, MOVING_GUIDES } from '../src/config/index.ts';
+import { emailTowns, findTown, isMoved, LIVE_TOWNS, liveTowns, MOVING_GUIDES } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuide } from '../src/config/hub-towns.ts';
@@ -41,7 +41,8 @@ const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some(
 // of 17 November 2026) is answered by api/legacy.ts from
 // docs/migration/redirect-map.csv (test/legacy-redirects.test.ts); vercel.json
 // holds no fold rules for it, and its kept content is back in its folder.
-const everyPage = towns.filter((t) => t.hubPage);
+// A guide moved whole into the hub (src/config/guide-move.ts) has a hub page too, but stays live: not a fold.
+const everyPage = towns.filter((t) => t.hubPage && !isMoved(t));
 const withPage = everyPage.filter((t) => !t.section);
 /** Folded on 12 November 2026, as distinct from a guide retired earlier whose town has since got its page. */
 const folded = everyPage.filter((t) => !t.retired);
@@ -73,10 +74,10 @@ test('no fold without a page: a config with `hubPage` redirects, names its own h
     assert.equal(hubTownForGuide(t.slug)?.slug, t.hubPage!.town, `${t.slug}: the registry and the config name the same page`);
     assert.ok(published.has(t.hubPage!.town), `${t.slug}: /${t.hubPage!.town}/ is not published (fewer than three verified dated records of its own), so the domain would redirect to a page that is not built`);
   }
-  // And nothing live has one: a live guide stays up unchanged until it is folded.
-  for (const t of towns.filter((t) => t.status !== 'redirect')) assert.equal(t.hubPage, undefined, `${t.slug}: hubPage without status redirect`);
-  // Nor a standalone guide, live or not: the two tiers do not overlap.
-  for (const slug of standaloneConfigs) assert.equal(findTown(slug)?.hubPage, undefined, `${slug}: a standalone guide has no hub page`);
+  // And nothing live has one, unless its switch is on (src/config/guide-move.ts): a live guide stays up unchanged until it is folded or moved.
+  for (const t of towns.filter((t) => t.status !== 'redirect' && !isMoved(t))) assert.equal(t.hubPage, undefined, `${t.slug}: hubPage without status redirect`);
+  // Nor a standalone guide still on its own domain: the two tiers do not overlap.
+  for (const slug of standaloneConfigs) if (!isMoved(findTown(slug)!)) assert.equal(findTown(slug)?.hubPage, undefined, `${slug}: a standalone guide has no hub page`);
 });
 
 test('vercel.json holds exactly the rules src/lib/fold.ts writes for each domain: permanent, the home page first, the catch-all last', () => {
