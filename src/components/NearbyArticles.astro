@@ -10,7 +10,7 @@
 import { typeset } from '@/lib/text';
 import { getNetworkHub } from '@/config';
 import { getCuriosity } from '@/lib/content';
-import { articlePath, articlesFor, kindLabel } from '@/lib/curiosity';
+import { articleLabel, articlePath, articlesFor } from '@/lib/curiosity';
 import { pub } from '@/components/hub/pub';
 
 interface Props {
@@ -24,17 +24,21 @@ interface Props {
    * (the publication redesign of 14 November 2026), its heading an h3.
    */
   variant?: 'card' | 'pub';
+  /** Articles shown elsewhere on the page (the town's history story, featured in About), left out here. */
+  exclude?: readonly string[];
 }
-const { place, onHub = false, class: className, variant = 'card' } = Astro.props;
+const { place, onHub = false, class: className, variant = 'card', exclude = [] } = Astro.props;
 const hub = getNetworkHub();
 const articles = articlesFor(
   (await getCuriosity()).map((a) => a.data),
   place,
-).map((a) => ({
+)
+  .filter((a) => !exclude.includes(a.slug))
+  .map((a) => ({
   // Shown as text only: typographic quotes (src/lib/text.ts).
   title: typeset(a.title),
   href: `${onHub ? '' : `https://${hub.domain}`}${articlePath(a)}`,
-  label: kindLabel(a.kind),
+  label: articleLabel(a),
 }));
 ---
 {articles.length > 0 && variant === 'pub' && (

@@ -2,7 +2,7 @@
 title: "Mount Blue Sky from Idaho Springs: tickets, season, and when it's closed"
 seoTitle: "Mount Blue Sky road: tickets, season and closures"
 date: "2026-11-18"
-excerpt: "The Mount Blue Sky road is closed to cars for the rest of 2026. When it opens (May 22 in 2026), buy a timed ticket on Recreation.gov before leaving Idaho Springs: $20 a car in 2026, no federal passes. 2027 dates are not yet published (checked November 18, 2026)."
+excerpt: "The Mount Blue Sky road is closed to cars for the rest of 2026. When it opens (May 22 in 2026), buy a timed ticket on Recreation.gov before leaving Idaho Springs: $20 a car in 2026, no federal passes. 2027 dates are not yet announced (checked November 18, 2026)."
 category: "Outdoors"
 tags: [mount-blue-sky, scenic-byway, reservations, echo-lake, guide]
 image: ../images/echo-lake.jpg

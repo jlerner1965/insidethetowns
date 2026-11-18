@@ -3,7 +3,7 @@ title: "Evergreen Lake by season, with downtown and a short trail"
 seoTitle: "Evergreen Lake, CO by season: skating, boats and trails"
 date: "2026-10-07"
 updated: "2026-11-18"
-excerpt: "On November 18, 2026 the lake is between seasons: boats closed until 2027, skating not yet open, no opening day set. The 1.3-mile trail and fishing are open all year. Park at the lake, walk the north-shore path toward town, and add Alderfer/Three Sisters for a longer walk."
+excerpt: "On November 18, 2026 the lake is between seasons: boats closed until 2027, skating's opening day not yet announced (checked November 18, 2026). The 1.3-mile trail and fishing are open all year. Park at the lake, walk the north-shore path toward town, and add Alderfer/Three Sisters for a longer walk."
 category: "Outdoors"
 tags: [outdoors, lake, ice-skating, boating, fishing, trails, guide]
 image: ../images/evergreen-lake-ice-skating.jpg

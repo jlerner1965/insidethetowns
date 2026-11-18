@@ -2,7 +2,7 @@
 title: "Getting to Eldora from Nederland: the bus, parking and full lots"
 seoTitle: "Eldora from Nederland: RTD bus, parking and fees"
 date: "2026-11-18"
-excerpt: "Eldora has not opened for 2026–27 or named its opening day (checked November 18, 2026). Once it does: take RTD's NB bus from the free Nederland Park-n-Ride to the Alpenglow lift, or drive with two or more people to skip the single-car fee. No parking reservations."
+excerpt: "Eldora's 2026–27 opening day is not yet announced (checked November 18, 2026). Once it opens: take RTD's NB bus from the free Nederland Park-n-Ride to the Alpenglow lift, or drive with two or more people to skip the single-car fee. No parking reservations."
 category: "Outdoors"
 tags: [eldora, skiing, bus, parking, guide]
 verified: "2026-11-18"

@@ -19,8 +19,8 @@ const row = (name: string, date?: string) =>
 
 test('a town page’s title and description name its next dated traditions and the year', () => {
   const t = townSearchText('Golden', [row('Candlelight Walk', '2026-12-04'), row('Buffalo Bill Days'), row('Golden Holiday Parade', '2026-12-12'), row('Jingle on the Avenue', '2026-12-19'), row('Fourth', '2027-07-04')]);
-  // 60 characters since 13 November 2026: "and annual dates" no longer fits.
-  assert.equal(t.seoTitle, 'Golden, Colorado events 2026: Candlelight Walk');
+  // The title says what the page covers; the dates stay in the description (the owner, 18 November 2026).
+  assert.equal(t.seoTitle, 'Golden, Colorado: events and things to do (2026)');
   assert.match(t.description, /^Golden, Colorado in 2026: Candlelight Walk \(December 4\), Golden Holiday Parade \(December 12\) and Jingle on the Avenue \(December 19\)\./);
   assert.doesNotMatch(t.description, /Buffalo Bill|Fourth/, 'three at most, and none without a date');
 
@@ -30,17 +30,21 @@ test('a town page’s title and description name its next dated traditions and t
 
   const long = townSearchText('Salida', [row('Christmas Mountain 5 Mile & 1 Mile Run', '2026-11-27')]);
   assert.ok(long.seoTitle.length <= 60, long.seoTitle);
-  // At 60 the long name no longer fits in any form; the plain dated title stands.
-  assert.equal(long.seoTitle, 'Salida, Colorado events and annual dates, 2026');
   assert.match(long.seoTitle, /events/, 'every dated title says events');
+  const trails = townSearchText('Leadville', [row('Skijoring', '2027-03-06')], undefined, undefined, { trails: true, stay: true, history: true });
+  assert.equal(trails.seoTitle, 'Leadville, Colorado: events, trails and things to do (2027)');
+  const span = townSearchText('Leadville', [row('Skijoring', '2027-03-06'), row('Boom Days', '2026-12-01')], undefined, undefined, { trails: true });
+  assert.equal(span.seoTitle, 'Leadville, CO: events, trails and things to do (2026–27)', 'over 60 characters the Colorado form gives way to CO');
+  const covers = townSearchText('Alma', [row('Festival', '2027-07-04')], undefined, undefined, { trails: true, stay: true, history: true });
+  assert.match(covers.description, /trails and parks, where to stay, getting here, the town’s history/, 'the description says what the page covers where it fits');
 
   // A showpiece's spotlight leads, whatever falls before it (the audit of 17 November 2026).
   const lead = townSearchText('Estes Park', [row('Catch the Glow', '2026-11-27'), row('Frozen Dead Guy Days', '2027-04-09')], 'frozen-dead-guy-days');
-  assert.equal(lead.seoTitle, 'Estes Park, Colorado events 2026–27: Frozen Dead Guy Days');
+  assert.equal(lead.seoTitle, 'Estes Park, Colorado: events and things to do (2026–27)');
   assert.match(lead.description, /^Estes Park, Colorado in 2026–27: Frozen Dead Guy Days \(April 9, 2027\) and Catch the Glow \(November 27\)\./);
 
   const none = townSearchText('Ouray', [row('Ice Festival')]);
-  assert.equal(none.seoTitle, 'Ouray, Colorado: annual events and outdoor dates', 'no date ahead, no event named');
+  assert.equal(none.seoTitle, 'Ouray, Colorado: events and things to do', 'no date ahead, no year');
 });
 
 const record = (over: Partial<TraditionRecord>) => ({ slug: 'x', name: 'X', type: 'tree-lighting', organizer: 'Town', sourceUrl: 'https://example.org/', years: [], ...over }) as TraditionRecord;

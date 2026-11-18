@@ -63,12 +63,14 @@ import { sectionFor } from '@/lib/section-index';
 import { STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getCuriosity, getSectionEntries, getTraditions } from '@/lib/content';
 import { parseLeadGuide, sectionArticleSegment } from '@/lib/lead-guide';
-import { articlesFor } from '@/lib/curiosity';
-import { dayKey, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
+import { dayKey, formatDayLong, formatShortDate, parseLocal, publishedTime } from '@/lib/dates';
 import { hubTownPhoto } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
 import { appliesTo, eventPage, eventPath, lineFor, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
-import { milesShort, moreHeading, moreInRegion, pageSections, profileView, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
+import { foundedLine, milesShort, monthAnchor, moreHeading, moreInRegion, pageSections, profileView, timelineText, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
+import { MONTH_NAMES } from '@/lib/year-grid';
+import { articlePath, articlesFor, historyStory } from '@/lib/curiosity';
+import { PLACE_TYPE_PLURALS, type PlaceType } from '@/content/schemas';
 import { formatDrive, formatMiles, type Airports, type RoadMiles, type TownFacts } from '@/lib/near';
 import { nearView } from '@/lib/near-view';
 import { openNow } from '@/lib/open-now';
@@ -126,28 +128,20 @@ const shareAlt = hero ? hero.alt : `${town.name}, Colorado: annual events and ou
 const path = `/${town.slug}/`;
 const pageUrl = `https://${hub.domain}${path}`;
 const county = hubCountyLine(town);
-const { seoTitle, description } = townSearchText(town.name, traditions, show?.spotlight);
 const all = [...traditions, ...outdoor, ...statewide];
-const structured = [
-  collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: pageOf(r) ? `https://${hub.domain}${pageOf(r)}` : `${pageUrl}#${r.record.slug}` })) }),
-  breadcrumbJsonLd(hub, [
-    { name: hub.siteTitle, path: '/' },
-    { name: town.name, path },
-  ]),
-  // An event is marked up on one page: a record whose home is this town has a page of its own since 13 November 2026.
-  ...traditions.map((r) => (r.past || pageOf(r) || eventPage(r.record, ctx) !== town.slug ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
-];
-const intro = show?.intro ?? 'The events this town holds every year and the outdoor dates around it, each with the page it was read from.';
 
 /* ------------------------------------------------------------ 01 Events */
 
-/** The town's own dates: its events and the outdoor dates that name it (not the statewide ones, which have their section). */
-const own = [...traditions, ...outdoor];
+/** A road's or a pass's opening or closing (CDOT's dates): under Getting here, not among the events (the owner, 18 November 2026). */
+const isRoad = (r: Row) => r.record.type === 'outdoor' && r.record.outdoor?.kind === 'road';
+const roadRows = [...traditions, ...outdoor].filter(isRoad).sort((a, b) => a.record.name.localeCompare(b.record.name));
+/** The town's own dates: its events and the outdoor dates that name it (not the statewide ones, which have their section, nor the roads). */
+const own = [...traditions, ...outdoor].filter((r) => !isRoad(r));
 /** A showpiece's one to know (HubTown.showpiece.spotlight): drawn first under Events, and left out of the lists below it. */
 const spotlight = show ? own.find((r) => r.record.slug === show.spotlight) : undefined;
 const listed = own.filter((r) => r !== spotlight);
 /** The next date the town has, under its name: its own events' soonest date set; an outdoor date only where no event of its has one (src/lib/hub-towns.ts, nextUp). */
-const nextUp = nextRowUp(traditions, outdoor);
+const nextUp = nextRowUp(traditions, outdoor.filter((r) => !isRoad(r)));
 /** Its day, or for a run already under way the day it ends: "On now, through Saturday, October 31, 2026" (src/lib/traditions.ts, isUnderWay). */
 const nextDay = nextUp
   ? isUnderWay(nextUp.entry, today)
@@ -164,15 +158,39 @@ const comingUp = listed.filter((r) => rowState(r) === 'upcoming').sort((a, b) =>
 // mid-May") is in "Open now" below; it is not also "not yet announced" here
 // because its opening day has passed (the owner, 17 November 2026: show it
 // once). It comes back to this list the day its closing date passes.
-const openSlugs = new Set(openNow(records.filter((r) => !r.statewide && appliesTo(r, town.slug)), today).open.map((o) => o.slug));
+const openRecords = records.filter((r) => !r.statewide && appliesTo(r, town.slug) && !(r.type === 'outdoor' && r.outdoor?.kind === 'road'));
+const openSlugs = new Set(openNow(openRecords, today).open.map((o) => o.slug));
 const waiting = listed
   .filter((r) => (rowState(r) === 'waiting' || rowState(r) === 'past') && !openSlugs.has(r.record.slug))
   .sort((a, b) => (a.lastHeld?.slice(5) ?? '99').localeCompare(b.lastHeld?.slice(5) ?? '99') || a.record.name.localeCompare(b.record.name));
 const canceled = listed.filter((r) => rowState(r) === 'canceled');
 const groupOf = (r: Row) => (r === spotlight ? 'one-to-know' : rowState(r) === 'upcoming' ? 'coming-up' : rowState(r) === 'canceled' ? 'canceled' : 'not-announced');
-const cells = yearGrid(yearMarks(traditions, groupOf), Number(today.slice(5, 7)) - 1);
+/**
+ * Each month's anchor sits on the first entry of that month in the lists, a
+ * date set before one not yet announced, and the year's grid links there
+ * (the owner, 18 November 2026: every month had gone to the top of "Coming
+ * up"). `anchorOf` names the entry that carries each month.
+ */
+const monthOf = (d: string) => Number(d.slice(5, 7)) - 1;
+const anchorOf = new Map<string, number>();
+const taken = new Set<number>();
+for (const r of comingUp) {
+  const m = monthOf(r.entry.date!);
+  if (!taken.has(m)) { taken.add(m); anchorOf.set(r.record.slug, m); }
+}
+for (const r of waiting) {
+  if (!r.lastHeld) continue;
+  const m = monthOf(r.lastHeld);
+  if (!taken.has(m)) { taken.add(m); anchorOf.set(r.record.slug, m); }
+}
+const monthIdFor = (r: Row) => (anchorOf.has(r.record.slug) ? monthAnchor(anchorOf.get(r.record.slug)!) : undefined);
+/** A date not yet announced, on one line: the month it usually falls in, from the record's window or its last date. */
+const usualMonth = (r: Row) => {
+  const start = r.record.dateWindow?.start ?? r.lastHeld?.slice(5);
+  return start ? MONTH_NAMES[Number(start.slice(0, 2)) - 1] : undefined;
+};
+const cells = yearGrid(yearMarks(traditions, groupOf), Number(today.slice(5, 7)) - 1, taken);
 const marked = cells.some((c) => c.marks.length > 0);
-const openRecords = records.filter((r) => !r.statewide && appliesTo(r, town.slug));
 const hasOpen = (() => {
   const { open, next } = openNow(openRecords, today);
   return open.length + next.length > 0;
@@ -213,7 +231,57 @@ const measuredAt = (iso: string) =>
   new Date(iso).toLocaleString('en-US', { timeZone: 'America/Denver', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
 const inches = (n: number) => `${n} ${n === 1 ? 'inch' : 'inches'}`;
 const hasSignature = stocked.length > 0 || (!!gauge && !!flow) || (!!station && !!snow);
-const hasArticles = articlesFor((await getCuriosity()).map((a) => a.data), town.slug).length > 0;
+const townArticles = articlesFor((await getCuriosity()).map((a) => a.data), town.slug);
+/** The town's history story, featured at the top of About with "Read the story" (the owner, 18 November 2026). */
+const history = historyStory(townArticles);
+const hasArticles = townArticles.length > 0;
+
+/* ------------------------------------------- the guide's places, on this page */
+
+// The guide folded into this page, where some of it lives on under it (the
+// move of 17 November 2026): a full section's main pages, or the pages
+// kept one by one (src/lib/section-index.ts).
+const folded = allTowns.find((t) => t.hubPage?.town === town.slug && t.section);
+const kept = folded?.section?.mode === 'pages' ? await sectionFor(town.slug) : undefined;
+const placeEntries = folded ? [...(await getSectionEntries('places', folded))].sort((a, b) => a.data.title.localeCompare(b.data.title)) : [];
+const placesHref = folded?.section?.mode === 'full' ? `/${town.slug}/directory/` : `/${town.slug}/places/`;
+const placeHref = (slug: string) => `/${town.slug}/places/${slug}/`;
+/**
+ * Places, a few by kind (the owner, 18 November 2026): museums and history,
+ * eat and drink, outdoors, where to stay, shops and services; three of each
+ * at most, then every one on the places page.
+ */
+type PlaceEntry = (typeof placeEntries)[number];
+const hasTag = (p: PlaceEntry, ...tags: string[]) => (p.data.tags ?? []).some((t: string) => tags.includes(t));
+const PLACE_GROUPS: Array<{ label: string; pick: (p: PlaceEntry) => boolean }> = [
+  { label: 'Museums and history', pick: (p) => p.data.type === 'venue' && hasTag(p, 'museum', 'history', 'historic', 'mining-history', 'tours') },
+  { label: 'Eat and drink', pick: (p) => (['restaurant', 'coffee', 'bar'] as PlaceType[]).includes(p.data.type) },
+  { label: 'Outdoors', pick: (p) => (['trail', 'trailhead', 'park'] as PlaceType[]).includes(p.data.type) },
+  { label: 'Places to stay', pick: (p) => p.data.type === 'lodging' },
+  { label: 'Shops and services', pick: (p) => (['shop', 'service'] as PlaceType[]).includes(p.data.type) },
+];
+const PLACE_PICK = 3;
+const placeGroups = (() => {
+  const used = new Set<string>();
+  const groups = PLACE_GROUPS.map((g) => {
+    const items = placeEntries.filter((p) => !used.has(p.slug) && g.pick(p)).slice(0, PLACE_PICK);
+    for (const p of items) used.add(p.slug);
+    return { label: g.label, items };
+  });
+  const rest = placeEntries.filter((p) => !used.has(p.slug) && p.data.type === 'venue').slice(0, PLACE_PICK);
+  if (rest.length > 0) groups.push({ label: PLACE_TYPE_PLURALS.venue, items: rest });
+  return groups.filter((g) => g.items.length > 0);
+})();
+/** A lodging listing's one line: its summary's first clause ("The 1886 hotel on Harrison Avenue"). */
+const oneLine = (summary: string) => {
+  const first = summary.split(/[.;:](?:\s|$)/)[0]!.trim();
+  return first.length <= 110 ? first : `${first.slice(0, 110).replace(/\s+\S*$/, '')}…`;
+};
+/** Where to stay: every lodging place on the guide's places page, then the profile's, each with a line on what it is (the owner, 18 November 2026). */
+const stayList = [
+  ...placeEntries.filter((p) => p.data.type === 'lodging').map((p) => ({ name: p.data.title, href: placeHref(p.slug), external: false, note: oneLine(p.data.summary), area: p.data.area as string | undefined })),
+  ...profile.lodging.filter((l) => !placeEntries.some((p) => p.data.type === 'lodging' && p.data.title.toLowerCase() === l.name.toLowerCase())).map((l) => ({ name: l.name, href: l.url, external: true, note: [l.kind, l.season].filter(Boolean).join(' · '), area: undefined })),
+];
 
 /* ------------------------------------------------------------- sections */
 
@@ -221,11 +289,26 @@ const sections = pageSections(town.name, {
   events: own.length > 0 || hasOpen,
   places: profile.places.length > 0,
   trails: profile.trails.length > 0,
-  stay: profile.lodging.length > 0,
-  getting: !!profile.fromDenver || profile.transit.length > 0 || !!profile.airport || passes.length > 0 || near.length > 0,
+  directory: placeGroups.length > 0,
+  stay: stayList.length > 0,
+  getting: !!profile.fromDenver || profile.transit.length > 0 || !!profile.airport || passes.length > 0 || near.length > 0 || roadRows.length > 0,
   outdoor: statewide.length > 0,
   about: profile.strip.length > 0 || hasSignature || !!profile.heritage || hasArticles,
 });
+const has = (k: string) => sections.some((x) => x.key === k);
+const { seoTitle, description } = townSearchText(town.name, traditions, show?.spotlight, today, { trails: has('trails'), stay: has('stay'), history: !!profile.heritage || !!history });
+const structured = [
+  collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: pageOf(r) ? `https://${hub.domain}${pageOf(r)}` : `${pageUrl}#${r.record.slug}` })) }),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: town.name, path },
+  ]),
+  // An event is marked up on one page: a record whose home is this town has a page of its own since 13 November 2026.
+  ...traditions.map((r) => (r.past || pageOf(r) || eventPage(r.record, ctx) !== town.slug ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
+];
+/** The line under the name says what the page covers (the owner, 18 November 2026). */
+const covers = [has('events') && 'annual events and their dates', has('trails') && 'trails and parks', has('directory') && 'places', has('stay') && 'where to stay', has('getting') && 'getting here', has('about') && (profile.heritage || history ? 'its history' : 'the town')].filter(Boolean) as string[];
+const intro = show?.intro ?? `${town.name}’s ${covers.length > 1 ? `${covers.slice(0, -1).join(', ')} and ${covers[covers.length - 1]}` : covers[0] ?? 'dates'}, each with the page it was read from.`;
 const section = Object.fromEntries(sections.map((s, i) => [s.key, { ...s, tone: (i % 2 === 0 ? 'paper' : 'white') as 'paper' | 'white' }]));
 const closingTone = sections.length % 2 === 0 ? 'paper' : 'white';
 
@@ -236,38 +319,19 @@ const statewideRest = statewide.slice(STATEWIDE_SHOWN);
 
 /** The other town pages in its area, nearest by road first (src/lib/hub-town-page.ts, moreInRegion), and the areas they are in. */
 const more = moreInRegion(town, published, roads);
-// The guide folded into this page, where some of it lives on under it (the
-// move of 17 November 2026): a full section's main pages, or the index of
-// the pages kept one by one (src/lib/section-index.ts). One line, in the
-// close, and the section links back here from every page.
-const folded = allTowns.find((t) => t.hubPage?.town === town.slug && t.section);
-const kept = folded?.section?.mode === 'pages' ? await sectionFor(town.slug) : undefined;
+// A full section's other pages, in the close, as plain links (the owner, 18 November 2026: no "Inside <Town>:" label). A guide kept page by page has its Places section instead.
 const sectionLinks: Array<{ label: string; href: string }> =
   folded?.section?.mode === 'full'
     ? [
         { label: 'Events', href: `/${town.slug}/events/` },
         { label: 'Eat & drink', href: `/${town.slug}/eat-drink/` },
         { label: 'Things to do', href: `/${town.slug}/things-to-do/` },
-        { label: 'Places', href: `/${town.slug}/directory/` },
         { label: 'Guides', href: `/${town.slug}/guides/` },
       ]
-    : kept && kept.placeEntries.length + kept.guideEntries.length > 0
-      ? [{ label: `Places in ${town.name}`, href: `/${town.slug}/places/` }]
+    : kept && kept.guideEntries.length > 0
+      ? [{ label: 'Guides', href: `/${town.slug}/places/#guides-heading` }]
       : [];
 const moreIn = moreHeading(more);
-// The rest of the old guide, in the menu beside the sections (the owner,
-// 18 November 2026: "otherwise nobody will find it"): its places, and a full
-// section's guides. Pages, not anchors, so they carry an arrow and stay out
-// of the rail's place-marking script.
-const menuPages: Array<{ label: string; href: string }> =
-  folded?.section?.mode === 'full'
-    ? [
-        { label: 'Places', href: `/${town.slug}/directory/` },
-        { label: 'Guides', href: `/${town.slug}/guides/` },
-      ]
-    : kept && kept.placeEntries.length + kept.guideEntries.length > 0
-      ? [{ label: 'Places', href: `/${town.slug}/places/` }]
-      : [];
 
 /*
  * Start here: the town's lead guide (src/lib/lead-guide.ts), with the
@@ -302,7 +366,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     shade is the guides' (Hero.astro): a light one along the foot and a
     soft pool behind the words, not black over the whole picture.
   */}
-  <section class:list={['on-dark relative isolate overflow-hidden bg-primary text-white', hero && 'desk:flex desk:min-h-[min(52vh,480px)] desk:flex-col desk:justify-end']} data-town-hero={hero ? 'photo' : ridge!.terrain} data-band aria-labelledby="town-name">
+  <section class:list={['on-dark relative isolate overflow-hidden bg-primary text-white', hero && 'desk:flex desk:min-h-[min(52vh,480px)] desk:flex-col desk:justify-end']} id="top" data-town-hero={hero ? 'photo' : ridge!.terrain} data-band aria-labelledby="town-name">
     {hero ? (
       <Fragment>
         {/*
@@ -401,6 +465,19 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     720px column of the sections, 88px apart, in the 1200px column.
   */}
   <div class="bg-raised" data-band>
+  {/*
+    The section bar (the owner, 18 November 2026): slim, at the top of the
+    window while the page scrolls, one row that scrolls sideways on a phone,
+    the section in view marked. From 900px the rail beside the sections
+    does this, so the bar is a phone's and a tablet's.
+  */}
+  <nav aria-label="Sections" class="sticky top-0 z-20 border-b border-hairline bg-raised/95 backdrop-blur-sm desk:hidden" data-section-bar>
+    <ul class="flex gap-x-1 overflow-x-auto whitespace-nowrap px-[12px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {sections.map((s) => (
+        <li class="shrink-0"><a href={`#${s.id}`} class="flex min-h-11 items-center border-b-2 border-transparent px-2 text-meta font-[650] text-primary no-underline aria-[current=location]:border-ink aria-[current=location]:text-ink" data-bar-link>{s.label}</a></li>
+      ))}
+    </ul>
+  </nav>
     <div class="desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[240px_minmax(0,720px)] desk:items-start desk:gap-x-[88px] desk:px-[40px]">
   <nav aria-labelledby="otp" class="scroll-mt-4 bg-raised px-[20px] pb-6 pt-3.5 desk:sticky desk:top-[24px] desk:z-[1] desk:self-start desk:bg-transparent desk:px-0 desk:pb-6 desk:pt-[56px]" id="contents">
     <div class={pub.col}>
@@ -414,39 +491,54 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
             </a>
           </li>
         ))}
-        {menuPages.map((l) => (
-          <li>
-            <a href={l.href} class="relative flex min-h-12 items-center gap-2.5 border-b border-hairline font-heading text-[1.1176rem] font-medium leading-tight text-primary [font-variation-settings:normal]" data-menu-page>
-              <span class="inline-block w-3.5 shrink-0 font-normal no-underline" aria-hidden="true">→</span>
-              <span class="underline decoration-1 underline-offset-[3px]">{l.label}<span class="sr-only"> in {town.name}</span></span>
-            </a>
-          </li>
-        ))}
       </ol>
     </div>
   </nav>
   <div class="min-w-0">
 
   {section.events && (
-    <PubSection id={section.events.id} number={section.events.number} title={section.events.title} tone={section.events.tone}>
+    <PubSection id={section.events.id} number={section.events.number} title={section.events.title} tone={section.events.tone} top="#top">
       {quiet && <p class:list={['mt-3 italic', pub.meta]} data-quiet>No {town.name} event date in the next {NEXT_DAYS} days has been published yet.</p>}
+      {marked && (
+        <Fragment>
+          <h3 id="year-at-a-glance" class:list={[pub.h3, 'mt-[22px]']}>The year at a glance</h3>
+          <YearGrid {cells} />
+        </Fragment>
+      )}
       {spotlight && (
         <Fragment>
-          <h3 id="one-to-know" class:list={[pub.h3, 'mt-[22px]']} data-spotlight>The one to know</h3>
+          <h3 id="one-to-know" class:list={[pub.h3, !marked && 'mt-[22px]']} data-spotlight>The one to know</h3>
           {spotlight.record.about && <p class:list={['mt-3', pub.t]}>{typeset(spotlight.record.about.text)}</p>}
+          {monthIdFor(spotlight) && <span id={monthIdFor(spotlight)} class="block scroll-mt-[56px] desk:scroll-mt-4" data-month-anchor></span>}
           <DateEntry {...entryProps(spotlight)} />
         </Fragment>
       )}
       {comingUp.length > 0 && (
         <Fragment>
-          <h3 id="coming-up" class:list={[pub.h3, !spotlight && 'mt-[22px]']}>Coming up</h3>
-          {comingUp.map((r) => <DateEntry {...entryProps(r)} />)}
+          <h3 id="coming-up" class:list={[pub.h3, !spotlight && !marked && 'mt-[22px]']}>Coming up</h3>
+          {comingUp.map((r) => (
+            <Fragment>
+              {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-[56px] desk:scroll-mt-4" data-month-anchor></span>}
+              <DateEntry {...entryProps(r)} />
+            </Fragment>
+          ))}
         </Fragment>
       )}
       {waiting.length > 0 && (
         <Fragment>
-          <h3 id="not-announced" class:list={[pub.h3, comingUp.length === 0 && !spotlight && 'mt-[22px]']}>Date not yet announced</h3>
-          {waiting.map((r) => <DateEntry {...entryProps(r)} />)}
+          <h3 id="not-announced" class:list={[pub.h3, comingUp.length === 0 && !spotlight && !marked && 'mt-[22px]']}>Date not yet announced</h3>
+          {/* One line each (the owner, 18 November 2026): the name, the month it usually falls in, when it was last held. */}
+          <ul data-not-announced>
+            {waiting.map((r) => (
+              <li id={r.record.slug} class:list={['scroll-mt-[56px] py-2.5 desk:scroll-mt-4', pub.rule]} data-tradition-row data-status="not-announced" data-waiting>
+                {monthIdFor(r) && <span id={monthIdFor(r)} class="block" data-month-anchor></span>}
+                <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]">{pageOf(r) ? <a href={pageOf(r)} class={pub.link}>{typeset(r.record.name)}</a> : typeset(r.record.name)}</span>
+                <span class:list={['block', pub.meta]}>
+                  {usualMonth(r) && <Fragment>Usually {usualMonth(r)} · </Fragment>}{r.lastHeld ? <Fragment>{isAgencyDate(r.record.type) ? 'Most recent' : 'Last held'} <time datetime={r.lastHeld}>{short(r.lastHeld)}</time></Fragment> : 'No date on file'} · <a href={r.source} rel="noopener" class={pub.link}>{typeset(r.record.organizer)}</a>, checked <time datetime={r.entry.checked}>{short(r.entry.checked)}</time>
+                </span>
+              </li>
+            ))}
+          </ul>
         </Fragment>
       )}
       {canceled.length > 0 && (
@@ -456,12 +548,6 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
         </Fragment>
       )}
       <OpenNow records={openRecords} {today} variant="pub" anchors={openSlugs} />
-      {marked && (
-        <Fragment>
-          <h3 class={pub.h3}>The year at a glance</h3>
-          <YearGrid {cells} />
-        </Fragment>
-      )}
       <CalendarSubscribe name={town.slug} what={`${town.name}’s dates`} size="text" class="mt-[22px]" />
       {seasonPages.length > 0 && (
         <nav aria-labelledby="seasons-heading">
@@ -477,7 +563,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   )}
 
   {section.places && (
-    <PubSection id={section.places.id} number={section.places.number} title={section.places.title} tone={section.places.tone} data={{ 'places-to-know': '' }}>
+    <PubSection id={section.places.id} number={section.places.number} title={section.places.title} tone={section.places.tone} top="#top" data={{ 'places-to-know': '' }}>
       <ul class="mt-3.5 border-t border-hairline">
         {profile.places.map((p) => (
           <li class:list={['py-4', pub.rule]} data-place-to-know>
@@ -498,7 +584,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   )}
 
   {section.trails && (
-    <PubSection id={section.trails.id} number={section.trails.number} title={section.trails.title} tone={section.trails.tone} data={{ 'trails-and-parks': '' }}>
+    <PubSection id={section.trails.id} number={section.trails.number} title={section.trails.title} tone={section.trails.tone} top="#top" data={{ 'trails-and-parks': '' }}>
       <ul class="mt-3.5 border-t border-hairline">
         {profile.trails.map((t) => (
           <li class:list={['py-4', pub.rule]} data-trail>
@@ -524,22 +610,41 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     </PubSection>
   )}
 
+  {section.directory && (
+    <PubSection id={section.directory.id} number={section.directory.number} title={section.directory.title} tone={section.directory.tone} top="#top" data={{ 'places-directory': '' }}>
+      {placeGroups.map((g) => (
+        <Fragment>
+          <h3 class={pub.h3}>{g.label}</h3>
+          <ul>
+            {g.items.map((p) => (
+              <li class:list={['py-2.5', pub.rule]} data-place-pick={p.slug}>
+                <a href={placeHref(p.slug)} class:list={[pub.link, 'text-base font-medium']}>{typeset(p.data.title)}</a>{p.data.area && <span class:list={['ml-2', pub.meta]}>{typeset(p.data.area)}</span>}
+                <span class:list={['block', pub.meta]}>{typeset(oneLine(p.data.summary))}</span>
+              </li>
+            ))}
+          </ul>
+        </Fragment>
+      ))}
+      <a href={placesHref} class:list={[pub.go, 'mt-5']} data-all-places>See all {placeEntries.length} places in {town.name} →</a>
+    </PubSection>
+  )}
+
   {section.stay && (
-    <PubSection id={section.stay.id} number={section.stay.number} title={section.stay.title} tone={section.stay.tone} data={{ 'where-to-stay': '' }}>
+    <PubSection id={section.stay.id} number={section.stay.number} title={section.stay.title} tone={section.stay.tone} top="#top" data={{ 'where-to-stay': '' }}>
       <ul class="mt-3.5 border-t border-hairline">
-        {profile.lodging.map((l) => (
-          <li class:list={['py-3.5', pub.rule]}>
-            <h3 class={pub.title}><a href={l.url} rel="noopener" class={pub.titleLink}>{typeset(l.name)}</a></h3>
-            {(l.kind || l.season) && <p class:list={['mt-0.5', pub.meta]}>{typeset([l.kind, l.season].filter(Boolean).join(' · '))}</p>}
+        {stayList.map((l) => (
+          <li class:list={['py-3', pub.rule]} data-stay={l.name}>
+            <h3 class={pub.title}><a href={l.href} rel={l.external ? 'noopener' : undefined} class={pub.titleLink}>{typeset(l.name)}</a>{l.area && <span class:list={['ml-2 font-normal', pub.meta]}>{typeset(l.area)}</span>}</h3>
+            {l.note && <p class:list={['mt-0.5', pub.meta]}>{typeset(l.note)}</p>}
           </li>
         ))}
       </ul>
-      <p class:list={['mt-3', pub.meta]}>Each links to the property’s own site; none is a paid or affiliate link.{profile.lodgingChecked && <Fragment> Checked <time datetime={profile.lodgingChecked}>{short(profile.lodgingChecked)}</time> against each property’s site.</Fragment>}</p>
+      <p class:list={['mt-3', pub.meta]}>A listing here links its page on this site; the others link the property’s own site. None is a paid or affiliate link.{profile.lodgingChecked && <Fragment> Checked <time datetime={profile.lodgingChecked}>{short(profile.lodgingChecked)}</time> against each property’s site.</Fragment>}</p>
     </PubSection>
   )}
 
   {section.getting && (
-    <PubSection id={section.getting.id} number={section.getting.number} title={section.getting.title} tone={section.getting.tone} data={{ 'getting-there': '' }}>
+    <PubSection id={section.getting.id} number={section.getting.number} title={section.getting.title} tone={section.getting.tone} top="#top" data={{ 'getting-there': '' }}>
       {(profile.fromDenver || profile.transit.length > 0 || profile.airport || passes.length > 0) && (
         <dl class="mt-3.5 border-t border-hairline">
           {profile.fromDenver && (
@@ -582,6 +687,22 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <a href={roads.source.url} rel="noopener" class={pub.link}>{roads.source.name}</a> for the miles and the time{profile.transit.length > 0 && <Fragment>; the operator’s own page for each service</Fragment>}{profile.airport && profile.airportList && <Fragment>; <a href={profile.airportList} rel="noopener" class={pub.link}>Federal Aviation Administration, commercial service airports</a></Fragment>}
         </p>
       )}
+      {roadRows.length > 0 && (
+        <div data-road-dates>
+          <h3 class={pub.h3}>Road and pass dates</h3>
+          <ul>
+            {roadRows.map((r) => (
+              <li id={r.record.slug} class:list={['scroll-mt-[56px] py-2.5 desk:scroll-mt-4', pub.rule]} data-road-date data-status={r.past ? 'not-announced' : r.entry.status}>
+                <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]">{pageOf(r) ? <a href={pageOf(r)} class={pub.link}>{typeset(r.record.name)}</a> : typeset(r.record.name)}</span>
+                <span class:list={['block', pub.meta]}>
+                  {!r.past && (r.entry.status === 'confirmed' || r.entry.status === 'moved') ? <Fragment><strong class="font-semibold text-ink">{r.entry.status === 'moved' ? 'Moved' : 'Confirmed'}</strong> · <time datetime={r.entry.date}>{short(r.entry.date!)}</time>{r.entry.startTime && <Fragment>, {publishedTime(r.entry.startTime)}</Fragment>}</Fragment> : r.entry.status === 'canceled' ? <strong class="font-semibold text-ink">Canceled</strong> : <Fragment><strong class="font-semibold text-ink">Not yet announced</strong>{r.entry.typicalWindow && <Fragment>, {typeset(r.entry.typicalWindow)}</Fragment>}{r.lastHeld && <Fragment> · Most recent <time datetime={r.lastHeld}>{short(r.lastHeld)}</time></Fragment>}</Fragment>}
+                  {' '}· <a href={r.source} rel="noopener" class={pub.link}>{typeset(r.record.organizer)}</a>, checked <time datetime={r.entry.checked}>{short(r.entry.checked)}</time>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       {near.length > 0 && roads && (
         <div data-near-town>
           <h3 class={pub.h3}>Near {town.name}</h3>
@@ -606,7 +727,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   )}
 
   {section.outdoor && (
-    <PubSection id={section.outdoor.id} number={section.outdoor.number} title={section.outdoor.title} tone={section.outdoor.tone}>
+    <PubSection id={section.outdoor.id} number={section.outdoor.number} title={section.outdoor.title} tone={section.outdoor.tone} top="#top">
       <p class:list={['mt-3', pub.meta]}>These are statewide dates, not {town.name} events.</p>
       <div data-statewide>
         <h3 id="next-two" class:list={[pub.h3, 'mt-5']}>The next two</h3>
@@ -625,10 +746,18 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   )}
 
   {section.about && (
-    <PubSection id={section.about.id} number={section.about.number} title={section.about.title} tone={section.about.tone} data={{ 'town-facts': '' }}>
+    <PubSection id={section.about.id} number={section.about.number} title={section.about.title} tone={section.about.tone} top="#top" data={{ 'town-facts': '' }}>
+      {history && (
+        <div class:list={['mt-[22px] pb-4', pub.rule]} data-history-story>
+          <p class:list={[pub.cap, 'text-primary']}>History</p>
+          <h3 class:list={['mt-1.5', pub.title]}><a href={articlePath(history)} class={pub.titleLink}>{typeset(history.title)}</a></h3>
+          <p class:list={['mt-1.5', pub.meta]}>{typeset(history.description)}</p>
+          <a href={articlePath(history)} class:list={[pub.go, 'mt-1']}>Read the story →</a>
+        </div>
+      )}
       {profile.strip.length > 0 && (
         <Fragment>
-          <h3 class:list={[pub.h3, 'mt-[22px]']}>At a glance</h3>
+          <h3 class:list={[pub.h3, !history && 'mt-[22px]']}>At a glance</h3>
           <dl class:list={['grid grid-cols-2', figureColumns[profile.strip.length]]}>
             {profile.strip.map((f, i) => (
               <div class:list={['border-b border-hairline pb-3.5 pt-3 desk:col-span-1', i % 2 === 0 ? 'border-r pr-3.5' : 'pl-3.5', profile.strip.length % 2 === 1 && i === profile.strip.length - 1 && 'col-span-2 border-r-0', i < profile.strip.length - 1 ? 'desk:border-r desk:pr-3.5' : 'desk:border-r-0 desk:pr-0', i > 0 ? 'desk:pl-3.5' : 'desk:pl-0']}>
@@ -704,9 +833,9 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               <h3 class={pub.h3}>History</h3>
               <dl>
                 {profile.heritage.nameOrigin && <div class={pub.dlHistory}><dt class={pub.dt}>The name</dt><dd class={pub.t}>{typeset(profile.heritage.nameOrigin.text)}</dd></div>}
-                {profile.heritage.founded && <div class={pub.dlHistory}><dt class={pub.dt}>Founded</dt><dd class={pub.t}>{profile.heritage.founded.year}{profile.heritage.founded.text && <Fragment>: {typeset(profile.heritage.founded.text)}</Fragment>}</dd></div>}
+                {profile.heritage.founded && <div class={pub.dlHistory}><dt class={pub.dt}>Founded</dt><dd class={pub.t}>{typeset(foundedLine(profile.heritage.founded.year, profile.heritage.founded.text))}</dd></div>}
                 {profile.heritage.timeline.map((t) => (
-                  <div class={pub.dlYear}><dt class="font-heading text-sub leading-[1.35] text-primary tabular-nums [font-variation-settings:normal]">{t.year}</dt><dd class={pub.t}>{typeset(t.text)}</dd></div>
+                  <div class={pub.dlYear}><dt class="font-heading text-sub leading-[1.35] text-primary tabular-nums [font-variation-settings:normal]">{t.year}</dt><dd class={pub.t}>{typeset(timelineText(t.year, t.text))}</dd></div>
                 ))}
               </dl>
             </Fragment>
@@ -755,7 +884,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
         </div>
       )}
       {/* The hub's articles that name this town, as links only (the brief of 13 November 2026). */}
-      <NearbyArticles place={town.slug} onHub variant="pub" />
+      <NearbyArticles place={town.slug} onHub variant="pub" exclude={history ? [history.slug] : []} />
     </PubSection>
   )}
 
@@ -776,7 +905,6 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
         )}
         {sectionLinks.length > 0 && (
           <p class:list={['mt-4', pub.t]} data-section-links>
-            <strong class="font-semibold">Inside {town.name}</strong>{folded?.section?.mode === 'full' ? ', the guide, lives on here: ' : ': '}
             {sectionLinks.map((l, i) => (<Fragment>{i > 0 && ' · '}<a href={l.href} class={pub.link}>{l.label}</a></Fragment>))}
           </p>
         )}
@@ -799,6 +927,8 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   // script the rail is the plain list of links it was.
   const railLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-otp-link]')];
   const railTargets = railLinks.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))));
+  // The section bar on a phone marks the same section, and scrolls itself so the mark is in view.
+  const barLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-bar-link]')];
   if (railLinks.length > 0) {
     let queued = false;
     const mark = () => {
@@ -811,6 +941,12 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       const atFoot = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
       if (atFoot && current >= 0) current = railTargets.length - 1;
       railLinks.forEach((a, i) => (i === current ? a.setAttribute('aria-current', 'location') : a.removeAttribute('aria-current')));
+      barLinks.forEach((a, i) => {
+        if (i === current) {
+          if (!a.hasAttribute('aria-current')) a.scrollIntoView({ block: 'nearest', inline: 'center' });
+          a.setAttribute('aria-current', 'location');
+        } else a.removeAttribute('aria-current');
+      });
     };
     const queue = () => {
       if (queued) return;

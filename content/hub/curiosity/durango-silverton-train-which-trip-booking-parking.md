@@ -5,7 +5,7 @@ towns: [durango]
 eyebrow: "Train guide · Durango"
 title: "Durango & Silverton train: which trip runs now, booking and parking"
 seoTitle: "Durango & Silverton train: winter trips, booking, parking"
-description: "From November 20, 2026, the train runs to Cascade Canyon by day and The Polar Express by night. Silverton's 2027 dates are not yet published."
+description: "From November 20, 2026: Cascade Canyon by day, The Polar Express by night. Silverton’s 2027 dates: not yet announced (checked Nov. 18, 2026)."
 status: verified
 date: 2026-11-18
 homeUntil: 2026-11-18

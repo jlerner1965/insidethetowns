@@ -19,7 +19,7 @@ export const HUB_COLUMN = 'mx-auto w-full max-w-[1200px] px-[20px] desk:px-[40px
 
 export const pub = {
   /** A town page's section: a full-width band on a phone; from 900px (the desktop boards of 14 November 2026) a run of the 720px column, 56px over and 64px under. */
-  band: 'scroll-mt-4 px-[20px] pb-[48px] pt-[36px] desk:px-0 desk:pb-[64px] desk:pt-[56px]',
+  band: 'scroll-mt-[56px] desk:scroll-mt-4 px-[20px] pb-[48px] pt-[36px] desk:px-0 desk:pb-[64px] desk:pt-[56px]',
   paper: 'bg-paper',
   /** Paper that still runs the full width from 900px, where the section sits in a column: a spread shadow, cut off at the section's top and foot. */
   paperBleed: 'bg-paper desk:[box-shadow:0_0_0_100vmax_var(--color-paper)] desk:[clip-path:inset(0_-100vmax)]',
@@ -36,7 +36,7 @@ export const pub = {
   /** The smaller section heading: "On this page", "More in …". */
   h2s: 'text-sub font-medium leading-[1.2] tracking-normal text-ink [font-variation-settings:normal]',
   /** The italic subhead over a 1px ink rule. */
-  h3: 'mt-8 scroll-mt-4 border-b border-ink pb-2 text-sub font-normal italic leading-[1.2] tracking-normal text-ink [font-variation-settings:normal]',
+  h3: 'mt-8 scroll-mt-[56px] desk:scroll-mt-4 border-b border-ink pb-2 text-sub font-normal italic leading-[1.2] tracking-normal text-ink [font-variation-settings:normal]',
   /** A title in a row: an entry's name, a property, a museum. */
   title: 'text-sub font-medium leading-[1.2] tracking-normal text-ink [font-variation-settings:normal]',
   /** Body text. */

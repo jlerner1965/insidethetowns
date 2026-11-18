@@ -212,17 +212,33 @@ export function firstFitting(wordings: readonly string[], limit = DESCRIPTION_LI
  * published, so the line is as true as the page; a town with none ahead
  * says what the page holds and names no event.
  */
-export function townSearchText(name: string, traditions: readonly TraditionRow[], spotlight?: string, today: string = dayKey(new Date())): { seoTitle: string; description: string } {
+/** What a town page covers besides its dates, for its title and the line under its name (the owner, 18 November 2026). */
+export interface TownCovers {
+  trails?: boolean;
+  stay?: boolean;
+  history?: boolean;
+}
+
+export function townSearchText(name: string, traditions: readonly TraditionRow[], spotlight?: string, today: string = dayKey(new Date()), covers: TownCovers = {}): { seoTitle: string; description: string } {
   // A showpiece's spotlight leads the title and the list while its date is set, whatever falls before it.
   const upcoming = traditions.filter(isUpcoming).sort((a, b) => a.entry.date!.localeCompare(b.entry.date!));
   const lead = spotlight ? upcoming.find((r) => r.record.slug === spotlight) : undefined;
   const next = (lead ? [lead, ...upcoming.filter((r) => r !== lead)] : upcoming).slice(0, 3);
+  // The title says what the page covers (events, trails and things to do), the description keeps the dates.
+  const things = covers.trails ? 'events, trails and things to do' : 'events and things to do';
+  const more = [covers.trails && 'trails and parks', covers.stay && 'where to stay', 'getting here', covers.history && 'the town’s history'].filter(Boolean).join(', ');
+  const titles = (years?: string) => {
+    const tail = years ? ` (${years})` : '';
+    return [`${name}, Colorado: ${things}${tail}`, `${name}, CO: ${things}${tail}`, `${name}, Colorado: events and things to do${tail}`, `${name}, CO: events and things to do${tail}`, `${name}, CO: events${tail}`];
+  };
+  const fit = (list: string[]) => list.find((t) => t.length <= TITLE_LIMIT) ?? list[list.length - 1]!;
   if (next.length === 0) {
     return {
-      seoTitle: `${name}, Colorado: annual events and outdoor dates`,
+      seoTitle: fit(titles()),
       description: firstFitting([
-        `${name}, Colorado’s annual events and outdoor dates: the date each organizer or agency has published, or that it has not yet, with the page it was read from.`,
-        `${name}, Colorado’s annual events and outdoor dates: the date each organizer or agency has published, or that it has not yet.`,
+        `${name}, Colorado: its annual events and outdoor dates, with the date each organizer has published or that it has not yet; ${more}; each with the page it was read from.`,
+        `${name}, Colorado: annual events and outdoor dates, ${more}, each with its source.`,
+        `${name}, Colorado: annual events, ${more}.`,
       ]),
     };
   }
@@ -235,17 +251,11 @@ export function townSearchText(name: string, traditions: readonly TraditionRow[]
   const years = first === last ? first : `${first}–${last.slice(2)}`;
   const list = next.map((r) => `${r.record.name} (${day(r)}${r.entry.date!.slice(0, 4) === first ? '' : `, ${r.entry.date!.slice(0, 4)}`})`);
   const words = (n: number) => (n === 1 ? list[0]! : `${list.slice(0, n - 1).join(', ')} and ${list[n - 1]}`);
-  // A title a result page cuts short says less than a shorter one.
-  const named = `${name}, Colorado events ${years}: ${next[0]!.record.name} and annual dates`;
-  // The description whole, never cut mid-sentence (the audit of 17 November 2026: 54 town pages ended on an ellipsis):
-  // the closing sentence shortens first, then the list.
-  const tails = [' Every annual event and outdoor date, with the date its organizer has published and the page it was read from.', ' Every annual event and outdoor date, each with the page it was read from.', ' Every annual event and outdoor date, with its source.', ''];
+  // The description whole, never cut mid-sentence (the audit of 17 November 2026): the closing sentence shortens first, then the list.
+  const tails = [` Every annual event and outdoor date, with ${more}, each with the page it was read from.`, ` Every annual event and outdoor date, with ${more}.`, ' Every annual event and outdoor date, with its source.', ''];
   const counts = list.map((_, i) => list.length - i);
   return {
-    seoTitle:
-      // "events" in every shape, the word people search with (the search audit of 13 November 2026).
-      [named, `${name}, Colorado events ${years}: ${next[0]!.record.name}`, `${name}, CO events ${years}: ${next[0]!.record.name}`].find((t) => t.length <= TITLE_LIMIT) ??
-      `${name}, Colorado events and annual dates, ${years}`,
+    seoTitle: fit(titles(years)),
     description: firstFitting(counts.flatMap((n) => tails.map((tail) => `${name}, Colorado in ${years}: ${words(n)}.${tail}`))),
   };
 }
