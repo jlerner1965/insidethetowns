@@ -156,6 +156,17 @@ export interface HubTown {
    */
   hero?: HubTownHero;
   /**
+   * The town's lead guide (the owner's brief of 18 November 2026): the one
+   * article that answers a visitor's first question, linked under "Start
+   * here" at the top of the town page. Its path on the hub: a guide's
+   * article in the town's section (`/estes-park/articles/<slug>/` in a full
+   * section, `/golden/guides/<slug>/` in one kept page by page) or a hub
+   * story (`/articles/<slug>/`). The title and the line under it are the
+   * article's own (src/lib/lead-guide.ts), and the build stops on a path
+   * that names no published article.
+   */
+  leadGuide?: string;
+  /**
    * The one thing this page has that no other kind of page does (the
    * owner, 12 November 2026): a block drawn from a public source, shown
    * with its source link and the day it was read, like every row. A town

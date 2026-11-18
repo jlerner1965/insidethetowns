@@ -12,6 +12,8 @@
  *   Events      the town's dates: the ones set, soonest first; the ones
  *               not yet announced, with when each was last held; what is
  *               open now; the year at a glance; the calendar links.
+ *   Places to know and Trails and parks (the owner's brief of 18 November
+ *   2026), each fact read on the manager's page with the day it was read;
  *   Where to stay, Getting here (with the towns near it, by road),
  *   Outdoor dates (the statewide ones, the next two and the rest behind a
  *   button), and About (the figures, the town's live signature, its
@@ -22,6 +24,10 @@
  * is not drawn, and the sections drawn are numbered and listed in order
  * (src/lib/hub-town-page.ts). Every fact is the files' own, in the words
  * the page used before the redesign, with its source and its check date.
+ *
+ * Where the town names a lead guide (`leadGuide`, the same brief), "Start
+ * here" sits between the hero and the contents: the article's own title
+ * and excerpt, and the link to it.
  *
  * Built only for a town with a dated item of its own (publishedHubTowns);
  * any other town has no page and nothing links to one. The events and
@@ -55,7 +61,8 @@ import NearbyArticles from '@/components/NearbyArticles.astro';
 import { allTowns, findTown, guideOrigin, getHub } from '@/config';
 import { sectionFor } from '@/lib/section-index';
 import { STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
-import { getCuriosity, getTraditions } from '@/lib/content';
+import { getCuriosity, getSectionEntries, getTraditions } from '@/lib/content';
+import { parseLeadGuide, sectionArticleSegment } from '@/lib/lead-guide';
 import { articlesFor } from '@/lib/curiosity';
 import { dayKey, formatDayLong, formatShortDate, parseLocal } from '@/lib/dates';
 import { hubTownPhoto } from '@/lib/images';
@@ -212,6 +219,8 @@ const hasArticles = articlesFor((await getCuriosity()).map((a) => a.data), town.
 
 const sections = pageSections(town.name, {
   events: own.length > 0 || hasOpen,
+  places: profile.places.length > 0,
+  trails: profile.trails.length > 0,
   stay: profile.lodging.length > 0,
   getting: !!profile.fromDenver || profile.transit.length > 0 || !!profile.airport || passes.length > 0 || near.length > 0,
   outdoor: statewide.length > 0,
@@ -246,6 +255,24 @@ const sectionLinks: Array<{ label: string; href: string }> =
       ? [{ label: `Places in ${town.name}`, href: `/${town.slug}/places/` }]
       : [];
 const moreIn = moreHeading(more);
+
+/*
+ * Start here: the town's lead guide (src/lib/lead-guide.ts), with the
+ * article's own title and excerpt. A path that names no published article
+ * stops the build rather than ship a link to nothing.
+ */
+const leadGuide = await (async () => {
+  if (!town.leadGuide) return undefined;
+  const ref = parseLeadGuide(town.leadGuide);
+  if (ref?.kind === 'hub') {
+    const article = (await getCuriosity()).find((a) => a.data.slug === ref.slug && (a.data.kind === 'story' || a.data.kind === 'event'));
+    if (article) return { href: town.leadGuide, title: article.data.title, line: article.data.description };
+  } else if (ref && folded?.section && ref.town === town.slug && ref.segment === sectionArticleSegment(folded.section.mode)) {
+    const article = (await getSectionEntries('articles', folded)).find((a) => a.slug === ref.slug);
+    if (article) return { href: town.leadGuide, title: article.data.title, line: article.data.excerpt };
+  }
+  throw new Error(`${town.slug}: leadGuide ${town.leadGuide} names no published article on this town's section or the hub (src/lib/lead-guide.ts)`);
+})();
 const subject = `[Correction] ${town.name}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 ---
@@ -337,6 +364,24 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   </section>
 
   {/*
+    Start here: the lead guide, on its own band between the hero and the
+    contents, so it is the first thing under the town's name on a phone and
+    across the column from 900px. White on a phone, where the drawn horizon
+    ends on white; paper from 900px, where it ends on paper.
+  */}
+  {leadGuide && (
+    <section aria-labelledby="start-here" class="border-b border-hairline bg-raised px-[20px] pb-6 pt-5 desk:bg-paper desk:px-0 desk:pb-[36px] desk:pt-[32px]" data-band data-lead-guide>
+      <div class={pub.wide}>
+        <div class="desk:max-w-[1048px]">
+          <h2 id="start-here" class:list={[pub.cap, 'text-primary']}>Start here</h2>
+          <p class="mt-2 font-heading text-[1.4118rem] font-medium leading-[1.2] tracking-[-0.01em] [font-variation-settings:normal] desk:text-[1.7647rem]"><a href={leadGuide.href} class="text-primary underline decoration-1 underline-offset-[4px]">{typeset(leadGuide.title)}</a></p>
+          <p class:list={['mt-2 max-w-[44rem]', pub.t]}>{typeset(leadGuide.line)}</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/*
     The body. On a phone, On this page and then each section, a band of its
     own. From 900px (the desktop boards) a 240px rail holds On this page,
     kept in view as the page scrolls and above the paper bands, beside a
@@ -407,6 +452,54 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           </ul>
         </nav>
       )}
+    </PubSection>
+  )}
+
+  {section.places && (
+    <PubSection id={section.places.id} number={section.places.number} title={section.places.title} tone={section.places.tone} data={{ 'places-to-know': '' }}>
+      <ul class="mt-3.5 border-t border-hairline">
+        {profile.places.map((p) => (
+          <li class:list={['py-4', pub.rule]} data-place-to-know>
+            <h3 class={pub.title}>{p.page || p.url ? <a href={p.page ?? p.url} rel={p.page ? undefined : 'noopener'} class={pub.titleLink}>{typeset(p.name)}</a> : typeset(p.name)}</h3>
+            <p class:list={['mt-1.5', pub.t]}>{typeset(p.what)}</p>
+            <dl class="mt-2.5 border-t border-hairline">
+              {p.facts.map((f) => <div class={pub.dlMuseum}><dt class={pub.dt}>{typeset(f.label)}</dt><dd class={pub.t}>{typeset(f.value)}</dd></div>)}
+            </dl>
+            <p class:list={['mt-2', pub.meta]}>
+              Checked <time datetime={p.checked}>{short(p.checked)}</time> · {p.sources.length > 1 ? 'Sources' : 'Source'}:
+              {p.sources.map((s, i) => (<Fragment>{i > 0 && ', '}<a href={s.url} rel="noopener" class={pub.link}>{s.host}</a></Fragment>))}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <p class:list={['mt-3', pub.meta]}>Every fact is from the manager’s or operator’s own page. Seasons, prices and rules change: check that page on the day.</p>
+    </PubSection>
+  )}
+
+  {section.trails && (
+    <PubSection id={section.trails.id} number={section.trails.number} title={section.trails.title} tone={section.trails.tone} data={{ 'trails-and-parks': '' }}>
+      <ul class="mt-3.5 border-t border-hairline">
+        {profile.trails.map((t) => (
+          <li class:list={['py-4', pub.rule]} data-trail>
+            <h3 class={pub.title}>{t.page || t.url ? <a href={t.page ?? t.url} rel={t.page ? undefined : 'noopener'} class={pub.titleLink}>{typeset(t.name)}</a> : typeset(t.name)}</h3>
+            <p class:list={['mt-0.5', pub.meta]}>{typeset(`${t.kind} · ${t.manager}`)}</p>
+            <dl class="mt-2.5 border-t border-hairline">
+              {t.length && <div class={pub.dlMuseum}><dt class={pub.dt}>Length</dt><dd class={pub.t}>{typeset(t.length)}</dd></div>}
+              {t.size && <div class={pub.dlMuseum}><dt class={pub.dt}>Size</dt><dd class={pub.t}>{typeset(t.size)}</dd></div>}
+              {t.trailhead && <div class={pub.dlMuseum}><dt class={pub.dt}>Trailhead</dt><dd class={pub.t}>{typeset(t.trailhead)}</dd></div>}
+              {t.address && <div class={pub.dlMuseum}><dt class={pub.dt}>Address</dt><dd class={pub.t}>{typeset(t.address)}</dd></div>}
+              <div class={pub.dlMuseum}><dt class={pub.dt}>Season</dt><dd class={pub.t}>{typeset(t.season)}</dd></div>
+              <div class={pub.dlMuseum}><dt class={pub.dt}>Dogs</dt><dd class={pub.t}>{typeset(t.dogs)}</dd></div>
+              <div class={pub.dlMuseum}><dt class={pub.dt}>Fee</dt><dd class={pub.t}>{typeset(t.fee)}</dd></div>
+            </dl>
+            <p class:list={['mt-2', pub.meta]}>
+              Checked <time datetime={t.checked}>{short(t.checked)}</time> · {t.sources.length > 1 ? 'Sources' : 'Source'}:
+              {t.sources.map((s, i) => (<Fragment>{i > 0 && ', '}<a href={s.url} rel="noopener" class={pub.link}>{s.host}</a></Fragment>))}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <p class:list={['mt-3', pub.meta]}>Every fact is from the land manager’s own page. Trails close for weather, wildlife and repairs: check the manager’s page before you go.</p>
     </PubSection>
   )}
 
