@@ -479,7 +479,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     </ul>
   </nav>
     <div class="desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[240px_minmax(0,720px)] desk:items-start desk:gap-x-[88px] desk:px-[40px]">
-  <nav aria-labelledby="otp" class="scroll-mt-4 bg-raised px-[20px] pb-6 pt-3.5 desk:sticky desk:top-[24px] desk:z-[1] desk:self-start desk:bg-transparent desk:px-0 desk:pb-6 desk:pt-[56px]" id="contents">
+  <nav aria-labelledby="otp" class="scroll-mt-[56px] desk:scroll-mt-4 bg-raised px-[20px] pb-6 pt-3.5 desk:sticky desk:top-[24px] desk:z-[1] desk:self-start desk:bg-transparent desk:px-0 desk:pb-6 desk:pt-[56px]" id="contents">
     <div class={pub.col}>
       <div class={pub.open}><h2 id="otp" class={pub.h2s}>On this page</h2></div>
       <ol class="grid grid-cols-2 gap-x-[18px] sm:grid-cols-3 desk:grid-cols-1">
@@ -531,7 +531,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <ul data-not-announced>
             {waiting.map((r) => (
               <li id={r.record.slug} class:list={['scroll-mt-[56px] py-2.5 desk:scroll-mt-4', pub.rule]} data-tradition-row data-status="not-announced" data-waiting>
-                {monthIdFor(r) && <span id={monthIdFor(r)} class="block" data-month-anchor></span>}
+                {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-[56px] desk:scroll-mt-4" data-month-anchor></span>}
                 <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]">{pageOf(r) ? <a href={pageOf(r)} class={pub.link}>{typeset(r.record.name)}</a> : typeset(r.record.name)}</span>
                 <span class:list={['block', pub.meta]}>
                   {usualMonth(r) && <Fragment>Usually {usualMonth(r)} · </Fragment>}{r.lastHeld ? <Fragment>{isAgencyDate(r.record.type) ? 'Most recent' : 'Last held'} <time datetime={r.lastHeld}>{short(r.lastHeld)}</time></Fragment> : 'No date on file'} · <a href={r.source} rel="noopener" class={pub.link}>{typeset(r.record.organizer)}</a>, checked <time datetime={r.entry.checked}>{short(r.entry.checked)}</time>
@@ -617,9 +617,8 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <h3 class={pub.h3}>{g.label}</h3>
           <ul>
             {g.items.map((p) => (
-              <li class:list={['py-2.5', pub.rule]} data-place-pick={p.slug}>
-                <a href={placeHref(p.slug)} class:list={[pub.link, 'text-base font-medium']}>{typeset(p.data.title)}</a>{p.data.area && <span class:list={['ml-2', pub.meta]}>{typeset(p.data.area)}</span>}
-                <span class:list={['block', pub.meta]}>{typeset(oneLine(p.data.summary))}</span>
+              <li class:list={['flex min-h-11 items-baseline justify-between gap-x-3 py-1.5', pub.rule]} data-place-pick={p.slug}>
+                <a href={placeHref(p.slug)} class:list={[pub.link, 'text-base font-medium']}>{typeset(p.data.title)}</a>{p.data.area && <span class:list={['shrink-0 text-right', pub.meta]}>{typeset(p.data.area)}</span>}
               </li>
             ))}
           </ul>
