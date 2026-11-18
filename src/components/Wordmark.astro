@@ -11,16 +11,19 @@
  * white at 70%, which is display-size text and needs 3:1, not 4.5:1;
  * scripts/check-colors.ts holds it to that on every band.
  */
-import { getSite } from '@/config';
-import { WORDMARK_AFTER_SCALE, wordmarkParts } from '@/lib/titles';
+import { getSite, type SiteConfig } from '@/config';
+import { WORDMARK_AFTER_SCALE, homeLinkLabel, wordmarkParts } from '@/lib/titles';
 
 interface Props {
   class?: string;
   tone?: 'ink' | 'light';
+  /** Another site's wordmark: a full section's, in its masthead over a hub page under /<town>/ (Header.astro). */
+  site?: SiteConfig;
+  /** Where it goes: that section's home ("/erie/"). This site's home, "/", by default. */
+  href?: string;
 }
 
-const site = getSite();
-const { class: className = '', tone = 'ink' } = Astro.props;
+const { class: className = '', tone = 'ink', site = getSite(), href = '/' } = Astro.props;
 // The hub's masthead sets the whole name in its blue, "Inside" in the
 // regular italic (the publication redesign of 14 November 2026); a guide's
 // keeps the light italic in the ink.
@@ -32,7 +35,8 @@ const second = tone === 'light' ? 'text-white' : 'text-primary';
 const after = tone === 'light' ? 'text-white' : 'text-ink';
 const parts = wordmarkParts(site.siteTitle);
 ---
-<a href="/" class:list={['-my-2 py-2 font-heading tracking-tight no-underline', className]} aria-label={`${site.siteTitle} home`}>
+{/* Its name is the title and the word "home": "Inside the Towns home" on the hub (the owner's navigation brief of 18 November 2026), "Inside Erie home" on a section; the visible words begin it, as WCAG 2.5.3 asks. */}
+<a href={href} class:list={['-my-2 py-2 font-heading tracking-tight no-underline', className]} aria-label={homeLinkLabel(site.siteTitle)}>
   {parts.before && (
     <Fragment>
       <span class:list={[hubInk ? 'font-normal italic' : 'font-light italic', first]}>{parts.before}</span>{' '}

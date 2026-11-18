@@ -2,7 +2,7 @@
 title: "Georgetown Loop Railroad: which station, what to book, the winter trains"
 seoTitle: "Georgetown Loop Railroad: stations, tickets, winter trains"
 date: "2026-11-18"
-excerpt: "Until late May every train leaves the Devil's Gate Depot in Georgetown; the ride is the same from either station. Book online or by phone, and pick up printed tickets 30 minutes early. Winter trains run to January 3, 2027; the 2027 season is not yet announced."
+excerpt: "Until late May every train leaves the Devil's Gate Depot in Georgetown; the ride is the same from either station. Book online or by phone, and pick up printed tickets 30 minutes early. Winter trains run to January 3, 2027; the 2027 season is not yet announced (checked November 18, 2026)."
 category: "Outdoors"
 tags: [georgetown-loop, train, winter, tickets, guide]
 verified: "2026-11-18"

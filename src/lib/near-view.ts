@@ -9,8 +9,10 @@ import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { allTowns, findTown, getNetworkHub, guideUrl } from '../config/index.ts';
 import { STANDALONE_GUIDES, findHubTown } from '../config/hub-towns.ts';
+import { GETTING_HERE } from '../config/getting-here.ts';
 import { PASSES, type Pass } from '../config/passes.ts';
-import { nearestPlaces, passesFor, type Leg, type RoadMiles } from './near.ts';
+import { winterNote, type GettingHere, type WinterNote } from './getting-here.ts';
+import { nearestPlaces, pairKey, passesFor, type Leg, type RoadMiles } from './near.ts';
 
 export interface NearLink {
   name: string;
@@ -26,8 +28,12 @@ export interface NearLink {
 }
 
 export interface NearView {
-  /** The nearest towns with a page, nearest first, each with its road miles. */
-  near: Array<{ place: string } & NearLink & Leg>;
+  /**
+   * The nearest towns with a page, nearest first, each with its road miles;
+   * where the drive is over a pass closed in winter, the note with the
+   * year-round route (src/lib/getting-here.ts).
+   */
+  near: Array<{ place: string; winter?: WinterNote } & NearLink & Leg>;
   /** The passes and routes that name the place, each with the ends that have a page. */
   passes: Array<{ pass: Pass; ends: NearLink[] }>;
 }
@@ -45,7 +51,7 @@ function sectionHasIndex(slug: string, contentRoot = 'content'): boolean {
   });
 }
 
-export function nearView(place: string, roads: RoadMiles | undefined, withPage: ReadonlySet<string>, onHub: boolean): NearView {
+export function nearView(place: string, roads: RoadMiles | undefined, withPage: ReadonlySet<string>, onHub: boolean, gettingHere: GettingHere | undefined = GETTING_HERE): NearView {
   const hub = getNetworkHub();
   const link = (slug: string): NearLink | undefined => {
     const hubTown = findHubTown(slug);
@@ -66,7 +72,10 @@ export function nearView(place: string, roads: RoadMiles | undefined, withPage: 
   const near = roads
     ? nearestPlaces(roads, place, withPage).flatMap((n) => {
         const l = link(n.place);
-        return l ? [{ ...n, ...l }] : [];
+        const key = pairKey(place, n.place);
+        // The pair is routed from the slug that sorts first; its places are named from this town.
+        const winter = winterNote(gettingHere, key, PASSES, key !== `${place}|${n.place}`);
+        return l ? [{ ...n, ...l, ...(winter ? { winter } : {}) }] : [];
       })
     : [];
   const passes = passesFor(PASSES, place, withPage).map(({ pass }) => ({

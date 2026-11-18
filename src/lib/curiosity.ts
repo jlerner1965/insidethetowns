@@ -456,6 +456,17 @@ export function kindLabel(kind: CuriosityKind): string {
   return kind === 'event' ? 'Event' : kind === 'story' ? 'News' : TOPIC_INFO[kind].label;
 }
 
+/** A story's own word for itself where its eyebrow gives one ("History · Leadville" is History, not News; the owner, 18 November 2026), else its kind's. */
+export function articleLabel(a: Pick<CuriosityArticle, 'kind' | 'eyebrow'>): string {
+  const own = a.eyebrow?.split(' · ')[0]?.trim();
+  return a.kind === 'story' && own ? own : kindLabel(a.kind);
+}
+
+/** A town's history story: the story whose eyebrow calls itself History. */
+export function historyStory<A extends Pick<CuriosityArticle, 'kind' | 'eyebrow'>>(articles: readonly A[]): A | undefined {
+  return articles.find((a) => a.kind === 'story' && /^history\b/i.test(a.eyebrow ?? ''));
+}
+
 /** The articles in the order /articles/ lists them: the newest first, then by title. */
 export function newestFirst<A extends Pick<CuriosityArticle, 'date' | 'title'>>(articles: readonly A[]): A[] {
   return [...articles].sort((x, y) => y.date.localeCompare(x.date) || x.title.localeCompare(y.title));

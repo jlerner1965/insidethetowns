@@ -61,6 +61,17 @@ export function wordmarkParts(siteTitle: string): { before?: string; name: strin
   return { name: siteTitle };
 }
 
+/**
+ * The accessible name of a masthead's wordmark, the link to the site's
+ * home: the title and the word "home", "Inside the Towns home" on every hub
+ * page (the owner's navigation brief of 18 November 2026) and "Inside Erie
+ * home" on a section's. It begins with the words the link shows, so a
+ * reader who speaks what they see can follow it (WCAG 2.5.3).
+ */
+export function homeLinkLabel(siteTitle: string): string {
+  return `${siteTitle} home`;
+}
+
 /** How big the wordmark sets the `after` part, as a share of the name's size. */
 export const WORDMARK_AFTER_SCALE = 0.5;
 

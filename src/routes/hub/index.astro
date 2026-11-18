@@ -21,8 +21,9 @@
  *      result from the scores files.
  *   6. In the towns: the newest articles and local changes, the newest
  *      first and set larger.
- *   7. Find your town: the guides, and a box that takes any other town's
- *      name to its page.
+ *   7. Find your town: the full sections together, the seven guides and
+ *      the four folded guides kept whole (fullSections), and a box that
+ *      takes any other town's name to its page.
  *
  * The weekend leads and the season follows, and the weekend's rows carry no
  * check line, since the viewer review of 14 November 2026: a phone reader
@@ -36,7 +37,7 @@
  * section is the phone's band of its own.
  *
  * Every list reads what the rest of the hub reads: liveTowns() for the
- * guides, publishedHubTowns() for the town pages, the tradition records,
+ * guides, fullSections() for the sections, publishedHubTowns() for the town pages, the tradition records,
  * the guides' listings, weekly notes and changes, and the scores files.
  * Each dated row carries its last day, so the page's own script takes it
  * down once it has passed (Freshness.astro), and a block left with nothing
@@ -49,7 +50,7 @@ import { Image, getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { pub } from '@/components/hub/pub';
-import { emailEditions, getHub, guideUrl, listsEvents, liveTowns } from '@/config';
+import { emailEditions, fullSections, getHub, guideUrl, liveTowns, sectionHome } from '@/config';
 import { hubCountyLine } from '@/config/hub-towns';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
@@ -70,6 +71,7 @@ import {
   gameRow,
   guideLine,
   guideName,
+  homeDescription,
   listWords,
   listingKey,
   listingReasons,
@@ -92,7 +94,7 @@ import { TRADITION_TYPE_INFO } from '@/lib/traditions';
 import { currentPicks } from '@/lib/weekly';
 import { fitTitle } from '@/lib/titles';
 import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
-import { collectionPageJsonLd } from '@/lib/seo';
+import { META_DESCRIPTION_LIMIT, collectionPageJsonLd } from '@/lib/seo';
 import { expiresOn, networkChanges } from '@/lib/updates';
 import { shownCategoryLabel } from '@/content/schemas';
 // The italic of the heading face, for the decks and the day headings: the guides' pages do not use it, so it is loaded here only.
@@ -323,21 +325,23 @@ const news = newsItems(
   return { ...i, byline: `${i.label} · ${md.month} ${md.day}` };
 });
 
-/** Find your town: each guide's name with the towns it covers, its counties and its line. */
-const guides = live.map((t) => ({ name: guideName(t, coveredTowns(t)), line: [hubCountyLine(t), guideLine(t)].join(' · '), href: guideUrl(t) }));
-const guideCount = numberWord(live.length);
 /**
- * "This weekend's events from six guides", not seven: Niwot lists no events
- * (`lead: 'updates'`), so the weekend comes from the six that do.
+ * Find your town: the full sections together (the owner's navigation brief
+ * of 18 November 2026: the seven guides and Estes Park, Fort Collins,
+ * Longmont and Loveland, src/config/index.ts, fullSections), each with the
+ * towns it covers, its counties and its line, and its front page.
  */
-const eventGuideCount = numberWord(live.filter(listsEvents).length);
+const sectionList = fullSections();
+const sections = sectionList.map((t) => ({ name: guideName(t, coveredTowns(t)), line: [hubCountyLine(t), guideLine(t)].join(' · '), href: sectionHome(t) }));
+const sectionCount = numberWord(sections.length);
 /**
- * "N more towns": the town pages for towns no guide covers. Severance has a
- * page of its own and is in "Windsor and Severance" too, so it is not
- * counted twice. /towns/ still lists every page.
+ * "N more towns": the town pages for towns no full section covers. Severance
+ * has a page of its own and is in "Windsor and Severance" too, and
+ * Longmont's town page is its section's front page, so neither is counted
+ * twice. /towns/ still lists every page.
  */
-const guideTowns = new Set(live.flatMap((t) => [t.name, ...coveredTowns(t)]));
-const moreTowns = pages.filter((p) => !guideTowns.has(p.name)).length;
+const sectionNames = new Set(sectionList.flatMap((t) => [t.name, ...coveredTowns(t)]));
+const moreTowns = pages.filter((p) => !sectionNames.has(p.name)).length;
 
 /** The email: one town to start, from the weekly editions (NewsletterSignup.astro, variant "hub"). */
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
@@ -354,21 +358,17 @@ const jumps = [
 ].filter((j) => !!j);
 
 /**
- * The title and description say what the page is: this weekend's events
- * and the annual dates, the words people search with, the longest form
- * that fits 155 characters. The title is short enough to keep the site's
+ * The title and description say what the page is: this weekend's events,
+ * the full sections and the annual dates, the words people search with,
+ * the longest form that fits 155 characters (src/lib/hub-home.ts,
+ * homeDescription). The title is short enough to keep the site's
  * name (fitTitle drops it past 60 characters) and says "town" once:
  * "Colorado events this weekend, town by town" ran 61 with the name, so
  * it went out without it, and a checker counts the repeated word
  * (the Seobility check of 15 November 2026).
  */
 const fullTitle = fitTitle('Colorado town events this weekend', hub.siteTitle);
-const seasonWords = seasons.length > 0 ? `: ${listWords(seasons.map((r) => r.title.toLowerCase()))}` : '';
-const description = [
-  `This weekend’s events from ${eventGuideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}, each checked against its source.`,
-  `This weekend’s events from ${eventGuideCount} Colorado town guides, and annual dates for ${moreTowns} more towns${seasonWords}.`,
-  `This weekend’s events from ${eventGuideCount} Colorado town guides, and annual dates for ${moreTowns} more towns, each checked against its source.`,
-].find((d) => d.length <= 155)!;
+const description = homeDescription({ sections: sections.length, moreTowns, seasons: seasons.map((r) => r.title) }, META_DESCRIPTION_LIMIT);
 
 /** What the page lists, for search engines. Their Event markup stays on the pages that own them. */
 const structured = collectionPageJsonLd(hub, {
@@ -593,11 +593,11 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
     <div class={wide}>
       <div class={pub.open}>
         <h2 id="towns-heading" class={pub.h2}>Find your town</h2>
-        <p class={dek}>{capitalized(guideCount)} full local guides, and a page of annual dates for every other town.</p>
+        <p class={dek}>{capitalized(sectionCount)} towns with a full section, and a page of annual dates for every other town.</p>
       </div>
-      <h3 class={pub.h3}>{capitalized(guideCount)} local guides</h3>
-      <div class="sm:grid sm:grid-cols-2 sm:gap-x-8 desk:grid-cols-4">
-        {guides.map((g) => (
+      <h3 class={pub.h3}>{capitalized(sectionCount)} full sections</h3>
+      <div class="sm:grid sm:grid-cols-2 sm:gap-x-8 desk:grid-cols-4" data-index="sections">
+        {sections.map((g) => (
           <div class:list={['py-4', pub.rule]}>
             <h4 class:list={[hl, 'mt-0']}><a href={g.href} class={pub.titleLink} data-track="home-index">{g.name}</a></h4>
             <p class:list={['mt-0.5', pub.meta]}>{g.line}</p>

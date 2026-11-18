@@ -10,21 +10,28 @@
  * The profile's values (the facts, the drive and the airport, the lodging
  * and the heritage) are exactly what TownProfile.astro printed before the
  * redesign, from the same files, with the same sources and check dates:
- * the layout changed, not a figure.
+ * the layout changed, not a figure. Since 18 November 2026 (the owner's
+ * navigation brief, item 7) Getting here also lists Denver International
+ * and, for a drive over a pass closed in winter, the year-round route, from
+ * a later reading of the same router with its own date
+ * (src/lib/getting-here.ts).
  */
+import { GETTING_HERE } from '../config/getting-here.ts';
 import { clusterName, hubCountyLine, type HubTown } from '../config/hub-towns.ts';
+import { PASSES } from '../config/passes.ts';
 import { BLOCK_MONTHS } from './date-block.ts';
-import { monthLabel, type YearMark } from './year-grid.ts';
+import { MONTH_NAMES as BLOCK_MONTHS_LONG, monthLabel, type YearMark } from './year-grid.ts';
+import { airportRows, fromDenverKey, winterNote, type GettingHere } from './getting-here.ts';
 import { roadLeg, type Airports, type RoadMiles, type TownFacts } from './near.ts';
 import { newestCheck, sourceHost, type TownProfile } from './town-profile.ts';
 import { isUpcoming, type TraditionRow } from './traditions.ts';
 
 /* ---------------------------------------------------------------- sections */
 
-export type SectionKey = 'events' | 'places' | 'trails' | 'stay' | 'getting' | 'outdoor' | 'about';
+export type SectionKey = 'events' | 'places' | 'trails' | 'directory' | 'stay' | 'getting' | 'outdoor' | 'about';
 
 /** The sections in the page's order, each with its anchor and its words. */
-export const SECTION_ORDER: readonly SectionKey[] = ['events', 'places', 'trails', 'stay', 'getting', 'outdoor', 'about'];
+export const SECTION_ORDER: readonly SectionKey[] = ['events', 'places', 'trails', 'directory', 'stay', 'getting', 'outdoor', 'about'];
 
 /**
  * Each section's anchor. The events and outdoor anchors are the ones a
@@ -36,6 +43,8 @@ export const SECTION_IDS: Readonly<Record<SectionKey, string>> = {
   events: 'traditions',
   places: 'places-to-know',
   trails: 'trails-and-parks',
+  /** The town's places page, a few of them by kind (the owner, 18 November 2026: in the menu and on the page, not one link at the foot). */
+  directory: 'places',
   stay: 'stay',
   getting: 'getting-here',
   outdoor: 'outdoor-dates',
@@ -59,6 +68,7 @@ export function pageSections(town: string, present: Readonly<Record<SectionKey, 
     events: { label: 'Event dates', title: `Events and dates in ${town}` },
     places: { label: 'Places to know', title: `Places to know in ${town}` },
     trails: { label: 'Trails and parks', title: `Trails and parks in ${town}` },
+    directory: { label: 'Places', title: `Places in ${town}` },
     stay: { label: 'Where to stay', title: `Where to stay in ${town}` },
     getting: { label: 'Getting here', title: `Getting to ${town}` },
     outdoor: { label: 'Outdoor dates', title: 'Outdoor dates in Colorado' },
@@ -91,12 +101,22 @@ export function yearMarks(traditions: readonly TraditionRow[], groupOf: (row: Tr
   });
 }
 
-/** The grid's twelve cells: the month's short name, whether it is the current one, and its marks. */
-export function yearGrid(marks: ReadonlyArray<YearMark & { month: number }>, thisMonth: number) {
+/** A month's anchor on the page, on its first entry: "month-december". */
+export function monthAnchor(month: number): string {
+  return `month-${BLOCK_MONTHS_LONG[month]!.toLowerCase()}`;
+}
+
+/**
+ * The grid's twelve cells: the month's short name, whether it is the current one, and its marks.
+ * A month links to its own anchor, on the first entry of that month in the
+ * lists (the owner, 18 November 2026: every month had gone to the top of
+ * "Coming up"); where the page has none for it, to the list its first entry
+ * is under, a date set before one not yet announced.
+ */
+export function yearGrid(marks: ReadonlyArray<YearMark & { month: number }>, thisMonth: number, anchored: ReadonlySet<number> = new Set()) {
   return BLOCK_MONTHS.map((short, i) => {
     const own = marks.filter((m) => m.month === i);
-    // A month links to the list its first entry is under: a date set before one not yet announced.
-    const target = own.find((m) => m.set)?.group ?? own[0]?.group;
+    const target = own.length > 0 && anchored.has(i) ? monthAnchor(i) : (own.find((m) => m.set)?.group ?? own[0]?.group);
     return { month: i, short, now: i === thisMonth, marks: own, target, label: monthLabel(i, own, i === thisMonth) };
   });
 }
@@ -109,6 +129,8 @@ export interface ProfileFiles {
   airports?: Airports;
   bustang?: { checked: string; stops: Array<{ town: string; service: string; detail?: string; seasonal?: string; url: string; source: string; checked: string }> };
   profile?: TownProfile;
+  /** The other airports and the year-round routes (src/config/getting-here.ts); the file on disk unless one is handed in. */
+  gettingHere?: GettingHere;
 }
 
 /**
@@ -117,7 +139,7 @@ export interface ProfileFiles {
  * Denver, buses and trains, the nearest airport, where to stay, and the
  * heritage. A value nobody confirmed is not in the files and not here.
  */
-export function profileView(town: HubTown, { facts, roads, airports, bustang, profile }: ProfileFiles) {
+export function profileView(town: HubTown, { facts, roads, airports, bustang, profile, gettingHere = GETTING_HERE }: ProfileFiles) {
   const bulk = facts?.towns[town.slug];
   const elevation = profile?.facts?.elevationFt?.value ?? bulk?.elevationFt;
   const incorporated = profile?.facts?.incorporated;
@@ -136,6 +158,9 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
   const fromDenver = roads?.fromDenver[town.slug];
   const nearestAirport = roads?.airport[town.slug];
   const airport = nearestAirport ? airports?.airports.find((a) => a.code === nearestAirport.code) : undefined;
+  // Every airport the page lists, nearest first, Denver International always (the owner's navigation brief of 18 November 2026, item 7).
+  const airportList = airportRows(town.slug, roads, airports, gettingHere, PASSES);
+  const fromDenverWinter = winterNote(gettingHere, fromDenverKey(town.slug), PASSES);
   const transit = [
     ...(bustang?.stops.filter((s) => s.town === town.slug).map((s) => ({ name: s.service, detail: [s.detail, s.seasonal].filter(Boolean).join('. '), url: s.url, checked: s.checked })) ?? []),
     ...(profile?.transit ?? []).map((t) => ({ name: t.name, detail: t.detail, url: t.url, checked: t.checked })),
@@ -162,7 +187,12 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
     factsChecked: facts?.checked,
     fromDenver,
     airport: airport && nearestAirport ? { ...airport, miles: nearestAirport.miles } : undefined,
+    airports: airportList,
     airportList: airports?.listSource,
+    /** The drive from Denver, where it is over a pass closed in winter. */
+    fromDenverWinter,
+    /** What the page shows from the later reading (src/lib/getting-here.ts), and its date: "the other airports and the year-round route". */
+    laterCheck: laterCheck(airportList.filter((a) => !a.nearest).map((a) => a.code), airportList.some((a) => a.winter) || !!fromDenverWinter, gettingHere?.checked),
     transit,
     roads,
     lodging,
@@ -175,6 +205,18 @@ export function profileView(town: HubTown, { facts, roads, airports, bustang, pr
     heritageSources,
     heritageChecked: h ? newestCheck(heritageItems) : undefined,
   };
+}
+
+/**
+ * The source line's second date: what came from the later reading
+ * ("Denver International", "the other airports and the year-round route"),
+ * or nothing where the page shows none of it.
+ */
+export function laterCheck(otherAirports: readonly string[], yearRound: boolean, checked: string | undefined): { what: string; checked: string } | undefined {
+  if (!checked || (otherAirports.length === 0 && !yearRound)) return undefined;
+  const airports = otherAirports.length === 0 ? '' : otherAirports.length > 1 ? 'the other airports' : otherAirports[0] === 'DEN' ? 'Denver International' : 'the other airport';
+  const what = [airports, yearRound && 'the year-round route'].filter(Boolean).join(' and ');
+  return { what, checked };
 }
 
 /** A place's sources in the order its facts use them, its own page first. */
@@ -255,4 +297,29 @@ export function moreHeading(list: ReadonlyArray<Pick<HubTown, 'cluster'>>): stri
 export function milesShort(miles: number): string {
   const n = miles >= 10 ? Math.round(miles) : Math.round(miles * 10) / 10;
   return `${n.toLocaleString('en-US')} mi`;
+}
+
+/* ------------------------------------------------------------- history */
+
+const FOUNDING = /^(?:the\s+)?(?:(?:city|town|village)\s+of\s+)?[\p{L}\s.’'-]+\s+was\s+(?:founded|incorporated|established|platted|laid out|settled)(?:\s+(?:in|on)\s+[\p{L}\s,]*\d{4})?\.?$/iu;
+
+/**
+ * The Founded row's words (the owner, 18 November 2026: "Founded 1878: The
+ * city of Leadville was founded in 1878"). A line that only says the town
+ * was founded that year is the year alone; a line that names the year
+ * already is printed as it is; any other follows the year.
+ */
+export function foundedLine(year: number, text?: string): string {
+  const t = text?.trim();
+  if (!t || FOUNDING.test(t)) return String(year);
+  if (new RegExp(`\\b${year}\\b`).test(t)) return t;
+  return `${year}: ${t}`;
+}
+
+/** A timeline line without the year its row already shows: "In 1880, Horace Tabor bought …" under 1880 reads "Horace Tabor bought …" ("By 1880" keeps its word: it says no later than). */
+export function timelineText(year: number, text: string): string {
+  const m = new RegExp(`^in\\s+${year},?\\s+(.+)$`, 'is').exec(text.trim());
+  if (!m) return text;
+  const rest = m[1]!;
+  return rest.charAt(0).toUpperCase() + rest.slice(1);
 }

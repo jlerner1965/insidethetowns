@@ -1,16 +1,18 @@
 ---
 /**
- * /towns/ on the hub: every town page in one list, A to Z, with the seven
- * guides first and the season pages after. The home page groups the towns
+ * /towns/ on the hub: every town page in one list, A to Z, with the full
+ * sections first, all eleven together (the owner's navigation brief of 18
+ * November 2026: the seven guides and Estes Park, Fort Collins, Longmont
+ * and Loveland), and the season pages after. The home page groups the towns
  * by where they are; this is the plain index, one link to each page, so
  * that every town page is one click from every page of the hub (the
  * footer links here) and a crawler finds them all in one place. Built from
- * the same lists the home page reads: liveTowns() for the guides and
+ * the same lists the home page reads: fullSections() for the sections and
  * publishedHubTowns() for the town pages, so a town reaches this page the
  * day it reaches its own.
  */
 import Page from '@/layouts/Page.astro';
-import { getHub, guideUrl, liveTowns } from '@/config';
+import { fullSections, getHub, guideUrl, liveTowns, sectionHome, sectionSite } from '@/config';
 import { findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { subTownsOf } from '@/lib/sub-towns';
 import { getTraditions } from '@/lib/content';
@@ -23,6 +25,8 @@ const hub = getHub();
 const records = await getTraditions();
 const today = dayKey(new Date());
 const guides = liveTowns();
+/** The full sections, each under the name its pages carry ("Inside Erie", "Inside Longmont") and to its front page. */
+const full = fullSections().map((t) => ({ name: sectionSite(t).siteTitle, href: sectionHome(t), county: hubCountyLine(t) }));
 const pages = [...publishedHubTowns(records)].sort((a, b) => a.name.localeCompare(b.name));
 /**
  * A town a guide covers as a section of its own (Windsor's Severance) is
@@ -41,13 +45,13 @@ const aToZ = [
 ].sort((a, b) => a.name.localeCompare(b.name));
 const seasons = TRADITION_TYPES.filter((t) => seasonRows(records, t, today).length > 0);
 const path = '/towns/';
-const description = `Every Colorado town on ${hub.siteTitle}, A to Z: ${guides.length} full guides and ${pages.length} town pages with each town’s annual events and outdoor dates.`;
+const description = `Every Colorado town on ${hub.siteTitle}, A to Z: ${full.length} full town sections and ${pages.length} town pages with each town’s annual events and outdoor dates.`;
 const structured = [
   collectionPageJsonLd(hub, {
     name: 'Every town, A to Z',
     description,
     path,
-    items: [...guides.map((g) => ({ name: g.siteTitle, url: guideUrl(g) })), ...pages.map((t) => ({ name: t.name, url: `https://${hub.domain}/${t.slug}/` }))],
+    items: [...full.map((s) => ({ name: s.name, url: s.href })), ...pages.map((t) => ({ name: t.name, url: `https://${hub.domain}/${t.slug}/` }))],
   }),
   breadcrumbJsonLd(hub, [
     { name: hub.siteTitle, path: '/' },
@@ -57,13 +61,13 @@ const structured = [
 const h2 = 'mb-5 border-b-2 border-accent pb-3 text-2xl font-medium';
 const link = 'font-semibold text-primary underline';
 ---
-<Page title="Every town, A to Z" seoTitle="Colorado towns A to Z: guides and town pages" eyebrow="Colorado" {description} intro={`${guides.length} guides and ${pages.length} town pages, each one link.`} jsonLd={structured}>
-  <section aria-labelledby="guides-heading" class="mb-12">
-    <h2 id="guides-heading" class={h2}>The guides</h2>
-    <p class="mb-4 max-w-2xl text-[0.9375rem] text-ink-muted">A guide is a whole site for one town: the week’s events, places to eat, trails and services.</p>
-    <ul class="grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3" data-index="guides">
-      {guides.map((g) => (
-        <li><a href={guideUrl(g)} class={link}>{g.siteTitle}</a> <span class="text-[0.875rem] text-ink-muted">{g.domain}</span></li>
+<Page title="Every town, A to Z" seoTitle="Colorado towns A to Z: guides and town pages" eyebrow="Colorado" {description} intro={`${full.length} full sections and ${pages.length} town pages, each one link.`} jsonLd={structured}>
+  <section aria-labelledby="sections-heading" class="mb-12">
+    <h2 id="sections-heading" class={h2}>Full sections</h2>
+    <p class="mb-4 max-w-2xl text-[0.9375rem] text-ink-muted">A full section is a whole guide to one town: the week’s events, places to eat, trails and services.</p>
+    <ul class="grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3" data-index="sections">
+      {full.map((s) => (
+        <li><a href={s.href} class={link}>{s.name}</a> <span class="text-[0.875rem] text-ink-muted">{s.county}</span></li>
       ))}
     </ul>
   </section>

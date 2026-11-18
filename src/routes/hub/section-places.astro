@@ -1,9 +1,12 @@
 ---
 /**
  * /<town>/places/: the kept pages of a guide folded page by page (the move
- * of 17 November 2026; src/lib/section-index.ts). A plain index: each
- * place by kind, with its summary, then the guides. The town's page on the
- * hub links here once; everything else of the old guide is that page.
+ * of 17 November 2026; src/lib/section-index.ts). A plain index for a
+ * reader planning a visit: the guides first, the town's lead guide at their
+ * head, then each place by kind in a fixed order, outdoors first. The
+ * page speaks about the town, not about the guide it came from (the
+ * owner, 18 November 2026). The town's page on the hub links here once;
+ * everything else of the old guide is that page.
  */
 import Page from '@/layouts/Page.astro';
 import CheckedLine from '@/components/CheckedLine.astro';
@@ -28,10 +31,19 @@ for (const p of [...section.placeEntries].sort((a, b) => a.data.title.localeComp
   list.push(p);
   byType.set(p.data.type, list);
 }
-const groups = [...byType.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
-const guides = [...section.guideEntries].sort((a, b) => a.data.title.localeCompare(b.data.title));
+/** The order a visitor reads in: outdoors, then things to do, food and drink, a bed, and the errands last. */
+const ORDER: readonly PlaceType[] = ['trail', 'trailhead', 'park', 'venue', 'restaurant', 'coffee', 'bar', 'lodging', 'shop', 'service'];
+const groups = [...byType.entries()].sort((a, b) => ORDER.indexOf(a[0]) - ORDER.indexOf(b[0]));
+// The town's lead guide (its "Start here" on the town page) heads the guides; the rest follow by title.
+const lead = town.leadGuide?.replace(/\/$/, '').split('/').pop();
+const guides = [...section.guideEntries].sort((a, b) => Number(b.slug === lead) - Number(a.slug === lead) || a.data.title.localeCompare(b.data.title));
 const title = `Places in ${town.name}`;
-const description = `${section.placeEntries.length} places in ${town.name}, Colorado, each checked against its own source${guides.length ? `, and ${guides.length} guide${guides.length === 1 ? '' : 's'}` : ''}: what Inside ${town.name} kept when the guide closed.`;
+const count = (n: number, one: string) => `${n} ${one}${n === 1 ? '' : 's'}`;
+const kinds = groups.map(([type]) => PLACE_TYPE_PLURALS[type].toLowerCase());
+const description = `${count(section.placeEntries.length, 'place')} in ${town.name}, Colorado, by kind: ${kinds.slice(0, 3).join(', ')}${kinds.length > 3 ? ' and more' : ''}, each checked against its own source${guides.length ? `, with ${count(guides.length, 'guide')} to plan a visit` : ''}.`;
+/** "Museums, restaurants, places to stay and trails in Leadville, each checked against its own source." (the owner's words, 18 November 2026) */
+const kindList = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kinds[kinds.length - 1]}` : kinds[0] ?? 'places';
+const intro = `${kindList.charAt(0).toUpperCase()}${kindList.slice(1)} in ${town.name}, each checked against its own source.`;
 const structured = [
   webPageJsonLd(hub, { name: title, description, path }),
   breadcrumbJsonLd(hub, [
@@ -42,8 +54,22 @@ const structured = [
 ];
 const link = 'text-primary underline decoration-1 underline-offset-[3px]';
 ---
-<Page {title} eyebrow={`${town.name}, ${hubCountyLine(town)} · Inside ${town.name}`} intro={`The pages kept from the Inside ${town.name} guide, each read against its own source. Annual events and outdoor dates are on the town's page.`} {description} jsonLd={structured} kind="Guide" narrow>
+<Page {title} eyebrow={`${town.name}, ${hubCountyLine(town)}`} {intro} {description} jsonLd={structured} kind="Guide" narrow>
   <CheckedLine dates={section.placeEntries.filter((p) => !p.data.recheckPending).map((p) => p.data.verified)} perItem />
+  {guides.length > 0 && (
+    <section class="mt-10" aria-labelledby="guides-heading">
+      <h2 id="guides-heading" class="eyebrow mb-3">Guides</h2>
+      <ul class="divide-y divide-line-soft">
+        {guides.map((g) => (
+          <li class="py-3" data-guide={g.slug === lead ? 'lead' : undefined}>
+            {g.slug === lead && <p class="eyebrow mb-1">Start here</p>}
+            <a href={`/${town.slug}/guides/${g.slug}/`} class={`text-[1.0625rem] font-semibold ${link}`}>{g.data.title}</a>
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{g.data.excerpt}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
   {groups.map(([type, places]) => (
     <section class="mt-10" aria-labelledby={`type-${type}`}>
       <h2 id={`type-${type}`} class="eyebrow mb-3">{PLACE_TYPE_PLURALS[type]}</h2>
@@ -59,19 +85,6 @@ const link = 'text-primary underline decoration-1 underline-offset-[3px]';
       </ul>
     </section>
   ))}
-  {guides.length > 0 && (
-    <section class="mt-10" aria-labelledby="guides-heading">
-      <h2 id="guides-heading" class="eyebrow mb-3">Guides</h2>
-      <ul class="divide-y divide-line-soft">
-        {guides.map((g) => (
-          <li class="py-3">
-            <a href={`/${town.slug}/guides/${g.slug}/`} class={`text-[1.0625rem] font-semibold ${link}`}>{g.data.title}</a>
-            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{g.data.excerpt}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )}
   <p class="mt-10 text-[0.9375rem] text-ink-muted">
     <a href={`/${town.slug}/`} class={link}>Every annual event and outdoor date in {town.name}</a>
   </p>

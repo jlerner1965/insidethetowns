@@ -12318,3 +12318,174 @@ from what is already in the repo, such as Grand Lake.*
   parks have no hours. Timnath, Longmont, Castle Rock and Black Hawk have
   one each. Cold Springs Campground is left out as a campground.
 
+## Places in the town page's menu, 18 November 2026
+
+*The owner, 18 November 2026: the places page "should be in menu beside the
+outdoor dates", "otherwise nobody will find it", and its opening "is not
+good".*
+
+- **The menu.** "On this page" ends with Places, marked with an arrow
+  because it leaves the page: `/<town>/places/` where a guide was kept page
+  by page, `/<town>/directory/` and Guides where it was kept whole. The
+  line at the foot of the town page stays.
+- **The places page** speaks about the town, not the guide it came from:
+  no "Inside <Town>" in its eyebrow, an intro and description that say what
+  is on it, the guides first with the town's lead guide marked "Start
+  here", then the places by kind in a fixed order, outdoors first, instead
+  of the largest group first.
+
+## The town page's navigation, 18 November 2026
+
+*The owner's brief of 18 November 2026, Leadville the example: the page ran
+to 17,000 pixels on a phone (16,996 at 375px on the live page before this
+work, Event dates 5,354 of them).*
+
+- **The section bar.** On a phone a slim bar stays at the top of the window
+  with the page's sections in one row that scrolls sideways, the section in
+  view marked by the same script that marks the desktop rail; every section
+  ends on "Back to top". Anchors sit 56px down from the top on a phone so
+  the bar never covers a heading.
+- **Event dates** opens on the year at a glance, and each month links to
+  its own anchor on the first entry of that month, a date set before one
+  not yet announced (every month had gone to the top of "Coming up").
+  A date set is one compact card: the date in type, the name with its kind,
+  one status line that carries the time, the place and the cost, the check
+  line with the source and the other pages. A date not yet announced is one
+  line: the name, the month it usually falls in (the record's window, else
+  its last date), when it was last held, the source and its check.
+- **Road and pass dates** (CDOT's openings and closings, `outdoor.kind:
+  road`) are listed under Getting here, not among the events or in Open
+  now; their anchors keep their slugs, so the season pages' links land.
+- **Places** is a section of the page where the town has a places page: up
+  to three each of museums and history, eat and drink, outdoors, places to
+  stay, shops and services, then "See all N places". The "Inside <Town>:"
+  label before the close's links is gone, and the places page says what is
+  on it in the owner's words. Where to stay lists every lodging place from
+  the places page with the first clause of its summary, then the profile's.
+- **History** leads About: the town's history story (a story whose eyebrow
+  says History) with "Read the story", labeled History in Nearby too, not
+  News. The Founded row no longer repeats its year ("1878: The city of
+  Leadville was founded in 1878" reads "1878"), and a timeline line that
+  opens "In 1880," loses the words its row already shows.
+- **Title, description, intro** say what the page covers: "Leadville,
+  Colorado: events, trails and things to do (2026–27)", the CO form where
+  the Colorado one is over 60 characters, the dates kept in the description.
+- **Start here** lines say "not yet announced (checked <date>)" for what an
+  operator has not published.
+
+## The navigation brief, items 13 to 16: the eleven sections, section mastheads, the hub link's name and the season pills, 18 November 2026
+
+*The owner's navigation brief of 18 November 2026, items 13 to 16.*
+
+- **Eleven full sections, listed together.** With the seven guides moved
+  into the hub, the towns with a whole section of their own are eleven: the
+  seven, in their one order, then Estes Park, Fort Collins, Longmont and
+  Loveland, A to Z (`fullSections()` in src/config/index.ts: `liveTowns()`
+  and every other `section.mode: 'full'` config, so a section is added or
+  taken off everywhere in one place). The home's "Find your town" lists the
+  eleven as "Eleven full sections" (it was "Seven local guides"), each to
+  its front page (`sectionHome`: a guide's section home, a folded guide's
+  town page, which its section's wordmark already links to); the top of
+  `/towns/` lists them as "Full sections" under the names their pages carry
+  ("Inside Longmont"), with each one's counties where the guide's old domain
+  was. "N more towns" on the home counts town pages no section covers, so
+  Longmont's page is not counted twice.
+- **The descriptions count the sections.** The home's ("This weekend’s
+  events, eleven full town sections and annual dates for 91 more Colorado
+  towns…", `homeDescription`; it had counted the six guides that list
+  events), `/towns/`' and the search page's on the hub ("Search every
+  event, place and guide in the eleven full town sections of Inside the
+  Towns, and every town page"; it said "on every Inside the Towns guide").
+  The other pages that count guides (This weekend, Advertise, the
+  newsletter, the footer strip) still count what they mean: the guides
+  whose events, emails and sponsor lines they are. A season's name in the
+  home's description keeps a proper noun's capital ("New Year’s
+  celebrations"); lowercasing the whole name had written "new year’s".
+- **A section's tradition pages wear its masthead.** The hub builds a
+  record's own page under a section, `/erie/balloon-festival/`,
+  `/longmont/lights-holiday-parade/`, with the hub's templates, and it
+  carried the hub's masthead between pages that carry "Inside Erie". It now
+  draws the section's own (`fullSectionAt`; Header.astro's `section`): the
+  wordmark to the section's home, its menu, email link and town switcher,
+  each link where the merge puts the section's (`sectionHref`, reading the
+  one `SECTION_MOVED` list the merge reads, moved to src/lib/section.ts),
+  in the section's colours, scoped to the masthead by `data-palette`; the
+  page under it, its trail and its footer stay the hub's. A section's
+  events and places pages are its own build already. A town kept page by
+  page (Golden) has no masthead of its own, so its pages keep the hub's.
+- **The hub link's name.** The masthead's wordmark, the link to the hub's
+  home, was already named "Inside the Towns home" (an aria-label since 14
+  November); it now comes from one function (`homeLinkLabel`, the title and
+  "home", so the name begins with the words shown) and a test holds it.
+  Nothing else in a masthead links to the hub's home.
+- **The season pills scroll.** On a season page below 900px the pills to
+  the other season pages are one row that scrolls sideways, to the screen's
+  edges, each pill 44px tall and the current one scrolled into view; from
+  900px they wrap as before. Wrapped, the ten pills took seven rows of a
+  375px screen. Subscribe to calendar moved under the dates to come, as it is
+  after the list on a guide's `/events/` (27 October 2026), and three
+  margins closed up below 900px: at 375 by 667 the page now opens with
+  "Dates to come", its order buttons and the first date's block on the
+  first screen: the first row's top moved from 1,103px to 635px.
+
+
+## Getting here through the year: Denver International and the year-round routes, 18 November 2026
+
+*The owner's navigation brief of 18 November 2026, item 7: airports and
+distances must respect seasonal closures; give the year-round route where a
+route uses a pass closed for the season; always list Denver International;
+add Eagle County for Leadville and say the Aspen road is over Independence
+Pass.*
+
+- **Every town page lists Denver International** with its miles and drive
+  time, under one "Airports" row: the nearest by road first, then the rest
+  by miles. Each airport now shows its drive time as well as its miles. The
+  67 town pages whose nearest airport is another got a DEN row.
+- **One router, one more file.** `data/hub/getting-here.json`, written by
+  hand with `scripts/getting-here.ts`, holds DEN's miles from those towns,
+  the extra airports and the year-round routes, with its own check date
+  (18 November); the road miles keep theirs (12 November), and the source
+  line names both. The router is the same Open Source Routing Machine
+  server as the road miles, so a year-round figure is measured the way the
+  figure beside it is.
+- **"Over a pass" is a point on the route.** Each pass that
+  `data/hub/passes.json` says closes in winter has its Gap point in USGS's
+  Geographic Names Information System (Trail Ridge Road has two, Milner
+  Pass and Fall River Pass); a drive whose route runs within half a
+  kilometre of one is over it. A drive that cannot reach a pass (the
+  straight line through the pass is longer than the drive) is not routed.
+  The year-round route is the router's drive by way of a GNIS populated
+  place on a road kept open in winter (Glenwood Springs for Independence
+  Pass; Idaho Springs or Walden for Trail Ridge Road; Gunnison and Crawford
+  or Montrose for Kebler Pass), checked against every pass again, the
+  fastest kept.
+- **What it found.** Ten printed drives: Leadville and Buena Vista to Aspen's
+  airport (ASE), and Aspen to Leadville and to Buena Vista, over
+  Independence Pass, each by Glenwood Springs in winter; Grand Lake to
+  Estes Park, over Trail Ridge Road, 150 miles by Idaho Springs in winter;
+  and Crested Butte to Paonia, Hotchkiss, Redstone, Marble and Carbondale,
+  over Kebler Pass, each by Gunnison and Crawford (CO 92) in winter. No
+  drive from Denver or to DEN crosses one. The router does not route over
+  Cottonwood, Guanella, Medano, Boreas or any four-wheel-drive pass for
+  any drive a page prints.
+- **The nearest airport by a year-round road** is listed where the nearest
+  by road is over a closed pass: Eagle County (EGE) for Leadville, 63 miles,
+  and Gunnison (GUC) for Buena Vista, 84 miles. Leadville's row is ASE (over
+  Independence Pass, 129 miles by Glenwood Springs in winter), EGE and DEN,
+  and its Passes and routes keeps CDOT's words for the pass ("typically
+  closes in late Oct. or early Nov." and reopens "typically around the
+  Memorial Day holiday weekend").
+- **The note** reads "Over Independence Pass, which is closed in winter.
+  Year-round, by way of Glenwood Springs: 129 miles, about 2 hours 50
+  minutes." The agency's words stay in Passes and routes, and every pass a
+  page's drive crosses is listed there (the test holds it). The Near grid's
+  miles and order are unchanged; the notes sit under it.
+- **Cottonwood Pass carries its closure** in `passes.json` now, in Chaffee
+  County's words from the repo's own record ("From November 1st until June
+  15th this road is not maintained beyond Denny Creek Trailhead"), so the
+  check covers it and its row says so.
+- **Mount Blue Sky** is not checked: CO 5 ends at the summit, so no drive
+  between towns crosses it. Medano Pass, Boreas Pass, Ripple Creek Pass
+  (Rio Blanco County Road 8) and the four-wheel-drive passes are watched:
+  a drive over one is printed at the end of the run so a row with its
+  closure can be added.

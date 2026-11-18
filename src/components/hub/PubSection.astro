@@ -20,8 +20,10 @@ interface Props {
   dek?: string;
   /** What the page's own script and checks find it by. */
   data?: Record<string, string>;
+  /** Where "Back to top" goes at the section's end (the owner, 18 November 2026); left out, the section has none. */
+  top?: string;
 }
-const { id, title, number, tone, dek, data = {} } = Astro.props;
+const { id, title, number, tone, dek, data = {}, top } = Astro.props;
 const headingId = `${id}-heading`;
 ---
 <section id={id} aria-labelledby={headingId} data-band class:list={[pub.band, tone === 'paper' ? pub.paperBleed : pub.white]} {...Object.fromEntries(Object.entries(data).map(([k, v]) => [`data-${k}`, v]))}>
@@ -32,5 +34,6 @@ const headingId = `${id}-heading`;
       {dek && <p class="mt-2 font-heading text-[1.0588rem] font-normal italic leading-[1.45] text-ink-muted [font-variation-settings:normal]">{dek}</p>}
     </div>
     <slot />
+    {top && <a href={top} class:list={[pub.go, 'mt-6']} data-back-to-top>Back to top ↑</a>}
   </div>
 </section>

@@ -28,7 +28,7 @@ const profileOf = (slug: string): TownProfile => townProfileSchema.parse(JSON.pa
 const records = rawRecords('.', {});
 
 test('Places to know and Trails and parks come after the dates, numbered with the rest', () => {
-  const s = pageSections('Salida', { events: true, places: true, trails: true, stay: true, getting: true, outdoor: true, about: true });
+  const s = pageSections('Salida', { events: true, places: true, trails: true, directory: false, stay: true, getting: true, outdoor: true, about: true });
   assert.deepEqual(s.map((x) => [x.number, x.key, x.id]), [
     ['01', 'events', 'traditions'],
     ['02', 'places', 'places-to-know'],

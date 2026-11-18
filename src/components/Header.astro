@@ -18,18 +18,34 @@
  * Rendering it twice — a desktop copy and a mobile copy, one hidden — is the
  * usual way to do this and it puts every link in the page twice, which is
  * duplicate anchor text on four hundred pages and two things to keep in step.
+ *
+ * `section`: a full section's masthead in place of the site's, on a hub page
+ * under /<town>/ that belongs to it, its tradition pages (the owner's
+ * navigation brief of 18 November 2026: "Inside Erie", not the hub's). The
+ * same masthead the section's own pages carry: its wordmark, menu, email
+ * link and town switcher, each link where the merge puts the section's
+ * (sectionHref, src/lib/section.ts), in the section's colours, which
+ * `data-palette` scopes to the masthead (src/styles/global.css).
  */
-import { editionFor, emailEditions, getNetworkHub, getSite, guideUrl, hubNeighborsOf, liveTowns, neighborsOf } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getSite, guideUrl, hubNeighborsOf, isMoved, liveTowns, neighborsOf, type FullSection } from '@/config';
+import { paletteVars } from '@/config/palette';
 import { getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import Wordmark from './Wordmark.astro';
 import { HUB_COLUMN } from './hub/pub';
 import { siteNav } from '@/lib/nav';
 import { wordmarkEm as titleEm } from '@/lib/titles';
-import { pagePath } from '@/lib/section';
+import { pagePath, sectionHref } from '@/lib/section';
 
-const site = getSite();
+interface Props {
+  section?: FullSection;
+}
+
+const { section } = Astro.props;
+const site = section?.site ?? getSite();
 const hub = getNetworkHub();
+/** A path the masthead writes, as it is on this page: under the section's prefix when it is a section's masthead. */
+const at = (href: string) => (section ? sectionHref(href, section.base, isMoved(section.site)) : href);
 /**
  * On a guide, the last item in the row is a switcher: the neighbouring
  * guides, then the hub's full list. The primary navigation was all about
@@ -49,7 +65,7 @@ const path = pagePath(Astro.url);
 const isActive = (href: string) => {
   if (href.includes('#')) return false;
   if (href === '/' || href === '') return path === '/';
-  return path.startsWith(href);
+  return path.startsWith(at(href));
 };
 /**
  * Roughly how wide the site title is, in em, at the wordmark's weights
@@ -97,7 +113,11 @@ const tools = hubRow ? 'flex items-center gap-1 masthead:order-last' : 'flex ite
 const toggle = hubRow ? 'nav-toggle -mr-2 masthead:hidden' : 'nav-toggle -mr-2 xl:hidden';
 const navClass = hubRow ? 'site-nav hub-row' : 'site-nav';
 const wide = hubRow ? '(min-width: 66.25rem)' : undefined;
+// A section's masthead on a hub page is in the section's colours, the page under it in the hub's.
+const Palette = section ? 'div' : Fragment;
+const palette = section ? { 'data-palette': '', 'data-section-masthead': section.base.slice(1), style: paletteVars(section.site.colors) } : {};
 ---
+<Palette {...palette}>
 {/* The first thing on every page is a band of the town's colours, the
    primary running into the accent. It costs six pixels and it is what stops
    the site opening on plain paper. A rule, so the accent may be in it. */}
@@ -105,7 +125,7 @@ const wide = hubRow ? '(min-width: 66.25rem)' : undefined;
 <header class="relative bg-paper" data-pagefind-ignore>
   <div class={container}>
     <div class={masthead} style={`--wordmark-em:${wordmarkEm}${emailOn ? ';--masthead-reserve:11.5rem' : ''}${site.kind === 'hub' ? ';--wordmark-max:1.4118rem' : ''}`}>
-      <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" tone="ink" />
+      <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" tone="ink" site={site} href={at('/')} />
 
       <div class={tools}>
         {/* The email, one tap from every page on a phone or a tablet (the
@@ -161,7 +181,7 @@ const wide = hubRow ? '(min-width: 66.25rem)' : undefined;
         <ul class="site-nav-list container-page xl:gap-3 xl:px-0 2xl:gap-6">
           {nav.map((item) => (
             <li>
-              <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class:list={rowLink(isActive(item.href))} data-email-link={hubRow && item.href === '/newsletter/' ? '' : undefined}>{item.label}</a>
+              <a href={at(item.href)} aria-current={isActive(item.href) ? 'page' : undefined} class:list={rowLink(isActive(item.href))} data-email-link={hubRow && item.href === '/newsletter/' ? '' : undefined}>{item.label}</a>
             </li>
           ))}
           {site.kind === 'town' && (
@@ -208,6 +228,7 @@ const wide = hubRow ? '(min-width: 66.25rem)' : undefined;
   </div>
   <div class="h-px bg-line-soft"></div>
 </header>
+</Palette>
 
 <script>
   // The masthead's email link goes to the form on this page where the page

@@ -71,6 +71,22 @@ export function primaryHover(primary: string): string {
 }
 
 /**
+ * A site's four colours as the CSS variables the stylesheet derives the rest
+ * from (src/styles/global.css): on <html> for the site being built
+ * (Base.astro), and on a `data-palette` element for a part of a page drawn in
+ * another site's colours, a full section's masthead over a hub page under
+ * /<town>/ (Header.astro).
+ */
+export function paletteVars(colors: { primary: string; accent: string; paper: Paper }): string {
+  return [
+    `--town-primary:${colors.primary}`,
+    `--town-primary-hover:${primaryHover(colors.primary)}`,
+    `--town-accent:${colors.accent}`,
+    `--town-paper:${PAPERS[colors.paper]}`,
+  ].join(';');
+}
+
+/**
  * The hub's publication pages, its town pages and its home (the redesign
  * of 14 November 2026, which replaced the home's own palette of 13
  * November): the hub's own primary, accent, warm paper, white and the two

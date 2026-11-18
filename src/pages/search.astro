@@ -22,8 +22,9 @@
  * In `astro dev` there is no index yet, and the page says so.
  */
 import Page from '@/layouts/Page.astro';
-import { getSite, listsEvents } from '@/config';
+import { fullSections, getSite, listsEvents } from '@/config';
 import { getTraditions } from '@/lib/content';
+import { numberWord } from '@/lib/hub-home';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { townSearchIndex } from '@/lib/town-search-index';
 
@@ -36,6 +37,13 @@ const site = getSite();
 const townIndex = townSearchIndex(site, site.kind === 'hub' ? publishedHubTowns(await getTraditions()) : []);
 // What a guide's search holds: no events on a guide that lists none (Niwot).
 const things = site.kind === 'town' && !listsEvents(site) ? 'place and guide' : 'event, place and guide';
+/**
+ * What the hub's search holds, in its description and its line: the full
+ * sections' pages, which the build merges into the hub before it indexes
+ * them, and every town page (the owner's navigation brief of 18 November
+ * 2026: "eleven full town sections", where it said "every guide").
+ */
+const sections = site.kind === 'hub' ? `${numberWord(fullSections().length)} full town sections` : '';
 const browse =
   site.kind === 'town'
     ? [
@@ -55,8 +63,8 @@ const browse =
   title="Search"
   seoTitle={`Search ${site.siteTitle}`}
   eyebrow={site.name}
-  description={site.kind === 'town' ? `Search every ${things} on ${site.siteTitle}.` : `Search every event, place and guide on every ${site.siteTitle} guide.`}
-  intro={site.kind === 'town' ? `Every ${things} on ${site.siteTitle}.` : 'Every event, place and guide on every town’s guide, and the network’s own pages.'}
+  description={site.kind === 'town' ? `Search every ${things} on ${site.siteTitle}.` : `Search every event, place and guide in the ${sections} of ${site.siteTitle}, and every town page.`}
+  intro={site.kind === 'town' ? `Every ${things} on ${site.siteTitle}.` : `Every event, place and guide in the ${sections}, every town page, and the hub’s own pages.`}
   noindex
   narrow
 >

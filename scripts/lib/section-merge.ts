@@ -30,15 +30,14 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 
-/** The guide's paths the brief sends elsewhere, as [path or prefix, destination under the section]. */
-export const SECTION_MOVED: ReadonlyArray<readonly [from: string, to: string]> = [
-  ['/this-week/', '/events/'],
-  ['/this-weekend/', '/events/'],
-  ['/updates/', '/events/'],
-  ['/updates.rss', '/events.rss'],
-  // The guide's "Every year" page: the hub's town page carries the same records.
-  ['/traditions/', '/#traditions'],
-];
+import { SECTION_MOVED } from '../../src/lib/section.ts';
+
+/**
+ * The guide's paths the brief sends elsewhere, as [path, destination under
+ * the section]: one list, in src/lib/section.ts, which a hub page that
+ * draws a section's masthead reads too.
+ */
+export { SECTION_MOVED };
 
 /**
  * What a section build writes that the hub already has or must not get:

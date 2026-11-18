@@ -25,7 +25,7 @@
  * about, contact and policy pages) gets the two-step trail and a WebPage.
  */
 import Base from './Base.astro';
-import { getSite } from '@/config';
+import { getSite, type FullSection } from '@/config';
 import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/seo';
 import { pagePath } from '@/lib/section';
 
@@ -48,6 +48,8 @@ interface Props {
   narrow?: boolean;
   /** What the page is, for search results: "Event", "Place", "Guide". */
   kind?: string;
+  /** A full section's masthead in place of the site's (Base.astro): a hub page under /<town>/ that belongs to that section. */
+  masthead?: FullSection;
 }
 
 const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astro.props;

@@ -1002,3 +1002,13 @@ export function traditionEventJsonLd(
     url: own ? pageUrl : `${pageUrl}#${record.slug}`,
   };
 }
+
+/**
+ * A venue inside a sentence: its own trailing period dropped, so a place
+ * written "700 Longs Peak Ave." does not end the description on ".." (the
+ * owner, 18 November 2026). Other punctuation stays.
+ */
+export function inSentence(place: string): string {
+  return place.trim().replace(/\.+$/, '');
+}
+
