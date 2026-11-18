@@ -11,7 +11,7 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "720-946-4000"
 tags: [casino, hotel, spa, dining, pool]
 summary: "PENN Entertainment's casino resort on Richman Street, with a hotel, a rooftop pool, the ara Spa on the ninth floor, a sportsbook and eight places to eat and drink, from Fireside Kitchen to the Timberline Grill steakhouse."
-recheckPending: "Not re-read at the move, 17 November 2026: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch."
+readBlocked: "2026-11-17: ameristarblackhawk.com redirects to pennentertainment.com, which answers 403 with a bot check to both curl and WebFetch."
 ---
 
 Ameristar Casino Resort Spa Black Hawk is at 111 Richman Street. Its site lists a hotel, a casino with a baccarat parlor, a poker room and the Sportsbook, and eight places to eat and drink: the Richman Beer Garden, the Sportsbook, Club 38, JINYA Ramen Bar, Fireside Kitchen, the Timberline Grill, the Centennial Market Buffet and Bar 8042. Fireside Kitchen and the Timberline Grill are listed separately.

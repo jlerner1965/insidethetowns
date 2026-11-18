@@ -12041,45 +12041,69 @@ layout changes to the hub's pages beyond the links named.*
   (`NIGHTLY_BUDGET`; about 32 a night covers 950 in a month) and, on top of
   them, every place waiting for a re-check, so the waiting ones never crowd
   out the rotation (src/lib/place-recheck.ts, scripts/recheck-places.ts).
-- **The verdicts are the events re-check's.** Confirmed: `verified` moves,
-  `verifiedBy` says what was read where. Changed (another phone in the
-  page's own content, the page gone, the place no longer named): a
+- **The verdicts.** Confirmed: `verified` moves, `verifiedBy` says what was
+  read where. Changed (another phone in the page's own content): a
   `changeFlag` with the evidence, for the Wednesday editor run to update.
-  Closed (the page says "permanently closed", "closed its doors" and the
-  like, never a season or a holiday): `status: closed` quoting the page,
-  so the next redirect-map rebuild answers its old address with 410.
-  Blocked (a bot check, a refusal, robots.txt, no answer, a page drawn by
-  script with nothing to read): `recheckPending`, and on the needs-me list.
-- **A name alone confirms a listing in the rotation, but never clears one
-  a person set aside.** A page that names the place and shows its phone or
-  its street address confirms its facts; one that names it with neither
-  moves the check date, saying so in `verifiedBy`, but leaves a waiting
-  place waiting: Cold Springs Campground was set aside over whether "Site
-  Closed" means the season or for good, which its name on the page does
-  not answer. Phone numbers are read from the page's own content, not its
+  Closed (the place's page says "permanently closed", "closed its doors"
+  and the like, naming it; never a season or a holiday): `status: closed`
+  quoting the page, so the next redirect-map rebuild answers its old
+  address with 410.
+- **A blocked read hides nothing** (the owner's revision of the same day,
+  before merging). A bot check, a refusal, robots.txt, no answer or a page
+  drawn by script with nothing to read flags the place on the first
+  blocked read (`readBlocked`, kept with the day it was first set) and puts
+  it on the needs-me list. `verified` stays, and the listing stays visible
+  and indexable while that date is inside its window (90 days Front Range,
+  60 mountains); past it, the existing stale rules apply. A later read that
+  works clears the flag. The first draft set such a place aside at once,
+  which would have taken eight listed places off the lists on the first
+  night over a bot check.
+- **An unclear closure goes to a person, never straight to 410.** The page
+  gone (404, 410), a page that no longer names the place (a store locator
+  without the store), "Site Closed", "this location is closed", "currently
+  closed", "closed until further notice", a parked domain:
+  `closureCheck`, on the needs-me list, nothing hidden.
+- **Set aside means set aside.** A place a person set aside
+  (`recheckPending`: Starbucks — Colorado Boulevard, Cold Springs
+  Campground, The Hidden Stem) is read every night and reported, but the
+  nightly run writes nothing to it. Only `npm run confirm-place` clears it
+  (scripts/confirm-place.ts): the owner reads the source (or calls, emails,
+  visits) and the command records a verified read dated the day checked,
+  with `verifiedBy` naming who and how, and clears every flag. `--closed`
+  with a note marks a closure. Each row of the needs-me list carries its
+  command. Phone numbers are read from the page's own content, not its
   header, footer or navigation: Longmont's switchboard number is in the
   footer of every park page.
-- **The 41 waiting places, read on 18 November:** none cleared. 38 still
-  answer 403 (the Black Hawk casinos, crgov.com, the Town sites of Grand
-  Lake, Idaho Springs, Manitou Springs and Elizabeth, and the rest);
-  Starbucks — Colorado Boulevard is flagged; Cold Springs Campground and
-  The Hidden Stem stay for a person.
+- **The 41 waiting places.** 37 set aside only because their sites answer
+  403 are back on the lists with `readBlocked`: all were verified between 10
+  October and 6 November, inside their windows, so none stays pending.
+  Suz' Cookie Jar Rescue (Evergreen), whose own site is now a parked
+  domain, has a `closureCheck` instead. Starbucks, Cold Springs Campground
+  and The Hidden Stem stay set aside until the owner confirms them.
 - **The guides' stale fallback is not done** (the owner, the same day: the
   guides move into the hub on 4 January 2027). A guide still drops a place
-  past its window. What the re-check needs is done: a guide place it sets
-  waiting (`recheckPending`, a source that refuses it) is built, noindex,
-  out of the sitemap, without LocalBusiness data and off every list, as on
-  the hub; the lists that read only "open" (the home page's tiles, the
-  article strip, a place page's "others", the About counts) read
-  `isListed`, which leaves a waiting place out, on the sections too.
+  past its window. A guide place set aside is built, noindex, out of the
+  sitemap, without LocalBusiness data and off every list, as on the hub;
+  the lists that read only "open" (the home page's tiles, the article
+  strip, a place page's "others", the About counts) read `isListed`, which
+  leaves it out, on the sections too.
 - **Every tradition records its typical window**, `dateWindow`, the first
   and last day of the year its date has fallen on, read from its dated
   years (589 records). The nightly date watch reads the organizer's page
-  eight weeks before the window: one date for the year (or two to four
-  consecutive days) is written confirmed, which moves the page's title,
-  description, Event JSON-LD and lastmod at the next build; no date is
-  written not-announced with the day it was read (once a week at most).
-  Three weeks out, a date still unconfirmed is on the needs-me list.
+  eight weeks before the window. It writes a date confirmed only when the
+  page states the year (or gives a weekday that is that date's weekday in
+  the year), the date is in the future, and it falls inside the window,
+  with no slack; two to four consecutive days are a date and an endDate.
+  It saves the page's address (`sourceUrl`) and the words it read
+  (`readText`) with the year. A date only in the page's JSON-LD is not
+  enough (a calendar plugin can generate the next one by itself). Anything
+  else (no year, a weekday that does not fit, past, outside the window,
+  several dates, no reading) writes nothing to the record: the finding,
+  with the page and the words, goes to data/hub/date-watch.json and the
+  needs-me list. A window grows only by a date a person writes. No date
+  near the window is written not-announced with the day it was read (once
+  a week at most). Three weeks out, a date still unconfirmed is on the
+  needs-me list.
 - **A roundup records its season** (`span` in CURRENT_SEASONS: parades of
   lights Nov 20–Dec 20, tree lightings Nov 1–Dec 15, turkey trots
   Nov 10–30, New Year's Dec 31–Jan 1, winter carnivals Dec 1–Mar 15, rodeos

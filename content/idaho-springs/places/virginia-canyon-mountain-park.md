@@ -18,7 +18,7 @@ access:
   verified: "2026-10-10"
 tags: [mountain-biking, hiking, trails, free]
 summary: "The City's open-space park on the slopes of Virginia Canyon, with directional downhill bike trails and hiking trails from Miners Point back toward town; free on foot or by bike, open from an hour before sunrise to an hour after sunset."
-recheckPending: "Not re-read at the move, 17 November 2026: the City's park and parking pages (idahospringsco.com) answer 403; the rules, hours and parking advice rest on them."
+readBlocked: "2026-11-17: the City's park and parking pages (idahospringsco.com) answer 403; the rules, hours and parking advice rest on them."
 ---
 
 Virginia Canyon Mountain Park is public open space owned by the City of Idaho Springs; its trail system, Trek Trails, was built with the Colorado Mountain Bike Association (COMBA). The City's April 2026 news release announced the trails' reopening on 25 April 2026 with new kiosk maps and a new Shimano Trail Born Hub as the base for Gauntlet Gold, Panic Switch and Old School; Rosa Gulch was extended to Santa Fe Mine Road, and Drop Shaft and Eureka to the top of the park at Miners Point, bringing the total to over 16 miles. The Mighty Argo cable car, which carries riders and their bikes to Miners Point, sells the ride up; the park itself is free to enter under your own power.

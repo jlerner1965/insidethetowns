@@ -37,6 +37,7 @@
     "recheck-places": "node scripts/recheck-places.ts",
     "date-watch": "node scripts/date-watch.ts",
     "needs-me": "node scripts/needs-me.ts",
+    "confirm-place": "node scripts/confirm-place.ts",
     "recheck-development": "node scripts/recheck-development.ts",
     "confirm": "node scripts/confirm-events.ts",
     "sports": "node scripts/sports.ts",

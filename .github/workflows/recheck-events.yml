@@ -79,24 +79,29 @@ jobs:
       # Places, on a rotation (the owner, 18 November 2026): every place on
       # the hub and the seven guides is read again at half its window (45
       # days on the Front Range, 30 in the mountains), the most overdue
-      # first, sixty a night, and every place waiting for a re-check on top
-      # of those. Confirmed: a new check date. Changed: flagged
-      # for the Wednesday editor run. Closed: status closed (410 at the next
-      # redirect-map rebuild). Blocked: re-check pending, and on the
-      # needs-me list (scripts/recheck-places.ts, src/lib/place-recheck.ts).
+      # first, sixty a night, and every place flagged for a person on top
+      # of those. Confirmed: a new check date. Changed: flagged for the
+      # Wednesday editor run. Closed in the page's own words: status closed
+      # (410 at the next redirect-map rebuild). An unclear closure or a
+      # blocked read: flagged for a person, nothing hidden while the listing
+      # is inside its window. A place a person set aside is read, never
+      # written (scripts/recheck-places.ts, src/lib/place-recheck.ts).
       - name: Re-check places on the rotation
         continue-on-error: true
         run: npm run recheck-places -- --write --by="the nightly re-check workflow" --report=/tmp/places.md
       # Tradition dates (the owner, 18 November 2026): eight weeks before a
       # record's typical window, read the organizer's page for the next
-      # date; a date found is written confirmed, and the page's title,
-      # description, Event JSON-LD and lastmod follow at the next build
-      # (scripts/date-watch.ts, src/lib/date-watch.ts).
+      # date. Written confirmed only where the page states the year (or a
+      # weekday that fits), the date is ahead and inside the window, with
+      # the page and the words read; anything else goes to the needs-me list
+      # via data/hub/date-watch.json (scripts/date-watch.ts,
+      # src/lib/date-watch.ts).
       - name: Watch tradition dates
         continue-on-error: true
         run: npm run date-watch -- --write --by="the nightly re-check workflow" --report=/tmp/watch.md
-      # What waits for the owner: places waiting for a re-check, dates
-      # unconfirmed three weeks out, roundups due with dates missing.
+      # What waits for the owner: places set aside, possible closures and
+      # blocked reads (each with its confirm-place command), dates the
+      # watch did not write, dates unconfirmed three weeks out, roundups due.
       - name: Write the needs-me list
         continue-on-error: true
         run: npm run needs-me
@@ -117,7 +122,7 @@ jobs:
             if [ -s /tmp/development.md ]; then head -c 8000 /tmp/development.md; echo; room=$((room - $(head -c 8000 /tmp/development.md | wc -c))); fi
             if [ -s /tmp/places.md ]; then head -c 12000 /tmp/places.md; echo; room=$((room - $(head -c 12000 /tmp/places.md | wc -c))); fi
             if [ -s /tmp/watch.md ]; then head -c 6000 /tmp/watch.md; echo; room=$((room - $(head -c 6000 /tmp/watch.md | wc -c))); fi
-            echo 'The needs-me list (places waiting for a re-check, dates unconfirmed three weeks out, roundups due) is `docs/needs-me.md` on this branch.'
+            echo 'The needs-me list (places set aside, possible closures, blocked reads, dates the watch did not write, dates unconfirmed three weeks out, roundups due) is `docs/needs-me.md` on this branch. To confirm a place by hand: `npm run confirm-place -- <town>/<place> --how=browser`.'
             echo
             head -c "$room" /tmp/recheck.md
             if [ "$(wc -c < /tmp/recheck.md)" -gt "$room" ]; then echo; echo; echo "_The report runs on; the rest is in this run's log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}_"; fi

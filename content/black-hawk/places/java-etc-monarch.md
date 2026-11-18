@@ -16,7 +16,7 @@ tags:
   - "24-hours"
 hours: "Daily, 24 hours"
 area: "Main Street, inside Monarch"
-recheckPending: "Not re-read at the move, 17 November 2026: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
+readBlocked: "2026-11-17: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
 ---
 
 java etc. is a counter on the second floor of Monarch Casino Resort Spa, next to Twenty-Four 7, open **24 hours a day, seven days a week**. It serves brewed Starbucks coffee, espresso drinks and Teavana tea.

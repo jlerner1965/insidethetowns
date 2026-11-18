@@ -5,7 +5,6 @@
  */
 import type { DateWindow } from '../../src/lib/date-watch.ts';
 
-
 /** The `dateWindow:` block written in, or replaced, just before `years:`. */
 export function setWindow(text: string, w: DateWindow): string {
   const block = `dateWindow:\n  start: "${w.start}"\n  end: "${w.end}"\n`;
@@ -13,9 +12,19 @@ export function setWindow(text: string, w: DateWindow): string {
   return text.replace(/^years:\n/m, `${block}years:\n`);
 }
 
-/** One year's entry as the files write it. */
-export function yearBlock(y: { year: number; status: string; date?: string; endDate?: string; checked: string }): string {
-  return [`  - year: ${y.year}`, `    status: ${y.status}`, ...(y.date ? [`    date: ${y.date}`] : []), ...(y.endDate ? [`    endDate: ${y.endDate}`] : []), `    checked: ${y.checked}`].join('\n') + '\n';
+/** One year's entry as the files write it: with a confirmed date, the page it was read on and the words read there. */
+export function yearBlock(y: { year: number; status: string; date?: string; endDate?: string; sourceUrl?: string; readText?: string; checked: string }): string {
+  return (
+    [
+      `  - year: ${y.year}`,
+      `    status: ${y.status}`,
+      ...(y.date ? [`    date: ${y.date}`] : []),
+      ...(y.endDate ? [`    endDate: ${y.endDate}`] : []),
+      ...(y.sourceUrl ? [`    sourceUrl: ${JSON.stringify(y.sourceUrl)}`] : []),
+      ...(y.readText ? [`    readText: ${JSON.stringify(y.readText)}`] : []),
+      `    checked: ${y.checked}`,
+    ].join('\n') + '\n'
+  );
 }
 
 /**

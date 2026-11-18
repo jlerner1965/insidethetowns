@@ -698,6 +698,26 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
        * docs/migration/needs-recheck.md lists them.
        */
       recheckPending: z.string().min(1).optional(),
+      /**
+       * The nightly re-check could not read the source (a bot check, a
+       * refusal, no answer), "YYYY-MM-DD: why", and the place is on the
+       * needs-me list for a person to read it (the owner, 18 November 2026).
+       * It hides nothing: the listing stays visible and indexable while
+       * `verified` is inside its window, and the usual freshness rules apply
+       * once it is not. `npm run confirm-place` clears it; so does a later
+       * re-check that reads the source.
+       */
+      readBlocked: z.string().min(1).optional(),
+      /**
+       * A sign the place may have closed that is not the place's own word
+       * that it closed for good (its page gone, a locator that no longer
+       * lists it, "Site Closed" with no word on how long), "YYYY-MM-DD:
+       * what was seen". A person confirms before anything changes: it hides
+       * nothing and never becomes a 410 by itself (the owner, 18 November
+       * 2026). On the needs-me list; `npm run confirm-place` clears it, with
+       * `--closed` when the person finds it has closed.
+       */
+      closureCheck: z.string().min(1).optional(),
       verified: localDate.optional(),
       /**
        * The day the listing was published on the guide: stamped at approval
@@ -1802,8 +1822,14 @@ export function traditionSchema() {
       previousDate: isoDay.optional(),
       /** When moved (required) or canceled (where given): why, in the organizer's words. */
       reason: z.string().min(1).optional(),
-      /** The organizer page this year was read from, where it is not the record's `sourceUrl`. */
+      /** The organizer page this year was read from, where it is not the record's `sourceUrl`; the date watch writes it on every year it confirms. */
       sourceUrl: httpUrl.optional(),
+      /**
+       * The words on that page the date was read from, as read: the date
+       * watch saves them with every year it confirms (scripts/date-watch.ts;
+       * the owner, 18 November 2026). Never shown on the page.
+       */
+      readText: z.string().min(1).optional(),
       /** Which running this is, where the organizer numbers it: 78 for "the 78th annual". */
       edition: z.number().int().min(1).max(500).optional(),
       /**

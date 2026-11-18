@@ -11,7 +11,7 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "970-627-3435"
 tags: [playground, town-park, events, restrooms]
 summary: "The Town's park in the middle of the Grand Avenue boardwalk, set aside in the 1905 town plat, with a lawn, gazebo, playground, basketball court and public restrooms, ringed by the library, Town Hall and the Community House."
-recheckPending: "Not re-read at the move, 17 November 2026: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against."
+readBlocked: "2026-11-17: source townofgrandlake.com answers 403 (bot check, not worked around); the chamber parks page names the park but gives no address, phone or rules to check the file against."
 ---
 
 Town Square Park, often called Town Park, sits in the middle of the downtown boardwalk at 1025 Grand Avenue. The Town says it was dedicated for public use in the original platting of the town in 1905 and is the gathering place for parades, arts and crafts fairs and concerts; in winter its trees carry holiday lights. Around the lawn are the [Juniper Library](/grand-lake/places/juniper-library/), the Town Hall offices, the Community House, Heckert Pavilion, a playground, a basketball court and public restrooms, with a gazebo, flower gardens and a row of ornamental aspens. Alcohol is not allowed in any Town park. The Grand Lake Area Chamber of Commerce's parks page says the playground has adaptive equipment for children of all abilities.

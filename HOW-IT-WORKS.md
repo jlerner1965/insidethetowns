@@ -123,27 +123,38 @@ One wrong fact costs more than ten missing ones.
 - Every place on the hub and the seven guides is read against its source
   again on a rotation, at half its window (45 days on the Front Range, 30
   in the mountains), sixty a night and the waiting ones on top
-  (scripts/recheck-places.ts, 18 November 2026): confirmed moves
-  `verified`; a contradiction is a `changeFlag` for the Wednesday editor; a
-  page that says it closed for good sets `status: closed` (410 at the next
-  redirect-map rebuild); a bot check or no answer sets `recheckPending`.
-  A place a person set aside clears only when a fact of it (its phone or
-  its address) is read again, not its name alone.
-- A place waiting for a re-check is kept on every build, a guide's
-  included: its page stays, noindex, out of the sitemap and off every list,
-  and says when it was last checked. On the hub's sections a place past
-  its window is kept the same way, so its old address never ends in a 404;
-  a guide still drops a stale place until the guides move into the hub on
-  4 January 2027 (the owner, 18 November 2026).
+  (scripts/recheck-places.ts; the owner's rules of 18 November 2026):
+  confirmed moves `verified`; a contradiction is a `changeFlag` for the
+  Wednesday editor; a page that says in those words that the place closed
+  for good sets `status: closed` (410 at the next redirect-map rebuild).
+- A blocked read (a bot check, a refusal, robots.txt, no answer) flags the
+  place for a person on the first night (`readBlocked`) and hides nothing:
+  `verified` stays, and the listing stays visible and indexed while that
+  date is inside its window (90 days Front Range, 60 mountains). Past it,
+  the usual rules: a guide drops it, a hub section keeps its page noindex
+  as re-check pending. A later read that works clears the flag.
+- An unclear sign of closure (the page gone, a store missing from a
+  locator, "Site Closed", a parked domain) is a `closureCheck` for a
+  person, never a 410 by itself, and hides nothing either.
+- A place a person sets aside (`recheckPending`) is kept on every build,
+  noindex, out of the sitemap and off every list, saying when it was last
+  checked. The nightly run reads it but never clears it: only
+  `npm run confirm-place`, which records a person's read (browser, phone,
+  email or in person) as a verified read dated the day they checked.
 - Every tradition records its typical window (`dateWindow`). Eight weeks
   before it opens the nightly date watch reads the organizer's page for the
-  next date and writes it confirmed when the page gives one; three weeks
-  before, a date still unconfirmed is on the needs-me list. A seasonal
-  roundup is due eight weeks before its season (CURRENT_SEASONS' `span`):
-  the validator lists one due with dates missing, and never fails a build.
+  next date. It writes one confirmed only where the page states the year
+  (or gives a weekday that is that date's in the year), the date is in the
+  future and it falls inside the window, and saves the page's address and
+  the words read (`sourceUrl`, `readText`). Anything else goes to the
+  needs-me list, not the page. Three weeks before, a date still unconfirmed
+  is on the needs-me list too. A seasonal roundup is due eight weeks before
+  its season (CURRENT_SEASONS' `span`): the validator lists one due with
+  dates missing, and never fails a build.
 - `docs/needs-me.md` is what no machine could settle, rewritten every
-  night: places waiting for a re-check, dates unconfirmed three weeks out,
-  roundups due with dates missing.
+  night: places set aside, possible closures and blocked reads (each with
+  its confirm-place command), dates the watch read but did not write,
+  dates unconfirmed three weeks out, roundups due with dates missing.
 - Corrections are shown, not silently fixed: a change found late is a
   correction with both dates, never the week's news.
 - A called-off or moved event stays on its day with the word beside it.

@@ -55,9 +55,11 @@ const reported = new Set<string>();
  * sitemap (astro.config.mjs reads the same rule from the markdown,
  * src/lib/raw-places.ts) and out of every list (src/lib/places.ts,
  * isListed), and says when it was last checked. A listing that waits for a
- * person already (`recheckPending`, which the nightly places re-check sets
- * where a source refuses it, scripts/recheck-places.ts) is the same on every
- * build, a guide's included: off the lists, its page noindex. A guide still
+ * person (`recheckPending`, set aside by a person and cleared only by
+ * `npm run confirm-place`) is the same on every build, a guide's included:
+ * off the lists, its page noindex. A blocked read (`readBlocked`) or a
+ * possible closure (`closureCheck`) hides nothing: such a place is shown
+ * while it is inside its window, like any other. A guide still
  * drops a stale place (the owner, 18 November 2026: the guides move into the
  * hub on 4 January 2027).
  */

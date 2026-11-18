@@ -14,7 +14,7 @@ phone: "720-733-2260"
 tags: [hiking, trails, playground, challenge-hill, splash-pad, amphitheater]
 featured: true
 summary: "The Town's 300-acre park: 8 miles of single-track in four loops, a paved mile around the park, the 200-step Challenge Hill, a 2.5-acre adventure playground with a 40-foot slide, a splash pad, the MAC and The Edge's ziplines."
-recheckPending: "Not re-read at the move, 17 November 2026: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
+readBlocked: "2026-11-17: the Town's site crgov.com returns 403 (Cloudflare block) on every page including robots.txt; no other official page for it."
 ---
 
 The Town's flagship park, 300 acres on West Plum Creek Parkway, holding the Millhouse events center, an outdoor amphitheater, the Miller Activity Complex, Challenge Hill, an adventure playground and a trail network, with The Edge's ziplines and adventure courses run inside it under a public-private partnership. The Town says it has been voted Best Place for Outdoor Fun every year since 2018.

@@ -19,16 +19,22 @@
  * one is installed (as the events re-check does). A bot check is reported,
  * never worked around.
  *
- * With --write:
- *   confirmed → `verified` moves to today, `verifiedBy` says what was read
- *               where, and a `recheckPending` it carried is cleared;
- *   changed   → `changeFlag: true` and the evidence in `changeNote`, for the
- *               weekly editor run (weekly-editor.yml) to update the listing;
- *   closed    → `status: closed`, `closed`, `statusNote` quoting the page and
- *               `statusSource`; the next redirect-map rebuild answers its old
- *               address with 410 (scripts/migration/redirect-map.ts);
- *   blocked   → `recheckPending` with the reason: the page stays, noindex and
- *               off the lists, and it is on the needs-me list (docs/needs-me.md).
+ * With --write (the owner's rules of 18 November 2026):
+ *   confirmed     → `verified` moves to today, `verifiedBy` says what was read
+ *                   where, and a `readBlocked` flag is answered;
+ *   changed       → `changeFlag: true` and the evidence in `changeNote`, for
+ *                   the weekly editor run (weekly-editor.yml) to update;
+ *   closed        → the place's page says it closed for good, naming it:
+ *                   `status: closed` quoting the page; the next redirect-map
+ *                   rebuild answers its old address with 410;
+ *   closure-check → any other sign it may have closed (the page gone, a
+ *                   locator that no longer lists it, "Site Closed"):
+ *                   `closureCheck`, for a person; nothing hidden, no 410;
+ *   blocked       → `readBlocked` on the first blocked read, for a person;
+ *                   `verified` stays, and the listing stays visible while it
+ *                   is inside its window; past it, the usual rules apply.
+ *   A place a person set aside (`recheckPending`) is read and reported, and
+ *   nothing is written to it: only `npm run confirm-place` clears it.
  *
  * It never deletes a file. Nothing reaches a site until the nightly pull
  * request (.github/workflows/recheck-events.yml) is merged.
@@ -41,13 +47,13 @@ import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { liveTowns, sectionTowns, type TownConfig } from '../src/config/index.ts';
 import { dayKey } from '../src/lib/dates.ts';
-import { duePlaces, judgePlace, mainHtml, NIGHTLY_BUDGET, type Fetched, type PlaceJudgement, type RecheckPlace } from '../src/lib/place-recheck.ts';
+import { FRESHNESS } from '../src/config/freshness.ts';
+import { daysBetween, duePlaces, judgePlace, mainHtml, NIGHTLY_BUDGET, type Fetched, type PlaceJudgement, type RecheckPlace } from '../src/lib/place-recheck.ts';
+import { writeChanged, writeClosed, writeClosureCheck, writeConfirmed, writeReadBlocked } from './lib/place-edit.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
-import { yamlString } from './lib/event-files.ts';
 import { robotsFor, TIMEOUT, UA } from './lib/probe.ts';
 import { isAllowed } from './lib/robots.ts';
 import { pageText } from './lib/recheck.ts';
-import { getField, removeField, setField } from './lib/review.ts';
 
 const run = promisify(execFile);
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -100,6 +106,8 @@ function placeFiles(town: TownConfig): PlaceFile[] {
       status: typeof d.status === 'string' ? d.status : 'open',
       verified: day(d.verified),
       recheckPending: typeof d.recheckPending === 'string' ? d.recheckPending : undefined,
+      readBlocked: typeof d.readBlocked === 'string' ? d.readBlocked : undefined,
+      closureCheck: typeof d.closureCheck === 'string' ? d.closureCheck : undefined,
       source: typeof d.source === 'string' ? d.source : undefined,
       url: typeof d.url === 'string' ? d.url : undefined,
       phone: typeof d.phone === 'string' ? d.phone : undefined,
@@ -192,38 +200,6 @@ async function judge(p: RecheckPlace): Promise<PlaceJudgement & { url?: string }
   return first!;
 }
 
-// ---------------------------------------------------------------- writing
-
-const q = (s: string) => yamlString(s);
-
-function writeConfirmed(text: string, note: string, url: string): string {
-  let out = setField(text, 'verified', q(today));
-  out = setField(out, 'verifiedBy', q(`recheck-places (${by}): ${note}, ${url}`));
-  out = removeField(out, 'recheckPending');
-  if ((getField(out, 'changeNote') ?? '').includes('recheck-places ')) out = removeField(removeField(out, 'changeFlag'), 'changeNote');
-  return out;
-}
-
-function writeChanged(text: string, note: string, url: string | undefined): string {
-  const line = `recheck-places ${today}: ${note}${url ? `, ${url}` : ''}`;
-  if ((getField(text, 'changeNote') ?? '').includes(note)) return text;
-  return setField(setField(text, 'changeFlag', 'true'), 'changeNote', q(line));
-}
-
-function writeClosed(text: string, quote: string, url: string): string {
-  let out = setField(text, 'status', q('closed'));
-  out = setField(out, 'closed', q(today));
-  out = setField(out, 'statusNote', q(`The source page says it has closed for good, read by the nightly re-check on ${today}: “${quote.replace(/"/g, '”')}”`));
-  out = setField(out, 'statusSource', q(url));
-  return removeField(out, 'recheckPending');
-}
-
-function writeBlocked(text: string, note: string): string {
-  // A place already waiting keeps the reason it was set aside with.
-  if (getField(text, 'recheckPending')) return text;
-  return setField(text, 'recheckPending', q(`Not read by the nightly re-check on ${today}: ${note}. Read it in a browser or call, then move \`verified\` and delete this line.`));
-}
-
 // ---------------------------------------------------------------- main
 
 const all = recheckTowns()
@@ -232,16 +208,23 @@ const all = recheckTowns()
 const chosen = only
   ? all.filter((p) => only.includes(`${p.town}/${p.slug}`))
   : pendingOnly
-    ? all.filter((p) => p.recheckPending)
+    ? all.filter((p) => p.recheckPending || p.readBlocked || p.closureCheck)
     : duePlaces(all, today, budget);
 const dueCount = duePlaces(all, today, Infinity).length;
 
 interface Row extends PlaceFile {
   j: PlaceJudgement & { url?: string };
-  wasPending: boolean;
-  /** Waiting, and named on the page but with no fact to read it by: left waiting. */
-  held?: boolean;
+  /** Set aside by a person (`recheckPending`): read and reported, never written. */
+  setAside: boolean;
   written?: string;
+}
+
+/** Whether the listing is shown: inside its window by `verified` (and not set aside), and the last day it is. */
+function shown(p: RecheckPlace): { listed: boolean; until?: string } {
+  if (!p.verified) return { listed: false };
+  const window = FRESHNESS.listingDays[p.variant];
+  const until = new Date(Date.parse(`${p.verified}T12:00:00Z`) + window * 86_400_000).toISOString().slice(0, 10);
+  return { listed: !p.recheckPending && daysBetween(p.verified, today) <= window, until };
 }
 const rows: Row[] = [];
 // A few at a time: the places share hosts (a casino's six restaurants), and robots.txt is read once per origin.
@@ -251,21 +234,19 @@ await Promise.all(
     while (queue.length) {
       const p = queue.shift()!;
       const j = await judge(p);
-      const row: Row = { ...p, j, wasPending: !!p.recheckPending };
-      // A place a person set aside is cleared only by a fact read again (its phone or its address), not its name alone.
-      row.held = j.verdict === 'confirmed' && !!j.byName && row.wasPending;
-      if (write) {
+      const row: Row = { ...p, j, setAside: !!p.recheckPending };
+      // A place a person set aside is only read: the person clears it (npm run confirm-place).
+      if (write && !row.setAside) {
         const before = readFileSync(p.file, 'utf8');
         let after = before;
-        if (row.held) {
-          // Left waiting, as it was.
-        } else if (j.verdict === 'confirmed') after = writeConfirmed(before, j.note, j.url!);
-        else if (j.verdict === 'changed') after = writeChanged(before, j.note, j.url);
-        else if (j.verdict === 'closed') after = writeClosed(before, j.quote ?? j.note, j.url!);
-        else after = writeBlocked(before, j.note);
+        if (j.verdict === 'confirmed') after = writeConfirmed(before, today, by, j.note, j.url!);
+        else if (j.verdict === 'changed') after = writeChanged(before, today, j.note, j.url);
+        else if (j.verdict === 'closed') after = writeClosed(before, today, j.quote ?? j.note, j.url!);
+        else if (j.verdict === 'closure-check') after = writeClosureCheck(before, today, j.note, j.quote, j.url);
+        else after = writeReadBlocked(before, today, j.note);
         if (after !== before) {
           writeFileSync(p.file, after);
-          row.written = { confirmed: row.wasPending ? 'cleared and stamped' : 'verified stamped', changed: 'flagged for the editor run', closed: 'marked closed', blocked: 're-check pending' }[j.verdict];
+          row.written = { confirmed: p.readBlocked ? 'verified stamped; blocked flag answered' : 'verified stamped', changed: 'flagged for the editor run', closed: 'marked closed', 'closure-check': 'possible closure, for a person', blocked: 'read blocked, for a person; still listed while fresh' }[j.verdict];
         }
       }
       rows.push(row);
@@ -277,14 +258,17 @@ await (await browser)?.close();
 // ---------------------------------------------------------------- report
 
 const rel = (r: Row) => `content/${r.town}/places/${r.file.split('/').pop()}`;
-const of = (v: string) => rows.filter((r) => r.j.verdict === v).sort((a, b) => rel(a).localeCompare(rel(b)));
-const cleared = rows.filter((r) => r.wasPending && r.j.verdict === 'confirmed' && !r.held);
-const held = rows.filter((r) => r.held);
+const of = (v: string, list = rows.filter((r) => !r.setAside)) => list.filter((r) => r.j.verdict === v).sort((a, b) => rel(a).localeCompare(rel(b)));
+const asideRows = rows.filter((r) => r.setAside).sort((a, b) => rel(a).localeCompare(rel(b)));
+const listing = (r: Row) => {
+  const s = shown(r);
+  return s.listed ? `last verified ${r.verified}; stays listed through ${s.until}` : r.recheckPending ? `last verified ${r.verified ?? 'never'}; set aside` : `last verified ${r.verified ?? 'never'}; past its window since ${s.until ?? '—'}, so the usual rules apply`;
+};
 const lines: string[] = [];
 lines.push(
-  `Re-check of places, ${today}: ${chosen.length} read of ${all.length} places on the hub and the guides (${dueCount} due; a place is due at half its window, 45 days on the Front Range, 30 in the mountains${only || pendingOnly ? '' : `; ${budget} a night`}).`,
+  `Re-check of places, ${today}: ${chosen.length} read of ${all.length} places on the hub and the guides (${dueCount} due or flagged; a place is due at half its window, 45 days on the Front Range, 30 in the mountains${only || pendingOnly ? '' : `; ${budget} a night, flagged ones on top`}).`,
   '',
-  `${of('confirmed').length - held.length} confirmed · ${of('changed').length} changed · ${of('closed').length} closed · ${of('blocked').length} blocked · ${cleared.length} cleared from re-check pending` +
+  `${of('confirmed').length} confirmed · ${of('changed').length} changed · ${of('closed').length} closed · ${of('closure-check').length} possible closures · ${of('blocked').length} read blocked · ${asideRows.length} set aside (read only)` +
     (write ? ` · ${rows.filter((r) => r.written).length} file${rows.filter((r) => r.written).length === 1 ? '' : 's'} written` : ' · nothing written (no --write)'),
 );
 const section = (title: string, list: Row[], line: (r: Row) => string) => {
@@ -292,13 +276,13 @@ const section = (title: string, list: Row[], line: (r: Row) => string) => {
   lines.push('', `## ${title} (${list.length})`, '');
   for (const r of list) lines.push(`- ${line(r)}${r.written ? ` *(${r.written})*` : ''}`);
 };
-section('Closed for good at the source (status closed; 410 on the next map rebuild)', of('closed'), (r) => `\`${rel(r)}\` ${r.title}: “${r.j.quote}” (${r.j.url})`);
+section('Closed for good, in the place’s own words (status closed; 410 on the next map rebuild)', of('closed'), (r) => `\`${rel(r)}\` ${r.title}: “${r.j.quote}” (${r.j.url})`);
+section('Possible closures, for a person to confirm (closureCheck; nothing hidden, no 410)', of('closure-check'), (r) => `\`${rel(r)}\` ${r.title}: ${r.j.note}${r.j.quote ? ` (“${r.j.quote}”)` : ''}${r.j.url ? ` (${r.j.url})` : ''}`);
 section('Changed at the source (flagged for the editor run)', of('changed'), (r) => `\`${rel(r)}\` ${r.title}: ${r.j.note}${r.j.url ? ` (${r.j.url})` : ''}`);
-section('Blocked or unreachable (re-check pending; on the needs-me list)', of('blocked'), (r) => `\`${rel(r)}\` ${r.title}: ${r.j.note}${r.j.url ? ` (${r.j.url})` : ''}${r.wasPending ? ', already waiting' : ''}`);
-section('Cleared: waiting for a re-check, now confirmed', cleared, (r) => `\`${rel(r)}\` ${r.title}: ${r.j.note} (${r.j.url})`);
-section('Still waiting: the page names it, but has no phone or address to read it by (left for a person)', held, (r) => `\`${rel(r)}\` ${r.title}: ${r.j.note} (${r.j.url}); waiting because: ${r.recheckPending}`);
+section('Read blocked (readBlocked, on the needs-me list; listed while fresh)', of('blocked'), (r) => `\`${rel(r)}\` ${r.title}: ${r.j.note}${r.j.url ? ` (${r.j.url})` : ''}; ${listing(r)}`);
+section('Set aside by a person (read only; npm run confirm-place clears it)', asideRows, (r) => `\`${rel(r)}\` ${r.title}: ${r.j.verdict}, ${r.j.note}${r.j.url ? ` (${r.j.url})` : ''}`);
 // Confirmations are counted above and written into each file's verifiedBy; listed only when few.
-const confirmed = of('confirmed').filter((r) => !r.wasPending);
+const confirmed = of('confirmed');
 if (confirmed.length && confirmed.length <= 40) section('Confirmed', confirmed, (r) => `\`${rel(r)}\` ${r.title}: ${r.j.note}`);
 const report = lines.join('\n') + '\n';
 if (reportPath) writeFileSync(reportPath, report);

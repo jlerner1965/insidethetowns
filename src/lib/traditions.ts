@@ -194,6 +194,8 @@ export interface TraditionYear {
   reason?: string;
   /** The page this year's date was read from, where it is not the record's own source. */
   sourceUrl?: string;
+  /** The words the date watch read the date from (never shown). */
+  readText?: string;
   /** Which running this is, where the organizer numbers it: 78 for "the 78th annual". */
   edition?: number;
   /** The named parts of the event the organizer lists with a day or a time: the parade, the rodeo performances. */

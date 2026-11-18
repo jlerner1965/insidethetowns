@@ -13,7 +13,7 @@ hours: "Lunch Mon–Fri 11 am–2:30 pm; dinner Mon–Thu 4–9 pm, Fri–Sat 4�
 openingHours: ["Mo-Fr 11:00-14:30", "Mo-Th 16:00-21:00", "Fr-Sa 16:00-23:00", "Su 16:00-22:00", "Sa-Su 09:30-14:30"]
 tags: [buffet, brunch, family]
 summary: "Monarch's third-floor buffet with live stations, a carving station and lobster, crab and pho at dinner. Weekday lunch $28.99; dinner $53.99–$58.99; weekend brunch $58.99."
-recheckPending: "Not re-read at the move, 17 November 2026: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
+readBlocked: "2026-11-17: monarchblackhawk.com answers 403 with a bot check to both curl and WebFetch; no other official page for it."
 ---
 
 The Buffet at the Monarch runs lunch on weekdays, dinner every night and brunch at weekends on the casino's third floor. Its page lists rotating live stations, a salad bar with homemade soups, a carving station, and lobster tail, shrimp, crab legs and made-to-order pho at dinner.

@@ -721,21 +721,29 @@ for (const town of deployedTowns()) for (const issue of nextEventIssues(town.slu
   }
 }
 
-// Places kept on the hub while their source could not be read (placeSchema,
-// recheckPending; docs/migration/needs-recheck.md): a list, never a failure.
+// Places for a person (placeSchema: recheckPending, readBlocked, closureCheck;
+// the owner, 18 November 2026; docs/needs-me.md): a list, never a failure.
 {
-  const pending: string[] = [];
+  const flagged: Record<'recheckPending' | 'closureCheck' | 'readBlocked', string[]> = { recheckPending: [], closureCheck: [], readBlocked: [] };
   for (const town of readdirSync(contentDir)) {
     const dir = join(contentDir, town, 'places');
     if (!existsSync(dir)) continue;
     for (const f of readdirSync(dir).filter((f) => f.endsWith('.md') && !f.startsWith('_'))) {
       const fm = readFileSync(join(dir, f), 'utf8').match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
-      if (/^recheckPending:\s*\S/m.test(fm)) pending.push(`content/${town}/places/${f}: last checked ${fm.match(/^verified:\s*"?([\d-]+)/m)?.[1] ?? 'never'}`);
+      const line = `content/${town}/places/${f}: last verified ${fm.match(/^verified:\s*"?([\d-]+)/m)?.[1] ?? 'never'}`;
+      for (const key of ['recheckPending', 'closureCheck', 'readBlocked'] as const) {
+        if (new RegExp(`^${key}:\\s*\\S`, 'm').test(fm)) {
+          flagged[key].push(line);
+          break;
+        }
+      }
     }
   }
-  if (pending.length > 0) {
-    console.warn(`places: ${pending.length} waiting for a re-check (kept, noindex); read the source, move \`verified\` and clear \`recheckPending\` (docs/migration/needs-recheck.md):`);
-    for (const p of pending) console.warn(`  recheck ${p}`);
+  const say = { recheckPending: 'set aside for a person (kept, noindex, off the lists)', closureCheck: 'possible closures for a person (still listed while fresh; never a 410 by itself)', readBlocked: 'whose source blocked the nightly read (still listed while fresh)' };
+  for (const key of ['recheckPending', 'closureCheck', 'readBlocked'] as const) {
+    if (!flagged[key].length) continue;
+    console.warn(`places: ${flagged[key].length} ${say[key]}; read the source and run npm run confirm-place (docs/needs-me.md):`);
+    for (const p of flagged[key]) console.warn(`  ${key} ${p}`);
   }
 }
 

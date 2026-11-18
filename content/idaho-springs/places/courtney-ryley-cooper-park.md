@@ -10,7 +10,7 @@ added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 tags: [playground, picnic, pavilion, clear-creek, farmers-market]
 summary: "A large grassy City park along Clear Creek on Colorado Boulevard, with picnic tables, a playground and a first-come pavilion at its east end, and a Friday farmers market in summer."
-recheckPending: "Not re-read at the move, 17 November 2026: the City's parks page (idahospringsco.com) answers 403 to the link checker and to WebFetch; no other official page for the park."
+readBlocked: "2026-11-17: the City's parks page (idahospringsco.com) answers 403 to the link checker and to WebFetch; no other official page for the park."
 ---
 
 Courtney Ryley Cooper Park is a large grassy expanse along Clear Creek, set with picnic tables, with a playground and a pavilion at the east end. The City does not take reservations for the pavilion; it is first come, first served. The City's parks page says the park hosts a farmers market every Friday in summer. The City's parking advice for Virginia Canyon Mountain Park asks riders and hikers not to park in City parks, this one included.

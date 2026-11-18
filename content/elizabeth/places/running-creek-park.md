@@ -11,7 +11,7 @@ source: "https://www.townofelizabeth.org/publicworks/page/parks-and-trails"
 verified: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 added: "2026-09-17"
-recheckPending: "Not re-read at the move, 17 November 2026: source townofelizabeth.org returns 403 (bot check, not worked around) to curl and WebFetch; no other official page gives the park address or amenities."
+readBlocked: "2026-11-17: source townofelizabeth.org returns 403 (bot check, not worked around) to curl and WebFetch; no other official page gives the park address or amenities."
 ---
 
 A Town park on East Kiowa Avenue with a stage, five picnic tables and a walk and bike path, kept by the Town's Public Works department. The Town lists the Running Creek Park Trail System at the same address: it runs from Running Creek Elementary to Evans Park along the town's southeastern boundary, with several places to join it, and the Town's page carries a map of the route. Evans Park and Casey Jones Park belong to the separate Elizabeth Park & Recreation District.
