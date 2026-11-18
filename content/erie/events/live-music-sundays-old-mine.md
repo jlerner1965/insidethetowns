@@ -11,10 +11,8 @@ cost: "Free"
 category: music
 recurring: "Sundays at 6"
 source: "https://www.theoldmine.com/events"
-verified: "2026-11-11"
+verified: "2026-11-18"
 verifiedBy: "Claude Code, delegated by Lerner Works"
-changeFlag: true
-changeNote: "recheck 2026-11-18: not on the theoldmine.com feed on 22 November; it has \"Shawn Cunnane LIVE MUSIC\" on 2 December, 13 January, 6 January, 25 November, 10 December, 14 January, 11 February, 11 March, 8 April, 13 May, 18 November, 30 December, 3 February, 16 December"
 ---
 
 Sunday-evening live music at the Old Mine, 6 to 8. No cover.

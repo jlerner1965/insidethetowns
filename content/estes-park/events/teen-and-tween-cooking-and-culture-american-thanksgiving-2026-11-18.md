@@ -11,10 +11,11 @@ source: "https://calendar.estesvalleylibrary.org/event/17290702"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17290702"
 sourceHash: "831b3ea61c94"
-verified: "2026-11-11"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen & Tween Cooking & Culture: American Thanksgiving\" at 4:30 pm on 18 November on the Estes Valley Library feed"
-changeFlag: true
-changeNote: "recheck 2026-11-18: the Estes Valley Library feed marks \"Teen & Tween Cooking & Culture: American Thanksgiving\" on 18 November cancelled"
+verified: "2026-11-18"
+verifiedBy: "Claude Code, delegated by Lerner Works"
+status: canceled
+statusNote: "Estes Valley Library lists this as canceled (read 2026-11-18)."
+statusSource: "https://calendar.estesvalleylibrary.org/event/17290702"
 ---
 
 The library's cooking class for ages 10 to 18, held at the Estes Valley Community Center, takes on Thanksgiving: green bean casserole, sweet potato casserole, ham and pumpkin pie, with some history of the holiday. Registration opens October 7 at 4:30 pm.
