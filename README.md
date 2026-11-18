@@ -81,8 +81,11 @@ articles whose file says `status: verified`.
 
 - **A story** is news worth a reader's time in a town (Nederland and
   Eldora): copy `scripts/templates/story-template.md`. It is on the hub's
-  home under "In the towns" for a fortnight (or until `homeUntil`), and on
-  each town's page under Nearby. A named news report counts as a source;
+  home under "In the towns" only once the owner sets `feature: true` (off
+  by default, drafts included), while it is one of the five newest featured
+  articles (or until `homeUntil`), and on each town's page under Nearby.
+  An article whose only town is one of the eleven full sections stays in
+  that section and is on neither the hub's home nor `/articles/`. A named news report counts as a source;
   the town need not publish first. A story about a town with its own guide
   can go in that guide's `content/<town>/updates/` (a local change) or
   `articles/` instead.

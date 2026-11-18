@@ -30,6 +30,7 @@ import { PLAN_YOUR_DAY, forGeneralReaders, isFlagged, isMultiDay, isPast, lastDa
 import { FLAGSHIP_TEAM, formatGameTime, leaguePlace, placeText, where } from './school-sports.ts';
 import { isFreeCost } from './cost.ts';
 import { homeOf } from './hub-towns.ts';
+import { sectionOnly } from './curiosity-places.ts';
 import { CURRENT_SEASONS, TRADITION_TYPES, byTown, isDated, isUpcoming, seasonRows, type TraditionRecord, type TraditionRow, type TraditionType, type TraditionYear } from './traditions.ts';
 
 /**
@@ -567,14 +568,15 @@ export const HOME_PHOTO = {
 } as const;
 
 /**
- * One item under "In the towns" on the hub's home (13 November 2026): a
- * story from the hub's articles (src/lib/curiosity.ts, kind `story`) or a
- * guide's local change (content/<town>/updates/). Dates are Denver days,
- * "2026-11-13".
+ * One item under "In the towns" on the hub's home: an article on the hub
+ * (src/lib/curiosity.ts) the owner has marked `feature`. Dates are Denver
+ * days, "2026-11-13".
  */
 export interface NewsItem {
-  /** What keeps two items from one town: a guide's key or a town page's slug. */
-  town: string;
+  /** The towns the article is for, as its `towns` names them. */
+  towns: readonly string[];
+  /** Whether the owner has put it on the home (`feature`). */
+  feature: boolean;
   /** The small label over the headline: "Nederland · News". */
   label: string;
   title: string;
@@ -583,24 +585,23 @@ export interface NewsItem {
   href: string;
   /** The day it was published. */
   date: string;
-  /** Its last day on the page. */
-  until: string;
+  /** Its last day on the page, where its `homeUntil` sets one. */
+  until?: string;
   /** Its source line, in the words its own page uses. */
   source?: string;
 }
 
 /**
- * What "In the towns" shows: the items published by today and not past
- * their last day, the newest first, one per town so one busy town does
- * not fill it, `limit` in all. Nothing, where nothing qualifies: the
- * section is then not drawn.
+ * What "In the towns" shows (the owner, 18 November 2026): the featured
+ * articles, published by today and not past a `homeUntil`, the newest
+ * first, `limit` in all, and never one whose only town is a full section
+ * (sectionOnly, src/lib/curiosity-places.ts), which stays in its section.
+ * Nothing, where nothing qualifies: the section is then not drawn.
  */
-export function newsItems(items: readonly NewsItem[], today: string, limit = 3): NewsItem[] {
-  const towns = new Set<string>();
+export function newsItems<I extends NewsItem>(items: readonly I[], today: string, limit = 5): I[] {
   return [...items]
-    .filter((i) => i.date <= today && today <= i.until)
+    .filter((i) => i.feature && !sectionOnly(i.towns) && i.date <= today && (!i.until || today <= i.until))
     .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title))
-    .filter((i) => !towns.has(i.town) && !!towns.add(i.town))
     .slice(0, limit);
 }
 

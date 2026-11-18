@@ -16,6 +16,7 @@ footnote: "Kickoff times and sites can change up to game day, and weather can mo
 townsNav: false
 invite: { text: "Get local scores and next week’s games in the Thursday email.", href: "/newsletter/" }
 status: verified
+feature: true
 date: 2026-11-13
 reverify:
   from: 2026-11-15

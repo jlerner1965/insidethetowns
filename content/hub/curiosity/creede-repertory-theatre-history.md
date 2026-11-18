@@ -6,6 +6,7 @@ title: "How Creede, a fading silver town, bet on theater"
 seoTitle: "Creede Repertory Theatre history: 12 students and $32"
 description: "In 1966, with its mines in decline, Creede invited a summer theater. Twelve Kansas students came with $32 in the bank. The theater outlasted the mines."
 status: verified
+feature: true
 date: 2026-11-14
 image: "creede.jpg"
 imageFolder: "hub"

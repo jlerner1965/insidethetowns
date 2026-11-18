@@ -4,8 +4,9 @@
  * Ghost towns, each anchored to one town, and the one-off event article
  * (Sundance from the towns next door), which covers several; and, since 13
  * November 2026, a story: a piece of news worth a reader's time (Nederland
- * and Eldora), shown under "In the towns" on the hub's home for a fortnight
- * or until `homeUntil`, and kept at its address after that.
+ * and Eldora). An article the owner marks `feature` is shown under "In the
+ * towns" on the hub's home while it is one of the five newest featured
+ * (or until `homeUntil`), and kept at its address after that.
  *
  * The rule is the town profile's (src/lib/town-profile.ts): every
  * practical fact is a value with the official page it was read on
@@ -40,9 +41,6 @@ export type CuriosityKind = (typeof CURIOSITY_KINDS)[number];
 export function isStandalone(kind: CuriosityKind): kind is 'event' | 'story' {
   return kind === 'event' || kind === 'story';
 }
-
-/** How long a story is on the hub's home after its date, where it gives no `homeUntil`. */
-export const STORY_HOME_DAYS = 14;
 
 export const TOPIC_INFO: Record<CuriosityTopic, { label: string; path: string; near: (town: string) => string; intro: string; description: string }> = {
   camping: {
@@ -288,8 +286,17 @@ export const curiositySchema = z
      */
     reverify: z.object({ from: day, why: text.max(240) }).strict().optional(),
     /**
-     * A story's last day under "In the towns" on the hub's home; without it,
-     * STORY_HOME_DAYS after its date. The article stays at its address.
+     * Whether the hub's home lists the article under "In the towns": the
+     * five newest featured articles are there (the owner, 18 November
+     * 2026). Off unless the owner sets it, drafts included. One whose only
+     * town is a full section stays in that section whatever this says
+     * (sectionOnly, src/lib/curiosity-places.ts).
+     */
+    feature: z.boolean().default(false),
+    /**
+     * A featured story's last day under "In the towns" on the hub's home;
+     * without it, it stays until five newer featured articles push it off.
+     * The article stays at its address.
      */
     homeUntil: day.optional(),
     /**
@@ -341,7 +348,7 @@ export const curiositySchema = z
   .refine((a) => (a.kind === 'camping') === a.campgrounds.length > 0, { message: 'a camping article lists its campgrounds, and only a camping article does', path: ['campgrounds'] })
   .refine((a) => (a.kind === 'ghost-towns') === a.ghostTowns.length > 0, { message: 'a ghost-town article lists its ghost towns, and only a ghost-town article does', path: ['ghostTowns'] })
   .refine((a) => !isStandalone(a.kind) || a.sources.length > 0, { message: 'an event article or a story names the source of every fact', path: ['sources'] })
-  .refine((a) => a.kind === 'story' || !a.homeUntil, { message: 'only a story is shown on the hub’s home, so only a story carries homeUntil', path: ['homeUntil'] })
+  .refine((a) => a.kind === 'story' || !a.homeUntil, { message: 'only a story carries homeUntil', path: ['homeUntil'] })
   .refine((a) => !a.homeUntil || a.homeUntil >= a.date, { message: 'homeUntil is on or after the story’s date', path: ['homeUntil'] })
   .refine((a) => !a.updated || a.updated.date >= a.date, { message: 'an update is on or after the article’s date', path: ['updated', 'date'] })
   .refine((a) => a.kind === 'event' || a.games.length === 0, { message: 'only an event article carries games', path: ['games'] })
@@ -433,14 +440,6 @@ export function lastModified(a: Pick<CuriosityArticle, 'campgrounds' | 'ghostTow
 /** Where the article is on the hub. */
 export function articlePath(a: Pick<CuriosityArticle, 'kind' | 'towns' | 'slug'>): string {
   return isStandalone(a.kind) ? `/articles/${a.slug}/` : `${TOPIC_INFO[a.kind].path}${a.towns[0]}/`;
-}
-
-/** A story's last day on the hub's home: its `homeUntil`, else STORY_HOME_DAYS after its date. */
-export function storyHomeUntil(a: Pick<CuriosityArticle, 'date' | 'homeUntil'>): string {
-  if (a.homeUntil) return a.homeUntil;
-  const d = new Date(`${a.date}T12:00:00Z`);
-  d.setUTCDate(d.getUTCDate() + STORY_HOME_DAYS);
-  return d.toISOString().slice(0, 10);
 }
 
 /** Whether the article is on the site: verified, or a draft under the local preview switch. */

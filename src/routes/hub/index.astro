@@ -19,7 +19,7 @@
  *   4. The Thursday email, on the hub's blue.
  *   5. High school scores: each school the guides follow, with its last
  *      result from the scores files.
- *   6. In the towns: the newest articles and local changes, the newest
+ *   6. In the towns: the five newest featured articles, the newest
  *      first and set larger.
  *   7. Find your town: the full sections together, the seven guides and
  *      the four folded guides kept whole (fullSections), and a box that
@@ -54,10 +54,9 @@ import { emailEditions, fullSections, getHub, guideUrl, liveTowns, sectionHome }
 import { hubCountyLine } from '@/config/hub-towns';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
-import { ARTICLES_INDEX_PATH, articlePath, kindLabel, storyHomeUntil } from '@/lib/curiosity';
+import { ARTICLES_INDEX_PATH, articlePath, kindLabel } from '@/lib/curiosity';
 import { placeName } from '@/lib/curiosity-places';
-import { firstSentence } from '@/lib/plain-text';
-import { shorten, typeset } from '@/lib/text';
+import { typeset } from '@/lib/text';
 import { dayKey, formatDayLong, formatDayRange, formatDayShort, formatMonthDay, monthDay, parseLocal, toIsoLocal } from '@/lib/dates';
 import { clockText, displayTitle, isInProgress, lastDay, listedUntil, occurrences } from '@/lib/events';
 import { publishedHubTowns } from '@/lib/hub-towns';
@@ -65,7 +64,6 @@ import {
   HOME_PHOTO,
   annualRecordFor,
   capitalized,
-  changeSourceText,
   deadlineListings,
   fridayGame,
   gameRow,
@@ -95,7 +93,6 @@ import { currentPicks } from '@/lib/weekly';
 import { fitTitle } from '@/lib/titles';
 import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
 import { META_DESCRIPTION_LIMIT, collectionPageJsonLd } from '@/lib/seo';
-import { expiresOn, networkChanges } from '@/lib/updates';
 import { shownCategoryLabel } from '@/content/schemas';
 // The italic of the heading face, for the decks and the day headings: the guides' pages do not use it, so it is loaded here only.
 import '@fontsource-variable/fraunces/opsz-italic.css';
@@ -280,44 +277,30 @@ const scores = live
   );
 
 /**
- * In the towns: every article on the hub (stories, event articles and the
- * topic articles alike) and the guides' current local changes, the newest
- * first, one per town, five at most (src/lib/hub-home.ts, newsItems), so a
- * new article is on the home page from the day it is published, without a
- * click on "All articles" (the owner, 15 November 2026). An article stays
- * a fortnight, or until a story's `homeUntil`. One that covers several
- * towns counts as its own, so it never takes the place of a town's own
- * change. Its label is its eyebrow where it has one ("News · Front Range",
- * "History · Creede"), else its towns and its kind. Each leaves on its own
- * last day; "All articles" keeps every article on the site after that.
+ * In the towns: the five newest featured articles on the hub (the owner,
+ * 18 November 2026: `feature: true` in the article's file; every article
+ * is off until the owner sets it), the newest first (src/lib/hub-home.ts,
+ * newsItems). An article whose only town is one of the full sections is
+ * never here: it stays in its section (sectionOnly,
+ * src/lib/curiosity-places.ts). A featured story with a `homeUntil` leaves
+ * on that day. Its label is its eyebrow where it has one ("News · Front
+ * Range", "History · Creede"), else its towns and its kind. "All articles"
+ * keeps every article on the hub.
  */
 const HOME_NEWS_LIMIT = 5;
 const articlesOnSite = (await getCuriosity()).map((a) => a.data);
-const changes = networkChanges(await getNetworkEntries('updates'), now, { limit: 12, perTown: 1 });
 const news = newsItems(
-  [
-    ...articlesOnSite.map((a) => ({
-      town: a.towns.length === 1 ? a.towns[0]! : `article:${a.slug}`,
-      label: a.eyebrow ?? `${a.towns.slice(0, 2).map((t) => placeName(t) ?? t).join(' · ')} · ${kindLabel(a.kind)}`,
-      title: a.title,
-      line: a.description,
-      href: articlePath(a),
-      date: a.date,
-      until: storyHomeUntil(a),
-      source: storySourceText(a.sources),
-    })),
-    ...changes.map((c) => ({
-      town: c.town.slug,
-      label: `${c.town.name} · Local change`,
-      title: c.data.title,
-      // One line: the summary's first sentence, as a card shows it.
-      line: shorten(firstSentence(c.data.summary) || c.data.summary, 170),
-      href: guideUrl(c.town, `/updates/#${c.slug}`),
-      date: dayKey(c.data.published),
-      until: dayKey(expiresOn(c)),
-      source: changeSourceText(c.data),
-    })),
-  ],
+  articlesOnSite.map((a) => ({
+    towns: a.towns,
+    feature: a.feature,
+    label: a.eyebrow ?? `${a.towns.slice(0, 2).map((t) => placeName(t) ?? t).join(' · ')} · ${kindLabel(a.kind)}`,
+    title: a.title,
+    line: a.description,
+    href: articlePath(a),
+    date: a.date,
+    until: a.homeUntil,
+    source: storySourceText(a.sources),
+  })),
   todayKey,
   HOME_NEWS_LIMIT,
 ).map((i) => {

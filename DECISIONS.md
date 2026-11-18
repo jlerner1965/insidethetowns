@@ -12489,3 +12489,28 @@ Pass.*
   (Rio Blanco County Road 8) and the four-wheel-drive passes are watched:
   a drive over one is printed at the end of the run so a row with its
   closure can be added.
+
+## Where an article is listed: sections, the hub's home and /articles/, 18 November 2026
+
+- **An article for one full section stays in it.** An article whose only
+  town is one of the eleven full sections (a guide's own article, such as
+  `/berthoud/articles/breakfast-and-coffee-in-berthoud/`, or a topic
+  article anchored to a section's town) is on that section's Guides page
+  and wherever the section already lists it, and on neither the hub's home
+  nor `/articles/` (`sectionOnly`, src/lib/curiosity-places.ts). Its
+  address, the section's own lists and the sitemap are unchanged. An
+  article that names several towns (the Colorado Connector, the football
+  playoffs) stays on the hub.
+- **"In the towns" on the hub's home is the five newest featured
+  articles.** `feature` in an article's file, off by default on the hub's
+  articles and the guides' alike, drafts and the agent's drafts included.
+  Featured now: the Colorado Connector train tax, the Creede Repertory
+  Theatre history, Leadville's Tabors, the 2026 football playoffs and
+  Nederland's Eldora purchase. A featured article stays until five newer
+  featured ones push it off, or until a story's `homeUntil`; the fortnight
+  default is gone, and so are the guides' local changes from this block
+  (they stay on each section's Updates page).
+- **`/articles/` keeps everything else**: the featured articles and the
+  hub towns' own (Buena Vista, Carbondale, Crested Butte, Durango, Salida,
+  Steamboat Springs). Its intro no longer says it holds each town's own
+  guide articles, and one line under it links each section's Guides page.

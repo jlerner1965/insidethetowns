@@ -883,6 +883,14 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
       /** The day the guide's facts were last checked, shown beside the date. */
       verified: localDate.optional(),
       /**
+       * Whether the hub's home lists the article under "In the towns" (the
+       * owner, 18 November 2026). Off unless the owner sets it, drafts
+       * included. An article about one full section's town alone stays in
+       * that section whatever this says (sectionOnly,
+       * src/lib/curiosity-places.ts), as every guide's article does today.
+       */
+      feature: z.boolean().default(false),
+      /**
        * Where to go next, under the article: up to three links the editor
        * chose, each with one sentence on how it connects. A path on this
        * guide or a full URL. Without any, the strip falls back to the newest

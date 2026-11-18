@@ -6,6 +6,7 @@ title: "Leadville's Tabors: a silver fortune, a scandal and the crash"
 seoTitle: "Horace, Augusta and Baby Doe Tabor: Leadville's silver story"
 description: "An 1878 grubstake made Leadville storekeeper Horace Tabor a silver millionaire; debt and the 1893 crash took it. The Tabors' documented story, and the legends."
 status: verified
+feature: true
 date: 2026-11-14
 image: "matchless-mine.jpg"
 imageFolder: "leadville"

@@ -17,7 +17,6 @@ import {
   GHOST_FIELDS,
   articlePath,
   isStandalone,
-  storyHomeUntil,
   articlesFor,
   curiositySchema,
   draftsEnabled,
@@ -106,8 +105,6 @@ test('a story names several towns or one, rests on its sources, which may be new
   assert.ok(issues({ ...story, sources: [sun], homeUntil: '2026-11-01' }).some((i) => /homeUntil/.test(i)), 'not before its date');
   assert.ok(issues(camping({ homeUntil: '2026-11-30' })).some((i) => /homeUntil/.test(i)), 'only a story');
   assert.equal(articlePath({ kind: 'story', towns: ['nederland'], slug: 'nederland-eldora' }), '/articles/nederland-eldora/');
-  assert.equal(storyHomeUntil({ date: '2026-11-13' }), '2026-11-27');
-  assert.equal(storyHomeUntil({ date: '2026-11-13', homeUntil: '2026-12-01' }), '2026-12-01');
 });
 
 test('a game shows a score only once it is final, says who advances only then, and lives only on an event article', () => {
