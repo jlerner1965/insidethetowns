@@ -14,17 +14,17 @@
  */
 import { clusterName, hubCountyLine, type HubTown } from '../config/hub-towns.ts';
 import { BLOCK_MONTHS } from './date-block.ts';
-import { monthLabel, type YearMark } from './year-grid.ts';
+import { MONTH_NAMES as BLOCK_MONTHS_LONG, monthLabel, type YearMark } from './year-grid.ts';
 import { roadLeg, type Airports, type RoadMiles, type TownFacts } from './near.ts';
 import { newestCheck, sourceHost, type TownProfile } from './town-profile.ts';
 import { isUpcoming, type TraditionRow } from './traditions.ts';
 
 /* ---------------------------------------------------------------- sections */
 
-export type SectionKey = 'events' | 'places' | 'trails' | 'stay' | 'getting' | 'outdoor' | 'about';
+export type SectionKey = 'events' | 'places' | 'trails' | 'directory' | 'stay' | 'getting' | 'outdoor' | 'about';
 
 /** The sections in the page's order, each with its anchor and its words. */
-export const SECTION_ORDER: readonly SectionKey[] = ['events', 'places', 'trails', 'stay', 'getting', 'outdoor', 'about'];
+export const SECTION_ORDER: readonly SectionKey[] = ['events', 'places', 'trails', 'directory', 'stay', 'getting', 'outdoor', 'about'];
 
 /**
  * Each section's anchor. The events and outdoor anchors are the ones a
@@ -36,6 +36,8 @@ export const SECTION_IDS: Readonly<Record<SectionKey, string>> = {
   events: 'traditions',
   places: 'places-to-know',
   trails: 'trails-and-parks',
+  /** The town's places page, a few of them by kind (the owner, 18 November 2026: in the menu and on the page, not one link at the foot). */
+  directory: 'places',
   stay: 'stay',
   getting: 'getting-here',
   outdoor: 'outdoor-dates',
@@ -59,6 +61,7 @@ export function pageSections(town: string, present: Readonly<Record<SectionKey, 
     events: { label: 'Event dates', title: `Events and dates in ${town}` },
     places: { label: 'Places to know', title: `Places to know in ${town}` },
     trails: { label: 'Trails and parks', title: `Trails and parks in ${town}` },
+    directory: { label: 'Places', title: `Places in ${town}` },
     stay: { label: 'Where to stay', title: `Where to stay in ${town}` },
     getting: { label: 'Getting here', title: `Getting to ${town}` },
     outdoor: { label: 'Outdoor dates', title: 'Outdoor dates in Colorado' },
@@ -91,12 +94,22 @@ export function yearMarks(traditions: readonly TraditionRow[], groupOf: (row: Tr
   });
 }
 
-/** The grid's twelve cells: the month's short name, whether it is the current one, and its marks. */
-export function yearGrid(marks: ReadonlyArray<YearMark & { month: number }>, thisMonth: number) {
+/** A month's anchor on the page, on its first entry: "month-december". */
+export function monthAnchor(month: number): string {
+  return `month-${BLOCK_MONTHS_LONG[month]!.toLowerCase()}`;
+}
+
+/**
+ * The grid's twelve cells: the month's short name, whether it is the current one, and its marks.
+ * A month links to its own anchor, on the first entry of that month in the
+ * lists (the owner, 18 November 2026: every month had gone to the top of
+ * "Coming up"); where the page has none for it, to the list its first entry
+ * is under, a date set before one not yet announced.
+ */
+export function yearGrid(marks: ReadonlyArray<YearMark & { month: number }>, thisMonth: number, anchored: ReadonlySet<number> = new Set()) {
   return BLOCK_MONTHS.map((short, i) => {
     const own = marks.filter((m) => m.month === i);
-    // A month links to the list its first entry is under: a date set before one not yet announced.
-    const target = own.find((m) => m.set)?.group ?? own[0]?.group;
+    const target = own.length > 0 && anchored.has(i) ? monthAnchor(i) : (own.find((m) => m.set)?.group ?? own[0]?.group);
     return { month: i, short, now: i === thisMonth, marks: own, target, label: monthLabel(i, own, i === thisMonth) };
   });
 }
@@ -255,4 +268,29 @@ export function moreHeading(list: ReadonlyArray<Pick<HubTown, 'cluster'>>): stri
 export function milesShort(miles: number): string {
   const n = miles >= 10 ? Math.round(miles) : Math.round(miles * 10) / 10;
   return `${n.toLocaleString('en-US')} mi`;
+}
+
+/* ------------------------------------------------------------- history */
+
+const FOUNDING = /^(?:the\s+)?(?:(?:city|town|village)\s+of\s+)?[\p{L}\s.’'-]+\s+was\s+(?:founded|incorporated|established|platted|laid out|settled)(?:\s+(?:in|on)\s+[\p{L}\s,]*\d{4})?\.?$/iu;
+
+/**
+ * The Founded row's words (the owner, 18 November 2026: "Founded 1878: The
+ * city of Leadville was founded in 1878"). A line that only says the town
+ * was founded that year is the year alone; a line that names the year
+ * already is printed as it is; any other follows the year.
+ */
+export function foundedLine(year: number, text?: string): string {
+  const t = text?.trim();
+  if (!t || FOUNDING.test(t)) return String(year);
+  if (new RegExp(`\\b${year}\\b`).test(t)) return t;
+  return `${year}: ${t}`;
+}
+
+/** A timeline line without the year its row already shows: "In 1880, Horace Tabor bought …" under 1880 reads "Horace Tabor bought …" ("By 1880" keeps its word: it says no later than). */
+export function timelineText(year: number, text: string): string {
+  const m = new RegExp(`^in\\s+${year},?\\s+(.+)$`, 'is').exec(text.trim());
+  if (!m) return text;
+  const rest = m[1]!;
+  return rest.charAt(0).toUpperCase() + rest.slice(1);
 }
