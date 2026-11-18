@@ -84,20 +84,16 @@ test('each briefed town names a lead guide that is a published article where its
  * the town page then shows fewer than three, and this list says why.
  */
 const TRAIL_GAPS: Readonly<Record<string, string>> = {
-  'manitou-springs': 'the City of Manitou Springs and the City of Colorado Springs pages refuse automated readers, and the Forest Service page for Barr Trail gives no length or dog rule',
   salida: 'the City of Salida refuses automated readers, so the Riverwalk and Riverside Park have no season or dog rule from the City',
   nederland: 'Boulder County publishes no fee statement for Mud Lake or Caribou Ranch, and the Town gives no hours, dog rule or fee for its parks',
-  'idaho-springs': 'the City of Idaho Springs refuses automated readers (Virginia Canyon Mountain Park, Water Wheel Park), and the Forest Service gives the Chicago Lakes Trail no season',
+  'idaho-springs': 'the City of Idaho Springs refuses automated readers: Virginia Canyon Mountain Park, read in the owner’s browser, has no published trail mileage on the pages recorded and may close January to March for bighorn sheep; the Forest Service gives the Chicago Lakes Trail no season',
   'steamboat-springs': 'no manager page gives the Yampa River Core Trail or Emerald Mountain a season or a trailhead, and the Spring Creek Trail has a season for only part of its length',
-  leadville: 'the City of Leadville refuses automated readers; the Willow Fire closure covers the national forest west of town until December 31, 2026; and Turquoise Lake, the fish hatchery and Lake County’s in-town parks lack a dog rule, a size or hours on their managers’ pages',
 };
-/** Where a gap leaves fewer than two: the one entry that passed. */
-const FEWEST: Readonly<Record<string, number>> = { leadville: 1 };
 
 test('Trails and parks: three to six on each briefed town, every one with the facts the brief names', () => {
   for (const slug of BRIEFED) {
     const trails = profileOf(slug).trails ?? [];
-    const least = FEWEST[slug] ?? (TRAIL_GAPS[slug] ? 2 : 3);
+    const least = TRAIL_GAPS[slug] ? 2 : 3;
     assert.ok(trails.length >= least && trails.length <= 6, `${slug}: ${trails.length} trails and parks${TRAIL_GAPS[slug] ? ` (gap: ${TRAIL_GAPS[slug]})` : ''}`);
     for (const t of trails) {
       assert.ok(t.length || t.size, `${slug} ${t.name}: length or size`);

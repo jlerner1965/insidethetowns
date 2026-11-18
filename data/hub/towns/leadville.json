@@ -135,6 +135,43 @@
         "https://www.leadvilletwinlakes.com/trail/mineral-belt-trail/"
       ],
       "checked": "2026-11-18"
+    },
+    {
+      "name": "Mount Elbert trails",
+      "kind": "Fourteener trails, national forest",
+      "manager": "U.S. Forest Service, Leadville Ranger District",
+      "length": "North Mount Elbert Trail 4.3 miles one way, 4,400 feet up; South Mount Elbert Trail 5.8 miles, 4,800 feet up; the summit is 14,433 feet",
+      "trailhead": "North: U.S. 24 south 3 miles, Colorado 300 west ¾ mile to County Road 11, just west of Elbert Creek Campground. South: County Road 24 above Twin Lakes",
+      "season": "In winter the north trailhead’s road is for snowmobiles, hikers and skiers only; the south trail is the standard winter route. COTREX shows a Willow Fire closure at the north trailhead.",
+      "dogs": "Allowed; on the Forest’s trails outside its leash areas, dogs need no leash but must be under your control.",
+      "fee": "None at the north trailhead; commercial and organized groups need a Leadville Ranger District permit.",
+      "page": "/leadville/places/mount-elbert-trailheads/",
+      "source": "https://www.fs.usda.gov/r02/psicc/recreation/mount-elbert-fourteener",
+      "alsoSources": [
+        "https://www.fs.usda.gov/r02/psicc/recreation/trails/north-mount-elbert-trail-1484",
+        "https://www.fs.usda.gov/r02/psicc/recreation/trails/south-mount-elbert-trail-1481",
+        "https://trails.colorado.gov/trailheads/mt-elbert-2437",
+        "https://www.fs.usda.gov/r02/about-area/faqs"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Turquoise Lake Recreation Area",
+      "kind": "National forest lake",
+      "manager": "U.S. Forest Service, Leadville Ranger District",
+      "size": "780 acres of water for recreation, with eight campgrounds of 300 sites and two boat ramps",
+      "address": "In the forest west of Leadville. Turquoise Lake Road (County Road 4) is barricaded from the Abe Lee turnoff to Hagerman Pass; use County Roads 9C and 9",
+      "season": "Facilities close in winter for ice and snow, and it is a popular ice-fishing lake; the 2026 boat ramps ran May 1 to September 7. The Willow Fire closure covers the forest south of the lake.",
+      "dogs": "On a leash in the developed campgrounds, picnic and day-use areas.",
+      "fee": "Day-use areas and campgrounds charge fees; fishing needs a Colorado license.",
+      "page": "/leadville/places/turquoise-lake-recreation-area/",
+      "source": "https://www.fs.usda.gov/r02/psicc/recreation/turquoise-lake-recreation-area",
+      "alsoSources": [
+        "https://www.fs.usda.gov/r02/psicc/alerts",
+        "https://www.fs.usda.gov/r02/about-area/faqs",
+        "https://www.fs.usda.gov/r02/psicc/alerts/willow-fire-area-closure-0"
+      ],
+      "checked": "2026-11-18"
     }
   ]
 }

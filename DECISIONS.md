@@ -12229,9 +12229,10 @@ Springs, Evergreen and Salida, one pull request, no other town touched.*
   the Town's pages as read on 7 October and 6 November, with those dates;
   the Manitou Incline's facts on the City's page as read on 17 November,
   said so in the guide's footnote; Hermit Park on Larimer County's page as
-  WebFetch returned it. Manitou Springs and Salida have two trails and
-  parks each, not three: no season or dog rule could be read from the
-  managers for the others (`TRAIL_GAPS`, `test/town-page-guides.test.ts`).
+  WebFetch returned it. Salida has two trails and parks, not three: no
+  season or dog rule could be read from the managers for the others
+  (`TRAIL_GAPS`, `test/town-page-guides.test.ts`). Manitou Springs had two
+  until Barr Trail was added from its place page (below).
 - **Estes Park** keeps Frozen Dead Guy Days as its spotlight. Rocky
   Mountain National Park's listing was read again: the 2026 timed-entry
   season is over and 2027's is not announced, Trail Ridge Road closed to
@@ -12267,11 +12268,18 @@ Butte, Steamboat Springs and Durango, in the same pull request.*
   and the Buena Vista Public Library refuse automated readers, and none
   was worked around. RFTA's web pages answer a plain fetch with a bot check
   but let WebFetch read them; its Park & Ride and trail rules were read
-  that way and its timetables and fares from its own PDFs. Leadville has
-  one trail or park, not three: the Willow Fire closure covers the national
-  forest west of town to 31 December 2026, and the others lack a dog rule,
-  size or hours on their managers' pages (`FEWEST`, `TRAIL_GAPS`).
-  Steamboat Springs has two. `alsoSources` now takes four pages.
+  that way and its timetables and fares from its own PDFs. Leadville's
+  Mount Elbert and Turquoise Lake entries come from its existing place
+  pages, each re-read on the Forest Service's own pages, with the dog rule
+  from the Forest Service's Rocky Mountain Region FAQ (leashes in developed
+  campgrounds, picnic and day-use areas; under control on other trails);
+  the Willow Fire closure, to 31 December 2026, is named in both. Manitou
+  Springs gains Barr Trail the same way, its length and dog rule from
+  COTREX. Steamboat Springs, Nederland and Idaho Springs keep two
+  (`TRAIL_GAPS`): Virginia Canyon Mountain Park, read in the owner's
+  browser, waits on its mileage page and on a January-to-March bighorn
+  closure that only the county's visitor site gives. `alsoSources` now
+  takes four pages.
 - **Dated facts.** Durango's guide rests on the railroad's update of 12
   November that it was on schedule to run by 20 November after the flood
   of 1 November; Eldora had not named an opening day; RTD's NB timetable

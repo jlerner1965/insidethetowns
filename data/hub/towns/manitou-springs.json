@@ -153,6 +153,22 @@
         "https://gardenofgods.com/park-info/get-directions/"
       ],
       "checked": "2026-11-18"
+    },
+    {
+      "name": "Barr Trail",
+      "kind": "National forest trail to Pikes Peak",
+      "manager": "U.S. Forest Service, Pikes Peak Ranger District",
+      "length": "12 miles to the summit, climbing from 6,647 to 14,091 feet; the Forest says an average hiker needs about 16 hours for the round trip",
+      "trailhead": "Off Ruxton Avenue above the Pikes Peak Cog Railway depot; the free Manitou Shuttle’s Route 33 stops at Barr Trail",
+      "season": "Open all year.",
+      "dogs": "Allowed.",
+      "fee": "A fee to park at the trailhead.",
+      "page": "/manitou-springs/places/barr-trail/",
+      "source": "https://www.fs.usda.gov/r02/psicc/recreation/trails/barr-trail-620",
+      "alsoSources": [
+        "https://trails.colorado.gov/trails/barr-6240"
+      ],
+      "checked": "2026-11-18"
     }
   ]
 }
