@@ -87,12 +87,32 @@
   --breakpoint-masthead: 66.25rem;
 }
 
-:root {
+:root,
+[data-palette] {
   --t-line: color-mix(in srgb, var(--town-paper) 70%, #243137 30%);
   --t-line-soft: color-mix(in srgb, var(--town-paper) 88%, #243137 12%);
   --t-field-line: color-mix(in srgb, var(--town-paper) 45%, #243137 55%);
   --t-primary-line: color-mix(in srgb, var(--town-primary) 25%, #ffffff);
   --t-accent-soft: color-mix(in srgb, var(--town-accent) 16%, #ffffff);
+}
+
+/*
+ * A part of a page in another site's colours: a full section's masthead
+ * over a hub page under /<town>/ (Header.astro, paletteVars). It sets its
+ * own four --town-* values; a custom property is worked out where it is
+ * declared, so the colours made from them are declared again here, or they
+ * would keep the page's (the hub's) values.
+ */
+[data-palette] {
+  --color-primary: var(--town-primary);
+  --color-primary-hover: var(--town-primary-hover);
+  --color-primary-line: var(--t-primary-line);
+  --color-accent: var(--town-accent);
+  --color-accent-soft: var(--t-accent-soft);
+  --color-paper: var(--town-paper);
+  --color-line: var(--t-line);
+  --color-line-soft: var(--t-line-soft);
+  --color-field-line: var(--t-field-line);
 }
 
 

@@ -12318,3 +12318,58 @@ from what is already in the repo, such as Grand Lake.*
   parks have no hours. Timnath, Longmont, Castle Rock and Black Hawk have
   one each. Cold Springs Campground is left out as a campground.
 
+## The navigation brief, items 13 to 16: the eleven sections, section mastheads, the hub link's name and the season pills, 18 November 2026
+
+*The owner's navigation brief of 18 November 2026, items 13 to 16.*
+
+- **Eleven full sections, listed together.** With the seven guides moved
+  into the hub, the towns with a whole section of their own are eleven: the
+  seven, in their one order, then Estes Park, Fort Collins, Longmont and
+  Loveland, A to Z (`fullSections()` in src/config/index.ts: `liveTowns()`
+  and every other `section.mode: 'full'` config, so a section is added or
+  taken off everywhere in one place). The home's "Find your town" lists the
+  eleven as "Eleven full sections" (it was "Seven local guides"), each to
+  its front page (`sectionHome`: a guide's section home, a folded guide's
+  town page, which its section's wordmark already links to); the top of
+  `/towns/` lists them as "Full sections" under the names their pages carry
+  ("Inside Longmont"), with each one's counties where the guide's old domain
+  was. "N more towns" on the home counts town pages no section covers, so
+  Longmont's page is not counted twice.
+- **The descriptions count the sections.** The home's ("This weekend’s
+  events, eleven full town sections and annual dates for 91 more Colorado
+  towns…", `homeDescription`; it had counted the six guides that list
+  events), `/towns/`' and the search page's on the hub ("Search every
+  event, place and guide in the eleven full town sections of Inside the
+  Towns, and every town page"; it said "on every Inside the Towns guide").
+  The other pages that count guides (This weekend, Advertise, the
+  newsletter, the footer strip) still count what they mean: the guides
+  whose events, emails and sponsor lines they are. A season's name in the
+  home's description keeps a proper noun's capital ("New Year’s
+  celebrations"); lowercasing the whole name had written "new year’s".
+- **A section's tradition pages wear its masthead.** The hub builds a
+  record's own page under a section, `/erie/balloon-festival/`,
+  `/longmont/lights-holiday-parade/`, with the hub's templates, and it
+  carried the hub's masthead between pages that carry "Inside Erie". It now
+  draws the section's own (`fullSectionAt`; Header.astro's `section`): the
+  wordmark to the section's home, its menu, email link and town switcher,
+  each link where the merge puts the section's (`sectionHref`, reading the
+  one `SECTION_MOVED` list the merge reads, moved to src/lib/section.ts),
+  in the section's colours, scoped to the masthead by `data-palette`; the
+  page under it, its trail and its footer stay the hub's. A section's
+  events and places pages are its own build already. A town kept page by
+  page (Golden) has no masthead of its own, so its pages keep the hub's.
+- **The hub link's name.** The masthead's wordmark, the link to the hub's
+  home, was already named "Inside the Towns home" (an aria-label since 14
+  November); it now comes from one function (`homeLinkLabel`, the title and
+  "home", so the name begins with the words shown) and a test holds it.
+  Nothing else in a masthead links to the hub's home.
+- **The season pills scroll.** On a season page below 900px the pills to
+  the other season pages are one row that scrolls sideways, to the screen's
+  edges, each pill 44px tall and the current one scrolled into view; from
+  900px they wrap as before. Wrapped, the ten pills took seven rows of a
+  375px screen. Subscribe to calendar moved under the dates to come, as it is
+  after the list on a guide's `/events/` (27 October 2026), and three
+  margins closed up below 900px: at 375 by 667 the page now opens with
+  "Dates to come", its order buttons and the first date's block on the
+  first screen: the first row's top moved from 1,103px to 635px.
+

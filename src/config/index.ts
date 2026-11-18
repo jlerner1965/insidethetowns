@@ -201,6 +201,51 @@ export function sectionSite(town: TownConfig): TownConfig {
 }
 
 /**
+ * The towns with a full section, as the hub lists them together (the
+ * owner's navigation brief of 18 November 2026: "11 full sections"): the
+ * seven guides first, in their one order (liveTowns), each a section of
+ * the hub once its switch is on, then the folded guides kept whole as
+ * sections (`section.mode: 'full'`: Estes Park, Fort Collins, Longmont and
+ * Loveland), A to Z. The home's "Find your town", the top of /towns/, the
+ * search page and the descriptions that count the sections all read this,
+ * so a section is added to or taken off every one of them in one place.
+ */
+export function fullSections(): TownConfig[] {
+  const guides = liveTowns();
+  const kept = sectionTowns('full')
+    .filter((t) => !guides.some((g) => g.slug === t.slug))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  return [...guides, ...kept];
+}
+
+/**
+ * A full section's front page: a guide's home wherever it is served
+ * (guideUrl); a folded guide's, its town page on the hub, which its
+ * section's own wordmark links to ("https://insidethetowns.com/longmont/").
+ */
+export function sectionHome(t: TownConfig): string {
+  return t.status === 'live' ? guideUrl(t) : `https://${hub.domain}${sectionBase(t)}/`;
+}
+
+/** A full section as its own pages draw it (sectionSite), with its prefix on the hub ("/erie"). */
+export interface FullSection {
+  site: TownConfig;
+  base: string;
+}
+
+/**
+ * The full section a page under /<town>/ belongs to, or undefined where the
+ * town has none (a town page alone, or a folded guide kept page by page,
+ * which has no masthead of its own): what a tradition page there takes its
+ * masthead from, "Inside Erie" rather than the hub's (the owner's navigation
+ * brief of 18 November 2026).
+ */
+export function fullSectionAt(hubTown: string): FullSection | undefined {
+  const town = sectionTowns('full').find((t) => t.hubPage?.town === hubTown);
+  return town && { site: sectionSite(town), base: sectionBase(town) };
+}
+
+/**
  * Whose events are ingested and re-read each night: every deployed guide,
  * and each full section on the hub, whose events pages are as live as a
  * guide's.

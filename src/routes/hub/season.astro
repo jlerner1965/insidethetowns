@@ -7,7 +7,8 @@
  *
  * Top to bottom: the eyebrow ("Colorado · winter 2026"), the title, one
  * line of counts from the records, "Find your town", the pills to the
- * other season pages, the rows A to Z by town, and the correction line.
+ * other season pages (one row that scrolls sideways on a phone), the dates
+ * to come, Subscribe to calendar, the other groups, and the correction line.
  * A row for a town with a guide links to that guide's /traditions/; any
  * other links to the organizer's own page.
  *
@@ -163,6 +164,12 @@ const sortButton =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white';
 const pill =
   'inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary aria-[current=page]:border-primary aria-[current=page]:bg-primary aria-[current=page]:text-white';
+/**
+ * The pills' row: one line that scrolls sideways to the screen's edges
+ * below 900px (`desk`), wrapped from it. 6px above and below the pills, so
+ * the scrolling row does not clip a pill's focus ring (5px outside it).
+ */
+const seasonRow = '-mx-5 mb-4 flex gap-2 overflow-x-auto overscroll-x-contain px-5 py-1.5 sm:-mx-8 sm:px-8 desk:mx-0 desk:mb-10 desk:flex-wrap desk:overflow-visible desk:p-0';
 ---
 <Page title={title} {seoTitle} eyebrow={`Colorado · ${when}`} {description} jsonLd={structured} kind="Seasonal dates">
   {/* The count line, with the number of dates still to come in a span the
@@ -174,7 +181,7 @@ const pill =
       <Fragment>{plural(shown, agency ? 'date' : 'event', agency ? 'dates' : 'events')} listed · <span data-date-count="ahead">{counts.confirmed}</span> with a date ahead</Fragment>
     )}
   </p>
-  <div data-town-filter hidden class="mb-5 max-w-sm">
+  <div data-town-filter hidden class="mb-4 max-w-sm desk:mb-5">
     <label for="town-filter" class="block text-sm font-semibold">Find your town</label>
     <input
       id="town-filter"
@@ -186,18 +193,25 @@ const pill =
     <p class="sr-only" role="status" data-town-filter-status></p>
   </div>
 
+  {/*
+    * The season pages, one row that scrolls sideways below 900px (the
+    * owner's navigation brief of 18 November 2026): wrapped, the ten pills
+    * ran to seven rows on a 375px phone and pushed the dates under the
+    * first screen. The row runs to the screen's edges, the page's 20px
+    * (32px from 640px) given back as padding, so a pill cut at the edge
+    * says there is more. The current page's pill is scrolled into view by
+    * the script below. From 900px the pills wrap, as before.
+    */}
   {pages.length > 1 && (
-    <nav aria-label="Other traditions this season" class="mb-10 flex flex-wrap gap-2">
+    <nav aria-label="Other traditions this season" class={seasonRow} data-season-pills>
       {pages.map((t) => (
-        <a href={TRADITION_TYPE_INFO[t].path} aria-current={t === type ? 'page' : undefined} class={pill}>{TRADITION_TYPE_INFO[t].plural}</a>
+        <a href={TRADITION_TYPE_INFO[t].path} aria-current={t === type ? 'page' : undefined} class:list={[pill, 'shrink-0 whitespace-nowrap']}>{TRADITION_TYPE_INFO[t].plural}</a>
       ))}
     </nav>
   )}
 
-  <CalendarSubscribe name={info.path.replace(/\//g, '')} what={dated ? `every date on this page` : 'these dates'} class="mb-8" />
-
   <section aria-labelledby="rows-heading" class="mb-12" data-season-group="upcoming" data-drop-past={type === 'free-day' ? '' : undefined}>
-    <div class="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-line-soft pb-3">
+    <div class="mb-4 flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-line-soft pb-3 desk:mb-6 desk:gap-y-3">
       <h2 id="rows-heading" class="text-2xl font-medium">Dates to come</h2>
       {upcoming.length > 1 && (
         <div role="group" aria-label="Order the dates to come" class="flex flex-wrap gap-2" data-season-sort hidden>
@@ -214,6 +228,14 @@ const pill =
       <p class="rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">No date still to come has been published yet.</p>
     )}
   </section>
+
+  {/*
+    * After the dates to come, as Subscribe to calendar is after the list on a
+    * guide's /events/ (27 October 2026): above them, its three lines kept
+    * the first date under the first screen of a 375px phone (the owner's
+    * navigation brief of 18 November 2026).
+    */}
+  <CalendarSubscribe name={info.path.replace(/\//g, '')} what={dated ? `every date on this page` : 'these dates'} class="-mt-6 mb-12" />
 
   {waiting.length > 0 && (
     <section aria-labelledby="waiting-heading" class="mb-12" data-season-group="waiting">
@@ -271,6 +293,19 @@ const pill =
   </p>
   <DateCorrection />
 </Page>
+
+<script>
+  // The season pills' row scrolls sideways on a phone: the current page's
+  // pill is brought into the middle of it, so /winter-carnivals/ does not
+  // open with its own pill off the edge.
+  const pills = document.querySelector<HTMLElement>('[data-season-pills]');
+  const current = pills?.querySelector<HTMLElement>('[aria-current="page"]');
+  if (pills && current && pills.scrollWidth > pills.clientWidth) {
+    const row = pills.getBoundingClientRect();
+    const pill = current.getBoundingClientRect();
+    pills.scrollLeft += pill.left - row.left - (row.width - pill.width) / 2;
+  }
+</script>
 
 <script>
   // A free-admission day that has passed since the build drops off for the reader's own Denver day.

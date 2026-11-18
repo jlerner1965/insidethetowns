@@ -75,7 +75,12 @@ hub's old addresses are redirect pages to the guide (`src/lib/hub-moved.ts`).
 
 The hub lists the seven guides, in that order on every page that lists them
 (`liveTowns()`, from `STANDALONE_GUIDES`), and every town page by cluster, and
-carries the network pages: newsletter, advertise, privacy, about.
+carries the network pages: newsletter, advertise, privacy, about. Where it
+lists the towns with a whole section of their own, it lists eleven together,
+the seven guides in that order and then Estes Park, Fort Collins, Longmont
+and Loveland, A to Z (`fullSections()`, 18 November 2026): the home's "Find
+your town", the top of `/towns/`, and the home's and the search page's
+descriptions, which count "eleven full town sections".
 
 ## 4. Who does what
 
@@ -265,7 +270,10 @@ community guide; the other town guides are community and visitor guides.
 
 **A season page** (12 November 2026) lists dates to come first, in date
 order or A to Z, then "Not announced yet", then what has passed, each of
-the last two folded under its heading past 12 rows (14 November 2026). Each dated
+the last two folded under its heading past 12 rows (14 November 2026).
+Above the dates, the pills to the other season pages are one row that
+scrolls sideways below 900px, and "Subscribe to" is under the dates to
+come, so a 375px phone opens on the list (18 November 2026). Each dated
 row has "Add to calendar": a one-event file at `/dates/<record>.ics` and a
 Google link, all-day unless the record's start time parses with certainty
 (`src/lib/tradition-calendar.ts`). The hub's home page shows a collection
@@ -450,8 +458,8 @@ network's faces, Fraunces and Instrument Sans, like every other hub page.
 Top to bottom: the hero (the headline, the search, the way to the sections
 below, the owner's Flatirons photograph, which is also its share image),
 this season, this weekend, the Thursday email on the hub's blue, the high
-school scores, in the towns, and find your town (the guides from their
-config, and the town pages by area). From 900px (`desk:`) the column is
+school scores, in the towns, and find your town (the eleven full sections
+together, `fullSections()`, and a box for every other town's page). From 900px (`desk:`) the column is
 1200px and the sections pair up (season beside weekend, scores beside the
 news); below it, each is a band of its own. The hub's masthead shows its
 menu as a row from 1060px, where it fits, and the phone's below. The rules are `src/lib/hub-home.ts`:
@@ -490,7 +498,7 @@ menu as a row from 1060px, where it fits, and the phone's below. The rules are `
   events").
 - **Words that hold:** the title and description say what the page is
   ("Colorado events this weekend, town by town"); "N more towns" counts
-  town pages no guide covers; the email is "every Thursday", no hour (the
+  town pages no full section covers; the email is "every Thursday", no hour (the
   send is the owner's merge of the drafts pull request); a deadline shows
   the organizer's own note where the guide's card does.
 - Each row's check line is in its guide page's words. Dated rows leave the
@@ -502,7 +510,13 @@ menu as a row from 1060px, where it fits, and the phone's below. The rules are `
 events, Towns, Moving here, Newsletter, How we check; `src/lib/nav.ts`,
 `hubNav`; "Annual events" goes to `/annual-events/`, every round-up with
 what is next, and "Towns" to `/towns/`, the A to Z, 14 November 2026) and
-call the editorial page "How we check listings" in the footer. Their share
+call the editorial page "How we check listings" in the footer. The
+masthead's wordmark, its link to the home, is named "Inside the Towns
+home". A page under `/<town>/` that belongs to a full section carries that
+section's masthead instead, "Inside Erie" with the section's menu and
+colours, as the section's own pages do: the tradition pages there
+(`fullSectionAt`, 18 November 2026; a town kept page by page has no
+masthead of its own and keeps the hub's). Their share
 image is the same Flatirons photograph; a record's own page shares its
 town's photograph or share card, which its Event markup also carries.
 `/articles/` lists the guides' articles with the hub's, each linking to
