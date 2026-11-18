@@ -12334,3 +12334,42 @@ good".*
   here", then the places by kind in a fixed order, outdoors first, instead
   of the largest group first.
 
+## The town page's navigation, 18 November 2026
+
+*The owner's brief of 18 November 2026, Leadville the example: the page ran
+to 17,000 pixels on a phone (16,996 at 375px on the live page before this
+work, Event dates 5,354 of them).*
+
+- **The section bar.** On a phone a slim bar stays at the top of the window
+  with the page's sections in one row that scrolls sideways, the section in
+  view marked by the same script that marks the desktop rail; every section
+  ends on "Back to top". Anchors sit 56px down from the top on a phone so
+  the bar never covers a heading.
+- **Event dates** opens on the year at a glance, and each month links to
+  its own anchor on the first entry of that month, a date set before one
+  not yet announced (every month had gone to the top of "Coming up").
+  A date set is one compact card: the date in type, the name with its kind,
+  one status line that carries the time, the place and the cost, the check
+  line with the source and the other pages. A date not yet announced is one
+  line: the name, the month it usually falls in (the record's window, else
+  its last date), when it was last held, the source and its check.
+- **Road and pass dates** (CDOT's openings and closings, `outdoor.kind:
+  road`) are listed under Getting here, not among the events or in Open
+  now; their anchors keep their slugs, so the season pages' links land.
+- **Places** is a section of the page where the town has a places page: up
+  to three each of museums and history, eat and drink, outdoors, places to
+  stay, shops and services, then "See all N places". The "Inside <Town>:"
+  label before the close's links is gone, and the places page says what is
+  on it in the owner's words. Where to stay lists every lodging place from
+  the places page with the first clause of its summary, then the profile's.
+- **History** leads About: the town's history story (a story whose eyebrow
+  says History) with "Read the story", labeled History in Nearby too, not
+  News. The Founded row no longer repeats its year ("1878: The city of
+  Leadville was founded in 1878" reads "1878"), and a timeline line that
+  opens "In 1880," loses the words its row already shows.
+- **Title, description, intro** say what the page covers: "Leadville,
+  Colorado: events, trails and things to do (2026–27)", the CO form where
+  the Colorado one is over 60 characters, the dates kept in the description.
+- **Start here** lines say "not yet announced (checked <date>)" for what an
+  operator has not published.
+

@@ -299,10 +299,15 @@ Springs and Durango; and Grand Lake, Fort Collins, Longmont, Loveland,
 Castle Rock, Lafayette, Timnath, Elizabeth, Fort Lupton and Black Hawk from
 their former guides' articles) has "Start here" next, the
 article's own title and excerpt and the link to it; a path that names no
-published article stops the build (`src/lib/lead-guide.ts`). Then "On this page" (its last item, marked with an arrow, the town's Places page, and a full section's Guides, since 18 November 2026) and numbered sections, each a
-full-width band, paper and white in turn: Events (the dates set, soonest
-first; those not yet announced, with when each was last held; what is open
-now; the year at a glance; the calendar links), Places to know and Trails
+published article stops the build (`src/lib/lead-guide.ts`). Then "On this page" and numbered sections, each a
+full-width band, paper and white in turn. On a phone a slim bar of the
+sections stays at the top of the window, one row that scrolls sideways,
+the section in view marked, and every section ends on "Back to top" (18
+November 2026). The sections: Events (the year at a glance first, each
+month linked to its first entry; the dates set, soonest first, one compact
+card each; those not yet announced, one line each with the month they
+usually fall in and when each was last held; what is open now; the
+calendar links), Places to know and Trails
 and parks (18 November 2026, from the town's profile file: a place's facts
 by label, and three to six trails and parks, each with its length or size,
 its trailhead or address, its season, the dog rule and any permit or fee,
@@ -341,7 +346,14 @@ at build time; the first is "Recently stocked near <Town>" from Colorado
 Parks and Wildlife's stocking report (`src/lib/fish-stocking.ts`). The others
 are the river at the town's gauge (USGS or Colorado DWR) and the snowpack
 at its SNOTEL station (`src/lib/town-signals.ts`), each shown only while
-its reading is fresh.
+its reading is fresh. Places (18 November 2026: where the town has a places page, up to
+three each of museums and history, eat and drink, outdoors, places to stay
+and shops and services, then "See all N places"), Where to stay (every
+lodging place from the places page with the first clause of its summary,
+then the profile's), Getting here (Denver, buses, airports, passes, and
+the road and pass opening and closing dates, which left Events on 18
+November 2026), Outdoor dates and About (the town's history story first,
+with "Read the story"; the figures; the history; Nearby).
 
 **The additions of 12 November 2026** (`docs/additions-report.md`), laid
 out since 14 November 2026 under Getting here, Where to stay and About:
