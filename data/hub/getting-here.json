@@ -1,0 +1,654 @@
+{
+ "checked": "2026-11-18",
+ "source": {
+  "name": "Open Source Routing Machine, on OpenStreetMap roads",
+  "url": "https://project-osrm.org/"
+ },
+ "pointSource": {
+  "name": "U.S. Geological Survey, Geographic Names Information System",
+  "url": "https://www.usgs.gov/tools/geographic-names-information-system-gnis"
+ },
+ "passes": {
+  "independence-pass": [
+   {
+    "name": "Independence Pass",
+    "gnisId": 180339,
+    "lat": 39.1088793,
+    "lon": -106.5639194
+   }
+  ],
+  "trail-ridge-road": [
+   {
+    "name": "Milner Pass",
+    "gnisId": 177509,
+    "lat": 40.419706,
+    "lon": -105.811399
+   },
+   {
+    "name": "Fall River Pass",
+    "gnisId": 177528,
+    "lat": 40.4405395,
+    "lon": -105.75473
+   }
+  ],
+  "kebler-pass": [
+   {
+    "name": "Kebler Pass",
+    "gnisId": 186677,
+    "lat": 38.8497151,
+    "lon": -107.1003262
+   }
+  ],
+  "guanella-pass": [
+   {
+    "name": "Guanella Pass",
+    "gnisId": 182473,
+    "lat": 39.5949872,
+    "lon": -105.7111165
+   }
+  ],
+  "cottonwood-pass": [
+   {
+    "name": "Cottonwood Pass",
+    "gnisId": 189140,
+    "lat": 38.8277726,
+    "lon": -106.4091921
+   }
+  ]
+ },
+ "waypoints": {
+  "glenwood-springs": {
+   "name": "Glenwood Springs",
+   "gnisId": 204659,
+   "lat": 39.5505376,
+   "lon": -107.3247762
+  },
+  "idaho-springs": {
+   "name": "Idaho Springs",
+   "gnisId": 204710,
+   "lat": 39.7424881,
+   "lon": -105.5136082
+  },
+  "walden": {
+   "name": "Walden",
+   "gnisId": 204654,
+   "lat": 40.7316433,
+   "lon": -106.2836373
+  },
+  "gunnison": {
+   "name": "Gunnison",
+   "gnisId": 188995,
+   "lat": 38.5458246,
+   "lon": -106.9253207
+  },
+  "crawford": {
+   "name": "Crawford",
+   "gnisId": 186721,
+   "lat": 38.7038767,
+   "lon": -107.6089466
+  },
+  "montrose": {
+   "name": "Montrose",
+   "gnisId": 203328,
+   "lat": 38.4783198,
+   "lon": -107.8761738
+  },
+  "poncha-springs": {
+   "name": "Poncha Springs",
+   "gnisId": 189428,
+   "lat": 38.5127752,
+   "lon": -106.0772384
+  },
+  "breckenridge": {
+   "name": "Breckenridge",
+   "gnisId": 204681,
+   "lat": 39.4816537,
+   "lon": -106.0383518
+  },
+  "bailey": {
+   "name": "Bailey",
+   "gnisId": 204727,
+   "lat": 39.4055449,
+   "lon": -105.4733328
+  }
+ },
+ "airports": {
+  "salida": {
+   "DEN": {
+    "miles": 164.9,
+    "minutes": 219
+   }
+  },
+  "grand-lake": {
+   "DEN": {
+    "miles": 125.7,
+    "minutes": 188
+   }
+  },
+  "elizabeth": {
+   "DEN": {
+    "miles": 48.5,
+    "minutes": 62
+   }
+  },
+  "frisco": {
+   "DEN": {
+    "miles": 95.6,
+    "minutes": 123
+   }
+  },
+  "breckenridge": {
+   "DEN": {
+    "miles": 104.7,
+    "minutes": 139
+   }
+  },
+  "keystone": {
+   "DEN": {
+    "miles": 98.5,
+    "minutes": 128
+   }
+  },
+  "buena-vista": {
+   "DEN": {
+    "miles": 145.4,
+    "minutes": 194
+   },
+   "GUC": {
+    "miles": 83.8,
+    "minutes": 123
+   }
+  },
+  "leadville": {
+   "DEN": {
+    "miles": 124.6,
+    "minutes": 158
+   },
+   "EGE": {
+    "miles": 62.8,
+    "minutes": 89
+   }
+  },
+  "manitou-springs": {
+   "DEN": {
+    "miles": 89.3,
+    "minutes": 105
+   }
+  },
+  "steamboat-springs": {
+   "DEN": {
+    "miles": 180.2,
+    "minutes": 235
+   }
+  },
+  "grand-junction": {
+   "DEN": {
+    "miles": 267.5,
+    "minutes": 310
+   }
+  },
+  "palisade": {
+   "DEN": {
+    "miles": 256.5,
+    "minutes": 296
+   }
+  },
+  "fruita": {
+   "DEN": {
+    "miles": 277.8,
+    "minutes": 320
+   }
+  },
+  "carbondale": {
+   "DEN": {
+    "miles": 195.2,
+    "minutes": 237
+   }
+  },
+  "glenwood-springs": {
+   "DEN": {
+    "miles": 181.3,
+    "minutes": 216
+   }
+  },
+  "crested-butte": {
+   "DEN": {
+    "miles": 251.1,
+    "minutes": 337
+   }
+  },
+  "telluride": {
+   "DEN": {
+    "miles": 386,
+    "minutes": 474
+   }
+  },
+  "ouray": {
+   "DEN": {
+    "miles": 356.6,
+    "minutes": 428
+   }
+  },
+  "durango": {
+   "DEN": {
+    "miles": 359.5,
+    "minutes": 476
+   }
+  },
+  "vail": {
+   "DEN": {
+    "miles": 121.2,
+    "minutes": 151
+   }
+  },
+  "minturn": {
+   "DEN": {
+    "miles": 127.7,
+    "minutes": 158
+   }
+  },
+  "eagle": {
+   "DEN": {
+    "miles": 150.7,
+    "minutes": 182
+   }
+  },
+  "avon": {
+   "DEN": {
+    "miles": 130.5,
+    "minutes": 161
+   }
+  },
+  "dillon": {
+   "DEN": {
+    "miles": 92.5,
+    "minutes": 119
+   }
+  },
+  "silverthorne": {
+   "DEN": {
+    "miles": 91.6,
+    "minutes": 116
+   }
+  },
+  "granby": {
+   "DEN": {
+    "miles": 110.3,
+    "minutes": 161
+   }
+  },
+  "kremmling": {
+   "DEN": {
+    "miles": 128.4,
+    "minutes": 166
+   }
+  },
+  "aspen": {
+   "DEN": {
+    "miles": 223.2,
+    "minutes": 277
+   }
+  },
+  "basalt": {
+   "DEN": {
+    "miles": 205.3,
+    "minutes": 249
+   }
+  },
+  "redstone": {
+   "DEN": {
+    "miles": 211.1,
+    "minutes": 261
+   }
+  },
+  "marble": {
+   "DEN": {
+    "miles": 222.3,
+    "minutes": 287
+   }
+  },
+  "gunnison": {
+   "DEN": {
+    "miles": 223.5,
+    "minutes": 295
+   }
+  },
+  "lake-city": {
+   "DEN": {
+    "miles": 278.1,
+    "minutes": 377
+   }
+  },
+  "silverton": {
+   "DEN": {
+    "miles": 379.6,
+    "minutes": 481
+   }
+  },
+  "ridgway": {
+   "DEN": {
+    "miles": 347.4,
+    "minutes": 416
+   }
+  },
+  "pagosa-springs": {
+   "DEN": {
+    "miles": 299.4,
+    "minutes": 394
+   }
+  },
+  "montrose": {
+   "DEN": {
+    "miles": 320.5,
+    "minutes": 379
+   }
+  },
+  "cortez": {
+   "DEN": {
+    "miles": 403.7,
+    "minutes": 532
+   }
+  },
+  "mancos": {
+   "DEN": {
+    "miles": 386,
+    "minutes": 508
+   }
+  },
+  "dolores": {
+   "DEN": {
+    "miles": 409.9,
+    "minutes": 561
+   }
+  },
+  "paonia": {
+   "DEN": {
+    "miles": 252.8,
+    "minutes": 332
+   }
+  },
+  "hotchkiss": {
+   "DEN": {
+    "miles": 260.8,
+    "minutes": 344
+   }
+  },
+  "cedaredge": {
+   "DEN": {
+    "miles": 287.4,
+    "minutes": 357
+   }
+  },
+  "delta": {
+   "DEN": {
+    "miles": 300.4,
+    "minutes": 351
+   }
+  },
+  "rifle": {
+   "DEN": {
+    "miles": 208,
+    "minutes": 245
+   }
+  },
+  "meeker": {
+   "DEN": {
+    "miles": 249.3,
+    "minutes": 309
+   }
+  },
+  "craig": {
+   "DEN": {
+    "miles": 222.3,
+    "minutes": 286
+   }
+  },
+  "creede": {
+   "DEN": {
+    "miles": 278.5,
+    "minutes": 362
+   }
+  },
+  "alamosa": {
+   "DEN": {
+    "miles": 250.2,
+    "minutes": 280
+   }
+  },
+  "monte-vista": {
+   "DEN": {
+    "miles": 267.5,
+    "minutes": 304
+   }
+  },
+  "del-norte": {
+   "DEN": {
+    "miles": 241.1,
+    "minutes": 312
+   }
+  },
+  "crestone": {
+   "DEN": {
+    "miles": 216.8,
+    "minutes": 286
+   }
+  },
+  "fairplay": {
+   "DEN": {
+    "miles": 108.6,
+    "minutes": 149
+   }
+  },
+  "alma": {
+   "DEN": {
+    "miles": 114.1,
+    "minutes": 157
+   }
+  },
+  "canon-city": {
+   "DEN": {
+    "miles": 132.6,
+    "minutes": 158
+   }
+  },
+  "florence": {
+   "DEN": {
+    "miles": 126.3,
+    "minutes": 150
+   }
+  },
+  "westcliffe": {
+   "DEN": {
+    "miles": 163.4,
+    "minutes": 206
+   }
+  },
+  "cripple-creek": {
+   "DEN": {
+    "miles": 127.4,
+    "minutes": 165
+   }
+  },
+  "victor": {
+   "DEN": {
+    "miles": 129.3,
+    "minutes": 166
+   }
+  },
+  "woodland-park": {
+   "DEN": {
+    "miles": 101.7,
+    "minutes": 120
+   }
+  },
+  "green-mountain-falls": {
+   "DEN": {
+    "miles": 97.9,
+    "minutes": 115
+   }
+  },
+  "palmer-lake": {
+   "DEN": {
+    "miles": 67.6,
+    "minutes": 77
+   }
+  },
+  "trinidad": {
+   "DEN": {
+    "miles": 214.4,
+    "minutes": 226
+   }
+  },
+  "la-veta": {
+   "DEN": {
+    "miles": 194.2,
+    "minutes": 220
+   }
+  },
+  "walden": {
+   "DEN": {
+    "miles": 200.7,
+    "minutes": 237
+   }
+  },
+  "rocky-ford": {
+   "DEN": {
+    "miles": 180.9,
+    "minutes": 204
+   }
+  },
+  "la-junta": {
+   "DEN": {
+    "miles": 191.9,
+    "minutes": 220
+   }
+  }
+ },
+ "routes": {
+  "aspen|buena-vista": {
+   "over": [
+    "independence-pass"
+   ],
+   "yearRound": {
+    "miles": 163.1,
+    "minutes": 220,
+    "via": [
+     "glenwood-springs"
+    ]
+   }
+  },
+  "aspen|leadville": {
+   "over": [
+    "independence-pass"
+   ],
+   "yearRound": {
+    "miles": 130,
+    "minutes": 172,
+    "via": [
+     "glenwood-springs"
+    ]
+   }
+  },
+  "buena-vista>ASE": {
+   "over": [
+    "independence-pass"
+   ],
+   "yearRound": {
+    "miles": 161.6,
+    "minutes": 216,
+    "via": [
+     "glenwood-springs"
+    ]
+   }
+  },
+  "carbondale|crested-butte": {
+   "over": [
+    "kebler-pass"
+   ],
+   "yearRound": {
+    "miles": 172.3,
+    "minutes": 274,
+    "via": [
+     "crawford",
+     "gunnison"
+    ]
+   }
+  },
+  "crested-butte|hotchkiss": {
+   "over": [
+    "kebler-pass"
+   ],
+   "yearRound": {
+    "miles": 106.9,
+    "minutes": 167,
+    "via": [
+     "gunnison",
+     "crawford"
+    ]
+   }
+  },
+  "crested-butte|marble": {
+   "over": [
+    "kebler-pass"
+   ],
+   "yearRound": {
+    "miles": 157.1,
+    "minutes": 255,
+    "via": [
+     "gunnison",
+     "crawford"
+    ]
+   }
+  },
+  "crested-butte|paonia": {
+   "over": [
+    "kebler-pass"
+   ],
+   "yearRound": {
+    "miles": 115.4,
+    "minutes": 180,
+    "via": [
+     "gunnison",
+     "crawford"
+    ]
+   }
+  },
+  "crested-butte|redstone": {
+   "over": [
+    "kebler-pass"
+   ],
+   "yearRound": {
+    "miles": 156,
+    "minutes": 248,
+    "via": [
+     "gunnison",
+     "crawford"
+    ]
+   }
+  },
+  "estes-park|grand-lake": {
+   "over": [
+    "trail-ridge-road"
+   ],
+   "yearRound": {
+    "miles": 149.8,
+    "minutes": 238,
+    "via": [
+     "idaho-springs"
+    ]
+   }
+  },
+  "leadville>ASE": {
+   "over": [
+    "independence-pass"
+   ],
+   "yearRound": {
+    "miles": 128.5,
+    "minutes": 169,
+    "via": [
+     "glenwood-springs"
+    ]
+   }
+  }
+ }
+}
