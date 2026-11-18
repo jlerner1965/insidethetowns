@@ -107,5 +107,45 @@
         "checked": "2026-11-12"
       }
     ]
-  }
+  },
+  "trails": [
+    {
+      "name": "Fish Creek Falls",
+      "kind": "National forest trail and picnic site",
+      "manager": "U.S. Forest Service, Hahns Peak/Bears Ears Ranger District",
+      "length": "A ¼-mile accessible walk from the trailhead; Trail 1102 goes on 5 miles to Long Lake, and the upper falls are 4.2 miles out and back",
+      "trailhead": "From 3rd Street, Fish Creek Falls Road for 4 miles to the trailhead",
+      "season": "Open all year, 6 am to 10 pm, with snowshoeing and ice climbing in winter. The Fish Creek bridge can close from April 1 to July 1 for high water.",
+      "dogs": "On a leash to the first bridge across Fish Creek.",
+      "fee": "$5 a vehicle a day, by card or cash on site, or a $30 annual pass from Recreation.gov; no permit.",
+      "url": "https://www.fs.usda.gov/r02/mbrtb/recreation/trails/fish-creek-falls-trailhead-trail-1102",
+      "source": "https://www.fs.usda.gov/r02/mbrtb/recreation/trails/fish-creek-falls-trailhead-trail-1102",
+      "alsoSources": [
+        "https://www.fs.usda.gov/r02/mbrtb/recreation/fish-creek-falls-picnic-site",
+        "https://www.fs.usda.gov/r02/about-area/faqs",
+        "https://trails.colorado.gov/routes/66",
+        "https://www.fs.usda.gov/r02/mbrtb/newsroom/releases/fish-creek-falls-bridge-temporarily-closed"
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "name": "Howelsen Hill Nordic Center",
+      "kind": "City Nordic ski trails",
+      "manager": "City of Steamboat Springs, Howelsen Hill",
+      "size": "21 km (13 miles) of groomed Nordic trails, nine in all",
+      "address": "845 Howelsen Parkway",
+      "season": "The ski area’s season is November 28, 2026, to March 28, 2027, conditions permitting; the groomed Nordic trails are open around the clock.",
+      "dogs": "Not allowed within the ski area boundary.",
+      "fee": "A ticket or season pass at all times: $25 a day in 2026–27; none needed on Sundays (Ski Free Sunday).",
+      "url": "https://www.steamboatsprings.net/1449/Nordic-Center",
+      "source": "https://www.steamboatsprings.net/298/Lift-Tickets",
+      "alsoSources": [
+        "https://www.steamboatsprings.net/1268/Mountain-Stats",
+        "https://www.steamboatsprings.net/131/Howelsen-Hill-Ski-Area",
+        "https://www.steamboatsprings.net/1267/Hours-of-Operation",
+        "https://www.steamboatsprings.net/1179/Uphill-Access-Policy"
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
 }

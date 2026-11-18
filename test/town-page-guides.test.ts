@@ -88,6 +88,7 @@ const TRAIL_GAPS: Readonly<Record<string, string>> = {
   salida: 'the City of Salida refuses automated readers, so the Riverwalk and Riverside Park have no season or dog rule from the City',
   nederland: 'Boulder County publishes no fee statement for Mud Lake or Caribou Ranch, and the Town gives no hours, dog rule or fee for its parks',
   'idaho-springs': 'the City of Idaho Springs refuses automated readers (Virginia Canyon Mountain Park, Water Wheel Park), and the Forest Service gives the Chicago Lakes Trail no season',
+  'steamboat-springs': 'no manager page gives the Yampa River Core Trail or Emerald Mountain a season or a trailhead, and the Spring Creek Trail has a season for only part of its length',
   leadville: 'the City of Leadville refuses automated readers; the Willow Fire closure covers the national forest west of town until December 31, 2026; and Turquoise Lake, the fish hatchery and Lake County’s in-town parks lack a dog rule, a size or hours on their managers’ pages',
 };
 /** Where a gap leaves fewer than two: the one entry that passed. */
