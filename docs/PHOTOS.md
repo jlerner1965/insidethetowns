@@ -187,6 +187,10 @@ alt text: a photograph shows only once someone has looked at it and written
 what is in the frame, and `npm test` fails until then. One that is not the
 town comes out with `--reject <slug>`; `--list` and `--take` choose by hand.
 Salida waits for the owner's own photograph, as before.
+Cedaredge is the one exception to the 1600px floor (the owner, 19 November
+2026): its only town overview on Commons, "Cedaredge from cedar mesa.jpg",
+is 1500px wide, so its entry in `scripts/hub-heroes.json` carries
+`minWidth: 1500`. Every other check still applies, and no other town has one.
 
 ### How the town page frames its photograph (rules, 14 November 2026)
 
