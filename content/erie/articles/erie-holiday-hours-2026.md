@@ -3,6 +3,7 @@ title: "Erie holiday hours: what is open and closed from Veterans Day to New Yea
 seoTitle: "Erie, CO holiday hours 2026: rec center, library and ice rink"
 slug: erie-holiday-hours-2026
 date: "2026-11-10"
+updated: "2026-11-19"
 excerpt: "The Community Center opens 6 am to 1 pm on Thanksgiving, Christmas Eve and New Year's Eve and closes on Christmas and New Year's Day. The library closes on Veterans Day, Thanksgiving, Christmas Eve and Christmas Day. The ice rink opens November 27."
 image: ../images/library.jpg
 imageAlt: "The timber-and-glass entrance of the Erie Community Library"
@@ -22,6 +23,8 @@ sources:
   - { label: "Town of Erie: Tree Recycling", url: "https://www.erieco.gov/1651/Tree-Recycling" }
   - { label: "Town of Erie: calendar, November and December 2026", url: "https://www.erieco.gov/calendar.aspx?view=list&year=2026&month=11" }
   - { label: "Town of Erie: Utility Providers", url: "https://www.erieco.gov/1284/Utility-Providers" }
+  - { label: "UCHealth: Urgent Care – Erie", url: "https://www.uchealth.org/locations/uchealth-urgent-care-erie" }
+  - { label: "Weld County: Motor Vehicle contact page", url: "https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Motor-Vehicle-Department/Contact-Us" }
 related:
   - { label: "Erie Community Center", href: "/places/erie-community-center/", note: "The pool, gym and climbing wall on Powers Street, with its regular hours." }
   - { label: "Erie Community Library", href: "/places/erie-community-library/", note: "Next door to the Community Center; run by the High Plains Library District." }
@@ -74,6 +77,11 @@ For Veterans Day the Town has posted two closures in its Alert Center. The Recyc
 A Christmas tree can go to the Recycling Center after the holiday. The Town's Tree Recycling page names no season: trees are taken for composting all year at the marked drop-off area, for Erie residents with proof of residency, free of decorations, hooks, ornaments, tinsel, string and beads.
 
 Town Council does not meet on November 24 or December 22: the Town's calendar lists both regular meetings as canceled. A special meeting is on the calendar for Tuesday, December 1, at 6 pm, and the next regular meeting is Tuesday, December 8.
+
+## Urgent care and car registration on Thanksgiving
+
+- **UCHealth Urgent Care – Erie**, 2970 Arapahoe Road: closed Thursday, November 26. Its regular hours are Monday to Friday 8 am–8 pm and weekends 8 am–6 pm; 303-460-6020.
+- **Weld County motor vehicle offices**: closed Thursday and Friday, November 26 and 27. The nearest to Erie is the Southwest Weld office, 4209 County Road 24.5, Longmont, open Monday to Friday 8 am–5 pm; 720-652-4201.
 
 ## Trash and recycling pickup
 

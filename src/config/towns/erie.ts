@@ -95,7 +95,7 @@ export const erie: TownConfig = {
         district: 'St. Vrain Valley Schools',
         label: 'St. Vrain Valley: maps and boundaries',
         url: 'https://www.svvsd.org/schools/maps-boundaries/',
-        note: 'Most of Erie. The Erie feeder: Black Rock, Erie, Grand View, Highlands and Red Hawk elementaries, Soaring Heights PK-8, Erie Middle and Erie High; a new elementary in Colliers Hill opens fall 2027',
+        note: 'Most of Erie. The Erie feeder: Black Rock, Erie, Grand View, Highlands and Red Hawk elementaries, Soaring Heights PK-8, Erie Middle and Erie High, and Aspen Ridge Preparatory School, a charter at 705 Austin Ave (720-242-6225); a new elementary in Colliers Hill opens fall 2027',
       },
       {
         district: 'Boulder Valley School District',
@@ -133,6 +133,7 @@ export const erie: TownConfig = {
           { label: 'Who serves your address: the Town’s utility map', url: 'https://www.erieco.gov/1284/Utility-Providers', note: 'Electricity, gas, phone and internet providers, with an interactive map by address' },
           { label: 'Town of Erie utility billing (water and wastewater)', url: 'https://www.erieco.gov/581/Utility-Billing', note: 'Town Hall, 645 Holbrook St, 303-926-2700, utilbilling@erieco.gov; title companies transfer service to new owners' },
           { label: 'Pay the water bill online', url: 'https://erieco.payacp.com/home', note: 'Or pay and review by phone, 855-456-1140' },
+          { label: 'Phone, cable and internet', url: 'https://www.erieco.gov/1284/Utility-Providers', note: 'The Town lists Allo, AT&T, Comcast, CenturyLink, GetVoIP, HughesNet, Rise, T-Mobile, Verizon and Viasat, and says other providers serve the area too' },
           { label: 'United Power', url: 'https://www.unitedpower.com/', note: 'Electricity in parts of Erie' },
           { label: 'Xcel Energy', url: 'https://www.xcelenergy.com/', note: 'Electricity in parts of Erie, and natural gas' },
           { label: 'Black Hills Energy', url: 'https://www.blackhillsenergy.com/', note: 'Natural gas in parts of Erie' },
@@ -202,7 +203,8 @@ export const erie: TownConfig = {
           { label: 'Erie Police Department', url: 'https://www.erieco.gov/2350/Police', note: '1000 Telleen Ave; non-emergency 303-441-4444, the Boulder County dispatch center that answers for Erie; emergency 911' },
           { label: 'Mountain View Fire Rescue', url: 'https://www.mvfpd.org/contact-us', note: 'Fire and emergency medical service for Erie; non-emergency calls through Boulder County, 303-441-4444, or Weld County, 970-350-9600; office 303-772-0710' },
           { label: 'Animal control and dog licences', url: 'https://www.erieco.gov/255/Animal-Services', note: 'Erie Police take animal calls through 303-441-4444; a dog over six months old needs a Town licence within 30 days of moving in; the Boneyard at Reliance Park is the only public place a dog may be off the leash; wildlife goes to Colorado Parks and Wildlife, 303-291-7227' },
-          { label: 'Emergency alerts', url: 'https://www.erieco.gov/370/Emergency-Alerts', note: 'Every Erie resident, on either side of County Line Road, should sign up for Boulder County’s alerts; Weld County’s CodeRED as well' },
+          { label: 'Emergency alerts', url: 'https://www.erieco.gov/370/Emergency-Alerts', note: 'Every Erie resident, on either side of County Line Road, should sign up for Boulder County’s alerts; the Town also recommends Weld County’s CodeRED and Broomfield’s LookoutAlert' },
+          { label: 'Wildfire mitigation', url: 'https://www.erieco.gov/2337/Wildfire-Mitigation', note: 'The Town mows a strip behind fences that back onto its open space at least twice a growing season, and trail edges monthly from May to October; for your own yard it points to Wildfire Partners' },
           { label: 'Notify Me', url: 'https://www.erieco.gov/list.aspx', note: 'Town news, police advisories, and road, trail and recycling-center closures by email or text' },
         ],
       },
@@ -211,6 +213,7 @@ export const erie: TownConfig = {
         verified: '2026-11-09',
         items: [
           { label: 'BCH Urgent Care, 101 Erie Pkwy, Suite 101', url: 'https://www.bch.org/our-services/urgent-care/', note: 'Seven days, 8 am to 8 pm; 303-415-5810. Boulder Community Health’s emergency rooms, open around the clock, are at Community Medical Center in Lafayette and Foothills Hospital in Boulder' },
+          { label: 'Good Samaritan Hospital, 200 Exempla Circle, Lafayette', url: 'https://www.intermountainhealth.org/locations/good-samaritan-hospital', note: 'Intermountain Health’s full hospital, with a 24-hour emergency department; 303-689-4000' },
           { label: 'UCHealth Urgent Care – Erie, 2970 Arapahoe Rd', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-erie', note: 'On the north side of Lafayette near US 287 and Arapahoe Road; Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 303-460-6020' },
           { label: 'Walgreens, 490 Erie Pkwy', url: 'https://www.walgreens.com/locator/walgreens-490+erie+pkwy-erie-co-80516/id=12864', note: 'On the southeast corner of County Line Road and Leon Wurl Parkway; pharmacy Monday to Friday 8 am to 8 pm, Saturday 9 to 6, Sunday 10 to 6, closed 1:30 to 2 for lunch; store from 7 am daily; 303-586-8276' },
           { label: 'Safeway, 3333 Arapahoe Rd N', url: 'https://local.safeway.com/safeway/co/erie.html', note: 'Daily 6 am to 11 pm; 720-890-0959' },
@@ -221,6 +224,7 @@ export const erie: TownConfig = {
         verified: '2026-11-09',
         items: [
           { label: 'Boulder County Motor Vehicle', url: 'https://bouldercounty.gov/MV', note: 'Offices in Boulder (1750 33rd St), Lafayette (1755 S. Public Rd) and Longmont (529 Coffman St), Monday to Thursday 7:30 am to 5 pm, closed Fridays, by appointment only; renewals online, by mail, at a 24-hour drop box or at a kiosk, not in person; 303-413-7710' },
+          { label: 'Weld County Motor Vehicle: Southwest Weld office', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Motor-Vehicle-Department/Contact-Us', note: 'For addresses east of County Line Road: 4209 County Road 24.5, Longmont, Monday to Friday 8 am to 5 pm; 720-652-4201' },
         ],
       },
       {
@@ -228,6 +232,9 @@ export const erie: TownConfig = {
         verified: '2026-11-09',
         items: [
           { label: 'Building permits: the Town’s Building Division', url: 'https://www.erieco.gov/110/Building-Division', note: 'Plan review, permits, inspections and contractor licences, applied for online through the Town’s eTRAKiT portal; 303-926-2780. Call 811 at least three days before you dig' },
+          { label: 'Fire pits and open burning', url: 'https://www.erieco.gov/m/newsflash/Home/Detail/3117', note: 'Under the Town’s rules of January 27, 2026: no burning of leaves, branches, yard debris or trash outdoors; a wood-burning fire pit must be non-combustible, no more than 3 feet across or 2 feet high, with a wire mesh or screen cover whose openings are 1/4 inch or smaller' },
+          { label: 'Floodplain development permits', url: 'https://www.erieco.gov/2268/Floodplain-Information', note: 'Building, fencing or other work in a floodplain needs a Town permit first; questions to floodplain@erieco.gov' },
+          { label: 'Property tax: the Town’s mill levy', url: 'https://www.erieco.gov/650/Property-Tax-Mill-Levies', note: 'How the Town’s share is worked out, with links to Boulder and Weld counties’ searches for an address’s full mill levy' },
           { label: 'Erie Post Office, 150 Wells St', url: 'https://tools.usps.com/locations/details/1362695', note: '303-828-0781; passport applications and photos. The carrier annex at 621 Mitchell Way offers no mailing, passport or pickup services' },
         ],
       },

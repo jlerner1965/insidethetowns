@@ -4,7 +4,7 @@ description: "What it is like to move to a coal town of about 30,000 at the 2020
 image: ../images/community-center.jpg
 imageAlt: "The west entrance of the Erie Community Center on Powers Street"
 imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
-updated: "2026-11-10"
+updated: "2026-11-19"
 ---
 
 ## What you are moving to
@@ -39,4 +39,4 @@ Erie is a home-rule town with a Town Council of a mayor and six members and an a
 
 ## Living here
 
-Summer is the Thursday farmers market on Briggs Street from May to mid-September, the splash pad at Coal Creek Park, the lazy river at the [Community Center](/places/erie-community-center/), Town Fair and the fireworks. Fall is Tails & Ales at the dog park, Brewfest and Boo! on Briggs Street downtown, and the corn maze at [Anderson Farms](/places/anderson-farms/). Winter is the Parade of Lights on the first Friday of December, the rink at Coal Creek Park, and the sledding hill at Community Park. Year-round there is trivia and music at the [Old Mine](/places/the-old-mine/), the [singletrack](/places/erie-singletrack/) on the north side, and a walk around [Thomas Reservoir](/places/thomas-reservoir-loop/) at sunset.
+Summer is the [Erie Farmers Market](https://realfarmersmarketco.com/erie-farmers-market/) on Briggs Street between Wells and Moffat, Thursdays 5 to 8 pm, May 6 to September 16 in 2027, the splash pad at Coal Creek Park, the lazy river at the [Community Center](/places/erie-community-center/), Town Fair and the fireworks. Fall is Tails & Ales at the dog park, Brewfest and Boo! on Briggs Street downtown, and the corn maze at [Anderson Farms](/places/anderson-farms/). Winter is the Parade of Lights on the first Friday of December, the rink at Coal Creek Park, and the sledding hill at Community Park. Year-round there is trivia and music at the [Old Mine](/places/the-old-mine/), the [singletrack](/places/erie-singletrack/) on the north side, and a walk around [Thomas Reservoir](/places/thomas-reservoir-loop/) at sunset.
