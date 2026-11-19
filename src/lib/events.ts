@@ -388,23 +388,13 @@ export function isLibraryProgram(event: { data: { venue?: string } }): boolean {
 }
 
 /**
- * What a day's list puts under its outings: a library's programs and the
- * civic meetings. Worth their lines, and never why a reader opened the page
- * (the owner, 10 November 2026: "library events shouldn't be on top unless
- * they have to; social ones should").
+ * Group events by Denver calendar day, the days in date order and each day
+ * in clock order (`sortByStart`): the lists a reader plans from (the events
+ * page, This weekend, the Thursday email). Until 19 November 2026 these
+ * lists put a day's library programs and civic meetings under its other
+ * listings, out of the clock's order; the owner asked for the clock's order.
  */
-export function isBackground(event: { data: { venue?: string; category?: string } }): boolean {
-  return event.data.category === 'civic' || isLibraryProgram(event);
-}
-
-/**
- * Group events by Denver calendar day, each day in clock order
- * (`sortByStart`). With `outingsFirst`, a day's library programs and civic
- * meetings come after everything else on that day, each part still in clock
- * order: the lists a reader plans a weekend from (the events page, This
- * weekend, the Thursday email). The days themselves stay in date order.
- */
-export function groupByDay<T extends EventLike>(events: T[], { outingsFirst = false }: { outingsFirst?: boolean } = {}): DayGroup<T>[] {
+export function groupByDay<T extends EventLike>(events: T[]): DayGroup<T>[] {
   const groups = new Map<string, DayGroup<T>>();
   for (const event of sortByStart(events)) {
     const key = dayKey(event.data.start);
@@ -412,9 +402,7 @@ export function groupByDay<T extends EventLike>(events: T[], { outingsFirst = fa
     group.events.push(event);
     groups.set(key, group);
   }
-  const days = [...groups.values()];
-  if (outingsFirst) for (const day of days) day.events = [...day.events.filter((e) => !isBackground(e)), ...day.events.filter((e) => isBackground(e))];
-  return days;
+  return [...groups.values()];
 }
 
 /** Categories present in a list, in schema order. */

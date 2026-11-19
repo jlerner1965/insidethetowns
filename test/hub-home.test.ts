@@ -41,6 +41,7 @@ import {
   weekendDays,
   weekendPicks,
   weekendPicksByDay,
+  dayOrder,
 } from '../src/lib/hub-home.ts';
 
 test('the feature counts towns, not dates: a town with two rows is one town', () => {
@@ -419,4 +420,23 @@ test('up to three a day: every rule of the one-a-day pick holds, never two from 
   // One a day is the one-a-day pick exactly.
   const one = weekendPicksByDay(all, days.slice(1), { now, taken: new Set(['johnstown']), perDay: 1 });
   assert.deepEqual([...one].map(([d, l]) => [d, l[0]!.data.title]), [...weekendPicks(all, days.slice(1), { now, taken: new Set(['johnstown']) })].map(([d, e]) => [d, e.data.title]));
+});
+
+test('a day’s chosen listings are shown in clock order: the pick is chosen first, not shown first; all-day and earlier-begun runs after the timed ones', () => {
+  const all = [
+    ev('berthoud', 'Evening pick', '2026-11-14T19:00', { category: 'music', slug: 'evening-pick' }),
+    ev('erie', 'Morning market', '2026-11-14T10:00', { category: 'market' }),
+    ev('lyons', 'Noon recital', '2026-11-14T12:00', { category: 'music' }),
+  ];
+  const byDay = weekendPicksByDay(all, days.slice(1), { now, picked: new Set(['berthoud/evening-pick']), perDay: 3 });
+  assert.deepEqual(byDay.get('2026-11-14')?.map((e) => e.data.title), ['Morning market', 'Noon recital', 'Evening pick']);
+  // Until 19 November 2026 the pick led its day: the evening show above the morning market.
+  const one = weekendPicksByDay(all, days.slice(1), { now, picked: new Set(['berthoud/evening-pick']), perDay: 1 });
+  assert.deepEqual(one.get('2026-11-14')?.map((e) => e.data.title), ['Evening pick'], 'with one slot the pick still takes it');
+  const at = (start: string, allDay = false) => ({ data: { start: parseLocal(start), allDay } });
+  assert.ok(dayOrder(at('2026-11-14T00:00'), '2026-11-14') < dayOrder(at('2026-11-14T09:00'), '2026-11-14'), 'midnight is the first hour of its day');
+  assert.ok(dayOrder(at('2026-11-14T11:59'), '2026-11-14') < dayOrder(at('2026-11-14T12:00'), '2026-11-14'), 'noon in its place');
+  assert.ok(dayOrder(at('2026-11-14T12:00'), '2026-11-14') < dayOrder(at('2026-11-14T12:30'), '2026-11-14'));
+  assert.ok(dayOrder(at('2026-11-14T23:00'), '2026-11-14') < dayOrder(at('2026-11-14', true), '2026-11-14'), 'an all-day listing after the timed ones');
+  assert.ok(dayOrder(at('2026-11-14T23:00'), '2026-11-14') < dayOrder(at('2026-11-13T10:00'), '2026-11-14'), 'a run begun the day before has no time on this day');
 });

@@ -11,7 +11,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { listingOver, pruneExpired, type PrunableNode } from '../src/lib/expiry.ts';
+import { listingOver, pruneExpired, weekendFreshness, type PrunableNode } from '../src/lib/expiry.ts';
 import { parseLocal, toIsoLocal } from '../src/lib/dates.ts';
 import { lastDay, listedUntil } from '../src/lib/events.ts';
 
@@ -151,6 +151,21 @@ test('the pages run the shared rule rather than a copy of it', () => {
   assert.match(freshness, /import \{ pruneExpired \} from '@\/lib\/expiry'/);
   assert.doesNotMatch(freshness, /eventDay[^\n]*<[^\n]*today/, 'no day comparison of its own');
   const weekend = readFileSync('src/routes/hub/this-weekend.astro', 'utf8');
-  assert.match(weekend, /import \{ listingOver \} from '@\/lib\/expiry'/);
+  assert.match(weekend, /import \{ listingOver, weekendFreshness \} from '@\/lib\/expiry'/);
+  // The notice's words are the script's, never the built page's (19 November 2026).
+  assert.doesNotMatch(weekend, /data-stale-notice[^>]*>\s*<strong/, 'the notice is empty in the built page');
   assert.doesNotMatch(weekend, /lastDay < todayKey/, 'no day comparison of its own');
+});
+
+test('the weekend page’s freshness notice: words only when they are true, by the reader’s Denver day (19 November 2026)', () => {
+  // Current: refreshed today or yesterday (the hub rebuilds twice a day), listings left.
+  assert.equal(weekendFreshness(12, '2026-11-19', '2026-11-19'), undefined);
+  assert.equal(weekendFreshness(12, '2026-11-18', '2026-11-19'), undefined);
+  // Refreshed before yesterday: the rebuilds have stopped, whatever is still listed.
+  assert.equal(weekendFreshness(12, '2026-11-17', '2026-11-19'), 'old');
+  assert.equal(weekendFreshness(3, '2026-10-31', '2026-11-01'), undefined, 'across a month');
+  assert.equal(weekendFreshness(3, '2026-10-30', '2026-11-01'), 'old');
+  assert.equal(weekendFreshness(3, '2026-12-30', '2027-01-01'), 'old', 'across a year');
+  // Nothing left: everything the build carried has happened, however new the build.
+  assert.equal(weekendFreshness(0, '2026-11-19', '2026-11-19'), 'gone');
 });

@@ -267,7 +267,7 @@ test('"Next in <Town>" names a regular once though it has a page per date', () =
   assert.deepEqual(nextAfter(rows, '2026-11-10').map((r) => r.dayKey), ['2026-11-16']);
 });
 
-test('outings lead a tab; a library program and a meeting are shown only where they leave room, and under them', () => {
+test('outings take a tab’s slots before a library program or a meeting; the rows shown are in the order of the days and the clock', () => {
   const now = at('2026-11-13T05:00'); // a Friday
   const row = (slug: string, start: string, extra: Record<string, unknown> = {}) => {
     const day = weekDays({ events: [ev(slug, start, extra)], now, start: 'today', limit: 99 }).find((d) => d.items.length)!;
@@ -285,13 +285,13 @@ test('outings lead a tab; a library program and a meeting are shown only where t
   assert.equal(tabRank(council), 2);
   assert.equal(tabRank(bands[0]!), 0);
 
-  // Room for all: the four bands in clock order, then the programs and the meeting in clock order.
+  // Room for all: every row in the order of the days and the clock, the programs and the meeting among the bands.
   const roomy = pickRows([talk, movie, council, ...bands], 7);
-  assert.deepEqual(roomy.rows.map((r) => r.fullTitle), ['maingrass', 'strangebyrds', 'starlight', 'mainjazz', 'great-decisions', 'board-meeting', 'classic-movies']);
+  assert.deepEqual(roomy.rows.map((r) => r.fullTitle), ['great-decisions', 'board-meeting', 'maingrass', 'strangebyrds', 'starlight', 'classic-movies', 'mainjazz']);
 
-  // Five slots: the Friday morning talk is in, under the bands; the rest wait behind "more".
+  // Five slots: the bands are in first and the Friday morning talk takes the fifth; shown in clock order, the talk first.
   const five = pickRows([talk, movie, council, ...bands]);
-  assert.deepEqual(five.rows.map((r) => r.fullTitle), ['maingrass', 'strangebyrds', 'starlight', 'mainjazz', 'great-decisions']);
+  assert.deepEqual(five.rows.map((r) => r.fullTitle), ['great-decisions', 'maingrass', 'strangebyrds', 'starlight', 'mainjazz']);
   assert.equal(five.more, 2);
 
   // A full weekend of outings: no program takes a slot from one.
@@ -335,4 +335,33 @@ test('a listing at the top of its day leads that day on the weekend tab, after t
     ['Fri friday-show', 'Sat wellness-social', 'Sat early-market', 'Sun sunday-brunch'],
     'the days stay in order; only Saturday changes',
   );
+});
+
+test('Today is in the order of the clock: Berthoud’s 4:15 pm library writing group above its 6 pm social run (19 November 2026)', () => {
+  const now = at('2026-11-19T09:00'); // a Thursday
+  const writing = ev('just-write-teen-writing-group-2026-11-19', '2026-11-19T16:15', { title: 'Just Write! teen writing group', venue: 'Berthoud Community Library', category: 'arts' });
+  const run = ev('social-run-city-star', '2026-11-19T18:00', { title: 'City Star Social Run', venue: 'City Star Brewing', category: 'sports' });
+  const days = weekDays({ events: [run, writing], now, start: 'today', limit: 99, isSeries: (e) => e.slug === 'social-run-city-star' });
+  const today = homeTabs(days, now).find((t) => t.key === 'today')!;
+  assert.deepEqual(today.rows.map((r) => r.fullTitle), ['Just Write! teen writing group', 'City Star Social Run']);
+  assert.equal(today.rows[0]!.program, true, 'a library program, still shown in its place by the clock');
+});
+
+test('the clock key: noon at 12:00, midnight at 00:00, a descriptive time by its start, all-day after the timed', () => {
+  const now = at('2026-11-19T00:00');
+  const row = (slug: string, start: string, extra: Record<string, unknown> = {}) => {
+    const day = weekDays({ events: [ev(slug, start, extra)], now, start: 'today', limit: 99 }).find((d) => d.items.length)!;
+    return { ...day.items[0]!, dayWord: '', dayKey: day.key };
+  };
+  const music = { category: 'music', venue: 'A hall' };
+  const midnight = row('midnight-show', '2026-11-19T00:00', music);
+  const noon = row('noon-recital', '2026-11-19T12:00', music);
+  const sessions = row('two-sessions', '2026-11-19T14:30', { ...music, timeNote: 'Sessions at 2:30 and 6:30 pm' });
+  const evening = row('evening-show', '2026-11-19T19:00', music);
+  const allDay = row('all-day-fair', '2026-11-19', { ...music, allDay: true, timeNote: 'Booths open all day' });
+  assert.equal(midnight.time, '00:00');
+  assert.equal(noon.time, '12:00');
+  assert.equal(sessions.time, '14:30', 'a time note on a timed listing does not move it to the end of its day');
+  assert.equal(allDay.time, '99:98');
+  assert.deepEqual(pickRows([allDay, evening, sessions, noon, midnight]).rows.map((r) => r.fullTitle), ['midnight-show', 'noon-recital', 'two-sessions', 'evening-show', 'all-day-fair']);
 });

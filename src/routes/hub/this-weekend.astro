@@ -34,7 +34,7 @@ import NetworkDayList from '@/components/NetworkDayList.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import SponsorLine from '@/components/SponsorLine.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { getHub, guideUrl, listsEvents, liveTowns } from '@/config';
+import { fullSections, getHub, guideUrl, listsEvents, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { groupByDay, occurrences, weekendSections, weekendWindow } from '@/lib/events';
 import { dayKey, formatDate, formatDayRange, formatTime } from '@/lib/dates';
@@ -45,6 +45,14 @@ const hub = getHub();
 // The guides that list events: Niwot posts updates and lists none, so the
 // page counts six, not seven (the owner, 13 November 2026).
 const towns = liveTowns().filter(listsEvents);
+// Named, not counted: "the 6 guides that list events" read as every town
+// with a calendar, and Estes Park, Fort Collins, Longmont and Loveland keep
+// theirs in their own sections, not here (the owner's review, 19 November 2026).
+const townNames = towns.map((t) => t.name);
+const listed = townNames.length > 1 ? `${townNames.slice(0, -1).join(', ')} and ${townNames.at(-1)}` : (townNames[0] ?? '');
+const guideSlugs = new Set(liveTowns().map((t) => t.slug));
+const ownCalendars = fullSections().filter((t) => !guideSlugs.has(t.slug) && listsEvents(t)).map((t) => t.name);
+const elsewhere = ownCalendars.length > 0 ? ` ${ownCalendars.length > 1 ? `${ownCalendars.slice(0, -1).join(', ')} and ${ownCalendars.at(-1)}` : ownCalendars[0]} ${ownCalendars.length === 1 ? 'keeps its' : 'keep their'} events in ${ownCalendars.length === 1 ? 'its' : 'their'} own section.` : '';
 
 // The moment the data behind this page was last read, which the foot of the
 // page states plainly. Not "today" — the actual refresh.
@@ -95,18 +103,23 @@ const seasons = seasonLinks();
   seoTitle={`This weekend across Colorado’s towns: ${formatDayRange(weekendStart, sunday)}, ${dayKey(sunday).slice(0, 4)}`}
   eyebrow="Across the network"
   description={`Every event across ${towns.length} Colorado town guides this weekend: markets, music, festivals and trails, each opening on its town’s own guide.`}
-  intro={`Everything on across ${towns.length === liveTowns().length ? `all ${towns.length}` : `the ${towns.length}`} guides that list events, ${weekendLabel}, and the two weeks after it. Each listing opens on that town’s own site.`}
+  intro={`Everything on in ${listed}, ${weekendLabel}, and the two weeks after it. Each listing opens on that town’s own site.${elsewhere}`}
   jsonLd={structured}
 >
   <SponsorLine slot="after-header" sponsor={hub.sponsors?.network} label="This weekend, presented by" />
+  {/*
+    * The freshness notice, empty in the built page: the script below writes
+    * it, and only when it is true (src/lib/expiry.ts, weekendFreshness). It
+    * held its words here, hidden, until 19 November 2026, and a reader of the
+    * HTML as text was told nothing was current beside current listings.
+    */}
   <p
-    class="mb-8 hidden rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink"
+    class="mb-8 rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink"
     data-stale-notice
-  >
-    <strong class="font-semibold">Nothing here is current.</strong> This page was last refreshed on {formatDate(refreshedAt)} and
-    everything it was carrying has now happened. That is a fault at our end, not a quiet weekend. Each town's guide
-    keeps its own calendar — they are linked from <a href="/#towns" class="text-primary underline">the list of guides</a>.
-  </p>
+    data-refreshed-day={dayKey(refreshedAt)}
+    data-refreshed-label={formatDate(refreshedAt)}
+    hidden
+  ></p>
 
   <div data-filter-root>
     {/* "Hide meetings" keeps every listing that is not a public meeting
@@ -190,7 +203,7 @@ const seasons = seasonLinks();
 </Page>
 
 <script>
-  import { listingOver } from '@/lib/expiry';
+  import { listingOver, weekendFreshness } from '@/lib/expiry';
   /*
    * Re-decide, from the reader's clock rather than the build's, which listings
    * are still on and which of the baked days is "this weekend".
@@ -295,7 +308,25 @@ const seasons = seasonLinks();
   //    listing survives in ANY section, dated or running.
   const remaining = document.querySelectorAll('[data-filter-item]').length;
   const notice = document.querySelector<HTMLElement>('[data-stale-notice]');
-  if (notice && remaining === 0) notice.classList.remove('hidden');
+  const freshness = notice ? weekendFreshness(remaining, notice.dataset.refreshedDay ?? todayKey, todayKey) : undefined;
+  if (notice && freshness) {
+    // Written here, not in the built page, so the words exist only when they are true.
+    const lead = document.createElement('strong');
+    lead.className = 'font-semibold';
+    const guides = document.createElement('a');
+    guides.href = '/#towns';
+    guides.className = 'text-primary underline';
+    guides.textContent = 'the list of guides';
+    const when = notice.dataset.refreshedLabel ?? '';
+    if (freshness === 'gone') {
+      lead.textContent = 'Nothing here is current.';
+      notice.append(lead, ` This page was last refreshed on ${when} and everything it was carrying has now happened. That is a fault at our end, not a quiet weekend. Each town's guide keeps its own calendar — they are linked from `, guides, '.');
+    } else {
+      lead.textContent = `Last refreshed ${when}.`;
+      notice.append(lead, ' Anything added since is missing here; that is a fault at our end. Each town\'s guide keeps its own calendar — they are linked from ', guides, '.');
+    }
+    notice.hidden = false;
+  }
   for (const section of document.querySelectorAll<HTMLElement>('[data-section="weekend"], [data-section="next"]')) {
     if (remaining === 0) section.hidden = true;
   }
