@@ -2,7 +2,7 @@
 title: "Erie Lake Open Space"
 type: trail
 address: "N 111th St & US 287"
-area: "Southwest edge, off US 287"
+area: "Southwest edge, Arapahoe Ridge"
 url: "https://www.erieco.gov/2294/Erie-Lake"
 image: ../images/erie-lake.jpg
 imageAlt: "The gravel path along Erie Lake, running between the water and a split-rail fence"
@@ -14,12 +14,12 @@ details:
   dogs: "Dogs must be kept on a leash no longer than six feet; no dogs in the water at any time"
   source: "https://www.erieco.gov/2294/Erie-Lake"
   checked: "2026-11-12"
-summary: "Walking loop and ADA fishing access around the Town's drinking-water reservoir on the southwest edge of town. No swimming, boats or dogs in the water."
+summary: "A walking loop around the Town's drinking-water reservoir on the southwest edge of town, entered from the south and east sides. Anglers are asked to hold off until the lake refills; no swimming, boats or dogs in the water."
 source: "https://www.erieco.gov/2294/Erie-Lake"
-verified: "2026-11-02"
+verified: "2026-11-19"
 added: "2026-09-17"
 ---
 
-A 20-acre open space around Erie Lake at 111th Street and US 287, with about 1.2 miles of concrete and crusher-fine trail, ADA fishing access, benches and year-round public access from 111th, McClure Drive and the Arapahoe Ridge Marketplace. It is the Town's drinking-water reservoir, so no swimming, wading, boats or floats, and leashed dogs stay out of the water.
+A 20-acre open space around Erie Lake at 111th Street and US 287, with about 1.2 miles of concrete and crusher-fine trail, ADA fishing access, benches and year-round public access. It is the Town's drinking-water reservoir, so no swimming, wading, boats or floats, and leashed dogs stay out of the water.
 
-The dam repair finished in July 2026 and the path reopened on July 25, but the lake is still refilling: the Town asks anglers to hold off fishing until it does, likely through the end of the year. The Highway 287 entrance and its parking lot are closed for good; come in from 111th Street, McClure Drive or the Arapahoe Ridge Marketplace.
+The dam repair finished in July 2026 and the path reopened on July 25, but the lake is still refilling: the Town asks anglers to hold off fishing until it does, likely through the end of the year. The Highway 287 entrance and its parking lot, and the west parking lot, are closed for good. The path is reached from the south and east sides of the lake: park on McClure Drive, Billinger Drive or Stevens Circle North in Arapahoe Ridge, or in the Safeway lot at Arapahoe Road and Highway 287. Reopening the lake to fishing depends on the refill and on a fish count and restocking by the state wildlife division.

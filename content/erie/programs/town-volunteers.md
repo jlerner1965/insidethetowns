@@ -20,4 +20,6 @@ verifiedBy: "Claude Code, delegated by Lerner Works: the Town's Volunteer Opport
 
 **Police.** Volunteers in Police Services help with administrative tasks, assist officers at events, and help with the Community Police Academy and National Night Out. The department also takes volunteer victim advocates and Restorative Justice facilitators. For a paper application email Police Outreach, call 303-926-2800, or stop by 1000 Telleen Avenue, Monday through Friday, 8 am to 5 pm.
 
+**Local groups.** The Town's volunteer page also lists local organizations that take volunteers, among them the Erie Rotary Club, for volunteers 18 and up, in community work, serving seniors and supporting students.
+
 **Scouts and service groups.** A scout or an organization with a service project on Town property in mind fills in the Town's Community Impact Project Request. The Town's page says that form closed on July 31, 2026 and reopens in the first quarter of 2027.
