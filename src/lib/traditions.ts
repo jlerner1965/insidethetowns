@@ -271,6 +271,20 @@ export function currentEntry(record: Pick<TraditionRecord, 'type' | 'years'>): T
   return record.years.find((y) => y.year === year);
 }
 
+/**
+ * Whether the type's season page lists the record, so a link to its row
+ * there lands on one. A season with a year lists only the records with an
+ * entry for that year (seasonRows): Durango's Snowdown Light Parade, on
+ * 5 February 2027, is a parade of lights the 2026 page does not list, and
+ * the links to its row there failed the build's link check on 19 November
+ * 2026. A season without a year lists every record of its type.
+ */
+export function onSeasonPage(record: Pick<TraditionRecord, 'type' | 'years'>): boolean {
+  const season = CURRENT_SEASONS[record.type];
+  if (!season) return false;
+  return season.year === undefined || !!currentEntry(record);
+}
+
 /** Whether an entry carries a date the organizer published for it: confirmed, or moved to it. */
 export function isDated(entry: Pick<TraditionYear, 'status'>): boolean {
   return entry.status === 'confirmed' || entry.status === 'moved';

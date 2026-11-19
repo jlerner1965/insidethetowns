@@ -12589,3 +12589,10 @@ Pass.*
   year, rather than $3 million, if the City endorsed its station summary
   before June 30, 2026 (the City's agenda item summary). Whether Council
   adopted it is not stated; the document read is the agenda item.
+
+## Season trackers and the Cedaredge photograph, 19 November 2026
+
+- **Cedaredge photograph at 1500px.** The owner allowed the one town overview on Commons ("Cedaredge from cedar mesa.jpg", CC BY-SA 3.0, Jaknelaps, 2012), 100px under the 1600px floor. `scripts/fetch-hub-heroes.ts` takes a per-town `minWidth` from `scripts/hub-heroes.json`; only Cedaredge has one. The other five pages without a photograph stay as they are: Salida waits for the owner's own, Platteville's and Green Mountain Falls' files were rejected before, and nothing for Marble or Timnath meets the rules.
+- **A lighting and a parade on the same night get a record each** when the organizer names both, as Berthoud's did: the trackers read one `type` per record. Where the organizer gives no separate lighting time, the record has none and its `about` says when it falls ("after the parade").
+- **Landmark lightings belong on the tree-lightings tracker**, as Castle Rock's Starlighting already did: Palmer Lake's Chili Supper & Star Lighting moves there from the festivals.
+- **Held:** Minturn (the only listings are not the Town's), Monte Vista, Morrison, Nederland and Milliken. Meeker's lighting stays at 5 pm, the time on Visit Meeker's 2026 page; its parade has no published start.

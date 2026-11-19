@@ -14,7 +14,7 @@ import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuid
 import { isMoved } from '../config/guide-move.ts';
 import { towns } from '../config/towns/registry.ts';
 import { dayKey, formatMonthDay, parseLocal } from './dates.ts';
-import { CURRENT_SEASONS, TRADITION_TYPE_INFO, byNextDate, countsAsVerified, hasVerifiedDate, isAgencyDate, isListed, isUpcoming, nextRow, type TraditionRecord, type TraditionRow } from './traditions.ts';
+import { TRADITION_TYPE_INFO, byNextDate, countsAsVerified, hasVerifiedDate, isAgencyDate, isListed, isUpcoming, nextRow, onSeasonPage, type TraditionRecord, type TraditionRow } from './traditions.ts';
 import { TITLE_LIMIT } from './titles.ts';
 
 /**
@@ -182,7 +182,7 @@ export interface Showing {
 export function showings(record: TraditionRecord, ctx: ShowingContext): Showing[] {
   const out: Showing[] = [];
   const info = TRADITION_TYPE_INFO[record.type];
-  if (CURRENT_SEASONS[record.type]) out.push({ key: 'season', label: `All ${info.plural.toLowerCase()}`, href: `https://${ctx.hubDomain}${info.path}#${record.slug}` });
+  if (onSeasonPage(record)) out.push({ key: 'season', label: `All ${info.plural.toLowerCase()}`, href: `https://${ctx.hubDomain}${info.path}#${record.slug}` });
   if (record.statewide) return out;
   const places = [homeOf(record), ...(record.towns ?? []).map((t) => placeKey(t.slug))].filter((p): p is string => !!p);
   for (const place of [...new Set(places)]) {

@@ -731,8 +731,15 @@
     {
       "slug": "cedaredge",
       "name": "Cedaredge",
-      "candidates": [],
-      "notes": "Not searched: the shared web-search budget for this run (200 calls across all agents) ran out before this town was reached, so no Commons file was identified. Lead: the Wikipedia infobox photo is captioned 'Cedaredge as seen from Cedar Mesa', a town overview that is promising; find it via Category:Cedaredge, Colorado."
+      "candidates": [
+        {
+          "file": "File:Cedaredge from cedar mesa.jpg",
+          "why": "chosen by hand"
+        }
+      ],
+      "notes": "Not searched: the shared web-search budget for this run (200 calls across all agents) ran out before this town was reached, so no Commons file was identified. Lead: the Wikipedia infobox photo is captioned 'Cedaredge as seen from Cedar Mesa', a town overview that is promising; find it via Category:Cedaredge, Colorado. 19 November 2026: the owner allowed 1500px for this page alone, as its only town overview on Commons, File:Cedaredge from cedar mesa.jpg, is 1500px wide.",
+      "minWidth": 1500,
+      "rejected": []
     },
     {
       "slug": "olathe",

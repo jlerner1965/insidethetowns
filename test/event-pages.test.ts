@@ -8,7 +8,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { HUB_TOWNS, STANDALONE_GUIDES } from '../src/config/hub-towns.ts';
 import { allTowns, isMoved } from '../src/config/index.ts';
-import { eventPage, eventPath, eventSegment, hubEventPages, publishedHubTowns, type ShowingContext } from '../src/lib/hub-towns.ts';
+import { eventPage, eventPath, eventSegment, hubEventPages, publishedHubTowns, showings, type ShowingContext } from '../src/lib/hub-towns.ts';
 import { HUB_ROUTES, hubReservedSegments } from '../src/integrations/town-routes.ts';
 import { contentDates } from '../src/lib/lastmod.ts';
 import { traditionEventJsonLd } from '../src/lib/seo.ts';
@@ -52,6 +52,17 @@ test('only a record whose home is a published hub town page gets one: a guide’
   assert.equal(eventPage(record(), ctx), 'golden');
   const pages = hubEventPages([record(), record({ slug: 'erie-parade', town: { name: 'Erie', guide: 'erie' } })], published);
   assert.deepEqual(pages.map((p) => [p.town, p.event, p.path]), [['golden', 'candlelight-walk', '/golden/candlelight-walk/'], ...(erieMoved ? [['erie', 'parade', '/erie/parade/']] : [])]);
+});
+
+test('a record links to its row on a season page only when that page lists it: a 2027 parade of lights is not on the 2026 page', () => {
+  const parade = (years: TraditionRecord['years']) => record({ slug: 'golden-light-parade', type: 'parade-of-lights', years });
+  const season = (r: TraditionRecord) => showings(r, ctx).find((s) => s.key === 'season')?.href;
+  assert.equal(season(parade([{ year: 2026, status: 'confirmed', date: '2026-12-05', checked: '2026-11-19' }])), 'https://insidethetowns.com/parades-of-lights/#golden-light-parade');
+  // Durango's Snowdown Light Parade (5 February 2027): no 2026 entry, so no row on /parades-of-lights/ to link to.
+  assert.equal(season(parade([{ year: 2027, status: 'confirmed', date: '2027-02-05', checked: '2026-11-19' }])), undefined);
+  // The town page still lists it, and a type with no season page links to none.
+  assert.ok(showings(parade([{ year: 2027, status: 'confirmed', date: '2027-02-05', checked: '2026-11-19' }]), ctx).some((s) => s.key === 'golden'));
+  assert.equal(season(record()), undefined, 'a festival has no season page');
 });
 
 test('the build fails on two records at one address, or on a town slug that is one of the hub’s routes', () => {

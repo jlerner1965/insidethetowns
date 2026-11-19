@@ -60,6 +60,12 @@ interface Entry {
   candidates: Candidate[];
   /** Commons titles looked at and turned down for this page: never taken again. */
   rejected?: string[];
+  /**
+   * The owner's exception to the 1600px floor, for this page alone
+   * (Cedaredge, 19 November 2026: its only town overview on Commons is
+   * 1500px wide). Every other check still applies.
+   */
+  minWidth?: number;
   notes?: string;
 }
 interface Manifest {
@@ -153,13 +159,13 @@ async function get(base: string, params: Record<string, string>): Promise<any> {
 }
 
 /** A file page from the API, judged: eligible, or why not. */
-function judge(page: any, taken: Set<string | undefined>, rejected: Set<string>): Eligible | { why: string } {
+function judge(page: any, taken: Set<string | undefined>, rejected: Set<string>, minWidth = MIN_WIDTH): Eligible | { why: string } {
   const info = page?.imageinfo?.[0];
   if (!page || page.missing || !info) return { why: 'no such file on Commons (or a Wikipedia-only file)' };
   const title = fileTitle(page.title);
   if (rejected.has(title)) return { why: 'rejected for this page before' };
   if (info.mime !== 'image/jpeg') return { why: `${info.mime}, not a JPEG` };
-  if (info.width < MIN_WIDTH) return { why: `${info.width}px wide, under ${MIN_WIDTH}` };
+  if (info.width < minWidth) return { why: `${info.width}px wide, under ${minWidth}` };
   if (info.width < info.height * 1.25) return { why: `${info.width}×${info.height}, not landscape enough for the band` };
   const meta = info.extmetadata ?? {};
   const licence = acceptedLicence(meta);
@@ -214,7 +220,7 @@ function score(e: Eligible, name: string): number {
 }
 
 /** Files in the town's Commons category and its street-like subcategories, eligible ones only, best first. */
-async function fromCategory(name: string, taken: Set<string | undefined>, rejected: Set<string>): Promise<Eligible[]> {
+async function fromCategory(name: string, taken: Set<string | undefined>, rejected: Set<string>, minWidth = MIN_WIDTH): Promise<Eligible[]> {
   const cats = [`Category:${name}, Colorado`];
   try {
     const subs = await get(COMMONS, { action: 'query', list: 'categorymembers', cmtitle: cats[0]!, cmtype: 'subcat', cmlimit: '200' });
@@ -229,7 +235,7 @@ async function fromCategory(name: string, taken: Set<string | undefined>, reject
     try {
       const data = await get(COMMONS, { action: 'query', generator: 'categorymembers', gcmtitle: cat, gcmtype: 'file', gcmlimit: '200', prop: 'imageinfo', iiprop: 'size|mime|extmetadata', iiextmetadatafilter: META });
       for (const p of data?.query?.pages ?? []) {
-        const j = judge(p, taken, rejected);
+        const j = judge(p, taken, rejected, minWidth);
         if ('title' in j && !found.some((f) => f.title === j.title)) found.push(j);
       }
     } catch {
@@ -255,7 +261,7 @@ async function candidatesFor(entry: Entry, all = false): Promise<Found[]> {
   const fromList = (fallback: boolean) => {
     for (const [i, page] of pages.entries()) {
       if (!!entry.candidates[i]!.fallback !== fallback) continue;
-      const j = judge(page, taken, rejected);
+      const j = judge(page, taken, rejected, entry.minWidth);
       if ('title' in j) add(j, fallback ? 'a listed fallback' : i === 0 ? 'the pick' : 'a listed backup');
       else console.log(`  ${entry.slug}: ${listed[i]}: ${j.why}`);
     }
@@ -263,12 +269,12 @@ async function candidatesFor(entry: Entry, all = false): Promise<Found[]> {
   fromList(false);
   const lead = await wikipediaLead(entry.name);
   if (lead && !listed.includes(lead)) {
-    const j = judge((await fileInfo([lead]))[0], taken, rejected);
+    const j = judge((await fileInfo([lead]))[0], taken, rejected, entry.minWidth);
     if ('title' in j) add(j, 'Wikipedia’s lead photograph');
     else console.log(`  ${entry.slug}: Wikipedia’s lead ${lead}: ${j.why}`);
   }
   fromList(true);
-  for (const e of await fromCategory(entry.name, taken, rejected)) {
+  for (const e of await fromCategory(entry.name, taken, rejected, entry.minWidth)) {
     // A category file that reads as a sign, a map, an event or a single building is for choosing by hand (--list), never taken unseen.
     if (score(e, entry.name) > 0 || all) add(e, `the Commons category (score ${score(e, entry.name)})`);
   }
@@ -367,7 +373,7 @@ async function main() {
     const got = await download(c.title, c.width, path);
     const page = `https://commons.wikimedia.org/wiki/${encodeURI(c.title.replace(/ /g, '_')).replace(/\?/g, '%3F').replace(/#/g, '%23')}`;
     // No named author (public domain, CC0): "Commons uploader", which the credits page leaves unnamed.
-    const licence = `${c.licence} (${c.author || 'Commons uploader'}; ${c.year}); ${got.how}; the ${entry.name} page's photograph from 2026-11-14`;
+    const licence = `${c.licence} (${c.author || 'Commons uploader'}; ${c.year}); ${got.how}; the ${entry.name} page's photograph from ${new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Denver' }).format(new Date())}`;
     const credit = c.licence === 'CC0' || c.licence === 'Public domain' ? 'n' : 'y';
     const ledger = readFileSync(LEDGER, 'utf8');
     appendFileSync(LEDGER, `${ledger.endsWith('\n') ? '' : '\n'}${[path, page, licence, credit, 'hub'].map(csvCell).join(',')}\n`);

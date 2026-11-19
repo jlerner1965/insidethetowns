@@ -14,6 +14,8 @@ years:
   - year: 2026
     status: confirmed
     date: 2026-12-04
+    startTime: "7 pm"
     place: "Historic Main Street"
-    checked: 2026-11-17
+    sourceUrl: "https://media-002-us.cdn.govstack.com/louisvilleco-us/media/bqvlltde/louisville-road-closures-parade-of-lights.pdf"
+    checked: 2026-11-19
 ---
