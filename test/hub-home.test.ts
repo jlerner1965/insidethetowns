@@ -358,6 +358,17 @@ test('In the towns: the featured articles, a section’s own included, published
   assert.deepEqual(newsItems([], '2026-11-13'), []);
 });
 
+test('In the towns: an article with homeAfter sits right under the one it names, else by its date', () => {
+  // The owner, 18 November 2026: wolf 2516 right below the Colorado Connector article, though it is newer.
+  const item = (title: string, date: string, after?: string) => ({ towns: ['niwot'], feature: true, label: '', title, line: '', href: `/articles/${title}/`, date, after });
+  const items = [item('train-tax', '2026-11-15'), item('wolf', '2026-11-18', '/articles/train-tax/'), item('creede', '2026-11-14'), item('eldora', '2026-11-13')];
+  assert.deepEqual(newsItems(items, '2026-11-18').map((i) => i.title), ['train-tax', 'wolf', 'creede', 'eldora']);
+  // The one it names is not listed (not featured, or past its day): by its date as usual.
+  assert.deepEqual(newsItems([items[1]!, items[2]!], '2026-11-18').map((i) => i.title), ['wolf', 'creede']);
+  // Never more than the limit.
+  assert.equal(newsItems(items, '2026-11-18', 2).map((i) => i.title).join(), 'train-tax,wolf');
+});
+
 test('a story’s source line names every report and the oldest day one was read', () => {
   assert.equal(storySourceText([{ label: 'Colorado Sun', checked: '2026-11-13' }, { label: 'BusinessDen', checked: '2026-11-12' }]), 'Sources: Colorado Sun and BusinessDen, read Nov 12, 2026');
   assert.equal(storySourceText([{ label: 'Town of Nederland', checked: '2026-11-13' }]), 'Source: Town of Nederland, read Nov 13, 2026');

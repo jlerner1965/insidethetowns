@@ -39,8 +39,9 @@ function sectionArticles(slug: string) {
 
 /** "In the towns" as src/routes/hub/index.astro builds it: the hub's articles, then the sections' own. */
 function homeItems(articles: readonly CuriosityArticle[], today = TODAY, extra: ReturnType<typeof sectionItem>[] = []) {
+  const pathBySlug = new Map(articles.map((a) => [a.slug, articlePath(a)]));
   return newsItems(
-    [...articles.map((a) => ({ towns: a.towns, feature: a.feature, label: a.slug, title: a.title, line: a.description, href: articlePath(a), date: a.date, until: a.homeUntil, slug: a.slug })), ...extra],
+    [...articles.map((a) => ({ towns: a.towns, feature: a.feature, label: a.slug, title: a.title, line: a.description, href: articlePath(a), date: a.date, until: a.homeUntil, after: a.homeAfter && pathBySlug.get(a.homeAfter), slug: a.slug })), ...extra],
     today,
     5,
   );
@@ -155,11 +156,12 @@ test('the home’s In the towns is the five newest featured articles, a featured
   const items = homeItems(verified);
   assert.ok(items.length <= 5);
   for (const i of items) assert.ok(i.feature, `${i.slug} is featured`);
-  // The owner's five, featured on 18 November 2026.
+  // The owner's five on 18 November 2026: wolf 2516 joined them, right below the Colorado Connector article (homeAfter), and the oldest went off.
   assert.deepEqual(
     items.map((i) => i.slug).sort(),
-    ['colorado-connector-train-tax', 'colorado-football-playoffs-2026', 'creede-repertory-theatre-history', 'leadville-tabors-silver-fortune', 'nederland-eldora-purchase'],
+    ['colorado-connector-train-tax', 'colorado-football-playoffs-2026', 'colorado-wolf-2516', 'creede-repertory-theatre-history', 'leadville-tabors-silver-fortune'],
   );
+  assert.deepEqual(items.slice(0, 2).map((i) => i.slug), ['colorado-connector-train-tax', 'colorado-wolf-2516']);
   // A featured Estes Park article, the newest, leads the home and pushes the oldest featured off; it is still its section's article.
   const rmnp = sectionArticles('estes-park').find((a) => a.slug === 'first-visit-to-rocky-mountain-national-park')!;
   const featured = sectionItem(estes, { ...rmnp, data: { ...rmnp.data, feature: true, date: parseLocal('2026-11-18') } });
@@ -199,6 +201,10 @@ test('homeUntil is for a featured article of any kind; feature is off unless the
   assert.ok(curiositySchema.safeParse({ ...event, feature: true, homeUntil: '2026-12-06' }).success, 'a featured event article');
   assert.ok(!curiositySchema.safeParse({ ...event, homeUntil: '2026-12-06' }).success, 'not on an unfeatured event article');
   assert.ok(!curiositySchema.safeParse({ ...event, feature: true, homeUntil: '2026-11-17' }).success, 'not before its date');
+  // homeAfter: right under another article on the home, for a featured article only, and never under itself.
+  assert.ok(curiositySchema.safeParse({ ...event, feature: true, homeAfter: 'colorado-connector-train-tax' }).success, 'a featured article under another');
+  assert.ok(!curiositySchema.safeParse({ ...event, homeAfter: 'colorado-connector-train-tax' }).success, 'not on an unfeatured one');
+  assert.ok(!curiositySchema.safeParse({ ...event, feature: true, homeAfter: 'x' }).success, 'not under itself');
   const article = { title: 'T', slug: 'x', date: '2026-11-18', excerpt: 'E', category: 'Families' };
   assert.equal(guideSchema.parse(article).feature, false);
   assert.equal(guideSchema.parse({ ...article, feature: true }).feature, true);

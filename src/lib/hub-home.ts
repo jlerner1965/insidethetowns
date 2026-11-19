@@ -586,6 +586,8 @@ export interface NewsItem {
   date: string;
   /** Its last day on the page, where its `homeUntil` sets one. */
   until?: string;
+  /** The address of the item it is listed right under, where its `homeAfter` names one. */
+  after?: string;
   /** Its source line, in the words its own page uses. */
   source?: string;
 }
@@ -605,13 +607,20 @@ export function isPublished(date: string, today: string): boolean {
  * first, `limit` in all. A featured article about one full section alone
  * is here too (onHub, src/lib/curiosity-places.ts) and stays in its
  * section; an unfeatured one never is. Nothing, where nothing qualifies:
- * the section is then not drawn.
+ * the section is then not drawn. An item with `after` (its `homeAfter`)
+ * is moved to just under the item at that address, where that item is
+ * listed; otherwise it keeps its place by date.
  */
 export function newsItems<I extends NewsItem>(items: readonly I[], today: string, limit = 5): I[] {
-  return [...items]
+  const listed = [...items]
     .filter((i) => i.feature && isPublished(i.date, today) && (!i.until || today <= i.until))
-    .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title))
-    .slice(0, limit);
+    .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+  for (const item of listed.filter((i) => i.after && i.after !== i.href)) {
+    if (!listed.some((i) => i.href === item.after)) continue;
+    listed.splice(listed.indexOf(item), 1);
+    listed.splice(listed.findIndex((i) => i.href === item.after) + 1, 0, item);
+  }
+  return listed.slice(0, limit);
 }
 
 /**

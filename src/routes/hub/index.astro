@@ -291,6 +291,8 @@ const scores = live
 const HOME_NEWS_LIMIT = 5;
 const articlesOnSite = (await getCuriosity()).map((a) => a.data);
 const sectionArticles = await getSectionArticles();
+/** An article's address by its slug, for a `homeAfter` naming another hub article. */
+const pathBySlug = new Map(articlesOnSite.map((a) => [a.slug, articlePath(a)]));
 const news = newsItems(
   [
     ...articlesOnSite.map((a) => ({
@@ -302,6 +304,7 @@ const news = newsItems(
       href: articlePath(a),
       date: a.date,
       until: a.homeUntil,
+      after: a.homeAfter && pathBySlug.get(a.homeAfter),
       source: storySourceText(a.sources),
     })),
     ...sectionArticles.map((a) => ({

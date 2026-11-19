@@ -28,6 +28,9 @@ date: 2026-11-13
 # may carry it, whatever its kind. Without it, the story stays until five
 # newer featured articles push it off.
 # homeUntil: 2026-11-30
+# Optional, with feature: list it on the home right under another hub article
+# (that article's slug) rather than by its date.
+# homeAfter: colorado-connector-train-tax
 # Every fact in the story comes from one of these, each read on the day given.
 # A named news report counts (the Colorado Sun, BusinessDen); the town need
 # not have published its own record first. Never a guide site.

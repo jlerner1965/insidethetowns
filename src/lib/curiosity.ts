@@ -304,6 +304,14 @@ export const curiositySchema = z
      */
     homeUntil: day.optional(),
     /**
+     * A featured article's place under "In the towns" on the hub's home,
+     * where the owner wants it right under another article rather than by
+     * its date: that article's slug (the owner, 18 November 2026: wolf 2516
+     * "right below" the Colorado Connector article). Where the other is not
+     * on the home, it is listed by its date as usual.
+     */
+    homeAfter: placeSlug.optional(),
+    /**
      * A substantive revision after the first version: the day it was made
      * and one line on what changed, both printed under the byline and the
      * day given as the page's dateModified. Not for a re-check that changed
@@ -354,6 +362,7 @@ export const curiositySchema = z
   .refine((a) => !isStandalone(a.kind) || a.sources.length > 0, { message: 'an event article, a story or a guide names the source of every fact', path: ['sources'] })
   .refine((a) => a.kind === 'story' || a.feature || !a.homeUntil, { message: 'homeUntil is for a featured article (feature: true) or a story', path: ['homeUntil'] })
   .refine((a) => !a.homeUntil || a.homeUntil >= a.date, { message: 'homeUntil is on or after the article’s date', path: ['homeUntil'] })
+  .refine((a) => !a.homeAfter || (a.feature && a.homeAfter !== a.slug), { message: 'homeAfter is for a featured article (feature: true), and names another article', path: ['homeAfter'] })
   .refine((a) => !a.updated || a.updated.date >= a.date, { message: 'an update is on or after the article’s date', path: ['updated', 'date'] })
   .refine((a) => a.kind === 'event' || a.games.length === 0, { message: 'only an event article carries games', path: ['games'] })
   .refine((a) => a.status !== 'verified' || (a.needs.length === 0 && [...a.campgrounds, ...a.ghostTowns].every((e) => e.flags.length === 0)), {
