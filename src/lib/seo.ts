@@ -396,6 +396,16 @@ function publicationUrl(site: SiteConfig): string {
  * Console read of every live site flagged the gap on every page (5
  * November 2026).
  */
+/**
+ * The site's own social accounts as `sameAs`. A guide's own only: the
+ * network's Instagram, which a guide's footer falls back to, is the hub's
+ * account, not the guide's (18 November 2026).
+ */
+function sameAs(site: SiteConfig) {
+  const links = [site.social?.instagram, site.social?.facebook].filter((u): u is string => !!u);
+  return links.length ? { sameAs: links } : {};
+}
+
 export function siteJsonLd(site: SiteConfig) {
   // A section's pages are the hub's: one WebSite and one Organization on insidethetowns.com.
   const publication = publicationSite(site);
@@ -413,6 +423,7 @@ export function siteJsonLd(site: SiteConfig) {
           url,
           description: site.tagline,
           logo,
+          ...sameAs(site),
           ...(publisher ? { parentOrganization: { '@type': 'Organization', name: publisher.name, url: publisher.url } } : {}),
           subOrganization: liveTowns().map((t) => ({
             '@type': 'Organization',
@@ -428,6 +439,7 @@ export function siteJsonLd(site: SiteConfig) {
           url,
           description: site.tagline,
           logo,
+          ...sameAs(site),
           parentOrganization: {
             '@type': 'Organization',
             '@id': `${hubUrl}#org`,
