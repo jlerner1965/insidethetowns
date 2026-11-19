@@ -8,8 +8,8 @@ url: "https://www.berthoud.org/Calendar.aspx"
 cost: "Free"
 category: civic
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Town calendar and the same meeting on the Town's CivicClerk portal)"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"PORT Advisory Committee Meeting\" at 6 pm on 2 December on the berthoud.org feed"
 ---
 
 Meeting of the Town's PORT (Parks, Open Space, Recreation and Trails) Advisory Committee at Town Hall, 6 to 8 pm, as listed on the Town's calendar.

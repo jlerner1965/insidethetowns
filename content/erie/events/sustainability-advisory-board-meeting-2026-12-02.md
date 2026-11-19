@@ -8,8 +8,8 @@ cost: "Free"
 category: civic
 recurring: "First Wednesdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5312"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Sustainability Advisory Board Meeting - In Person\" at 6:30 pm on 2 December on the erieco.gov feed"
 ---
 
 Regular in-person meeting of the Town of Erie Sustainability Advisory Board. Open to the public.

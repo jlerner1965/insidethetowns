@@ -9,8 +9,8 @@ cost: "Free"
 category: arts
 recurring: "First and third Wednesdays"
 source: "https://highplains.libcal.com/event/14510616"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the highplains.libcal.com feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Threads\" at 4 pm on 2 December on the highplains.libcal.com feed"
 ---
 
 Drop-in group for knitting, crochet, cross-stitch, embroidery, latch hook and hand sewing in the library living room. Bring your own supplies; all ages and levels welcome.

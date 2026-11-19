@@ -11,8 +11,8 @@ source: "https://www.eventbrite.com/e/niwot-wellness-lecture-series-holiday-pane
 sourceId: "niwot-com"
 sourceUid: "mec:https://niwot.com/?post_type=mec-events&p=10865#2026-12-02"
 sourceHash: "ebd94cdc1542"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Eventbrite page: Wednesday 2 December, 6 to 8 pm, Niwot Hall, free; the topics from the Business Association's calendar, https://niwot.com/upcoming-events/)"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot Wellness Holiday Panel\" at 6 pm on 2 December on the Niwot Business Association (niwot.com) feed"
 ---
 
 December’s talk in the Niwot Wellness lecture series is a holiday panel: winter rest, skin care and holiday grief, with warm drinks and light snacks, Wednesday, December 2 from 6 to 8 pm at Niwot Hall. It is free; Niwot Wellness, the organizer, takes reservations on Eventbrite.

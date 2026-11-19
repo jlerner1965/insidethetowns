@@ -10,7 +10,7 @@ source: "https://theatre.colostate.edu/events/musical-theatre-voice-studio-recit
 sourceId: "theatre-colostate-edu"
 sourceUid: "11-19509@theatre.colostate.edu"
 sourceHash: "89070d287729"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Musical Theatre Voice Studio Recital / FREE\" at 7:30 pm on 1 December on the theatre.colostate.edu feed"
 ---
 

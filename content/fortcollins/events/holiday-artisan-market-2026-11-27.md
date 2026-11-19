@@ -11,7 +11,7 @@ timeNote: "10 am–4 pm Friday and Saturday"
 organizer: "City of Fort Collins Recreation"
 organizerUrl: "https://www.fortcollins.gov/Activities/Recreation"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/Holiday-Artisan-Market"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 27 November and 10 am on the page"
 ---
 

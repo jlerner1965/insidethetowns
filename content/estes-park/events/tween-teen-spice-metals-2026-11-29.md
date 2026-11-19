@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17836058"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17836058"
 sourceHash: "adc27bdf3730"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tween/Teen: Spice Metals\" at 5 pm on 29 November on the Estes Valley Library feed"
 ---
 

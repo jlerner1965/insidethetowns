@@ -10,7 +10,7 @@ source: "https://tockify.com/lovelanddowntown/detail/1791/1795381200000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1791/29923020/0/0"
 sourceHash: "a335e7255b09"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Randy Red's Reads Mobile Bookstore at Loveland Aleworks\" at 2 pm on 22 November on the Loveland Downtown Partnership feed"
 ---
 

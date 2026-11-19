@@ -10,7 +10,7 @@ source: "https://tockify.com/lovelanddowntown/detail/1812/1795899600000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1812/29931660/0/0"
 sourceHash: "a7fb07e7385f"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Small Business Saturday Vendor Market\" at 2 pm on 28 November on the Loveland Downtown Partnership feed"
 ---
 

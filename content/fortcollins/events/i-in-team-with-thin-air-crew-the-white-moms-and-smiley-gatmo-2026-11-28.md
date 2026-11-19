@@ -11,7 +11,7 @@ performers:
   - { name: "The White Moms", kind: group }
   - { name: "Smiley Gatmouth", kind: person }
 source: "https://www.z2ent.com/events/detail/i-in-team-2026-agg"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November and 8 pm on the page"
 ---
 

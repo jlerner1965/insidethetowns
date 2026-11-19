@@ -10,7 +10,7 @@ source: "https://gingerandbaker.com/my-event/tk-delicious-donuts-4/"
 sourceId: "gingerandbaker-com"
 sourceUid: "81323"
 sourceHash: "68e5cadffd82"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Delicious Donuts\" at 10 am on 21 November in the page's structured data"
 ---
 

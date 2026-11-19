@@ -10,8 +10,8 @@ source: "https://gingerandbaker.com/my-event/tk-holiday-wreath-making-with-ccs-f
 sourceId: "gingerandbaker-com"
 sourceUid: "82413"
 sourceHash: "20462a19a5f7"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Ginger and Baker (classes and events) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Wreath Making with CC&#8217;s Flowers\" at 5:30 pm on 2 December in the page's structured data"
 ---
 
 Holiday Wreath Making with CC’s Flowers at The Teaching Kitchen, Wednesday, December 2, 5:30 pm – 7 pm. Listed by Ginger and Baker (classes and events); the organizer's page has the details and any registration.

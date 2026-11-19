@@ -1,6 +1,6 @@
 # Needs me
 
-*Written by `npm run needs-me` (scripts/needs-me.ts) on 2026-11-18, from the files as they stand. The nightly re-check rewrites it; do not edit it by hand.*
+*Written by `npm run needs-me` (scripts/needs-me.ts) on 2026-11-19, from the files as they stand. The nightly re-check rewrites it; do not edit it by hand.*
 
 What no machine could settle. Each line says where to look; the fix is always a person reading the source (or calling), then the file.
 
@@ -22,12 +22,13 @@ Kept, noindex and off every list, until you confirm them. The nightly re-check r
 |---|---|---|---|---|---|---|
 | Timnath | [The Hidden Stem](https://insidethetowns.com/timnath/places/the-hidden-stem/) | 2026-09-18 | no: set aside | <https://timnathchamber.com/directory/the-hidden-stem> | Not re-read at the move, 17 November 2026: the Chamber directory listing now gives no address, phone or hours (only "a garden boutique on Main Street in Timnath"); its own page is Facebook (login wall); thehiddenstem.com did not answer. | `npm run confirm-place -- timnath/the-hidden-stem --how=browser` |
 
-## Possible closures (2)
+## Possible closures (3)
 
 A sign the place may have closed that does not say so in those words: its page gone, a locator that no longer lists it, "Site Closed", a parked domain. Nothing is hidden and nothing becomes a 410 until you confirm it. While its last verified date is inside the window it stays listed; past it, the usual rules apply.
 
 | Town | Place | Last verified | Listed now | Source to read | Why | To confirm it |
 |---|---|---|---|---|---|---|
+| Estes Park | [Estes Perk & the Velvet Lounge](https://insidethetowns.com/estes-park/places/estes-perk/) | 2026-10-20 | yes, through 2026-12-19 | <https://estesperk.com/> | 2026-11-19: the source page answered but no longer names the place or lists its phone, https://estesperk.com/ | `npm run confirm-place -- estes-park/estes-perk --how=browser` |
 | Evergreen | [Suz Cookie Jar Rescue Bakery & Bites](https://insidethetowns.com/evergreen/places/suz-cookie-jar-rescue/) | 2026-10-06 | yes, through 2026-12-05 | <https://scjrbakery.com/> | 2026-11-17: own site scjrbakery.com is now a domain-parking page (redirects to /lander); no other official page found. | `npm run confirm-place -- evergreen/suz-cookie-jar-rescue --how=browser` |
 | Niwot | [The Niwot gateway sculpture](https://insidethetowns.com/niwot/places/gateway-sculpture/) | 2026-09-09 | yes, through 2026-12-08 | <https://niwotarts.org/> | 2026-11-18: the source page answered but no longer names the place or lists its phone, https://niwotarts.org/ | `npm run confirm-place -- niwot/gateway-sculpture --how=browser` |
 
@@ -46,18 +47,15 @@ The nightly date watch writes a date only where the organizer’s page states th
 
 None.
 
-## Tradition dates not confirmed three weeks before their window (1)
+## Tradition dates not confirmed three weeks before their window (0)
 
 The nightly date watch reads the organizer’s page from eight weeks out; these are three weeks out or less with no date for the year. **To clear one:** read the page (or call), and write the year `confirmed` with its date and `checked`, or `canceled` with the reason in the organizer’s words.
 
-| Event | Town | Year | Window opens | Last read | Organizer’s page | File |
-|---|---|---|---|---|---|---|
-| The Lighting of Dillon and Holiday Lights Scavenger Hunt | Dillon | 2026 | 2026-12-06 (in 18 days) | 2026-11-12 | <https://content.govdelivery.com/accounts/CODILLON/bulletins/3fdc311> | `content/hub/traditions/dillon-lighting-of-dillon.md` |
+None.
 
-## Seasonal roundups due with dates missing (3)
+## Seasonal roundups due with dates missing (2)
 
 A roundup is due from eight weeks before its season (src/lib/traditions.ts, CURRENT_SEASONS). Report only: nothing fails a build.
 
-- **[Tree lightings](https://insidethetowns.com/tree-lightings/)**, season 2026-11-01 to 2026-12-15, due since 2026-09-06 (under six weeks to go): 1 of 27 without a confirmed date: The Lighting of Dillon and Holiday Lights Scavenger Hunt (Dillon).
 - **[Winter carnivals](https://insidethetowns.com/winter-carnivals/)**, season 2026-12-01 to 2027-03-15, due since 2026-10-06 (under six weeks to go): 1 of 13 without a confirmed date: Cripple Creek Ice Festival (Cripple Creek).
-- **[New Year’s celebrations](https://insidethetowns.com/new-years/)**, season 2026-12-31 to 2027-01-01, due since 2026-11-05: 1 of 13 without a confirmed date: New Years Eve Fireworks & Torchlight Parade (Keystone).
+- **[New Year’s celebrations](https://insidethetowns.com/new-years/)**, season 2026-12-31 to 2027-01-01, due since 2026-11-05 (under six weeks to go): 1 of 13 without a confirmed date: New Years Eve Fireworks & Torchlight Parade (Keystone).

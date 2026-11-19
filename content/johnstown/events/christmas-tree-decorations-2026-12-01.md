@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/christmas-tree-decora
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10947"
 sourceHash: "0eb78bf4f989"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Christmas Tree Decorations\" at 5 pm on 1 December in the page's structured data"
 ---
 

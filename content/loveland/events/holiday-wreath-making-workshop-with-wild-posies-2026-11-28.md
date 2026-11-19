@@ -10,7 +10,7 @@ source: "https://tockify.com/lovelanddowntown/detail/1813/1795914000000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1813/29931900/0/0"
 sourceHash: "9cd1472263c8"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Wreath Making Workshop with Wild Posies\" at 6 pm on 28 November on the Loveland Downtown Partnership feed"
 ---
 

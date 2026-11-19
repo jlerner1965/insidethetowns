@@ -10,7 +10,7 @@ source: "https://gingerandbaker.com/my-event/tk-pasta-from-scratch-pumpkin-gnocc
 sourceId: "gingerandbaker-com"
 sourceUid: "81304"
 sourceHash: "e80119aa5d15"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Pasta from Scratch: Pumpkin Gnocchi\" at 5:30 pm on 22 November in the page's structured data"
 ---
 

@@ -17,7 +17,7 @@ organizer: "Niwot Business Association"
 source: "https://niwot.com/events/niwots-annual-holiday-parade/?occurrence=2026-11-28"
 sourceId: "niwot-com"
 sourceUid: "mec:https://niwot.com/?post_type=mec-events&p=8004#2026-11-28"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot’s Annual Holiday Parade\" at 11 am on 28 November on the Niwot Business Association (niwot.com) feed"
 ---
 

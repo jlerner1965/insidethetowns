@@ -12,6 +12,7 @@ phone: "(970) 444-4517"
 hours: "Daily 8 am–9 pm"
 tags: [coffee, breakfast, cocktails, downtown]
 summary: "Coffee by day and cocktails by night on East Elkhorn: specialty coffee and breakfast in the morning, then handcrafted cocktails and small plates in the Velvet Lounge."
+closureCheck: "2026-11-19: the source page answered but no longer names the place or lists its phone, https://estesperk.com/"
 ---
 
 A downtown coffee shop that turns into a lounge in the evening, with specialty coffee and fresh breakfast in the morning and cocktails, tapas and shareable plates later on. It takes table reservations, private parties and catering, and online orders. Open 8 am to 9 pm every day.

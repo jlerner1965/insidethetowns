@@ -8,7 +8,7 @@ source: "https://calendar.boulderlibrary.org/events"
 sourceId: "boulderlibrary-libnet-info"
 sourceUid: "17510100"
 sourceHash: "539c0fca24c4"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tinker Art Studio: Winter Watercolor Landscapes\" at 1 pm on 30 November on the Boulder Public Library District - Gunbarrel Library events feed"
 ---
 

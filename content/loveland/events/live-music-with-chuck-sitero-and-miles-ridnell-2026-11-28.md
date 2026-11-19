@@ -10,7 +10,7 @@ source: "https://tockify.com/lovelanddowntown/detail/1795/1795910400000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1795/29931840/0/0"
 sourceHash: "ebf92f94d2f2"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Chuck Sitero & Miles Ridnell\" at 5 pm on 28 November on the Loveland Downtown Partnership feed"
 ---
 

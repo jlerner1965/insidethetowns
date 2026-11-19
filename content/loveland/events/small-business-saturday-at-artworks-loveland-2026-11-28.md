@@ -10,7 +10,7 @@ source: "https://tockify.com/lovelanddowntown/detail/1823/1795888800000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1823/29931480/0/0"
 sourceHash: "c575877c2625"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Small Business Saturday at Artworks Loveland\" at 11 am on 28 November on the Loveland Downtown Partnership feed"
 ---
 

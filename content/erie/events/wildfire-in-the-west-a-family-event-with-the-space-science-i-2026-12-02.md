@@ -9,8 +9,8 @@ source: "https://highplains.libcal.com/event/17899278"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17899278"
 sourceHash: "1d4fd7307beb"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the highplains.libcal.com feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Wildfire in the West: A Family Event with the Space Science Institute\" at 6 pm on 2 December on the highplains.libcal.com feed"
 ---
 
 Wildfire in the West: A Family Event with the Space Science Institute at Erie Community Library, Wednesday, December 2, 6 pm – 7:30 pm. Listed by highplains.libcal.com; the organizer's page has the details and any registration.

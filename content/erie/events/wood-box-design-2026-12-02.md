@@ -9,8 +9,8 @@ source: "https://highplains.libcal.com/event/17729787"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17729787"
 sourceHash: "b6cba3edd24e"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the highplains.libcal.com feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Wood Box Design\" at 3 pm on 2 December on the highplains.libcal.com feed"
 ---
 
 Wood Box Design at Erie Community Library, Wednesday, December 2, 3 pm – 5 pm. Listed by highplains.libcal.com; the organizer's page has the details and any registration.

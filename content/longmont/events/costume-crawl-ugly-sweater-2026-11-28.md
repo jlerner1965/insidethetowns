@@ -10,7 +10,7 @@ source: "https://www.stvraincidery.com/events/kk9ltd8getsnsumfiop1xq7i5eciv5-d8d
 sourceId: "stvraincidery-com"
 sourceUid: "/events/kk9ltd8getsnsumfiop1xq7i5eciv5-d8dnm-4ldea-jc77j-jj9ds-ymw4w-wpxwd-kktn9-x8xnb"
 sourceHash: "5d6a422d995e"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"COSTUME CRAWL | UGLY SWEATER — Home\" at 5 pm on 28 November in the page's structured data"
 ---
 

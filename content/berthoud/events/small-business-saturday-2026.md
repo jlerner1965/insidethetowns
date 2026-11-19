@@ -7,7 +7,7 @@ address: "Mountain Ave"
 url: "https://berthoudmainstreet.org/downtown-berthoud-events/"
 category: market
 source: "https://berthoudmainstreet.org/downtown-berthoud-events/"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November on the page"
 ---
 
