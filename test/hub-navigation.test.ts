@@ -20,6 +20,7 @@ import { fullSectionAt, fullSections, getNetworkHub, isMoved, liveTowns, section
 import { PAPERS, paletteVars, primaryHover } from '../src/config/palette.ts';
 import { homeDescription, inSentence } from '../src/lib/hub-home.ts';
 import { townNav } from '../src/lib/nav.ts';
+import { pagesBeyondSections } from '../src/lib/town-search-index.ts';
 import { SECTION_MOVED, sectionHref } from '../src/lib/section.ts';
 import { homeLinkLabel } from '../src/lib/titles.ts';
 import { SECTION_MOVED as MERGE_MOVED, resolvePath } from '../scripts/lib/section-merge.ts';
@@ -69,6 +70,17 @@ test('the home and /towns/ list the eleven together from fullSections(), and the
   const search = read('src/pages/search.astro');
   assert.match(search, /numberWord\(fullSections\(\)\.length\)\} full town sections/);
   assert.doesNotMatch(search, /on every \$\{site\.siteTitle\} guide/);
+});
+
+test('the home and /towns/ count the town pages beyond the sections by one rule, and /towns/ lists no town twice', () => {
+  // The review of 19 November 2026: the home said "91 more towns", /towns/ "95 town pages", and listed the four folded sections twice.
+  const pages = [{ name: 'Longmont' }, { name: 'Estes Park' }, { name: 'Fort Collins' }, { name: 'Loveland' }, { name: 'Severance' }, { name: 'Brush' }, { name: 'Salida' }];
+  assert.deepEqual(pagesBeyondSections(pages, fullSections()).map((p) => p.name), ['Brush', 'Salida']);
+  const home = read('src/routes/hub/index.astro');
+  assert.match(home, /const moreTowns = pagesBeyondSections\(pages, sectionList\)\.length;/);
+  const towns = read('src/routes/hub/towns.astro');
+  assert.match(towns, /const pages = pagesBeyondSections\(\[\.\.\.publishedHubTowns\(records\)\], fullSections\(\)\)/);
+  assert.match(towns, /\$\{pages\.length\} more town pages/);
 });
 
 test('the home’s description counts the sections, fits 155 characters, and keeps a season’s proper noun', () => {

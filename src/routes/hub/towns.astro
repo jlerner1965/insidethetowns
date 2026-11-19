@@ -15,6 +15,7 @@ import Page from '@/layouts/Page.astro';
 import { fullSections, getHub, guideUrl, liveTowns, sectionHome, sectionSite } from '@/config';
 import { findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { subTownsOf } from '@/lib/sub-towns';
+import { pagesBeyondSections } from '@/lib/town-search-index';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { publishedHubTowns } from '@/lib/hub-towns';
@@ -27,7 +28,13 @@ const today = dayKey(new Date());
 const guides = liveTowns();
 /** The full sections, each under the name its pages carry ("Inside Erie", "Inside Longmont") and to its front page. */
 const full = fullSections().map((t) => ({ name: sectionSite(t).siteTitle, href: sectionHome(t), county: hubCountyLine(t) }));
-const pages = [...publishedHubTowns(records)].sort((a, b) => a.name.localeCompare(b.name));
+/**
+ * The town pages A to Z, less those a full section covers (Longmont's page is
+ * its section's front page, listed above): the rule and the number the home's
+ * "N more towns" uses (the review of 19 November 2026: the home said 91, this
+ * page 95, and listed Estes Park, Fort Collins, Longmont and Loveland twice).
+ */
+const pages = pagesBeyondSections([...publishedHubTowns(records)], fullSections()).sort((a, b) => a.name.localeCompare(b.name));
 /**
  * A town a guide covers as a section of its own (Windsor's Severance) is
  * listed A to Z with the town pages and links to the guide's section, not
@@ -45,7 +52,7 @@ const aToZ = [
 ].sort((a, b) => a.name.localeCompare(b.name));
 const seasons = TRADITION_TYPES.filter((t) => seasonRows(records, t, today).length > 0);
 const path = '/towns/';
-const description = `Every Colorado town on ${hub.siteTitle}, A to Z: ${full.length} full town sections and ${pages.length} town pages with each town’s annual events and outdoor dates.`;
+const description = `Every Colorado town on ${hub.siteTitle}, A to Z: ${full.length} full town sections and ${pages.length} more town pages with each town’s annual events and outdoor dates.`;
 const structured = [
   collectionPageJsonLd(hub, {
     name: 'Every town, A to Z',
@@ -61,7 +68,7 @@ const structured = [
 const h2 = 'mb-5 border-b-2 border-accent pb-3 text-2xl font-medium';
 const link = 'font-semibold text-primary underline';
 ---
-<Page title="Every town, A to Z" seoTitle="Colorado towns A to Z: guides and town pages" eyebrow="Colorado" {description} intro={`${full.length} full sections and ${pages.length} town pages, each one link.`} jsonLd={structured}>
+<Page title="Every town, A to Z" seoTitle="Colorado towns A to Z: guides and town pages" eyebrow="Colorado" {description} intro={`${full.length} full sections and ${pages.length} more town pages, each one link.`} jsonLd={structured}>
   <section aria-labelledby="sections-heading" class="mb-12">
     <h2 id="sections-heading" class={h2}>Full sections</h2>
     <p class="mb-4 max-w-2xl text-[0.9375rem] text-ink-muted">A full section is a whole guide to one town: the week’s events, places to eat, trails and services.</p>

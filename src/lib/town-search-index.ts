@@ -25,6 +25,19 @@ export function coveredTowns(guide: TownConfig): string[] {
   return [...new Set(names)].filter((n) => normalizeTownQuery(n) !== normalizeTownQuery(guide.name));
 }
 
+/**
+ * The town pages beyond the full sections: a page for a town a section
+ * already covers is left out, Longmont's (its section's front page) and
+ * Severance (in "Windsor and Severance"). One rule for the home's "N more
+ * towns" and the A to Z on /towns/, so the two say the same number and
+ * /towns/ lists no town twice (the review of 19 November 2026: the home said
+ * 91, /towns/ 95).
+ */
+export function pagesBeyondSections<T extends { name: string }>(pages: readonly T[], sections: readonly TownConfig[]): T[] {
+  const covered = new Set(sections.flatMap((t) => [t.name, ...coveredTowns(t)]));
+  return pages.filter((p) => !covered.has(p.name));
+}
+
 /** A community guide as a destination. `base` is '' on the guide's own site and its https origin elsewhere. */
 export function guideDestination(guide: TownConfig, base: string, towns: readonly TownConfig[] = allTowns): TownDestination {
   const covered = coveredTowns(guide);
