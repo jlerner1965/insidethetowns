@@ -68,7 +68,7 @@ sources:
     checked: 2026-11-15
   - label: "City of Fort Collins: Council agenda item summary, Resolution 2026-090 (June 16, 2026)"
     url: "https://mccmeetingspublic.blob.core.usgovcloudapi.net/fortcollco-meet-d2650790b0bd473b957ff2b78b58a288/ITEM-Attachment-003-39725283919e49d4b0ce261d6c5036f8.pdf"
-    checked: 2026-11-15
+    checked: 2026-11-18
   - label: "City of Boulder: Railroad quiet zones (Boulder County crossings in Niwot)"
     url: "https://bouldercolorado.gov/projects/railroad-quiet-zones"
     checked: 2026-11-15
@@ -152,13 +152,13 @@ The table covers the towns with a guide or a page on Inside the Towns that are o
 
 | Town | CoCo station | Trains run through | In the tax district | Local Return |
 |---|---|---|---|---|
-| Fort Collins | Yes, at Drake Road, from 2029 | Yes | Yes | About $3 million a year for 25 years, plus 10 percent for endorsing its station summary before June 30, 2026 ([City of Fort Collins](https://mccmeetingspublic.blob.core.usgovcloudapi.net/fortcollco-meet-d2650790b0bd473b957ff2b78b58a288/ITEM-Attachment-003-39725283919e49d4b0ce261d6c5036f8.pdf)) |
-| Loveland | Yes, on Railroad Avenue between 7th and 8th streets, from 2029 | Yes | Yes | About $2.75 million a year for 25 years ([Reporter-Herald](https://www.masstransitmag.com/rail/news/55395752/co-loveland-meeting-details-passenger-rail-tax-proposal)) |
+| Fort Collins | Yes, at Drake Road, from 2029 | Yes | Yes | About $3 million a year for 25 years; the district offered 10 percent more, about $3.3 million a year, if the City endorsed its station summary before June 30, 2026 ([City of Fort Collins](https://mccmeetingspublic.blob.core.usgovcloudapi.net/fortcollco-meet-d2650790b0bd473b957ff2b78b58a288/ITEM-Attachment-003-39725283919e49d4b0ce261d6c5036f8.pdf)) |
+| Loveland | Yes, on Railroad Avenue between 7th and 8th streets, from 2029 | Yes | Yes | About $2.75 million a year for 25 years ([Reporter-Herald via Mass Transit](https://www.masstransitmag.com/rail/news/55395752/co-loveland-meeting-details-passenger-rail-tax-proposal)) |
 | Berthoud | No | Yes | No | None |
-| Longmont | Yes, in lower downtown at First and Main, from 2029 | Yes | Yes | About $3.3 million a year for 25 years ([Daily Camera](https://www.masstransitmag.com/rail/news/55401553/co-coco-planners-tell-boulder-county-cities-what-theyll-get-back-if-sales-tax-passes)) |
+| Longmont | Yes, in lower downtown at First and Main, from 2029 | Yes | Yes | About $3.3 million a year for 25 years ([Daily Camera via Mass Transit](https://www.masstransitmag.com/rail/news/55401553/co-coco-planners-tell-boulder-county-cities-what-theyll-get-back-if-sales-tax-passes)) |
 | Niwot | No | Yes | No | None |
-| Boulder | Yes, at Boulder Junction, from 2029 | Yes | Yes | About $3.3 million a year for 25 years ([Daily Camera](https://www.masstransitmag.com/rail/news/55401553/co-coco-planners-tell-boulder-county-cities-what-theyll-get-back-if-sales-tax-passes)) |
-| Louisville | Yes, between South and Short streets, from 2029 | Yes | Yes | About $2.2 million a year for 25 years ([Daily Camera](https://www.masstransitmag.com/rail/news/55401553/co-coco-planners-tell-boulder-county-cities-what-theyll-get-back-if-sales-tax-passes)) |
+| Boulder | Yes, at Boulder Junction, from 2029 | Yes | Yes | About $3.3 million a year for 25 years ([Daily Camera via Mass Transit](https://www.masstransitmag.com/rail/news/55401553/co-coco-planners-tell-boulder-county-cities-what-theyll-get-back-if-sales-tax-passes)) |
+| Louisville | Yes, between South and Short streets, from 2029 | Yes | Yes | About $2.2 million a year for 25 years ([Daily Camera via Mass Transit](https://www.masstransitmag.com/rail/news/55401553/co-coco-planners-tell-boulder-county-cities-what-theyll-get-back-if-sales-tax-passes)) |
 | Lafayette | No | Yes, where the BNSF line crosses Baseline Road ([Louisville–Lafayette agreement](https://laserfiche.louisvilleco.gov/WebLink/0/doc/433657/Page3.aspx)) | Yes | None |
 | Castle Rock | No | From Phase 2, planned for 2032 | No | None |
 | Palmer Lake | No | From Phase 2, planned for 2032 | No | None |

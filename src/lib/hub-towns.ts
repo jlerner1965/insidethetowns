@@ -245,17 +245,27 @@ export function townSearchText(name: string, traditions: readonly TraditionRow[]
   // A run already under way is named by the day it ends, not a start that has passed.
   const day = (r: TraditionRow) =>
     r.entry.date! < today && r.entry.endDate && r.entry.endDate >= today ? `through ${formatMonthDay(parseLocal(r.entry.endDate))}` : formatMonthDay(parseLocal(r.entry.date!));
+  const spanOf = (dates: readonly string[]) => {
+    const ys = dates.map((d) => d.slice(0, 4)).sort();
+    return ys[0] === ys[ys.length - 1] ? ys[0]! : `${ys[0]}–${ys[ys.length - 1]!.slice(2)}`;
+  };
   const yearsOf = next.map((r) => r.entry.date!.slice(0, 4)).sort();
   const first = yearsOf[0]!;
-  const last = yearsOf[yearsOf.length - 1]!;
-  const years = first === last ? first : `${first}–${last.slice(2)}`;
+  // The description's years are those of the dates it names.
+  const years = spanOf(next.map((r) => r.entry.date!));
+  // The title's are those of every date the page has ahead in the next twelve
+  // months, not only the three the description names (the review of 19
+  // November 2026: Fort Collins, Golden and Brush said 2026 while their pages
+  // listed 2027 dates, and Loveland beside them said 2026–27).
+  const horizon = `${Number(today.slice(0, 4)) + 1}${today.slice(4)}`;
+  const titleYears = spanOf([...next, ...upcoming.filter((r) => r.entry.date! <= horizon)].map((r) => r.entry.date!));
   const list = next.map((r) => `${r.record.name} (${day(r)}${r.entry.date!.slice(0, 4) === first ? '' : `, ${r.entry.date!.slice(0, 4)}`})`);
   const words = (n: number) => (n === 1 ? list[0]! : `${list.slice(0, n - 1).join(', ')} and ${list[n - 1]}`);
   // The description whole, never cut mid-sentence (the audit of 17 November 2026): the closing sentence shortens first, then the list.
   const tails = [` Every annual event and outdoor date, with ${more}, each with the page it was read from.`, ` Every annual event and outdoor date, with ${more}.`, ' Every annual event and outdoor date, with its source.', ''];
   const counts = list.map((_, i) => list.length - i);
   return {
-    seoTitle: fit(titles(years)),
+    seoTitle: fit(titles(titleYears)),
     description: firstFitting(counts.flatMap((n) => tails.map((tail) => `${name}, Colorado in ${years}: ${words(n)}.${tail}`))),
   };
 }

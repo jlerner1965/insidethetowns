@@ -294,6 +294,12 @@ test('the top of /articles/ is the latest news and events, not the guides', () =
   assert.match(page, /subject: a\.kind === 'event' \|\| a\.kind === 'story' \? NEWS : a\.kind === 'guide' \? GUIDES : kindLabel\(a\.kind\)/);
   // The list stands above the subjects' sections (after the pills that jump to them).
   assert.ok(page.indexOf('id="latest"') < page.lastIndexOf('{subjects.map((s) => ('));
+  // A story on top is not listed again under its subject (the review of 19 November 2026: the six were there twice);
+  // the rest of the news is "Earlier news and events", and the news pill goes to the top and counts it all.
+  assert.match(page, /const onTop = new Set\(latest\.map\(\(a\) => a\.href\)\);/);
+  assert.match(page, /for \(const a of articles\) if \(!onTop\.has\(a\.href\)\) bySubject\.set/);
+  assert.match(page, /`Earlier \$\{NEWS\.toLowerCase\(\)\}`/);
+  assert.match(page, /\{ name: NEWS, href: '#latest', count: newsCount \}/);
   // Today's news and events on the site, by the rule the page uses.
   const news = verified.filter((a) => (a.kind === 'event' || a.kind === 'story') && onHub(a) && isPublished(a.date, TODAY));
   assert.ok(news.length > 0, 'there is news to put on top');

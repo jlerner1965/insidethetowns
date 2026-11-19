@@ -86,7 +86,7 @@ import {
 import { shortCost } from '@/lib/cost';
 import { resolveSiteImage } from '@/lib/images';
 import { FLAGSHIP_TEAM, RESULT_WORD, gameDay, hasData, latestResult, outcome, sportsDataFor } from '@/lib/school-sports';
-import { coveredTowns } from '@/lib/town-search-index';
+import { coveredTowns, pagesBeyondSections } from '@/lib/town-search-index';
 import { subTownsOf } from '@/lib/sub-towns';
 import { TRADITION_TYPE_INFO } from '@/lib/traditions';
 import { currentPicks } from '@/lib/weekly';
@@ -340,10 +340,9 @@ const sectionCount = numberWord(sections.length);
  * "N more towns": the town pages for towns no full section covers. Severance
  * has a page of its own and is in "Windsor and Severance" too, and
  * Longmont's town page is its section's front page, so neither is counted
- * twice. /towns/ still lists every page.
+ * twice. /towns/ counts and lists by the same rule.
  */
-const sectionNames = new Set(sectionList.flatMap((t) => [t.name, ...coveredTowns(t)]));
-const moreTowns = pages.filter((p) => !sectionNames.has(p.name)).length;
+const moreTowns = pagesBeyondSections(pages, sectionList).length;
 
 /** The email: one town to start, from the weekly editions (NewsletterSignup.astro, variant "hub"). */
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
@@ -513,22 +512,6 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
     </div>
   )}
 
-  {hub.newsletter && (
-    <section id="email" aria-labelledby="signup-heading" data-band class:list={['on-dark bg-primary text-white', band]}>
-      <div class:list={[wide, 'desk:grid desk:grid-cols-[5fr_7fr] desk:items-start desk:gap-x-[56px]']}>
-        <div class="border-t-2 border-white pt-3">
-          <h2 id="signup-heading" class:list={[pub.h2, 'mt-0 text-white']}>The {sendDay} email</h2>
-          {/* What an edition holds and when it goes, in the words the owner confirmed on 14 November 2026; "7 am" kept on one line. */}
-          <p class:list={[dek, 'text-white']}>Your town’s weekend events, the scores, and what opened or closed. Every Thursday at 7&nbsp;am.</p>
-        </div>
-        {/* `signup`: the form's own anchor, where the masthead's email link lands (Header.astro). */}
-        <NewsletterSignup variant="hub" id="home" anchor="signup">
-          <p class="mt-3 text-meta leading-[1.5] text-white">One town to start; add others any time.{noWeeklyLine} Free, unsubscribe any time · <a class="text-white underline decoration-1 underline-offset-[3px]" href="/privacy/">Privacy</a></p>
-        </NewsletterSignup>
-      </div>
-    </section>
-  )}
-
   {(scores.length > 0 || news.length > 0) && (
     <div class:list={['desk:bg-paper', pairBand]}>
       <div class={pair}>
@@ -626,6 +609,28 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
       {moreTowns > 0 && <a id="town-pages" href="/towns/" class={more} data-track="home-index">{moreTowns} more towns, A to Z →</a>}
     </div>
   </section>
+
+  {/*
+    * The email last, after the towns (the owner's order of 13 November
+    * 2026: the weekend, the season, the index, the email; the review of
+    * 19 November 2026: a first-time reader was asked to sign up before seeing
+    * a story or a town). The masthead's email link still lands on #signup.
+    */}
+  {hub.newsletter && (
+    <section id="email" aria-labelledby="signup-heading" data-band class:list={['on-dark bg-primary text-white', band]}>
+      <div class:list={[wide, 'desk:grid desk:grid-cols-[5fr_7fr] desk:items-start desk:gap-x-[56px]']}>
+        <div class="border-t-2 border-white pt-3">
+          <h2 id="signup-heading" class:list={[pub.h2, 'mt-0 text-white']}>The {sendDay} email</h2>
+          {/* What an edition holds and when it goes, in the words the owner confirmed on 14 November 2026; "7 am" kept on one line. */}
+          <p class:list={[dek, 'text-white']}>Your town’s weekend events, the scores, and what opened or closed. Every Thursday at 7&nbsp;am.</p>
+        </div>
+        {/* `signup`: the form's own anchor, where the masthead's email link lands (Header.astro). */}
+        <NewsletterSignup variant="hub" id="home" anchor="signup">
+          <p class="mt-3 text-meta leading-[1.5] text-white">One town to start; add others any time.{noWeeklyLine} Free, unsubscribe any time · <a class="text-white underline decoration-1 underline-offset-[3px]" href="/privacy/">Privacy</a></p>
+        </NewsletterSignup>
+      </div>
+    </section>
+  )}
 </Base>
 
 <script>

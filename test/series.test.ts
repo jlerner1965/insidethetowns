@@ -10,7 +10,8 @@ import assert from 'node:assert/strict';
 import { finalDayOf, lastDayOf, pastEventSlugs, performanceStarts, pickCanonical, readOccurrences, repeatOccurrenceSlugs, type Occurrence } from '../src/lib/series.ts';
 import { finalDay } from '../src/lib/events.ts';
 import { parseLocal } from '../src/lib/dates.ts';
-import { readFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { towns } from '../src/config/towns/registry.ts';
 
@@ -198,4 +199,34 @@ test('performanceStarts reads a list, plain or with notes, and an inline array',
   assert.deepEqual(performanceStarts(block), ['2026-10-09T19:00', '2026-10-10T19:00']);
   assert.deepEqual(performanceStarts('performances: ["2026-12-18T19:30", "2026-12-19T14:00"]\ncost: "$5"'), ['2026-12-18T19:30', '2026-12-19T14:00']);
   assert.deepEqual(performanceStarts('title: "X"'), []);
+});
+
+test('an event whose title holds an escaped quote is read, and is over once its day has passed', () => {
+  // The hub's site check, 19 November 2026: `title: "Warren Miller's \"Days Off\" 2026"` was skipped by the
+  // front-matter reader, so the passed event stayed in the Loveland sitemap while its page was noindex.
+  const root = mkdtempSync(join(tmpdir(), 'series-'));
+  try {
+    mkdirSync(join(root, 'testtown', 'events'), { recursive: true });
+    writeFileSync(join(root, 'testtown', 'events', 'days-off-2026-11-18.md'), '---\ntitle: "Warren Miller\'s \\"Days Off\\" 2026"\nstart: "2026-11-18T19:00"\nend: "2026-11-18T21:00"\nvenue: "The Rialto Theater"\n---\n\nBody.\n');
+    writeFileSync(join(root, 'testtown', 'events', 'single-quoted-2026-11-18.md'), "---\ntitle: 'Bob''s Bingo'\nstart: '2026-11-18T18:00'\nvenue: Town Hall\n---\n");
+    const all = readOccurrences('testtown', root);
+    assert.deepEqual(all.map((x) => x.key).sort(), ["Bob's Bingo|Town Hall", 'Warren Miller\'s "Days Off" 2026|The Rialto Theater']);
+    assert.ok(pastEventSlugs('testtown', root, parseLocal('2026-11-19')).has('days-off-2026-11-18'));
+    assert.ok(!pastEventSlugs('testtown', root, parseLocal('2026-11-18')).has('days-off-2026-11-18'), 'not over on its own day');
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('every event file with a title and a start is read by the sitemap’s rules', () => {
+  // A listing the reader skips is never counted as over, so it would stay in the sitemap once noindex.
+  for (const town of TOWN_SLUGS) {
+    const dir = join('content', town, 'events');
+    if (!existsSync(dir)) continue;
+    const files = readdirSync(dir).filter((f) => f.endsWith('.md') && !f.startsWith('_'));
+    const withFields = files.filter((f) => /^title:\s*\S/m.test(readFileSync(join(dir, f), 'utf8')) && /^start:\s*\S/m.test(readFileSync(join(dir, f), 'utf8')));
+    const read = new Set(readOccurrences(town).map((x) => `${x.slug}.md`));
+    const missed = withFields.filter((f) => !read.has(f));
+    assert.deepEqual(missed, [], `${town}: event files the sitemap's rules did not read`);
+  }
 });
