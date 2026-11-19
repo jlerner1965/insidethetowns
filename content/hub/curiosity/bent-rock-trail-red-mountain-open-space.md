@@ -4,10 +4,15 @@ kind: guide
 towns: [wellington]
 eyebrow: "Colorado’s Secret Trails · Wellington"
 title: "Bent Rock Trail at Red Mountain Open Space"
-description: "The Bent Rock Trail is 2.0 miles in Larimer County’s Red Mountain Open Space, off County Road 21. Open March 1 through November 30 each year."
+description: "The Bent Rock Trail is 1.9 miles on Larimer County’s 2019 trail map, in Red Mountain Open Space off County Road 21. Open March 1 to November 30."
 status: verified
 feature: false
 date: 2026-11-19
+updated: { date: 2026-11-19, note: "The Bent Rock Trail’s distance is now the county’s 2019 trail map’s, and a photograph of the open space is added." }
+image: "red-mountain-open-space.jpg"
+imageFolder: "hub"
+imageAlt: "Rolling grassland and sagebrush at Red Mountain Open Space in June, low hills on both sides and a red hillside in the distance under a blue sky with white clouds"
+imageCredit: "Colorado State Forest Service Volunteer Program, Flickr, public domain (June 2017; the open space, not the Bent Rock Trail itself)"
 townsNav: false
 invite: { text: "Get the next trail in the free Thursday email.", href: "/newsletter/" }
 sources:
@@ -19,6 +24,9 @@ sources:
     checked: 2026-11-19
   - label: "Larimer County: Red Mountain Open Space brochure (2023)"
     url: "https://www.larimer.gov/sites/default/files/2024-11/brochure_-_red_mountain_open_space_english_-_august_24_2023.pdf"
+    checked: 2026-11-19
+  - label: "Larimer County: Red Mountain Open Space trail map (2019)"
+    url: "https://www.larimer.gov/sites/default/files/red_mountain_map_2019_1.pdf"
     checked: 2026-11-19
   - label: "Larimer County: Red Mountain Open Space brochure (2009)"
     url: "https://fcmod.org/trails/tour1/brochure_redmountain.pdf"
@@ -36,9 +44,9 @@ Larimer County's [Red Mountain Open Space](https://www.larimer.gov/naturalresour
 
 ## Distance and difficulty
 
-The Bent Rock Trail is 2.0 miles on the map in the county's [2023 brochure](https://www.larimer.gov/sites/default/files/2024-11/brochure_-_red_mountain_open_space_english_-_august_24_2023.pdf). That figure is for the trail itself; on the map, connecting trails link it to the parking lot.
+Larimer County's [2019 trail map](https://www.larimer.gov/sites/default/files/red_mountain_map_2019_1.pdf) labels the Bent Rock Trail 1.9 miles. Your total depends on how you link back to the trailhead, so plan the loop on the county's map.
 
-The county's [2009 brochure](https://fcmod.org/trails/tour1/brochure_redmountain.pdf) listed it as hiking only and rated it easy.
+The county's [2009 brochure](https://fcmod.org/trails/tour1/brochure_redmountain.pdf) listed Bent Rock as hiking only and rated it easy.
 
 ## Getting there
 
