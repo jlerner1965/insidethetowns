@@ -440,3 +440,37 @@ test('a day’s chosen listings are shown in clock order: the pick is chosen fir
   assert.ok(dayOrder(at('2026-11-14T23:00'), '2026-11-14') < dayOrder(at('2026-11-14', true), '2026-11-14'), 'an all-day listing after the timed ones');
   assert.ok(dayOrder(at('2026-11-14T23:00'), '2026-11-14') < dayOrder(at('2026-11-13T10:00'), '2026-11-14'), 'a run begun the day before has no time on this day');
 });
+
+test('a weekend where most towns list on Friday spreads over Friday, Saturday and Sunday at the same length, one town a row (19 November 2026)', () => {
+  const all = [
+    ev('johnstown', 'Johnstown Friday show', '2026-11-13T17:00'),
+    ev('berthoud', 'Berthoud Friday show', '2026-11-13T18:00', { slug: 'berthoud-friday' }),
+    ev('lyons', 'Lyons Friday show', '2026-11-13T18:30'),
+    ev('erie', 'Erie Friday show', '2026-11-13T19:00'),
+    ev('windsor', 'Windsor Friday show', '2026-11-13T20:00'),
+    ev('berthoud', 'Berthoud Saturday market', '2026-11-14T10:00'),
+    ev('lyons', 'Lyons Sunday walk', '2026-11-15T11:00'),
+  ];
+  const titles = (m: Map<string, Array<{ data: { title: string } }>>) => days.map((d) => [d.key, (m.get(d.key) ?? []).map((e) => e.data.title)]);
+  const rows = (m: Map<string, unknown[]>) => [...m.values()].reduce((n, l) => n + l.length, 0);
+  const spread = weekendPicksByDay(all, days, { now, perDay: 3 });
+  // Until then: Friday's three, Berthoud's and Lyons's later listings unused, Saturday and Sunday empty.
+  assert.deepEqual(titles(spread), [
+    ['2026-11-13', ['Johnstown Friday show']],
+    ['2026-11-14', ['Berthoud Saturday market']],
+    ['2026-11-15', ['Lyons Sunday walk']],
+  ]);
+  assert.equal(rows(spread), 3, 'no longer than the best-first choice: three rows, with no fourth town brought in');
+  const towns = [...spread.values()].flat().map((e) => (e as { town: { slug: string } }).town.slug);
+  assert.equal(new Set(towns).size, towns.length, 'still one listing a town');
+  // An editor's pick stays where it was chosen; Saturday then has no town to take, and Sunday still fills.
+  const kept = weekendPicksByDay(all, days, { now, perDay: 3, picked: new Set(['berthoud/berthoud-friday']) });
+  assert.deepEqual(titles(kept), [
+    ['2026-11-13', ['Johnstown Friday show', 'Berthoud Friday show']],
+    ['2026-11-14', []],
+    ['2026-11-15', ['Lyons Sunday walk']],
+  ]);
+  // One a day: nothing to spread, and the one-a-day pick exactly.
+  const one = weekendPicksByDay(all, days, { now, perDay: 1 });
+  assert.deepEqual([...one].map(([d, l]) => [d, l[0]!.data.title]), [...weekendPicks(all, days, { now })].map(([d, e]) => [d, e.data.title]));
+});
