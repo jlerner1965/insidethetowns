@@ -61,4 +61,21 @@ jobs:
           fi
           git commit -m "Wednesday research drafts, ${{ steps.draft.outputs.day }}: weekly notes for every live town, local changes for the resident guides" \
             -m "Written by the research agent (agent/) from the web and the guide's own listings. Not published: the weekly editor publishes a local change only when it can read the source itself, and a person pastes what holds up into content/<town>/weekly/."
-          git push origin HEAD:main
+          # The research takes a quarter of an hour, and anything pushed to
+          # main meanwhile turned a bare push away and the week's drafts were
+          # lost (18 November 2026, run 44393221261). So take what is new on
+          # main before each push, and try again after a short wait. The
+          # commit only touches docs/agent/, so it replays over content and
+          # code without conflict; where a session pushed the same draft
+          # meanwhile, this run's research is the newer and wins (-X theirs:
+          # in a rebase "theirs" is the commit being replayed, this run's).
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase -X theirs origin main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            if [ "$attempt" -lt 5 ]; then
+              echo "Could not take main's new commits and push ($attempt); trying again in $((attempt * 10)) seconds."
+              sleep $((attempt * 10))
+            fi
+          done
+          echo "Could not push the drafts after five tries."
+          exit 1
