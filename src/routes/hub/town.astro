@@ -69,7 +69,7 @@ import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingDa
 import { appliesTo, eventPage, eventPath, lineFor, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
 import { foundedLine, milesShort, monthAnchor, notYetLine, moreHeading, moreInRegion, pageSections, profileView, timelineText, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
 import { MONTH_NAMES } from '@/lib/year-grid';
-import { articlePath, articlesFor, historyStory } from '@/lib/curiosity';
+import { articlePath, articlesFor, historyStory, isStandalone } from '@/lib/curiosity';
 import { PLACE_TYPE_PLURALS, type PlaceType } from '@/content/schemas';
 import { formatDrive, formatMiles, type Airports, type RoadMiles, type TownFacts } from '@/lib/near';
 import { nearView } from '@/lib/near-view';
@@ -365,7 +365,8 @@ const leadGuide = await (async () => {
   if (!town.leadGuide) return undefined;
   const ref = parseLeadGuide(town.leadGuide);
   if (ref?.kind === 'hub') {
-    const article = (await getCuriosity()).find((a) => a.data.slug === ref.slug && (a.data.kind === 'story' || a.data.kind === 'event'));
+    // An event article, a story or a guide: the ones at /articles/<slug>/.
+    const article = (await getCuriosity()).find((a) => a.data.slug === ref.slug && isStandalone(a.data.kind));
     if (article) return { href: town.leadGuide, title: article.data.title, line: article.data.description };
   } else if (ref && folded?.section && ref.town === town.slug && ref.segment === sectionArticleSegment(folded.section.mode)) {
     const article = (await getSectionEntries('articles', folded)).find((a) => a.slug === ref.slug);

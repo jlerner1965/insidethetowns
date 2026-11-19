@@ -47,6 +47,8 @@ const todayKey = dayKey(new Date());
 /** How many articles the "Latest" list at the top holds. */
 const LATEST = 6;
 const NEWS = 'News and events';
+/** The hub's guides to towns with no guide of their own (kind `guide`): not news (the owner, 19 November 2026). */
+const GUIDES = 'Guides';
 type Row = { title: string; href: string; eyebrow: string; place: string; subject: string; date: string; description?: string; verified?: string; draft?: boolean; guide?: string };
 const hubArticles: Row[] = newestFirst((await getCuriosity()).map((a) => a.data).filter((a) => onHub(a, sectionPlaces))).map((a) => {
   const place = townsLine(a.towns.map((t) => placeName(t) ?? t));
@@ -55,7 +57,7 @@ const hubArticles: Row[] = newestFirst((await getCuriosity()).map((a) => a.data)
     href: articlePath(a),
     eyebrow: `${kindLabel(a.kind)} · ${place}`,
     place,
-    subject: a.kind === 'event' || a.kind === 'story' ? NEWS : kindLabel(a.kind),
+    subject: a.kind === 'event' || a.kind === 'story' ? NEWS : a.kind === 'guide' ? GUIDES : kindLabel(a.kind),
     date: a.date,
     description: a.description,
     verified: lastVerified(a),

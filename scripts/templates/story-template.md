@@ -9,6 +9,8 @@
 # town is one of the eleven full sections stays in that section, and is on the
 # home page and /articles/ only when featured (it stays in its section too).
 slug: town-what-happened
+# `story` for news. `guide` for a practical guide to a town with no guide of its
+# own (a day plan, getting around): listed under Guides on /articles/, not news.
 kind: story
 # The towns it is about: a hub town page's slug or a guide's key
 # (src/config/hub-towns.ts).

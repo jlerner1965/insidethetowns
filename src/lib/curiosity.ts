@@ -4,7 +4,10 @@
  * Ghost towns, each anchored to one town, and the one-off event article
  * (Sundance from the towns next door), which covers several; and, since 13
  * November 2026, a story: a piece of news worth a reader's time (Nederland
- * and Eldora). An article the owner marks `feature` is shown under "In the
+ * and Eldora); and, since 19 November 2026, a guide: a practical guide to a
+ * town with no guide of its own (a day plan in Buena Vista, the Durango
+ * train), filed under Guides on /articles/ and not called news (the owner,
+ * 19 November 2026). An article the owner marks `feature` is shown under "In the
  * towns" on the hub's home while it is one of the five newest featured
  * (or until `homeUntil`), and kept at its address after that.
  *
@@ -33,13 +36,13 @@ import { isGuideSite, sourceHost } from './town-profile.ts';
 /** The topics with an index page, in the order the hub lists them. */
 export const CURIOSITY_TOPICS = ['camping', 'ghost-towns'] as const;
 export type CuriosityTopic = (typeof CURIOSITY_TOPICS)[number];
-/** What an article is: one of the topics, a one-off event article, or a story (news); the last two have no index of their own. */
-export const CURIOSITY_KINDS = [...CURIOSITY_TOPICS, 'event', 'story'] as const;
+/** What an article is: one of the topics, a one-off event article, a story (news) or a guide; the last three have no index of their own. */
+export const CURIOSITY_KINDS = [...CURIOSITY_TOPICS, 'event', 'story', 'guide'] as const;
 export type CuriosityKind = (typeof CURIOSITY_KINDS)[number];
 
-/** An event article or a story: at /articles/<slug>/, naming any number of towns, every fact from its listed sources. */
-export function isStandalone(kind: CuriosityKind): kind is 'event' | 'story' {
-  return kind === 'event' || kind === 'story';
+/** An event article, a story or a guide: at /articles/<slug>/, naming any number of towns, every fact from its listed sources. */
+export function isStandalone(kind: CuriosityKind): kind is 'event' | 'story' | 'guide' {
+  return kind === 'event' || kind === 'story' || kind === 'guide';
 }
 
 export const TOPIC_INFO: Record<CuriosityTopic, { label: string; path: string; near: (town: string) => string; intro: string; description: string }> = {
@@ -248,7 +251,7 @@ const placeSlug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'a town page’
 
 export const curiositySchema = z
   .object({
-    /** The file's name, and the address of an event article or a story: /articles/<slug>/. */
+    /** The file's name, and the address of an event article, a story or a guide: /articles/<slug>/. */
     slug: placeSlug,
     kind: z.enum(CURIOSITY_KINDS),
     /**
@@ -348,7 +351,7 @@ export const curiositySchema = z
   .refine((a) => isStandalone(a.kind) || a.towns.length === 1, { message: 'a topic article is anchored to one town', path: ['towns'] })
   .refine((a) => (a.kind === 'camping') === a.campgrounds.length > 0, { message: 'a camping article lists its campgrounds, and only a camping article does', path: ['campgrounds'] })
   .refine((a) => (a.kind === 'ghost-towns') === a.ghostTowns.length > 0, { message: 'a ghost-town article lists its ghost towns, and only a ghost-town article does', path: ['ghostTowns'] })
-  .refine((a) => !isStandalone(a.kind) || a.sources.length > 0, { message: 'an event article or a story names the source of every fact', path: ['sources'] })
+  .refine((a) => !isStandalone(a.kind) || a.sources.length > 0, { message: 'an event article, a story or a guide names the source of every fact', path: ['sources'] })
   .refine((a) => a.kind === 'story' || a.feature || !a.homeUntil, { message: 'homeUntil is for a featured article (feature: true) or a story', path: ['homeUntil'] })
   .refine((a) => !a.homeUntil || a.homeUntil >= a.date, { message: 'homeUntil is on or after the article’s date', path: ['homeUntil'] })
   .refine((a) => !a.updated || a.updated.date >= a.date, { message: 'an update is on or after the article’s date', path: ['updated', 'date'] })
@@ -451,15 +454,15 @@ export function isShown(a: Pick<CuriosityArticle, 'status'>, env: Record<string,
 /** The hub's index of every article on the site: /articles/. */
 export const ARTICLES_INDEX_PATH = '/articles/';
 
-/** What an article is, in the word its row shows: "News", "Event", "Camping". */
+/** What an article is, in the word its row shows: "News", "Event", "Guide", "Camping". */
 export function kindLabel(kind: CuriosityKind): string {
-  return kind === 'event' ? 'Event' : kind === 'story' ? 'News' : TOPIC_INFO[kind].label;
+  return kind === 'event' ? 'Event' : kind === 'story' ? 'News' : kind === 'guide' ? 'Guide' : TOPIC_INFO[kind].label;
 }
 
-/** A story's own word for itself where its eyebrow gives one ("History · Leadville" is History, not News; the owner, 18 November 2026), else its kind's. */
+/** A story's or a guide's own word for itself where its eyebrow gives one ("History · Leadville" is History, not News; "Day plan · Buena Vista"; the owner, 18 November 2026), else its kind's. */
 export function articleLabel(a: Pick<CuriosityArticle, 'kind' | 'eyebrow'>): string {
   const own = a.eyebrow?.split(' · ')[0]?.trim();
-  return a.kind === 'story' && own ? own : kindLabel(a.kind);
+  return (a.kind === 'story' || a.kind === 'guide') && own ? own : kindLabel(a.kind);
 }
 
 /** A town's history story: the story whose eyebrow calls itself History. */

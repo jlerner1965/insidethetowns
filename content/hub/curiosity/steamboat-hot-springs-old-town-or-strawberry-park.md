@@ -1,6 +1,6 @@
 ---
 slug: steamboat-hot-springs-old-town-or-strawberry-park
-kind: story
+kind: guide
 towns: [steamboat-springs]
 eyebrow: "Hot springs guide · Steamboat Springs"
 title: "Steamboat's hot springs: Old Town or Strawberry Park, what to book"
@@ -8,7 +8,6 @@ seoTitle: "Steamboat hot springs: Old Town vs Strawberry Park"
 description: "Old Town, downtown, takes no reservations. Strawberry Park, 7 miles out, needs a booked slot, cash and, until May 1, 4WD with snow tires or a shuttle."
 status: verified
 date: 2026-11-18
-homeUntil: 2026-11-18
 footnote: "The winter vehicle rule for Strawberry Park is the operator’s statement of Routt County law; no Routt County page read for this guide gives it, and the operator’s own pages word it three ways. Day prices are the operators’ own, read for comparison."
 sources:
   - label: "Old Town Hot Springs: contact and hours"

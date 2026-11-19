@@ -12526,3 +12526,20 @@ Pass.*
   It hides an article dated ahead by the home's own rule (`isPublished`,
   src/lib/hub-home.ts): listed from its date, a Denver day, at that day's
   build.
+
+## The hub towns' practical pieces are guides, not news, 19 November 2026
+
+- **A `guide` kind** for the hub's articles (src/lib/curiosity.ts): a
+  practical guide to a town with no guide of its own. The six such pieces
+  (Buena Vista, Carbondale, Crested Butte, Durango, Salida, Steamboat
+  Springs) were filed as stories, so `/articles/` labelled them "News ·
+  Buena Vista" under News and events (the owner: "these are not articles,
+  they are guides"). They are guides now: "Guide · Buena Vista", listed
+  under Guides on `/articles/`. New ones are filed the same way, from the
+  story template with `kind: guide`.
+- **Nothing else moves.** Each stays at its `/articles/<slug>/` address, is
+  still its hub town's lead guide, and keeps its own word on the town
+  pages' Nearby block ("Day plan", "Train guide"). Its page is an Article
+  rather than a NewsArticle in the structured data; a reader sees the same
+  page. Their `homeUntil` lines are gone: none is featured, so they did
+  nothing.

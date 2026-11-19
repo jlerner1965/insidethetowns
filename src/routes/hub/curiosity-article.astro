@@ -2,8 +2,8 @@
 /**
  * One town-anchored article on the hub (src/lib/curiosity.ts): Camping
  * near a town at /camping/<town>/, Ghost towns near a town at
- * /ghost-towns/<town>/, and a one-off event article or a story (news) at
- * /articles/<slug>/.
+ * /ghost-towns/<town>/, and a one-off event article, a story (news) or a
+ * guide at /articles/<slug>/.
  * One file at three patterns, each asked for only once an article of its
  * kind is on the site (src/integrations/town-routes.ts).
  *
@@ -143,6 +143,7 @@ const entries = entriesOf(data).map((e) => ({
 const structured = [
   {
     '@context': 'https://schema.org',
+    // A guide is not news (the owner, 19 November 2026): an Article, as the topic articles are.
     '@type': story ? 'NewsArticle' : 'Article',
     headline: data.title,
     description: data.description,

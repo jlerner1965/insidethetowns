@@ -14,7 +14,7 @@ import { join } from 'node:path';
 import { z } from 'astro/zod';
 import { fullSections, liveTowns, sectionHome } from '../src/config/index.ts';
 import { articleSchema } from '../src/content/schemas.ts';
-import { DRAFTS_ENV, articlePath, curiositySchema, type CuriosityArticle } from '../src/lib/curiosity.ts';
+import { DRAFTS_ENV, articleLabel, articlePath, curiositySchema, isStandalone, kindLabel, type CuriosityArticle } from '../src/lib/curiosity.ts';
 import { shownArticles } from '../src/lib/curiosity-files.ts';
 import { fullSectionPlaces, onHub, sectionOnly } from '../src/lib/curiosity-places.ts';
 import { dayKey, parseLocal } from '../src/lib/dates.ts';
@@ -241,4 +241,39 @@ test('/articles/ hides an article dated ahead, by the home’s own date rule', (
   // Applied to every row, the hub's and the sections', before the Latest list, the subjects and the structured data are drawn from it.
   assert.match(page, /const articles = \[\.\.\.hubArticles, \.\.\.guideArticles\]\s*\.filter\(\(a\) => isPublished\(a\.date, todayKey\)\)/);
   assert.ok(page.indexOf('isPublished(a.date, todayKey)') < page.indexOf('const latest = '));
+});
+
+test('the hub towns’ practical pieces are guides, not news: labelled and listed as Guides on /articles/', () => {
+  // The owner, 19 November 2026: "these are not articles, they are guides".
+  const GUIDES = [
+    'buena-vista-river-park-trail-downtown-hot-springs',
+    'carbondale-park-once-main-street-rio-grande-trail',
+    'crested-butte-without-a-car',
+    'durango-silverton-train-which-trip-booking-parking',
+    'salida-downtown-and-arkansas-river-walk',
+    'steamboat-hot-springs-old-town-or-strawberry-park',
+  ];
+  for (const slug of GUIDES) {
+    const a = verified.find((x) => x.slug === slug);
+    assert.ok(a, `${slug} is on the site`);
+    assert.equal(a.kind, 'guide', `${slug} is filed as a guide`);
+    assert.equal(articlePath(a), `/articles/${slug}/`, 'its address is unchanged');
+    assert.equal(a.feature, false);
+    // Its own word on the town pages' Nearby block, as before ("Day plan", "Train guide").
+    assert.equal(articleLabel(a), a.eyebrow!.split(' · ')[0]);
+  }
+  assert.equal(kindLabel('guide'), 'Guide');
+  assert.ok(isStandalone('guide'), 'at /articles/<slug>/, naming any towns, every fact from its sources');
+  const base = { slug: 'x', kind: 'guide', towns: ['salida'], title: 'T', description: 'D', date: '2026-11-19' };
+  assert.ok(!curiositySchema.safeParse(base).success, 'a guide names its sources');
+  assert.ok(curiositySchema.safeParse({ ...base, sources: [{ label: 'S', url: 'https://example.org/', checked: '2026-11-19' }] }).success);
+  // /articles/: "Guide · Buena Vista", under Guides, not "News · Buena Vista" under News and events.
+  const page = readFileSync('src/routes/hub/articles-index.astro', 'utf8');
+  assert.match(page, /eyebrow: `\$\{kindLabel\(a\.kind\)\} · \$\{place\}`/);
+  assert.match(page, /subject: a\.kind === 'event' \|\| a\.kind === 'story' \? NEWS : a\.kind === 'guide' \? GUIDES : kindLabel\(a\.kind\)/);
+  assert.match(page, /const GUIDES = 'Guides';/);
+  // Its page is an Article, not a NewsArticle: only a story is news.
+  assert.match(readFileSync('src/routes/hub/curiosity-article.astro', 'utf8'), /const story = data\.kind === 'story';[\s\S]*'@type': story \? 'NewsArticle' : 'Article'/);
+  // A hub town's lead guide may be one.
+  assert.match(readFileSync('src/routes/hub/town.astro', 'utf8'), /a\.data\.slug === ref\.slug && isStandalone\(a\.data\.kind\)/);
 });

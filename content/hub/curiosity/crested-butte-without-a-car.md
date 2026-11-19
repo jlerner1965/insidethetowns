@@ -1,6 +1,6 @@
 ---
 slug: crested-butte-without-a-car
-kind: story
+kind: guide
 towns: [crested-butte]
 eyebrow: "Getting around · Crested Butte"
 title: "Crested Butte without a car: the free bus, parking and Elk Avenue"
@@ -8,7 +8,6 @@ seoTitle: "Crested Butte free bus and parking: town and ski area"
 description: "The free bus runs every 15 minutes, 7:10 am to midnight, from November 25, 2026, to April 4, 2027. Town parking is free; the ski area's Main Lot is $20–$30."
 status: verified
 date: 2026-11-18
-homeUntil: 2026-11-18
 footnote: "The Town of Crested Butte’s and Mt. Crested Butte’s own sites refuse automated readers, so their winter parking rules were not read for this guide: the parking facts are from Park Crested Butte, the parking operator for the Town and the ski area."
 sources:
   - label: "Mountain Express: home page (schedule dates)"

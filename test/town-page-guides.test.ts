@@ -67,7 +67,7 @@ test('each briefed town names a lead guide, and every lead guide is a published 
       assert.ok(existsSync(file), file);
       const data = parseFrontmatter(readFileSync(file, 'utf8')).data as { status?: string; kind?: string; towns?: string[] };
       assert.equal(data.status, 'verified', `${file} is not verified, so it builds no page`);
-      assert.ok(data.kind === 'story' || data.kind === 'event', `${file}: a lead guide on the hub is a story or an event article`);
+      assert.ok(data.kind === 'guide' || data.kind === 'story' || data.kind === 'event', `${file}: a lead guide on the hub is a guide, a story or an event article`);
       assert.ok(data.towns?.includes(slug), `${file} does not name ${slug}`);
     } else {
       assert.equal(ref!.town, slug, `${slug}: its lead guide is in another town's section`);

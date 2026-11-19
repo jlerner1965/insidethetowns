@@ -8,7 +8,7 @@
  * A path names one of two kinds of article:
  *   /<town>/articles/<slug>/  a guide's article in a full section (Estes Park)
  *   /<town>/guides/<slug>/    a guide's article kept page by page (Golden)
- *   /articles/<slug>/         a hub story (Salida, which never had a guide)
+ *   /articles/<slug>/         a hub guide (Salida, which never had a guide of its own)
  * Plain parsing here; the page looks the article up and stops the build on
  * a path that names none.
  */

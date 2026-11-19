@@ -93,6 +93,11 @@ articles whose file says `status: verified`.
   can go in that guide's `content/<town>/updates/` (a local change) or
   `articles/` instead.
 
+- **A guide** is a practical guide to a town with no guide of its own (a
+  day plan in Buena Vista, the Durango train): the story template with
+  `kind: guide`. It is at `/articles/<slug>/` like a story, but labelled
+  "Guide · <town>" and listed under Guides on `/articles/`, not as news.
+
 - `npm run curiosity` lists, by article, every flagged or empty field
   (`-- --md` for a pull request). An article with an open flag cannot be
   marked verified: fill the field from its official source, or delete the

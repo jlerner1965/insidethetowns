@@ -1,6 +1,6 @@
 ---
 slug: durango-silverton-train-which-trip-booking-parking
-kind: story
+kind: guide
 towns: [durango]
 eyebrow: "Train guide · Durango"
 title: "Durango & Silverton train: which trip runs now, booking and parking"
@@ -8,7 +8,6 @@ seoTitle: "Durango & Silverton train: winter trips, booking, parking"
 description: "From November 20, 2026: Cascade Canyon by day, The Polar Express by night. Silverton’s 2027 dates: not yet announced (checked Nov. 18, 2026)."
 status: verified
 date: 2026-11-18
-homeUntil: 2026-11-18
 footnote: "The railroad’s booking page lists The Polar Express at $67 to $101, while its 2026 fare chart starts at $31.32, for a child in coach on a value night; this guide links the booking calendar rather than quoting either. The Polar Express departure times are from the railroad’s 2026 calendar."
 sources:
   - label: "Durango & Silverton Narrow Gauge Railroad: travel update (November 12, 2026)"

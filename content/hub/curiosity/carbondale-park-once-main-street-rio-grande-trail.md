@@ -1,6 +1,6 @@
 ---
 slug: carbondale-park-once-main-street-rio-grande-trail
-kind: story
+kind: guide
 towns: [carbondale]
 eyebrow: "Day plan · Carbondale"
 title: "Carbondale park-once day: Main Street, Rio Grande Trail, Crystal River"
@@ -8,7 +8,6 @@ seoTitle: "Carbondale park-once day: Main Street, trail and river"
 description: "Park free at RFTA's Carbondale Park & Ride, walk the Rio Grande Trail to Main Street, and ride the free Circulator back: every 15 minutes, 5:02 am to 9:16 pm."
 status: verified
 date: 2026-11-18
-homeUntil: 2026-11-18
 footnote: "The trail distances between park-and-rides are from Pitkin County’s Rio Grande Trail map of 2015; RFTA’s own trail map could not be read."
 sources:
   - label: "RFTA: park and rides"
