@@ -37,3 +37,5 @@ picks:
 ---
 
 Nobody pays to be listed. Events are on the [calendar](/events/).
+
+For the trails between these, the Town's [Open Space & Trails page](https://www.berthoud.org/220/Open-Space-Trails) links an interactive COTREX map of Berthoud's recreation trail system, the list of public open spaces and the Trails Master Plan.
