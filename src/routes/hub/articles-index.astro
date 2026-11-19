@@ -81,11 +81,23 @@ const articles = [...hubArticles, ...guideArticles]
 // The top of the page is the news and events, the newest first; guides and the rest are under their subjects below.
 const latest = articles.filter((a) => a.subject === NEWS).slice(0, LATEST);
 // The subjects: the hub's news first, then the one with the most articles.
+// A story in the list at the top is not listed again under its subject (the
+// review of 19 November 2026: the six newest stories were on the page twice);
+// what is left of the news is its earlier stories, and with none left the
+// subject has no section of its own. Its pill goes to the list at the top
+// and counts all the news.
+const onTop = new Set(latest.map((a) => a.href));
+const newsCount = articles.filter((a) => a.subject === NEWS).length;
 const bySubject = new Map<string, Row[]>();
-for (const a of articles) bySubject.set(a.subject, [...(bySubject.get(a.subject) ?? []), a]);
+for (const a of articles) if (!onTop.has(a.href)) bySubject.set(a.subject, [...(bySubject.get(a.subject) ?? []), a]);
 const subjects = [...bySubject.entries()]
-  .map(([name, rows]) => ({ name, rows, id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') }))
-  .sort((a, b) => Number(b.name === NEWS) - Number(a.name === NEWS) || b.rows.length - a.rows.length || a.name.localeCompare(b.name));
+  .map(([name, rows]) => ({ name: name === NEWS && latest.length > 0 ? `Earlier ${NEWS.toLowerCase()}` : name, subject: name, rows, id: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') }))
+  .sort((a, b) => Number(b.subject === NEWS) - Number(a.subject === NEWS) || b.rows.length - a.rows.length || a.name.localeCompare(b.name));
+/** The pills that jump down the page: the news to the list at the top, each other subject to its section. */
+const pills = [
+  ...(latest.length > 0 ? [{ name: NEWS, href: '#latest', count: newsCount }] : []),
+  ...subjects.filter((s) => s.subject !== NEWS || latest.length === 0).map((s) => ({ name: s.name, href: `#${s.id}`, count: s.rows.length })),
+];
 const structured = [
   collectionPageJsonLd(hub, { name: title, description, path: ARTICLES_INDEX_PATH, items: articles.map((a) => (/^https?:/.test(a.href) ? { name: a.title, url: a.href } : { name: a.title, path: a.href })) }),
   breadcrumbJsonLd(hub, [
@@ -103,9 +115,9 @@ const link = 'text-ink no-underline hover:text-primary hover:underline';
   </p>
   <div data-articles-index>
     <nav aria-label="Subjects" class="flex flex-wrap gap-2">
-      {subjects.map((s) => (
-        <a href={`#${s.id}`} class="inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 py-2 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary sm:min-h-0 sm:py-1.5">
-          {s.name} <span class="ml-1.5 tabular-nums text-ink-muted">{s.rows.length}</span>
+      {pills.map((p) => (
+        <a href={p.href} class="inline-flex min-h-11 items-center rounded-full border border-primary-line bg-raised px-4 py-2 text-sm font-medium text-ink-muted no-underline transition-colors hover:border-primary hover:text-primary sm:min-h-0 sm:py-1.5">
+          {p.name} <span class="ml-1.5 tabular-nums text-ink-muted">{p.count}</span>
         </a>
       ))}
     </nav>
