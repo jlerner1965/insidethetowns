@@ -105,27 +105,30 @@ export const niwot: TownConfig = {
     sections: [
       {
         title: 'Roads, snow and maintenance',
-        verified: '2026-10-21',
+        verified: '2026-11-19',
         items: [
           { label: 'Boulder County road maintenance', url: 'https://bouldercounty.gov/transportation/road-maintenance/', note: 'Snow removal, grading, chip seal on county roads; report a problem through Ask Boulder County, 303-441-3962' },
           { label: 'Ask Boulder County: report a road problem', url: 'https://bouldercountyco.comcate.com/en' },
-          { label: 'CDOT: CO 119 Diagonal project', url: 'https://www.codot.gov/projects/co119mobility/about', note: 'The week’s closures on the Diagonal, through spring 2027' },
+          { label: 'CDOT: CO 119 Diagonal project', url: 'https://www.codot.gov/projects/co119mobility/about', note: 'The week’s closures on the Diagonal; CDOT schedules Foothills Parkway to Airport Road to finish in spring 2027, and Airport Road to Hover Street in winter 2027' },
           { label: 'CDOT road conditions', url: 'https://www.cotrip.org/' },
         ],
       },
       {
         title: 'Getting around',
-        verified: '2026-11-09',
+        verified: '2026-11-19',
         items: [
           { label: 'RTD BOLT: Boulder to Longmont', url: 'https://app.rtd-denver.com/en-US/route/BOLT/schedule', note: 'Stops at CO 119 and Niwot Road both ways, between Downtown Boulder Station and 23rd and Main in Longmont; on New Year’s Day, Memorial Day, Independence Day, Labor Day, Thanksgiving and Christmas, RTD runs its Sunday/holiday schedule' },
+          { label: 'RTD Route AL: Longmont to Denver International Airport', url: 'https://www.rtd-denver.com/service-changes/final-september-2026-service-changes', note: 'Since September 27, 2026, hourly from 6 am to 10 pm daily, from 8th Avenue and Coffman Street in Longmont with a stop at the Niwot Park-n-Ride, then by the Lafayette Park-n-Ride and E-470 to DEN' },
         ],
       },
       {
         title: 'Water, sewer, trash',
         note: 'Sewer depends on the address: inside the Niwot Sanitation District’s lines it is the district, elsewhere septic.',
-        verified: '2026-10-21',
+        verified: '2026-11-19',
         items: [
-          { label: 'Left Hand Water District', url: 'https://lefthandwater.gov/', note: 'Drinking water, rates and meters' },
+          { label: 'Left Hand Water District', url: 'https://lefthandwater.gov/', note: 'Drinking water, rates and meters; 303-530-4200' },
+          { label: 'Left Hand Water: start or transfer service', url: 'https://lefthandwater.gov/billing/transferring-service/', note: 'For buyers, sellers, landlords and tenants' },
+          { label: 'Left Hand Water: pay a bill', url: 'https://lefthandwater.gov/billing/', note: 'Online through Xpress Bill Pay, by phone at 303-530-4200, by mail, or at a drop box: at the district office, 6800 Nimbus Road, or in Niwot on Murray Street, in the bank parking lot across from the post office' },
           { label: 'Niwot Sanitation District', url: 'https://niwotsd.colorado.gov/', note: 'Sewer, where its lines run; check the address' },
           { label: 'Trash and recycling', url: 'https://bouldercounty.gov/environment/recycle/recycling-center/', note: 'Arranged household by household with a private hauler; the county’s page lists the recycling centers' },
         ],
@@ -143,9 +146,9 @@ export const niwot: TownConfig = {
       },
       {
         title: 'Safety and permits',
-        verified: '2026-10-21',
+        verified: '2026-11-19',
         items: [
-          { label: 'Boulder County Sheriff', url: 'https://bouldercounty.gov/safety/sheriff/', note: 'Law enforcement in unincorporated Niwot; in an emergency call 911' },
+          { label: 'Boulder County Sheriff', url: 'https://bouldercounty.gov/safety/sheriff/', note: 'Law enforcement in unincorporated Niwot; in an emergency call 911, and for non-emergencies, incidents and reports 303-441-4444' },
           { label: 'Mountain View Fire Rescue', url: 'https://www.mvfpd.org/', note: 'Fire, rescue and emergency medical' },
           { label: 'Boulder County building permits', url: 'https://bouldercounty.gov/property-and-land/land-use/building/building-permits/' },
           { label: 'Boulder County planning and land use', url: 'https://bouldercounty.gov/property-and-land/land-use/planning/' },
@@ -235,7 +238,7 @@ export const niwot: TownConfig = {
     ],
     schoolDistrict: 'St. Vrain Valley School District: Niwot Elementary, Sunset Middle (Longmont), Niwot High.',
     commuteNotes:
-      'About 20 minutes to Boulder or Longmont on the Diagonal Highway (CO 119); 45–50 to Denver, about 45 to DIA. RTD’s BOLT bus stops at Niwot Road.',
+      'About 20 minutes to Boulder or Longmont on the Diagonal Highway (CO 119); 45–50 to Denver, about 45 to DIA. RTD’s BOLT bus stops at Niwot Road, and its Route AL to the airport at the Niwot Park-n-Ride.',
   },
   officialLinks: {
     // Niwot is unincorporated; Boulder County is the local government.

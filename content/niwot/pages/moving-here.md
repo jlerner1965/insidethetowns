@@ -4,7 +4,7 @@ description: "What it is like to live in an unincorporated town of about 4,300 a
 image: ../images/second-avenue-street.jpg
 imageAlt: "Second Avenue in old-town Niwot on an August morning in 2017: the Niwot Tribune building with its shingled awning and hanging flowers, and a row of brick and painted storefronts down the block"
 imageCredit: "Jeffrey Beall, Flickr, CC BY-SA 2.0"
-updated: "2026-11-10"
+updated: "2026-11-19"
 ---
 
 ## What you are moving to
@@ -21,7 +21,7 @@ Niwot is in the [St. Vrain Valley School District](https://www.svvsd.org/). The 
 
 ## Getting around
 
-The Diagonal Highway (CO 119) is the road that matters: about twenty minutes to Boulder or Longmont in normal traffic, forty-five to fifty to downtown Denver, and about forty-five to Denver International Airport by way of I-25 or E-470. RTD’s BOLT bus between Boulder and Longmont stops at Niwot Road. Within Niwot, most errands are walkable or bikeable; the [LoBo Regional Trail](/places/lobo-regional-trail/) connects to both cities for anyone who commutes on two wheels.
+The Diagonal Highway (CO 119) is the road that matters: about twenty minutes to Boulder or Longmont in normal traffic, forty-five to fifty to downtown Denver, and about forty-five to Denver International Airport by way of I-25 or E-470. RTD’s BOLT bus between Boulder and Longmont stops at Niwot Road, and since September 27, 2026 its Route AL has run hourly from Longmont to the airport with a stop at the Niwot Park-n-Ride ([RTD](https://www.rtd-denver.com/service-changes/final-september-2026-service-changes)). Within Niwot, most errands are walkable or bikeable; the [LoBo Regional Trail](/places/lobo-regional-trail/) connects to both cities for anyone who commutes on two wheels.
 
 ## Water, sewer, trash, fire
 
