@@ -18,11 +18,18 @@ const row = (name: string, date?: string) =>
   ({ record: { slug: name.toLowerCase().replace(/\W+/g, '-'), name }, entry: { year: 2026, status: date ? 'confirmed' : 'not-announced', date, checked: '2026-11-12' }, year: 2026, source: 'https://example.org/' }) as unknown as TraditionRow;
 
 test('a town page’s title and description name its next dated traditions and the year', () => {
-  const t = townSearchText('Golden', [row('Candlelight Walk', '2026-12-04'), row('Buffalo Bill Days'), row('Golden Holiday Parade', '2026-12-12'), row('Jingle on the Avenue', '2026-12-19'), row('Fourth', '2027-07-04')]);
+  const t = townSearchText('Golden', [row('Candlelight Walk', '2026-12-04'), row('Buffalo Bill Days'), row('Golden Holiday Parade', '2026-12-12'), row('Jingle on the Avenue', '2026-12-19'), row('Fourth', '2027-07-04')], undefined, '2026-11-19');
   // The title says what the page covers; the dates stay in the description (the owner, 18 November 2026).
-  assert.equal(t.seoTitle, 'Golden, Colorado: events and things to do (2026)');
+  // Its years are every date the page has in the next twelve months, the Fourth's included (the review of
+  // 19 November 2026: Golden said 2026 while it listed 2027); the description's are the three it names.
+  assert.equal(t.seoTitle, 'Golden, Colorado: events and things to do (2026–27)');
   assert.match(t.description, /^Golden, Colorado in 2026: Candlelight Walk \(December 4\), Golden Holiday Parade \(December 12\) and Jingle on the Avenue \(December 19\)\./);
   assert.doesNotMatch(t.description, /Buffalo Bill|Fourth/, 'three at most, and none without a date');
+  // A date more than a year ahead does not widen the title.
+  const far = townSearchText('Golden', [row('Candlelight Walk', '2026-12-04'), row('Centennial', '2028-01-10')], undefined, '2026-11-19');
+  assert.equal(far.seoTitle, 'Golden, Colorado: events and things to do (2026–28)', 'one the description names still counts');
+  const beyond = townSearchText('Golden', [row('Candlelight Walk', '2026-12-04'), row('Golden Holiday Parade', '2026-12-12'), row('Jingle on the Avenue', '2026-12-19'), row('Centennial', '2028-01-10')], undefined, '2026-11-19');
+  assert.equal(beyond.seoTitle, 'Golden, Colorado: events and things to do (2026)');
 
   const across = townSearchText('Castle Rock', [row('Starlighting', '2026-11-21'), row('County Fair', '2027-07-30')]);
   assert.match(across.seoTitle, /2026–27/);
