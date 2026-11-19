@@ -3,7 +3,7 @@ title: "Things to do in Lyons: 10 picks, by season"
 seoTitle: "Things to do in Lyons, Colorado: 10 picks by season"
 description: "Ten things to do in Lyons, Colorado, checked November 11, 2026: open space trails, the river park, Main Street, pinball, a dog park and the summer festivals."
 verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by Lerner Works: read on 11 November 2026 from Boulder County's Hall Ranch, Heil Valley Ranch and Rabbit Mountain pages, the City of Longmont's Button Rock Preserve page, the Town of Lyons's LaVern M. Johnson Park, Dog Park, tubing and History and Heritage pages, bluegrass.com and lyonsclassicpinball.com"
+verifiedBy: "Claude Code, delegated by Lerner Works: read on 11 November 2026 from Boulder County's Hall Ranch, Heil Valley Ranch and Rabbit Mountain pages, the City of Longmont's Button Rock Preserve page, the Town of Lyons's LaVern M. Johnson Park, Dog Park, tubing and History and Heritage pages, bluegrass.com and lyonsclassicpinball.com; the public art line from the Town's Public Art page, 19 November 2026"
 picks:
   - place: hall-ranch
     for: "Hiking and biking"
@@ -36,5 +36,7 @@ picks:
     for: "Summer on the river"
     why: "The St. Vrain flows through the heart of Lyons, and visitors come to tube it. Warning flags show the creek's status, the Town bans tubing above 450 cfs and requires life jackets for children under 13 through July 15; Ray's River Rentals, its official outfitter, rents tubes and jackets when conditions are safe."
 ---
+
+Public art is all over town: the heARTS of Lyons outdoor sculpture collection, the murals, the painted utility boxes and the Clarifier Community Mosaic, among the projects of the Town's [Arts and Humanities Commission](https://www.townoflyons.com/804/Public-Art). The Town's self-guided walking tour, [heARTS of LYONS, and Art Collection All Over Town](https://theclio.com/tour/1091), is on Clio.
 
 Nobody pays to be listed. More on the guide: [Lyons hikes: where dogs are allowed](/articles/lyons-hikes-where-dogs-are-allowed/), [Trails and the river](/articles/trails-and-the-river/) and [Lyons with kids](/articles/lyons-with-kids/).

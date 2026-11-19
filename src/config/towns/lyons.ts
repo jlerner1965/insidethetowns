@@ -157,13 +157,25 @@ export const lyons: TownConfig = {
       },
       {
         title: 'Reporting a problem',
-        verified: '2026-10-22',
+        verified: '2026-11-19',
         items: [
           { label: 'Citizen Request Tracker: unsafe conditions around town', url: 'https://www.townoflyons.com/RequestTracker.aspx', note: 'Streets, water, parks, hazards' },
           { label: 'Boulder County Sheriff', url: 'https://www.townoflyons.com/171/Public-Safety', note: 'Policing under contract since 1989; Lyons substation at 430 5th Ave; non-emergency 303-441-4444, emergency 911' },
+          { label: 'Animal bites and problems: Boulder County Animal Control', url: 'https://www.townoflyons.com/640/Dog-Park', note: 'The Town sends any bite, attack or other animal problem to Boulder County Animal Control, 303-441-4444' },
           { label: 'Lyons Fire Protection District', url: 'https://www.lyonsfire.org/', note: '251 Broadway, 303-823-6611; fire restrictions and burn permits' },
           { label: 'Code compliance', url: 'https://www.townoflyons.com/153/Code-Compliance' },
           { label: 'Town news and updates', url: 'https://www.townoflyons.com/civicalerts.aspx', note: 'A website account manages email notifications' },
+        ],
+      },
+      {
+        title: 'Building permits',
+        note: 'The Town contracts its building department to SAFEbuilt; every building permit is applied for, tracked and inspected online.',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Building permits: SAFEbuilt’s Community Core', url: 'https://www.townoflyons.com/834/Building-Department', note: 'Create a Community Core account first, then apply, check a permit’s status, request inspections and upload documents there. The 2024 ICC codes took effect in Lyons on July 1, 2026' },
+          { label: 'Contractor license', url: 'https://www.townoflyons.com/834/Building-Department', note: 'A Town of Lyons contractor license is needed to pull a building permit: $50, applied for through Community Core, unless the contractor holds a State plumbing or electrical license' },
+          { label: 'Floodplain development permit', url: 'https://www.townoflyons.com/834/Building-Department', note: 'Any permitted work on a property in the floodplain also needs a floodplain development permit' },
+          { label: 'Fences and the Wildfire Resiliency Code', url: 'https://www.townoflyons.com/834/Building-Department', note: 'The Town adopted the State of Colorado Wildfire Resiliency Code from July 1, 2026, and fences now need a permit' },
         ],
       },
       {
@@ -175,6 +187,26 @@ export const lyons: TownConfig = {
           { label: 'Longmont United Hospital Emergency Department', url: 'https://www.commonspirit.org/find-a-location/emergency-department-commonspirit-longmont-united-hospital-2928', note: '1950 Mountain View Ave, Longmont; the emergency department and trauma unit are open around the clock; 303-651-5111' },
           { label: 'UCHealth Urgent Care – Main Street', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-longmont/', note: '2101 Main St, Longmont, near 21st Avenue; walk-ins, Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 720-745-8030' },
           { label: 'St. Vrain Market, 455 Main St', url: 'https://www.stvrainmarket.com/', note: 'The grocery in town: a locally owned market with produce, staples, a deli and a scratch bakery; Tuesday 11 am to 7 pm, Wednesday to Sunday 9 am to 7 pm, closed Monday' },
+        ],
+      },
+      {
+        title: 'Library',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Lyons Regional Library, 451 4th Ave', url: 'https://lyons.colibraries.org/', note: 'Monday to Thursday 10 am to 7 pm, Friday 10 am to 5 pm, Saturday 10 am to 2 pm, closed Sunday; 303-823-5165' },
+          { label: 'Library events calendar', url: 'https://lyons.librarycalendar.com/events/upcoming', note: 'Storytimes, clubs, workshops and the Community Room’s meetings' },
+        ],
+      },
+      {
+        title: 'Seniors',
+        note: 'The Town’s senior programs meet at the Walt Self Senior Center, 335 Railroad Ave. A Lyons Community Foundation grant funds scholarships for anyone in need: recreation@townoflyons.com.',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Redstone Cafe lunch', url: 'https://www.townoflyons.com/845/Senior-Programming', note: 'Boulder County Area Agency on Aging’s hot lunch, Tuesday to Thursday noon to 1 pm, free at 60 and over; reserve by 1 pm on the Monday before, 303-441-1415' },
+          { label: 'Senior exercise group', url: 'https://www.townoflyons.com/845/Senior-Programming', note: 'Tuesdays and Thursdays 9:30 to 10:30 am, free, 55 and up: weights, bands, balance and, weather allowing, a walk. Lower level, through the alley; park at Sandstone Park or on the street; 303-823-6622 ext. 30' },
+          { label: 'Monthly birthday celebration', url: 'https://www.townoflyons.com/845/Senior-Programming', note: 'The 2nd Wednesday of each month, 12:30 to 1:30 pm, after lunch; free, 60 and up' },
+          { label: 'Area Agency on Aging office hours', url: 'https://www.townoflyons.com/845/Senior-Programming', note: 'One-on-one help with services for adults 60 and over and their caregivers, no appointment: at the library on the 1st and 3rd Wednesdays, 10 to 11:30 am, through December, and at LEAF on the 4th Wednesday, 1:30 to 3 pm' },
+          { label: 'Lyons Medical Equipment Loan Closet', url: 'https://www.townoflyons.com/845/Senior-Programming', note: 'Free loans of walkers, wheelchairs, crutches, shower chairs and more, by appointment: lyonsmedequipmentloancloset@gmail.com' },
         ],
       },
       {
