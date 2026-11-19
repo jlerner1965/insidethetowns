@@ -215,6 +215,8 @@ export const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/submit-event', 'submit-event.astro'],
   ['/events.rss', 'events.rss.ts'],
   ['/advertise', 'advertise.astro'],
+  // The Colorado's Secret Trails series page, kept by hand.
+  ['/colorados-secret-trails', 'colorados-secret-trails.astro'],
   // Every town page, the guides and the season pages in one index.
   ['/towns', 'towns.astro'],
   // Every round-up of annual dates, each with what is next (the menu's Annual events).
