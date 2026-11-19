@@ -8,11 +8,9 @@ cost: "Youth $30, adult $45 through Nov 15 ($34.50 and $50.78 with fees); $30 an
 category: sports
 timeNote: "Kids' run about 8:45 am; 4-mile about 9 am"
 source: "https://runsignup.com/Race/CO/FortCollins/FortCollinsThanksgivingDayRun"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from the source on 10 November 2026: November 26, kids' race about 8:45 am, 4-mile about 9, 147 S College Ave; price schedule as RunSignup lists it"
+verified: "2026-11-18"
+verifiedBy: "Claude Code, delegated by Lerner Works"
 featured: true
-changeFlag: true
-changeNote: "recheck 2026-11-18: the page's structured data lists \"Fort Collins Thanksgiving Day Run\" at 9 am on 26 November, not 8:45 am"
 ---
 
 Northern Colorado's biggest Thanksgiving-morning race: a four-mile run and walk through Old Town starting on College Avenue at about 9, after a kids' run at about 8:45. Presented by Raymond James; register on RunSignup.

@@ -12,10 +12,8 @@ source: "https://crms.svvsd.org/"
 sourceId: "crms-svvsd-org"
 # Both sittings are this one listing: the feed gives each its own id.
 mergedUids: ["0ujlce1n6btrth5hmkkgecb76v@google.com", "564q0d2503n24p34rp9v6ljkiq@google.com"]
-verified: "2026-11-11"
-verifiedBy: "Claude Code, delegated by Lerner Works: the school's CRMS Building Calendar, the public Google calendar its home page embeds, read 11 November 2026 (\"Choir - Winter Concert 6th Grade\" 6 to 7 pm and \"Choir - Winter Concert 7th/8th Grade\" 7 to 8 pm, Tuesday, December 1), and the home page for the address"
-changeFlag: true
-changeNote: "recheck 2026-11-18: the Coal Ridge Middle School (school calendar) feed lists \"Choir - Winter Concert 6th Grade\" 6 pm–7 pm on 1 December; the listing ends 8 pm"
+verified: "2026-11-18"
+verifiedBy: "Claude Code, delegated by Lerner Works"
 ---
 
 Coal Ridge Middle School's choirs sing their winter concert in two parts on Tuesday, December 1: the sixth grade at 6 pm and the seventh and eighth grades at 7. The school's calendar lists no ticket price.
