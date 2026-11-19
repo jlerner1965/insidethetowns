@@ -18,7 +18,7 @@ import { DRAFTS_ENV, articlePath, curiositySchema, type CuriosityArticle } from 
 import { shownArticles } from '../src/lib/curiosity-files.ts';
 import { fullSectionPlaces, onHub, sectionOnly } from '../src/lib/curiosity-places.ts';
 import { dayKey, parseLocal } from '../src/lib/dates.ts';
-import { newsItems } from '../src/lib/hub-home.ts';
+import { isPublished, newsItems } from '../src/lib/hub-home.ts';
 import { parseFrontmatter } from '../scripts/lib/frontmatter.ts';
 
 const sections = fullSectionPlaces();
@@ -221,4 +221,24 @@ test('the home builds In the towns from the hub’s articles and the sections’
   assert.doesNotMatch(home, /networkChanges/, 'no local change on the home');
   assert.match(home, /<p class=\{dek\}>Stories from the towns, each with its sources\.<\/p>/);
   assert.doesNotMatch(home, /News and changes/);
+});
+
+test('/articles/ hides an article dated ahead, by the home’s own date rule', () => {
+  assert.equal(isPublished('2026-11-17', '2026-11-18'), true);
+  assert.equal(isPublished('2026-11-18', '2026-11-18'), true, 'out on its own day');
+  assert.equal(isPublished('2026-11-19', '2026-11-18'), false, 'not before its day');
+  // The home: a featured article dated tomorrow is not there yet, and is the day it comes due.
+  const rmnp = sectionArticles('estes-park').find((a) => a.slug === 'first-visit-to-rocky-mountain-national-park')!;
+  const ahead = sectionItem(estes, { ...rmnp, data: { ...rmnp.data, feature: true, date: parseLocal('2026-11-19') } });
+  assert.ok(!homeItems(verified, '2026-11-18', [ahead]).some((i) => i.slug === rmnp.slug));
+  assert.ok(homeItems(verified, '2026-11-19', [ahead]).some((i) => i.slug === rmnp.slug));
+  // Both pages read today the same way, a Denver day from the build's clock, and test it with the one function.
+  const home = readFileSync('src/routes/hub/index.astro', 'utf8');
+  assert.match(home, /const now = new Date\(\);\nconst todayKey = dayKey\(now\);/);
+  assert.match(readFileSync('src/lib/hub-home.ts', 'utf8'), /\.filter\(\(i\) => i\.feature && isPublished\(i\.date, today\)/);
+  const page = readFileSync('src/routes/hub/articles-index.astro', 'utf8');
+  assert.match(page, /const todayKey = dayKey\(new Date\(\)\);/);
+  // Applied to every row, the hub's and the sections', before the Latest list, the subjects and the structured data are drawn from it.
+  assert.match(page, /const articles = \[\.\.\.hubArticles, \.\.\.guideArticles\]\s*\.filter\(\(a\) => isPublished\(a\.date, todayKey\)\)/);
+  assert.ok(page.indexOf('isPublished(a.date, todayKey)') < page.indexOf('const latest = '));
 });

@@ -12523,3 +12523,6 @@ Pass.*
   hub towns' own (Buena Vista, Carbondale, Crested Butte, Durango, Salida,
   Steamboat Springs). Its intro no longer says it holds each town's own
   guide articles, and one line under it links each section's Guides page.
+  It hides an article dated ahead by the home's own rule (`isPublished`,
+  src/lib/hub-home.ts): listed from its date, a Denver day, at that day's
+  build.

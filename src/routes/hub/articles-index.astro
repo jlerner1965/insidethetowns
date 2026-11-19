@@ -15,7 +15,9 @@
  * wherever the section lists it: every guide's own article, which this
  * page listed from 13 November, and a topic article anchored to a
  * section's town. An article that names several towns stays. One line
- * under the intro links each section's Guides page.
+ * under the intro links each section's Guides page. An article dated after
+ * the day the page is built is not listed until then, by the home's rule
+ * (isPublished, src/lib/hub-home.ts).
  *
  * Laid out in two parts (the owner, 14 November 2026: the titles were hard
  * to read and the page "could be organized in a better way"; it was one
@@ -31,7 +33,7 @@ import { dayKey, formatDate, parseLocal } from '@/lib/dates';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { ARTICLES_INDEX_PATH, articlePath, kindLabel, lastVerified, newestFirst, townsLine } from '@/lib/curiosity';
 import { fullSectionPlaces, onHub, placeName } from '@/lib/curiosity-places';
-import { numberWord } from '@/lib/hub-home';
+import { isPublished, numberWord } from '@/lib/hub-home';
 
 const hub = getHub();
 const title = 'Articles';
@@ -40,6 +42,8 @@ const description = 'Articles from Inside the Towns: news, event briefs, history
 // The full sections keep their own local guides: one line points to each one's Guides page.
 const sections = fullSections().map((t) => ({ name: t.name, href: `${sectionHome(t)}guides/` }));
 const sectionPlaces = fullSectionPlaces();
+// Today in Denver, as the home reads it: an article dated after it waits for its day.
+const todayKey = dayKey(new Date());
 /** How many articles the "Latest" list at the top holds. */
 const LATEST = 6;
 const NEWS = 'News and events';
@@ -67,7 +71,9 @@ const guideArticles: Row[] = (await getSectionArticles()).filter((a) => onHub({ 
   date: dayKey(a.data.date),
   guide: sectionSite(a.town).siteTitle,
 }));
-const articles = [...hubArticles, ...guideArticles].sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+const articles = [...hubArticles, ...guideArticles]
+  .filter((a) => isPublished(a.date, todayKey))
+  .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 const latest = articles.slice(0, LATEST);
 // The subjects: the hub's news first, then the one with the most articles.
 const bySubject = new Map<string, Row[]>();

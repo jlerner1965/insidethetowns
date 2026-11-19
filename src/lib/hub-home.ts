@@ -591,6 +591,15 @@ export interface NewsItem {
 }
 
 /**
+ * Whether an article is out by `today` (both Denver days, "2026-11-18"):
+ * its date is on or before it. One rule for the hub's home and /articles/,
+ * so an article dated ahead is on neither until its day's build.
+ */
+export function isPublished(date: string, today: string): boolean {
+  return date <= today;
+}
+
+/**
  * What "In the towns" shows (the owner, 18 November 2026): the featured
  * articles, published by today and not past a `homeUntil`, the newest
  * first, `limit` in all. A featured article about one full section alone
@@ -600,7 +609,7 @@ export interface NewsItem {
  */
 export function newsItems<I extends NewsItem>(items: readonly I[], today: string, limit = 5): I[] {
   return [...items]
-    .filter((i) => i.feature && i.date <= today && (!i.until || today <= i.until))
+    .filter((i) => i.feature && isPublished(i.date, today) && (!i.until || today <= i.until))
     .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title))
     .slice(0, limit);
 }

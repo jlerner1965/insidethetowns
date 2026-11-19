@@ -557,7 +557,9 @@ town's photograph or share card, which its Event markup also carries.
 the eleven full sections and that are not featured (`onHub`, 18 November
 2026), which stay in their sections; a featured section article, the
 sections' own guide articles included, is listed and stays in its section
-too. One line under the intro links each section's Guides page. A `<title>` runs to 60 characters
+too. One line under the intro links each section's Guides page. An article
+dated after the day of the build is on neither `/articles/` nor the home
+until its day's build (`isPublished`, the one rule for both). A `<title>` runs to 60 characters
 at most; the site's name follows only where the whole fits
 (`TITLE_LIMIT`, src/lib/titles.ts). In the sitemap a town page and a season page
 are dated by the newest check of the records they show
