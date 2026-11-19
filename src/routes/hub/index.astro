@@ -53,7 +53,7 @@ import { pub } from '@/components/hub/pub';
 import { emailEditions, fullSections, getHub, guideUrl, liveTowns, sectionHome } from '@/config';
 import { hubCountyLine } from '@/config/hub-towns';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
-import { getCuriosity, getNetworkEntries, getTraditions } from '@/lib/content';
+import { getCuriosity, getNetworkEntries, getSectionArticles, getTraditions } from '@/lib/content';
 import { ARTICLES_INDEX_PATH, articlePath, kindLabel } from '@/lib/curiosity';
 import { placeName } from '@/lib/curiosity-places';
 import { typeset } from '@/lib/text';
@@ -277,30 +277,46 @@ const scores = live
   );
 
 /**
- * In the towns: the five newest featured articles on the hub (the owner,
- * 18 November 2026: `feature: true` in the article's file; every article
- * is off until the owner sets it), the newest first (src/lib/hub-home.ts,
- * newsItems). An article whose only town is one of the full sections is
- * never here: it stays in its section (sectionOnly,
- * src/lib/curiosity-places.ts). A featured story with a `homeUntil` leaves
- * on that day. Its label is its eyebrow where it has one ("News · Front
- * Range", "History · Creede"), else its towns and its kind. "All articles"
- * keeps every article on the hub.
+ * In the towns: the five newest featured articles (the owner, 18 November
+ * 2026: `feature: true` in the article's file; every article is off until
+ * the owner sets it), the hub's own and the full sections' alike, the
+ * newest first (src/lib/hub-home.ts, newsItems). A featured section article
+ * (Estes Park's) is here and stays in its section; an unfeatured one never
+ * is (onHub, src/lib/curiosity-places.ts). A featured article with a
+ * `homeUntil` leaves on that day, whatever its kind. A hub article's label
+ * is its eyebrow where it has one ("News · Front Range", "History ·
+ * Creede"), else its towns and its kind; a section article's is its town
+ * and its subject. "All articles" keeps every article on the hub.
  */
 const HOME_NEWS_LIMIT = 5;
 const articlesOnSite = (await getCuriosity()).map((a) => a.data);
+const sectionArticles = await getSectionArticles();
 const news = newsItems(
-  articlesOnSite.map((a) => ({
-    towns: a.towns,
-    feature: a.feature,
-    label: a.eyebrow ?? `${a.towns.slice(0, 2).map((t) => placeName(t) ?? t).join(' · ')} · ${kindLabel(a.kind)}`,
-    title: a.title,
-    line: a.description,
-    href: articlePath(a),
-    date: a.date,
-    until: a.homeUntil,
-    source: storySourceText(a.sources),
-  })),
+  [
+    ...articlesOnSite.map((a) => ({
+      towns: a.towns,
+      feature: a.feature,
+      label: a.eyebrow ?? `${a.towns.slice(0, 2).map((t) => placeName(t) ?? t).join(' · ')} · ${kindLabel(a.kind)}`,
+      title: a.title,
+      line: a.description,
+      href: articlePath(a),
+      date: a.date,
+      until: a.homeUntil,
+      source: storySourceText(a.sources),
+    })),
+    ...sectionArticles.map((a) => ({
+      towns: [a.town.slug],
+      feature: a.data.feature,
+      label: `${a.town.name} · ${a.data.category}`,
+      title: a.data.title,
+      line: a.data.excerpt,
+      href: `${sectionHome(a.town)}articles/${a.slug}/`,
+      date: dayKey(a.data.date),
+      until: a.data.homeUntil && dayKey(a.data.homeUntil),
+      // The guide's sources were read on the day it was last verified.
+      source: a.data.verified && storySourceText(a.data.sources.map((s) => ({ label: s.label, checked: dayKey(a.data.verified!) }))),
+    })),
+  ],
   todayKey,
   HOME_NEWS_LIMIT,
 ).map((i) => {
@@ -543,7 +559,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
             <div class={halfCol}>
               <div class={pub.open}>
                 <h2 id="news-heading" class={pub.h2}>In the towns</h2>
-                <p class={dek}>News and changes, each with its sources.</p>
+                <p class={dek}>Stories from the towns, each with its sources.</p>
               </div>
               {news.slice(0, 1).map((i) => (
                 <article class:list={['py-[18px]', pub.rule]} data-event-day={i.until}>

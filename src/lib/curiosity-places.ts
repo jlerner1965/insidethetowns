@@ -41,14 +41,24 @@ export function fullSectionPlaces(): ReadonlySet<string> {
 }
 
 /**
- * Whether an article belongs to one full section alone: its only town is
- * one of the eleven (the owner, 18 November 2026). Such an article stays in
- * its section, on its Guides page and wherever the section lists it, and
- * is on neither the hub's home nor /articles/; its address and the sitemap
- * are as they were. An article that names several towns (the Colorado
- * Connector) stays on the hub. A guide's own article is its guide's town's
- * alone: pass `[town.slug]`.
+ * Whether an article is about one full section alone: its only town is one
+ * of the eleven. A guide's own article is its guide's town's alone: pass
+ * `[town.slug]`. An article that names several towns (the Colorado
+ * Connector) is not.
  */
 export function sectionOnly(towns: readonly string[], sections: ReadonlySet<string> = fullSectionPlaces()): boolean {
   return towns.length === 1 && sections.has(towns[0]!);
+}
+
+/**
+ * Whether the hub's home and /articles/ may list the article (the owner, 18
+ * November 2026): any that is not one section's alone, and one that is once
+ * the owner features it (`feature: true`). Unfeatured, a section's article
+ * (the Berthoud breakfast guide) stays in its section only, on its Guides
+ * page and wherever the section lists it. Either way it stays in its
+ * section, and its address and the sitemap are as they were. The home
+ * shows only featured articles in any case (newsItems, src/lib/hub-home.ts).
+ */
+export function onHub(a: { towns: readonly string[]; feature?: boolean }, sections: ReadonlySet<string> = fullSectionPlaces()): boolean {
+  return a.feature === true || !sectionOnly(a.towns, sections);
 }

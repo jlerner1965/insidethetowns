@@ -6,8 +6,8 @@
 # insidethetowns.com/articles/<slug>/, on /articles/ and on each town's page;
 # `feature: true` also puts it under "In the towns" on the home page while it
 # is one of the five newest featured (or until homeUntil). A story whose only
-# town is one of the eleven full sections stays in that section: it is on
-# neither the home page nor /articles/.
+# town is one of the eleven full sections stays in that section, and is on the
+# home page and /articles/ only when featured (it stays in its section too).
 slug: town-what-happened
 kind: story
 # The towns it is about: a hub town page's slug or a guide's key
@@ -22,8 +22,9 @@ status: draft
 date: 2026-11-13
 # Optional: on the hub's home under "In the towns". Off unless the owner sets it.
 # feature: true
-# Optional, with feature: the last day on the home page. Without it, the story
-# stays until five newer featured articles push it off.
+# Optional, with feature: the last day on the home page. Any featured article
+# may carry it, whatever its kind. Without it, the story stays until five
+# newer featured articles push it off.
 # homeUntil: 2026-11-30
 # Every fact in the story comes from one of these, each read on the day given.
 # A named news report counts (the Colorado Sun, BusinessDen); the town need

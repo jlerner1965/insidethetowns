@@ -30,7 +30,6 @@ import { PLAN_YOUR_DAY, forGeneralReaders, isFlagged, isMultiDay, isPast, lastDa
 import { FLAGSHIP_TEAM, formatGameTime, leaguePlace, placeText, where } from './school-sports.ts';
 import { isFreeCost } from './cost.ts';
 import { homeOf } from './hub-towns.ts';
-import { sectionOnly } from './curiosity-places.ts';
 import { CURRENT_SEASONS, TRADITION_TYPES, byTown, isDated, isUpcoming, seasonRows, type TraditionRecord, type TraditionRow, type TraditionType, type TraditionYear } from './traditions.ts';
 
 /**
@@ -568,9 +567,9 @@ export const HOME_PHOTO = {
 } as const;
 
 /**
- * One item under "In the towns" on the hub's home: an article on the hub
- * (src/lib/curiosity.ts) the owner has marked `feature`. Dates are Denver
- * days, "2026-11-13".
+ * One item under "In the towns" on the hub's home: an article the owner has
+ * marked `feature`, one of the hub's (src/lib/curiosity.ts) or a full
+ * section's own. Dates are Denver days, "2026-11-13".
  */
 export interface NewsItem {
   /** The towns the article is for, as its `towns` names them. */
@@ -594,13 +593,14 @@ export interface NewsItem {
 /**
  * What "In the towns" shows (the owner, 18 November 2026): the featured
  * articles, published by today and not past a `homeUntil`, the newest
- * first, `limit` in all, and never one whose only town is a full section
- * (sectionOnly, src/lib/curiosity-places.ts), which stays in its section.
- * Nothing, where nothing qualifies: the section is then not drawn.
+ * first, `limit` in all. A featured article about one full section alone
+ * is here too (onHub, src/lib/curiosity-places.ts) and stays in its
+ * section; an unfeatured one never is. Nothing, where nothing qualifies:
+ * the section is then not drawn.
  */
 export function newsItems<I extends NewsItem>(items: readonly I[], today: string, limit = 5): I[] {
   return [...items]
-    .filter((i) => i.feature && !sectionOnly(i.towns) && i.date <= today && (!i.until || today <= i.until))
+    .filter((i) => i.feature && i.date <= today && (!i.until || today <= i.until))
     .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title))
     .slice(0, limit);
 }

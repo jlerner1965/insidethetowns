@@ -289,14 +289,15 @@ export const curiositySchema = z
      * Whether the hub's home lists the article under "In the towns": the
      * five newest featured articles are there (the owner, 18 November
      * 2026). Off unless the owner sets it, drafts included. One whose only
-     * town is a full section stays in that section whatever this says
-     * (sectionOnly, src/lib/curiosity-places.ts).
+     * town is a full section is on the hub only when featured (onHub,
+     * src/lib/curiosity-places.ts).
      */
     feature: z.boolean().default(false),
     /**
-     * A featured story's last day under "In the towns" on the hub's home;
-     * without it, it stays until five newer featured articles push it off.
-     * The article stays at its address.
+     * A featured article's last day under "In the towns" on the hub's home,
+     * whatever its kind; without it, it stays until five newer featured
+     * articles push it off. The article stays at its address. A story may
+     * carry one unfeatured, where it does nothing.
      */
     homeUntil: day.optional(),
     /**
@@ -348,8 +349,8 @@ export const curiositySchema = z
   .refine((a) => (a.kind === 'camping') === a.campgrounds.length > 0, { message: 'a camping article lists its campgrounds, and only a camping article does', path: ['campgrounds'] })
   .refine((a) => (a.kind === 'ghost-towns') === a.ghostTowns.length > 0, { message: 'a ghost-town article lists its ghost towns, and only a ghost-town article does', path: ['ghostTowns'] })
   .refine((a) => !isStandalone(a.kind) || a.sources.length > 0, { message: 'an event article or a story names the source of every fact', path: ['sources'] })
-  .refine((a) => a.kind === 'story' || !a.homeUntil, { message: 'only a story carries homeUntil', path: ['homeUntil'] })
-  .refine((a) => !a.homeUntil || a.homeUntil >= a.date, { message: 'homeUntil is on or after the story’s date', path: ['homeUntil'] })
+  .refine((a) => a.kind === 'story' || a.feature || !a.homeUntil, { message: 'homeUntil is for a featured article (feature: true) or a story', path: ['homeUntil'] })
+  .refine((a) => !a.homeUntil || a.homeUntil >= a.date, { message: 'homeUntil is on or after the article’s date', path: ['homeUntil'] })
   .refine((a) => !a.updated || a.updated.date >= a.date, { message: 'an update is on or after the article’s date', path: ['updated', 'date'] })
   .refine((a) => a.kind === 'event' || a.games.length === 0, { message: 'only an event article carries games', path: ['games'] })
   .refine((a) => a.status !== 'verified' || (a.needs.length === 0 && [...a.campgrounds, ...a.ghostTowns].every((e) => e.flags.length === 0)), {

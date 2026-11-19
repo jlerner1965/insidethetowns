@@ -17,6 +17,7 @@ townsNav: false
 invite: { text: "Get local scores and next week’s games in the Thursday email.", href: "/newsletter/" }
 status: verified
 feature: true
+homeUntil: 2026-12-06
 date: 2026-11-13
 reverify:
   from: 2026-11-15
