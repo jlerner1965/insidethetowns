@@ -277,3 +277,19 @@ test('the hub towns’ practical pieces are guides, not news: labelled and liste
   // A hub town's lead guide may be one.
   assert.match(readFileSync('src/routes/hub/town.astro', 'utf8'), /a\.data\.slug === ref\.slug && isStandalone\(a\.data\.kind\)/);
 });
+
+test('the top of /articles/ is the latest news and events, not the guides', () => {
+  // The owner, 19 November 2026: "news should be on top", "news and events".
+  const page = readFileSync('src/routes/hub/articles-index.astro', 'utf8');
+  assert.match(page, /const latest = articles\.filter\(\(a\) => a\.subject === NEWS\)\.slice\(0, LATEST\);/);
+  assert.match(page, /const NEWS = 'News and events';/);
+  assert.match(page, /<h2 id="latest" class="eyebrow">Latest news and events<\/h2>/);
+  // A news row is an event article or a story; a guide is under Guides.
+  assert.match(page, /subject: a\.kind === 'event' \|\| a\.kind === 'story' \? NEWS : a\.kind === 'guide' \? GUIDES : kindLabel\(a\.kind\)/);
+  // The list stands above the subjects' sections (after the pills that jump to them).
+  assert.ok(page.indexOf('id="latest"') < page.lastIndexOf('{subjects.map((s) => ('));
+  // Today's news and events on the site, by the rule the page uses.
+  const news = verified.filter((a) => (a.kind === 'event' || a.kind === 'story') && onHub(a) && isPublished(a.date, TODAY));
+  assert.ok(news.length > 0, 'there is news to put on top');
+  assert.ok(!news.some((a) => a.kind === 'guide'));
+});
