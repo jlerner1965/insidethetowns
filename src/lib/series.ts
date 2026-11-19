@@ -142,9 +142,23 @@ export function finalDayOf(
   return lastDayOf(lastStart, lastEnd, allDay);
 }
 
+/**
+ * A front-matter field's value: a double-quoted string with its escapes undone
+ * (`"Warren Miller's \"Days Off\" 2026"`), a single-quoted one, or a bare value.
+ * The earlier pattern stopped at the first quote inside the value, so an event
+ * whose title held an escaped quote was never read: once it passed, the sitemap
+ * still listed it while its page was noindex (the hub's site check, 19 November
+ * 2026, on a Loveland listing from the Rialto's feed).
+ */
 function field(frontmatter: string, name: string): string {
-  const m = frontmatter.match(new RegExp(`^${name}:\\s*"?([^"\\n]+)"?\\s*$`, 'm'));
-  return m ? m[1].trim() : '';
+  const line = frontmatter.match(new RegExp(`^${name}:[ \\t]*(.*)$`, 'm'));
+  if (!line) return '';
+  const value = line[1].trim();
+  const double = value.match(/^"((?:[^"\\]|\\.)*)"$/);
+  if (double) return double[1].replace(/\\(.)/g, '$1').trim();
+  const single = value.match(/^'((?:[^']|'')*)'$/);
+  if (single) return single[1].replace(/''/g, "'").trim();
+  return value;
 }
 
 /**
