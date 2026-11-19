@@ -37,14 +37,6 @@
  *   writing two clicks down, reached from a tile or the footer, and a visitor
  *   who left from the first screen never learned it was there.
  *
- * - A folded full section (Estes Park, Fort Collins, Longmont, Loveland,
- *   built under /<town>/ on the hub) has no This week page: its This week,
- *   This weekend and Updates are its events page (src/lib/section.ts,
- *   SECTION_MOVED). Its menu leads with Events instead and the hub slot
- *   has no second Events (the owner's review of 19 November 2026: the
- *   Longmont walking article's menu carried "This week" and "Events" to
- *   the same page).
- *
  * Every other section (the full events calendar, This weekend, Every year,
  * Athletics, the directory, Get involved, Updates, and whichever of the
  * pairs above is not in the menu) is in the footer on every page
@@ -61,24 +53,6 @@ import { hasArticles } from './curiosity-files.ts';
 import { ARTICLES_INDEX_PATH } from './curiosity.ts';
 import { TRADITION_TYPE_INFO } from './traditions.ts';
 import type { NavItem, SiteConfig, TownConfig } from '../config/towns/types.ts';
-import { isSectionBuild } from '../config/index.ts';
-import { isMoved } from '../config/guide-move.ts';
-import { SECTION_MOVED } from './section.ts';
-
-/**
- * Whether this build is a folded full section of the hub: built under
- * /<town>/ (isSectionBuild) and not a guide moved whole, which keeps every
- * page it had (`section.carry: 'all'`).
- */
-export function isFoldedSection(site: { kind: string; section?: { carry?: string } }, env: Record<string, string | undefined> = process.env): boolean {
-  return site.kind === 'town' && isSectionBuild(env) && !isMoved(site);
-}
-
-/** Where a guide's link really goes on this build: on a folded section, This week, This weekend and Updates are its events page. */
-export function navTarget(href: string, folded: boolean): string {
-  if (!folded) return href;
-  return SECTION_MOVED.find(([from]) => from === href)?.[1] ?? href;
-}
 
 /** The menu's word for the sports page, or nothing where the guide follows no school. */
 export function sportsNavLabel(town: string): string | undefined {
@@ -97,7 +71,6 @@ export const MIN_SHOPS_FOR_MENU = 10;
 export function townNav(
   town: Pick<TownConfig, 'slug' | 'families' | 'livingHere' | 'lead'>,
   counts: Partial<Record<string, number>> = openPlaceTypeCounts(town.slug),
-  { folded = false }: { folded?: boolean } = {},
 ): NavItem[] {
   // An outdoors-led guide (Lyons) follows no school and has no sports pages
   // (17 November 2026): its trails page, where it builds one, takes the slot.
@@ -108,13 +81,13 @@ export function townNav(
   const quiet = town.lead === 'updates';
   const shops = (counts.shop ?? 0) >= MIN_SHOPS_FOR_MENU;
   return [
-    folded ? { label: 'Events', href: '/events/' } : quiet ? { label: 'Updates', href: '/updates/' } : { label: 'This week', href: '/this-week/' },
+    quiet ? { label: 'Updates', href: '/updates/' } : { label: 'This week', href: '/this-week/' },
     { label: 'Things to do', href: '/things-to-do/' },
     ...(sports ? [{ label: sports, href: '/sports/' }] : []),
     ...(trails ? [{ label: 'Trails', href: PLACE_TYPE_PAGES.trail.path }] : []),
     { label: 'Eat & drink', href: '/eat-drink/' },
     ...(shops ? [{ label: 'Shops', href: '/shops/' }] : []),
-    ...(town.families ? [{ label: 'Families', href: '/families/' }] : quiet || folded ? [] : [{ label: 'Events', href: '/events/' }]),
+    ...(town.families ? [{ label: 'Families', href: '/families/' }] : quiet ? [] : [{ label: 'Events', href: '/events/' }]),
     town.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' },
     { label: 'Guides', href: '/guides/' },
   ];
@@ -122,7 +95,7 @@ export function townNav(
 
 /** The site's menu: the rule above on a guide, the hub's own list on the hub. */
 export function siteNav(site: SiteConfig): NavItem[] {
-  return site.kind === 'hub' ? hubNav(site.nav) : townNav(site, undefined, { folded: isFoldedSection(site) });
+  return site.kind === 'hub' ? hubNav(site.nav) : townNav(site);
 }
 
 /** The season pages that are built, as links: every type with a season and a record for it. */

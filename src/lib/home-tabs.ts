@@ -10,7 +10,7 @@
  * name before the time ("Sat · 10 am"), since three days share one list.
  * On a full tab the weekly series give up the visible slots first, as a
  * full day does on the events page, and the five shown are in the order of
- * the days and the clock, all-day listings after the timed ones.
+ * the days and the clock.
  *
  * The default tab is Today, except on a Friday, Saturday or Sunday, when
  * it is the weekend the reader is standing in, until five on the Sunday
@@ -90,11 +90,8 @@ export function tabRank(row: Pick<TabRow, 'pick' | 'top' | 'category' | 'program
 /**
  * Up to `limit` of a list. The one-offs take the slots, the outings before
  * a library's programs and the meetings (`tabRank`), so a library program
- * is shown only where the outings leave room. The rows shown are then in the
- * order of the days and the clock, whatever their rank (the owner, 19
- * November 2026: Berthoud's Today put a 6 pm run above a 4:15 pm library
- * group, because until then the programs and meetings were listed under the
- * outings); the week's pick is marked on its row, not moved. The regulars (`series`: trivia, a monthly
+ * is shown only where the outings leave room, and under them; within a rank
+ * the order is the day's and the clock's. The regulars (`series`: trivia, a monthly
  * club, the day's food truck; events.ts, fillTest) are shown only on a quiet
  * list, one with fewer than FILL_BELOW one-offs, and only up to that many
  * rows in all: they keep a thin guide's Tuesday from reading "Nothing
@@ -117,8 +114,9 @@ export function pickRows(items: TabRow[], limit = TAB_LIMIT): { rows: TabRow[]; 
   if (fill > 0) chosen.push(...sorted.filter((r) => !r.status && r.series).slice(0, fill));
   chosen.push(...sorted.filter((r) => r.status).slice(0, Math.max(0, limit - chosen.length)));
   const on = (list: TabRow[]) => list.filter((r) => !r.status).length;
-  // Shown in the order of the days and the clock: the rank chose them, it does not order them.
-  return { rows: chosen.sort(byClock), more: on(items) - on(chosen) };
+  // The outings first, then the programs and meetings: each in clock order.
+  const lower = (r: TabRow) => (tabRank(r) === 2 ? 1 : 0);
+  return { rows: chosen.sort((a, b) => lower(a) - lower(b) || byClock(a, b)), more: on(items) - on(chosen) };
 }
 
 /**

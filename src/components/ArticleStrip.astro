@@ -17,7 +17,6 @@ import { occurrences } from '@/lib/events';
 import { linkedPlaceSlugs } from '@/lib/mentions';
 import { isListed } from '@/lib/places';
 import { upcomingEvents } from '@/lib/weekly';
-import { isFoldedSection } from '@/lib/nav';
 
 interface Props {
   article: TownEntry<'articles'>;
@@ -25,7 +24,6 @@ interface Props {
 
 const { article } = Astro.props;
 const town = getTown();
-const folded = isFoldedSection(town);
 const now = new Date();
 const events = upcomingEvents(occurrences(await getTownEntries('events'), { now, horizonDays: 60 }), { now, limit: 3 });
 
@@ -71,8 +69,7 @@ const link = 'inline-block -my-3 py-3 font-medium text-primary underline';
         </div>
       )}
       <p class="mt-4 text-[0.9375rem]">
-        {/* A folded section has no This week (src/lib/nav.ts): its events page, under the menu's word for it. */}
-        <a href={!listsEvents(town) ? '/updates/' : folded ? '/events/' : '/this-week/'} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{!listsEvents(town) ? 'Local updates' : folded ? `Events in ${town.name}` : `This week in ${town.name}`} →</a>
+        <a href={listsEvents(town) ? '/this-week/' : '/updates/'} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{listsEvents(town) ? `This week in ${town.name}` : 'Local updates'} →</a>
       </p>
     </div>
     {related.length > 0 && (

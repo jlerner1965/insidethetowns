@@ -93,12 +93,7 @@ export interface DayItem {
   href: string;
   /** A CSS colour for the dot: the category's. */
   dot: string;
-  /**
-   * "HH:MM" for the order within the day, from the listing's start: a
-   * listing with a descriptive time ("Sessions at 2:30 and 6:30 pm") is in
-   * the order of the start it was filed at, noon is "12:00" and midnight
-   * "00:00". All-day listings and untimed things come after the timed ones.
-   */
+  /** "HH:MM" for the order within the day; all-day and untimed things after the timed ones. */
   time: string;
   /** The last Denver day it is on, and the instant it comes off: the marks the browser's pruning reads (src/lib/expiry.ts). */
   eventDay: string;
@@ -171,8 +166,7 @@ export function clockKey(time: string | undefined): string {
   return `${String(hour).padStart(2, '0')}:${m[2] ?? '00'}`;
 }
 const WEEKDAY = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', weekday: 'long' });
-/** "HH:MM" on the 24-hour clock in Denver, midnight "00:00" and noon "12:00" (h23, never "24:00"), for the order within a day. */
-export const hhmm = (d: Date) => new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Denver', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(d);
+const hhmm = (d: Date) => new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Denver', hour: '2-digit', minute: '2-digit', hour12: false }).format(d);
 
 /**
  * A listing's title as the agenda sets it: whole up to `max` characters;
@@ -227,9 +221,7 @@ export function eventItem(e: EventLike, picked?: ReadonlySet<string>): DayItem {
     href: `/events/${slug}/`,
     dot: `var(--cat-${category}-dot)`,
     category,
-    // An all-day listing after the timed ones; a timed one by its start, whatever its note says. Until 19 November
-    // 2026 any time note sent a listing to the end of its day, after later ones (the owner: the clock's order).
-    time: allDay ? '99:98' : hhmm(start),
+    time: allDay || timeNote ? '99:98' : hhmm(start),
     eventDay: lastDay(e),
     end: toIsoLocal(listedUntil(e)),
     ...(status === 'canceled' || status === 'postponed' ? { status } : {}),

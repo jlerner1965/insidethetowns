@@ -18,7 +18,6 @@ import {
   sourcePattern,
   type Manifest,
   type VercelRedirect,
-  hiddenFaceWords,
 } from '../scripts/lib/site-check.ts';
 
 const DOMAIN = 'insideexample.com';
@@ -358,13 +357,4 @@ test('a sample tradition record in a build without the fixtures switch is refuse
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
-});
-
-test('a freshness notice ships empty: its words are the script’s, hidden by a class or by the attribute (19 November 2026)', () => {
-  // As the hub's weekend page was built until then: "Nothing here is current" beside current listings, for any reader of the HTML.
-  const before = '<p class="mb-8 hidden rounded-lg" data-stale-notice><strong>Nothing here is current.</strong> This page was last refreshed on November 19, 2026.</p>';
-  assert.deepEqual(hiddenFaceWords(before).map((w) => w.slice(0, 24)), ['Nothing here is current.']);
-  assert.equal(hiddenFaceWords('<p data-stale-notice hidden>Last refreshed November 1.</p>').length, 1);
-  // As it is built now: empty, its day and label in attributes for the script.
-  assert.deepEqual(hiddenFaceWords('<p class="mb-8" data-stale-notice data-refreshed-day="2026-11-19" data-refreshed-label="November 19, 2026" hidden></p>'), []);
 });

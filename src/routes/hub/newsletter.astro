@@ -9,7 +9,7 @@
 import Page from '@/layouts/Page.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { allTowns, emailEditions, emailTowns, findTown, fullSections, getHub, listsEvents, liveTowns } from '@/config';
+import { allTowns, emailEditions, emailTowns, findTown, getHub, liveTowns } from '@/config';
 import { getHubEntries, getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { archiveTitle, movedGuides } from '@/lib/issues';
@@ -44,10 +44,6 @@ const paused = liveTowns().filter((t) => t.quiet);
 // send, by design and not "yet": it is named apart from the others.
 const noEvents = liveTowns().filter((t) => t.lead === 'updates');
 const uncovered = liveTowns().length - towns.length - noEvents.length;
-// The full sections folded into this site (Estes Park, Fort Collins, Longmont,
-// Loveland): their events calendars are here, and no edition sends them.
-const guides = new Set(liveTowns().map((t) => t.slug));
-const folded = fullSections().filter((t) => !guides.has(t.slug) && listsEvents(t));
 ---
 <Page
   title={`The ${day} email`}
@@ -86,11 +82,6 @@ const folded = fullSections().filter((t) => !guides.has(t.slug) && listsEvents(t
     {noEvents.length > 0 && (
       <p>
         {names(noEvents.map((t) => ({ name: t.siteTitle })))} {noEvents.length === 1 ? 'lists' : 'list'} no events, so there is no weekly edition and no box for {noEvents.length === 1 ? 'it' : 'them'} above; {noEvents.length === 1 ? 'it posts' : 'they post'} updates on {noEvents.length === 1 ? 'its' : 'their'} own site, where you can sign up for an occasional email when there is one{noEvents.length === 1 && <Fragment>: <a href={`https://${noEvents[0]!.domain}/#signup`} class="text-primary underline">{noEvents[0]!.siteTitle}</a></Fragment>}.
-      </p>
-    )}
-    {folded.length > 0 && (
-      <p>
-        {names(folded)} {folded.length === 1 ? 'has an events calendar' : 'have events calendars'} on this site but no weekly edition, so there is no box for {folded.length === 1 ? 'it' : 'them'} above.
       </p>
     )}
     {uncovered > 0 && (

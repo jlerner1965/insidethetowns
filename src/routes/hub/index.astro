@@ -52,7 +52,7 @@ import { Image, getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { pub } from '@/components/hub/pub';
-import { coverageLine, emailEditions, fullSections, getHub, guideUrl, listsEvents, liveTowns, sectionHome } from '@/config';
+import { emailEditions, fullSections, getHub, guideUrl, liveTowns, sectionHome } from '@/config';
 import { hubCountyLine } from '@/config/hub-towns';
 import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { getCuriosity, getNetworkEntries, getSectionArticles, getTraditions } from '@/lib/content';
@@ -66,7 +66,6 @@ import {
   HOME_PHOTO,
   annualRecordFor,
   capitalized,
-  dayOrder,
   deadlineListings,
   fridayGame,
   gameRow,
@@ -213,8 +212,6 @@ interface Item {
   /** The last day it shows, and the instant it comes off where it has one (src/lib/expiry.ts). */
   until: string;
   end?: string;
-  /** Its place in the day's clock order (src/lib/hub-home.ts, dayOrder). */
-  at: number;
 }
 
 const weekend = days.flatMap((d) => {
@@ -230,7 +227,6 @@ const weekend = days.flatMap((d) => {
       meta: row.meta,
       dot: school.colors?.primary,
       until: friday,
-      at: listing ? dayOrder(listing, friday) : game.game.time ? parseLocal(`${game.game.date}T${game.game.time}`).getTime() : Number.MAX_SAFE_INTEGER,
     });
   }
   for (const e of picks.get(d.key) ?? []) {
@@ -251,11 +247,8 @@ const weekend = days.flatMap((d) => {
       meta: [when, data.venue, reasons.includes('Free') ? undefined : shortCost(data.cost)].filter((s): s is string => !!s),
       until: lastDay(e),
       end: toIsoLocal(listedUntil(e)),
-      at: dayOrder(e, d.key),
     });
   }
-  // The game among the day's listings in the order of the clock, not ahead of them.
-  items.sort((a, b) => a.at - b.at);
   return items.length > 0 ? [{ key: d.key, heading: formatDayLong(d.date), items }] : [];
 });
 
@@ -343,9 +336,7 @@ const news = newsItems(
  * towns it covers, its counties and its line, and its front page.
  */
 const sectionList = fullSections();
-const sections = sectionList.map((t) => ({ name: guideName(t, coveredTowns(t)), line: [hubCountyLine(t), guideLine(t)].join(' · '), coverage: coverageLine(t), href: sectionHome(t) }));
-/** How many of the sections list events, said once over the cards, each card saying its own. */
-const withCalendar = numberWord(sectionList.filter(listsEvents).length);
+const sections = sectionList.map((t) => ({ name: guideName(t, coveredTowns(t)), line: [hubCountyLine(t), guideLine(t)].join(' · '), href: sectionHome(t) }));
 const sectionCount = numberWord(sections.length);
 /**
  * "N more towns": the town pages for towns no full section covers. Severance
@@ -359,14 +350,8 @@ const moreTowns = pagesBeyondSections(pages, sectionList).length;
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 /** The guides with no weekly edition, and so not in the list (src/config/index.ts, emailTowns): "Niwot has no weekly issue." */
 const emailed = new Set(emailEditions().flatMap((e) => e.towns.map((t) => t.slug)));
-/** The towns the email covers, by name, said in the band's line (the owner's review of 19 November 2026: "your town's" read as every town). */
-const emailNames = live.filter((t) => emailed.has(t.slug)).map((t) => t.name);
-const withEmail = numberWord(emailNames.length);
-/** Every full section with no weekly issue, the folded guides as well as Niwot: a Longmont reader is told, not left to find out. */
-const noWeekly = sectionList.filter((t) => !emailed.has(t.slug)).map((t) => t.name);
+const noWeekly = live.filter((t) => !emailed.has(t.slug)).map((t) => t.name);
 const noWeeklyLine = noWeekly.length > 0 ? ` ${listWords(noWeekly)} ${noWeekly.length === 1 ? 'has' : 'have'} no weekly issue.` : '';
-/** The guides This weekend is drawn from: the ones that list events (getNetworkEntries), named in its line. */
-const weekendNames = live.filter(listsEvents).map((t) => t.name);
 
 /** The hero's way to the sections below, each to one the page draws. */
 const jumps = [
@@ -480,7 +465,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
           <div class={halfCol}>
             <div class={pub.open}>
               <h2 id="weekend-heading" class={pub.h2}>This weekend</h2>
-              <p class={dek}>From the calendars of {listWords(weekendNames)}. Each opens on that town’s page, with the source it was checked against.</p>
+              <p class={dek}>Each opens on that town’s page, with the source it was checked against.</p>
             </div>
             {weekend.map((d) => (
               <div data-day={d.key}>
@@ -619,7 +604,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
     <div class={wide}>
       <div class={pub.open}>
         <h2 id="towns-heading" class={pub.h2}>Find your town</h2>
-        <p class={dek}>{capitalized(sectionCount)} towns with a section of their own: {withCalendar} with an events calendar, {withEmail} of them in the Thursday email. Every other town has a page of annual dates.</p>
+        <p class={dek}>{capitalized(sectionCount)} towns with a full section, and a page of annual dates for every other town.</p>
       </div>
       <h3 class={pub.h3}>{capitalized(sectionCount)} full sections</h3>
       <div class="sm:grid sm:grid-cols-2 sm:gap-x-8 desk:grid-cols-4" data-index="sections">
@@ -627,7 +612,6 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
           <div class:list={['py-4', pub.rule]}>
             <h4 class:list={[hl, 'mt-0']}><a href={g.href} class={pub.titleLink} data-track="home-index">{g.name}</a></h4>
             <p class:list={['mt-0.5', pub.meta]}>{g.line}</p>
-            <p class:list={['mt-0.5', pub.meta]} data-coverage>{g.coverage}</p>
           </div>
         ))}
       </div>
@@ -663,8 +647,8 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
       <div class:list={[wide, 'desk:grid desk:grid-cols-[5fr_7fr] desk:items-start desk:gap-x-[56px]']}>
         <div class="border-t-2 border-white pt-3">
           <h2 id="signup-heading" class:list={[pub.h2, 'mt-0 text-white']}>The {sendDay} email</h2>
-          {/* What an edition holds and when it goes, in the words the owner confirmed on 14 November 2026, and since 19 November 2026 for which towns; "7 am" kept on one line. */}
-          <p class:list={[dek, 'text-white']}>For {listWords(emailNames)}: the weekend’s events, the scores, and what opened or closed. Every Thursday at 7&nbsp;am.</p>
+          {/* What an edition holds and when it goes, in the words the owner confirmed on 14 November 2026; "7 am" kept on one line. */}
+          <p class:list={[dek, 'text-white']}>Your town’s weekend events, the scores, and what opened or closed. Every Thursday at 7&nbsp;am.</p>
         </div>
         {/* `signup`: the form's own anchor, where the masthead's email link lands (Header.astro). */}
         <NewsletterSignup variant="hub" id="home" anchor="signup">

@@ -89,29 +89,3 @@ export function pruneExpired(root: PrunableNode, nowMs: number, today: string): 
     if (!scope.querySelector('[data-event-day]')) empty.hidden = false;
   }
 }
-
-/**
- * What the hub's weekend page says about its own freshness, decided in the
- * reader's browser from the reader's Denver day (src/routes/hub/this-weekend.astro):
- *
- * - `gone`: no listing survived the pruning, so everything the build carried
- *   has happened. That is a fault (the scheduled rebuilds stopped), not a
- *   quiet weekend, and the page says so.
- * - `old`: listings remain, but the page was refreshed before yesterday. The
- *   hub rebuilds twice a day (.github/workflows/scheduled-rebuild.yml), so a
- *   refresh that old means the rebuilds have failed and anything added since
- *   is missing; the page says when it was refreshed.
- * - nothing: the page is current and says nothing about it.
- *
- * Until 19 November 2026 the "gone" notice was in the built page, hidden by a
- * class until the script showed it: a reader of the HTML as text (a crawler,
- * a reader view, an assistant fetching the page) was told "Nothing here is
- * current" beside a page of current listings. The words are now written by
- * the script, and only when one of these holds.
- */
-export function weekendFreshness(remaining: number, refreshedDay: string, today: string): 'gone' | 'old' | undefined {
-  if (remaining === 0) return 'gone';
-  const yesterday = new Date(`${today}T12:00:00Z`);
-  yesterday.setUTCDate(yesterday.getUTCDate() - 1);
-  return refreshedDay < yesterday.toISOString().slice(0, 10) ? 'old' : undefined;
-}

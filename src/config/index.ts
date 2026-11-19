@@ -85,18 +85,6 @@ export function emailTowns(): TownConfig[] {
   return liveTowns().filter((t) => !t.quiet && !t.visitorGuide && t.lead !== 'updates');
 }
 
-/**
- * What a full section offers a reader, in a few words, for the indexes that
- * list the sections (the hub's Find your town, /towns/): an events calendar
- * or not, and the Thursday email or not. The owner's review of 19 November
- * 2026 found the indexes calling all eleven "full", while the weekend list
- * and the email covered six guides and Niwot lists no events at all.
- */
-export function coverageLine(t: TownConfig): string {
-  if (!listsEvents(t)) return 'Local updates; no events calendar';
-  return emailTowns().some((e) => e.slug === t.slug) ? 'Events calendar · Thursday email' : 'Events calendar';
-}
-
 /** The weekly email's editions, in the guides' order: shared ones from the hub's config, every other covered guide on its own. */
 export function emailEditions(): Edition[] {
   return editionsOf(emailTowns(), hub.newsletter?.editions);

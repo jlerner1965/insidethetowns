@@ -22,6 +22,7 @@ import {
   weekendSections,
   weekendWindow,
   groupByDay,
+  isBackground,
 } from '../src/lib/events.ts';
 
 interface Fixture {
@@ -274,7 +275,7 @@ test('lastDay is the final day a listing is on, for the browser expiry pass', ()
   assert.equal(lastDay(ev('Late set', '2026-09-20T21:00', '2026-09-21T00:00')), '2026-09-20');
 });
 
-test('a day lists everything in the order of the clock, library programs and meetings among the rest; the days stay in date order', () => {
+test('a day lists its outings before its library programs and meetings, when asked; the days stay in date order', () => {
   const e = (slug: string, start: string, venue: string, category: string) => ({ slug, data: { title: slug, start: parseLocal(start), venue, category, allDay: false } });
   const list = [
     e('storytime-special', '2026-11-14T10:00', 'Gunbarrel Library', 'family'),
@@ -283,9 +284,12 @@ test('a day lists everything in the order of the clock, library programs and mee
     e('band', '2026-11-14T19:00', 'The Wheel House', 'music'),
     e('movie', '2026-11-13T14:00', 'Gunbarrel Library', 'other'),
   ];
+  assert.equal(isBackground(list[0]!), true);
+  assert.equal(isBackground(list[2]!), false);
   const plain = groupByDay(list as never[]).map((d) => d.events.map((x) => (x as { slug: string }).slug));
-  // Until 19 November 2026 the events page, This weekend and the email moved the meeting and the library's program under the market and the band.
-  assert.deepEqual(plain, [['movie'], ['board', 'storytime-special', 'market', 'band']]);
+  assert.deepEqual(plain, [['movie'], ['board', 'storytime-special', 'market', 'band']], 'the clock, as before');
+  const ordered = groupByDay(list as never[], { outingsFirst: true }).map((d) => d.events.map((x) => (x as { slug: string }).slug));
+  assert.deepEqual(ordered, [['movie'], ['market', 'band', 'board', 'storytime-special']]);
 });
 
 test('a listing marked topOfDay comes first on its own day and nowhere else', () => {

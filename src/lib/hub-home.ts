@@ -302,21 +302,11 @@ export interface WeekendPickOptions {
 }
 
 /**
- * Where a listing goes in one day's list, as a number to sort by: a timed
- * listing that starts that day by its start (midnight first, noon in its
- * place), then the all-day listings and the runs that began on an earlier
- * day, which have no time of their own on it.
- */
-export function dayOrder(e: { data: { start: Date; allDay?: boolean } }, key: string): number {
-  return !e.data.allDay && dayKey(e.data.start) === key ? e.data.start.getTime() : Number.MAX_SAFE_INTEGER;
-}
-
-/**
  * The same choice as `weekendPicks`, up to `perDay` listings a day (the
  * home's "This weekend" under the publication redesign of 14 November
  * 2026, a heading a day with its listings under it). Every rule holds: the
- * best listing of the whole weekend chosen first, never two from one town
- * across the weekend; a day's listings are then shown in clock order.
+ * best listing of the whole weekend placed first, never two from one town
+ * across the weekend, a day's listings in that order.
  */
 export function weekendPicksByDay<T extends Listing>(
   all: readonly T[],
@@ -347,11 +337,9 @@ export function weekendPicksByDay<T extends Listing>(
     chosen.set(key, list);
     towns.add(e.town.slug);
   });
-  // In the days' own order, each day's listings in the order of the clock
-  // (`dayOrder`): the rank chose them, it does not order them (the owner, 19
-  // November 2026). Until then a day's pick came first whatever its time.
+  // In the days' own order, each day's listings best first.
   const picks = new Map<string, T[]>();
-  for (const { key } of days) if (chosen.has(key)) picks.set(key, chosen.get(key)!.sort((a, b) => dayOrder(a.e, key) - dayOrder(b.e, key) || a.at - b.at).map((c) => c.e));
+  for (const { key } of days) if (chosen.has(key)) picks.set(key, chosen.get(key)!.sort((a, b) => a.at - b.at).map((c) => c.e));
   return picks;
 }
 
