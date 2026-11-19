@@ -657,7 +657,8 @@ test('every school carries the winter list after its fall list, any spring teams
     const seasons = school.teams.map((t) => order[t.season]);
     assert.deepEqual(seasons, [...seasons].sort((a, b) => a - b), `${school.school}: fall, then winter, then spring`);
     // Spring teams only where a guide has asked: Roosevelt's baseball and girls' soccer (the owner, 9 November 2026); Lyons's baseball and track left with its sports pages on 17 November 2026.
-    // Golden's baseball and lacrosse went with its guide, folded into its page on the hub on 12 November 2026.
+    // Golden's baseball and lacrosse went with its guide, folded into its page on the hub on 12 November 2026. The gap reports' spring teams of
+    // 19 November 2026 wait for February, when spring schedules post (TODO.md).
     assert.equal(school.teams.some((t) => t.season === 'spring'), school.town === 'johnstown', `${school.school}: spring teams only at Roosevelt`);
     // Ice hockey only where CHSAA lists the school: Resurrection Christian was the one, and it went with Loveland's guide the same day.
     assert.equal(keys.includes('ice-hockey'), false, `${school.school}: CHSAA lists no ice hockey for a school still followed`);
@@ -722,8 +723,8 @@ test('boys tennis is a fall team and baseball a spring one, at MaxPreps’s own 
   assert.deepEqual([baseball?.season, baseball?.maxpreps], ['spring', 'baseball']);
   for (const s of SCHOOL_SPORTS) assert.equal(s.teams.some((t) => ['boys-lacrosse', 'girls-lacrosse'].includes(t.key)), false, s.school);
   // Boys' tennis is Frederick's, Niwot's and Windsor High's (FREDERICK_FALL_EXTRAS; NIWOT_BOYS_TENNIS;
-  // BOYS_TENNIS for Windsor High), the owner's word of 9 November 2026.
-  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['carbon-valley', 'niwot', 'windsor']);
+  // BOYS_TENNIS for Windsor High), the owner's word of 9 November 2026, and Erie's and Severance's from 19 November 2026.
+  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.school).sort(), ['Erie High School', 'Frederick High School', 'Niwot High School', 'Severance High School', 'Windsor High School']);
 });
 
 test('a spring team before its season is written empty, not with last spring’s games', () => {
