@@ -4,7 +4,7 @@ description: "What it is like to live in a stone town of 2,200 at the 2020 censu
 image: ../images/post-office.jpg
 imageAlt: "The Lyons post office, a one-story brick building behind its red sandstone United States Post Office sign, with the foothills beyond, July 2013"
 imageCredit: "Shannon McGee, Flickr, CC BY-SA 2.0"
-updated: "2026-11-09"
+updated: "2026-11-19"
 ---
 
 ## What you are moving to
@@ -13,7 +13,7 @@ Lyons is an incorporated statutory town of about 2,200 people at the 2020 census
 
 ## Housing
 
-Mostly single-family homes on the older grid around Main Street and up the hillsides, with a scattering of newer subdivisions on the edges. Inventory is small in a town this size and the festival economy supports a licensed short-term-rental market, so what is for sale at any moment is a handful of listings; the links in the sidebar go to the major sites. Ask about the floodplain before you fall for a riverside lot: the September 2013 flood put a fifth of the town's housing out of use, and the maps were redrawn afterwards.
+Mostly single-family homes on the older grid around Main Street and up the hillsides, with a scattering of newer subdivisions on the edges. The Town's notices name Eagle Canyon on the north side of town and the Stone Canyon, Lyons Valley Park and Confluence neighborhoods on the south. Inventory is small in a town this size and the festival economy supports a licensed short-term-rental market, so what is for sale at any moment is a handful of listings; the links in the sidebar go to the major sites. Ask about the floodplain before you fall for a riverside lot: the September 2013 flood put a fifth of the town's housing out of use, and the maps were redrawn afterwards.
 
 ## Schools
 
@@ -31,7 +31,7 @@ Unlike the unincorporated towns nearby, Lyons runs its own services from [Town H
 - **Trash and recycling** are arranged by each household with a private hauler (Western Disposal and One Way Trash both serve Lyons); Western Disposal offers opt-in curbside compost. The Town and county run a free drop-off recycling center at 198 2nd Avenue, open 7 to 7 daily. Bears walk the river corridor, so cans stay in until the morning of pickup.
 - **Fire and emergency medical** response is the [Lyons Fire Protection District](https://lyonsfire.org/), staffed around the clock, which also runs swiftwater rescue on the river.
 - **Police** is the [Boulder County Sheriff](https://bouldercounty.gov/safety/sheriff/), under contract, from a substation in the Depot at 430 5th Avenue.
-- **Emergency alerts** for flood, fire and evacuation come through Boulder County's alert system. Register every phone in the household; the town was cut off for days in 2013.
+- **Emergency alerts** for flood, fire and evacuation come through BOCO Alert, Boulder County's system: sign up at [bocoalert.org](https://www.bocoalert.org/), as the County's [Office of Disaster Management](https://boulderodm.gov/) asks. Register every phone in the household; the town was cut off for days in 2013.
 - **Building permits, planning and zoning** are Town departments; the Planning & Community Development Commission reviews applications before the Board.
 - **Property tax** is Boulder County's: the [Assessor](https://bouldercounty.gov/departments/assessor/) sets each property's value every two years, and the [Treasurer](https://bouldercounty.gov/property-and-land/treasurer/) sends the tax bills and collects them (303-441-3520).
 - **Groceries** in town come from [St. Vrain Market](/places/st-vrain-market/) at 455 Main Street, a locally owned grocery with a deli and a scratch bakery, closed Mondays.

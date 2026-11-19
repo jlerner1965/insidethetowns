@@ -12654,3 +12654,35 @@ word alone; several of its readings had moved by the afternoon.*
   tree-lighting time (Lead 4) was already on the page with both times and a
   correction of 12 November. Library December hours (L5) were published
   the same morning.
+
+## The Lyons gap report of 19 November 2026
+
+*The owner's brief: act on the confirmed findings and the bad links only,
+each read again on its own source today; no sports on Lyons (17 November);
+the network lines left to the network prompt.*
+
+- **Published.** Updates: McConnell Drive repaved (the Administrator's
+  report of 12 November; a correction filed), the Thanksgiving note now with
+  the library, the County's offices and urgent care's holiday hours, the
+  charger ribbon cutting and Friday's street sweeping, and St. Vrain open
+  enrollment (1 to 15 December) with preschool registration, which the
+  district has moved to 8 December. Events: the ribbon cutting, two library
+  events on 21 November, and the Wednesday storytime back through 16
+  December at 10:30 to 11 (a correction filed). Places: Wildcat
+  Mountaineering and the Walt Self Community Building; Bohn Park's skate
+  park, sport court and dry-camping season; Button Rock's winter elk closure
+  and roadside towing. Living here gains Building permits, Library and
+  Seniors, and animal control under Reporting a problem. Moving here names
+  BOCO Alert and four neighborhoods; Things to do, the public art tour.
+- **Staged.** Julie's Thai and Lyons Dairy Bar: the Town's list gives both
+  138 Main St, and both of the sites it names now serve gambling pages.
+  Linger Coffee Co.: a Chamber listing with no closing time and no site.
+- **Where the report was wrong or had moved.** Preschool registration opens
+  8 December, not 1 December. St. Vrain Market's own site gives the hours
+  the guide has. Spirit Hound's tasting-room page gives the guide's hours;
+  only its site footer says otherwise. The Holiday Artisan Market file
+  already holds both days; the events list draws only the first.
+- **Not changed.** Sports (findings 1 and 2), by the owner's decision. The
+  ice rink page answers 404. The fire-restriction release and the 16
+  November agenda are past. Lyons Valley River Park and Steamboat Park have
+  no page or address of their own to list from.
