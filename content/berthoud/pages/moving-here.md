@@ -3,7 +3,7 @@ title: "Moving to Berthoud"
 description: "What it is like to live in a farm town of ten thousand at the 2020 census that doubled in a decade: housing, Thompson schools, the US 287 and I-25 commutes, a Town that runs its own water, and the lakes ten minutes up the road."
 image: ../images/welcome-sign.jpg
 imageAlt: "The Town of Berthoud welcome sign, 'The Garden Spot of Colorado', on a gray winter day"
-updated: "2026-11-10"
+updated: "2026-11-19"
 ---
 
 ## What you are moving to
@@ -20,7 +20,7 @@ Berthoud is in the [Thompson School District R2-J](https://www.tsd.org/), based 
 
 ## Getting around
 
-US 287 has skirted the west side of town since the 2006 bypass, which is why downtown is quiet and why it is fifteen minutes to Loveland or Longmont on the highway. I-25 is ten minutes east on Colorado 56, then about fifty minutes to Denver and an hour to Denver International Airport; Fort Collins is 25 minutes north. For transit, the [FLEX](https://www.ridetransfort.com/) regional bus runs between Fort Collins, Loveland, Berthoud, Longmont and Boulder, and the Town's [Berthoud Area Transportation Service](https://berthoud.org/159/Berthoud-Area-Transportation-Service-BAT) (BATS) gives door-to-door rides in town and to Loveland; for Longmont, [RAFT](https://berthoudraft.org/) carries riders 60 and over and adults with a disability. Downtown is walkable; the rest of town is a car or a bike.
+US 287 has skirted the west side of town since the 2006 bypass, which is why downtown is quiet and why it is fifteen minutes to Loveland or Longmont on the highway. I-25 is ten minutes east on Colorado 56, then about fifty minutes to Denver and an hour to Denver International Airport; Fort Collins is 25 minutes north. For transit, the [FLEX](https://www.ridetransfort.com/) regional bus runs between Fort Collins, Loveland, Berthoud, Longmont and Boulder, and the Town's [Berthoud Area Transportation Service](https://berthoud.org/159/Berthoud-Area-Transportation-Service-BAT) (BATS) gives door-to-door rides in town and to Loveland. [RAFT](https://berthoudraft.org/) gives door-to-door rides to Berthoud, Loveland and Longmont for riders 60 and over and adults with a disability who live in the Berthoud Fire Protection District (970-532-0808). Downtown is walkable; the rest of town is a car or a bike.
 
 ## Utilities, trash, fire, police
 
@@ -29,7 +29,7 @@ US 287 has skirted the west side of town since the 2006 bypass, which is why dow
 - **Natural gas** is Xcel Energy.
 - **Trash and recycling** are private: residents choose from the haulers licensed by the Town, listed in its [business directory](https://www.berthoud.org/1387/Trash-and-Utility-Providers), and some subdivisions contract a hauler through the HOA.
 - **Police** is the [Larimer County Sheriff's Berthoud Squad](https://www.larimer.gov/sheriff/patrol/berthoud-squad), under contract; non-emergency 970-416-1985.
-- **Fire and emergency medical** response is the [Berthoud Fire Protection District](https://www.berthoudfire.org/), a separate district covering 103 square miles from its station at 248 Welch Avenue; non-emergency 970-532-2264.
+- **Fire and emergency medical** response is the [Berthoud Fire Protection District](https://www.berthoudfire.org/), a separate district covering 98 square miles in Larimer, Boulder and Weld counties, with its station at 248 Welch Avenue; main line 970-532-2264, non-emergency dispatch 970-667-2151, ext. 4.
 - **Building permits, planning and zoning** are Town departments; the [Planning Commission](/events/?category=civic) meets on the second and fourth Thursdays.
 
 ## Government
