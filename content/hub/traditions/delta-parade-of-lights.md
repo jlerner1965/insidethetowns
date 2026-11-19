@@ -14,6 +14,8 @@ years:
   - year: 2026
     status: confirmed
     date: 2026-12-04
+    startTime: "6 pm"
     place: "Main Street, Delta, 9th to 2nd St."
-    checked: 2026-11-17
+    sourceUrl: "https://deltacolorado.org/wp-content/uploads/2026/10/Parade-of-lights-Application-2026.pdf"
+    checked: 2026-11-19
 ---
