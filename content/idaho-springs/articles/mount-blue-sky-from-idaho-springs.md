@@ -34,7 +34,7 @@ related:
   - { label: "Argo Mill and Tunnel", href: "/idaho-springs/places/argo-mill-and-tunnel/", note: "The mill tour on Riverside Drive, open most days this winter." }
 ---
 
-Highway 5, the road up Mount Blue Sky, is closed to cars for the rest of 2026: [Recreation.gov](https://www.recreation.gov/timed-entry/10087438) says it closed to vehicles on October 5. When it reopens (on May 22 in 2026), anyone driving up needs a timed ticket from Recreation.gov, bought before leaving Idaho Springs because there is no cell service on the mountain. In 2026 it cost $20 a car and $15 a motorcycle, and federal passes such as America the Beautiful are no longer accepted. The 2027 dates and prices are not yet published.
+Highway 5, the road up Mount Blue Sky, is closed to cars for the rest of 2026: [Recreation.gov](https://www.recreation.gov/timed-entry/10087438) says it closed to vehicles on October 5. When it reopens (in 2026 it opened on May 22), anyone driving up needs a timed ticket from Recreation.gov, bought before leaving Idaho Springs because there is no cell service on the mountain. In 2026 it cost $20 a car and $15 a motorcycle, and federal passes such as America the Beautiful are no longer accepted. The 2027 dates and prices are not yet published.
 
 This is for anyone planning the drive from Idaho Springs, America's highest paved road. Since 2026 Denver Mountain Parks has [run the recreation area](https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/News/2026/Denver-Mountain-Parks-to-take-helm-on-Mt.-Blue-Sky-this-Summer), collecting the fees, managing the reservations and setting the hours.
 
