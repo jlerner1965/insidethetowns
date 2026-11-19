@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/speed-dating-hosted-by-randie-at-odell-bre
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "1999123669711"
 sourceHash: "6c72eb2624ea"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Fort Collins Speed Dating! Hosted by Randie at Odell Brewing Co.\" at 6 pm on 19 November in the page's structured data"
 ---
 

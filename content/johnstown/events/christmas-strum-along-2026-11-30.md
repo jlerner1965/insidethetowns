@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/christmas-strum-along
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10651"
 sourceHash: "2ae899e1833c"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Christmas Strum-Along\" at 6:30 pm on 30 November in the page's structured data"
 ---
 

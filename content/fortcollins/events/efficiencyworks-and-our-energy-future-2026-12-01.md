@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/efficiencyworks-and-our-energy-future-tick
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2004090188703"
 sourceHash: "b229f5f22050"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"EfficiencyWorks and our Energy Future\" at 5:30 pm on 1 December in the page's structured data"
 ---
 

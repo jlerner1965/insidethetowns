@@ -10,7 +10,7 @@ source: "https://www.stvraincidery.com/events/community-event-visible-government
 sourceId: "stvraincidery-com"
 sourceUid: "/events/community-event-visible-government-league-34jj7-mxw64-lglel-m5h23-7cknb-wzwn2-sbfb5-2rb6s-wtlcb"
 sourceHash: "37297d0cba03"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"COMMUNITY EVENT | VISIBLE GOVERNMENT LEAGUE — Home\" at 7 pm on 23 November in the page's structured data"
 ---
 

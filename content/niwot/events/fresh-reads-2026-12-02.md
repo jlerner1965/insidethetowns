@@ -8,8 +8,8 @@ source: "https://calendar.boulderlibrary.org/events"
 sourceId: "boulderlibrary-libnet-info"
 sourceUid: "17510164"
 sourceHash: "865e9d22a682"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Boulder Public Library District - Gunbarrel Library events feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Fresh Reads\" at 5:30 pm on 2 December on the Boulder Public Library District - Gunbarrel Library events feed"
 ---
 
 Fresh Reads at Gunbarrel Library - Gunbarrel Study Rooms - Joined, Wednesday, December 2, 5:30 pm – 6:30 pm. Listed by Boulder Public Library District - Gunbarrel Library events; the organizer's page has the details and any registration.

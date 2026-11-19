@@ -11,6 +11,8 @@ sourceUid: "LibCal-19315-17835557"
 sourceHash: "85d451775860"
 verified: "2026-11-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tween/Teen Spice Metals\" at 2 pm on 19 November on the Estes Valley Library feed"
+changeFlag: true
+changeNote: "recheck 2026-11-19: the Estes Valley Library feed marks \"Tween/Teen Spice Metals\" on 19 November cancelled"
 ---
 
 Tween/Teen Spice Metals at Estes Valley Library, Thursday, November 19, 2 pm – 3 pm. Listed by Estes Valley Library; the organizer's page has the details and any registration.

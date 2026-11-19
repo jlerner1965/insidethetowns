@@ -9,7 +9,7 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17702804"
 sourceHash: "918dd6da08d1"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Pub Trivia Night\" at 5:30 pm on 1 December on the Clearview Library District feed"
 ---
 

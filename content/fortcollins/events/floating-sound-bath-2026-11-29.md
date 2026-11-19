@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/floating-sound-bath-tickets-2001707346558"
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2001707346558"
 sourceHash: "7d6949a76922"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Floating Sound Bath\" at 2 pm on 29 November in the page's structured data"
 ---
 

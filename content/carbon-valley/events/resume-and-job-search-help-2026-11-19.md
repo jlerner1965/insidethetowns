@@ -9,7 +9,7 @@ source: "https://highplains.libcal.com/event/17991241"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17991241"
 sourceHash: "8b5c423716a7"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Resume and Job Search Help\" at 6 pm on 19 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

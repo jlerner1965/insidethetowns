@@ -10,7 +10,7 @@ source: "https://tockify.com/lovelanddowntown/detail/1682/1795138200000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1682/29918970/0/0"
 sourceHash: "a5d8532406ca"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Loveland Historical Society November Program\" at 6:30 pm on 19 November on the Loveland Downtown Partnership feed"
 ---
 

@@ -10,8 +10,8 @@ source: "https://www.kuperwinebar.com/event/women-wine-quarterly-social-december
 sourceId: "kuperwinebar-com"
 sourceUid: "11426"
 sourceHash: "0573b9213f77"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Kuper Wine Bar (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Women + Wine: Quarterly Social &#8211; December Event\" at 4 pm on 2 December in the page's structured data"
 ---
 
 Women + Wine: Quarterly Social – December Event at Kuper Wine Bar, Wednesday, December 2, 4 pm – 6 pm. Listed by Kuper Wine Bar (events calendar); the organizer's page has the details and any registration.

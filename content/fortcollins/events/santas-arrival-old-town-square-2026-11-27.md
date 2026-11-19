@@ -9,7 +9,7 @@ category: "family"
 organizer: "Fort Collins Downtown Development Authority"
 organizerUrl: "https://downtownfortcollins.org/"
 source: "https://downtownfortcollins.org/winter-in-downtown/"
-verified: "2026-11-18"
+verified: "2026-11-19"
 featured: true
 verifiedBy: "recheck-events (the nightly re-check workflow): 27 November and 11:30 am on the page"
 ---

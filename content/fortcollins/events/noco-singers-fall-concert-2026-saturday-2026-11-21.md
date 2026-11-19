@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/noco-singers-fall-concert-2026-saturday-ti
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003901639748"
 sourceHash: "18e86075ee4a"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"NOCO Singers Fall Concert 2026 - Saturday\" at 7 pm on 21 November in the page's structured data"
 ---
 

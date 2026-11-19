@@ -10,7 +10,7 @@ organizer: "Carbon Valley Regional Library (High Plains Library District)"
 organizerUrl: "https://www.mylibrary.us/cvrl/"
 source: "https://highplains.libcal.com/event/15800600"
 sourceId: "highplains-libcal-com"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Dungeons & Dragons\" at 3:45 pm on 1 December on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

@@ -11,8 +11,8 @@ cost: "Free"
 category: other
 recurring: "Tuesdays at 6"
 source: "https://citystarbrewing.com/events/"
-verified: "2026-11-17"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Humdinger Trivia\" at 6 pm on 17 November in the page's structured data"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Humdinger Trivia\" at 6 pm on 24 November in the page's structured data"
 ---
 
 Pub trivia every Tuesday at 6 pm in City Star's beer garden. Free to play, teams of up to six; the winning team takes $30 in City Star beer. A food truck serves dinner out front; the brewery posts the schedule.

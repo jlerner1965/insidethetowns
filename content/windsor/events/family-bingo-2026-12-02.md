@@ -9,8 +9,8 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17689638"
 sourceHash: "ce4134ca99ea"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the clearview.libnet.info feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Family Bingo\" at 4:30 pm on 2 December on the Clearview Library District feed"
 ---
 
 Family Bingo at Windsor Library - Pikes Peak, Wednesday, December 2, 4:30 pm – 5:30 pm. Listed by Clearview Library District; the organizer's page has the details and any registration.

@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17856227"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17856227"
 sourceHash: "2a68bc949dbd"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Little Pumpkin Patch: Fabric Stuffed Pumpkins\" at 1 pm on 24 November on the Estes Valley Library feed"
 ---
 

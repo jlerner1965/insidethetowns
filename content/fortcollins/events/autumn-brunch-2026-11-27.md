@@ -10,7 +10,7 @@ source: "https://gingerandbaker.com/my-event/tk-autumn-brunch/"
 sourceId: "gingerandbaker-com"
 sourceUid: "81357"
 sourceHash: "ef74b2186504"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Autumn Brunch\" at 10 am on 27 November in the page's structured data"
 ---
 

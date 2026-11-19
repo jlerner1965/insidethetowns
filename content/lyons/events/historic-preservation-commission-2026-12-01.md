@@ -7,7 +7,7 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Monthly"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6601"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Historic Preservation Commission\" at 4:30 pm on 1 December on the townoflyons.com feed"
 ---
 

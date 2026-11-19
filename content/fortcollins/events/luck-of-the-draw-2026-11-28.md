@@ -10,7 +10,7 @@ category: "music"
 performers:
   - { name: "Luck of the Draw", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-18"
+verified: "2026-11-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November and 7 pm on the page"
 ---
 
