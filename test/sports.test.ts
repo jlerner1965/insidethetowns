@@ -656,10 +656,10 @@ test('every school carries the winter list after its fall list, any spring teams
     const order = { fall: 0, winter: 1, spring: 2 } as const;
     const seasons = school.teams.map((t) => order[t.season]);
     assert.deepEqual(seasons, [...seasons].sort((a, b) => a - b), `${school.school}: fall, then winter, then spring`);
-    // Spring teams only where a guide has asked: Roosevelt's baseball and girls' soccer (the owner, 9 November 2026), and every school's but
-    // Windsor High's from the gap reports of 19 November 2026. Lyons's baseball and track left with its sports pages on 17 November 2026;
-    // Golden's baseball and lacrosse went with its guide, folded into its page on the hub on 12 November 2026.
-    assert.equal(school.teams.some((t) => t.season === 'spring'), school.school !== 'Windsor High School', `${school.school}: spring teams everywhere but Windsor High`);
+    // Spring teams only where a guide has asked: Roosevelt's baseball and girls' soccer (the owner, 9 November 2026); Lyons's baseball and track left with its sports pages on 17 November 2026.
+    // Golden's baseball and lacrosse went with its guide, folded into its page on the hub on 12 November 2026. The gap reports' spring teams of
+    // 19 November 2026 wait for February, when spring schedules post (TODO.md).
+    assert.equal(school.teams.some((t) => t.season === 'spring'), school.town === 'johnstown', `${school.school}: spring teams only at Roosevelt`);
     // Ice hockey only where CHSAA lists the school: Resurrection Christian was the one, and it went with Loveland's guide the same day.
     assert.equal(keys.includes('ice-hockey'), false, `${school.school}: CHSAA lists no ice hockey for a school still followed`);
     // MaxPreps has no girls' swimming page for Elizabeth (25 October 2026), nor for Severance, which CHSAANow lists none for (9 November 2026).
@@ -687,7 +687,7 @@ test('every school carries the winter list after its fall list, any spring teams
   const { pageSeasonLabel } = await import('../src/lib/school-sports.ts');
   const lyons = rooseveltTeams;
   const roosevelt = schoolSportsFor('johnstown')!.teams.filter((t) => t.season === 'spring');
-  assert.deepEqual(roosevelt.map((t) => [t.key, t.maxpreps]), [['baseball', 'baseball'], ['girls-soccer', 'soccer/girls/spring'], ['girls-golf', 'golf/girls/spring'], ['boys-track', 'track-field'], ['girls-track', 'track-field/girls']]);
+  assert.deepEqual(roosevelt.map((t) => [t.key, t.maxpreps]), [['baseball', 'baseball'], ['girls-soccer', 'soccer/girls/spring']]);
   const spring: SportsData = { generated: '', sports: [team('boys-basketball', [{ ...game('2027-02-20', 'Estes Park'), result: 'W' as const, score: { us: 50, them: 40 } }], []), team('baseball', [], [game('2027-03-10', 'Estes Park')])].map((t) => ({ ...t, fetched: '2027-03-01' })) };
   const march = new Date('2027-03-01T15:00:00Z');
   assert.equal(seasonOf(spring, lyons, march).label, 'Spring 2027');
@@ -711,7 +711,7 @@ test('a MaxPreps page still on last school year’s season is not this season’
   assert.equal(parseTeamPage(html, us).season, '25-26');
 });
 
-test('boys tennis is a fall team and baseball a spring one, at MaxPreps’s own paths; lacrosse is Erie’s boys’ alone', () => {
+test('boys tennis is a fall team and baseball a spring one, at MaxPreps’s own paths; no school still followed has lacrosse', () => {
   // Golden High was the school this was read on (boys' tennis in the fall, baseball and both lacrosse
   // teams in spring) until its guide was folded into its page on the hub on 12 November 2026. The
   // tennis and baseball paths are held on the schools that still follow them: Windsor High's tennis
@@ -721,8 +721,7 @@ test('boys tennis is a fall team and baseball a spring one, at MaxPreps’s own 
   assert.deepEqual([tennis?.season, tennis?.maxpreps], ['fall', 'tennis/fall']);
   const baseball = schoolSportsFor('johnstown')!.teams.find((t) => t.key === 'baseball');
   assert.deepEqual([baseball?.season, baseball?.maxpreps], ['spring', 'baseball']);
-  // Boys' lacrosse came back with Erie High, whose MaxPreps page links `lacrosse` (the Erie gap report, 19 November 2026); no school has girls' lacrosse.
-  for (const s of SCHOOL_SPORTS) assert.deepEqual(s.teams.filter((t) => ['boys-lacrosse', 'girls-lacrosse'].includes(t.key)).map((t) => [t.key, t.maxpreps]), s.town === 'erie' ? [['boys-lacrosse', 'lacrosse']] : [], s.school);
+  for (const s of SCHOOL_SPORTS) assert.equal(s.teams.some((t) => ['boys-lacrosse', 'girls-lacrosse'].includes(t.key)), false, s.school);
   // Boys' tennis is Frederick's, Niwot's and Windsor High's (FREDERICK_FALL_EXTRAS; NIWOT_BOYS_TENNIS;
   // BOYS_TENNIS for Windsor High), the owner's word of 9 November 2026, and Erie's and Severance's from 19 November 2026.
   assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.school).sort(), ['Erie High School', 'Frederick High School', 'Niwot High School', 'Severance High School', 'Windsor High School']);

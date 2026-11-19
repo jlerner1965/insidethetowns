@@ -27,8 +27,7 @@
  * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
  * teams are followed where the owner has asked (Lyons's baseball and track,
  * Golden's baseball and lacrosse, Roosevelt's baseball and girls' soccer,
- * 9 November 2026; every school's spring teams but Windsor High's, 19
- * November 2026); until MaxPreps opens the school year's spring season
+ * 9 November 2026); until MaxPreps opens the school year's spring season
  * the run writes them as having nothing yet, whether the page is still
  * last school year's (scripts/lib/maxpreps.ts,
  * staleSeason) or lists no game of this one (scripts/lib/sports-crosscheck.ts,
@@ -367,25 +366,16 @@ const GIRLS_LACROSSE: SportConfig = { key: 'girls-lacrosse', season: 'spring', n
  * own school page links for that school, read with WebFetch on 19 November
  * 2026, as Frederick's extras were (MaxPreps refuses the cloud address this
  * was written from): girls' `wrestling/girls`, girls' `gymnastics/fall`,
- * boys' `golf` and `tennis/fall`, and the spring teams' `baseball`,
- * `lacrosse`, `volleyball/boys`, `soccer/girls/spring`, `golf/girls/spring`,
- * `tennis/girls/spring`, `track-field` and `track-field/girls`. Each school
- * gets only the teams its own MaxPreps page links. The spring teams are
- * written as having nothing yet until MaxPreps opens their season
- * (beforeSpringSeason), and join the page with their first game. Track is
- * meets, not games, as cross country is: it may show nothing until the
- * reader learns to read a meet. Cheer, poms and the unified teams are not
- * followed (cheer is meets with no score the reader reads; TODO.md).
+ * and boys' `golf` and `tennis/fall`. Each school gets only the teams its own
+ * MaxPreps page links. The spring teams the reports named wait for February,
+ * when spring schedules post (the owner, 19 November 2026; TODO.md): the
+ * reader cannot yet read an off-season baseball page, and a team it cannot
+ * read sits on the page's "Not read yet" line all winter. Cheer, poms and
+ * the unified teams are not followed (cheer is meets with no score the
+ * reader reads; TODO.md).
  */
 const GIRLS_WRESTLING: SportConfig = { key: 'girls-wrestling', season: 'winter', name: 'Girls wrestling', maxpreps: 'wrestling/girls', calendar: { gender: 'Girls', sport: 'Wrestling' } };
 const GIRLS_GYMNASTICS: SportConfig = { key: 'girls-gymnastics', season: 'fall', name: 'Girls gymnastics', maxpreps: 'gymnastics/fall', calendar: { gender: 'Girls', sport: 'Gymnastics' } };
-const SPRING_BOYS_VOLLEYBALL: SportConfig = { key: 'boys-volleyball', season: 'spring', name: 'Boys volleyball', maxpreps: 'volleyball/boys', calendar: { gender: 'Boys', sport: 'Volleyball' } };
-const SPRING_GIRLS_GOLF: SportConfig = { key: 'girls-golf', season: 'spring', name: 'Girls golf', maxpreps: 'golf/girls/spring', calendar: { gender: 'Girls', sport: 'Golf' } };
-const SPRING_GIRLS_TENNIS: SportConfig = { key: 'girls-tennis', season: 'spring', name: 'Girls tennis', maxpreps: 'tennis/girls/spring', calendar: { gender: 'Girls', sport: 'Tennis' } };
-const SPRING_TRACK: SportConfig[] = [
-  { key: 'boys-track', season: 'spring', name: 'Boys track and field', maxpreps: 'track-field', calendar: { gender: 'Boys', sport: 'Track & Field' } },
-  { key: 'girls-track', season: 'spring', name: 'Girls track and field', maxpreps: 'track-field/girls', calendar: { gender: 'Girls', sport: 'Track & Field' } },
-];
 
 /** The fall list without one team, for a school that does not field it. */
 const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
@@ -444,8 +434,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
       // CHSAANow's 3A Region 9 bracket: "Hosted by Berthoud • Sat, Nov 7"; Berthoud beat Prospect Ridge Academy and Delta there and won the region.
       { team: 'volleyball', date: '2026-11-07', stage: 'Regionals', source: 'https://chsaanow.com/brackets/girls-volleyball/2026/regional/3a/region-9' },
     ],
-    // Boys' golf, girls' wrestling and the spring teams from 19 November 2026 (the gap report, H2 and H3).
-    teams: TEAMS([...FALL(), GIRLS_FLAG_FOOTBALL, BOYS_GOLF], [...WINTER(), GIRLS_WRESTLING], [SPRING_BASEBALL, SPRING_GIRLS_SOCCER, SPRING_GIRLS_GOLF, SPRING_GIRLS_TENNIS, ...SPRING_TRACK]),
+    // Boys' golf and girls' wrestling from 19 November 2026 (the gap report, H2 and H3).
+    teams: TEAMS([...FALL(), GIRLS_FLAG_FOOTBALL, BOYS_GOLF], [...WINTER(), GIRLS_WRESTLING]),
   },
   {
     town: 'niwot',
@@ -464,8 +454,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // (arbiterlive.com/School/Calendar/16031), whose robots.txt disallows
     // every automated reader, so there is nothing to check against.
     calendarNote: 'Niwot’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    // The six spring teams from 19 November 2026 (the gap report, finding 16; agreed 9 November, TODO.md).
-    teams: TEAMS([...FALL(), NIWOT_GYMNASTICS, NIWOT_BOYS_GOLF, NIWOT_BOYS_TENNIS], WINTER(), [SPRING_BASEBALL, SPRING_BOYS_VOLLEYBALL, SPRING_GIRLS_SOCCER, SPRING_GIRLS_GOLF, SPRING_GIRLS_TENNIS, ...SPRING_TRACK]),
+    teams: TEAMS([...FALL(), NIWOT_GYMNASTICS, NIWOT_BOYS_GOLF, NIWOT_BOYS_TENNIS]),
   },
   // Elizabeth High left the sports run when its guide was folded into its
   // page on the hub, 12 November 2026.
@@ -493,8 +482,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
       { team: 'football', date: '2026-11-20', stage: 'State Football Playoffs', source: 'https://chsaanow.com/sports/football/games/2026/11/20/mesa-ridge-at-roosevelt' },
     ],
     // Baseball and girls' soccer in the spring, on the owner's word (9 November 2026); boys' golf,
-    // gymnastics, girls' wrestling, girls' golf and track from 19 November 2026 (the gap report, H1 to H3).
-    teams: TEAMS([...FALL(), BOYS_GOLF, GIRLS_GYMNASTICS], [...WINTER(), GIRLS_WRESTLING], [SPRING_BASEBALL, SPRING_GIRLS_SOCCER, SPRING_GIRLS_GOLF, ...SPRING_TRACK]),
+    // gymnastics and girls' wrestling from 19 November 2026 (the gap report, H1 and H3).
+    teams: TEAMS([...FALL(), BOYS_GOLF, GIRLS_GYMNASTICS], [...WINTER(), GIRLS_WRESTLING], [SPRING_BASEBALL, SPRING_GIRLS_SOCCER]),
   },
   {
     town: 'windsor',
@@ -554,9 +543,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // ArbiterSports, and keeps no calendar of games this reader reads.
     calendarNote: 'Severance High’s own site has no calendar of games this site can read, so games to come are published on MaxPreps’s word alone.',
     // No girls' swimming: CHSAANow lists none for the school, and MaxPreps
-    // has no page for it (9 November 2026). Boys' golf and tennis, girls' wrestling and the spring
-    // teams from 19 November 2026 (the Windsor gap report, H2).
-    teams: TEAMS([...FALL(), BOYS_GOLF, BOYS_TENNIS], [...WINTER_WITHOUT('girls-swimming'), GIRLS_WRESTLING], [SPRING_BASEBALL, SPRING_GIRLS_SOCCER, ...SPRING_TRACK]),
+    // has no page for it (9 November 2026). Boys' golf and tennis and girls' wrestling from
+    // 19 November 2026 (the Windsor gap report, H2).
+    teams: TEAMS([...FALL(), BOYS_GOLF, BOYS_TENNIS], [...WINTER_WITHOUT('girls-swimming'), GIRLS_WRESTLING]),
   },
   {
     // The Carbon Valley guide's entry from 22 October 2026, Inside
@@ -583,8 +572,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // does Niwot's, whose robots.txt disallows every automated reader;
     // Frederick High's own site links no calendar of games.
     calendarNote: 'Frederick’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    // The spring teams from 19 November 2026 (the Carbon Valley gap report, finding 1).
-    teams: TEAMS([...FALL(), ...FREDERICK_FALL_EXTRAS()], [...WINTER(), ...FREDERICK_WINTER_EXTRAS()], [SPRING_BASEBALL, SPRING_GIRLS_SOCCER, SPRING_GIRLS_GOLF, SPRING_GIRLS_TENNIS, ...SPRING_TRACK]),
+    teams: TEAMS([...FALL(), ...FREDERICK_FALL_EXTRAS()], [...WINTER(), ...FREDERICK_WINTER_EXTRAS()]),
   },
   {
     town: 'erie',
@@ -611,9 +599,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // Every fall and winter path exists on MaxPreps (the runner, 25 October
     // 2026): football 0-9, boys soccer 12-1-2, volleyball 10-11, softball
     // 22-6, both cross country pages with no schedule; basketball's two
-    // with schedules, wrestling and girls' swimming without yet. Boys' golf and tennis and the
-    // spring teams from 19 November 2026 (the Erie gap report's sports rows).
-    teams: TEAMS([...FALL(), BOYS_GOLF, BOYS_TENNIS], WINTER(), [SPRING_BASEBALL, BOYS_LACROSSE, SPRING_GIRLS_SOCCER, SPRING_GIRLS_GOLF, SPRING_GIRLS_TENNIS, ...SPRING_TRACK]),
+    // with schedules, wrestling and girls' swimming without yet. Boys' golf and tennis from
+    // 19 November 2026 (the Erie gap report's sports rows).
+    teams: TEAMS([...FALL(), BOYS_GOLF, BOYS_TENNIS]),
   },
   // Lyons Middle/Senior High left on 17 November 2026: the guide leads with
   // the outdoors and has no sports (TownConfig.lead), so no page is built
