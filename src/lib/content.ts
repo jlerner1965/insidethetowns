@@ -4,7 +4,7 @@
  * town's content.
  */
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
-import { getSite, isSectionBuild, listsEvents, liveTowns, type TownConfig } from '@/config';
+import { fullSections, getSite, isSectionBuild, listsEvents, liveTowns, type TownConfig } from '@/config';
 import { isExcluded } from '@/content/schemas';
 import { eventExclusion, hubExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
 import { eventPresentation, type Confidence } from '@/lib/confidence';
@@ -230,6 +230,17 @@ export async function getSectionEntries<C extends CollectionKey>(collection: C, 
     const data = entry.data as { slug?: string };
     return Object.assign(entry, { slug: data.slug ?? slugOf(entry.id, town.slug) }) as TownEntry<C>;
   });
+}
+
+/**
+ * Every full section's own articles, the seven guides' and the four folded
+ * guides' kept whole alike, each with its town: what the hub's home and
+ * /articles/ list a featured one from (onHub, src/lib/curiosity-places.ts).
+ * Only the hub may call this, as getSectionEntries.
+ */
+export async function getSectionArticles(): Promise<Array<TownEntry<'articles'> & { town: TownConfig }>> {
+  const each = await Promise.all(fullSections().map(async (town) => (await getSectionEntries('articles', town)).map((a) => Object.assign(a, { town }))));
+  return each.flat();
 }
 
 /**

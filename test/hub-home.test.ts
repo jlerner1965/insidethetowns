@@ -339,18 +339,22 @@ test('the open seasons come soonest first, and a town named in the event is not 
   assert.equal(nextLine({ name: 'Catch the Glow Parade', town: { name: 'Estes Park' } }), 'Catch the Glow Parade, Estes Park');
 });
 
-test('In the towns: published and not past its day, the newest first, one per town, three at most', () => {
-  const item = (town: string, title: string, date: string, until = '2026-11-30') => ({ town, label: town, title, line: '', href: '#', date, until });
+test('In the towns: the featured articles, a section’s own included, published and not past a homeUntil, the newest first, five at most', () => {
+  const item = (towns: string[], title: string, date: string, more: { feature?: boolean; until?: string } = {}) => ({ towns, feature: more.feature ?? true, label: towns[0]!, title, line: '', href: '#', date, until: more.until });
   const items = [
-    item('nederland', 'Eldora', '2026-11-13'),
-    item('nederland', 'An older Nederland item', '2026-11-10'),
-    item('berthoud', 'Ballot issue', '2026-11-05'),
-    item('erie', 'Gone', '2026-11-01', '2026-11-12'),
-    item('lyons', 'Not yet', '2026-11-20'),
-    item('windsor', 'Snow routes', '2026-11-08'),
-    item('johnstown', 'Fourth', '2026-11-02'),
+    item(['nederland'], 'Eldora', '2026-11-13'),
+    item(['nederland'], 'An older Nederland item', '2026-11-10'),
+    item(['creede'], 'Not featured', '2026-11-12', { feature: false }),
+    item(['leadville'], 'Gone', '2026-11-01', { until: '2026-11-12' }),
+    item(['salida'], 'Not yet', '2026-11-20'),
+    item(['niwot', 'berthoud'], 'Train tax', '2026-11-08'),
+    item(['estes-park'], 'Estes Park, featured', '2026-11-11'),
+    item(['berthoud'], 'Berthoud, not featured', '2026-11-12', { feature: false }),
+    item(['creede'], 'Theatre', '2026-11-05'),
+    item(['durango'], 'Train', '2026-11-04'),
+    item(['buena-vista'], 'Sixth', '2026-11-03'),
   ];
-  assert.deepEqual(newsItems(items, '2026-11-13').map((i) => i.title), ['Eldora', 'Snow routes', 'Ballot issue']);
+  assert.deepEqual(newsItems(items, '2026-11-13').map((i) => i.title), ['Eldora', 'Estes Park, featured', 'An older Nederland item', 'Train tax', 'Theatre']);
   assert.deepEqual(newsItems([], '2026-11-13'), []);
 });
 

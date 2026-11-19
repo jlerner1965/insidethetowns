@@ -6,6 +6,7 @@ title: "Nederland’s Eldora purchase explained: cost, funding and what happens 
 seoTitle: "Nederland Eldora Purchase: Cost, Funding & Latest Status"
 description: "Understand Nederland’s proposed Eldora purchase, how financing would work, the costs already incurred, and what still needs to happen."
 status: verified
+feature: true
 date: 2026-11-13
 updated:
   date: 2026-11-18

@@ -516,12 +516,16 @@ menu as a row from 1060px, where it fits, and the phone's below. The rules are `
   default). An address already on the list has the new town added, never
   one taken away (`src/lib/subscribe.ts`), so a reader adds the others from
   any form; `/newsletter/` keeps the full picker.
-- **In the towns**, after the weekend: the news worth a reader's time, the
-  newest first, one per town, three at most (`newsItems`): the hub's
-  verified stories (`kind: story` in `content/hub/curiosity/`, each for a
-  fortnight or until its `homeUntil`) and the guides' current local
-  changes. A story may rest on a named news report such as the Colorado
-  Sun; the town need not have published its own record first.
+- **In the towns**, after the weekend: "Stories from the towns", the five
+  newest featured articles (`newsItems`; 18 November 2026): the hub's
+  verified articles in `content/hub/curiosity/` and the eleven full
+  sections' own articles whose file says `feature: true` (off by default,
+  drafts included), each until five newer featured ones push it off or its
+  `homeUntil`, which any featured article may carry, whatever its kind. An
+  article whose only town is one of the full sections is here only when
+  featured (`onHub`), and stays in its section either way. A story may
+  rest on a named news report such as the Colorado Sun; the town need not
+  have published its own record first.
 - **This season** is the seasons opened with a year in `CURRENT_SEASONS`
   that still have a date to come, soonest first, each with its count by
   town and next date. The year-round pages are on `/towns/` ("All annual
@@ -549,8 +553,13 @@ colours, as the section's own pages do: the tradition pages there
 masthead of its own and keeps the hub's). Their share
 image is the same Flatirons photograph; a record's own page shares its
 town's photograph or share card, which its Event markup also carries.
-`/articles/` lists the guides' articles with the hub's, each linking to
-its guide, with no article text copied. A `<title>` runs to 60 characters
+`/articles/` lists the hub's articles but those whose only town is one of
+the eleven full sections and that are not featured (`onHub`, 18 November
+2026), which stay in their sections; a featured section article, the
+sections' own guide articles included, is listed and stays in its section
+too. One line under the intro links each section's Guides page. An article
+dated after the day of the build is on neither `/articles/` nor the home
+until its day's build (`isPublished`, the one rule for both). A `<title>` runs to 60 characters
 at most; the site's name follows only where the whole fits
 (`TITLE_LIMIT`, src/lib/titles.ts). In the sitemap a town page and a season page
 are dated by the newest check of the records they show

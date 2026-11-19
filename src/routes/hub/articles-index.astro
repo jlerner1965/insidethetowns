@@ -8,10 +8,16 @@
  * with the day its facts were last verified where that is later. Built
  * only while an article is on the site; the hub's menu links here then.
  *
- * The guides' articles are listed here too, by date with the hub's (the
- * owner's hub review, 13 November 2026): the headline, the town and the
- * day, linking to the article on its own guide. No line of an article is
- * copied onto the hub.
+ * An article whose only town is one of the full sections is listed here
+ * only once the owner features it (the owner, 18 November 2026; onHub,
+ * src/lib/curiosity-places.ts), and stays in its section either way.
+ * Unfeatured, it is its section's alone, on the section's Guides page and
+ * wherever the section lists it: every guide's own article, which this
+ * page listed from 13 November, and a topic article anchored to a
+ * section's town. An article that names several towns stays. One line
+ * under the intro links each section's Guides page. An article dated after
+ * the day the page is built is not listed until then, by the home's rule
+ * (isPublished, src/lib/hub-home.ts).
  *
  * Laid out in two parts (the owner, 14 November 2026: the titles were hard
  * to read and the page "could be organized in a better way"; it was one
@@ -21,22 +27,28 @@
  * headlines are set in the `headline` utility (src/styles/global.css).
  */
 import Page from '@/layouts/Page.astro';
-import { getHub, guideUrl } from '@/config';
-import { getCuriosity, getNetworkEntries } from '@/lib/content';
+import { fullSections, getHub, sectionHome, sectionSite } from '@/config';
+import { getCuriosity, getSectionArticles } from '@/lib/content';
 import { dayKey, formatDate, parseLocal } from '@/lib/dates';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { ARTICLES_INDEX_PATH, articlePath, kindLabel, lastVerified, newestFirst, townsLine } from '@/lib/curiosity';
-import { placeName } from '@/lib/curiosity-places';
+import { fullSectionPlaces, onHub, placeName } from '@/lib/curiosity-places';
+import { isPublished, numberWord } from '@/lib/hub-home';
 
 const hub = getHub();
 const title = 'Articles';
-const intro = 'News, event briefs and guides from the towns and from each town’s own guide: the newest first, then all of them by subject. Every fact in them links to the page it was read on.';
-const description = 'Articles from Inside the Towns and its town guides: news, event briefs, history and local guides for Colorado towns, each fact linked to its source.';
+const intro = 'News, event briefs and guides from the towns: the newest first, then all of them by subject. Every fact in them links to the page it was read on.';
+const description = 'Articles from Inside the Towns: news, event briefs, history and guides for Colorado towns, each fact linked to its source.';
+// The full sections keep their own local guides: one line points to each one's Guides page.
+const sections = fullSections().map((t) => ({ name: t.name, href: `${sectionHome(t)}guides/` }));
+const sectionPlaces = fullSectionPlaces();
+// Today in Denver, as the home reads it: an article dated after it waits for its day.
+const todayKey = dayKey(new Date());
 /** How many articles the "Latest" list at the top holds. */
 const LATEST = 6;
 const NEWS = 'News and events';
 type Row = { title: string; href: string; eyebrow: string; place: string; subject: string; date: string; description?: string; verified?: string; draft?: boolean; guide?: string };
-const hubArticles: Row[] = newestFirst((await getCuriosity()).map((a) => a.data)).map((a) => {
+const hubArticles: Row[] = newestFirst((await getCuriosity()).map((a) => a.data).filter((a) => onHub(a, sectionPlaces))).map((a) => {
   const place = townsLine(a.towns.map((t) => placeName(t) ?? t));
   return {
     title: a.title,
@@ -50,16 +62,18 @@ const hubArticles: Row[] = newestFirst((await getCuriosity()).map((a) => a.data)
     draft: a.status !== 'verified',
   };
 });
-const guideArticles: Row[] = (await getNetworkEntries('articles')).map((a) => ({
+const guideArticles: Row[] = (await getSectionArticles()).filter((a) => onHub({ towns: [a.town.slug], feature: a.data.feature }, sectionPlaces)).map((a) => ({
   title: a.data.title,
-  href: guideUrl(a.town, `/articles/${a.slug}/`),
+  href: `${sectionHome(a.town)}articles/${a.slug}/`,
   eyebrow: [a.town.name, a.data.category].filter(Boolean).join(' · '),
   place: a.town.name,
   subject: a.data.category || 'More',
   date: dayKey(a.data.date),
-  guide: a.town.siteTitle,
+  guide: sectionSite(a.town).siteTitle,
 }));
-const articles = [...hubArticles, ...guideArticles].sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+const articles = [...hubArticles, ...guideArticles]
+  .filter((a) => isPublished(a.date, todayKey))
+  .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 const latest = articles.slice(0, LATEST);
 // The subjects: the hub's news first, then the one with the most articles.
 const bySubject = new Map<string, Row[]>();
@@ -77,6 +91,11 @@ const structured = [
 const link = 'text-ink no-underline hover:text-primary hover:underline';
 ---
 <Page title={title} seoTitle="Articles from Colorado towns" eyebrow="Inside the Towns" intro={intro} description={description} jsonLd={structured}>
+  <p slot="after-header" class="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted" data-section-guides>
+    Each of the {numberWord(sections.length)} full sections keeps its own local guides: {sections.map((s, i) => (
+      <>{i > 0 && (i === sections.length - 1 ? ' and ' : ', ')}<a href={s.href} class="text-ink-muted underline decoration-1 underline-offset-[3px] hover:text-primary">{s.name}</a></>
+    ))}.
+  </p>
   <div data-articles-index>
     <nav aria-label="Subjects" class="flex flex-wrap gap-2">
       {subjects.map((s) => (

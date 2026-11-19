@@ -7,6 +7,7 @@ seoTitle: "Colorado Connector CoCo Train Tax: Who Pays, Where It Stops"
 description: "Front Range Passenger Rail Issue 7A: the 0.333% CoCo train tax starts July 2027 in 31 cities. Trains run from 2029; Niwot and Berthoud get no stop."
 eyebrow: "News · Front Range"
 status: verified
+feature: true
 date: 2026-11-15
 reverify:
   from: 2026-11-26

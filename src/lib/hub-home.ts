@@ -567,14 +567,15 @@ export const HOME_PHOTO = {
 } as const;
 
 /**
- * One item under "In the towns" on the hub's home (13 November 2026): a
- * story from the hub's articles (src/lib/curiosity.ts, kind `story`) or a
- * guide's local change (content/<town>/updates/). Dates are Denver days,
- * "2026-11-13".
+ * One item under "In the towns" on the hub's home: an article the owner has
+ * marked `feature`, one of the hub's (src/lib/curiosity.ts) or a full
+ * section's own. Dates are Denver days, "2026-11-13".
  */
 export interface NewsItem {
-  /** What keeps two items from one town: a guide's key or a town page's slug. */
-  town: string;
+  /** The towns the article is for, as its `towns` names them. */
+  towns: readonly string[];
+  /** Whether the owner has put it on the home (`feature`). */
+  feature: boolean;
   /** The small label over the headline: "Nederland · News". */
   label: string;
   title: string;
@@ -583,24 +584,33 @@ export interface NewsItem {
   href: string;
   /** The day it was published. */
   date: string;
-  /** Its last day on the page. */
-  until: string;
+  /** Its last day on the page, where its `homeUntil` sets one. */
+  until?: string;
   /** Its source line, in the words its own page uses. */
   source?: string;
 }
 
 /**
- * What "In the towns" shows: the items published by today and not past
- * their last day, the newest first, one per town so one busy town does
- * not fill it, `limit` in all. Nothing, where nothing qualifies: the
- * section is then not drawn.
+ * Whether an article is out by `today` (both Denver days, "2026-11-18"):
+ * its date is on or before it. One rule for the hub's home and /articles/,
+ * so an article dated ahead is on neither until its day's build.
  */
-export function newsItems(items: readonly NewsItem[], today: string, limit = 3): NewsItem[] {
-  const towns = new Set<string>();
+export function isPublished(date: string, today: string): boolean {
+  return date <= today;
+}
+
+/**
+ * What "In the towns" shows (the owner, 18 November 2026): the featured
+ * articles, published by today and not past a `homeUntil`, the newest
+ * first, `limit` in all. A featured article about one full section alone
+ * is here too (onHub, src/lib/curiosity-places.ts) and stays in its
+ * section; an unfeatured one never is. Nothing, where nothing qualifies:
+ * the section is then not drawn.
+ */
+export function newsItems<I extends NewsItem>(items: readonly I[], today: string, limit = 5): I[] {
   return [...items]
-    .filter((i) => i.date <= today && today <= i.until)
+    .filter((i) => i.feature && isPublished(i.date, today) && (!i.until || today <= i.until))
     .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title))
-    .filter((i) => !towns.has(i.town) && !!towns.add(i.town))
     .slice(0, limit);
 }
 

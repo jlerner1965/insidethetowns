@@ -883,6 +883,16 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
       /** The day the guide's facts were last checked, shown beside the date. */
       verified: localDate.optional(),
       /**
+       * Whether the hub lists the article too (the owner, 18 November 2026):
+       * under "In the towns" on its home while it is one of the five newest
+       * featured articles, and on /articles/. It stays in its section as
+       * well. Off unless the owner sets it, drafts included; off, the
+       * article is its section's alone (onHub, src/lib/curiosity-places.ts).
+       */
+      feature: z.boolean().default(false),
+      /** A featured article's last day under "In the towns" on the hub's home; without it, it stays until five newer featured articles push it off. */
+      homeUntil: localDate.optional(),
+      /**
        * Where to go next, under the article: up to three links the editor
        * chose, each with one sentence on how it connects. A path on this
        * guide or a full URL. Without any, the strip falls back to the newest
@@ -951,7 +961,9 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
     .refine((a) => !a.supersededNote || !!a.supersededAfter, {
       message: 'supersededNote needs a supersededAfter date saying when it starts being true',
       path: ['supersededAfter'],
-    });
+    })
+    .refine((a) => !a.homeUntil || a.feature, { message: 'homeUntil is for a featured article (feature: true)', path: ['homeUntil'] })
+    .refine((a) => !a.homeUntil || a.homeUntil.getTime() >= a.date.getTime(), { message: 'homeUntil is on or after the article’s date', path: ['homeUntil'] });
 }
 
 /** A sent issue of the weekly email, archived as its own page. */
