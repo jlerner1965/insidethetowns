@@ -14,7 +14,11 @@ years:
   - year: 2026
     status: confirmed
     date: 2026-11-20
-    startTime: "5 pm"
+    startTime: "5–8 pm"
     place: "4th Street between Garfield Avenue and Washington Avenue"
-    checked: 2026-11-17
+    subEvents:
+      - name: "Holiday tree lighting"
+        time: "7:30 pm"
+        place: "4th Street in front of the Rialto Theater"
+    checked: 2026-11-19
 ---

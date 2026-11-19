@@ -15,8 +15,8 @@ years:
     status: confirmed
     date: 2026-12-12
     startTime: "5 pm"
-    place: "Roosevelt Park, 700 Longs Peak Ave."
-    checked: 2026-11-17
+    place: "Main Street"
+    checked: 2026-11-19
   - year: 2025
     status: confirmed
     date: 2025-12-13

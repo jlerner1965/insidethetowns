@@ -22,7 +22,7 @@ years:
   - year: 2027
     status: confirmed
     date: 2027-05-01
-    checked: 2026-11-12
+    checked: 2026-11-19
   - year: 2026
     status: confirmed
     date: 2026-05-01
