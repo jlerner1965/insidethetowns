@@ -51,6 +51,23 @@ The 14 November hub review and the 17 November SEO health fix log were code-side
 2. **Phone length of the hub's list pages** (`/this-weekend/` at 27,000 px). Paginate, collapse towns by default, or leave as is.
 3. **Hub articles without the signup box.** Add the box, or keep the hub's long reads free of it on purpose.
 
+## Second review, checked the same night
+
+A second review of the live site was pasted in for a verdict. Its P0 list mostly came from text extraction and was wrong on the live HTML: the home has an h1, the Friday event names are in the HTML, every section home lists 8 to 17 events, all eleven sections are in Find your town, and every section has an Eat & drink page. These of its points held up and were fixed on this branch (DECISIONS.md, "Fixes from the live-site review"):
+
+- **[accuracy]** Berthoud's tree lighting, 5 December at 5:45 pm by the parade's own site, was missing from /tree-lightings/. It is a record of its own now.
+- **[content]** /articles/ listed the six newest stories twice. The subject below now holds only the earlier ones.
+- **[design]** The home asked for an email before any story or town. The signup is last again, the owner's order of 13 November.
+- **[navigation]** The home said 91 more towns and /towns/ said 95, listing four towns twice. Both now count and list by one rule.
+- **[seo]** Fort Collins, Golden and Brush titles said 2026 while listing 2027 dates. A title's year now spans every date in the next twelve months.
+- **[accuracy]** The CoCo article's Daily Camera and Reporter-Herald links go to Mass Transit's reprints and now say so. The Fort Collins "plus 10 percent" is explained from the City's own document.
+- **[coverage]** 71 of 95 town pages have no trails and no places section: see `thin-town-pages.md`. Not changed.
+
+Decisions added for James:
+
+4. **The 71 thin town pages.** Fill them town by town, noindex the thinnest, or leave them.
+5. **La Junta and Buena Vista** hold their parade and tree lighting in one record, so neither shows on /tree-lightings/. Split them as Berthoud now is, or leave them.
+
 ## Proposed changes
 
 `manager/towns.json`: note the move on each of the seven. Niwot shown; the same line goes on lyons, berthoud, erie, johnstown, windsor and carbon-valley.

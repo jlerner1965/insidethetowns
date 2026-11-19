@@ -12548,3 +12548,44 @@ Pass.*
   "Latest news and events": the newest stories and event articles (the
   owner: "news should be on top", "news and events"). The guides and the
   rest stay under their subjects below.
+
+## Fixes from the live-site review, 19 November 2026
+
+*A review of the live site (docs/audits/2026-11-19/hub.md); the owner:
+"fix the real worth doing".*
+
+- **Berthoud's tree lighting is a record of its own**
+  (`content/hub/traditions/berthoud-tree-lighting.md`). The parade's own
+  site is the "Parade of Lights & Tree Lighting Ceremony" and lists carols
+  and the lighting at 5:45 pm; the parade's record is typed
+  `parade-of-lights`, so `/tree-lightings/` never showed Berthoud. A record
+  has one type, and the towns with both events (Lyons, Estes Park, Grand
+  Junction, Cripple Creek) already keep two records. Berthoud Main Street's
+  schedule says 6 pm; the record's `about` gives both. La Junta's and Buena
+  Vista's combined records have the same gap and are left to the owner.
+- **`/articles/` lists a story once.** The six newest news and event
+  stories were in "Latest news and events" and again under "News and
+  events". The list at the top keeps them; the subject below holds the
+  earlier ones as "Earlier news and events", and goes when there are none.
+  The News and events pill jumps to the top list and counts all the news.
+- **The email is last on the hub's home**, after Find your town: the
+  owner's order of 13 November (the weekend, the season, the index, the
+  email), from which the page had drifted to put the signup third, before
+  any story or town. The masthead's email link still lands on `#signup`.
+- **One count of town pages.** The home said "91 more towns", `/towns/`
+  "95 town pages", and `/towns/` listed Estes Park, Fort Collins, Longmont
+  and Loveland under Full sections and again A to Z. Both pages now use
+  `pagesBeyondSections()` (src/lib/town-search-index.ts): a town a full
+  section covers is listed with the sections only. `/towns/` says "11 full
+  sections and 91 more town pages". `/about/` still counts every town page,
+  which is what its sentence means.
+- **A town page's title year** spans every date the page has in the next
+  twelve months, not only the three its description names: Fort Collins,
+  Golden and Brush said "(2026)" while they listed 2027 dates. The
+  description still gives the years of the dates it names.
+- **The CoCo article** labels its Mass Transit links as such ("Daily Camera
+  via Mass Transit", as its source list already did), and says what the
+  Fort Collins 10 percent was: the district's offer of about $3.3 million a
+  year, rather than $3 million, if the City endorsed its station summary
+  before June 30, 2026 (the City's agenda item summary). Whether Council
+  adopted it is not stated; the document read is the agenda item.
