@@ -2,8 +2,8 @@
 title: "The 2026 Niwot incorporation election, plainly"
 seoTitle: "The 2026 Niwot incorporation election: the ballot and the count"
 date: "2026-09-17"
-updated: "2026-11-13"
-verified: "2026-11-13"
+updated: "2026-11-19"
+verified: "2026-11-19"
 excerpt: "Voters inside the proposed boundary turned incorporation down on November 3, 2026: 738 for and 2,121 against in Boulder County's unofficial count. What each of the three questions and five fiscal issues asked, how each stands in that count, and what happens next."
 category: "Civic"
 tags: [civic, election]
@@ -49,10 +49,9 @@ The county's page also carries the votes for each of the 28 charter commission c
 ## What happens next
 
 1. Boulder County posted its last scheduled unofficial update at 1:32 pm on Friday, November 13. Its [posting schedule](https://bouldercounty.gov/elections/election-night-and-beyond/) says results typically do not change after that date.
-2. The county runs its risk-limiting audit on Tuesday, November 17.
-3. The canvass board certifies the results at its meeting on Tuesday, November 24.
-4. The commission then certifies the canvassed results to the Boulder County District Court, as its [FAQ](https://niwotelection.org/faq) describes. If incorporation is not approved, the FAQ says, the process ends and no municipality is created; the fiscal authorizations then have nothing to apply to, and the charter commission has no charter to write.
-5. No charter was on the November 3 ballot. Only where incorporation and the charter commission are both approved do the nine elected commissioners draft a home rule charter, which then returns to voters at a later election.
+2. The canvass board certifies the results at its meeting on Tuesday, November 24.
+3. The commission then certifies the canvassed results to the Boulder County District Court, as its [FAQ](https://niwotelection.org/faq) describes. If incorporation is not approved, the FAQ says, the process ends and no municipality is created; the fiscal authorizations then have nothing to apply to, and the charter commission has no charter to write.
+4. No charter was on the November 3 ballot. Only where incorporation and the charter commission are both approved do the nine elected commissioners draft a home rule charter, which then returns to voters at a later election.
 
 ## Who decided what
 
