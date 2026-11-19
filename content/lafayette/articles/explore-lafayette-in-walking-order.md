@@ -34,7 +34,7 @@ Old Town Lafayette is a few blocks of Public Road between Baseline Road and Fest
 
 ## 1. The Collective, 201 N Public Road
 
-Start at the City’s arts center, in the former church at the north end of the strip, open Tuesday to Thursday and Saturday 10 to 5, Friday 10 to 7, Sunday noon to 5, closed Mondays. The exhibits are free: from November 13 to January 10 it is [Gathered, the Open Studios group exhibit](/lafayette/events/gathered-open-studios-group-exhibit-2026-11-13/), which opens with a reception on Friday, November 13, from 6 to 8 pm. The [Collective’s page](/lafayette/places/the-collective-community-arts-center/) has the rest.
+Start at the City’s arts center, in the former church at the north end of the strip, open Tuesday to Thursday and Saturday 10 to 5, Friday 10 to 7, Sunday noon to 5, closed Mondays. The exhibits are free: from November 13 to January 10 it is [Gathered, the Open Studios group exhibit](/lafayette/events/gathered-open-studios-group-exhibit-2026-11-13/). The [Collective’s page](/lafayette/places/the-collective-community-arts-center/) has the rest.
 
 ## 2. William Oliver’s Publick House, 201 N Public Road
 

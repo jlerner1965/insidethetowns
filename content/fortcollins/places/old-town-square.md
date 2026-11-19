@@ -18,4 +18,4 @@ added: "2026-10-01"
 
 The plaza off College Avenue that the rest of downtown is arranged around, originally built in 1983–84 and reimagined in 2015 in a DDA renovation that earned international recognition. It has a performance stage, a kid- and dog-friendly splash pad whose pop jets run 8 am to midnight from May through September (with a light show from 8 pm), a communal fireplace, a kids' play area, a Little Free Library and spots for rotating public art, with flowers all summer and lights all winter. The square is owned and run by the DDA, with the City's Parks Department doing the daily upkeep and the flower displays.
 
-Coming up on the square: the Longest Night Memorial (Friday, November 13, 5:30 pm), Carolfest (Friday, December 4, 6:30 pm), the Dickens Carolers at the gazebo (Saturday, December 5, 7 pm) and Caroling in the Square (Saturday, December 19, 6 pm).
+Coming up on the square: Carolfest (Friday, December 4, 6:30 pm), the Dickens Carolers at the gazebo (Saturday, December 5, 7 pm) and Caroling in the Square (Saturday, December 19, 6 pm).

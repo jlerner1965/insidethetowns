@@ -47,7 +47,7 @@ The [Carousel of Happiness](/nederland/places/carousel-of-happiness/) is a resto
 
 ## 04 · Nederland Mining Museum
 
-The [Nederland Mining Museum](/nederland/places/nederland-mining-museum/) at 200 North Bridge Street is Boulder County's museum of hard-rock mining, with trams, ore carts, engines, historic photographs and claim maps indoors and out. Admission is free. It is open Fridays to Sundays 11 am–5 pm from June 1 through October 31, so in 2026 its last days are Friday 30 and Saturday 31 October.
+The [Nederland Mining Museum](/nederland/places/nederland-mining-museum/) at 200 North Bridge Street is Boulder County's museum of hard-rock mining, with trams, ore carts, engines, historic photographs and claim maps indoors and out. Admission is free. It is open Fridays to Sundays 11 am–5 pm from June 1 through October 31, so its 2026 season ended on Saturday, October 31.
 
 *Getting there:* on foot from the 1st Street lot. *Best for:* half an hour on a weekend before the end of October.
 
