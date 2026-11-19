@@ -164,13 +164,22 @@ export const windsor: TownConfig = {
         ],
       },
       {
+        title: 'Hazardous waste',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Weld County household hazardous waste', url: 'https://www.weld.gov/go/hhw', note: 'Free for Weld County residents. The north facility, 1311 N 17th Ave, Greeley, is open Tuesday, Thursday and Saturday, 8 am to 5 pm; 200 pounds per household per drop-off day, no containers over 5 gallons and nothing in plastic bags; closed on major holidays' },
+        ],
+      },
+      {
         title: 'Getting around',
-        verified: '2026-10-22',
+        verified: '2026-11-19',
         items: [
           { label: 'Poudre Express: the weekday bus to Fort Collins and Greeley', url: 'https://greeleyco.gov/transit/routes/poudre-express/', note: 'Greeley-Evans Transit; Windsor stops at Eastman Park Dr and Highway 257 and at Main St and 15th St, between Greeley, UNC, the Harmony Transfer Center and CSU' },
           { label: 'RideNoCo: trip planning and ride referrals', url: 'https://rideno.co/', note: 'Free help finding a ride across Larimer and Weld counties, including volunteer drivers and paratransit; it connects riders to providers rather than driving. The Town of Severance’s transportation page points here' },
           { label: 'Windsor trails map', url: 'https://www.recreationliveshere.com/159/Trails', note: 'More than 40 miles of trail, including the Windsor Lake Trail and the Poudre River Trail' },
           { label: 'CDOT road conditions', url: 'https://www.cotrip.org/', note: 'Closures and conditions on I-25 and the state highways' },
+          { label: 'Colorado Blvd and Crossroads Blvd roundabout', url: 'https://windsorprojectconnect.com/CrossroadsColoRoundabout', note: 'Colorado Blvd has been closed from Crossroads Blvd to US 34 since September 21 for the new roundabout, with a detour; Golden Fields Ln residents enter from US 34. Construction runs to the end of the year, then pauses for winter until early 2027. Text WINDSORROADS to 888777 for traffic alerts' },
+          { label: 'Downtown parking', url: 'https://windsorprojectconnect.com/downtown-parking-study', note: 'The Walnut Lot, in the alley just south of Main St between 4th and 5th streets, is public parking; the Town Board approved a Downtown Parking Management Plan on June 9, 2025' },
         ],
       },
       {
@@ -198,6 +207,13 @@ export const windsor: TownConfig = {
           { label: 'The three districts inside Windsor, as the Town lists them', url: 'https://www.windsorco.gov/56/School-Districts' },
           { label: 'Poudre School District: which school do I attend?', url: 'https://schoolbus.psdschools.org/Eligibility', note: 'For addresses on the Larimer County side' },
           { label: 'Thompson School District: school locator', url: 'https://www.tsd.org/family/school-locator', note: 'For addresses on the Larimer County side; 970-613-5663' },
+        ],
+      },
+      {
+        title: 'Child care and preschool',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Weld RE-4 preschool', url: 'https://weldre4.org/en-US/enrollment-information-35a8a0b4', note: 'For children who are 3 or 4 on or before October 1; families complete the Colorado Universal Preschool Program application, then finish enrollment with the district; registration help desk 970-686-8045', track: 'registration' },
         ],
       },
       {
@@ -233,11 +249,13 @@ export const windsor: TownConfig = {
         ],
       },
       {
-        title: 'Permits and the post office',
-        verified: '2026-11-09',
+        title: 'Permits, pets, internet and the post office',
+        verified: '2026-11-19',
         items: [
           { label: 'Severance: building permits', url: 'https://www.townofseverance.org/FAQ.aspx', note: 'Required for houses, buildings, decks, roofs and re-roofing, some fences, fireplaces, sprinkler systems, remodeling, basement finishes, garages, sheds and heating or air systems; ask Town Hall, 970-686-1218' },
           { label: 'Severance Post Office', url: 'https://www.townofseverance.org/FAQ.aspx', note: '970-686-2697' },
+          { label: 'Severance: dog and cat licenses', url: 'https://www.townofseverance.org/FAQ.aspx', note: 'Dogs and cats must be licensed. A dog license is $15 if spayed or neutered and $20 if not, good for three years; bring proof of a current rabies vaccine' },
+          { label: 'Severance: internet providers', url: 'https://www.townofseverance.org/FAQ.aspx', note: 'The Town lists six: TDS Telecom, CenturyLink, Rise Broadband, Lightgig Communications, Ascent Broadband and Comcast' },
         ],
       },
       {
@@ -255,6 +273,13 @@ export const windsor: TownConfig = {
           { label: 'Weld County elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'The page links the unofficial results of the November 3 general election; 970-304-6525' },
           // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
           { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'For Windsor addresses in Larimer County; after the November 3 election, final results are posted by November 25' },
+        ],
+      },
+      {
+        title: 'Voting',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Weld County Elections: register, update, drop boxes', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'Links GoVoteColorado to register or update a registration, and the 2026 map of voting and drop-box locations; Elections 970-304-6525, elections@weld.gov' },
         ],
       },
     ],
