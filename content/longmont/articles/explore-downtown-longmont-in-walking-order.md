@@ -1,8 +1,7 @@
 ---
 title: "Explore downtown Longmont: five places in walking order"
 date: "2026-10-07"
-updated: "2026-11-19"
-excerpt: "Breakfast, bookshops, lunch and an evening on Main Street from one parking spot, then a drive to McIntosh Lake's 3.5-mile loop, Left Hand's tasting room or the Longmont Museum's expanded galleries."
+excerpt: "Breakfast, bookshops, lunch and an evening on Main Street from one parking spot, then a drive to McIntosh Lake's 3.5-mile loop, Left Hand's tasting room or, from October 17, the museum's reopened galleries."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 image: ../images/dickens-opera-house.jpg
@@ -14,6 +13,7 @@ glance:
   duration: "A day, with the lake as the drive at its start or end"
   by: "On foot along Main Street; McIntosh Lake, Left Hand and the museum are a drive"
   bestDay: "Tuesday to Saturday; three of the five lunch places are closed on Monday"
+  caveat: "The Longmont Museum's galleries are closed until its Grand Reopening on October 17, 2026; do not drive over for them before then"
 sources:
   - { label: "City of Longmont: McIntosh Lake Nature Area", url: "https://longmontcolorado.gov/facilities/mcintosh-lake-nature-area/" }
   - { label: "Longmont Museum: plan your visit", url: "https://longmontcolorado.gov/museum/about-the-museum/plan-your-visit/" }
@@ -21,7 +21,7 @@ sources:
   - { label: "Transfort (City of Fort Collins): FLEX", url: "https://www.ridetransfort.com/routes/flex" }
 related:
   - { label: "McIntosh or Union: which Longmont lake for which day", href: "/articles/mcintosh-versus-union/", note: "The City's rules, fees and hours for both lakes, for the day you want the water rather than the street." }
-  - { label: "Longmont Museum", href: "/places/longmont-museum/", note: "The listing: hours, admission and what is in the expanded galleries." }
+  - { label: "Longmont Museum", href: "/places/longmont-museum/", note: "The listing, with the reopening date and the program-hours caution until then." }
   - { label: "Longmont with kids", href: "/articles/longmont-with-kids/", note: "The museum's new children's gallery, the pools and the greenway for a day with children." }
 ---
 
@@ -55,7 +55,7 @@ The [Longmont Theatre Company](/places/longmont-theatre-company/) has staged its
 
 [McIntosh Lake Nature Area](/places/mcintosh-lake-nature-area/) is on the west side of the city, with a trailhead lot off Harvard Street at 1929 Harvard Street. The City's page lists a 3.5-mile gravel loop around the whole lake, finished in 2004, with a spur to Boulder County's Agricultural Heritage Center, picnic areas and restrooms, open one hour before sunrise to one hour after sunset. Carry-on, non-motorized boats launch only at the designated ramps, with a life jacket for everyone aboard; swimming is prohibited and dogs stay on a leash. The [lakes guide](/articles/mcintosh-versus-union/) sets McIntosh beside Union Reservoir, with the fees and gate hours, so look there if you want the water rather than the loop.
 
-Two alternatives for the same afternoon, both a drive from Main Street. The [Left Hand Brewing tasting room](/places/left-hand-brewing-tasting-room/) at 1265 Boston Avenue has poured there since 1993: Monday to Thursday 12–9 pm, Friday and Saturday 11 am–9 pm, Sunday 11 am–8 pm, with a food truck every day during tasting room hours and brewery tours; kids are welcome, and dogs only on the west patio or in the seasonal Garden next door. The [Longmont Museum](/places/longmont-museum/) at 400 Quail Road reopened its expanded galleries with a [Grand Reopening Celebration](https://longmontcolorado.gov/event/grand-reopening-celebration/) on October 17, 2026. The City's [Plan Your Visit](https://longmontcolorado.gov/museum/about-the-museum/plan-your-visit/) page gives its hours as Monday to Saturday 9 am–5 pm and Sunday 1–5 pm, with most Thursday evenings to 9 pm; exhibition admission is $12 for adults and $8 for youth, children under 2 free, and the second Saturday of each month is free.
+Two alternatives for the same afternoon, both a drive from Main Street. The [Left Hand Brewing tasting room](/places/left-hand-brewing-tasting-room/) at 1265 Boston Avenue has poured there since 1993: Monday to Thursday 12–9 pm, Friday and Saturday 11 am–9 pm, Sunday 11 am–8 pm, with a food truck every day during tasting room hours and brewery tours; kids are welcome, and dogs only on the west patio or in the seasonal Garden next door. The [Longmont Museum](/places/longmont-museum/) at 400 Quail Road reopens its galleries with a free all-day Grand Reopening on Saturday, October 17, 2026; until then the City says the building is open only during education and auditorium or courtyard program hours, so do not drive over for the galleries before that date.
 
 *Getting there:* by car; the lot is off Harvard Street. *Best for:* the loop walk in the hour before sunset; a paddle with a life jacket.
 
@@ -65,7 +65,7 @@ Two alternatives for the same afternoon, both a drive from Main Street. The [Lef
 2. Breakfast at Tangerine or coffee at Ziggi's.
 3. Browse Composition Shop, Barbed Wire Books and Maker General from 10.
 4. Lunch at Pelo's, Rosalee's or Flavor of India.
-5. Drive to McIntosh Lake for the loop, or to Left Hand or the museum.
+5. Drive to McIntosh Lake for the loop, or to Left Hand; from October 17, the museum.
 
 ## Getting here
 

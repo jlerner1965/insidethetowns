@@ -12,7 +12,7 @@ glance:
   start: "The Town's free parking structure at 691 North St. Vrain Avenue, by the Visitor Center; downtown is under ten minutes on foot"
   duration: "One main thing a day, plus a meal; the national park is a separate day"
   by: "By car between stops; Elkhorn Avenue on foot from the parking structure"
-  caveat: "The tramway's 2026 season ended on November 1; until it reopens, give the afternoon to the Stanley instead"
+  caveat: "The tramway's 2026 season ends on November 1; after that, give the afternoon to the Stanley instead"
 sources:
   - { label: "Town of Estes Park: Parking", url: "https://estespark.colorado.gov/parking" }
   - { label: "Town of Estes Park: The Peak (free Town transit service)", url: "https://estespark.colorado.gov/transit" }
@@ -36,7 +36,7 @@ Elkhorn Avenue is the main street, and its stops are a walk, not a drive. [Macdo
 
 ## 02 · Riverside Drive: the tramway
 
-The [Estes Park Aerial Tramway](/places/estes-park-aerial-tramway/) at 420 East Riverside Drive has run since 1955 and carries riders 2,630 feet up to the 8,708-foot summit of Prospect Mountain in about five minutes. Its 2026 season ended on November 1; in its last weeks the hours were 9 am–6 pm, with the last tram up forty minutes before closing. Tickets are sold by arrival time, $39.95 for adults and $24.95 for ages 6 to 17, children 5 and under free; the 57-space lot charges $7.95 for four hours and can fill. [Rock Cut Brewing Company](/places/rock-cut-brewing-company/) at 390 West Riverside, at the foot of the same mountain, is open 11 am–10 pm daily.
+The [Estes Park Aerial Tramway](/places/estes-park-aerial-tramway/) at 420 East Riverside Drive has run since 1955 and carries riders 2,630 feet up to the 8,708-foot summit of Prospect Mountain in about five minutes. The 2026 season ends on November 1: from October 12 the hours are 9 am–6 pm, with the last tram up forty minutes before closing. Tickets are sold by arrival time, $39.95 for adults and $24.95 for ages 6 to 17, children 5 and under free; the 57-space lot charges $7.95 for four hours and can fill. [Rock Cut Brewing Company](/places/rock-cut-brewing-company/) at 390 West Riverside, at the foot of the same mountain, is open 11 am–10 pm daily.
 
 *Getting there:* a short drive from downtown, or the tram's own lot. *Best for:* the afternoon slot, through November 1 in 2026; after that, give the afternoon to the Stanley instead.
 
