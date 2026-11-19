@@ -238,14 +238,19 @@ export const carbonValley: TownConfig = {
   // automated reader (403), so that item links the Town's page that describes
   // it; the chamber's calendar refused too (403) and is not linked.
   livingHere: {
-    // Frederick's alone: nothing here was read for Firestone or Dacono, and
-    // the line says so rather than let the guide's name imply it.
-    intro: 'Who handles what in Frederick; for Firestone and Dacono, see each town’s own site.',
+    // Written for Frederick; since 19 November 2026 (the gap report of that
+    // day) it also carries Firestone's and Dacono's town halls, water,
+    // police, schools, trash and snow rules, each read that day from the
+    // Town's or the City's own page and added to the section a resident
+    // would look in.
+    intro: 'Who handles what in Frederick, with Firestone’s and Dacono’s town halls, utilities, police and schools.',
     sections: [
       {
         title: 'Utilities',
-        note: 'Water east of I-25 is the Town’s; west of I-25 it is the Left Hand Water District’s, with the Town supplying only raw water. Sewer is the St. Vrain Sanitation District, electricity United Power and natural gas Black Hills Energy.',
-        verified: '2026-11-02',
+        note: 'In Frederick, water east of I-25 is the Town’s; west of I-25 it is the Left Hand Water District’s, with the Town supplying only raw water. Sewer is the St. Vrain Sanitation District, electricity United Power and natural gas Black Hills Energy. Firestone and Dacono run their own water.',
+        // The Firestone, Dacono and Dacono fiber items read 19 November 2026
+        // (the gap report of that day); the rest 2 November.
+        verified: '2026-11-19',
         items: [
           { label: 'Town of Frederick utility billing', url: 'https://www.frederickco.gov/276/Utility-Billing', note: 'Water, trash and stormwater on one bill; Finance office at 311 Fifth St, weekdays 8–5, 720-382-5500; online pay, phone, drive-thru and drop box; usage rates rose about 9 percent for average users in February 2025' },
           { label: 'Start, transfer or stop service', url: 'https://www.frederickco.gov/277/Connecting-Disconnecting-Service', note: 'Buyers file the Residential Utility Billing Agreement; renters’ bills go to the landlord ($2 a month for a copy); transfers $10, at 311 Fifth St weekdays 9–4; title companies use the Final Utility Request form' },
@@ -254,17 +259,23 @@ export const carbonValley: TownConfig = {
           { label: 'United Power', url: 'https://www.unitedpower.com/', note: 'Electricity; street-light outages are reported to United Power, not the Town' },
           { label: 'Black Hills Energy', url: 'https://www.blackhillsenergy.com/', note: 'Natural gas' },
           { label: 'Fiber internet: Intrepid and ALLO', url: 'https://www.frederickco.gov/1164/Fiber-Internet', note: 'A town-wide fiber network under construction since 2025, due to finish in late 2026; check an address with ALLO (866-481-2556); construction questions to Intrepid, 844-380-8090' },
+          { label: 'Firestone: water and stormwater billing', url: 'https://www.firestoneco.gov/195', note: 'The Town bills water and stormwater monthly: pay online through InvoiceCloud, by phone any time at 833-836-3975, by mail or at Town Hall, 9950 Park Ave, weekdays 8–5; 303-833-3291, after-hours emergencies 720-652-4222. In Barefoot Lakes, the Little Thompson Water District supplies the water and the Town bills stormwater only' },
+          { label: 'Dacono: City water', url: 'https://www.daconoco.gov/868/Utilities', note: 'The City supplies treated water inside its limits, billed monthly: $62.65 base for a standard residential tap, trash and capital improvement fees included, then tiered by use; water department 303-833-2317 ext. 121, after-hours water emergencies 303-598-1704' },
+          { label: 'Dacono: fiber from Intrepid and ALLO', url: 'https://www.allocommunications.com/press-releases/allo-fiber-and-intrepid-partner-to-bring-world-class-internet-to-frederick-fort-lupton-and-dacono/', note: 'The same fiber build as Frederick’s also covers Dacono and Fort Lupton; ALLO announced it in June 2025 with the project finishing in early 2027' },
         ],
       },
       {
         title: 'Trash and recycling',
-        note: 'The Town contracts Waste Connections for every home: one 96-gallon trash cart weekly and one 96-gallon recycling cart every other week, billed on the Town’s utility bill.',
-        verified: '2026-11-02',
+        note: 'Frederick contracts Waste Connections for every home: one 96-gallon trash cart weekly and one 96-gallon recycling cart every other week, billed on the Town’s utility bill. Dacono has Waste Connections too, on its water bill; Firestone names no Town hauler.',
+        // The hazardous waste, winter tree limb and Firestone items read 19
+        // November 2026 (the gap report of that day); the rest as dated below.
+        verified: '2026-11-19',
         items: [
           { label: 'Garbage and recycling: the Town’s program', url: 'https://www.frederickco.gov/372/Garbage-Recycling', note: 'Waste Connections, 303-288-2100; trash Fridays east of I-25 and Tuesdays west of it, recycling every other week on the same day; in a holiday week pickup slips a day; carts covered and out of sight except on collection day' },
           { label: 'Waste Connections pickup schedule', url: 'https://www.wasteconnections.com/pickup-schedule/', note: 'Which recycling week your neighborhood is on (the Town’s page lists Schedule A and B by subdivision)' },
           { label: 'Clean-Up Days', url: 'https://www.frederickco.gov/235/Clean-Up-Days', note: 'The Town’s spring and fall drop-off days; extra bags, branches and bulk items otherwise go through Waste Connections at special rates' },
-          { label: 'Household hazardous waste', url: 'https://www.frederickco.gov/372/Garbage-Recycling', note: 'Weld County’s facility takes paint, batteries, oil, antifreeze and pesticides free; 970-304-6415' },
+          { label: 'Household hazardous waste', url: 'https://www.weld.gov/go/hhw', note: 'Weld County’s South facility, 5500 Highway 52 in Dacono, between I-25 and Colorado Boulevard, takes paint, batteries, oil, antifreeze and pesticides free from Weld County residents, Wednesday, Friday and Saturday 9 am–4 pm, up to 200 pounds a household per day; closed on major holidays' },
+          { label: 'Frederick: winter tree limb drop-off', url: 'https://www.frederickco.gov/373/Clean-up-Days', note: 'November through February, by appointment only: call 720-382-5500, weekdays 7:30 am–3 pm. At Public Works, 7301 Eagle Blvd, for Frederick residents with an active Town utility account; limbs up to 8 inches across and 10 feet long; bring ID with a Frederick address' },
           // Added 12 November 2026 (the holiday pass), read that day from the
           // Town of Frederick's Community Programs page and the City of
           // Dacono's Utilities page. The tree drop-off line prints no year:
@@ -274,19 +285,23 @@ export const carbonValley: TownConfig = {
           // nothing about trees, so neither is listed.
           { label: 'Frederick: holiday tree recycling', url: 'https://www.frederickco.gov/226/Community-Programs', note: 'Live trees only, Monday, December 21, 2026 to Friday, January 22, 2027: inside the fenced area at 602 Maple Street, on the southeast corner of Eighth Street and Maple Avenue by the entrance to Centennial Park; plastic bags, stands, decorations and lights off; no trees on the sidewalk or outside the fence' },
           { label: 'Frederick: holiday trash drop-off', url: 'https://www.frederickco.gov/226/Community-Programs', note: 'For households that pay for trash on the Town utility bill: extra holiday waste to Public Works, 7301 Eagle Blvd., south gate, 7 am to 2:30 pm on December 21, 22, 28, 29 and 30, 2026 and January 4 to 8, 2027, and 7 am to noon on December 23 and 31; bring ID; wrapping paper, packaging, artificial trees, holiday lights and food waste are accepted' },
+          { label: 'Firestone: trash haulers', url: 'https://www.firestoneco.gov/DocumentCenter/View/6269', note: 'The Town names no trash hauler; its 2024 Recycling and Disposal Guide lists the companies that offer residential trash service, among them One Way (303-823-0556) and Waste Connections (303-288-2100). Questions to Town Hall, 303-833-3291' },
           { label: 'Dacono: trash and recycling', url: 'https://www.daconoco.gov/868/Utilities', note: 'Waste Connections of Colorado, weekly trash and recycling every other week, on the City water bill; a pickup that falls on Thanksgiving, Christmas Day or New Year’s Day is a day late, and the normal schedule resumes the next week; 303-288-2100' },
         ],
       },
       {
         title: 'Getting around',
         note: 'No bus serves Frederick. The Town points residents to carpools and vanpools and pays Via Mobility for rides for residents who qualify.',
-        verified: '2026-11-02',
+        // The Firestone and Dacono snow items read 19 November 2026; the rest 2 November.
+        verified: '2026-11-19',
         items: [
           { label: 'Via Mobility rides', url: 'https://www.frederickco.gov/623/Senior-Resources', note: 'Free door-to-door rides for residents 60 and over, people with disabilities and some others who qualify, weekdays 8 am–3 pm, within Frederick, Firestone and Dacono and to Longmont, Boulder, Louisville and Lafayette; 303-444-3043' },
           { label: 'Carbon Valley transit study and Way to Go', url: 'https://www.frederickco.gov/464/Carbon-Valley-Transit-Feasibility-Study', note: 'The three towns’ CDOT-funded study; the first step is carpools and vanpools through DRCOG’s Way to Go (waytogo.org)' },
           { label: 'Roadwork and construction updates', url: 'https://www.frederickco.gov/716/Current-Construction-Update', note: 'CDOT’s Colorado 52 resurfacing from I-25 to US 85 runs through December 2026 with overnight lane closures; the Town’s own projects are listed with dates' },
           { label: 'Snow and ice control', url: 'https://www.frederickco.gov/387/Snow-and-Ice-Control', note: 'Four tiers: emergency routes and arterials first, collectors second, residential streets only after more than six inches in 24 hours, one pass down the middle; live plow map on the page' },
           { label: 'CDOT road conditions', url: 'https://www.cotrip.org/', note: 'I-25, its frontage roads and Colorado 52, which CDOT plows, not the Town' },
+          { label: 'Firestone: snow removal', url: 'https://www.firestoneco.gov/snow', note: 'Arterials and school zones first; residential streets only when 10 inches or more is forecast to stay for several days, one pass down the middle. Sidewalks must be cleared within 24 hours after a storm ends, and cars on priority snow routes may be ticketed and towed. Plow-route map on the page; streets 303-833-3544' },
+          { label: 'Dacono: snow removal', url: 'https://www.daconoco.gov/911/Snow-Removal', note: 'Priority streets first under the City’s snow response plan, plowed to the side; property owners must clear sidewalks within 48 hours of the end of a storm, and snow may not be pushed into the street' },
         ],
       },
       {
@@ -304,22 +319,29 @@ export const carbonValley: TownConfig = {
       },
       {
         title: 'Schools',
-        note: 'Frederick is in St. Vrain Valley Schools, based in Longmont. The neighborhood school goes by the address, boundaries do not follow town lines, and open enrollment lets a student apply to any St. Vrain school with room.',
-        verified: '2026-11-02',
+        note: 'Frederick and Firestone are in St. Vrain Valley Schools, based in Longmont; Dacono is split between St. Vrain and Weld RE-8. The neighborhood school goes by the address, boundaries do not follow town lines, and open enrollment lets a student apply to any St. Vrain school with room.',
+        // The Firestone and Dacono items read 19 November 2026; the rest 2 November.
+        verified: '2026-11-19',
         items: [
           { label: 'St. Vrain: boundary lookup by address', url: 'https://www.svvsd.org/schools/maps-boundaries/', note: 'The district’s ArcGIS address lookup; planning department 303-682-7229 for boundary questions' },
           { label: 'St. Vrain: open enrollment', url: 'https://www.svvsd.org/schools/enrollment/open-enrollment/', note: 'Applications December 1–15, 2026; space-available offers by January 8 and confirmation by January 21, 2027; later applications go on a waitlist', track: 'registration' },
           { label: 'The Frederick feeder', url: 'https://www.svvsd.org/schools/school-feeders/', note: 'Frederick High (5690 Tipple Pkwy, 303-833-3533), Coal Ridge Middle, Thunder Valley K-8, Centennial, Legacy and Prairie Ridge elementaries, Spark! Discovery Preschool' },
+          { label: 'Firestone’s schools', url: 'https://firestoneco.gov/412/Schools', note: 'Centennial and Prairie Ridge elementaries, Coal Ridge Middle and Imagine Charter School at Firestone are in town; the Town also lists Firestone Charter Academy, 5753 Twilight Ave, and Big Sky PK-8, and Frederick High and Mead High (12750 County Road 7) serve Firestone' },
+          { label: 'Dacono: two school districts', url: 'https://www.daconoco.gov/881/Education', note: 'Part of Dacono is in St. Vrain Valley Schools and part in Weld County School District RE-8, whose Kenneth Homyak PK-8 opened in 2018; check the address' },
           { label: '2026–27 district calendar', url: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', note: 'Thanksgiving break November 23–27, winter break December 21–January 1 (January 4 a non-student day), spring break March 15–19, last day May 27' },
         ],
       },
       {
         title: 'Reporting a problem',
-        verified: '2026-11-02',
+        // The Firestone and Dacono items read 19 November 2026; the rest 2 November.
+        verified: '2026-11-19',
         items: [
           { label: 'Submit a Report to the Town', url: 'https://www.frederickco.gov/1004/Submit-a-Report', note: 'Potholes, plowing, code and other issues, routed to staff and trackable with a login; also in the Town of Frederick app' },
           { label: 'Frederick Police Department', url: 'https://www.frederickco.gov/360/Police', note: '333 Fifth St, 720-382-5700; non-emergency dispatch 720-652-4222; emergency 911; lobby weekdays 8–5' },
-          { label: 'Frederick-Firestone Fire District', url: 'https://www.fffd.us/about-us', note: '8426 Kosmerl Place, 303-833-2742 for anything that is not an emergency' },
+          { label: 'Frederick-Firestone Fire District', url: 'https://www.fffd.us/about-us', note: 'Frederick and Firestone; 8426 Kosmerl Place, 303-833-2742 for anything that is not an emergency' },
+          { label: 'Firestone Police Department', url: 'https://www.firestoneco.gov/178/Police', note: '9900 Park Ave, 303-833-0811, lobby weekdays 8–5; dispatch and non-emergency 720-652-4222; emergency 911. It also handles animal control' },
+          { label: 'Dacono Police Department', url: 'https://www.daconoco.gov/1242/Police-Department', note: '512 Cherry Ave, Building B; non-emergency 303-833-3095; emergency 911. Its community resource officers handle animal control, at the same number' },
+          { label: 'Dacono: Mountain View Fire Rescue', url: 'https://www.daconoco.gov/196/Fire-Department', note: 'Fire, rescue and emergency medical service for Dacono; emergency 911' },
           { label: 'Oil and gas wells: who to call', url: 'https://www.frederickco.gov/1199/Oil-Gas-Operations-in-Frederick', note: 'Fires or explosions 911; leaks and spills to the fire district, the state’s Energy & Carbon Management Commission (303-894-2100, complaints 888-235-1101) or the operator named on the site sign' },
           { label: 'Street light out', url: 'https://unitedpower.smarthub.coop/Login.html#', note: 'Reported to United Power, the Town’s street-maintenance page says' },
         ],
@@ -348,11 +370,14 @@ export const carbonValley: TownConfig = {
       // from Reporting a problem, whose other links were read on 2 November.
       {
         title: 'Cars, pets and emergency alerts',
-        verified: '2026-11-09',
+        // The Firestone and Dacono items read 19 November 2026; the rest 9 November.
+        verified: '2026-11-19',
         items: [
           { label: 'Southwest Weld motor vehicle office', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Motor-Vehicle-Department/Contact-Us', note: 'Weld County’s office nearest Frederick, at 4209 County Road 24.5 by Del Camino, in the county’s Southwest Service Complex; Monday to Friday 8 am to 5 pm; 720-652-4201' },
           { label: 'Pet licenses', url: 'https://www.frederickco.gov/218/Pet-License', note: 'Dogs $5, cats free, with a current rabies vaccination: fill in the Town’s online form, then pay at the Police Department, 333 Fifth St, or by card at 720-382-5700' },
           { label: 'A dog at large', url: 'https://www.frederickco.gov/311/Animals-at-Large', note: 'Call the Community Service Officer or officer on duty at 720-652-4222. Dogs not claimed within a few hours go to the Humane Society of Boulder Valley; the police’s Community Services Unit does not take in stray cats' },
+          { label: 'Firestone: dog and cat licenses', url: 'https://www.firestoneco.gov/326/Animal-Licensing', note: 'Dogs and cats are licensed every year through the Police Department, with proof of rabies vaccination: $5 spayed or neutered, $10 unaltered, expiring December 31; online or at 9900 Park Ave weekdays 8–5. The department also handles animal control, 303-833-0811' },
+          { label: 'Dacono: Blackboard Connect alerts', url: 'https://www.daconoco.gov/912/Emergency-Notification-System', note: 'The City’s own free notices by phone, text or email, for city news; the City asks residents to sign up for Weld County’s CodeRED as well' },
           { label: 'Weld County emergency alerts: CodeRED by Crisis24', url: 'https://www.weld.gov/Government/Departments/Public-Information-Office/Emergency-Preparation/CodeRED-by-Crisis24', note: 'Weld County’s alerts now run on CodeRED by Crisis24, and the county asks residents to make a new account even though earlier sign-ups were carried over; help at 1-866-939-0911' },
         ],
       },
@@ -364,17 +389,20 @@ export const carbonValley: TownConfig = {
       // Town's site has no short-term rental page.
       {
         title: 'Permits and home projects',
-        verified: '2026-11-09',
+        // The Firestone item read 19 November 2026; the rest 9 November.
+        verified: '2026-11-19',
         items: [
           { label: 'What needs a permit', url: 'https://www.frederickco.gov/242/Home-Improvement', note: 'Decks and porches, additions, accessory dwelling units, basement finishes and detached garages need one; a one-story shed of 200 square feet or less, a fence up to 6 feet (chain link is not allowed), a retaining wall up to 4 feet and finish work such as painting and tiling do not. Call Colorado 811 before you dig' },
           { label: 'Building permits and inspections', url: 'https://www.frederickco.gov/416/Building-Department', note: 'Apply through the Town’s Accela portal; request inspections with the Town’s online form. No inspections on Town holidays, Veterans Day and the two Thanksgiving days among them' },
+          { label: 'Firestone: permits and licenses', url: 'https://www.firestoneco.gov/576/Licensing-Permitting', note: 'Building permits go through the Town’s Planning and Development Department, and every contractor on a permit needs a Town contractor’s license; the fire district and the St. Vrain Sanitation District review new construction separately' },
           { label: 'Fireworks', url: 'https://www.frederickco.gov/955/Fireworks', note: 'If it goes up or blows up, it is illegal in Frederick: anything that leaves the ground or explodes, outside a permitted public display' },
         ],
       },
       {
         title: 'City meetings and participation',
         note: 'The Town holds its own elections in November of even-numbered years (the next is November 7, 2028); Weld County runs the rest, by mail ballot.',
-        verified: '2026-11-02',
+        // Firestone's and Dacono's town halls and the elections item read 19 November 2026; the rest 2 November.
+        verified: '2026-11-19',
         items: [
           { label: 'Mayor and Board of Trustees', url: 'https://www.frederickco.gov/406/Mayor-Board-of-Trustees', note: 'First and third Wednesdays at 7 pm at Town Hall, 401 Locust St, work sessions at 5:30; email the Board at BOTInfo@frederickco.gov; the Town Clerk is 720-382-5500', track: 'participation' },
           { label: 'Agendas and minutes', url: 'https://www.frederickco.gov/1100/Agenda-Portal', note: 'The Board, the Planning Commission and every committee, with each agenda once posted' },
@@ -382,7 +410,9 @@ export const carbonValley: TownConfig = {
           { label: 'Frederick Youth Commission', url: 'https://www.frederickco.gov/1001/Frederick-Youth-Commission', note: 'Grades 8 to 12; ten seats open; apply online with the release form; 720-382-5553', track: 'participation' },
           { label: 'Volunteer with the Town', url: 'https://www.frederickco.gov/345/Volunteer-Opportunities', note: 'Event shifts through the Frederick Volunteer Portal, a volunteer newsletter, beer-garden shifts for TIPS-trained adults 21 and over, and one-time service projects; volunteers 14 and up on their own', track: 'participation' },
           // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
-          { label: 'Weld County Elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'The county’s page links the unofficial results of the November 3, 2026 general election; 970-304-6525' },
+          { label: 'Weld County Elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'The county’s page links the unofficial results of the November 3, 2026 general election and its interactive map of voting sites and ballot drop boxes; 970-304-6525, elections@weld.gov.' },
+          { label: 'Firestone Town Hall', url: 'https://www.firestoneco.gov/', note: '9950 Park Ave, weekdays 8–5, 303-833-3291' },
+          { label: 'Dacono City Hall', url: 'https://www.daconoco.gov/', note: '512 Cherry Ave, 303-833-2317' },
         ],
       },
     ],
