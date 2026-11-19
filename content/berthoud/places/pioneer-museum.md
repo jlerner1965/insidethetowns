@@ -21,9 +21,9 @@ details:
   checked: "2026-11-12"
 summary: "The Berthoud Historical Society's museum on Mountain Avenue, in and around the 1893 Bimson Blacksmith Shop: farm, railroad and family history. Wed–Sat 1–4, $5."
 source: "https://berthoudhistoricalsociety.org/ltv-pioneer-museum/"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026"
+verified: "2026-11-19"
+verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026, and again on 19 November 2026 with the Society's Bunyan Observatory page (an exhibit in museum hours; free public stargazing the first Friday night of each month from dusk)"
 added: "2026-09-17"
 ---
 
-The Berthoud Historical Society's museum at the east end of Mountain Avenue, built around the Bimson Blacksmith Shop, which Alfred Bimson put up in native sandstone in 1893 as the town's first smithy and which is on the National Register. The Society opened the museum in it in 1978, with exhibits on the railroad, the sugar-beet farms, the schools and the families who settled the Little Thompson valley. Open Wednesday to Saturday, 1 to 4 pm; adults $5, seniors and teens $3, children free. The Society also runs the McCarty-Fickel Home at 645 7th Street by appointment, a summer concert series in the courtyard and an August barn tour.
+The Berthoud Historical Society's museum at the east end of Mountain Avenue, built around the Bimson Blacksmith Shop, which Alfred Bimson put up in native sandstone in 1893 as the town's first smithy and which is on the National Register. The Society opened the museum in it in 1978, with exhibits on the railroad, the sugar-beet farms, the schools and the families who settled the Little Thompson valley. Open Wednesday to Saturday, 1 to 4 pm; adults $5, seniors and teens $3, children free. The museum's [Bunyan Observatory](https://berthoudhistoricalsociety.org/23-stargaze-at-john-bunyans-1930s-observatory/), built in 2004 as a working replica of the backyard observatory banker John Bunyan built in 1933 and fitted with his original Brashear telescope, is an exhibit in museum hours and opens for free public stargazing on the first Friday night of each month, from dusk. The Society also runs the McCarty-Fickel Home at 645 7th Street by appointment, a summer concert series in the courtyard and an August barn tour.

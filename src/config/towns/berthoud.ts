@@ -127,12 +127,17 @@ export const berthoud: TownConfig = {
           { label: 'Xcel Energy', url: 'https://www.xcelenergy.com/', note: 'Electricity in most of town, and natural gas' },
         ],
       },
+      // Read again 19 November 2026 (gap report of the same day, M2): the
+      // Town's page, Ordinance 1079, and the county's Solid Waste and Hours
+      // pages.
       {
         title: 'Trash and recycling',
-        verified: '2026-11-06',
+        note: 'Pickup is private: each household, or its HOA or metro district, contracts a hauler licensed by the Town. A Town ordinance of 2007 requires every residential hauler to include weekly recycling.',
+        verified: '2026-11-19',
         items: [
-          { label: 'Licensed haulers and HOA rules', url: 'https://www.berthoud.org/1387/Trash-and-Utility-Providers', note: 'Private, household by household; the Town’s business directory lists the licensed companies' },
-          { label: 'Larimer County solid waste and recycling', url: 'https://www.larimer.gov/solidwaste', note: 'The county landfill has closed; the county’s page says where household waste, recycling and hazardous waste now go' },
+          { label: 'Licensed haulers and HOA rules', url: 'https://www.berthoud.org/1387/Trash-and-Utility-Providers', note: 'Private, household by household; the Town’s business directory lists the licensed companies, and some HOAs and metro districts allow only one' },
+          { label: 'Town Ordinance 1079: recycling with every residential hauler', url: 'https://berthoud.org/DocumentCenter/View/2030/Ordinance-1079-Mandating-Residential-Trash-Hauling-PDF', note: 'Passed in 2007: any company hauling household trash in town must include weekly recycling of paper, cardboard, glass, plastic, aluminum and steel cans, unlimited in volume, from January 1, 2008' },
+          { label: 'Larimer County solid waste and recycling', url: 'https://www.larimer.gov/solidwaste', note: 'The county landfill closed August 3, 2026. Household trash now goes to the Central Diversion & Transfer Station, 2388 W. Trilby Road, Monday to Saturday 8 am to 4:30 pm. Household hazardous waste goes to the old landfill entrance, 5887 S. Taft Hill Road, Monday, Tuesday and Thursday to Saturday 8 am to 4:30 pm, closed to the public on Wednesdays. Both close on Thanksgiving, Christmas and New Year’s Day; 24-hour line 970-498-5770' },
         ],
       },
       {
@@ -143,6 +148,16 @@ export const berthoud: TownConfig = {
           { label: 'Transfort FLEX regional bus', url: 'https://www.berthoud.org/162/Transfort-FLEX', note: 'Fort Collins to Loveland, Berthoud, Longmont and Boulder; two stops downtown' },
           { label: 'RAFT (Rural Alternative for Transportation)', url: 'https://berthoudraft.org/', note: 'Door-to-door rides to Berthoud, Loveland and Longmont for riders 60 and over and adults with a disability who live in the Berthoud Fire Protection District; no set fare, donations; 970-532-0808' },
           { label: 'CDOT road conditions', url: 'https://www.cotrip.org/', note: 'US 287, CO 56 and I-25' },
+        ],
+      },
+      // Gap report of 19 November 2026 (H5): CDOT's page, read that day
+      // (its week of November 15).
+      {
+        title: 'Road work on I-25',
+        note: 'CDOT’s I-25 North Express Lanes work runs between Mead and Berthoud; its page lists each week’s lane and shoulder closures.',
+        verified: '2026-11-19',
+        items: [
+          { label: 'CDOT: North I-25 traffic impacts', url: 'https://www.codot.gov/projects/northi25/traffic-impacts', note: 'The I-25 East Frontage Road is closed to through traffic between Weld County Road 32 and CO 56, so use WCR 9.5, WCR 7 or Colorado Boulevard. About a mile of the southbound Express Lane, from about WCR 44 to WCR 46, is closed through late 2027. The speed limit through the work is 65 mph, and speeding in the work zone between Mead and Berthoud draws a $75 fine. Project hotline 720-593-1996' },
         ],
       },
       {
@@ -179,6 +194,17 @@ export const berthoud: TownConfig = {
           { label: 'Town eNotifications', url: 'https://berthoud.org/list.aspx', note: 'Alerts and news by email' },
         ],
       },
+      // Gap report of 19 November 2026 (L8): NOCO Alert's Berthoud page and
+      // the fire district's contact page, read that day.
+      {
+        title: 'Emergency alerts',
+        note: 'In an emergency call 911.',
+        verified: '2026-11-19',
+        items: [
+          { label: 'NOCO Alert: Berthoud', url: 'https://nocoalert.specialdistrict.org/berthoud', note: 'Register a home, work or other address for emergency alerts, or text BERTHOUD to 888777 for Berthoud’s emergency and community alerts, West Nile spraying included. Non-emergency lines: police 970-416-1985, fire and medical 970-667-2151; Larimer County’s emergency information line 970-498-5500' },
+          { label: 'Berthoud Fire Protection District: contact', url: 'https://bfpdco.specialdistrict.org/contact-us', note: 'Non-emergencies and call-in burn permits 970-667-2151, ext. 4; the main line, 970-532-2264, Monday to Thursday 8 am to 4 pm' },
+        ],
+      },
       // The sections below fill the gaps in the gap report of 9 November 2026
       // (M1, M3, M4, M5); every link was read that day.
       {
@@ -200,6 +226,15 @@ export const berthoud: TownConfig = {
         items: [
           { label: 'Larimer County vehicle licensing', url: 'https://www.larimer.gov/clerk/vehiclelicensing', note: 'Registration and titles. Offices in Loveland, 200 Peridot Ave, first floor (970-619-4521), and Fort Collins, 200 W. Oak St (970-498-7878), Monday to Friday 8 am to 5 pm except holidays; renew online, by phone, in person or at a self-service kiosk' },
           { label: 'Larimer County Treasurer: property tax', url: 'https://www.larimer.gov/treasurer', note: 'Paid in two halves, by February 28 and June 15, or in full by April 30, moving to the next business day when a date falls on a weekend or holiday; online, or monthly through EquaPay where a mortgage does not pay it; 200 W. Oak St, Suite 2100, Fort Collins, 970-498-7020' },
+        ],
+      },
+      // Gap report of 19 November 2026 (M4): USPS's own page for the
+      // Berthoud office, read that day.
+      {
+        title: 'Post office',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Berthoud Post Office, 425 3rd St', url: 'https://tools.usps.com/locations/details/1354778', note: 'Counter Monday to Friday 8 am to 4:30 pm, Saturday 9:30 am to 12:30 pm; lobby and PO boxes Monday to Saturday 6 am to 8 pm; closed Sunday; no passport service; 970-532-5379' },
         ],
       },
       {
@@ -232,15 +267,47 @@ export const berthoud: TownConfig = {
           { label: 'The Learning Experience, 1144 Lake Ave', url: '/places/the-learning-experience-berthoud/', note: 'Child care and preschool for ages six weeks to five years, weekdays 6:30 am to 6 pm' },
         ],
       },
+      // Gap report of 19 November 2026 (M3, L6, L7): the Town's Active
+      // Adults pages, Metro District Information page and Building
+      // Department and Community Development pages, read that day.
+      {
+        title: 'Active adults (50 and over)',
+        note: 'BATS and RAFT, under Getting around, give seniors free or donation rides.',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Berthoud Recreation: active adult sports and programs', url: 'https://www.berthoud.org/1528/Sports-Programs', note: 'Game Time and Afternoon Social, cards, dominoes, cribbage and puzzles, Mondays and Fridays noon to 3 pm in the party room, free for members, $3 otherwise; volleyball drop-in Thursdays 10:30 am to noon; co-ed and women’s pickleball leagues; a health seminar on the second Wednesday of each month; 970-532-1600' },
+          { label: 'Rec center membership through insurance', url: 'https://www.berthoud.org/1525/General-Information', note: 'SilverSneakers, Renew Active and Silver & Fit members get a Recreation Center membership at no extra cost; check eligibility with the insurer, then call 970-532-1600' },
+          { label: 'Active adult travel programs', url: 'https://www.berthoud.org/1526/Travel-Programs', note: 'Reserved tickets for outings through the year; ask the recreation coordinator' },
+        ],
+      },
+      {
+        title: 'Neighborhoods and metro districts',
+        note: 'Many neighborhoods are in a metropolitan district, a separate government with its own elected board that funds roads, parks and other amenities through property tax. Ask for the district and its mill levy before buying.',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Town: metro district information', url: 'https://www.berthoud.org/1345/Metro-District-Information', note: 'Each district’s website and its state filings: Berthoud 160, Berthoud-Heritage (Heron Lakes and Vantage), Hammond Farm, Heritage Ridge, Legacy Park, PrairieStar, Rose Farm Acres and Turion' },
+        ],
+      },
+      {
+        title: 'Building permits',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Town Building Department', url: 'https://www.berthoud.org/169/Building-Department', note: 'Permits and inspections for every kind of project, applied for through the Town’s CommunityCore portal; contractors must hold a Town license, and the Town will tell a homeowner whether theirs does' },
+          { label: 'Community Development', url: 'https://www.berthoud.org/directory.aspx?did=10', note: 'Planning and building, Town Hall, 807 Mountain Avenue, Monday to Thursday 7 am to 5:30 pm; 970-532-2643, option 3' },
+        ],
+      },
+      // Every link but CivicClerk's (script only) read again 19 November 2026:
+      // the election dates had passed (gap report of the same day, H6) and
+      // Engage Berthoud had moved Mountain Vista Park to its closed projects.
       {
         title: 'Town meetings and participation',
-        verified: '2026-11-06',
+        verified: '2026-11-19',
         items: [
           { label: 'How to participate', url: 'https://www.berthoud.org/258/How-to-Participate', note: 'Board of Trustees 2nd and 4th Tuesdays, 6:30 pm; three minutes for any resident', track: 'participation' },
           { label: 'Agendas and minutes', url: 'https://berthoudco.portal.civicclerk.com/' },
           { label: 'Advisory committee application', url: 'https://www.berthoud.org/FormCenter/General-Forms-4/Advisory-Committee-Application-95', note: 'Parks and trails, planning, trees, historic preservation, public art, the Local Licensing Authority and the Youth Advisory Commission', track: 'participation' },
-          { label: 'Engage Berthoud: projects open to comment', url: 'https://engage.berthoud.org/', note: 'The stormwater master plan, the water efficiency plan and Jaskowski open space; Mountain Vista Park is listed as in development and closed to feedback', track: 'participation' },
-          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'The November 3 election: unofficial results; signatures can be cured until November 12, final unofficial results are expected November 13 and final results by November 25' },
+          { label: 'Engage Berthoud: projects open to comment', url: 'https://engage.berthoud.org/', note: 'The stormwater master plan, the water efficiency plan, Jaskowski open space and the holiday lights contest; Mountain Vista Park is now among its closed projects', track: 'participation' },
+          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'The November 3 election: the county posted its final unofficial results on November 13, and final results are due by November 25' },
         ],
       },
     ],

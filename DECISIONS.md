@@ -12596,3 +12596,61 @@ Pass.*
 - **A lighting and a parade on the same night get a record each** when the organizer names both, as Berthoud's did: the trackers read one `type` per record. Where the organizer gives no separate lighting time, the record has none and its `about` says when it falls ("after the parade").
 - **Landmark lightings belong on the tree-lightings tracker**, as Castle Rock's Starlighting already did: Palmer Lake's Chili Supper & Star Lighting moves there from the festivals.
 - **Held:** Minturn (the only listings are not the Town's), Monte Vista, Morrison, Nederland and Milliken. Meeker's lighting stays at 5 pm, the time on Visit Meeker's 2026 page; its parade has no published start.
+
+## The Berthoud gap report of 19 November 2026
+
+*The owner sent the report with no note. Read as the standing instruction
+of the 5 November reports ("add any of these you think and which need
+more info"): add what holds up on a source read today, stage what needs
+more, leave the owner's calls to him. Nothing publishes on the report's
+word alone; several of its readings had moved by the afternoon.*
+
+- **H1, the sitemap and the 302: already fixed.** By the afternoon the
+  hub's sitemap index listed `sitemap-berthoud.xml` (160 addresses under
+  /berthoud/) and insideberthoud.com answered 301. No change.
+- **Published.** The Little Thompson Observatory's Public Star Nights of
+  November 20 and December 18 (H4), from starkids.org. Living here gets
+  seven new sections, each dated the day it was read (a section carries one
+  read date, so nothing new went into a section read earlier): Road work on
+  I-25 (H5), Emergency alerts (L8), Post office (M4), Active adults (M3),
+  Neighborhoods and metro districts (L6), Building permits (L7), and the
+  Trash and recycling section rewritten (M2) with the county's facilities
+  since the landfill closed and the Town's 2007 recycling ordinance. The
+  Town meetings section was read again so its election line could change
+  (H6), and Engage Berthoud now lists Mountain Vista Park as closed. TPC
+  Colorado as a place (L1), from tpc.com. The Bunyan Observatory's
+  first-Friday stargazing on the Pioneer Museum's page (L4).
+- **H5 is a Living here section, not an update.** The frontage road and
+  Express Lane closures began long before this week, and a change written
+  up more than 30 days after it happened is not news (the updates rule).
+- **Fixed.** Moving here: RAFT serves riders in the fire district with
+  rides to Berthoud, Loveland and Longmont, not "for Longmont"; the
+  district covers 98 square miles (the Town's Public Safety page), and its
+  non-emergency line is 970-667-2151, ext. 4, not the main line (H7). The
+  Historical Society's 2026 speaker series is over, with the 2027 lineup
+  to come; the holiday card contest leaves the Families listing (H6).
+  Ballot Issue 3G: Larimer's final unofficial posting was at 3:14 pm, not
+  2:04; the counts in its PDF are unchanged (Lead 5). Corrections filed
+  for Moving here and 3G.
+- **Where the report was wrong.** Its USPS page (location 1371038) is the
+  Valentine office in Loveland; Berthoud's is 1354778. The Town's drop-in
+  page it cites now answers 404, and the Town's current 50+ page gives
+  different hours (game time noon to 3, volleyball 10:30 to noon); the
+  guide follows the current page. The Town's business directory has
+  license categories only, so it lists no internet providers: M5 is left
+  out, with nothing to source it from.
+- **Staged.** The Derby Grille (L2): its own site gives the hours and
+  phone, but "110 Bunyan Street" where the town's street is Bunyan Avenue.
+  Berthoud Drug (M1) and The Taco Man (L3) stay staged on their 6
+  November reasons.
+- **Left for the owner.** Sports (H2, H3): wrestling, girls' swimming and
+  both cross country teams are already followed and wait for MaxPreps to
+  post games; girls' wrestling, boys' golf, the spring teams and
+  competitive cheer (not on MaxPreps) would be new teams, which has been
+  the owner's call at every school.
+- **Leads settled.** Berthoud Brewing's own site still lists the 450 8th St
+  taproom (Lead 12). The Town's facility schedule gives the Recreation
+  Center noon to 6 pm on November 27, as This Week has (Lead 16). The
+  tree-lighting time (Lead 4) was already on the page with both times and a
+  correction of 12 November. Library December hours (L5) were published
+  the same morning.
