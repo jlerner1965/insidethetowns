@@ -23,7 +23,7 @@
  * and from `sm` up the summary is not shown. A reader without the script
  * sees the list as before.
  */
-import { fullSections, getNetworkHub, getSite, guideUrl, hubNeighborsOf, liveTowns, neighborsOf, sectionHome } from '@/config';
+import { fullSections, getNetworkHub, getSite, guideUrl, hubNeighborsOf, neighborsOf, sectionHome } from '@/config';
 import { getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { HUB_COLUMN } from './hub/pub';
@@ -67,7 +67,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
           Part of
           <a href={`https://${hub.domain}/`} class="font-semibold text-white underline"
             >{hub.siteTitle}</a
-          >: {liveTowns().length} Colorado town guides.
+          >: {fullSections().length} Colorado towns with a full section.
         </p>
         {nearbyCount > 0 && (
           <nav aria-label="Nearby towns" class="mt-2 w-full sm:mt-4">
@@ -90,7 +90,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
                     <a href={t.href} class="inline-block py-3 text-[0.875rem] font-medium text-white no-underline hover:underline sm:py-0" data-hub-town={t.slug}>{t.name}</a>
                   </li>
                 ))}
-                <li class="leading-snug sm:pb-3"><a href={`https://${hub.domain}/#towns`} class="inline-block py-3 text-[0.875rem] font-medium text-white underline sm:py-0">All {liveTowns().length} guides →</a></li>
+                <li class="leading-snug sm:pb-3"><a href={`https://${hub.domain}/#towns`} class="inline-block py-3 text-[0.875rem] font-medium text-white underline sm:py-0">All {fullSections().length} full sections →</a></li>
               </ul>
             </details>
           </nav>
