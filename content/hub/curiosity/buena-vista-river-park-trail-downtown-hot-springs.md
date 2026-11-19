@@ -1,6 +1,6 @@
 ---
 slug: buena-vista-river-park-trail-downtown-hot-springs
-kind: story
+kind: guide
 towns: [buena-vista]
 eyebrow: "Day plan · Buena Vista"
 title: "Buena Vista riverside: River Park, river trail, downtown, hot springs"
@@ -8,7 +8,6 @@ seoTitle: "Buena Vista River Park, river trail and hot springs"
 description: "Park free at the Community Center, 715 East Main, walk into River Park and loop the 0.6-mile river trail. All three nearby hot springs take walk-ins."
 status: verified
 date: 2026-11-18
-homeUntil: 2026-11-18
 footnote: "The River Park lots, the boathouse and the names of the waves are from the Town’s River Park map of March 2023."
 sources:
   - label: "Town of Buena Vista Recreation: parks"

@@ -553,7 +553,9 @@ colours, as the section's own pages do: the tradition pages there
 masthead of its own and keeps the hub's). Their share
 image is the same Flatirons photograph; a record's own page shares its
 town's photograph or share card, which its Event markup also carries.
-`/articles/` lists the hub's articles but those whose only town is one of
+`/articles/` labels and lists the hub's guides (`kind: guide`, the practical
+pieces for towns with no guide of their own) under Guides, apart from the
+news (19 November 2026). It lists the hub's articles but those whose only town is one of
 the eleven full sections and that are not featured (`onHub`, 18 November
 2026), which stay in their sections; a featured section article, the
 sections' own guide articles included, is listed and stays in its section

@@ -1,6 +1,6 @@
 ---
 slug: salida-downtown-and-arkansas-river-walk
-kind: story
+kind: guide
 towns: [salida]
 eyebrow: "Walking guide · Salida"
 title: "Salida's downtown and Arkansas River walk: 90-minute and half-day routes"
@@ -8,7 +8,6 @@ seoTitle: "Salida river walk: downtown routes and free parking"
 description: "Park free on Sackett Avenue, walk the paved Riverwalk past the playground to the Whitewater Park, then up F Street; add the Monarch Spur Trail for a half day."
 status: verified
 date: 2026-11-18
-homeUntil: 2026-11-18
 footnote: "Salida’s City website refuses automated readers, so its park pages, Riverside Park’s restrooms and the City’s dog rule among them, were not read for this guide: the parking comes from the City’s own downtown parking map, the trails from the state’s trail database, the river from Colorado Parks and Wildlife, and the dog rule from the Chamber. The time each route takes is our estimate."
 sources:
   - label: "City of Salida: Salida Downtown Parking map (updated September 2025)"
