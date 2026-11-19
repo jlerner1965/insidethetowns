@@ -65,7 +65,9 @@ A second review of the live site was pasted in for a verdict. Its P0 list mostly
 
 Decisions added for James:
 
-4. **The 71 thin town pages.** Fill them town by town, noindex the thinnest, or leave them.
+4. **The 71 thin town pages.** Fill them town by town, noindex the thinnest, or leave them. *Decided 18 November 2026: keep every page for now and revisit in February 2027, when the pages have three months of search data.* Removing a page takes its event pages with it (about 50 addresses for the 14 below), each needing a redirect or a 410, and the nightly re-checks already keep the records at little cost; noindex is the fallback if one is to go sooner.
+   - **Candidates to remove** (an outlying area, no event in the next 90 days, at most one dated in the next year, nothing redirecting to or linking the page, no trails or places, under 5 search impressions, Aug 20 to Nov 16): Cedaredge, Meeker, Paonia, Hotchkiss, Craig, Walden, Kremmling, Crestone, Rocky Ford, Florence, La Veta, Cortez, Mancos, Marble.
+   - **Hold, as thin but with a reason to wait:** Dillon, Silverthorne and Keystone (with the insidesummitcounty.com decision); Morrison (Red Rocks and Dinosaur Ridge: build out rather than cut); Westcliffe (10 impressions and a click already); Woodland Park, Green Mountain Falls and Victor (decide the Pikes Peak group together); Minturn (Vail's neighbour).
 5. **La Junta and Buena Vista** hold their parade and tree lighting in one record, so neither shows on /tree-lightings/. Split them as Berthoud now is, or leave them.
 
 ## Proposed changes
