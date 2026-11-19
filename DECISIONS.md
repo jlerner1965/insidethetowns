@@ -12543,3 +12543,8 @@ Pass.*
   rather than a NewsArticle in the structured data; a reader sees the same
   page. Their `homeUntil` lines are gone: none is featured, so they did
   nothing.
+- **News and events on top.** The list at the top of `/articles/` was the
+  six newest of everything, which made it the six guides. It is now
+  "Latest news and events": the newest stories and event articles (the
+  owner: "news should be on top", "news and events"). The guides and the
+  rest stay under their subjects below.

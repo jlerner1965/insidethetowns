@@ -21,7 +21,9 @@
  *
  * Laid out in two parts (the owner, 14 November 2026: the titles were hard
  * to read and the page "could be organized in a better way"; it was one
- * list of fifty by date). First the newest few, with their lines. Then
+ * list of fifty by date). First the newest few news and event articles,
+ * with their lines (the owner, 19 November 2026: "news and events" on
+ * top, not the guides). Then
  * every article under its subject (Outdoors, History, Families), the
  * newest first in each, with links at the top to jump to a subject. The
  * headlines are set in the `headline` utility (src/styles/global.css).
@@ -44,7 +46,7 @@ const sections = fullSections().map((t) => ({ name: t.name, href: `${sectionHome
 const sectionPlaces = fullSectionPlaces();
 // Today in Denver, as the home reads it: an article dated after it waits for its day.
 const todayKey = dayKey(new Date());
-/** How many articles the "Latest" list at the top holds. */
+/** How many news and event articles the list at the top holds. */
 const LATEST = 6;
 const NEWS = 'News and events';
 /** The hub's guides to towns with no guide of their own (kind `guide`): not news (the owner, 19 November 2026). */
@@ -76,7 +78,8 @@ const guideArticles: Row[] = (await getSectionArticles()).filter((a) => onHub({ 
 const articles = [...hubArticles, ...guideArticles]
   .filter((a) => isPublished(a.date, todayKey))
   .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
-const latest = articles.slice(0, LATEST);
+// The top of the page is the news and events, the newest first; guides and the rest are under their subjects below.
+const latest = articles.filter((a) => a.subject === NEWS).slice(0, LATEST);
 // The subjects: the hub's news first, then the one with the most articles.
 const bySubject = new Map<string, Row[]>();
 for (const a of articles) bySubject.set(a.subject, [...(bySubject.get(a.subject) ?? []), a]);
@@ -107,8 +110,9 @@ const link = 'text-ink no-underline hover:text-primary hover:underline';
       ))}
     </nav>
 
+    {latest.length > 0 && (
     <section aria-labelledby="latest" class="mt-10">
-      <h2 id="latest" class="eyebrow">Latest</h2>
+      <h2 id="latest" class="eyebrow">Latest news and events</h2>
       <ul class="mt-3 grid gap-x-10 border-t-2 border-primary md:grid-cols-2">
         {latest.map((a) => (
           <li class="border-b border-line-soft py-5">
@@ -124,6 +128,7 @@ const link = 'text-ink no-underline hover:text-primary hover:underline';
         ))}
       </ul>
     </section>
+    )}
 
     {subjects.map((s) => (
       <section aria-labelledby={s.id} class="mt-14 scroll-mt-6" id={s.id}>
