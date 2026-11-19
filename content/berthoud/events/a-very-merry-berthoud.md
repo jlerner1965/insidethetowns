@@ -12,7 +12,7 @@ category: festival
 featured: true
 source: "https://berthoudmainstreet.org/averymerryberthoud/"
 verified: "2026-11-12"
-verifiedBy: "Claude Code, delegated by Lerner Works: read on 12 November 2026 Berthoud Main Street's A Very Merry Berthoud page and its schedule graphic (Saturday, December 5th, 2026; craft fair 9-3, Main Street Market 10-3, Snowlympics 10-4, Santa 11-4, parade 5:00, tree lighting 6:00), its events calendar, the parade's own site and the Town of Berthoud calendar entry for the Winter Craft Fair"
+verifiedBy: "Claude Code, delegated by Lerner Works: read on 12 November 2026 Berthoud Main Street's A Very Merry Berthoud page and its schedule graphic (Saturday, December 5th, 2026; craft fair 9-3, Main Street Market 10-3, Snowlympics 10-4, Santa 11-4, parade 5:00, tree lighting 6:00), its events calendar, the parade's own site and the Town of Berthoud calendar entry for the Winter Craft Fair; the Snowlympics' place and activities from the Town's Upcoming Events page, read 19 November 2026"
 timeNote: "Craft fair from 9 am; parade at 5 pm; tree lighting at 6 pm"
 ---
 
@@ -24,7 +24,7 @@ Berthoud Main Street's schedule for the day:
 
 - **9 am to 3 pm:** Winter Craft Fair. The Town's calendar places it at the Berthoud Recreation Center at Waggener Farm Park, 1000 N. Berthoud Parkway, with more than 60 Colorado artisans; it is the fair's fifth year.
 - **10 am to 3 pm:** Main Street Market.
-- **10 am to 4 pm:** Berthoud Snowlympics.
+- **10 am to 4 pm:** Berthoud Snowlympics, run by Berthoud Recreation at Pioneer Village: an obstacle course, Yeti Hockey, a snowman bean bag toss, curling, family ski races and a holiday photo area, as the Town's [Upcoming Events page](https://www.berthoud.org/1530/Upcoming-Events) lists them.
 - **11 am to 4 pm:** Meet Santa Claus.
 - **5 pm:** [Parade of Lights](/events/parade-of-lights/) on Mountain Avenue, from 2nd Street to 8th Street.
 - **6 pm:** tree lighting. The parade's own site lists carols and the lighting ceremony at 5:45, so stay downtown once the parade ends.

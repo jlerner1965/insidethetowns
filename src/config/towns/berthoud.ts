@@ -259,6 +259,16 @@ export const berthoud: TownConfig = {
           { label: 'Larimer County’s list of food pantries', url: 'https://larimer.gov/extension/larimer-county-farmers-market/marketdays/foodpantries', note: 'In Berthoud: House of Neighborly Service, 375 Meadowlark Drive, Tuesday and Thursday 9 am to 5 pm, and Grace Place’s mobile pantry at the same address on the second and fourth Saturdays, 10:30 to 11:30 am; both 970-532-0161' },
         ],
       },
+      // Gap report of 19 November 2026 (M6): Meals on Wheels of Loveland &
+      // Berthoud's Get Meals page, read that day. Its own section, since
+      // Food help carries the read date of the county's list.
+      {
+        title: 'Meals delivered at home',
+        verified: '2026-11-19',
+        items: [
+          { label: 'Meals on Wheels of Loveland & Berthoud', url: 'https://www.lovelandmealsonwheels.org/get-meals', note: 'Meals brought to the door by volunteer drivers between 11 am and 1 pm, with frozen meals for evenings and weekends delivered once a week, for homebound residents of Loveland, Berthoud, Masonville and the rest of southern Larimer County who are 60 or older or living with a disability. From 60, meals are by voluntary contribution, set at intake. Closed Memorial Day, Labor Day, Thanksgiving and Christmas. 437 N. Garfield Ave, Loveland; 970-667-0311, weekdays 9 am to 2 pm' },
+        ],
+      },
       {
         title: 'Child care and preschool',
         verified: '2026-11-09',
