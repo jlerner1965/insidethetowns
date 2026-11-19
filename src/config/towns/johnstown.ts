@@ -87,7 +87,7 @@ export const johnstown: TownConfig = {
         district: 'Thompson School District R2-J',
         label: 'Thompson School District: school locator',
         url: 'https://www.tsd.org/family/school-locator',
-        note: 'Serves some Johnstown addresses; its locator names the Overlook apartments, 2530 Bearberry Lane, as Riverview PK-8 and Mountain View High. Check the address with each district',
+        note: 'Serves some Johnstown addresses; its locator names the Overlook apartments, 2530 Bearberry Lane, as Riverview PK-8 (3550 Barkwood Dr, Johnstown) and Mountain View High. Check the address with each district',
       },
     ],
     breaks: [
@@ -124,6 +124,8 @@ export const johnstown: TownConfig = {
           { label: 'Water and sewer: the Town’s Utilities Department', url: 'https://johnstownco.gov/263/Water-Sewer', note: 'After hours (3 pm to 7 am and weekends) the water and sewer on-call line is 970-534-0242' },
           { label: 'Little Thompson Water District', url: 'https://www.littlethompsonwd.gov/about-us', note: 'Lists portions of Johnstown among the places it serves; check the address' },
           { label: 'Electric and gas providers, by area', url: 'https://johnstownco.gov/510/Utility-Service-Providers', note: 'Xcel for central downtown and the 2534 area, United Power for the Pioneer Ridge area and south, Poudre Valley REA north of County Road 48½ and west of I-25' },
+          // Gap report of 19 November 2026 (M1), read on the Town's page that day.
+          { label: 'Internet providers', url: 'https://johnstownco.gov/510/Utility-Service-Providers', note: 'The Town lists Ascent Broadband (970-340-8100), AT&T (800-331-0500), CenturyLink (866-963-6665), Rise Broadband (844-866-0706), TDS (855-220-2592), T-Mobile (866-784-7559) and Verizon (800-880-1077); check which reach your address' },
         ],
       },
       {
@@ -133,6 +135,8 @@ export const johnstown: TownConfig = {
           { label: 'Garbage and recycling, through the Town', url: 'https://johnstownco.gov/452/Garbage-and-Recycling', note: 'Waste Connections, under the Town’s contract; Mondays west of Colorado Boulevard, Wednesdays east, carts out by 7 am; a holiday week moves each a day later' },
           { label: 'Cart sizes and monthly rates', url: 'https://johnstownco.gov/452/Garbage-and-Recycling', note: 'Five-year fixed rates: $14.50 a month for two 96-gallon carts, $12.50 with a 64-gallon trash cart; trash only $12.50 or $10.50' },
           { label: 'Waste Connections customer service', url: 'https://www.wasteconnections.com/contact-us/#5311', note: 'Bulk-item pickup ($15 an item, 48 hours’ notice) and extra carts; 303-288-2100' },
+          // Gap report of 19 November 2026 (L4), read on the Town's page that day.
+          { label: 'Leaves, extra carts and the Drop-n-Swap', url: 'https://johnstownco.gov/452/Garbage-and-Recycling', note: 'Leaves and grass clippings go in the trash cart bagged and tied; an extra 96-gallon trash cart is $4 a month from Waste Connections; the Drop-n-Swap at 1311 N. 17th Ave in Greeley opens the second Tuesday and fourth Saturday of each month, 8–5' },
           { label: 'Household hazardous waste', url: 'https://johnstownco.gov/452/Garbage-and-Recycling', note: 'The facilities the Town lists: 1311 N. 17th Ave in Greeley (Tue, Thu and Sat 8–5) and 5500 Highway 52 in Dacono (Wed, Fri and Sat 9–4)' },
         ],
       },
@@ -144,6 +148,11 @@ export const johnstown: TownConfig = {
           { label: 'Snow removal plan and plow routes', url: 'https://johnstownco.gov/262/Snow-Removal-Plan', note: 'Emergency routes and arterials first; residential streets only after 6 inches in 24 hours; sidewalks are the owner’s to clear within 24 hours of the last snow' },
           { label: 'Via Mobility: free rides at 60 and over', url: 'https://johnstownco.gov/416/Via-Mobility-Services', note: 'Door-to-door rides for residents 60 or older or unable to drive; register with Via, then book up to 7 days ahead, 303-444-3043', track: 'registration' },
           { label: 'CDOT road conditions', url: 'https://www.cotrip.org/', note: 'I-25 and US 34' },
+          // Gap report of 19 November 2026 (M4, M6, L6, L10), each read on its page that day.
+          { label: 'I-25 North Express Lanes, Mead to Berthoud', url: 'https://www.codot.gov/projects/north-i-25', note: 'CDOT is adding an Express Lane each way on I-25 from CO 66 in Mead to just south of CO 56 in Berthoud, on the commute south; construction runs from 2024 to 2028' },
+          { label: 'Bustang: the Centerra-Loveland Mobility Hub', url: 'https://codot.gov/news/2024/october/opening-of-i25-mobility-hubs-ribbon-cutting', note: 'Bustang’s North Line between Denver and Fort Collins stops at the hub off Kendall Parkway, north of the I-25 and US 34 interchange, open since October 2024' },
+          { label: 'Street sweeping', url: 'https://johnstownco.gov/683/Street-Sweeping', note: 'The streets on the Town’s map are typically swept on Fridays between 3 and 9:30 am, weather permitting; all other streets in spring and fall and as needed' },
+          { label: 'Northern Colorado Regional Airport (FNL)', url: 'https://www.flynoco.com/', note: '4900 Earhart Rd, Loveland' },
         ],
       },
       {
@@ -177,6 +186,8 @@ export const johnstown: TownConfig = {
           { label: 'Weld RE-5J: 2026–27 calendar', url: 'https://www.weldre5j.org/calendar' },
           { label: 'Roosevelt High School', url: 'https://rhs.weldre5j.org/', note: '3349 Roosevelt Pkwy, 970-587-6000' },
           { label: 'Thompson School District: school locator', url: 'https://www.tsd.org/family/school-locator', note: 'For Johnstown addresses in Thompson R2-J; questions 970-613-5663' },
+          // Gap report of 19 November 2026 (M5), read on the school's own site that day.
+          { label: 'Riverview PK-8 (Thompson R2-J)', url: 'https://rvs.tsd.org/', note: '3550 Barkwood Dr, Johnstown, 970-613-7000' },
         ],
       },
       {
@@ -216,6 +227,10 @@ export const johnstown: TownConfig = {
           { label: 'Building permits', url: 'https://johnstownco.gov/210/Building-Department', note: 'A deck, porch or pergola, a new water heater, furnace or air conditioner, and plumbing or electrical work need a permit; apply on the Town’s eTRAKiT portal. Permit office 970-578-9608, BuildingPermits@johnstownco.gov, Mon–Fri 8–5' },
           { label: 'Metro districts: the state’s special districts map', url: 'https://dlg.colorado.gov/special-districts-map', note: 'The Colorado Division of Local Government’s statewide map of special districts, metro districts among them' },
           { label: 'Animal problems', url: 'https://www.nocohumane.org/animal-control/other-northern-colorado-communities/', note: 'Call Johnstown Police, 970-587-5555, who may send NOCO Humane' },
+          // Gap report of 19 November 2026 (M3, M7, L7), each read on its page that day.
+          { label: 'Pet licenses', url: 'https://johnstownco.gov/439/Pet-License', note: 'Every cat and dog in Johnstown needs a Town license: $5 spayed or neutered, $10 not. Apply online with proof of a current rabies vaccination; Town staff arrange payment and tag pickup. Town Hall 970-587-4664' },
+          { label: 'Short-term rental license', url: 'https://johnstownco.gov/454/Short-Term-Rental-License', note: 'Renting a home or part of one for under 30 days needs a license from the Town Clerk (Municipal Code Sec. 6-61), renewed every year; 970-587-4664' },
+          { label: 'Property tax: Weld County Treasurer', url: 'https://www.weld.gov/Government/Departments/Treasurer', note: 'For Weld County addresses: 1400 N. 17th Ave, Greeley, Mon–Fri 7:30–4:30, 970-400-3290' },
         ],
       },
       {

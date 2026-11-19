@@ -15,7 +15,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/library-closed/"
 sourceLabel: "Johnstown Milliken Public Libraries: Library Closed, November 11"
 alsoSource: "https://johnstownco.gov/Calendar.aspx"
 alsoSourceLabel: "Town of Johnstown: calendar, Trash and Recycling Days"
-expires: "2026-11-26"
+expires: "2026-11-11"
 item: "/places/glenn-a-jones-library/"
 ---
 
