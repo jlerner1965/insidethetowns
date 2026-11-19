@@ -134,11 +134,17 @@ export interface Scan {
  * empty, so a page read without the script says one thing about a date. A
  * fetched parade page once said "Confirmed", "Next date not yet announced"
  * and "Last held" of the same upcoming date (the owner, 14 November 2026).
+ * The same for the hub weekend page's freshness notice (`data-stale-notice`):
+ * built with its words and hidden by a class, it told a reader of the HTML
+ * "Nothing here is current" beside current listings (the owner, 19 November 2026).
  */
 export function hiddenFaceWords(html: string): string[] {
   const out: string[] = [];
-  for (const m of html.matchAll(/<(div|span|p)\b([^>]*\bdata-(?:when-past|held-note)\b[^>]*)>([\s\S]*?)<\/\1>/g)) {
-    if (!/\shidden(?:[\s=>]|$)/.test(m[2]!)) continue;
+  for (const m of html.matchAll(/<(div|span|p)\b([^>]*\bdata-(?:when-past|held-note|stale-notice)\b[^>]*)>([\s\S]*?)<\/\1>/g)) {
+    // A freshness notice (the hub's weekend page, src/lib/expiry.ts weekendFreshness) is empty in the build however it
+    // is hidden, by the attribute or by a class: its words are the script's to write, when they are true.
+    const notice = /\bdata-stale-notice\b/.test(m[2]!);
+    if (!notice && !/\shidden(?:[\s=>]|$)/.test(m[2]!)) continue;
     const text = decodeEntities(m[3]!.replace(/<[^>]+>/g, '')).trim();
     if (text) out.push(text);
   }
@@ -521,7 +527,7 @@ export function checkSite(input: SiteInput): { problems: Problem[]; manifest: Ma
       add('inline-script', path, `${scan.inlineScripts} inline ${scan.inlineScripts === 1 ? 'script' : 'scripts'}: the CSP (script-src 'self') refuses them, so they never run on the live site; ship the code as a bundled <script> (Astro writes it to a file) and pass data in data- attributes`);
     }
     if (scan.hiddenWords.length > 0) {
-      add('hidden-face-words', path, `a hidden after-the-date face carries words ("${scan.hiddenWords[0]!.slice(0, 60)}"); they belong in data-past-text, written in by the script (src/lib/tradition-expiry.ts)`);
+      add('hidden-face-words', path, `a hidden after-the-date face or freshness notice carries words ("${scan.hiddenWords[0]!.slice(0, 60)}"); the page's script writes them in when they are true (src/lib/tradition-expiry.ts; src/lib/expiry.ts, weekendFreshness)`);
     }
     // A hub town page's words as they are set (the review of 14 November
     // 2026): a space before a comma ("Nov 26, 2026 , until"), where a

@@ -173,3 +173,20 @@ test('a season page’s pills are one row that scrolls sideways below 900px, 44p
   assert.match(page, /class:list=\{\[pill, 'shrink-0 whitespace-nowrap'\]\}/);
   assert.match(/const pill =\s*'([^']+)'/.exec(page)![1]!, /\bmin-h-11\b/, 'a pill is 44px tall');
 });
+
+test('no menu carries two items to one page: a folded section leads with Events and has no This week (19 November 2026)', () => {
+  const where = (href: string, folded: boolean) => (folded ? SECTION_MOVED.find(([from]) => from === href)?.[1] ?? href : href);
+  for (const t of fullSections()) {
+    const folded = !liveTowns().some((g) => g.slug === t.slug) && !isMoved(t);
+    const items = townNav(t, undefined, { folded });
+    const targets = items.map((n) => where(n.href, folded));
+    assert.equal(new Set(targets).size, targets.length, `${t.slug}: ${items.map((n) => `${n.label} ${n.href}`).join(', ')}`);
+    if (folded) {
+      assert.equal(items[0]!.label, 'Events', `${t.slug} leads with its events page`);
+      assert.ok(!items.some((n) => n.href === '/this-week/'), `${t.slug} has no This week page to link`);
+    }
+  }
+  // Until then the Longmont walking article's menu read This week and Events, both to /longmont/events/.
+  const longmont = fullSections().find((t) => t.slug === 'longmont')!;
+  assert.deepEqual(townNav(longmont, undefined, { folded: true }).filter((n) => n.label === 'Events' || n.label === 'This week').map((n) => n.label), ['Events']);
+});

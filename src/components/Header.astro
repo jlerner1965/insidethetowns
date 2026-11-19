@@ -33,7 +33,7 @@ import { getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import Wordmark from './Wordmark.astro';
 import { HUB_COLUMN } from './hub/pub';
-import { siteNav } from '@/lib/nav';
+import { siteNav, townNav } from '@/lib/nav';
 import { wordmarkEm as titleEm } from '@/lib/titles';
 import { pagePath, sectionHref } from '@/lib/section';
 
@@ -74,7 +74,9 @@ const isActive = (href: string) => {
  * global.css divides the room beside the buttons by it.
  */
 const wordmarkEm = titleEm(site.siteTitle).toFixed(1);
-const nav = siteNav(site);
+// A section's masthead on a hub page (its town page) is drawn by the hub's build, so it says itself whether the
+// section is folded: the same menu as the section's own pages, This week folded into Events (src/lib/nav.ts).
+const nav = section && site.kind === 'town' ? townNav(site, undefined, { folded: !isMoved(section.site) }) : siteNav(site);
 // Sentence case at reading weight, the current section in the primary. In
 // the row the words are what the phone panel shows, at the row's size.
 const rowLink = (on: boolean) => [

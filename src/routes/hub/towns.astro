@@ -12,7 +12,7 @@
  * day it reaches its own.
  */
 import Page from '@/layouts/Page.astro';
-import { fullSections, getHub, guideUrl, liveTowns, sectionHome, sectionSite } from '@/config';
+import { coverageLine, fullSections, getHub, guideUrl, liveTowns, sectionHome, sectionSite } from '@/config';
 import { findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { subTownsOf } from '@/lib/sub-towns';
 import { pagesBeyondSections } from '@/lib/town-search-index';
@@ -27,7 +27,7 @@ const records = await getTraditions();
 const today = dayKey(new Date());
 const guides = liveTowns();
 /** The full sections, each under the name its pages carry ("Inside Erie", "Inside Longmont") and to its front page. */
-const full = fullSections().map((t) => ({ name: sectionSite(t).siteTitle, href: sectionHome(t), county: hubCountyLine(t) }));
+const full = fullSections().map((t) => ({ name: sectionSite(t).siteTitle, href: sectionHome(t), county: hubCountyLine(t), coverage: coverageLine(t) }));
 /**
  * The town pages A to Z, less those a full section covers (Longmont's page is
  * its section's front page, listed above): the rule and the number the home's
@@ -71,10 +71,10 @@ const link = 'font-semibold text-primary underline';
 <Page title="Every town, A to Z" seoTitle="Colorado towns A to Z: guides and town pages" eyebrow="Colorado" {description} intro={`${full.length} full sections and ${pages.length} more town pages, each one link.`} jsonLd={structured}>
   <section aria-labelledby="sections-heading" class="mb-12">
     <h2 id="sections-heading" class={h2}>Full sections</h2>
-    <p class="mb-4 max-w-2xl text-[0.9375rem] text-ink-muted">A full section is a whole guide to one town: the week’s events, places to eat, trails and services.</p>
+    <p class="mb-4 max-w-2xl text-[0.9375rem] text-ink-muted">A full section is a guide to one town: places to eat, trails and services, and in most an events calendar. Each says what it has.</p>
     <ul class="grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3" data-index="sections">
       {full.map((s) => (
-        <li><a href={s.href} class={link}>{s.name}</a> <span class="text-[0.875rem] text-ink-muted">{s.county}</span></li>
+        <li><a href={s.href} class={link}>{s.name}</a> <span class="text-[0.875rem] text-ink-muted">{s.county}</span><span class="block text-[0.875rem] text-ink-muted" data-coverage>{s.coverage}</span></li>
       ))}
     </ul>
   </section>
