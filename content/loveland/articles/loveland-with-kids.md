@@ -27,7 +27,7 @@ sources:
   - { label: "Wikipedia: Loveland, Colorado", url: "https://en.wikipedia.org/wiki/Loveland,_Colorado" }
 ---
 
-Loveland is a city of 76,378 at the 2020 census, and much of what it has for children is outdoors: two sculpture parks, a state park lake with a swim beach, a nature center with trails, and the county fairgrounds off I-25, with a children's museum projected to open this fall. Here is what there is, with the hours and prices each operator publishes. For places the City runs itself, the source is [the City's site](https://www.lovgov.org/).
+Loveland is a city of 76,378 at the 2020 census, and much of what it has for children is outdoors: two sculpture parks, a state park lake with a swim beach, a nature center with trails, and the county fairgrounds off I-25. Here is what there is, with the hours and prices each operator publishes. For places the City runs itself, the source is [the City's site](https://www.lovgov.org/).
 
 ## Benson Sculpture Garden
 
@@ -67,7 +67,7 @@ The Ranch's [family resources](https://www.treventscomplex.com/plan-your-visit/a
 
 ## Coming: a children's museum
 
-The Children's Museum of Northern Colorado is moving into a 19,000-square-foot former outlet store at 5833 McWhinney Boulevard in Loveland Yards. In June 2026 [BizWest reported](https://bizwest.com/2026/06/28/childrens-museum-to-put-areas-generosity-on-exhibit/) that the $6.7 million museum was projected to open this fall, with no date yet set, for children 10 and under and their families. The plans include a life-size fiberglass cow named Milkshake that children can milk, a science gallery, a working mini-house, a play area for babies and toddlers, a water table showing how the region shares its water, a crop-growing exhibit, two classrooms and a fenced 2,500-square-foot outdoor area. The opening date will be on [the museum's site](https://www.childrensmuseumnoco.org/).
+The Children's Museum of Northern Colorado is moving into a 19,000-square-foot former outlet store at 5833 McWhinney Boulevard in Loveland Yards. In June 2026 [BizWest reported](https://bizwest.com/2026/06/28/childrens-museum-to-put-areas-generosity-on-exhibit/) that the $6.7 million museum is for children 10 and under and their families. The plans include a life-size fiberglass cow named Milkshake that children can milk, a science gallery, a working mini-house, a play area for babies and toddlers, a water table showing how the region shares its water, a crop-growing exhibit, two classrooms and a fenced 2,500-square-foot outdoor area. The opening date will be on [the museum's site](https://www.childrensmuseumnoco.org/).
 
 ## Downtown and the year's calendar
 

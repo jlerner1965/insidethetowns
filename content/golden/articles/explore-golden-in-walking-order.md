@@ -53,7 +53,7 @@ The [Golden History Museum](/golden/places/golden-history-museum/) at 923 10th S
 
 ## 04 · Two free museums
 
-[Foothills Art Center](/golden/places/foothills-art-center/) at 1133 Arapahoe Street has shown art since 1968, free, Monday to Saturday 10 am–5 pm and Sunday noon–5 pm. Its galleries are closed for the installation of the Holiday Art Market, which opens to the public on November 21 after a members' preview on the 20th and runs to December 29. On the Colorado School of Mines campus south-west of downtown, the [Mines Museum of Earth Science](/golden/places/mines-museum-of-earth-science/) at 1310 Maple Street is free and open daily 10 am–4 pm: Colorado minerals, one of the state's two Apollo 17 moon rocks and more than 3,000 items on display, with a family scavenger hunt that earns a free rock.
+[Foothills Art Center](/golden/places/foothills-art-center/) at 1133 Arapahoe Street has shown art since 1968, free, Monday to Saturday 10 am–5 pm and Sunday noon–5 pm. Its Holiday Art Market opens to the public on November 21 after a members' preview on the 20th and runs to December 29. On the Colorado School of Mines campus south-west of downtown, the [Mines Museum of Earth Science](/golden/places/mines-museum-of-earth-science/) at 1310 Maple Street is free and open daily 10 am–4 pm: Colorado minerals, one of the state's two Apollo 17 moon rocks and more than 3,000 items on display, with a family scavenger hunt that earns a free rock.
 
 *Getting there:* Arapahoe Street is the street the history park sits on; the campus is a longer walk. *Best for:* the moon rock, and galleries that cost nothing.
 
