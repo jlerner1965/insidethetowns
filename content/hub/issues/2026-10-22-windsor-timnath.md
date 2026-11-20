@@ -26,7 +26,7 @@ towns: [windsor, timnath]
 
 **Sunday, October 25**
 
-- **10 am – 2 pm** [Timnath Farmers Market](https://insidetimnath.com/events/timnath-farmers-market-2026-10-25/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · CF&G Public Market, Colorado Feed & Grain · Free
+- **10 am – 2 pm** Timnath Farmers Market · CF&G Public Market, Colorado Feed & Grain · Free
 
 ## Next week
 
@@ -56,16 +56,16 @@ towns: [windsor, timnath]
 
 **Monday, October 26**
 
-- **6 pm** [Run club at Timnath Beerwerks](https://insidetimnath.com/events/run-club-timnath-beerwerks/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Timnath Beerwerks · Free
+- **6 pm** Run club at Timnath Beerwerks · Timnath Beerwerks · Free
 
 **Tuesday, October 27**
 
-- **5 pm – 8 pm** [Tuesday Night Poker at Timnath Beerwerks](https://insidetimnath.com/events/tuesday-night-poker-at-timnath-beerwerks/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Timnath Beerwerks · Free
-- **6 pm** [Town Council meeting](https://insidetimnath.com/events/town-council-2026-10-27/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Timnath Town Center · Free
+- **5 pm – 8 pm** Tuesday Night Poker at Timnath Beerwerks · Timnath Beerwerks · Free
+- **6 pm** Town Council meeting · Timnath Town Center · Free
 
 **Wednesday, October 28**
 
-- **6 pm – 8 pm** [Music Bingo at Timnath Beerwerks](https://insidetimnath.com/events/music-bingo-at-timnath-beerwerks/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Timnath Beerwerks · Free
+- **6 pm – 8 pm** Music Bingo at Timnath Beerwerks · Timnath Beerwerks · Free
 
 ---
 

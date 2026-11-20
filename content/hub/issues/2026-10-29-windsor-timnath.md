@@ -23,7 +23,7 @@ towns: [windsor, timnath]
 
 **Saturday, October 31**
 
-- **12 pm – 8 pm** [Food Truck: Cousins Maine Lobster at Timnath Beerwerks](https://insidetimnath.com/events/food-truck-cousins-maine-lobster-at-timnath-beerwerks-2026-10-31/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-29) · Timnath Beerwerks
+- **12 pm – 8 pm** Food Truck: Cousins Maine Lobster at Timnath Beerwerks · Timnath Beerwerks
 
 ## Windsor Wizards and Timnath Cubs this week
 
@@ -44,7 +44,7 @@ Last week: football won 56-14 at Thompson Valley, 4-5 this season.
 
 Last week: football lost 35-36 vs Holy Family, 7-2 this season.
 
-[Scores and schedules](https://insidetimnath.com/sports/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-29)
+Scores and schedules
 
 ## Still running
 
@@ -74,11 +74,11 @@ Last week: football lost 35-36 vs Holy Family, 7-2 this season.
 
 **Monday, November 2**
 
-- **6 pm** [Run club at Timnath Beerwerks](https://insidetimnath.com/events/run-club-timnath-beerwerks/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-29) · Timnath Beerwerks · Free
+- **6 pm** Run club at Timnath Beerwerks · Timnath Beerwerks · Free
 
 **Thursday, November 5**
 
-- **5:30 pm – 7:30 pm** [Live Music: Aubrey Dale](https://insidetimnath.com/events/live-music-aubrey-dale-2026-11-05/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-29) · Timnath Beerwerks
+- **5:30 pm – 7:30 pm** Live Music: Aubrey Dale · Timnath Beerwerks
 
 ---
 

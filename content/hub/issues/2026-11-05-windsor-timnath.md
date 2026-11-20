@@ -23,7 +23,7 @@ towns: [windsor, timnath]
 
 **Sunday, November 8**
 
-- **1 pm – 3 pm** [Plantiness Bingo Party](https://insidetimnath.com/events/plantiness-bingo-party-timnath-beerwerks-2026-11-08/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Timnath Beerwerks · $25
+- **1 pm – 3 pm** Plantiness Bingo Party · Timnath Beerwerks · $25
 
 ## Windsor Wizards and Timnath Cubs this week
 
@@ -44,7 +44,7 @@ Last week: football won 48-3 at Greeley Central, 5-5 this season.
 
 Last week: football lost 13-14 at Fort Morgan, 7-3 this season.
 
-[Scores and schedules](https://insidetimnath.com/sports/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05)
+Scores and schedules
 
 ## Still running
 
@@ -54,7 +54,7 @@ Last week: football lost 13-14 at Fort Morgan, 7-3 this season.
 
 ### Timnath
 
-- **Wednesday through Sunday during taproom hours; the listing runs noon to 8 p.m.** [Timnath Beerwerks 8th Anniversary Party Week](https://insidetimnath.com/events/8th-anniversary-party-week-timnath-beerwerks-2026-11-04/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Timnath Beerwerks
+- **Wednesday through Sunday during taproom hours; the listing runs noon to 8 p.m.** Timnath Beerwerks 8th Anniversary Party Week · Timnath Beerwerks
 
 ## Next week
 
@@ -85,16 +85,16 @@ Last week: football lost 13-14 at Fort Morgan, 7-3 this season.
 
 **Monday, November 9**
 
-- **6 pm** [Run club at Timnath Beerwerks](https://insidetimnath.com/events/run-club-timnath-beerwerks/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Timnath Beerwerks · Free
+- **6 pm** Run club at Timnath Beerwerks · Timnath Beerwerks · Free
 
 **Tuesday, November 10**
 
-- **5 pm – 8 pm** [Tuesday Night Poker at Timnath Beerwerks](https://insidetimnath.com/events/tuesday-night-poker-at-timnath-beerwerks/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Timnath Beerwerks · Free
-- **6 pm** [Town Council meeting](https://insidetimnath.com/events/town-council-2026-11-10/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Timnath Town Center · Free
+- **5 pm – 8 pm** Tuesday Night Poker at Timnath Beerwerks · Timnath Beerwerks · Free
+- **6 pm** Town Council meeting · Timnath Town Center · Free
 
 **Wednesday, November 11**
 
-- **6 pm – 8 pm** [Music Bingo at Timnath Beerwerks](https://insidetimnath.com/events/music-bingo-at-timnath-beerwerks/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Timnath Beerwerks · Free
+- **6 pm – 8 pm** Music Bingo at Timnath Beerwerks · Timnath Beerwerks · Free
 
 ## New on the guides
 
