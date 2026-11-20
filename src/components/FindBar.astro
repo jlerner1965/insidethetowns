@@ -20,14 +20,12 @@ interface Props {
   action: string;
   /** Every town as the bar lists it: name, county line, kind, address. */
   index: Array<{ n: string; c: string; k: string; u: string }>;
-  /** The page's column. */
-  column: string;
 }
 
-const { action, index, column } = Astro.props;
+const { action, index } = Astro.props;
 ---
-<div class="find-bar" data-find-bar data-pagefind-ignore>
-  <form role="search" action={action} method="get" class:list={[column, 'find-form']} data-find-form>
+<div class="find-inline" data-find-bar data-pagefind-ignore>
+  <form role="search" action={action} method="get" class="find-form" data-find-form>
     <label for="find-q" class="sr-only">Find a town</label>
     <div class="find-wrap">
     <div class="find-field">

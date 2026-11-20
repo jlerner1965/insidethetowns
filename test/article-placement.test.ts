@@ -225,7 +225,7 @@ test('the home builds In the towns from the hub’s articles and the sections’
   assert.match(block, /until: a\.data\.homeUntil && dayKey\(a\.data\.homeUntil\),/);
   assert.match(home, /const sectionArticles = await getSectionArticles\(\);/);
   assert.doesNotMatch(home, /networkChanges/, 'no local change on the home');
-  assert.match(home, /<p class=\{dek\}>Stories from the towns, each with its sources\.<\/p>/);
+  assert.match(home, /<p class=\{dek\}>Articles from the towns, each with its sources\.<\/p>/);
   assert.doesNotMatch(home, /News and changes/);
 });
 

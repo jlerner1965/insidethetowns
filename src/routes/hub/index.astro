@@ -51,6 +51,8 @@
 import { Image, getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import FindBar from '@/components/FindBar.astro';
+import { findIndex } from '@/lib/find-index';
 import { pub } from '@/components/hub/pub';
 import { emailEditions, fullSections, getHub, guideUrl, listsEvents, liveTowns, sectionHome } from '@/config';
 import { hubCountyLine } from '@/config/hub-towns';
@@ -82,7 +84,6 @@ import {
   seasonFeatureLine,
   seasonsNow,
   storySourceNote,
-  townFinder,
   weekendDays,
   weekendPicksByDay,
 } from '@/lib/hub-home';
@@ -90,7 +91,6 @@ import { shortCost } from '@/lib/cost';
 import { resolveSiteImage } from '@/lib/images';
 import { FLAGSHIP_TEAM, RESULT_WORD, gameDay, hasData, latestResult, outcome, sportsDataFor } from '@/lib/school-sports';
 import { coveredTowns, pagesBeyondSections, townCount } from '@/lib/town-search-index';
-import { subTownsOf } from '@/lib/sub-towns';
 import { TRADITION_TYPE_INFO } from '@/lib/traditions';
 import { currentPicks } from '@/lib/weekly';
 import { fitTitle } from '@/lib/titles';
@@ -108,27 +108,8 @@ const pages = publishedHubTowns(records);
 const now = new Date();
 const todayKey = dayKey(now);
 
-/**
- * Every town a reader might type, each with its page (src/lib/hub-home.ts,
- * townFinder): a guide's name and the towns it covers to the guide, a town
- * it covers as a section of its own to that section, as /towns/ links
- * them, and every other town to its page. The hero's search box suggests
- * these names; the town box under "Find your town" goes straight to the page.
- */
-const finder = townFinder(
-  live.map((t) => {
-    const sections = subTownsOf(t).filter((s) => s.slug !== t.slug);
-    return {
-      name: t.name,
-      href: guideUrl(t),
-      covered: [
-        ...sections.map((s) => ({ name: s.label, href: guideUrl(t, `/${s.slug}/`) })),
-        ...coveredTowns(t).map((name) => ({ name, href: guideUrl(t) })),
-      ],
-    };
-  }),
-  pages,
-);
+/** The live town search's list, in the hero (src/lib/find-index.ts). */
+const findEntries = findIndex(pages);
 
 /** The photograph under the hero, and the same picture as the page's share image. */
 const photo = resolveSiteImage('hub', HOME_PHOTO.hero);
@@ -428,7 +409,8 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
         <p class:list={[pub.cap, 'text-ink-muted']}>Colorado, plains to peaks</p>
         <h1 id="hero-h" class="mt-2.5 text-[2.2353rem] font-medium leading-[1.04] tracking-[-0.025em] text-ink [font-variation-settings:normal] desk:max-w-[12em] desk:text-[3.4118rem] desk:leading-[1.02]">What’s happening in Colorado’s towns</h1>
         <p class="mt-2 font-heading text-[1.1176rem] font-normal italic leading-[1.45] text-ink [font-variation-settings:normal] desk:text-[1.2353rem]">Find Colorado’s town traditions, this weekend’s events and local stories — from parades of lights to Friday night games.</p>
-        {/* The search is the Find bar under the masthead (src/components/FindBar.astro), on every page; the hero's own box above the jumps went with it (20 November 2026), two search fields one under the other. */}
+        {/* The live town search (FindBar.astro): "ber" leads with Berthoud; Enter on anything else is the site search. */}
+        <div class="mt-5 desk:mt-[22px] desk:max-w-[560px]"><FindBar action="/search/" index={findEntries} /></div>
         {/*
           * One row at every width, between two hairlines: on a phone, three
           * rows of their own took a third of the screen. The phone's row is
@@ -448,6 +430,27 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
         </div>
         <figcaption class:list={['mt-2 italic', pub.meta]}>{HOME_PHOTO.caption}</figcaption>
       </figure>
+    </div>
+  </section>
+
+  {/* The towns right under the hero (the owner, 20 November 2026: they sat at the foot of the page). */}
+  <section id="towns" aria-labelledby="towns-heading" data-band class="bg-raised px-[20px] pb-[56px] pt-[36px] desk:px-0 desk:pb-[72px] desk:pt-[64px]">
+    <div class={wide}>
+      <div class={pub.open}>
+        <h2 id="towns-heading" class={pub.h2}>Find your town</h2>
+        <p class={dek}>{capitalized(sectionCount)} towns with a full guide: places to eat, trails, local services and, in most, the week’s events. Every other town has a page of its annual events.</p>
+      </div>
+      <h3 class={pub.h3}>{capitalized(sectionCount)} full guides</h3>
+      <div class="sm:grid sm:grid-cols-2 sm:gap-x-8 desk:grid-cols-4" data-index="sections">
+        {sections.map((g) => (
+          <div class:list={['py-4', pub.rule]}>
+            <h4 class:list={[hl, 'mt-0']}><a href={g.href} class={pub.titleLink} data-track="home-index">{g.name}</a></h4>
+            <p class:list={['mt-0.5', pub.meta]}>{g.line}</p>
+          </div>
+        ))}
+      </div>
+      {/* `town-pages`: where the guides' About pages send a reader for "a page on Inside the Towns". */}
+      {moreTowns > 0 && <a id="town-pages" href="/towns/" class={more} data-track="home-index">All {allTowns} towns, A to Z →</a>}
     </div>
   </section>
 
@@ -576,7 +579,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
             <div class={halfCol}>
               <div class={pub.open}>
                 <h2 id="news-heading" class={pub.h2}>In the towns</h2>
-                <p class={dek}>Stories from the towns, each with its sources.</p>
+                <p class={dek}>Articles from the towns, each with its sources.</p>
               </div>
               {news.slice(0, 1).map((i) => (
                 <article class:list={['py-[18px]', pub.rule]} data-event-day={i.until}>
@@ -605,42 +608,6 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
     </div>
   )}
 
-  <section id="towns" aria-labelledby="towns-heading" data-band class="bg-raised px-[20px] pb-[56px] pt-[36px] desk:px-0 desk:pb-[72px] desk:pt-[64px]">
-    <div class={wide}>
-      <div class={pub.open}>
-        <h2 id="towns-heading" class={pub.h2}>Find your town</h2>
-        <p class={dek}>{capitalized(sectionCount)} towns with a full guide: places to eat, trails, local services and, in most, the week’s events. Every other town has a page of its annual events.</p>
-      </div>
-      <h3 class={pub.h3}>{capitalized(sectionCount)} full guides</h3>
-      <div class="sm:grid sm:grid-cols-2 sm:gap-x-8 desk:grid-cols-4" data-index="sections">
-        {sections.map((g) => (
-          <div class:list={['py-4', pub.rule]}>
-            <h4 class:list={[hl, 'mt-0']}><a href={g.href} class={pub.titleLink} data-track="home-index">{g.name}</a></h4>
-            <p class:list={['mt-0.5', pub.meta]}>{g.line}</p>
-          </div>
-        ))}
-      </div>
-      <h3 class={pub.h3}>Every other town</h3>
-      {/*
-        * A name from the list goes straight to its page (the page's script,
-        * below); anything else, or a reader with no script, is a search.
-        * The list is the hero's too.
-        */}
-      <form action="/search/" method="get" class="mt-4 desk:max-w-[560px]" data-town-finder>
-        <label for="town-q" class="block text-[0.9412rem] font-[650] text-ink">Type your town</label>
-        {/* The Find bar's field and button (FindBar.astro): one rounded control style on the page. */}
-        <div class="find-field mt-2">
-          <input id="town-q" name="q" type="search" list="home-names" autocomplete="off" enterkeyhint="go" placeholder="Your town’s name" class="find-input" />
-          <button type="submit" class="find-submit">Go</button>
-        </div>
-        <datalist id="home-names">
-          {finder.map((t) => <option value={t.name} data-href={t.href} />)}
-        </datalist>
-      </form>
-      {/* `town-pages`: where the guides' About pages send a reader for "a page on Inside the Towns". */}
-      {moreTowns > 0 && <a id="town-pages" href="/towns/" class={more} data-track="home-index">All {allTowns} towns, A to Z →</a>}
-    </div>
-  </section>
 
   {/*
     * The email last, after the towns (the owner's order of 13 November
@@ -666,7 +633,6 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
 </Base>
 
 <script>
-  import { sendEvent } from '@/lib/track';
 
   // "Today" on a season's next date, by the reader's own Denver day: never
   // in the built page, which a stale build would leave saying it.
@@ -680,19 +646,6 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
     tag.textContent = 'Today';
     word.replaceWith(tag);
   }
-  // The town box: a name from its list goes straight to that town's page,
-  // whatever its case; anything else goes on to the search, as the form says.
-  // Counted as `home-town-box` with which of the two it was, and the town
-  // where it was one of the list's: never the words a reader typed.
-  const finder = document.querySelector<HTMLFormElement>('[data-town-finder]');
-  finder?.addEventListener('submit', (event) => {
-    const typed = finder.querySelector('input')?.value.trim().toLowerCase();
-    const town = [...document.querySelectorAll<HTMLOptionElement>('#home-names option')].find((o) => o.value.toLowerCase() === typed);
-    sendEvent('home-town-box', town?.dataset.href ? { result: 'town', town: town.value, from: location.pathname } : { result: 'search', from: location.pathname });
-    if (!town?.dataset.href) return;
-    event.preventDefault();
-    window.location.assign(town.dataset.href);
-  });
   // A jump to a section the page's other script took away (its dates had all passed) goes with it.
   for (const jump of document.querySelectorAll<HTMLElement>('[data-jump]')) {
     if (!document.getElementById(jump.dataset.jump ?? '')) jump.closest('li')?.remove();

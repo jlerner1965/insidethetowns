@@ -163,14 +163,16 @@ test('one brand on every section: the shared colour roles read the final palette
 });
 
 test('the site’s menu is six items, never seven, in the owner’s words, and the email is the action button', () => {
-  assert.deepEqual(SITE_NAV.map((n) => n.label), ['This Weekend', 'Towns A–Z', 'Annual Events', 'Trails & Parks', 'Stories']);
+  assert.deepEqual(SITE_NAV.map((n) => n.label), ['This Weekend', 'Towns A–Z', 'Annual Events', 'Trails & Parks', 'Articles']);
   assert.equal(EMAIL_NAV.label, 'Thursday Email');
   assert.equal(SITE_NAV.length + 1, 6);
   const header = read('src/components/Header.astro');
   assert.match(header, /SITE_NAV\.map/);
   assert.match(header, /class="trust-bar"/);
   assert.match(header, /Listings checked daily/);
-  assert.match(header, /<FindBar /);
+  // No search bar above the page: the live search is in the home's hero (the owner, 20 November 2026).
+  assert.doesNotMatch(header, /<FindBar /);
+  assert.match(read('src/routes/hub/index.astro'), /<FindBar action="\/search\/" index=\{findEntries\} \/>/);
   assert.match(header, /<TownBar/);
   // One marker, site-wide (nav rule 6): sage under the current item in the masthead, sage text in the town bar.
   const css = read('src/styles/global.css');

@@ -1,6 +1,6 @@
 ---
 /**
- * The header: three bars, the same on every page of every site (the colours
+ * The header: two bars, the same on every page of every site (the colours
  * and navigation work order of 20 November 2026), and under them, on a
  * guide's pages and the hub's town pages, the town bar.
  *
@@ -10,7 +10,9 @@
  *    search, and the Thursday email as the one action button. Below the
  *    masthead breakpoint (66.25rem) the menu is a panel that drops from
  *    under the header on a button: the items under Explore, then the email.
- * 3. The Find bar (FindBar.astro), which sticks to the top of the screen.
+ * The live town search is in the home page's hero (FindBar.astro), not a bar
+ * above every page (the owner, 20 November 2026); every page has the
+ * masthead's search link.
  *
  * One masthead on every site (one brand, 20 November 2026; until then a
  * guide's carried its own wordmark, "Inside Berthoud", and its own menu).
@@ -34,8 +36,6 @@ import { publishedHubTowns } from '@/lib/hub-towns';
 import { EMAIL_NAV, SITE_NAV, siteNav, townNav } from '@/lib/nav';
 import { pagePath, sectionHref } from '@/lib/section';
 import { wordmarkEm as titleEm } from '@/lib/titles';
-import { extraTownPages, pagesBeyondSections } from '@/lib/town-search-index';
-import FindBar from './FindBar.astro';
 import TownBar from './TownBar.astro';
 import Wordmark from './Wordmark.astro';
 import { HUB_COLUMN } from './hub/pub';
@@ -102,16 +102,6 @@ const town = guide ? { name: guide.name, region: guide.region } : townBar;
 const townHome = guide ? at('/') : undefined;
 const onTownHome = !guide || path === '/' || path === at('/');
 const regionHref = (region: string) => hubAt(`/search/?q=${encodeURIComponent(region)}`);
-/**
- * The Find bar's index: every full guide, every sub-town page and every town
- * page beyond them, with its county line and what it is, A to Z.
- */
-const sections = fullSections();
-const findIndex = [
-  ...sections.map((t) => ({ n: t.name, c: hubCountyLine(t), k: 'Full guide', u: sectionHome(t) })),
-  ...extraTownPages(sections).map((s) => ({ n: s.name, c: hubCountyLine(s.guide), k: 'Town page', u: `https://${hub.domain}/${s.slug}/` })),
-  ...pagesBeyondSections(hubTowns, sections).map((t) => ({ n: t.name, c: hubCountyLine(t), k: 'Town page', u: `https://${hub.domain}/${t.slug}/` })),
-].sort((a, b) => a.n.localeCompare(b.n));
 const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-underline transition-colors', on && 'is-current'];
 ---
 {/* 1. The trust bar: what the site promises, and the page that says how. */}
@@ -189,8 +179,6 @@ const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-unde
     </div>
   </div>
 </header>
-{/* 3. The Find bar, which stays on screen. */}
-<FindBar action={hubAt('/search/')} index={findIndex} {column} />
 {town && (
   <TownBar
     name={town.name}

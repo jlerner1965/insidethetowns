@@ -1030,15 +1030,9 @@ input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: v
   }
 }
 
-/* The Find bar: the third bar, which stays on screen (nav rule 3). */
-.find-bar {
-  position: sticky;
-  inset-block-start: 0;
-  z-index: 30;
-  background: var(--beige);
-  border-block-end: 1px solid color-mix(in srgb, var(--taupe) 45%, var(--beige));
-}
-.find-form { padding-block: 0.5rem; }
+/* The live town search (FindBar.astro), in the home's hero: a field in the page, not a bar above it. */
+.find-inline { position: relative; z-index: 5; }
+.find-form { margin: 0; }
 .find-wrap { position: relative; max-inline-size: 44rem; }
 .find-field {
   display: flex;
