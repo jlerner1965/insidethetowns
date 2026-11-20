@@ -26,7 +26,7 @@ import { fileURLToPath } from 'node:url';
 import type { AstroIntegration } from 'astro';
 import type { SiteConfig } from '../config/towns/types';
 import { HUB_TOWNS, heroOf } from '../config/hub-towns.ts';
-import { allTowns, getNetworkHub, isMoved } from '../config/index.ts';
+import { allTowns, getNetworkHub, isMoved, sectionTowns } from '../config/index.ts';
 
 const EXTENSIONS = 'jpg,jpeg,png,webp,avif,gif';
 const IMAGE = /\.(jpe?g|png|webp|avif|gif|svg)$/i;
@@ -49,6 +49,32 @@ function articlePhotos(root: string): string[] {
     });
 }
 
+/**
+ * The photographs of the folded guides the hub keeps page by page
+ * (`section.mode: 'pages'`), named one by one from their places, guides and
+ * events: an entry's `image` and its inline images. The pages draw the
+ * frontmatter photograph through the content collection; /credits/ looks
+ * each one up here, inline images included (src/lib/photo-credits.ts).
+ */
+function sectionPhotos(root: string): string[] {
+  return sectionTowns('pages').flatMap((town) =>
+    ['places', 'articles', 'events'].flatMap((collection) => {
+      const dir = join(root, 'content', town.slug, collection);
+      if (!existsSync(dir)) return [];
+      return readdirSync(dir)
+        .filter((name) => name.endsWith('.md'))
+        .flatMap((name) => {
+          const text = readFileSync(join(dir, name), 'utf8');
+          const names = [
+            /^image:\s*"?\.\.\/images\/([^"\s]+)"?\s*$/m.exec(text)?.[1],
+            ...[...text.matchAll(/!\[[^\]]*\]\(\.\.\/images\/([^)\s]+)\)/g)].map((m) => m[1]),
+          ];
+          return names.filter((n): n is string => !!n && existsSync(join(root, 'content', town.slug, 'images', n))).map((n) => file(town.slug, n));
+        });
+    }),
+  );
+}
+
 /** The glob patterns of the photographs the site being built can show. */
 export function siteImagePatterns(site: SiteConfig, root: string = process.cwd()): string[] {
   if (site.kind === 'hub') {
@@ -58,7 +84,7 @@ export function siteImagePatterns(site: SiteConfig, root: string = process.cwd()
     });
     // A guide moved into the hub (src/config/guide-move.ts): its hero, for the share image of the tradition pages under its section.
     const movedHeroes = allTowns.filter((t) => isMoved(t)).map((t) => file(t.slug, t.hero.image));
-    return [...new Set([folder('hub'), ...elsewhere, ...movedHeroes, ...articlePhotos(root)])];
+    return [...new Set([folder('hub'), ...elsewhere, ...movedHeroes, ...articlePhotos(root), ...sectionPhotos(root)])];
   }
   const portraits = [getNetworkHub().editor?.photo, site.about?.photo].filter((name): name is string => !!name);
   return [...new Set([folder(site.slug), ...portraits.map((name) => file('hub', name))])];
