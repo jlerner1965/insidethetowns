@@ -5,7 +5,7 @@
  * section page. Renders nothing on a single-town guide, so every page can
  * include it without asking first.
  */
-import { getSite } from '@/config';
+import { getSite, subTownPath } from '@/config';
 import { subTownsOf } from '@/lib/sub-towns';
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
   class?: string;
 }
 
-const { hrefFor = (slug: string) => `/${slug}/`, class: className = '' } = Astro.props;
+const { hrefFor = (slug: string) => subTownPath(getSite(), slug), class: className = '' } = Astro.props;
 const subTowns = subTownsOf(getSite());
 ---
 {/* Named for what they are, pages, so they do not read as a second set of

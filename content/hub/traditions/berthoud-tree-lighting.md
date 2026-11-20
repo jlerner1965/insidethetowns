@@ -18,6 +18,9 @@ years:
   - year: 2026
     status: confirmed
     date: 2026-12-05
-    startTime: "5:45 pm"
-    checked: 2026-11-18
+    startTime: "Following the parade (about 5:45–6 pm)"
+    alsoSource:
+      url: "https://berthoudmainstreet.org/averymerryberthoud/"
+      label: "Berthoud Main Street"
+    checked: 2026-11-19
 ---

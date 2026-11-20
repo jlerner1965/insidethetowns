@@ -16,6 +16,8 @@ years:
     date: 2026-11-26
     startTime: "Family Fun Run 10 am; 5K 10:30 am"
     place: "Start/Finish Line, Railroad Street & Cedar Street"
-    cost: "The Family Fun Run is free"
-    checked: 2026-11-12
+    registration:
+      url: "https://runsignup.com/Race/CO/BuenaVista/BuenaVistaTurkeyTrot5K"
+      label: "RunSignup"
+    checked: 2026-11-19
 ---

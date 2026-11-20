@@ -62,6 +62,8 @@ const subEvents = dated && !canceled ? (entry.subEvents ?? []) : [];
 const closedDays = dated && !canceled ? (entry.closedDays ?? []) : [];
 /** The time, the place and the cost on the status line, in the site's style (src/lib/dates.ts, publishedTime). */
 const details = dated ? [publishedTime(entry.startTime), typeset(entry.place), typeset(entry.cost)].filter(Boolean) : [];
+// Where to sign up, after the details, when the source links a registration page of its own.
+const registration = dated && !canceled ? entry.registration : undefined;
 const lastWord = record.type === 'outdoor' || record.type === 'free-day' ? 'Most recent' : 'Last held';
 const block = dateBlock(row);
 const expires = dated && !canceled ? (entry.endDate ?? entry.date) : undefined;
@@ -116,7 +118,7 @@ const note = `mt-1 ${pub.meta}`;
 
     {dated && (
       <p class={status} data-when-set={expires ? '' : undefined}>
-        <span class:list={[square, 'bg-primary']} aria-hidden="true"></span><strong class="font-semibold">{entry.status === 'moved' ? 'Moved' : 'Confirmed'}</strong> · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time>{details.map((d) => <Fragment> · {d}</Fragment>)}
+        <span class:list={[square, 'bg-primary']} aria-hidden="true"></span><strong class="font-semibold">{entry.status === 'moved' ? 'Moved' : 'Confirmed'}</strong> · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time>{details.map((d) => <Fragment> · {d}</Fragment>)}{registration && <Fragment> · <a href={registration.url} rel="noopener" class={pub.link} data-registration>Register on {registration.label}</a></Fragment>}
       </p>
     )}
     {dated && entry.status === 'moved' && <p class={note} data-when-set={expires ? '' : undefined}>Was <time datetime={entry.previousDate}>{dayText(entry.previousDate!)}</time>. {organizer}: “{quoted(entry.reason)}”</p>}
@@ -155,7 +157,7 @@ const note = `mt-1 ${pub.meta}`;
     )}
     {line && <p class:list={['mt-1', pub.meta, 'text-ink']} data-local-line>{typeset(line)}</p>}
     <p class:list={['mt-1', pub.meta]}>
-      Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · {sourceLink(record, entry) ? <Fragment>Source: <a href={source} rel="noopener" class={pub.link}>{organizer}</a></Fragment> : <span data-source-offline>{record.sourceOffline}</span>}{also.length > 0 && <span data-also-on> · Also on: {also.map((a, i) => (<Fragment>{i > 0 && ' · '}<a href={a.href} class={pub.link}>{a.label}</a></Fragment>))}</span>}
+      Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> · {sourceLink(record, entry) ? <Fragment>Source: <a href={source} rel="noopener" class={pub.link}>{organizer}</a>{entry.alsoSource && <Fragment> and <a href={entry.alsoSource.url} rel="noopener" class={pub.link} data-also-source>{entry.alsoSource.label}</a></Fragment>}</Fragment> : <span data-source-offline>{record.sourceOffline}</span>}{also.length > 0 && <span data-also-on> · Also on: {also.map((a, i) => (<Fragment>{i > 0 && ' · '}<a href={a.href} class={pub.link}>{a.label}</a></Fragment>))}</span>}
     </p>
     {record.fixture && <p class="mt-1 text-meta font-semibold text-ink">Sample record (test fixture): not a real event, never on the live site.</p>}
   </div>

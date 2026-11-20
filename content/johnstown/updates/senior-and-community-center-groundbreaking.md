@@ -1,5 +1,5 @@
 ---
-title: "Groundbreaking set for November on a new senior and community center"
+title: "As of November 2026, groundbreaking was set for November on a new senior and community center"
 kind: construction
 stage: scheduled
 summary: "The Town says groundbreaking for a new senior and community center is set for November 2026. It has not given a day."

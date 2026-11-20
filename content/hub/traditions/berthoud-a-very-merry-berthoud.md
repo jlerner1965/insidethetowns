@@ -14,5 +14,13 @@ years:
   - year: 2026
     status: confirmed
     date: 2026-12-05
-    checked: 2026-11-12
+    subEvents:
+      - name: "Parade of Lights"
+        time: "5 pm"
+      - name: "Tree lighting"
+        time: "Following the parade (about 5:45–6 pm)"
+    alsoSource:
+      url: "https://berthoudparadeoflights.com/"
+      label: "Berthoud Parade of Lights"
+    checked: 2026-11-19
 ---

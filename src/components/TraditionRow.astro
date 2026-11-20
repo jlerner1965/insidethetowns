@@ -69,6 +69,8 @@ const ordinal = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? 'th' : ([
 const subEvents = dated && !canceled ? (entry.subEvents ?? []) : [];
 const closedDays = dated && !canceled ? (entry.closedDays ?? []) : [];
 const details = dated ? [entry.note && `${record.organizer}: “${entry.note}”`, entry.startTime, entry.place, entry.cost].filter(Boolean) : [];
+// Where to sign up, with the details, when the source links a registration page of its own.
+const registration = dated && !canceled ? entry.registration : undefined;
 const town = record.town?.name ?? townLabel ?? (record.statewide ? 'Statewide' : '');
 // "Last held" is a tradition's word; a road's last opening was not held.
 const lastWord = record.type === 'outdoor' || record.type === 'free-day' ? 'Most recent' : 'Last held';
@@ -185,7 +187,7 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
       <p class="mt-1.5 text-[0.9375rem] text-ink-muted" data-past-text={`${lastWord} ${spanText(entry.date!, entry.endDate)}`}></p>
     </div>
   )}
-  {details.length > 0 && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined}>{details.join(' · ')}</p>}
+  {(details.length > 0 || registration) && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined}>{details.join(' · ')}{registration && <Fragment>{details.length > 0 && ' · '}<a href={registration.url} rel="noopener" class="text-primary underline" data-registration>Register on {registration.label}</a></Fragment>}</p>}
   {closedDays.length > 0 && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined} data-closed-days>Closed: {closedDays.join(', ')}</p>}
   {subEvents.length > 0 && (
     <ul class="mt-2 space-y-0.5 text-[0.9375rem] leading-snug text-ink-muted" data-when-set={expires ? '' : undefined} data-sub-events>
@@ -205,7 +207,7 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
   )}
   <p class="mt-1.5 text-sm text-ink-muted">
     Checked <time datetime={entry.checked}>{formatShortDate(day(entry.checked))}</time> ·
-    {sourceLink(record, entry) ? <Fragment>Source: <a href={source} rel="noopener" class="text-primary underline">{record.organizer}</a></Fragment> : <span data-source-offline>{record.sourceOffline}</span>}
+    {sourceLink(record, entry) ? <Fragment>Source: <a href={source} rel="noopener" class="text-primary underline">{record.organizer}</a>{entry.alsoSource && <Fragment> and <a href={entry.alsoSource.url} rel="noopener" class="text-primary underline" data-also-source>{entry.alsoSource.label}</a></Fragment>}</Fragment> : <span data-source-offline>{record.sourceOffline}</span>}
   </p>
   {also.length > 0 && (
     <p class="mt-1 text-sm text-ink-muted" data-also-on>

@@ -196,7 +196,7 @@ const pill =
             <span class="text-[0.9375rem] font-semibold tabular-nums text-ink">{y.year}</span>
             <span class="text-[0.9375rem] leading-snug text-ink-muted">
               {isDated(y) && y.date ? <time datetime={y.date}>{yearLine(y)}</time> : yearLine(y)}
-              {' · '}Checked <time datetime={y.checked}>{formatShortDate(parseLocal(y.checked))}</time> · {sourceLink(record, y) ? <Fragment>Source: <a href={sourceLink(record, y)} rel="noopener" class="text-primary underline">{hostOf(sourceLink(record, y)!)}</a></Fragment> : record.sourceOffline}
+              {' · '}Checked <time datetime={y.checked}>{formatShortDate(parseLocal(y.checked))}</time> · {sourceLink(record, y) ? <Fragment>Source: <a href={sourceLink(record, y)} rel="noopener" class="text-primary underline">{hostOf(sourceLink(record, y)!)}</a>{y.alsoSource && <Fragment> and <a href={y.alsoSource.url} rel="noopener" class="text-primary underline">{hostOf(y.alsoSource.url)}</a></Fragment>}</Fragment> : record.sourceOffline}
             </span>
           </li>
         ))}
