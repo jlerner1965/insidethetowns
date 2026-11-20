@@ -929,7 +929,8 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               <h3 class={pub.h3}>Museums and landmarks</h3>
               {profile.heritage.sites.map((s) => (
                 <Fragment>
-                  <h4 class:list={['mt-3.5', pub.title]}>{s.url ? <a href={s.url} rel="noopener" class={pub.titleLink}>{typeset(s.name)}</a> : typeset(s.name)}</h4>
+                  <h4 class:list={['mt-3.5', pub.title]}>{s.url ? <a href={s.url} rel="noopener" class={pub.titleLink}>{typeset(s.name)}</a> : typeset(s.name)}{s.closed && ' — Closed'}</h4>
+                  {s.closed && <p class:list={['mt-2', pub.t]}>{typeset(s.closed)}</p>}
                   {(s.hours || s.cost || s.season) && (
                     <dl class="mt-2 border-t border-hairline">
                       {s.hours && <div class={pub.dlMuseum}><dt class={pub.dt}>Hours</dt><dd class={pub.t}>{typeset(s.hours)}</dd></div>}
