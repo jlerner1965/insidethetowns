@@ -100,7 +100,6 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
  * blue kept for the links and the dates under it, and on a phone the bar is
  * 60px with the wordmark at 24px. A guide's is as it was.
  */
-const rule = site.kind === 'hub' ? 'h-1.5 bg-accent' : 'h-1.5 bg-gradient-to-r from-primary to-accent';
 const masthead = site.kind === 'hub' ? 'flex min-h-[60px] items-center justify-between gap-4 py-2 sm:gap-6 desk:min-h-[72px] desk:gap-[26px] desk:py-0' : 'flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-6';
 /**
  * The hub's desktop masthead (the owner's desktop boards, 14 November
@@ -121,11 +120,17 @@ const Palette = section ? 'div' : Fragment;
 const palette = section ? { 'data-palette': '', 'data-section-masthead': section.base.slice(1), style: paletteVars(section.site.colors) } : {};
 ---
 <Palette {...palette}>
-{/* The first thing on every page is a band of the town's colours, the
-   primary running into the accent. It costs six pixels and it is what stops
-   the site opening on plain paper. A rule, so the accent may be in it. */}
-<div class={rule}></div>
-<header class="relative bg-paper" data-pagefind-ignore>
+{/* The first thing on every page is the trust bar (the colours and
+   navigation work order of 20 November 2026), in place of the six-pixel
+   band of the town's colours: what the site promises, and the page that
+   says how. */}
+<div class="trust-bar" data-pagefind-ignore>
+  <div class:list={[container, 'flex flex-wrap items-center justify-between gap-x-6']}>
+    <span class="py-1.5">Listings checked daily</span>
+    <a href={at('/editorial/')} class="py-1.5">How we check listings</a>
+  </div>
+</div>
+<header class="site-header relative bg-paper" data-pagefind-ignore>
   <div class={container}>
     <div class={masthead} style={`--wordmark-em:${wordmarkEm}${emailOn ? ';--masthead-reserve:11.5rem' : ''}${site.kind === 'hub' ? ';--wordmark-max:1.4118rem' : ''}`}>
       <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" tone="ink" site={site} href={at('/')} />

@@ -18,11 +18,15 @@
 
      scripts/check-colors.ts proves every pair that carries text clears AA,
      and CI runs it. */
-  --color-primary: var(--town-primary);
-  --color-primary-hover: var(--town-primary-hover);
+  /* One brand on every section from 20 November 2026 (the owner: one
+     palette, the per-town colours ended): the roles below read the final
+     colours declared under this block, not the --town-* values a page
+     still carries from its config. */
+  --color-primary: var(--blue-deep);
+  --color-primary-hover: var(--blue);
   /* A hairline in the primary, for a control's edge and a panel's rule. */
   --color-primary-line: var(--t-primary-line);
-  --color-accent: var(--town-accent);
+  --color-accent: var(--taupe);
   /* The accent at placeholder strength, behind an image while it loads. */
   --color-accent-soft: var(--t-accent-soft);
 
@@ -37,11 +41,11 @@
 
   /* The guide's assigned paper, warm or cool, and nothing else as a page
      surface: cards and panels are white on it. */
-  --color-paper: var(--town-paper);
-  --color-raised: #ffffff;
+  --color-paper: var(--paper);
+  --color-raised: var(--card);
   /* Body text, and supporting text: the only two inks. */
-  --color-ink: #243137;
-  --color-ink-muted: #46545B;
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--muted);
   /* Black, for titles on the family hub, so they stand apart from the body
      ink under them (palette.ts, TITLE_INK). Never body text. */
   --color-title: #000000;
@@ -125,11 +129,11 @@
 
 :root,
 [data-palette] {
-  --t-line: color-mix(in srgb, var(--town-paper) 70%, #243137 30%);
-  --t-line-soft: color-mix(in srgb, var(--town-paper) 88%, #243137 12%);
-  --t-field-line: color-mix(in srgb, var(--town-paper) 45%, #243137 55%);
-  --t-primary-line: color-mix(in srgb, var(--town-primary) 25%, #ffffff);
-  --t-accent-soft: color-mix(in srgb, var(--town-accent) 16%, #ffffff);
+  --t-line: color-mix(in srgb, var(--paper) 70%, var(--ink) 30%);
+  --t-line-soft: color-mix(in srgb, var(--paper) 88%, var(--ink) 12%);
+  --t-field-line: color-mix(in srgb, var(--paper) 45%, var(--ink) 55%);
+  --t-primary-line: color-mix(in srgb, var(--blue-deep) 25%, var(--card));
+  --t-accent-soft: var(--soft-gray);
 }
 
 /*
@@ -140,12 +144,12 @@
  * would keep the page's (the hub's) values.
  */
 [data-palette] {
-  --color-primary: var(--town-primary);
-  --color-primary-hover: var(--town-primary-hover);
+  --color-primary: var(--blue-deep);
+  --color-primary-hover: var(--blue);
   --color-primary-line: var(--t-primary-line);
-  --color-accent: var(--town-accent);
+  --color-accent: var(--taupe);
   --color-accent-soft: var(--t-accent-soft);
-  --color-paper: var(--town-paper);
+  --color-paper: var(--paper);
   --color-line: var(--t-line);
   --color-line-soft: var(--t-line-soft);
   --color-field-line: var(--t-field-line);
@@ -919,3 +923,40 @@ input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: v
 .prose hr { border: 0; border-top: 1px solid var(--color-line-soft); margin-block: 2.5em; }
 .prose strong { font-weight: 600; }
 .prose code { font-size: 0.9em; background: color-mix(in oklab, var(--color-ink) 6%, transparent); padding: 0.1em 0.35em; border-radius: 0.25rem; }
+
+/*
+ * The trust bar and the masthead (Header.astro; the colours and navigation
+ * work order of 20 November 2026): two dusty-blue bars at the top of every
+ * page of every section, white on them (7.9:1). Not in a layer, so they sit
+ * over the utilities the markup keeps for the phone panel, which stays on
+ * the paper with the inks. The row's links are white only where the menu is
+ * a row: from 80rem on a guide, from 66.25rem on the hub.
+ */
+.trust-bar {
+  background: var(--blue-deep);
+  color: #fff;
+  border-block-end: 1px solid var(--blue);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+.trust-bar a { color: #fff; text-underline-offset: 0.18em; }
+.site-header { background: var(--blue-deep); color: #fff; }
+.site-header .site-wordmark,
+.site-header .site-wordmark span,
+.site-header .site-search-link,
+.site-header .site-email-link,
+.site-header .nav-toggle { color: #fff; }
+.site-header .site-search-link:hover,
+.site-header .site-email-link:hover { background: var(--blue); color: #fff; }
+@media (width >= 80rem) {
+  .site-header .site-nav:not(.hub-row) .site-nav-link { color: #fff; }
+  .site-header .site-nav:not(.hub-row) .site-nav-link:hover { text-decoration: underline; text-underline-offset: 0.3em; }
+  .site-header .site-nav:not(.hub-row) .site-nav-link[aria-current="page"] { box-shadow: inset 0 -2px 0 #fff; }
+  .site-header .site-nav-email-link { border-color: var(--blue-mid); color: #fff; }
+  .site-header .site-nav-email-link:hover { border-color: #fff; }
+}
+@media (width >= 66.25rem) {
+  .site-header .hub-row .site-nav-link { color: #fff; }
+  .site-header .hub-row .site-nav-link:hover { color: #fff; text-decoration: underline; text-underline-offset: 0.3em; }
+  .site-header .hub-row .site-nav-link[aria-current="page"] { box-shadow: inset 0 -2px 0 #fff; }
+}
