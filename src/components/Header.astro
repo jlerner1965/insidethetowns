@@ -43,10 +43,12 @@ import { HUB_COLUMN } from './hub/pub';
 interface Props {
   section?: FullSection;
   /** A hub town page: the town the trail names and the group it sits in. */
-  townBar?: { name: string; region: string };
+  townBar?: { name: string; region: string; slug?: string };
+  /** The page's column (Base.astro), so the bars line up with the page. */
+  column?: string;
 }
 
-const { section, townBar } = Astro.props;
+const { section, townBar, column = HUB_COLUMN } = Astro.props;
 const site = getSite();
 const hub = getNetworkHub();
 // The guide whose town bar this page carries: the section's on a hub page under its prefix, the site's own on a guide.
@@ -80,7 +82,6 @@ const nav = SITE_NAV.map((item) => ({ ...item, href: hubAt(item.href), current: 
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const emailOn = !!hub.newsletter && (site.kind !== 'town' || !!editionFor(site.slug, emailEditions()));
 const emailHref = site.kind === 'town' ? `https://${hub.domain}${EMAIL_NAV.href}?towns=${site.slug}` : EMAIL_NAV.href;
-const column = HUB_COLUMN;
 /**
  * The town bar's data. On a guide: its sections as tabs (the same items in
  * the same order its menu had, src/lib/nav.ts), its neighbours, and the
@@ -89,10 +90,17 @@ const column = HUB_COLUMN;
 const tabs = guide
   ? (section ? townNav(guide, undefined, { folded: !isMoved(section.site) }) : siteNav(guide)).map((item) => ({ label: item.label, href: at(item.href), current: isActive(item.href) }))
   : [];
+// A hub town page's neighbours are the other town pages in its group, A to Z, as a guide's are its neighbours.
+const hubTown = townBar?.slug ? hubTowns.find((h) => h.slug === townBar.slug) : undefined;
 const nearby = guide
   ? [...neighborsOf(guide).map((t) => ({ name: t.name, href: guideUrl(t) })), ...hubNeighborsOf(guide, published).map((t) => ({ name: t.name, href: t.href }))]
-  : [];
+  : hubTown
+    ? hubTowns.filter((h) => h.cluster === hubTown.cluster && h.slug !== hubTown.slug).sort((a, b) => a.name.localeCompare(b.name)).slice(0, 6).map((h) => ({ name: h.name, href: hubAt(`/${h.slug}/`) }))
+    : [];
 const town = guide ? { name: guide.name, region: guide.region } : townBar;
+// The town in the trail is a link to its front page, except on that page (a hub town page is one).
+const townHome = guide ? at('/') : undefined;
+const onTownHome = !guide || path === '/' || path === at('/');
 const regionHref = (region: string) => hubAt(`/search/?q=${encodeURIComponent(region)}`);
 /**
  * The Find bar's index: every full guide, every sub-town page and every town
@@ -164,7 +172,7 @@ const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-unde
       </div>
 
       <nav id="site-nav" class="site-nav hub-row" aria-label="Primary">
-        <ul class="site-nav-list">
+        <ul class:list={['site-nav-list', column]}>
           {/* The panel's groups (nav rule: grouped on a phone); the row has no headings. */}
           <li class="site-nav-group" aria-hidden="true">Explore</li>
           {nav.filter((item) => item.href !== hubAt('/towns/')).map((item) => (
@@ -189,6 +197,7 @@ const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-unde
 {town && (
   <TownBar
     name={town.name}
+    homeHref={onTownHome ? undefined : townHome}
     region={town.region}
     regionHref={regionHref(town.region)}
     townsHref={hubAt('/towns/')}
@@ -258,6 +267,15 @@ const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-unde
     wide.addEventListener('change', (event) => {
       if (event.matches) set(false);
     });
+  }
+
+  // The current tab in view: on a phone the tabs scroll sideways, and on a page further along the
+  // row (Eat & drink, Living here) its tab sat off the right edge, so the reader could not see where they were.
+  for (const tabs of document.querySelectorAll<HTMLElement>('[data-town-tabs]')) {
+    const current = tabs.querySelector<HTMLElement>('[aria-current="page"]');
+    if (!current) continue;
+    const left = current.getBoundingClientRect().left - tabs.getBoundingClientRect().left + tabs.scrollLeft;
+    if (left + current.offsetWidth > tabs.clientWidth - 24) tabs.scrollLeft = left - 16;
   }
 
   // "Switch town" (TownBar.astro) opens on its own; this only closes it, the

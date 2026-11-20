@@ -411,7 +411,7 @@ const leadGuide = await (async () => {
 const subject = `[Correction] ${town.name}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 ---
-<Base title={seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual dates" townBar={{ name: town.name, region: clusterName(town.cluster) }}>
+<Base title={seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual dates" townBar={{ name: town.name, region: clusterName(town.cluster), slug: town.slug }}>
   {/* The hero: the name on the primary, over the town's own horizon or its photograph. */}
   {/*
     With a photograph, the band is tall enough on a desktop to show the

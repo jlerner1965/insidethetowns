@@ -113,9 +113,9 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
       !block.set && 'border border-dashed border-line text-ink-muted',
     ]}
   >
-    {block.top && <span class="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] sm:text-[0.75rem]">{block.top}</span>}
+    {block.top && <span class="text-[0.75rem] font-semibold uppercase tracking-[0.14em]">{block.top}</span>}
     <span class:list={['font-heading', block.set ? (block.main.length > 3 ? 'mt-1 text-[1.25rem] sm:text-[1.625rem]' : 'mt-0.5 text-[1.875rem] sm:text-[2.375rem]') : 'text-[0.8125rem] font-semibold uppercase tracking-[0.12em] font-body']}>{block.main}</span>
-    {block.foot && <span class:list={['mt-1 text-[0.6875rem] sm:text-[0.75rem]', block.set ? 'opacity-80' : '']}>{block.foot}</span>}
+    {block.foot && <span class="mt-1 text-[0.75rem]">{block.foot}</span>}
   </div>
   {/* The face for after the date: no words in the HTML, only in
       data-past-text, written in when the faces swap (src/lib/tradition-expiry.ts). */}

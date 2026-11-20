@@ -121,7 +121,7 @@ test('a tradition page under a full section takes that section’s masthead; a t
   const page = read('src/routes/hub/event.astro');
   assert.match(page, /const masthead = fullSectionAt\(town\.slug\);/);
   assert.match(page, /\{masthead\}/);
-  assert.match(read('src/layouts/Base.astro'), /<Header section=\{masthead\} \{townBar\} \/>/);
+  assert.match(read('src/layouts/Base.astro'), /<Header section=\{masthead\} \{townBar\} \{column\} \/>/);
 });
 
 test('the section’s masthead on a hub page links where the section’s own pages do: the same rewrite as the merge', () => {
