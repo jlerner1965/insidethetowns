@@ -230,4 +230,5 @@ test('the network covers 103 towns by one rule: 11 full guides, 91 town pages an
   assert.match(read('src/components/NetworkBar.astro'), /const towns = townCount\(hubTowns, fullSections\(\)\);/);
   assert.match(read('src/routes/hub/towns.astro'), /const total = townCount\(/);
   assert.match(read('src/pages/about.astro'), /const totalTowns = townCount\(hubTowns, sectionList\);/);
+  assert.match(read('src/routes/hub/index.astro'), /All \{allTowns\} towns, A to Z →/);
 });

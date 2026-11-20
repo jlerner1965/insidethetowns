@@ -89,7 +89,7 @@ import {
 import { shortCost } from '@/lib/cost';
 import { resolveSiteImage } from '@/lib/images';
 import { FLAGSHIP_TEAM, RESULT_WORD, gameDay, hasData, latestResult, outcome, sportsDataFor } from '@/lib/school-sports';
-import { coveredTowns, pagesBeyondSections } from '@/lib/town-search-index';
+import { coveredTowns, pagesBeyondSections, townCount } from '@/lib/town-search-index';
 import { subTownsOf } from '@/lib/sub-towns';
 import { TRADITION_TYPE_INFO } from '@/lib/traditions';
 import { currentPicks } from '@/lib/weekly';
@@ -354,6 +354,8 @@ const sectionCount = numberWord(sections.length);
  * twice. /towns/ counts and lists by the same rule.
  */
 const moreTowns = pagesBeyondSections(pages, sectionList).length;
+// The whole count, as the A to Z link says it, by the one rule (townCount; the owner, 20 November 2026): 11 + 91 + Severance = 103.
+const allTowns = townCount(pages, sectionList);
 
 /** The email: one town to start, from the weekly editions (NewsletterSignup.astro, variant "hub"). */
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
@@ -649,7 +651,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
         </datalist>
       </form>
       {/* `town-pages`: where the guides' About pages send a reader for "a page on Inside the Towns". */}
-      {moreTowns > 0 && <a id="town-pages" href="/towns/" class={more} data-track="home-index">{moreTowns} more towns, A to Z →</a>}
+      {moreTowns > 0 && <a id="town-pages" href="/towns/" class={more} data-track="home-index">All {allTowns} towns, A to Z →</a>}
     </div>
   </section>
 
