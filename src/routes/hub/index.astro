@@ -462,14 +462,14 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
   <div class:list={['desk:bg-raised', pairBand]}>
     <div class:list={[pair, 'desk:grid-rows-[auto_1fr]']}>
       {/*
-        * The weekend first, Colorado's Secret Trails directly under it, the
-        * season after: on a phone each is a band of its own, in this order,
-        * the weekend on white under the hero's paper. From 900px they share
-        * a band with the season in the narrow column on the left, as the
-        * desktop boards have it, running down beside the other two.
+        * The weekend first, the season after it, Colorado's Secret Trails
+        * last: on a phone each is a band of its own, in this order. From
+        * 900px they share a band: the weekend a full-width row of its own,
+        * then the season in the narrow column on the left with Colorado's
+        * Secret Trails beside it, 56px under the weekend while it is there.
         */}
       {weekend.length > 0 && (
-        <section id="weekend" aria-labelledby="weekend-heading" data-band data-hide-when-empty class:list={[half, pub.white, seasons.length === 0 ? 'desk:col-span-2' : 'desk:col-start-2 desk:row-start-1']}>
+        <section id="weekend" aria-labelledby="weekend-heading" data-band data-hide-when-empty class:list={[half, pub.white, 'desk:col-span-2']}>
           <div class={halfCol}>
             <div class={pub.open}>
               <h2 id="weekend-heading" class={pub.h2}>This weekend</h2>
@@ -498,28 +498,8 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
         </section>
       )}
 
-      {/*
-        * Colorado's Secret Trails: text only and static, changed by hand
-        * each issue (the owner, 19 November 2026). No dated row, so the
-        * page's script never takes it down. From 900px it is the second row
-        * of the wide column, the season running down beside both rows; the
-        * gap over it is drawn only while the weekend is there above it.
-        */}
-      <section id="secret-trails" aria-labelledby="secret-trails-heading" data-band class:list={[half, pub.white, seasons.length === 0 ? 'desk:col-span-2' : 'desk:col-start-2', 'desk:row-start-2 desk:[#weekend+&]:mt-[56px]']}>
-        <div class={halfCol}>
-          <div class={pub.open}>
-            <h2 id="secret-trails-heading" class={pub.h2}>Colorado’s Secret Trails</h2>
-          </div>
-          <article class:list={['py-4', pub.rule]}>
-            <h3 class={hl}><a href="/articles/bent-rock-trail-red-mountain-open-space/" class={pub.titleLink} data-track="home-secret-trail">Bent Rock Trail at Red Mountain Open Space</a></h3>
-            <p class:list={['mt-1.5', pub.t]}>Nearest town: Wellington. Red-rock country 25 miles north of Fort Collins. Closes for the winter Dec. 1.</p>
-          </article>
-          <a href="/colorados-secret-trails/" class={more} data-track="home-secret-trail">All secret trails →</a>
-        </div>
-      </section>
-
       {seasons.length > 0 && (
-        <section id="season" aria-labelledby="season-heading" data-band data-hide-when-empty class:list={[half, pub.paper, 'desk:col-start-1 desk:row-start-1 desk:row-span-2']}>
+        <section id="season" aria-labelledby="season-heading" data-band data-hide-when-empty class:list={[half, pub.paper, 'desk:col-start-1 desk:[#weekend~&]:mt-[56px]']}>
           <div class={halfCol}>
             <div class={pub.open}>
               <h2 id="season-heading" class={pub.h2}>This season</h2>
@@ -543,6 +523,25 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
           </div>
         </section>
       )}
+
+      {/*
+        * Colorado's Secret Trails: text only and static, changed by hand
+        * each issue (the owner, 19 November 2026). No dated row, so the
+        * page's script never takes it down. From 900px it is beside the
+        * season, in the wide column.
+        */}
+      <section id="secret-trails" aria-labelledby="secret-trails-heading" data-band class:list={[half, pub.white, seasons.length === 0 ? 'desk:col-span-2' : 'desk:col-start-2', 'desk:[#weekend~&]:mt-[56px]']}>
+        <div class={halfCol}>
+          <div class={pub.open}>
+            <h2 id="secret-trails-heading" class={pub.h2}>Colorado’s Secret Trails</h2>
+          </div>
+          <article class:list={['py-4', pub.rule]}>
+            <h3 class={hl}><a href="/articles/bent-rock-trail-red-mountain-open-space/" class={pub.titleLink} data-track="home-secret-trail">Bent Rock Trail at Red Mountain Open Space</a></h3>
+            <p class:list={['mt-1.5', pub.t]}>Nearest town: Wellington. Red-rock country 25 miles north of Fort Collins. Closes for the winter Dec. 1.</p>
+          </article>
+          <a href="/colorados-secret-trails/" class={more} data-track="home-secret-trail">All secret trails →</a>
+        </div>
+      </section>
     </div>
   </div>
 
