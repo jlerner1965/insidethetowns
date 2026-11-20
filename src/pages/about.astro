@@ -7,7 +7,7 @@ import FactStrip from '@/components/FactStrip.astro';
 import TipsLink from '@/components/TipsLink.astro';
 import { resolveSiteImage } from '@/lib/images';
 import { countiesCovered, countyLabel, fullSections, getNetworkHub, getSite, guideUrl, liveTowns, listsEvents, sectionHome, sectionSite } from '@/config';
-import { pagesBeyondSections } from '@/lib/town-search-index';
+import { extraTownPages, pagesBeyondSections, townCount } from '@/lib/town-search-index';
 import CtaBand from '@/components/CtaBand.astro';
 import { getTownEntries } from '@/lib/content';
 import { eventTotals, describeTotals } from '@/lib/event-totals';
@@ -71,7 +71,11 @@ const hub = getNetworkHub();
  * November 2026).
  */
 const sectionList = fullSections();
-const townPages = pagesBeyondSections([...publishedHubTowns(await getTraditions())], sectionList).length;
+const hubTowns = [...publishedHubTowns(await getTraditions())];
+const townPages = pagesBeyondSections(hubTowns, sectionList).length;
+// The whole count by the one rule (townCount, src/lib/town-search-index.ts): 11 full guides, 91 town pages and Severance, 103.
+const extra = extraTownPages(sectionList);
+const totalTowns = townCount(hubTowns, sectionList);
 ---
 {site.kind === 'town' ? (
   <Page title={`About ${site.siteTitle}`} seoTitle="About this guide" eyebrow="Independent, local" description={`What ${site.siteTitle} is, who runs it and what it is not: an independent guide to ${site.name}, not the town government or a chamber of commerce.`}>
@@ -213,6 +217,7 @@ const townPages = pagesBeyondSections([...publishedHubTowns(await getTraditions(
     <FactStrip
       size="number"
       facts={[
+        { label: 'Towns', value: String(totalTowns) },
         { label: 'Full town sections', value: String(sectionList.length) },
         { label: 'Counties', value: String(countiesCovered(sectionList).length) },
         { label: 'Population of the towns', value: sectionList.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
@@ -231,7 +236,7 @@ const townPages = pagesBeyondSections([...publishedHubTowns(await getTraditions(
             A town without a guide of its own has a page on <a href={`https://${hub.domain}/#town-pages`}>{hub.siteTitle}</a>
             instead: the events the town holds every year and the outdoor dates around it, then what the town is, how to
             get there, where to stay and its history, each with the page it was read from and the day it was read. There
-            are {townPages} of them. A town gets its page once the date of one named annual event of its own has been read
+            are {townPages} of them{extra.length > 0 ? `, and ${extra.map((e) => `${e.name}’s page under ${e.guide.name}`).join(', ')}` : ''}: {totalTowns} towns in all. A town gets its page once the date of one named annual event of its own has been read
             on the organizer’s own page, and not before.
           </p>
         )}

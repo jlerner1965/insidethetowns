@@ -16,11 +16,13 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { STANDALONE_GUIDES } from '../src/config/hub-towns.ts';
+import { publishedHubTowns } from '../src/lib/hub-towns.ts';
+import { rawRecords } from '../src/lib/tradition-files.ts';
 import { fullSectionAt, fullSections, getNetworkHub, isMoved, liveTowns, sectionHome, sectionTowns } from '../src/config/index.ts';
 import { PAPERS, paletteVars, primaryHover } from '../src/config/palette.ts';
 import { homeDescription, inSentence } from '../src/lib/hub-home.ts';
-import { townNav } from '../src/lib/nav.ts';
-import { pagesBeyondSections } from '../src/lib/town-search-index.ts';
+import { EMAIL_NAV, SITE_NAV, townNav } from '../src/lib/nav.ts';
+import { extraTownPages, pagesBeyondSections, townCount } from '../src/lib/town-search-index.ts';
 import { SECTION_MOVED, sectionHref } from '../src/lib/section.ts';
 import { homeLinkLabel } from '../src/lib/titles.ts';
 import { SECTION_MOVED as MERGE_MOVED, resolvePath } from '../scripts/lib/section-merge.ts';
@@ -119,7 +121,7 @@ test('a tradition page under a full section takes that section’s masthead; a t
   const page = read('src/routes/hub/event.astro');
   assert.match(page, /const masthead = fullSectionAt\(town\.slug\);/);
   assert.match(page, /\{masthead\}/);
-  assert.match(read('src/layouts/Base.astro'), /<Header section=\{masthead\} \/>/);
+  assert.match(read('src/layouts/Base.astro'), /<Header section=\{masthead\} \{townBar\} \/>/);
 });
 
 test('the section’s masthead on a hub page links where the section’s own pages do: the same rewrite as the merge', () => {
@@ -141,14 +143,39 @@ test('the section’s masthead on a hub page links where the section’s own pag
   }
 });
 
-test('a section’s masthead is in its own colours, scoped to the masthead', () => {
+test('one brand on every section: the shared colour roles read the final palette, not a town’s own colours', () => {
+  // The colours and navigation work order of 20 November 2026 ended the per-town colours; paletteVars still writes a page's four, which nothing reads for the chrome.
   assert.equal(paletteVars({ primary: '#1F6582', accent: '#B75A3F', paper: 'cool' }), `--town-primary:#1F6582;--town-primary-hover:${primaryHover('#1F6582')};--town-accent:#B75A3F;--town-paper:${PAPERS.cool}`);
   const css = read('src/styles/global.css');
-  // Every colour made from the four is declared again inside the scope, or it keeps the page's value.
-  for (const v of ['--color-primary', '--color-primary-hover', '--color-primary-line', '--color-accent', '--color-paper', '--color-line', '--color-line-soft', '--t-line-soft', '--t-primary-line']) {
-    assert.match(css, new RegExp(`\\[data-palette\\][^}]*${v}:`), `${v} is declared under [data-palette]`);
+  assert.match(css, /--color-primary: var\(--blue-deep\);/);
+  assert.match(css, /--color-primary-hover: var\(--blue\);/);
+  assert.match(css, /--color-paper: var\(--paper\);/);
+  assert.match(css, /--color-raised: var\(--card\);/);
+  assert.match(css, /--color-ink: var\(--ink\);/);
+  assert.match(css, /--color-ink-muted: var\(--muted\);/);
+  assert.doesNotMatch(css, /--color-primary: var\(--town-primary\)/);
+  // The 21 variables, as the owner wrote them.
+  for (const v of ['--paper: #FBF6EC', '--card: #FFFEF9', '--beige: #F3EAD9', '--soft-gray: #E9E5DE', '--taupe: #8A7D6B', '--ink: #2E2A26', '--muted: #6F675C', '--blue-deep: #36536B', '--blue: #52708A', '--blue-mid: #7A97AC', '--blue-tint: #DFE8EE', '--blue-wash: #EFF4F7', '--sage-deep: #4A5D43', '--sage: #6E8261', '--sage-mid: #97A88B', '--sage-tint: #E4E9DB', '--terra: #B0552F', '--terra-deep: #9E4F27', '--coral: #D96A4B', '--yellow: #D9A441', '--purple: #6E5A7E']) {
+    assert.ok(css.includes(`${v};`), v);
   }
-  assert.match(read('src/components/Header.astro'), /'data-palette': ''/);
+  // No section's masthead is in its own colours any more.
+  assert.doesNotMatch(read('src/components/Header.astro'), /'data-palette': ''/);
+});
+
+test('the site’s menu is six items, never seven, in the owner’s words, and the email is the action button', () => {
+  assert.deepEqual(SITE_NAV.map((n) => n.label), ['This Weekend', 'Towns A–Z', 'Annual Events', 'Trails & Parks', 'Stories']);
+  assert.equal(EMAIL_NAV.label, 'Thursday Email');
+  assert.equal(SITE_NAV.length + 1, 6);
+  const header = read('src/components/Header.astro');
+  assert.match(header, /SITE_NAV\.map/);
+  assert.match(header, /class="trust-bar"/);
+  assert.match(header, /Listings checked daily/);
+  assert.match(header, /<FindBar /);
+  assert.match(header, /<TownBar/);
+  // One marker, site-wide (nav rule 6): sage under the current item in the masthead, sage text in the town bar.
+  const css = read('src/styles/global.css');
+  assert.match(css, /\.hub-row \.site-nav-link\.is-current \{ box-shadow: inset 0 -3px 0 var\(--sage-mid\); \}/);
+  assert.match(css, /\.town-tab\[aria-current="page"\] \{ color: var\(--sage-deep\);/);
 });
 
 test('the masthead’s link to the hub’s home is named “Inside the Towns home”, and begins with the words it shows', () => {
@@ -158,7 +185,8 @@ test('the masthead’s link to the hub’s home is named “Inside the Towns hom
   assert.equal(homeLinkLabel('Inside Erie'), 'Inside Erie home');
   const wordmark = read('src/components/Wordmark.astro');
   assert.match(wordmark, /aria-label=\{homeLinkLabel\(site\.siteTitle\)\}/);
-  assert.match(read('src/components/Header.astro'), /<Wordmark [^>]*site=\{site\} href=\{at\('\/'\)\} \/>/);
+  // One wordmark on every site, the hub's, to the hub's home (20 November 2026).
+  assert.match(read('src/components/Header.astro'), /<Wordmark [^>]*site=\{hub\} href=\{hubAt\('\/'\)\} \/>/);
 });
 
 test('a season page’s pills are one row that scrolls sideways below 900px, 44px tall, wrapped from 900px', () => {
@@ -189,4 +217,17 @@ test('no menu carries two items to one page: a folded section leads with Events 
   // Until then the Longmont walking article's menu read This week and Events, both to /longmont/events/.
   const longmont = fullSections().find((t) => t.slug === 'longmont')!;
   assert.deepEqual(townNav(longmont, undefined, { folded: true }).filter((n) => n.label === 'Events' || n.label === 'This week').map((n) => n.label), ['Events']);
+});
+
+test('the network covers 103 towns by one rule: 11 full guides, 91 town pages and Severance (the owner, 20 November 2026)', () => {
+  const pages = publishedHubTowns(rawRecords());
+  const sections = fullSections();
+  assert.equal(sections.length, 11);
+  assert.equal(pagesBeyondSections(pages, sections).length, 91);
+  assert.deepEqual(extraTownPages(sections).map((e) => `${e.name} under ${e.guide.name}`), ['Severance under Windsor']);
+  assert.equal(townCount(pages, sections), 103);
+  // Said by the same rule wherever it is said.
+  assert.match(read('src/components/NetworkBar.astro'), /const towns = townCount\(hubTowns, fullSections\(\)\);/);
+  assert.match(read('src/routes/hub/towns.astro'), /const total = townCount\(/);
+  assert.match(read('src/pages/about.astro'), /const totalTowns = townCount\(hubTowns, sectionList\);/);
 });
