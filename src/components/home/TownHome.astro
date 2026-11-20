@@ -208,8 +208,10 @@ const linked = new Set<string>([
   ...(know.length > 0 || timely.length > 0 ? ['/updates/'] : []),
 ]);
 const hasGuides = (await getTownEntries('articles')).length > 0;
-/** Berthoud's two spacing fixes (the owner's list of 20 November 2026), on its page only: Worth knowing's gap and the quick answers in one row. */
+/** Berthoud's quick answers in one row (the owner's list of 20 November 2026), on its page only. */
 const berthoud = town.slug === 'berthoud';
+/** Worth knowing's gap under What's happening taken back (the owner, 20 November 2026): Berthoud, then Erie. */
+const tightKnow = berthoud || town.slug === 'erie';
 
 /*
  * On this page: the home's sections, in the order they are drawn below, as
@@ -378,11 +380,11 @@ if (featured) {
 )}
 {/* Worth knowing, one section: under the tabs when a change matters now
     (the audit of 13 November 2026), else lower down (WorthKnowing.astro).
-    On Berthoud, right under What's happening, it takes back the part of
+    On Berthoud and Erie, right under What's happening, it takes back the part of
     that band's closing padding kept for the quick answers tucked under it
     (QuickAnswers.astro), so the gap is the page's other bands' (the
     owner's list of 20 November 2026). */}
-{knowHigh && (berthoud && !(outdoorsLed && anyDates)
+{knowHigh && (tightKnow && !(outdoorsLed && anyDates)
   ? <div class="-mt-6 md:-mt-10"><WorthKnowing {timely} {know} dates={worthDates} /></div>
   : <WorthKnowing {timely} {know} dates={worthDates} />)}
 {familyRows.length > 0 && familiesFirst && (
