@@ -10,7 +10,10 @@
  *    search, and the Thursday email as the one action button. Below the
  *    masthead breakpoint (66.25rem) the menu is a panel that drops from
  *    under the header on a button, grouped: Explore, Towns, the email.
- * 3. The Find bar (FindBar.astro), which sticks to the top of the screen.
+ * The Find bar that was the third bar (20 November 2026) went on 21
+ * November 2026: one search box a page (the owner's content-order brief),
+ * so search is the masthead's Search button, and on the home page the
+ * hero's box.
  *
  * One masthead on every site (one brand, 20 November 2026; until then a
  * guide's carried its own wordmark, "Inside Berthoud", and its own menu).
@@ -27,15 +30,12 @@
  * merge puts the section's page (sectionHref, src/lib/section.ts).
  * `townBar`: a hub town page, which has no section: its trail alone.
  */
-import { editionFor, emailEditions, fullSections, getNetworkHub, getSite, guideUrl, hubNeighborsOf, isMoved, neighborsOf, sectionHome, type FullSection } from '@/config';
-import { hubCountyLine } from '@/config/hub-towns';
+import { editionFor, emailEditions, getNetworkHub, getSite, guideUrl, hubNeighborsOf, isMoved, neighborsOf, type FullSection } from '@/config';
 import { getTraditions } from '@/lib/content';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { EMAIL_NAV, SITE_NAV, siteNav, townNav } from '@/lib/nav';
 import { pagePath, sectionHref } from '@/lib/section';
 import { wordmarkEm as titleEm } from '@/lib/titles';
-import { extraTownPages, pagesBeyondSections } from '@/lib/town-search-index';
-import FindBar from './FindBar.astro';
 import TownBar from './TownBar.astro';
 import Wordmark from './Wordmark.astro';
 import { HUB_COLUMN } from './hub/pub';
@@ -94,16 +94,6 @@ const nearby = guide
   : [];
 const town = guide ? { name: guide.name, region: guide.region } : townBar;
 const regionHref = (region: string) => hubAt(`/search/?q=${encodeURIComponent(region)}`);
-/**
- * The Find bar's index: every full guide, every sub-town page and every town
- * page beyond them, with its county line and what it is, A to Z.
- */
-const sections = fullSections();
-const findIndex = [
-  ...sections.map((t) => ({ n: t.name, c: hubCountyLine(t), k: 'Full guide', u: sectionHome(t) })),
-  ...extraTownPages(sections).map((s) => ({ n: s.name, c: hubCountyLine(s.guide), k: 'Town page', u: `https://${hub.domain}/${s.slug}/` })),
-  ...pagesBeyondSections(hubTowns, sections).map((t) => ({ n: t.name, c: hubCountyLine(t), k: 'Town page', u: `https://${hub.domain}/${t.slug}/` })),
-].sort((a, b) => a.n.localeCompare(b.n));
 const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-underline transition-colors', on && 'is-current'];
 ---
 {/* 1. The trust bar: what the site promises, and the page that says how. */}
@@ -184,8 +174,6 @@ const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-unde
     </div>
   </div>
 </header>
-{/* 3. The Find bar, which stays on screen. */}
-<FindBar action={hubAt('/search/')} index={findIndex} {column} />
 {town && (
   <TownBar
     name={town.name}

@@ -74,13 +74,14 @@ const lineShade = [
 ];
 // The tagline in two lines at most, shortened at a phrase (src/lib/text.ts)
 // rather than by the clamp alone, which put its ellipsis wherever the second
-// line ran out. A phone's budget is smaller than a wide screen's, so there
-// are two; the clamp stays as a net.
-// A town guide's line is written whole for each width (src/lib/hero-line.ts);
-// a page that passes its own subtitle, and a visitor guide, are shortened.
+// line ran out; the clamp stays as a net. One line at every width since 21
+// November 2026: a phone's line and a wide screen's longer one were both in
+// the page, the same sentence twice (the owner: "remove the duplicated
+// introductory sentence"). The phone's, which fits everywhere, is kept.
+// A town guide's line is written whole (src/lib/hero-line.ts); a page that
+// passes its own subtitle, and a visitor guide, are shortened.
 const week = site.kind === 'town' && Astro.props.subtitle === undefined ? heroLine(site, { pick: Astro.props.pick === true, changes: Astro.props.changes !== false }) : undefined;
 const subtitleShort = week?.short ?? shorten(subtitle, 64);
-const subtitleLong = week?.long ?? shorten(subtitle, 88);
 ---
 <section class="on-dark relative isolate overflow-hidden bg-primary text-white">
   <div class:list={[compact ? 'relative h-52 overflow-hidden sm:absolute sm:inset-0 sm:-z-20 sm:h-auto' : 'contents']}>
@@ -165,7 +166,7 @@ const subtitleLong = week?.long ?? shorten(subtitle, 88);
         first; everywhere since 18 November 2026, where the line sits on the
         town's colour until the photograph has loaded (Niwot, 4.28:1). */}
     <p class:list={['mt-3 max-w-xl text-[1.0625rem] leading-snug text-white md:text-xl', lineShade]}>
-      <span class="sm:hidden">{subtitleShort}</span><span class="hidden sm:inline">{subtitleLong}</span>
+      {subtitleShort}
     </p>
     {links.length > 0 && (
       <div class="mt-5 flex flex-wrap gap-2.5 md:mt-6">

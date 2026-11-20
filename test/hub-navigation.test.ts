@@ -170,7 +170,8 @@ test('the site’s menu is six items, never seven, in the owner’s words, and t
   assert.match(header, /SITE_NAV\.map/);
   assert.match(header, /class="trust-bar"/);
   assert.match(header, /Listings checked daily/);
-  assert.match(header, /<FindBar /);
+  // One search box a page (the owner's content-order brief, 21 November 2026): no Find bar under the masthead; search is its Search button.
+  assert.doesNotMatch(header, /<FindBar /);
   assert.match(header, /<TownBar/);
   // One marker, site-wide (nav rule 6): sage under the current item in the masthead, sage text in the town bar.
   const css = read('src/styles/global.css');

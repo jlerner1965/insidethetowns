@@ -27,19 +27,21 @@ const BRIEFED = [...FIVE, ...NINE];
 const profileOf = (slug: string): TownProfile => townProfileSchema.parse(JSON.parse(readFileSync(`data/hub/towns/${slug}.json`, 'utf8')));
 const records = rawRecords('.', {});
 
-test('Places to know and Trails and parks come after the dates, numbered with the rest', () => {
-  const s = pageSections('Salida', { events: true, places: true, trails: true, directory: false, stay: true, getting: true, outdoor: true, about: true });
+test('the town page runs in the owner’s content order: on now, the one to know, things to do, places, stay, getting here, the annual calendar, outdoor dates, about', () => {
+  const s = pageSections('Salida', { now: true, next: true, todo: true, directory: true, stay: true, getting: true, events: true, outdoor: true, about: true });
   assert.deepEqual(s.map((x) => [x.number, x.key, x.id]), [
-    ['01', 'events', 'traditions'],
-    ['02', 'places', 'places-to-know'],
-    ['03', 'trails', 'trails-and-parks'],
-    ['04', 'stay', 'stay'],
-    ['05', 'getting', 'getting-here'],
-    ['06', 'outdoor', 'outdoor-dates'],
-    ['07', 'about', 'about'],
+    ['01', 'now', 'happening-now'],
+    ['02', 'next', 'one-to-know'],
+    ['03', 'todo', 'things-to-do'],
+    ['04', 'directory', 'places'],
+    ['05', 'stay', 'stay'],
+    ['06', 'getting', 'getting-here'],
+    ['07', 'events', 'traditions'],
+    ['08', 'outdoor', 'outdoor-dates'],
+    ['09', 'about', 'about'],
   ]);
-  assert.equal(s[2]!.title, 'Trails and parks in Salida');
-  assert.equal(s[1]!.label, 'Places to know');
+  assert.equal(s[2]!.title, 'Things to do in Salida');
+  assert.equal(s[0]!.label, 'Happening now');
 });
 
 test('a lead guide path is a section article or a hub story, nothing else', () => {

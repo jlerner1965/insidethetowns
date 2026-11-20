@@ -22,18 +22,19 @@ test('the stylesheet declares the publication colours in src/config/palette.ts',
 });
 
 test('the sections are numbered over the ones drawn, and On this page lists the same', () => {
-  const all = pageSections('La Veta', { events: true, places: false, trails: false, directory: false, stay: true, getting: true, outdoor: true, about: true });
+  const all = pageSections('La Veta', { now: false, next: false, todo: false, directory: false, stay: true, getting: true, events: true, outdoor: true, about: true });
+  // The owner's content order of 21 November 2026: where to stay and getting here, then the annual calendar.
   assert.deepEqual(all.map((s) => [s.number, s.label, s.id]), [
-    ['01', 'Event dates', 'traditions'],
-    ['02', 'Where to stay', 'stay'],
-    ['03', 'Getting here', 'getting-here'],
+    ['01', 'Where to stay', 'stay'],
+    ['02', 'Getting here', 'getting-here'],
+    ['03', 'Annual calendar', 'traditions'],
     ['04', 'Outdoor dates', 'outdoor-dates'],
     ['05', 'About La Veta', 'about'],
   ]);
-  assert.deepEqual(all.map((s) => s.title), ['Events and dates in La Veta', 'Where to stay in La Veta', 'Getting to La Veta', 'Outdoor dates in Colorado', 'About La Veta']);
+  assert.deepEqual(all.map((s) => s.title), ['Where to stay in La Veta', 'Getting to La Veta', 'La Veta’s annual calendar', 'Outdoor dates in Colorado', 'About La Veta']);
   // No lodging on file: the section is not drawn and the rest close up.
-  const noStay = pageSections('Craig', { events: true, places: false, trails: false, directory: false, stay: false, getting: true, outdoor: true, about: true });
-  assert.deepEqual(noStay.map((s) => [s.number, s.key]), [['01', 'events'], ['02', 'getting'], ['03', 'outdoor'], ['04', 'about']]);
+  const noStay = pageSections('Craig', { now: false, next: false, todo: false, directory: false, stay: false, getting: true, events: true, outdoor: true, about: true });
+  assert.deepEqual(noStay.map((s) => [s.number, s.key]), [['01', 'getting'], ['02', 'events'], ['03', 'outdoor'], ['04', 'about']]);
 });
 
 test('a month says what it holds, in the board’s words', () => {

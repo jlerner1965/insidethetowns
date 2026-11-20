@@ -5,29 +5,32 @@
  * design the owner approved on 14 November 2026 (the town page board).
  * Every non-guide town on the hub has this page, about ninety-five of them.
  *
- * Top to bottom: the hero (the county, the town's name, one line and the
- * next date the town has), "On this page", then the numbered sections,
- * each a full-width band on paper or white:
+ * Top to bottom, in the owner's content order of 21 November 2026: the
+ * hero (the county, the town's name, one line and the next date the town
+ * has), "On this page" (the page's one set of section links), then the
+ * numbered sections, each a full-width band on paper or white:
  *
- *   Events      the town's dates: the ones set, soonest first; the ones
- *               not yet announced, with when each was last held; what is
- *               open now; the year at a glance; the calendar links.
- *   Places to know and Trails and parks (the owner's brief of 18 November
- *   2026), each fact read on the manager's page with the day it was read;
- *   Where to stay, Getting here (with the towns near it, by road),
- *   Outdoor dates (the statewide ones, the next two and the rest behind a
- *   button), and About (the figures, the town's live signature, its
- *   history, museums and landmarks, and the articles that name it);
+ *   Happening now   what is open now and the one-time events still to come
+ *                   (a guide kept page by page), each at its next date;
+ *   The one to know a showpiece's spotlight;
+ *   Things to do    the lead guide (Start here), Places to know and Trails
+ *                   and parks, each fact read on the manager's page with the
+ *                   day it was read;
+ *   Places          the places to eat, drink and explore;
+ *   Where to stay, Getting here (with the towns near it, by road);
+ *   Annual calendar the town's annual dates: the year at a glance, the ones
+ *                   set, soonest first, the ones not yet announced, with when
+ *                   each was last held, and the calendar links;
+ *   Outdoor dates   the statewide ones, the next two and the rest behind a
+ *                   button;
+ *   About           the figures, the town's live signature, its history,
+ *                   museums and landmarks, and the articles that name it;
  *
  * and last "More in <area>" (three to five town pages, nearest by road),
  * the way back to the contents on a phone and the correction line. A section or a block with nothing in the town's files
  * is not drawn, and the sections drawn are numbered and listed in order
  * (src/lib/hub-town-page.ts). Every fact is the files' own, in the words
  * the page used before the redesign, with its source and its check date.
- *
- * Where the town names a lead guide (`leadGuide`, the same brief), "Start
- * here" sits between the hero and the contents: the article's own title
- * and excerpt, and the link to it.
  *
  * Built only for a town with a dated item of its own (publishedHubTowns);
  * any other town has no page and nothing links to one. The events and
@@ -45,8 +48,8 @@
  * Park, and Salida once its picture comes) also keep their own line under
  * the name; their dates take the same layout as every other town's. Their
  * spotlight (Estes Park: Frozen Dead Guy Days) is back since the audit of
- * 17 November 2026, as the first subhead of Events: the same entry, first
- * and once, with what the record says the event is.
+ * 17 November 2026, as The one to know: the same entry, once, with what the
+ * record says the event is.
  */
 import { Image, getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
@@ -64,7 +67,7 @@ import { clusterName, STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/co
 import { getCuriosity, getSectionEntries, getTraditions } from '@/lib/content';
 import { parseLeadGuide, sectionArticleSegment } from '@/lib/lead-guide';
 import { dayKey, formatDayLong, formatShortDate, parseLocal, publishedTime } from '@/lib/dates';
-import { exportWhen, isCanceled, isOver } from '@/lib/events';
+import { exportWhen, isCanceled, isOver, nextOccurrence } from '@/lib/events';
 import { hubTownPhoto } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
 import { appliesTo, eventPage, eventPath, lineFor, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
@@ -270,10 +273,11 @@ const kept = folded?.section?.mode === 'pages' ? await sectionFor(town.slug) : u
  * yet over, soonest first (src/lib/section-index.ts): each has a page under
  * /<town>/events/ that only the sitemap reached (the site audit of 19
  * November 2026: 245 such pages, Golden's 48 the most). Listed under
- * Events, after the annual dates; a page whose date has passed is noindex
+ * Happening now, above the annual calendar; a page whose date has passed is noindex
  * and needs no link.
  */
-const carried = kept ? kept.eventEntries.filter((e) => !isOver(e)).map((e) => ({ e, start: exportWhen(e).start })).sort((a, b) => a.start.getTime() - b.start.getTime()) : [];
+// A series shows its next date, not its first: a weekly trivia night that began on 12 November 2026 was still listed under that day on 20 November (the owner's content-order brief, 21 November 2026: no past events in an upcoming list). Each row also leaves the built page on its own day (data-event-day).
+const carried = kept ? kept.eventEntries.filter((e) => !isOver(e)).map((e) => ({ e, start: exportWhen(nextOccurrence(e)).start })).sort((a, b) => a.start.getTime() - b.start.getTime()) : [];
 /**
  * The next ten show; the rest fold behind a button, as the statewide dates
  * do (the owner, 20 November 2026: Golden's list ran to about 45). Folded,
@@ -335,12 +339,32 @@ const stayList = [
   ...profile.lodging.filter((l) => !placeEntries.some((p) => p.data.type === 'lodging' && p.data.title.toLowerCase() === l.name.toLowerCase())).map((l) => ({ name: l.name, href: l.url, external: true, note: [l.kind, l.season].filter(Boolean).join(' · '), area: undefined })),
 ];
 
+/*
+ * Start here: the town's lead guide (src/lib/lead-guide.ts), with the
+ * article's own title and excerpt. A path that names no published article
+ * stops the build rather than ship a link to nothing.
+ */
+const leadGuide = await (async () => {
+  if (!town.leadGuide) return undefined;
+  const ref = parseLeadGuide(town.leadGuide);
+  if (ref?.kind === 'hub') {
+    // An event article, a story or a guide: the ones at /articles/<slug>/.
+    const article = (await getCuriosity()).find((a) => a.data.slug === ref.slug && isStandalone(a.data.kind));
+    if (article) return { href: town.leadGuide, title: article.data.title, line: article.data.description };
+  } else if (ref && folded?.section && ref.town === town.slug && ref.segment === sectionArticleSegment(folded.section.mode)) {
+    const article = (await getSectionEntries('articles', folded)).find((a) => a.slug === ref.slug);
+    if (article) return { href: town.leadGuide, title: article.data.title, line: article.data.excerpt };
+  }
+  throw new Error(`${town.slug}: leadGuide ${town.leadGuide} names no published article on this town's section or the hub (src/lib/lead-guide.ts)`);
+})();
+
 /* ------------------------------------------------------------- sections */
 
 const sections = pageSections(town.name, {
-  events: own.length > 0 || hasOpen,
-  places: profile.places.length > 0,
-  trails: profile.trails.length > 0,
+  now: hasOpen || carried.length > 0,
+  next: !!spotlight,
+  todo: !!leadGuide || profile.places.length > 0 || profile.trails.length > 0,
+  events: listed.length > 0 || marked,
   directory: placePicks.length > 0,
   stay: stayList.length > 0,
   getting: !!profile.fromDenver || profile.transit.length > 0 || !!profile.airport || passes.length > 0 || near.length > 0 || roadsListed.length > 0,
@@ -352,7 +376,7 @@ const has = (k: string) => sections.some((x) => x.key === k);
 // one title formula, the guide's own `seoTagline` ("Estes Park, CO events
 // this weekend & things to do"; the owner, 20 November 2026). Every other
 // town page keeps the title made from what it covers.
-const { seoTitle: coversTitle, description } = townSearchText(town.name, traditions, show?.spotlight, today, { trails: has('trails'), stay: has('stay'), history: !!profile.heritage || !!history });
+const { seoTitle: coversTitle, description } = townSearchText(town.name, traditions, show?.spotlight, today, { trails: profile.trails.length > 0, stay: has('stay'), history: !!profile.heritage || !!history });
 const seoTitle = folded?.section?.mode === 'full' && folded.seoTagline ? folded.seoTagline : coversTitle;
 const structured = [
   collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: pageOf(r) ? `https://${hub.domain}${pageOf(r)}` : `${pageUrl}#${r.record.slug}` })) }),
@@ -364,7 +388,7 @@ const structured = [
   ...traditions.map((r) => (r.past || pageOf(r) || eventPage(r.record, ctx) !== town.slug ? undefined : traditionEventJsonLd(r.record, r.entry, pageUrl))).filter((e) => !!e),
 ];
 /** The line under the name says what the page covers (the owner, 18 November 2026). */
-const covers = [has('events') && 'annual events and their dates', has('trails') && 'trails and parks', has('directory') && 'places', has('stay') && 'where to stay', has('getting') && 'getting here', has('about') && (profile.heritage || history ? 'its history' : 'the town')].filter(Boolean) as string[];
+const covers = [(has('events') || has('next')) && 'annual events and their dates', profile.trails.length > 0 && 'trails and parks', has('directory') && 'places', has('stay') && 'where to stay', has('getting') && 'getting here', has('about') && (profile.heritage || history ? 'its history' : 'the town')].filter(Boolean) as string[];
 const intro = show?.intro ?? `${town.name}’s ${covers.length > 1 ? `${covers.slice(0, -1).join(', ')} and ${covers[covers.length - 1]}` : covers[0] ?? 'dates'}, each with the page it was read from.`;
 const section = Object.fromEntries(sections.map((s, i) => [s.key, { ...s, tone: (i % 2 === 0 ? 'paper' : 'white') as 'paper' | 'white' }]));
 const closingTone = sections.length % 2 === 0 ? 'paper' : 'white';
@@ -390,24 +414,6 @@ const sectionLinks: Array<{ label: string; href: string }> =
       : [];
 const moreIn = moreHeading(more);
 
-/*
- * Start here: the town's lead guide (src/lib/lead-guide.ts), with the
- * article's own title and excerpt. A path that names no published article
- * stops the build rather than ship a link to nothing.
- */
-const leadGuide = await (async () => {
-  if (!town.leadGuide) return undefined;
-  const ref = parseLeadGuide(town.leadGuide);
-  if (ref?.kind === 'hub') {
-    // An event article, a story or a guide: the ones at /articles/<slug>/.
-    const article = (await getCuriosity()).find((a) => a.data.slug === ref.slug && isStandalone(a.data.kind));
-    if (article) return { href: town.leadGuide, title: article.data.title, line: article.data.description };
-  } else if (ref && folded?.section && ref.town === town.slug && ref.segment === sectionArticleSegment(folded.section.mode)) {
-    const article = (await getSectionEntries('articles', folded)).find((a) => a.slug === ref.slug);
-    if (article) return { href: town.leadGuide, title: article.data.title, line: article.data.excerpt };
-  }
-  throw new Error(`${town.slug}: leadGuide ${town.leadGuide} names no published article on this town's section or the hub (src/lib/lead-guide.ts)`);
-})();
 const subject = `[Correction] ${town.name}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 ---
@@ -498,23 +504,6 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     </div>
   </section>
 
-  {/*
-    Start here: the lead guide, on its own band between the hero and the
-    contents, so it is the first thing under the town's name on a phone and
-    across the column from 900px. White on a phone, where the drawn horizon
-    ends on white; paper from 900px, where it ends on paper.
-  */}
-  {leadGuide && (
-    <section aria-labelledby="start-here" class="border-b border-hairline bg-raised px-[20px] pb-6 pt-5 desk:bg-paper desk:px-0 desk:pb-[36px] desk:pt-[32px]" data-band data-lead-guide>
-      <div class={pub.wide}>
-        <div class="desk:max-w-[1048px]">
-          <h2 id="start-here" class:list={[pub.cap, 'text-primary']}>Start here</h2>
-          <p class="mt-2 font-heading text-[1.4118rem] font-medium leading-[1.2] tracking-[-0.01em] [font-variation-settings:normal] desk:text-[1.7647rem]"><a href={leadGuide.href} class="text-primary underline decoration-1 underline-offset-[4px]">{typeset(leadGuide.title)}</a></p>
-          <p class:list={['mt-2 max-w-[44rem]', pub.t]}>{typeset(leadGuide.line)}</p>
-        </div>
-      </div>
-    </section>
-  )}
 
   {/*
     The body. On a phone, On this page and then each section, a band of its
@@ -523,19 +512,6 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     720px column of the sections, 88px apart, in the 1200px column.
   */}
   <div class="bg-raised" data-band>
-  {/*
-    The section bar (the owner, 18 November 2026): slim, at the top of the
-    window while the page scrolls, one row that scrolls sideways on a phone,
-    the section in view marked. From 900px the rail beside the sections
-    does this, so the bar is a phone's and a tablet's.
-  */}
-  <nav aria-label="Sections" class="sticky top-0 z-20 h-12 border-b border-hairline bg-raised/95 backdrop-blur-sm desk:hidden" data-section-bar>
-    <ul class="flex h-full gap-x-1 overflow-x-auto whitespace-nowrap px-[12px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      {sections.map((s) => (
-        <li class="shrink-0"><a href={`#${s.id}`} class="flex h-full items-center border-b-2 border-transparent px-2 text-meta font-[650] text-primary no-underline aria-[current=location]:border-ink aria-[current=location]:text-ink" data-bar-link>{s.label}</a></li>
-      ))}
-    </ul>
-  </nav>
     <div class="desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[240px_minmax(0,720px)] desk:items-start desk:gap-x-[88px] desk:px-[40px]">
   <nav aria-labelledby="otp" class="scroll-mt-12 desk:scroll-mt-4 bg-raised px-[20px] pb-6 pt-3.5 desk:sticky desk:top-[24px] desk:z-[1] desk:self-start desk:bg-transparent desk:px-0 desk:pb-6 desk:pt-[56px]" id="contents">
     <div class={pub.col}>
@@ -554,65 +530,17 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   </nav>
   <div class="min-w-0">
 
-  {section.events && (
-    <PubSection id={section.events.id} number={section.events.number} title={section.events.title} tone={section.events.tone} top="#top">
-      {quiet && <p class:list={['mt-3 italic', pub.meta]} data-quiet>No {town.name} event date in the next {NEXT_DAYS} days has been published yet.</p>}
-      {marked && (
-        <Fragment>
-          <h3 id="year-at-a-glance" class:list={[pub.h3, 'mt-[22px]']}>The year at a glance</h3>
-          <YearGrid {cells} />
-        </Fragment>
-      )}
-      {spotlight && (
-        <Fragment>
-          <h3 id="one-to-know" class:list={[pub.h3, !marked && 'mt-[22px]']} data-spotlight>The one to know</h3>
-          {spotlight.record.about && <p class:list={['mt-3', pub.t]}>{typeset(spotlight.record.about.text)}</p>}
-          {monthIdFor(spotlight) && <span id={monthIdFor(spotlight)} class="block scroll-mt-12 desk:scroll-mt-4" data-month-anchor></span>}
-          <DateEntry {...entryProps(spotlight)} />
-        </Fragment>
-      )}
-      {comingUp.length > 0 && (
-        <Fragment>
-          <h3 id="coming-up" class:list={[pub.h3, !spotlight && !marked && 'mt-[22px]']}>Coming up</h3>
-          {comingUp.map((r) => (
-            <Fragment>
-              {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-12 desk:scroll-mt-4" data-month-anchor></span>}
-              <DateEntry {...entryProps(r)} />
-            </Fragment>
-          ))}
-        </Fragment>
-      )}
-      {waiting.length > 0 && (
-        <Fragment>
-          <h3 id="not-announced" class:list={[pub.h3, comingUp.length === 0 && !spotlight && !marked && 'mt-[22px]']}>Date not yet announced</h3>
-          {/* One line each (the owner, 18 November 2026): the name, the month it usually falls in, when it was last held. */}
-          <ul data-not-announced>
-            {waiting.map((r) => (
-              <li id={r.record.slug} class:list={['scroll-mt-12 py-2.5 desk:scroll-mt-4', pub.rule]} data-tradition-row data-status="not-announced" data-waiting>
-                {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-12 desk:scroll-mt-4" data-month-anchor></span>}
-                <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]">{pageOf(r) ? <a href={pageOf(r)} class={pub.link}>{typeset(r.record.name)}</a> : typeset(r.record.name)}</span>
-                <span class:list={['block', pub.meta]}>
-                  {usualMonth(r) && <Fragment>Usually {usualMonth(r)} · </Fragment>}{r.lastHeld ? <Fragment>{isAgencyDate(r.record.type) ? 'Most recent' : 'Last held'} <time datetime={r.lastHeld}>{short(r.lastHeld)}</time></Fragment> : 'No date on file'} · <a href={r.source} rel="noopener" class={pub.link}>{typeset(r.record.organizer)}</a>, checked <time datetime={r.entry.checked}>{short(r.entry.checked)}</time>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </Fragment>
-      )}
-      {canceled.length > 0 && (
-        <Fragment>
-          <h3 id="canceled" class={pub.h3}>Canceled</h3>
-          {canceled.map((r) => <DateEntry {...entryProps(r)} />)}
-        </Fragment>
-      )}
+  {section.now && (
+    <PubSection id={section.now.id} number={section.now.number} title={section.now.title} tone={section.now.tone} top="#top">
+      <OpenNow records={openRecords} {today} variant="pub" anchors={openAnchors} />
       {carried.length > 0 && (
         <Fragment>
-          <h3 id="one-time-events" class={pub.h3}>One-time events</h3>
+          <h3 id="one-time-events" class:list={[pub.h3, !hasOpen && 'mt-[22px]']}>One-time events</h3>
           {/* The next ten, then the rest in a second list the script folds away; without the script every event is on the page and the button is not. */}
           {[carriedFirst, carriedRest].map((list, i) => list.length > 0 && (
             <ul id={i ? 'carried-rest' : undefined} data-carried-events={i ? undefined : true} data-carried-rest={i ? true : undefined}>
               {list.map(({ e, start }) => (
-                <li class:list={['py-2.5', pub.rule]} data-carried-event>
+                <li class:list={['py-2.5', pub.rule]} data-carried-event data-event-day={dayKey(start)}>
                   <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]"><a href={`/${town.slug}/events/${e.slug}/`} class={pub.link}>{typeset(e.data.title)}</a></span>
                   <span class:list={['block', pub.meta]}>
                     {isCanceled(e) && <Fragment>Canceled · </Fragment>}<time datetime={dayKey(start)}>{formatDayLong(start)}, {start.getFullYear()}</time>{e.data.venue && <Fragment> · {typeset(e.data.venue)}</Fragment>}
@@ -626,27 +554,34 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           )}
         </Fragment>
       )}
-      <OpenNow records={openRecords} {today} variant="pub" anchors={openAnchors} />
-      <CalendarSubscribe name={town.slug} what={`${town.name}’s dates`} size="text" class="mt-[22px]" />
-      {seasonPages.length > 0 && (
-        <nav aria-labelledby="seasons-heading">
-          <h3 id="seasons-heading" class={pub.h3}>{town.name} and the other towns</h3>
-          <ul class={pub.linkGrid} data-season-links>
-            {seasonPages.map((t) => (
-              <li><a href={TRADITION_TYPE_INFO[t].path} class:list={[pub.link, 'flex min-h-12 items-center border-b border-hairline text-base no-underline']}><span class="underline decoration-1 underline-offset-[3px]">{TRADITION_TYPE_INFO[t].plural} across Colorado</span></a></li>
-            ))}
-          </ul>
-        </nav>
-      )}
     </PubSection>
   )}
 
-  {section.places && (
-    <PubSection id={section.places.id} number={section.places.number} title={section.places.title} tone={section.places.tone} top="#top" data={{ 'places-to-know': '' }}>
+  {section.next && spotlight && (
+    <PubSection id={section.next.id} number={section.next.number} title={section.next.title} tone={section.next.tone} top="#top">
+          {spotlight.record.about && <p class:list={['mt-3', pub.t]} data-spotlight>{typeset(spotlight.record.about.text)}</p>}
+          {monthIdFor(spotlight) && <span id={monthIdFor(spotlight)} class="block scroll-mt-12 desk:scroll-mt-4" data-month-anchor></span>}
+          <DateEntry {...entryProps(spotlight)} />
+    </PubSection>
+  )}
+
+  {section.todo && (
+    <PubSection id={section.todo.id} number={section.todo.number} title={section.todo.title} tone={section.todo.tone} top="#top">
+      {/* The town's lead guide first (Start here), then places to know, then trails and parks: things to do, together (the owner, 21 November 2026). */}
+      {leadGuide && (
+        <div class="mt-[22px]" data-lead-guide>
+          <p id="start-here" class:list={[pub.cap, 'text-primary']}>Start here</p>
+          <p class="mt-2 font-heading text-[1.4118rem] font-medium leading-[1.2] tracking-[-0.01em] [font-variation-settings:normal] desk:text-[1.5294rem]"><a href={leadGuide.href} class="text-primary underline decoration-1 underline-offset-[4px]">{typeset(leadGuide.title)}</a></p>
+          <p class:list={['mt-2', pub.t]}>{typeset(leadGuide.line)}</p>
+        </div>
+      )}
+      {profile.places.length > 0 && (
+        <div data-places-to-know>
+          <h3 id="places-to-know" class:list={[pub.h3, !leadGuide && 'mt-[22px]']}>Places to know</h3>
       <ul class="mt-3.5 border-t border-hairline">
         {profile.places.map((p) => (
           <li class:list={['py-4', pub.rule]} data-place-to-know>
-            <h3 class={pub.title}>{p.page || p.url ? <a href={p.page ?? p.url} rel={p.page ? undefined : 'noopener'} class={pub.titleLink}>{typeset(p.name)}</a> : typeset(p.name)}</h3>
+            <h4 class={pub.title}>{p.page || p.url ? <a href={p.page ?? p.url} rel={p.page ? undefined : 'noopener'} class={pub.titleLink}>{typeset(p.name)}</a> : typeset(p.name)}</h4>
             <p class:list={['mt-1.5', pub.t]}>{typeset(p.what)}</p>
             <dl class="mt-2.5 border-t border-hairline">
               {p.facts.map((f) => <div class={pub.dlMuseum}><dt class={pub.dt}>{typeset(f.label)}</dt><dd class={pub.t}>{typeset(f.value)}</dd></div>)}
@@ -659,15 +594,15 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
         ))}
       </ul>
       <p class:list={['mt-3', pub.meta]}>Each entry links the pages its facts were read on. Seasons, prices and rules change: check the operator’s page on the day.</p>
-    </PubSection>
-  )}
-
-  {section.trails && (
-    <PubSection id={section.trails.id} number={section.trails.number} title={section.trails.title} tone={section.trails.tone} top="#top" data={{ 'trails-and-parks': '' }}>
+        </div>
+      )}
+      {profile.trails.length > 0 && (
+        <div data-trails-and-parks>
+          <h3 id="trails-and-parks" class:list={[pub.h3, !leadGuide && profile.places.length === 0 && 'mt-[22px]']}>Trails and parks</h3>
       <ul class="mt-3.5 border-t border-hairline">
         {profile.trails.map((t) => (
           <li class:list={['py-4', pub.rule]} data-trail>
-            <h3 class={pub.title}>{t.page || t.url ? <a href={t.page ?? t.url} rel={t.page ? undefined : 'noopener'} class={pub.titleLink}>{typeset(t.name)}</a> : typeset(t.name)}</h3>
+            <h4 class={pub.title}>{t.page || t.url ? <a href={t.page ?? t.url} rel={t.page ? undefined : 'noopener'} class={pub.titleLink}>{typeset(t.name)}</a> : typeset(t.name)}</h4>
             <p class:list={['mt-0.5', pub.meta]}>{typeset(`${t.kind} · ${t.manager}`)}</p>
             <dl class="mt-2.5 border-t border-hairline">
               {t.length && <div class={pub.dlMuseum}><dt class={pub.dt}>Length</dt><dd class={pub.t}>{typeset(t.length)}</dd></div>}
@@ -686,6 +621,8 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
         ))}
       </ul>
       <p class:list={['mt-3', pub.meta]}>Each entry links the pages its facts were read on. Trails close for weather, wildlife and repairs: check the manager’s page before you go.</p>
+        </div>
+      )}
     </PubSection>
   )}
 
@@ -811,6 +748,64 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
             <a href={roads.source.url} rel="noopener" class={pub.link}>{roads.source.name}</a>
           </p>
         </div>
+      )}
+    </PubSection>
+  )}
+
+  {section.events && (
+    <PubSection id={section.events.id} number={section.events.number} title={section.events.title} tone={section.events.tone} top="#top">
+      {/* The annual calendar: the town's annual dates (the one-time events and what is open now are under Happening now, above). */}
+      {quiet && <p class:list={['mt-3 italic', pub.meta]} data-quiet>No {town.name} event date in the next {NEXT_DAYS} days has been published yet.</p>}
+      {marked && (
+        <Fragment>
+          <h3 id="year-at-a-glance" class:list={[pub.h3, 'mt-[22px]']}>The year at a glance</h3>
+          <YearGrid {cells} />
+        </Fragment>
+      )}
+      {comingUp.length > 0 && (
+        <Fragment>
+          <h3 id="coming-up" class:list={[pub.h3, !marked && 'mt-[22px]']}>Coming up</h3>
+          {comingUp.map((r) => (
+            <Fragment>
+              {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-12 desk:scroll-mt-4" data-month-anchor></span>}
+              <DateEntry {...entryProps(r)} />
+            </Fragment>
+          ))}
+        </Fragment>
+      )}
+      {waiting.length > 0 && (
+        <Fragment>
+          <h3 id="not-announced" class:list={[pub.h3, comingUp.length === 0 && !marked && 'mt-[22px]']}>Date not yet announced</h3>
+          {/* One line each (the owner, 18 November 2026): the name, the month it usually falls in, when it was last held. */}
+          <ul data-not-announced>
+            {waiting.map((r) => (
+              <li id={r.record.slug} class:list={['scroll-mt-12 py-2.5 desk:scroll-mt-4', pub.rule]} data-tradition-row data-status="not-announced" data-waiting>
+                {monthIdFor(r) && <span id={monthIdFor(r)} class="block scroll-mt-12 desk:scroll-mt-4" data-month-anchor></span>}
+                <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]">{pageOf(r) ? <a href={pageOf(r)} class={pub.link}>{typeset(r.record.name)}</a> : typeset(r.record.name)}</span>
+                <span class:list={['block', pub.meta]}>
+                  {usualMonth(r) && <Fragment>Usually {usualMonth(r)} · </Fragment>}{r.lastHeld ? <Fragment>{isAgencyDate(r.record.type) ? 'Most recent' : 'Last held'} <time datetime={r.lastHeld}>{short(r.lastHeld)}</time></Fragment> : 'No date on file'} · <a href={r.source} rel="noopener" class={pub.link}>{typeset(r.record.organizer)}</a>, checked <time datetime={r.entry.checked}>{short(r.entry.checked)}</time>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Fragment>
+      )}
+      {canceled.length > 0 && (
+        <Fragment>
+          <h3 id="canceled" class={pub.h3}>Canceled</h3>
+          {canceled.map((r) => <DateEntry {...entryProps(r)} />)}
+        </Fragment>
+      )}
+      <CalendarSubscribe name={town.slug} what={`${town.name}’s dates`} size="text" class="mt-[22px]" />
+      {seasonPages.length > 0 && (
+        <nav aria-labelledby="seasons-heading">
+          <h3 id="seasons-heading" class={pub.h3}>{town.name} and the other towns</h3>
+          <ul class={pub.linkGrid} data-season-links>
+            {seasonPages.map((t) => (
+              <li><a href={TRADITION_TYPE_INFO[t].path} class:list={[pub.link, 'flex min-h-12 items-center border-b border-hairline text-base no-underline']}><span class="underline decoration-1 underline-offset-[3px]">{TRADITION_TYPE_INFO[t].plural} across Colorado</span></a></li>
+            ))}
+          </ul>
+        </nav>
       )}
     </PubSection>
   )}
@@ -1017,8 +1012,6 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
   // script the rail is the plain list of links it was.
   const railLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-otp-link]')];
   const railTargets = railLinks.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))));
-  // The section bar on a phone marks the same section, and scrolls itself so the mark is in view.
-  const barLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-bar-link]')];
   if (railLinks.length > 0) {
     let queued = false;
     const mark = () => {
@@ -1031,12 +1024,6 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       const atFoot = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
       if (atFoot && current >= 0) current = railTargets.length - 1;
       railLinks.forEach((a, i) => (i === current ? a.setAttribute('aria-current', 'location') : a.removeAttribute('aria-current')));
-      barLinks.forEach((a, i) => {
-        if (i === current) {
-          if (!a.hasAttribute('aria-current')) a.scrollIntoView({ block: 'nearest', inline: 'center' });
-          a.setAttribute('aria-current', 'location');
-        } else a.removeAttribute('aria-current');
-      });
     };
     const queue = () => {
       if (queued) return;

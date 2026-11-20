@@ -1,0 +1,38 @@
+---
+/**
+ * Don't miss (the owner, 7 November 2026, after comparing niwot.com): the
+ * next featured listing within three weeks (src/lib/home-tabs.ts,
+ * dontMiss), as a card with a photograph. Its own section since 21 November
+ * 2026, after What's happening (the owner's content order: what is on now,
+ * then the next big event), in the same place on a phone and a desktop; it
+ * was beside the list on a wide screen and above the tabs on a phone. It
+ * carries the listing's own marks, so it comes off the page when the
+ * listing does, and the section with it.
+ */
+import { Image } from 'astro:assets';
+import type { Feature } from './WhatsHappening.astro';
+
+interface Props {
+  feature: Feature;
+}
+
+const { feature } = Astro.props;
+---
+<section class="band-compact band-paper" aria-labelledby="dont-miss" data-hide-when-empty>
+  <div class="container-page">
+    <h2 id="dont-miss" class="display-md text-[2rem] md:text-[2.5rem]">Don’t miss</h2>
+    <div class="mt-5 max-w-3xl">
+        <a href={feature.href} data-event-day={feature.eventDay} data-end={feature.end} class:list={['group overflow-hidden rounded-lg bg-raised no-underline ring-1 ring-line-soft hover:ring-primary-line', feature.image ? 'grid grid-cols-[6.5rem_minmax(0,1fr)] items-stretch gap-x-4 sm:grid-cols-[10rem_minmax(0,1fr)]' : 'block']} data-track="dont-miss">
+          {/* A square thumbnail, 104px on a phone and 160px from a tablet up, from a srcset (the owner's review, 13 November 2026). */}
+          {feature.image && <Image src={feature.image} alt={feature.alt} width={480} widths={[160, 320, 480]} sizes="(min-width: 640px) 160px, 104px" loading="lazy" class="aspect-square h-auto w-full self-start object-cover" />}
+          <div class:list={['py-3 pr-3 lg:px-5 lg:py-4', !feature.image && 'pl-4']}>
+            <p class="text-[0.875rem] font-semibold leading-snug text-ink">{feature.when}</p>
+            <h3 class="display-md mt-1 text-[1.25rem] leading-tight text-ink group-hover:text-primary lg:text-[1.5rem]">{feature.title}</h3>
+            {feature.where && <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{feature.where}</p>}
+            {feature.blurb && <p class="mt-2 hidden text-[0.9375rem] leading-snug text-ink lg:line-clamp-3">{feature.blurb}</p>}
+            <p class="mt-2 hidden text-[0.9375rem] font-semibold text-primary underline lg:block">The details →</p>
+          </div>
+        </a>
+    </div>
+  </div>
+</section>

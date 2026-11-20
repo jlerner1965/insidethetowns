@@ -4,39 +4,31 @@
  * November 2026 (the home board), which replaced the home's own look of
  * 13 November: the hub's masthead and footer, its colours, and the
  * network's two faces, Fraunces and Instrument Sans. Top to bottom, each a
- * full-width band, paper and white in turn:
+ * full-width band, paper and white in turn, in the owner's order (the
+ * content order brief of 21 November 2026), the same on a phone and from
+ * 900px:
  *
- *   1. The hero: the kicker, the headline and its line, the search, the
- *      way to the three sections below, and the owner's photograph of the
- *      Flatirons.
+ *   1. The hero: the kicker, the headline and its line, the page's one
+ *      search box, the way to the sections below, and the owner's
+ *      photograph of the Flatirons.
  *   2. This weekend: a heading a day, Friday to Sunday, and under each the
  *      day's listings from the guides: a guide editor's pick first, else
  *      the best the organizers have confirmed, never two from one town
  *      (src/lib/hub-home.ts, weekendPicksByDay), and Friday's high-school
- *      game where the scores data has one, until Friday is over. Directly
- *      under it, Colorado's Secret Trails: the current issue, static, its
- *      words changed by hand each issue.
+ *      game where the scores data has one, until Friday is over.
  *   3. This season: each annual-events season the owner has opened, its
  *      next date, the event on it, and how many towns hold it.
- *   4. The Thursday email, on the hub's blue.
- *   5. High school scores: each school the guides follow, with its last
- *      result from the scores files.
- *   6. In the towns: the five newest featured articles, the newest
- *      first and set larger.
- *   7. Find your town: the full sections together, the seven guides and
- *      the four folded guides kept whole (fullSections), and a box that
- *      takes any other town's name to its page.
+ *   4. Find your town: the full sections together, the seven guides and
+ *      the four folded guides kept whole (fullSections), and the A to Z.
+ *   5. Featured: the newest featured article and Colorado's Secret Trails,
+ *      the current issue, static, its words changed by hand each issue.
+ *   6. More stories: the next four featured articles.
+ *   7. The Thursday email, on the hub's blue.
  *
- * The weekend leads and the season follows, and the weekend's rows carry no
- * check line, since the viewer review of 14 November 2026: a phone reader
- * came for what is on, and each listing's own page says where it was checked.
- *
- * Above 900px (the owner's desktop boards, 14 November 2026) the column is
- * 1200px, the hero's photograph sits beside its words, This season and This
- * weekend share a band (the season in the narrow column on the left, as the
- * boards have it), as do the scores and In the towns, the email's form
- * is one line, and the guides and the areas run four across. Below it each
- * section is the phone's band of its own.
+ * High school scores have no section here since 21 November 2026: each
+ * school's are on its town's sports pages. From 900px the column is
+ * 1200px, the hero's photograph sits beside its words, the story and the
+ * trail sit side by side, and the guides run four across.
  *
  * Every list reads what the rest of the hub reads: liveTowns() for the
  * guides, fullSections() for the sections, publishedHubTowns() for the town pages, the tradition records,
@@ -54,12 +46,12 @@ import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { pub } from '@/components/hub/pub';
 import { coverageLine, emailEditions, fullSections, getHub, guideUrl, listsEvents, liveTowns, sectionHome } from '@/config';
 import { hubCountyLine } from '@/config/hub-towns';
-import { schoolTeamName, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
+import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
 import { getCuriosity, getNetworkEntries, getSectionArticles, getTraditions } from '@/lib/content';
 import { ARTICLES_INDEX_PATH, articlePath, kindLabel } from '@/lib/curiosity';
 import { placeName } from '@/lib/curiosity-places';
 import { typeset } from '@/lib/text';
-import { dayKey, formatDayLong, formatDayRange, formatDayShort, formatMonthDay, monthDay, parseLocal, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatDayLong, formatDayRange, formatMonthDay, monthDay, parseLocal, toIsoLocal } from '@/lib/dates';
 import { clockText, displayTitle, isInProgress, lastDay, listedUntil, occurrences } from '@/lib/events';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import {
@@ -88,7 +80,7 @@ import {
 } from '@/lib/hub-home';
 import { shortCost } from '@/lib/cost';
 import { resolveSiteImage } from '@/lib/images';
-import { FLAGSHIP_TEAM, RESULT_WORD, gameDay, hasData, latestResult, outcome, sportsDataFor } from '@/lib/school-sports';
+import { FLAGSHIP_TEAM, hasData, sportsDataFor } from '@/lib/school-sports';
 import { coveredTowns, pagesBeyondSections, townCount } from '@/lib/town-search-index';
 import { subTownsOf } from '@/lib/sub-towns';
 import { TRADITION_TYPE_INFO } from '@/lib/traditions';
@@ -173,7 +165,7 @@ const gameSources = live.flatMap((guide) =>
   }),
 );
 const found = fridayGame(gameSources, friday, listings);
-// The game shows until Friday is over: from Saturday it has been played, and its final is under High school scores.
+// The game shows until Friday is over: from Saturday it has been played, and its final is on its school's sports page.
 const game = found && friday >= todayKey ? found : undefined;
 const programs = await getNetworkEntries('programs');
 const weeklyNotes = await getNetworkEntries('weekly');
@@ -258,32 +250,6 @@ const weekend = days.flatMap((d) => {
   items.sort((a, b) => a.at - b.at);
   return items.length > 0 ? [{ key: d.key, heading: formatDayLong(d.date), items }] : [];
 });
-
-/**
- * High school scores: each school a guide follows in its menu (src/lib/nav.ts:
- * not an outdoors-led guide), with its last result as its sports pages word
- * it. A school with no result read has no row: no placeholder, no score
- * that was not posted.
- */
-const scores = live
-  .filter((t) => t.lead !== 'outdoors')
-  .flatMap((t) =>
-    schoolsFor(t.slug).flatMap((s) => {
-      const data = sportsDataFor(s, sportsFiles, now);
-      const last = data ? latestResult(data) : undefined;
-      if (!last?.game.result) return [];
-      return [{
-        // "Johnstown Roosevelt Roughriders": the town first where the school's name does not carry it, as its pages' titles have it.
-        name: [s.place, schoolTeamName(s)].filter(Boolean).join(' '),
-        href: guideUrl(t, `${sportsPath(s)}`),
-        result: `${last.team.name} ${RESULT_WORD[last.game.result].toLowerCase()} ${outcome(last.game)}`,
-        date: last.game.date,
-        day: formatDayShort(gameDay(last.game)),
-        // The school's own colour as a dot beside its name; the name is a link like any other (the post-migration fixes, 18 November 2026).
-        dot: s.colors?.primary,
-      }];
-    }),
-  );
 
 /**
  * In the towns: the five newest featured articles (the owner, 18 November
@@ -413,17 +379,11 @@ const dateDay = 'mt-0.5 whitespace-nowrap font-heading text-date leading-none tr
 /*
  * The layout above 900px (the owner's desktop boards, 14 November 2026):
  * the column is 1200px with 40px sides, a band has 64px over it and 72px
- * under it, and the sections pair up, 56px apart. Below 900px every grid is
- * one column and each section is the phone's band of its own.
+ * under it, and each section is a band of its own, in the phone's order.
+ * Below 900px every grid is one column.
  */
 const band = 'px-[20px] pb-[48px] pt-[36px] desk:px-0 desk:pb-[72px] desk:pt-[64px]';
 const wide = 'mx-auto w-full max-w-[720px] desk:max-w-[1200px] desk:px-[40px]';
-/** A section that shares a band from 900px: its own band on a phone, a column of the shared one above. */
-const half = 'px-[20px] pb-[48px] pt-[36px] desk:bg-transparent desk:p-0';
-const halfCol = 'mx-auto w-full max-w-[720px] desk:max-w-none';
-/** The shared band's padding and its grid: 4fr beside 8fr. */
-const pairBand = 'desk:pb-[72px] desk:pt-[64px]';
-const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr] desk:items-start desk:gap-x-[56px] desk:px-[40px]';
 ---
 <Base {fullTitle} {description} image={shareImage} imageAlt={HOME_PHOTO.alt} jsonLd={structured}>
   {/* The hero: what the page is, the search, and the way to the sections below; the photograph beside it from 900px. */}
@@ -433,7 +393,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
         <p class:list={[pub.cap, 'text-ink-muted']}>Colorado, plains to peaks</p>
         <h1 id="hero-h" class="mt-2.5 text-[2.2353rem] font-medium leading-[1.04] tracking-[-0.025em] text-ink [font-variation-settings:normal] desk:max-w-[12em] desk:text-[3.4118rem] desk:leading-[1.02]">What’s happening in Colorado’s towns</h1>
         <p class="mt-2 font-heading text-[1.1176rem] font-normal italic leading-[1.45] text-ink [font-variation-settings:normal] desk:text-[1.2353rem]">Find Colorado’s town traditions, this weekend’s events and local stories — from parades of lights to Friday night games.</p>
-        {/* The site's search (src/pages/search.astro), which on the hub holds every guide's places, guides and events as well as the town pages; the towns' names are offered as they are typed, from the town box's list (`home-names`, under Find your town). */}
+        {/* The page's one search box (the content order brief of 21 November 2026): the site's search (src/pages/search.astro), which on the hub holds every guide's places, guides and events as well as the town pages; every town's name is offered as it is typed (`home-names`). */}
         <form role="search" action="/search/" method="get" class="mt-5 desk:mt-[22px] desk:max-w-[560px]" data-track="home-search">
           {/* On a phone the box and its button say what it is, so the label is for screen readers there; it shows from 900px. */}
           <label for="home-q" class="max-desk:sr-only block text-[0.9412rem] font-[650] text-ink">Search towns and events</label>
@@ -441,6 +401,9 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
             <input id="home-q" name="q" type="search" list="home-names" autocomplete="off" placeholder="A town or an event" class="block h-12 min-w-0 flex-1 rounded-l-[2px] border border-r-0 border-ink-muted bg-raised px-3.5 text-[0.9412rem] text-ink placeholder:text-ink-muted" />
             <button type="submit" class="h-12 shrink-0 cursor-pointer rounded-r-[2px] border-0 bg-primary px-[18px] text-base font-semibold text-white hover:bg-primary-hover">Search</button>
           </div>
+          <datalist id="home-names">
+            {finder.map((t) => <option value={t.name} data-href={t.href} />)}
+          </datalist>
         </form>
         {/*
           * One row at every width, between two hairlines: on a phone, three
@@ -465,160 +428,71 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
   </section>
 
   {/*
-    * Always drawn: Colorado's Secret Trails is static, so the band no
-    * longer goes when the weekend's and the season's rows have all passed;
-    * each of those still goes on its own.
+    * Below the hero, one band a section, in the owner's order (the content
+    * order brief of 21 November 2026), the same on a phone and from 900px:
+    * This weekend, This season, Find your town, the featured story and the
+    * featured trail together, more stories, then the email. Paper and white
+    * in turn.
     */}
-  <div class:list={['desk:bg-raised', pairBand]}>
-    <div class:list={[pair, 'desk:grid-rows-[auto_1fr]']}>
-      {/*
-        * The weekend first, Colorado's Secret Trails directly under it, the
-        * season after: on a phone each is a band of its own, in this order,
-        * the weekend on white under the hero's paper. From 900px they share
-        * a band with the season in the narrow column on the left, as the
-        * desktop boards have it, running down beside the other two.
-        */}
-      {weekend.length > 0 && (
-        <section id="weekend" aria-labelledby="weekend-heading" data-band data-hide-when-empty class:list={[half, pub.white, seasons.length === 0 ? 'desk:col-span-2' : 'desk:col-start-2 desk:row-start-1']}>
-          <div class={halfCol}>
-            <div class={pub.open}>
-              <h2 id="weekend-heading" class={pub.h2}>This weekend</h2>
-              <p class={dek}>From the calendars of {listWords(weekendNames)}. Each opens on that town’s page, with the source it was checked against.</p>
-            </div>
-            {weekend.map((d) => (
-              <div data-day={d.key}>
-                <h3 class={pub.h3}>{d.heading}</h3>
-                {d.items.map((r) => (
-                  <article class:list={['py-4 desk:grid desk:grid-cols-[1.35fr_1fr] desk:gap-x-7', pub.rule]} data-event-day={r.until} data-end={r.end}>
-                    {/* What it is; from 900px, when and where beside it. */}
-                    <div class="min-w-0">
-                      <p class:list={[by, r.dot && 'flex items-center gap-2']}>{r.dot && <span class="inline-block size-2.5 shrink-0 rounded-full" style={`background:${r.dot}`} aria-hidden="true" data-school-dot></span>}{r.label}</p>
-                      <h4 class={hl}><a href={r.href} class={pub.titleLink} data-track="home-weekend">{typeset(r.title)}</a></h4>
-                      {r.reasons.length > 0 && <p class:list={['mt-1.5', pub.t]}>{typeset(r.reasons.join(' · '))}</p>}
-                    </div>
-                    <div class="min-w-0">
-                      {r.meta.length > 0 && <p class={pub.t}>{typeset(r.meta.join(' · '))}</p>}
-                    </div>
-                  </article>
-                ))}
-              </div>
-            ))}
-            <a href="/this-weekend/" class={more} data-track="home-weekend">Everything on this weekend →</a>
-          </div>
-        </section>
-      )}
-
-      {/*
-        * Colorado's Secret Trails: text only and static, changed by hand
-        * each issue (the owner, 19 November 2026). No dated row, so the
-        * page's script never takes it down. From 900px it is the second row
-        * of the wide column, the season running down beside both rows; the
-        * gap over it is drawn only while the weekend is there above it.
-        */}
-      <section id="secret-trails" aria-labelledby="secret-trails-heading" data-band class:list={[half, pub.white, seasons.length === 0 ? 'desk:col-span-2' : 'desk:col-start-2', 'desk:row-start-2 desk:[#weekend+&]:mt-[56px]']}>
-        <div class={halfCol}>
-          <div class={pub.open}>
-            <h2 id="secret-trails-heading" class={pub.h2}>Colorado’s Secret Trails</h2>
-          </div>
-          <article class:list={['py-4', pub.rule]}>
-            <h3 class={hl}><a href="/articles/bent-rock-trail-red-mountain-open-space/" class={pub.titleLink} data-track="home-secret-trail">Bent Rock Trail at Red Mountain Open Space</a></h3>
-            <p class:list={['mt-1.5', pub.t]}>Nearest town: Wellington. Red-rock country 25 miles north of Fort Collins. Closes for the winter Dec. 1.</p>
-          </article>
-          <a href="/colorados-secret-trails/" class={more} data-track="home-secret-trail">All secret trails →</a>
+  {weekend.length > 0 && (
+    <section id="weekend" aria-labelledby="weekend-heading" data-band data-hide-when-empty class:list={[band, pub.white]}>
+      <div class={wide}>
+        <div class={pub.open}>
+          <h2 id="weekend-heading" class={pub.h2}>This weekend</h2>
+          <p class={dek}>From the calendars of {listWords(weekendNames)}. Each opens on that town’s page, with the source it was checked against.</p>
         </div>
-      </section>
-
-      {seasons.length > 0 && (
-        <section id="season" aria-labelledby="season-heading" data-band data-hide-when-empty class:list={[half, pub.paper, 'desk:col-start-1 desk:row-start-1 desk:row-span-2']}>
-          <div class={halfCol}>
-            <div class={pub.open}>
-              <h2 id="season-heading" class={pub.h2}>This season</h2>
-              <p class={dek}>Annual events coming up, and how many towns hold them.</p>
-            </div>
-            {seasons.map((r) => (
-              <article class:list={['grid grid-cols-[58px_minmax(0,1fr)] gap-x-3.5 py-4', pub.rule]} data-event-day={r.until} data-season-row data-starts={r.starts} data-ends={r.until}>
-                <div aria-hidden="true">
-                  <p class={dateMonth}>{r.month.toUpperCase()}</p>
-                  <p class={dateDay}>{r.day}</p>
-                  <p class:list={['mt-1', pub.meta]}>{r.weekday}</p>
+        {weekend.map((d) => (
+          <div data-day={d.key}>
+            <h3 class={pub.h3}>{d.heading}</h3>
+            {d.items.map((r) => (
+              <article class:list={['py-4 desk:grid desk:grid-cols-[1.35fr_1fr] desk:gap-x-7', pub.rule]} data-event-day={r.until} data-end={r.end}>
+                {/* What it is; from 900px, when and where beside it. */}
+                <div class="min-w-0">
+                  <p class:list={[by, r.dot && 'flex items-center gap-2']}>{r.dot && <span class="inline-block size-2.5 shrink-0 rounded-full" style={`background:${r.dot}`} aria-hidden="true" data-school-dot></span>}{r.label}</p>
+                  <h4 class={hl}><a href={r.href} class={pub.titleLink} data-track="home-weekend">{typeset(r.title)}</a></h4>
+                  {r.reasons.length > 0 && <p class:list={['mt-1.5', pub.t]}>{typeset(r.reasons.join(' · '))}</p>}
                 </div>
                 <div class="min-w-0">
-                  <h3 class:list={[hl, 'mt-0']}><a href={r.href} class={pub.titleLink} data-track="home-season">{r.title}</a></h3>
-                  <p class:list={['mt-1', pub.t]}><span data-next-word>Next: </span>{typeset(r.next)}</p>
-                  {r.line && <p class:list={['mt-1', pub.meta]}>{r.line}</p>}
+                  {r.meta.length > 0 && <p class={pub.t}>{typeset(r.meta.join(' · '))}</p>}
                 </div>
               </article>
             ))}
-            <a href={ANNUAL_EVENTS_HREF} class={more} data-track="home-season">All annual events →</a>
           </div>
-        </section>
-      )}
-    </div>
-  </div>
-
-  {(scores.length > 0 || news.length > 0) && (
-    <div class:list={['desk:bg-paper', pairBand]}>
-      <div class={pair}>
-        {scores.length > 0 && (
-          <section id="scores" aria-labelledby="scores-heading" data-band class:list={[half, pub.white, news.length === 0 && 'desk:col-span-2']}>
-            <div class={halfCol}>
-              <div class={pub.open}>
-                <h2 id="scores-heading" class={pub.h2}>High school scores</h2>
-                <p class={dek}>Each team’s last result, posted by Saturday morning.</p>
-              </div>
-              {/*
-                * The team's name, the link, and its result on its own line under
-                * it (the review of 14 November 2026: beside it, a name like
-                * "Johnstown Roosevelt Roughriders" wrapped to three lines in the
-                * rail and on a phone). One hairline under each row.
-                */}
-              <ul class="mt-2">
-                {scores.map((s) => (
-                  <li class:list={['py-2.5', pub.rule]} data-score-row>
-                    <span class="flex items-baseline gap-2">{s.dot && <span class="inline-block size-2.5 shrink-0 translate-y-[-1px] rounded-full" style={`background:${s.dot}`} aria-hidden="true" data-school-dot></span>}<a href={s.href} class={pub.link} data-track="home-scores">{s.name}</a></span>
-                    <p class:list={['mt-0.5', pub.meta]}>{s.result}, <time datetime={s.date}>{s.day}</time></p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        )}
-
-        {news.length > 0 && (
-          <section id="news" aria-labelledby="news-heading" data-band data-hide-when-empty class:list={[half, pub.paper, scores.length === 0 && 'desk:col-span-2']}>
-            <div class={halfCol}>
-              <div class={pub.open}>
-                <h2 id="news-heading" class={pub.h2}>In the towns</h2>
-                <p class={dek}>Stories from the towns, each with its sources.</p>
-              </div>
-              {news.slice(0, 1).map((i) => (
-                <article class:list={['py-[18px]', pub.rule]} data-event-day={i.until}>
-                  <p class={by}>{i.byline}</p>
-                  <h3 class:list={[hl, 'text-[1.5294rem] leading-[1.15] desk:text-[1.8824rem]']}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{typeset(i.title)}</a></h3>
-                  <p class:list={['mt-2', pub.t]}>{typeset(i.line)}</p>
-                  {i.source && <p class:list={['mt-2', pub.meta]}>{i.source}</p>}
-                </article>
-              ))}
-              {news.length > 1 && (
-                <div class="desk:grid desk:grid-cols-2 desk:gap-x-8">
-                  {news.slice(1).map((i) => (
-                    <article class:list={['py-4', pub.rule]} data-event-day={i.until}>
-                      <p class={by}>{i.byline}</p>
-                      <h3 class={hl}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{typeset(i.title)}</a></h3>
-                      {i.source && <p class:list={['mt-1.5', pub.meta]}>{i.source}</p>}
-                    </article>
-                  ))}
-                </div>
-              )}
-              {articlesOnSite.length > 0 && <a href={ARTICLES_INDEX_PATH} class={more} data-track="home-news">All articles →</a>}
-            </div>
-          </section>
-        )}
+        ))}
+        <a href="/this-weekend/" class={more} data-track="home-weekend">Everything on this weekend →</a>
       </div>
-    </div>
+    </section>
   )}
 
-  <section id="towns" aria-labelledby="towns-heading" data-band class="bg-raised px-[20px] pb-[56px] pt-[36px] desk:px-0 desk:pb-[72px] desk:pt-[64px]">
+  {seasons.length > 0 && (
+    <section id="season" aria-labelledby="season-heading" data-band data-hide-when-empty class:list={[band, pub.paper]}>
+      <div class={wide}>
+        <div class={pub.open}>
+          <h2 id="season-heading" class={pub.h2}>This season</h2>
+          <p class={dek}>Annual events coming up, and how many towns hold them.</p>
+        </div>
+        <div class="desk:grid desk:grid-cols-2 desk:gap-x-8">
+          {seasons.map((r) => (
+            <article class:list={['grid grid-cols-[58px_minmax(0,1fr)] gap-x-3.5 py-4', pub.rule]} data-event-day={r.until} data-season-row data-starts={r.starts} data-ends={r.until}>
+              <div aria-hidden="true">
+                <p class={dateMonth}>{r.month.toUpperCase()}</p>
+                <p class={dateDay}>{r.day}</p>
+                <p class:list={['mt-1', pub.meta]}>{r.weekday}</p>
+              </div>
+              <div class="min-w-0">
+                <h3 class:list={[hl, 'mt-0']}><a href={r.href} class={pub.titleLink} data-track="home-season">{r.title}</a></h3>
+                <p class:list={['mt-1', pub.t]}><span data-next-word>Next: </span>{typeset(r.next)}</p>
+                {r.line && <p class:list={['mt-1', pub.meta]}>{r.line}</p>}
+              </div>
+            </article>
+          ))}
+        </div>
+        <a href={ANNUAL_EVENTS_HREF} class={more} data-track="home-season">All annual events →</a>
+      </div>
+    </section>
+  )}
+
+  <section id="towns" aria-labelledby="towns-heading" data-band class:list={[band, pub.white]}>
     <div class={wide}>
       <div class={pub.open}>
         <h2 id="towns-heading" class={pub.h2}>Find your town</h2>
@@ -634,26 +508,72 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
           </div>
         ))}
       </div>
+      {/* Every other town: its page from the A to Z, or its name in the search at the top of the page, which suggests every town as it is typed. */}
       <h3 class={pub.h3}>Every other town</h3>
-      {/*
-        * A name from the list goes straight to its page (the page's script,
-        * below); anything else, or a reader with no script, is a search.
-        * The list is the hero's too.
-        */}
-      <form action="/search/" method="get" class="mt-4 desk:max-w-[560px]" data-town-finder>
-        <label for="town-q" class="block text-[0.9412rem] font-[650] text-ink">Type your town</label>
-        <div class="mt-2 flex">
-          <input id="town-q" name="q" type="search" list="home-names" autocomplete="off" enterkeyhint="go" placeholder="Your town’s name" class="block h-12 min-w-0 flex-1 rounded-l-[2px] border border-r-0 border-ink-muted bg-raised px-3.5 text-[0.9412rem] text-ink placeholder:text-ink-muted" />
-          <button type="submit" class="h-12 shrink-0 cursor-pointer rounded-r-[2px] border-0 bg-primary px-[18px] text-base font-semibold text-white hover:bg-primary-hover">Go</button>
-        </div>
-        <datalist id="home-names">
-          {finder.map((t) => <option value={t.name} data-href={t.href} />)}
-        </datalist>
-      </form>
       {/* `town-pages`: where the guides' About pages send a reader for "a page on Inside the Towns". */}
       {moreTowns > 0 && <a id="town-pages" href="/towns/" class={more} data-track="home-index">All {allTowns} towns, A to Z →</a>}
     </div>
   </section>
+
+  {/*
+    * The featured story and the featured trail, together: the newest
+    * featured article (news, src/lib/hub-home.ts) and Colorado's Secret
+    * Trails, text only and static, changed by hand each issue (the owner, 19
+    * November 2026). The story first, the trail after it, on a phone and
+    * from 900px alike (beside it there).
+    */}
+  <section id="featured" aria-labelledby="featured-heading" data-band class:list={[band, pub.paper]}>
+    <div class:list={[wide, news.length > 0 && 'desk:grid desk:grid-cols-[8fr_4fr] desk:items-start desk:gap-x-[56px]']}>
+      {news.slice(0, 1).map((i) => (
+        <div class="min-w-0">
+          <div class={pub.open}>
+            <h2 id="featured-heading" class={pub.h2}>Featured story</h2>
+          </div>
+          <article class:list={['py-[18px]', pub.rule]} data-event-day={i.until}>
+            <p class={by}>{i.byline}</p>
+            <h3 class:list={[hl, 'text-[1.5294rem] leading-[1.15] desk:text-[1.8824rem]']}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{typeset(i.title)}</a></h3>
+            <p class:list={['mt-2', pub.t]}>{typeset(i.line)}</p>
+            {i.source && <p class:list={['mt-2', pub.meta]}>{i.source}</p>}
+          </article>
+        </div>
+      ))}
+      <div class:list={['min-w-0', news.length > 0 && 'mt-10 desk:mt-0']}>
+        <div class={pub.open}>
+          {news.length > 0 ? (
+            <h3 class={pub.h2}>Colorado’s Secret Trails</h3>
+          ) : (
+            <h2 id="featured-heading" class={pub.h2}>Colorado’s Secret Trails</h2>
+          )}
+        </div>
+        <article class:list={['py-4', pub.rule]}>
+          <h3 class={hl}><a href="/articles/bent-rock-trail-red-mountain-open-space/" class={pub.titleLink} data-track="home-secret-trail">Bent Rock Trail at Red Mountain Open Space</a></h3>
+          <p class:list={['mt-1.5', pub.t]}>Nearest town: Wellington. Red-rock country 25 miles north of Fort Collins. Closes for the winter Dec. 1.</p>
+        </article>
+        <a href="/colorados-secret-trails/" class={more} data-track="home-secret-trail">All secret trails →</a>
+      </div>
+    </div>
+  </section>
+
+  {news.length > 1 && (
+    <section id="news" aria-labelledby="news-heading" data-band data-hide-when-empty class:list={[band, pub.white]}>
+      <div class={wide}>
+        <div class={pub.open}>
+          <h2 id="news-heading" class={pub.h2}>More stories</h2>
+          <p class={dek}>Stories from the towns, each with its sources.</p>
+        </div>
+        <div class="desk:grid desk:grid-cols-2 desk:gap-x-8">
+          {news.slice(1).map((i) => (
+            <article class:list={['py-4', pub.rule]} data-event-day={i.until}>
+              <p class={by}>{i.byline}</p>
+              <h3 class={hl}><a href={i.href} rel={/^https?:/.test(i.href) ? 'noopener' : undefined} class={pub.titleLink} data-track="home-news">{typeset(i.title)}</a></h3>
+              {i.source && <p class:list={['mt-1.5', pub.meta]}>{i.source}</p>}
+            </article>
+          ))}
+        </div>
+        {articlesOnSite.length > 0 && <a href={ARTICLES_INDEX_PATH} class={more} data-track="home-news">All articles →</a>}
+      </div>
+    </section>
+  )}
 
   {/*
     * The email last, after the towns (the owner's order of 13 November
@@ -679,8 +599,6 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
 </Base>
 
 <script>
-  import { sendEvent } from '@/lib/track';
-
   // "Today" on a season's next date, by the reader's own Denver day: never
   // in the built page, which a stale build would leave saying it.
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
@@ -693,19 +611,6 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
     tag.textContent = 'Today';
     word.replaceWith(tag);
   }
-  // The town box: a name from its list goes straight to that town's page,
-  // whatever its case; anything else goes on to the search, as the form says.
-  // Counted as `home-town-box` with which of the two it was, and the town
-  // where it was one of the list's: never the words a reader typed.
-  const finder = document.querySelector<HTMLFormElement>('[data-town-finder]');
-  finder?.addEventListener('submit', (event) => {
-    const typed = finder.querySelector('input')?.value.trim().toLowerCase();
-    const town = [...document.querySelectorAll<HTMLOptionElement>('#home-names option')].find((o) => o.value.toLowerCase() === typed);
-    sendEvent('home-town-box', town?.dataset.href ? { result: 'town', town: town.value, from: location.pathname } : { result: 'search', from: location.pathname });
-    if (!town?.dataset.href) return;
-    event.preventDefault();
-    window.location.assign(town.dataset.href);
-  });
   // A jump to a section the page's other script took away (its dates had all passed) goes with it.
   for (const jump of document.querySelectorAll<HTMLElement>('[data-jump]')) {
     if (!document.getElementById(jump.dataset.jump ?? '')) jump.closest('li')?.remove();

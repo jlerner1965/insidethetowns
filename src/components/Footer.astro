@@ -21,7 +21,7 @@
  * (All events, Every year, the directory, Local changes), each one click
  * from any page as before (the review of 14 November 2026), under the map.
  */
-import { getNetworkHub, getSite, listsEvents } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getSite, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { EMAIL_NAV, SITE_NAV, isFoldedSection, navTarget, seasonLinks, siteNav, sportsNavLabel } from '@/lib/nav';
 import { guidesWithTraditions } from '@/lib/tradition-files';
@@ -43,7 +43,11 @@ const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const sendTime = hub.newsletter?.sendTime;
 const emailHref = site.kind === 'town' ? `https://${hub.domain}${EMAIL_NAV.href}?towns=${site.slug}` : EMAIL_NAV.href;
 // The email band only where the email exists; a guide that lists no events (Niwot) has no edition, but the band still offers the network's.
-const emailOn = !!hub.newsletter;
+// Not on a home page whose own signup is the last section above the footer: the hub's, and a guide's where
+// the email covers it or, on a quiet guide, its updates (TownHome.astro; one signup a page: the owner's
+// content order, 21 November 2026).
+const ownSignup = home && (site.kind === 'hub' || site.lead === 'updates' || !!editionFor(site.slug, emailEditions()));
+const emailOn = !!hub.newsletter && !ownSignup;
 
 const byHref = (href: string) => SITE_NAV.find((n) => n.href === href)!;
 const explore = [byHref('/this-weekend/'), byHref('/towns/'), byHref('/colorados-secret-trails/'), byHref('/articles/'), { label: EMAIL_NAV.label, href: EMAIL_NAV.href }];
