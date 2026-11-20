@@ -105,10 +105,9 @@
         "name": "Pagosa Springs History Museum",
         "kind": "museum",
         "url": "https://pagosamuseum.org/",
-        "hours": "Wed–Sat 10 am–4 pm",
-        "season": "Memorial Day through Labor Day",
-        "source": "https://pagosamuseum.org/location-and-hours/",
-        "checked": "2026-11-12"
+        "season": "Closed for the season",
+        "source": "https://pagosamuseum.org/",
+        "checked": "2026-11-19"
       }
     ]
   }

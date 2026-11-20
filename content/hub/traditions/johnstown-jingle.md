@@ -15,5 +15,8 @@ years:
     status: confirmed
     date: 2026-12-06
     startTime: "2 pm"
-    checked: 2026-11-17
+    subEvents:
+      - name: "Tree Lighting"
+        time: "5:30 pm"
+    checked: 2026-11-19
 ---

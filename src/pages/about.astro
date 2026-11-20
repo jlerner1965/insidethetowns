@@ -6,7 +6,8 @@ import Page from '@/layouts/Page.astro';
 import FactStrip from '@/components/FactStrip.astro';
 import TipsLink from '@/components/TipsLink.astro';
 import { resolveSiteImage } from '@/lib/images';
-import { countiesCovered, countyLabel, getNetworkHub, getSite, guideUrl, liveTowns, listsEvents } from '@/config';
+import { countiesCovered, countyLabel, fullSections, getNetworkHub, getSite, liveTowns, listsEvents, sectionHome, sectionSite } from '@/config';
+import { pagesBeyondSections } from '@/lib/town-search-index';
 import CtaBand from '@/components/CtaBand.astro';
 import { getTownEntries } from '@/lib/content';
 import { eventTotals, describeTotals } from '@/lib/event-totals';
@@ -61,7 +62,16 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
 // Longmont · Inside the Towns"). Search-visibility phase 2, 15 October 2026.
 // The town pages on the hub (src/lib/hub-towns.ts): how many are published.
 const hub = getNetworkHub();
-const townPages = publishedHubTowns(await getTraditions()).length;
+/**
+ * The hub's About counts what the home and /towns/ count, by their rules:
+ * the eleven full sections (fullSections) and the town pages no section
+ * covers (pagesBeyondSections). It had counted the seven guides and every
+ * published town page, so it said "Guides live 7" and "95" town pages
+ * while the home and /towns/ said eleven and 91 (the site audit of 19
+ * November 2026).
+ */
+const sectionList = fullSections();
+const townPages = pagesBeyondSections([...publishedHubTowns(await getTraditions())], sectionList).length;
 ---
 {site.kind === 'town' ? (
   <Page title={`About ${site.siteTitle}`} seoTitle="About this guide" eyebrow="Independent, local" description={`What ${site.siteTitle} is, who runs it and what it is not: an independent guide to ${site.name}, not the town government or a chamber of commerce.`}>
@@ -203,11 +213,11 @@ const townPages = publishedHubTowns(await getTraditions()).length;
     <FactStrip
       size="number"
       facts={[
-        { label: 'Guides live', value: String(live.length) },
-        { label: 'Counties', value: String(countiesCovered(live).length) },
-        { label: 'Population of the towns', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
+        { label: 'Full town sections', value: String(sectionList.length) },
+        { label: 'Counties', value: String(countiesCovered(sectionList).length) },
+        { label: 'Population of the towns', value: sectionList.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
       ]}
-      note="Population at the 2020 census, summed across the live guides: the towns' size, not a count of readers."
+      note="Population at the 2020 census, summed across the full town sections: the towns' size, not a count of readers."
     />
     <div class="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
       <div class="prose">
@@ -219,9 +229,10 @@ const townPages = publishedHubTowns(await getTraditions()).length;
         {townPages > 0 && (
           <p>
             A town without a guide of its own has a page on <a href={`https://${hub.domain}/#town-pages`}>{hub.siteTitle}</a>
-            instead, and that page is dates only: the events the town holds every year and the outdoor dates around it,
-            each with the page it was read from and the day it was read. There are {townPages} of them. A town gets its
-            page once three of its own dates have been read on the organizer’s or the agency’s page, and not before.
+            instead: the events the town holds every year and the outdoor dates around it, then what the town is, how to
+            get there, where to stay and its history, each with the page it was read from and the day it was read. There
+            are {townPages} of them. A town gets its page once the date of one named annual event of its own has been read
+            on the organizer’s own page, and not before.
           </p>
         )}
         {city && (
@@ -274,11 +285,11 @@ const townPages = publishedHubTowns(await getTraditions()).length;
       </div>
       <aside class="lg:sticky lg:top-24 lg:self-start">
         <div class={panel}>
-          <p class={panelTitle}>Live guides</p>
+          <p class={panelTitle}>Full town sections</p>
           <ul class="mt-4 space-y-2.5 text-[0.9375rem]">
-            {live.map((t) => (
+            {sectionList.map((t) => (
               <li>
-                <a href={guideUrl(t)} class="font-semibold no-underline hover:text-primary hover:underline">{t.siteTitle}</a>
+                <a href={sectionHome(t)} class="font-semibold no-underline hover:text-primary hover:underline">{sectionSite(t).siteTitle}</a>
                 <span class="block text-ink-muted">{countyLabel(t)}</span>
               </li>
             ))}
