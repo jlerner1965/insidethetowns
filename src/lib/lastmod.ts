@@ -132,16 +132,25 @@ function traditionDates(repoRoot: string, out: Map<string, string>): void {
 }
 
 /**
- * Pages of fixed copy with no date of their own: the about, contact and
+ * Pages of fixed copy with no date in the content: the about, contact and
  * policy pages, the forms, the hub's moving pages and its list of towns.
  * They took the build's instant, a new lastmod on every deploy for a page
- * that had not changed (20 entries, the audit of 17 November 2026); they
- * now carry none, which is what "no date known" is.
+ * that had not changed (the audit of 17 November 2026), then none. They now
+ * carry the day their own files last changed (the owner, 20 November 2026):
+ * data/fixed-page-dates.json, written by scripts/fixed-page-dates.ts from
+ * the git history. One the file does not name takes the build's.
  */
 export const UNDATED = /^\/(?:about|advertise|contact|corrections|credits|editorial|for-businesses|moving-here|privacy|submit-event|towns|moving(?:\/[^/]+)?)\/$/;
 
-/** The lastmod for one sitemap URL: the page's own date; none for a page of fixed copy; else the build's. */
-export function lastmodFor(url: string, dates: Map<string, string>, buildDate: Date): string | undefined {
+/** The fixed pages' dates for one site, by path; a "/moving/*\/" key covers each page under it. */
+export type FixedDates = Readonly<Record<string, string>>;
+
+function fixedDate(pathname: string, fixed: FixedDates): string | undefined {
+  return fixed[pathname] ?? fixed[pathname.replace(/^(\/[^/]+\/)[^/]+\/$/, '$1*/')];
+}
+
+/** The lastmod for one sitemap URL: the page's own date; a page of fixed copy's last change; else the build's. */
+export function lastmodFor(url: string, dates: Map<string, string>, buildDate: Date, fixed: FixedDates = {}): string {
   const { pathname } = new URL(url);
-  return dates.get(pathname) ?? (UNDATED.test(pathname) ? undefined : buildDate.toISOString());
+  return dates.get(pathname) ?? (UNDATED.test(pathname) ? fixedDate(pathname, fixed) : undefined) ?? buildDate.toISOString();
 }

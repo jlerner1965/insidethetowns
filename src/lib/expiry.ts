@@ -83,6 +83,12 @@ export function pruneExpired(root: PrunableNode, nowMs: number, today: string): 
   for (const box of root.querySelectorAll('[data-hide-when-empty]')) {
     if (!box.querySelector('[data-event-day]')) box.remove();
   }
+  // A guide home's "On this page" (src/components/home/TownHome.astro): a
+  // link to a section that has just gone goes with it.
+  for (const link of root.querySelectorAll('[data-otp-link]')) {
+    const id = link.dataset.otpLink;
+    if (id && !root.querySelector(`[id="${id}"]`)) (link.closest('li') ?? link).remove();
+  }
   // Say so when a list has emptied out, rather than leaving a blank.
   for (const empty of root.querySelectorAll('[data-events-empty]')) {
     const scope = empty.closest('[data-events-scope]') ?? root;

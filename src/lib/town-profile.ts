@@ -173,6 +173,12 @@ export const townProfileSchema = z
                 cost: text.max(200).optional(),
                 /** "Year-round", or the season in the operator's words. */
                 season: text.max(160).optional(),
+                /**
+                 * Why it is closed with no date to reopen, in a sentence or
+                 * two from the source: the heading then says "Closed" and no
+                 * hours, cost or season are given.
+                 */
+                closed: text.max(320).optional(),
                 ...read,
               })
               .strict(),

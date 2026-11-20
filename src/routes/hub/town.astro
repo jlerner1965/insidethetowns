@@ -348,7 +348,12 @@ const sections = pageSections(town.name, {
   about: profile.strip.length > 0 || hasSignature || !!profile.heritage || hasArticles,
 });
 const has = (k: string) => sections.some((x) => x.key === k);
-const { seoTitle, description } = townSearchText(town.name, traditions, show?.spotlight, today, { trails: has('trails'), stay: has('stay'), history: !!profile.heritage || !!history });
+// A full section's page is one of the eleven guides' homes and takes their
+// one title formula, the guide's own `seoTagline` ("Estes Park, CO events
+// this weekend & things to do"; the owner, 20 November 2026). Every other
+// town page keeps the title made from what it covers.
+const { seoTitle: coversTitle, description } = townSearchText(town.name, traditions, show?.spotlight, today, { trails: has('trails'), stay: has('stay'), history: !!profile.heritage || !!history });
+const seoTitle = folded?.section?.mode === 'full' && folded.seoTagline ? folded.seoTagline : coversTitle;
 const structured = [
   collectionPageJsonLd(hub, { name: seoTitle, description, path, items: all.map((r) => ({ name: r.record.name, url: pageOf(r) ? `https://${hub.domain}${pageOf(r)}` : `${pageUrl}#${r.record.slug}` })) }),
   breadcrumbJsonLd(hub, [
@@ -929,7 +934,8 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
               <h3 class={pub.h3}>Museums and landmarks</h3>
               {profile.heritage.sites.map((s) => (
                 <Fragment>
-                  <h4 class:list={['mt-3.5', pub.title]}>{s.url ? <a href={s.url} rel="noopener" class={pub.titleLink}>{typeset(s.name)}</a> : typeset(s.name)}</h4>
+                  <h4 class:list={['mt-3.5', pub.title]}>{s.url ? <a href={s.url} rel="noopener" class={pub.titleLink}>{typeset(s.name)}</a> : typeset(s.name)}{s.closed && ' — Closed'}</h4>
+                  {s.closed && <p class:list={['mt-2', pub.t]}>{typeset(s.closed)}</p>}
                   {(s.hours || s.cost || s.season) && (
                     <dl class="mt-2 border-t border-hairline">
                       {s.hours && <div class={pub.dlMuseum}><dt class={pub.dt}>Hours</dt><dd class={pub.t}>{typeset(s.hours)}</dd></div>}

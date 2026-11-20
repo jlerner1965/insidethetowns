@@ -105,9 +105,9 @@
         "name": "Pagosa Springs History Museum",
         "kind": "museum",
         "url": "https://pagosamuseum.org/",
-        "season": "Closed for the season",
-        "source": "https://pagosamuseum.org/",
-        "checked": "2026-11-19"
+        "closed": "The museum's building by the 1st Street Bridge was severely damaged in the October 2026 San Juan River floods and demolished in November 2026. The museum's artifacts were moved out; there is no reopening date.",
+        "source": "https://pagosadailypost.com/2026/11/18/editorial-the-ongoing-struggle-to-recover-part-one/",
+        "checked": "2026-11-20"
       }
     ]
   }

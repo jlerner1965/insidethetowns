@@ -42,7 +42,7 @@ export const longmont: TownConfig = {
   shortTagline: 'Main Street, the St. Vrain Greenway and the breweries',
   // "CO", not "Colorado": with the longer site title, the spelled-out state
   // was trimmed off the home page's <title> (test/towns.test.ts).
-  seoTagline: 'Events and places in Longmont, CO',
+  seoTagline: 'Longmont, CO events this weekend & things to do',
   // Boulder first: the City calls itself a Boulder County city that extends
   // east into Weld (longmontcolorado.gov/information/about-longmont/).
   counties: ['Boulder', 'Weld'],

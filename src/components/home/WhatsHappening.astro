@@ -48,7 +48,8 @@
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import type { TownConfig } from '@/config';
+import { subTownPath, type TownConfig } from '@/config';
+import { subTownsOf } from '@/lib/sub-towns';
 import type { TabEdition, TabKey } from '@/lib/home-tabs';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 
@@ -187,6 +188,13 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
     <p class="mt-5 flex flex-wrap items-baseline gap-x-6 gap-y-1 border-t border-line-soft pt-4 text-[1.0625rem]">
       <a href="/events/" class="inline-block -my-3 py-3 font-semibold text-primary underline">All events →</a>
       <a href="/submit-event/" class="inline-block -my-3 py-3 text-primary underline">Add an event</a>
+      {/* A guide of several towns: each town's own page, its events date by
+          date and then its places (src/routes/town/sub-town/). Only the
+          list pages linked it, so the guide's home did not reach
+          /windsor/windsor/ (the owner, 20 November 2026). */}
+      {subTownsOf(town).length > 1 && subTownsOf(town).map((t) => (
+        <a href={subTownPath(town, t.slug)} class="inline-block -my-3 py-3 text-primary underline" data-sub-town-link>All {t.label} events &amp; places, date by date</a>
+      ))}
     </p>
     </div>
     </div>

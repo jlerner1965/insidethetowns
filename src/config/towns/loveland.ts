@@ -37,7 +37,7 @@ export const loveland: TownConfig = {
   shortTagline: 'The Rialto, the sculpture garden, the lake and the Big Thompson',
   // "Colorado" spelled out: there is a Loveland in Ohio (with a museum whose
   // domain is lovelandmuseum.org) and a Loveland Pass a hundred miles away.
-  seoTagline: 'Events and places in Loveland, Colorado',
+  seoTagline: 'Loveland, Colorado events this weekend & things to do',
   counties: ['Larimer'],
   state: 'CO',
   // GNIS, via the Wikipedia infobox: 40°23′27″N 105°04′19″W.

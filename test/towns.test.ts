@@ -182,9 +182,9 @@ test('a tagline whose comma sits before the state is not cut at that comma', () 
   assert.ok(cut.length <= TITLE_LIMIT);
   // With no seoTagline there is genuinely no room for the state, which is
   // exactly why every town sets one; the guard above is what enforces that.
-  // The town and the searched words lead; the guide's name follows where it fits (the owner, 13 November 2026).
+  // The town and the searched words, and no guide name after them, short title or long (the owner, 20 November 2026: one formula).
   assert.equal(homeTitle({ siteTitle: 'Inside Erie', tagline: 'x', seoTagline: 'Erie, CO events this weekend & things to do' }),
-    'Erie, CO events this weekend & things to do | Inside Erie');
+    'Erie, CO events this weekend & things to do');
   assert.equal(homeTitle({ siteTitle: 'Inside Berthoud', tagline: 'x', seoTagline: 'Berthoud, CO events this weekend & things to do' }),
     'Berthoud, CO events this weekend & things to do');
 });

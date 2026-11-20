@@ -7,7 +7,9 @@
 import Base from '@/layouts/Base.astro';
 import TownHome from '@/components/home/TownHome.astro';
 import { getNetworkHub, getTown, isSectionBuild } from '@/config';
-import { breadcrumbJsonLd, fillDescription } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd, fillDescription } from '@/lib/seo';
+import { townNav } from '@/lib/nav';
+import { homeTitle } from '@/lib/titles';
 
 // The tagline, and where it is short (Niwot's is 113 characters), the line
 // of trust the page prints under What's happening.
@@ -23,5 +25,14 @@ const description = fillDescription(town.tagline, ['Every listing checked agains
 const hub = getNetworkHub();
 const crumbs = breadcrumbJsonLd(town, [{ name: town.name, path: '/' }]);
 if (isSectionBuild()) crumbs.itemListElement = [{ '@type': 'ListItem', position: 1, name: hub.siteTitle, item: `https://${hub.domain}/` }, { ...crumbs.itemListElement[0]!, position: 2 }];
+/*
+ * CollectionPage and its ItemList, as the hub's town pages carry (the
+ * owner, 20 November 2026: the same structured data on the eleven guides).
+ * A town page lists its annual dates; a guide's home is a front door, so
+ * its list is the guide's own pages, the ones its menu names, each of which
+ * marks up what it lists. The merge rewrites the addresses as it does the
+ * trail's.
+ */
+const collection = collectionPageJsonLd(town, { name: homeTitle(town), description, path: '/', items: townNav(town).map((n) => ({ name: n.label, path: n.href })) });
 ---
-<Base {description} jsonLd={crumbs}><TownHome /></Base>
+<Base {description} jsonLd={[collection, crumbs]}><TownHome /></Base>

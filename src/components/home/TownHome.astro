@@ -209,6 +209,37 @@ const linked = new Set<string>([
 ]);
 const hasGuides = (await getTownEntries('articles')).length > 0;
 
+/*
+ * On this page: the home's sections, in the order they are drawn below, as
+ * the hub's town pages list theirs (src/routes/hub/town.astro; the owner,
+ * 20 November 2026: one navigation for the eleven guides). Each link is to
+ * a section's own heading, and a section the page does not draw is not
+ * listed: the conditions are the template's own, kept beside it here.
+ */
+const lowerKnow = !quietGuide && !knowHigh && (know.length > 0 || !!worthDates);
+const families = familyRows.length > 0;
+const onThisPage: Array<{ id: string; label: string }> = (
+  quietGuide
+    ? [
+        know.length > 0 && { id: 'updates-home', label: 'Updates' },
+        { id: 'things-to-know', label: 'Things to know' },
+        { id: 'signup', label: 'Updates by email' },
+        { id: 'next-stop', label: 'Find your next stop' },
+      ]
+    : [
+        outdoorPlaces.length > 0 && { id: 'outdoors-home', label: 'Trails and parks' },
+        { id: 'happening', label: 'What’s happening' },
+        outdoorsLed && anyDates && { id: 'outdoor-lead', label: dates.lead === 'outdoor' ? 'Outdoor dates' : `Every year in ${town.name}` },
+        knowHigh && { id: 'know', label: 'Worth knowing' },
+        families && familiesFirst && { id: 'families-home', label: 'For families' },
+        emailOn && !thin && { id: 'signup', label: 'The Thursday email' },
+        families && !familiesFirst && { id: 'families-home', label: 'For families' },
+        { id: 'next-stop', label: 'Find your next stop' },
+        emailOn && thin && { id: 'signup', label: 'The Thursday email' },
+        lowerKnow && { id: 'know', label: 'Worth knowing' },
+      ]
+).filter((s): s is { id: string; label: string } => !!s);
+
 // 3b. Don't miss, beside the tabs: the next featured listing within three
 // weeks (src/lib/home-tabs.ts), with a photograph: its own, else its venue's
 // where the venue is a listed place with one ("Niwot Hall and Downtown
@@ -240,6 +271,18 @@ if (featured) {
     town adds the others it covers ("Windsor and Severance"; the owner,
     13 November 2026). Carbon Valley, named for a region, stays as it is. */}
 <Hero compact title={guideName(town, coveredTowns(town))} pick={!quietGuide && !!pick} changes={know.length > 0 || timely.length > 0} />
+
+{/* On this page, one slim row under the photograph: the sections below,
+    each a link to its heading. A section the browser hides once its last
+    row is over (src/lib/expiry.ts) takes its link with it. */}
+<nav aria-labelledby="otp" class="border-b border-line-soft bg-raised" data-on-this-page data-pagefind-ignore>
+  <div class="container-page flex flex-wrap items-baseline gap-x-5 pt-3 text-[0.9375rem] sm:pt-0">
+    <h2 id="otp" class="eyebrow text-ink-muted">On this page</h2>
+    <ol class="flex flex-wrap items-baseline gap-x-5">
+      {onThisPage.map((s) => <li><a href={`#${s.id}`} class="inline-block py-3 font-semibold text-primary underline" data-otp-link={s.id}>{s.label}</a></li>)}
+    </ol>
+  </div>
+</nav>
 
 {/* A quiet guide (Niwot): Updates, only when there is one, then Things to
     know. No events, so no tabs and no empty week. */}
@@ -402,4 +445,4 @@ if (featured) {
   </section>
 )}
 
-{!quietGuide && !knowHigh && (know.length > 0 || worthDates) && <WorthKnowing timely={[]} {know} dates={worthDates} />}
+{lowerKnow && <WorthKnowing timely={[]} {know} dates={worthDates} />}
