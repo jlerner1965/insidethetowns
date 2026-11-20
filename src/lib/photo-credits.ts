@@ -73,7 +73,7 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
     const data = entry.data as { title?: string; imageAlt?: string };
     const usage = { title: data.title ?? entry.slug, href };
     const source = entry.filePath ? readFileSync(entry.filePath, 'utf8') : '';
-    const hero = /^image:\s*\.\.\/images\/(\S+)\s*$/m.exec(source)?.[1];
+    const hero = /^image:\s*"?\.\.\/images\/([^"\s]+)"?\s*$/m.exec(source)?.[1];
     if (hero) use(hero, data.imageAlt ?? '', usage, folder);
     for (const m of (entry.body ?? '').matchAll(/!\[([^\]]*)\]\(\.\.\/images\/([^)\s]+)\)/g)) {
       use(m[2]!, m[1]!, usage, folder);
