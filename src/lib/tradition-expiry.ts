@@ -175,10 +175,21 @@ export function correctDates(root: DateNode, today: string): void {
     }
   }
 
-  // A season page's count of dates still to come.
-  const count = root.querySelector('[data-date-count]');
-  if (count) {
-    const left = [...root.querySelectorAll('[data-tradition-row][data-starts]')].filter((r) => r.dataset.expired === undefined).length;
-    count.textContent = count.dataset.dateCount === 'ahead' ? String(left) : `${left} ${left === 1 ? 'date' : 'dates'}`;
+  // A season page's counts: the dates still to come, and on a season with
+  // a year the ones already held, as built (`data-built`) and with every
+  // date that has passed since, so the line's parts still add up to every
+  // row on the page.
+  const set = [...root.querySelectorAll('[data-tradition-row][data-starts]')];
+  const left = set.filter((r) => r.dataset.expired === undefined).length;
+  for (const count of root.querySelectorAll('[data-date-count]')) {
+    const kind = count.dataset.dateCount;
+    if (kind === 'ahead') count.textContent = String(left);
+    else if (kind === 'upcoming') count.textContent = `${left} upcoming`;
+    else if (kind === 'held') {
+      const held = Number(count.dataset.built ?? 0) + set.length - left;
+      count.textContent = `${held} already held`;
+      const part = count.closest('[data-held-part]');
+      if (part) part.hidden = held === 0;
+    }
   }
 }
