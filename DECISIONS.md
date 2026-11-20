@@ -12755,3 +12755,54 @@ owner's decisions on the audit of 19 November") came first and stand.*
   an event's title its date) and are left.
 - **Photographs for the trackers and /towns/** wait for the owner (TODO.md,
   Photographs): the licensed library has none that fits.
+
+## The fixes left after the audit's fix list, 20 November 2026
+
+*The owner's follow-up to the fix list above: five items, three checks and
+the guides' one template. One commit an item.*
+
+- **Niwot's Fairview game links the Cougars' team page on MaxPreps**; the
+  game page is 404. The Saturday run may write the address back, which the
+  owner accepts. The school's own schedule (nhs-cougars.com, read 20
+  November) gives girls varsity at Fairview on Saturday 21 November at
+  12:30 PM, as the guide does, so the time stands and the to-do is closed.
+- **The Pagosa Springs History Museum is closed, with the reason.** The
+  Town Manager told Council on 17 November "We did demolish the History
+  Museum" (Pagosa Daily Post, 18 November). This replaces "Closed for the
+  season", the museum's own words of the day before. A museum row has a
+  `closed` field for it: the heading says "Closed" and the row gives no
+  hours. The owner's sentence that the artifacts were moved out is
+  published as given; the article read does not say it, and the museum's
+  own page says it was "in the process of saving as much of the museum
+  contents" as it could.
+- **A guide of several towns links each town's page from its home**, under
+  What's happening: "All Windsor events & places, date by date", and
+  Severance's beside it. `/windsor/windsor/` is otherwise unchanged.
+- **A page of fixed copy has a lastmod: the day its own files last
+  changed** (`data/fixed-page-dates.json`, written by
+  `scripts/fixed-page-dates.ts` from the git history and committed, since
+  the host's clone is shallow). This reverses "the pages of fixed copy stay
+  without one" of 17 November. Run the script after changing one of those
+  pages; a page it does not name takes the build's date. The 245 noindex
+  pages stay out of the sitemap.
+- **Buena Vista Turkey Trot: the 5K is $35**, $38.86 with RunSignup's fee,
+  read on the registration page on 20 November; the Family Fun Run is $0.
+- **mountainchaletaspen.com still answers 500** (TODO.md).
+- **One title formula for the eleven guides' homes: "<Town>, CO events
+  this weekend & things to do".** Of the three in use it is the one the
+  established guides had, and it says what a guide's home leads with.
+  Lyons loses "trails & parks" and the four sections on the town template
+  (Estes Park, Fort Collins, Longmont, Loveland) lose "trails" and the
+  years; the other choice, the town pages' "events, trails and things to do
+  (2026–27)", would have taken "this weekend" off the five that had it.
+  Those four pages do not list the weekend's events themselves; their menu's
+  first link does. No guide name follows the line. Niwot keeps "local
+  updates & things to know". This reverses "the title formulas differ" in
+  the entry above, on the owner's instruction.
+- **The seven guide homes carry "On this page" and a CollectionPage.** One
+  row under the photograph links the sections the page draws. The
+  CollectionPage's ItemList is the guide's own pages, the ones its menu
+  names: a guide's home is a front door, where a town page lists its annual
+  dates. The two home templates are still two files; they now carry the
+  same menu, anchor navigation, trail and structured-data types.
+
