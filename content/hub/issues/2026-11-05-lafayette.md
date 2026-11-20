@@ -11,15 +11,15 @@ towns: [lafayette]
 
 **Friday, November 6**
 
-- **4:30 pm – 5:30 pm** [Lafayette Cemetery name plaque ceremony](https://insidelafayette.com/events/lafayette-cemetery-plaque-ceremony-2026-11-06/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Lafayette Cemetery, northeast corner · Free
+- **4:30 pm – 5:30 pm** Lafayette Cemetery name plaque ceremony · Lafayette Cemetery, northeast corner · Free
 
 **Saturday, November 7**
 
-- **6 pm – 9 pm** [WOW! Children’s Museum 30th Birthday Bash](https://insidelafayette.com/events/wow-30th-birthday-bash-2026-11-07/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · WOW! Children’s Museum · Ticketed; prices on the ticket page
+- **6 pm – 9 pm** WOW! Children’s Museum 30th Birthday Bash · WOW! Children’s Museum · Ticketed; prices on the ticket page
 
 **Sunday, November 8**
 
-- **1:30 pm – 2:30 pm** [Paws to Read: read to a therapy dog](https://insidelafayette.com/events/paws-to-read-2026-11-08/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Lafayette Public Library, Kid Zone · Free
+- **1:30 pm – 2:30 pm** Paws to Read: read to a therapy dog · Lafayette Public Library, Kid Zone · Free
 
 ## Centaurus Warriors this week
 
@@ -28,7 +28,7 @@ towns: [lafayette]
 
 Last week: football won 39-6 vs Westminster, 5-5 this season.
 
-[Scores and schedules](https://insidelafayette.com/sports/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05)
+Scores and schedules
 
 ## Still running
 
@@ -38,12 +38,12 @@ Last week: football won 39-6 vs Westminster, 5-5 this season.
 
 **Tuesday, November 10**
 
-- **6 pm – 8:05 pm** [Centaurus High School Choice Enrollment Showcase Night](https://insidelafayette.com/events/centaurus-choice-enrollment-showcase-night-2026-11-10/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Centaurus High School · Free
+- **6 pm – 8:05 pm** Centaurus High School Choice Enrollment Showcase Night · Centaurus High School · Free
 
 **Thursday, November 12**
 
-- **6 pm – 7 pm** [Run Club Lafayette at Odd13 Brewing](https://insidelafayette.com/events/run-club-lafayette-odd13-2026-11-12/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Odd13 Brewing
-- **6:30 pm – 7:30 pm** [An evening with “Penitence” author Kristin Koval](https://insidelafayette.com/events/an-evening-with-kristin-koval-2026-11-12/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-11-05) · Lafayette Public Library, Meeting Room · Free
+- **6 pm – 7 pm** Run Club Lafayette at Odd13 Brewing · Odd13 Brewing
+- **6:30 pm – 7:30 pm** An evening with “Penitence” author Kristin Koval · Lafayette Public Library, Meeting Room · Free
 
 ## Worth reading
 

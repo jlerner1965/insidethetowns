@@ -171,6 +171,11 @@ const pill =
  */
 const seasonRow = '-mx-5 mb-4 flex gap-2 overflow-x-auto overscroll-x-contain px-5 py-1.5 sm:-mx-8 sm:px-8 desk:mx-0 desk:mb-10 desk:flex-wrap desk:overflow-visible desk:p-0';
 ---
+{/* TODO: page-specific image needed. Every season page shares the hub hero
+    as its share card and shows no photograph (the site audit of 19 November
+    2026); the licensed library has none of a parade, a lighting, a race, a
+    rodeo, a fair, an Oktoberfest, a harvest festival or a winter carnival
+    (TODO.md, Photographs). Pass `image` and `imageAlt` here once one exists. */}
 <Page title={title} {seoTitle} eyebrow={`Colorado · ${when}`} {description} jsonLd={structured} kind="Seasonal dates">
   {/* The count line, with the number of dates still to come in a span the
       page corrects for the reader's own day (DateCorrection). */}

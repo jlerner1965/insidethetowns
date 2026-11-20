@@ -12686,3 +12686,72 @@ the network lines left to the network prompt.*
   ice rink page answers 404. The fire-restriction release and the 16
   November agenda are past. Lyons Valley River Park and Steamboat Park have
   no page or address of their own to list from.
+
+## The fix list from the audit of 19 November, worked on 20 November 2026
+
+*The owner's fix prompt from the full read-only audit of 19 November (3,179
+pages), worked group by group; the owner's own fixes of the morning
+("Site audit of 19 November: the findings that hold up, fixed" and "The
+owner's decisions on the audit of 19 November") came first and stand.*
+
+- **Already done before this pass**, by those two commits: the Pagosa Springs
+  museum (the museum's own words, "Closed for the season", not the
+  demolition notice the audit drafted), the Johnstown Jingle's 5:30 pm
+  lighting, the About page's counts, Berthoud's 5 December times, the Buena
+  Vista Turkey Trot (a registration link, no price), Winter Scarves moved to
+  22 December with the old address redirected, `/sitemap_index.xml`
+  redirected, Granby's wording, the twenty record pages linked from the
+  guides' /traditions/, and `/windsor/windsor/` linked. Nothing was redone.
+- **The hubs' "Find your next stop" photographs keep `alt=""`.** The audit
+  counted fifteen missing alt texts; the component says why they are empty
+  (the review of 14 November 2026: a decorative picture inside a link whose
+  words name the destination made the link's name 230 characters long). The
+  intent stands; the item is closed, not changed.
+- **The 89 dead sister-site links in the sent issues are unlinked**, one
+  commit a domain: each HTTP 410 address (a past one-time event with no
+  page on the hub, or a guide's old /sports/ index) is left as the words
+  that went out, no longer a link. The files are the record of what was
+  sent, and so each change is a link's brackets and nothing else; no
+  address was pointed at a home page. The three /sports/ links were
+  unlinked like the rest (the audit's default; the owner may point them at
+  the town's page instead).
+- **The 245 "missing" sitemap pages are not added.** Every one is noindex
+  on the live site (checked 20 November): past events, repeat dates of a
+  series and places set aside for a re-check, which the sitemap leaves out
+  by design (astro.config.mjs) and the site check refuses. The sitemap
+  index already names its children as `<sitemap>` entries, and the
+  underscore address already redirects. The 701 `.ics` files and 434 feeds
+  are not pages and stay out.
+- **lastmod: the index's section entries carry one**, the newest among the
+  pages each lists. The pages of fixed copy stay without one, as decided
+  on 17 November; the audit's "1,109" is the eleven such pages in each of
+  the twelve files, about 110 entries.
+- **The carried one-time events are linked** from their town page, under
+  Events as "One-time events": the pages a guide folded page by page kept
+  (`src/lib/section-index.ts`), which only the sitemap reached. Only those
+  not yet over are listed; the daily rebuild drops each the day after.
+  *The owner, the same day:* the next ten show and the rest fold behind
+  "Show all N one-time events", as the statewide dates do (Golden's list
+  ran to about 45). Every link stays in the page.
+- **BreadcrumbList on the ten pages**: the hub's home (one step), This
+  weekend, Which Colorado town? (the layout draws the trail it draws on
+  every other hub page) and the seven moved guides' home pages (the hub,
+  then the town).
+- **One template for the eleven guides is not done here.** The seven moved
+  guides' homes are the guides' own home pages (`TownHome`), the four
+  folded sections' homes are the hub's town pages (`town.astro`); merging
+  them is a design decision for the owner, not a structured-data fix. The
+  title formulas differ for the same reason, and Niwot's ("local updates
+  & things to know") and Lyons's ("trails & parks") say what those guides
+  hold, so one formula would claim what two of them do not have.
+- **Titles past 60 characters: not changed.** The pass cut event names
+  (`fitLead`) and gave twenty-seven articles a `seoTitle` within 60; *the
+  owner took it back the same day* (reverted). Google does not penalize a
+  longer title, it shortens it in results; most edits trimmed a few
+  characters for nothing, and some dropped searched words (the camping
+  article's Frederick, Firestone and Dacono became "Carbon Valley"; Golden,
+  Berthoud and Niwot lost ", CO"). The h1/title mismatches are by design
+  (`seoTitle` is for the searcher, `placeTitle` adds the kind and the town,
+  an event's title its date) and are left.
+- **Photographs for the trackers and /towns/** wait for the owner (TODO.md,
+  Photographs): the licensed library has none that fits.

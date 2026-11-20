@@ -11,7 +11,7 @@ towns: [idaho-springs]
 
 **Friday, October 23**
 
-- **10 am – 11 am** [Witchy Wonders Storytime](https://insideidahosprings.com/events/witchy-wonders-storytime-2026-10-23/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Idaho Springs Public Library · Free
+- **10 am – 11 am** Witchy Wonders Storytime · Idaho Springs Public Library · Free
 
 **Saturday, October 24**
 
@@ -19,18 +19,18 @@ towns: [idaho-springs]
 
 ## Still running
 
-- **Now through October 23** [Pumpkin Decorating Contest](https://insideidahosprings.com/events/pumpkin-decorating-contest-2026-10-01/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Gilpin County Public Library
+- **Now through October 23** Pumpkin Decorating Contest · Gilpin County Public Library
 
 ## Next week
 
 **Wednesday, October 28**
 
-- **3 pm – 5 pm** [City Council Meeting](https://insideidahosprings.com/events/city-council-meeting-2026-10-28/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · City Council Chambers, City Annex
-- **7 pm** [Downtown Ghost Tours](https://insideidahosprings.com/events/downtown-ghost-tours/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Corner of Miner Street and 14th Avenue, outside Tommyknocker Brewery · $26.44 including fee; $36.73 on October 28
+- **3 pm – 5 pm** City Council Meeting · City Council Chambers, City Annex
+- **7 pm** Downtown Ghost Tours · Corner of Miner Street and 14th Avenue, outside Tommyknocker Brewery · $26.44 including fee; $36.73 on October 28
 
 **Thursday, October 29**
 
-- **7 pm** [Cemetery Ghost Tours](https://insideidahosprings.com/events/cemetery-ghost-tours/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Idaho Springs Cemetery, top of the hill near the cemetery gate · $26.44 including fee; $36.73 on October 29
+- **7 pm** Cemetery Ghost Tours · Idaho Springs Cemetery, top of the hill near the cemetery gate · $26.44 including fee; $36.73 on October 29
 
 ---
 

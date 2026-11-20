@@ -8,12 +8,14 @@ stand until the owner revisits them.
 Remove a row when it is done; the dated audits in `docs/audits/` say what
 was found and when.
 
-Last revised: 18 November 2026.
+Last revised: 20 November 2026.
 
 ## This week
 
 | Town | What | Why | Who |
 |---|---|---|---|
+| Niwot | Open in a browser the MaxPreps game page the girls basketball entry for 21 November links (fairview-boulder-vs-niwot/11-21-2026 in `data/niwot/sports.json`): the site audit of 19 November found it 404 and MaxPreps showing only a JV game at 11 am where the guide says varsity at 12:30 pm; confirm the game and time with the school (nhs-cougars.com). MaxPreps answers automated readers 403, and the file is written by the Saturday run, so a hand edit would not hold: fix the schedule read or the listing, not the file | A dead link on /sports/ and /sports/girls-basketball/, and a time that may be wrong; the live team page is https://www.maxpreps.com/co/niwot/niwot-cougars/ | Owner |
+| Aspen (hub) | Re-check https://www.mountainchaletaspen.com/ (the Mountain Chalet row in `data/hub/towns/aspen.json`): it answered HTTP 500 on three checks hours apart on 19 November and again on 20 November; if it is still down, decide whether the row keeps its link | A 500 on four checks is not one bad read, but not a dead site either; the row names the hotel's own page as its source | Owner |
 | Estes Park | When the park announces 2027 timed entry (2026's was announced 18 February): put the dates, hours and release schedule into `rocky-mountain-national-park-with-or-without-timed-entry.md`, the park's listing and Places to know in `data/hub/towns/estes-park.json`, and the Hiker Shuttle's 2027 season | Each says "2027 dates: not yet announced" (checked 18 November 2026) | Assistant |
 | Estes Park, Manitou Springs, Salida | Read in a browser, then tell the assistant: estespark.colorado.gov/parking, /transit and /townparks (the Downtown and Riverwalk entry rests on reads of 7 October and 6 November); coloradosprings.gov/manitouincline (reservation, waiver, hours; the guide and Trails and parks rest on the read of 17 November); cityofsalida.com's Riverside Park, Alpine Park, Riverwalk, parking and Hot Springs Aquatic Center pages (restrooms, dog rule, season, the pool's hours) | Each site refuses automated readers; the gaps are named in `DECISIONS.md`, "Five town pages and their lead guides" | Owner |
 | Salida | When fibark.com posts 2027's dates: confirm the 2027 year in `salida-fibark.md` and set `showpiece.spotlight: 'salida-fibark'` on Salida's row; the test refuses the spotlight before then | FIBArk shows only June 18–21, 2026 (read 18 November) | Assistant |
@@ -178,6 +180,20 @@ photograph and who to ask; `docs/PHOTO-PRIORITIES.md` is the shot list for
 Lyons, Niwot and Golden; Berthoud's is in the row above; `docs/HERO-PHOTOS.md`
 is the heroes' buy and shoot list. Permissions
 received go in `PERMISSIONS.md`.
+
+The season trackers (/parades-of-lights/, /tree-lightings/, /turkey-trots/,
+/rodeos-and-county-fairs/, /oktoberfests/, /harvest-festivals/,
+/winter-carnivals/, /new-years/, /free-admission-days/, /outdoor-dates/,
+/annual-events/) and /towns/ show no photograph and share the home page's
+Flatirons as their share card (the site audit of 19 November 2026). The
+licensed library holds no photograph of a parade, a tree lighting, a race,
+a rodeo, a fair, an Oktoberfest, a harvest festival or a winter carnival:
+each page needs one bought or shot before it can have its own
+(`src/routes/hub/season.astro`, the TODO by its `<Page>`). The one fit on
+hand is Estes Park's Trail Ridge Road (`content/estes-park/images/trail-
+ridge-road.jpg`, National Park Service, public domain) for /outdoor-dates/,
+which the hub build cannot see until `src/integrations/site-images.ts`
+names it. Owner: the photographs; assistant: the wiring once they exist.
 
 ## On hold until 20 January 2027
 

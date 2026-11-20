@@ -11,7 +11,7 @@ towns: [carbon-valley]
 
 **Friday, October 30**
 
-- **10 am – 12 pm** [Halloween Dance Party](https://carbonvalleyguide.com/events/halloween-dance-party-2026-10-30/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-29) · Carbon Valley Regional Library
+- **10 am – 12 pm** Halloween Dance Party · Carbon Valley Regional Library
 - **6 pm – 8 pm** [Teen Laser Tag](https://carbonvalleyguide.com/events/teen-laser-tag-2026-10-30/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-29) · Fort Lupton High School Library
 
 **Saturday, October 31**
@@ -41,7 +41,7 @@ Last week: football lost 3-31 at Roosevelt, 6-3 this season.
 
 **Wednesday, November 4**
 
-- **6:30 pm – 7:30 pm** [Chat with a Trustee](https://carbonvalleyguide.com/events/chat-with-a-trustee-2026-11-04/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-29) · Firestone Police Department and Municipal Court
+- **6:30 pm – 7:30 pm** Chat with a Trustee · Firestone Police Department and Municipal Court
 
 ---
 

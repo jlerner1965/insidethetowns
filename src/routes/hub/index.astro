@@ -95,7 +95,7 @@ import { TRADITION_TYPE_INFO } from '@/lib/traditions';
 import { currentPicks } from '@/lib/weekly';
 import { fitTitle } from '@/lib/titles';
 import { ANNUAL_EVENTS_HREF } from '@/lib/nav';
-import { META_DESCRIPTION_LIMIT, collectionPageJsonLd } from '@/lib/seo';
+import { META_DESCRIPTION_LIMIT, breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { shownCategoryLabel } from '@/content/schemas';
 // The italic of the heading face, for the decks and the day headings: the guides' pages do not use it, so it is loaded here only.
 import '@fontsource-variable/fraunces/opsz-italic.css';
@@ -389,7 +389,8 @@ const fullTitle = fitTitle('Colorado town events this weekend', hub.siteTitle);
 const description = homeDescription({ sections: sections.length, moreTowns, seasons: seasons.map((r) => r.title) }, META_DESCRIPTION_LIMIT);
 
 /** What the page lists, for search engines. Their Event markup stays on the pages that own them. */
-const structured = collectionPageJsonLd(hub, {
+// The CollectionPage, and a BreadcrumbList of one step: the only page of the site without one (the site audit of 19 November 2026).
+const structured = [collectionPageJsonLd(hub, {
   name: 'What’s happening in Colorado’s towns',
   description,
   path: '/',
@@ -399,7 +400,7 @@ const structured = collectionPageJsonLd(hub, {
     ...seasons.map((r) => ({ name: r.title, path: r.href })),
     { name: 'Everything on this weekend', path: '/this-weekend/' },
   ],
-});
+}), breadcrumbJsonLd(hub, [{ name: hub.siteTitle, path: '/' }])];
 
 const dek = 'mt-2 font-heading text-[1.0588rem] font-normal italic leading-[1.45] text-ink-muted [font-variation-settings:normal]';
 const by = 'text-meta font-semibold leading-[1.4] text-ink-muted';

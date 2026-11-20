@@ -155,7 +155,7 @@ test('the merge carries a moved guide’s home page, This Week, updates and spor
       'sports/index.html': page([]),
       'events/index.html': page([]),
       'events/parade-of-lights/index.html': page([]),
-      'sitemap-0.xml': `<urlset><url><loc>https://${hub.domain}/lyons/</loc></url><url><loc>https://${hub.domain}/lyons/events/parade-of-lights/</loc></url><url><loc>https://${hub.domain}/lyons/this-week/</loc></url></urlset>`,
+      'sitemap-0.xml': `<urlset><url><loc>https://${hub.domain}/lyons/</loc><lastmod>2026-11-01T00:00:00.000Z</lastmod></url><url><loc>https://${hub.domain}/lyons/events/parade-of-lights/</loc><lastmod>2026-11-30T00:00:00.000Z</lastmod></url><url><loc>https://${hub.domain}/lyons/this-week/</loc><lastmod>2026-11-18T12:00:00.000Z</lastmod></url></urlset>`,
       'sitemap-index.xml': '<sitemapindex/>',
       '404.html': 'x',
     })) {
@@ -178,6 +178,9 @@ test('the merge carries a moved guide’s home page, This Week, updates and spor
     const sitemap = readFileSync(join(hubDir, 'sitemap-lyons.xml'), 'utf8');
     assert.match(sitemap, /\/lyons\/this-week\//);
     assert.doesNotMatch(sitemap, /\/lyons\/events\/parade-of-lights\//, 'the dropped page is not in the sitemap');
+    // The index names the section's sitemap once, dated by the newest page it still lists (the dropped page's later date does not count).
+    const index = readFileSync(join(hubDir, 'sitemap-index.xml'), 'utf8');
+    assert.equal(index, `<sitemapindex><sitemap><loc>https://${hub.domain}/sitemap-lyons.xml</loc><lastmod>2026-11-18T12:00:00.000Z</lastmod></sitemap></sitemapindex>`);
     // The hub's own pages that name the guide's domain by hand follow it; the email archive only where the page is built.
     mkdirSync(join(hubDir, 'moving'), { recursive: true });
     writeFileSync(join(hubDir, 'moving', 'index.html'), page(['https://insidelyons.com/updates/#x', 'https://insidelyons.com/events/parade-of-lights/']));
