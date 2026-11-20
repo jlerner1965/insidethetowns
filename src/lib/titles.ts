@@ -13,10 +13,10 @@ export interface TitleSite {
 
 /**
  * The <title> for a site's home page: the town and what people search for
- * first, then the guide's name where the whole fits in TITLE_LIMIT
- * ("Erie, CO events this weekend & things to do | Inside Erie"), else the
- * words alone ("Berthoud, CO events this weekend & things to do"). The
- * owner, 13 November 2026: a title that opened on the brand ("Inside
+ * first, and nothing after them ("Berthoud, CO events this weekend & things
+ * to do"), the one formula of the eleven guides (the owner, 20 November
+ * 2026; Niwot, which lists no events, says "local updates & things to
+ * know"). The owner, 13 November 2026: a title that opened on the brand ("Inside
  * Berthoud — Main Street and the lakes…") led with the one word nobody
  * types. `seoTagline` is written for this; a site without one falls back to
  * its tagline, trimmed at a clause or a word.
@@ -28,8 +28,11 @@ export interface TitleSite {
  */
 export function homeTitle(site: TitleSite): string {
   if (site.seoTagline) {
-    const line = site.seoTagline.length <= TITLE_LIMIT ? site.seoTagline : trimAt(site.seoTagline, TITLE_LIMIT);
-    return fitTitle(line, site.siteTitle);
+    // The line alone, on every guide (the owner, 20 November 2026: one
+    // formula for the eleven guides' home titles). From 13 November the
+    // guide's name followed where the whole fitted in 60 characters, which
+    // gave Lyons and Niwot "| Inside Lyons" and the longer names nothing.
+    return site.seoTagline.length <= TITLE_LIMIT ? site.seoTagline : trimAt(site.seoTagline, TITLE_LIMIT);
   }
   const room = TITLE_LIMIT - site.siteTitle.length - 3;
   return `${site.siteTitle} \u2014 ${trimAt(site.tagline, room)}`;

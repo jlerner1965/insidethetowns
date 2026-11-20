@@ -43,7 +43,7 @@ export const estesPark: TownConfig = {
   tagline:
     'An independent guide to Estes Park, Colorado: the gateway to Rocky Mountain National Park, Elkhorn Avenue, the trailheads, the elk, and mountain life.',
   shortTagline: 'Elkhorn Avenue, the trailheads, the elk and the national park',
-  seoTagline: 'Events and trails in Estes Park, Colorado',
+  seoTagline: 'Estes Park, CO events this weekend & things to do',
   counties: ['Larimer'],
   state: 'CO',
   // GNIS, via the Wikipedia infobox: 40°22′51″N 105°31′20″W.

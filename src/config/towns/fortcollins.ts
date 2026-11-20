@@ -33,7 +33,7 @@ export const fortcollins: TownConfig = {
   siteTitle: 'Inside Fort Collins',
   tagline: 'An independent guide to Fort Collins, Colorado: Old Town, the CSU campus, the Poudre, Horsetooth, the breweries, and what it’s like to live here.',
   shortTagline: 'Old Town, the Poudre, Horsetooth and the breweries',
-  seoTagline: 'Events and places in Fort Collins, Colorado',
+  seoTagline: 'Fort Collins, CO events this weekend & things to do',
   counties: ['Larimer'],
   state: 'CO',
   lat: 40.5475,
