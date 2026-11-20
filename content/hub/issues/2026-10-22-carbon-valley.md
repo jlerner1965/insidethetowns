@@ -11,22 +11,22 @@ towns: [carbon-valley]
 
 **Friday, October 23**
 
-- **5 pm – 8 pm** [Halloween Safe Night](https://carbonvalleyguide.com/events/halloween-safe-night-2026-10-23/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Firestone Regional Sports Complex
+- **5 pm – 8 pm** Halloween Safe Night · Firestone Regional Sports Complex
 
 **Saturday, October 24**
 
-- **10 am – 2 pm** [Drug Take Back Day](https://carbonvalleyguide.com/events/drug-take-back-day-2026-10-24/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Firestone Police Department · Free
-- **3 pm – 4 pm** [Sipping & Socializing: How Tea Has Guided Social Interaction](https://carbonvalleyguide.com/events/sipping-and-socializing-how-tea-has-guided-social-interactio-2026-10-24/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Carbon Valley Regional Library
+- **10 am – 2 pm** Drug Take Back Day · Firestone Police Department · Free
+- **3 pm – 4 pm** Sipping & Socializing: How Tea Has Guided Social Interaction · Carbon Valley Regional Library
 
 ## Still running
 
-- **During library hours, through October 22** [Firestone Art & Music Show](https://carbonvalleyguide.com/events/firestone-art-and-music-show-2026/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Carbon Valley Regional Library · Free
+- **During library hours, through October 22** Firestone Art & Music Show · Carbon Valley Regional Library · Free
 
 ## Next week
 
 **Tuesday, October 27**
 
-- **5 pm – 7 pm** [Murder at Shade Hallow Manor](https://carbonvalleyguide.com/events/murder-at-shade-hallow-manor-2026-10-27/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Carbon Valley Regional Library
+- **5 pm – 7 pm** Murder at Shade Hallow Manor · Carbon Valley Regional Library
 - **5:30 pm – 7:30 pm** [Reel Talk!](https://carbonvalleyguide.com/events/reel-talk-2026-10-27/?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-22) · Fort Lupton Public & School Library
 
 ---
