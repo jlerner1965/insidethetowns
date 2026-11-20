@@ -46,6 +46,9 @@ const live = site.kind === 'hub' || site.status === 'live';
 // its own files last changed (data/fixed-page-dates.json; src/lib/lastmod.ts).
 const buildDate = new Date();
 const dates = contentDates(site);
+/** @type {Record<string, Record<string, string>>} */
+const allFixedDates = fixedPageDates;
+const fixedDates = allFixedDates[site.slug];
 /** Pages that carry noindex must not be listed in the sitemap either. */
 // A draft article drawn by the local preview switch is noindex too (src/lib/curiosity.ts).
 const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/', '/newsletter/sample/', '/search/', ...(site.kind === 'hub' ? draftPaths() : [])]);
@@ -114,7 +117,7 @@ export default defineConfig({
   // On the hub, /hero-map.json: each town page's photograph, for the links to start early (src/integrations/hero-map.ts).
   integrations: [townRoutes(site), siteImages(site), sitemap({ filter: indexable, serialize: (item) => {
       // A section's dates are keyed by the guide's own paths.
-      const lastmod = lastmodFor(section ? `https://${site.domain}${guidePath(new URL(item.url).pathname)}` : item.url, dates, buildDate, fixedPageDates[site.slug]);
+      const lastmod = lastmodFor(section ? `https://${site.domain}${guidePath(new URL(item.url).pathname)}` : item.url, dates, buildDate, fixedDates);
       return { ...item, lastmod };
     } }), ...(section ? [] : [hostFiles(vercelConfig, site.domain)]), ...(site.kind === 'hub' ? [heroMap()] : [])],
   vite: {
