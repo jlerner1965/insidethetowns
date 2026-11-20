@@ -110,7 +110,7 @@ const structured = [
   <p slot="after-header" class="mt-4 text-[0.875rem] text-ink-muted">
     <a href="/this-weekend/" class="font-semibold text-primary underline">Just the weekend?</a>{hasTraditions && <Fragment> · <a href="/traditions/" class="font-semibold text-primary underline">Every year in {town.name}</a></Fragment>} · Refreshed <time datetime={toIsoLocal(refreshedAt)}>{formatDate(refreshedAt)}</time>
   </p>
-  <SubTownLinks slot="after-header" class="mt-3" hrefFor={(slug) => `/${slug}/`} />
+  <SubTownLinks slot="after-header" class="mt-3" />
   <SponsorLine slot="after-header" sponsor={town.sponsors?.events} />
 
   <div data-filter-root>

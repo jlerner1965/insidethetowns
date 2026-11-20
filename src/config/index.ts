@@ -199,6 +199,20 @@ export function sectionBase(town: Pick<TownConfig, 'hubPage' | 'slug'>): string 
 }
 
 /**
+ * A guide's sub-town page ("/severance/"), written where the reader will
+ * reach it: under the section's prefix in a section build, as is otherwise.
+ * The merge prefixes a path the section built, but leaves one that already
+ * starts with the prefix, so a sub-town named for the guide's own town
+ * ("/windsor/" on the Windsor and Severance guide) went to the section's
+ * home and /windsor/windsor/ had no link to it (the site audit of 19
+ * November 2026). Written prefixed, it is left as it is and lands right.
+ */
+export function subTownPath(site: SiteConfig, slug: string): string {
+  const prefix = isSectionBuild() && site.kind === 'town' && site.hubPage ? sectionBase(site) : '';
+  return `${prefix}/${slug}/`;
+}
+
+/**
  * A folded guide's config as its section on the hub is built from it: live
  * (so the guide's routes and gates apply as they did) and labelled "Inside
  * <Town>" (the owner's brief of 17 November 2026). The domain stays the old

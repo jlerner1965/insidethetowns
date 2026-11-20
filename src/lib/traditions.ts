@@ -202,6 +202,10 @@ export interface TraditionYear {
   subEvents?: Array<{ name: string; date?: string; time?: string; place?: string }>;
   /** On a run of several weeks: the days inside it the organizer says it is closed, in its words ("Mondays", "December 25"). */
   closedDays?: string[];
+  /** A second page the year's facts rest on, shown beside the source. */
+  alsoSource?: { url: string; label: string };
+  /** Where a reader signs up, when it is not the source: shown with the details. */
+  registration?: { url: string; label: string };
   checked: string;
 }
 

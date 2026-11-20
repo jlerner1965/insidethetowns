@@ -30,7 +30,7 @@ import { getTownEntries, getTraditions } from '@/lib/content';
 import { dayKey, formatDayLong, parseLocal } from '@/lib/dates';
 import { annualPageFor, unmatchedAnnualPages, type AnnualPage } from '@/lib/annual-pages';
 import { subTownsOf } from '@/lib/sub-towns';
-import { eventPage, lineFor, placeKey, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
+import { eventPage, hubEventPages, lineFor, placeKey, placeRows, publishedHubTowns, showings, type ShowingContext } from '@/lib/hub-towns';
 import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/lib/seo';
 import { TRADITION_TYPE_INFO, nextRow, rowsByState, type TraditionRow as Row } from '@/lib/traditions';
 import { TITLE_LIMIT } from '@/lib/titles';
@@ -70,9 +70,19 @@ const annualPages: AnnualPage[] = (await getTownEntries('events'))
   .filter((e) => e.data.annual)
   .map((e) => ({ slug: e.slug, title: e.data.title, start: dayKey(e.data.start) }));
 const guideTowns = [town.name, ...subTownsOf(town).map((t) => t.label)];
+/**
+ * Each record's own page on the hub, where the hub builds one: a moved
+ * guide's records have a page under its section (hubEventPages). A row
+ * whose guide has no annual event page of its own links there, so the
+ * record page is reached from the guide and not from the sitemap alone
+ * (the site audit of 19 November 2026 found twenty such pages with no
+ * link to them, Niwot's Holiday Parade among them; the owner's decision
+ * of 19 November 2026).
+ */
+const recordPages = new Map(hubEventPages(records, ctx.published, [], today).map((p) => [p.record.slug, `https://${hub.domain}${p.path}`]));
 const pageHref = (row: Row) => {
   const page = annualPageFor(row.record, annualPages, guideTowns);
-  return page ? `/events/${page.slug}/` : undefined;
+  return page ? `/events/${page.slug}/` : recordPages.get(row.record.slug);
 };
 const moreAnnual = unmatchedAnnualPages(rows.map((row) => row.record), annualPages, guideTowns);
 const rowProps = (row: Row) => ({

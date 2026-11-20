@@ -1860,6 +1860,20 @@ export function traditionSchema() {
         .optional(),
       /** On a run of several weeks: the days it is closed, in the organizer's words ("Mondays", "December 25"). */
       closedDays: z.array(z.string().min(1)).min(1).optional(),
+      /**
+       * A second page this year's facts rest on, where two organizers give
+       * them (Berthoud's tree lighting: 5:45 pm on the parade's own
+       * timeline, 6 pm on Berthoud Main Street's schedule; the owner, 19
+       * November 2026). Shown beside the source, under its label.
+       */
+      alsoSource: z.object({ url: httpUrl, label: z.string().min(1) }).strict().optional(),
+      /**
+       * Where a reader signs up, when it is not the source: a race's
+       * registration page, linked from the source. Shown with the year's
+       * details, in place of a price the source does not give (Buena
+       * Vista's Turkey Trot; the owner, 19 November 2026).
+       */
+      registration: z.object({ url: httpUrl, label: z.string().min(1) }).strict().optional(),
       /** The day a person last read the source. Required on every year. */
       checked: isoDay,
     })

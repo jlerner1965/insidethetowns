@@ -12,7 +12,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'astro/zod';
-import { allTowns, domainMoved, getNetworkHub, listsEvents } from '../../src/config/index.ts';
+import { allTowns, domainMoved, getNetworkHub, listsEvents, sectionBase } from '../../src/config/index.ts';
 import type { TownConfig } from '../../src/config/towns/types.ts';
 import { eventSchema } from '../../src/content/schemas.ts';
 import { dayKey } from '../../src/lib/dates.ts';
@@ -69,13 +69,31 @@ function redirectsFor(t: TownConfig, now: Date | null): Record<string, string> {
 }
 
 /**
+ * A moved guide's former, retired and held addresses under its section on
+ * the hub ("/berthoud/events/old" to "/berthoud/events/new/"). A section
+ * builds no redirect page and the guide's own domain is answered by
+ * api/legacy.ts, so without these the hub's copy of an address the guide
+ * re-filed after the move was a 404, as were its /places/ and /articles/
+ * (the site audit of 19 November 2026: Berthoud's
+ * beer-release-sweater-weather-2026-11-20, merged that day). Each lands
+ * where the guide's map sends it (movedPath): an annual event's on its
+ * tradition page.
+ */
+function sectionRules(hub: string, t: TownConfig, now: Date | null): HostRule[] {
+  const base = sectionBase(t);
+  const onHub = Object.fromEntries(Object.entries(redirectsFor(t, now)).map(([from, to]) => [`${base}${from}`, movedPath(t.domain, to) ?? `${base}${to}`]));
+  return guideRules(hub, onHub);
+}
+
+/**
  * One block of rules per host. `now` is the day the destinations are
  * settled for (an event that is over gives way to the events list); null
  * gives each listing as filed.
  */
 export function generatedBlocks(now: Date | null = new Date()): Array<{ host: string; rules: HostRule[] }> {
   const live = allTowns.filter((t) => t.status === 'live');
-  const blocks: Array<{ host: string; rules: HostRule[] }> = [{ host: getNetworkHub().domain, rules: hubMovedRules(getNetworkHub().domain) }];
+  const hub = getNetworkHub().domain;
+  const blocks: Array<{ host: string; rules: HostRule[] }> = [{ host: hub, rules: [...hubMovedRules(hub), ...live.filter((g) => domainMoved(g)).flatMap((g) => sectionRules(hub, g, now))] }];
   // A guide moved into the hub (src/config/guide-move.ts) carries no rule of
   // its own: api/legacy.ts answers every path on its domain from the map its
   // build writes (scripts/migration/guide-map.ts), former slugs included.
