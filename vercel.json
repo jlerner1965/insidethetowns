@@ -141,6 +141,3647 @@
       "statusCode": 301
     },
     {
+      "source": "/niwot/articles{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/enchanted-evening{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/enchanted-evening-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/great-pumpkin-party{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/great-pumpkin-party-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/holiday-magic-market-fayre{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/holiday-magic-market-fayre-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/holiday-parade{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/holiday-parade-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/niwot-trot{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/events/niwot-trot-5k-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/traditions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/places{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/places/sample-gateway-sculpture{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/places/sample-left-hand-trail{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/places/sample-main-street-cafe{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/places/sample-niwot-tavern{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/places/sample-second-avenue-bar{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/places/sample-whistle-stop-park{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/niwot/places/subway{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/niwot/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/articles{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/afternoon-art-2026-10-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/afternoon-art-2026-11-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/afternoon-art-2026-12-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/aging-resources-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/alcohol-ink-tiles-2026-10-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/apple-pressing-community-orchard{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/art-4-art-trading-cards-2026-09-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/art-4-art-trading-cards-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/art-opening-at-mainstage-brewing-2026-11-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/art-opening-mainstage-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/arts-and-humanities-commission-meeting-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/baby-storytime-and-stay-and-play-2026-12-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/baby-storytime-and-stay-and-play/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/baby-storytime-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/baby-storytime-november/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/beginner-ukulele-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/birds-of-prey-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/bluegrass-pick-at-oskar-blues{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/bluegrass-pick-at-oskar-blues-2026-12-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/bluegrass-pick-oskar-blues{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/board-of-trustees-2026-09-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/board-of-trustees-2026-10-05{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/board-of-trustees-2026-10-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/boulder-phil-rock-unplugged-wildflower{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/coexisting-with-cougars-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/colorado-annual-women-s-weekend-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/colorado-death-care-panel{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/comedy-night-at-spirit-hound-2026-12-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/comedy-third-fridays-spirit-hound-2026-09-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/comedy-third-fridays-spirit-hound-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/comedy-third-fridays-spirit-hound-2026-11-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/creative-movement-with-dandelion-arts-collective-2026-10-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/daniel-rodriguez-string-band-wildflower{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/declaration-book-club-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/declaration-book-club-2026-12-01/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/dogs-enjoy-afternoon-reading-d-e-a-r-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/dogs-enjoy-afternoon-reading-d-e-a-r-2026-12-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/ecology-advisory-board-2026-10-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/economic-vitality-commission-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/explore-resources-with-the-boulder-county-area-agency-on-agi-2026-10-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/fall-pinball-league-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/fall-pinball-league/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/fear-the-reaper-pinball-tournament-2026-10-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/fifth-sunday-classics-2026-11-29{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/fifth-sunday-classics-pinball-2026-11-29/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/friends-of-the-library-book-sale-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/friends-of-the-library-book-sale-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/friends-of-the-library-monthly-meeting-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/halloween-spooktacular-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/historic-preservation-commission-2026-09-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/historic-preservation-commission-2026-11-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/historic-preservation-commission-2026-12-01/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/historic-preservation-commission-2026-12-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/holiday-parade-of-lights-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/parade-of-lights/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/housing-and-human-services-commission-2026-10-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/john-mckay-band-rock-garden-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/karaoke-at-the-wayback-bar{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/karaoke-at-the-wayback-bar-2026-12-11{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/karaoke-wayback-bar{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/kids-chess-wizards-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/lahc-quarterly-art-show{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/lego-club-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/lightworkers-documentary-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/lvdy-sway-wild-wildflower{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/lyons-old-time-square-dance{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/lyons-urban-renewal-authority-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/makerspace-open-studio-2026-10-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/makerspace-open-studio-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/monday-makerspace-2026-12-14/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/mean-girls-teen-movie-night-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/mmb3-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/monthly-pinball-tournament-2026-10-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/monthly-pinball-tournament-2026-11-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/monthly-pinball-tournament-2026-12-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/nature-journaling-club-2026-09-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/nature-journaling-club-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/old-dogapalooza-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/old-time-jam-at-oskar-blues-2026-10-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/old-time-jam-oskar-blues-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/open-bluegrass-pick-n-at-mainstage{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/open-bluegrass-pickn-mainstage/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/open-bluegrass-pick-n-at-mainstage-2026-12-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/open-house-for-2nd-and-3rd-avenue-improvements-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/open-mic-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/parks-and-recreation-commission-2026-10-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/piano-benefit-concert-community-church{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/pints-and-pages-mainstage-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/quarterly-art-show-drop-off-and-pick-up-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/redstone-museum-last-day-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/school-streets-open-house{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/science-and-spirits-climate{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/second-gear-bluegrass-rock-garden-2026-10-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/seed-swap-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/seed-swap-save-and-sort-2026-12-12/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/sensory-play-and-family-meetup-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/snacks-in-space-book-launch{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/st-vrain-invitational-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/sundance-film-festival-task-force-2026-10-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/sundance-lodging-discussion{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/sustainable-futures-commission-2026-10-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/teen-advisory-group-2026-10-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/teen-advisory-group-2026-10-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/the-89s-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/the-spooky-teen-halloween-hangout-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/travel-talk-china-mongolia-taiwan{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/tree-lighting-and-caroling-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/tree-lighting/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-at-mainstage-brewing{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/trivia-mainstage-brewing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-at-mainstage-brewing-2026-12-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-at-the-wayback-bar-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-at-the-wayback-bar-2026-11-05{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-at-the-wayback-bar-2026-11-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-at-the-wayback-bar-2026-12-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-at-the-wayback-bar-2026-12-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-night-at-spirit-hound-2026-10-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-night-spirit-hound-2026-11-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/trivia-wayback-bar-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/troubles-braids-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/tumbledown-shack-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/tween-book-to-movie-club-2026-10-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/ukulele-group-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/ukulele-group-2026-10-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/ukulele-group-2026-11-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/ukulele-group-2026-12-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/utilities-and-engineering-board-2026-10-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/water-tower-wildflower{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/women-s-pinball-tournament-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/women-s-pinball-tournament-2026-11-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/women-s-pinball-tournament-2026-12-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/womens-pinball-tournament-2026-09-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/events/word-wednesday-library-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/places{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/places/julies-thai-kitchen{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lyons/places/lyons-dairy-bar{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/lyons/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/articles{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/a-very-merry-berthoud-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/a-very-merry-berthoud/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/angie-stevens-city-star-2026-09-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/art-in-the-park-at-the-berthoud-market-2026-09-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/beer-release-cabaret-2026-11-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/beer-release-deadwood-imperial-red-2026-12-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/deadwood-imperial-red-release-with-sugar-britches-2026-12-18/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/beer-release-sweater-weather-2026-11-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/sweater-weather-release-with-sugar-britches-2026-11-20/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/berthoud-bock-release-city-star-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/berthoud-high-school-football-greeley-central-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/berthoud-high-school-homecoming-football-game-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/berthoud-high-school-homecoming-parade-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/berthoud-historical-society-fall-speaker-series-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/berthoud-literary-festival-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/berthoud-literary-festival/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/berthoud-market-town-park{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/berthoud-market/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/berthoud-oktoberfest-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/berthoud-oktoberfest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/berthoud-scarecrow-contest-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/scarecrow-contest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/blind-date-with-a-book-at-city-star-2026-10-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/boulder-grass-at-city-star-2026-10-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/breathwork-and-reiki-at-wildfire-arts-center-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/brush-and-banter-class-and-open-studio-2026-09-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/brush-and-banter-class-and-open-studio/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/budding-artists-library-2026-09-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/chili-the-kid-release-with-justin-howl-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/city-star-social-run{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/city-star-social-run-2026-12-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/community-drum-circle-at-wildfire-arts-center-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/community-drum-circle-at-wildfire-arts-center-2026-10-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/country-pumpkin-release-city-star-2026-09-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/cribbage-night-city-star-2026-09-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/cribbage-night-city-star-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/derek-dames-ohl-at-city-star-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/desiderata-ranch-tour-2026-09-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/father-daughter-dance-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/hand-drumming-beginner-workshop-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/historic-preservation-advisory-committee-2026-10-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/holiday-card-art-contest-deadline-2026-11-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/homegrown-ipa-release-city-star-2026-09-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/humdinger-trivia-at-city-star{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/humdinger-trivia-at-city-star-2026-12-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/johnny-johnston-and-felonius-smith-2026-11-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/joshua-james-johnson-city-star-2026-09-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/knit-and-crochet-drop-in-2026-09-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/library-book-club-2026-09-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/library-just-write-teens-2026-10-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/library-knit-and-crochet-drop-in-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/library-master-gardeners-composting-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/library-pressure-canning-2026-10-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/library-trick-or-read-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/mountain-duo-at-city-star-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/neon-nights-cosmic-pickleball-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/neon-nights-dodgeball-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/parade-of-lights-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/parade-of-lights/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/planning-commission-2026-09-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/planning-commission-2026-10-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/planning-commission-2026-10-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/port-advisory-committee-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/rachel-alena-at-city-star-2026-10-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/senior-yoga-library-2026-09-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/sourdough-breads-fermenting-and-pickling-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/sugar-britches-2026-11-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/sweater-weather-release-with-sugar-britches-2026-11-20/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/sugar-britches-2026-12-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/deadwood-imperial-red-release-with-sugar-britches-2026-12-18/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/sugar-britches-city-star-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/the-soil-builders-masterclass-2026-10-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/time-machine-release-with-mike-finders-duo-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/town-board-2026-09-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/town-board-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/tree-advisory-committee-2026-09-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/tree-advisory-committee-2026-10-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/trick-or-treat-street-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/trick-or-treat-street/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/u-create-open-studio-at-wildfire-arts-center-2026-09-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/u-create-open-studio-at-wildfire-arts-center/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/winter-craft-fair-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/winter-craft-fair/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/events/zombie-fun-run-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/events/zombie-fun-run/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/places{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/places/b-rads-arcade{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/berthoud/places/berthoud-inn{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/berthoud/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/articles{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/7th-annual-erie-community-library-youth-art-show-reception-2026-09-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/adult-social-chess-club-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/anderson-farms-fall-festival-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/anderson-farms-fall-festival/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/bluegrass-jam-live-music-2026-12-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/bluegrass-jam-old-mine-2026-12-10/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/boo-on-briggs-street-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/boo-on-briggs-street/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/business-connections-networking-group-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/business-connections-networking-group-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/business-connections-networking-group-2026-11-05{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/business-connections-networking-group-2026-11-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/business-connections-networking-group-2026-12-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/business-connections-networking-group-2026-12-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/busy-2026-12-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/busy-2027-01-04{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/chess-club-for-grades-3-5-2026-09-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/code-club-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/coffee-with-a-cop-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/cultural-arts-presents-shakespeare-in-the-parking-lot-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/erie-brewfest-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/brewfest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/erie-parks-and-rec-outreach-table-2026-11-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/historic-preservation-advisory-board-meeting-2026-09-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/hoss-and-the-hangman-live-music-2026-11-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/live-music-wednesdays-old-mine/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/i-am-a-gondola-with-kelly-phares-zook-2026-09-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/karaoke-night-at-the-dugout-2026-09-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/karaoke-night-at-the-dugout/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/manhattan-short-film-festival-2026-09-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/marines-visit-during-lunch-2026-11-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/matt-adams-live-music-2026-11-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/live-music-wednesdays-old-mine/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/medicare-changes-seminar-2026-09-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/night-class-live-music-2026-12-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/live-music-wednesdays-old-mine/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/open-mic-old-mine-2026-09-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/parade-of-lights-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/parade-of-lights/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/parenting-series-pen-parenting-book-group-brainstorm-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/planning-commission-2026-10-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/poetry-is-for-everyone-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/r-and-d-radio-live-music-2026-12-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/live-music-wednesdays-old-mine/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/rhes-choir-concert-7-9-30pm-2026-12-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/ribbon-cutting-yogasix-nine-mile-2026-09-29{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/safety-series-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/shadowbox-creation-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/shawn-cunnane-live-music-2026-12-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/live-music-wednesdays-old-mine/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/starburn-dinner-concert-2026-09-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/tails-and-ales-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/tails-and-ales/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/terror-in-the-corn-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/terror-in-the-corn/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/town-council-2026-09-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/town-council-2026-11-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/town-council-special-meeting-2026-09-29{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/town-council-study-session-2026-11-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/town-manager-meet-and-greet-2026-09-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/tree-diversity-walk-2026-09-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/urban-renewal-authority-meeting-2026-10-27{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/veterans-day-celebration-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/veterans-day-celebration/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/events/women-in-leadership-summit-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/erie/places{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/erie/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/articles{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/back-to-school-movie-night-2026-09-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/cemetery-crawl-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/cemetery-crawl/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/d-and-d-adventure-2026-10-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/dnd-adventure-library-2026-09-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/flu-clinic-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/johnstown-jingle-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/jingle/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/messy-art{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/messy-art-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/messy-art-corn-masher-2026-09-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/music-and-movement-afternoon-sessions-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/music-and-movement-storytime-afternoon/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/paint-n-sip-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/perler-beads-creations-2026-09-29{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/planning-zoning-2026-11-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/pumpkin-painting-library-2026-09-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/sourdough-for-beginners-2026-09-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/spa-series-body-butter-2026-09-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/thanksgiving-place-cards-2026-11-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/town-council-2026-09-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/town-council-work-session-2026-09-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/trick-or-treat-street-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/trick-or-treat-street/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/events/winter-scarves-2026-12-12{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/events/winter-scarves-2026-12-22/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/places{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/johnstown/places/we-knead-donut{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/johnstown/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/articles{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/events/pumpkin-plunge-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/events/severance-high-school-winter-market-2026-11-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/events/shs-key-club-hosts-the-1st-annual-winter-market-2026-11-28/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/events/trick-or-treat-parade-2026-10-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/severance-trick-or-treat-parade/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/events/trifecta-poetry-reception-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/events/twilight-tour-of-lakeview-cemetery-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/events/twilight-tour-of-lakeview-cemetery-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/events/veterans-day-flag-placement-2026-11-11{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/events/windsor-turkey-trot-2026-11-26{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/turkey-trot/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/events/windsor-wonderland-2026-12-05{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/wonderland/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/places{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/windsor/places/highland-ridge-open-space{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/windsor/directory/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/articles{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/guides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/bundle-up-hats-scarves-mittens-and-winter-accessories-2026-12-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/deck-the-halls-wear-red-green-silver-or-gold-2026-11-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/dia-de-los-muertos-2026-11-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/dia-de-los-muertos-ofrenda-viewing-night-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/festival-of-lights-2026-12-05{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/frederick-festival-of-lights/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/flannel-and-frost-wear-you-favorite-flannel-or-plaid-2026-12-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/frights-on-fifth-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/grinch-day-wear-green-or-dress-like-a-whoville-character-2026-12-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/holiday-color-wars-6th-grade-merry-red-7th-grade-grinch-gree-2026-12-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/holiday-hits-dress-like-a-holiday-singer-or-wear-a-festive-b-2026-12-11{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/holiday-movie-magic-dress-as-your-favorite-holiday-movie-cha-2026-12-04{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/holiday-spirit-explosion-go-all-out-with-your-most-festive-o-2026-12-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/reindeer-games-antlers-brown-red-noses-or-reindeer-gear-2026-12-09{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/santa-s-workshop-dress-as-santa-an-elf-or-a-helper-2026-12-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/socks-and-sweats-rock-your-favorite-sweats-and-fun-festive-s-2026-12-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/tinsel-and-bling-sparkles-sequins-and-anything-that-shines-2026-12-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/ugly-sweater-day-wear-your-funnies-tackiest-holiday-sweater-2026-12-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/winter-wonderland-wear-white-silver-and-icy-blue-2026-12-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/events/wrap-it-up-gift-inspired-colors-bows-and-ribbons-2026-12-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/events/",
+      "statusCode": 301
+    },
+    {
+      "source": "/carbon-valley/places{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidethetowns.com"
+        }
+      ],
+      "destination": "/carbon-valley/directory/",
+      "statusCode": 301
+    },
+    {
       "source": "/compare{/}?",
       "destination": "/moving/",
       "permanent": true,
