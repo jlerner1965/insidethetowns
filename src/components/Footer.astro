@@ -1,20 +1,29 @@
 ---
 /**
- * The footer, the same on every page of a site (design pass, 26 October
- * 2026: the flagship home page had a shorter one of its own). The sections
- * the menu leaves out, how to get in touch, what the guide is, and the
- * independence line, then the network strip.
+ * The footer, the same on every page of every site: the email band, then
+ * the footer map, then who publishes the site (the colours and navigation
+ * work order of 20 November 2026, which replaced the three-column footer of
+ * 26 October).
  *
- * The home page has this footer too (the owner, 9 November 2026). From 27
- * October it had one block of its own, with no headings and the guide's
- * own pages (About, Contact, Privacy, Photo credits) first and in bold,
- * which read as a different site's.
- * The only difference left is the space above it: the home closes on a
- * band with its own padding, where an inner page closes on its text.
+ * The email band is the Thursday email's one line and its button, on the
+ * deep dusty blue; the button goes to the page's own form where there is
+ * one (Header.astro's script), else the hub's signup. Not a second form:
+ * at most one form on a page (the newsletter rule of 26 October 2026).
+ *
+ * The map is the owner's, four columns, each label on its existing route:
+ * Explore, Towns by Region, Annual Trackers, Trust & About. A region's
+ * towns are listed by the hub's search, which answers the region's name;
+ * Front Range and High Country are not names the search knows, so those
+ * two go to the A to Z. The footer sits on the warm ink, the one dark
+ * surface on the site.
+ *
+ * On a guide, "More in <Town>": the sections the guide's menu leaves out
+ * (All events, Every year, the directory, Local changes), each one click
+ * from any page as before (the review of 14 November 2026), under the map.
  */
 import { getNetworkHub, getSite, listsEvents } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { isFoldedSection, navTarget, seasonLinks, siteNav, sportsNavLabel } from '@/lib/nav';
+import { EMAIL_NAV, SITE_NAV, isFoldedSection, navTarget, seasonLinks, siteNav, sportsNavLabel } from '@/lib/nav';
 import { guidesWithTraditions } from '@/lib/tradition-files';
 import { HUB_COLUMN } from './hub/pub';
 import NetworkBar from './NetworkBar.astro';
@@ -24,37 +33,61 @@ import { pagePath } from '@/lib/section';
 const site = getSite();
 const hub = getNetworkHub();
 const year = new Date().getFullYear();
-// A guide's home ends on a band with its own padding. (The hub's home draws
-// its own footer since 13 November 2026, src/routes/hub/index.astro.)
 const home = pagePath(Astro.url) === '/';
-// A phone gets a 44px line to tap (cleanup pass, 9 November 2026; it was 34px):
-// the padding is the target and the negative margin keeps the rows where they were.
+/** A hub page, as it is from here: the path on the hub's own build, the hub's address from a guide's. */
+const hubAt = (href: string) => (site.kind === 'hub' ? href : `https://${hub.domain}${href}`);
+// A phone gets a 44px line to tap: the padding is the target and the negative margin keeps the rows where they were.
 const linkClass = 'inline-block -my-1.5 py-2.5 no-underline text-white hover:underline sm:my-0 sm:py-0';
-// The hub's footer is on its pages' column, the masthead's (Header.astro): 1200px with
-// 40px sides from 900px, 20px sides below (the review of 14 November 2026: at 1280px
-// its text began at 43px, the header and every band at 73px). A guide keeps its own.
-const column = site.kind === 'hub' ? HUB_COLUMN : 'container-page';
-// The email by the name the masthead and the home give it: "The Thursday email".
+const column = HUB_COLUMN;
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
-// A guide's own account where it has one, else the network's (18 November
-// 2026), as the address above is the network's on every site.
-const instagram = site.social.instagram ?? hub.social.instagram;
-// Every section of the guide the menu leaves out (src/lib/nav.ts), so each
-// is one click from any page and none is reachable only from an aside.
-// Compared by where a link really goes: on a folded section This weekend is
-// its events page, already in the menu as Events (src/lib/nav.ts, navTarget).
+const sendTime = hub.newsletter?.sendTime;
+const emailHref = site.kind === 'town' ? `https://${hub.domain}${EMAIL_NAV.href}?towns=${site.slug}` : EMAIL_NAV.href;
+// The email band only where the email exists; a guide that lists no events (Niwot) has no edition, but the band still offers the network's.
+const emailOn = !!hub.newsletter;
+
+const byHref = (href: string) => SITE_NAV.find((n) => n.href === href)!;
+const explore = [byHref('/this-weekend/'), byHref('/towns/'), byHref('/colorados-secret-trails/'), byHref('/articles/'), { label: EMAIL_NAV.label, href: EMAIL_NAV.href }];
+// The regions by the names the hub's search answers (src/lib/town-search-index.ts, townRegions); the two it does not know go to the A to Z.
+const regionHref = (name: string, known: boolean) => (known ? `/search/?q=${encodeURIComponent(name)}` : '/towns/');
+const regions = [
+  { label: 'Front Range', href: regionHref('Front Range', false) },
+  { label: 'High Country', href: regionHref('High Country', false) },
+  { label: 'Western Slope', href: regionHref('Western Slope', true) },
+  { label: 'Southern Colorado', href: regionHref('Southern Colorado', true) },
+  { label: 'Eastern Plains', href: regionHref('Eastern Plains', true) },
+];
+// The trackers, each only where its season page is built (seasonLinks).
+const seasons = new Map(seasonLinks().map((s) => [s.href, s.label]));
+const trackers = [
+  { label: 'Tree Lightings', href: '/tree-lightings/' },
+  { label: 'Parades of Lights', href: '/parades-of-lights/' },
+  { label: 'Rodeos', href: '/rodeos-and-county-fairs/' },
+  { label: 'Winter Carnivals', href: '/winter-carnivals/' },
+].filter((t) => seasons.has(t.href));
+trackers.push({ label: 'Full Calendar', href: '/annual-events/' });
+const trust = [
+  { label: 'How listings are made', href: hubAt('/editorial/') },
+  site.kind === 'hub'
+    ? { label: 'Report a correction', href: `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(`[Correction] ${site.siteTitle}`)}` }
+    : { label: 'Report a correction', href: '/correct/' },
+  { label: 'About Inside the Towns', href: hubAt('/about/') },
+  ...(site.kind === 'hub' || listsEvents(site) ? [{ label: 'Submit an event', href: '/submit-event/' }] : []),
+  { label: 'Contact', href: '/contact/' },
+];
+const columns = [
+  { heading: 'Explore', links: explore.map((l) => ({ label: l.label, href: hubAt(l.href) })) },
+  { heading: 'Towns by Region', links: regions.map((l) => ({ label: l.label, href: hubAt(l.href) })) },
+  { heading: 'Annual Trackers', links: trackers.map((l) => ({ label: l.label, href: hubAt(l.href) })) },
+  { heading: 'Trust & About', links: trust },
+];
+
+// A guide's own sections the town bar's tabs leave out (src/lib/nav.ts), compared by where a link really goes.
 const folded = isFoldedSection(site);
 const inMenu = new Set(siteNav(site).map((n) => navTarget(n.href, folded)));
 const hasUpdates = site.kind === 'town' && (await getTownEntries('updates')).length > 0;
-// The full calendar, the annual events and the school's teams are here on
-// every guide (the review of 14 November 2026): /events/, the only page with
-// the date and category filters, was reachable from the home page alone once
-// Families took its menu slot; Erie's Balloon Festival and Berthoud Day were
-// linked from nowhere. Athletics only where the guide follows a school
-// (sportsNavLabel): Lyons has no sports pages since 17 November 2026.
 const sportsLabel = site.kind === 'town' ? sportsNavLabel(site.slug) : undefined;
 const hasTraditions = site.kind === 'town' && guidesWithTraditions().has(site.slug);
-const sections = site.kind === 'town'
+const more = site.kind === 'town'
   ? [
       ...(listsEvents(site) ? [{ label: 'All events', href: '/events/' }, { label: 'This weekend', href: '/this-weekend/' }] : []),
       ...(hasTraditions ? [{ label: 'Every year', href: '/traditions/' }] : []),
@@ -65,86 +98,68 @@ const sections = site.kind === 'town'
       { label: 'Moving here', href: '/moving-here/' },
       ...(site.participation ? [{ label: 'Get involved', href: '/get-involved/' }] : []),
       ...(hasUpdates ? [{ label: 'Local changes', href: '/updates/' }] : []),
+      { label: 'For businesses', href: '/for-businesses/' },
     ].filter((l, i, all) => !inMenu.has(navTarget(l.href, folded)) && all.findIndex((m) => navTarget(m.href, folded) === navTarget(l.href, folded)) === i)
-  : // The hub: each season page by name, the index of every town page, and
-    // Moving here, which left the hub's menu with the desktop boards of 14 November 2026.
-    [...seasonLinks(), { label: 'Every town, A to Z', href: '/towns/' }, { label: 'Moving here', href: '/moving/' }];
+  : [];
+const instagram = site.social.instagram ?? hub.social.instagram;
 ---
-<footer class:list={['on-dark bg-primary text-white', !home && 'mt-24']} data-pagefind-ignore>
-  <div class:list={[column, 'grid gap-10 py-14 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] lg:gap-12']}>
-    <div>
-      <Wordmark class="text-3xl leading-none" tone="light" />
-      <p class="mt-4 max-w-sm text-[0.9375rem] leading-relaxed">{site.tagline}</p>
-      {sections.length > 0 && (
-        <ul class="mt-4 flex flex-wrap gap-x-5 text-[0.9375rem] font-semibold">
-          {sections.map((l) => <li><a href={l.href} class={linkClass}>{l.label}</a></li>)}
-        </ul>
-      )}
+{emailOn && (
+  <section class:list={['email-band on-dark', !home && 'mt-24']} aria-labelledby="email-band-h" data-pagefind-ignore>
+    <div class:list={[column, 'email-band-row']}>
+      <div>
+        <p class="eyebrow text-white">The {sendDay} email</p>
+        <h2 id="email-band-h" class="mt-1 font-heading text-[1.5rem] font-medium leading-tight text-white md:text-[1.75rem]">Your town’s weekend, checked{sendTime ? `, every ${sendDay} at ${sendTime}` : `, every ${sendDay}`}</h2>
+        <p class="mt-2 text-[0.9375rem] text-white">Free. One email a week. Unsubscribe any time.</p>
+      </div>
+      <a href={emailHref} data-email-link class="btn btn-action">Sign up</a>
     </div>
-    <div>
-      <p class="eyebrow text-white">Get in touch</p>
-      <ul class="mt-3 space-y-0.5 text-[0.9375rem] sm:mt-4 sm:space-y-2">
-        <li><a href="/contact/" class={linkClass}>Contact</a></li>
-        {/* The address itself, on every page: it was on /about/ and the
-            contact form alone (network audit, 14 October 2026). The
-            network's one address, which is where every town's mail goes. */}
-        <li><a href={`mailto:${hub.social.email}`} class:list={[linkClass, '[overflow-wrap:anywhere]']}>{hub.social.email}</a></li>
-        {site.kind === 'town' && listsEvents(site) && (
-          <li><a href="/submit-event/" class={linkClass}>Submit an event</a></li>
-        )}
-        {site.kind === 'town' && (
-          <li><a href="/for-businesses/" class={linkClass}>For businesses</a></li>
-        )}
-        {/* Not on a guide that lists no events (Niwot): the email is the week's events, and it has no edition. */}
-        {hub.newsletter && (site.kind !== 'town' || listsEvents(site)) && (
-          <li><a href={`https://${hub.domain}/newsletter/`} class={linkClass}>The {sendDay} email</a></li>
-        )}
-        <li>
-          <a href={site.kind === 'hub' ? '/advertise/' : `https://${hub.domain}/advertise/`} class={linkClass}>
-            Partner with us
-          </a>
-        </li>
-        {instagram && <li><a href={instagram} rel="noopener" class={linkClass}>Instagram</a></li>}
-        {site.social.facebook && <li><a href={site.social.facebook} rel="noopener" class={linkClass}>Facebook</a></li>}
+  </section>
+)}
+<footer class:list={['site-footer on-dark', !emailOn && !home && 'mt-24']} data-pagefind-ignore>
+  <div class:list={[column, 'grid gap-10 py-14 sm:grid-cols-2 md:py-16 lg:grid-cols-4 lg:gap-12']}>
+    {columns.map((c) => (
+      <nav aria-label={c.heading}>
+        <p class="eyebrow text-white">{c.heading}</p>
+        <ul class="mt-3 space-y-0.5 text-[0.9375rem] sm:mt-4 sm:space-y-2">
+          {c.links.map((l) => <li><a href={l.href} class={linkClass}>{l.label}</a></li>)}
+        </ul>
+      </nav>
+    ))}
+  </div>
+  {more.length > 0 && (
+    <div class:list={[column, 'border-t border-white/15 py-6']}>
+      <p class="eyebrow text-white">More in {site.name}</p>
+      <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem] font-semibold">
+        {more.map((l) => <li><a href={l.href} class={linkClass}>{l.label}</a></li>)}
       </ul>
     </div>
-    {/* Out of "Get in touch", where ten links ran under a heading that fitted
-        the first six: these say what the site is and how it works. */}
-    <div>
-      <p class="eyebrow text-white">{site.kind === 'town' ? 'This guide' : 'This site'}</p>
-      <ul class="mt-3 space-y-0.5 text-[0.9375rem] sm:mt-4 sm:space-y-2">
-        <li><a href="/about/" class={linkClass}>About</a></li>
-        {/* On the hub, the home page's words for the same page (13 November
-            2026): "Editorial policy" and "Sources" were two links to it, side
-            by side. Then the one address a wrong date or listing is reported
-            to, the same as every town page's correction line
-            (src/routes/hub/town.astro). */}
-        <li><a href="/editorial/" class={linkClass}>{site.kind === 'hub' ? 'How we check listings' : 'Editorial policy'}</a></li>
-        {/* On a guide, the corrections form (the review of 14 November
-            2026: from the home page a reader found only a mailto link). */}
-        {site.kind === 'hub' ? (
-          <li><a href={`mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(`[Correction] ${site.siteTitle}`)}`} class={linkClass}>Report a correction</a></li>
+  )}
+  <div class:list={[column, 'flex flex-wrap items-start justify-between gap-x-10 gap-y-6 border-t border-white/15 py-8 text-[0.875rem] leading-relaxed']}>
+    <div class="max-w-md">
+      <Wordmark class="text-2xl leading-none" tone="light" site={hub} href={hubAt('/')} />
+      <p class="mt-3">
+        {site.kind === 'town' ? (
+          <Fragment>
+            {site.siteTitle} is an independent community guide, not a government website. For official information see
+            <a href={site.officialLinks.townSite} rel="noopener" class="text-white underline">{site.officialLinks.townSiteLabel ?? `the official ${site.name} site`}</a>{(site.officialLinks.also ?? []).map((g, i, all) => (
+              <Fragment>{i === all.length - 1 ? ' and ' : ', '}<a href={g.url} rel="noopener" class="text-white underline">{g.label}</a></Fragment>
+            ))}.
+          </Fragment>
         ) : (
-          <li><a href="/correct/" class={linkClass}>Report a correction</a></li>
+          <Fragment>{site.siteTitle} publishes independent community guides. None of its sites is affiliated with a town government.</Fragment>
         )}
+      </p>
+    </div>
+    <div>
+      <ul class="flex flex-wrap gap-x-5 gap-y-1">
+        <li><a href={`mailto:${hub.social.email}`} class:list={[linkClass, '[overflow-wrap:anywhere]']}>{hub.social.email}</a></li>
+        {instagram && <li><a href={instagram} rel="noopener" class={linkClass}>Instagram</a></li>}
+        {site.social.facebook && <li><a href={site.social.facebook} rel="noopener" class={linkClass}>Facebook</a></li>}
+        <li><a href={site.kind === 'hub' ? '/advertise/' : `https://${hub.domain}/advertise/`} class={linkClass}>Partner with us</a></li>
         <li><a href="/credits/" class={linkClass}>Photo credits</a></li>
         <li><a href="/privacy/" class={linkClass}>Privacy</a></li>
       </ul>
-    </div>
-    <div class="text-[0.875rem] leading-relaxed">
-      <p class="eyebrow text-white">Independent</p>
-      {site.kind === 'town' ? (
-        <p class="mt-4">
-          {site.siteTitle} is an independent community guide, not a government website.
-          For official information see
-          <a href={site.officialLinks.townSite} rel="noopener" class="text-white underline">{site.officialLinks.townSiteLabel ?? `the official ${site.name} site`}</a>{(site.officialLinks.also ?? []).map((g, i, all) => (
-            <Fragment>{i === all.length - 1 ? ' and ' : ', '}<a href={g.url} rel="noopener" class="text-white underline">{g.label}</a></Fragment>
-          ))}.
-        </p>
-      ) : (
-        <p class="mt-4">{site.siteTitle} publishes independent community guides. None of its sites is affiliated with a town government.</p>
-      )}
-      <p class="mt-4">© {year} {site.siteTitle}</p>
+      <p class="mt-3">© {year} {site.siteTitle}</p>
     </div>
   </div>
   <NetworkBar />

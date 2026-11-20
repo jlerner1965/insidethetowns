@@ -15,7 +15,7 @@ import Page from '@/layouts/Page.astro';
 import { coverageLine, fullSections, getHub, guideUrl, liveTowns, sectionHome, sectionSite } from '@/config';
 import { findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { subTownsOf } from '@/lib/sub-towns';
-import { pagesBeyondSections } from '@/lib/town-search-index';
+import { extraTownPages, pagesBeyondSections, townCount } from '@/lib/town-search-index';
 import { getTraditions } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
 import { publishedHubTowns } from '@/lib/hub-towns';
@@ -52,7 +52,10 @@ const aToZ = [
 ].sort((a, b) => a.name.localeCompare(b.name));
 const seasons = TRADITION_TYPES.filter((t) => seasonRows(records, t, today).length > 0);
 const path = '/towns/';
-const description = `Every Colorado town on ${hub.siteTitle}, A to Z: ${full.length} full town sections and ${pages.length} more town pages with each town’s annual events and outdoor dates.`;
+// The whole count by the one rule (townCount): the sections, the pages beyond them and the sub-town pages, 103.
+const extra = extraTownPages(fullSections());
+const total = townCount([...publishedHubTowns(records)], fullSections());
+const description = `Every Colorado town on ${hub.siteTitle}, A to Z: ${full.length} full town sections and ${pages.length} more town pages, ${total} towns, with each town’s annual events and outdoor dates.`;
 const structured = [
   collectionPageJsonLd(hub, {
     name: 'Every town, A to Z',
@@ -71,7 +74,7 @@ const link = 'font-semibold text-primary underline';
 {/* TODO: page-specific image needed. The share card is the hub hero and the
     page shows no photograph (the site audit of 19 November 2026); the hub's
     own aerial is the same photograph as the hero (IMAGE_LICENSES.csv). */}
-<Page title="Every town, A to Z" seoTitle="Colorado towns A to Z: guides and town pages" eyebrow="Colorado" {description} intro={`${full.length} full sections and ${pages.length} more town pages, each one link.`} jsonLd={structured}>
+<Page title="Every town, A to Z" seoTitle="Colorado towns A to Z: guides and town pages" eyebrow="Colorado" {description} intro={`${full.length} full guides, ${pages.length} more town pages${extra.length > 0 ? ` and ${extra.map((e) => `${e.name}’s page under ${e.guide.name}`).join(', ')}` : ''}: ${total} towns, each one link.`} jsonLd={structured}>
   <section aria-labelledby="sections-heading" class="mb-12">
     <h2 id="sections-heading" class={h2}>Full sections</h2>
     <p class="mb-4 max-w-2xl text-[0.9375rem] text-ink-muted">A full section is a guide to one town: places to eat, trails and services, and in most an events calendar. Each says what it has.</p>

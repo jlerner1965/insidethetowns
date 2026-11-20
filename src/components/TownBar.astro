@@ -1,0 +1,77 @@
+---
+/**
+ * The town bar: where a town page sits and what it holds (the colours and
+ * navigation work order of 20 November 2026). Under the Find bar on every
+ * page of a guide, and on every town page of the hub.
+ *
+ * One row: the trail, "Towns › Region › Town", with the town itself the
+ * page's own heading rather than a link; and at the end "Switch town", the
+ * guide's neighbours and the hub's A to Z, which was the "Towns" item at
+ * the end of the old menu. Under it, where the page is a guide's, the
+ * guide's own sections as a row of tabs: the same items in the same order
+ * the guide's menu had (src/lib/nav.ts, townNav), the current one in sage
+ * text with a sage rule under it (nav rule 6: one marker style, site-wide).
+ * A hub town page has its own section bar for the parts of the page and
+ * takes the trail and the switcher alone.
+ */
+interface Props {
+  /** The town the page is about. */
+  name: string;
+  /** "Northern Colorado", "Western Slope": the group the hub's A to Z and search know it by. */
+  region: string;
+  /** Where the region's towns are listed: the hub's search answers the region's name. */
+  regionHref: string;
+  /** The hub's A to Z of every town. */
+  townsHref: string;
+  /** The guide's sections, each resolved to where it goes on this page; none on a hub town page. */
+  tabs?: Array<{ label: string; href: string; current: boolean }>;
+  /** The towns next door, each to its front page. */
+  nearby?: Array<{ name: string; href: string }>;
+  /** The hub's full list, and how many towns it holds. */
+  allHref: string;
+  allLabel: string;
+  /** The page's column: the hub's 1200px or a guide's container. */
+  column: string;
+}
+
+const { name, region, regionHref, townsHref, tabs = [], nearby = [], allHref, allLabel, column } = Astro.props;
+const crumb = 'no-underline text-ink-muted hover:text-primary hover:underline';
+---
+<div class="town-bar" data-pagefind-ignore data-town-bar>
+  <div class:list={[column, 'town-bar-row']}>
+    <nav aria-label="Breadcrumb" class="town-bar-trail">
+      <ol class="flex flex-wrap items-center gap-x-1.5">
+        <li><a href={townsHref} class={crumb}>Towns</a></li>
+        <li><span aria-hidden="true" class="mr-1.5 text-ink-muted">›</span><a href={regionHref} class={crumb}>{region}</a></li>
+        <li aria-current="page"><span aria-hidden="true" class="mr-1.5 text-ink-muted">›</span><span class="font-semibold text-ink">{name}</span></li>
+      </ol>
+    </nav>
+    <details class="town-switch" data-town-switch>
+      <summary class="town-switch-summary">Switch town</summary>
+      <div class="town-switch-panel">
+        {nearby.length > 0 && (
+          <Fragment>
+            <p class="eyebrow text-ink-muted">Nearby</p>
+            <ul class="mt-2 grid gap-1">
+              {nearby.map((t) => (
+                <li><a href={t.href} class="inline-block py-1.5 text-[0.9375rem] font-medium text-ink no-underline hover:text-primary hover:underline">{t.name}</a></li>
+              ))}
+            </ul>
+          </Fragment>
+        )}
+        <p class:list={['text-[0.9375rem]', nearby.length > 0 && 'mt-3 border-t border-line-soft pt-3']}>
+          <a href={allHref} class="inline-block py-1.5 font-semibold text-primary underline">{allLabel}</a>
+        </p>
+      </div>
+    </details>
+  </div>
+  {tabs.length > 0 && (
+    <nav aria-label={name} class:list={[column, 'town-tabs-wrap']}>
+      <ul class="town-tabs">
+        {tabs.map((t) => (
+          <li><a href={t.href} aria-current={t.current ? 'page' : undefined} class="town-tab">{t.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  )}
+</div>

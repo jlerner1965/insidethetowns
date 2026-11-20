@@ -38,6 +38,25 @@ export function pagesBeyondSections<T extends { name: string }>(pages: readonly 
   return pages.filter((p) => !covered.has(p.name));
 }
 
+/**
+ * The sub-town pages: a guide's sub-towns with a page of their own under
+ * it, by their own names (Severance, "/severance/", under Windsor); a
+ * sub-town named for the guide itself is the guide's own page and is left
+ * out ("windsor" under Windsor).
+ */
+export function extraTownPages(sections: readonly TownConfig[]): Array<{ name: string; slug: string; guide: TownConfig }> {
+  return sections.flatMap((guide) => subTownsOf(guide).filter((s) => normalizeTownQuery(s.label) !== normalizeTownQuery(guide.name)).map((s) => ({ name: s.label, slug: s.slug, guide })));
+}
+
+/**
+ * How many towns the network covers, by one rule everywhere it is said
+ * (the owner, 20 November 2026): the full guides, the town pages beyond
+ * them, and the sub-town pages: 11 + 91 + Severance = 103.
+ */
+export function townCount<T extends { name: string }>(pages: readonly T[], sections: readonly TownConfig[]): number {
+  return sections.length + pagesBeyondSections(pages, sections).length + extraTownPages(sections).length;
+}
+
 /** A community guide as a destination. `base` is '' on the guide's own site and its https origin elsewhere. */
 export function guideDestination(guide: TownConfig, base: string, towns: readonly TownConfig[] = allTowns): TownDestination {
   const covered = coveredTowns(guide);
