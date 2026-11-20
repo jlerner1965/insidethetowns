@@ -426,29 +426,20 @@ const pairBand = 'desk:pb-[72px] desk:pt-[64px]';
 const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr] desk:items-start desk:gap-x-[56px] desk:px-[40px]';
 ---
 <Base {fullTitle} {description} image={shareImage} imageAlt={HOME_PHOTO.alt} jsonLd={structured}>
-  {/* The hero: what the page is, the search, and the way to the sections below; the photograph beside it from 900px. */}
+  {/* The hero: what the page is and the way to the sections below; the photograph beside it from 900px. Its search box went on 20 November 2026: the Find bar sits directly above it on every page (FindBar.astro), so the page had two in a row. */}
   <section class="bg-paper px-[20px] pb-[30px] pt-6 desk:px-0 desk:pb-[64px] desk:pt-[56px]" aria-labelledby="hero-h" data-band>
     <div class:list={[wide, 'desk:grid desk:grid-cols-[7fr_5fr] desk:items-start desk:gap-x-[56px]']}>
       <div class="min-w-0">
         <p class:list={[pub.cap, 'text-ink-muted']}>Colorado, plains to peaks</p>
         <h1 id="hero-h" class="mt-2.5 text-[2.2353rem] font-medium leading-[1.04] tracking-[-0.025em] text-ink [font-variation-settings:normal] desk:max-w-[12em] desk:text-[3.4118rem] desk:leading-[1.02]">What’s happening in Colorado’s towns</h1>
         <p class="mt-2 font-heading text-[1.1176rem] font-normal italic leading-[1.45] text-ink [font-variation-settings:normal] desk:text-[1.2353rem]">Find Colorado’s town traditions, this weekend’s events and local stories — from parades of lights to Friday night games.</p>
-        {/* The site's search (src/pages/search.astro), which on the hub holds every guide's places, guides and events as well as the town pages; the towns' names are offered as they are typed, from the town box's list (`home-names`, under Find your town). */}
-        <form role="search" action="/search/" method="get" class="mt-5 desk:mt-[22px] desk:max-w-[560px]" data-track="home-search">
-          {/* On a phone the box and its button say what it is, so the label is for screen readers there; it shows from 900px. */}
-          <label for="home-q" class="max-desk:sr-only block text-[0.9412rem] font-[650] text-ink">Search towns and events</label>
-          <div class="flex desk:mt-2">
-            <input id="home-q" name="q" type="search" list="home-names" autocomplete="off" placeholder="A town or an event" class="block h-12 min-w-0 flex-1 rounded-l-[2px] border border-r-0 border-ink-muted bg-raised px-3.5 text-[0.9412rem] text-ink placeholder:text-ink-muted" />
-            <button type="submit" class="h-12 shrink-0 cursor-pointer rounded-r-[2px] border-0 bg-primary px-[18px] text-base font-semibold text-white hover:bg-primary-hover">Search</button>
-          </div>
-        </form>
         {/*
           * One row at every width, between two hairlines: on a phone, three
           * rows of their own took a third of the screen. The phone's row is
           * the meta size with no arrows, spread to the column's edges: what
           * fits all three on a 360px phone.
           */}
-        <ul class="mt-2.5 flex flex-wrap justify-between gap-x-3 border-y border-hairline desk:justify-start desk:gap-x-7" data-jumps>
+        <ul class="mt-5 flex flex-wrap justify-between desk:mt-[22px] gap-x-3 border-y border-hairline desk:justify-start desk:gap-x-7" data-jumps>
           {jumps.map((j) => (
             <li><a href={j.href} class="flex min-h-[46px] items-center text-meta font-[650] leading-[1.3] text-primary underline decoration-1 underline-offset-[3px] desk:text-[0.9412rem]" data-jump={j.href.slice(1)} data-track="home-jump">{j.label}<span class="hidden desk:inline">&nbsp;→</span></a></li>
           ))}
