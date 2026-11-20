@@ -13,6 +13,8 @@ them back, restore from `933267d5`: `alpine-hose-no-2-firefighting-museum.jpg`, 
 `georgetown-loop-railroad-devils-gate-depot.jpg` (place and the with-kids article), `hamill-house.jpg`,
 `the-old-school.jpg` (place and the history article), `tom-bennhoff-lake-trail.jpg`, and re-add the three lines.
 
+2026-11-20: photos restored. The six files were moved with `git mv` from `content/idaho-springs/images/` to `content/georgetown/images/` (byte-for-byte the files at `933267d5`), their IMAGE_LICENSES.csv rows now name georgetown, and the three lines are back on the six places and on georgetown-history and georgetown-with-kids.
+
 ## Places (20 kept, 0 gone)
 
 | Place | URL read | Words that settle it | Changed |

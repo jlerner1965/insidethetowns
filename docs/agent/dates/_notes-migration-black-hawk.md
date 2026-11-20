@@ -11,6 +11,8 @@ only `hero.jpg` and this pass may not touch images. To bring them back, restore 
 `golden-gate-canyon-state-park.jpg` (place and the with-kids article) and
 `maryland-mountain-quartz-valley-open-space-park.jpg` (place and the history article).
 
+2026-11-20: photos restored. The two files were moved with `git mv` from `content/idaho-springs/images/` to `content/black-hawk/images/` (byte-for-byte the files at `933267d5`), their IMAGE_LICENSES.csv rows now name black-hawk, and the three lines are back on both places and on black-hawk-with-kids and black-hawk-history.
+
 ## Unreadable sources (11 places and one guide gone for this reason)
 
 - monarchblackhawk.com (every page tried: /contact-us, /dining/bistro-mariposa, /dining/java-etc, /dining/monarch-chophouse, /explore/activities/shopping, /wellness, /dining/the-buffet, /getting-here): HTTP 403, a "Just a moment..." bot check, to curl; 403 to the WebFetch tool as well. Not worked around. Gone: monarch-casino-resort-spa, bistro-mariposa, java-etc-monarch, monarch-chophouse, mpulse-gift-shop, spa-monarch, the-buffet-at-monarch.

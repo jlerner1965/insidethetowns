@@ -14,6 +14,9 @@ sources:
     url: "https://georgetown-colorado.org/history-and-tours/"
   - label: "Georgetown Loop Railroad"
     url: "https://www.georgetownlooprr.com/"
+image: ../images/the-old-school.jpg
+imageAlt: "The red-brick 1874 Georgetown public school on Taos Street, now the Old School, with its earlier Georgetown Heritage Center sign out front, in May 2024"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 ---
 
 Georgetown's buildings record a mining boom. The Town dates its beginning as a mining camp to 1859. Gold brought the first arrivals; the later silver economy supported the houses, civic buildings and commercial district that still stand.

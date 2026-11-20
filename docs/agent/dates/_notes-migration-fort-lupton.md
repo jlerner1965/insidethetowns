@@ -27,6 +27,7 @@ Old content from commit 5ce23d48 (folded 12 October 2026). All pages read with c
 - fort-lupton-public-and-school-library (place) and fort-lupton-history (guide): the `image`, `imageAlt` and `imageCredit` lines were removed because the image files are no longer in content/fort-lupton/images/ (they are in content/carbon-valley/images/: fort-lupton-public-and-school-library.jpg, ottesen-grain-mill.jpg). Images were outside this task. Removed lines, to put back once the files are copied:
   - library: `image: ../images/fort-lupton-public-and-school-library.jpg`, alt "The tan-brick Fort Lupton Public and School Library with its name lettered on the wall, the bronze Heartland Story statue beside the entrance and patches of snow on the forecourt", credit "Erie Bard, Wikimedia Commons, CC BY-SA 4.0".
   - history: `image: ../images/ottesen-grain-mill.jpg`, alt "The 1920 Ottesen Grain Co. feed mill in Fort Lupton in October 2021, a corrugated-metal mill with a tile silo and a headhouse", credit "Suzanne Powell, Wikimedia Commons, CC BY-SA 4.0".
+- 2026-11-20: photos restored. Both files were moved with `git mv` from `content/carbon-valley/images/` to `content/fort-lupton/images/` (byte-for-byte the files at 5ce23d48), their IMAGE_LICENSES.csv rows now name fort-lupton, and the three lines above are back on the library place and fort-lupton-history.
 - explore-fort-lupton-in-walking-order: dropped "It does not have a listing on this guide yet", since the historic park has a listing.
 
 ## Guides

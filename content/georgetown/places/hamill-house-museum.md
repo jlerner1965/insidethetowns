@@ -12,6 +12,9 @@ phone: "303-569-2840"
 seasonal:
   season: "Tours by reservation only: call 303-569-2840"
   note: "Open for the Georgetown Christmas Market, December 5–6 and 12–13, 11 am–3 pm"
+image: ../images/hamill-house.jpg
+imageAlt: "The white clapboard front of the Hamill House, with a pointed arched window in the gable, a columned porch and double wooden doors, under a spring sky in 2024"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 tags: [museum, history, free]
 summary: "Historic Georgetown's house museum, an 1867 Gothic Revival home on Argentine Street, with no admission charge; since the season ended in late September, tours are by reservation only."
 ---
