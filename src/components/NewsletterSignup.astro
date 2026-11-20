@@ -203,11 +203,11 @@ const box = 'size-5 shrink-0 rounded border-line';
           one taken away (src/lib/subscribe.ts, existing), so a reader adds
           the others from any form, /newsletter/'s picker or a guide's. */}
       {/* On a phone the town fills a line and the address and the button share the next; from 900px (the desktop boards) the three are one line, their feet aligned. */}
-      <div class="mt-5 grid grid-cols-[minmax(0,1fr)_auto] gap-y-3.5 desk:mt-0 desk:grid-cols-[1fr_1.3fr_auto] desk:items-end desk:gap-x-3">
+      <div class="mt-5 grid grid-cols-[minmax(0,1fr)_auto] gap-x-2 gap-y-3.5 desk:mt-0 desk:grid-cols-[1fr_1.3fr_auto] desk:items-end desk:gap-x-3">
         <div class="col-span-2 min-w-0 desk:col-span-1">
           <label for={selectId} class="block text-[0.9412rem] font-[650] text-white">Your town</label>
           <div class="relative mt-2">
-            <select id={selectId} name={tagField} required aria-describedby={errorId} class="block h-12 w-full cursor-pointer appearance-none rounded-[2px] border-0 bg-raised pl-3.5 pr-10 text-[0.9412rem] text-ink">
+            <select id={selectId} name={tagField} required aria-describedby={errorId} class="block h-12 w-full cursor-pointer appearance-none rounded-lg border-0 bg-raised pl-3.5 pr-10 text-[0.9412rem] text-ink">
               <option value="">Choose a town</option>
               {[...editions].sort((a, b) => a.name.localeCompare(b.name)).map((e) => <option value={e.towns[0]!.slug} data-towns={covers(e)}>{e.name}</option>)}
             </select>
@@ -216,9 +216,9 @@ const box = 'size-5 shrink-0 rounded border-line';
         </div>
         <div class="min-w-0">
           <label for={inputId} class="block text-[0.9412rem] font-[650] text-white">Your email</label>
-          <input id={inputId} type="email" name={emailField} required autocomplete="email" placeholder="you@example.com" aria-describedby={emailErrorId} class="mt-2 block h-12 w-full min-w-0 rounded-l-[2px] border-0 bg-raised px-3.5 text-[0.9412rem] text-ink placeholder:text-ink-muted desk:rounded-[2px]" />
+          <input id={inputId} type="email" name={emailField} required autocomplete="email" placeholder="you@example.com" aria-describedby={emailErrorId} class="mt-2 block h-12 w-full min-w-0 rounded-lg border-0 bg-raised px-3.5 text-[0.9412rem] text-ink placeholder:text-ink-muted" />
         </div>
-        <button type="submit" data-signup-button class="h-12 shrink-0 cursor-pointer self-end rounded-r-[2px] border-0 bg-paper px-[18px] text-base font-[650] text-primary hover:bg-raised desk:rounded-[2px]">Sign up</button>
+        <button type="submit" data-signup-button class="btn-action h-12 shrink-0 cursor-pointer self-end rounded-full px-6 text-base font-[650]">Sign up</button>
       </div>
       <p id={errorId} data-towns-error hidden aria-live="polite" class="mt-2 text-base font-semibold text-white">{SIGNUP_MESSAGES['need-town']}</p>
       <p id={emailErrorId} data-email-error hidden aria-live="polite" class="mt-2 text-base font-semibold text-white">{SIGNUP_MESSAGES.invalid}</p>
@@ -347,7 +347,7 @@ const box = 'size-5 shrink-0 rounded border-line';
             stays beside the field on a phone too, so there it says "Sign up"
             and the full words return from the sm width; the heading above
             already says which email. */}
-        <button type="submit" data-signup-button class:list={[home ? 'btn h-12 shrink-0 justify-center px-4 sm:px-6' : 'btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', dark ? 'bg-highlight text-ink hover:bg-highlight-ink' : 'btn-primary']}>{home ? (
+        <button type="submit" data-signup-button class:list={[home ? 'btn h-12 shrink-0 justify-center px-4 sm:px-6' : 'btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', 'btn-action']}>{home ? (
           <Fragment><span class="sm:hidden">Sign up</span><span class="hidden sm:inline">{updatesOnly ? `Send me ${town!.name} updates` : `Send me ${day}’s email`}</span></Fragment>
         ) : <Fragment>Send me {dark || card ? `${day}’s` : `the ${day}`} email</Fragment>}</button>
       </div>

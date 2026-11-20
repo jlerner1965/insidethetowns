@@ -676,6 +676,19 @@ export function newsItems<I extends NewsItem>(items: readonly I[], today: string
  * publishers the rest are counted, so one row on the home page stays a few
  * lines (the Eldora explainer of 13 November 2026 rests on about twenty).
  */
+/**
+ * A story's source note on the home page, short: how many sources it rests
+ * on and the day the oldest was read, "19 sources, read Nov 15, 2026"; one
+ * source by name (the owner, 20 November 2026: the names crowded the
+ * previews; the article keeps its full list).
+ */
+export function storySourceNote(sources: ReadonlyArray<{ label: string; checked: string }>): string | undefined {
+  if (sources.length === 0) return undefined;
+  const oldest = [...sources].map((s) => s.checked).sort()[0]!;
+  const read = formatShortDate(parseLocal(oldest));
+  return sources.length === 1 ? `Source: ${sources[0]!.label.split(':')[0]!.trim()}, read ${read}` : `${sources.length} sources, read ${read}`;
+}
+
 export function storySourceText(sources: ReadonlyArray<{ label: string; checked: string }>, max = 3): string | undefined {
   if (sources.length === 0) return undefined;
   const oldest = [...sources].map((s) => s.checked).sort()[0]!;

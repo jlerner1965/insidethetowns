@@ -9,7 +9,7 @@
  *    site's menu (src/lib/nav.ts, SITE_NAV: six, never seven; nav rule 1),
  *    search, and the Thursday email as the one action button. Below the
  *    masthead breakpoint (66.25rem) the menu is a panel that drops from
- *    under the header on a button, grouped: Explore, Towns, the email.
+ *    under the header on a button: the items under Explore, then the email.
  * 3. The Find bar (FindBar.astro), which sticks to the top of the screen.
  *
  * One masthead on every site (one brand, 20 November 2026; until then a
@@ -173,14 +173,11 @@ const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-unde
 
       <nav id="site-nav" class="site-nav hub-row" aria-label="Primary">
         <ul class:list={['site-nav-list', column]}>
-          {/* The panel's groups (nav rule: grouped on a phone); the row has no headings. */}
+          {/* The panel's group heading on a phone; the row has none. The six in their order, Towns A–Z second
+              (SITE_NAV, src/lib/nav.ts), in the row and the panel alike; the email is the button under them. */}
           <li class="site-nav-group" aria-hidden="true">Explore</li>
-          {nav.filter((item) => item.href !== hubAt('/towns/')).map((item) => (
+          {nav.map((item) => (
             <li><a href={item.href} aria-current={item.current ? 'page' : undefined} class:list={rowLink(item.current)}>{item.label}</a></li>
-          ))}
-          <li class="site-nav-group" aria-hidden="true">Towns</li>
-          {nav.filter((item) => item.href === hubAt('/towns/')).map((item) => (
-            <li class="site-nav-towns"><a href={item.href} aria-current={item.current ? 'page' : undefined} class:list={rowLink(item.current)}>{item.label}</a></li>
           ))}
           {emailOn && (
             <li class="site-nav-email">
