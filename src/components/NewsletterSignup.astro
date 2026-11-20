@@ -518,16 +518,25 @@ const box = 'size-5 shrink-0 rounded border-line';
       else field.removeAttribute('aria-describedby');
       if (field instanceof HTMLInputElement || field instanceof HTMLSelectElement) field.setAttribute('aria-invalid', String(show));
     };
+    // The address's error says what is wrong (the owner, 20 November 2026):
+    // "Enter your email address." for a field sent blank, the typo line for
+    // one that is not an address or that Buttondown refused.
+    const emailWords = (blank: boolean) => {
+      if (emailError) emailError.dataset.words = blank ? SIGNUP_MESSAGES.empty : SIGNUP_MESSAGES.invalid;
+    };
     for (const box of [...boxes(), ...lists()]) {
       box.addEventListener('change', () => {
         if (towns().length > 0) flag(townField, error, false);
       });
     }
     email?.addEventListener('blur', () => {
-      if (email.value.trim() && !email.validity.valid) flag(email, emailError, true);
+      if (!email.value.trim() || email.validity.valid) return;
+      emailWords(false);
+      flag(email, emailError, true);
     });
+    // Put right: a valid address, or the first letters typed after "Enter your email address."
     email?.addEventListener('input', () => {
-      if (email.validity.valid) flag(email, emailError, false);
+      if (email.validity.valid || (!email.validity.valueMissing && emailError?.dataset.words === SIGNUP_MESSAGES.empty)) flag(email, emailError, false);
     });
     // Sent with a field the browser refuses (no town, no address, or not an
     // address): the field's own error in the page's words, not the
@@ -535,6 +544,7 @@ const box = 'size-5 shrink-0 rounded border-line';
     for (const field of [email, ...lists()]) {
       field?.addEventListener('invalid', (event) => {
         event.preventDefault();
+        if (field === email) emailWords(email.validity.valueMissing);
         flag(field, field === email ? emailError : error, true);
         if ([...form.elements].find((el) => (el as HTMLInputElement).willValidate && !(el as HTMLInputElement).validity.valid) === field) field.focus();
       });
@@ -581,6 +591,7 @@ const box = 'size-5 shrink-0 rounded border-line';
         }
         report(answer);
         if (answer === 'invalid') {
+          emailWords(false);
           flag(email, emailError, true);
           email?.focus();
           return;

@@ -128,6 +128,8 @@ export const SIGNUP_MESSAGES = {
   added: 'Done: Buttondown has added your address.',
   addedHelp: 'The {day} email will go to {email}. Every issue has a link to unsubscribe.',
   invalid: 'That address doesn’t look right. Check it for a typo.',
+  // The form sent with the address left blank (the owner, 20 November 2026): not "doesn't look right" about nothing.
+  empty: 'Enter your email address.',
   // Buttondown says the address is an active subscriber, and the form's
   // towns have been added to it (src/lib/subscribe.ts, `existing`). An
   // address never confirmed, or unsubscribed, is `confirm` instead.
