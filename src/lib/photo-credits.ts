@@ -14,6 +14,7 @@ import { getCuriosity, getHubEntries, getTownEntries, getTraditions } from '@/li
 import { articlePath } from '@/lib/curiosity';
 import { publishedHubTowns } from '@/lib/hub-towns';
 import { hubTownPhoto, resolveSiteImage } from '@/lib/images';
+import { sectionContents } from '@/lib/section-index';
 import { creditBeside, parseLedger, publicCredit, type LedgerRow, type PublicCredit } from '@/lib/credits';
 
 export interface PhotoUsage {
@@ -67,6 +68,18 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
     if (!photo.usedOn.some((u) => u.href === usage.href)) photo.usedOn.push(usage);
   };
 
+  // An entry's photograph and its inline images, as used on the page at `href`.
+  const creditEntry = (entry: { slug: string; data: unknown; filePath?: string; body?: string }, href: string, folder?: string) => {
+    const data = entry.data as { title?: string; imageAlt?: string };
+    const usage = { title: data.title ?? entry.slug, href };
+    const source = entry.filePath ? readFileSync(entry.filePath, 'utf8') : '';
+    const hero = /^image:\s*"?\.\.\/images\/([^"\s]+)"?\s*$/m.exec(source)?.[1];
+    if (hero) use(hero, data.imageAlt ?? '', usage, folder);
+    for (const m of (entry.body ?? '').matchAll(/!\[([^\]]*)\]\(\.\.\/images\/([^)\s]+)\)/g)) {
+      use(m[2]!, m[1]!, usage, folder);
+    }
+  };
+
   // The hero is on the home page (on a flagship guide, beside the guide's
   // routes, since 26 October 2026) and, as the share image every page
   // without a photograph of its own falls back to, on the link preview of
@@ -90,18 +103,26 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
     }
   }
 
+  // The folded guides kept page by page (`section.mode: 'pages'`): their
+  // places, guides and events are built by the hub (src/routes/hub/section-*.astro),
+  // so their photographs are credited here, under the addresses those pages
+  // have, from the town's own images folder. Read from the same list the
+  // routes build from, so no page is credited that the hub does not build.
+  if (site.kind === 'hub') {
+    for (const section of await sectionContents()) {
+      const base = `/${section.hubTown}`;
+      const kept = [
+        ...section.placeEntries.map((e) => ({ entry: e, href: `${base}/places/${e.slug}/` })),
+        ...section.guideEntries.map((e) => ({ entry: e, href: `${base}/guides/${e.slug}/` })),
+        ...section.eventEntries.map((e) => ({ entry: e, href: `${base}/events/${e.slug}/` })),
+      ];
+      for (const { entry, href } of kept) creditEntry(entry, href, section.town.slug);
+    }
+  }
+
   const read = site.kind === 'hub' ? getHubEntries : getTownEntries;
   for (const collection of Object.keys(COLLECTION_PATHS) as Collection[]) {
-    for (const entry of await read(collection)) {
-      const data = entry.data as { title?: string; imageAlt?: string };
-      const usage = { title: data.title ?? entry.slug, href: COLLECTION_PATHS[collection](entry.slug) };
-      const source = entry.filePath ? readFileSync(entry.filePath, 'utf8') : '';
-      const hero = /^image:\s*\.\.\/images\/(\S+)\s*$/m.exec(source)?.[1];
-      if (hero) use(hero, data.imageAlt ?? '', usage);
-      for (const m of (entry.body ?? '').matchAll(/!\[([^\]]*)\]\(\.\.\/images\/([^)\s]+)\)/g)) {
-        use(m[2]!, m[1]!, usage);
-      }
-    }
+    for (const entry of await read(collection)) creditEntry(entry, COLLECTION_PATHS[collection](entry.slug));
   }
 
   return [...photos.values()];

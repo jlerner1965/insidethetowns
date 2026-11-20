@@ -48,7 +48,12 @@ const link = 'text-primary underline decoration-1 underline-offset-[3px]';
       {data.verified && <span> · {checkedBy(formatDate(data.verified))}</span>}
     </p>
   </Fragment>
-  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} widths={[480, 768, 1200]} sizes="(min-width: 48rem) 42rem, 100vw" class="mb-8 w-full rounded-lg" loading="eager" />}
+  {data.image && (
+    <figure class="mb-8">
+      <Image src={data.image} alt={data.imageAlt ?? ''} widths={[480, 768, 1200]} sizes="(min-width: 48rem) 42rem, 100vw" class="w-full rounded-lg" loading="eager" />
+      {data.imageCredit && <figcaption class="mt-1 text-[0.75rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>}
+    </figure>
+  )}
   <div class="prose"><Content /></div>
   {data.sources.length > 0 && (
     <section class="mt-10 text-[0.875rem] text-ink-muted" aria-labelledby="sources-heading" data-sources>

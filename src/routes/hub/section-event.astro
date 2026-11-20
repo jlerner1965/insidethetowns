@@ -70,7 +70,12 @@ const link = 'text-primary underline decoration-1 underline-offset-[3px]';
       This event was on {dayLine} and has passed. <a href={`/${town.slug}/`} class={link}>What is next in {town.name}</a>: the town's annual events and outdoor dates.
     </p>
   )}
-  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} widths={[480, 768, 1200]} sizes="(min-width: 48rem) 42rem, 100vw" class="mb-8 w-full rounded-lg" loading="eager" />}
+  {data.image && (
+    <figure class="mb-8">
+      <Image src={data.image} alt={data.imageAlt ?? ''} widths={[480, 768, 1200]} sizes="(min-width: 48rem) 42rem, 100vw" class="w-full rounded-lg" loading="eager" />
+      {data.imageCredit && <figcaption class="mt-1 text-[0.75rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>}
+    </figure>
+  )}
   <dl class="mb-8 grid gap-x-8 gap-y-4 rounded-lg bg-raised px-5 py-5 ring-1 ring-line-soft sm:grid-cols-2 sm:px-7" data-event-facts>
     {facts.map(([term, detail]) => (
       <div>
