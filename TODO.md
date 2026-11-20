@@ -181,6 +181,20 @@ Lyons, Niwot and Golden; Berthoud's is in the row above; `docs/HERO-PHOTOS.md`
 is the heroes' buy and shoot list. Permissions
 received go in `PERMISSIONS.md`.
 
+The season trackers (/parades-of-lights/, /tree-lightings/, /turkey-trots/,
+/rodeos-and-county-fairs/, /oktoberfests/, /harvest-festivals/,
+/winter-carnivals/, /new-years/, /free-admission-days/, /outdoor-dates/,
+/annual-events/) and /towns/ show no photograph and share the home page's
+Flatirons as their share card (the site audit of 19 November 2026). The
+licensed library holds no photograph of a parade, a tree lighting, a race,
+a rodeo, a fair, an Oktoberfest, a harvest festival or a winter carnival:
+each page needs one bought or shot before it can have its own
+(`src/routes/hub/season.astro`, the TODO by its `<Page>`). The one fit on
+hand is Estes Park's Trail Ridge Road (`content/estes-park/images/trail-
+ridge-road.jpg`, National Park Service, public domain) for /outdoor-dates/,
+which the hub build cannot see until `src/integrations/site-images.ts`
+names it. Owner: the photographs; assistant: the wiring once they exist.
+
 ## On hold until 20 January 2027
 
 The other guides run on automation: the Monday ingest, the nightly
