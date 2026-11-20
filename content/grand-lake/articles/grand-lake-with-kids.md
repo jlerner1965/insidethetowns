@@ -1,5 +1,6 @@
 ---
 title: "Grand Lake with kids: the waterfront, a library and one planned outing"
+seoTitle: "Grand Lake with kids: the waterfront, a library, an outing"
 date: "2026-10-11"
 excerpt: "A family day by the lake and downtown, with Juniper Library as the indoor option and one larger outing: the Adams Falls walk or a show at Rocky Mountain Repertory Theatre, each checked ahead."
 category: "Family"

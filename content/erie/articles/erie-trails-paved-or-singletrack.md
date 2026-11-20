@@ -1,6 +1,6 @@
 ---
 title: "Erie trails: the paved Coal Creek corridor or the singletrack"
-seoTitle: "Erie, CO trails: the paved Coal Creek corridor or the singletrack"
+seoTitle: "Erie, CO trails: paved Coal Creek corridor or singletrack"
 date: "2026-10-07"
 excerpt: "Erie has two trail systems that suit different days: ten miles of concrete and crusher fines along Coal Creek, open whenever it is light, and 3.15 miles of purpose-built mountain-bike singletrack at Sunset Open Space that the Town closes whenever it is wet. Which to pick, where to park, and where to check."
 image: ../images/coal-creek-trail.jpg

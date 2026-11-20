@@ -1,5 +1,6 @@
 ---
 title: "Boulder Valley’s school closures: what changes for Lafayette families in 2027–28"
+seoTitle: "Boulder Valley school closures: what changes for Lafayette"
 slug: bvsd-school-closures-and-lafayette
 date: "2026-11-10"
 excerpt: "No Lafayette school is among those Boulder Valley closes or reconfigures in 2027–28 under the Resilient Schools plan its board adopted on September 22. What does reach Lafayette: a lottery priority for displaced students in this winter’s choice enrollment, and a year-long review of the dual-language programs."

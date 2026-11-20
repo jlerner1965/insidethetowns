@@ -1,5 +1,6 @@
 ---
 title: "Idaho Springs with kids: a downtown base and one reserved attraction"
+seoTitle: "Idaho Springs with kids: downtown base, reserved attraction"
 date: "2026-10-11"
 updated: "2026-11-17"
 excerpt: "Pair a heritage or Argo visit with a park by Clear Creek and a library program. Mount Blue Sky and the higher trails are a separate trip from a downtown walk."

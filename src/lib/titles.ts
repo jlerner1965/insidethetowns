@@ -295,11 +295,39 @@ export function eventTitle(lead: string, when: string, town: string, siteTitle: 
   const full = `${lead} \u2014 ${when}`;
   const atVenue = tail && full.length > TITLE_LIMIT + 5 && [tail, tail.replace(' at ', ' at the ')].find((t) => lead.toLowerCase().endsWith(t));
   if (atVenue && lead.length - atVenue.length >= 12) lead = lead.slice(0, lead.length - atVenue.length);
+  // A lead that still runs the title past TITLE_LIMIT is cut (fitLead): the
+  // site audit of 19 November 2026 counted 177 titles past 60, the longest
+  // 137, nearly all an event's full name with its subtitle and the date.
+  lead = fitLead(lead, TITLE_LIMIT - when.length - 3);
   const dated = `${lead} \u2014 ${when}`;
   if (namesTown(dated, town)) return dated;
   if (namesTown(siteTitle, town) && fitTitle(dated, siteTitle) !== dated) return dated;
   const placed = `${lead} \u2014 ${town}, ${when}`;
   return placed.length <= TITLE_LIMIT ? placed : dated;
+}
+
+/**
+ * An event's name cut to `room` characters: at its first clause, where the
+ * organizer wrote a name and a subtitle ("Rocky Mountain Starscape: Teen
+ * Painting Program/ Paisaje Estrellado…" is "Rocky Mountain Starscape";
+ * "Christmas Storytime with Santa! | Hora de cuentos…" keeps the first),
+ * when the first clause is a name in itself (12 characters or more) and
+ * fits; else at a clause or a word, as a tagline is (trimAt). A status
+ * label in front ("Canceled: ") stays. The page's h1 keeps the whole name.
+ */
+export function fitLead(lead: string, room: number): string {
+  if (lead.length <= room) return lead;
+  const status = /^(?:Canceled|Postponed): /.exec(lead)?.[0] ?? '';
+  const name = lead.slice(status.length);
+  const left = room - status.length;
+  const clause = name.split(/\s*(?::|\|)\s+|\s+[-\u2013\u2014]\s+|-{2,3}\s+|\s\/|\/\s/)[0]!.trim();
+  if (clause.length >= 12 && clause.length <= left && clause !== name) return `${status}${clause.replace(/[,;:]+$/, '')}`;
+  // At a word: the whole words that fit, not one fewer when the cut lands on a space (trimAt is written for a tagline's clauses).
+  let tail = name.slice(0, left + 1);
+  tail = tail.slice(0, tail.lastIndexOf(' '));
+  const stop = /\s+(a|an|the|to|of|and|in|on|for|with|from|at|by|that|its|&)$/i;
+  while (stop.test(tail)) tail = tail.replace(stop, '');
+  return `${status}${tail.replace(/[.,;:\s–-]+$/, '')}`;
 }
 
 /**

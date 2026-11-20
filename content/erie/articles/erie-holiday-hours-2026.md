@@ -1,6 +1,6 @@
 ---
 title: "Erie holiday hours: what is open and closed from Veterans Day to New Year's Day"
-seoTitle: "Erie, CO holiday hours 2026: rec center, library and ice rink"
+seoTitle: "Erie, CO holiday hours 2026: rec center, library, ice rink"
 slug: erie-holiday-hours-2026
 date: "2026-11-10"
 updated: "2026-11-19"

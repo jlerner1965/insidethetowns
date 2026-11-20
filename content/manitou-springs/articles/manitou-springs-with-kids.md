@@ -1,5 +1,6 @@
 ---
 title: "Manitou Springs with kids: parks, springs and a short town circuit"
+seoTitle: "Manitou Springs with kids: parks, springs and a town circuit"
 date: "2026-10-11"
 excerpt: "A park, a short spring walk and one indoor attraction along Manitou Avenue, with the railway, the Incline and Cave of the Winds as separate plans."
 category: "Family"

@@ -1,5 +1,6 @@
 ---
 title: "Black Hawk with kids: public spaces, a library and a short trail plan"
+seoTitle: "Black Hawk with kids: public spaces, library, short trail"
 date: "2026-10-11"
 excerpt: "A family day in Black Hawk built around Gregory Street, the county library and one outdoor stop, away from the casino floors."
 category: "Family"

@@ -1,6 +1,6 @@
 ---
 title: "The Revere property: what the April vote decided"
-seoTitle: "Revere development, Berthoud: the April 2026 vote on 1A and 3A"
+seoTitle: "Revere development, Berthoud: April 2026 vote on 1A and 3A"
 date: "2026-11-03"
 excerpt: "Thirty-eight acres at US 287 and Mountain Avenue, a rezoning the Board passed in October 2025, two petitions, and a 2-to-1 vote on April 7, 2026 that undid the zoning and capped the land at one home per 2.29 acres. What was proposed, what each question did, how the town voted, and where it stands."
 category: "Civic"

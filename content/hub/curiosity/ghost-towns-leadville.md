@@ -3,7 +3,7 @@ slug: ghost-towns-leadville
 kind: ghost-towns
 towns: [leadville]
 title: "Ghost towns near Leadville"
-seoTitle: "Ghost towns near Leadville, Colorado: roads, seasons and access"
+seoTitle: "Ghost towns near Leadville, CO: roads, seasons and access"
 description: "Seven abandoned places within reach of Leadville, by direction: which need a pass that closes, which need a walk, what stands, and where the land is private."
 status: draft
 visited: false

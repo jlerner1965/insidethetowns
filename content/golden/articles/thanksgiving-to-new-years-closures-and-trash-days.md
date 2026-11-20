@@ -1,6 +1,6 @@
 ---
 title: "Thanksgiving to New Year's in Golden: trash days, closures and holiday hours"
-seoTitle: "Golden, CO holiday schedule 2026: trash days, closures, hours"
+seoTitle: "Golden holiday schedule 2026: trash days, closures, hours"
 date: "2026-11-10"
 excerpt: "Trash pickup slips a day after Thanksgiving, Christmas and New Year's Day. City offices close November 11, 26 and 27, the library closes those days and December 24 and 25, and the Community Center keeps short hours on Black Friday and the two eves. The dates each one has posted."
 category: "Civic"

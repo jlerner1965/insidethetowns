@@ -1,6 +1,6 @@
 ---
 title: "When it snows in Berthoud: what the Town plows and what is yours to shovel"
-seoTitle: "Berthoud, CO snow removal: plow priorities and sidewalk rules"
+seoTitle: "Berthoud snow removal: plow priorities and sidewalk rules"
 slug: when-it-snows-in-berthoud
 date: "2026-11-10"
 excerpt: "You have 24 hours after the snow stops to clear your sidewalk. The Town plows by priority, treats only the main roads in a small storm, and does not clear private streets or alleys. The rules, the plow map and the leaf rules, from the Town's own plan."

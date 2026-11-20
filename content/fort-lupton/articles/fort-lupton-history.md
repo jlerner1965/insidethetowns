@@ -1,5 +1,6 @@
 ---
 title: "Fort Lupton history: a trading fort, a town on the railroad, Tomato Day, the canneries and a rebuilt fort"
+seoTitle: "Fort Lupton history: the fort, the railroad and Tomato Day"
 date: "2026-10-07"
 excerpt: "Lancaster Lupton's adobe trading post on the South Platte, a stage stop and a claim club, a town laid out beside the railroad in 1882, milk, tomatoes and sugar beets, the labor camp, the Buddhist temple and the fort rebuilt by volunteers. The short history of Fort Lupton, with sources."
 category: "History"

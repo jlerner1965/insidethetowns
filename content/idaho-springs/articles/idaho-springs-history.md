@@ -1,5 +1,6 @@
 ---
 title: "Idaho Springs history: Clear Creek, the Argo and Miner Street"
+seoTitle: "Idaho Springs history: Clear Creek, the Argo, Miner Street"
 date: "2026-10-11"
 updated: "2026-11-17"
 excerpt: "Start at the heritage museum, then walk Miner Street and give the Argo its own time: the gold-rush town makes more sense when its mining landscape and everyday downtown are read together."
