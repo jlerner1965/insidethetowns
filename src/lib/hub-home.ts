@@ -302,11 +302,24 @@ export interface WeekendPickOptions {
 }
 
 /**
+ * Where a listing goes in one day's list, as a number to sort by: a timed
+ * listing that starts that day by its start (midnight first, noon in its
+ * place), then the all-day listings and the runs that began on an earlier
+ * day, which have no time of their own on it.
+ */
+export function dayOrder(e: { data: { start: Date; allDay?: boolean } }, key: string): number {
+  return !e.data.allDay && dayKey(e.data.start) === key ? e.data.start.getTime() : Number.MAX_SAFE_INTEGER;
+}
+
+/**
  * The same choice as `weekendPicks`, up to `perDay` listings a day (the
  * home's "This weekend" under the publication redesign of 14 November
  * 2026, a heading a day with its listings under it). Every rule holds: the
- * best listing of the whole weekend placed first, never two from one town
- * across the weekend, a day's listings in that order.
+ * best listing of the whole weekend chosen first, never two from one town
+ * across the weekend; then a town with listings on more than one day moves
+ * to a day that would otherwise be empty, so the list spreads over Friday,
+ * Saturday and Sunday at the same length; a day's listings are then shown
+ * in clock order.
  */
 export function weekendPicksByDay<T extends Listing>(
   all: readonly T[],
@@ -337,9 +350,40 @@ export function weekendPicksByDay<T extends Listing>(
     chosen.set(key, list);
     towns.add(e.town.slug);
   });
-  // In the days' own order, each day's listings best first.
+  // Spread over the weekend (the owner, 19 November 2026): most towns list
+  // something on the Friday, so the best-first choice filled Friday and left
+  // Saturday and Sunday empty. While a day is empty, a town chosen on a day
+  // with two or more listings and with a listing of its own on the empty day
+  // moves there: the same towns, the same number of rows, one town a row,
+  // each day as full as before or fuller. Its listing there is its best on
+  // that day (the candidates' order); an editor's pick or a featured listing
+  // stays where it was chosen. With one a day (`weekendPicks`) nothing moves.
+  const fixed = (e: T) => picked.has(listingKey(e)) || e.data.featured;
+  // Each move fills an empty day and empties none, so this ends within days.length moves.
+  for (let moved = true; moved; ) {
+    moved = false;
+    for (const { key: to } of days) {
+      if ((chosen.get(to) ?? []).length > 0) continue;
+      let best: { from: string; index: number; to: { e: T; at: number } } | undefined;
+      for (const [from, list] of chosen) {
+        if (list.length < 2) continue;
+        for (const [index, c] of list.entries()) {
+          if (fixed(c.e)) continue;
+          const at = candidates.findIndex((x) => x.key === to && x.e.town.slug === c.e.town.slug);
+          if (at !== -1 && (!best || at < best.to.at)) best = { from, index, to: { e: candidates[at]!.e, at } };
+        }
+      }
+      if (!best) continue;
+      chosen.get(best.from)!.splice(best.index, 1);
+      chosen.set(to, [best.to]);
+      moved = true;
+    }
+  }
+  // In the days' own order, each day's listings in the order of the clock
+  // (`dayOrder`): the rank chose them, it does not order them (the owner, 19
+  // November 2026). Until then a day's pick came first whatever its time.
   const picks = new Map<string, T[]>();
-  for (const { key } of days) if (chosen.has(key)) picks.set(key, chosen.get(key)!.sort((a, b) => a.at - b.at).map((c) => c.e));
+  for (const { key } of days) if (chosen.has(key)) picks.set(key, chosen.get(key)!.sort((a, b) => dayOrder(a.e, key) - dayOrder(b.e, key) || a.at - b.at).map((c) => c.e));
   return picks;
 }
 
