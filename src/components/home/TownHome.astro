@@ -276,7 +276,7 @@ if (featured) {
     each a link to its heading. A section the browser hides once its last
     row is over (src/lib/expiry.ts) takes its link with it. */}
 <nav aria-labelledby="otp" class="border-b border-line-soft bg-raised" data-on-this-page data-pagefind-ignore>
-  <div class="container-page flex flex-wrap items-baseline gap-x-5 text-[0.9375rem]">
+  <div class="container-page flex flex-wrap items-baseline gap-x-5 pt-3 text-[0.9375rem] sm:pt-0">
     <h2 id="otp" class="eyebrow text-ink-muted">On this page</h2>
     <ol class="flex flex-wrap items-baseline gap-x-5">
       {onThisPage.map((s) => <li><a href={`#${s.id}`} class="inline-block py-3 font-semibold text-primary underline" data-otp-link={s.id}>{s.label}</a></li>)}
