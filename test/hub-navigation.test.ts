@@ -56,7 +56,7 @@ test('a full section’s front page: a guide’s section home, a folded guide’
 test('the home and /towns/ list the eleven together from fullSections(), and their words count sections, not guides', () => {
   const home = read('src/routes/hub/index.astro');
   assert.match(home, /const sectionList = fullSections\(\);/);
-  assert.match(home, /\{capitalized\(sectionCount\)\} full sections<\/h3>/);
+  assert.match(home, /\{capitalized\(sectionCount\)\} full guides<\/h3>/);
   assert.match(home, /data-index="sections"/);
   assert.match(home, /href: sectionHome\(t\)/);
   assert.doesNotMatch(home, /local guides<\/h3>/);
