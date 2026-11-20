@@ -651,8 +651,11 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     <PubSection id={section.stay.id} number={section.stay.number} title={section.stay.title} tone={section.stay.tone} top="#top" data={{ 'where-to-stay': '' }}>
       <ul class="mt-3.5 border-t border-hairline">
         {stayList.slice(0, staySlice).map((l) => (
-          <li class:list={['flex min-h-11 items-baseline gap-x-2 py-1.5', pub.rule]} data-stay={l.name}>
-            <a href={l.href} rel={l.external ? 'noopener' : undefined} class:list={[pub.link, 'shrink-0 text-base font-medium']}>{typeset(l.name)}</a>{l.note && <span class:list={['min-w-0 truncate', pub.meta]}>{typeset(l.note)}</span>}
+          {/* A name wider than the column wraps inside it, and its note drops to the next line, so a long one
+              ("Microtel Inn & Suites by Wyndham Georgetown Lake") does not push the page wider than a phone.
+              A name that fits keeps its note truncated beside it, as before. */}
+          <li class:list={['flex min-h-11 flex-wrap items-baseline gap-x-2 py-1.5', pub.rule]} data-stay={l.name}>
+            <a href={l.href} rel={l.external ? 'noopener' : undefined} class:list={[pub.link, 'max-w-full shrink-0 text-base font-medium']}>{typeset(l.name)}</a>{l.note && <span class:list={['min-w-0 grow basis-0 truncate', pub.meta]}>{typeset(l.note)}</span>}
           </li>
         ))}
       </ul>
