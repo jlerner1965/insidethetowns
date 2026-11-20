@@ -211,6 +211,13 @@ export function rewriteMovedLinks(hub: string, hubDomain: string, domains: reado
   return changed;
 }
 
+/** The newest `<lastmod>` in a sitemap file, or nothing when no page there carries one. */
+export function sitemapLastmod(xml: string): string | undefined {
+  let newest: string | undefined;
+  for (const [, value] of xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) if (!Number.isNaN(Date.parse(value!)) && (!newest || Date.parse(value!) > Date.parse(newest))) newest = value;
+  return newest;
+}
+
 export function mergeSection(o: MergeOptions): MergeResult {
   if (!existsSync(o.from)) throw new Error(`section-merge: ${o.from} is not built.`);
   for (const name of DROPPED) if (!(o.carryAll && name === 'index.html')) rmSync(join(o.from, name), { recursive: true, force: true });
@@ -252,8 +259,13 @@ export function mergeSection(o: MergeOptions): MergeResult {
   if (sitemap) {
     const index = join(o.hub, 'sitemap-index.xml');
     const xml = readFileSync(index, 'utf8');
-    const entry = `<sitemap><loc>https://${o.hubDomain}/${sitemap}</loc></sitemap>`;
-    if (!xml.includes(entry)) writeFileSync(index, xml.replace('</sitemapindex>', `${entry}</sitemapindex>`), 'utf8');
+    const loc = `<loc>https://${o.hubDomain}/${sitemap}</loc>`;
+    // The child entry carries the newest lastmod among its pages, as the
+    // hub's own entry does (the site audit of 19 November 2026: one of
+    // twelve entries had one), so a crawler can tell which file moved.
+    const newest = sitemapLastmod(readFileSync(join(o.hub, sitemap), 'utf8'));
+    const entry = `<sitemap>${loc}${newest ? `<lastmod>${newest}</lastmod>` : ''}</sitemap>`;
+    if (!xml.includes(loc)) writeFileSync(index, xml.replace('</sitemapindex>', `${entry}</sitemapindex>`), 'utf8');
   }
   return { pages, files: files.length, dangling, sitemap };
 }
