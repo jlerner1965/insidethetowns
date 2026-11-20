@@ -38,7 +38,7 @@ import { fullSections, getHub, guideUrl, listsEvents, liveTowns } from '@/config
 import { getNetworkEntries } from '@/lib/content';
 import { groupByDay, occurrences, weekendSections, weekendWindow } from '@/lib/events';
 import { dayKey, formatDate, formatDayRange, formatTime } from '@/lib/dates';
-import { collectionPageJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { seasonLinks } from '@/lib/nav';
 
 const hub = getHub();
@@ -89,12 +89,19 @@ const weekendLabel =
  * says only that the hub collects them, which is what it does. `isPartOf` ties
  * the page to the hub's own WebSite node.
  */
-const structured = collectionPageJsonLd(hub, {
-  name: `This weekend across Colorado’s towns`,
-  description: `Every event across ${towns.length} Colorado town guides this weekend.`,
-  path: '/this-weekend/',
-  items: everything.map((e) => ({ name: `${e.data.title} — ${e.town.name}`, url: guideUrl(e.town, `/events/${e.slug}/`) })),
-});
+// The CollectionPage, and the BreadcrumbList every other hub page carries (the site audit of 19 November 2026); the layout draws the trail from it.
+const structured = [
+  collectionPageJsonLd(hub, {
+    name: `This weekend across Colorado’s towns`,
+    description: `Every event across ${towns.length} Colorado town guides this weekend.`,
+    path: '/this-weekend/',
+    items: everything.map((e) => ({ name: `${e.data.title} — ${e.town.name}`, url: guideUrl(e.town, `/events/${e.slug}/`) })),
+  }),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: 'This weekend across the towns', path: '/this-weekend/' },
+  ]),
+];
 // The season pages, for the reader whose date is past these three weeks.
 const seasons = seasonLinks();
 ---

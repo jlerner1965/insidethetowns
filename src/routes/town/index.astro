@@ -6,11 +6,22 @@
  */
 import Base from '@/layouts/Base.astro';
 import TownHome from '@/components/home/TownHome.astro';
-import { getTown } from '@/config';
-import { fillDescription } from '@/lib/seo';
+import { getNetworkHub, getTown, isSectionBuild } from '@/config';
+import { breadcrumbJsonLd, fillDescription } from '@/lib/seo';
 
 // The tagline, and where it is short (Niwot's is 113 characters), the line
 // of trust the page prints under What's happening.
-const description = fillDescription(getTown().tagline, ['Every listing checked against its source.']);
+const town = getTown();
+const description = fillDescription(town.tagline, ['Every listing checked against its source.']);
+/*
+ * The home page's BreadcrumbList: every other page carried one and the
+ * seven guides' homes on the hub did not (the site audit of 19 November
+ * 2026). On the hub the trail starts at the hub, as the hub's town pages
+ * do; the guide's own domain starts at the guide. The merge rewrites the
+ * guide's address to its place on the hub (scripts/lib/section-merge.ts).
+ */
+const hub = getNetworkHub();
+const crumbs = breadcrumbJsonLd(town, [{ name: town.name, path: '/' }]);
+if (isSectionBuild()) crumbs.itemListElement = [{ '@type': 'ListItem', position: 1, name: hub.siteTitle, item: `https://${hub.domain}/` }, { ...crumbs.itemListElement[0]!, position: 2 }];
 ---
-<Base {description}><TownHome /></Base>
+<Base {description} jsonLd={crumbs}><TownHome /></Base>

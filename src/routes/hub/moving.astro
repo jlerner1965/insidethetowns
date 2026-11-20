@@ -17,7 +17,7 @@ import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { censusGrowth, countyLabel, countyShort, getHub, guideUrl, liveTowns } from '@/config';
-import { collectionPageJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { comparisonSlug, liveComparisons } from '@/content/comparisons';
 
 const hub = getHub();
@@ -81,12 +81,19 @@ const SUITS: Record<string, string> = {
   // went on 12 November 2026 (git history keeps them).
 };
 
-const structured = collectionPageJsonLd(hub, {
-  name: `The ${towns.length} guides of ${hub.siteTitle}, compared`,
-  description: `${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`,
-  path: '/moving/',
-  items: towns.map((t) => ({ name: t.name, url: guideUrl(t) })),
-});
+// The CollectionPage, and the BreadcrumbList every other hub page carries (the site audit of 19 November 2026); the layout draws the trail from it.
+const structured = [
+  collectionPageJsonLd(hub, {
+    name: `The ${towns.length} guides of ${hub.siteTitle}, compared`,
+    description: `${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`,
+    path: '/moving/',
+    items: towns.map((t) => ({ name: t.name, url: guideUrl(t) })),
+  }),
+  breadcrumbJsonLd(hub, [
+    { name: hub.siteTitle, path: '/' },
+    { name: 'Which Colorado town?', path: '/moving/' },
+  ]),
+];
 ---
 <Page
   title="Which Colorado town?"
