@@ -62,13 +62,15 @@ interface Props {
    * November 2026). Only the masthead changes: the page is the hub's.
    */
   masthead?: FullSection;
+  /** A hub town page: the town bar's trail, the town and the group it sits in (Header.astro). */
+  townBar?: { name: string; region: string };
 }
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
 // The site Plausible counts this page under: the hub's domain on every hub and section page, a guide's own on a guide that has it (src/config/index.ts).
 const plausible = plausibleDomain(site);
-const { jsonLd, kind, preload = [frauncesLatin, instrumentLatin], bodyClass, masthead, ...props } = Astro.props;
+const { jsonLd, kind, preload = [frauncesLatin, instrumentLatin], bodyClass, masthead, townBar, ...props } = Astro.props;
 // A town that has not launched serves a holding page; nothing on it, nor the
 // shared pages around it, should be indexed before the guide exists.
 const seo = site.kind === 'town' && site.status !== 'live' ? { ...props, noindex: true } : props;
@@ -116,7 +118,7 @@ const cssVars = paletteVars(site.colors);
       Skip to content
     </a>
     {/* A page may draw its own masthead and footer (the hub's home); every other page has the site's. */}
-    {Astro.slots.has('header') ? <slot name="header" /> : <Header section={masthead} />}
+    {Astro.slots.has('header') ? <slot name="header" /> : <Header section={masthead} {townBar} />}
     {/* The kind labels a result ("Place · Niwot"); the filter puts it under the search page's type buttons (src/lib/network-search.ts). */}
     <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined} data-pagefind-filter={searchable && searchType(kind) ? `type:${searchType(kind)}` : undefined}>
       <slot />

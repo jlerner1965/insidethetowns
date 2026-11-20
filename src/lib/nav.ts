@@ -155,3 +155,21 @@ export function hubNav(nav: readonly NavItem[], seasons: readonly NavItem[] = se
   }
   return items;
 }
+
+/**
+ * The site's menu, the same six on every page of every site (the colours
+ * and navigation work order of 20 November 2026; nav rule 1: six items,
+ * never seven, and anything new goes under an existing label). Each is a
+ * page of the hub: a guide's pages link them on the hub's domain
+ * (Header.astro). The labels are readers' words (rule 2), as the owner
+ * wrote them. The Thursday email is the sixth, drawn as the one action
+ * button (EMAIL_NAV).
+ */
+export const SITE_NAV: readonly NavItem[] = [
+  { label: 'This Weekend', href: '/this-weekend/' },
+  { label: 'Towns A–Z', href: '/towns/' },
+  { label: 'Annual Events', href: ANNUAL_EVENTS_HREF },
+  { label: 'Trails & Parks', href: '/colorados-secret-trails/' },
+  { label: 'Stories', href: ARTICLES_INDEX_PATH },
+];
+export const EMAIL_NAV: NavItem = { label: 'Thursday Email', href: '/newsletter/' };

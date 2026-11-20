@@ -32,12 +32,12 @@
 
   /* One warm amber across the network, for what it means rather than as
      decoration: a notice to be read, and "Our pick". A fill, never text. */
-  --color-highlight: #f0a62e;
+  --color-highlight: var(--yellow);
   /* The same amber, lightened for the one job the fill cannot do: the hub's
      name in the network strip under the footer, which is text. */
   --color-highlight-ink: #f8c265;
   /* The amber at wash strength, for a notice that has to be read, not just seen. */
-  --color-highlight-soft: #fdf0d8;
+  --color-highlight-soft: color-mix(in srgb, var(--yellow) 18%, var(--card));
 
   /* The guide's assigned paper, warm or cool, and nothing else as a page
      surface: cards and panels are white on it. */
@@ -925,12 +925,13 @@ input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: v
 .prose code { font-size: 0.9em; background: color-mix(in oklab, var(--color-ink) 6%, transparent); padding: 0.1em 0.35em; border-radius: 0.25rem; }
 
 /*
- * The trust bar and the masthead (Header.astro; the colours and navigation
- * work order of 20 November 2026): two dusty-blue bars at the top of every
- * page of every section, white on them (7.9:1). Not in a layer, so they sit
- * over the utilities the markup keeps for the phone panel, which stays on
- * the paper with the inks. The row's links are white only where the menu is
- * a row: from 80rem on a guide, from 66.25rem on the hub.
+ * The three-bar header, the Find bar, the town bar and the footer (the
+ * colours and navigation work order of 20 November 2026). Not in a layer,
+ * so they sit over the utilities the markup keeps. The bars are the deep
+ * dusty blue with white on it (7.9:1); the Find bar the beige; the town bar
+ * a card on the paper; the footer the warm ink, the one dark surface on the
+ * site. One marker for where the reader is, site-wide (nav rule 6): a sage
+ * rule under the item in the masthead, sage text in the town bar.
  */
 .trust-bar {
   background: var(--blue-deep);
@@ -940,23 +941,249 @@ input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: v
   line-height: 1.4;
 }
 .trust-bar a { color: #fff; text-underline-offset: 0.18em; }
+
 .site-header { background: var(--blue-deep); color: #fff; }
+.masthead-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  min-block-size: 60px;
+  padding-block: 0.5rem;
+}
+@media (width >= 56.25rem) {
+  .masthead-row { min-block-size: 72px; gap: 26px; padding-block: 0; }
+}
+.masthead-brand { display: flex; flex: none; flex-direction: column; gap: 0.3rem; min-inline-size: 0; }
+.site-tagline {
+  display: none;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--blue-tint);
+}
+@media (width >= 40rem) { .site-tagline { display: block; } }
 .site-header .site-wordmark,
-.site-header .site-wordmark span,
+.site-header .site-wordmark span { color: #fff; }
+.masthead-tools { display: flex; align-items: center; gap: 0.25rem; }
+@media (width >= 66.25rem) { .masthead-tools { order: 3; } }
 .site-header .site-search-link,
 .site-header .site-email-link,
 .site-header .nav-toggle { color: #fff; }
 .site-header .site-search-link:hover,
 .site-header .site-email-link:hover { background: var(--blue); color: #fff; }
-@media (width >= 80rem) {
-  .site-header .site-nav:not(.hub-row) .site-nav-link { color: #fff; }
-  .site-header .site-nav:not(.hub-row) .site-nav-link:hover { text-decoration: underline; text-underline-offset: 0.3em; }
-  .site-header .site-nav:not(.hub-row) .site-nav-link[aria-current="page"] { box-shadow: inset 0 -2px 0 #fff; }
-  .site-header .site-nav-email-link { border-color: var(--blue-mid); color: #fff; }
-  .site-header .site-nav-email-link:hover { border-color: #fff; }
+.site-header .site-search-link[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--sage-mid); border-radius: 0; }
+
+/* The action button: terracotta, the one colour for the thing to do (5.02:1 under white). */
+.btn-action { background: var(--terra); color: #fff; border: 0; }
+.btn-action:hover { background: var(--terra-deep); color: #fff; }
+
+/* The menu. Below 66.25rem a panel on the paper, in groups; from it a row in the masthead. */
+.site-nav-group {
+  padding: 1rem 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+@media (width < 66.25rem) {
+  .site-nav-list .site-nav-link { color: var(--ink); }
+  .site-nav-list .site-nav-link.is-current { color: var(--sage-deep); }
+  .site-nav-group + li .site-nav-link { border-block-start: 0; }
+  .site-nav-email { padding-block: 1.25rem 0.5rem; }
+  .site-nav-email-link.btn-action {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding: 0 1.25rem;
+    border: 0;
+    border-radius: 9999px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #fff;
+  }
 }
 @media (width >= 66.25rem) {
-  .site-header .hub-row .site-nav-link { color: #fff; }
-  .site-header .hub-row .site-nav-link:hover { color: #fff; text-decoration: underline; text-underline-offset: 0.3em; }
-  .site-header .hub-row .site-nav-link[aria-current="page"] { box-shadow: inset 0 -2px 0 #fff; }
+  .site-nav-group { display: none; }
+  .hub-row .site-nav-link { color: #fff; }
+  .hub-row .site-nav-link:hover { color: #fff; text-decoration: underline; text-underline-offset: 0.35em; }
+  .hub-row .site-nav-link.is-current { box-shadow: inset 0 -3px 0 var(--sage-mid); }
+  .site-nav-email { margin-inline-start: 0.5rem; }
+  .site-nav-email-link.btn-action {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 40px;
+    padding: 0 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #fff;
+  }
 }
+
+/* The Find bar: the third bar, which stays on screen (nav rule 3). */
+.find-bar {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 30;
+  background: var(--beige);
+  border-block-end: 1px solid color-mix(in srgb, var(--taupe) 45%, var(--beige));
+}
+.find-form { position: relative; padding-block: 0.5rem; }
+.find-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 44px;
+  max-inline-size: 44rem;
+  padding-inline: 0.875rem 0.25rem;
+  background: var(--card);
+  border: 1px solid var(--taupe);
+  border-radius: 9999px;
+  color: var(--ink);
+}
+.find-field:focus-within { outline: 2px solid var(--blue); outline-offset: 2px; }
+.find-icon { flex: none; color: var(--muted); }
+.find-input {
+  flex: 1;
+  min-inline-size: 0;
+  block-size: 42px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+}
+.find-input::placeholder { color: var(--muted); }
+.find-input:focus { outline: none; }
+.find-input::-webkit-search-cancel-button { appearance: none; }
+.find-submit {
+  flex: none;
+  min-block-size: 36px;
+  padding: 0 0.9rem;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--blue-deep);
+  color: #fff;
+  font: 600 0.875rem/1 var(--font-body);
+  cursor: pointer;
+}
+.find-submit:hover { background: var(--blue); }
+.find-results {
+  position: absolute;
+  inset-inline: 20px;
+  inset-block-start: calc(100% - 0.25rem);
+  z-index: 31;
+  max-inline-size: 44rem;
+  margin: 0;
+  padding: 0.25rem 0;
+  list-style: none;
+  background: var(--card);
+  border: 1px solid var(--taupe);
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 34px -26px rgb(0 0 0 / 0.5);
+}
+@media (width >= 56.25rem) { .find-results { inset-inline: 40px; } }
+.find-result a { display: block; padding: 0.6rem 1rem; color: var(--ink); text-decoration: none; }
+.find-result-name { display: block; font-weight: 600; }
+.find-result-meta { display: block; font-size: 0.8125rem; color: var(--muted); }
+.find-result a:hover,
+.find-result[aria-selected="true"] a { background: var(--blue-tint); }
+
+/* The town bar: the trail, Switch town, and on a guide its sections as tabs. */
+.town-bar { background: var(--card); border-block-end: 1px solid var(--soft-gray); }
+.town-bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  min-block-size: 52px;
+  padding-block: 0.25rem;
+}
+.town-bar-trail { min-inline-size: 0; font-size: 0.875rem; line-height: 1.4; }
+.town-switch { position: relative; flex: none; }
+.town-switch-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-block-size: 40px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--taupe);
+  border-radius: 9999px;
+  background: var(--card);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+.town-switch-summary:hover { border-color: var(--blue-deep); color: var(--blue-deep); }
+.town-switch-summary::-webkit-details-marker { display: none; }
+.town-switch-summary::after {
+  content: '';
+  inline-size: 0.45em;
+  block-size: 0.45em;
+  margin-block-start: -0.2em;
+  border-inline-end: 2px solid currentColor;
+  border-block-end: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 150ms ease;
+}
+.town-switch[open] > .town-switch-summary::after { margin-block-start: 0.15em; transform: rotate(-135deg); }
+.town-switch-panel {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: calc(100% + 0.5rem);
+  z-index: 29;
+  min-inline-size: 15rem;
+  padding: 1rem 1.25rem 0.75rem;
+  background: var(--card);
+  border: 1px solid var(--taupe);
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 34px -26px rgb(0 0 0 / 0.5);
+}
+.town-tabs {
+  display: flex;
+  gap: 0 1.5rem;
+  margin: 0;
+  padding: 0 2.5rem 0 0;
+  list-style: none;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  mask-image: linear-gradient(to right, #000 calc(100% - 2rem), transparent);
+}
+.town-tabs::-webkit-scrollbar { display: none; }
+@media (width >= 66.25rem) {
+  .town-tabs { flex-wrap: wrap; padding-inline-end: 0; overflow: visible; white-space: normal; mask-image: none; }
+}
+.town-tab {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.town-tab:hover { color: var(--blue-deep); text-decoration: underline; text-underline-offset: 0.35em; }
+.town-tab[aria-current="page"] { color: var(--sage-deep); box-shadow: inset 0 -2px 0 var(--sage-deep); }
+
+/* The email band over the footer, and the footer on the warm ink. */
+.email-band { background: var(--blue-deep); color: #fff; }
+.email-band-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2.5rem;
+  padding-block: 2.5rem;
+}
+main:has(> :last-child.on-dark) + .email-band { margin-block-start: 0; }
+.site-footer { background: var(--ink); color: #fff; }
+.site-footer .eyebrow { color: #fff; }
