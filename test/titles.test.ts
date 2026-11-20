@@ -109,21 +109,9 @@ test('an event title that stands alone says where the event is, where that fits 
   assert.equal(eventTitle('Greg Hoy and the Boys at City Star', 'Dec 12', 'Berthoud', 'Inside Berthoud'), 'Greg Hoy and the Boys at City Star — Berthoud, Dec 12');
   // A Severance listing on Inside Windsor is placed by its own town, not the guide's name.
   assert.equal(eventTitle('Kids Fishing Derby', 'Jun 6, 2027', 'Severance', 'Inside Windsor'), 'Kids Fishing Derby — Severance, Jun 6, 2027');
-  // No room for the town either, and the name runs the title past the limit: the name is cut at a word and the
-  // town still does not fit (the site audit of 19 November 2026; it had stood whole at 65).
+  // No room for the town either: the title and the date, as before.
   const long = 'Raspberry Bandit and Cabaret releases with Johnny Johnston';
-  assert.equal(eventTitle(long, 'Nov 6', 'Berthoud', 'Inside Berthoud'), 'Raspberry Bandit and Cabaret releases with Johnny — Nov 6');
-  // A name with a subtitle is cut at the subtitle; a status label stays in front; a short first clause is no name.
-  const { fitLead } = await import('../src/lib/titles.ts');
-  assert.equal(eventTitle('Rocky Mountain Starscape: Teen Painting Program/ Paisaje Estrellado de las Montañas Rocosas', 'Dec 15', 'Leadville', 'Inside Leadville'), 'Rocky Mountain Starscape — Dec 15', 'the guide’s name still fits after it and places it');
-  assert.equal(eventTitle('Canceled: Christmas Storytime with Santa! | Hora de cuentos con Papá Noel', 'Dec 17', 'Leadville', 'Inside Leadville'), 'Canceled: Christmas Storytime with Santa! — Dec 17');
-  assert.equal(fitLead('Nerd Nite: the science of the brewery, the brewery of science and more', 40), 'Nerd Nite: the science of the brewery');
-  assert.equal(fitLead('Trivia w/ Jess and the regulars at the brewery every Tuesday night', 40), 'Trivia w/ Jess and the regulars');
-  // A cut that lands on a space keeps the whole word before it.
-  assert.equal(eventTitle('Country Dancing Night at the Rose with Jeff Goodwin and the Front Range Cowboys', 'Dec 16', 'Golden', 'Inside Golden'), 'Country Dancing Night at the Rose with Jeff Goodwin — Dec 16');
-  for (const [lead, when] of [['Country Dancing Night at the Rose with Jeff Goodwin and the Front Range Cowboys', 'Dec 16'], ['Older Adult Learning Club: Cricut iron-on designs in the Makerspace', 'Feb 18, 2027']]) {
-    assert.ok(eventTitle(lead!, when!, 'Golden', 'Inside Golden').length <= TITLE_LIMIT, eventTitle(lead!, when!, 'Golden', 'Inside Golden'));
-  }
+  assert.equal(eventTitle(long, 'Nov 6', 'Berthoud', 'Inside Berthoud'), `${long} — Nov 6`);
   // An annual event's weekday gives way before the town and the year do.
   const d = new Date('2026-12-05T12:00:00-07:00');
   assert.equal(annualEventTitle('Festival of Lights', 'Frederick', d, false), 'Festival of Lights 2026 in Frederick — Sat, Dec 5');

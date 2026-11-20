@@ -1,6 +1,5 @@
 ---
 title: "The holidays in Lafayette, 2026: what is on and what is closed"
-seoTitle: "The holidays in Lafayette, 2026: what's on, what's closed"
 slug: lafayette-holidays-2026
 date: "2026-11-10"
 excerpt: "Thanksgiving to New Year’s in Lafayette, in date order: the Friends’ holiday sale and Holiday on the Plaza on the first weekend of December, the library’s week of holiday storytimes, and every closure and short day at the library, the recreation center, the Senior Center and The Collective."

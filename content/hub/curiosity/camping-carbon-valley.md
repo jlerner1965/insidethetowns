@@ -3,7 +3,7 @@ slug: camping-carbon-valley
 kind: camping
 towns: [carbon-valley]
 title: "Camping near Carbon Valley"
-seoTitle: "Camping near Carbon Valley, CO: St. Vrain State Park"
+seoTitle: "Camping near Frederick, Firestone and Dacono: St. Vrain State Park"
 description: "One state park in Firestone and an RV-only county campground in Longmont. St. Vrain's fees, booking, loops and its closed south half."
 status: draft
 visited: false

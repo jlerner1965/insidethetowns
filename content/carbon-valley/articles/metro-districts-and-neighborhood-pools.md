@@ -1,6 +1,6 @@
 ---
 title: "Is your Frederick home in a metro district, and is there a neighborhood pool? How to check"
-seoTitle: "Frederick metro districts and pools: how to check yours"
+seoTitle: "Frederick metro districts and neighborhood pools: how to check"
 date: "2026-11-09"
 excerpt: "Frederick has 41 metropolitan districts on the Town's list, from Carriage Hills to Wyndham Hill. How to tell whether your address pays one, what the state now makes districts and sellers tell you, and where to swim."
 category: "Moving here"

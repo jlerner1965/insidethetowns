@@ -1,6 +1,6 @@
 ---
 title: "Holiday Magic in Niwot: the tree, the parade and the December market"
-seoTitle: "Niwot Holiday Magic 2026: tree lighting, parade and market"
+seoTitle: "Niwot Holiday Magic 2026: tree lighting, parade and market dates"
 date: "2026-11-07"
 excerpt: "Niwot's holiday season in Old Town: the tree lighting the night after Thanksgiving, Santa's parade down Second Avenue the next morning, and the market at Niwot Hall in December. This year's dates, and what happens at each."
 category: "Community"

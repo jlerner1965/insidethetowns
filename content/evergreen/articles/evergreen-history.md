@@ -1,6 +1,5 @@
 ---
 title: "Evergreen history: a ranch valley on Bear Creek, a summer colony, Denver's lake and a commuter town"
-seoTitle: "Evergreen history: ranch valley, summer colony, Bear Creek"
 date: "2026-10-07"
 excerpt: "Thomas Bergen's cabin of 1859, a post office in 1875 or 1876, Camp Neosho and the Douglases, a music conference since 1907, Denver's mountain parks and the 1927–28 dam, Hiwan Ranch, the 1950s commuters and the old buildings saved. The short history of Evergreen, Colorado, with sources."
 category: "History"
