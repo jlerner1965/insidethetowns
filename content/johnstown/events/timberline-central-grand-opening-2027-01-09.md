@@ -8,8 +8,8 @@ url: "https://www.facebook.com/events/1313124914272283/"
 cost: "Free"
 category: family
 source: "https://www.facebook.com/events/1313124914272283/"
-verified: "2026-11-20"
-verifiedBy: "Read on Timberline Gymnastics' public Facebook event, 20 November 2026: Saturday, January 9, 2027, 1:00 to 5:00 pm, 4600 Ronald Reagan Blvd, free. Building details from timberlinegym.com/central/."
+verified: "2026-11-19"
+verifiedBy: "Read on Timberline Gymnastics' public Facebook event, 19 November 2026: Saturday, January 9, 2027, 1:00 to 5:00 pm, 4600 Ronald Reagan Blvd, free. Building details from timberlinegym.com/central/."
 ---
 
 Timberline Gymnastics opens its new Johnstown gym, Timberline Central, with a free afternoon for families. Learn about the gym's programs, climb around the open play area and stay for an exhibition by the gym's elite athletes.
