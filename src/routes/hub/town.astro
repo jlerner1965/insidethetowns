@@ -173,6 +173,16 @@ const waiting = listed
   .filter((r) => (rowState(r) === 'waiting' || rowState(r) === 'past') && !openSlugs.has(r.record.slug))
   .sort((a, b) => (a.lastHeld?.slice(5) ?? '99').localeCompare(b.lastHeld?.slice(5) ?? '99') || a.record.name.localeCompare(b.record.name));
 const canceled = listed.filter((r) => rowState(r) === 'canceled');
+/**
+ * "Open now" carries a record's anchor only where no list above already
+ * draws it. On its opening day a season is both open and in "Coming up"
+ * (dated today), and both carried its slug as an id: the check refused
+ * Durango, Grand Junction and Telluride on 20 November 2026, the day
+ * Purgatory, Powderhorn and the Telluride gondola opened. That day "Open
+ * now" links to the entry instead.
+ */
+const drawnSlugs = new Set([spotlight, ...comingUp, ...canceled].flatMap((r) => (r ? [r.record.slug] : [])));
+const openAnchors = new Set([...openSlugs].filter((s) => !drawnSlugs.has(s)));
 const groupOf = (r: Row) => (r === spotlight ? 'one-to-know' : rowState(r) === 'upcoming' ? 'coming-up' : rowState(r) === 'canceled' ? 'canceled' : 'not-announced');
 /**
  * Each month's anchor sits on the first entry of that month in the lists, a
@@ -611,7 +621,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           )}
         </Fragment>
       )}
-      <OpenNow records={openRecords} {today} variant="pub" anchors={openSlugs} />
+      <OpenNow records={openRecords} {today} variant="pub" anchors={openAnchors} />
       <CalendarSubscribe name={town.slug} what={`${town.name}’s dates`} size="text" class="mt-[22px]" />
       {seasonPages.length > 0 && (
         <nav aria-labelledby="seasons-heading">
