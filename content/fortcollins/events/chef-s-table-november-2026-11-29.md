@@ -10,7 +10,7 @@ source: "https://gingerandbaker.com/my-event/tk-chefs-table-november/"
 sourceId: "gingerandbaker-com"
 sourceUid: "82449"
 sourceHash: "1b76f699b584"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 29 November and 6 pm on the page"
 ---
 

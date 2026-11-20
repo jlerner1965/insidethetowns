@@ -9,7 +9,7 @@ source: "https://highplains.libcal.com/event/17899278"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17899278"
 sourceHash: "1d4fd7307beb"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Wildfire in the West: A Family Event with the Space Science Institute\" at 6 pm on 2 December on the highplains.libcal.com feed"
 ---
 

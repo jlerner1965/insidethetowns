@@ -9,7 +9,7 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17689621"
 sourceHash: "fcfa055599f3"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Book Box\" at 12 am on 1 December on the Clearview Library District feed"
 ---
 

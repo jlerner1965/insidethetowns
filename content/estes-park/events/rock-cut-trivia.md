@@ -9,7 +9,7 @@ address: "390 W. Riverside Drive, Estes Park, CO 80517"
 url: "https://www.rockcutbrewing.com/events-2/"
 category: other
 source: "https://www.rockcutbrewing.com/events-2/"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Trivia\" at 7 pm on 24 November on the Rock Cut Brewing Company feed"
 ---
 

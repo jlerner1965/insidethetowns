@@ -1,6 +1,6 @@
 # Needs me
 
-*Written by `npm run needs-me` (scripts/needs-me.ts) on 2026-11-19, from the files as they stand. The nightly re-check rewrites it; do not edit it by hand.*
+*Written by `npm run needs-me` (scripts/needs-me.ts) on 2026-11-20, from the files as they stand. The nightly re-check rewrites it; do not edit it by hand.*
 
 What no machine could settle. Each line says where to look; the fix is always a person reading the source (or calling), then the file.
 
@@ -41,11 +41,13 @@ Flagged on the first blocked read (a bot check, a refusal, robots.txt, no answer
 | Estes Park | [Estes Valley Community Center](https://insidethetowns.com/estes-park/places/estes-valley-community-center/) | 2026-10-13 | yes, through 2026-12-12 | <https://evrpd.com/community-center/> | 2026-11-18: the source page: answered 307 | `npm run confirm-place -- estes-park/estes-valley-community-center --how=browser` |
 | Loveland | [Bai Tong](https://insidethetowns.com/loveland/places/bai-tong-loveland/) | 2026-10-04 | yes, through 2027-01-02 | <https://www.baitongloveland.com/> | 2026-11-18: the source page: 403, a bot check or a refusal (https://www.baitongloveland.com/); left for the owner to confirm | `npm run confirm-place -- loveland/bai-tong-loveland --how=browser` |
 
-## Dates the watch read but did not write (0)
+## Dates the watch read but did not write (1)
 
 The nightly date watch writes a date only where the organizer’s page states the year (or gives a weekday that is that date’s in the year), the date is in the future, and it falls inside the record’s typical window. These did not. **To clear one:** read the page, and write the year `confirmed` with its date, `sourceUrl`, the words you read (`readText`) and `checked`, or `canceled` with the reason in the organizer’s words.
 
-None.
+| Event | Town | Year | Window opens | Why | Words read | Page | Read | File |
+|---|---|---|---|---|---|---|---|---|
+| Lake John Ice Fishing Tournament | Walden | 2027 | 2027-01-10 | the page gives 01-10, 01-11 with no year | “…January 10th and 11th! The tournament is still on! Colorado has been experiencing some unse…” | <https://www.visitnorthparkco.com/2026-lake-john-fishing-contest> | 2026-11-20 | `content/hub/traditions/walden-lake-john-ice-fishing-tournament.md` |
 
 ## Tradition dates not confirmed three weeks before their window (0)
 

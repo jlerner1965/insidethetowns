@@ -11,8 +11,8 @@ source: "https://legionlisten.com/event/rft-holiday-show/"
 sourceId: "legionlisten-com"
 sourceUid: "3902"
 sourceHash: "56acc371e923"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Listening at the Legion (American Legion Post 119 concert series) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Rebecca Folsom Trio Holiday Show\" at 6:30 pm on 3 December in the page's structured data"
 ---
 
 Rebecca Folsom Trio Holiday Show at Listening at the Legion, Thursday, December 3, 6:30 pm – 8:30 pm. Listed by Listening at the Legion (American Legion Post 119 concert series); the organizer's page has the details and any registration.

@@ -10,7 +10,7 @@ cost: "Free"
 category: other
 recurring: "Mondays at 6"
 source: "https://www.odellbrewing.com/events/"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 23 November and 6 pm on the page"
 ---
 

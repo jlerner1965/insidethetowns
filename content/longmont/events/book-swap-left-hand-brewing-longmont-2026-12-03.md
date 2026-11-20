@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/book-swap-left-hand-brewing-longmont-ticke
 sourceId: "eventbrite-com-longmont"
 sourceUid: "2003942850009"
 sourceHash: "691d1c2e1e76"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Longmont feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Book Swap @ Left Hand Brewing (Longmont)\" at 5:30 pm on 3 December in the page's structured data"
 ---
 
 Book Swap @ Left Hand Brewing (Longmont) at Left Hand Brewing Company, Thursday, December 3, 5:30 pm – 7:30 pm. Listed by Eventbrite, events in Longmont; the organizer's page has the details and any registration.

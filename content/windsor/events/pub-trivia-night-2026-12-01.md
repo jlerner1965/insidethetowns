@@ -10,8 +10,8 @@ source: "https://clearview.libnet.info/event/17702804"
 sourceId: "clearview-libnet-info"
 sourceUid: "17702804"
 sourceHash: "918dd6da08d1"
-verified: "2026-11-19"
-verifiedBy: "Claude Code, delegated by Lerner Works: read on 19 November 2026 the Clearview Library District's event page (Peculier Ales, 301 Main St, Tuesday, December 1, 5:30–7:30 pm)"
+verified: "2026-11-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Pub Trivia Night\" at 5:30 pm on 1 December on the Clearview Library District feed"
 ---
 
 Clearview Library District's monthly Pub Trivia Night at Peculier Ales, 301 Main St, Tuesday, December 1, 5:30 pm – 7:30 pm. Team sign-up starts at 5:30 and the first round at 6; teams are up to seven players, with prizes for the top three. No registration; seating is first come, first served, and no outside food.

@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/jingle-mingle-tickets-2002403913007"
 sourceId: "eventbrite-com-johnstown"
 sourceUid: "2002403913007"
 sourceHash: "2fbd1e0fcca2"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Jingle & Mingle\" at 6 pm on 2 December in the page's structured data"
 ---
 

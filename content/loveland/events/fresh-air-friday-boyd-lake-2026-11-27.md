@@ -10,7 +10,7 @@ category: outdoors
 organizer: "Colorado Parks and Wildlife"
 organizerUrl: "https://cpw.state.co.us/state-parks/boyd-lake-state-park"
 source: "https://cpw.state.co.us/event/2026/11/free-state-park-entry-fresh-air-friday"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Free State Park Entry on Fresh Air Friday\" on 27 November in the page's structured data"
 ---
 

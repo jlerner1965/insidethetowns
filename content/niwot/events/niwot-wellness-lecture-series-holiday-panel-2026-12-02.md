@@ -11,7 +11,7 @@ source: "https://www.eventbrite.com/e/niwot-wellness-lecture-series-holiday-pane
 sourceId: "eventbrite-com-o-108663933011"
 sourceUid: "2003940106804"
 sourceHash: "387dd422ec51"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot Wellness Lecture Series Holiday Panel\" at 6 pm on 2 December in the page's structured data"
 ---
 
