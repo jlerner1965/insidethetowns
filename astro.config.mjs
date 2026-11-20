@@ -17,6 +17,7 @@ import { formerSlugRedirects } from './src/lib/former-slugs.ts';
 import { draftPaths } from './src/lib/curiosity-files.ts';
 import { HUB_MOVED } from './src/lib/hub-moved.ts';
 import vercelConfig from './vercel.json' with { type: 'json' };
+import fixedPageDates from './data/fixed-page-dates.json' with { type: 'json' };
 
 // Which site to build is decided by the TOWN env var (see src/config/index.ts).
 // getSite() throws with a helpful message if TOWN is unset or unknown.
@@ -41,8 +42,8 @@ const closed = site.kind === 'town' ? new Set([...closedPlaceSlugs(site.slug), .
 // A town that has not launched is a holding page: nothing of it is indexable.
 const live = site.kind === 'hub' || site.status === 'live';
 // A sitemap entry carries lastmod: the listing's check date, an article's
-// check or publish date, else the build date; a page of fixed copy with no
-// date of its own carries none (src/lib/lastmod.ts).
+// check or publish date, else the build date; a page of fixed copy the day
+// its own files last changed (data/fixed-page-dates.json; src/lib/lastmod.ts).
 const buildDate = new Date();
 const dates = contentDates(site);
 /** Pages that carry noindex must not be listed in the sitemap either. */
@@ -113,8 +114,8 @@ export default defineConfig({
   // On the hub, /hero-map.json: each town page's photograph, for the links to start early (src/integrations/hero-map.ts).
   integrations: [townRoutes(site), siteImages(site), sitemap({ filter: indexable, serialize: (item) => {
       // A section's dates are keyed by the guide's own paths.
-      const lastmod = lastmodFor(section ? `https://${site.domain}${guidePath(new URL(item.url).pathname)}` : item.url, dates, buildDate);
-      return lastmod ? { ...item, lastmod } : item;
+      const lastmod = lastmodFor(section ? `https://${site.domain}${guidePath(new URL(item.url).pathname)}` : item.url, dates, buildDate, fixedPageDates[site.slug]);
+      return { ...item, lastmod };
     } }), ...(section ? [] : [hostFiles(vercelConfig, site.domain)]), ...(site.kind === 'hub' ? [heroMap()] : [])],
   vite: {
     plugins: [tailwindcss()],

@@ -50,9 +50,13 @@ test('the hub dates its issues; everything else is as new as the build', () => {
   const build = new Date('2026-10-07T11:10:00Z');
   assert.equal(lastmodFor('https://insidethetowns.com/this-weekend/', dates, build), build.toISOString());
   assert.equal(lastmodFor('https://insidethetowns.com/newsletter/2026-10-01/', dates, build), iso('2026-10-01'));
-  // A page of fixed copy with no date of its own has none, not the build's.
-  assert.equal(lastmodFor('https://insidethetowns.com/about/', dates, build), undefined);
-  assert.equal(lastmodFor('https://insidethetowns.com/moving/erie-vs-johnstown/', dates, build), undefined);
+  // A page of fixed copy: the day its own files last changed, and the build's where none is recorded.
+  const fixed = { '/about/': '2026-11-18T11:13:14.000Z', '/moving/*/': '2026-11-12T00:00:00.000Z' };
+  assert.equal(lastmodFor('https://insidethetowns.com/about/', dates, build, fixed), '2026-11-18T11:13:14.000Z');
+  assert.equal(lastmodFor('https://insidethetowns.com/moving/erie-vs-johnstown/', dates, build, fixed), '2026-11-12T00:00:00.000Z');
+  assert.equal(lastmodFor('https://insidethetowns.com/privacy/', dates, build, fixed), build.toISOString());
+  // Only a page of fixed copy reads that file.
+  assert.equal(lastmodFor('https://insidethetowns.com/this-weekend/', dates, build, { '/this-weekend/': '2026-01-01T00:00:00.000Z' }), build.toISOString());
 });
 
 test('a sports page is as new as the run that wrote its data file: the school’s, each team’s, and the index of a town’s several schools', () => {
