@@ -208,6 +208,8 @@ const linked = new Set<string>([
   ...(know.length > 0 || timely.length > 0 ? ['/updates/'] : []),
 ]);
 const hasGuides = (await getTownEntries('articles')).length > 0;
+/** Berthoud's two spacing fixes (the owner's list of 20 November 2026), on its page only: Worth knowing's gap and the quick answers in one row. */
+const berthoud = town.slug === 'berthoud';
 
 /*
  * On this page: the home's sections, in the order they are drawn below, as
@@ -375,8 +377,14 @@ if (featured) {
   </section>
 )}
 {/* Worth knowing, one section: under the tabs when a change matters now
-    (the audit of 13 November 2026), else lower down (WorthKnowing.astro). */}
-{knowHigh && <WorthKnowing {timely} {know} dates={worthDates} />}
+    (the audit of 13 November 2026), else lower down (WorthKnowing.astro).
+    On Berthoud, right under What's happening, it takes back the part of
+    that band's closing padding kept for the quick answers tucked under it
+    (QuickAnswers.astro), so the gap is the page's other bands' (the
+    owner's list of 20 November 2026). */}
+{knowHigh && (berthoud && !(outdoorsLed && anyDates)
+  ? <div class="-mt-6 md:-mt-10"><WorthKnowing {timely} {know} dates={worthDates} /></div>
+  : <WorthKnowing {timely} {know} dates={worthDates} />)}
 {familyRows.length > 0 && familiesFirst && (
   <section class="band-compact band-paper" aria-labelledby="families-home" data-hide-when-empty>
     <div class="container-page">
@@ -398,7 +406,7 @@ if (featured) {
 {/* Tucked under What's happening only when nothing comes between (the
     review of 14 November 2026: its negative margin pulled it over the paper
     bands that now can). */}
-<QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} tuck={!quietGuide && !(outdoorsLed && anyDates) && !knowHigh && !(familyRows.length > 0 && familiesFirst)} />
+<QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} row={berthoud} tuck={!quietGuide && !(outdoorsLed && anyDates) && !knowHigh && !(familyRows.length > 0 && familiesFirst)} />
 
 {/* A guide that follows several schools: the week's games, under the
     events (the owner, 10 November 2026). Above them, Loveland's four

@@ -24,9 +24,11 @@ import { quickAnswerLinks, type QuickAnswerInputs } from '@/lib/quick-answers';
 type Props = QuickAnswerInputs & {
   /** Right under What's happening, white on white: take back most of its closing padding. */
   tuck?: boolean;
+  /** The links in one row across the page's width from the lg width, 64rem (Berthoud, the owner's list of 20 November 2026), stacked below it. */
+  row?: boolean;
 };
 
-const { tuck = false } = Astro.props;
+const { tuck = false, row = false } = Astro.props;
 const links = quickAnswerLinks(Astro.props);
 ---
 {/* On the page, not in a band of its own: a stacked list on white, in the
@@ -42,7 +44,7 @@ const links = quickAnswerLinks(Astro.props);
 {links.length >= 2 && (
   <section class:list={['band-white', tuck ? '-mt-8 md:-mt-14' : 'band-compact']} aria-label="Quick answers">
     <div class="container-page">
-      <ul class="max-w-3xl divide-y divide-line-soft border-y border-line-soft">
+      <ul class:list={['max-w-3xl divide-y divide-line-soft border-y border-line-soft', row && 'lg:grid lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:divide-y-0']}>
         {links.map((l) => (
           <li>
             <a href={l.href} class="flex min-h-12 items-center py-2.5 text-[1.0625rem] font-semibold text-primary no-underline hover:underline" data-track={`quick-${l.track}`}>
