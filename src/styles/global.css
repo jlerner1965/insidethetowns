@@ -87,6 +87,42 @@
   --breakpoint-masthead: 66.25rem;
 }
 
+/*
+ * The final colours of 20 November 2026 (the owner's block, verbatim): 21
+ * variables, declared here and not yet used. Yellow and coral are fills and
+ * markers only, never text (2.09:1 and 3.19:1 on the paper).
+ */
+:root {
+  /* Warm neutrals — the backdrop */
+  --paper: #FBF6EC;        /* page background */
+  --card: #FFFEF9;         /* cards & tables */
+  --beige: #F3EAD9;        /* find bar, bands */
+  --soft-gray: #E9E5DE;    /* placeholders */
+  --taupe: #8A7D6B;        /* borders only */
+  --ink: #2E2A26;          /* text */
+  --muted: #6F675C;        /* secondary text */
+
+  /* Dusty blues — trust & links */
+  --blue-deep: #36536B;    /* trust bar, links */
+  --blue: #52708A;         /* hover, focus */
+  --blue-mid: #7A97AC;     /* large shapes only */
+  --blue-tint: #DFE8EE;    /* info panels */
+  --blue-wash: #EFF4F7;    /* article pages */
+
+  /* Sage greens — outdoors & active */
+  --sage-deep: #4A5D43;    /* active nav, checked */
+  --sage: #6E8261;         /* trails & parks */
+  --sage-mid: #97A88B;     /* markers, fills */
+  --sage-tint: #E4E9DB;    /* checked badges */
+
+  /* Warm accents — sparks only */
+  --terra: #B0552F;        /* the action button */
+  --terra-deep: #9E4F27;   /* hover / terra text */
+  --coral: #D96A4B;        /* new markers only */
+  --yellow: #D9A441;       /* this-weekend badges */
+  --purple: #6E5A7E;       /* annual events only */
+}
+
 :root,
 [data-palette] {
   --t-line: color-mix(in srgb, var(--town-paper) 70%, #243137 30%);
