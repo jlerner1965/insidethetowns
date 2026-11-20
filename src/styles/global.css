@@ -983,6 +983,12 @@ input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: v
 .btn-action:hover { background: var(--terra-deep); color: #fff; }
 
 /* The menu. Below 66.25rem a panel on the paper, in groups; from it a row in the masthead. */
+@media (width < 66.25rem) {
+  .site-nav .site-nav-list { padding-inline: 20px; padding-block-end: 1.5rem; }
+}
+@media (56.25rem <= width < 66.25rem) {
+  .site-nav .site-nav-list { padding-inline: 40px; }
+}
 .site-nav-group {
   padding: 1rem 0 0.25rem;
   font-size: 0.75rem;
