@@ -9,8 +9,8 @@ status: verified
 feature: true
 date: 2026-11-13
 updated:
-  date: 2026-11-18
-  note: "Added what the Town posted for the Nov. 17 board meeting: the Nov. 9 minutes, the revised spending resolution, fundraising ideas and the 2027 budget plan to move water, sewer and community center money. The Nov. 17 vote is not yet on record."
+  date: 2026-11-20
+  note: "BusinessDen reports the board set new deadlines for the deal on Nov. 17; the adopted resolution, with its dates, is not yet posted. Added the Town’s new budget schedule: a hearing Dec. 8 and adoption Dec. 15."
 sources:
   - label: "Town of Nederland: Mayor and Board statement on the Eldora transaction (Sept. 30, 2026, updated Nov. 6)"
     url: "https://www.nederlandco.gov/m/newsflash/Home/Detail/21"
@@ -50,10 +50,16 @@ sources:
     checked: 2026-11-13
   - label: "Town of Nederland: meeting schedule"
     url: "https://nederlandco.civicweb.net/Portal/MeetingSchedule.aspx"
-    checked: 2026-11-18
+    checked: 2026-11-20
+  - label: "Town of Nederland: FY2027 budget meeting schedule update (Nov. 19, 2026)"
+    url: "https://www.nederlandco.gov/m/newsflash/Home/Detail/28"
+    checked: 2026-11-20
   - label: "Colorado Sun: Nederland’s Eldora acquisition costs and the Nov. 9 meeting (Tracy Ross, Nov. 11, 2026)"
     url: "https://coloradosun.com/2026/11/11/eldora-mountain-acquisition-investigation/"
     checked: 2026-11-13
+  - label: "BusinessDen: Nederland set new deadlines for Eldora deal (Max Scheinblum, Nov. 19, 2026)"
+    url: "https://businessden.com/nederland-set-new-deadlines-for-eldora-deal/"
+    checked: 2026-11-20
   - label: "BusinessDen: Nederland faces $2M deficit as Eldora acquisition bills pile up (Max Scheinblum, Nov. 11, 2026)"
     url: "https://businessden.com/nederland-faces-2m-deficit-as-eldora-acquisition-bills-pile-up/"
     checked: 2026-11-13
@@ -86,11 +92,11 @@ sources:
     checked: 2026-11-13
 ---
 
-As of November 18, 2026, Nederland has not bought Eldora. Powdr still owns and runs the ski area, and the Town says it is still pursuing a purchase.
+As of November 20, 2026, Nederland has not bought Eldora. Powdr still owns and runs the ski area, and the Town says it is still pursuing a purchase.
 
 - **Has it closed?** No. The $120 million purchase agreement the town board approved in January expired when its April 30 closing deadline passed. The Town’s authority to sell the bonds that would pay for it lapsed on July 19, and no bonds have been issued, according to a [draft resolution on the board’s November 9 agenda](https://nederlandco.civicweb.net/document/133108).
-- **Latest:** On November 9 the board put off a vote on that resolution, which would limit further spending on the deal, and asked staff to revise it, including its milestones ([draft minutes](https://nederlandco.civicweb.net/document/133483)). The revised version was up for a vote on November 17 ([packet](https://nederlandco.civicweb.net/document/133483)). As of November 18, neither the Town’s records nor news reports say how the board voted.
-- **Unresolved:** how the board voted on November 17, a new agreement with Powdr, investors willing to buy the bonds, about $20 million in donations the Town is seeking, and how the Town would pay about $2.76 million in costs if the deal never closes.
+- **Latest:** On November 9 the board put off a vote on that resolution, which would limit further spending on the deal, and asked staff to revise it, including its milestones ([draft minutes](https://nederlandco.civicweb.net/document/133483)). At its November 17 meeting the board set new deadlines for the deal, [BusinessDen reported](https://businessden.com/nederland-set-new-deadlines-for-eldora-deal/) on November 19. The Town had not posted the adopted resolution or the meeting’s minutes by November 20, so the dates and spending limits it chose are not yet confirmed.
+- **Unresolved:** the deadline dates and spending limits adopted on November 17, a new agreement with Powdr, investors willing to buy the bonds, about $20 million in donations the Town is seeking, and how the Town would pay about $2.76 million in costs if the deal never closes.
 
 ## At a glance
 
@@ -103,7 +109,7 @@ As of November 18, 2026, Nederland has not bought Eldora. Powdr still owns and r
 | Financing | Bonds repaid only from the resort’s income, now planned as a sale-leaseback, plus about $20 million in donations |
 | Paid so far | $1,195,949 in deal costs as of October 20, charged to the General Fund |
 | Status | Not closed. The purchase agreement expired April 30. |
-| Next decision | Town staff expect to bring 2026 budget changes and a revised 2027 budget, including transfers to cover the deficit, to the board on December 1 ([budget memo](https://nederlandco.civicweb.net/document/133483)). |
+| Next decision | The 2027 budget: more discussion December 1, a public hearing December 8 and adoption December 15 ([Town notice](https://www.nederlandco.gov/m/newsflash/Home/Detail/28)). Staff have proposed covering the deficit with transfers from the water, sewer and community center funds ([budget memo](https://nederlandco.civicweb.net/document/133483)). |
 
 **On this page:** [Why buy it](#why-does-nederland-want-to-buy-eldora) · [Paying for it](#how-would-the-purchase-be-paid-for) · [Spent so far](#what-has-the-town-already-spent) · [If it falls through](#what-happens-if-the-deal-falls-through) · [Residents](#what-could-this-mean-for-residents) · [Skiers](#what-has-been-confirmed-for-skiers) · [What’s next](#what-happens-next) · [Timeline](#timeline)
 
@@ -186,15 +192,15 @@ For the rest of the town, see our [Nederland page](/nederland/).
 
 ## What happens next?
 
-- **November 17:** the revised spending resolution was on the board’s agenda for a vote ([packet](https://nederlandco.civicweb.net/document/133483)). Before the regular meeting, the board met in a closed session on the purchase and on legal advice about paying the deal’s costs ([agenda](https://nederlandco.civicweb.net/document/133479)). On November 18 the Town had posted no record of either meeting’s outcome, and we found no news report on it.
-- **The spending resolution, as revised.** The Town Attorney drafted it from a proposal by Dallas Masters, a resident in the Town’s records and a former trustee in news reports. The November 17 version would cap new work toward a term sheet (a summary of proposed terms) at $80,000, down from $150,000. It would stop further spending once total costs pass $3 million unless the board votes to continue; neither cap covers work payable only if the deal closes. It would also require board approval for new consultants, a final accounting by firm at the December 15 meeting and a written cost report each month ([packet](https://nederlandco.civicweb.net/document/133483)).
-- **Deadlines, two versions.** The board was given a choice for the milestones section: Masters’ dates (a term sheet by January 31, 2027, a signed purchase agreement and financing commitments by March 31, and a closing by June 30, with the pursuit ending if a date is missed and not extended) or language with no dates, offered at some trustees’ request.
-- **December 1:** staff expect to bring 2026 budget changes and a revised 2027 budget to the board ([budget memo](https://nederlandco.civicweb.net/document/133483)).
+- **November 17:** the board set new deadlines for the deal, [BusinessDen reported](https://businessden.com/nederland-set-new-deadlines-for-eldora-deal/). “I know that part of the process… has been broken,” Mayor Pro Tem Luke Miller said at the meeting, according to the same report. Before the regular meeting, the board met in a closed session on the purchase and on legal advice about paying the deal’s costs ([agenda](https://nederlandco.civicweb.net/document/133479)). The Town had not posted the adopted resolution or the minutes by November 20.
+- **The spending resolution, as revised.** The Town Attorney drafted it from a proposal by Dallas Masters, a resident in the Town’s records and a former trustee in news reports. The version before the board on November 17 would cap new work toward a term sheet (a summary of proposed terms) at $80,000, down from $150,000. It would stop further spending once total costs pass $3 million unless the board votes to continue; neither cap covers work payable only if the deal closes. It would also require board approval for new consultants, a final accounting by firm at the December 15 meeting and a written cost report each month ([packet](https://nederlandco.civicweb.net/document/133483)).
+- **Deadlines, two versions.** The board was given a choice for the milestones section: Masters’ dates (a term sheet by January 31, 2027, a signed purchase agreement and financing commitments by March 31, and a closing by June 30, with the pursuit ending if a date is missed and not extended) or language with no dates, offered at some trustees’ request. Which dates the board adopted is not yet on record.
+- **The 2027 budget:** more discussion on December 1, a public hearing at a special meeting on December 8 and adoption planned for December 15 ([Town notice](https://www.nederlandco.gov/m/newsflash/Home/Detail/28)). Staff had said they expected to bring 2026 budget changes on December 1 ([budget memo](https://nederlandco.civicweb.net/document/133483)).
 - **Fundraising.** The Town’s November 17 update lists ways it could recognize large donors, including naming rights, preferred parking, ski storage and long-term passes. The passes would need Forest Service approval and are limited to 200 ([update](https://nederlandco.civicweb.net/document/133483)).
 
-Still open on November 18:
+Still open on November 20:
 
-- how the board voted on November 17;
+- the deadline dates and spending limits the board adopted on November 17;
 - whether Powdr will sign a new agreement, and at what price;
 - whether investors will buy bonds under the new structure, which would also need a new bond ordinance ([draft resolution](https://nederlandco.civicweb.net/document/133108));
 - whether the State or other donors will contribute;
@@ -215,8 +221,8 @@ Still open on November 18:
 | Sept. 30, 2026 | Town says it is still pursuing the deal, with a sale-leaseback and $20 million in donations | Proposed |
 | Oct. 20, 2026 | Board briefed on the sale-leaseback | Discussed |
 | Nov. 9, 2026 | Spending resolution and budget options before the board; vote put off | Discussed |
-| Nov. 17, 2026 | Revised spending resolution up for a vote; 2027 budget discussed | Outcome not yet recorded |
-| Dec. 1, 2026 | Budget changes expected before the board | Expected |
+| Nov. 17, 2026 | Board sets new deadlines for the deal, BusinessDen reports; 2027 budget discussed | Approved, per BusinessDen; resolution not yet posted |
+| Dec. 1–15, 2026 | 2027 budget: discussion Dec. 1, hearing Dec. 8, adoption Dec. 15 | Scheduled |
 
 Nothing on this list has reached “completed”: the purchase has not closed. Each step is sourced in the sections above.
 
