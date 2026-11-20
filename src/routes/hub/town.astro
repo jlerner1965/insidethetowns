@@ -264,6 +264,15 @@ const kept = folded?.section?.mode === 'pages' ? await sectionFor(town.slug) : u
  * and needs no link.
  */
 const carried = kept ? kept.eventEntries.filter((e) => !isOver(e)).map((e) => ({ e, start: exportWhen(e).start })).sort((a, b) => a.start.getTime() - b.start.getTime()) : [];
+/**
+ * The next ten show; the rest fold behind a button, as the statewide dates
+ * do (the owner, 20 November 2026: Golden's list ran to about 45). Folded,
+ * not dropped: every link stays in the page, so no event page goes back to
+ * being reachable from the sitemap alone.
+ */
+const CARRIED_SHOWN = 10;
+const carriedFirst = carried.slice(0, CARRIED_SHOWN);
+const carriedRest = carried.slice(CARRIED_SHOWN);
 const placeEntries = folded ? [...(await getSectionEntries('places', folded))].sort((a, b) => a.data.title.localeCompare(b.data.title)) : [];
 const placesHref = folded?.section?.mode === 'full' ? `/${town.slug}/directory/` : `/${town.slug}/places/`;
 const placeHref = (slug: string) => `/${town.slug}/places/${slug}/`;
@@ -584,16 +593,22 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
       {carried.length > 0 && (
         <Fragment>
           <h3 id="one-time-events" class={pub.h3}>One-time events</h3>
-          <ul data-carried-events>
-            {carried.map(({ e, start }) => (
-              <li class:list={['py-2.5', pub.rule]} data-carried-event>
-                <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]"><a href={`/${town.slug}/events/${e.slug}/`} class={pub.link}>{typeset(e.data.title)}</a></span>
-                <span class:list={['block', pub.meta]}>
-                  {isCanceled(e) && <Fragment>Canceled · </Fragment>}<time datetime={dayKey(start)}>{formatDayLong(start)}, {start.getFullYear()}</time>{e.data.venue && <Fragment> · {typeset(e.data.venue)}</Fragment>}
-                </span>
-              </li>
-            ))}
-          </ul>
+          {/* The next ten, then the rest in a second list the script folds away; without the script every event is on the page and the button is not. */}
+          {[carriedFirst, carriedRest].map((list, i) => list.length > 0 && (
+            <ul id={i ? 'carried-rest' : undefined} data-carried-events={i ? undefined : true} data-carried-rest={i ? true : undefined}>
+              {list.map(({ e, start }) => (
+                <li class:list={['py-2.5', pub.rule]} data-carried-event>
+                  <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]"><a href={`/${town.slug}/events/${e.slug}/`} class={pub.link}>{typeset(e.data.title)}</a></span>
+                  <span class:list={['block', pub.meta]}>
+                    {isCanceled(e) && <Fragment>Canceled · </Fragment>}<time datetime={dayKey(start)}>{formatDayLong(start)}, {start.getFullYear()}</time>{e.data.venue && <Fragment> · {typeset(e.data.venue)}</Fragment>}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ))}
+          {carriedRest.length > 0 && (
+            <button type="button" hidden aria-expanded="true" aria-controls="carried-rest" data-carried-toggle data-more={`Show all ${carried.length} one-time events`} data-less="Show fewer one-time events" class="mt-1.5 min-h-11 cursor-pointer border-0 bg-transparent p-0 text-left text-base font-[650] text-primary underline decoration-1 underline-offset-[3px]">Show all {carried.length} one-time events</button>
+          )}
         </Fragment>
       )}
       <OpenNow records={openRecords} {today} variant="pub" anchors={openSlugs} />
@@ -1018,11 +1033,11 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     window.addEventListener('hashchange', queue);
   }
 
-  // The statewide dates past the next two fold away behind a button. Without
-  // this script they are all on the page and the button stays hidden.
-  const toggle = document.querySelector<HTMLButtonElement>('[data-statewide-toggle]');
-  const rest = document.getElementById('statewide-rest');
-  if (toggle && rest) {
+  // The statewide dates past the next two, and the one-time events past the
+  // next ten, fold away behind a button. Without this script they are all
+  // on the page and the button stays hidden.
+  const fold = (toggle: HTMLButtonElement | null, rest: HTMLElement | null) => {
+    if (!toggle || !rest) return;
     const set = (open: boolean) => {
       rest.hidden = !open;
       toggle.setAttribute('aria-expanded', String(open));
@@ -1044,5 +1059,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
     };
     reveal();
     window.addEventListener('hashchange', reveal);
-  }
+  };
+  fold(document.querySelector<HTMLButtonElement>('[data-statewide-toggle]'), document.getElementById('statewide-rest'));
+  fold(document.querySelector<HTMLButtonElement>('[data-carried-toggle]'), document.getElementById('carried-rest'));
 </script>

@@ -12728,7 +12728,11 @@ owner's decisions on the audit of 19 November") came first and stand.*
   the twelve files, about 110 entries.
 - **The carried one-time events are linked** from their town page, under
   Events as "One-time events": the pages a guide folded page by page kept
-  (`src/lib/section-index.ts`), which only the sitemap reached.
+  (`src/lib/section-index.ts`), which only the sitemap reached. Only those
+  not yet over are listed; the daily rebuild drops each the day after.
+  *The owner, the same day:* the next ten show and the rest fold behind
+  "Show all N one-time events", as the statewide dates do (Golden's list
+  ran to about 45). Every link stays in the page.
 - **BreadcrumbList on the ten pages**: the hub's home (one step), This
   weekend, Which Colorado town? (the layout draws the trail it draws on
   every other hub page) and the seven moved guides' home pages (the hub,
@@ -12740,10 +12744,14 @@ owner's decisions on the audit of 19 November") came first and stand.*
   title formulas differ for the same reason, and Niwot's ("local updates
   & things to know") and Lyons's ("trails & parks") say what those guides
   hold, so one formula would claim what two of them do not have.
-- **Titles past 60 characters**: an event's name is cut at its subtitle or a
-  word (`fitLead` in src/lib/titles.ts; the h1 keeps the whole name), and
-  twenty-seven articles took a `seoTitle` within 60. The h1/title
-  mismatches are by design (`seoTitle` is for the searcher, `placeTitle`
-  adds the kind and the town, an event's title its date) and are left.
+- **Titles past 60 characters: not changed.** The pass cut event names
+  (`fitLead`) and gave twenty-seven articles a `seoTitle` within 60; *the
+  owner took it back the same day* (reverted). Google does not penalize a
+  longer title, it shortens it in results; most edits trimmed a few
+  characters for nothing, and some dropped searched words (the camping
+  article's Frederick, Firestone and Dacono became "Carbon Valley"; Golden,
+  Berthoud and Niwot lost ", CO"). The h1/title mismatches are by design
+  (`seoTitle` is for the searcher, `placeTitle` adds the kind and the town,
+  an event's title its date) and are left.
 - **Photographs for the trackers and /towns/** wait for the owner (TODO.md,
   Photographs): the licensed library has none that fits.
