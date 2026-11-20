@@ -12,6 +12,9 @@ sources:
     url: "https://www.cityofblackhawk.org/1195/History"
   - label: "City of Black Hawk: Gregory Street Plaza"
     url: "https://www.cityofblackhawk.org/1215/Gregory-Street-Plaza"
+image: ../images/maryland-mountain-quartz-valley-open-space-park.jpg
+imageAlt: "The rust-brown steel truss bridge, with a hawk cut-out on its side, carrying the trail over Highway 119 from the Hidden Treasure Trailhead to Maryland Mountain, north of Black Hawk, in June 2024"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 Black Hawk began with ore, water and the work of processing gold. The City's history dates the mining camp to May 1859, in the Gregory Diggings, when John H. Gregory's discovery drew prospectors to the narrow gulch between present-day Black Hawk and Central City. The two neighboring cities share a mining story but remain separate places.

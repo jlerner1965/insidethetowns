@@ -14,6 +14,9 @@ sources:
     url: "https://www.gilpinlibrary.org/"
   - label: "Colorado Parks and Wildlife: Golden Gate Canyon"
     url: "https://cpw.state.co.us/state-parks/golden-gate-canyon-state-park"
+image: ../images/golden-gate-canyon-state-park.jpg
+imageAlt: "A dirt trail through golden aspens and picnic tables in Golden Gate Canyon State Park, in September 2018"
+imageCredit: "Tony Webster, Wikimedia Commons, CC BY 2.0"
 ---
 
 Black Hawk's casinos are an adult itinerary. A family day here is built from a public space, one activity suited to the children's ages and a meal.

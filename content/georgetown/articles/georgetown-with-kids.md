@@ -14,6 +14,9 @@ sources:
     url: "https://www.capitalprizegoldmine.com/rates-hours"
   - label: "Clear Creek County Library District"
     url: "https://cccld.org/"
+image: ../images/georgetown-loop-railroad-devils-gate-depot.jpg
+imageAlt: "The maroon Georgetown Loop Railroad coach Waldorf, No. 100, on a siding below the mountains, in June 2019"
+imageCredit: "P. Hughes, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 A Georgetown family day works best with one anchor: a train ride, a mine tour or a mountain hike, each an outing of its own. Pick one, allow the time it needs, and add a short downtown walk and a break.

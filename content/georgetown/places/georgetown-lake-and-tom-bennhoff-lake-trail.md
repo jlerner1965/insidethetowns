@@ -12,6 +12,9 @@ access:
   permit: "A Colorado fishing license is required (children 16 and under exempt); ice driving on the lake is by Town permit only, January to February"
   source: "https://www.townofgeorgetown.us/town_government/parks_and_trails.php"
   verified: "2026-10-10"
+image: ../images/tom-bennhoff-lake-trail.jpg
+imageAlt: "The gravel Tom Bennhoff Lake Trail curving between pines and boulders, with Georgetown Lake glimpsed through the trees at left, in May 2024"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 tags: [lake, fishing, paddling, walking, ice-fishing]
 summary: "The Town's lake at the north end of Georgetown, with fishing, non-motorized boating and a roughly two-mile loop trail; ice fishing and permit-only ice driving in winter."
 ---
