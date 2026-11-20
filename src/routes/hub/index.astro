@@ -3,40 +3,44 @@
  * The hub's home, on the publication design the owner approved on 14
  * November 2026 (the home board), which replaced the home's own look of
  * 13 November: the hub's masthead and footer, its colours, and the
- * network's two faces, Fraunces and Instrument Sans. Top to bottom, each a
- * full-width band, paper and white in turn:
+ * network's two faces, Fraunces and Instrument Sans. Top to bottom, in
+ * this order in the page and on the screen (the owner, 20 November 2026):
  *
- *   1. The hero: the kicker, the headline and its line, the search, the
- *      way to the three sections below, and the owner's photograph of the
- *      Flatirons.
- *   2. This weekend: a heading a day, Friday to Sunday, and under each the
+ *   1. The hero: the kicker, the headline and its line, the live town
+ *      search (FindBar.astro), the way to This weekend, This season and
+ *      Find your town below, and the owner's photograph of the Flatirons.
+ *   2. Find your town: the full sections together, the seven guides and
+ *      the four folded guides kept whole (fullSections), and the link to
+ *      every town, A to Z.
+ *   3. This weekend: a heading a day, Friday to Sunday, and under each the
  *      day's listings from the guides: a guide editor's pick first, else
  *      the best the organizers have confirmed, never two from one town
  *      (src/lib/hub-home.ts, weekendPicksByDay), and Friday's high-school
- *      game where the scores data has one, until Friday is over. Directly
- *      under it, Colorado's Secret Trails: the current issue, static, its
- *      words changed by hand each issue.
- *   3. This season: each annual-events season the owner has opened, its
+ *      game where the scores data has one, until Friday is over.
+ *   4. This season: each annual-events season the owner has opened, its
  *      next date, the event on it, and how many towns hold it.
- *   4. The Thursday email, on the hub's blue.
- *   5. High school scores: each school the guides follow, with its last
+ *   5. Colorado's Secret Trails: the current issue, static, its words
+ *      changed by hand each issue.
+ *   6. High school scores: each school the guides follow, with its last
  *      result from the scores files.
- *   6. In the towns: the five newest featured articles, the newest
+ *   7. In the towns: the five newest featured articles, the newest
  *      first and set larger.
- *   7. Find your town: the full sections together, the seven guides and
- *      the four folded guides kept whole (fullSections), and a box that
- *      takes any other town's name to its page.
+ *   8. The Thursday email, on the hub's blue.
  *
  * The weekend leads and the season follows, and the weekend's rows carry no
  * check line, since the viewer review of 14 November 2026: a phone reader
  * came for what is on, and each listing's own page says where it was checked.
  *
+ * Below 900px each section is a full-width band of its own: the hero on
+ * paper, Find your town and This weekend on white, This season on paper,
+ * Colorado's Secret Trails on white, High school scores and In the towns
+ * on paper (the shared band's colour from 900px), then the email's blue.
  * Above 900px (the owner's desktop boards, 14 November 2026) the column is
- * 1200px, the hero's photograph sits beside its words, This season and This
- * weekend share a band (the season in the narrow column on the left, as the
- * boards have it), as do the scores and In the towns, the email's form
- * is one line, and the guides and the areas run four across. Below it each
- * section is the phone's band of its own.
+ * 1200px, the hero's photograph sits beside its words, the guides run four
+ * across, This weekend is a full-width row of its own with This season
+ * (the narrow column on the left) and Colorado's Secret Trails side by
+ * side under it, the scores and In the towns share a paper band the same
+ * way, and the email's form is one line.
  *
  * Every list reads what the rest of the hub reads: liveTowns() for the
  * guides, fullSections() for the sections, publishedHubTowns() for the town pages, the tradition records,
@@ -549,7 +553,7 @@ const pair = 'desk:mx-auto desk:grid desk:max-w-[1200px] desk:grid-cols-[4fr_8fr
     <div class:list={['desk:bg-paper', pairBand]}>
       <div class={pair}>
         {scores.length > 0 && (
-          <section id="scores" aria-labelledby="scores-heading" data-band class:list={[half, pub.white, news.length === 0 && 'desk:col-span-2']}>
+          <section id="scores" aria-labelledby="scores-heading" data-band class:list={[half, pub.paper, news.length === 0 && 'desk:col-span-2']}>
             <div class={halfCol}>
               <div class={pub.open}>
                 <h2 id="scores-heading" class={pub.h2}>High school scores</h2>
