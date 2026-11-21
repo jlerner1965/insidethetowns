@@ -210,8 +210,19 @@ const linked = new Set<string>([
 const hasGuides = (await getTownEntries('articles')).length > 0;
 /** Berthoud's quick answers in one row (the owner's list of 20 November 2026), on its page only. */
 const berthoud = town.slug === 'berthoud';
-/** Worth knowing's gap under What's happening taken back (the owner, 20 November 2026): Berthoud, then Erie. */
-const tightKnow = berthoud || town.slug === 'erie';
+/*
+ * What's happening keeps a deep closing padding (band-close: 6rem, 4rem on
+ * a phone) for the quick answers tucked under it (QuickAnswers.astro,
+ * `tuck`). Whichever other band comes right under it takes back the
+ * difference, so that gap is the page's band-to-band gap (band-compact:
+ * 3.5rem from 768px, 2.5rem on a phone) on every guide (the owner,
+ * 21 November 2026; Berthoud and Erie had it alone the day before). The
+ * candidates in the order drawn below: an outdoors-led guide's dates, then
+ * Worth knowing when a change is timely, then For families when a deadline
+ * is near; with none of them the quick answers tuck in themselves.
+ */
+const firstUnder = quietGuide ? undefined : outdoorsLed && anyDates ? 'dates' : knowHigh ? 'know' : familyRows.length > 0 && familiesFirst ? 'families' : undefined;
+const underHappening = '-mt-6 md:-mt-10';
 
 /*
  * On this page: the home's sections, in the order they are drawn below, as
@@ -371,7 +382,7 @@ if (featured) {
     what is on this week), the outdoor ones first when two or more have a
     date set, else its traditions; the statewide ones last (HomeDates). */}
 {outdoorsLed && anyDates && (
-  <section class="band-compact band-paper" aria-labelledby="outdoor-lead" data-outdoor-lead>
+  <section class:list={['band-compact band-paper', firstUnder === 'dates' && underHappening]} aria-labelledby="outdoor-lead" data-outdoor-lead>
     <div class="container-page">
       <h2 id="outdoor-lead" class="display-md text-[2rem] md:text-[2.5rem]">{dates.lead === 'outdoor' ? 'Outdoor dates' : `Every year in ${town.name}`}</h2>
       <HomeDates {dates} town={town.name} lines={localLines} track="outdoor-lead" firstLabelled />
@@ -380,15 +391,13 @@ if (featured) {
 )}
 {/* Worth knowing, one section: under the tabs when a change matters now
     (the audit of 13 November 2026), else lower down (WorthKnowing.astro).
-    On Berthoud and Erie, right under What's happening, it takes back the part of
-    that band's closing padding kept for the quick answers tucked under it
-    (QuickAnswers.astro), so the gap is the page's other bands' (the
-    owner's list of 20 November 2026). */}
-{knowHigh && (tightKnow && !(outdoorsLed && anyDates)
-  ? <div class="-mt-6 md:-mt-10"><WorthKnowing {timely} {know} dates={worthDates} /></div>
+    Right under What's happening it takes back that band's extra padding
+    (firstUnder, above). */}
+{knowHigh && (firstUnder === 'know'
+  ? <div class={underHappening}><WorthKnowing {timely} {know} dates={worthDates} /></div>
   : <WorthKnowing {timely} {know} dates={worthDates} />)}
 {familyRows.length > 0 && familiesFirst && (
-  <section class="band-compact band-paper" aria-labelledby="families-home" data-hide-when-empty>
+  <section class:list={['band-compact band-paper', firstUnder === 'families' && underHappening]} aria-labelledby="families-home" data-hide-when-empty>
     <div class="container-page">
       <h2 id="families-home" class="display-md text-[2rem] md:text-[2.5rem]">For families</h2>
       <ul class="mt-3 divide-y divide-line-soft">
