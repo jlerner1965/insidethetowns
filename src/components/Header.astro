@@ -1,6 +1,6 @@
 ---
 /**
- * The header: three bars, the same on every page of every site (the colours
+ * The header: two bars, the same on every page of every site (the colours
  * and navigation work order of 20 November 2026), and under them, on a
  * guide's pages and the hub's town pages, the town bar.
  *
@@ -9,8 +9,10 @@
  *    site's menu (src/lib/nav.ts, SITE_NAV: six, never seven; nav rule 1),
  *    search, and the Thursday email as the one action button. Below the
  *    masthead breakpoint (66.25rem) the menu is a panel that drops from
- *    under the header on a button, grouped: Explore, Towns, the email.
- * 3. The Find bar (FindBar.astro), which sticks to the top of the screen.
+ *    under the header on a button: the items under Explore, then the email.
+ * The live town search is in the home page's hero (FindBar.astro), not a bar
+ * above every page (the owner, 20 November 2026); every page has the
+ * masthead's search link.
  *
  * One masthead on every site (one brand, 20 November 2026; until then a
  * guide's carried its own wordmark, "Inside Berthoud", and its own menu).
@@ -34,8 +36,6 @@ import { publishedHubTowns } from '@/lib/hub-towns';
 import { EMAIL_NAV, SITE_NAV, siteNav, townNav } from '@/lib/nav';
 import { pagePath, sectionHref } from '@/lib/section';
 import { wordmarkEm as titleEm } from '@/lib/titles';
-import { extraTownPages, pagesBeyondSections } from '@/lib/town-search-index';
-import FindBar from './FindBar.astro';
 import TownBar from './TownBar.astro';
 import Wordmark from './Wordmark.astro';
 import { HUB_COLUMN } from './hub/pub';
@@ -43,10 +43,12 @@ import { HUB_COLUMN } from './hub/pub';
 interface Props {
   section?: FullSection;
   /** A hub town page: the town the trail names and the group it sits in. */
-  townBar?: { name: string; region: string };
+  townBar?: { name: string; region: string; slug?: string };
+  /** The page's column (Base.astro), so the bars line up with the page. */
+  column?: string;
 }
 
-const { section, townBar } = Astro.props;
+const { section, townBar, column = HUB_COLUMN } = Astro.props;
 const site = getSite();
 const hub = getNetworkHub();
 // The guide whose town bar this page carries: the section's on a hub page under its prefix, the site's own on a guide.
@@ -80,7 +82,6 @@ const nav = SITE_NAV.map((item) => ({ ...item, href: hubAt(item.href), current: 
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const emailOn = !!hub.newsletter && (site.kind !== 'town' || !!editionFor(site.slug, emailEditions()));
 const emailHref = site.kind === 'town' ? `https://${hub.domain}${EMAIL_NAV.href}?towns=${site.slug}` : EMAIL_NAV.href;
-const column = HUB_COLUMN;
 /**
  * The town bar's data. On a guide: its sections as tabs (the same items in
  * the same order its menu had, src/lib/nav.ts), its neighbours, and the
@@ -89,21 +90,18 @@ const column = HUB_COLUMN;
 const tabs = guide
   ? (section ? townNav(guide, undefined, { folded: !isMoved(section.site) }) : siteNav(guide)).map((item) => ({ label: item.label, href: at(item.href), current: isActive(item.href) }))
   : [];
+// A hub town page's neighbours are the other town pages in its group, A to Z, as a guide's are its neighbours.
+const hubTown = townBar?.slug ? hubTowns.find((h) => h.slug === townBar.slug) : undefined;
 const nearby = guide
   ? [...neighborsOf(guide).map((t) => ({ name: t.name, href: guideUrl(t) })), ...hubNeighborsOf(guide, published).map((t) => ({ name: t.name, href: t.href }))]
-  : [];
+  : hubTown
+    ? hubTowns.filter((h) => h.cluster === hubTown.cluster && h.slug !== hubTown.slug).sort((a, b) => a.name.localeCompare(b.name)).slice(0, 6).map((h) => ({ name: h.name, href: hubAt(`/${h.slug}/`) }))
+    : [];
 const town = guide ? { name: guide.name, region: guide.region } : townBar;
+// The town in the trail is a link to its front page, except on that page (a hub town page is one).
+const townHome = guide ? at('/') : undefined;
+const onTownHome = !guide || path === '/' || path === at('/');
 const regionHref = (region: string) => hubAt(`/search/?q=${encodeURIComponent(region)}`);
-/**
- * The Find bar's index: every full guide, every sub-town page and every town
- * page beyond them, with its county line and what it is, A to Z.
- */
-const sections = fullSections();
-const findIndex = [
-  ...sections.map((t) => ({ n: t.name, c: hubCountyLine(t), k: 'Full guide', u: sectionHome(t) })),
-  ...extraTownPages(sections).map((s) => ({ n: s.name, c: hubCountyLine(s.guide), k: 'Town page', u: `https://${hub.domain}/${s.slug}/` })),
-  ...pagesBeyondSections(hubTowns, sections).map((t) => ({ n: t.name, c: hubCountyLine(t), k: 'Town page', u: `https://${hub.domain}/${t.slug}/` })),
-].sort((a, b) => a.n.localeCompare(b.n));
 const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-underline transition-colors', on && 'is-current'];
 ---
 {/* 1. The trust bar: what the site promises, and the page that says how. */}
@@ -164,15 +162,12 @@ const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-unde
       </div>
 
       <nav id="site-nav" class="site-nav hub-row" aria-label="Primary">
-        <ul class="site-nav-list">
-          {/* The panel's groups (nav rule: grouped on a phone); the row has no headings. */}
+        <ul class:list={['site-nav-list', column]}>
+          {/* The panel's group heading on a phone; the row has none. The six in their order, Towns A–Z second
+              (SITE_NAV, src/lib/nav.ts), in the row and the panel alike; the email is the button under them. */}
           <li class="site-nav-group" aria-hidden="true">Explore</li>
-          {nav.filter((item) => item.href !== hubAt('/towns/')).map((item) => (
+          {nav.map((item) => (
             <li><a href={item.href} aria-current={item.current ? 'page' : undefined} class:list={rowLink(item.current)}>{item.label}</a></li>
-          ))}
-          <li class="site-nav-group" aria-hidden="true">Towns</li>
-          {nav.filter((item) => item.href === hubAt('/towns/')).map((item) => (
-            <li class="site-nav-towns"><a href={item.href} aria-current={item.current ? 'page' : undefined} class:list={rowLink(item.current)}>{item.label}</a></li>
           ))}
           {emailOn && (
             <li class="site-nav-email">
@@ -184,11 +179,10 @@ const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-unde
     </div>
   </div>
 </header>
-{/* 3. The Find bar, which stays on screen. */}
-<FindBar action={hubAt('/search/')} index={findIndex} {column} />
 {town && (
   <TownBar
     name={town.name}
+    homeHref={onTownHome ? undefined : townHome}
     region={town.region}
     regionHref={regionHref(town.region)}
     townsHref={hubAt('/towns/')}
@@ -258,6 +252,15 @@ const rowLink = (on: boolean) => ['site-nav-link block whitespace-nowrap no-unde
     wide.addEventListener('change', (event) => {
       if (event.matches) set(false);
     });
+  }
+
+  // The current tab in view: on a phone the tabs scroll sideways, and on a page further along the
+  // row (Eat & drink, Living here) its tab sat off the right edge, so the reader could not see where they were.
+  for (const tabs of document.querySelectorAll<HTMLElement>('[data-town-tabs]')) {
+    const current = tabs.querySelector<HTMLElement>('[aria-current="page"]');
+    if (!current) continue;
+    const left = current.getBoundingClientRect().left - tabs.getBoundingClientRect().left + tabs.scrollLeft;
+    if (left + current.offsetWidth > tabs.clientWidth - 24) tabs.scrollLeft = left - 16;
   }
 
   // "Switch town" (TownBar.astro) opens on its own; this only closes it, the

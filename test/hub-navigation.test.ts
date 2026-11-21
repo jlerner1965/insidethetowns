@@ -20,7 +20,7 @@ import { publishedHubTowns } from '../src/lib/hub-towns.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
 import { fullSectionAt, fullSections, getNetworkHub, isMoved, liveTowns, sectionHome, sectionTowns } from '../src/config/index.ts';
 import { PAPERS, paletteVars, primaryHover } from '../src/config/palette.ts';
-import { homeDescription, inSentence } from '../src/lib/hub-home.ts';
+import { homeDescription, inSentence, storySourceNote } from '../src/lib/hub-home.ts';
 import { EMAIL_NAV, SITE_NAV, townNav } from '../src/lib/nav.ts';
 import { extraTownPages, pagesBeyondSections, townCount } from '../src/lib/town-search-index.ts';
 import { SECTION_MOVED, sectionHref } from '../src/lib/section.ts';
@@ -56,7 +56,7 @@ test('a full section’s front page: a guide’s section home, a folded guide’
 test('the home and /towns/ list the eleven together from fullSections(), and their words count sections, not guides', () => {
   const home = read('src/routes/hub/index.astro');
   assert.match(home, /const sectionList = fullSections\(\);/);
-  assert.match(home, /\{capitalized\(sectionCount\)\} full sections<\/h3>/);
+  assert.match(home, /\{capitalized\(sectionCount\)\} full guides<\/h3>/);
   assert.match(home, /data-index="sections"/);
   assert.match(home, /href: sectionHome\(t\)/);
   assert.doesNotMatch(home, /local guides<\/h3>/);
@@ -121,7 +121,7 @@ test('a tradition page under a full section takes that section’s masthead; a t
   const page = read('src/routes/hub/event.astro');
   assert.match(page, /const masthead = fullSectionAt\(town\.slug\);/);
   assert.match(page, /\{masthead\}/);
-  assert.match(read('src/layouts/Base.astro'), /<Header section=\{masthead\} \{townBar\} \/>/);
+  assert.match(read('src/layouts/Base.astro'), /<Header section=\{masthead\} \{townBar\} \{column\} \/>/);
 });
 
 test('the section’s masthead on a hub page links where the section’s own pages do: the same rewrite as the merge', () => {
@@ -163,14 +163,16 @@ test('one brand on every section: the shared colour roles read the final palette
 });
 
 test('the site’s menu is six items, never seven, in the owner’s words, and the email is the action button', () => {
-  assert.deepEqual(SITE_NAV.map((n) => n.label), ['This Weekend', 'Towns A–Z', 'Annual Events', 'Trails & Parks', 'Stories']);
+  assert.deepEqual(SITE_NAV.map((n) => n.label), ['This Weekend', 'Towns A–Z', 'Annual Events', 'Trails & Parks', 'Articles']);
   assert.equal(EMAIL_NAV.label, 'Thursday Email');
   assert.equal(SITE_NAV.length + 1, 6);
   const header = read('src/components/Header.astro');
   assert.match(header, /SITE_NAV\.map/);
   assert.match(header, /class="trust-bar"/);
   assert.match(header, /Listings checked daily/);
-  assert.match(header, /<FindBar /);
+  // No search bar above the page: the live search is in the home's hero (the owner, 20 November 2026).
+  assert.doesNotMatch(header, /<FindBar /);
+  assert.match(read('src/routes/hub/index.astro'), /<FindBar action="\/search\/" index=\{findEntries\} \/>/);
   assert.match(header, /<TownBar/);
   // One marker, site-wide (nav rule 6): sage under the current item in the masthead, sage text in the town bar.
   const css = read('src/styles/global.css');
@@ -231,4 +233,25 @@ test('the network covers 103 towns by one rule: 11 full guides, 91 town pages an
   assert.match(read('src/routes/hub/towns.astro'), /const total = townCount\(/);
   assert.match(read('src/pages/about.astro'), /const totalTowns = townCount\(hubTowns, sectionList\);/);
   assert.match(read('src/routes/hub/index.astro'), /All \{allTowns\} towns, A to Z →/);
+});
+
+test('the six are drawn in their order, Towns A–Z second, in the row and the phone panel alike (the owner, 20 November 2026)', () => {
+  const header = read('src/components/Header.astro');
+  // One list, in SITE_NAV's order: no item is taken out of it and drawn after the rest.
+  assert.match(header, /\{nav\.map\(\(item\) => \(/);
+  assert.doesNotMatch(header, /nav\.filter\(/);
+  assert.equal(SITE_NAV[1]?.label, 'Towns A–Z');
+});
+
+test('the home leads with what a reader finds: no calendar-and-email bookkeeping, short source notes, rounded controls', () => {
+  const home = read('src/routes/hub/index.astro');
+  for (const words of ['with an events calendar', 'no weekly issue', 'From the calendars of', 'data-coverage', 'rounded-l-[2px]', 'rounded-r-[2px]']) {
+    assert.ok(!home.includes(words), words);
+  }
+  assert.match(home, /storySourceNote\(a\.sources\)/);
+  assert.equal(storySourceNote([{ label: 'Colorado Sun: a', checked: '2026-11-13' }, { label: 'BusinessDen', checked: '2026-11-12' }]), '2 sources, read Nov 12, 2026');
+  assert.equal(storySourceNote([{ label: 'Town of Nederland: Nov. 9 packet', checked: '2026-11-13' }]), 'Source: Town of Nederland, read Nov 13, 2026');
+  assert.equal(storySourceNote([]), undefined);
+  const signup = read('src/components/NewsletterSignup.astro');
+  assert.ok(!signup.includes('rounded-[2px]') && !signup.includes('rounded-l-[2px]') && !signup.includes('rounded-r-[2px]'));
 });

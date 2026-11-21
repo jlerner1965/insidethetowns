@@ -170,6 +170,6 @@ export const SITE_NAV: readonly NavItem[] = [
   { label: 'Towns A–Z', href: '/towns/' },
   { label: 'Annual Events', href: ANNUAL_EVENTS_HREF },
   { label: 'Trails & Parks', href: '/colorados-secret-trails/' },
-  { label: 'Stories', href: ARTICLES_INDEX_PATH },
+  { label: 'Articles', href: ARTICLES_INDEX_PATH },
 ];
 export const EMAIL_NAV: NavItem = { label: 'Thursday Email', href: '/newsletter/' };

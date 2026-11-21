@@ -17,6 +17,8 @@
 interface Props {
   /** The town the page is about. */
   name: string;
+  /** The town's front page, where this page is not it: the trail's last step is then a link. */
+  homeHref?: string;
   /** "Northern Colorado", "Western Slope": the group the hub's A to Z and search know it by. */
   region: string;
   /** Where the region's towns are listed: the hub's search answers the region's name. */
@@ -34,16 +36,22 @@ interface Props {
   column: string;
 }
 
-const { name, region, regionHref, townsHref, tabs = [], nearby = [], allHref, allLabel, column } = Astro.props;
+const { name, homeHref, region, regionHref, townsHref, tabs = [], nearby = [], allHref, allLabel, column } = Astro.props;
 const crumb = 'no-underline text-ink-muted hover:text-primary hover:underline';
 ---
 <div class="town-bar" data-pagefind-ignore data-town-bar>
-  <div class:list={[column, 'town-bar-row']}>
+  {/* One grid, so "Switch town" can sit beside the trail on a wide screen and beside the tabs on a phone,
+      where the trail needs the whole row (the live check of 20 November 2026: "Towns › North… › Berthoud"). */}
+  <div class:list={[column, 'town-bar-grid', tabs.length === 0 && 'no-tabs']}>
     <nav aria-label="Breadcrumb" class="town-bar-trail">
-      <ol class="flex flex-wrap items-center gap-x-1.5">
-        <li><a href={townsHref} class={crumb}>Towns</a></li>
-        <li><span aria-hidden="true" class="mr-1.5 text-ink-muted">›</span><a href={regionHref} class={crumb}>{region}</a></li>
-        <li aria-current="page"><span aria-hidden="true" class="mr-1.5 text-ink-muted">›</span><span class="font-semibold text-ink">{name}</span></li>
+      <ol class="town-bar-steps">
+        <li class="flex-none"><a href={townsHref} class={crumb}>Towns</a></li>
+        <li class="town-bar-region"><span aria-hidden="true" class="mr-1.5 text-ink-muted">›</span><a href={regionHref} class={crumb}>{region}</a></li>
+        {homeHref ? (
+          <li class="flex-none"><span aria-hidden="true" class="mr-1.5 text-ink-muted">›</span><a href={homeHref} class="font-semibold text-ink no-underline hover:text-primary hover:underline">{name}</a></li>
+        ) : (
+          <li class="flex-none" aria-current="page"><span aria-hidden="true" class="mr-1.5 text-ink-muted">›</span><span class="font-semibold text-ink">{name}</span></li>
+        )}
       </ol>
     </nav>
     <details class="town-switch" data-town-switch>
@@ -64,14 +72,14 @@ const crumb = 'no-underline text-ink-muted hover:text-primary hover:underline';
         </p>
       </div>
     </details>
+    {tabs.length > 0 && (
+      <nav aria-label={name} class="town-tabs-wrap">
+        <ul class="town-tabs" data-town-tabs>
+          {tabs.map((t) => (
+            <li><a href={t.href} aria-current={t.current ? 'page' : undefined} class="town-tab">{t.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    )}
   </div>
-  {tabs.length > 0 && (
-    <nav aria-label={name} class:list={[column, 'town-tabs-wrap']}>
-      <ul class="town-tabs">
-        {tabs.map((t) => (
-          <li><a href={t.href} aria-current={t.current ? 'page' : undefined} class="town-tab">{t.label}</a></li>
-        ))}
-      </ul>
-    </nav>
-  )}
 </div>
