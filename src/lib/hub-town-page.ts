@@ -1,8 +1,7 @@
 /**
  * The hub's town page as data (src/routes/hub/town.astro; the publication
  * redesign of 14 November 2026). The page is a run of numbered sections,
- * Events, Places to know, Trails and parks (the owner's brief of 18
- * November 2026), Where to stay, Getting here, Outdoor dates and About, each drawn
+ * in the owner's content order of 21 November 2026 (SECTION_ORDER), each drawn
  * only where the town's files have something for it, and numbered and
  * listed under "On this page" in the order they are drawn. Everything here
  * is pure, so the rules are tested rather than trusted to a template.
@@ -28,10 +27,17 @@ import { isUpcoming, type TraditionRow } from './traditions.ts';
 
 /* ---------------------------------------------------------------- sections */
 
-export type SectionKey = 'events' | 'places' | 'trails' | 'directory' | 'stay' | 'getting' | 'outdoor' | 'about';
+export type SectionKey = 'now' | 'next' | 'todo' | 'directory' | 'stay' | 'getting' | 'events' | 'outdoor' | 'about';
 
-/** The sections in the page's order, each with its anchor and its words. */
-export const SECTION_ORDER: readonly SectionKey[] = ['events', 'places', 'trails', 'directory', 'stay', 'getting', 'outdoor', 'about'];
+/**
+ * The sections in the page's order, each with its anchor and its words: the
+ * owner's content order of 21 November 2026. What is on now (open now and
+ * the one-time events still to come), the one to know, things to do (the
+ * lead guide, places to know, trails and parks), places to eat, drink and
+ * explore, where to stay and getting here, the annual calendar and the
+ * statewide outdoor dates, then the town's history and its stories.
+ */
+export const SECTION_ORDER: readonly SectionKey[] = ['now', 'next', 'todo', 'directory', 'stay', 'getting', 'events', 'outdoor', 'about'];
 
 /**
  * Each section's anchor. The events and outdoor anchors are the ones a
@@ -40,9 +46,12 @@ export const SECTION_ORDER: readonly SectionKey[] = ['events', 'places', 'trails
  * with the layout.
  */
 export const SECTION_IDS: Readonly<Record<SectionKey, string>> = {
+  now: 'happening-now',
+  /** The showpiece's spotlight; the year's grid links its month here. */
+  next: 'one-to-know',
+  /** Places to know and Trails and parks keep their anchors on their own subheads inside it. */
+  todo: 'things-to-do',
   events: 'traditions',
-  places: 'places-to-know',
-  trails: 'trails-and-parks',
   /** The town's places page, a few of them by kind (the owner, 18 November 2026: in the menu and on the page, not one link at the foot). */
   directory: 'places',
   stay: 'stay',
@@ -65,9 +74,10 @@ export interface PageSection {
 /** The sections a town's page draws, numbered in order; one with nothing in it is left out and the rest close up. */
 export function pageSections(town: string, present: Readonly<Record<SectionKey, boolean>>): PageSection[] {
   const words: Record<SectionKey, { label: string; title: string }> = {
-    events: { label: 'Event dates', title: `Events and dates in ${town}` },
-    places: { label: 'Places to know', title: `Places to know in ${town}` },
-    trails: { label: 'Trails and parks', title: `Trails and parks in ${town}` },
+    now: { label: 'Happening now', title: `Happening now in ${town}` },
+    next: { label: 'The one to know', title: `The one to know in ${town}` },
+    todo: { label: 'Things to do', title: `Things to do in ${town}` },
+    events: { label: 'Annual calendar', title: `${town}’s annual calendar` },
     directory: { label: 'Places', title: `Places in ${town}` },
     stay: { label: 'Where to stay', title: `Where to stay in ${town}` },
     getting: { label: 'Getting here', title: `Getting to ${town}` },

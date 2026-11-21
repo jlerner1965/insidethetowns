@@ -32,21 +32,17 @@
  * get the three as one control; with no script the opening tab is shown
  * and the other two are reached from the links under the list.
  *
- * "Don't miss" (the owner, 7 November 2026, after comparing niwot.com): the
- * next featured listing within three weeks (src/lib/home-tabs.ts,
- * dontMiss), as a card with a photograph, beside the list on a wide screen
- * and above the tabs on a phone, where it is a short row. It carries the
- * listing's own marks, so it comes off the page when the listing does, and
- * the block with it. Without one the list keeps a reading width rather than
- * the page's: the venue sits under the title at every width now, where on a
- * desktop it had been 800px to the right of it.
+ * "Don't miss", the next featured listing, is its own section after this one
+ * since 21 November 2026 (DontMiss.astro; the owner's content order: what is
+ * on now, then the next big event). The list keeps a reading width rather
+ * than the page's: the venue sits under the title at every width, where on
+ * a desktop it had been 800px to the right of it.
  *
  * A listing's title is a link and reads as one: the guide's link colour
  * (the primary), not underlined, as Worth knowing's headlines are (the
  * owner, 9 November 2026; they were ink until hovered). A called-off
  * listing keeps the muted ink beside its Canceled or Postponed label.
  */
-import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { subTownPath, type TownConfig } from '@/config';
 import { subTownsOf } from '@/lib/sub-towns';
@@ -75,10 +71,9 @@ interface Props {
   /** The tabs for the build's day and the days after it; the browser shows the reader's day. */
   editions: TabEdition[];
   open: TabKey;
-  feature?: Feature;
 }
 
-const { town, editions, open, feature } = Astro.props;
+const { town, editions, open } = Astro.props;
 const tabs = editions[0]!.tabs;
 // One line of trust on the first screen (the reader pass, 1 November 2026:
 // "independent", "free" and "checked" were all in the footer): the build's
@@ -96,26 +91,8 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
     <p class="mt-2 text-[0.9375rem] text-ink-muted">
       Every listing checked against its source · refreshed <time datetime={toIsoLocal(refreshed)}>{formatDate(refreshed)}</time>
     </p>
-    <div class:list={['mt-5', feature ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start lg:gap-x-12 xl:grid-cols-[minmax(0,1fr)_23rem]' : 'max-w-3xl']}>
-    {feature && (
-      <aside aria-labelledby="dont-miss" data-hide-when-empty class="mb-6 lg:col-start-2 lg:row-start-1 lg:mb-0">
-        <a href={feature.href} data-event-day={feature.eventDay} data-end={feature.end} class:list={['group overflow-hidden rounded-lg bg-raised no-underline ring-1 ring-line-soft hover:ring-primary-line lg:block', feature.image ? 'grid grid-cols-[6.5rem_minmax(0,1fr)] items-stretch gap-x-4 sm:grid-cols-[10rem_minmax(0,1fr)]' : 'block']} data-track="dont-miss">
-          {/* A square thumbnail on a phone (104px) and a tablet (160px), 16:9 in
-              the desktop column (to 368px), each from a srcset: one 720px file
-              went into the 104px box (the owner's review, 13 November 2026). */}
-          {feature.image && <Image src={feature.image} alt={feature.alt} width={736} widths={[160, 320, 480, 736]} sizes="(min-width: 1024px) 368px, (min-width: 640px) 240px, 160px" loading="eager" class="aspect-square h-auto w-full self-start object-cover lg:aspect-[16/9]" />}
-          <div class:list={['py-3 pr-3 lg:px-5 lg:py-4', !feature.image && 'pl-4']}>
-            <p id="dont-miss" class="eyebrow text-primary">Don’t miss</p>
-            <p class="mt-1 text-[0.875rem] font-semibold leading-snug text-ink">{feature.when}</p>
-            <h3 class="display-md mt-1 text-[1.25rem] leading-tight text-ink group-hover:text-primary lg:text-[1.5rem]">{feature.title}</h3>
-            {feature.where && <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{feature.where}</p>}
-            {feature.blurb && <p class="mt-2 hidden text-[0.9375rem] leading-snug text-ink lg:line-clamp-3">{feature.blurb}</p>}
-            <p class="mt-2 hidden text-[0.9375rem] font-semibold text-primary underline lg:block">The details →</p>
-          </div>
-        </a>
-      </aside>
-    )}
-    <div class="min-w-0 lg:col-start-1 lg:row-start-1">
+    <div class="mt-5 max-w-3xl">
+    <div class="min-w-0">
     <div role="tablist" aria-label="When" class="flex gap-x-1 border-b border-line-soft" data-home-tabs>
       {tabs.map((t) => (
         <button
@@ -132,7 +109,7 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
     </div>
     {tabs.map((t) => (
       <div role="tabpanel" id={`panel-${t.key}`} aria-labelledby={`tab-${t.key}`} hidden={t.key !== open} tabindex="0">
-        {/* Above the day's listings on the Today tab, where the home passes one: "Today at the rec center" (RecCenterToday). */}
+        {/* Above the day's listings on the Today tab, where the home passes one: the line to the rec center's hours (TownHome.astro). */}
         {t.key === 'today' && Astro.slots.has('today') && (
           <div class="mt-4 border-b border-line-soft pb-3"><slot name="today" /></div>
         )}

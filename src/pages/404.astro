@@ -18,13 +18,8 @@ const links =
       ];
 ---
 <Page title="Page not found" eyebrow="404" intro="That page doesn’t exist or has moved." description="That page doesn’t exist or has moved. Start again from the home page." noindex narrow>
-  {/* A way back in besides the home page: the search, and the main sections. */}
-  <form role="search" action="/search/" method="get" class="flex gap-3">
-    <label for="q404" class="sr-only">Search</label>
-    <input id="q404" name="q" type="search" placeholder="Search the guide" class="min-w-0 flex-1 rounded-md border border-field-line bg-raised px-4 py-3 text-[1.0625rem] text-ink placeholder:text-ink-muted" />
-    <button type="submit" class="btn btn-primary">Search</button>
-  </form>
-  <p class="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[0.9375rem]">
+  {/* A way back in besides the home page: the main sections. Search is the masthead's Search button (one search box a page, 21 November 2026). */}
+  <p class="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[0.9375rem]">
     <span class="eyebrow text-ink-muted">Or go to</span>
     {links.map((l) => <a href={l.href} class="-my-2 inline-block py-3 font-semibold text-primary underline">{l.label}</a>)}
   </p>
