@@ -10,7 +10,7 @@ source: "https://bohemianlivemusic.org/event/the-last-waltz-again/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "54634"
 sourceHash: "a78f245dd951"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"The Last Waltz Again\" at 7 pm on 21 November in the page's structured data"
 ---
 

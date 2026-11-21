@@ -11,8 +11,8 @@ cost: "Free"
 category: family
 recurring: "Fridays at 10:30; no storytime November 27 (library closed)"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-11-20"
-verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 10:30 am on the page"
+verified: "2026-11-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): 27 November and 10:30 am on the page"
 ---
 
 A fast-paced storytime with books, songs and dancing for toddlers, every Friday morning at the library. No registration.

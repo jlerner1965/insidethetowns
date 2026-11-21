@@ -8,7 +8,7 @@ source: "https://calendar.boulderlibrary.org/events"
 sourceId: "boulderlibrary-libnet-info"
 sourceUid: "17510164"
 sourceHash: "865e9d22a682"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Fresh Reads\" at 5:30 pm on 2 December on the Boulder Public Library District - Gunbarrel Library events feed"
 ---
 

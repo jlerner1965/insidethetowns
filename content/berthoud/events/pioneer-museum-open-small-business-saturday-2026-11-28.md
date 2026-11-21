@@ -9,7 +9,7 @@ category: other
 organizer: "Berthoud Historical Society"
 organizerUrl: "https://berthoudhistoricalsociety.org/"
 source: "https://berthoudhistoricalsociety.org/event/small-business-saturday-museum-open/"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Small Business Saturday – Museum Open\" at 10 am on 28 November in the page's structured data"
 ---
 

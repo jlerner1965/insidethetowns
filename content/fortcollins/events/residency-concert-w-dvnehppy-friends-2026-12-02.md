@@ -9,7 +9,7 @@ source: "https://www.wolverinefarm.org/event/residency-concert-w-dvnehppy-friend
 sourceId: "wolverinefarm-org"
 sourceUid: "197778"
 sourceHash: "f9cdafb4328f"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Residency Concert w/ DVNEHPPY + Friends\" at 6 pm on 2 December in the page's structured data"
 ---
 

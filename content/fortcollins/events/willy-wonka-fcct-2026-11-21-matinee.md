@@ -13,6 +13,8 @@ sourceId: "lctix-com"
 sourceUid: "showare:5576"
 verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 11 am on the page"
+changeFlag: true
+changeNote: "recheck 2026-11-21: the page's structured data lists \"Willy Wonka\" at 4 pm on 21 November, not 11 am"
 ---
 
 Fort Collins Children's Theatre's musical of Charlie Bucket and the chocolate factory, four performances in the Performance Hall over the weekend of November 20–22.

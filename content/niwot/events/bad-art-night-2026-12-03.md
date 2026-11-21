@@ -8,7 +8,7 @@ source: "https://calendar.boulderlibrary.org/events"
 sourceId: "boulderlibrary-libnet-info"
 sourceUid: "17609642"
 sourceHash: "db9ed0689ec7"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Bad Art Night\" at 5:30 pm on 3 December on the Boulder Public Library District - Gunbarrel Library events feed"
 ---
 

@@ -10,7 +10,7 @@ source: "https://gingerandbaker.com/my-event/tk-great-british-baking-4/"
 sourceId: "gingerandbaker-com"
 sourceUid: "83532"
 sourceHash: "67ee98fdbfe0"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Great British Baking\" at 10 am on 29 November in the page's structured data"
 ---
 

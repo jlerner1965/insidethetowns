@@ -9,7 +9,7 @@ category: arts
 organizer: "Carbon Valley Regional Library (High Plains Library District)"
 organizerUrl: "https://www.mylibrary.us/cvrl/"
 source: "https://highplains.libcal.com/event/17685920"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Card Making Class\" at 5:30 pm on 3 December on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

@@ -8,6 +8,8 @@ category: civic
 recurring: "Fourth Tuesdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
 verified: "2026-09-18"
+changeFlag: true
+changeNote: "recheck 2026-11-21: not on the lyons.librarycalendar.com feed on 22 December; it has \"Lyons Regional Library District Regular Meeting\" on 8 December"
 ---
 
 Regular meeting of the Lyons Regional Library District board of trustees, held in the Effie Banta Meeting Room.

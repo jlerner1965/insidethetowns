@@ -9,7 +9,7 @@ category: civic
 source: "https://www.berthoud.org/Calendar.aspx?EID=960"
 sourceId: "berthoud-org"
 sourceUid: "EID=960"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning Commission Meeting\" at 6 pm on 26 November on the berthoud.org feed"
 sourceHash: "fa07c25014c6"
 ---

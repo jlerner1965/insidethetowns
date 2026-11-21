@@ -9,7 +9,7 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17689638"
 sourceHash: "ce4134ca99ea"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Family Bingo\" at 4:30 pm on 2 December on the Clearview Library District feed"
 ---
 

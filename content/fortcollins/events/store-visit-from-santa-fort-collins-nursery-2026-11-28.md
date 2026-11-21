@@ -8,7 +8,7 @@ url: "https://fortcollinsnursery.com/events/"
 cost: "Free"
 category: "family"
 source: "https://fortcollinsnursery.com/events/"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November and 10 am on the page"
 ---
 

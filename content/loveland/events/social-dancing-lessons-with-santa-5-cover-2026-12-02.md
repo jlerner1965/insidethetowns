@@ -8,7 +8,7 @@ source: "https://www.crookedbeech.com/events-and-food-trucks"
 sourceId: "calendar-google-com-crookedbeech"
 sourceUid: "585bpg2vmeu07h72983t6nus9i@google.com"
 sourceHash: "f1d7130ef4de"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Social Dancing Lessons with Santa, $5 cover\" at 6 pm on 2 December on the Crooked Beech Brewing (taproom events calendar) feed"
 ---
 

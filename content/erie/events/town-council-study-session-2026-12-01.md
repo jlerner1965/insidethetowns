@@ -7,7 +7,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5439"
 cost: "Free"
 category: civic
 source: "https://www.erieco.gov/Calendar.aspx?EID=5439"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Town Council Special Meeting\" at 6 pm on 1 December on the erieco.gov feed"
 ---
 

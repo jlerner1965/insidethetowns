@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/post-holiday-recharge-a-restorative-sound-
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003221916678"
 sourceHash: "b49fd5a9c4a9"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Post-Holiday Recharge: A Restorative Sound Journey\" at 4 pm on 29 November in the page's structured data"
 ---
 

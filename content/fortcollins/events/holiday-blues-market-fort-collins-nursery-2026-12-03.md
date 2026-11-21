@@ -10,7 +10,7 @@ category: "market"
 performers:
   - { name: "Grant Sabin", kind: person }
 source: "https://fortcollinsnursery.com/events/"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Blues Market\" at 4 pm on 3 December in the page's structured data"
 ---
 

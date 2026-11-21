@@ -9,7 +9,7 @@ performers:
   - { name: "Harbour", kind: group }
   - { name: "The Silkies", kind: group }
 source: "https://www.z2ent.com/events/detail/harbour-2026-agg"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): 1 December and 8 pm on the page"
 ---
 

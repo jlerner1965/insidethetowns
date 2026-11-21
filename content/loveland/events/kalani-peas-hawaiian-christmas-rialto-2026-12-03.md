@@ -11,7 +11,7 @@ category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=165"
 sourceId: "rialtotheatercenter-org"
 sourceUid: "showare:261"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): 3 December and 7:30 pm on the page"
 ---
 

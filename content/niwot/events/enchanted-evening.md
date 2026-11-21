@@ -15,7 +15,7 @@ imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 featured: true
 organizer: "Niwot Business Association"
 source: "https://niwot.com/events/enchanted-evening/"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Enchanted Evening\" at 6 pm on 27 November on the Niwot Business Association (niwot.com) feed"
 ---
 

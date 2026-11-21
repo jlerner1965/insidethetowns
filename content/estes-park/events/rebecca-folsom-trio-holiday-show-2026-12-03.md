@@ -11,7 +11,7 @@ source: "https://legionlisten.com/event/rft-holiday-show/"
 sourceId: "legionlisten-com"
 sourceUid: "3902"
 sourceHash: "56acc371e923"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Rebecca Folsom Trio Holiday Show\" at 6:30 pm on 3 December in the page's structured data"
 ---
 

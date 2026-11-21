@@ -9,8 +9,8 @@ performers:
 url: "https://citystarbrewing.com/event/free-milk/"
 category: music
 source: "https://citystarbrewing.com/event/free-milk/"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (City Star's events feed: title, date, times and description)"
+verified: "2026-11-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Free Milk Duo\" at 6 pm on 4 December in the page's structured data"
 ---
 
 Colorado indie band Free Milk, alt-pop and moody folk-rock, plays a duo set in the City Star taproom from 6 to 8:30 pm, the same evening the brewery releases its Holiday Cheer ale.

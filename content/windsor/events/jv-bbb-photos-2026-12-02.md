@@ -9,7 +9,7 @@ source: "https://sms.weldre4.org/en-US"
 sourceId: "sms-weldre4-org"
 sourceUid: "723go9vj9ebc5umm29a99i5f62@google.com"
 sourceHash: "a86bbe214370"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"JV BBB photos\" at 3:45 pm on 2 December on the Severance Middle School (school calendar) feed"
 ---
 

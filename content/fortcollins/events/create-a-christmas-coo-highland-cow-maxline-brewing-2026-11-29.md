@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/create-a-christmas-coo-highland-cow-maxlin
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2002234575514"
 sourceHash: "93ba59ba2b19"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Create a Christmas COO Highland Cow @ Maxline Brewing\" at 12:30 pm on 29 November in the page's structured data"
 ---
 

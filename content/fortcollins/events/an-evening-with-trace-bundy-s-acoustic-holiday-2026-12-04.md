@@ -10,8 +10,8 @@ source: "https://bohemianlivemusic.org/event/an-evening-with-trace-bundys-acoust
 sourceId: "bohemianlivemusic-org"
 sourceUid: "54441"
 sourceHash: "1e4f397b3777"
-verified: "2026-11-10"
-verifiedBy: "Claude Code, delegated by James Lerner: read from Bohemian Live Music's own events feed (bohemianlivemusic.org) on 10 November 2026: date, start time, venue and price; the feed gives no end time"
+verified: "2026-11-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"An Evening with Trace Bundy&#8217;s Acoustic Holiday\" at 7 pm on 4 December in the page's structured data"
 ---
 
 An Evening with Trace Bundy’s Acoustic Holiday at The Armory, Friday, December 4, 7 pm. Listed by bohemianlivemusic.org; the organizer's page has the details and any registration.

@@ -10,6 +10,8 @@ category: arts
 source: "https://niwot.com/upcoming-events/"
 verified: "2026-11-10"
 verifiedBy: "Claude Code, delegated by Lerner Works: read from the source on 10 November 2026 (the Business Association's calendar: Friday 4 December, 5 to 9 pm; no price stated)"
+changeFlag: true
+changeNote: "recheck 2026-11-21: the Niwot Business Association (niwot.com) feed lists \"First Friday Art Walk | December\" 5 pm–8 pm on 4 December; the listing ends 9 pm"
 ---
 
 Galleries and shops through Old Town and Cottonwood Square stay open late with artists on hand, music and holiday specials. Listed on the Niwot Business Association calendar for Friday, December 4 from 5 to 9 pm. The walk is not every month: the Cultural Arts Association's 2026 walks were June, September and December only, and this is the last of the year.
