@@ -10,7 +10,8 @@
  * pages. The same words and facts as before, on fewer lines.
  *
  * The statuses, each a word as well as a look (visual rule 5):
- * - confirmed: a blue square, "Confirmed" and the date.
+ * - confirmed: a blue square, "Confirmed" and the date; "Tentative" where
+ *   the source calls the date tentative (dateLabel, src/lib/traditions.ts).
  * - moved: a blue square, "Moved" and the new date; the old one and the
  *   organizer's reason under it, quoted and attributed.
  * - canceled: a grey square, "Canceled" and the date it had; the name
@@ -26,7 +27,7 @@ import { pub } from './pub';
 import { dateBlock } from '@/lib/date-block';
 import { formatDayLong, formatDayShort, formatShortDate, parseLocal, publishedTime } from '@/lib/dates';
 import { typeset } from '@/lib/text';
-import { TRADITION_TYPE_INFO, sourceLink, type TraditionRow } from '@/lib/traditions';
+import { TRADITION_TYPE_INFO, dateLabel, sourceLink, type TraditionRow } from '@/lib/traditions';
 
 interface Props {
   row: TraditionRow;
@@ -118,7 +119,7 @@ const note = `mt-1 ${pub.meta}`;
 
     {dated && (
       <p class={status} data-when-set={expires ? '' : undefined}>
-        <span class:list={[square, 'bg-primary']} aria-hidden="true"></span><strong class="font-semibold">{entry.status === 'moved' ? 'Moved' : 'Confirmed'}</strong> · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time>{details.map((d) => <Fragment> · {d}</Fragment>)}{registration && <Fragment> · <a href={registration.url} rel="noopener" class={pub.link} data-registration>Register on {registration.label}</a></Fragment>}
+        <span class:list={[square, 'bg-primary']} aria-hidden="true"></span><strong class="font-semibold">{dateLabel(entry)}</strong> · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time>{details.map((d) => <Fragment> · {d}</Fragment>)}{registration && <Fragment> · <a href={registration.url} rel="noopener" class={pub.link} data-registration>Register on {registration.label}</a></Fragment>}
       </p>
     )}
     {dated && entry.status === 'moved' && <p class={note} data-when-set={expires ? '' : undefined}>Was <time datetime={entry.previousDate}>{dayText(entry.previousDate!)}</time>. {organizer}: “{quoted(entry.reason)}”</p>}
