@@ -10,7 +10,7 @@ source: "https://tockify.com/lovelanddowntown/detail/1814/1795986000000"
 sourceId: "downtownloveland-org"
 sourceUid: "TKF/6287c6d5b4cda231a4723955/1814/29933100/0/0"
 sourceHash: "c54ad5c3c4b9"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Mini Altar Workshop with Gothic Muse\" at 2 pm on 29 November on the Loveland Downtown Partnership feed"
 ---
 

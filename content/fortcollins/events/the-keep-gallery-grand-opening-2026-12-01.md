@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/the-keep-gallery-grand-opening-tickets-200
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003802619576"
 sourceHash: "3e10b46f52b4"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"The Keep Gallery Grand Opening\" at 4 pm on 1 December in the page's structured data"
 ---
 

@@ -13,8 +13,8 @@ organizer: "Johnstown Milliken Public Libraries"
 source: "https://johnstownmillikenpubliclibraries.us/event/music-movement-storytime-10/2026-10-26/2/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 status: "scheduled"
-verified: "2026-11-15"
-verifiedBy: "recheck-events (the nightly re-check workflow): 16 November and 1 pm on the page"
+verified: "2026-11-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): 23 November and 1 pm on the page"
 ---
 
 Stories, songs and movement for young children at the Johnstown library, every Monday from 1 to 2 pm through December 14. The library runs the same program at 10 am each Monday, which this guide lists separately. Each week has its own theme; still to come are drums on November 16, giving thanks on November 23, feelings on November 30, imagination on December 7 and cookies on December 14.

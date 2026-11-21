@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/makerspace-wreath-ear
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10950"
 sourceHash: "98887972b9c9"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Makerspace Wreath Earrings\" at 4:30 pm on 2 December in the page's structured data"
 ---
 

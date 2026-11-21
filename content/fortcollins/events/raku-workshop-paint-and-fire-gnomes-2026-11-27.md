@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/raku-workshop-paint-fire-gnomes-tickets-20
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2002303779505"
 sourceHash: "42ef8400fb21"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Raku Workshop:  Paint & Fire Gnomes\" at 3 pm on 27 November in the page's structured data"
 ---
 

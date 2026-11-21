@@ -8,7 +8,7 @@ cost: "Free"
 category: food
 recurring: "Third Fridays, 5–8 pm"
 source: "https://downtownfortcollins.com/play/fort-collins-foodie-walk"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 5 pm on the page"
 ---
 

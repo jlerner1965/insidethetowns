@@ -7,7 +7,7 @@ address: "321 Mountain Ave, Berthoud, CO 80513"
 url: "https://citystarbrewing.com/event/handmade-market-3/"
 category: market
 source: "https://citystarbrewing.com/event/handmade-market-3/"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Handmade Market\" at 12 pm on 28 November in the page's structured data"
 ---
 

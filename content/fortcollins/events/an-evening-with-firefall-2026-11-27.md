@@ -10,7 +10,7 @@ source: "https://bohemianlivemusic.org/event/an-evening-with-firefall/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "54135"
 sourceHash: "5fee0c975431"
-verified: "2026-11-18"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"An Evening with Firefall\" at 7 pm on 27 November in the page's structured data"
 ---
 
