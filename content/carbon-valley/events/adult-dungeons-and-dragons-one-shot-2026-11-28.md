@@ -10,7 +10,7 @@ organizer: "Carbon Valley Regional Library (High Plains Library District)"
 organizerUrl: "https://www.mylibrary.us/cvrl/"
 source: "https://highplains.libcal.com/event/16422632"
 sourceId: "highplains-libcal-com"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Adult Dungeons & Dragons One-shot\" at 12:30 pm on 28 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

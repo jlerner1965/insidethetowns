@@ -9,7 +9,7 @@ category: "music"
 performers:
   - { name: "Lid Dixon", kind: person }
 source: "https://www.theelizabethcolorado.com/the-hotel/events-calendar/"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November and 8 pm on the page"
 ---
 

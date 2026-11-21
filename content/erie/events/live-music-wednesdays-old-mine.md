@@ -15,7 +15,7 @@ recurring: "Wednesdays at 6"
 mergedUids: ["5bbluero9ibr75oshmebbfm3km@google.com", "5s71q227a4vavitjsvfb7a02ts@google.com", "6thcr1leeepsu3o2euitg81gd8@google.com", "0eub09kte40mf7me50kg1ca1ke@google.com", "3gq9cjqhsjp06e4vfou599dt9k@google.com"]
 formerSlugs: [matt-adams-live-music-2026-11-18, hoss-and-the-hangman-live-music-2026-11-25, shawn-cunnane-live-music-2026-12-02, r-and-d-radio-live-music-2026-12-09, night-class-live-music-2026-12-16]
 source: "https://www.theoldmine.com/events"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Hoss & The Hangman LIVE MUSIC\" at 6 pm on 25 November on the theoldmine.com feed"
 ---
 

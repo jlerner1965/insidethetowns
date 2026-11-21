@@ -10,7 +10,7 @@ source: "https://www.kuperwinebar.com/event/women-wine-quarterly-social-december
 sourceId: "kuperwinebar-com"
 sourceUid: "11426"
 sourceHash: "0573b9213f77"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Women + Wine: Quarterly Social &#8211; December Event\" at 4 pm on 2 December in the page's structured data"
 ---
 

@@ -9,7 +9,7 @@ source: "https://maxlinebrewing.com/events/flingin-pots-create-a-clay-ram-or-she
 sourceId: "maxlinebrewing-com"
 sourceUid: "2387@maxlinebrewing.com"
 sourceHash: "040e3d9ca64e"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Flingin' Pots: Create a Clay RAM or Sheep\" at 12:30 pm on 29 November on the Maxline Brewing (events calendar) feed"
 ---
 

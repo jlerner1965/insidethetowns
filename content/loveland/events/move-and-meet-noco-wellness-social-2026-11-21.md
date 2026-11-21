@@ -10,7 +10,7 @@ category: other
 featured: true
 topOfDay: true
 source: "https://sweatpals.com/event/wellness-social-party/2026-11-21"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 11 am on the page"
 ---
 

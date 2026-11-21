@@ -10,7 +10,7 @@ source: "https://www.google.com/url?q=https://svvsd.gofmx.com/facility-use/reque
 sourceId: "fhs-svvsd-org"
 sourceUid: "47ttk5q7j51usal89ra1i34ueh@google.com"
 sourceHash: "203403f86f83"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Girls Basketball Tournament\" at 3:30 pm on 3 December on the Frederick High School feed"
 ---
 

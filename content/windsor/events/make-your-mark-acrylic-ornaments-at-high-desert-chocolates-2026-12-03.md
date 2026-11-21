@@ -11,7 +11,7 @@ source: "https://www.eventbrite.com/e/make-your-mark-acrylic-ornaments-at-high-d
 sourceId: "eventbrite-com-windsor"
 sourceUid: "1992794938305"
 sourceHash: "ad978fefce70"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Make Your Mark: Acrylic Ornaments at High Desert Chocolates\" at 6 pm on 3 December in the page's structured data"
 ---
 

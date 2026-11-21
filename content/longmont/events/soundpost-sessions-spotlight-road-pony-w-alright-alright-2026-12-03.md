@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/soundpost-sessions-spotlight-road-pony-w-a
 sourceId: "eventbrite-com-longmont"
 sourceUid: "1993968570671"
 sourceHash: "f3da7ccba73c"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Soundpost Sessions SPOTLIGHT: Road Pony w/ Alright Alright\" at 7:30 pm on 3 December in the page's structured data"
 ---
 

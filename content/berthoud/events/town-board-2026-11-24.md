@@ -9,7 +9,7 @@ cost: "Free"
 category: civic
 recurring: "Second and fourth Tuesdays"
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Town Board Meeting\" at 6:30 pm on 24 November on the berthoud.org feed"
 ---
 

@@ -10,8 +10,8 @@ source: "https://www.kuperwinebar.com/event/kuper-cellar-sessions-holiday-swing/
 sourceId: "kuperwinebar-com"
 sourceUid: "10044"
 sourceHash: "e718bcb404cb"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Kuper Wine Bar (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Kuper Cellar Sessions: Holiday Swing\" at 7 pm on 4 December in the page's structured data"
 ---
 
 Kuper Cellar Sessions: Holiday Swing at Kuper Wine Bar, Friday, December 4, 7 pm – 9 pm. Listed by Kuper Wine Bar (events calendar); the organizer's page has the details and any registration.

@@ -10,8 +10,8 @@ source: "https://www.google.com/url?q=https://svvsd.gofmx.com/facility-use/reque
 sourceId: "fhs-svvsd-org"
 sourceUid: "3rfahuhog422nb2oh0vdsomdsd@google.com"
 sourceHash: "42b0148205ce"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Frederick High School (St. Vrain Valley Schools): Calendar feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Adv Drama Performance\" at 12:30 pm on 4 December on the Frederick High School feed"
 ---
 
 Adv Drama Performance at Frederick High School, 5690 Tipple Parkway, Frederick, Friday, December 4, 12:30 pm – 2:45 pm. Listed by Frederick High School; the organizer's page has the details and any registration.

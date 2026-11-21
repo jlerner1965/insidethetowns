@@ -10,7 +10,7 @@ source: "https://gingerandbaker.com/my-event/tk-turkey-pot-pie-2/"
 sourceId: "gingerandbaker-com"
 sourceUid: "81344"
 sourceHash: "e9b386e0b790"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Turkey Pot Pie\" at 5:30 pm on 27 November in the page's structured data"
 ---
 

@@ -7,7 +7,7 @@ url: "https://lyons.librarycalendar.com/events/upcoming"
 category: arts
 recurring: "First Wednesdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Word Wednesday Writing Group\" at 6:30 pm on 2 December on the lyons.librarycalendar.com feed"
 ---
 

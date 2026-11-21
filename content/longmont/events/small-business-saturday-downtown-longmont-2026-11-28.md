@@ -10,7 +10,7 @@ category: other
 organizer: "Downtown Longmont (Longmont Downtown Development Authority)"
 organizerUrl: "https://www.downtownlongmont.com/"
 source: "https://www.downtownlongmont.com/do/small-business-saturday"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November on the page"
 ---
 

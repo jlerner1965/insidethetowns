@@ -1,6 +1,6 @@
 # Needs me
 
-*Written by `npm run needs-me` (scripts/needs-me.ts) on 2026-11-20, from the files as they stand. The nightly re-check rewrites it; do not edit it by hand.*
+*Written by `npm run needs-me` (scripts/needs-me.ts) on 2026-11-21, from the files as they stand. The nightly re-check rewrites it; do not edit it by hand.*
 
 What no machine could settle. Each line says where to look; the fix is always a person reading the source (or calling), then the file.
 
@@ -47,7 +47,7 @@ The nightly date watch writes a date only where the organizer’s page states th
 
 | Event | Town | Year | Window opens | Why | Words read | Page | Read | File |
 |---|---|---|---|---|---|---|---|---|
-| Lake John Ice Fishing Tournament | Walden | 2027 | 2027-01-10 | the page gives 01-10, 01-11 with no year | “…January 10th and 11th! The tournament is still on! Colorado has been experiencing some unse…” | <https://www.visitnorthparkco.com/2026-lake-john-fishing-contest> | 2026-11-20 | `content/hub/traditions/walden-lake-john-ice-fishing-tournament.md` |
+| Lake John Ice Fishing Tournament | Walden | 2027 | 2027-01-10 | the page gives 01-10, 01-11 with no year | “…January 10th and 11th! The tournament is still on! Colorado has been experiencing some unse…” | <https://www.visitnorthparkco.com/2026-lake-john-fishing-contest> | 2026-11-21 | `content/hub/traditions/walden-lake-john-ice-fishing-tournament.md` |
 
 ## Tradition dates not confirmed three weeks before their window (0)
 

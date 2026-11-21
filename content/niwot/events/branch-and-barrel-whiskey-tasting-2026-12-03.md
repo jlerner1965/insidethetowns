@@ -10,7 +10,7 @@ source: "https://www.niwotwheelhouse.com/events/branch-barrel-whiskey-tasting-1"
 sourceId: "niwotwheelhouse-com"
 sourceUid: "/events/branch-barrel-whiskey-tasting-1"
 sourceHash: "fb0ba8176e70"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Branch & Barrel Whiskey Tasting — The Wheel House\" at 6 pm on 3 December in the page's structured data"
 ---
 

@@ -9,8 +9,8 @@ source: "https://www.google.com/url?q=https://l.facebook.com/l.php?u%3Dhttps%253
 sourceId: "firehouseart-org"
 sourceUid: "e3scrgtr870utvagcau7207k6j@google.com/2026-12-11"
 sourceHash: "befc2407b0c8"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Firehouse Art Center feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"1st Friday Exhibit Opening- FRCC\" at 6 pm on 4 December on the Firehouse Art Center feed"
 ---
 
 1st Friday Exhibit Opening- FRCC at Firehouse Art Center, 667 4th Ave, Longmont, Friday, December 4, 6 pm – 8 pm. Listed by Firehouse Art Center; the organizer's page has the details and any registration.

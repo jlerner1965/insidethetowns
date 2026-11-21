@@ -10,8 +10,8 @@ source: "https://bouldercounty.gov/event/front-range-agility-club-nadac-dog-agil
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004347-1796376600-1796410800@bouldercounty.gov"
 sourceHash: "f309f3c5fbd1"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Boulder County Fairgrounds feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Front Range Agility Club NADAC Dog Agility\" at 9:30 am on 4 December on the Boulder County Fairgrounds feed"
 ---
 
 Front Range Agility Club NADAC Dog Agility at Indoor Arena, Friday, December 4, 9:30 am – 7 pm. Listed by Boulder County Fairgrounds; the organizer's page has the details and any registration.

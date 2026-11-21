@@ -9,7 +9,7 @@ source: "https://maxlinebrewing.com/events/970-free-comedy-night/"
 sourceId: "maxlinebrewing-com"
 sourceUid: "2386@maxlinebrewing.com"
 sourceHash: "c39be637aeed"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"970 Free Comedy Night\" on 28 November on the Maxline Brewing (events calendar) feed"
 ---
 

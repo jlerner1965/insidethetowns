@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/buti-with-becca-tickets-2003015967679"
 sourceId: "eventbrite-com-fort-collins"
 sourceUid: "2003015967679"
 sourceHash: "8c252e2bf376"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Buti with Becca\" at 7:30 am on 21 November in the page's structured data"
 ---
 

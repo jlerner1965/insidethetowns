@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/dixx-balls-drag-queen-bingo-tickets-199777
 sourceId: "eventbrite-com-loveland"
 sourceUid: "1997778652729"
 sourceHash: "9b628f238bdc"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Dixx & Balls Drag Queen Bingo\" at 8 pm on 3 December in the page's structured data"
 ---
 

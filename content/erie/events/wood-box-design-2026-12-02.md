@@ -9,7 +9,7 @@ source: "https://highplains.libcal.com/event/17729787"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17729787"
 sourceHash: "b6cba3edd24e"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Wood Box Design\" at 3 pm on 2 December on the highplains.libcal.com feed"
 ---
 

@@ -10,7 +10,7 @@ source: "https://gingerandbaker.com/my-event/tk-gifts-from-the-kitchen/"
 sourceId: "gingerandbaker-com"
 sourceUid: "81373"
 sourceHash: "2d91d038aebe"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Gifts from the Kitchen\" at 10 am on 28 November in the page's structured data"
 ---
 

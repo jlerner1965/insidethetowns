@@ -9,7 +9,7 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17704797"
 sourceHash: "cebe0535a7ad"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Bedazzled Baubles\" at 5 pm on 3 December on the Clearview Library District feed"
 ---
 

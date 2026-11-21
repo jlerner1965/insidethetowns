@@ -9,7 +9,7 @@ address: "101 Second Avenue, Suite B"
 url: "https://www.niwotwheelhouse.com/events1"
 category: other
 source: "https://niwot.com/events/trivia-night/"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Trivia Night\" at 6:30 pm on 24 November on the Niwot Business Association (niwot.com) feed"
 ---
 

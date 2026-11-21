@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 recurring: "First Wednesdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5312"
-verified: "2026-11-20"
+verified: "2026-11-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Sustainability Advisory Board Meeting - In Person\" at 6:30 pm on 2 December on the erieco.gov feed"
 ---
 

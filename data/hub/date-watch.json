@@ -1,6 +1,6 @@
 {
   "note": "Written by scripts/date-watch.ts: what the nightly date watch read but could not write, for a person (docs/needs-me.md). Do not edit by hand.",
-  "written": "2026-11-20",
+  "written": "2026-11-21",
   "findings": [
     {
       "slug": "walden-lake-john-ice-fishing-tournament",
@@ -11,7 +11,7 @@
       "url": "https://www.visitnorthparkco.com/2026-lake-john-fishing-contest",
       "why": "the page gives 01-10, 01-11 with no year",
       "text": "…January 10th and 11th! The tournament is still on! Colorado has been experiencing some unse…",
-      "read": "2026-11-20"
+      "read": "2026-11-21"
     }
   ]
 }
