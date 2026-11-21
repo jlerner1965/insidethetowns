@@ -646,7 +646,6 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
                   data-event-day={lastDay(occurrence)}
                   data-end={toIsoLocal(listedUntil(occurrence))}
                   data-starts={nameable(e) ? dayKey(start) : undefined}
-                  data-ends={nameable(e) ? lastDay(occurrence) : undefined}
                   data-name={nameable(e) ? e.data.title : undefined}
                   data-day-text={nameable(e) ? carriedDay(start) : undefined}
                 >

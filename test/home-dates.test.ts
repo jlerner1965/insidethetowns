@@ -126,6 +126,9 @@ test('one-time events: a passed listing is left out, and a series is shown at it
   assert.deepEqual(rows.map((r) => [r.e.slug, dayKey(r.start)]), [['karaoke', '2026-11-21'], ['trivia', '2026-11-26']]);
   // The series' last Thursday over: it goes too.
   assert.deepEqual(oneTimeEvents([trivia], parseLocal('2026-12-04T09:00')), []);
+  // A storytime that ended at 11:30 this morning is not still to come, though its day is today.
+  const story = listing('storytime', '2026-11-20T10:30', { end: parseLocal('2026-11-20T11:30') });
+  assert.deepEqual(oneTimeEvents([story, film], parseLocal('2026-11-20T17:45')).map((r) => r.e.slug), ['film']);
 });
 
 test('the hero: the soonest of the annual and the one-time events; an annual run on now counts; outdoor dates only without either', () => {

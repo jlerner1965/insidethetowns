@@ -14,7 +14,7 @@ import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuid
 import { isMoved } from '../config/guide-move.ts';
 import { towns } from '../config/towns/registry.ts';
 import { dayKey, formatMonthDay, parseLocal } from './dates.ts';
-import { exportWhen, isOver, nextOccurrence } from './events.ts';
+import { exportWhen, isOver, isPast, nextOccurrence } from './events.ts';
 import { TRADITION_TYPE_INFO, byNextDate, countsAsVerified, hasVerifiedDate, isAgencyDate, isListed, isUpcoming, nextRow, onSeasonPage, type TraditionRecord, type TraditionRow } from './traditions.ts';
 import { TITLE_LIMIT } from './titles.ts';
 
@@ -348,7 +348,8 @@ type Listing = Parameters<typeof nextOccurrence>[0];
 /**
  * A town page's one-time events (a guide folded page by page,
  * src/lib/section-index.ts): those with a date still to come (isOver, the
- * expired-event rule), each at its next date, soonest first. A series is
+ * expired-event rule, and isPast for one that ended earlier today, as the
+ * page's script takes it off), each at its next date, soonest first. A series is
  * shown at its next date, not its first: Leadville's weekly trivia night
  * was kept while its later Thursdays were ahead but dated by the first,
  * so on 21 November the list said "Thursday, November 12" (the owner,
@@ -361,6 +362,7 @@ export function oneTimeEvents<T extends Listing>(entries: readonly T[], now: Dat
       const next = nextOccurrence(e, now);
       return { e, next, start: exportWhen(next).start };
     })
+    .filter(({ next }) => !isPast(next, now))
     .sort((a, b) => a.start.getTime() - b.start.getTime());
 }
 
