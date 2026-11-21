@@ -147,8 +147,42 @@ test('a blocked, bounced or complaining address is not touched, and the page off
   }
   const lost = buttondown({ 'POST subscribers': [ALREADY], 'GET one': [[404, '{"detail":"Not found"}']] });
   assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: lost.fake })).status, 'unavailable');
-  const refused = buttondown({ 'POST subscribers': [ALREADY, [400, '{"code":"ip_address_spammy"}']], 'GET one': [[200, '{"type":"regular"}']] });
-  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: refused.fake })).status, 'unavailable', 'towns not added: not said to be');
+  const refused = buttondown({ 'POST subscribers': [ALREADY, [400, '{"code":"ip_address_spammy"}'], [400, '{"code":"ip_address_spammy"}']], 'GET one': [[200, '{"type":"regular"}']] });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: refused.fake })).status, 'listed', 'on the list, towns not added: not said to be');
+});
+
+test('an active subscriber whose towns the firewall refuses is tried once more past it, and is never told it did not go through', async () => {
+  // Buttondown's answer of 21 November 2026, twice, for an address already `regular`.
+  const blocked: [number, string] = [400, '{"code":"subscriber_blocked","detail":"This subscriber was blocked by your firewall.","metadata":{}}'];
+  const bd = buttondown({ 'POST subscribers': [ALREADY, blocked, [201, '{"type":"regular"}']], 'GET one': [[200, '{"type":"regular"}']] });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', ip: '172.225.1.1', fetch: bd.fake })).status, 'already');
+  assert.deepEqual(bd.calls.map((c) => c.key), ['POST subscribers', 'GET one', 'POST subscribers', 'POST subscribers']);
+  assert.equal(bd.calls[2]!.headers['X-Buttondown-Bypass-Firewall'], undefined, 'the firewall is asked first');
+  assert.equal(bd.calls[3]!.headers['X-Buttondown-Bypass-Firewall'], 'true');
+  assert.equal(bd.calls[3]!.headers['X-Buttondown-Collision-Behavior'], 'add', 'still only adds towns');
+  assert.equal('type' in bd.calls[3]!.body!, false, 'an active subscriber’s state is left as it is');
+
+  const twice = buttondown({ 'POST subscribers': [ALREADY, blocked, blocked], 'GET one': [[200, '{"type":"regular"}']] });
+  const result = await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: twice.fake });
+  assert.equal(result.status, 'listed', 'on the list: not “didn’t go through”, and the towns are not claimed');
+  assert.match(result.detail ?? '', /subscriber_blocked/, 'the reason is in the log');
+  assert.equal(twice.calls.length, 4, 'once more, not again and again');
+
+  const down = buttondown({ 'POST subscribers': [ALREADY, [503, 'down']], 'GET one': [[200, '{"type":"regular"}']] });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: down.fake })).status, 'listed');
+  assert.equal(down.calls.length, 3, 'only a firewall refusal is tried again');
+});
+
+test('an unsubscribed address goes past the firewall only for a spam-scored IP, since coming back sends a confirmation email', async () => {
+  const left = (refusal: string) =>
+    buttondown({ 'POST subscribers': [ALREADY, [400, `{"code":"${refusal}"}`], [200, '{"type":"unactivated"}']], 'GET one': [[200, '{"type":"unsubscribed"}']] });
+  const spammy = left('ip_address_spammy');
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: spammy.fake })).status, 'confirm');
+  assert.equal(spammy.calls[3]!.headers['X-Buttondown-Bypass-Firewall'], 'true');
+  assert.equal(spammy.calls[3]!.body!.type, 'unactivated', 'back only once they click the new confirmation email');
+  const blocked = left('subscriber_blocked');
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: blocked.fake })).status, 'unavailable', 'not on the list: Buttondown’s own form');
+  assert.equal(blocked.calls.length, 3, 'not retried');
 });
 
 test('a spam-scored IP is tried once more past the firewall, still with the confirmation email', async () => {

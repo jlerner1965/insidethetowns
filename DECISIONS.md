@@ -12806,3 +12806,32 @@ the guides' one template. One commit an item.*
   dates. The two home templates are still two files; they now carry the
   same menu, anchor navigation, trail and structured-data types.
 
+
+## The email form told a reader on the list "That didn't go through", 21 November 2026
+
+*The owner, with a screenshot of the hub's form: the Buttondown form does
+not work. The page showed "That didn't go through from here" and offered
+"Continue on Buttondown".*
+
+The hub's function log had the reason, twice in a minute (16:19 and 16:20
+UTC): the address was already an active (`regular`) subscriber, and the
+call that adds the form's towns to it came back `400 subscriber_blocked`,
+"This subscriber was blocked by your firewall." Only `ip_address_spammy`
+was tried past the firewall, so the page fell back to Buttondown's own
+form, which meets the same firewall for the same reader.
+
+- **Adding towns to an active subscriber is tried once more past the
+  firewall** (`X-Buttondown-Bypass-Firewall`) for `subscriber_blocked` or
+  `ip_address_spammy`. That call puts nobody on the list and sends no
+  email; it only adds towns, which the entry of 28 October already allows.
+  An unsubscribed address coming back still goes past the firewall only
+  for a spam-scored IP, since that sends a confirmation email.
+- **If the towns still cannot be added, the page says the reader is on the
+  list** (`listed`): "You're already on the list. The Thursday email
+  already goes to you@… The towns you picked couldn't be added to it from
+  here just now. Try again later." No button, since Buttondown's own form
+  would be refused too, and the towns are not claimed. The reason stays in
+  the function's log.
+- **Not changed.** A new address the firewall refuses as
+  `subscriber_blocked` is still not retried, and the page still offers
+  Buttondown's own form for it.

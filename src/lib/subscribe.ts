@@ -83,19 +83,26 @@ export function readSignup(form: URLSearchParams, allowed = allowedTags()): Sign
  *   confirmation email is coming, so the page must not say one is.
  * - `already`: Buttondown says the address is an active subscriber, and the
  *   form's towns have been added to it.
+ * - `listed`: Buttondown says the address is an active subscriber, but the
+ *   form's towns could not be added (its firewall refused the update, even
+ *   past the firewall, or the call failed). The reader is on the list, so
+ *   the page says that, not "didn't go through", and does not claim the
+ *   towns. Buttondown's own form is not offered: it meets the same firewall.
  * - `invalid`: Buttondown says the address itself is not valid.
  * - `unavailable`: no key, a limit reached, a blocked address, Buttondown
  *   down, or no answer; the page offers Buttondown's own form instead.
  */
-export type SubscribeStatus = 'confirm' | 'added' | 'already' | 'invalid' | 'unavailable';
+export type SubscribeStatus = 'confirm' | 'added' | 'already' | 'listed' | 'invalid' | 'unavailable';
 
 /**
  * Buttondown's 400 codes for a new subscriber (its OpenAPI schema,
  * SubscriberInputValidationErrorCode, read 26 October 2026). An address it
  * has already, in any state, is looked up and dealt with from the page
  * (`existing`). Only an IP the firewall scores as spammy is tried again,
- * past the firewall. Every other code (email_blocked, subscriber_blocked,
- * rate_limited, tag_invalid…) is `unavailable`, and the page hands the
+ * past the firewall; adding towns to an active subscriber is also tried
+ * again for subscriber_blocked (MERGE_FIREWALL_CODES). Every other code
+ * (email_blocked, subscriber_blocked on a new address, rate_limited,
+ * tag_invalid…) is `unavailable`, and the page hands the
  * reader to Buttondown's own form, which says why in its own words.
  * Matching on the human text instead read "email_blocked" as a typo in the
  * address.
@@ -103,6 +110,16 @@ export type SubscribeStatus = 'confirm' | 'added' | 'already' | 'invalid' | 'una
 const ALREADY_CODES = new Set(['email_already_exists', 'subscriber_already_exists', 'subscriber_suppressed']);
 const INVALID_CODES = new Set(['email_invalid', 'email_empty']);
 const FIREWALL_CODES = new Set(['ip_address_spammy']);
+/**
+ * The firewall's refusals of an update to a subscriber who is already
+ * active. `subscriber_blocked` ("This subscriber was blocked by your
+ * firewall.") is what Buttondown answered twice on 21 November 2026 for an
+ * address already `regular`: the firewall turned away the call that adds
+ * the towns, and the page said "That didn't go through" to a reader who was
+ * on the list. That call puts nobody on the list and sends no email, so it
+ * is tried once more past the firewall.
+ */
+const MERGE_FIREWALL_CODES = new Set(['ip_address_spammy', 'subscriber_blocked']);
 /** Subscriber types nothing on this page can change: the owner's, or the reader's mail server's. */
 const FINAL_TYPES = new Set(['blocked', 'complained', 'undeliverable', 'removed']);
 
@@ -202,7 +219,10 @@ export async function subscribe(request: SignupRequest, options: SubscribeOption
  * - otherwise on the list: the form's towns are added to the ones it has
  *   (`already`). Buttondown merges them itself, since its subscriber
  *   objects come back with an empty tag list and a list sent here would
- *   replace the reader's towns. Only ever added, never taken away.
+ *   replace the reader's towns. Only ever added, never taken away. If the
+ *   firewall refuses that, it is tried once more past it; if the towns
+ *   still cannot be added, the reader is told they are on the list and
+ *   the towns were not added (`listed`), never "didn't go through".
  */
 async function existing(request: SignupRequest, call: ReturnType<typeof caller>, ip: string | undefined): Promise<SubscribeResult> {
   const one = `${BUTTONDOWN_SUBSCRIBERS}/${encodeURIComponent(request.email)}`;
@@ -219,13 +239,21 @@ async function existing(request: SignupRequest, call: ReturnType<typeof caller>,
       : { status: 'unavailable', detail: `send-reminder gave HTTP ${sent.status}: ${sent.body.slice(0, 200)}` };
   }
   const resubscribe = type === 'unsubscribed';
-  const merged = await call(BUTTONDOWN_SUBSCRIBERS, {
-    method: 'POST',
-    body: { ...newSubscriber(request, ip), ...(resubscribe ? { type: 'unactivated' } : {}) },
-    headers: { 'X-Buttondown-Collision-Behavior': 'add' },
-  });
-  if ('error' in merged) return { status: 'unavailable', detail: merged.error };
-  if (!merged.ok) return { status: 'unavailable', detail: `adding to an existing ${type} subscriber gave HTTP ${merged.status}: ${merged.body.slice(0, 200)}` };
+  const merge = (bypass: boolean) =>
+    call(BUTTONDOWN_SUBSCRIBERS, {
+      method: 'POST',
+      body: { ...newSubscriber(request, ip), ...(resubscribe ? { type: 'unactivated' } : {}) },
+      headers: { 'X-Buttondown-Collision-Behavior': 'add', ...(bypass ? { 'X-Buttondown-Bypass-Firewall': 'true' } : {}) },
+    });
+  let merged = await merge(false);
+  // Once more past the firewall, as for a new address. A resubscribe only
+  // for a spam-scored IP, since it sends a confirmation email; an active
+  // subscriber for either refusal, since adding towns sends nothing.
+  const retry = resubscribe ? FIREWALL_CODES : MERGE_FIREWALL_CODES;
+  if ('status' in merged && merged.status === 400 && retry.has(errorCode(merged.body) ?? '')) merged = await merge(true);
+  const failed = 'error' in merged ? merged.error : merged.ok ? undefined : `adding to an existing ${type} subscriber gave HTTP ${merged.status}: ${merged.body.slice(0, 200)}`;
+  // Still on the list, whatever became of the towns: said so, without claiming them.
+  if (failed) return { status: resubscribe ? 'unavailable' : 'listed', detail: failed };
   return resubscribe
     ? { status: 'confirm', detail: 'unsubscribed on Buttondown: resubscribed pending confirmation' }
     : { status: 'already', detail: `already on Buttondown as ${type}: towns added` };

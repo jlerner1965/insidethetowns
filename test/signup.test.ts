@@ -102,6 +102,8 @@ test('every answer from the page’s own call has a panel; anything unexpected o
   for (const odd of [null, {}, { status: 'refused' }, { status: 'unavailable' }, 'text']) assert.equal(readAnswer(odd), 'unavailable');
   assert.equal(panelFor('confirm'), 'confirm');
   assert.equal(panelFor('already'), 'already');
+  assert.equal(readAnswer({ status: 'listed' }), 'listed');
+  assert.equal(panelFor('listed'), 'listed', 'on the list: never the fallback');
   assert.equal(panelFor('unavailable'), 'fallback');
   // The page says what is left to do, with the address it went to.
   assert.match(SIGNUP_MESSAGES.confirm, /check your email/);
@@ -117,9 +119,13 @@ test('each panel says only what Buttondown’s answer supports', () => {
   assert.doesNotMatch(`${SIGNUP_MESSAGES.added} ${SIGNUP_MESSAGES.addedHelp}`, /confirm|check your email/i);
   assert.doesNotMatch(`${SIGNUP_MESSAGES.already} ${SIGNUP_MESSAGES.alreadyHelp}`, /confirm|check your email|Buttondown’s own form/i);
   assert.match(SIGNUP_MESSAGES.alreadyHelp, /\{email\}/);
+  // On the list, towns not added: neither claimed nor sent to Buttondown's form.
+  assert.doesNotMatch(SIGNUP_MESSAGES.listedHelp, /are on it now|confirm|check your email|Buttondown’s own form|didn’t go through/i);
+  assert.match(SIGNUP_MESSAGES.listedHelp, /\{email\}/);
   assert.doesNotMatch(SIGNUP_MESSAGES.fallbackHelp, /will take it/, 'Buttondown’s form is offered, not promised');
   const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
-  for (const panel of ['confirm', 'added', 'already', 'fallback', 'opened']) assert.match(component, new RegExp(`\\b${panel}: \\{ title: SIGNUP_MESSAGES`), panel);
+  for (const panel of ['confirm', 'added', 'already', 'listed', 'fallback', 'opened']) assert.match(component, new RegExp(`\\b${panel}: \\{ title: SIGNUP_MESSAGES`), panel);
+  assert.match(component, /listed: \{ title: SIGNUP_MESSAGES\.already, help: SIGNUP_MESSAGES\.listedHelp \}/, 'no button');
   // A new tab only when the page's own call could not settle it: never for
   // an address already on the list (owner, 28 October 2026).
   assert.match(component, /already: \{ title: SIGNUP_MESSAGES\.already, help: SIGNUP_MESSAGES\.alreadyHelp \}/);

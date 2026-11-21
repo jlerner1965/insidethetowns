@@ -61,7 +61,7 @@ export function inlineSignup(env: Record<string, unknown>): boolean {
 }
 
 /** /api/subscribe's answer, as the page reads it (src/lib/subscribe.ts). Anything else is `unavailable`. */
-export type SubscribeAnswer = 'confirm' | 'added' | 'already' | 'invalid' | 'unavailable';
+export type SubscribeAnswer = 'confirm' | 'added' | 'already' | 'listed' | 'invalid' | 'unavailable';
 
 /**
  * What happened to a send, for the guide's own analytics: the answer from
@@ -77,6 +77,7 @@ export type SubscribeAnswer = 'confirm' | 'added' | 'already' | 'invalid' | 'una
  *   one, so confirmed subscribers are counted there, not here.
  * - `added`: active at once, only with double opt-in off in Buttondown.
  * - `already`: an address already on the list; its towns were added.
+ * - `listed`: an address already on the list; its towns could not be added.
  * - `invalid`: the address was refused, by the site's own check or by Buttondown.
  * - `unavailable`: no usable answer; the page offered Buttondown's own form.
  * - `handed-off`: sent to Buttondown's page in a new tab.
@@ -100,7 +101,7 @@ export function signupResultProps(result: SignupResult, path: string): Record<st
 
 export function readAnswer(body: unknown): SubscribeAnswer {
   const status = (body as { status?: unknown } | null)?.status;
-  return status === 'confirm' || status === 'added' || status === 'already' || status === 'invalid' ? status : 'unavailable';
+  return status === 'confirm' || status === 'added' || status === 'already' || status === 'listed' || status === 'invalid' ? status : 'unavailable';
 }
 
 /**
@@ -108,7 +109,7 @@ export function readAnswer(body: unknown): SubscribeAnswer {
  * button does: `direct` posts the same form to Buttondown's own page in a
  * new tab, the way every form did before the function existed.
  */
-export type SignupPanel = 'confirm' | 'added' | 'already' | 'fallback' | 'opened';
+export type SignupPanel = 'confirm' | 'added' | 'already' | 'listed' | 'fallback' | 'opened';
 
 export function panelFor(answer: Exclude<SubscribeAnswer, 'invalid'>): SignupPanel {
   return answer === 'unavailable' ? 'fallback' : answer;
@@ -135,6 +136,11 @@ export const SIGNUP_MESSAGES = {
   // address never confirmed, or unsubscribed, is `confirm` instead.
   already: 'You’re already on the list.',
   alreadyHelp: 'The {day} email goes to {email}, and the towns you ticked are on it now. Nothing more to do.',
+  // On the list, but Buttondown would not take the towns from here just
+  // now (src/lib/subscribe.ts, `listed`; its firewall, 21 November 2026).
+  // The same heading as `already`, without claiming the towns, and no
+  // button: Buttondown's own form meets the same firewall.
+  listedHelp: 'The {day} email already goes to {email}. The towns you picked couldn’t be added to it from here just now. Try again later.',
   // The function could not take it. Buttondown's own form may: it is not
   // promised, since a blocked address or a firewall refusal fails there too,
   // and that page says why.
