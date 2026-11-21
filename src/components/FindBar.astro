@@ -1,0 +1,155 @@
+---
+/**
+ * The Find bar: the third bar of the header, under the masthead, and the
+ * one that stays on screen (nav rule 3 of the colours and navigation work
+ * order of 20 November 2026: Find is always visible, so no page is a dead
+ * end). A field over the beige, and as the reader types, the towns whose
+ * names match, each with its county and what it is on the site: a full
+ * guide or a town page. Enter on a listed town opens it; Enter on anything
+ * else is the site search, which already answers places, events and
+ * articles (src/pages/search.astro).
+ *
+ * The index is the list the search page carries, cut to what the bar
+ * needs: every full guide, every sub-town page and every town page beyond
+ * them (src/lib/town-search-index.ts, pagesBeyondSections), a few
+ * kilobytes inline so the first keystroke answers without a fetch. The
+ * markup is complete without the script: the form is the search page's.
+ */
+interface Props {
+  /** The search page the form submits to. */
+  action: string;
+  /** Every town as the bar lists it: name, county line, kind, address. */
+  index: Array<{ n: string; c: string; k: string; u: string }>;
+}
+
+const { action, index } = Astro.props;
+---
+<div class="find-inline" data-find-bar data-pagefind-ignore>
+  <form role="search" action={action} method="get" class="find-form" data-find-form>
+    <label for="find-q" class="sr-only">Find a town</label>
+    <div class="find-wrap">
+    <div class="find-field">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="find-icon">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="m20 20-3.5-3.5"></path>
+      </svg>
+      <input
+        id="find-q"
+        name="q"
+        type="search"
+        class="find-input"
+        placeholder="Find a town or event"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        enterkeyhint="search"
+        role="combobox"
+        aria-autocomplete="list"
+        aria-controls="find-results"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+      />
+      <button type="submit" class="find-submit">Find</button>
+    </div>
+    <ul id="find-results" class="find-results" role="listbox" aria-label="Towns" hidden data-find-results></ul>
+    </div>
+  </form>
+  <script type="application/json" data-find-index set:html={JSON.stringify(index)}></script>
+</div>
+
+<script>
+  type Entry = { n: string; c: string; k: string; u: string };
+  const bar = document.querySelector<HTMLElement>('[data-find-bar]');
+  const form = bar?.querySelector<HTMLFormElement>('[data-find-form]');
+  const input = bar?.querySelector<HTMLInputElement>('input[name="q"]');
+  const list = bar?.querySelector<HTMLUListElement>('[data-find-results]');
+  const data = bar?.querySelector<HTMLScriptElement>('[data-find-index]');
+  if (bar && form && input && list && data) {
+    const index = JSON.parse(data.textContent || '[]') as Entry[];
+    // A name as the reader types it: case, accents and punctuation set aside, "&" read as "and".
+    const norm = (s: string) =>
+      s
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '')
+        .toLowerCase()
+        .replace(/&/g, ' and ')
+        .replace(/[^a-z0-9 ]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    const names = index.map((e) => norm(e.n));
+    let selected = -1;
+    let shown: Entry[] = [];
+    const close = () => {
+      list.hidden = true;
+      list.innerHTML = '';
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      selected = -1;
+      shown = [];
+    };
+    const mark = () => {
+      list.querySelectorAll<HTMLElement>('[role="option"]').forEach((el, i) => {
+        el.setAttribute('aria-selected', String(i === selected));
+      });
+      if (selected >= 0) input.setAttribute('aria-activedescendant', `find-option-${selected}`);
+      else input.removeAttribute('aria-activedescendant');
+    };
+    const draw = () => {
+      const q = norm(input.value);
+      if (!q) return close();
+      // The name that begins with what was typed first, then a word in it,
+      // then the name that holds it; a full guide before a town page at the
+      // same rank; A to Z after that. "ber" leads with Berthoud.
+      const rank = (name: string) => (name.startsWith(q) ? 0 : name.split(' ').some((w) => w.startsWith(q)) ? 1 : name.includes(q) ? 2 : -1);
+      shown = index
+        .map((e, i) => ({ e, r: rank(names[i]!) }))
+        .filter((x) => x.r >= 0)
+        .sort((a, b) => a.r - b.r || (a.e.k === b.e.k ? 0 : a.e.k === 'Full guide' ? -1 : 1) || a.e.n.localeCompare(b.e.n))
+        .slice(0, 8)
+        .map((x) => x.e);
+      if (shown.length === 0) return close();
+      list.innerHTML = shown
+        .map(
+          (e, i) =>
+            `<li id="find-option-${i}" role="option" aria-selected="false" class="find-result"><a href="${e.u}" tabindex="-1"><span class="find-result-name">${e.n}</span><span class="find-result-meta">${e.c} · ${e.k}</span></a></li>`,
+        )
+        .join('');
+      list.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      selected = -1;
+      mark();
+    };
+    input.addEventListener('input', draw);
+    input.addEventListener('focus', draw);
+    input.addEventListener('keydown', (event) => {
+      if (list.hidden) return;
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        selected = (selected + 1) % shown.length;
+        mark();
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        selected = (selected - 1 + shown.length) % shown.length;
+        mark();
+      } else if (event.key === 'Enter' && selected >= 0) {
+        event.preventDefault();
+        location.href = shown[selected]!.u;
+      } else if (event.key === 'Escape') {
+        close();
+      }
+    });
+    // A tap on a result follows its link; the mousedown keeps the field's
+    // blur from closing the list first.
+    list.addEventListener('mousedown', (event) => {
+      const a = (event.target as HTMLElement).closest('a');
+      if (a) {
+        event.preventDefault();
+        location.href = a.href;
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (!bar.contains(event.target as Node)) close();
+    });
+    input.addEventListener('blur', () => setTimeout(() => { if (!bar.contains(document.activeElement)) close(); }, 150));
+  }
+</script>

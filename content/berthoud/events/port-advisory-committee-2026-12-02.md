@@ -8,7 +8,7 @@ url: "https://www.berthoud.org/Calendar.aspx"
 cost: "Free"
 category: civic
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"PORT Advisory Committee Meeting\" at 6 pm on 2 December on the berthoud.org feed"
 ---
 

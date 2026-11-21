@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-19T22:01:10.090Z",
+  "generated": "2026-11-20T21:43:40.144Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/football/",
-      "fetched": "2026-11-19T22:01:10.090Z",
-      "maxprepsUpdated": "2026-11-19T22:01:10",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T18:49:00",
       "overall": "8-4",
       "league": {
         "record": "6-0",
@@ -161,8 +161,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/soccer/",
-      "fetched": "2026-11-19T22:01:10.090Z",
-      "maxprepsUpdated": "2026-11-19T19:00:52",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T18:59:47",
       "overall": "7-3-5",
       "league": {
         "record": "6-2-2",
@@ -346,8 +346,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/volleyball/",
-      "fetched": "2026-11-19T22:01:10.090Z",
-      "maxprepsUpdated": "2026-11-19T18:36:19",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T18:24:46",
       "overall": "9-14",
       "league": {
         "record": "6-4",
@@ -627,8 +627,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/softball/fall/",
-      "fetched": "2026-11-19T22:01:10.090Z",
-      "maxprepsUpdated": "2026-11-19T19:51:25",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T18:41:46",
       "overall": "19-8",
       "league": {
         "record": "9-1",
@@ -969,8 +969,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/cross-country/",
-      "fetched": "2026-11-19T22:01:10.090Z",
-      "maxprepsUpdated": "2026-11-19T19:30:32",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T17:44:57",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -983,8 +983,36 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/cross-country/girls/",
-      "fetched": "2026-11-19T22:01:10.090Z",
-      "maxprepsUpdated": "2026-11-19T18:10:33",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T19:01:44",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-golf",
+      "name": "Boys golf",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/golf/",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T21:44:25",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-tennis",
+      "name": "Boys tennis",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/tennis/fall/",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T21:44:30",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -997,8 +1025,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/basketball/",
-      "fetched": "2026-11-19T22:01:10.090Z",
-      "maxprepsUpdated": "2026-11-19T22:01:54",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T19:46:30",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1045,7 +1073,7 @@
           "opponent": "Frederick",
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/game/frederick-vs-severance/12-17-2026/?c=e0946a5b-4976-4322-b74d-89c273666aed",
-          "time": "19:30"
+          "time": "19:00"
         },
         {
           "date": "2026-12-18",
@@ -1156,8 +1184,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/basketball/girls/",
-      "fetched": "2026-11-19T22:01:10.090Z",
-      "maxprepsUpdated": "2026-11-19T18:06:07",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T20:48:26",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1293,8 +1321,22 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/wrestling/",
-      "fetched": "2026-11-19T22:01:10.090Z",
-      "maxprepsUpdated": "2026-11-19T22:02:11",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T20:53:23",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-wrestling",
+      "name": "Girls wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/severance/severance-silver-knights/wrestling/girls/",
+      "fetched": "2026-11-20T21:43:40.144Z",
+      "maxprepsUpdated": "2026-11-20T21:44:57",
       "results": [],
       "upcoming": [],
       "held": [],

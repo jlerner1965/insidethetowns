@@ -9,7 +9,7 @@ cost: "$40 with wine tasting; $5 ages 6 and over without tasting, non-drinking a
 category: festival
 organizer: "Estes Park Wine Festival"
 source: "https://www.visitestespark.com/event/estes-park-holiday-wine-festival/17463/"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 November and 11 am on the page"
 ---
 

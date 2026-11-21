@@ -11,7 +11,7 @@ source: "https://www.eventbrite.com/e/niwot-wellness-lecture-series-holiday-pane
 sourceId: "niwot-com"
 sourceUid: "mec:https://niwot.com/?post_type=mec-events&p=10865#2026-12-02"
 sourceHash: "ebd94cdc1542"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot Wellness Holiday Panel\" at 6 pm on 2 December on the Niwot Business Association (niwot.com) feed"
 ---
 

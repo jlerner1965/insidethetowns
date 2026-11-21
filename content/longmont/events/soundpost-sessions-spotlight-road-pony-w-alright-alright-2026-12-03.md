@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/soundpost-sessions-spotlight-road-pony-w-a
 sourceId: "eventbrite-com-longmont"
 sourceUid: "1993968570671"
 sourceHash: "f3da7ccba73c"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Longmont feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Soundpost Sessions SPOTLIGHT: Road Pony w/ Alright Alright\" at 7:30 pm on 3 December in the page's structured data"
 ---
 
 Soundpost Sessions SPOTLIGHT: Road Pony w/ Alright Alright at Longmont Public Media, Thursday, December 3, 7:30 pm – 10 pm. Listed by Eventbrite, events in Longmont; the organizer's page has the details and any registration.

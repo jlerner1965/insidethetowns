@@ -10,7 +10,7 @@ performers:
 url: "https://mightyriverbrewing.com/events-calendar/"
 category: music
 source: "https://tockify.com/api/feeds/ics/mighty.river.brewing"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Colorado Beach Bums Live at Mighty River Brewing\" at 6 pm on 28 November on the Mighty River Brewing feed"
 ---
 

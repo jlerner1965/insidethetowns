@@ -10,7 +10,7 @@ source: "https://gingerandbaker.com/my-event/tk-fall-in-tuscany-3/"
 sourceId: "gingerandbaker-com"
 sourceUid: "81319"
 sourceHash: "586e8907f991"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Fall in Tuscany\" at 5:30 pm on 20 November in the page's structured data"
 ---
 

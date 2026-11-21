@@ -10,8 +10,8 @@ source: "https://www.eventbrite.com/e/dixx-balls-drag-queen-bingo-tickets-199777
 sourceId: "eventbrite-com-loveland"
 sourceUid: "1997778652729"
 sourceHash: "9b628f238bdc"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Eventbrite, events in Loveland feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Dixx & Balls Drag Queen Bingo\" at 8 pm on 3 December in the page's structured data"
 ---
 
 Dixx & Balls Drag Queen Bingo at Wicked Tequila Room, Thursday, December 3, 8 pm – 10 pm. Listed by Eventbrite, events in Loveland; the organizer's page has the details and any registration.

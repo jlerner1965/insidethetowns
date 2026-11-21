@@ -34,6 +34,7 @@ import { siteJsonLd } from '@/lib/seo';
 import { searchType } from '@/lib/network-search';
 import { verificationTags } from '@/lib/verification';
 import { categoryCss, paletteVars } from '@/config/palette';
+import { pagePath } from '@/lib/section';
 
 interface Props {
   title?: string;
@@ -63,7 +64,7 @@ interface Props {
    */
   masthead?: FullSection;
   /** A hub town page: the town bar's trail, the town and the group it sits in (Header.astro). */
-  townBar?: { name: string; region: string };
+  townBar?: { name: string; region: string; slug?: string };
 }
 
 const site = getSite();
@@ -71,6 +72,13 @@ const analytics = getNetworkHub().analytics === true;
 // The site Plausible counts this page under: the hub's domain on every hub and section page, a guide's own on a guide that has it (src/config/index.ts).
 const plausible = plausibleDomain(site);
 const { jsonLd, kind, preload = [frauncesLatin, instrumentLatin], bodyClass, masthead, townBar, ...props } = Astro.props;
+/**
+ * The column the header bars and the footer sit on: the page's own, so their left edges line up with
+ * the page's (the live check of 20 November 2026). The hub's home and its town pages are drawn on the
+ * 1200px column (HUB_COLUMN); every other page, a guide's and the hub's Page.astro pages, on container-page.
+ */
+// Between phone and desktop those two pages read in a 720px column (src/routes/hub/index.astro, `wide`), so the bars do too.
+const column = site.kind === 'hub' && (pagePath(Astro.url) === '/' || !!townBar) ? 'mx-auto w-full max-w-[760px] px-[20px] desk:max-w-[1200px] desk:px-[40px]' : 'container-page';
 // A town that has not launched serves a holding page; nothing on it, nor the
 // shared pages around it, should be indexed before the guide exists.
 const seo = site.kind === 'town' && site.status !== 'live' ? { ...props, noindex: true } : props;
@@ -103,7 +111,7 @@ const cssVars = paletteVars(site.colors);
     {/* Asked for by name regardless of what the page links; see src/lib/icons.ts. */}
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content={site.colors.primary} />
+    <meta name="theme-color" content="#36536B" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {/* Discovery: an aggregator that lands on any page finds the feeds. */}
     {listsEvents(site) && <link rel="alternate" type="application/rss+xml" title={`${site.siteTitle} — what’s on`} href="/events.rss" />}
@@ -118,12 +126,12 @@ const cssVars = paletteVars(site.colors);
       Skip to content
     </a>
     {/* A page may draw its own masthead and footer (the hub's home); every other page has the site's. */}
-    {Astro.slots.has('header') ? <slot name="header" /> : <Header section={masthead} {townBar} />}
+    {Astro.slots.has('header') ? <slot name="header" /> : <Header section={masthead} {townBar} {column} />}
     {/* The kind labels a result ("Place · Niwot"); the filter puts it under the search page's type buttons (src/lib/network-search.ts). */}
     <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined} data-pagefind-filter={searchable && searchType(kind) ? `type:${searchType(kind)}` : undefined}>
       <slot />
     </main>
-    {Astro.slots.has('footer') ? <slot name="footer" /> : <Footer />}
+    {Astro.slots.has('footer') ? <slot name="footer" /> : <Footer {column} />}
     <Freshness />
     {analytics && <Analytics />}
     {plausible && <Plausible domain={plausible} />}

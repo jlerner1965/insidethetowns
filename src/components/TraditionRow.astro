@@ -15,7 +15,8 @@
  * repeats what the status line says and is hidden from a screen reader.
  *
  * The statuses, each a word as well as a look (visual rule 5):
- * - confirmed: "Confirmed · <the day>".
+ * - confirmed: "Confirmed · <the day>", or "Tentative · <the day>" where the
+ *   source calls the date tentative (dateLabel, src/lib/traditions.ts).
  * - not-announced: the dark status pill and "Last held <day>" where an
  *   earlier year has a date. Never a predicted date or a rule.
  * - moved: the Moved pill, the new day, the old day and the organizer's
@@ -29,7 +30,7 @@
  */
 import { parseLocal, formatDayLong, formatShortDate } from '@/lib/dates';
 import { dateBlock } from '@/lib/date-block';
-import { TRADITION_TYPE_INFO, sourceLink, type TraditionRow } from '@/lib/traditions';
+import { TRADITION_TYPE_INFO, dateLabel, sourceLink, type TraditionRow } from '@/lib/traditions';
 
 interface Props {
   row: TraditionRow;
@@ -113,9 +114,9 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
       !block.set && 'border border-dashed border-line text-ink-muted',
     ]}
   >
-    {block.top && <span class="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] sm:text-[0.75rem]">{block.top}</span>}
+    {block.top && <span class="text-[0.75rem] font-semibold uppercase tracking-[0.14em]">{block.top}</span>}
     <span class:list={['font-heading', block.set ? (block.main.length > 3 ? 'mt-1 text-[1.25rem] sm:text-[1.625rem]' : 'mt-0.5 text-[1.875rem] sm:text-[2.375rem]') : 'text-[0.8125rem] font-semibold uppercase tracking-[0.12em] font-body']}>{block.main}</span>
-    {block.foot && <span class:list={['mt-1 text-[0.6875rem] sm:text-[0.75rem]', block.set ? 'opacity-80' : '']}>{block.foot}</span>}
+    {block.foot && <span class="mt-1 text-[0.75rem]">{block.foot}</span>}
   </div>
   {/* The face for after the date: no words in the HTML, only in
       data-past-text, written in when the faces swap (src/lib/tradition-expiry.ts). */}
@@ -142,7 +143,7 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
   </h3>
 
   {entry.status === 'confirmed' && !past && (
-    <p class="mt-2 text-[0.9375rem] font-semibold text-ink" data-when-set={expires ? '' : undefined}>Confirmed · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time></p>
+    <p class="mt-2 text-[0.9375rem] font-semibold text-ink" data-when-set={expires ? '' : undefined}>{dateLabel(entry)} · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time></p>
   )}
   {(entry.status === 'not-announced' || past) && (
     <Fragment>

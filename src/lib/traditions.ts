@@ -295,6 +295,20 @@ export function isDated(entry: Pick<TraditionYear, 'status'>): boolean {
 }
 
 /**
+ * The word beside a date set: "Moved", "Tentative" or "Confirmed". A date
+ * the source itself calls tentative ("Tentative Closing Day", Ski Cooper)
+ * or projected ("projected opening date", the Frisco Nordic Center) is
+ * never "Confirmed" (the owner, 21 November 2026): its year stays
+ * `confirmed`, the date the organizer published, and the label follows the
+ * source's own caveat in `note`. Any other caveat ("Weather Permitting")
+ * keeps "Confirmed".
+ */
+export function dateLabel(entry: Pick<TraditionYear, 'status' | 'note'>): 'Moved' | 'Tentative' | 'Confirmed' {
+  if (entry.status === 'moved') return 'Moved';
+  return /\btentativ|\bprojected\b/i.test(entry.note ?? '') ? 'Tentative' : 'Confirmed';
+}
+
+/**
  * "Last held": the newest earlier year the organizer gave a date for and
  * that has passed. Never a year that was canceled, and never a guess: a
  * record with no dated earlier year has no "last held" line.

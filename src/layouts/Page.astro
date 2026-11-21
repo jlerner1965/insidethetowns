@@ -78,7 +78,7 @@ const trail = seo.kind === 'Annual event' ? [] : (list?.itemListElement ?? []).m
   <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-6 md:py-9">
       <div class="max-w-3xl">
-        {trail.length > 1 && (
+        {trail.length > 1 && site.kind !== 'town' && (
           <nav aria-label="Breadcrumb" class="mb-3 text-[0.8125rem] leading-snug text-ink-muted">
             <ol class="flex flex-wrap items-center gap-x-1.5">
               {trail.slice(0, -1).map((step, i) => (

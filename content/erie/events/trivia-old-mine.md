@@ -12,7 +12,7 @@ category: other
 recurring: "Tuesdays at 6 and 7"
 timeNote: "Games at 6 pm and 7 pm"
 source: "https://www.theoldmine.com/events"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"TRIVIA!\" at 6 pm on 24 November on the theoldmine.com feed"
 ---
 

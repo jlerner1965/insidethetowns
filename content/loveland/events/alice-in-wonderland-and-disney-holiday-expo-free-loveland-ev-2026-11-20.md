@@ -10,7 +10,7 @@ source: "https://www.eventbrite.com/e/alice-in-wonderland-disney-holiday-expo-fr
 sourceId: "eventbrite-com-loveland"
 sourceUid: "2004400669359"
 sourceHash: "25cfd2ac5787"
-verified: "2026-11-19"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Alice in Wonderland & Disney Holiday Expo: Free Loveland Event\" at 5 pm on 20 November in the page's structured data"
 ---
 

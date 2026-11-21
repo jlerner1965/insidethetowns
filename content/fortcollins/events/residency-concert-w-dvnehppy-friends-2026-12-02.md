@@ -9,8 +9,8 @@ source: "https://www.wolverinefarm.org/event/residency-concert-w-dvnehppy-friend
 sourceId: "wolverinefarm-org"
 sourceUid: "197778"
 sourceHash: "f9cdafb4328f"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the Wolverine Farm Publick House (events calendar) feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Residency Concert w/ DVNEHPPY + Friends\" at 6 pm on 2 December in the page's structured data"
 ---
 
 Residency Concert w/ DVNEHPPY + Friends at Wolverine Farm Publick House, 316 Willow St., Wednesday, December 2, 6 pm – 8 pm. Listed by Wolverine Farm Publick House (events calendar); the organizer's page has the details and any registration.

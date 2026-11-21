@@ -9,8 +9,8 @@ source: "https://clearview.libnet.info/events"
 sourceId: "clearview-libnet-info"
 sourceUid: "17704797"
 sourceHash: "cebe0535a7ad"
-verified: "2026-11-10"
-verifiedBy: "auto-review from the clearview.libnet.info feed read 2026-11-10, the ingest of 10 November 2026, run for the owner"
+verified: "2026-11-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Bedazzled Baubles\" at 5 pm on 3 December on the Clearview Library District feed"
 ---
 
 Bedazzled Baubles at Windsor Library - Pikes Peak, Thursday, December 3, 5 pm – 7 pm. Listed by Clearview Library District; the organizer's page has the details and any registration.

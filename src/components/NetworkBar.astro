@@ -29,6 +29,10 @@ import { publishedHubTowns } from '@/lib/hub-towns';
 import { townCount } from '@/lib/town-search-index';
 import { HUB_COLUMN } from './hub/pub';
 
+interface Props {
+  /** The footer's column, so the strip lines up with it (Footer.astro). */
+  column?: string;
+}
 const site = getSite();
 const hub = getNetworkHub();
 // The eleven full sections, A to Z, as /towns/ lists them (fullSections; the owner, 18 November 2026).
@@ -54,7 +58,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
 ---
 <div class="border-t border-white/15 bg-black/30 text-[0.875rem] text-white">
   {/* On the hub, its pages' column, as the footer above it (Footer.astro). */}
-  <div class:list={[site.kind === 'hub' ? HUB_COLUMN : 'container-page', 'flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5']}>
+  <div class:list={[Astro.props.column ?? (site.kind === 'hub' ? HUB_COLUMN : 'container-page'), 'flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5']}>
     {site.kind === 'hub' ? (
       <nav aria-label="The guides" class="flex flex-col sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-4">
         <span class={label}>The guides</span>

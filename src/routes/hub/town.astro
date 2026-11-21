@@ -27,10 +27,10 @@
  *                   museums and landmarks, and the articles that name it;
  *
  * and last "More in <area>" (three to five town pages, nearest by road),
- * the way back to the contents on a phone and the correction line. A section or a block with nothing in the town's files
- * is not drawn, and the sections drawn are numbered and listed in order
- * (src/lib/hub-town-page.ts). Every fact is the files' own, in the words
- * the page used before the redesign, with its source and its check date.
+ * the way back to the contents on a phone and the correction line. A
+ * section or a block with nothing in the town's files is not drawn, and the
+ * sections drawn are numbered and listed in order (src/lib/hub-town-page.ts).
+ * Every fact is the files' own, with its source and its check date.
  *
  * Built only for a town with a dated item of its own (publishedHubTowns);
  * any other town has no page and nothing links to one. The events and
@@ -66,11 +66,11 @@ import { sectionFor } from '@/lib/section-index';
 import { clusterName, STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getCuriosity, getSectionEntries, getTraditions } from '@/lib/content';
 import { parseLeadGuide, sectionArticleSegment } from '@/lib/lead-guide';
-import { dayKey, formatDayLong, formatShortDate, parseLocal, publishedTime } from '@/lib/dates';
-import { exportWhen, isCanceled, isOver, nextOccurrence } from '@/lib/events';
+import { dayKey, formatDayLong, formatShortDate, parseLocal, publishedTime, toIsoLocal } from '@/lib/dates';
+import { isCanceled, isFlagged, lastDay, listedUntil } from '@/lib/events';
 import { hubTownPhoto } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
-import { appliesTo, eventPage, eventPath, lineFor, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
+import { appliesTo, eventPage, eventPath, lineFor, nextTownDate, noDateSoon, oneTimeEvents, onNowThrough, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
 import { foundedLine, milesShort, monthAnchor, notYetLine, moreHeading, moreInRegion, pageSections, profileView, timelineText, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
 import { MONTH_NAMES } from '@/lib/year-grid';
 import { articlePath, articlesFor, historyStory, isStandalone } from '@/lib/curiosity';
@@ -82,7 +82,7 @@ import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/
 import { FLOW_SOURCES, SNOW_SOURCE, formatCfs, percentOfMedian, riverFlow, snowpack, type FlowData, type SnowData } from '@/lib/town-signals';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
 import { typeset } from '@/lib/text';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isAgencyDate, isUnderWay, isUpcoming, rowState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isAgencyDate, isUnderWay, rowState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
 import type { TownProfile } from '@/lib/town-profile';
 // The italic of the heading face, for the subheads and the decks: the guides' pages do not use it, so it is loaded here only.
 import '@fontsource-variable/fraunces/opsz-italic.css';
@@ -95,7 +95,8 @@ const hub = getHub();
 const town = findHubTown(Astro.params.town as string)!;
 const records = await getTraditions();
 const published = publishedHubTowns(records);
-const today = dayKey(new Date());
+const now = new Date();
+const today = dayKey(now);
 const { traditions, outdoor, statewide } = placeRows(records, town.slug, today);
 
 const ctx: ShowingContext = {
@@ -152,18 +153,8 @@ const own = [...traditions, ...outdoor].filter((r) => !isRoad(r));
 /** A showpiece's one to know (HubTown.showpiece.spotlight): drawn first under Events, and left out of the lists below it. */
 const spotlight = show ? own.find((r) => r.record.slug === show.spotlight) : undefined;
 const listed = own.filter((r) => r !== spotlight);
-/** The next date the town has, under its name: its own events' soonest date set; an outdoor date only where no event of its has one (src/lib/hub-towns.ts, nextUp). */
-const nextUp = nextRowUp(traditions, outdoor.filter((r) => !isRoad(r)));
-/** Its day, or for a run already under way the day it ends: "On now, through Saturday, October 31, 2026" (src/lib/traditions.ts, isUnderWay). */
-const nextDay = nextUp
-  ? isUnderWay(nextUp.entry, today)
-    ? `On now, through ${formatDayLong(parseLocal(nextUp.entry.endDate!))}, ${nextUp.entry.endDate!.slice(0, 4)}`
-    : `${formatDayLong(parseLocal(nextUp.entry.date!))}, ${nextUp.entry.date!.slice(0, 4)}`
-  : undefined;
-/** No date set in the next 90 days: the page says so, above the lists. */
+/** No date set in the next 90 days: the page says so, above the lists (worked out with the one-time events, below). */
 const NEXT_DAYS = 90;
-const horizon = dayKey(new Date(parseLocal(today).getTime() + NEXT_DAYS * 86_400_000));
-const quiet = !own.some((r) => isUpcoming(r) && r.entry.date! <= horizon);
 /** Set dates, soonest first; then those not yet announced, in the order of the year they were last held; then any canceled. */
 const comingUp = listed.filter((r) => rowState(r) === 'upcoming').sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || a.record.name.localeCompare(b.record.name));
 // A season that is open (Moraine Park's winter camping, "October 19 to
@@ -270,14 +261,58 @@ const folded = allTowns.find((t) => t.hubPage?.town === town.slug && t.section);
 const kept = folded?.section?.mode === 'pages' ? await sectionFor(town.slug) : undefined;
 /**
  * The one-time events carried from a guide folded page by page, those not
- * yet over, soonest first (src/lib/section-index.ts): each has a page under
- * /<town>/events/ that only the sitemap reached (the site audit of 19
- * November 2026: 245 such pages, Golden's 48 the most). Listed under
- * Happening now, above the annual calendar; a page whose date has passed is noindex
- * and needs no link.
+ * yet over, soonest first, each at its next date (src/lib/hub-towns.ts,
+ * oneTimeEvents): each has a page under /<town>/events/ that only the
+ * sitemap reached (the site audit of 19 November 2026: 245 such pages,
+ * Golden's 48 the most). Listed under Events, after the annual dates; a
+ * page whose date has passed is noindex and needs no link. Each row carries
+ * its last day and end (`data-event-day`, `data-end`), so the page's script
+ * takes it off once it is over, as it does every event row (Freshness.astro).
  */
-// A series shows its next date, not its first: a weekly trivia night that began on 12 November 2026 was still listed under that day on 20 November (the owner's content-order brief, 21 November 2026: no past events in an upcoming list). Each row also leaves the built page on its own day (data-event-day).
-const carried = kept ? kept.eventEntries.filter((e) => !isOver(e)).map((e) => ({ e, start: exportWhen(nextOccurrence(e)).start })).sort((a, b) => a.start.getTime() - b.start.getTime()) : [];
+const carried = kept ? oneTimeEvents(kept.eventEntries, now) : [];
+/** The day as a row and the hero give it: "Friday, November 20, 2026". */
+const carriedDay = (start: Date) => `${formatDayLong(start)}, ${start.getFullYear()}`;
+/**
+ * When a one-time event is, in its row and in the hero alike: its day, or
+ * for one already under way the day it ends, "On now, through Tuesday,
+ * November 24, 2026" (the owner, 21 November 2026: a food drive on since
+ * November 1 read "Sunday, November 1" in the list). `day` is the
+ * `<time>`'s date.
+ */
+const carriedWhen = (c: (typeof carried)[number]) => {
+  const through = onNowThrough(c, today);
+  return through ? { onNow: true, day: through, text: `On now, through ${carriedDay(parseLocal(through))}` } : { onNow: false, day: dayKey(c.start), text: carriedDay(c.start) };
+};
+/** A one-time event the hero may name: not canceled, and not held back for a check (isFlagged). */
+const nameable = (e: (typeof carried)[number]['e']) => !isCanceled(e) && !isFlagged(e);
+/** No date of the town's own, annual or one-time, in the next 90 days (src/lib/hub-towns.ts, noDateSoon). */
+const quiet = noDateSoon(own, carried.filter((c) => nameable(c.e)), today, NEXT_DAYS);
+
+/**
+ * The next date the town has, under its name (src/lib/hub-towns.ts,
+ * nextTownDate): the soonest of its annual events and its one-time events
+ * together, a run on now included; an outdoor date only where it has
+ * neither. Its day, or for a run already under way the day it ends: "On
+ * now, through Saturday, October 31, 2026" (src/lib/traditions.ts,
+ * isUnderWay).
+ */
+const firstOneTime = carried.find((c) => nameable(c.e));
+const picked = nextTownDate(traditions, outdoor.filter((r) => !isRoad(r)), firstOneTime && { ...firstOneTime, start: dayKey(firstOneTime.start) });
+const heroNext = !picked
+  ? undefined
+  : 'row' in picked
+    ? {
+        href: `#${picked.row.record.slug}`,
+        name: picked.row.record.name,
+        day: isUnderWay(picked.row.entry, today)
+          ? `On now, through ${formatDayLong(parseLocal(picked.row.entry.endDate!))}, ${picked.row.entry.endDate!.slice(0, 4)}`
+          : `${formatDayLong(parseLocal(picked.row.entry.date!))}, ${picked.row.entry.date!.slice(0, 4)}`,
+      }
+    : {
+        href: `#event-${picked.event.e.slug}`,
+        name: picked.event.e.data.title,
+        day: carriedWhen(firstOneTime!).text,
+      };
 /**
  * The next ten show; the rest fold behind a button, as the statewide dates
  * do (the owner, 20 November 2026: Golden's list ran to about 45). Folded,
@@ -417,7 +452,7 @@ const moreIn = moreHeading(more);
 const subject = `[Correction] ${town.name}`;
 const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${encodeURIComponent(subject)}`;
 ---
-<Base title={seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual dates" townBar={{ name: town.name, region: clusterName(town.cluster) }}>
+<Base title={seoTitle} {description} jsonLd={structured} image={shareImage} imageAlt={shareAlt} kind="Annual dates" townBar={{ name: town.name, region: clusterName(town.cluster), slug: town.slug }}>
   {/* The hero: the name on the primary, over the town's own horizon or its photograph. */}
   {/*
     With a photograph, the band is tall enough on a desktop to show the
@@ -493,11 +528,11 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <p class="mt-3.5 max-w-[40rem] text-base leading-[1.55] text-white">{typeset(intro)}</p>
         </div>
         {/* Over a photograph from 900px, the next date has a soft shade the size of the block (the guides' lineShade, Hero.astro), so a bright roof behind it cannot wash it out. */}
-        {nextUp && (
+        {heroNext && (
           <div class:list={['mt-5 min-w-0 border-t border-white/50 pt-3 desk:mt-0', hero && 'relative desk:before:pointer-events-none desk:before:absolute desk:before:-inset-x-8 desk:before:-inset-y-4 desk:before:-z-10 desk:before:rounded-[2rem] desk:before:bg-black/40 desk:before:blur-[22px]']} data-next-up>
             <p class:list={[pub.cap, 'text-white']}>Next {town.name} date</p>
-            <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal] desk:text-[1.4118rem]"><a href={`#${nextUp.record.slug}`} class="text-white underline decoration-1 underline-offset-[3px]">{typeset(nextUp.record.name)}</a></p>
-            <p class="mt-1 text-base text-white" data-next-day>{nextDay}</p>
+            <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal] desk:text-[1.4118rem]"><a href={heroNext.href} class="text-white underline decoration-1 underline-offset-[3px]">{typeset(heroNext.name)}</a></p>
+            <p class="mt-1 text-base text-white" data-next-day>{heroNext.day}</p>
           </div>
         )}
       </div>
@@ -539,14 +574,23 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           {/* The next ten, then the rest in a second list the script folds away; without the script every event is on the page and the button is not. */}
           {[carriedFirst, carriedRest].map((list, i) => list.length > 0 && (
             <ul id={i ? 'carried-rest' : undefined} data-carried-events={i ? undefined : true} data-carried-rest={i ? true : undefined}>
-              {list.map(({ e, start }) => (
-                <li class:list={['py-2.5', pub.rule]} data-carried-event data-event-day={dayKey(start)}>
+              {list.map((c) => { const { e, next: occurrence, start } = c; const when = carriedWhen(c); return (
+                <li
+                  id={`event-${e.slug}`}
+                  class:list={['py-2.5', pub.rule]}
+                  data-carried-event
+                  data-event-day={lastDay(occurrence)}
+                  data-end={toIsoLocal(listedUntil(occurrence))}
+                  data-starts={nameable(e) ? dayKey(start) : undefined}
+                  data-name={nameable(e) ? e.data.title : undefined}
+                  data-day-text={nameable(e) ? when.text : undefined}
+                >
                   <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]"><a href={`/${town.slug}/events/${e.slug}/`} class={pub.link}>{typeset(e.data.title)}</a></span>
                   <span class:list={['block', pub.meta]}>
-                    {isCanceled(e) && <Fragment>Canceled · </Fragment>}<time datetime={dayKey(start)}>{formatDayLong(start)}, {start.getFullYear()}</time>{e.data.venue && <Fragment> · {typeset(e.data.venue)}</Fragment>}
+                    {isCanceled(e) && <Fragment>Canceled · </Fragment>}{when.onNow ? <Fragment>On now, through <time datetime={when.day}>{carriedDay(parseLocal(when.day))}</time></Fragment> : <time datetime={when.day}>{when.text}</time>}{e.data.venue && <Fragment> · {typeset(e.data.venue)}</Fragment>}
                   </span>
                 </li>
-              ))}
+              ); })}
             </ul>
           ))}
           {carriedRest.length > 0 && (

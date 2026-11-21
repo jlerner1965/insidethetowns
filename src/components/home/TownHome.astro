@@ -51,6 +51,7 @@ import QuickAnswers from './QuickAnswers.astro';
 import SportsBar from './SportsBar.astro';
 import WhatsHappening, { type Feature } from './WhatsHappening.astro';
 import DontMiss from './DontMiss.astro';
+import { quickAnswerLinks } from '@/lib/quick-answers';
 import { recCenterFor, type RecCenterData } from '@/lib/rec-center';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
@@ -192,7 +193,8 @@ const linked = new Set<string>([
   ...(know.length > 0 || timely.length > 0 ? ['/updates/'] : []),
 ]);
 const hasGuides = (await getTownEntries('articles')).length > 0;
-
+/** Berthoud's quick answers in one row (the owner's list of 20 November 2026), on its page only. */
+const berthoud = town.slug === 'berthoud';
 // 3. Don't miss, its own section after What's happening: the next featured listing within three
 // weeks (src/lib/home-tabs.ts), with a photograph: its own, else its venue's
 // where the venue is a listed place with one ("Niwot Hall and Downtown
@@ -219,6 +221,27 @@ if (featured) {
     end: row.end,
   };
 }
+/*
+ * What's happening keeps a deep closing padding (band-close: 6rem, 4rem on
+ * a phone) for the quick answers tucked under it (QuickAnswers.astro,
+ * `tuck`). Where the guide shows no quick answers, whichever band comes
+ * right under it takes back the difference, so that gap is the page's
+ * band-to-band gap (band-compact: 3.5rem from 768px, 2.5rem on a phone) on
+ * every guide (the owner, 21 November 2026). The candidates in the order
+ * drawn below.
+ */
+const quickShown = !quietGuide && quickAnswerLinks({ town, recPlace: rec?.place, hasUpdates: updates.length > 0, hasGuides, hasPlaces: places.length > 0, linked }).length >= 2;
+const firstUnder = quietGuide || quickShown
+  ? undefined
+  : school ? 'sports'
+  : schools.length > 1 ? 'strip'
+  : timely.length > 0 || know.length > 0 ? 'know'
+  : feature ? 'dont-miss'
+  : outdoorPlaces.length > 0 ? 'outdoors'
+  : familyRows.length > 0 ? 'families'
+  : 'next-stop';
+const underHappening = '-mt-6 md:-mt-10';
+
 /*
  * On this page: the home's sections, in the order they are drawn below, as
  * the hub's town pages list theirs (src/routes/hub/town.astro; the owner,
@@ -299,28 +322,32 @@ const onThisPage: Array<{ id: string; label: string }> = (
   </WhatsHappening>
 )}
 
-<QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} tuck={!quietGuide} />
+{/* Tucked under What's happening (QuickAnswers.astro, `tuck`). */}
+{!quietGuide && <QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} row={berthoud} tuck />}
 
-{school && !quietGuide && <SportsBar town={town} />}
+{/* Whichever band comes right under What's happening, where the quick
+    answers are not there to tuck in, takes back that band's extra padding
+    (firstUnder, above). */}
+{school && !quietGuide && <div class:list={[firstUnder === 'sports' && underHappening]}><SportsBar town={town} /></div>}
 
 {/* A guide that follows several schools: the week's games, under the
     events (the owner, 10 November 2026). */}
 {!school && schools.length > 1 && (
-  <section class="band-compact band-paper">
+  <section class:list={['band-compact band-paper', firstUnder === 'strip' && underHappening]}>
     <div class="container-page"><SportsStrip town={town.slug} class="max-w-3xl" limit={2} /></div>
   </section>
 )}
 
 {/* Worth knowing: the local changes, the timely ones first (WorthKnowing.astro). */}
-{!quietGuide && (timely.length > 0 || know.length > 0) && <WorthKnowing {timely} {know} />}
+{!quietGuide && (timely.length > 0 || know.length > 0) && <div class:list={[firstUnder === 'know' && underHappening]}><WorthKnowing {timely} {know} /></div>}
 
 {/* 3. The next big event: Don't miss. */}
-{!quietGuide && feature && <DontMiss {feature} />}
+{!quietGuide && feature && <div class:list={[firstUnder === 'dont-miss' && underHappening]}><DontMiss {feature} /></div>}
 
 {/* 4. Things to do. An outdoors-led guide (Lyons): its trails, river and
-    parks (the owner, 17 November 2026). */}
+    parks (the owner, 17 November 2026); For families. */}
 {outdoorPlaces.length > 0 && (
-  <section class="band-compact band-paper" aria-labelledby="outdoors-home" data-outdoors-home>
+  <section class:list={['band-compact band-paper', firstUnder === 'outdoors' && underHappening]} aria-labelledby="outdoors-home" data-outdoors-home>
     <div class="container-page">
       <h2 id="outdoors-home" class="display-md text-[2rem] md:text-[2.5rem]">Trails and parks</h2>
       <ul class="mt-3 divide-y divide-line-soft">
@@ -342,7 +369,7 @@ const onThisPage: Array<{ id: string; label: string }> = (
 )}
 
 {familyRows.length > 0 && (
-  <section class="band-compact band-paper" aria-labelledby="families-home" data-hide-when-empty>
+  <section class:list={['band-compact band-paper', firstUnder === 'families' && underHappening]} aria-labelledby="families-home" data-hide-when-empty>
     <div class="container-page">
       <h2 id="families-home" class="display-md text-[2rem] md:text-[2.5rem]">For families</h2>
       <ul class="mt-3 divide-y divide-line-soft">
@@ -360,7 +387,7 @@ const onThisPage: Array<{ id: string; label: string }> = (
 )}
 
 {/* 5. Eat, drink and explore: Find your next stop. */}
-<NextStop town={town} places={places} />
+<div class:list={[firstUnder === 'next-stop' && underHappening]}><NextStop town={town} places={places} /></div>
 
 {/* 7. The annual calendar: the guide's dates, the outdoor ones first when
     two or more have a date set, else its traditions, the statewide ones

@@ -27,6 +27,7 @@
  */
 import { monthLabel } from './year-grid.ts';
 import { typeset } from './text.ts';
+import { listingOver } from './expiry.ts';
 
 export interface DateNode {
   dataset: Record<string, string | undefined>;
@@ -88,7 +89,7 @@ export function nextRowIndex(rows: ReadonlyArray<{ starts: string; agency: boole
   return best;
 }
 
-export function correctDates(root: DateNode, today: string): void {
+export function correctDates(root: DateNode, today: string, nowMs = Date.now()): void {
   const expired = new Set(expireRows(root, today));
 
   // The year strip: a passed date's mark is a ring, and says so.
@@ -159,9 +160,16 @@ export function correctDates(root: DateNode, today: string): void {
   // nextUp): the soonest of the town's own events still ahead among the
   // page's own rows (not the folded statewide ones); an outdoor or
   // free-admission date only where no event is ahead.
+  // A hub town page's one-time events count with its own events (src/lib/hub-towns.ts,
+  // nextTownDate; the owner, 21 November 2026): each row not yet over by the rule
+  // that takes it off the list (listingOver, src/lib/expiry.ts), after the annual
+  // rows, so the annual event keeps a tie as on the build.
   const next = root.querySelector('[data-next-up]');
   if (next) {
-    const rows = [...root.querySelectorAll('[data-tradition-row][data-starts]')].filter((r) => r.dataset.expired === undefined && !r.closest('[data-statewide]'));
+    const rows = [
+      ...[...root.querySelectorAll('[data-tradition-row][data-starts]')].filter((r) => r.dataset.expired === undefined && !r.closest('[data-statewide]')),
+      ...[...root.querySelectorAll('[data-carried-event][data-starts]')].filter((r) => !listingOver({ end: r.dataset.end, day: r.dataset.eventDay }, nowMs, today)),
+    ];
     // An outdoor date is the agency's, wherever its section is: under its own heading, or among a hub town page's dates (`data-agency`).
     const ahead = rows[nextRowIndex(rows.map((r) => ({ starts: r.dataset.starts!, agency: !!r.closest('#outdoor-dates') || r.dataset.agency !== undefined })))];
     const link = next.querySelector('a');
@@ -175,10 +183,21 @@ export function correctDates(root: DateNode, today: string): void {
     }
   }
 
-  // A season page's count of dates still to come.
-  const count = root.querySelector('[data-date-count]');
-  if (count) {
-    const left = [...root.querySelectorAll('[data-tradition-row][data-starts]')].filter((r) => r.dataset.expired === undefined).length;
-    count.textContent = count.dataset.dateCount === 'ahead' ? String(left) : `${left} ${left === 1 ? 'date' : 'dates'}`;
+  // A season page's counts: the dates still to come, and on a season with
+  // a year the ones already held, as built (`data-built`) and with every
+  // date that has passed since, so the line's parts still add up to every
+  // row on the page.
+  const set = [...root.querySelectorAll('[data-tradition-row][data-starts]')];
+  const left = set.filter((r) => r.dataset.expired === undefined).length;
+  for (const count of root.querySelectorAll('[data-date-count]')) {
+    const kind = count.dataset.dateCount;
+    if (kind === 'ahead') count.textContent = String(left);
+    else if (kind === 'upcoming') count.textContent = `${left} upcoming`;
+    else if (kind === 'held') {
+      const held = Number(count.dataset.built ?? 0) + set.length - left;
+      count.textContent = `${held} already held`;
+      const part = count.closest('[data-held-part]');
+      if (part) part.hidden = held === 0;
+    }
   }
 }

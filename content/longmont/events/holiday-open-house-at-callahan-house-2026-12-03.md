@@ -11,7 +11,7 @@ source: "https://longmontcolorado.gov/event/holiday-open-house-at-callahan-house
 sourceId: "longmontcolorado-gov-recreation"
 sourceUid: "10009585-1796315400-1796326200@longmontcolorado.gov"
 sourceHash: "1b7078c469db"
-verified: "2026-11-18"
+verified: "2026-11-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Open House at Callahan House\" at 4:30 pm on 3 December on the Longmont Recreation Services (City of Longmont calendar) feed"
 ---
 
