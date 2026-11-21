@@ -159,9 +159,15 @@ export function correctDates(root: DateNode, today: string): void {
   // nextUp): the soonest of the town's own events still ahead among the
   // page's own rows (not the folded statewide ones); an outdoor or
   // free-admission date only where no event is ahead.
+  // A hub town page's one-time events count with its own events (src/lib/hub-towns.ts,
+  // nextTownDate; the owner, 21 November 2026): each row still to come by the
+  // reader's day, after the annual rows, so the annual event keeps a tie as on the build.
   const next = root.querySelector('[data-next-up]');
   if (next) {
-    const rows = [...root.querySelectorAll('[data-tradition-row][data-starts]')].filter((r) => r.dataset.expired === undefined && !r.closest('[data-statewide]'));
+    const rows = [
+      ...[...root.querySelectorAll('[data-tradition-row][data-starts]')].filter((r) => r.dataset.expired === undefined && !r.closest('[data-statewide]')),
+      ...[...root.querySelectorAll('[data-carried-event][data-starts]')].filter((r) => !datePassed(r.dataset.ends, today)),
+    ];
     // An outdoor date is the agency's, wherever its section is: under its own heading, or among a hub town page's dates (`data-agency`).
     const ahead = rows[nextRowIndex(rows.map((r) => ({ starts: r.dataset.starts!, agency: !!r.closest('#outdoor-dates') || r.dataset.agency !== undefined })))];
     const link = next.querySelector('a');

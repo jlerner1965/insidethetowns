@@ -15,7 +15,8 @@
  * repeats what the status line says and is hidden from a screen reader.
  *
  * The statuses, each a word as well as a look (visual rule 5):
- * - confirmed: "Confirmed · <the day>".
+ * - confirmed: "Confirmed · <the day>", or "Tentative · <the day>" where the
+ *   source calls the date tentative (dateLabel, src/lib/traditions.ts).
  * - not-announced: the dark status pill and "Last held <day>" where an
  *   earlier year has a date. Never a predicted date or a rule.
  * - moved: the Moved pill, the new day, the old day and the organizer's
@@ -29,7 +30,7 @@
  */
 import { parseLocal, formatDayLong, formatShortDate } from '@/lib/dates';
 import { dateBlock } from '@/lib/date-block';
-import { TRADITION_TYPE_INFO, sourceLink, type TraditionRow } from '@/lib/traditions';
+import { TRADITION_TYPE_INFO, dateLabel, sourceLink, type TraditionRow } from '@/lib/traditions';
 
 interface Props {
   row: TraditionRow;
@@ -142,7 +143,7 @@ const pastBlock = expires ? dateBlock({ ...row, past: true }) : undefined;
   </h3>
 
   {entry.status === 'confirmed' && !past && (
-    <p class="mt-2 text-[0.9375rem] font-semibold text-ink" data-when-set={expires ? '' : undefined}>Confirmed · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time></p>
+    <p class="mt-2 text-[0.9375rem] font-semibold text-ink" data-when-set={expires ? '' : undefined}>{dateLabel(entry)} · <time datetime={entry.date}>{spanText(entry.date!, entry.endDate)}</time></p>
   )}
   {(entry.status === 'not-announced' || past) && (
     <Fragment>

@@ -14,6 +14,7 @@ import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuid
 import { isMoved } from '../config/guide-move.ts';
 import { towns } from '../config/towns/registry.ts';
 import { dayKey, formatMonthDay, parseLocal } from './dates.ts';
+import { exportWhen, isOver, nextOccurrence } from './events.ts';
 import { TRADITION_TYPE_INFO, byNextDate, countsAsVerified, hasVerifiedDate, isAgencyDate, isListed, isUpcoming, nextRow, onSeasonPage, type TraditionRecord, type TraditionRow } from './traditions.ts';
 import { TITLE_LIMIT } from './titles.ts';
 
@@ -339,6 +340,49 @@ export function guideHomeDates(
  */
 export function nextUp(traditions: readonly TraditionRow[], outdoor: readonly TraditionRow[]): TraditionRow | undefined {
   return traditions.find(isUpcoming) ?? outdoor.find(isUpcoming);
+}
+
+/** A listing as the events collection holds it (src/lib/events.ts). */
+type Listing = Parameters<typeof nextOccurrence>[0];
+
+/**
+ * A town page's one-time events (a guide folded page by page,
+ * src/lib/section-index.ts): those with a date still to come (isOver, the
+ * expired-event rule), each at its next date, soonest first. A series is
+ * shown at its next date, not its first: Leadville's weekly trivia night
+ * was kept while its later Thursdays were ahead but dated by the first,
+ * so on 21 November the list said "Thursday, November 12" (the owner,
+ * 21 November 2026).
+ */
+export function oneTimeEvents<T extends Listing>(entries: readonly T[], now: Date): Array<{ e: T; next: T; start: Date }> {
+  return entries
+    .filter((e) => !isOver(e, now))
+    .map((e) => {
+      const next = nextOccurrence(e, now);
+      return { e, next, start: exportWhen(next).start };
+    })
+    .sort((a, b) => a.start.getTime() - b.start.getTime());
+}
+
+/**
+ * "Next <Town> date" on a town page (the owner, 21 November 2026): the
+ * soonest of the town's own dates, its annual events (nextUp's, a run that
+ * is on now included: isUpcoming) and its one-time events (the first given,
+ * at its next date as "YYYY-MM-DD") together; an outdoor or
+ * free-admission date only where neither has one. On the same day the
+ * annual event, which the page draws first. Until then the one-time events
+ * were not asked: Leadville's hero gave its parade of lights on December 4
+ * over a film night on November 20.
+ */
+export function nextTownDate<E extends { start: string }>(
+  traditions: readonly TraditionRow[],
+  outdoor: readonly TraditionRow[],
+  oneTime: E | undefined,
+): { row: TraditionRow } | { event: E } | undefined {
+  const annual = traditions.find(isUpcoming);
+  if (oneTime && (!annual || oneTime.start < annual.entry.date!)) return { event: oneTime };
+  const row = annual ?? outdoor.find(isUpcoming);
+  return row ? { row } : undefined;
 }
 
 /**
