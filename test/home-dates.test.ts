@@ -6,7 +6,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { MIN_OUTDOOR_TO_LEAD, guideHomeDates, guideLines, nextTownDate, nextUp, oneTimeEvents, placeRows, publishedHubTowns, statewideSummary } from '../src/lib/hub-towns.ts';
+import { MIN_OUTDOOR_TO_LEAD, guideHomeDates, guideLines, nextTownDate, nextUp, noDateSoon, oneTimeEvents, onNowThrough, placeRows, publishedHubTowns, statewideSummary } from '../src/lib/hub-towns.ts';
 import { dayKey, parseLocal } from '../src/lib/dates.ts';
 import { isAgencyDate, isUpcoming, type TraditionRecord } from '../src/lib/traditions.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
@@ -126,6 +126,9 @@ test('one-time events: a passed listing is left out, and a series is shown at it
   assert.deepEqual(rows.map((r) => [r.e.slug, dayKey(r.start)]), [['karaoke', '2026-11-21'], ['trivia', '2026-11-26']]);
   // The series' last Thursday over: it goes too.
   assert.deepEqual(oneTimeEvents([trivia], parseLocal('2026-12-04T09:00')), []);
+  // A storytime that ended at 11:30 this morning is not still to come, though its day is today.
+  const story = listing('storytime', '2026-11-20T10:30', { end: parseLocal('2026-11-20T11:30') });
+  assert.deepEqual(oneTimeEvents([story, film], parseLocal('2026-11-20T17:45')).map((r) => r.e.slug), ['film']);
 });
 
 test('the hero: the soonest of the annual and the one-time events; an annual run on now counts; outdoor dates only without either', () => {
@@ -156,4 +159,24 @@ test('the hero: the soonest of the annual and the one-time events; an annual run
   assert.ok(picked && 'event' in picked);
   picked = nextTownDate(r.traditions, r.outdoor, undefined);
   assert.ok(picked && 'row' in picked && picked.row.record.slug === 'ski-opens');
+});
+
+test('a one-time event on now reads "On now, through" its last day; one still to start reads its day (the owner, 21 November 2026)', () => {
+  const now = parseLocal('2026-11-20T18:00');
+  // Lafayette's can food drive, November 1 to 24, all day.
+  const drive = listing('odd13-drive', '2026-11-01', { allDay: true, end: parseLocal('2026-11-24') });
+  const tonight = listing('film', '2026-11-20T19:00');
+  const later = listing('market', '2026-12-05', { allDay: true, end: parseLocal('2026-12-06') });
+  const rows = oneTimeEvents([drive, tonight, later], now);
+  assert.deepEqual(rows.map((r) => [r.e.slug, onNowThrough(r, '2026-11-20') ?? null]), [['odd13-drive', '2026-11-24'], ['film', null], ['market', null]]);
+});
+
+test('"No date in the next 90 days" counts the one-time events too (the owner, 21 November 2026)', () => {
+  const nederland = { town: { name: 'Nederland', guide: 'nederland' } };
+  const r = placeRows([rec('frozen-dead-guy', { ...nederland, type: 'festival' }, set('2027-04-09'))], 'nederland', '2026-11-20');
+  // Nederland: its annual festival is in April, past the 90 days, and twenty one-time events are in them.
+  assert.equal(noDateSoon([...r.traditions, ...r.outdoor], [], '2026-11-20', 90), true);
+  assert.equal(noDateSoon([...r.traditions, ...r.outdoor], [{ start: parseLocal('2026-11-20T19:00') }], '2026-11-20', 90), false);
+  // A one-time event past the 90 days does not count.
+  assert.equal(noDateSoon([...r.traditions, ...r.outdoor], [{ start: parseLocal('2027-03-01T19:00') }], '2026-11-20', 90), true);
 });

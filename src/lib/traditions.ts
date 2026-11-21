@@ -297,14 +297,15 @@ export function isDated(entry: Pick<TraditionYear, 'status'>): boolean {
 /**
  * The word beside a date set: "Moved", "Tentative" or "Confirmed". A date
  * the source itself calls tentative ("Tentative Closing Day", Ski Cooper)
- * is never "Confirmed" (the owner, 21 November 2026): its year stays
+ * or projected ("projected opening date", the Frisco Nordic Center) is
+ * never "Confirmed" (the owner, 21 November 2026): its year stays
  * `confirmed`, the date the organizer published, and the label follows the
  * source's own caveat in `note`. Any other caveat ("Weather Permitting")
  * keeps "Confirmed".
  */
 export function dateLabel(entry: Pick<TraditionYear, 'status' | 'note'>): 'Moved' | 'Tentative' | 'Confirmed' {
   if (entry.status === 'moved') return 'Moved';
-  return /\btentativ/i.test(entry.note ?? '') ? 'Tentative' : 'Confirmed';
+  return /\btentativ|\bprojected\b/i.test(entry.note ?? '') ? 'Tentative' : 'Confirmed';
 }
 
 /**
