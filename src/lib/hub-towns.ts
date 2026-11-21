@@ -14,7 +14,7 @@ import { HUB_CLUSTERS, HUB_TOWNS, STANDALONE_GUIDES, findHubTown, hubTownForGuid
 import { isMoved } from '../config/guide-move.ts';
 import { towns } from '../config/towns/registry.ts';
 import { dayKey, formatMonthDay, parseLocal } from './dates.ts';
-import { exportWhen, isOver, isPast, nextOccurrence } from './events.ts';
+import { exportWhen, isOver, isPast, lastDay, nextOccurrence } from './events.ts';
 import { TRADITION_TYPE_INFO, byNextDate, countsAsVerified, hasVerifiedDate, isAgencyDate, isListed, isUpcoming, nextRow, onSeasonPage, type TraditionRecord, type TraditionRow } from './traditions.ts';
 import { TITLE_LIMIT } from './titles.ts';
 
@@ -364,6 +364,29 @@ export function oneTimeEvents<T extends Listing>(entries: readonly T[], now: Dat
     })
     .filter(({ next }) => !isPast(next, now))
     .sort((a, b) => a.start.getTime() - b.start.getTime());
+}
+
+/**
+ * The last day of a one-time event already under way on `today` (begun on
+ * an earlier day, its last day today or later), as "YYYY-MM-DD"; undefined
+ * for one still to start. Its row and the hero then say "On now, through
+ * …", not the day it began (the owner, 21 November 2026: Lafayette's food
+ * drive, on since November 1, read "Sunday, November 1" in the list).
+ */
+export function onNowThrough(item: { next: Listing; start: Date }, today: string): string | undefined {
+  const last = lastDay(item.next);
+  return dayKey(item.start) < today && last >= today ? last : undefined;
+}
+
+/**
+ * True when a town has no date of its own in the next `days` days, annual
+ * (a date set, a run on now included) or one-time (`oneTime`: those it may
+ * name, not canceled), so its page says so (the owner, 21 November 2026:
+ * Nederland said so over twenty one-time events).
+ */
+export function noDateSoon(own: readonly TraditionRow[], oneTime: ReadonlyArray<{ start: Date }>, today: string, days: number): boolean {
+  const horizon = dayKey(new Date(parseLocal(today).getTime() + days * 86_400_000));
+  return !own.some((r) => isUpcoming(r) && r.entry.date! <= horizon) && !oneTime.some((c) => dayKey(c.start) <= horizon);
 }
 
 /**

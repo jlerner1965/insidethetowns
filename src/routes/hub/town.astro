@@ -67,7 +67,7 @@ import { dayKey, formatDayLong, formatShortDate, parseLocal, publishedTime, toIs
 import { isCanceled, isFlagged, lastDay, listedUntil } from '@/lib/events';
 import { hubTownPhoto } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
-import { appliesTo, eventPage, eventPath, lineFor, nextTownDate, oneTimeEvents, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
+import { appliesTo, eventPage, eventPath, lineFor, nextTownDate, noDateSoon, oneTimeEvents, onNowThrough, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
 import { foundedLine, milesShort, monthAnchor, notYetLine, moreHeading, moreInRegion, pageSections, profileView, timelineText, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
 import { MONTH_NAMES } from '@/lib/year-grid';
 import { articlePath, articlesFor, historyStory, isStandalone } from '@/lib/curiosity';
@@ -79,7 +79,7 @@ import { breadcrumbJsonLd, collectionPageJsonLd, traditionEventJsonLd } from '@/
 import { FLOW_SOURCES, SNOW_SOURCE, formatCfs, percentOfMedian, riverFlow, snowpack, type FlowData, type SnowData } from '@/lib/town-signals';
 import { ridgeline, RIDGE_HEIGHT, RIDGE_WIDTH } from '@/lib/ridgeline';
 import { typeset } from '@/lib/text';
-import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isAgencyDate, isUnderWay, isUpcoming, rowState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
+import { CURRENT_SEASONS, TRADITION_TYPES, TRADITION_TYPE_INFO, isAgencyDate, isUnderWay, rowState, seasonRows, type TraditionRow as Row } from '@/lib/traditions';
 import type { TownProfile } from '@/lib/town-profile';
 // The italic of the heading face, for the subheads and the decks: the guides' pages do not use it, so it is loaded here only.
 import '@fontsource-variable/fraunces/opsz-italic.css';
@@ -150,10 +150,8 @@ const own = [...traditions, ...outdoor].filter((r) => !isRoad(r));
 /** A showpiece's one to know (HubTown.showpiece.spotlight): drawn first under Events, and left out of the lists below it. */
 const spotlight = show ? own.find((r) => r.record.slug === show.spotlight) : undefined;
 const listed = own.filter((r) => r !== spotlight);
-/** No date set in the next 90 days: the page says so, above the lists. */
+/** No date set in the next 90 days: the page says so, above the lists (worked out with the one-time events, below). */
 const NEXT_DAYS = 90;
-const horizon = dayKey(new Date(parseLocal(today).getTime() + NEXT_DAYS * 86_400_000));
-const quiet = !own.some((r) => isUpcoming(r) && r.entry.date! <= horizon);
 /** Set dates, soonest first; then those not yet announced, in the order of the year they were last held; then any canceled. */
 const comingUp = listed.filter((r) => rowState(r) === 'upcoming').sort((a, b) => a.entry.date!.localeCompare(b.entry.date!) || a.record.name.localeCompare(b.record.name));
 // A season that is open (Moraine Park's winter camping, "October 19 to
@@ -271,8 +269,21 @@ const kept = folded?.section?.mode === 'pages' ? await sectionFor(town.slug) : u
 const carried = kept ? oneTimeEvents(kept.eventEntries, now) : [];
 /** The day as a row and the hero give it: "Friday, November 20, 2026". */
 const carriedDay = (start: Date) => `${formatDayLong(start)}, ${start.getFullYear()}`;
+/**
+ * When a one-time event is, in its row and in the hero alike: its day, or
+ * for one already under way the day it ends, "On now, through Tuesday,
+ * November 24, 2026" (the owner, 21 November 2026: a food drive on since
+ * November 1 read "Sunday, November 1" in the list). `day` is the
+ * `<time>`'s date.
+ */
+const carriedWhen = (c: (typeof carried)[number]) => {
+  const through = onNowThrough(c, today);
+  return through ? { onNow: true, day: through, text: `On now, through ${carriedDay(parseLocal(through))}` } : { onNow: false, day: dayKey(c.start), text: carriedDay(c.start) };
+};
 /** A one-time event the hero may name: not canceled, and not held back for a check (isFlagged). */
 const nameable = (e: (typeof carried)[number]['e']) => !isCanceled(e) && !isFlagged(e);
+/** No date of the town's own, annual or one-time, in the next 90 days (src/lib/hub-towns.ts, noDateSoon). */
+const quiet = noDateSoon(own, carried.filter((c) => nameable(c.e)), today, NEXT_DAYS);
 
 /**
  * The next date the town has, under its name (src/lib/hub-towns.ts,
@@ -297,9 +308,7 @@ const heroNext = !picked
     : {
         href: `#event-${picked.event.e.slug}`,
         name: picked.event.e.data.title,
-        day: picked.event.start < today && lastDay(picked.event.next) >= today
-          ? `On now, through ${carriedDay(parseLocal(lastDay(picked.event.next)))}`
-          : carriedDay(firstOneTime!.start),
+        day: carriedWhen(firstOneTime!).text,
       };
 /**
  * The next ten show; the rest fold behind a button, as the statewide dates
@@ -638,7 +647,7 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           {/* The next ten, then the rest in a second list the script folds away; without the script every event is on the page and the button is not. */}
           {[carriedFirst, carriedRest].map((list, i) => list.length > 0 && (
             <ul id={i ? 'carried-rest' : undefined} data-carried-events={i ? undefined : true} data-carried-rest={i ? true : undefined}>
-              {list.map(({ e, next: occurrence, start }) => (
+              {list.map((c) => { const { e, next: occurrence, start } = c; const when = carriedWhen(c); return (
                 <li
                   id={`event-${e.slug}`}
                   class:list={['py-2.5', pub.rule]}
@@ -647,14 +656,14 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
                   data-end={toIsoLocal(listedUntil(occurrence))}
                   data-starts={nameable(e) ? dayKey(start) : undefined}
                   data-name={nameable(e) ? e.data.title : undefined}
-                  data-day-text={nameable(e) ? carriedDay(start) : undefined}
+                  data-day-text={nameable(e) ? when.text : undefined}
                 >
                   <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]"><a href={`/${town.slug}/events/${e.slug}/`} class={pub.link}>{typeset(e.data.title)}</a></span>
                   <span class:list={['block', pub.meta]}>
-                    {isCanceled(e) && <Fragment>Canceled · </Fragment>}<time datetime={dayKey(start)}>{formatDayLong(start)}, {start.getFullYear()}</time>{e.data.venue && <Fragment> · {typeset(e.data.venue)}</Fragment>}
+                    {isCanceled(e) && <Fragment>Canceled · </Fragment>}{when.onNow ? <Fragment>On now, through <time datetime={when.day}>{carriedDay(parseLocal(when.day))}</time></Fragment> : <time datetime={when.day}>{when.text}</time>}{e.data.venue && <Fragment> · {typeset(e.data.venue)}</Fragment>}
                   </span>
                 </li>
-              ))}
+              ); })}
             </ul>
           ))}
           {carriedRest.length > 0 && (
