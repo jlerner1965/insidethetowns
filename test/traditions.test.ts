@@ -303,6 +303,8 @@ test('a date its source calls tentative is labelled Tentative, never Confirmed; 
   assert.equal(dateLabel({ status: 'confirmed', note: 'Tentative Closing Day' }), 'Tentative');
   assert.equal(dateLabel({ status: 'confirmed', note: 'Tentative opening date; the area relies on natural snow' }), 'Tentative');
   assert.equal(dateLabel({ status: 'confirmed', note: 'Weather Permitting' }), 'Confirmed');
+  assert.equal(dateLabel({ status: 'confirmed', note: 'projected opening date … weather dependent' }), 'Tentative', 'projected is treated as tentative');
+  assert.equal(dateLabel({ status: 'confirmed', note: 'weather permitting' }), 'Confirmed', 'weather permitting alone');
   assert.equal(dateLabel({ status: 'confirmed' }), 'Confirmed');
   assert.equal(dateLabel({ status: 'moved', note: 'Tentative' }), 'Moved');
 
@@ -310,10 +312,11 @@ test('a date its source calls tentative is labelled Tentative, never Confirmed; 
   const year = (slug: string, y: number) => records.find((r) => r.slug === slug)!.years.find((e) => e.year === y)!;
   assert.equal(dateLabel(year('leadville-ski-cooper-closing-day', 2027)), 'Tentative', 'Ski Cooper: "Tentative Closing Day"');
   assert.equal(dateLabel(year('leadville-ski-cooper-opening-day', 2026)), 'Confirmed', 'Ski Cooper: "Weather Permitting"');
-  // Every date on file: none the source calls tentative is labelled Confirmed.
+  assert.equal(dateLabel(year('frisco-nordic-center-opens', 2026)), 'Tentative', 'Frisco: "projected opening date … weather dependent"');
+  // Every date on file: none the source calls tentative or projected is labelled Confirmed.
   for (const r of records) {
     for (const y of r.years) {
-      if (y.status === 'confirmed' && /tentativ/i.test(y.note ?? '')) assert.notEqual(dateLabel(y), 'Confirmed', `${r.slug} ${y.year}: “${y.note}”`);
+      if (y.status === 'confirmed' && /tentativ|projected/i.test(y.note ?? '')) assert.notEqual(dateLabel(y), 'Confirmed', `${r.slug} ${y.year}: “${y.note}”`);
     }
   }
 });
