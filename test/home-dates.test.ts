@@ -6,7 +6,8 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { MIN_OUTDOOR_TO_LEAD, guideHomeDates, guideLines, nextUp, placeRows, publishedHubTowns, statewideSummary } from '../src/lib/hub-towns.ts';
+import { MIN_OUTDOOR_TO_LEAD, guideHomeDates, guideLines, nextTownDate, nextUp, oneTimeEvents, placeRows, publishedHubTowns, statewideSummary } from '../src/lib/hub-towns.ts';
+import { dayKey, parseLocal } from '../src/lib/dates.ts';
 import { isAgencyDate, isUpcoming, type TraditionRecord } from '../src/lib/traditions.ts';
 import { rawRecords } from '../src/lib/tradition-files.ts';
 import { STANDALONE_GUIDES } from '../src/config/hub-towns.ts';
@@ -106,4 +107,53 @@ test('the statewide fold’s summary is built from the records', () => {
   assert.equal(statewideSummary([row('Geminid meteor shower: peak night'), row('Free Fishing Weekend')]), '2 statewide dates: Geminid meteor shower, Free Fishing Weekend');
   assert.equal(statewideSummary([row('A'), row('B'), row('C'), row('D'), row('E')]), '5 statewide dates: A, B, C, and 2 more');
   assert.equal(statewideSummary([row('Only: one')]), '1 statewide date: Only');
+});
+
+// ------------------------------------------- a town page's one-time events and its hero (the owner, 21 November 2026)
+
+/** A listing as the events collection hands it over. */
+const listing = (slug: string, start: string, extra: Record<string, unknown> = {}) =>
+  ({ slug, data: { title: slug, start: parseLocal(start), allDay: false, ...extra } }) as unknown as Parameters<typeof oneTimeEvents>[0][number];
+
+test('one-time events: a passed listing is left out, and a series is shown at its next date, not its first', () => {
+  const now = parseLocal('2026-11-21T09:00');
+  const trivia = listing('trivia', '2026-11-12T19:00', { repeat: 'weekly', until: parseLocal('2026-12-03') });
+  const gone = listing('trivia-once', '2026-11-12T19:00');
+  const film = listing('film', '2026-11-20T19:00');
+  const karaoke = listing('karaoke', '2026-11-21T20:00');
+  const rows = oneTimeEvents([trivia, gone, film, karaoke], now);
+  // Leadville's list read "Thursday, November 12" for its weekly trivia night on November 21.
+  assert.deepEqual(rows.map((r) => [r.e.slug, dayKey(r.start)]), [['karaoke', '2026-11-21'], ['trivia', '2026-11-26']]);
+  // The series' last Thursday over: it goes too.
+  assert.deepEqual(oneTimeEvents([trivia], parseLocal('2026-12-04T09:00')), []);
+});
+
+test('the hero: the soonest of the annual and the one-time events; an annual run on now counts; outdoor dates only without either', () => {
+  const leadville = { town: { name: 'Leadville', guide: 'leadville' } };
+  const rows = (records: TraditionRecord[], today = TODAY) => placeRows(records, 'leadville', today);
+  const parade = rec('parade', { ...leadville, type: 'parade-of-lights' }, set('2026-12-04'));
+  const ski = rec('ski-opens', leadville, set('2026-12-09'));
+  let r = rows([parade, ski]);
+  // Leadville on 20 November: a film night that day, not the parade on December 4.
+  let picked = nextTownDate(r.traditions, r.outdoor, { slug: 'film', start: '2026-11-20' });
+  assert.ok(picked && 'event' in picked && picked.event.slug === 'film');
+  // The parade is sooner than the one-time event: the parade.
+  picked = nextTownDate(r.traditions, r.outdoor, { slug: 'market', start: '2026-12-11' });
+  assert.ok(picked && 'row' in picked && picked.row.record.slug === 'parade');
+  // The same day: the annual event, drawn first on the page.
+  picked = nextTownDate(r.traditions, r.outdoor, { slug: 'taste', start: '2026-12-04' });
+  assert.ok(picked && 'row' in picked && picked.row.record.slug === 'parade');
+  // No one-time event: as before (nextUp).
+  assert.equal((nextTownDate(r.traditions, r.outdoor, undefined) as { row: { record: { slug: string } } }).row.record.slug, 'parade');
+  // A run on now (Georgetown's lighted forest, from November 27 to December 24) is sooner than any date still to come.
+  const forest = rec('forest', { ...leadville, type: 'festival' }, [{ year: 2026, status: 'confirmed', date: '2026-11-27', endDate: '2026-12-24', checked: TODAY }]);
+  r = rows([forest], '2026-12-01');
+  picked = nextTownDate(r.traditions, r.outdoor, { slug: 'workshop', start: '2026-12-05' });
+  assert.ok(picked && 'row' in picked && picked.row.record.slug === 'forest');
+  // No annual event set: the one-time event before an outdoor date; neither: the outdoor date.
+  r = rows([rec('parade', { ...leadville, type: 'parade-of-lights' }, open), ski]);
+  picked = nextTownDate(r.traditions, r.outdoor, { slug: 'film', start: '2026-12-20' });
+  assert.ok(picked && 'event' in picked);
+  picked = nextTownDate(r.traditions, r.outdoor, undefined);
+  assert.ok(picked && 'row' in picked && picked.row.record.slug === 'ski-opens');
 });

@@ -63,11 +63,11 @@ import { sectionFor } from '@/lib/section-index';
 import { clusterName, STANDALONE_GUIDES, findHubTown, hubCountyLine } from '@/config/hub-towns';
 import { getCuriosity, getSectionEntries, getTraditions } from '@/lib/content';
 import { parseLeadGuide, sectionArticleSegment } from '@/lib/lead-guide';
-import { dayKey, formatDayLong, formatShortDate, parseLocal, publishedTime } from '@/lib/dates';
-import { exportWhen, isCanceled, isOver } from '@/lib/events';
+import { dayKey, formatDayLong, formatShortDate, parseLocal, publishedTime, toIsoLocal } from '@/lib/dates';
+import { isCanceled, isFlagged, lastDay, listedUntil } from '@/lib/events';
 import { hubTownPhoto } from '@/lib/images';
 import { recentlyStocked, STOCKING_SOURCE, STOCKING_SOURCE_NAME, type StockingData } from '@/lib/fish-stocking';
-import { appliesTo, eventPage, eventPath, lineFor, nextUp as nextRowUp, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
+import { appliesTo, eventPage, eventPath, lineFor, nextTownDate, oneTimeEvents, placeRows, publishedHubTowns, showings, townSearchText, type ShowingContext } from '@/lib/hub-towns';
 import { foundedLine, milesShort, monthAnchor, notYetLine, moreHeading, moreInRegion, pageSections, profileView, timelineText, yearGrid, yearMarks, type ProfileFiles } from '@/lib/hub-town-page';
 import { MONTH_NAMES } from '@/lib/year-grid';
 import { articlePath, articlesFor, historyStory, isStandalone } from '@/lib/curiosity';
@@ -92,7 +92,8 @@ const hub = getHub();
 const town = findHubTown(Astro.params.town as string)!;
 const records = await getTraditions();
 const published = publishedHubTowns(records);
-const today = dayKey(new Date());
+const now = new Date();
+const today = dayKey(now);
 const { traditions, outdoor, statewide } = placeRows(records, town.slug, today);
 
 const ctx: ShowingContext = {
@@ -149,14 +150,6 @@ const own = [...traditions, ...outdoor].filter((r) => !isRoad(r));
 /** A showpiece's one to know (HubTown.showpiece.spotlight): drawn first under Events, and left out of the lists below it. */
 const spotlight = show ? own.find((r) => r.record.slug === show.spotlight) : undefined;
 const listed = own.filter((r) => r !== spotlight);
-/** The next date the town has, under its name: its own events' soonest date set; an outdoor date only where no event of its has one (src/lib/hub-towns.ts, nextUp). */
-const nextUp = nextRowUp(traditions, outdoor.filter((r) => !isRoad(r)));
-/** Its day, or for a run already under way the day it ends: "On now, through Saturday, October 31, 2026" (src/lib/traditions.ts, isUnderWay). */
-const nextDay = nextUp
-  ? isUnderWay(nextUp.entry, today)
-    ? `On now, through ${formatDayLong(parseLocal(nextUp.entry.endDate!))}, ${nextUp.entry.endDate!.slice(0, 4)}`
-    : `${formatDayLong(parseLocal(nextUp.entry.date!))}, ${nextUp.entry.date!.slice(0, 4)}`
-  : undefined;
 /** No date set in the next 90 days: the page says so, above the lists. */
 const NEXT_DAYS = 90;
 const horizon = dayKey(new Date(parseLocal(today).getTime() + NEXT_DAYS * 86_400_000));
@@ -267,13 +260,47 @@ const folded = allTowns.find((t) => t.hubPage?.town === town.slug && t.section);
 const kept = folded?.section?.mode === 'pages' ? await sectionFor(town.slug) : undefined;
 /**
  * The one-time events carried from a guide folded page by page, those not
- * yet over, soonest first (src/lib/section-index.ts): each has a page under
- * /<town>/events/ that only the sitemap reached (the site audit of 19
- * November 2026: 245 such pages, Golden's 48 the most). Listed under
- * Events, after the annual dates; a page whose date has passed is noindex
- * and needs no link.
+ * yet over, soonest first, each at its next date (src/lib/hub-towns.ts,
+ * oneTimeEvents): each has a page under /<town>/events/ that only the
+ * sitemap reached (the site audit of 19 November 2026: 245 such pages,
+ * Golden's 48 the most). Listed under Events, after the annual dates; a
+ * page whose date has passed is noindex and needs no link. Each row carries
+ * its last day and end (`data-event-day`, `data-end`), so the page's script
+ * takes it off once it is over, as it does every event row (Freshness.astro).
  */
-const carried = kept ? kept.eventEntries.filter((e) => !isOver(e)).map((e) => ({ e, start: exportWhen(e).start })).sort((a, b) => a.start.getTime() - b.start.getTime()) : [];
+const carried = kept ? oneTimeEvents(kept.eventEntries, now) : [];
+/** The day as a row and the hero give it: "Friday, November 20, 2026". */
+const carriedDay = (start: Date) => `${formatDayLong(start)}, ${start.getFullYear()}`;
+/** A one-time event the hero may name: not canceled, and not held back for a check (isFlagged). */
+const nameable = (e: (typeof carried)[number]['e']) => !isCanceled(e) && !isFlagged(e);
+
+/**
+ * The next date the town has, under its name (src/lib/hub-towns.ts,
+ * nextTownDate): the soonest of its annual events and its one-time events
+ * together, a run on now included; an outdoor date only where it has
+ * neither. Its day, or for a run already under way the day it ends: "On
+ * now, through Saturday, October 31, 2026" (src/lib/traditions.ts,
+ * isUnderWay).
+ */
+const firstOneTime = carried.find((c) => nameable(c.e));
+const picked = nextTownDate(traditions, outdoor.filter((r) => !isRoad(r)), firstOneTime && { ...firstOneTime, start: dayKey(firstOneTime.start) });
+const heroNext = !picked
+  ? undefined
+  : 'row' in picked
+    ? {
+        href: `#${picked.row.record.slug}`,
+        name: picked.row.record.name,
+        day: isUnderWay(picked.row.entry, today)
+          ? `On now, through ${formatDayLong(parseLocal(picked.row.entry.endDate!))}, ${picked.row.entry.endDate!.slice(0, 4)}`
+          : `${formatDayLong(parseLocal(picked.row.entry.date!))}, ${picked.row.entry.date!.slice(0, 4)}`,
+      }
+    : {
+        href: `#event-${picked.event.e.slug}`,
+        name: picked.event.e.data.title,
+        day: picked.event.start < today && lastDay(picked.event.next) >= today
+          ? `On now, through ${carriedDay(parseLocal(lastDay(picked.event.next)))}`
+          : carriedDay(firstOneTime!.start),
+      };
 /**
  * The next ten show; the rest fold behind a button, as the statewide dates
  * do (the owner, 20 November 2026: Golden's list ran to about 45). Folded,
@@ -487,11 +514,11 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           <p class="mt-3.5 max-w-[40rem] text-base leading-[1.55] text-white">{typeset(intro)}</p>
         </div>
         {/* Over a photograph from 900px, the next date has a soft shade the size of the block (the guides' lineShade, Hero.astro), so a bright roof behind it cannot wash it out. */}
-        {nextUp && (
+        {heroNext && (
           <div class:list={['mt-5 min-w-0 border-t border-white/50 pt-3 desk:mt-0', hero && 'relative desk:before:pointer-events-none desk:before:absolute desk:before:-inset-x-8 desk:before:-inset-y-4 desk:before:-z-10 desk:before:rounded-[2rem] desk:before:bg-black/40 desk:before:blur-[22px]']} data-next-up>
             <p class:list={[pub.cap, 'text-white']}>Next {town.name} date</p>
-            <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal] desk:text-[1.4118rem]"><a href={`#${nextUp.record.slug}`} class="text-white underline decoration-1 underline-offset-[3px]">{typeset(nextUp.record.name)}</a></p>
-            <p class="mt-1 text-base text-white" data-next-day>{nextDay}</p>
+            <p class="mt-1.5 font-heading text-sub leading-[1.25] [font-variation-settings:normal] desk:text-[1.4118rem]"><a href={heroNext.href} class="text-white underline decoration-1 underline-offset-[3px]">{typeset(heroNext.name)}</a></p>
+            <p class="mt-1 text-base text-white" data-next-day>{heroNext.day}</p>
           </div>
         )}
       </div>
@@ -611,8 +638,18 @@ const mailto = `mailto:${hub.correctionsEmail ?? hub.social.email}?subject=${enc
           {/* The next ten, then the rest in a second list the script folds away; without the script every event is on the page and the button is not. */}
           {[carriedFirst, carriedRest].map((list, i) => list.length > 0 && (
             <ul id={i ? 'carried-rest' : undefined} data-carried-events={i ? undefined : true} data-carried-rest={i ? true : undefined}>
-              {list.map(({ e, start }) => (
-                <li class:list={['py-2.5', pub.rule]} data-carried-event>
+              {list.map(({ e, next: occurrence, start }) => (
+                <li
+                  id={`event-${e.slug}`}
+                  class:list={['py-2.5', pub.rule]}
+                  data-carried-event
+                  data-event-day={lastDay(occurrence)}
+                  data-end={toIsoLocal(listedUntil(occurrence))}
+                  data-starts={nameable(e) ? dayKey(start) : undefined}
+                  data-ends={nameable(e) ? lastDay(occurrence) : undefined}
+                  data-name={nameable(e) ? e.data.title : undefined}
+                  data-day-text={nameable(e) ? carriedDay(start) : undefined}
+                >
                   <span class="text-base font-medium leading-[1.3] text-ink [font-variation-settings:normal]"><a href={`/${town.slug}/events/${e.slug}/`} class={pub.link}>{typeset(e.data.title)}</a></span>
                   <span class:list={['block', pub.meta]}>
                     {isCanceled(e) && <Fragment>Canceled · </Fragment>}<time datetime={dayKey(start)}>{formatDayLong(start)}, {start.getFullYear()}</time>{e.data.venue && <Fragment> · {typeset(e.data.venue)}</Fragment>}

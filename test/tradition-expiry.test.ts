@@ -151,3 +151,30 @@ test('the hero’s next date, re-read in the browser, keeps the build’s rule: 
   assert.equal(nextRowIndex([{ starts: '2026-11-26', agency: false }, { starts: '2026-11-26', agency: false }]), 0);
   assert.equal(nextRowIndex([]), -1);
 });
+
+test('a hub town page’s "Next" in the browser counts its one-time events with its annual ones (the owner, 21 November 2026)', () => {
+  const nextBlock = () => {
+    const link = node({ href: '#parade' }, [], 'Parade of Lights');
+    const day = node({ 'data-next-day': '' }, [], 'Friday, December 4, 2026');
+    return { link, day, block: node({ 'data-next-up': '' }, [link, day]) };
+  };
+  const parade = () => node({ 'data-tradition-row': '', id: 'parade', 'data-starts': '2026-12-04', 'data-ends': '2026-12-04', 'data-name': 'Parade of Lights', 'data-day-text': 'Friday, December 4, 2026' }, [node({ 'data-when-set': '' }), node({ 'data-when-past': '', hidden: '' })]);
+  const oneTime = (slug: string, day: string, text: string) => node({ 'data-carried-event': '', id: `event-${slug}`, 'data-starts': day, 'data-ends': day, 'data-name': slug, 'data-day-text': text });
+
+  // A film night on the 20th, read on the 20th: it is next, not the parade.
+  let n = nextBlock();
+  correctDates(node({}, [n.block, parade(), oneTime('film', '2026-11-20', 'Friday, November 20, 2026')]), '2026-11-20');
+  assert.equal(n.link.getAttribute('href'), '#event-film');
+  assert.equal(n.day.textContent, 'Friday, November 20, 2026');
+
+  // Read on the 21st, the film night has passed: the parade again.
+  n = nextBlock();
+  n.link.setAttribute('href', '#event-film');
+  correctDates(node({}, [n.block, parade(), oneTime('film', '2026-11-20', 'Friday, November 20, 2026')]), '2026-11-21');
+  assert.equal(n.link.getAttribute('href'), '#parade');
+
+  // On the parade's own day a one-time event the same day does not take it: the annual row keeps the tie.
+  n = nextBlock();
+  correctDates(node({}, [n.block, parade(), oneTime('taste', '2026-12-04', 'Friday, December 4, 2026')]), '2026-12-01');
+  assert.equal(n.link.getAttribute('href'), '#parade');
+});
